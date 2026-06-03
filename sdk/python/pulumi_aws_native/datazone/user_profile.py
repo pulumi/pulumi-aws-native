@@ -23,6 +23,7 @@ class UserProfileArgs:
     def __init__(__self__, *,
                  domain_identifier: pulumi.Input[_builtins.str],
                  user_identifier: pulumi.Input[_builtins.str],
+                 session_name: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input['UserProfileStatus']] = None,
                  user_type: Optional[pulumi.Input['UserProfileUserType']] = None):
         """
@@ -30,11 +31,14 @@ class UserProfileArgs:
 
         :param pulumi.Input[_builtins.str] domain_identifier: The identifier of the Amazon DataZone domain in which the user profile would be created.
         :param pulumi.Input[_builtins.str] user_identifier: The ID of the user.
+        :param pulumi.Input[_builtins.str] session_name: The session name of the user profile.
         :param pulumi.Input['UserProfileStatus'] status: The status of the user profile.
         :param pulumi.Input['UserProfileUserType'] user_type: The user type of the user for which the user profile is created.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "user_identifier", user_identifier)
+        if session_name is not None:
+            pulumi.set(__self__, "session_name", session_name)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if user_type is not None:
@@ -63,6 +67,18 @@ class UserProfileArgs:
     @user_identifier.setter
     def user_identifier(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "user_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionName")
+    def session_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The session name of the user profile.
+        """
+        return pulumi.get(self, "session_name")
+
+    @session_name.setter
+    def session_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "session_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -96,6 +112,7 @@ class UserProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 session_name: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input['UserProfileStatus']] = None,
                  user_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  user_type: Optional[pulumi.Input['UserProfileUserType']] = None,
@@ -107,6 +124,7 @@ class UserProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_identifier: The identifier of the Amazon DataZone domain in which the user profile would be created.
+        :param pulumi.Input[_builtins.str] session_name: The session name of the user profile.
         :param pulumi.Input['UserProfileStatus'] status: The status of the user profile.
         :param pulumi.Input[_builtins.str] user_identifier: The ID of the user.
         :param pulumi.Input['UserProfileUserType'] user_type: The user type of the user for which the user profile is created.
@@ -137,6 +155,7 @@ class UserProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 session_name: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input['UserProfileStatus']] = None,
                  user_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  user_type: Optional[pulumi.Input['UserProfileUserType']] = None,
@@ -152,6 +171,7 @@ class UserProfile(pulumi.CustomResource):
             if domain_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_identifier'")
             __props__.__dict__["domain_identifier"] = domain_identifier
+            __props__.__dict__["session_name"] = session_name
             __props__.__dict__["status"] = status
             if user_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'user_identifier'")
@@ -189,6 +209,7 @@ class UserProfile(pulumi.CustomResource):
         __props__.__dict__["details"] = None
         __props__.__dict__["domain_id"] = None
         __props__.__dict__["domain_identifier"] = None
+        __props__.__dict__["session_name"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["user_identifier"] = None
@@ -223,6 +244,14 @@ class UserProfile(pulumi.CustomResource):
         The identifier of the Amazon DataZone domain in which the user profile would be created.
         """
         return pulumi.get(self, "domain_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="sessionName")
+    def session_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The session name of the user profile.
+        """
+        return pulumi.get(self, "session_name")
 
     @_builtins.property
     @pulumi.getter

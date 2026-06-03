@@ -39,9 +39,6 @@
     "taggable" : false
   },
   "additionalProperties" : false,
-  "propertyTransform" : {
-    "/properties/AutodefinedReverseFlag" : "$join([AutodefinedReverseFlag, \"D\"])"
-  },
   "handlers" : {
     "create" : {
       "permissions" : [ "route53resolver:UpdateResolverConfig", "route53resolver:GetResolverConfig", "ec2:DescribeVpcs" ]

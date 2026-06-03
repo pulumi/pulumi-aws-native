@@ -417,6 +417,7 @@ class OdbNetwork(pulumi.CustomResource):
             __props__.__dict__["sts_policy_document"] = sts_policy_document
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zero_etl_access"] = zero_etl_access
+            __props__.__dict__["ec2_placement_group_ids"] = None
             __props__.__dict__["managed_services"] = None
             __props__.__dict__["oci_network_anchor_id"] = None
             __props__.__dict__["oci_resource_anchor_name"] = None
@@ -456,6 +457,7 @@ class OdbNetwork(pulumi.CustomResource):
         __props__.__dict__["default_dns_prefix"] = None
         __props__.__dict__["delete_associated_resources"] = None
         __props__.__dict__["display_name"] = None
+        __props__.__dict__["ec2_placement_group_ids"] = None
         __props__.__dict__["kms_access"] = None
         __props__.__dict__["kms_policy_document"] = None
         __props__.__dict__["managed_services"] = None
@@ -543,6 +545,14 @@ class OdbNetwork(pulumi.CustomResource):
         The user-friendly name of the ODB network.
         """
         return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ec2PlacementGroupIds")
+    def ec2_placement_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        The list of EC2 placement group IDs associated with your ODB network.
+        """
+        return pulumi.get(self, "ec2_placement_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="kmsAccess")

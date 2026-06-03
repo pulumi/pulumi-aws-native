@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Deadline
     public static class GetMonitor
     {
         /// <summary>
-        /// Definition of AWS::Deadline::Monitor Resource Type
+        /// Resource Type definition for AWS::Deadline::Monitor
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("aws-native:deadline:getMonitor", args ?? new GetMonitorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::Deadline::Monitor Resource Type
+        /// Resource Type definition for AWS::Deadline::Monitor
         /// </summary>
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("aws-native:deadline:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::Deadline::Monitor Resource Type
+        /// Resource Type definition for AWS::Deadline::Monitor
         /// </summary>
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("aws-native:deadline:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());

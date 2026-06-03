@@ -358,6 +358,9 @@
         },
         "MaxBatchSizeBytes" : {
           "type" : "integer"
+        },
+        "BatchAcrossTopics" : {
+          "type" : "boolean"
         }
       }
     },
@@ -854,6 +857,7 @@
   "createOnlyProperties" : [ "/properties/RuleName" ],
   "primaryIdentifier" : [ "/properties/RuleName" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
+  "deprecatedProperties" : [ "/properties/TopicRulePayload/ErrorAction/IotAnalytics", "/properties/TopicRulePayload/Actions/*/IotAnalytics" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "iam:PassRole", "iot:CreateTopicRule", "iot:GetTopicRule", "iot:TagResource", "iot:ListTagsForResource" ]

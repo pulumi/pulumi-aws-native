@@ -17,6 +17,8 @@ import (
 type OrganizationTelemetryRule struct {
 	pulumi.CustomResourceState
 
+	// Per-region replication status of the rule
+	RegionStatuses OrganizationTelemetryRuleRegionStatusArrayOutput `pulumi:"regionStatuses"`
 	// The name of the organization telemetry rule.
 	Rule OrganizationTelemetryRuleTelemetryRuleOutput `pulumi:"rule"`
 	// The arn of the organization telemetry rule
@@ -38,6 +40,7 @@ func NewOrganizationTelemetryRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Rule'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"rule.allRegions",
 		"ruleName",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -127,6 +130,13 @@ func (o OrganizationTelemetryRuleOutput) ToOrganizationTelemetryRuleOutput() Org
 
 func (o OrganizationTelemetryRuleOutput) ToOrganizationTelemetryRuleOutputWithContext(ctx context.Context) OrganizationTelemetryRuleOutput {
 	return o
+}
+
+// Per-region replication status of the rule
+func (o OrganizationTelemetryRuleOutput) RegionStatuses() OrganizationTelemetryRuleRegionStatusArrayOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRule) OrganizationTelemetryRuleRegionStatusArrayOutput {
+		return v.RegionStatuses
+	}).(OrganizationTelemetryRuleRegionStatusArrayOutput)
 }
 
 // The name of the organization telemetry rule.

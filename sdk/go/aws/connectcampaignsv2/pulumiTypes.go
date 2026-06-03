@@ -1715,6 +1715,165 @@ func (o CampaignEmailOutboundModePtrOutput) AgentlessConfig() CampaignAgentlessC
 	}).(CampaignAgentlessConfigPtrOutput)
 }
 
+// Entry limits config for a campaign
+type CampaignEntryLimitsConfig struct {
+	// Maximum number of entries per participant. 0 indicates unlimited entries.
+	MaxEntryCount int `pulumi:"maxEntryCount"`
+	// Minimum time interval between entries for the same participant in ISO 8601 duration format
+	MinEntryInterval string `pulumi:"minEntryInterval"`
+}
+
+// CampaignEntryLimitsConfigInput is an input type that accepts CampaignEntryLimitsConfigArgs and CampaignEntryLimitsConfigOutput values.
+// You can construct a concrete instance of `CampaignEntryLimitsConfigInput` via:
+//
+//	CampaignEntryLimitsConfigArgs{...}
+type CampaignEntryLimitsConfigInput interface {
+	pulumi.Input
+
+	ToCampaignEntryLimitsConfigOutput() CampaignEntryLimitsConfigOutput
+	ToCampaignEntryLimitsConfigOutputWithContext(context.Context) CampaignEntryLimitsConfigOutput
+}
+
+// Entry limits config for a campaign
+type CampaignEntryLimitsConfigArgs struct {
+	// Maximum number of entries per participant. 0 indicates unlimited entries.
+	MaxEntryCount pulumi.IntInput `pulumi:"maxEntryCount"`
+	// Minimum time interval between entries for the same participant in ISO 8601 duration format
+	MinEntryInterval pulumi.StringInput `pulumi:"minEntryInterval"`
+}
+
+func (CampaignEntryLimitsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignEntryLimitsConfig)(nil)).Elem()
+}
+
+func (i CampaignEntryLimitsConfigArgs) ToCampaignEntryLimitsConfigOutput() CampaignEntryLimitsConfigOutput {
+	return i.ToCampaignEntryLimitsConfigOutputWithContext(context.Background())
+}
+
+func (i CampaignEntryLimitsConfigArgs) ToCampaignEntryLimitsConfigOutputWithContext(ctx context.Context) CampaignEntryLimitsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignEntryLimitsConfigOutput)
+}
+
+func (i CampaignEntryLimitsConfigArgs) ToCampaignEntryLimitsConfigPtrOutput() CampaignEntryLimitsConfigPtrOutput {
+	return i.ToCampaignEntryLimitsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignEntryLimitsConfigArgs) ToCampaignEntryLimitsConfigPtrOutputWithContext(ctx context.Context) CampaignEntryLimitsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignEntryLimitsConfigOutput).ToCampaignEntryLimitsConfigPtrOutputWithContext(ctx)
+}
+
+// CampaignEntryLimitsConfigPtrInput is an input type that accepts CampaignEntryLimitsConfigArgs, CampaignEntryLimitsConfigPtr and CampaignEntryLimitsConfigPtrOutput values.
+// You can construct a concrete instance of `CampaignEntryLimitsConfigPtrInput` via:
+//
+//	        CampaignEntryLimitsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignEntryLimitsConfigPtrInput interface {
+	pulumi.Input
+
+	ToCampaignEntryLimitsConfigPtrOutput() CampaignEntryLimitsConfigPtrOutput
+	ToCampaignEntryLimitsConfigPtrOutputWithContext(context.Context) CampaignEntryLimitsConfigPtrOutput
+}
+
+type campaignEntryLimitsConfigPtrType CampaignEntryLimitsConfigArgs
+
+func CampaignEntryLimitsConfigPtr(v *CampaignEntryLimitsConfigArgs) CampaignEntryLimitsConfigPtrInput {
+	return (*campaignEntryLimitsConfigPtrType)(v)
+}
+
+func (*campaignEntryLimitsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignEntryLimitsConfig)(nil)).Elem()
+}
+
+func (i *campaignEntryLimitsConfigPtrType) ToCampaignEntryLimitsConfigPtrOutput() CampaignEntryLimitsConfigPtrOutput {
+	return i.ToCampaignEntryLimitsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignEntryLimitsConfigPtrType) ToCampaignEntryLimitsConfigPtrOutputWithContext(ctx context.Context) CampaignEntryLimitsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignEntryLimitsConfigPtrOutput)
+}
+
+// Entry limits config for a campaign
+type CampaignEntryLimitsConfigOutput struct{ *pulumi.OutputState }
+
+func (CampaignEntryLimitsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignEntryLimitsConfig)(nil)).Elem()
+}
+
+func (o CampaignEntryLimitsConfigOutput) ToCampaignEntryLimitsConfigOutput() CampaignEntryLimitsConfigOutput {
+	return o
+}
+
+func (o CampaignEntryLimitsConfigOutput) ToCampaignEntryLimitsConfigOutputWithContext(ctx context.Context) CampaignEntryLimitsConfigOutput {
+	return o
+}
+
+func (o CampaignEntryLimitsConfigOutput) ToCampaignEntryLimitsConfigPtrOutput() CampaignEntryLimitsConfigPtrOutput {
+	return o.ToCampaignEntryLimitsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignEntryLimitsConfigOutput) ToCampaignEntryLimitsConfigPtrOutputWithContext(ctx context.Context) CampaignEntryLimitsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignEntryLimitsConfig) *CampaignEntryLimitsConfig {
+		return &v
+	}).(CampaignEntryLimitsConfigPtrOutput)
+}
+
+// Maximum number of entries per participant. 0 indicates unlimited entries.
+func (o CampaignEntryLimitsConfigOutput) MaxEntryCount() pulumi.IntOutput {
+	return o.ApplyT(func(v CampaignEntryLimitsConfig) int { return v.MaxEntryCount }).(pulumi.IntOutput)
+}
+
+// Minimum time interval between entries for the same participant in ISO 8601 duration format
+func (o CampaignEntryLimitsConfigOutput) MinEntryInterval() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignEntryLimitsConfig) string { return v.MinEntryInterval }).(pulumi.StringOutput)
+}
+
+type CampaignEntryLimitsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignEntryLimitsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignEntryLimitsConfig)(nil)).Elem()
+}
+
+func (o CampaignEntryLimitsConfigPtrOutput) ToCampaignEntryLimitsConfigPtrOutput() CampaignEntryLimitsConfigPtrOutput {
+	return o
+}
+
+func (o CampaignEntryLimitsConfigPtrOutput) ToCampaignEntryLimitsConfigPtrOutputWithContext(ctx context.Context) CampaignEntryLimitsConfigPtrOutput {
+	return o
+}
+
+func (o CampaignEntryLimitsConfigPtrOutput) Elem() CampaignEntryLimitsConfigOutput {
+	return o.ApplyT(func(v *CampaignEntryLimitsConfig) CampaignEntryLimitsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignEntryLimitsConfig
+		return ret
+	}).(CampaignEntryLimitsConfigOutput)
+}
+
+// Maximum number of entries per participant. 0 indicates unlimited entries.
+func (o CampaignEntryLimitsConfigPtrOutput) MaxEntryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CampaignEntryLimitsConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxEntryCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum time interval between entries for the same participant in ISO 8601 duration format
+func (o CampaignEntryLimitsConfigPtrOutput) MinEntryInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignEntryLimitsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MinEntryInterval
+	}).(pulumi.StringPtrOutput)
+}
+
 // The event trigger of the campaign
 type CampaignEventTrigger struct {
 	// The Amazon Resource Name (ARN) of the Customer Profiles domain.
@@ -5182,6 +5341,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignEmailOutboundConfigPtrInput)(nil)).Elem(), CampaignEmailOutboundConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignEmailOutboundModeInput)(nil)).Elem(), CampaignEmailOutboundModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignEmailOutboundModePtrInput)(nil)).Elem(), CampaignEmailOutboundModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignEntryLimitsConfigInput)(nil)).Elem(), CampaignEntryLimitsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignEntryLimitsConfigPtrInput)(nil)).Elem(), CampaignEntryLimitsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignEventTriggerInput)(nil)).Elem(), CampaignEventTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignEventTriggerPtrInput)(nil)).Elem(), CampaignEventTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignLocalTimeZoneConfigInput)(nil)).Elem(), CampaignLocalTimeZoneConfigArgs{})
@@ -5248,6 +5409,8 @@ func init() {
 	pulumi.RegisterOutputType(CampaignEmailOutboundConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignEmailOutboundModeOutput{})
 	pulumi.RegisterOutputType(CampaignEmailOutboundModePtrOutput{})
+	pulumi.RegisterOutputType(CampaignEntryLimitsConfigOutput{})
+	pulumi.RegisterOutputType(CampaignEntryLimitsConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignEventTriggerOutput{})
 	pulumi.RegisterOutputType(CampaignEventTriggerPtrOutput{})
 	pulumi.RegisterOutputType(CampaignLocalTimeZoneConfigOutput{})

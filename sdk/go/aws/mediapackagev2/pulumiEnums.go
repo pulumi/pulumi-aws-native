@@ -837,6 +837,222 @@ func (in *originEndpointContainerTypePtr) ToOriginEndpointContainerTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointContainerTypePtrOutput)
 }
 
+type OriginEndpointCustomAdType string
+
+const (
+	OriginEndpointCustomAdTypeProgram                     = OriginEndpointCustomAdType("PROGRAM")
+	OriginEndpointCustomAdTypeChapter                     = OriginEndpointCustomAdType("CHAPTER")
+	OriginEndpointCustomAdTypeUnscheduledEvent            = OriginEndpointCustomAdType("UNSCHEDULED_EVENT")
+	OriginEndpointCustomAdTypeAlternateContentOpportunity = OriginEndpointCustomAdType("ALTERNATE_CONTENT_OPPORTUNITY")
+	OriginEndpointCustomAdTypeNetwork                     = OriginEndpointCustomAdType("NETWORK")
+)
+
+func (OriginEndpointCustomAdType) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointCustomAdType)(nil)).Elem()
+}
+
+func (e OriginEndpointCustomAdType) ToOriginEndpointCustomAdTypeOutput() OriginEndpointCustomAdTypeOutput {
+	return pulumi.ToOutput(e).(OriginEndpointCustomAdTypeOutput)
+}
+
+func (e OriginEndpointCustomAdType) ToOriginEndpointCustomAdTypeOutputWithContext(ctx context.Context) OriginEndpointCustomAdTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointCustomAdTypeOutput)
+}
+
+func (e OriginEndpointCustomAdType) ToOriginEndpointCustomAdTypePtrOutput() OriginEndpointCustomAdTypePtrOutput {
+	return e.ToOriginEndpointCustomAdTypePtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointCustomAdType) ToOriginEndpointCustomAdTypePtrOutputWithContext(ctx context.Context) OriginEndpointCustomAdTypePtrOutput {
+	return OriginEndpointCustomAdType(e).ToOriginEndpointCustomAdTypeOutputWithContext(ctx).ToOriginEndpointCustomAdTypePtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointCustomAdType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointCustomAdType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointCustomAdType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointCustomAdType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointCustomAdTypeOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointCustomAdTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointCustomAdType)(nil)).Elem()
+}
+
+func (o OriginEndpointCustomAdTypeOutput) ToOriginEndpointCustomAdTypeOutput() OriginEndpointCustomAdTypeOutput {
+	return o
+}
+
+func (o OriginEndpointCustomAdTypeOutput) ToOriginEndpointCustomAdTypeOutputWithContext(ctx context.Context) OriginEndpointCustomAdTypeOutput {
+	return o
+}
+
+func (o OriginEndpointCustomAdTypeOutput) ToOriginEndpointCustomAdTypePtrOutput() OriginEndpointCustomAdTypePtrOutput {
+	return o.ToOriginEndpointCustomAdTypePtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointCustomAdTypeOutput) ToOriginEndpointCustomAdTypePtrOutputWithContext(ctx context.Context) OriginEndpointCustomAdTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointCustomAdType) *OriginEndpointCustomAdType {
+		return &v
+	}).(OriginEndpointCustomAdTypePtrOutput)
+}
+
+func (o OriginEndpointCustomAdTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointCustomAdTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointCustomAdType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointCustomAdTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointCustomAdTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointCustomAdType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointCustomAdTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointCustomAdTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointCustomAdType)(nil)).Elem()
+}
+
+func (o OriginEndpointCustomAdTypePtrOutput) ToOriginEndpointCustomAdTypePtrOutput() OriginEndpointCustomAdTypePtrOutput {
+	return o
+}
+
+func (o OriginEndpointCustomAdTypePtrOutput) ToOriginEndpointCustomAdTypePtrOutputWithContext(ctx context.Context) OriginEndpointCustomAdTypePtrOutput {
+	return o
+}
+
+func (o OriginEndpointCustomAdTypePtrOutput) Elem() OriginEndpointCustomAdTypeOutput {
+	return o.ApplyT(func(v *OriginEndpointCustomAdType) OriginEndpointCustomAdType {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointCustomAdType
+		return ret
+	}).(OriginEndpointCustomAdTypeOutput)
+}
+
+func (o OriginEndpointCustomAdTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointCustomAdTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointCustomAdType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointCustomAdTypeInput is an input type that accepts values of the OriginEndpointCustomAdType enum
+// A concrete instance of `OriginEndpointCustomAdTypeInput` can be one of the following:
+//
+//	OriginEndpointCustomAdTypeProgram
+//	OriginEndpointCustomAdTypeChapter
+//	OriginEndpointCustomAdTypeUnscheduledEvent
+//	OriginEndpointCustomAdTypeAlternateContentOpportunity
+//	OriginEndpointCustomAdTypeNetwork
+type OriginEndpointCustomAdTypeInput interface {
+	pulumi.Input
+
+	ToOriginEndpointCustomAdTypeOutput() OriginEndpointCustomAdTypeOutput
+	ToOriginEndpointCustomAdTypeOutputWithContext(context.Context) OriginEndpointCustomAdTypeOutput
+}
+
+var originEndpointCustomAdTypePtrType = reflect.TypeOf((**OriginEndpointCustomAdType)(nil)).Elem()
+
+type OriginEndpointCustomAdTypePtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointCustomAdTypePtrOutput() OriginEndpointCustomAdTypePtrOutput
+	ToOriginEndpointCustomAdTypePtrOutputWithContext(context.Context) OriginEndpointCustomAdTypePtrOutput
+}
+
+type originEndpointCustomAdTypePtr string
+
+func OriginEndpointCustomAdTypePtr(v string) OriginEndpointCustomAdTypePtrInput {
+	return (*originEndpointCustomAdTypePtr)(&v)
+}
+
+func (*originEndpointCustomAdTypePtr) ElementType() reflect.Type {
+	return originEndpointCustomAdTypePtrType
+}
+
+func (in *originEndpointCustomAdTypePtr) ToOriginEndpointCustomAdTypePtrOutput() OriginEndpointCustomAdTypePtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointCustomAdTypePtrOutput)
+}
+
+func (in *originEndpointCustomAdTypePtr) ToOriginEndpointCustomAdTypePtrOutputWithContext(ctx context.Context) OriginEndpointCustomAdTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointCustomAdTypePtrOutput)
+}
+
+// OriginEndpointCustomAdTypeArrayInput is an input type that accepts OriginEndpointCustomAdTypeArray and OriginEndpointCustomAdTypeArrayOutput values.
+// You can construct a concrete instance of `OriginEndpointCustomAdTypeArrayInput` via:
+//
+//	OriginEndpointCustomAdTypeArray{ OriginEndpointCustomAdTypeArgs{...} }
+type OriginEndpointCustomAdTypeArrayInput interface {
+	pulumi.Input
+
+	ToOriginEndpointCustomAdTypeArrayOutput() OriginEndpointCustomAdTypeArrayOutput
+	ToOriginEndpointCustomAdTypeArrayOutputWithContext(context.Context) OriginEndpointCustomAdTypeArrayOutput
+}
+
+type OriginEndpointCustomAdTypeArray []OriginEndpointCustomAdType
+
+func (OriginEndpointCustomAdTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OriginEndpointCustomAdType)(nil)).Elem()
+}
+
+func (i OriginEndpointCustomAdTypeArray) ToOriginEndpointCustomAdTypeArrayOutput() OriginEndpointCustomAdTypeArrayOutput {
+	return i.ToOriginEndpointCustomAdTypeArrayOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointCustomAdTypeArray) ToOriginEndpointCustomAdTypeArrayOutputWithContext(ctx context.Context) OriginEndpointCustomAdTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointCustomAdTypeArrayOutput)
+}
+
+type OriginEndpointCustomAdTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointCustomAdTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OriginEndpointCustomAdType)(nil)).Elem()
+}
+
+func (o OriginEndpointCustomAdTypeArrayOutput) ToOriginEndpointCustomAdTypeArrayOutput() OriginEndpointCustomAdTypeArrayOutput {
+	return o
+}
+
+func (o OriginEndpointCustomAdTypeArrayOutput) ToOriginEndpointCustomAdTypeArrayOutputWithContext(ctx context.Context) OriginEndpointCustomAdTypeArrayOutput {
+	return o
+}
+
+func (o OriginEndpointCustomAdTypeArrayOutput) Index(i pulumi.IntInput) OriginEndpointCustomAdTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OriginEndpointCustomAdType {
+		return vs[0].([]OriginEndpointCustomAdType)[vs[1].(int)]
+	}).(OriginEndpointCustomAdTypeOutput)
+}
+
 type OriginEndpointDashCompactness string
 
 const (
@@ -3210,6 +3426,14 @@ const (
 	OriginEndpointScteFilterProviderOverlayPlacementOpportunity    = OriginEndpointScteFilter("PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY")
 	OriginEndpointScteFilterDistributorOverlayPlacementOpportunity = OriginEndpointScteFilter("DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY")
 	OriginEndpointScteFilterProgram                                = OriginEndpointScteFilter("PROGRAM")
+	OriginEndpointScteFilterChapter                                = OriginEndpointScteFilter("CHAPTER")
+	OriginEndpointScteFilterUnscheduledEvent                       = OriginEndpointScteFilter("UNSCHEDULED_EVENT")
+	OriginEndpointScteFilterAlternateContentOpportunity            = OriginEndpointScteFilter("ALTERNATE_CONTENT_OPPORTUNITY")
+	OriginEndpointScteFilterNetwork                                = OriginEndpointScteFilter("NETWORK")
+	OriginEndpointScteFilterProviderPromo                          = OriginEndpointScteFilter("PROVIDER_PROMO")
+	OriginEndpointScteFilterDistributorPromo                       = OriginEndpointScteFilter("DISTRIBUTOR_PROMO")
+	OriginEndpointScteFilterProviderAdBlock                        = OriginEndpointScteFilter("PROVIDER_AD_BLOCK")
+	OriginEndpointScteFilterDistributorAdBlock                     = OriginEndpointScteFilter("DISTRIBUTOR_AD_BLOCK")
 )
 
 func (OriginEndpointScteFilter) ElementType() reflect.Type {
@@ -3343,6 +3567,14 @@ func (o OriginEndpointScteFilterPtrOutput) ToStringPtrOutputWithContext(ctx cont
 //	OriginEndpointScteFilterProviderOverlayPlacementOpportunity
 //	OriginEndpointScteFilterDistributorOverlayPlacementOpportunity
 //	OriginEndpointScteFilterProgram
+//	OriginEndpointScteFilterChapter
+//	OriginEndpointScteFilterUnscheduledEvent
+//	OriginEndpointScteFilterAlternateContentOpportunity
+//	OriginEndpointScteFilterNetwork
+//	OriginEndpointScteFilterProviderPromo
+//	OriginEndpointScteFilterDistributorPromo
+//	OriginEndpointScteFilterProviderAdBlock
+//	OriginEndpointScteFilterDistributorAdBlock
 type OriginEndpointScteFilterInput interface {
 	pulumi.Input
 
@@ -3422,11 +3654,177 @@ func (o OriginEndpointScteFilterArrayOutput) Index(i pulumi.IntInput) OriginEndp
 	}).(OriginEndpointScteFilterOutput)
 }
 
+type OriginEndpointScteInManifests string
+
+const (
+	OriginEndpointScteInManifestsAll           = OriginEndpointScteInManifests("ALL")
+	OriginEndpointScteInManifestsMatchesFilter = OriginEndpointScteInManifests("MATCHES_FILTER")
+)
+
+func (OriginEndpointScteInManifests) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointScteInManifests)(nil)).Elem()
+}
+
+func (e OriginEndpointScteInManifests) ToOriginEndpointScteInManifestsOutput() OriginEndpointScteInManifestsOutput {
+	return pulumi.ToOutput(e).(OriginEndpointScteInManifestsOutput)
+}
+
+func (e OriginEndpointScteInManifests) ToOriginEndpointScteInManifestsOutputWithContext(ctx context.Context) OriginEndpointScteInManifestsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointScteInManifestsOutput)
+}
+
+func (e OriginEndpointScteInManifests) ToOriginEndpointScteInManifestsPtrOutput() OriginEndpointScteInManifestsPtrOutput {
+	return e.ToOriginEndpointScteInManifestsPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointScteInManifests) ToOriginEndpointScteInManifestsPtrOutputWithContext(ctx context.Context) OriginEndpointScteInManifestsPtrOutput {
+	return OriginEndpointScteInManifests(e).ToOriginEndpointScteInManifestsOutputWithContext(ctx).ToOriginEndpointScteInManifestsPtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointScteInManifests) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointScteInManifests) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointScteInManifests) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointScteInManifests) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointScteInManifestsOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointScteInManifestsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointScteInManifests)(nil)).Elem()
+}
+
+func (o OriginEndpointScteInManifestsOutput) ToOriginEndpointScteInManifestsOutput() OriginEndpointScteInManifestsOutput {
+	return o
+}
+
+func (o OriginEndpointScteInManifestsOutput) ToOriginEndpointScteInManifestsOutputWithContext(ctx context.Context) OriginEndpointScteInManifestsOutput {
+	return o
+}
+
+func (o OriginEndpointScteInManifestsOutput) ToOriginEndpointScteInManifestsPtrOutput() OriginEndpointScteInManifestsPtrOutput {
+	return o.ToOriginEndpointScteInManifestsPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointScteInManifestsOutput) ToOriginEndpointScteInManifestsPtrOutputWithContext(ctx context.Context) OriginEndpointScteInManifestsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointScteInManifests) *OriginEndpointScteInManifests {
+		return &v
+	}).(OriginEndpointScteInManifestsPtrOutput)
+}
+
+func (o OriginEndpointScteInManifestsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointScteInManifestsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointScteInManifests) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointScteInManifestsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointScteInManifestsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointScteInManifests) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointScteInManifestsPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointScteInManifestsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointScteInManifests)(nil)).Elem()
+}
+
+func (o OriginEndpointScteInManifestsPtrOutput) ToOriginEndpointScteInManifestsPtrOutput() OriginEndpointScteInManifestsPtrOutput {
+	return o
+}
+
+func (o OriginEndpointScteInManifestsPtrOutput) ToOriginEndpointScteInManifestsPtrOutputWithContext(ctx context.Context) OriginEndpointScteInManifestsPtrOutput {
+	return o
+}
+
+func (o OriginEndpointScteInManifestsPtrOutput) Elem() OriginEndpointScteInManifestsOutput {
+	return o.ApplyT(func(v *OriginEndpointScteInManifests) OriginEndpointScteInManifests {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointScteInManifests
+		return ret
+	}).(OriginEndpointScteInManifestsOutput)
+}
+
+func (o OriginEndpointScteInManifestsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointScteInManifestsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointScteInManifests) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointScteInManifestsInput is an input type that accepts values of the OriginEndpointScteInManifests enum
+// A concrete instance of `OriginEndpointScteInManifestsInput` can be one of the following:
+//
+//	OriginEndpointScteInManifestsAll
+//	OriginEndpointScteInManifestsMatchesFilter
+type OriginEndpointScteInManifestsInput interface {
+	pulumi.Input
+
+	ToOriginEndpointScteInManifestsOutput() OriginEndpointScteInManifestsOutput
+	ToOriginEndpointScteInManifestsOutputWithContext(context.Context) OriginEndpointScteInManifestsOutput
+}
+
+var originEndpointScteInManifestsPtrType = reflect.TypeOf((**OriginEndpointScteInManifests)(nil)).Elem()
+
+type OriginEndpointScteInManifestsPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointScteInManifestsPtrOutput() OriginEndpointScteInManifestsPtrOutput
+	ToOriginEndpointScteInManifestsPtrOutputWithContext(context.Context) OriginEndpointScteInManifestsPtrOutput
+}
+
+type originEndpointScteInManifestsPtr string
+
+func OriginEndpointScteInManifestsPtr(v string) OriginEndpointScteInManifestsPtrInput {
+	return (*originEndpointScteInManifestsPtr)(&v)
+}
+
+func (*originEndpointScteInManifestsPtr) ElementType() reflect.Type {
+	return originEndpointScteInManifestsPtrType
+}
+
+func (in *originEndpointScteInManifestsPtr) ToOriginEndpointScteInManifestsPtrOutput() OriginEndpointScteInManifestsPtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointScteInManifestsPtrOutput)
+}
+
+func (in *originEndpointScteInManifestsPtr) ToOriginEndpointScteInManifestsPtrOutputWithContext(ctx context.Context) OriginEndpointScteInManifestsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointScteInManifestsPtrOutput)
+}
+
 type OriginEndpointScteInSegments string
 
 const (
-	OriginEndpointScteInSegmentsNone = OriginEndpointScteInSegments("NONE")
-	OriginEndpointScteInSegmentsAll  = OriginEndpointScteInSegments("ALL")
+	OriginEndpointScteInSegmentsNone          = OriginEndpointScteInSegments("NONE")
+	OriginEndpointScteInSegmentsAll           = OriginEndpointScteInSegments("ALL")
+	OriginEndpointScteInSegmentsMatchesFilter = OriginEndpointScteInSegments("MATCHES_FILTER")
 )
 
 func (OriginEndpointScteInSegments) ElementType() reflect.Type {
@@ -3553,6 +3951,7 @@ func (o OriginEndpointScteInSegmentsPtrOutput) ToStringPtrOutputWithContext(ctx 
 //
 //	OriginEndpointScteInSegmentsNone
 //	OriginEndpointScteInSegmentsAll
+//	OriginEndpointScteInSegmentsMatchesFilter
 type OriginEndpointScteInSegmentsInput interface {
 	pulumi.Input
 
@@ -3752,6 +4151,336 @@ func (in *originEndpointTsEncryptionMethodPtr) ToOriginEndpointTsEncryptionMetho
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointTsEncryptionMethodPtrOutput)
 }
 
+type OriginEndpointUriPathType string
+
+const (
+	OriginEndpointUriPathTypeLeaf = OriginEndpointUriPathType("LEAF")
+	OriginEndpointUriPathTypeRoot = OriginEndpointUriPathType("ROOT")
+)
+
+func (OriginEndpointUriPathType) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointUriPathType)(nil)).Elem()
+}
+
+func (e OriginEndpointUriPathType) ToOriginEndpointUriPathTypeOutput() OriginEndpointUriPathTypeOutput {
+	return pulumi.ToOutput(e).(OriginEndpointUriPathTypeOutput)
+}
+
+func (e OriginEndpointUriPathType) ToOriginEndpointUriPathTypeOutputWithContext(ctx context.Context) OriginEndpointUriPathTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointUriPathTypeOutput)
+}
+
+func (e OriginEndpointUriPathType) ToOriginEndpointUriPathTypePtrOutput() OriginEndpointUriPathTypePtrOutput {
+	return e.ToOriginEndpointUriPathTypePtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointUriPathType) ToOriginEndpointUriPathTypePtrOutputWithContext(ctx context.Context) OriginEndpointUriPathTypePtrOutput {
+	return OriginEndpointUriPathType(e).ToOriginEndpointUriPathTypeOutputWithContext(ctx).ToOriginEndpointUriPathTypePtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointUriPathType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointUriPathType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointUriPathType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointUriPathType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointUriPathTypeOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointUriPathTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointUriPathType)(nil)).Elem()
+}
+
+func (o OriginEndpointUriPathTypeOutput) ToOriginEndpointUriPathTypeOutput() OriginEndpointUriPathTypeOutput {
+	return o
+}
+
+func (o OriginEndpointUriPathTypeOutput) ToOriginEndpointUriPathTypeOutputWithContext(ctx context.Context) OriginEndpointUriPathTypeOutput {
+	return o
+}
+
+func (o OriginEndpointUriPathTypeOutput) ToOriginEndpointUriPathTypePtrOutput() OriginEndpointUriPathTypePtrOutput {
+	return o.ToOriginEndpointUriPathTypePtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointUriPathTypeOutput) ToOriginEndpointUriPathTypePtrOutputWithContext(ctx context.Context) OriginEndpointUriPathTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointUriPathType) *OriginEndpointUriPathType {
+		return &v
+	}).(OriginEndpointUriPathTypePtrOutput)
+}
+
+func (o OriginEndpointUriPathTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointUriPathTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointUriPathType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointUriPathTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointUriPathTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointUriPathType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointUriPathTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointUriPathTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointUriPathType)(nil)).Elem()
+}
+
+func (o OriginEndpointUriPathTypePtrOutput) ToOriginEndpointUriPathTypePtrOutput() OriginEndpointUriPathTypePtrOutput {
+	return o
+}
+
+func (o OriginEndpointUriPathTypePtrOutput) ToOriginEndpointUriPathTypePtrOutputWithContext(ctx context.Context) OriginEndpointUriPathTypePtrOutput {
+	return o
+}
+
+func (o OriginEndpointUriPathTypePtrOutput) Elem() OriginEndpointUriPathTypeOutput {
+	return o.ApplyT(func(v *OriginEndpointUriPathType) OriginEndpointUriPathType {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointUriPathType
+		return ret
+	}).(OriginEndpointUriPathTypeOutput)
+}
+
+func (o OriginEndpointUriPathTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointUriPathTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointUriPathType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointUriPathTypeInput is an input type that accepts values of the OriginEndpointUriPathType enum
+// A concrete instance of `OriginEndpointUriPathTypeInput` can be one of the following:
+//
+//	OriginEndpointUriPathTypeLeaf
+//	OriginEndpointUriPathTypeRoot
+type OriginEndpointUriPathTypeInput interface {
+	pulumi.Input
+
+	ToOriginEndpointUriPathTypeOutput() OriginEndpointUriPathTypeOutput
+	ToOriginEndpointUriPathTypeOutputWithContext(context.Context) OriginEndpointUriPathTypeOutput
+}
+
+var originEndpointUriPathTypePtrType = reflect.TypeOf((**OriginEndpointUriPathType)(nil)).Elem()
+
+type OriginEndpointUriPathTypePtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointUriPathTypePtrOutput() OriginEndpointUriPathTypePtrOutput
+	ToOriginEndpointUriPathTypePtrOutputWithContext(context.Context) OriginEndpointUriPathTypePtrOutput
+}
+
+type originEndpointUriPathTypePtr string
+
+func OriginEndpointUriPathTypePtr(v string) OriginEndpointUriPathTypePtrInput {
+	return (*originEndpointUriPathTypePtr)(&v)
+}
+
+func (*originEndpointUriPathTypePtr) ElementType() reflect.Type {
+	return originEndpointUriPathTypePtrType
+}
+
+func (in *originEndpointUriPathTypePtr) ToOriginEndpointUriPathTypePtrOutput() OriginEndpointUriPathTypePtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointUriPathTypePtrOutput)
+}
+
+func (in *originEndpointUriPathTypePtr) ToOriginEndpointUriPathTypePtrOutputWithContext(ctx context.Context) OriginEndpointUriPathTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointUriPathTypePtrOutput)
+}
+
+type OriginEndpointUriSeparator string
+
+const (
+	OriginEndpointUriSeparatorUnderscore = OriginEndpointUriSeparator("UNDERSCORE")
+	OriginEndpointUriSeparatorHyphen     = OriginEndpointUriSeparator("HYPHEN")
+)
+
+func (OriginEndpointUriSeparator) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointUriSeparator)(nil)).Elem()
+}
+
+func (e OriginEndpointUriSeparator) ToOriginEndpointUriSeparatorOutput() OriginEndpointUriSeparatorOutput {
+	return pulumi.ToOutput(e).(OriginEndpointUriSeparatorOutput)
+}
+
+func (e OriginEndpointUriSeparator) ToOriginEndpointUriSeparatorOutputWithContext(ctx context.Context) OriginEndpointUriSeparatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointUriSeparatorOutput)
+}
+
+func (e OriginEndpointUriSeparator) ToOriginEndpointUriSeparatorPtrOutput() OriginEndpointUriSeparatorPtrOutput {
+	return e.ToOriginEndpointUriSeparatorPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointUriSeparator) ToOriginEndpointUriSeparatorPtrOutputWithContext(ctx context.Context) OriginEndpointUriSeparatorPtrOutput {
+	return OriginEndpointUriSeparator(e).ToOriginEndpointUriSeparatorOutputWithContext(ctx).ToOriginEndpointUriSeparatorPtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointUriSeparator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointUriSeparator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointUriSeparator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointUriSeparator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointUriSeparatorOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointUriSeparatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointUriSeparator)(nil)).Elem()
+}
+
+func (o OriginEndpointUriSeparatorOutput) ToOriginEndpointUriSeparatorOutput() OriginEndpointUriSeparatorOutput {
+	return o
+}
+
+func (o OriginEndpointUriSeparatorOutput) ToOriginEndpointUriSeparatorOutputWithContext(ctx context.Context) OriginEndpointUriSeparatorOutput {
+	return o
+}
+
+func (o OriginEndpointUriSeparatorOutput) ToOriginEndpointUriSeparatorPtrOutput() OriginEndpointUriSeparatorPtrOutput {
+	return o.ToOriginEndpointUriSeparatorPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointUriSeparatorOutput) ToOriginEndpointUriSeparatorPtrOutputWithContext(ctx context.Context) OriginEndpointUriSeparatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointUriSeparator) *OriginEndpointUriSeparator {
+		return &v
+	}).(OriginEndpointUriSeparatorPtrOutput)
+}
+
+func (o OriginEndpointUriSeparatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointUriSeparatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointUriSeparator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointUriSeparatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointUriSeparatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointUriSeparator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointUriSeparatorPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointUriSeparatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointUriSeparator)(nil)).Elem()
+}
+
+func (o OriginEndpointUriSeparatorPtrOutput) ToOriginEndpointUriSeparatorPtrOutput() OriginEndpointUriSeparatorPtrOutput {
+	return o
+}
+
+func (o OriginEndpointUriSeparatorPtrOutput) ToOriginEndpointUriSeparatorPtrOutputWithContext(ctx context.Context) OriginEndpointUriSeparatorPtrOutput {
+	return o
+}
+
+func (o OriginEndpointUriSeparatorPtrOutput) Elem() OriginEndpointUriSeparatorOutput {
+	return o.ApplyT(func(v *OriginEndpointUriSeparator) OriginEndpointUriSeparator {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointUriSeparator
+		return ret
+	}).(OriginEndpointUriSeparatorOutput)
+}
+
+func (o OriginEndpointUriSeparatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointUriSeparatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointUriSeparator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointUriSeparatorInput is an input type that accepts values of the OriginEndpointUriSeparator enum
+// A concrete instance of `OriginEndpointUriSeparatorInput` can be one of the following:
+//
+//	OriginEndpointUriSeparatorUnderscore
+//	OriginEndpointUriSeparatorHyphen
+type OriginEndpointUriSeparatorInput interface {
+	pulumi.Input
+
+	ToOriginEndpointUriSeparatorOutput() OriginEndpointUriSeparatorOutput
+	ToOriginEndpointUriSeparatorOutputWithContext(context.Context) OriginEndpointUriSeparatorOutput
+}
+
+var originEndpointUriSeparatorPtrType = reflect.TypeOf((**OriginEndpointUriSeparator)(nil)).Elem()
+
+type OriginEndpointUriSeparatorPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointUriSeparatorPtrOutput() OriginEndpointUriSeparatorPtrOutput
+	ToOriginEndpointUriSeparatorPtrOutputWithContext(context.Context) OriginEndpointUriSeparatorPtrOutput
+}
+
+type originEndpointUriSeparatorPtr string
+
+func OriginEndpointUriSeparatorPtr(v string) OriginEndpointUriSeparatorPtrInput {
+	return (*originEndpointUriSeparatorPtr)(&v)
+}
+
+func (*originEndpointUriSeparatorPtr) ElementType() reflect.Type {
+	return originEndpointUriSeparatorPtrType
+}
+
+func (in *originEndpointUriSeparatorPtr) ToOriginEndpointUriSeparatorPtrOutput() OriginEndpointUriSeparatorPtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointUriSeparatorPtrOutput)
+}
+
+func (in *originEndpointUriSeparatorPtr) ToOriginEndpointUriSeparatorPtrOutputWithContext(ctx context.Context) OriginEndpointUriSeparatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointUriSeparatorPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputTypeInput)(nil)).Elem(), ChannelInputType("HLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputTypePtrInput)(nil)).Elem(), ChannelInputType("HLS"))
@@ -3763,6 +4492,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointCmafEncryptionMethodPtrInput)(nil)).Elem(), OriginEndpointCmafEncryptionMethod("CENC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointContainerTypeInput)(nil)).Elem(), OriginEndpointContainerType("TS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointContainerTypePtrInput)(nil)).Elem(), OriginEndpointContainerType("TS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointCustomAdTypeInput)(nil)).Elem(), OriginEndpointCustomAdType("PROGRAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointCustomAdTypePtrInput)(nil)).Elem(), OriginEndpointCustomAdType("PROGRAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointCustomAdTypeArrayInput)(nil)).Elem(), OriginEndpointCustomAdTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashCompactnessInput)(nil)).Elem(), OriginEndpointDashCompactness("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashCompactnessPtrInput)(nil)).Elem(), OriginEndpointDashCompactness("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashDrmSignalingInput)(nil)).Elem(), OriginEndpointDashDrmSignaling("INDIVIDUAL"))
@@ -3796,10 +4528,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteFilterInput)(nil)).Elem(), OriginEndpointScteFilter("SPLICE_INSERT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteFilterPtrInput)(nil)).Elem(), OriginEndpointScteFilter("SPLICE_INSERT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteFilterArrayInput)(nil)).Elem(), OriginEndpointScteFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteInManifestsInput)(nil)).Elem(), OriginEndpointScteInManifests("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteInManifestsPtrInput)(nil)).Elem(), OriginEndpointScteInManifests("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteInSegmentsInput)(nil)).Elem(), OriginEndpointScteInSegments("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteInSegmentsPtrInput)(nil)).Elem(), OriginEndpointScteInSegments("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointTsEncryptionMethodInput)(nil)).Elem(), OriginEndpointTsEncryptionMethod("AES_128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointTsEncryptionMethodPtrInput)(nil)).Elem(), OriginEndpointTsEncryptionMethod("AES_128"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointUriPathTypeInput)(nil)).Elem(), OriginEndpointUriPathType("LEAF"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointUriPathTypePtrInput)(nil)).Elem(), OriginEndpointUriPathType("LEAF"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointUriSeparatorInput)(nil)).Elem(), OriginEndpointUriSeparator("UNDERSCORE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointUriSeparatorPtrInput)(nil)).Elem(), OriginEndpointUriSeparator("UNDERSCORE"))
 	pulumi.RegisterOutputType(ChannelInputTypeOutput{})
 	pulumi.RegisterOutputType(ChannelInputTypePtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointAdMarkerDashOutput{})
@@ -3810,6 +4548,9 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointCmafEncryptionMethodPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointContainerTypeOutput{})
 	pulumi.RegisterOutputType(OriginEndpointContainerTypePtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointCustomAdTypeOutput{})
+	pulumi.RegisterOutputType(OriginEndpointCustomAdTypePtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointCustomAdTypeArrayOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashCompactnessOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashCompactnessPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashDrmSignalingOutput{})
@@ -3843,8 +4584,14 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointScteFilterOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteFilterPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteFilterArrayOutput{})
+	pulumi.RegisterOutputType(OriginEndpointScteInManifestsOutput{})
+	pulumi.RegisterOutputType(OriginEndpointScteInManifestsPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteInSegmentsOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteInSegmentsPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointTsEncryptionMethodOutput{})
 	pulumi.RegisterOutputType(OriginEndpointTsEncryptionMethodPtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointUriPathTypeOutput{})
+	pulumi.RegisterOutputType(OriginEndpointUriPathTypePtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointUriSeparatorOutput{})
+	pulumi.RegisterOutputType(OriginEndpointUriSeparatorPtrOutput{})
 }

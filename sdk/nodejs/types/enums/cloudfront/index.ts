@@ -138,6 +138,7 @@ export type DistributionTenantWebAclCustomizationAction = (typeof DistributionTe
 export const DistributionViewerMtlsMode = {
     Required: "required",
     Optional: "optional",
+    Passthrough: "passthrough",
 } as const;
 
 export type DistributionViewerMtlsMode = (typeof DistributionViewerMtlsMode)[keyof typeof DistributionViewerMtlsMode];

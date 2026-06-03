@@ -53,8 +53,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("kubernetesConfig")]
         public Input<Inputs.ClusterKubernetesConfigArgs>? KubernetesConfig { get; set; }
 
-        [Input("lifeCycleConfig", required: true)]
-        public Input<Inputs.ClusterLifeCycleConfigArgs> LifeCycleConfig { get; set; } = null!;
+        [Input("lifeCycleConfig")]
+        public Input<Inputs.ClusterLifeCycleConfigArgs>? LifeCycleConfig { get; set; }
 
         /// <summary>
         /// The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.

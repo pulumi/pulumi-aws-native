@@ -3,7 +3,10 @@
   "description" : "Resource Type definition for AWS::EC2::ClientVpnTargetNetworkAssociation",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
+    "AvailabilityZoneId" : {
+      "type" : "string"
+    },
+    "AvailabilityZone" : {
       "type" : "string"
     },
     "ClientVpnEndpointId" : {
@@ -11,10 +14,13 @@
     },
     "SubnetId" : {
       "type" : "string"
+    },
+    "Id" : {
+      "type" : "string"
     }
   },
-  "required" : [ "ClientVpnEndpointId", "SubnetId" ],
-  "createOnlyProperties" : [ "/properties/ClientVpnEndpointId", "/properties/SubnetId" ],
-  "readOnlyProperties" : [ "/properties/Id" ],
-  "primaryIdentifier" : [ "/properties/Id" ]
+  "required" : [ "ClientVpnEndpointId" ],
+  "createOnlyProperties" : [ "/properties/ClientVpnEndpointId", "/properties/AvailabilityZoneId", "/properties/AvailabilityZone", "/properties/SubnetId" ],
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id" ]
 }

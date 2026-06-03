@@ -33,6 +33,8 @@ type Graph struct {
 	//
 	// _Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	GraphName pulumi.StringPtrOutput `pulumi:"graphName"`
+	// The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
+	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// Memory for the Graph.
 	ProvisionedMemory pulumi.IntOutput `pulumi:"provisionedMemory"`
 	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.
@@ -67,6 +69,7 @@ func NewGraph(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"graphName",
+		"kmsKeyIdentifier",
 		"replicaCount",
 		"vectorSearchConfiguration",
 	})
@@ -114,6 +117,8 @@ type graphArgs struct {
 	//
 	// _Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	GraphName *string `pulumi:"graphName"`
+	// The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// Memory for the Graph.
 	ProvisionedMemory int `pulumi:"provisionedMemory"`
 	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.
@@ -148,6 +153,8 @@ type GraphArgs struct {
 	//
 	// _Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	GraphName pulumi.StringPtrInput
+	// The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
+	KmsKeyIdentifier pulumi.StringPtrInput
 	// Memory for the Graph.
 	ProvisionedMemory pulumi.IntInput
 	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.
@@ -236,6 +243,11 @@ func (o GraphOutput) GraphId() pulumi.StringOutput {
 // _Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 func (o GraphOutput) GraphName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringPtrOutput { return v.GraphName }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
+func (o GraphOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Graph) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Memory for the Graph.

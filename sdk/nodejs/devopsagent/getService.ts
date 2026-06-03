@@ -28,7 +28,7 @@ export interface GetServiceResult {
     /**
      * List of accessible resources for this service
      */
-    readonly accessibleResources?: any[];
+    readonly accessibleResources?: {[key: string]: string}[];
     /**
      * Additional details specific to the service type
      */

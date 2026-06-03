@@ -50,6 +50,10 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
+     * The ARN of the identity store associated with the Identity Center instance
+     */
+    declare public /*out*/ readonly identityStoreArn: pulumi.Output<string>;
+    /**
      * The ARN of the instance of IAM Identity Center under which the operation will run
      */
     declare public readonly instanceArn: pulumi.Output<string>;
@@ -95,10 +99,12 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["status"] = args?.status;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationArn"] = undefined /*out*/;
+            resourceInputs["identityStoreArn"] = undefined /*out*/;
         } else {
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["applicationProviderArn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["identityStoreArn"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["portalOptions"] = undefined /*out*/;

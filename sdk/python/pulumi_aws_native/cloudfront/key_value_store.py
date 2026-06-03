@@ -30,9 +30,10 @@ class KeyValueStoreArgs:
         """
         The set of arguments for constructing a KeyValueStore resource.
 
-        :param pulumi.Input[_builtins.str] comment: A comment for the key value store.
+        :param pulumi.Input[_builtins.str] comment: A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
         :param pulumi.Input['KeyValueStoreImportSourceArgs'] import_source: The import source for the key value store.
         :param pulumi.Input[_builtins.str] name: The name of the key value store.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -47,7 +48,7 @@ class KeyValueStoreArgs:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A comment for the key value store.
+        A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
         """
         return pulumi.get(self, "comment")
 
@@ -82,6 +83,9 @@ class KeyValueStoreArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A complex type that contains zero or more ``Tag`` elements.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -106,9 +110,10 @@ class KeyValueStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] comment: A comment for the key value store.
+        :param pulumi.Input[_builtins.str] comment: A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
         :param pulumi.Input[Union['KeyValueStoreImportSourceArgs', 'KeyValueStoreImportSourceArgsDict']] import_source: The import source for the key value store.
         :param pulumi.Input[_builtins.str] name: The name of the key value store.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         ...
     @overload
@@ -208,7 +213,7 @@ class KeyValueStore(pulumi.CustomResource):
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A comment for the key value store.
+        A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
         """
         return pulumi.get(self, "comment")
 
@@ -239,5 +244,8 @@ class KeyValueStore(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A complex type that contains zero or more ``Tag`` elements.
+        """
         return pulumi.get(self, "tags")
 

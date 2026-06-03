@@ -712,13 +712,14 @@ func (o ClusterStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
+// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
 type ComputeNodeGroupPurchaseOption string
 
 const (
-	ComputeNodeGroupPurchaseOptionOndemand      = ComputeNodeGroupPurchaseOption("ONDEMAND")
-	ComputeNodeGroupPurchaseOptionSpot          = ComputeNodeGroupPurchaseOption("SPOT")
-	ComputeNodeGroupPurchaseOptionCapacityBlock = ComputeNodeGroupPurchaseOption("CAPACITY_BLOCK")
+	ComputeNodeGroupPurchaseOptionOndemand                         = ComputeNodeGroupPurchaseOption("ONDEMAND")
+	ComputeNodeGroupPurchaseOptionSpot                             = ComputeNodeGroupPurchaseOption("SPOT")
+	ComputeNodeGroupPurchaseOptionCapacityBlock                    = ComputeNodeGroupPurchaseOption("CAPACITY_BLOCK")
+	ComputeNodeGroupPurchaseOptionInterruptibleCapacityReservation = ComputeNodeGroupPurchaseOption("INTERRUPTIBLE_CAPACITY_RESERVATION")
 )
 
 func (ComputeNodeGroupPurchaseOption) ElementType() reflect.Type {
@@ -846,6 +847,7 @@ func (o ComputeNodeGroupPurchaseOptionPtrOutput) ToStringPtrOutputWithContext(ct
 //	ComputeNodeGroupPurchaseOptionOndemand
 //	ComputeNodeGroupPurchaseOptionSpot
 //	ComputeNodeGroupPurchaseOptionCapacityBlock
+//	ComputeNodeGroupPurchaseOptionInterruptibleCapacityReservation
 type ComputeNodeGroupPurchaseOptionInput interface {
 	pulumi.Input
 

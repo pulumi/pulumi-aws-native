@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetInfluxDbClusterResult:
-    def __init__(__self__, arn=None, db_instance_type=None, db_parameter_group_identifier=None, endpoint=None, engine_type=None, failover_mode=None, id=None, influx_auth_parameters_secret_arn=None, log_delivery_configuration=None, port=None, reader_endpoint=None, status=None, tags=None):
+    def __init__(__self__, arn=None, db_instance_type=None, db_parameter_group_identifier=None, endpoint=None, engine_type=None, failover_mode=None, id=None, influx_auth_parameters_secret_arn=None, log_delivery_configuration=None, maintenance_schedule=None, next_maintenance_time=None, port=None, reader_endpoint=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -54,6 +54,12 @@ class GetInfluxDbClusterResult:
         if log_delivery_configuration and not isinstance(log_delivery_configuration, dict):
             raise TypeError("Expected argument 'log_delivery_configuration' to be a dict")
         pulumi.set(__self__, "log_delivery_configuration", log_delivery_configuration)
+        if maintenance_schedule and not isinstance(maintenance_schedule, dict):
+            raise TypeError("Expected argument 'maintenance_schedule' to be a dict")
+        pulumi.set(__self__, "maintenance_schedule", maintenance_schedule)
+        if next_maintenance_time and not isinstance(next_maintenance_time, str):
+            raise TypeError("Expected argument 'next_maintenance_time' to be a str")
+        pulumi.set(__self__, "next_maintenance_time", next_maintenance_time)
         if port and not isinstance(port, int):
             raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
@@ -140,6 +146,22 @@ class GetInfluxDbClusterResult:
         return pulumi.get(self, "log_delivery_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="maintenanceSchedule")
+    def maintenance_schedule(self) -> Optional['outputs.InfluxDbClusterMaintenanceSchedule']:
+        """
+        The maintenance schedule for the InfluxDB cluster.
+        """
+        return pulumi.get(self, "maintenance_schedule")
+
+    @_builtins.property
+    @pulumi.getter(name="nextMaintenanceTime")
+    def next_maintenance_time(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of the next scheduled maintenance event.
+        """
+        return pulumi.get(self, "next_maintenance_time")
+
+    @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[_builtins.int]:
         """
@@ -187,6 +209,8 @@ class AwaitableGetInfluxDbClusterResult(GetInfluxDbClusterResult):
             id=self.id,
             influx_auth_parameters_secret_arn=self.influx_auth_parameters_secret_arn,
             log_delivery_configuration=self.log_delivery_configuration,
+            maintenance_schedule=self.maintenance_schedule,
+            next_maintenance_time=self.next_maintenance_time,
             port=self.port,
             reader_endpoint=self.reader_endpoint,
             status=self.status,
@@ -216,6 +240,8 @@ def get_influx_db_cluster(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         influx_auth_parameters_secret_arn=pulumi.get(__ret__, 'influx_auth_parameters_secret_arn'),
         log_delivery_configuration=pulumi.get(__ret__, 'log_delivery_configuration'),
+        maintenance_schedule=pulumi.get(__ret__, 'maintenance_schedule'),
+        next_maintenance_time=pulumi.get(__ret__, 'next_maintenance_time'),
         port=pulumi.get(__ret__, 'port'),
         reader_endpoint=pulumi.get(__ret__, 'reader_endpoint'),
         status=pulumi.get(__ret__, 'status'),
@@ -242,6 +268,8 @@ def get_influx_db_cluster_output(id: Optional[pulumi.Input[_builtins.str]] = Non
         id=pulumi.get(__response__, 'id'),
         influx_auth_parameters_secret_arn=pulumi.get(__response__, 'influx_auth_parameters_secret_arn'),
         log_delivery_configuration=pulumi.get(__response__, 'log_delivery_configuration'),
+        maintenance_schedule=pulumi.get(__response__, 'maintenance_schedule'),
+        next_maintenance_time=pulumi.get(__response__, 'next_maintenance_time'),
         port=pulumi.get(__response__, 'port'),
         reader_endpoint=pulumi.get(__response__, 'reader_endpoint'),
         status=pulumi.get(__response__, 'status'),

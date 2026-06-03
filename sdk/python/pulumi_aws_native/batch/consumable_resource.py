@@ -169,7 +169,7 @@ class ConsumableResource(pulumi.CustomResource):
             __props__.__dict__["consumable_resource_arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["in_use_quantity"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["consumableResourceName", "resourceType", "tags.*"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["consumableResourceName", "resourceType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConsumableResource, __self__).__init__(
             'aws-native:batch:ConsumableResource',

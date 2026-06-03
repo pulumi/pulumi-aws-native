@@ -1157,7 +1157,7 @@ class ListenerMutualAuthenticationArgsDict(TypedDict):
     """
     mode: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+    The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value on initial resource creation is ``off``. After mutual authentication is turned on, you must explicitly set the ``Mode`` to ``off`` to turn it off; removing the property from your template will not turn it off.
     """
     trust_store_arn: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -1176,7 +1176,7 @@ class ListenerMutualAuthenticationArgs:
 
         :param pulumi.Input[_builtins.str] advertise_trust_store_ca_names: Indicates whether trust store CA certificate names are advertised.
         :param pulumi.Input[_builtins.bool] ignore_client_certificate_expiry: Indicates whether expired client certificates are ignored.
-        :param pulumi.Input[_builtins.str] mode: The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+        :param pulumi.Input[_builtins.str] mode: The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value on initial resource creation is ``off``. After mutual authentication is turned on, you must explicitly set the ``Mode`` to ``off`` to turn it off; removing the property from your template will not turn it off.
         :param pulumi.Input[_builtins.str] trust_store_arn: The Amazon Resource Name (ARN) of the trust store.
         """
         if advertise_trust_store_ca_names is not None:
@@ -1216,7 +1216,7 @@ class ListenerMutualAuthenticationArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+        The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value on initial resource creation is ``off``. After mutual authentication is turned on, you must explicitly set the ``Mode`` to ``off`` to turn it off; removing the property from your template will not turn it off.
         """
         return pulumi.get(self, "mode")
 

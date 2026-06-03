@@ -7,6 +7,34 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Ecs
 {
+    [EnumType]
+    public readonly struct CapacityProviderAutoRepairConfigurationActionsStatus : IEquatable<CapacityProviderAutoRepairConfigurationActionsStatus>
+    {
+        private readonly string _value;
+
+        private CapacityProviderAutoRepairConfigurationActionsStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderAutoRepairConfigurationActionsStatus Enabled { get; } = new CapacityProviderAutoRepairConfigurationActionsStatus("ENABLED");
+        public static CapacityProviderAutoRepairConfigurationActionsStatus Disabled { get; } = new CapacityProviderAutoRepairConfigurationActionsStatus("DISABLED");
+
+        public static bool operator ==(CapacityProviderAutoRepairConfigurationActionsStatus left, CapacityProviderAutoRepairConfigurationActionsStatus right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderAutoRepairConfigurationActionsStatus left, CapacityProviderAutoRepairConfigurationActionsStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderAutoRepairConfigurationActionsStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderAutoRepairConfigurationActionsStatus other && Equals(other);
+        public bool Equals(CapacityProviderAutoRepairConfigurationActionsStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.
     /// </summary>
@@ -577,6 +605,9 @@ namespace Pulumi.AwsNative.Ecs
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies whether tags are propagated from the daemon to the daemon tasks.
+    /// </summary>
     [EnumType]
     public readonly struct DaemonPropagateTags : IEquatable<DaemonPropagateTags>
     {
@@ -968,6 +999,7 @@ namespace Pulumi.AwsNative.Ecs
         public static ServiceDeploymentLifecycleHookLifecycleStagesItem PostScaleUp { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_SCALE_UP");
         public static ServiceDeploymentLifecycleHookLifecycleStagesItem TestTrafficShift { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("TEST_TRAFFIC_SHIFT");
         public static ServiceDeploymentLifecycleHookLifecycleStagesItem PostTestTrafficShift { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_TEST_TRAFFIC_SHIFT");
+        public static ServiceDeploymentLifecycleHookLifecycleStagesItem PreProductionTrafficShift { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("PRE_PRODUCTION_TRAFFIC_SHIFT");
         public static ServiceDeploymentLifecycleHookLifecycleStagesItem ProductionTrafficShift { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("PRODUCTION_TRAFFIC_SHIFT");
         public static ServiceDeploymentLifecycleHookLifecycleStagesItem PostProductionTrafficShift { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_PRODUCTION_TRAFFIC_SHIFT");
 
@@ -987,10 +1019,42 @@ namespace Pulumi.AwsNative.Ecs
     }
 
     /// <summary>
-    /// Determines whether to propagate the tags from the task definition to 
-    /// the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in 
-    /// ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't 
-    /// propagated.
+    /// The type of action the lifecycle hook performs. Valid values are:
+    ///   +  ``AWS_LAMBDA`` - Invokes a Lambda function at the specified lifecycle stage. This is the default value.
+    ///   +  ``PAUSE`` - Pauses the deployment at the specified lifecycle stage until you call ``ContinueServiceDeployment`` to continue or roll back.
+    ///   
+    ///  This field is optional. If not specified, the default value is ``AWS_LAMBDA``.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceDeploymentLifecycleHookTargetType : IEquatable<ServiceDeploymentLifecycleHookTargetType>
+    {
+        private readonly string _value;
+
+        private ServiceDeploymentLifecycleHookTargetType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceDeploymentLifecycleHookTargetType AwsLambda { get; } = new ServiceDeploymentLifecycleHookTargetType("AWS_LAMBDA");
+        public static ServiceDeploymentLifecycleHookTargetType Pause { get; } = new ServiceDeploymentLifecycleHookTargetType("PAUSE");
+
+        public static bool operator ==(ServiceDeploymentLifecycleHookTargetType left, ServiceDeploymentLifecycleHookTargetType right) => left.Equals(right);
+        public static bool operator !=(ServiceDeploymentLifecycleHookTargetType left, ServiceDeploymentLifecycleHookTargetType right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceDeploymentLifecycleHookTargetType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceDeploymentLifecycleHookTargetType other && Equals(other);
+        public bool Equals(ServiceDeploymentLifecycleHookTargetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't propagated.
     /// </summary>
     [EnumType]
     public readonly struct ServiceEbsTagSpecificationPropagateTags : IEquatable<ServiceEbsTagSpecificationPropagateTags>
@@ -1013,6 +1077,34 @@ namespace Pulumi.AwsNative.Ecs
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ServiceEbsTagSpecificationPropagateTags other && Equals(other);
         public bool Equals(ServiceEbsTagSpecificationPropagateTags other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ServiceHookTimeoutConfigAction : IEquatable<ServiceHookTimeoutConfigAction>
+    {
+        private readonly string _value;
+
+        private ServiceHookTimeoutConfigAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceHookTimeoutConfigAction Rollback { get; } = new ServiceHookTimeoutConfigAction("ROLLBACK");
+        public static ServiceHookTimeoutConfigAction Continue { get; } = new ServiceHookTimeoutConfigAction("CONTINUE");
+
+        public static bool operator ==(ServiceHookTimeoutConfigAction left, ServiceHookTimeoutConfigAction right) => left.Equals(right);
+        public static bool operator !=(ServiceHookTimeoutConfigAction left, ServiceHookTimeoutConfigAction right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceHookTimeoutConfigAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceHookTimeoutConfigAction other && Equals(other);
+        public bool Equals(ServiceHookTimeoutConfigAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

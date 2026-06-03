@@ -1199,6 +1199,171 @@ func (in *userPoolTierPtr) ToUserPoolTierPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(UserPoolTierPtrOutput)
 }
 
+type UserPoolWebAuthnFactorConfiguration string
+
+const (
+	UserPoolWebAuthnFactorConfigurationSingleFactor                    = UserPoolWebAuthnFactorConfiguration("SINGLE_FACTOR")
+	UserPoolWebAuthnFactorConfigurationMultiFactorWithUserVerification = UserPoolWebAuthnFactorConfiguration("MULTI_FACTOR_WITH_USER_VERIFICATION")
+)
+
+func (UserPoolWebAuthnFactorConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolWebAuthnFactorConfiguration)(nil)).Elem()
+}
+
+func (e UserPoolWebAuthnFactorConfiguration) ToUserPoolWebAuthnFactorConfigurationOutput() UserPoolWebAuthnFactorConfigurationOutput {
+	return pulumi.ToOutput(e).(UserPoolWebAuthnFactorConfigurationOutput)
+}
+
+func (e UserPoolWebAuthnFactorConfiguration) ToUserPoolWebAuthnFactorConfigurationOutputWithContext(ctx context.Context) UserPoolWebAuthnFactorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserPoolWebAuthnFactorConfigurationOutput)
+}
+
+func (e UserPoolWebAuthnFactorConfiguration) ToUserPoolWebAuthnFactorConfigurationPtrOutput() UserPoolWebAuthnFactorConfigurationPtrOutput {
+	return e.ToUserPoolWebAuthnFactorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (e UserPoolWebAuthnFactorConfiguration) ToUserPoolWebAuthnFactorConfigurationPtrOutputWithContext(ctx context.Context) UserPoolWebAuthnFactorConfigurationPtrOutput {
+	return UserPoolWebAuthnFactorConfiguration(e).ToUserPoolWebAuthnFactorConfigurationOutputWithContext(ctx).ToUserPoolWebAuthnFactorConfigurationPtrOutputWithContext(ctx)
+}
+
+func (e UserPoolWebAuthnFactorConfiguration) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserPoolWebAuthnFactorConfiguration) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserPoolWebAuthnFactorConfiguration) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserPoolWebAuthnFactorConfiguration) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserPoolWebAuthnFactorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolWebAuthnFactorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolWebAuthnFactorConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolWebAuthnFactorConfigurationOutput) ToUserPoolWebAuthnFactorConfigurationOutput() UserPoolWebAuthnFactorConfigurationOutput {
+	return o
+}
+
+func (o UserPoolWebAuthnFactorConfigurationOutput) ToUserPoolWebAuthnFactorConfigurationOutputWithContext(ctx context.Context) UserPoolWebAuthnFactorConfigurationOutput {
+	return o
+}
+
+func (o UserPoolWebAuthnFactorConfigurationOutput) ToUserPoolWebAuthnFactorConfigurationPtrOutput() UserPoolWebAuthnFactorConfigurationPtrOutput {
+	return o.ToUserPoolWebAuthnFactorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolWebAuthnFactorConfigurationOutput) ToUserPoolWebAuthnFactorConfigurationPtrOutputWithContext(ctx context.Context) UserPoolWebAuthnFactorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolWebAuthnFactorConfiguration) *UserPoolWebAuthnFactorConfiguration {
+		return &v
+	}).(UserPoolWebAuthnFactorConfigurationPtrOutput)
+}
+
+func (o UserPoolWebAuthnFactorConfigurationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserPoolWebAuthnFactorConfigurationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserPoolWebAuthnFactorConfiguration) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserPoolWebAuthnFactorConfigurationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolWebAuthnFactorConfigurationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserPoolWebAuthnFactorConfiguration) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolWebAuthnFactorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolWebAuthnFactorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolWebAuthnFactorConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolWebAuthnFactorConfigurationPtrOutput) ToUserPoolWebAuthnFactorConfigurationPtrOutput() UserPoolWebAuthnFactorConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolWebAuthnFactorConfigurationPtrOutput) ToUserPoolWebAuthnFactorConfigurationPtrOutputWithContext(ctx context.Context) UserPoolWebAuthnFactorConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolWebAuthnFactorConfigurationPtrOutput) Elem() UserPoolWebAuthnFactorConfigurationOutput {
+	return o.ApplyT(func(v *UserPoolWebAuthnFactorConfiguration) UserPoolWebAuthnFactorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolWebAuthnFactorConfiguration
+		return ret
+	}).(UserPoolWebAuthnFactorConfigurationOutput)
+}
+
+func (o UserPoolWebAuthnFactorConfigurationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolWebAuthnFactorConfigurationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserPoolWebAuthnFactorConfiguration) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserPoolWebAuthnFactorConfigurationInput is an input type that accepts values of the UserPoolWebAuthnFactorConfiguration enum
+// A concrete instance of `UserPoolWebAuthnFactorConfigurationInput` can be one of the following:
+//
+//	UserPoolWebAuthnFactorConfigurationSingleFactor
+//	UserPoolWebAuthnFactorConfigurationMultiFactorWithUserVerification
+type UserPoolWebAuthnFactorConfigurationInput interface {
+	pulumi.Input
+
+	ToUserPoolWebAuthnFactorConfigurationOutput() UserPoolWebAuthnFactorConfigurationOutput
+	ToUserPoolWebAuthnFactorConfigurationOutputWithContext(context.Context) UserPoolWebAuthnFactorConfigurationOutput
+}
+
+var userPoolWebAuthnFactorConfigurationPtrType = reflect.TypeOf((**UserPoolWebAuthnFactorConfiguration)(nil)).Elem()
+
+type UserPoolWebAuthnFactorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolWebAuthnFactorConfigurationPtrOutput() UserPoolWebAuthnFactorConfigurationPtrOutput
+	ToUserPoolWebAuthnFactorConfigurationPtrOutputWithContext(context.Context) UserPoolWebAuthnFactorConfigurationPtrOutput
+}
+
+type userPoolWebAuthnFactorConfigurationPtr string
+
+func UserPoolWebAuthnFactorConfigurationPtr(v string) UserPoolWebAuthnFactorConfigurationPtrInput {
+	return (*userPoolWebAuthnFactorConfigurationPtr)(&v)
+}
+
+func (*userPoolWebAuthnFactorConfigurationPtr) ElementType() reflect.Type {
+	return userPoolWebAuthnFactorConfigurationPtrType
+}
+
+func (in *userPoolWebAuthnFactorConfigurationPtr) ToUserPoolWebAuthnFactorConfigurationPtrOutput() UserPoolWebAuthnFactorConfigurationPtrOutput {
+	return pulumi.ToOutput(in).(UserPoolWebAuthnFactorConfigurationPtrOutput)
+}
+
+func (in *userPoolWebAuthnFactorConfigurationPtr) ToUserPoolWebAuthnFactorConfigurationPtrOutputWithContext(ctx context.Context) UserPoolWebAuthnFactorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserPoolWebAuthnFactorConfigurationPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedLoginBrandingCategoryTypeInput)(nil)).Elem(), ManagedLoginBrandingCategoryType("FAVICON_ICO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedLoginBrandingCategoryTypePtrInput)(nil)).Elem(), ManagedLoginBrandingCategoryType("FAVICON_ICO"))
@@ -1214,6 +1379,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientRefreshTokenRotationFeaturePtrInput)(nil)).Elem(), UserPoolClientRefreshTokenRotationFeature("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolTierInput)(nil)).Elem(), UserPoolTier("LITE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolTierPtrInput)(nil)).Elem(), UserPoolTier("LITE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolWebAuthnFactorConfigurationInput)(nil)).Elem(), UserPoolWebAuthnFactorConfiguration("SINGLE_FACTOR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolWebAuthnFactorConfigurationPtrInput)(nil)).Elem(), UserPoolWebAuthnFactorConfiguration("SINGLE_FACTOR"))
 	pulumi.RegisterOutputType(ManagedLoginBrandingCategoryTypeOutput{})
 	pulumi.RegisterOutputType(ManagedLoginBrandingCategoryTypePtrOutput{})
 	pulumi.RegisterOutputType(ManagedLoginBrandingColorModeTypeOutput{})
@@ -1228,4 +1395,6 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolClientRefreshTokenRotationFeaturePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolTierOutput{})
 	pulumi.RegisterOutputType(UserPoolTierPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolWebAuthnFactorConfigurationOutput{})
+	pulumi.RegisterOutputType(UserPoolWebAuthnFactorConfigurationPtrOutput{})
 }

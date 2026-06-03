@@ -49,7 +49,7 @@ export class RouterInput extends pulumi.CustomResource {
      * The unique identifier of the router input.
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
-    declare public readonly configuration: pulumi.Output<outputs.mediaconnect.RouterInputConfiguration0Properties | outputs.mediaconnect.RouterInputConfiguration1Properties | outputs.mediaconnect.RouterInputConfiguration2Properties | outputs.mediaconnect.RouterInputConfiguration3Properties>;
+    declare public readonly configuration: pulumi.Output<outputs.mediaconnect.RouterInputConfiguration0Properties | outputs.mediaconnect.RouterInputConfiguration1Properties | outputs.mediaconnect.RouterInputConfiguration2Properties | outputs.mediaconnect.RouterInputConfiguration3Properties | outputs.mediaconnect.RouterInputConfiguration4Properties>;
     /**
      * The timestamp when the router input was created.
      */
@@ -79,7 +79,7 @@ export class RouterInput extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The AWS Region for the router input. Defaults to the current region if not specified.
+     * The Amazon Web Services Region for the router input. Defaults to the current region if not specified.
      */
     declare public readonly regionName: pulumi.Output<string | undefined>;
     /**
@@ -189,7 +189,7 @@ export interface RouterInputArgs {
      * The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
      */
     availabilityZone?: pulumi.Input<string>;
-    configuration: pulumi.Input<inputs.mediaconnect.RouterInputConfiguration0PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration1PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration2PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration3PropertiesArgs>;
+    configuration: pulumi.Input<inputs.mediaconnect.RouterInputConfiguration0PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration1PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration2PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration3PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration4PropertiesArgs>;
     /**
      * The maintenance configuration settings applied to this router input.
      */
@@ -203,7 +203,7 @@ export interface RouterInputArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS Region for the router input. Defaults to the current region if not specified.
+     * The Amazon Web Services Region for the router input. Defaults to the current region if not specified.
      */
     regionName?: pulumi.Input<string>;
     /**

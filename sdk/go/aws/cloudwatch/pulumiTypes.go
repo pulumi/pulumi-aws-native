@@ -122,6 +122,139 @@ func (o AlarmDimensionArrayOutput) Index(i pulumi.IntInput) AlarmDimensionOutput
 	}).(AlarmDimensionOutput)
 }
 
+type AlarmEvaluationCriteria struct {
+	PromQlCriteria *AlarmPromQlCriteria `pulumi:"promQlCriteria"`
+}
+
+// AlarmEvaluationCriteriaInput is an input type that accepts AlarmEvaluationCriteriaArgs and AlarmEvaluationCriteriaOutput values.
+// You can construct a concrete instance of `AlarmEvaluationCriteriaInput` via:
+//
+//	AlarmEvaluationCriteriaArgs{...}
+type AlarmEvaluationCriteriaInput interface {
+	pulumi.Input
+
+	ToAlarmEvaluationCriteriaOutput() AlarmEvaluationCriteriaOutput
+	ToAlarmEvaluationCriteriaOutputWithContext(context.Context) AlarmEvaluationCriteriaOutput
+}
+
+type AlarmEvaluationCriteriaArgs struct {
+	PromQlCriteria AlarmPromQlCriteriaPtrInput `pulumi:"promQlCriteria"`
+}
+
+func (AlarmEvaluationCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmEvaluationCriteria)(nil)).Elem()
+}
+
+func (i AlarmEvaluationCriteriaArgs) ToAlarmEvaluationCriteriaOutput() AlarmEvaluationCriteriaOutput {
+	return i.ToAlarmEvaluationCriteriaOutputWithContext(context.Background())
+}
+
+func (i AlarmEvaluationCriteriaArgs) ToAlarmEvaluationCriteriaOutputWithContext(ctx context.Context) AlarmEvaluationCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmEvaluationCriteriaOutput)
+}
+
+func (i AlarmEvaluationCriteriaArgs) ToAlarmEvaluationCriteriaPtrOutput() AlarmEvaluationCriteriaPtrOutput {
+	return i.ToAlarmEvaluationCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i AlarmEvaluationCriteriaArgs) ToAlarmEvaluationCriteriaPtrOutputWithContext(ctx context.Context) AlarmEvaluationCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmEvaluationCriteriaOutput).ToAlarmEvaluationCriteriaPtrOutputWithContext(ctx)
+}
+
+// AlarmEvaluationCriteriaPtrInput is an input type that accepts AlarmEvaluationCriteriaArgs, AlarmEvaluationCriteriaPtr and AlarmEvaluationCriteriaPtrOutput values.
+// You can construct a concrete instance of `AlarmEvaluationCriteriaPtrInput` via:
+//
+//	        AlarmEvaluationCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlarmEvaluationCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToAlarmEvaluationCriteriaPtrOutput() AlarmEvaluationCriteriaPtrOutput
+	ToAlarmEvaluationCriteriaPtrOutputWithContext(context.Context) AlarmEvaluationCriteriaPtrOutput
+}
+
+type alarmEvaluationCriteriaPtrType AlarmEvaluationCriteriaArgs
+
+func AlarmEvaluationCriteriaPtr(v *AlarmEvaluationCriteriaArgs) AlarmEvaluationCriteriaPtrInput {
+	return (*alarmEvaluationCriteriaPtrType)(v)
+}
+
+func (*alarmEvaluationCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmEvaluationCriteria)(nil)).Elem()
+}
+
+func (i *alarmEvaluationCriteriaPtrType) ToAlarmEvaluationCriteriaPtrOutput() AlarmEvaluationCriteriaPtrOutput {
+	return i.ToAlarmEvaluationCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *alarmEvaluationCriteriaPtrType) ToAlarmEvaluationCriteriaPtrOutputWithContext(ctx context.Context) AlarmEvaluationCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmEvaluationCriteriaPtrOutput)
+}
+
+type AlarmEvaluationCriteriaOutput struct{ *pulumi.OutputState }
+
+func (AlarmEvaluationCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmEvaluationCriteria)(nil)).Elem()
+}
+
+func (o AlarmEvaluationCriteriaOutput) ToAlarmEvaluationCriteriaOutput() AlarmEvaluationCriteriaOutput {
+	return o
+}
+
+func (o AlarmEvaluationCriteriaOutput) ToAlarmEvaluationCriteriaOutputWithContext(ctx context.Context) AlarmEvaluationCriteriaOutput {
+	return o
+}
+
+func (o AlarmEvaluationCriteriaOutput) ToAlarmEvaluationCriteriaPtrOutput() AlarmEvaluationCriteriaPtrOutput {
+	return o.ToAlarmEvaluationCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o AlarmEvaluationCriteriaOutput) ToAlarmEvaluationCriteriaPtrOutputWithContext(ctx context.Context) AlarmEvaluationCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmEvaluationCriteria) *AlarmEvaluationCriteria {
+		return &v
+	}).(AlarmEvaluationCriteriaPtrOutput)
+}
+
+func (o AlarmEvaluationCriteriaOutput) PromQlCriteria() AlarmPromQlCriteriaPtrOutput {
+	return o.ApplyT(func(v AlarmEvaluationCriteria) *AlarmPromQlCriteria { return v.PromQlCriteria }).(AlarmPromQlCriteriaPtrOutput)
+}
+
+type AlarmEvaluationCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (AlarmEvaluationCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmEvaluationCriteria)(nil)).Elem()
+}
+
+func (o AlarmEvaluationCriteriaPtrOutput) ToAlarmEvaluationCriteriaPtrOutput() AlarmEvaluationCriteriaPtrOutput {
+	return o
+}
+
+func (o AlarmEvaluationCriteriaPtrOutput) ToAlarmEvaluationCriteriaPtrOutputWithContext(ctx context.Context) AlarmEvaluationCriteriaPtrOutput {
+	return o
+}
+
+func (o AlarmEvaluationCriteriaPtrOutput) Elem() AlarmEvaluationCriteriaOutput {
+	return o.ApplyT(func(v *AlarmEvaluationCriteria) AlarmEvaluationCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret AlarmEvaluationCriteria
+		return ret
+	}).(AlarmEvaluationCriteriaOutput)
+}
+
+func (o AlarmEvaluationCriteriaPtrOutput) PromQlCriteria() AlarmPromQlCriteriaPtrOutput {
+	return o.ApplyT(func(v *AlarmEvaluationCriteria) *AlarmPromQlCriteria {
+		if v == nil {
+			return nil
+		}
+		return v.PromQlCriteria
+	}).(AlarmPromQlCriteriaPtrOutput)
+}
+
 // The “Metric“ property type represents a specific metric. “Metric“ is a property of the [MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html) property type.
 type AlarmMetric struct {
 	// The metric dimensions that you want to be used for the metric that the alarm will watch.
@@ -710,6 +843,181 @@ type AlarmMuteRuleTag struct {
 	Value string `pulumi:"value"`
 }
 
+type AlarmPromQlCriteria struct {
+	// The pending period for the alarm.
+	PendingPeriod *int `pulumi:"pendingPeriod"`
+	// The PromQL query string.
+	Query *string `pulumi:"query"`
+	// The recovery period for the alarm.
+	RecoveryPeriod *int `pulumi:"recoveryPeriod"`
+}
+
+// AlarmPromQlCriteriaInput is an input type that accepts AlarmPromQlCriteriaArgs and AlarmPromQlCriteriaOutput values.
+// You can construct a concrete instance of `AlarmPromQlCriteriaInput` via:
+//
+//	AlarmPromQlCriteriaArgs{...}
+type AlarmPromQlCriteriaInput interface {
+	pulumi.Input
+
+	ToAlarmPromQlCriteriaOutput() AlarmPromQlCriteriaOutput
+	ToAlarmPromQlCriteriaOutputWithContext(context.Context) AlarmPromQlCriteriaOutput
+}
+
+type AlarmPromQlCriteriaArgs struct {
+	// The pending period for the alarm.
+	PendingPeriod pulumi.IntPtrInput `pulumi:"pendingPeriod"`
+	// The PromQL query string.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+	// The recovery period for the alarm.
+	RecoveryPeriod pulumi.IntPtrInput `pulumi:"recoveryPeriod"`
+}
+
+func (AlarmPromQlCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmPromQlCriteria)(nil)).Elem()
+}
+
+func (i AlarmPromQlCriteriaArgs) ToAlarmPromQlCriteriaOutput() AlarmPromQlCriteriaOutput {
+	return i.ToAlarmPromQlCriteriaOutputWithContext(context.Background())
+}
+
+func (i AlarmPromQlCriteriaArgs) ToAlarmPromQlCriteriaOutputWithContext(ctx context.Context) AlarmPromQlCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmPromQlCriteriaOutput)
+}
+
+func (i AlarmPromQlCriteriaArgs) ToAlarmPromQlCriteriaPtrOutput() AlarmPromQlCriteriaPtrOutput {
+	return i.ToAlarmPromQlCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i AlarmPromQlCriteriaArgs) ToAlarmPromQlCriteriaPtrOutputWithContext(ctx context.Context) AlarmPromQlCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmPromQlCriteriaOutput).ToAlarmPromQlCriteriaPtrOutputWithContext(ctx)
+}
+
+// AlarmPromQlCriteriaPtrInput is an input type that accepts AlarmPromQlCriteriaArgs, AlarmPromQlCriteriaPtr and AlarmPromQlCriteriaPtrOutput values.
+// You can construct a concrete instance of `AlarmPromQlCriteriaPtrInput` via:
+//
+//	        AlarmPromQlCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlarmPromQlCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToAlarmPromQlCriteriaPtrOutput() AlarmPromQlCriteriaPtrOutput
+	ToAlarmPromQlCriteriaPtrOutputWithContext(context.Context) AlarmPromQlCriteriaPtrOutput
+}
+
+type alarmPromQlCriteriaPtrType AlarmPromQlCriteriaArgs
+
+func AlarmPromQlCriteriaPtr(v *AlarmPromQlCriteriaArgs) AlarmPromQlCriteriaPtrInput {
+	return (*alarmPromQlCriteriaPtrType)(v)
+}
+
+func (*alarmPromQlCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmPromQlCriteria)(nil)).Elem()
+}
+
+func (i *alarmPromQlCriteriaPtrType) ToAlarmPromQlCriteriaPtrOutput() AlarmPromQlCriteriaPtrOutput {
+	return i.ToAlarmPromQlCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *alarmPromQlCriteriaPtrType) ToAlarmPromQlCriteriaPtrOutputWithContext(ctx context.Context) AlarmPromQlCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmPromQlCriteriaPtrOutput)
+}
+
+type AlarmPromQlCriteriaOutput struct{ *pulumi.OutputState }
+
+func (AlarmPromQlCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmPromQlCriteria)(nil)).Elem()
+}
+
+func (o AlarmPromQlCriteriaOutput) ToAlarmPromQlCriteriaOutput() AlarmPromQlCriteriaOutput {
+	return o
+}
+
+func (o AlarmPromQlCriteriaOutput) ToAlarmPromQlCriteriaOutputWithContext(ctx context.Context) AlarmPromQlCriteriaOutput {
+	return o
+}
+
+func (o AlarmPromQlCriteriaOutput) ToAlarmPromQlCriteriaPtrOutput() AlarmPromQlCriteriaPtrOutput {
+	return o.ToAlarmPromQlCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o AlarmPromQlCriteriaOutput) ToAlarmPromQlCriteriaPtrOutputWithContext(ctx context.Context) AlarmPromQlCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmPromQlCriteria) *AlarmPromQlCriteria {
+		return &v
+	}).(AlarmPromQlCriteriaPtrOutput)
+}
+
+// The pending period for the alarm.
+func (o AlarmPromQlCriteriaOutput) PendingPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlarmPromQlCriteria) *int { return v.PendingPeriod }).(pulumi.IntPtrOutput)
+}
+
+// The PromQL query string.
+func (o AlarmPromQlCriteriaOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlarmPromQlCriteria) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+// The recovery period for the alarm.
+func (o AlarmPromQlCriteriaOutput) RecoveryPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlarmPromQlCriteria) *int { return v.RecoveryPeriod }).(pulumi.IntPtrOutput)
+}
+
+type AlarmPromQlCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (AlarmPromQlCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmPromQlCriteria)(nil)).Elem()
+}
+
+func (o AlarmPromQlCriteriaPtrOutput) ToAlarmPromQlCriteriaPtrOutput() AlarmPromQlCriteriaPtrOutput {
+	return o
+}
+
+func (o AlarmPromQlCriteriaPtrOutput) ToAlarmPromQlCriteriaPtrOutputWithContext(ctx context.Context) AlarmPromQlCriteriaPtrOutput {
+	return o
+}
+
+func (o AlarmPromQlCriteriaPtrOutput) Elem() AlarmPromQlCriteriaOutput {
+	return o.ApplyT(func(v *AlarmPromQlCriteria) AlarmPromQlCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret AlarmPromQlCriteria
+		return ret
+	}).(AlarmPromQlCriteriaOutput)
+}
+
+// The pending period for the alarm.
+func (o AlarmPromQlCriteriaPtrOutput) PendingPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlarmPromQlCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PendingPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
+// The PromQL query string.
+func (o AlarmPromQlCriteriaPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmPromQlCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+// The recovery period for the alarm.
+func (o AlarmPromQlCriteriaPtrOutput) RecoveryPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlarmPromQlCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
 // One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
 type AlarmTag struct {
 	// A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
@@ -720,6 +1028,14 @@ type AlarmTag struct {
 
 // Metadata that you can assign to a composite alarm, Tags can help you organize and categorize your resources.
 type CompositeAlarmTag struct {
+	// A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
+	Key string `pulumi:"key"`
+	// The value for the specified tag key.
+	Value string `pulumi:"value"`
+}
+
+// Metadata that you can assign to a cloudwatch dashboard. Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.
+type DashboardTag struct {
 	// A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
 	Key string `pulumi:"key"`
 	// The value for the specified tag key.
@@ -1420,12 +1736,16 @@ func (o RulePropertiesSchedulePropertiesPtrOutput) Timezone() pulumi.StringPtrOu
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmDimensionInput)(nil)).Elem(), AlarmDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmDimensionArrayInput)(nil)).Elem(), AlarmDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmEvaluationCriteriaInput)(nil)).Elem(), AlarmEvaluationCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmEvaluationCriteriaPtrInput)(nil)).Elem(), AlarmEvaluationCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMetricInput)(nil)).Elem(), AlarmMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMetricPtrInput)(nil)).Elem(), AlarmMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMetricDataQueryInput)(nil)).Elem(), AlarmMetricDataQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMetricDataQueryArrayInput)(nil)).Elem(), AlarmMetricDataQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMetricStatInput)(nil)).Elem(), AlarmMetricStatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMetricStatPtrInput)(nil)).Elem(), AlarmMetricStatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmPromQlCriteriaInput)(nil)).Elem(), AlarmPromQlCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmPromQlCriteriaPtrInput)(nil)).Elem(), AlarmPromQlCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamFilterInput)(nil)).Elem(), MetricStreamFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamFilterArrayInput)(nil)).Elem(), MetricStreamFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationInput)(nil)).Elem(), MetricStreamStatisticsConfigurationArgs{})
@@ -1438,12 +1758,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePropertiesSchedulePropertiesInput)(nil)).Elem(), RulePropertiesSchedulePropertiesArgs{})
 	pulumi.RegisterOutputType(AlarmDimensionOutput{})
 	pulumi.RegisterOutputType(AlarmDimensionArrayOutput{})
+	pulumi.RegisterOutputType(AlarmEvaluationCriteriaOutput{})
+	pulumi.RegisterOutputType(AlarmEvaluationCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(AlarmMetricOutput{})
 	pulumi.RegisterOutputType(AlarmMetricPtrOutput{})
 	pulumi.RegisterOutputType(AlarmMetricDataQueryOutput{})
 	pulumi.RegisterOutputType(AlarmMetricDataQueryArrayOutput{})
 	pulumi.RegisterOutputType(AlarmMetricStatOutput{})
 	pulumi.RegisterOutputType(AlarmMetricStatPtrOutput{})
+	pulumi.RegisterOutputType(AlarmPromQlCriteriaOutput{})
+	pulumi.RegisterOutputType(AlarmPromQlCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(MetricStreamFilterOutput{})
 	pulumi.RegisterOutputType(MetricStreamFilterArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationOutput{})

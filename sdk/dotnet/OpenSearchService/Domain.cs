@@ -49,6 +49,9 @@ namespace Pulumi.AwsNative.OpenSearchService
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("automatedSnapshotPauseOptions")]
+        public Output<Outputs.DomainAutomatedSnapshotPauseOptions?> AutomatedSnapshotPauseOptions { get; private set; } = null!;
+
         /// <summary>
         /// The resource ID. For example, `123456789012/my-domain` .
         /// </summary>
@@ -273,6 +276,9 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// </summary>
         [Input("aimlOptions")]
         public Input<Inputs.DomainAimlOptionsArgs>? AimlOptions { get; set; }
+
+        [Input("automatedSnapshotPauseOptions")]
+        public Input<Inputs.DomainAutomatedSnapshotPauseOptionsArgs>? AutomatedSnapshotPauseOptions { get; set; }
 
         /// <summary>
         /// Container for the cluster configuration of a domain.

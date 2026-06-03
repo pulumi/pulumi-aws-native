@@ -21,11 +21,13 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly Outputs.ServiceDeploymentAlarms? Alarms;
         /// <summary>
-        /// The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
+        /// The duration waiting before terminating the previous service revision and marking a deployment complete.
         ///  The following rules apply when you don't specify a value:
-        ///   +  For rolling deployments, the value is set to 3 hours (180 minutes).
-        ///   +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
-        ///   +  For all other cases, the value is set to 36 hours (2160 minutes).
+        ///   +  For blue/green, linear, and canary deployments, the value is set to 15 minutes.
+        ///   +  For rolling deployments, there is no bake time set by default.
+        ///   +  The external deployment controller (``EXTERNAL``) and the ACD blue/green deployment controller (``CODE_DEPLOY``) do not support the ``BakeTimeInMinutes`` parameter.
+        ///   
+        ///   If you provide a bake time for a rolling deployment, the CloudFormation handler timeout is increased to the maximum of 36 hours, matching the timeout for blue/green, linear, and canary deployments.
         /// </summary>
         public readonly int? BakeTimeInMinutes;
         /// <summary>
@@ -38,7 +40,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly Outputs.ServiceDeploymentCircuitBreaker? DeploymentCircuitBreaker;
         /// <summary>
-        /// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
+        /// An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceDeploymentLifecycleHook> LifecycleHooks;
         /// <summary>

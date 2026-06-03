@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -117,6 +118,8 @@ type IntegrationAssociation struct {
 	//
 	// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
 	IntegrationType IntegrationAssociationIntegrationTypeOutput `pulumi:"integrationType"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewIntegrationAssociation registers a new resource with the given unique name, arguments, and options.
@@ -190,6 +193,8 @@ type integrationAssociationArgs struct {
 	//
 	// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
 	IntegrationType IntegrationAssociationIntegrationType `pulumi:"integrationType"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IntegrationAssociation resource.
@@ -210,6 +215,8 @@ type IntegrationAssociationArgs struct {
 	//
 	// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
 	IntegrationType IntegrationAssociationIntegrationTypeInput
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.TagArrayInput
 }
 
 func (IntegrationAssociationArgs) ElementType() reflect.Type {
@@ -277,6 +284,11 @@ func (o IntegrationAssociationOutput) IntegrationAssociationId() pulumi.StringOu
 // *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
 func (o IntegrationAssociationOutput) IntegrationType() IntegrationAssociationIntegrationTypeOutput {
 	return o.ApplyT(func(v *IntegrationAssociation) IntegrationAssociationIntegrationTypeOutput { return v.IntegrationType }).(IntegrationAssociationIntegrationTypeOutput)
+}
+
+// The tags used to organize, track, or control access for this resource.
+func (o IntegrationAssociationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *IntegrationAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

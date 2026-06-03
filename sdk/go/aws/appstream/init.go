@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ImageBuilder{}
 	case "aws-native:appstream:Stack":
 		r = &Stack{}
+	case "aws-native:appstream:StackUserAssociation":
+		r = &StackUserAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

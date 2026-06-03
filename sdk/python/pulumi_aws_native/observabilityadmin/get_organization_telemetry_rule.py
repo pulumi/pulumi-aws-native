@@ -26,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetOrganizationTelemetryRuleResult:
-    def __init__(__self__, rule=None, rule_arn=None, tags=None):
+    def __init__(__self__, region_statuses=None, rule=None, rule_arn=None, tags=None):
+        if region_statuses and not isinstance(region_statuses, list):
+            raise TypeError("Expected argument 'region_statuses' to be a list")
+        pulumi.set(__self__, "region_statuses", region_statuses)
         if rule and not isinstance(rule, dict):
             raise TypeError("Expected argument 'rule' to be a dict")
         pulumi.set(__self__, "rule", rule)
@@ -36,6 +39,14 @@ class GetOrganizationTelemetryRuleResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="regionStatuses")
+    def region_statuses(self) -> Optional[Sequence['outputs.OrganizationTelemetryRuleRegionStatus']]:
+        """
+        Per-region replication status of the rule
+        """
+        return pulumi.get(self, "region_statuses")
 
     @_builtins.property
     @pulumi.getter
@@ -68,6 +79,7 @@ class AwaitableGetOrganizationTelemetryRuleResult(GetOrganizationTelemetryRuleRe
         if False:
             yield self
         return GetOrganizationTelemetryRuleResult(
+            region_statuses=self.region_statuses,
             rule=self.rule,
             rule_arn=self.rule_arn,
             tags=self.tags)
@@ -87,6 +99,7 @@ def get_organization_telemetry_rule(rule_arn: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:observabilityadmin:getOrganizationTelemetryRule', __args__, opts=opts, typ=GetOrganizationTelemetryRuleResult).value
 
     return AwaitableGetOrganizationTelemetryRuleResult(
+        region_statuses=pulumi.get(__ret__, 'region_statuses'),
         rule=pulumi.get(__ret__, 'rule'),
         rule_arn=pulumi.get(__ret__, 'rule_arn'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -103,6 +116,7 @@ def get_organization_telemetry_rule_output(rule_arn: Optional[pulumi.Input[_buil
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:observabilityadmin:getOrganizationTelemetryRule', __args__, opts=opts, typ=GetOrganizationTelemetryRuleResult)
     return __ret__.apply(lambda __response__: GetOrganizationTelemetryRuleResult(
+        region_statuses=pulumi.get(__response__, 'region_statuses'),
         rule=pulumi.get(__response__, 'rule'),
         rule_arn=pulumi.get(__response__, 'rule_arn'),
         tags=pulumi.get(__response__, 'tags')))

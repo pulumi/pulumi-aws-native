@@ -162,9 +162,153 @@ type ConnectionTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+type RemoteAccountProperties struct {
+	// The identifier of the remote account.
+	Identifier string `pulumi:"identifier"`
+}
+
+// RemoteAccountPropertiesInput is an input type that accepts RemoteAccountPropertiesArgs and RemoteAccountPropertiesOutput values.
+// You can construct a concrete instance of `RemoteAccountPropertiesInput` via:
+//
+//	RemoteAccountPropertiesArgs{...}
+type RemoteAccountPropertiesInput interface {
+	pulumi.Input
+
+	ToRemoteAccountPropertiesOutput() RemoteAccountPropertiesOutput
+	ToRemoteAccountPropertiesOutputWithContext(context.Context) RemoteAccountPropertiesOutput
+}
+
+// The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+type RemoteAccountPropertiesArgs struct {
+	// The identifier of the remote account.
+	Identifier pulumi.StringInput `pulumi:"identifier"`
+}
+
+func (RemoteAccountPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteAccountProperties)(nil)).Elem()
+}
+
+func (i RemoteAccountPropertiesArgs) ToRemoteAccountPropertiesOutput() RemoteAccountPropertiesOutput {
+	return i.ToRemoteAccountPropertiesOutputWithContext(context.Background())
+}
+
+func (i RemoteAccountPropertiesArgs) ToRemoteAccountPropertiesOutputWithContext(ctx context.Context) RemoteAccountPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteAccountPropertiesOutput)
+}
+
+func (i RemoteAccountPropertiesArgs) ToRemoteAccountPropertiesPtrOutput() RemoteAccountPropertiesPtrOutput {
+	return i.ToRemoteAccountPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RemoteAccountPropertiesArgs) ToRemoteAccountPropertiesPtrOutputWithContext(ctx context.Context) RemoteAccountPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteAccountPropertiesOutput).ToRemoteAccountPropertiesPtrOutputWithContext(ctx)
+}
+
+// RemoteAccountPropertiesPtrInput is an input type that accepts RemoteAccountPropertiesArgs, RemoteAccountPropertiesPtr and RemoteAccountPropertiesPtrOutput values.
+// You can construct a concrete instance of `RemoteAccountPropertiesPtrInput` via:
+//
+//	        RemoteAccountPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RemoteAccountPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRemoteAccountPropertiesPtrOutput() RemoteAccountPropertiesPtrOutput
+	ToRemoteAccountPropertiesPtrOutputWithContext(context.Context) RemoteAccountPropertiesPtrOutput
+}
+
+type remoteAccountPropertiesPtrType RemoteAccountPropertiesArgs
+
+func RemoteAccountPropertiesPtr(v *RemoteAccountPropertiesArgs) RemoteAccountPropertiesPtrInput {
+	return (*remoteAccountPropertiesPtrType)(v)
+}
+
+func (*remoteAccountPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteAccountProperties)(nil)).Elem()
+}
+
+func (i *remoteAccountPropertiesPtrType) ToRemoteAccountPropertiesPtrOutput() RemoteAccountPropertiesPtrOutput {
+	return i.ToRemoteAccountPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *remoteAccountPropertiesPtrType) ToRemoteAccountPropertiesPtrOutputWithContext(ctx context.Context) RemoteAccountPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteAccountPropertiesPtrOutput)
+}
+
+// The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+type RemoteAccountPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RemoteAccountPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteAccountProperties)(nil)).Elem()
+}
+
+func (o RemoteAccountPropertiesOutput) ToRemoteAccountPropertiesOutput() RemoteAccountPropertiesOutput {
+	return o
+}
+
+func (o RemoteAccountPropertiesOutput) ToRemoteAccountPropertiesOutputWithContext(ctx context.Context) RemoteAccountPropertiesOutput {
+	return o
+}
+
+func (o RemoteAccountPropertiesOutput) ToRemoteAccountPropertiesPtrOutput() RemoteAccountPropertiesPtrOutput {
+	return o.ToRemoteAccountPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RemoteAccountPropertiesOutput) ToRemoteAccountPropertiesPtrOutputWithContext(ctx context.Context) RemoteAccountPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteAccountProperties) *RemoteAccountProperties {
+		return &v
+	}).(RemoteAccountPropertiesPtrOutput)
+}
+
+// The identifier of the remote account.
+func (o RemoteAccountPropertiesOutput) Identifier() pulumi.StringOutput {
+	return o.ApplyT(func(v RemoteAccountProperties) string { return v.Identifier }).(pulumi.StringOutput)
+}
+
+type RemoteAccountPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RemoteAccountPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteAccountProperties)(nil)).Elem()
+}
+
+func (o RemoteAccountPropertiesPtrOutput) ToRemoteAccountPropertiesPtrOutput() RemoteAccountPropertiesPtrOutput {
+	return o
+}
+
+func (o RemoteAccountPropertiesPtrOutput) ToRemoteAccountPropertiesPtrOutputWithContext(ctx context.Context) RemoteAccountPropertiesPtrOutput {
+	return o
+}
+
+func (o RemoteAccountPropertiesPtrOutput) Elem() RemoteAccountPropertiesOutput {
+	return o.ApplyT(func(v *RemoteAccountProperties) RemoteAccountProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RemoteAccountProperties
+		return ret
+	}).(RemoteAccountPropertiesOutput)
+}
+
+// The identifier of the remote account.
+func (o RemoteAccountPropertiesPtrOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemoteAccountProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Identifier
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAttachPointInput)(nil)).Elem(), ConnectionAttachPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteAccountPropertiesInput)(nil)).Elem(), RemoteAccountPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteAccountPropertiesPtrInput)(nil)).Elem(), RemoteAccountPropertiesArgs{})
 	pulumi.RegisterOutputType(ConnectionAttachPointOutput{})
 	pulumi.RegisterOutputType(ConnectionProviderOutput{})
 	pulumi.RegisterOutputType(ConnectionProviderPtrOutput{})
+	pulumi.RegisterOutputType(RemoteAccountPropertiesOutput{})
+	pulumi.RegisterOutputType(RemoteAccountPropertiesPtrOutput{})
 }

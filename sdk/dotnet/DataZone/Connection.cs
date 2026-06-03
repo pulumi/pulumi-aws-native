@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataZone
         public Output<Outputs.ConnectionAwsLocation?> AwsLocation { get; private set; } = null!;
 
         /// <summary>
+        /// The configurations of the connection.
+        /// </summary>
+        [Output("configurations")]
+        public Output<ImmutableArray<Outputs.ConnectionConfiguration>> Configurations { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the connection.
         /// </summary>
         [Output("connectionId")]
@@ -170,6 +176,18 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         [Input("awsLocation")]
         public Input<Inputs.ConnectionAwsLocationArgs>? AwsLocation { get; set; }
+
+        [Input("configurations")]
+        private InputList<Inputs.ConnectionConfigurationArgs>? _configurations;
+
+        /// <summary>
+        /// The configurations of the connection.
+        /// </summary>
+        public InputList<Inputs.ConnectionConfigurationArgs> Configurations
+        {
+            get => _configurations ?? (_configurations = new InputList<Inputs.ConnectionConfigurationArgs>());
+            set => _configurations = value;
+        }
 
         /// <summary>
         /// The description of the connection.

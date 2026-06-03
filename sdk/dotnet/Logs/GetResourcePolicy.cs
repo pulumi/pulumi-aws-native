@@ -65,11 +65,13 @@ namespace Pulumi.AwsNative.Logs
     {
         /// <summary>
         /// The policy document
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
         /// </summary>
-        public readonly string? PolicyDocument;
+        public readonly object? PolicyDocument;
 
         [OutputConstructor]
-        private GetResourcePolicyResult(string? policyDocument)
+        private GetResourcePolicyResult(object? policyDocument)
         {
             PolicyDocument = policyDocument;
         }

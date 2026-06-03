@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Deadline
     public static class GetQueue
     {
         /// <summary>
-        /// Definition of AWS::Deadline::Queue Resource Type
+        /// Resource Type definition for AWS::Deadline::Queue
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("aws-native:deadline:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::Deadline::Queue Resource Type
+        /// Resource Type definition for AWS::Deadline::Queue
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("aws-native:deadline:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::Deadline::Queue Resource Type
+        /// Resource Type definition for AWS::Deadline::Queue
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("aws-native:deadline:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
@@ -107,6 +107,7 @@ namespace Pulumi.AwsNative.Deadline
         /// The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
         /// </summary>
         public readonly string? RoleArn;
+        public readonly Outputs.QueueSchedulingConfiguration? SchedulingConfiguration;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -134,6 +135,8 @@ namespace Pulumi.AwsNative.Deadline
 
             string? roleArn,
 
+            Outputs.QueueSchedulingConfiguration? schedulingConfiguration,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AllowedStorageProfileIds = allowedStorageProfileIds;
@@ -146,6 +149,7 @@ namespace Pulumi.AwsNative.Deadline
             QueueId = queueId;
             RequiredFileSystemLocationNames = requiredFileSystemLocationNames;
             RoleArn = roleArn;
+            SchedulingConfiguration = schedulingConfiguration;
             Tags = tags;
         }
     }

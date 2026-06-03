@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -43,6 +46,10 @@ export interface GetFlowVpcInterfaceResult {
      * Subnet must be in the AZ of the Flow
      */
     readonly subnetId?: string;
+    /**
+     * Key-value pairs that can be used to tag and organize this VPC network interface.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::MediaConnect::FlowVpcInterface

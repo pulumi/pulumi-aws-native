@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.S3Express
         public Output<Pulumi.AwsNative.S3Express.DirectoryBucketDataRedundancy> DataRedundancy { get; private set; } = null!;
 
         /// <summary>
+        /// The inventory configuration for an Amazon S3 Express bucket.
+        /// </summary>
+        [Output("inventoryConfigurations")]
+        public Output<ImmutableArray<Outputs.DirectoryBucketInventoryConfiguration>> InventoryConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
         /// </summary>
         [Output("lifecycleConfiguration")]
@@ -56,6 +62,12 @@ namespace Pulumi.AwsNative.S3Express
         /// </summary>
         [Output("locationName")]
         public Output<string> LocationName { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the metrics configurations for the Amazon S3 Express bucket.
+        /// </summary>
+        [Output("metricsConfigurations")]
+        public Output<ImmutableArray<Outputs.DirectoryBucketMetricsConfiguration>> MetricsConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
@@ -132,6 +144,18 @@ namespace Pulumi.AwsNative.S3Express
         [Input("dataRedundancy", required: true)]
         public Input<Pulumi.AwsNative.S3Express.DirectoryBucketDataRedundancy> DataRedundancy { get; set; } = null!;
 
+        [Input("inventoryConfigurations")]
+        private InputList<Inputs.DirectoryBucketInventoryConfigurationArgs>? _inventoryConfigurations;
+
+        /// <summary>
+        /// The inventory configuration for an Amazon S3 Express bucket.
+        /// </summary>
+        public InputList<Inputs.DirectoryBucketInventoryConfigurationArgs> InventoryConfigurations
+        {
+            get => _inventoryConfigurations ?? (_inventoryConfigurations = new InputList<Inputs.DirectoryBucketInventoryConfigurationArgs>());
+            set => _inventoryConfigurations = value;
+        }
+
         /// <summary>
         /// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
         /// </summary>
@@ -143,6 +167,18 @@ namespace Pulumi.AwsNative.S3Express
         /// </summary>
         [Input("locationName", required: true)]
         public Input<string> LocationName { get; set; } = null!;
+
+        [Input("metricsConfigurations")]
+        private InputList<Inputs.DirectoryBucketMetricsConfigurationArgs>? _metricsConfigurations;
+
+        /// <summary>
+        /// Specifies the metrics configurations for the Amazon S3 Express bucket.
+        /// </summary>
+        public InputList<Inputs.DirectoryBucketMetricsConfigurationArgs> MetricsConfigurations
+        {
+            get => _metricsConfigurations ?? (_metricsConfigurations = new InputList<Inputs.DirectoryBucketMetricsConfigurationArgs>());
+            set => _metricsConfigurations = value;
+        }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

@@ -259,6 +259,13 @@
       "description" : "The timestamp when the evaluator was last updated.",
       "format" : "date-time"
     },
+    "KmsKeyArn" : {
+      "type" : "string",
+      "description" : "The ARN of the KMS key used to encrypt evaluator data.",
+      "minLength" : 1,
+      "maxLength" : 2048,
+      "pattern" : "^arn:aws(|-cn|-us-gov):kms:[a-zA-Z0-9-]+:[0-9]{12}:key/[a-zA-Z0-9-]{36}$"
+    },
     "Tags" : {
       "type" : "array",
       "description" : "A list of tags to assign to the evaluator.",
@@ -285,13 +292,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "bedrock-agentcore:CreateEvaluator", "bedrock-agentcore:GetEvaluator", "bedrock-agentcore:TagResource", "bedrock:InvokeModel", "lambda:GetFunction", "lambda:InvokeFunction" ]
+      "permissions" : [ "bedrock-agentcore:CreateEvaluator", "bedrock-agentcore:GetEvaluator", "bedrock-agentcore:TagResource", "bedrock:InvokeModel", "lambda:GetFunction", "lambda:InvokeFunction", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "read" : {
-      "permissions" : [ "bedrock-agentcore:GetEvaluator", "bedrock-agentcore:ListTagsForResource" ]
+      "permissions" : [ "bedrock-agentcore:GetEvaluator", "bedrock-agentcore:ListTagsForResource", "kms:Decrypt" ]
     },
     "update" : {
-      "permissions" : [ "bedrock-agentcore:UpdateEvaluator", "bedrock-agentcore:GetEvaluator", "bedrock-agentcore:TagResource", "bedrock-agentcore:UntagResource", "bedrock-agentcore:ListTagsForResource", "bedrock:InvokeModel", "lambda:GetFunction", "lambda:InvokeFunction" ]
+      "permissions" : [ "bedrock-agentcore:UpdateEvaluator", "bedrock-agentcore:GetEvaluator", "bedrock-agentcore:TagResource", "bedrock-agentcore:UntagResource", "bedrock-agentcore:ListTagsForResource", "bedrock:InvokeModel", "lambda:GetFunction", "lambda:InvokeFunction", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "delete" : {
       "permissions" : [ "bedrock-agentcore:DeleteEvaluator", "bedrock-agentcore:GetEvaluator" ]

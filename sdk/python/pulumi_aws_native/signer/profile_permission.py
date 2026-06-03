@@ -114,7 +114,7 @@ class ProfilePermission(pulumi.CustomResource):
                  statement_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        An example resource schema demonstrating some basic constructs and validation rules.
+        Resource Type definition for AWS::Signer::ProfilePermission
 
 
         :param str resource_name: The name of the resource.
@@ -132,7 +132,7 @@ class ProfilePermission(pulumi.CustomResource):
                  args: ProfilePermissionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An example resource schema demonstrating some basic constructs and validation rules.
+        Resource Type definition for AWS::Signer::ProfilePermission
 
 
         :param str resource_name: The name of the resource.

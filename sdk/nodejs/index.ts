@@ -88,15 +88,18 @@ import * as arczonalshift from "./arczonalshift";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
 import * as autoscaling from "./autoscaling";
+import * as awsexternalanthropic from "./awsexternalanthropic";
 import * as b2bi from "./b2bi";
 import * as backup from "./backup";
 import * as backupgateway from "./backupgateway";
 import * as batch from "./batch";
 import * as bcmdataexports from "./bcmdataexports";
+import * as bcmpricingcalculator from "./bcmpricingcalculator";
 import * as bedrock from "./bedrock";
 import * as bedrockagentcore from "./bedrockagentcore";
 import * as bedrockmantle from "./bedrockmantle";
 import * as billing from "./billing";
+import * as braket from "./braket";
 import * as budgets from "./budgets";
 import * as cases from "./cases";
 import * as cassandra from "./cassandra";
@@ -261,6 +264,7 @@ import * as rekognition from "./rekognition";
 import * as resiliencehub from "./resiliencehub";
 import * as resourceexplorer2 from "./resourceexplorer2";
 import * as resourcegroups from "./resourcegroups";
+import * as robomaker from "./robomaker";
 import * as rolesanywhere from "./rolesanywhere";
 import * as route53 from "./route53";
 import * as route53globalresolver from "./route53globalresolver";
@@ -272,6 +276,7 @@ import * as rtbfabric from "./rtbfabric";
 import * as rum from "./rum";
 import * as s3 from "./s3";
 import * as s3express from "./s3express";
+import * as s3files from "./s3files";
 import * as s3objectlambda from "./s3objectlambda";
 import * as s3outposts from "./s3outposts";
 import * as s3tables from "./s3tables";
@@ -340,15 +345,18 @@ export {
     athena,
     auditmanager,
     autoscaling,
+    awsexternalanthropic,
     b2bi,
     backup,
     backupgateway,
     batch,
     bcmdataexports,
+    bcmpricingcalculator,
     bedrock,
     bedrockagentcore,
     bedrockmantle,
     billing,
+    braket,
     budgets,
     cases,
     cassandra,
@@ -513,6 +521,7 @@ export {
     resiliencehub,
     resourceexplorer2,
     resourcegroups,
+    robomaker,
     rolesanywhere,
     route53,
     route53globalresolver,
@@ -524,6 +533,7 @@ export {
     rum,
     s3,
     s3express,
+    s3files,
     s3objectlambda,
     s3outposts,
     s3tables,

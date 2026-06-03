@@ -44,6 +44,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
             set => _blockDeviceMappings = value;
         }
 
+        [Input("iamInstanceProfile")]
+        public Input<Inputs.Ec2FleetIamInstanceProfileSpecificationArgs>? IamInstanceProfile { get; set; }
+
         /// <summary>
         /// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
         /// 
@@ -62,6 +65,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
+        [Input("keyName")]
+        public Input<string>? KeyName { get; set; }
+
         /// <summary>
         /// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
         /// 
@@ -71,6 +77,17 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         /// </summary>
         [Input("maxPrice")]
         public Input<string>? MaxPrice { get; set; }
+
+        [Input("metadataOptions")]
+        public Input<Inputs.Ec2FleetInstanceMetadataOptionsRequestArgs>? MetadataOptions { get; set; }
+
+        [Input("networkInterfaces")]
+        private InputList<Inputs.Ec2FleetNetworkInterfaceSpecificationRequestArgs>? _networkInterfaces;
+        public InputList<Inputs.Ec2FleetNetworkInterfaceSpecificationRequestArgs> NetworkInterfaces
+        {
+            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.Ec2FleetNetworkInterfaceSpecificationRequestArgs>());
+            set => _networkInterfaces = value;
+        }
 
         /// <summary>
         /// The location where the instance launched, if applicable.

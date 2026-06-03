@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::Fleet Resource Type
+// Resource Type definition for AWS::Deadline::Fleet
 func LookupFleet(ctx *pulumi.Context, args *LookupFleetArgs, opts ...pulumi.InvokeOption) (*LookupFleetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFleetResult

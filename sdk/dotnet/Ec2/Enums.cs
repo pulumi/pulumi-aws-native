@@ -272,6 +272,62 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     [EnumType]
+    public readonly struct Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint : IEquatable<Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint>
+    {
+        private readonly string _value;
+
+        private Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint Disabled { get; } = new Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint("disabled");
+        public static Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint Enabled { get; } = new Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint("enabled");
+
+        public static bool operator ==(Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint left, Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint right) => left.Equals(right);
+        public static bool operator !=(Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint left, Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint right) => !left.Equals(right);
+
+        public static explicit operator string(Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint other && Equals(other);
+        public bool Equals(Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct Ec2FleetInstanceMetadataOptionsRequestHttpTokens : IEquatable<Ec2FleetInstanceMetadataOptionsRequestHttpTokens>
+    {
+        private readonly string _value;
+
+        private Ec2FleetInstanceMetadataOptionsRequestHttpTokens(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Ec2FleetInstanceMetadataOptionsRequestHttpTokens Optional { get; } = new Ec2FleetInstanceMetadataOptionsRequestHttpTokens("optional");
+        public static Ec2FleetInstanceMetadataOptionsRequestHttpTokens Required { get; } = new Ec2FleetInstanceMetadataOptionsRequestHttpTokens("required");
+
+        public static bool operator ==(Ec2FleetInstanceMetadataOptionsRequestHttpTokens left, Ec2FleetInstanceMetadataOptionsRequestHttpTokens right) => left.Equals(right);
+        public static bool operator !=(Ec2FleetInstanceMetadataOptionsRequestHttpTokens left, Ec2FleetInstanceMetadataOptionsRequestHttpTokens right) => !left.Equals(right);
+
+        public static explicit operator string(Ec2FleetInstanceMetadataOptionsRequestHttpTokens value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Ec2FleetInstanceMetadataOptionsRequestHttpTokens other && Equals(other);
+        public bool Equals(Ec2FleetInstanceMetadataOptionsRequestHttpTokens other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem : IEquatable<Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem>
     {
         private readonly string _value;
@@ -771,6 +827,7 @@ namespace Pulumi.AwsNative.Ec2
 
         public static Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType OnDemand { get; } = new Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("on-demand");
         public static Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType Spot { get; } = new Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("spot");
+        public static Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType CapacityBlock { get; } = new Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("capacity-block");
         public static Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType ReservedCapacity { get; } = new Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("reserved-capacity");
 
         public static bool operator ==(Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType left, Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType right) => left.Equals(right);
@@ -1744,6 +1801,37 @@ namespace Pulumi.AwsNative.Ec2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LaunchTemplateCpuOptionsAmdSevSnp other && Equals(other);
         public bool Equals(LaunchTemplateCpuOptionsAmdSevSnp other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the instance is enabled for nested virtualization.
+    /// </summary>
+    [EnumType]
+    public readonly struct LaunchTemplateCpuOptionsNestedVirtualization : IEquatable<LaunchTemplateCpuOptionsNestedVirtualization>
+    {
+        private readonly string _value;
+
+        private LaunchTemplateCpuOptionsNestedVirtualization(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LaunchTemplateCpuOptionsNestedVirtualization Enabled { get; } = new LaunchTemplateCpuOptionsNestedVirtualization("enabled");
+        public static LaunchTemplateCpuOptionsNestedVirtualization Disabled { get; } = new LaunchTemplateCpuOptionsNestedVirtualization("disabled");
+
+        public static bool operator ==(LaunchTemplateCpuOptionsNestedVirtualization left, LaunchTemplateCpuOptionsNestedVirtualization right) => left.Equals(right);
+        public static bool operator !=(LaunchTemplateCpuOptionsNestedVirtualization left, LaunchTemplateCpuOptionsNestedVirtualization right) => !left.Equals(right);
+
+        public static explicit operator string(LaunchTemplateCpuOptionsNestedVirtualization value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LaunchTemplateCpuOptionsNestedVirtualization other && Equals(other);
+        public bool Equals(LaunchTemplateCpuOptionsNestedVirtualization other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

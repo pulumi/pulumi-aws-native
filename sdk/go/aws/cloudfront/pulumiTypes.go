@@ -2764,6 +2764,146 @@ func (o DistributionCacheBehaviorArrayOutput) Index(i pulumi.IntInput) Distribut
 	}).(DistributionCacheBehaviorOutput)
 }
 
+// A complex type that specifies the HTTP header name from which CloudFront extracts cache tags from origin responses. When you add “CacheTagConfig“ to a distribution, CloudFront reads the specified header from origin responses, parses the comma-separated tag values, and stores them with the cached object. You can then invalidate cached objects by tag using the “CreateInvalidation“ API.
+type DistributionCacheTagConfig struct {
+	// The name of the HTTP header that your origin includes in responses. CloudFront uses this header to extract cache tags. The header value must contain comma-separated tag values (for example, ``product:electronics, category:tv, brand:example``).
+	HeaderName string `pulumi:"headerName"`
+}
+
+// DistributionCacheTagConfigInput is an input type that accepts DistributionCacheTagConfigArgs and DistributionCacheTagConfigOutput values.
+// You can construct a concrete instance of `DistributionCacheTagConfigInput` via:
+//
+//	DistributionCacheTagConfigArgs{...}
+type DistributionCacheTagConfigInput interface {
+	pulumi.Input
+
+	ToDistributionCacheTagConfigOutput() DistributionCacheTagConfigOutput
+	ToDistributionCacheTagConfigOutputWithContext(context.Context) DistributionCacheTagConfigOutput
+}
+
+// A complex type that specifies the HTTP header name from which CloudFront extracts cache tags from origin responses. When you add “CacheTagConfig“ to a distribution, CloudFront reads the specified header from origin responses, parses the comma-separated tag values, and stores them with the cached object. You can then invalidate cached objects by tag using the “CreateInvalidation“ API.
+type DistributionCacheTagConfigArgs struct {
+	// The name of the HTTP header that your origin includes in responses. CloudFront uses this header to extract cache tags. The header value must contain comma-separated tag values (for example, ``product:electronics, category:tv, brand:example``).
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+}
+
+func (DistributionCacheTagConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCacheTagConfig)(nil)).Elem()
+}
+
+func (i DistributionCacheTagConfigArgs) ToDistributionCacheTagConfigOutput() DistributionCacheTagConfigOutput {
+	return i.ToDistributionCacheTagConfigOutputWithContext(context.Background())
+}
+
+func (i DistributionCacheTagConfigArgs) ToDistributionCacheTagConfigOutputWithContext(ctx context.Context) DistributionCacheTagConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheTagConfigOutput)
+}
+
+func (i DistributionCacheTagConfigArgs) ToDistributionCacheTagConfigPtrOutput() DistributionCacheTagConfigPtrOutput {
+	return i.ToDistributionCacheTagConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionCacheTagConfigArgs) ToDistributionCacheTagConfigPtrOutputWithContext(ctx context.Context) DistributionCacheTagConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheTagConfigOutput).ToDistributionCacheTagConfigPtrOutputWithContext(ctx)
+}
+
+// DistributionCacheTagConfigPtrInput is an input type that accepts DistributionCacheTagConfigArgs, DistributionCacheTagConfigPtr and DistributionCacheTagConfigPtrOutput values.
+// You can construct a concrete instance of `DistributionCacheTagConfigPtrInput` via:
+//
+//	        DistributionCacheTagConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionCacheTagConfigPtrInput interface {
+	pulumi.Input
+
+	ToDistributionCacheTagConfigPtrOutput() DistributionCacheTagConfigPtrOutput
+	ToDistributionCacheTagConfigPtrOutputWithContext(context.Context) DistributionCacheTagConfigPtrOutput
+}
+
+type distributionCacheTagConfigPtrType DistributionCacheTagConfigArgs
+
+func DistributionCacheTagConfigPtr(v *DistributionCacheTagConfigArgs) DistributionCacheTagConfigPtrInput {
+	return (*distributionCacheTagConfigPtrType)(v)
+}
+
+func (*distributionCacheTagConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionCacheTagConfig)(nil)).Elem()
+}
+
+func (i *distributionCacheTagConfigPtrType) ToDistributionCacheTagConfigPtrOutput() DistributionCacheTagConfigPtrOutput {
+	return i.ToDistributionCacheTagConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionCacheTagConfigPtrType) ToDistributionCacheTagConfigPtrOutputWithContext(ctx context.Context) DistributionCacheTagConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheTagConfigPtrOutput)
+}
+
+// A complex type that specifies the HTTP header name from which CloudFront extracts cache tags from origin responses. When you add “CacheTagConfig“ to a distribution, CloudFront reads the specified header from origin responses, parses the comma-separated tag values, and stores them with the cached object. You can then invalidate cached objects by tag using the “CreateInvalidation“ API.
+type DistributionCacheTagConfigOutput struct{ *pulumi.OutputState }
+
+func (DistributionCacheTagConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCacheTagConfig)(nil)).Elem()
+}
+
+func (o DistributionCacheTagConfigOutput) ToDistributionCacheTagConfigOutput() DistributionCacheTagConfigOutput {
+	return o
+}
+
+func (o DistributionCacheTagConfigOutput) ToDistributionCacheTagConfigOutputWithContext(ctx context.Context) DistributionCacheTagConfigOutput {
+	return o
+}
+
+func (o DistributionCacheTagConfigOutput) ToDistributionCacheTagConfigPtrOutput() DistributionCacheTagConfigPtrOutput {
+	return o.ToDistributionCacheTagConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionCacheTagConfigOutput) ToDistributionCacheTagConfigPtrOutputWithContext(ctx context.Context) DistributionCacheTagConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionCacheTagConfig) *DistributionCacheTagConfig {
+		return &v
+	}).(DistributionCacheTagConfigPtrOutput)
+}
+
+// The name of the HTTP header that your origin includes in responses. CloudFront uses this header to extract cache tags. The header value must contain comma-separated tag values (for example, “product:electronics, category:tv, brand:example“).
+func (o DistributionCacheTagConfigOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionCacheTagConfig) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+type DistributionCacheTagConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionCacheTagConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionCacheTagConfig)(nil)).Elem()
+}
+
+func (o DistributionCacheTagConfigPtrOutput) ToDistributionCacheTagConfigPtrOutput() DistributionCacheTagConfigPtrOutput {
+	return o
+}
+
+func (o DistributionCacheTagConfigPtrOutput) ToDistributionCacheTagConfigPtrOutputWithContext(ctx context.Context) DistributionCacheTagConfigPtrOutput {
+	return o
+}
+
+func (o DistributionCacheTagConfigPtrOutput) Elem() DistributionCacheTagConfigOutput {
+	return o.ApplyT(func(v *DistributionCacheTagConfig) DistributionCacheTagConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionCacheTagConfig
+		return ret
+	}).(DistributionCacheTagConfigOutput)
+}
+
+// The name of the HTTP header that your origin includes in responses. CloudFront uses this header to extract cache tags. The header value must contain comma-separated tag values (for example, “product:electronics, category:tv, brand:example“).
+func (o DistributionCacheTagConfigPtrOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionCacheTagConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderName
+	}).(pulumi.StringPtrOutput)
+}
+
 // A distribution configuration.
 type DistributionConfig struct {
 	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
@@ -2774,6 +2914,10 @@ type DistributionConfig struct {
 	AnycastIpListId *string `pulumi:"anycastIpListId"`
 	// A complex type that contains zero or more ``CacheBehavior`` elements.
 	CacheBehaviors []DistributionCacheBehavior `pulumi:"cacheBehaviors"`
+	// Configuration for cache tag extraction from origin responses. When specified, CloudFront reads the header named in ``HeaderName`` from origin responses and stores the comma-separated values as cache tags on the object.
+	//  Distributions without ``CacheTagConfig`` do not extract tags. When ``CacheTagConfig`` is removed from a distribution via ``UpdateDistribution``, CloudFront stops extracting tags from origin responses.
+	//   Changing the ``HeaderName`` on an existing distribution does not retroactively affect previously cached objects. Tag-based invalidations will not apply to objects already cached using a previous header. To ensure tag invalidations function after updating the header name, use path-based invalidations to recache all objects that use cache tags.
+	CacheTagConfig *DistributionCacheTagConfig `pulumi:"cacheTagConfig"`
 	// An alias for the CF distribution's domain name.
 	//   This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
 	Cnames []string `pulumi:"cnames"`
@@ -2876,6 +3020,10 @@ type DistributionConfigArgs struct {
 	AnycastIpListId pulumi.StringPtrInput `pulumi:"anycastIpListId"`
 	// A complex type that contains zero or more ``CacheBehavior`` elements.
 	CacheBehaviors DistributionCacheBehaviorArrayInput `pulumi:"cacheBehaviors"`
+	// Configuration for cache tag extraction from origin responses. When specified, CloudFront reads the header named in ``HeaderName`` from origin responses and stores the comma-separated values as cache tags on the object.
+	//  Distributions without ``CacheTagConfig`` do not extract tags. When ``CacheTagConfig`` is removed from a distribution via ``UpdateDistribution``, CloudFront stops extracting tags from origin responses.
+	//   Changing the ``HeaderName`` on an existing distribution does not retroactively affect previously cached objects. Tag-based invalidations will not apply to objects already cached using a previous header. To ensure tag invalidations function after updating the header name, use path-based invalidations to recache all objects that use cache tags.
+	CacheTagConfig DistributionCacheTagConfigPtrInput `pulumi:"cacheTagConfig"`
 	// An alias for the CF distribution's domain name.
 	//   This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
 	Cnames pulumi.StringArrayInput `pulumi:"cnames"`
@@ -3001,6 +3149,14 @@ func (o DistributionConfigOutput) AnycastIpListId() pulumi.StringPtrOutput {
 // A complex type that contains zero or more “CacheBehavior“ elements.
 func (o DistributionConfigOutput) CacheBehaviors() DistributionCacheBehaviorArrayOutput {
 	return o.ApplyT(func(v DistributionConfig) []DistributionCacheBehavior { return v.CacheBehaviors }).(DistributionCacheBehaviorArrayOutput)
+}
+
+// Configuration for cache tag extraction from origin responses. When specified, CloudFront reads the header named in “HeaderName“ from origin responses and stores the comma-separated values as cache tags on the object.
+//
+//	Distributions without ``CacheTagConfig`` do not extract tags. When ``CacheTagConfig`` is removed from a distribution via ``UpdateDistribution``, CloudFront stops extracting tags from origin responses.
+//	 Changing the ``HeaderName`` on an existing distribution does not retroactively affect previously cached objects. Tag-based invalidations will not apply to objects already cached using a previous header. To ensure tag invalidations function after updating the header name, use path-based invalidations to recache all objects that use cache tags.
+func (o DistributionConfigOutput) CacheTagConfig() DistributionCacheTagConfigPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *DistributionCacheTagConfig { return v.CacheTagConfig }).(DistributionCacheTagConfigPtrOutput)
 }
 
 // An alias for the CF distribution's domain name.
@@ -3225,6 +3381,19 @@ func (o DistributionConfigPtrOutput) CacheBehaviors() DistributionCacheBehaviorA
 		}
 		return v.CacheBehaviors
 	}).(DistributionCacheBehaviorArrayOutput)
+}
+
+// Configuration for cache tag extraction from origin responses. When specified, CloudFront reads the header named in “HeaderName“ from origin responses and stores the comma-separated values as cache tags on the object.
+//
+//	Distributions without ``CacheTagConfig`` do not extract tags. When ``CacheTagConfig`` is removed from a distribution via ``UpdateDistribution``, CloudFront stops extracting tags from origin responses.
+//	 Changing the ``HeaderName`` on an existing distribution does not retroactively affect previously cached objects. Tag-based invalidations will not apply to objects already cached using a previous header. To ensure tag invalidations function after updating the header name, use path-based invalidations to recache all objects that use cache tags.
+func (o DistributionConfigPtrOutput) CacheTagConfig() DistributionCacheTagConfigPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionCacheTagConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CacheTagConfig
+	}).(DistributionCacheTagConfigPtrOutput)
 }
 
 // An alias for the CF distribution's domain name.
@@ -6205,7 +6374,7 @@ type DistributionLegacyS3Origin struct {
 	// The domain name assigned to your CF distribution.
 	DnsName string `pulumi:"dnsName"`
 	// The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
-	//   This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+	//   This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-originaccesscontrol.html) instead.
 	OriginAccessIdentity *string `pulumi:"originAccessIdentity"`
 }
 
@@ -6227,7 +6396,7 @@ type DistributionLegacyS3OriginArgs struct {
 	// The domain name assigned to your CF distribution.
 	DnsName pulumi.StringInput `pulumi:"dnsName"`
 	// The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
-	//   This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+	//   This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-originaccesscontrol.html) instead.
 	OriginAccessIdentity pulumi.StringPtrInput `pulumi:"originAccessIdentity"`
 }
 
@@ -6318,7 +6487,7 @@ func (o DistributionLegacyS3OriginOutput) DnsName() pulumi.StringOutput {
 
 // The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
 //
-//	This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+//	This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-originaccesscontrol.html) instead.
 func (o DistributionLegacyS3OriginOutput) OriginAccessIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionLegacyS3Origin) *string { return v.OriginAccessIdentity }).(pulumi.StringPtrOutput)
 }
@@ -6359,7 +6528,7 @@ func (o DistributionLegacyS3OriginPtrOutput) DnsName() pulumi.StringPtrOutput {
 
 // The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
 //
-//	This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+//	This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-originaccesscontrol.html) instead.
 func (o DistributionLegacyS3OriginPtrOutput) OriginAccessIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyS3Origin) *string {
 		if v == nil {
@@ -10801,6 +10970,16 @@ func (o FunctionMetadataPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A complex type that contains “Tag“ key and “Tag“ value.
+type FunctionTag struct {
+	// A string that contains ``Tag`` key.
+	//  The string length should be between 1 and 128 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
+	Key string `pulumi:"key"`
+	// A string that contains an optional ``Tag`` value.
+	//  The string length should be between 0 and 256 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
+	Value string `pulumi:"value"`
+}
+
 // A key group configuration.
 //
 //	A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
@@ -11093,8 +11272,13 @@ func (o KeyValueStoreImportSourcePtrOutput) SourceType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// A complex type that contains “Tag“ key and “Tag“ value.
 type KeyValueStoreTag struct {
-	Key   string `pulumi:"key"`
+	// A string that contains ``Tag`` key.
+	//  The string length should be between 1 and 128 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
+	Key string `pulumi:"key"`
+	// A string that contains an optional ``Tag`` value.
+	//  The string length should be between 0 and 256 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
 	Value string `pulumi:"value"`
 }
 
@@ -16188,6 +16372,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigPtrInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorInput)(nil)).Elem(), DistributionCacheBehaviorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorArrayInput)(nil)).Elem(), DistributionCacheBehaviorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheTagConfigInput)(nil)).Elem(), DistributionCacheTagConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheTagConfigPtrInput)(nil)).Elem(), DistributionCacheTagConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigInput)(nil)).Elem(), DistributionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigTenantConfigPropertiesInput)(nil)).Elem(), DistributionConfigTenantConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigTenantConfigPropertiesPtrInput)(nil)).Elem(), DistributionConfigTenantConfigPropertiesArgs{})
@@ -16354,6 +16540,8 @@ func init() {
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCacheBehaviorOutput{})
 	pulumi.RegisterOutputType(DistributionCacheBehaviorArrayOutput{})
+	pulumi.RegisterOutputType(DistributionCacheTagConfigOutput{})
+	pulumi.RegisterOutputType(DistributionCacheTagConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigOutput{})
 	pulumi.RegisterOutputType(DistributionConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigTenantConfigPropertiesOutput{})

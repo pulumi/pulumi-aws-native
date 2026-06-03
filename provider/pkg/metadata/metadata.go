@@ -3,8 +3,9 @@
 package metadata
 
 import (
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 )
 
 // CloudAPIMetadata is a collection of all resources and types in the AWS Cloud Control API.
@@ -53,7 +54,17 @@ type CloudAPIResource struct {
 	PrimaryIdentifier []string `json:"primaryIdentifier,omitempty"`
 
 	// ListHandlerSchema contains a minimal subset of the CloudFormation list handler schema for a resource.
+	// Property keys are CloudFormation names because the provider sends List query values to CloudControl.
 	ListHandlerSchema *ListHandlerSchema `json:"listHandlerSchema,omitempty"`
+
+	// ListInputs contains the generated Pulumi SDK-shaped List query schema used for runtime validation.
+	ListInputs *pschema.ObjectTypeSpec `json:"listInputs,omitempty"`
+
+	// ListIrreversibleNames maps SDK List query names to their original CloudFormation names.
+	ListIrreversibleNames map[string]string `json:"listIrreversibleNames,omitempty"`
+
+	// HasListHandler indicates whether the source CloudFormation schema declares a list handler.
+	HasListHandler bool `json:"hasListHandler,omitempty"`
 
 	// PropertyTransforms maps SDK property paths to JSONata expressions for drift detection.
 	// CloudFormation schemas include these transforms to define how property values should be
@@ -77,6 +88,7 @@ type AutoNamingSpec struct {
 type CloudAPIType struct {
 	Type              string                          `json:"type"`
 	Properties        map[string]pschema.PropertySpec `json:"properties,omitempty"`
+	Required          []string                        `json:"required,omitempty"`
 	IrreversibleNames map[string]string               `json:"irreversibleNames,omitempty"`
 }
 

@@ -15,6 +15,18 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
     /// </summary>
     public sealed class OriginEndpointScteArgs : global::Pulumi.ResourceArgs
     {
+        [Input("customAdTypes")]
+        private InputList<Pulumi.AwsNative.MediaPackageV2.OriginEndpointCustomAdType>? _customAdTypes;
+
+        /// <summary>
+        /// &lt;p&gt;A list of additional non-Ad SCTE-35 event types to treat as advertisements. When configured, events matching these types produce ad markers (such as &lt;code&gt;SCTE35-OUT&lt;/code&gt; and &lt;code&gt;SCTE35-IN&lt;/code&gt; in HLS DATERANGE tags) in manifests.&lt;/p&gt; &lt;p&gt;Valid values: &lt;code&gt;PROGRAM&lt;/code&gt; | &lt;code&gt;CHAPTER&lt;/code&gt; | &lt;code&gt;UNSCHEDULED_EVENT&lt;/code&gt; | &lt;code&gt;ALTERNATE_CONTENT_OPPORTUNITY&lt;/code&gt; | &lt;code&gt;NETWORK&lt;/code&gt; &lt;/p&gt; &lt;p&gt;If you don't specify any values, the default is empty (only default ad types are used).&lt;/p&gt;
+        /// </summary>
+        public InputList<Pulumi.AwsNative.MediaPackageV2.OriginEndpointCustomAdType> CustomAdTypes
+        {
+            get => _customAdTypes ?? (_customAdTypes = new InputList<Pulumi.AwsNative.MediaPackageV2.OriginEndpointCustomAdType>());
+            set => _customAdTypes = value;
+        }
+
         [Input("scteFilter")]
         private InputList<Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteFilter>? _scteFilter;
 

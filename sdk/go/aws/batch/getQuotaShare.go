@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Batch::QuotaShare
+// Creates an AWS Batch quota share. Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits.
 func LookupQuotaShare(ctx *pulumi.Context, args *LookupQuotaShareArgs, opts ...pulumi.InvokeOption) (*LookupQuotaShareResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQuotaShareResult
@@ -28,17 +28,17 @@ type LookupQuotaShareArgs struct {
 }
 
 type LookupQuotaShareResult struct {
-	// The capacity limits for the quota share.
+	// A list that specifies the quantity and type of compute capacity allocated to the quota share.
 	CapacityLimits []QuotaShareCapacityLimit `pulumi:"capacityLimits"`
-	// The preemption configuration for the quota share.
+	// Specifies the preemption behavior for jobs in a quota share.
 	PreemptionConfiguration *QuotaSharePreemptionConfiguration `pulumi:"preemptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the quota share.
 	QuotaShareArn *string `pulumi:"quotaShareArn"`
-	// The resource sharing configuration for the quota share.
+	// Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
 	ResourceSharingConfiguration *QuotaShareResourceSharingConfiguration `pulumi:"resourceSharingConfiguration"`
-	// The state of the quota share.
+	// The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
 	State *QuotaShareStateEnum `pulumi:"state"`
-	// A key-value pair to associate with a resource.
+	// The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -74,12 +74,12 @@ func (o LookupQuotaShareResultOutput) ToLookupQuotaShareResultOutputWithContext(
 	return o
 }
 
-// The capacity limits for the quota share.
+// A list that specifies the quantity and type of compute capacity allocated to the quota share.
 func (o LookupQuotaShareResultOutput) CapacityLimits() QuotaShareCapacityLimitArrayOutput {
 	return o.ApplyT(func(v LookupQuotaShareResult) []QuotaShareCapacityLimit { return v.CapacityLimits }).(QuotaShareCapacityLimitArrayOutput)
 }
 
-// The preemption configuration for the quota share.
+// Specifies the preemption behavior for jobs in a quota share.
 func (o LookupQuotaShareResultOutput) PreemptionConfiguration() QuotaSharePreemptionConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupQuotaShareResult) *QuotaSharePreemptionConfiguration { return v.PreemptionConfiguration }).(QuotaSharePreemptionConfigurationPtrOutput)
 }
@@ -89,19 +89,19 @@ func (o LookupQuotaShareResultOutput) QuotaShareArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQuotaShareResult) *string { return v.QuotaShareArn }).(pulumi.StringPtrOutput)
 }
 
-// The resource sharing configuration for the quota share.
+// Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
 func (o LookupQuotaShareResultOutput) ResourceSharingConfiguration() QuotaShareResourceSharingConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupQuotaShareResult) *QuotaShareResourceSharingConfiguration {
 		return v.ResourceSharingConfiguration
 	}).(QuotaShareResourceSharingConfigurationPtrOutput)
 }
 
-// The state of the quota share.
+// The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
 func (o LookupQuotaShareResultOutput) State() QuotaShareStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupQuotaShareResult) *QuotaShareStateEnum { return v.State }).(QuotaShareStateEnumPtrOutput)
 }
 
-// A key-value pair to associate with a resource.
+// The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
 func (o LookupQuotaShareResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupQuotaShareResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

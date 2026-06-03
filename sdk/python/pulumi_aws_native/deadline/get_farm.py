@@ -111,7 +111,7 @@ class AwaitableGetFarmResult(GetFarmResult):
 def get_farm(arn: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFarmResult:
     """
-    Definition of AWS::Deadline::Farm Resource Type
+    Resource Type definition for AWS::Deadline::Farm
 
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) assigned to the farm.
@@ -131,7 +131,7 @@ def get_farm(arn: Optional[_builtins.str] = None,
 def get_farm_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFarmResult]:
     """
-    Definition of AWS::Deadline::Farm Resource Type
+    Resource Type definition for AWS::Deadline::Farm
 
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) assigned to the farm.

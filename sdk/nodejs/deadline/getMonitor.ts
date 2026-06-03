@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::Monitor Resource Type
+ * Resource Type definition for AWS::Deadline::Monitor
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,7 +61,7 @@ export interface GetMonitorResult {
     readonly url?: string;
 }
 /**
- * Definition of AWS::Deadline::Monitor Resource Type
+ * Resource Type definition for AWS::Deadline::Monitor
  */
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

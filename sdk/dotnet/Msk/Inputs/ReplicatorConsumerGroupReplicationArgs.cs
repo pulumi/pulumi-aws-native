@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.Msk.Inputs
     /// </summary>
     public sealed class ReplicatorConsumerGroupReplicationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The consumer group offset synchronization mode.
+        /// </summary>
+        [Input("consumerGroupOffsetSyncMode")]
+        public Input<Pulumi.AwsNative.Msk.ReplicatorConsumerGroupOffsetSyncMode>? ConsumerGroupOffsetSyncMode { get; set; }
+
         [Input("consumerGroupsToExclude")]
         private InputList<string>? _consumerGroupsToExclude;
 

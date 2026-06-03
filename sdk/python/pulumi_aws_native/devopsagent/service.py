@@ -163,7 +163,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["additional_service_details"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["service_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kmsKeyArn", "serviceDetails", "serviceType"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kmsKeyArn", "serviceType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Service, __self__).__init__(
             'aws-native:devopsagent:Service',
@@ -199,7 +199,7 @@ class Service(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="accessibleResources")
-    def accessible_resources(self) -> pulumi.Output[Sequence[Any]]:
+    def accessible_resources(self) -> pulumi.Output[Sequence[Mapping[str, _builtins.str]]]:
         """
         List of accessible resources for this service
         """

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::QueueEnvironment Resource Type
+ * Resource Type definition for AWS::Deadline::QueueEnvironment
  */
 export function getQueueEnvironment(args: GetQueueEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -57,7 +57,7 @@ export interface GetQueueEnvironmentResult {
     readonly templateType?: enums.deadline.QueueEnvironmentEnvironmentTemplateType;
 }
 /**
- * Definition of AWS::Deadline::QueueEnvironment Resource Type
+ * Resource Type definition for AWS::Deadline::QueueEnvironment
  */
 export function getQueueEnvironmentOutput(args: GetQueueEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueueEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

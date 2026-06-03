@@ -1915,6 +1915,7 @@ type IdNamespaceTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The Customer Profiles integration configuration for the output source
 type MatchingWorkflowCustomerProfilesIntegrationConfig struct {
 	DomainArn     string `pulumi:"domainArn"`
 	ObjectTypeArn string `pulumi:"objectTypeArn"`
@@ -1931,6 +1932,7 @@ type MatchingWorkflowCustomerProfilesIntegrationConfigInput interface {
 	ToMatchingWorkflowCustomerProfilesIntegrationConfigOutputWithContext(context.Context) MatchingWorkflowCustomerProfilesIntegrationConfigOutput
 }
 
+// The Customer Profiles integration configuration for the output source
 type MatchingWorkflowCustomerProfilesIntegrationConfigArgs struct {
 	DomainArn     pulumi.StringInput `pulumi:"domainArn"`
 	ObjectTypeArn pulumi.StringInput `pulumi:"objectTypeArn"`
@@ -1989,6 +1991,7 @@ func (i *matchingWorkflowCustomerProfilesIntegrationConfigPtrType) ToMatchingWor
 	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput)
 }
 
+// The Customer Profiles integration configuration for the output source
 type MatchingWorkflowCustomerProfilesIntegrationConfigOutput struct{ *pulumi.OutputState }
 
 func (MatchingWorkflowCustomerProfilesIntegrationConfigOutput) ElementType() reflect.Type {
@@ -2460,6 +2463,146 @@ func (o MatchingWorkflowIntermediateSourceConfigurationPtrOutput) IntermediateS3
 		}
 		return &v.IntermediateS3Path
 	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for matching behavior within rule condition properties
+type MatchingWorkflowMatchingConfig struct {
+	// Enables transitive matching to process records across all rule levels and connect unmatched records to existing match groups
+	EnableTransitiveMatching *bool `pulumi:"enableTransitiveMatching"`
+}
+
+// MatchingWorkflowMatchingConfigInput is an input type that accepts MatchingWorkflowMatchingConfigArgs and MatchingWorkflowMatchingConfigOutput values.
+// You can construct a concrete instance of `MatchingWorkflowMatchingConfigInput` via:
+//
+//	MatchingWorkflowMatchingConfigArgs{...}
+type MatchingWorkflowMatchingConfigInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowMatchingConfigOutput() MatchingWorkflowMatchingConfigOutput
+	ToMatchingWorkflowMatchingConfigOutputWithContext(context.Context) MatchingWorkflowMatchingConfigOutput
+}
+
+// Configuration for matching behavior within rule condition properties
+type MatchingWorkflowMatchingConfigArgs struct {
+	// Enables transitive matching to process records across all rule levels and connect unmatched records to existing match groups
+	EnableTransitiveMatching pulumi.BoolPtrInput `pulumi:"enableTransitiveMatching"`
+}
+
+func (MatchingWorkflowMatchingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowMatchingConfig)(nil)).Elem()
+}
+
+func (i MatchingWorkflowMatchingConfigArgs) ToMatchingWorkflowMatchingConfigOutput() MatchingWorkflowMatchingConfigOutput {
+	return i.ToMatchingWorkflowMatchingConfigOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowMatchingConfigArgs) ToMatchingWorkflowMatchingConfigOutputWithContext(ctx context.Context) MatchingWorkflowMatchingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowMatchingConfigOutput)
+}
+
+func (i MatchingWorkflowMatchingConfigArgs) ToMatchingWorkflowMatchingConfigPtrOutput() MatchingWorkflowMatchingConfigPtrOutput {
+	return i.ToMatchingWorkflowMatchingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowMatchingConfigArgs) ToMatchingWorkflowMatchingConfigPtrOutputWithContext(ctx context.Context) MatchingWorkflowMatchingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowMatchingConfigOutput).ToMatchingWorkflowMatchingConfigPtrOutputWithContext(ctx)
+}
+
+// MatchingWorkflowMatchingConfigPtrInput is an input type that accepts MatchingWorkflowMatchingConfigArgs, MatchingWorkflowMatchingConfigPtr and MatchingWorkflowMatchingConfigPtrOutput values.
+// You can construct a concrete instance of `MatchingWorkflowMatchingConfigPtrInput` via:
+//
+//	        MatchingWorkflowMatchingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MatchingWorkflowMatchingConfigPtrInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowMatchingConfigPtrOutput() MatchingWorkflowMatchingConfigPtrOutput
+	ToMatchingWorkflowMatchingConfigPtrOutputWithContext(context.Context) MatchingWorkflowMatchingConfigPtrOutput
+}
+
+type matchingWorkflowMatchingConfigPtrType MatchingWorkflowMatchingConfigArgs
+
+func MatchingWorkflowMatchingConfigPtr(v *MatchingWorkflowMatchingConfigArgs) MatchingWorkflowMatchingConfigPtrInput {
+	return (*matchingWorkflowMatchingConfigPtrType)(v)
+}
+
+func (*matchingWorkflowMatchingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchingWorkflowMatchingConfig)(nil)).Elem()
+}
+
+func (i *matchingWorkflowMatchingConfigPtrType) ToMatchingWorkflowMatchingConfigPtrOutput() MatchingWorkflowMatchingConfigPtrOutput {
+	return i.ToMatchingWorkflowMatchingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *matchingWorkflowMatchingConfigPtrType) ToMatchingWorkflowMatchingConfigPtrOutputWithContext(ctx context.Context) MatchingWorkflowMatchingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowMatchingConfigPtrOutput)
+}
+
+// Configuration for matching behavior within rule condition properties
+type MatchingWorkflowMatchingConfigOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowMatchingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowMatchingConfig)(nil)).Elem()
+}
+
+func (o MatchingWorkflowMatchingConfigOutput) ToMatchingWorkflowMatchingConfigOutput() MatchingWorkflowMatchingConfigOutput {
+	return o
+}
+
+func (o MatchingWorkflowMatchingConfigOutput) ToMatchingWorkflowMatchingConfigOutputWithContext(ctx context.Context) MatchingWorkflowMatchingConfigOutput {
+	return o
+}
+
+func (o MatchingWorkflowMatchingConfigOutput) ToMatchingWorkflowMatchingConfigPtrOutput() MatchingWorkflowMatchingConfigPtrOutput {
+	return o.ToMatchingWorkflowMatchingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MatchingWorkflowMatchingConfigOutput) ToMatchingWorkflowMatchingConfigPtrOutputWithContext(ctx context.Context) MatchingWorkflowMatchingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MatchingWorkflowMatchingConfig) *MatchingWorkflowMatchingConfig {
+		return &v
+	}).(MatchingWorkflowMatchingConfigPtrOutput)
+}
+
+// Enables transitive matching to process records across all rule levels and connect unmatched records to existing match groups
+func (o MatchingWorkflowMatchingConfigOutput) EnableTransitiveMatching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MatchingWorkflowMatchingConfig) *bool { return v.EnableTransitiveMatching }).(pulumi.BoolPtrOutput)
+}
+
+type MatchingWorkflowMatchingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowMatchingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchingWorkflowMatchingConfig)(nil)).Elem()
+}
+
+func (o MatchingWorkflowMatchingConfigPtrOutput) ToMatchingWorkflowMatchingConfigPtrOutput() MatchingWorkflowMatchingConfigPtrOutput {
+	return o
+}
+
+func (o MatchingWorkflowMatchingConfigPtrOutput) ToMatchingWorkflowMatchingConfigPtrOutputWithContext(ctx context.Context) MatchingWorkflowMatchingConfigPtrOutput {
+	return o
+}
+
+func (o MatchingWorkflowMatchingConfigPtrOutput) Elem() MatchingWorkflowMatchingConfigOutput {
+	return o.ApplyT(func(v *MatchingWorkflowMatchingConfig) MatchingWorkflowMatchingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MatchingWorkflowMatchingConfig
+		return ret
+	}).(MatchingWorkflowMatchingConfigOutput)
+}
+
+// Enables transitive matching to process records across all rule levels and connect unmatched records to existing match groups
+func (o MatchingWorkflowMatchingConfigPtrOutput) EnableTransitiveMatching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MatchingWorkflowMatchingConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableTransitiveMatching
+	}).(pulumi.BoolPtrOutput)
 }
 
 type MatchingWorkflowOutputAttribute struct {
@@ -3496,6 +3639,7 @@ func (o MatchingWorkflowRuleConditionArrayOutput) Index(i pulumi.IntInput) Match
 }
 
 type MatchingWorkflowRuleConditionProperties struct {
+	MatchingConfig *MatchingWorkflowMatchingConfig `pulumi:"matchingConfig"`
 	// A list of rule objects, each of which have fields `ruleName` and `condition` .
 	Rules []MatchingWorkflowRuleCondition `pulumi:"rules"`
 }
@@ -3512,6 +3656,7 @@ type MatchingWorkflowRuleConditionPropertiesInput interface {
 }
 
 type MatchingWorkflowRuleConditionPropertiesArgs struct {
+	MatchingConfig MatchingWorkflowMatchingConfigPtrInput `pulumi:"matchingConfig"`
 	// A list of rule objects, each of which have fields `ruleName` and `condition` .
 	Rules MatchingWorkflowRuleConditionArrayInput `pulumi:"rules"`
 }
@@ -3593,6 +3738,12 @@ func (o MatchingWorkflowRuleConditionPropertiesOutput) ToMatchingWorkflowRuleCon
 	}).(MatchingWorkflowRuleConditionPropertiesPtrOutput)
 }
 
+func (o MatchingWorkflowRuleConditionPropertiesOutput) MatchingConfig() MatchingWorkflowMatchingConfigPtrOutput {
+	return o.ApplyT(func(v MatchingWorkflowRuleConditionProperties) *MatchingWorkflowMatchingConfig {
+		return v.MatchingConfig
+	}).(MatchingWorkflowMatchingConfigPtrOutput)
+}
+
 // A list of rule objects, each of which have fields `ruleName` and `condition` .
 func (o MatchingWorkflowRuleConditionPropertiesOutput) Rules() MatchingWorkflowRuleConditionArrayOutput {
 	return o.ApplyT(func(v MatchingWorkflowRuleConditionProperties) []MatchingWorkflowRuleCondition { return v.Rules }).(MatchingWorkflowRuleConditionArrayOutput)
@@ -3620,6 +3771,15 @@ func (o MatchingWorkflowRuleConditionPropertiesPtrOutput) Elem() MatchingWorkflo
 		var ret MatchingWorkflowRuleConditionProperties
 		return ret
 	}).(MatchingWorkflowRuleConditionPropertiesOutput)
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesPtrOutput) MatchingConfig() MatchingWorkflowMatchingConfigPtrOutput {
+	return o.ApplyT(func(v *MatchingWorkflowRuleConditionProperties) *MatchingWorkflowMatchingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.MatchingConfig
+	}).(MatchingWorkflowMatchingConfigPtrOutput)
 }
 
 // A list of rule objects, each of which have fields `ruleName` and `condition` .
@@ -3809,6 +3969,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowInputSourceArrayInput)(nil)).Elem(), MatchingWorkflowInputSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowIntermediateSourceConfigurationInput)(nil)).Elem(), MatchingWorkflowIntermediateSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowIntermediateSourceConfigurationPtrInput)(nil)).Elem(), MatchingWorkflowIntermediateSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowMatchingConfigInput)(nil)).Elem(), MatchingWorkflowMatchingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowMatchingConfigPtrInput)(nil)).Elem(), MatchingWorkflowMatchingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowOutputAttributeInput)(nil)).Elem(), MatchingWorkflowOutputAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowOutputAttributeArrayInput)(nil)).Elem(), MatchingWorkflowOutputAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowOutputSourceInput)(nil)).Elem(), MatchingWorkflowOutputSourceArgs{})
@@ -3860,6 +4022,8 @@ func init() {
 	pulumi.RegisterOutputType(MatchingWorkflowInputSourceArrayOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowIntermediateSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowIntermediateSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowMatchingConfigOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowMatchingConfigPtrOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowOutputAttributeOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowOutputAttributeArrayOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowOutputSourceOutput{})

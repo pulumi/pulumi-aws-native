@@ -51,6 +51,10 @@ export class UserProfile extends pulumi.CustomResource {
      */
     declare public readonly domainIdentifier: pulumi.Output<string>;
     /**
+     * The session name of the user profile.
+     */
+    declare public readonly sessionName: pulumi.Output<string | undefined>;
+    /**
      * The status of the user profile.
      */
     declare public readonly status: pulumi.Output<enums.datazone.UserProfileStatus | undefined>;
@@ -85,6 +89,7 @@ export class UserProfile extends pulumi.CustomResource {
                 throw new Error("Missing required property 'userIdentifier'");
             }
             resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["sessionName"] = args?.sessionName;
             resourceInputs["status"] = args?.status;
             resourceInputs["userIdentifier"] = args?.userIdentifier;
             resourceInputs["userType"] = args?.userType;
@@ -97,6 +102,7 @@ export class UserProfile extends pulumi.CustomResource {
             resourceInputs["details"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["domainIdentifier"] = undefined /*out*/;
+            resourceInputs["sessionName"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userIdentifier"] = undefined /*out*/;
@@ -117,6 +123,10 @@ export interface UserProfileArgs {
      * The identifier of the Amazon DataZone domain in which the user profile would be created.
      */
     domainIdentifier: pulumi.Input<string>;
+    /**
+     * The session name of the user profile.
+     */
+    sessionName?: pulumi.Input<string>;
     /**
      * The status of the user profile.
      */

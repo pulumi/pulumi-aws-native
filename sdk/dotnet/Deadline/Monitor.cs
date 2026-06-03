@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Deadline
 {
     /// <summary>
-    /// Definition of AWS::Deadline::Monitor Resource Type
+    /// Resource Type definition for AWS::Deadline::Monitor
     /// </summary>
     [AwsNativeResourceType("aws-native:deadline:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Deadline
         /// </summary>
         [Output("identityCenterInstanceArn")]
         public Output<string> IdentityCenterInstanceArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS region where IAM Identity Center is enabled. Required when Identity Center is in a different region than the monitor.
+        /// </summary>
+        [Output("identityCenterRegion")]
+        public Output<string?> IdentityCenterRegion { get; private set; } = null!;
 
         /// <summary>
         /// The unique identifier for the monitor.
@@ -97,6 +103,7 @@ namespace Pulumi.AwsNative.Deadline
                 ReplaceOnChanges =
                 {
                     "identityCenterInstanceArn",
+                    "identityCenterRegion",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -133,6 +140,12 @@ namespace Pulumi.AwsNative.Deadline
         /// </summary>
         [Input("identityCenterInstanceArn", required: true)]
         public Input<string> IdentityCenterInstanceArn { get; set; } = null!;
+
+        /// <summary>
+        /// The AWS region where IAM Identity Center is enabled. Required when Identity Center is in a different region than the monitor.
+        /// </summary>
+        [Input("identityCenterRegion")]
+        public Input<string>? IdentityCenterRegion { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.

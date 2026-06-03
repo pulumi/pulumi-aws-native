@@ -2,8 +2,54 @@
   "typeName" : "AWS::Route53Resolver::FirewallRuleGroup",
   "description" : "Resource schema for AWS::Route53Resolver::FirewallRuleGroup.",
   "definitions" : {
+    "FirewallAdvancedContentCategoryConfig" : {
+      "description" : "Configuration for an advanced content category rule type.",
+      "type" : "object",
+      "properties" : {
+        "Category" : {
+          "description" : "The content category value.",
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 128
+        }
+      },
+      "required" : [ "Category" ],
+      "additionalProperties" : false
+    },
+    "FirewallAdvancedThreatCategoryConfig" : {
+      "description" : "Configuration for an advanced threat category rule type.",
+      "type" : "object",
+      "properties" : {
+        "Category" : {
+          "description" : "The threat category value.",
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 128
+        }
+      },
+      "required" : [ "Category" ],
+      "additionalProperties" : false
+    },
+    "FirewallRuleType" : {
+      "description" : "Firewall rule type union. Exactly one member must be set. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.",
+      "type" : "object",
+      "properties" : {
+        "FirewallAdvancedContentCategory" : {
+          "$ref" : "#/definitions/FirewallAdvancedContentCategoryConfig"
+        },
+        "FirewallAdvancedThreatCategory" : {
+          "$ref" : "#/definitions/FirewallAdvancedThreatCategoryConfig"
+        }
+      },
+      "oneOf" : [ {
+        "required" : [ "FirewallAdvancedContentCategory" ]
+      }, {
+        "required" : [ "FirewallAdvancedThreatCategory" ]
+      } ],
+      "additionalProperties" : false
+    },
     "FirewallRule" : {
-      "description" : "Firewall Rule associating the Rule Group to a Domain List",
+      "description" : "Firewall Rule associating the Rule Group to a Domain List or advanced rule type",
       "type" : "object",
       "properties" : {
         "FirewallDomainListId" : {
@@ -56,12 +102,12 @@
           "maxLength" : 16
         },
         "ConfidenceThreshold" : {
-          "description" : "FirewallDomainRedirectionAction",
+          "description" : "ConfidenceThreshold",
           "type" : "string",
           "enum" : [ "LOW", "MEDIUM", "HIGH" ]
         },
         "DnsThreatProtection" : {
-          "description" : "FirewallDomainRedirectionAction",
+          "description" : "DnsThreatProtection",
           "type" : "string",
           "enum" : [ "DGA", "DNS_TUNNELING", "DICTIONARY_DGA" ]
         },
@@ -69,6 +115,10 @@
           "description" : "FirewallDomainRedirectionAction",
           "type" : "string",
           "enum" : [ "INSPECT_REDIRECTION_DOMAIN", "TRUST_REDIRECTION_DOMAIN" ]
+        },
+        "FirewallRuleType" : {
+          "description" : "Advanced firewall rule type. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.",
+          "$ref" : "#/definitions/FirewallRuleType"
         }
       },
       "required" : [ "Priority", "Action" ],
@@ -180,7 +230,7 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
+    "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "route53resolver:TagResource", "route53resolver:UntagResource" ]
   },

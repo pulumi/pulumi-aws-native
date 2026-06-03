@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class ComputeEnvironmentEc2ConfigurationObjectArgs : global::Pulumi.ResourceArgs
     {
+        [Input("batchImageStatus")]
+        public Input<string>? BatchImageStatus { get; set; }
+
         /// <summary>
         /// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` set in the `computeResource` object.
         /// 

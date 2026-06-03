@@ -35,6 +35,8 @@ type LookupApplicationResult struct {
 	ApplicationConfig *ApplicationConfig `pulumi:"applicationConfig"`
 	// Application source config
 	ApplicationSourceConfig *ApplicationSourceConfigProperties `pulumi:"applicationSourceConfig"`
+	// The type of application
+	ApplicationType *ApplicationType `pulumi:"applicationType"`
 	// The application description.
 	Description *string `pulumi:"description"`
 	// The id of the application.
@@ -100,6 +102,11 @@ func (o LookupApplicationResultOutput) ApplicationConfig() ApplicationConfigPtrO
 // Application source config
 func (o LookupApplicationResultOutput) ApplicationSourceConfig() ApplicationSourceConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationSourceConfigProperties { return v.ApplicationSourceConfig }).(ApplicationSourceConfigPropertiesPtrOutput)
+}
+
+// The type of application
+func (o LookupApplicationResultOutput) ApplicationType() ApplicationTypePtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationType { return v.ApplicationType }).(ApplicationTypePtrOutput)
 }
 
 // The application description.

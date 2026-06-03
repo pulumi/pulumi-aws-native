@@ -69,6 +69,38 @@ namespace Pulumi.AwsNative.ElastiCache
     }
 
     /// <summary>
+    /// The network type for the serverless cache. Valid values are ipv4, ipv6, or dual_stack.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServerlessCacheNetworkType : IEquatable<ServerlessCacheNetworkType>
+    {
+        private readonly string _value;
+
+        private ServerlessCacheNetworkType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerlessCacheNetworkType Ipv4 { get; } = new ServerlessCacheNetworkType("ipv4");
+        public static ServerlessCacheNetworkType Ipv6 { get; } = new ServerlessCacheNetworkType("ipv6");
+        public static ServerlessCacheNetworkType DualStack { get; } = new ServerlessCacheNetworkType("dual_stack");
+
+        public static bool operator ==(ServerlessCacheNetworkType left, ServerlessCacheNetworkType right) => left.Equals(right);
+        public static bool operator !=(ServerlessCacheNetworkType left, ServerlessCacheNetworkType right) => !left.Equals(right);
+
+        public static explicit operator string(ServerlessCacheNetworkType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerlessCacheNetworkType other && Equals(other);
+        public bool Equals(ServerlessCacheNetworkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Authentication Type
     /// </summary>
     [EnumType]

@@ -2370,6 +2370,9 @@ const (
 	EvaluationFormLanguageConfigurationFormLanguageFrFr = EvaluationFormLanguageConfigurationFormLanguage("fr-FR")
 	EvaluationFormLanguageConfigurationFormLanguageItIt = EvaluationFormLanguageConfigurationFormLanguage("it-IT")
 	EvaluationFormLanguageConfigurationFormLanguagePtBr = EvaluationFormLanguageConfigurationFormLanguage("pt-BR")
+	EvaluationFormLanguageConfigurationFormLanguageJaJp = EvaluationFormLanguageConfigurationFormLanguage("ja-JP")
+	EvaluationFormLanguageConfigurationFormLanguageKoKr = EvaluationFormLanguageConfigurationFormLanguage("ko-KR")
+	EvaluationFormLanguageConfigurationFormLanguageZhCn = EvaluationFormLanguageConfigurationFormLanguage("zh-CN")
 )
 
 func (EvaluationFormLanguageConfigurationFormLanguage) ElementType() reflect.Type {
@@ -2500,6 +2503,9 @@ func (o EvaluationFormLanguageConfigurationFormLanguagePtrOutput) ToStringPtrOut
 //	EvaluationFormLanguageConfigurationFormLanguageFrFr
 //	EvaluationFormLanguageConfigurationFormLanguageItIt
 //	EvaluationFormLanguageConfigurationFormLanguagePtBr
+//	EvaluationFormLanguageConfigurationFormLanguageJaJp
+//	EvaluationFormLanguageConfigurationFormLanguageKoKr
+//	EvaluationFormLanguageConfigurationFormLanguageZhCn
 type EvaluationFormLanguageConfigurationFormLanguageInput interface {
 	pulumi.Input
 
@@ -4241,6 +4247,7 @@ type EvaluationFormTargetConfigurationContactInteractionType string
 const (
 	EvaluationFormTargetConfigurationContactInteractionTypeAgent     = EvaluationFormTargetConfigurationContactInteractionType("AGENT")
 	EvaluationFormTargetConfigurationContactInteractionTypeAutomated = EvaluationFormTargetConfigurationContactInteractionType("AUTOMATED")
+	EvaluationFormTargetConfigurationContactInteractionTypeCustomer  = EvaluationFormTargetConfigurationContactInteractionType("CUSTOMER")
 )
 
 func (EvaluationFormTargetConfigurationContactInteractionType) ElementType() reflect.Type {
@@ -4367,6 +4374,7 @@ func (o EvaluationFormTargetConfigurationContactInteractionTypePtrOutput) ToStri
 //
 //	EvaluationFormTargetConfigurationContactInteractionTypeAgent
 //	EvaluationFormTargetConfigurationContactInteractionTypeAutomated
+//	EvaluationFormTargetConfigurationContactInteractionTypeCustomer
 type EvaluationFormTargetConfigurationContactInteractionTypeInput interface {
 	pulumi.Input
 
@@ -5861,10 +5869,17 @@ func (in *instanceStorageConfigStorageTypePtr) ToInstanceStorageConfigStorageTyp
 type IntegrationAssociationIntegrationType string
 
 const (
-	IntegrationAssociationIntegrationTypeLexBot         = IntegrationAssociationIntegrationType("LEX_BOT")
-	IntegrationAssociationIntegrationTypeLambdaFunction = IntegrationAssociationIntegrationType("LAMBDA_FUNCTION")
-	IntegrationAssociationIntegrationTypeApplication    = IntegrationAssociationIntegrationType("APPLICATION")
-	IntegrationAssociationIntegrationTypeCasesDomain    = IntegrationAssociationIntegrationType("CASES_DOMAIN")
+	IntegrationAssociationIntegrationTypeLexBot               = IntegrationAssociationIntegrationType("LEX_BOT")
+	IntegrationAssociationIntegrationTypeLambdaFunction       = IntegrationAssociationIntegrationType("LAMBDA_FUNCTION")
+	IntegrationAssociationIntegrationTypeApplication          = IntegrationAssociationIntegrationType("APPLICATION")
+	IntegrationAssociationIntegrationTypeCasesDomain          = IntegrationAssociationIntegrationType("CASES_DOMAIN")
+	IntegrationAssociationIntegrationTypeWisdomAssistant      = IntegrationAssociationIntegrationType("WISDOM_ASSISTANT")
+	IntegrationAssociationIntegrationTypeWisdomKnowledgeBase  = IntegrationAssociationIntegrationType("WISDOM_KNOWLEDGE_BASE")
+	IntegrationAssociationIntegrationTypeWisdomQuickResponses = IntegrationAssociationIntegrationType("WISDOM_QUICK_RESPONSES")
+	IntegrationAssociationIntegrationTypeFileScanner          = IntegrationAssociationIntegrationType("FILE_SCANNER")
+	IntegrationAssociationIntegrationTypeMessageProcessor     = IntegrationAssociationIntegrationType("MESSAGE_PROCESSOR")
+	IntegrationAssociationIntegrationTypeQMessageTemplates    = IntegrationAssociationIntegrationType("Q_MESSAGE_TEMPLATES")
+	IntegrationAssociationIntegrationTypeSesIdentity          = IntegrationAssociationIntegrationType("SES_IDENTITY")
 )
 
 func (IntegrationAssociationIntegrationType) ElementType() reflect.Type {
@@ -5993,6 +6008,13 @@ func (o IntegrationAssociationIntegrationTypePtrOutput) ToStringPtrOutputWithCon
 //	IntegrationAssociationIntegrationTypeLambdaFunction
 //	IntegrationAssociationIntegrationTypeApplication
 //	IntegrationAssociationIntegrationTypeCasesDomain
+//	IntegrationAssociationIntegrationTypeWisdomAssistant
+//	IntegrationAssociationIntegrationTypeWisdomKnowledgeBase
+//	IntegrationAssociationIntegrationTypeWisdomQuickResponses
+//	IntegrationAssociationIntegrationTypeFileScanner
+//	IntegrationAssociationIntegrationTypeMessageProcessor
+//	IntegrationAssociationIntegrationTypeQMessageTemplates
+//	IntegrationAssociationIntegrationTypeSesIdentity
 type IntegrationAssociationIntegrationTypeInput interface {
 	pulumi.Input
 

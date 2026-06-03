@@ -114,7 +114,7 @@ class QueueEnvironment(pulumi.CustomResource):
                  template_type: Optional[pulumi.Input['QueueEnvironmentEnvironmentTemplateType']] = None,
                  __props__=None):
         """
-        Definition of AWS::Deadline::QueueEnvironment Resource Type
+        Resource Type definition for AWS::Deadline::QueueEnvironment
 
 
         :param str resource_name: The name of the resource.
@@ -132,7 +132,7 @@ class QueueEnvironment(pulumi.CustomResource):
                  args: QueueEnvironmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::Deadline::QueueEnvironment Resource Type
+        Resource Type definition for AWS::Deadline::QueueEnvironment
 
 
         :param str resource_name: The name of the resource.

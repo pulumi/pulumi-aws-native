@@ -100,6 +100,31 @@ func (i *guardHookS3LocationPtrType) ToGuardHookS3LocationPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(GuardHookS3LocationPtrOutput)
 }
 
+// GuardHookS3LocationArrayInput is an input type that accepts GuardHookS3LocationArray and GuardHookS3LocationArrayOutput values.
+// You can construct a concrete instance of `GuardHookS3LocationArrayInput` via:
+//
+//	GuardHookS3LocationArray{ GuardHookS3LocationArgs{...} }
+type GuardHookS3LocationArrayInput interface {
+	pulumi.Input
+
+	ToGuardHookS3LocationArrayOutput() GuardHookS3LocationArrayOutput
+	ToGuardHookS3LocationArrayOutputWithContext(context.Context) GuardHookS3LocationArrayOutput
+}
+
+type GuardHookS3LocationArray []GuardHookS3LocationInput
+
+func (GuardHookS3LocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardHookS3Location)(nil)).Elem()
+}
+
+func (i GuardHookS3LocationArray) ToGuardHookS3LocationArrayOutput() GuardHookS3LocationArrayOutput {
+	return i.ToGuardHookS3LocationArrayOutputWithContext(context.Background())
+}
+
+func (i GuardHookS3LocationArray) ToGuardHookS3LocationArrayOutputWithContext(ctx context.Context) GuardHookS3LocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardHookS3LocationArrayOutput)
+}
+
 // S3 Source Location for the Guard files.
 type GuardHookS3LocationOutput struct{ *pulumi.OutputState }
 
@@ -177,6 +202,26 @@ func (o GuardHookS3LocationPtrOutput) VersionId() pulumi.StringPtrOutput {
 		}
 		return v.VersionId
 	}).(pulumi.StringPtrOutput)
+}
+
+type GuardHookS3LocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GuardHookS3LocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardHookS3Location)(nil)).Elem()
+}
+
+func (o GuardHookS3LocationArrayOutput) ToGuardHookS3LocationArrayOutput() GuardHookS3LocationArrayOutput {
+	return o
+}
+
+func (o GuardHookS3LocationArrayOutput) ToGuardHookS3LocationArrayOutputWithContext(ctx context.Context) GuardHookS3LocationArrayOutput {
+	return o
+}
+
+func (o GuardHookS3LocationArrayOutput) Index(i pulumi.IntInput) GuardHookS3LocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GuardHookS3Location {
+		return vs[0].([]GuardHookS3Location)[vs[1].(int)]
+	}).(GuardHookS3LocationOutput)
 }
 
 type HookVersionLoggingConfig struct {
@@ -610,8 +655,8 @@ func (o ManagedExecutionPropertiesPtrOutput) Active() pulumi.BoolPtrOutput {
 
 // Specifies the S3 location of your input parameters.
 type OptionsProperties struct {
-	// Specifies the S3 location where your input parameters are located.
-	InputParams *GuardHookS3Location `pulumi:"inputParams"`
+	// Specifies the S3 location of input parameter files for your Guard rules. You can specify either a single S3 location or an array of up to 10 S3 locations.
+	InputParams interface{} `pulumi:"inputParams"`
 }
 
 // OptionsPropertiesInput is an input type that accepts OptionsPropertiesArgs and OptionsPropertiesOutput values.
@@ -627,8 +672,8 @@ type OptionsPropertiesInput interface {
 
 // Specifies the S3 location of your input parameters.
 type OptionsPropertiesArgs struct {
-	// Specifies the S3 location where your input parameters are located.
-	InputParams GuardHookS3LocationPtrInput `pulumi:"inputParams"`
+	// Specifies the S3 location of input parameter files for your Guard rules. You can specify either a single S3 location or an array of up to 10 S3 locations.
+	InputParams pulumi.Input `pulumi:"inputParams"`
 }
 
 func (OptionsPropertiesArgs) ElementType() reflect.Type {
@@ -709,9 +754,9 @@ func (o OptionsPropertiesOutput) ToOptionsPropertiesPtrOutputWithContext(ctx con
 	}).(OptionsPropertiesPtrOutput)
 }
 
-// Specifies the S3 location where your input parameters are located.
-func (o OptionsPropertiesOutput) InputParams() GuardHookS3LocationPtrOutput {
-	return o.ApplyT(func(v OptionsProperties) *GuardHookS3Location { return v.InputParams }).(GuardHookS3LocationPtrOutput)
+// Specifies the S3 location of input parameter files for your Guard rules. You can specify either a single S3 location or an array of up to 10 S3 locations.
+func (o OptionsPropertiesOutput) InputParams() pulumi.AnyOutput {
+	return o.ApplyT(func(v OptionsProperties) interface{} { return v.InputParams }).(pulumi.AnyOutput)
 }
 
 type OptionsPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -738,14 +783,14 @@ func (o OptionsPropertiesPtrOutput) Elem() OptionsPropertiesOutput {
 	}).(OptionsPropertiesOutput)
 }
 
-// Specifies the S3 location where your input parameters are located.
-func (o OptionsPropertiesPtrOutput) InputParams() GuardHookS3LocationPtrOutput {
-	return o.ApplyT(func(v *OptionsProperties) *GuardHookS3Location {
+// Specifies the S3 location of input parameter files for your Guard rules. You can specify either a single S3 location or an array of up to 10 S3 locations.
+func (o OptionsPropertiesPtrOutput) InputParams() pulumi.AnyOutput {
+	return o.ApplyT(func(v *OptionsProperties) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.InputParams
-	}).(GuardHookS3LocationPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type ResourceVersionLoggingConfig struct {
@@ -2780,6 +2825,7 @@ func (o TypeActivationLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrOutpu
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookS3LocationInput)(nil)).Elem(), GuardHookS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookS3LocationPtrInput)(nil)).Elem(), GuardHookS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookS3LocationArrayInput)(nil)).Elem(), GuardHookS3LocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HookVersionLoggingConfigInput)(nil)).Elem(), HookVersionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HookVersionLoggingConfigPtrInput)(nil)).Elem(), HookVersionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookHookTargetInput)(nil)).Elem(), LambdaHookHookTargetArgs{})
@@ -2813,6 +2859,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationLoggingConfigPtrInput)(nil)).Elem(), TypeActivationLoggingConfigArgs{})
 	pulumi.RegisterOutputType(GuardHookS3LocationOutput{})
 	pulumi.RegisterOutputType(GuardHookS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(GuardHookS3LocationArrayOutput{})
 	pulumi.RegisterOutputType(HookVersionLoggingConfigOutput{})
 	pulumi.RegisterOutputType(HookVersionLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(LambdaHookHookTargetOutput{})

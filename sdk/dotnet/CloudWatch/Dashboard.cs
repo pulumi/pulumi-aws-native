@@ -27,6 +27,12 @@ namespace Pulumi.AwsNative.CloudWatch
         [Output("dashboardName")]
         public Output<string?> DashboardName { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Dashboard resource with the given unique name, arguments, and options.
@@ -87,6 +93,18 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         [Input("dashboardName")]
         public Input<string>? DashboardName { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public DashboardArgs()
         {

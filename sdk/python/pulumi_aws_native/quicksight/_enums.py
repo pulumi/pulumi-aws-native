@@ -2625,6 +2625,7 @@ class DataSourceType(_builtins.str, Enum):
     DB2AS400 = "DB2_AS400"
     EXASOL = "EXASOL"
     FILE = "FILE"
+    FULLY_MANAGED_KNOWLEDGE_BASE = "FULLY_MANAGED_KNOWLEDGE_BASE"
     GITHUB = "GITHUB"
     INTERNATIONAL_DATA_CORPORATION = "INTERNATIONAL_DATA_CORPORATION"
     JIRA = "JIRA"
@@ -2663,6 +2664,7 @@ class DataSourceType(_builtins.str, Enum):
     ONE_DRIVE = "ONE_DRIVE"
     WEB_CRAWLER = "WEB_CRAWLER"
     BOX = "BOX"
+    GOOGLESHEETS = "GOOGLESHEETS"
 
 
 @pulumi.type_token("aws-native:quicksight:FolderSharingModel")

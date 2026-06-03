@@ -12,3 +12,13 @@ export const AlarmMuteRuleStatus = {
  * The current status of the AlarmMuteRule
  */
 export type AlarmMuteRuleStatus = (typeof AlarmMuteRuleStatus)[keyof typeof AlarmMuteRuleStatus];
+
+export const OTelEnrichmentStatus = {
+    Running: "RUNNING",
+    Stopped: "STOPPED",
+} as const;
+
+/**
+ * Current status of OTel enrichment (RUNNING or STOPPED).
+ */
+export type OTelEnrichmentStatus = (typeof OTelEnrichmentStatus)[keyof typeof OTelEnrichmentStatus];

@@ -14,6 +14,7 @@ from .get_policy_template import *
 from .identity_source import *
 from .policy import *
 from .policy_store import *
+from .policy_store_alias import *
 from .policy_template import *
 from ._inputs import *
 from . import outputs

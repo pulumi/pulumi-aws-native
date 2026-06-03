@@ -848,6 +848,8 @@ namespace Pulumi.AwsNative.SageMaker
         public static DomainAppInstanceType MlR6id16xlarge { get; } = new DomainAppInstanceType("ml.r6id.16xlarge");
         public static DomainAppInstanceType MlR6id24xlarge { get; } = new DomainAppInstanceType("ml.r6id.24xlarge");
         public static DomainAppInstanceType MlR6id32xlarge { get; } = new DomainAppInstanceType("ml.r6id.32xlarge");
+        public static DomainAppInstanceType MlP54xlarge { get; } = new DomainAppInstanceType("ml.p5.4xlarge");
+        public static DomainAppInstanceType MlP6b20048xlarge { get; } = new DomainAppInstanceType("ml.p6-b200.48xlarge");
 
         public static bool operator ==(DomainAppInstanceType left, DomainAppInstanceType right) => left.Equals(right);
         public static bool operator !=(DomainAppInstanceType left, DomainAppInstanceType right) => !left.Equals(right);
@@ -4481,6 +4483,8 @@ namespace Pulumi.AwsNative.SageMaker
         public static SpaceResourceSpecInstanceType MlR6id16xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6id.16xlarge");
         public static SpaceResourceSpecInstanceType MlR6id24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6id.24xlarge");
         public static SpaceResourceSpecInstanceType MlR6id32xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6id.32xlarge");
+        public static SpaceResourceSpecInstanceType MlP54xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p5.4xlarge");
+        public static SpaceResourceSpecInstanceType MlP6b20048xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p6-b200.48xlarge");
 
         public static bool operator ==(SpaceResourceSpecInstanceType left, SpaceResourceSpecInstanceType right) => left.Equals(right);
         public static bool operator !=(SpaceResourceSpecInstanceType left, SpaceResourceSpecInstanceType right) => !left.Equals(right);

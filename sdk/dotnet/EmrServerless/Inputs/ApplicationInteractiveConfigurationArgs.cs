@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.EmrServerless.Inputs
         public Input<bool>? LivyEndpointEnabled { get; set; }
 
         /// <summary>
+        /// Enables interactive sessions on the application
+        /// </summary>
+        [Input("sessionEnabled")]
+        public Input<bool>? SessionEnabled { get; set; }
+
+        /// <summary>
         /// Enabled you to connect an Application to Amazon EMR Studio to run interactive workloads in a notebook
         /// </summary>
         [Input("studioEnabled")]

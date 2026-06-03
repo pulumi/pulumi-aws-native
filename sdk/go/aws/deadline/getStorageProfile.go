@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::StorageProfile Resource Type
+// Resource Type definition for AWS::Deadline::StorageProfile
 func LookupStorageProfile(ctx *pulumi.Context, args *LookupStorageProfileArgs, opts ...pulumi.InvokeOption) (*LookupStorageProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStorageProfileResult

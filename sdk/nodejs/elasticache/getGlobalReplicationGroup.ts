@@ -26,10 +26,6 @@ export interface GetGlobalReplicationGroupArgs {
 
 export interface GetGlobalReplicationGroupResult {
     /**
-     * Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
-     */
-    readonly cacheParameterGroupName?: string;
-    /**
      * The engine of the Global Datastore.
      */
     readonly engine?: string;

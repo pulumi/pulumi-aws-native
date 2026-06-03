@@ -30,6 +30,7 @@ export interface GetGatewayTargetArgs {
 }
 
 export interface GetGatewayTargetResult {
+    readonly authorizationData?: outputs.bedrockagentcore.GatewayTargetAuthorizationDataProperties;
     /**
      * The date and time at which the gateway target was created.
      */
@@ -49,6 +50,7 @@ export interface GetGatewayTargetResult {
      * The name for the gateway target.
      */
     readonly name?: string;
+    readonly protocolType?: enums.bedrockagentcore.GatewayTargetTargetProtocolType;
     /**
      * The status for the gateway target.
      */
@@ -60,7 +62,7 @@ export interface GetGatewayTargetResult {
     /**
      * The target configuration for the Smithy model target.
      */
-    readonly targetConfiguration?: outputs.bedrockagentcore.GatewayTargetTargetConfigurationProperties;
+    readonly targetConfiguration?: outputs.bedrockagentcore.GatewayTargetTargetConfiguration0Properties | outputs.bedrockagentcore.GatewayTargetTargetConfiguration1Properties;
     /**
      * The target ID for the gateway target.
      */

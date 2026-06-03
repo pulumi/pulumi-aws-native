@@ -50,7 +50,7 @@ type Domain struct {
 	// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
 	TagPropagation DomainTagPropagationPtrOutput `pulumi:"tagPropagation"`
 	// A list of tags to apply to the user profile.
-	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The URL to the created domain.
 	Url pulumi.StringOutput `pulumi:"url"`
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -75,7 +75,6 @@ func NewDomain(ctx *pulumi.Context,
 		"domainName",
 		"domainSettings.rStudioServerProDomainSettings.defaultResourceSpec",
 		"kmsKeyId",
-		"tags[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -132,7 +131,7 @@ type domainArgs struct {
 	// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
 	TagPropagation *DomainTagPropagation `pulumi:"tagPropagation"`
 	// A list of tags to apply to the user profile.
-	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -160,7 +159,7 @@ type DomainArgs struct {
 	// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
 	TagPropagation DomainTagPropagationPtrInput
 	// A list of tags to apply to the user profile.
-	Tags aws.CreateOnlyTagArrayInput
+	Tags aws.TagArrayInput
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	VpcId pulumi.StringPtrInput
 }
@@ -283,8 +282,8 @@ func (o DomainOutput) TagPropagation() DomainTagPropagationPtrOutput {
 }
 
 // A list of tags to apply to the user profile.
-func (o DomainOutput) Tags() aws.CreateOnlyTagArrayOutput {
-	return o.ApplyT(func(v *Domain) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+func (o DomainOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Domain) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The URL to the created domain.

@@ -70,10 +70,28 @@ namespace Pulumi.AwsNative.DataZone
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
         /// <summary>
+        /// The project membership assignments.
+        /// </summary>
+        [Output("membershipAssignments")]
+        public Output<ImmutableArray<Outputs.ProjectMembershipAssignment>> MembershipAssignments { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Amazon DataZone project.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The project category.
+        /// </summary>
+        [Output("projectCategory")]
+        public Output<string?> ProjectCategory { get; private set; } = null!;
+
+        /// <summary>
+        /// The project execution role ARN.
+        /// </summary>
+        [Output("projectExecutionRole")]
+        public Output<string?> ProjectExecutionRole { get; private set; } = null!;
 
         /// <summary>
         /// The project profile ID.
@@ -131,6 +149,9 @@ namespace Pulumi.AwsNative.DataZone
                 ReplaceOnChanges =
                 {
                     "domainIdentifier",
+                    "membershipAssignments[*]",
+                    "projectCategory",
+                    "projectExecutionRole",
                     "projectProfileId",
                 },
             };
@@ -185,11 +206,35 @@ namespace Pulumi.AwsNative.DataZone
             set => _glossaryTerms = value;
         }
 
+        [Input("membershipAssignments")]
+        private InputList<Inputs.ProjectMembershipAssignmentArgs>? _membershipAssignments;
+
+        /// <summary>
+        /// The project membership assignments.
+        /// </summary>
+        public InputList<Inputs.ProjectMembershipAssignmentArgs> MembershipAssignments
+        {
+            get => _membershipAssignments ?? (_membershipAssignments = new InputList<Inputs.ProjectMembershipAssignmentArgs>());
+            set => _membershipAssignments = value;
+        }
+
         /// <summary>
         /// The name of the Amazon DataZone project.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The project category.
+        /// </summary>
+        [Input("projectCategory")]
+        public Input<string>? ProjectCategory { get; set; }
+
+        /// <summary>
+        /// The project execution role ARN.
+        /// </summary>
+        [Input("projectExecutionRole")]
+        public Input<string>? ProjectExecutionRole { get; set; }
 
         /// <summary>
         /// The project profile ID.

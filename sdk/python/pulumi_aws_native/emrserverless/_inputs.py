@@ -465,6 +465,10 @@ class ApplicationInteractiveConfigurationArgsDict(TypedDict):
     """
     Enables an Apache Livy endpoint that you can connect to and run interactive jobs
     """
+    session_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables interactive sessions on the application
+    """
     studio_enabled: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Enabled you to connect an Application to Amazon EMR Studio to run interactive workloads in a notebook
@@ -474,13 +478,17 @@ class ApplicationInteractiveConfigurationArgsDict(TypedDict):
 class ApplicationInteractiveConfigurationArgs:
     def __init__(__self__, *,
                  livy_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 session_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  studio_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] livy_endpoint_enabled: Enables an Apache Livy endpoint that you can connect to and run interactive jobs
+        :param pulumi.Input[_builtins.bool] session_enabled: Enables interactive sessions on the application
         :param pulumi.Input[_builtins.bool] studio_enabled: Enabled you to connect an Application to Amazon EMR Studio to run interactive workloads in a notebook
         """
         if livy_endpoint_enabled is not None:
             pulumi.set(__self__, "livy_endpoint_enabled", livy_endpoint_enabled)
+        if session_enabled is not None:
+            pulumi.set(__self__, "session_enabled", session_enabled)
         if studio_enabled is not None:
             pulumi.set(__self__, "studio_enabled", studio_enabled)
 
@@ -495,6 +503,18 @@ class ApplicationInteractiveConfigurationArgs:
     @livy_endpoint_enabled.setter
     def livy_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "livy_endpoint_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionEnabled")
+    def session_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables interactive sessions on the application
+        """
+        return pulumi.get(self, "session_enabled")
+
+    @session_enabled.setter
+    def session_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "session_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="studioEnabled")

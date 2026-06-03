@@ -12,10 +12,10 @@
     "ServiceType" : {
       "description" : "The type of service being registered",
       "type" : "string",
-      "enum" : [ "dynatrace", "mcpserver", "mcpserversplunk", "mcpservernewrelic", "gitlab", "servicenow" ]
+      "enum" : [ "dynatrace", "mcpserver", "mcpserversplunk", "mcpservernewrelic", "gitlab", "servicenow", "pagerduty", "azureidentity", "mcpserversigv4", "mcpservergrafana" ]
     },
     "ServiceDetails" : {
-      "description" : "Service-specific configuration details",
+      "description" : "Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified",
       "type" : "object",
       "oneOf" : [ {
         "properties" : {
@@ -64,6 +64,38 @@
           }
         },
         "required" : [ "ServiceNow" ],
+        "additionalProperties" : false
+      }, {
+        "properties" : {
+          "PagerDuty" : {
+            "$ref" : "#/definitions/PagerDutyDetails"
+          }
+        },
+        "required" : [ "PagerDuty" ],
+        "additionalProperties" : false
+      }, {
+        "properties" : {
+          "AzureIdentity" : {
+            "$ref" : "#/definitions/AzureIdentityServiceDetails"
+          }
+        },
+        "required" : [ "AzureIdentity" ],
+        "additionalProperties" : false
+      }, {
+        "properties" : {
+          "MCPServerSigV4" : {
+            "$ref" : "#/definitions/MCPServerSigV4Details"
+          }
+        },
+        "required" : [ "MCPServerSigV4" ],
+        "additionalProperties" : false
+      }, {
+        "properties" : {
+          "MCPServerGrafana" : {
+            "$ref" : "#/definitions/MCPServerGrafanaDetails"
+          }
+        },
+        "required" : [ "MCPServerGrafana" ],
         "additionalProperties" : false
       } ]
     },
@@ -116,6 +148,95 @@
           "$ref" : "#/definitions/OAuthClientDetails"
         }
       },
+      "additionalProperties" : false
+    },
+    "PagerDutyDetails" : {
+      "description" : "PagerDuty service configuration",
+      "type" : "object",
+      "properties" : {
+        "Scopes" : {
+          "description" : "PagerDuty scopes",
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "AuthorizationConfig" : {
+          "$ref" : "#/definitions/PagerDutyAuthorizationConfig"
+        }
+      },
+      "required" : [ "Scopes", "AuthorizationConfig" ],
+      "additionalProperties" : false
+    },
+    "PagerDutyAuthorizationConfig" : {
+      "description" : "PagerDuty OAuth authorization configuration",
+      "type" : "object",
+      "properties" : {
+        "OAuthClientCredentials" : {
+          "$ref" : "#/definitions/OAuthClientDetails"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MCPServerSigV4Details" : {
+      "description" : "SigV4-authenticated MCP server configuration",
+      "type" : "object",
+      "properties" : {
+        "Name" : {
+          "description" : "MCP server name",
+          "type" : "string",
+          "pattern" : "^[a-zA-Z0-9_-]+$"
+        },
+        "Endpoint" : {
+          "description" : "MCP server endpoint URL",
+          "type" : "string",
+          "pattern" : "^https://[a-zA-Z0-9.-]+(?::[0-9]+)?(?:/.*)?$"
+        },
+        "Description" : {
+          "description" : "Optional description for the MCP server",
+          "type" : "string",
+          "maxLength" : 500
+        },
+        "AuthorizationConfig" : {
+          "$ref" : "#/definitions/MCPServerSigV4AuthorizationConfig"
+        }
+      },
+      "required" : [ "Name", "Endpoint", "AuthorizationConfig" ],
+      "additionalProperties" : false
+    },
+    "MCPServerSigV4AuthorizationConfig" : {
+      "description" : "SigV4 authorization configuration for MCP server",
+      "type" : "object",
+      "properties" : {
+        "Region" : {
+          "description" : "AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.",
+          "type" : "string",
+          "pattern" : "^(\\*|[a-z]{2,4}(-[a-z]+)+-\\d+)$"
+        },
+        "Service" : {
+          "description" : "AWS service name for SigV4 signing",
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 100
+        },
+        "RoleArn" : {
+          "description" : "IAM role ARN to assume for SigV4 signing",
+          "type" : "string",
+          "pattern" : "^arn:aws:iam::\\d{12}:role/[a-zA-Z0-9+=,.@_/-]+$"
+        },
+        "CustomHeaders" : {
+          "description" : "Custom headers for the SigV4 MCP server",
+          "type" : "object",
+          "maxProperties" : 10,
+          "patternProperties" : {
+            "^[a-zA-Z0-9-_]+$" : {
+              "type" : "string"
+            }
+          },
+          "additionalProperties" : false
+        }
+      },
+      "required" : [ "Region", "Service", "RoleArn" ],
       "additionalProperties" : false
     },
     "MCPServerDetails" : {
@@ -277,7 +398,7 @@
         "ApiKeyValue" : {
           "description" : "API key value",
           "type" : "string",
-          "pattern" : "^[a-zA-Z0-9+/=._-]+$"
+          "pattern" : "^[!-~]([ \\t]*[!-~])*$"
         },
         "ApiKeyHeader" : {
           "description" : "HTTP header name to send the API key",
@@ -337,6 +458,45 @@
       },
       "required" : [ "Name", "Endpoint", "AuthorizationConfig" ],
       "additionalProperties" : false
+    },
+    "MCPServerGrafanaDetails" : {
+      "description" : "Grafana MCP server configuration",
+      "type" : "object",
+      "properties" : {
+        "Name" : {
+          "description" : "MCP server name",
+          "type" : "string",
+          "pattern" : "^[a-zA-Z0-9_-]+$"
+        },
+        "Endpoint" : {
+          "description" : "MCP server endpoint URL",
+          "type" : "string",
+          "pattern" : "^https://[a-zA-Z0-9.-]+(?::[0-9]+)?(?:/.*)?$"
+        },
+        "Description" : {
+          "description" : "Optional description for the MCP server",
+          "type" : "string",
+          "maxLength" : 500
+        },
+        "AuthorizationConfig" : {
+          "$ref" : "#/definitions/MCPServerGrafanaAuthorizationConfig"
+        }
+      },
+      "required" : [ "Name", "Endpoint", "AuthorizationConfig" ],
+      "additionalProperties" : false
+    },
+    "MCPServerGrafanaAuthorizationConfig" : {
+      "description" : "Grafana MCP server authorization configuration",
+      "type" : "object",
+      "oneOf" : [ {
+        "properties" : {
+          "BearerToken" : {
+            "$ref" : "#/definitions/BearerTokenDetails"
+          }
+        },
+        "required" : [ "BearerToken" ],
+        "additionalProperties" : false
+      } ]
     },
     "NewRelicServiceDetails" : {
       "description" : "New Relic service configuration",
@@ -407,6 +567,37 @@
       "required" : [ "ApiKey", "AccountId", "Region" ],
       "additionalProperties" : false
     },
+    "AzureIdentityServiceDetails" : {
+      "description" : "Azure Identity service configuration for federated identity",
+      "type" : "object",
+      "properties" : {
+        "TenantId" : {
+          "description" : "Azure AD tenant ID",
+          "type" : "string",
+          "pattern" : "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+        },
+        "ClientId" : {
+          "description" : "Azure AD application client ID",
+          "type" : "string",
+          "pattern" : "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+        },
+        "WebIdentityRoleArn" : {
+          "description" : "ARN of the IAM role for web identity token exchange",
+          "type" : "string",
+          "pattern" : "^arn:aws[a-zA-Z-]*:iam::[0-9]{12}:role/.+$"
+        },
+        "WebIdentityTokenAudiences" : {
+          "description" : "List of audiences for the web identity token",
+          "type" : "array",
+          "minItems" : 1,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "TenantId", "ClientId", "WebIdentityRoleArn", "WebIdentityTokenAudiences" ],
+      "additionalProperties" : false
+    },
     "AdditionalServiceDetails" : {
       "description" : "Additional details specific to the service type returned after registration",
       "type" : "object",
@@ -458,6 +649,38 @@
         },
         "required" : [ "ServiceNow" ],
         "additionalProperties" : false
+      }, {
+        "properties" : {
+          "PagerDuty" : {
+            "$ref" : "#/definitions/RegisteredPagerDutyDetails"
+          }
+        },
+        "required" : [ "PagerDuty" ],
+        "additionalProperties" : false
+      }, {
+        "properties" : {
+          "AzureIdentity" : {
+            "$ref" : "#/definitions/RegisteredAzureIdentityDetails"
+          }
+        },
+        "required" : [ "AzureIdentity" ],
+        "additionalProperties" : false
+      }, {
+        "properties" : {
+          "MCPServerSigV4" : {
+            "$ref" : "#/definitions/RegisteredMCPServerSigV4Details"
+          }
+        },
+        "required" : [ "MCPServerSigV4" ],
+        "additionalProperties" : false
+      }, {
+        "properties" : {
+          "MCPServerGrafana" : {
+            "$ref" : "#/definitions/RegisteredMCPServerGrafanaDetails"
+          }
+        },
+        "required" : [ "MCPServerGrafana" ],
+        "additionalProperties" : false
       } ]
     },
     "RegisteredMCPServerDetails" : {
@@ -487,6 +710,31 @@
         }
       },
       "required" : [ "Name", "Endpoint", "AuthorizationMethod" ],
+      "additionalProperties" : false
+    },
+    "RegisteredMCPServerGrafanaDetails" : {
+      "description" : "Grafana MCP server details returned after registration",
+      "type" : "object",
+      "properties" : {
+        "Name" : {
+          "description" : "MCP server name",
+          "type" : "string"
+        },
+        "Endpoint" : {
+          "description" : "MCP server endpoint URL",
+          "type" : "string"
+        },
+        "AuthorizationMethod" : {
+          "description" : "MCP server authorization method",
+          "type" : "string",
+          "enum" : [ "bearer-token" ]
+        },
+        "Description" : {
+          "description" : "Optional description for the MCP server",
+          "type" : "string"
+        }
+      },
+      "required" : [ "Endpoint", "AuthorizationMethod" ],
       "additionalProperties" : false
     },
     "RegisteredNewRelicDetails" : {
@@ -555,6 +803,93 @@
       "required" : [ "InstanceUrl" ],
       "additionalProperties" : false
     },
+    "RegisteredPagerDutyDetails" : {
+      "description" : "PagerDuty service details returned after registration",
+      "type" : "object",
+      "properties" : {
+        "Scopes" : {
+          "description" : "The scopes assigned to the service",
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "Scopes" ],
+      "additionalProperties" : false
+    },
+    "RegisteredAzureIdentityDetails" : {
+      "description" : "Azure Identity service details returned after registration",
+      "type" : "object",
+      "properties" : {
+        "TenantId" : {
+          "description" : "Azure AD tenant ID",
+          "type" : "string",
+          "pattern" : "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+        },
+        "ClientId" : {
+          "description" : "Azure AD application client ID",
+          "type" : "string",
+          "pattern" : "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+        },
+        "WebIdentityRoleArn" : {
+          "description" : "ARN of the IAM role for web identity token exchange",
+          "type" : "string",
+          "pattern" : "^arn:aws[a-zA-Z-]*:iam::[0-9]{12}:role/.+$"
+        },
+        "WebIdentityTokenAudiences" : {
+          "description" : "List of audiences for the web identity token",
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "TenantId", "ClientId", "WebIdentityRoleArn", "WebIdentityTokenAudiences" ],
+      "additionalProperties" : false
+    },
+    "RegisteredMCPServerSigV4Details" : {
+      "description" : "SigV4-authenticated MCP server details returned after registration",
+      "type" : "object",
+      "properties" : {
+        "Name" : {
+          "description" : "The MCP server name",
+          "type" : "string"
+        },
+        "Endpoint" : {
+          "description" : "The MCP server endpoint URL",
+          "type" : "string"
+        },
+        "Description" : {
+          "description" : "Optional description for the MCP server",
+          "type" : "string"
+        },
+        "Region" : {
+          "description" : "AWS region for SigV4 signing",
+          "type" : "string"
+        },
+        "Service" : {
+          "description" : "AWS service name for SigV4 signing",
+          "type" : "string"
+        },
+        "RoleArn" : {
+          "description" : "IAM role ARN for SigV4 signing",
+          "type" : "string"
+        },
+        "CustomHeaders" : {
+          "description" : "Custom headers for the SigV4 MCP server",
+          "type" : "object",
+          "patternProperties" : {
+            "^[a-zA-Z0-9-_]+$" : {
+              "type" : "string"
+            }
+          },
+          "additionalProperties" : false
+        }
+      },
+      "required" : [ "Name", "Endpoint", "Region", "Service", "RoleArn" ],
+      "additionalProperties" : false
+    },
     "Tag" : {
       "description" : "A key-value pair to associate with a resource.",
       "type" : "object",
@@ -593,7 +928,12 @@
       "description" : "List of accessible resources for this service",
       "type" : "array",
       "items" : {
-        "type" : "object"
+        "type" : "object",
+        "patternProperties" : {
+          ".*" : {
+            "type" : "string"
+          }
+        }
       }
     },
     "AdditionalServiceDetails" : {
@@ -632,17 +972,17 @@
   "required" : [ "ServiceType" ],
   "readOnlyProperties" : [ "/properties/ServiceId", "/properties/AccessibleResources", "/properties/AdditionalServiceDetails", "/properties/Arn" ],
   "writeOnlyProperties" : [ "/properties/ServiceDetails" ],
-  "createOnlyProperties" : [ "/properties/ServiceType", "/properties/ServiceDetails", "/properties/KmsKeyArn" ],
+  "createOnlyProperties" : [ "/properties/ServiceType", "/properties/ServiceDetails/Dynatrace", "/properties/ServiceDetails/MCPServer", "/properties/ServiceDetails/MCPServerSplunk", "/properties/ServiceDetails/MCPServerNewRelic", "/properties/ServiceDetails/GitLab", "/properties/ServiceDetails/ServiceNow", "/properties/ServiceDetails/PagerDuty", "/properties/ServiceDetails/AzureIdentity", "/properties/ServiceDetails/MCPServerGrafana", "/properties/KmsKeyArn" ],
   "primaryIdentifier" : [ "/properties/ServiceId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "aidevops:RegisterService", "aidevops:GetService", "aidevops:TagResource", "aidevops:ListTagsForResource", "iam:CreateServiceLinkedRole", "kms:Decrypt", "kms:DescribeKey", "kms:Encrypt", "kms:GenerateDataKey", "kms:GenerateDataKeyPair", "kms:GenerateDataKeyPairWithoutPlaintext", "kms:GenerateDataKeyWithoutPlaintext", "kms:ReEncryptFrom", "kms:ReEncryptTo" ]
+      "permissions" : [ "aidevops:RegisterService", "aidevops:GetService", "aidevops:TagResource", "aidevops:ListTagsForResource", "iam:CreateServiceLinkedRole", "iam:PassRole", "kms:Decrypt", "kms:DescribeKey", "kms:Encrypt", "kms:GenerateDataKey", "kms:GenerateDataKeyPair", "kms:GenerateDataKeyPairWithoutPlaintext", "kms:GenerateDataKeyWithoutPlaintext", "kms:ReEncryptFrom", "kms:ReEncryptTo" ]
     },
     "read" : {
       "permissions" : [ "aidevops:GetService", "aidevops:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "aidevops:GetService", "aidevops:TagResource", "aidevops:UntagResource", "aidevops:ListTagsForResource" ]
+      "permissions" : [ "aidevops:UpdateService", "aidevops:GetService", "aidevops:TagResource", "aidevops:UntagResource", "aidevops:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "aidevops:DeregisterService", "aidevops:GetService" ]

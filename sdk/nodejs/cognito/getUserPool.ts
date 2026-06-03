@@ -157,6 +157,7 @@ export interface GetUserPoolResult {
      * Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
      */
     readonly verificationMessageTemplate?: outputs.cognito.UserPoolVerificationMessageTemplate;
+    readonly webAuthnFactorConfiguration?: enums.cognito.UserPoolWebAuthnFactorConfiguration;
     /**
      * Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
      *

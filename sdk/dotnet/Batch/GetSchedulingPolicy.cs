@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         public readonly Outputs.SchedulingPolicyFairsharePolicy? FairsharePolicy;
         public readonly Outputs.SchedulingPolicyQuotaSharePolicy? QuotaSharePolicy;
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetSchedulingPolicyResult(
@@ -79,11 +83,14 @@ namespace Pulumi.AwsNative.Batch
 
             Outputs.SchedulingPolicyFairsharePolicy? fairsharePolicy,
 
-            Outputs.SchedulingPolicyQuotaSharePolicy? quotaSharePolicy)
+            Outputs.SchedulingPolicyQuotaSharePolicy? quotaSharePolicy,
+
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             FairsharePolicy = fairsharePolicy;
             QuotaSharePolicy = quotaSharePolicy;
+            Tags = tags;
         }
     }
 }

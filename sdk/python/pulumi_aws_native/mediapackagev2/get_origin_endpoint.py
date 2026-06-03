@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetOriginEndpointResult:
-    def __init__(__self__, arn=None, container_type=None, created_at=None, dash_manifest_urls=None, dash_manifests=None, description=None, force_endpoint_error_configuration=None, hls_manifest_urls=None, hls_manifests=None, low_latency_hls_manifest_urls=None, low_latency_hls_manifests=None, modified_at=None, mss_manifest_urls=None, mss_manifests=None, segment=None, startover_window_seconds=None, tags=None):
+    def __init__(__self__, arn=None, container_type=None, created_at=None, dash_manifest_urls=None, dash_manifests=None, description=None, force_endpoint_error_configuration=None, hls_manifest_urls=None, hls_manifests=None, low_latency_hls_manifest_urls=None, low_latency_hls_manifests=None, modified_at=None, mss_manifest_urls=None, mss_manifests=None, segment=None, startover_window_seconds=None, tags=None, uri_separator=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -78,6 +78,9 @@ class GetOriginEndpointResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if uri_separator and not isinstance(uri_separator, str):
+            raise TypeError("Expected argument 'uri_separator' to be a str")
+        pulumi.set(__self__, "uri_separator", uri_separator)
 
     @_builtins.property
     @pulumi.getter
@@ -212,6 +215,11 @@ class GetOriginEndpointResult:
         """
         return pulumi.get(self, "tags")
 
+    @_builtins.property
+    @pulumi.getter(name="uriSeparator")
+    def uri_separator(self) -> Optional['OriginEndpointUriSeparator']:
+        return pulumi.get(self, "uri_separator")
+
 
 class AwaitableGetOriginEndpointResult(GetOriginEndpointResult):
     # pylint: disable=using-constant-test
@@ -235,7 +243,8 @@ class AwaitableGetOriginEndpointResult(GetOriginEndpointResult):
             mss_manifests=self.mss_manifests,
             segment=self.segment,
             startover_window_seconds=self.startover_window_seconds,
-            tags=self.tags)
+            tags=self.tags,
+            uri_separator=self.uri_separator)
 
 
 def get_origin_endpoint(arn: Optional[_builtins.str] = None,
@@ -268,7 +277,8 @@ def get_origin_endpoint(arn: Optional[_builtins.str] = None,
         mss_manifests=pulumi.get(__ret__, 'mss_manifests'),
         segment=pulumi.get(__ret__, 'segment'),
         startover_window_seconds=pulumi.get(__ret__, 'startover_window_seconds'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        uri_separator=pulumi.get(__ret__, 'uri_separator'))
 def get_origin_endpoint_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginEndpointResult]:
     """
@@ -298,4 +308,5 @@ def get_origin_endpoint_output(arn: Optional[pulumi.Input[_builtins.str]] = None
         mss_manifests=pulumi.get(__response__, 'mss_manifests'),
         segment=pulumi.get(__response__, 'segment'),
         startover_window_seconds=pulumi.get(__response__, 'startover_window_seconds'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        uri_separator=pulumi.get(__response__, 'uri_separator')))

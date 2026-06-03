@@ -149,6 +149,37 @@ namespace Pulumi.AwsNative.MediaPackageV2
     }
 
     [EnumType]
+    public readonly struct OriginEndpointCustomAdType : IEquatable<OriginEndpointCustomAdType>
+    {
+        private readonly string _value;
+
+        private OriginEndpointCustomAdType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointCustomAdType Program { get; } = new OriginEndpointCustomAdType("PROGRAM");
+        public static OriginEndpointCustomAdType Chapter { get; } = new OriginEndpointCustomAdType("CHAPTER");
+        public static OriginEndpointCustomAdType UnscheduledEvent { get; } = new OriginEndpointCustomAdType("UNSCHEDULED_EVENT");
+        public static OriginEndpointCustomAdType AlternateContentOpportunity { get; } = new OriginEndpointCustomAdType("ALTERNATE_CONTENT_OPPORTUNITY");
+        public static OriginEndpointCustomAdType Network { get; } = new OriginEndpointCustomAdType("NETWORK");
+
+        public static bool operator ==(OriginEndpointCustomAdType left, OriginEndpointCustomAdType right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointCustomAdType left, OriginEndpointCustomAdType right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointCustomAdType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointCustomAdType other && Equals(other);
+        public bool Equals(OriginEndpointCustomAdType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct OriginEndpointDashCompactness : IEquatable<OriginEndpointDashCompactness>
     {
         private readonly string _value;
@@ -549,6 +580,14 @@ namespace Pulumi.AwsNative.MediaPackageV2
         public static OriginEndpointScteFilter ProviderOverlayPlacementOpportunity { get; } = new OriginEndpointScteFilter("PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY");
         public static OriginEndpointScteFilter DistributorOverlayPlacementOpportunity { get; } = new OriginEndpointScteFilter("DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY");
         public static OriginEndpointScteFilter Program { get; } = new OriginEndpointScteFilter("PROGRAM");
+        public static OriginEndpointScteFilter Chapter { get; } = new OriginEndpointScteFilter("CHAPTER");
+        public static OriginEndpointScteFilter UnscheduledEvent { get; } = new OriginEndpointScteFilter("UNSCHEDULED_EVENT");
+        public static OriginEndpointScteFilter AlternateContentOpportunity { get; } = new OriginEndpointScteFilter("ALTERNATE_CONTENT_OPPORTUNITY");
+        public static OriginEndpointScteFilter Network { get; } = new OriginEndpointScteFilter("NETWORK");
+        public static OriginEndpointScteFilter ProviderPromo { get; } = new OriginEndpointScteFilter("PROVIDER_PROMO");
+        public static OriginEndpointScteFilter DistributorPromo { get; } = new OriginEndpointScteFilter("DISTRIBUTOR_PROMO");
+        public static OriginEndpointScteFilter ProviderAdBlock { get; } = new OriginEndpointScteFilter("PROVIDER_AD_BLOCK");
+        public static OriginEndpointScteFilter DistributorAdBlock { get; } = new OriginEndpointScteFilter("DISTRIBUTOR_AD_BLOCK");
 
         public static bool operator ==(OriginEndpointScteFilter left, OriginEndpointScteFilter right) => left.Equals(right);
         public static bool operator !=(OriginEndpointScteFilter left, OriginEndpointScteFilter right) => !left.Equals(right);
@@ -558,6 +597,34 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OriginEndpointScteFilter other && Equals(other);
         public bool Equals(OriginEndpointScteFilter other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OriginEndpointScteInManifests : IEquatable<OriginEndpointScteInManifests>
+    {
+        private readonly string _value;
+
+        private OriginEndpointScteInManifests(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointScteInManifests All { get; } = new OriginEndpointScteInManifests("ALL");
+        public static OriginEndpointScteInManifests MatchesFilter { get; } = new OriginEndpointScteInManifests("MATCHES_FILTER");
+
+        public static bool operator ==(OriginEndpointScteInManifests left, OriginEndpointScteInManifests right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointScteInManifests left, OriginEndpointScteInManifests right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointScteInManifests value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointScteInManifests other && Equals(other);
+        public bool Equals(OriginEndpointScteInManifests other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -577,6 +644,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
         public static OriginEndpointScteInSegments None { get; } = new OriginEndpointScteInSegments("NONE");
         public static OriginEndpointScteInSegments All { get; } = new OriginEndpointScteInSegments("ALL");
+        public static OriginEndpointScteInSegments MatchesFilter { get; } = new OriginEndpointScteInSegments("MATCHES_FILTER");
 
         public static bool operator ==(OriginEndpointScteInSegments left, OriginEndpointScteInSegments right) => left.Equals(right);
         public static bool operator !=(OriginEndpointScteInSegments left, OriginEndpointScteInSegments right) => !left.Equals(right);
@@ -614,6 +682,62 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OriginEndpointTsEncryptionMethod other && Equals(other);
         public bool Equals(OriginEndpointTsEncryptionMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OriginEndpointUriPathType : IEquatable<OriginEndpointUriPathType>
+    {
+        private readonly string _value;
+
+        private OriginEndpointUriPathType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointUriPathType Leaf { get; } = new OriginEndpointUriPathType("LEAF");
+        public static OriginEndpointUriPathType Root { get; } = new OriginEndpointUriPathType("ROOT");
+
+        public static bool operator ==(OriginEndpointUriPathType left, OriginEndpointUriPathType right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointUriPathType left, OriginEndpointUriPathType right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointUriPathType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointUriPathType other && Equals(other);
+        public bool Equals(OriginEndpointUriPathType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OriginEndpointUriSeparator : IEquatable<OriginEndpointUriSeparator>
+    {
+        private readonly string _value;
+
+        private OriginEndpointUriSeparator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointUriSeparator Underscore { get; } = new OriginEndpointUriSeparator("UNDERSCORE");
+        public static OriginEndpointUriSeparator Hyphen { get; } = new OriginEndpointUriSeparator("HYPHEN");
+
+        public static bool operator ==(OriginEndpointUriSeparator left, OriginEndpointUriSeparator right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointUriSeparator left, OriginEndpointUriSeparator right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointUriSeparator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointUriSeparator other && Equals(other);
+        public bool Equals(OriginEndpointUriSeparator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

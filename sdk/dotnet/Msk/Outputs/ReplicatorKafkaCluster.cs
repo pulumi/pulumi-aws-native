@@ -17,21 +17,42 @@ namespace Pulumi.AwsNative.Msk.Outputs
     public sealed class ReplicatorKafkaCluster
     {
         /// <summary>
-        /// Details of an Amazon MSK cluster. Exactly one of AmazonMskCluster is required.
+        /// Details of an Amazon MSK cluster.
         /// </summary>
-        public readonly Outputs.ReplicatorAmazonMskCluster AmazonMskCluster;
+        public readonly Outputs.ReplicatorAmazonMskCluster? AmazonMskCluster;
+        /// <summary>
+        /// Details of an Apache Kafka cluster.
+        /// </summary>
+        public readonly Outputs.ReplicatorApacheKafkaCluster? ApacheKafkaCluster;
+        /// <summary>
+        /// Details of the client authentication used by the Apache Kafka cluster.
+        /// </summary>
+        public readonly Outputs.ReplicatorKafkaClusterClientAuthentication? ClientAuthentication;
+        /// <summary>
+        /// Details of encryption in transit to the Apache Kafka cluster.
+        /// </summary>
+        public readonly Outputs.ReplicatorKafkaClusterEncryptionInTransit? EncryptionInTransit;
         /// <summary>
         /// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         /// </summary>
-        public readonly Outputs.ReplicatorKafkaClusterClientVpcConfig VpcConfig;
+        public readonly Outputs.ReplicatorKafkaClusterClientVpcConfig? VpcConfig;
 
         [OutputConstructor]
         private ReplicatorKafkaCluster(
-            Outputs.ReplicatorAmazonMskCluster amazonMskCluster,
+            Outputs.ReplicatorAmazonMskCluster? amazonMskCluster,
 
-            Outputs.ReplicatorKafkaClusterClientVpcConfig vpcConfig)
+            Outputs.ReplicatorApacheKafkaCluster? apacheKafkaCluster,
+
+            Outputs.ReplicatorKafkaClusterClientAuthentication? clientAuthentication,
+
+            Outputs.ReplicatorKafkaClusterEncryptionInTransit? encryptionInTransit,
+
+            Outputs.ReplicatorKafkaClusterClientVpcConfig? vpcConfig)
         {
             AmazonMskCluster = amazonMskCluster;
+            ApacheKafkaCluster = apacheKafkaCluster;
+            ClientAuthentication = clientAuthentication;
+            EncryptionInTransit = encryptionInTransit;
             VpcConfig = vpcConfig;
         }
     }

@@ -72,6 +72,10 @@ export class Function extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     declare public /*out*/ readonly stage: pulumi.Output<string>;
+    /**
+     * A complex type that contains zero or more ``Tag`` elements.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Function resource with the given unique name, arguments, and options.
@@ -95,6 +99,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["functionConfig"] = args?.functionConfig;
             resourceInputs["functionMetadata"] = args?.functionMetadata;
             resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["stage"] = undefined /*out*/;
         } else {
@@ -105,6 +110,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["functionMetadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["stage"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["name"] };
@@ -137,4 +143,8 @@ export interface FunctionArgs {
      * A name to identify the function.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A complex type that contains zero or more ``Tag`` elements.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

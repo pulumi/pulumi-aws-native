@@ -136,7 +136,7 @@ class AwaitableGetMonitorResult(GetMonitorResult):
 def get_monitor(arn: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitorResult:
     """
-    Definition of AWS::Deadline::Monitor Resource Type
+    Resource Type definition for AWS::Deadline::Monitor
 
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the monitor.
@@ -158,7 +158,7 @@ def get_monitor(arn: Optional[_builtins.str] = None,
 def get_monitor_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorResult]:
     """
-    Definition of AWS::Deadline::Monitor Resource Type
+    Resource Type definition for AWS::Deadline::Monitor
 
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the monitor.

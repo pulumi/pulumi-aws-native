@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * const generateDistinctId = config.require("generateDistinctId");
  * const apiKey = new aws_native.apigateway.ApiKey("apiKey", {
  *     customerId: customerId,
- *     generateDistinctId: generateDistinctId,
+ *     generateDistinctId: generateDistinctId === "true",
  *     name: apiKeyName,
  * });
  *
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * const generateDistinctId = config.require("generateDistinctId");
  * const apiKey = new aws_native.apigateway.ApiKey("apiKey", {
  *     customerId: customerId,
- *     generateDistinctId: generateDistinctId,
+ *     generateDistinctId: generateDistinctId === "true",
  *     name: apiKeyName,
  * });
  *

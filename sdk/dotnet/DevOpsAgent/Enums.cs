@@ -8,6 +8,40 @@ using Pulumi;
 namespace Pulumi.AwsNative.DevOpsAgent
 {
     /// <summary>
+    /// The status of the Private Connection.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateConnectionStatus : IEquatable<PrivateConnectionStatus>
+    {
+        private readonly string _value;
+
+        private PrivateConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateConnectionStatus Active { get; } = new PrivateConnectionStatus("ACTIVE");
+        public static PrivateConnectionStatus CreateInProgress { get; } = new PrivateConnectionStatus("CREATE_IN_PROGRESS");
+        public static PrivateConnectionStatus CreateFailed { get; } = new PrivateConnectionStatus("CREATE_FAILED");
+        public static PrivateConnectionStatus DeleteInProgress { get; } = new PrivateConnectionStatus("DELETE_IN_PROGRESS");
+        public static PrivateConnectionStatus DeleteFailed { get; } = new PrivateConnectionStatus("DELETE_FAILED");
+
+        public static bool operator ==(PrivateConnectionStatus left, PrivateConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(PrivateConnectionStatus left, PrivateConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateConnectionStatus other && Equals(other);
+        public bool Equals(PrivateConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of service being registered
     /// </summary>
     [EnumType]
@@ -26,6 +60,10 @@ namespace Pulumi.AwsNative.DevOpsAgent
         public static ServiceType Mcpservernewrelic { get; } = new ServiceType("mcpservernewrelic");
         public static ServiceType Gitlab { get; } = new ServiceType("gitlab");
         public static ServiceType Servicenow { get; } = new ServiceType("servicenow");
+        public static ServiceType Pagerduty { get; } = new ServiceType("pagerduty");
+        public static ServiceType Azureidentity { get; } = new ServiceType("azureidentity");
+        public static ServiceType Mcpserversigv4 { get; } = new ServiceType("mcpserversigv4");
+        public static ServiceType Mcpservergrafana { get; } = new ServiceType("mcpservergrafana");
 
         public static bool operator ==(ServiceType left, ServiceType right) => left.Equals(right);
         public static bool operator !=(ServiceType left, ServiceType right) => !left.Equals(right);

@@ -28,6 +28,7 @@ class ReplicatorArgs:
                  replication_info_list: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoArgs']]],
                  service_execution_role_arn: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_delivery: Optional[pulumi.Input['LogDeliveryArgs']] = None,
                  replicator_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -37,6 +38,7 @@ class ReplicatorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoArgs']]] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[_builtins.str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the replicator to access external resources.
         :param pulumi.Input[_builtins.str] description: A summary description of the replicator.
+        :param pulumi.Input['LogDeliveryArgs'] log_delivery: Configuration for log delivery for the replicator.
         :param pulumi.Input[_builtins.str] replicator_name: The name of the replicator.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of tags associated with a resource
         """
@@ -45,6 +47,8 @@ class ReplicatorArgs:
         pulumi.set(__self__, "service_execution_role_arn", service_execution_role_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if log_delivery is not None:
+            pulumi.set(__self__, "log_delivery", log_delivery)
         if replicator_name is not None:
             pulumi.set(__self__, "replicator_name", replicator_name)
         if tags is not None:
@@ -99,6 +103,18 @@ class ReplicatorArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="logDelivery")
+    def log_delivery(self) -> Optional[pulumi.Input['LogDeliveryArgs']]:
+        """
+        Configuration for log delivery for the replicator.
+        """
+        return pulumi.get(self, "log_delivery")
+
+    @log_delivery.setter
+    def log_delivery(self, value: Optional[pulumi.Input['LogDeliveryArgs']]):
+        pulumi.set(self, "log_delivery", value)
+
+    @_builtins.property
     @pulumi.getter(name="replicatorName")
     def replicator_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -131,6 +147,7 @@ class Replicator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
+                 log_delivery: Optional[pulumi.Input[Union['LogDeliveryArgs', 'LogDeliveryArgsDict']]] = None,
                  replication_info_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorReplicationInfoArgs', 'ReplicatorReplicationInfoArgsDict']]]]] = None,
                  replicator_name: Optional[pulumi.Input[_builtins.str]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -144,6 +161,7 @@ class Replicator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A summary description of the replicator.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]] kafka_clusters: Specifies a list of Kafka clusters which are targets of the replicator.
+        :param pulumi.Input[Union['LogDeliveryArgs', 'LogDeliveryArgsDict']] log_delivery: Configuration for log delivery for the replicator.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorReplicationInfoArgs', 'ReplicatorReplicationInfoArgsDict']]]] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[_builtins.str] replicator_name: The name of the replicator.
         :param pulumi.Input[_builtins.str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the replicator to access external resources.
@@ -176,6 +194,7 @@ class Replicator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
+                 log_delivery: Optional[pulumi.Input[Union['LogDeliveryArgs', 'LogDeliveryArgsDict']]] = None,
                  replication_info_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorReplicationInfoArgs', 'ReplicatorReplicationInfoArgsDict']]]]] = None,
                  replicator_name: Optional[pulumi.Input[_builtins.str]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -193,6 +212,7 @@ class Replicator(pulumi.CustomResource):
             if kafka_clusters is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_clusters'")
             __props__.__dict__["kafka_clusters"] = kafka_clusters
+            __props__.__dict__["log_delivery"] = log_delivery
             if replication_info_list is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_info_list'")
             __props__.__dict__["replication_info_list"] = replication_info_list
@@ -203,7 +223,7 @@ class Replicator(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["current_version"] = None
             __props__.__dict__["replicator_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "kafkaClusters[*]", "replicationInfoList[*].sourceKafkaClusterArn", "replicationInfoList[*].targetCompressionType", "replicationInfoList[*].targetKafkaClusterArn", "replicationInfoList[*].topicReplication.startingPosition", "replicationInfoList[*].topicReplication.topicNameConfiguration", "replicatorName", "serviceExecutionRoleArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "kafkaClusters[*]", "replicationInfoList[*].consumerGroupReplication.consumerGroupOffsetSyncMode", "replicationInfoList[*].sourceKafkaClusterArn", "replicationInfoList[*].sourceKafkaClusterId", "replicationInfoList[*].targetCompressionType", "replicationInfoList[*].targetKafkaClusterArn", "replicationInfoList[*].targetKafkaClusterId", "replicationInfoList[*].topicReplication.startingPosition", "replicationInfoList[*].topicReplication.topicNameConfiguration", "replicatorName", "serviceExecutionRoleArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Replicator, __self__).__init__(
             'aws-native:msk:Replicator',
@@ -230,6 +250,7 @@ class Replicator(pulumi.CustomResource):
         __props__.__dict__["current_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["kafka_clusters"] = None
+        __props__.__dict__["log_delivery"] = None
         __props__.__dict__["replication_info_list"] = None
         __props__.__dict__["replicator_arn"] = None
         __props__.__dict__["replicator_name"] = None
@@ -260,6 +281,14 @@ class Replicator(pulumi.CustomResource):
         Specifies a list of Kafka clusters which are targets of the replicator.
         """
         return pulumi.get(self, "kafka_clusters")
+
+    @_builtins.property
+    @pulumi.getter(name="logDelivery")
+    def log_delivery(self) -> pulumi.Output[Optional['outputs.LogDelivery']]:
+        """
+        Configuration for log delivery for the replicator.
+        """
+        return pulumi.get(self, "log_delivery")
 
     @_builtins.property
     @pulumi.getter(name="replicationInfoList")

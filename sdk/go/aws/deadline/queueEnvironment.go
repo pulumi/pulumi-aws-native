@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::QueueEnvironment Resource Type
+// Resource Type definition for AWS::Deadline::QueueEnvironment
 type QueueEnvironment struct {
 	pulumi.CustomResourceState
 

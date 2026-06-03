@@ -93,7 +93,6 @@ namespace Pulumi.AwsNative.Batch
                 {
                     "consumableResourceName",
                     "resourceType",
-                    "tags.*",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

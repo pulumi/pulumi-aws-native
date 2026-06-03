@@ -14,12 +14,16 @@
     "VerificationMethod" : {
       "type" : "string",
       "description" : "Verification method for the target domain",
-      "enum" : [ "DNS_TXT", "HTTP_ROUTE" ]
+      "enum" : [ "DNS_TXT", "HTTP_ROUTE", "PRIVATE_VPC" ]
     },
     "VerificationStatus" : {
       "type" : "string",
       "description" : "Current verification status of the registered target domain",
       "enum" : [ "PENDING", "VERIFIED", "FAILED", "UNREACHABLE" ]
+    },
+    "VerificationStatusReason" : {
+      "type" : "string",
+      "description" : "Reason for the current target domain verification status"
     },
     "VerificationDetails" : {
       "$ref" : "#/definitions/VerificationDetails"
@@ -73,7 +77,7 @@
         "Method" : {
           "type" : "string",
           "description" : "Type of domain ownership verification method",
-          "enum" : [ "DNS_TXT", "HTTP_ROUTE" ]
+          "enum" : [ "DNS_TXT", "HTTP_ROUTE", "PRIVATE_VPC" ]
         },
         "DnsTxt" : {
           "$ref" : "#/definitions/DnsVerification"
@@ -129,7 +133,7 @@
     "permissions" : [ "securityagent:TagResource", "securityagent:UntagResource", "securityagent:ListTagsForResource" ]
   },
   "primaryIdentifier" : [ "/properties/TargetDomainId" ],
-  "readOnlyProperties" : [ "/properties/TargetDomainId", "/properties/VerificationStatus", "/properties/VerificationDetails", "/properties/CreatedAt", "/properties/VerifiedAt" ],
+  "readOnlyProperties" : [ "/properties/TargetDomainId", "/properties/VerificationStatus", "/properties/VerificationStatusReason", "/properties/VerificationDetails", "/properties/CreatedAt", "/properties/VerifiedAt" ],
   "createOnlyProperties" : [ "/properties/TargetDomainName" ],
   "handlers" : {
     "create" : {

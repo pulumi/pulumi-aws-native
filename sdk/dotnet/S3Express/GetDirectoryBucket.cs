@@ -76,9 +76,17 @@ namespace Pulumi.AwsNative.S3Express
         /// </summary>
         public readonly Outputs.DirectoryBucketBucketEncryption? BucketEncryption;
         /// <summary>
+        /// The inventory configuration for an Amazon S3 Express bucket.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DirectoryBucketInventoryConfiguration> InventoryConfigurations;
+        /// <summary>
         /// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
         /// </summary>
         public readonly Outputs.DirectoryBucketLifecycleConfiguration? LifecycleConfiguration;
+        /// <summary>
+        /// Specifies the metrics configurations for the Amazon S3 Express bucket.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DirectoryBucketMetricsConfiguration> MetricsConfigurations;
         /// <summary>
         /// An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
         /// </summary>
@@ -92,14 +100,20 @@ namespace Pulumi.AwsNative.S3Express
 
             Outputs.DirectoryBucketBucketEncryption? bucketEncryption,
 
+            ImmutableArray<Outputs.DirectoryBucketInventoryConfiguration> inventoryConfigurations,
+
             Outputs.DirectoryBucketLifecycleConfiguration? lifecycleConfiguration,
+
+            ImmutableArray<Outputs.DirectoryBucketMetricsConfiguration> metricsConfigurations,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             AvailabilityZoneName = availabilityZoneName;
             BucketEncryption = bucketEncryption;
+            InventoryConfigurations = inventoryConfigurations;
             LifecycleConfiguration = lifecycleConfiguration;
+            MetricsConfigurations = metricsConfigurations;
             Tags = tags;
         }
     }

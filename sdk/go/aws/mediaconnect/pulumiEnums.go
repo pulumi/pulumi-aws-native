@@ -8030,6 +8030,336 @@ func (o RouterInputMaintenanceTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
+type RouterInputMediaLiveChannelPipelineId string
+
+const (
+	RouterInputMediaLiveChannelPipelineIdPipeline0 = RouterInputMediaLiveChannelPipelineId("PIPELINE_0")
+	RouterInputMediaLiveChannelPipelineIdPipeline1 = RouterInputMediaLiveChannelPipelineId("PIPELINE_1")
+)
+
+func (RouterInputMediaLiveChannelPipelineId) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMediaLiveChannelPipelineId)(nil)).Elem()
+}
+
+func (e RouterInputMediaLiveChannelPipelineId) ToRouterInputMediaLiveChannelPipelineIdOutput() RouterInputMediaLiveChannelPipelineIdOutput {
+	return pulumi.ToOutput(e).(RouterInputMediaLiveChannelPipelineIdOutput)
+}
+
+func (e RouterInputMediaLiveChannelPipelineId) ToRouterInputMediaLiveChannelPipelineIdOutputWithContext(ctx context.Context) RouterInputMediaLiveChannelPipelineIdOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RouterInputMediaLiveChannelPipelineIdOutput)
+}
+
+func (e RouterInputMediaLiveChannelPipelineId) ToRouterInputMediaLiveChannelPipelineIdPtrOutput() RouterInputMediaLiveChannelPipelineIdPtrOutput {
+	return e.ToRouterInputMediaLiveChannelPipelineIdPtrOutputWithContext(context.Background())
+}
+
+func (e RouterInputMediaLiveChannelPipelineId) ToRouterInputMediaLiveChannelPipelineIdPtrOutputWithContext(ctx context.Context) RouterInputMediaLiveChannelPipelineIdPtrOutput {
+	return RouterInputMediaLiveChannelPipelineId(e).ToRouterInputMediaLiveChannelPipelineIdOutputWithContext(ctx).ToRouterInputMediaLiveChannelPipelineIdPtrOutputWithContext(ctx)
+}
+
+func (e RouterInputMediaLiveChannelPipelineId) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterInputMediaLiveChannelPipelineId) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterInputMediaLiveChannelPipelineId) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RouterInputMediaLiveChannelPipelineId) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RouterInputMediaLiveChannelPipelineIdOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMediaLiveChannelPipelineIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMediaLiveChannelPipelineId)(nil)).Elem()
+}
+
+func (o RouterInputMediaLiveChannelPipelineIdOutput) ToRouterInputMediaLiveChannelPipelineIdOutput() RouterInputMediaLiveChannelPipelineIdOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveChannelPipelineIdOutput) ToRouterInputMediaLiveChannelPipelineIdOutputWithContext(ctx context.Context) RouterInputMediaLiveChannelPipelineIdOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveChannelPipelineIdOutput) ToRouterInputMediaLiveChannelPipelineIdPtrOutput() RouterInputMediaLiveChannelPipelineIdPtrOutput {
+	return o.ToRouterInputMediaLiveChannelPipelineIdPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputMediaLiveChannelPipelineIdOutput) ToRouterInputMediaLiveChannelPipelineIdPtrOutputWithContext(ctx context.Context) RouterInputMediaLiveChannelPipelineIdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterInputMediaLiveChannelPipelineId) *RouterInputMediaLiveChannelPipelineId {
+		return &v
+	}).(RouterInputMediaLiveChannelPipelineIdPtrOutput)
+}
+
+func (o RouterInputMediaLiveChannelPipelineIdOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RouterInputMediaLiveChannelPipelineIdOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterInputMediaLiveChannelPipelineId) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RouterInputMediaLiveChannelPipelineIdOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputMediaLiveChannelPipelineIdOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterInputMediaLiveChannelPipelineId) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouterInputMediaLiveChannelPipelineIdPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMediaLiveChannelPipelineIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputMediaLiveChannelPipelineId)(nil)).Elem()
+}
+
+func (o RouterInputMediaLiveChannelPipelineIdPtrOutput) ToRouterInputMediaLiveChannelPipelineIdPtrOutput() RouterInputMediaLiveChannelPipelineIdPtrOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveChannelPipelineIdPtrOutput) ToRouterInputMediaLiveChannelPipelineIdPtrOutputWithContext(ctx context.Context) RouterInputMediaLiveChannelPipelineIdPtrOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveChannelPipelineIdPtrOutput) Elem() RouterInputMediaLiveChannelPipelineIdOutput {
+	return o.ApplyT(func(v *RouterInputMediaLiveChannelPipelineId) RouterInputMediaLiveChannelPipelineId {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputMediaLiveChannelPipelineId
+		return ret
+	}).(RouterInputMediaLiveChannelPipelineIdOutput)
+}
+
+func (o RouterInputMediaLiveChannelPipelineIdPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputMediaLiveChannelPipelineIdPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RouterInputMediaLiveChannelPipelineId) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RouterInputMediaLiveChannelPipelineIdInput is an input type that accepts values of the RouterInputMediaLiveChannelPipelineId enum
+// A concrete instance of `RouterInputMediaLiveChannelPipelineIdInput` can be one of the following:
+//
+//	RouterInputMediaLiveChannelPipelineIdPipeline0
+//	RouterInputMediaLiveChannelPipelineIdPipeline1
+type RouterInputMediaLiveChannelPipelineIdInput interface {
+	pulumi.Input
+
+	ToRouterInputMediaLiveChannelPipelineIdOutput() RouterInputMediaLiveChannelPipelineIdOutput
+	ToRouterInputMediaLiveChannelPipelineIdOutputWithContext(context.Context) RouterInputMediaLiveChannelPipelineIdOutput
+}
+
+var routerInputMediaLiveChannelPipelineIdPtrType = reflect.TypeOf((**RouterInputMediaLiveChannelPipelineId)(nil)).Elem()
+
+type RouterInputMediaLiveChannelPipelineIdPtrInput interface {
+	pulumi.Input
+
+	ToRouterInputMediaLiveChannelPipelineIdPtrOutput() RouterInputMediaLiveChannelPipelineIdPtrOutput
+	ToRouterInputMediaLiveChannelPipelineIdPtrOutputWithContext(context.Context) RouterInputMediaLiveChannelPipelineIdPtrOutput
+}
+
+type routerInputMediaLiveChannelPipelineIdPtr string
+
+func RouterInputMediaLiveChannelPipelineIdPtr(v string) RouterInputMediaLiveChannelPipelineIdPtrInput {
+	return (*routerInputMediaLiveChannelPipelineIdPtr)(&v)
+}
+
+func (*routerInputMediaLiveChannelPipelineIdPtr) ElementType() reflect.Type {
+	return routerInputMediaLiveChannelPipelineIdPtrType
+}
+
+func (in *routerInputMediaLiveChannelPipelineIdPtr) ToRouterInputMediaLiveChannelPipelineIdPtrOutput() RouterInputMediaLiveChannelPipelineIdPtrOutput {
+	return pulumi.ToOutput(in).(RouterInputMediaLiveChannelPipelineIdPtrOutput)
+}
+
+func (in *routerInputMediaLiveChannelPipelineIdPtr) ToRouterInputMediaLiveChannelPipelineIdPtrOutputWithContext(ctx context.Context) RouterInputMediaLiveChannelPipelineIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RouterInputMediaLiveChannelPipelineIdPtrOutput)
+}
+
+type RouterInputMediaLiveTransitEncryptionKeyType string
+
+const (
+	RouterInputMediaLiveTransitEncryptionKeyTypeSecretsManager = RouterInputMediaLiveTransitEncryptionKeyType("SECRETS_MANAGER")
+	RouterInputMediaLiveTransitEncryptionKeyTypeAutomatic      = RouterInputMediaLiveTransitEncryptionKeyType("AUTOMATIC")
+)
+
+func (RouterInputMediaLiveTransitEncryptionKeyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMediaLiveTransitEncryptionKeyType)(nil)).Elem()
+}
+
+func (e RouterInputMediaLiveTransitEncryptionKeyType) ToRouterInputMediaLiveTransitEncryptionKeyTypeOutput() RouterInputMediaLiveTransitEncryptionKeyTypeOutput {
+	return pulumi.ToOutput(e).(RouterInputMediaLiveTransitEncryptionKeyTypeOutput)
+}
+
+func (e RouterInputMediaLiveTransitEncryptionKeyType) ToRouterInputMediaLiveTransitEncryptionKeyTypeOutputWithContext(ctx context.Context) RouterInputMediaLiveTransitEncryptionKeyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RouterInputMediaLiveTransitEncryptionKeyTypeOutput)
+}
+
+func (e RouterInputMediaLiveTransitEncryptionKeyType) ToRouterInputMediaLiveTransitEncryptionKeyTypePtrOutput() RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput {
+	return e.ToRouterInputMediaLiveTransitEncryptionKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (e RouterInputMediaLiveTransitEncryptionKeyType) ToRouterInputMediaLiveTransitEncryptionKeyTypePtrOutputWithContext(ctx context.Context) RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput {
+	return RouterInputMediaLiveTransitEncryptionKeyType(e).ToRouterInputMediaLiveTransitEncryptionKeyTypeOutputWithContext(ctx).ToRouterInputMediaLiveTransitEncryptionKeyTypePtrOutputWithContext(ctx)
+}
+
+func (e RouterInputMediaLiveTransitEncryptionKeyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterInputMediaLiveTransitEncryptionKeyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterInputMediaLiveTransitEncryptionKeyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RouterInputMediaLiveTransitEncryptionKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RouterInputMediaLiveTransitEncryptionKeyTypeOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMediaLiveTransitEncryptionKeyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMediaLiveTransitEncryptionKeyType)(nil)).Elem()
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyTypeOutput) ToRouterInputMediaLiveTransitEncryptionKeyTypeOutput() RouterInputMediaLiveTransitEncryptionKeyTypeOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyTypeOutput) ToRouterInputMediaLiveTransitEncryptionKeyTypeOutputWithContext(ctx context.Context) RouterInputMediaLiveTransitEncryptionKeyTypeOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyTypeOutput) ToRouterInputMediaLiveTransitEncryptionKeyTypePtrOutput() RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput {
+	return o.ToRouterInputMediaLiveTransitEncryptionKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyTypeOutput) ToRouterInputMediaLiveTransitEncryptionKeyTypePtrOutputWithContext(ctx context.Context) RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterInputMediaLiveTransitEncryptionKeyType) *RouterInputMediaLiveTransitEncryptionKeyType {
+		return &v
+	}).(RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput)
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterInputMediaLiveTransitEncryptionKeyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterInputMediaLiveTransitEncryptionKeyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputMediaLiveTransitEncryptionKeyType)(nil)).Elem()
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput) ToRouterInputMediaLiveTransitEncryptionKeyTypePtrOutput() RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput) ToRouterInputMediaLiveTransitEncryptionKeyTypePtrOutputWithContext(ctx context.Context) RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput) Elem() RouterInputMediaLiveTransitEncryptionKeyTypeOutput {
+	return o.ApplyT(func(v *RouterInputMediaLiveTransitEncryptionKeyType) RouterInputMediaLiveTransitEncryptionKeyType {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputMediaLiveTransitEncryptionKeyType
+		return ret
+	}).(RouterInputMediaLiveTransitEncryptionKeyTypeOutput)
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RouterInputMediaLiveTransitEncryptionKeyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RouterInputMediaLiveTransitEncryptionKeyTypeInput is an input type that accepts values of the RouterInputMediaLiveTransitEncryptionKeyType enum
+// A concrete instance of `RouterInputMediaLiveTransitEncryptionKeyTypeInput` can be one of the following:
+//
+//	RouterInputMediaLiveTransitEncryptionKeyTypeSecretsManager
+//	RouterInputMediaLiveTransitEncryptionKeyTypeAutomatic
+type RouterInputMediaLiveTransitEncryptionKeyTypeInput interface {
+	pulumi.Input
+
+	ToRouterInputMediaLiveTransitEncryptionKeyTypeOutput() RouterInputMediaLiveTransitEncryptionKeyTypeOutput
+	ToRouterInputMediaLiveTransitEncryptionKeyTypeOutputWithContext(context.Context) RouterInputMediaLiveTransitEncryptionKeyTypeOutput
+}
+
+var routerInputMediaLiveTransitEncryptionKeyTypePtrType = reflect.TypeOf((**RouterInputMediaLiveTransitEncryptionKeyType)(nil)).Elem()
+
+type RouterInputMediaLiveTransitEncryptionKeyTypePtrInput interface {
+	pulumi.Input
+
+	ToRouterInputMediaLiveTransitEncryptionKeyTypePtrOutput() RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput
+	ToRouterInputMediaLiveTransitEncryptionKeyTypePtrOutputWithContext(context.Context) RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput
+}
+
+type routerInputMediaLiveTransitEncryptionKeyTypePtr string
+
+func RouterInputMediaLiveTransitEncryptionKeyTypePtr(v string) RouterInputMediaLiveTransitEncryptionKeyTypePtrInput {
+	return (*routerInputMediaLiveTransitEncryptionKeyTypePtr)(&v)
+}
+
+func (*routerInputMediaLiveTransitEncryptionKeyTypePtr) ElementType() reflect.Type {
+	return routerInputMediaLiveTransitEncryptionKeyTypePtrType
+}
+
+func (in *routerInputMediaLiveTransitEncryptionKeyTypePtr) ToRouterInputMediaLiveTransitEncryptionKeyTypePtrOutput() RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput {
+	return pulumi.ToOutput(in).(RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput)
+}
+
+func (in *routerInputMediaLiveTransitEncryptionKeyTypePtr) ToRouterInputMediaLiveTransitEncryptionKeyTypePtrOutputWithContext(ctx context.Context) RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput)
+}
+
 type RouterInputProtocol string
 
 const (
@@ -8801,6 +9131,7 @@ const (
 	RouterInputTypeFailover         = RouterInputType("FAILOVER")
 	RouterInputTypeMerge            = RouterInputType("MERGE")
 	RouterInputTypeMediaconnectFlow = RouterInputType("MEDIACONNECT_FLOW")
+	RouterInputTypeMedialiveChannel = RouterInputType("MEDIALIVE_CHANNEL")
 )
 
 type RouterInputTypeOutput struct{ *pulumi.OutputState }
@@ -10869,6 +11200,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFlowTransitEncryptionKeyTypePtrInput)(nil)).Elem(), RouterInputFlowTransitEncryptionKeyType("SECRETS_MANAGER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputForwardErrorCorrectionStateInput)(nil)).Elem(), RouterInputForwardErrorCorrectionState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputForwardErrorCorrectionStatePtrInput)(nil)).Elem(), RouterInputForwardErrorCorrectionState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMediaLiveChannelPipelineIdInput)(nil)).Elem(), RouterInputMediaLiveChannelPipelineId("PIPELINE_0"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMediaLiveChannelPipelineIdPtrInput)(nil)).Elem(), RouterInputMediaLiveChannelPipelineId("PIPELINE_0"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMediaLiveTransitEncryptionKeyTypeInput)(nil)).Elem(), RouterInputMediaLiveTransitEncryptionKeyType("SECRETS_MANAGER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMediaLiveTransitEncryptionKeyTypePtrInput)(nil)).Elem(), RouterInputMediaLiveTransitEncryptionKeyType("SECRETS_MANAGER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputProtocolInput)(nil)).Elem(), RouterInputProtocol("RTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputProtocolPtrInput)(nil)).Elem(), RouterInputProtocol("RTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputRoutingScopeInput)(nil)).Elem(), RouterInputRoutingScope("REGIONAL"))
@@ -10991,6 +11326,10 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputForwardErrorCorrectionStatePtrOutput{})
 	pulumi.RegisterOutputType(RouterInputMaintenanceTypeOutput{})
 	pulumi.RegisterOutputType(RouterInputMaintenanceTypePtrOutput{})
+	pulumi.RegisterOutputType(RouterInputMediaLiveChannelPipelineIdOutput{})
+	pulumi.RegisterOutputType(RouterInputMediaLiveChannelPipelineIdPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputMediaLiveTransitEncryptionKeyTypeOutput{})
+	pulumi.RegisterOutputType(RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(RouterInputProtocolOutput{})
 	pulumi.RegisterOutputType(RouterInputProtocolPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputRoutingScopeOutput{})

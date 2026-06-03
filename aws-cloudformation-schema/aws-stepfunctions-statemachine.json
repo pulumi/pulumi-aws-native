@@ -207,13 +207,13 @@
   "additionalIdentifiers" : [ [ "/properties/StateMachineName" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "states:CreateStateMachine", "states:DescribeStateMachine", "states:TagResource", "iam:PassRole", "s3:GetObject", "kms:DescribeKey", "kms:GenerateDataKey" ]
+      "permissions" : [ "states:CreateStateMachine", "states:DescribeStateMachine", "states:TagResource", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "kms:DescribeKey", "kms:GenerateDataKey" ]
     },
     "read" : {
       "permissions" : [ "states:DescribeStateMachine", "states:ListTagsForResource", "kms:Decrypt" ]
     },
     "update" : {
-      "permissions" : [ "states:UpdateStateMachine", "states:TagResource", "states:UntagResource", "states:ListTagsForResource", "iam:PassRole", "kms:DescribeKey", "kms:GenerateDataKey" ]
+      "permissions" : [ "states:UpdateStateMachine", "states:TagResource", "states:UntagResource", "states:ListTagsForResource", "iam:PassRole", "kms:DescribeKey", "kms:GenerateDataKey", "s3:GetObject", "s3:GetObjectVersion" ]
     },
     "delete" : {
       "permissions" : [ "states:DeleteStateMachine", "states:DescribeStateMachine" ]

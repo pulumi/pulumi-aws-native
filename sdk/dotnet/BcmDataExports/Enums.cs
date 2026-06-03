@@ -129,6 +129,8 @@ namespace Pulumi.AwsNative.BcmDataExports
         }
 
         public static ExportS3OutputType Custom { get; } = new ExportS3OutputType("CUSTOM");
+        public static ExportS3OutputType Athena { get; } = new ExportS3OutputType("ATHENA");
+        public static ExportS3OutputType Redshift { get; } = new ExportS3OutputType("REDSHIFT");
 
         public static bool operator ==(ExportS3OutputType left, ExportS3OutputType right) => left.Equals(right);
         public static bool operator !=(ExportS3OutputType left, ExportS3OutputType right) => !left.Equals(right);

@@ -327,7 +327,7 @@ class AutomationRule(pulumi.CustomResource):
                 "note_updated_at": [{
                     "date_range": {
                         "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        "value": 5,
+                        "value": float(5),
                     },
                 }],
                 "note_updated_by": [{
@@ -341,19 +341,19 @@ class AutomationRule(pulumi.CustomResource):
                 "first_observed_at": [{
                     "date_range": {
                         "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        "value": 5,
+                        "value": float(5),
                     },
                 }],
                 "last_observed_at": [{
                     "date_range": {
                         "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        "value": 5,
+                        "value": float(5),
                     },
                 }],
                 "created_at": [{
                     "date_range": {
                         "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        "value": 5,
+                        "value": float(5),
                     },
                 }],
                 "updated_at": [{
@@ -397,19 +397,19 @@ class AutomationRule(pulumi.CustomResource):
                     },
                 ],
                 "confidence": [{
-                    "gte": 50,
-                    "lte": 95,
+                    "gte": float(50),
+                    "lte": float(95),
                 }],
                 "criticality": [{
-                    "gte": 50,
-                    "lte": 95,
+                    "gte": float(50),
+                    "lte": float(95),
                 }],
             },
             actions=[{
                 "type": aws_native.securityhub.AutomationRulesActionType.FINDING_FIELDS_UPDATE,
                 "finding_fields_update": {
                     "severity": {
-                        "product": 50,
+                        "product": float(50),
                         "label": aws_native.securityhub.AutomationRuleSeverityUpdateLabel.MEDIUM,
                         "normalized": 60,
                     },
@@ -605,7 +605,7 @@ class AutomationRule(pulumi.CustomResource):
                 "note_updated_at": [{
                     "date_range": {
                         "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        "value": 5,
+                        "value": float(5),
                     },
                 }],
                 "note_updated_by": [{
@@ -619,19 +619,19 @@ class AutomationRule(pulumi.CustomResource):
                 "first_observed_at": [{
                     "date_range": {
                         "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        "value": 5,
+                        "value": float(5),
                     },
                 }],
                 "last_observed_at": [{
                     "date_range": {
                         "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        "value": 5,
+                        "value": float(5),
                     },
                 }],
                 "created_at": [{
                     "date_range": {
                         "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        "value": 5,
+                        "value": float(5),
                     },
                 }],
                 "updated_at": [{
@@ -675,19 +675,19 @@ class AutomationRule(pulumi.CustomResource):
                     },
                 ],
                 "confidence": [{
-                    "gte": 50,
-                    "lte": 95,
+                    "gte": float(50),
+                    "lte": float(95),
                 }],
                 "criticality": [{
-                    "gte": 50,
-                    "lte": 95,
+                    "gte": float(50),
+                    "lte": float(95),
                 }],
             },
             actions=[{
                 "type": aws_native.securityhub.AutomationRulesActionType.FINDING_FIELDS_UPDATE,
                 "finding_fields_update": {
                     "severity": {
-                        "product": 50,
+                        "product": float(50),
                         "label": aws_native.securityhub.AutomationRuleSeverityUpdateLabel.MEDIUM,
                         "normalized": 60,
                     },
@@ -906,7 +906,7 @@ class AutomationRule(pulumi.CustomResource):
                 "note_updated_at": [{
                     "date_range": {
                         "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        "value": 5,
+                        "value": float(5),
                     },
                 }],
                 "note_updated_by": [{
@@ -920,19 +920,19 @@ class AutomationRule(pulumi.CustomResource):
                 "first_observed_at": [{
                     "date_range": {
                         "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        "value": 5,
+                        "value": float(5),
                     },
                 }],
                 "last_observed_at": [{
                     "date_range": {
                         "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        "value": 5,
+                        "value": float(5),
                     },
                 }],
                 "created_at": [{
                     "date_range": {
                         "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        "value": 5,
+                        "value": float(5),
                     },
                 }],
                 "updated_at": [{
@@ -976,19 +976,19 @@ class AutomationRule(pulumi.CustomResource):
                     },
                 ],
                 "confidence": [{
-                    "gte": 50,
-                    "lte": 95,
+                    "gte": float(50),
+                    "lte": float(95),
                 }],
                 "criticality": [{
-                    "gte": 50,
-                    "lte": 95,
+                    "gte": float(50),
+                    "lte": float(95),
                 }],
             },
             actions=[{
                 "type": aws_native.securityhub.AutomationRulesActionType.FINDING_FIELDS_UPDATE,
                 "finding_fields_update": {
                     "severity": {
-                        "product": 50,
+                        "product": float(50),
                         "label": aws_native.securityhub.AutomationRuleSeverityUpdateLabel.MEDIUM,
                         "normalized": 60,
                     },
@@ -1184,7 +1184,7 @@ class AutomationRule(pulumi.CustomResource):
                 "note_updated_at": [{
                     "date_range": {
                         "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        "value": 5,
+                        "value": float(5),
                     },
                 }],
                 "note_updated_by": [{
@@ -1198,19 +1198,19 @@ class AutomationRule(pulumi.CustomResource):
                 "first_observed_at": [{
                     "date_range": {
                         "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        "value": 5,
+                        "value": float(5),
                     },
                 }],
                 "last_observed_at": [{
                     "date_range": {
                         "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        "value": 5,
+                        "value": float(5),
                     },
                 }],
                 "created_at": [{
                     "date_range": {
                         "unit": aws_native.securityhub.AutomationRuleDateRangeUnit.DAYS,
-                        "value": 5,
+                        "value": float(5),
                     },
                 }],
                 "updated_at": [{
@@ -1254,19 +1254,19 @@ class AutomationRule(pulumi.CustomResource):
                     },
                 ],
                 "confidence": [{
-                    "gte": 50,
-                    "lte": 95,
+                    "gte": float(50),
+                    "lte": float(95),
                 }],
                 "criticality": [{
-                    "gte": 50,
-                    "lte": 95,
+                    "gte": float(50),
+                    "lte": float(95),
                 }],
             },
             actions=[{
                 "type": aws_native.securityhub.AutomationRulesActionType.FINDING_FIELDS_UPDATE,
                 "finding_fields_update": {
                     "severity": {
-                        "product": 50,
+                        "product": float(50),
                         "label": aws_native.securityhub.AutomationRuleSeverityUpdateLabel.MEDIUM,
                         "normalized": 60,
                     },

@@ -68,6 +68,22 @@
         }
       }
     },
+    "InstancePools" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ModelNameOverride" : {
+          "type" : "string"
+        },
+        "InstanceType" : {
+          "type" : "string"
+        },
+        "Priority" : {
+          "type" : "integer"
+        }
+      },
+      "required" : [ "Priority", "InstanceType" ]
+    },
     "AsyncInferenceNotificationConfig" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -98,6 +114,13 @@
         "ManagedInstanceScaling" : {
           "$ref" : "#/definitions/ManagedInstanceScaling"
         },
+        "InstancePools" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/InstancePools"
+          }
+        },
         "ModelName" : {
           "type" : "string"
         },
@@ -111,6 +134,9 @@
           "type" : "string"
         },
         "InitialInstanceCount" : {
+          "type" : "integer"
+        },
+        "VariantInstanceProvisionTimeoutInSeconds" : {
           "type" : "integer"
         },
         "RoutingConfig" : {

@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class CustomPermissionsCapabilities
     {
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? AccessAppsNativeDataStore;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? Action;
         /// <summary>
         /// The ability to add or run anomaly detection.
@@ -27,6 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? Analysis;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ApproveFlowShareRequests;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? Apps;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? AsanaAction;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? Automate;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? BambooHrAction;
@@ -41,6 +43,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateAndUpdateAmazonBedrockFsAction;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateAndUpdateAmazonBedrockKrsAction;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateAndUpdateAmazonSThreeAction;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateAndUpdateApps;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateAndUpdateAsanaAction;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateAndUpdateBambooHrAction;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateAndUpdateBoxAgentAction;
@@ -107,6 +110,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The ability to create shared folders.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateSharedFolders;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateSpaces;
         /// <summary>
         /// The ability to create a SPICE dataset.
         /// </summary>
@@ -153,6 +157,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? IncludeContentInScheduledReportsEmail;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? IntercomAction;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? InvokeAppsAiInference;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? JiraAction;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? KnowledgeBase;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? LinearAction;
@@ -194,10 +199,12 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The ability to share analyses.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareAnalyses;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareApps;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareAsanaAction;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareBambooHrAction;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareBoxAgentAction;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareCanvaAgentAction;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareChatAgents;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareComprehendAction;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareComprehendMedicalAction;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareConfluenceAction;
@@ -245,6 +252,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareSharePointAction;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareSlackAction;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareSmartsheetAction;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareSpaces;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareTextractAction;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareZendeskAction;
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? SlackAction;
@@ -309,6 +317,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private CustomPermissionsCapabilities(
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? accessAppsNativeDataStore,
+
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? action,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? addOrRunAnomalyDetectionForAnalyses,
@@ -324,6 +334,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? analysis,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? approveFlowShareRequests,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? apps,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? asanaAction,
 
@@ -352,6 +364,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? createAndUpdateAmazonBedrockKrsAction,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? createAndUpdateAmazonSThreeAction,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? createAndUpdateApps,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? createAndUpdateAsanaAction,
 
@@ -449,6 +463,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? createSharedFolders,
 
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? createSpaces,
+
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? createSpiceDataset,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? dashboard,
@@ -486,6 +502,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? includeContentInScheduledReportsEmail,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? intercomAction,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? invokeAppsAiInference,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? jiraAction,
 
@@ -551,6 +569,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? shareAnalyses,
 
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? shareApps,
+
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? shareAsanaAction,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? shareBambooHrAction,
@@ -558,6 +578,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? shareBoxAgentAction,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? shareCanvaAgentAction,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? shareChatAgents,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? shareComprehendAction,
 
@@ -634,6 +656,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? shareSlackAction,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? shareSmartsheetAction,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? shareSpaces,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? shareTextractAction,
 
@@ -745,6 +769,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? zendeskAction)
         {
+            AccessAppsNativeDataStore = accessAppsNativeDataStore;
             Action = action;
             AddOrRunAnomalyDetectionForAnalyses = addOrRunAnomalyDetectionForAnalyses;
             AmazonBedrockArsAction = amazonBedrockArsAction;
@@ -753,6 +778,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             AmazonSThreeAction = amazonSThreeAction;
             Analysis = analysis;
             ApproveFlowShareRequests = approveFlowShareRequests;
+            Apps = apps;
             AsanaAction = asanaAction;
             Automate = automate;
             BambooHrAction = bambooHrAction;
@@ -767,6 +793,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             CreateAndUpdateAmazonBedrockFsAction = createAndUpdateAmazonBedrockFsAction;
             CreateAndUpdateAmazonBedrockKrsAction = createAndUpdateAmazonBedrockKrsAction;
             CreateAndUpdateAmazonSThreeAction = createAndUpdateAmazonSThreeAction;
+            CreateAndUpdateApps = createAndUpdateApps;
             CreateAndUpdateAsanaAction = createAndUpdateAsanaAction;
             CreateAndUpdateBambooHrAction = createAndUpdateBambooHrAction;
             CreateAndUpdateBoxAgentAction = createAndUpdateBoxAgentAction;
@@ -815,6 +842,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             CreateChatAgents = createChatAgents;
             CreateDashboardExecutiveSummaryWithQ = createDashboardExecutiveSummaryWithQ;
             CreateSharedFolders = createSharedFolders;
+            CreateSpaces = createSpaces;
             CreateSpiceDataset = createSpiceDataset;
             Dashboard = dashboard;
             EditVisualWithQ = editVisualWithQ;
@@ -834,6 +862,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             HuggingFaceAction = huggingFaceAction;
             IncludeContentInScheduledReportsEmail = includeContentInScheduledReportsEmail;
             IntercomAction = intercomAction;
+            InvokeAppsAiInference = invokeAppsAiInference;
             JiraAction = jiraAction;
             KnowledgeBase = knowledgeBase;
             LinearAction = linearAction;
@@ -866,10 +895,12 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ShareAmazonBedrockKrsAction = shareAmazonBedrockKrsAction;
             ShareAmazonSThreeAction = shareAmazonSThreeAction;
             ShareAnalyses = shareAnalyses;
+            ShareApps = shareApps;
             ShareAsanaAction = shareAsanaAction;
             ShareBambooHrAction = shareBambooHrAction;
             ShareBoxAgentAction = shareBoxAgentAction;
             ShareCanvaAgentAction = shareCanvaAgentAction;
+            ShareChatAgents = shareChatAgents;
             ShareComprehendAction = shareComprehendAction;
             ShareComprehendMedicalAction = shareComprehendMedicalAction;
             ShareConfluenceAction = shareConfluenceAction;
@@ -908,6 +939,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ShareSharePointAction = shareSharePointAction;
             ShareSlackAction = shareSlackAction;
             ShareSmartsheetAction = shareSmartsheetAction;
+            ShareSpaces = shareSpaces;
             ShareTextractAction = shareTextractAction;
             ShareZendeskAction = shareZendeskAction;
             SlackAction = slackAction;

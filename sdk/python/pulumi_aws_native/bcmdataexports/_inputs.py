@@ -151,6 +151,7 @@ class ExportS3DestinationArgsDict(TypedDict):
     """
     The S3 bucket Region.
     """
+    s3_bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ExportS3DestinationArgs:
@@ -158,7 +159,8 @@ class ExportS3DestinationArgs:
                  s3_bucket: pulumi.Input[_builtins.str],
                  s3_output_configurations: pulumi.Input['ExportS3OutputConfigurationsArgs'],
                  s3_prefix: pulumi.Input[_builtins.str],
-                 s3_region: pulumi.Input[_builtins.str]):
+                 s3_region: pulumi.Input[_builtins.str],
+                 s3_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] s3_bucket: The name of the Amazon S3 bucket used as the destination of a data export file.
         :param pulumi.Input['ExportS3OutputConfigurationsArgs'] s3_output_configurations: The output configuration for the data export.
@@ -169,6 +171,8 @@ class ExportS3DestinationArgs:
         pulumi.set(__self__, "s3_output_configurations", s3_output_configurations)
         pulumi.set(__self__, "s3_prefix", s3_prefix)
         pulumi.set(__self__, "s3_region", s3_region)
+        if s3_bucket_owner is not None:
+            pulumi.set(__self__, "s3_bucket_owner", s3_bucket_owner)
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
@@ -217,6 +221,15 @@ class ExportS3DestinationArgs:
     @s3_region.setter
     def s3_region(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "s3_region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3BucketOwner")
+    def s3_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "s3_bucket_owner")
+
+    @s3_bucket_owner.setter
+    def s3_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "s3_bucket_owner", value)
 
 
 class ExportS3OutputConfigurationsArgsDict(TypedDict):

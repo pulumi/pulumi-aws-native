@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::LicenseEndpoint Resource Type
+// Resource Type definition for AWS::Deadline::LicenseEndpoint
 func LookupLicenseEndpoint(ctx *pulumi.Context, args *LookupLicenseEndpointArgs, opts ...pulumi.InvokeOption) (*LookupLicenseEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLicenseEndpointResult

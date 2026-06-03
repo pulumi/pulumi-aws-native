@@ -47,6 +47,7 @@ class EnvironmentHostInfoForCreateInstanceType(_builtins.str, Enum):
     The EC2 instance type that represents the host.
     """
     I4I_METAL = "i4i.metal"
+    I7I_METAL24XL = "i7i.metal-24xl"
 
 
 @pulumi.type_token("aws-native:evs:EnvironmentState")

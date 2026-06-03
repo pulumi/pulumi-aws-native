@@ -190,7 +190,7 @@ class ApiKey(pulumi.CustomResource):
         generate_distinct_id = config.require("generateDistinctId")
         api_key = aws_native.apigateway.ApiKey("apiKey",
             customer_id=customer_id,
-            generate_distinct_id=generate_distinct_id,
+            generate_distinct_id=generate_distinct_id == "true",
             name=api_key_name)
 
         ```
@@ -206,7 +206,7 @@ class ApiKey(pulumi.CustomResource):
         generate_distinct_id = config.require("generateDistinctId")
         api_key = aws_native.apigateway.ApiKey("apiKey",
             customer_id=customer_id,
-            generate_distinct_id=generate_distinct_id,
+            generate_distinct_id=generate_distinct_id == "true",
             name=api_key_name)
 
         ```
@@ -246,7 +246,7 @@ class ApiKey(pulumi.CustomResource):
         generate_distinct_id = config.require("generateDistinctId")
         api_key = aws_native.apigateway.ApiKey("apiKey",
             customer_id=customer_id,
-            generate_distinct_id=generate_distinct_id,
+            generate_distinct_id=generate_distinct_id == "true",
             name=api_key_name)
 
         ```
@@ -262,7 +262,7 @@ class ApiKey(pulumi.CustomResource):
         generate_distinct_id = config.require("generateDistinctId")
         api_key = aws_native.apigateway.ApiKey("apiKey",
             customer_id=customer_id,
-            generate_distinct_id=generate_distinct_id,
+            generate_distinct_id=generate_distinct_id == "true",
             name=api_key_name)
 
         ```

@@ -76,7 +76,13 @@ namespace Pulumi.AwsNative.Interconnect
         public Output<Outputs.ConnectionProvider> Provider { get; private set; } = null!;
 
         /// <summary>
-        /// The account ID of the remote owner. Required when creating a connection through AWS.
+        /// The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+        /// </summary>
+        [Output("remoteAccount")]
+        public Output<Outputs.RemoteAccountProperties?> RemoteAccount { get; private set; } = null!;
+
+        /// <summary>
+        /// Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
         /// </summary>
         [Output("remoteOwnerAccount")]
         public Output<string?> RemoteOwnerAccount { get; private set; } = null!;
@@ -133,6 +139,7 @@ namespace Pulumi.AwsNative.Interconnect
                     "activationKey",
                     "attachPoint",
                     "environmentId",
+                    "remoteAccount",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -187,7 +194,13 @@ namespace Pulumi.AwsNative.Interconnect
         public Input<string>? EnvironmentId { get; set; }
 
         /// <summary>
-        /// The account ID of the remote owner. Required when creating a connection through AWS.
+        /// The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+        /// </summary>
+        [Input("remoteAccount")]
+        public Input<Inputs.RemoteAccountPropertiesArgs>? RemoteAccount { get; set; }
+
+        /// <summary>
+        /// Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
         /// </summary>
         [Input("remoteOwnerAccount")]
         public Input<string>? RemoteOwnerAccount { get; set; }

@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'AlarmMuteRuleStatus',
+    'OTelEnrichmentStatus',
 ]
 
 
@@ -19,3 +20,12 @@ class AlarmMuteRuleStatus(_builtins.str, Enum):
     SCHEDULED = "SCHEDULED"
     ACTIVE = "ACTIVE"
     EXPIRED = "EXPIRED"
+
+
+@pulumi.type_token("aws-native:cloudwatch:OTelEnrichmentStatus")
+class OTelEnrichmentStatus(_builtins.str, Enum):
+    """
+    Current status of OTel enrichment (RUNNING or STOPPED).
+    """
+    RUNNING = "RUNNING"
+    STOPPED = "STOPPED"

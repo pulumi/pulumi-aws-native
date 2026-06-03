@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.Sso
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The ARN of the identity store associated with the Identity Center instance
+        /// </summary>
+        public readonly string? IdentityStoreArn;
+        /// <summary>
         /// The name you want to assign to this Identity Center (SSO) Application
         /// </summary>
         public readonly string? Name;
@@ -94,6 +98,8 @@ namespace Pulumi.AwsNative.Sso
 
             string? description,
 
+            string? identityStoreArn,
+
             string? name,
 
             Outputs.ApplicationPortalOptionsConfiguration? portalOptions,
@@ -104,6 +110,7 @@ namespace Pulumi.AwsNative.Sso
         {
             ApplicationArn = applicationArn;
             Description = description;
+            IdentityStoreArn = identityStoreArn;
             Name = name;
             PortalOptions = portalOptions;
             Status = status;

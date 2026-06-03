@@ -47,6 +47,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         ///  When a volume is using the ``efsVolumeConfiguration``, the name is required.
         /// </summary>
         public readonly string? Name;
+        public readonly Outputs.TaskDefinitionS3FilesVolumeConfiguration? S3FilesVolumeConfiguration;
 
         [OutputConstructor]
         private TaskDefinitionVolume(
@@ -60,7 +61,9 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
             Outputs.TaskDefinitionHostVolumeProperties? host,
 
-            string? name)
+            string? name,
+
+            Outputs.TaskDefinitionS3FilesVolumeConfiguration? s3FilesVolumeConfiguration)
         {
             ConfiguredAtLaunch = configuredAtLaunch;
             DockerVolumeConfiguration = dockerVolumeConfiguration;
@@ -68,6 +71,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
             FSxWindowsFileServerVolumeConfiguration = fSxWindowsFileServerVolumeConfiguration;
             Host = host;
             Name = name;
+            S3FilesVolumeConfiguration = s3FilesVolumeConfiguration;
         }
     }
 }

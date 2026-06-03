@@ -18,6 +18,11 @@ from ._enums import *
 
 __all__ = [
     'AuthenticationModeProperties',
+    'CacheClusterCloudWatchLogsDestinationDetails',
+    'CacheClusterDestinationDetails',
+    'CacheClusterEndpoint',
+    'CacheClusterKinesisFirehoseDestinationDetails',
+    'CacheClusterLogDeliveryConfigurationRequest',
     'GlobalReplicationGroupMember',
     'GlobalReplicationGroupRegionalConfiguration',
     'GlobalReplicationGroupReshardingConfiguration',
@@ -77,6 +82,221 @@ class AuthenticationModeProperties(dict):
         Passwords used for this user account. You can create up to two passwords for each user.
         """
         return pulumi.get(self, "passwords")
+
+
+@pulumi.output_type
+class CacheClusterCloudWatchLogsDestinationDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroup":
+            suggest = "log_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheClusterCloudWatchLogsDestinationDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheClusterCloudWatchLogsDestinationDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheClusterCloudWatchLogsDestinationDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group: _builtins.str):
+        """
+        :param _builtins.str log_group: The name of the CloudWatch Logs log group.
+        """
+        pulumi.set(__self__, "log_group", log_group)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> _builtins.str:
+        """
+        The name of the CloudWatch Logs log group.
+        """
+        return pulumi.get(self, "log_group")
+
+
+@pulumi.output_type
+class CacheClusterDestinationDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogsDetails":
+            suggest = "cloud_watch_logs_details"
+        elif key == "kinesisFirehoseDetails":
+            suggest = "kinesis_firehose_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheClusterDestinationDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheClusterDestinationDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheClusterDestinationDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_logs_details: Optional['outputs.CacheClusterCloudWatchLogsDestinationDetails'] = None,
+                 kinesis_firehose_details: Optional['outputs.CacheClusterKinesisFirehoseDestinationDetails'] = None):
+        """
+        :param 'CacheClusterCloudWatchLogsDestinationDetails' cloud_watch_logs_details: The configuration details of the CloudWatch Logs destination
+        :param 'CacheClusterKinesisFirehoseDestinationDetails' kinesis_firehose_details: The configuration details of the Kinesis Data Firehose destination.
+        """
+        if cloud_watch_logs_details is not None:
+            pulumi.set(__self__, "cloud_watch_logs_details", cloud_watch_logs_details)
+        if kinesis_firehose_details is not None:
+            pulumi.set(__self__, "kinesis_firehose_details", kinesis_firehose_details)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogsDetails")
+    def cloud_watch_logs_details(self) -> Optional['outputs.CacheClusterCloudWatchLogsDestinationDetails']:
+        """
+        The configuration details of the CloudWatch Logs destination
+        """
+        return pulumi.get(self, "cloud_watch_logs_details")
+
+    @_builtins.property
+    @pulumi.getter(name="kinesisFirehoseDetails")
+    def kinesis_firehose_details(self) -> Optional['outputs.CacheClusterKinesisFirehoseDestinationDetails']:
+        """
+        The configuration details of the Kinesis Data Firehose destination.
+        """
+        return pulumi.get(self, "kinesis_firehose_details")
+
+
+@pulumi.output_type
+class CacheClusterEndpoint(dict):
+    def __init__(__self__, *,
+                 address: Optional[_builtins.str] = None,
+                 port: Optional[_builtins.str] = None):
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @_builtins.property
+    @pulumi.getter
+    def address(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "address")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class CacheClusterKinesisFirehoseDestinationDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryStream":
+            suggest = "delivery_stream"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheClusterKinesisFirehoseDestinationDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheClusterKinesisFirehoseDestinationDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheClusterKinesisFirehoseDestinationDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delivery_stream: _builtins.str):
+        """
+        :param _builtins.str delivery_stream: The name of the Kinesis Data Firehose delivery stream
+        """
+        pulumi.set(__self__, "delivery_stream", delivery_stream)
+
+    @_builtins.property
+    @pulumi.getter(name="deliveryStream")
+    def delivery_stream(self) -> _builtins.str:
+        """
+        The name of the Kinesis Data Firehose delivery stream
+        """
+        return pulumi.get(self, "delivery_stream")
+
+
+@pulumi.output_type
+class CacheClusterLogDeliveryConfigurationRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationDetails":
+            suggest = "destination_details"
+        elif key == "destinationType":
+            suggest = "destination_type"
+        elif key == "logFormat":
+            suggest = "log_format"
+        elif key == "logType":
+            suggest = "log_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheClusterLogDeliveryConfigurationRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheClusterLogDeliveryConfigurationRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheClusterLogDeliveryConfigurationRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_details: 'outputs.CacheClusterDestinationDetails',
+                 destination_type: _builtins.str,
+                 log_format: _builtins.str,
+                 log_type: _builtins.str):
+        """
+        :param 'CacheClusterDestinationDetails' destination_details: Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+        :param _builtins.str destination_type: Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. 
+        :param _builtins.str log_format: Valid values are either json or text
+        :param _builtins.str log_type: Valid value is either slow-log, which refers to slow-log or engine-log
+        """
+        pulumi.set(__self__, "destination_details", destination_details)
+        pulumi.set(__self__, "destination_type", destination_type)
+        pulumi.set(__self__, "log_format", log_format)
+        pulumi.set(__self__, "log_type", log_type)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationDetails")
+    def destination_details(self) -> 'outputs.CacheClusterDestinationDetails':
+        """
+        Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+        """
+        return pulumi.get(self, "destination_details")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationType")
+    def destination_type(self) -> _builtins.str:
+        """
+        Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. 
+        """
+        return pulumi.get(self, "destination_type")
+
+    @_builtins.property
+    @pulumi.getter(name="logFormat")
+    def log_format(self) -> _builtins.str:
+        """
+        Valid values are either json or text
+        """
+        return pulumi.get(self, "log_format")
+
+    @_builtins.property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> _builtins.str:
+        """
+        Valid value is either slow-log, which refers to slow-log or engine-log
+        """
+        return pulumi.get(self, "log_type")
 
 
 @pulumi.output_type

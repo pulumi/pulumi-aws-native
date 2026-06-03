@@ -14,7 +14,7 @@
     "ResourceType" : {
       "description" : "Resource Type associated with the Telemetry Rule",
       "type" : "string",
-      "enum" : [ "AWS::EC2::VPC", "AWS::WAFv2::WebACL", "AWS::CloudTrail", "AWS::EKS::Cluster", "AWS::ElasticLoadBalancingV2::LoadBalancer", "AWS::EC2::Instance", "AWS::BedrockAgentCore::Runtime", "AWS::BedrockAgentCore::Browser", "AWS::BedrockAgentCore::CodeInterpreter" ]
+      "enum" : [ "AWS::EC2::VPC", "AWS::WAFv2::WebACL", "AWS::CloudTrail", "AWS::EKS::Cluster", "AWS::ElasticLoadBalancingV2::LoadBalancer", "AWS::EC2::Instance", "AWS::BedrockAgentCore::Runtime", "AWS::BedrockAgentCore::Browser", "AWS::BedrockAgentCore::CodeInterpreter", "AWS::SecurityHub::Hub" ]
     },
     "TelemetryType" : {
       "description" : "Telemetry Type associated with the Telemetry Rule",
@@ -28,6 +28,11 @@
     "SelectionCriteria" : {
       "description" : "Selection Criteria on resource level for rule application",
       "type" : "string"
+    },
+    "AllowFieldUpdates" : {
+      "description" : "When true, configuration drift in managed telemetry resources will be detected and remediated for resource-level fields.",
+      "type" : "boolean",
+      "default" : false
     },
     "DestinationType" : {
       "description" : "Type of telemetry destination",
@@ -156,21 +161,22 @@
           "$ref" : "#/definitions/WAFLoggingParameters"
         },
         "LogDeliveryParameters" : {
-          "description" : "Parameters for BedrockAgentCore log delivery",
+          "description" : "Parameters for log delivery configuration",
           "type" : "object",
           "properties" : {
             "LogTypes" : {
-              "description" : "Types of logs to deliver for BedrockAgentCore resources",
+              "description" : "Types of logs to deliver",
               "type" : "array",
               "uniqueItems" : true,
               "insertionOrder" : false,
               "minItems" : 1,
               "items" : {
                 "type" : "string",
-                "enum" : [ "APPLICATION_LOGS", "USAGE_LOGS" ]
+                "enum" : [ "APPLICATION_LOGS", "USAGE_LOGS", "SECURITY_FINDING_LOGS" ]
               }
             }
-          }
+          },
+          "additionalProperties" : false
         }
       },
       "required" : [ ],
@@ -194,6 +200,22 @@
         },
         "SelectionCriteria" : {
           "$ref" : "#/definitions/SelectionCriteria"
+        },
+        "AllowFieldUpdates" : {
+          "$ref" : "#/definitions/AllowFieldUpdates"
+        },
+        "Regions" : {
+          "description" : "List of AWS region codes where the rule should be replicated",
+          "type" : "array",
+          "uniqueItems" : true,
+          "insertionOrder" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "AllRegions" : {
+          "description" : "When true, the rule is replicated to all supported regions",
+          "type" : "boolean"
         }
       },
       "required" : [ "ResourceType", "TelemetryType" ],
@@ -444,6 +466,25 @@
       "description" : "The telemetry source type that goes into the array.",
       "type" : "string",
       "enum" : [ "VPC_FLOW_LOGS", "ROUTE53_RESOLVER_QUERY_LOGS", "EKS_AUDIT_LOGS", "EKS_AUTHENTICATOR_LOGS", "EKS_CONTROLLER_MANAGER_LOGS", "EKS_SCHEDULER_LOGS", "EKS_API_LOGS" ]
+    },
+    "RegionStatus" : {
+      "description" : "Status of a telemetry rule in a specific region",
+      "type" : "object",
+      "properties" : {
+        "Region" : {
+          "description" : "The AWS region code",
+          "type" : "string"
+        },
+        "Status" : {
+          "description" : "The replication status of the rule in this region",
+          "type" : "string"
+        },
+        "RuleArn" : {
+          "description" : "The ARN of the rule in this region",
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -472,12 +513,20 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "RegionStatuses" : {
+      "description" : "Per-region replication status of the rule",
+      "type" : "array",
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/RegionStatus"
+      }
     }
   },
   "additionalProperties" : false,
   "required" : [ "RuleName", "Rule" ],
-  "createOnlyProperties" : [ "/properties/RuleName" ],
-  "readOnlyProperties" : [ "/properties/RuleArn" ],
+  "createOnlyProperties" : [ "/properties/RuleName", "/properties/Rule/AllRegions" ],
+  "readOnlyProperties" : [ "/properties/RuleArn", "/properties/RegionStatuses" ],
   "primaryIdentifier" : [ "/properties/RuleArn" ],
   "handlers" : {
     "create" : {

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -26,6 +29,10 @@ export interface GetDashboardResult {
      * The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard
      */
     readonly dashboardBody?: string;
+    /**
+     * A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::CloudWatch::Dashboard

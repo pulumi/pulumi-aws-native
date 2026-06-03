@@ -79,7 +79,7 @@ export class SchedulingPolicy extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name", "tags.*"] };
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SchedulingPolicy.__pulumiType, name, resourceInputs, opts);
     }

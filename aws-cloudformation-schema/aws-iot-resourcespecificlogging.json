@@ -34,7 +34,9 @@
   "readOnlyProperties" : [ "/properties/TargetId" ],
   "additionalProperties" : false,
   "required" : [ "TargetName", "TargetType", "LogLevel" ],
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "primaryIdentifier" : [ "/properties/TargetId" ],
   "handlers" : {
     "create" : {

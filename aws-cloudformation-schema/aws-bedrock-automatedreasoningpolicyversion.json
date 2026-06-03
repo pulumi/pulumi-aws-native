@@ -125,7 +125,7 @@
       "permissions" : [ "bedrock:CreateAutomatedReasoningPolicyVersion", "bedrock:GetAutomatedReasoningPolicy", "bedrock:ExportAutomatedReasoningPolicyVersion", "bedrock:TagResource", "bedrock:ListTagsForResource", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "read" : {
-      "permissions" : [ "bedrock:GetAutomatedReasoningPolicy", "bedrock:ExportAutomatedReasoningPolicyVersion", "bedrock:ListTagsForResource", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "bedrock:GetAutomatedReasoningPolicy", "bedrock:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "bedrock:DeleteAutomatedReasoningPolicy", "bedrock:GetAutomatedReasoningPolicy" ]

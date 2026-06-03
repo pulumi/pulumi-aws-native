@@ -23,10 +23,12 @@ type Application struct {
 	ApplicationConfig ApplicationConfigPtrOutput `pulumi:"applicationConfig"`
 	// Application source config
 	ApplicationSourceConfig ApplicationSourceConfigPropertiesOutput `pulumi:"applicationSourceConfig"`
+	// The type of application
+	ApplicationType ApplicationTypePtrOutput `pulumi:"applicationType"`
 	// The id of the application.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The application description.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The iframe configuration
 	IframeConfig ApplicationIframeConfigPtrOutput `pulumi:"iframeConfig"`
 	// The initialization timeout in milliseconds. Required when IsService is true.
@@ -52,9 +54,6 @@ func NewApplication(ctx *pulumi.Context,
 
 	if args.ApplicationSourceConfig == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationSourceConfig'")
-	}
-	if args.Description == nil {
-		return nil, errors.New("invalid value for required argument 'Description'")
 	}
 	if args.Namespace == nil {
 		return nil, errors.New("invalid value for required argument 'Namespace'")
@@ -96,8 +95,10 @@ type applicationArgs struct {
 	ApplicationConfig *ApplicationConfig `pulumi:"applicationConfig"`
 	// Application source config
 	ApplicationSourceConfig ApplicationSourceConfigProperties `pulumi:"applicationSourceConfig"`
+	// The type of application
+	ApplicationType *ApplicationType `pulumi:"applicationType"`
 	// The application description.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The iframe configuration
 	IframeConfig *ApplicationIframeConfig `pulumi:"iframeConfig"`
 	// The initialization timeout in milliseconds. Required when IsService is true.
@@ -120,8 +121,10 @@ type ApplicationArgs struct {
 	ApplicationConfig ApplicationConfigPtrInput
 	// Application source config
 	ApplicationSourceConfig ApplicationSourceConfigPropertiesInput
+	// The type of application
+	ApplicationType ApplicationTypePtrInput
 	// The application description.
-	Description pulumi.StringInput
+	Description pulumi.StringPtrInput
 	// The iframe configuration
 	IframeConfig ApplicationIframeConfigPtrInput
 	// The initialization timeout in milliseconds. Required when IsService is true.
@@ -190,14 +193,19 @@ func (o ApplicationOutput) ApplicationSourceConfig() ApplicationSourceConfigProp
 	return o.ApplyT(func(v *Application) ApplicationSourceConfigPropertiesOutput { return v.ApplicationSourceConfig }).(ApplicationSourceConfigPropertiesOutput)
 }
 
+// The type of application
+func (o ApplicationOutput) ApplicationType() ApplicationTypePtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationTypePtrOutput { return v.ApplicationType }).(ApplicationTypePtrOutput)
+}
+
 // The id of the application.
 func (o ApplicationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The application description.
-func (o ApplicationOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The iframe configuration

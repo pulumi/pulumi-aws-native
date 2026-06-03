@@ -2,6 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const PrivateConnectionStatus = {
+    Active: "ACTIVE",
+    CreateInProgress: "CREATE_IN_PROGRESS",
+    CreateFailed: "CREATE_FAILED",
+    DeleteInProgress: "DELETE_IN_PROGRESS",
+    DeleteFailed: "DELETE_FAILED",
+} as const;
+
+/**
+ * The status of the Private Connection.
+ */
+export type PrivateConnectionStatus = (typeof PrivateConnectionStatus)[keyof typeof PrivateConnectionStatus];
+
 export const ServiceType = {
     Dynatrace: "dynatrace",
     Mcpserver: "mcpserver",
@@ -9,6 +22,10 @@ export const ServiceType = {
     Mcpservernewrelic: "mcpservernewrelic",
     Gitlab: "gitlab",
     Servicenow: "servicenow",
+    Pagerduty: "pagerduty",
+    Azureidentity: "azureidentity",
+    Mcpserversigv4: "mcpserversigv4",
+    Mcpservergrafana: "mcpservergrafana",
 } as const;
 
 /**

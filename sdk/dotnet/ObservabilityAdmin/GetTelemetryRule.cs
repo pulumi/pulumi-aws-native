@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
     public sealed class GetTelemetryRuleResult
     {
         /// <summary>
+        /// Per-region replication status of the rule
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TelemetryRuleRegionStatus> RegionStatuses;
+        /// <summary>
         /// Retrieves the details of a specific telemetry rule in your account.
         /// </summary>
         public readonly Outputs.TelemetryRule? Rule;
@@ -78,12 +82,15 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
 
         [OutputConstructor]
         private GetTelemetryRuleResult(
+            ImmutableArray<Outputs.TelemetryRuleRegionStatus> regionStatuses,
+
             Outputs.TelemetryRule? rule,
 
             string? ruleArn,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            RegionStatuses = regionStatuses;
             Rule = rule;
             RuleArn = ruleArn;
             Tags = tags;

@@ -50,6 +50,7 @@ export interface GetCollectionResult {
      * Key Management Service key used to encrypt the collection.
      */
     readonly kmsKeyArn?: string;
+    readonly vectorOptions?: outputs.opensearchserverless.CollectionVectorOptions;
 }
 /**
  * Amazon OpenSearchServerless collection resource

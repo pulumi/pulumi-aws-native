@@ -211,7 +211,7 @@ class AwaitableGetFleetResult(GetFleetResult):
 def get_fleet(arn: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFleetResult:
     """
-    Definition of AWS::Deadline::Fleet Resource Type
+    Resource Type definition for AWS::Deadline::Fleet
 
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) assigned to the fleet.
@@ -239,7 +239,7 @@ def get_fleet(arn: Optional[_builtins.str] = None,
 def get_fleet_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetResult]:
     """
-    Definition of AWS::Deadline::Fleet Resource Type
+    Resource Type definition for AWS::Deadline::Fleet
 
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) assigned to the fleet.

@@ -30,7 +30,8 @@ type Connector struct {
 	// Specifies the egress type for the connector.
 	EgressType ConnectorEgressTypePtrOutput `pulumi:"egressType"`
 	// Detailed error message when Connector in ERRORED status
-	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
+	ErrorMessage  pulumi.StringOutput             `pulumi:"errorMessage"`
+	IpAddressType ConnectorIpAddressTypePtrOutput `pulumi:"ipAddressType"`
 	// Specifies the logging role for the connector.
 	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
 	// Security policy for SFTP Connector
@@ -97,7 +98,8 @@ type connectorArgs struct {
 	// Egress configuration for the connector.
 	EgressConfig *ConnectorEgressConfig `pulumi:"egressConfig"`
 	// Specifies the egress type for the connector.
-	EgressType *ConnectorEgressType `pulumi:"egressType"`
+	EgressType    *ConnectorEgressType    `pulumi:"egressType"`
+	IpAddressType *ConnectorIpAddressType `pulumi:"ipAddressType"`
 	// Specifies the logging role for the connector.
 	LoggingRole *string `pulumi:"loggingRole"`
 	// Security policy for SFTP Connector
@@ -119,7 +121,8 @@ type ConnectorArgs struct {
 	// Egress configuration for the connector.
 	EgressConfig ConnectorEgressConfigPtrInput
 	// Specifies the egress type for the connector.
-	EgressType ConnectorEgressTypePtrInput
+	EgressType    ConnectorEgressTypePtrInput
+	IpAddressType ConnectorIpAddressTypePtrInput
 	// Specifies the logging role for the connector.
 	LoggingRole pulumi.StringPtrInput
 	// Security policy for SFTP Connector
@@ -202,6 +205,10 @@ func (o ConnectorOutput) EgressType() ConnectorEgressTypePtrOutput {
 // Detailed error message when Connector in ERRORED status
 func (o ConnectorOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+func (o ConnectorOutput) IpAddressType() ConnectorIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *Connector) ConnectorIpAddressTypePtrOutput { return v.IpAddressType }).(ConnectorIpAddressTypePtrOutput)
 }
 
 // Specifies the logging role for the connector.

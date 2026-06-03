@@ -25,9 +25,10 @@ __all__ = ['ApplicationArgs', 'Application']
 class ApplicationArgs:
     def __init__(__self__, *,
                  application_source_config: pulumi.Input['ApplicationSourceConfigPropertiesArgs'],
-                 description: pulumi.Input[_builtins.str],
                  namespace: pulumi.Input[_builtins.str],
                  application_config: Optional[pulumi.Input['ApplicationConfigArgs']] = None,
+                 application_type: Optional[pulumi.Input['ApplicationType']] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
                  iframe_config: Optional[pulumi.Input['ApplicationIframeConfigArgs']] = None,
                  initialization_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  is_service: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -38,9 +39,10 @@ class ApplicationArgs:
         The set of arguments for constructing a Application resource.
 
         :param pulumi.Input['ApplicationSourceConfigPropertiesArgs'] application_source_config: Application source config
-        :param pulumi.Input[_builtins.str] description: The application description.
         :param pulumi.Input[_builtins.str] namespace: The namespace of the application.
         :param pulumi.Input['ApplicationConfigArgs'] application_config: The application configuration. Cannot be used when IsService is true.
+        :param pulumi.Input['ApplicationType'] application_type: The type of application
+        :param pulumi.Input[_builtins.str] description: The application description.
         :param pulumi.Input['ApplicationIframeConfigArgs'] iframe_config: The iframe configuration
         :param pulumi.Input[_builtins.int] initialization_timeout: The initialization timeout in milliseconds. Required when IsService is true.
         :param pulumi.Input[_builtins.bool] is_service: Indicates if the application is a service
@@ -49,10 +51,13 @@ class ApplicationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the application.
         """
         pulumi.set(__self__, "application_source_config", application_source_config)
-        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "namespace", namespace)
         if application_config is not None:
             pulumi.set(__self__, "application_config", application_config)
+        if application_type is not None:
+            pulumi.set(__self__, "application_type", application_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if iframe_config is not None:
             pulumi.set(__self__, "iframe_config", iframe_config)
         if initialization_timeout is not None:
@@ -80,18 +85,6 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[_builtins.str]:
-        """
-        The application description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter
     def namespace(self) -> pulumi.Input[_builtins.str]:
         """
         The namespace of the application.
@@ -113,6 +106,30 @@ class ApplicationArgs:
     @application_config.setter
     def application_config(self, value: Optional[pulumi.Input['ApplicationConfigArgs']]):
         pulumi.set(self, "application_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationType")
+    def application_type(self) -> Optional[pulumi.Input['ApplicationType']]:
+        """
+        The type of application
+        """
+        return pulumi.get(self, "application_type")
+
+    @application_type.setter
+    def application_type(self, value: Optional[pulumi.Input['ApplicationType']]):
+        pulumi.set(self, "application_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The application description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="iframeConfig")
@@ -195,6 +212,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_config: Optional[pulumi.Input[Union['ApplicationConfigArgs', 'ApplicationConfigArgsDict']]] = None,
                  application_source_config: Optional[pulumi.Input[Union['ApplicationSourceConfigPropertiesArgs', 'ApplicationSourceConfigPropertiesArgsDict']]] = None,
+                 application_type: Optional[pulumi.Input['ApplicationType']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  iframe_config: Optional[pulumi.Input[Union['ApplicationIframeConfigArgs', 'ApplicationIframeConfigArgsDict']]] = None,
                  initialization_timeout: Optional[pulumi.Input[_builtins.int]] = None,
@@ -212,6 +230,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ApplicationConfigArgs', 'ApplicationConfigArgsDict']] application_config: The application configuration. Cannot be used when IsService is true.
         :param pulumi.Input[Union['ApplicationSourceConfigPropertiesArgs', 'ApplicationSourceConfigPropertiesArgsDict']] application_source_config: Application source config
+        :param pulumi.Input['ApplicationType'] application_type: The type of application
         :param pulumi.Input[_builtins.str] description: The application description.
         :param pulumi.Input[Union['ApplicationIframeConfigArgs', 'ApplicationIframeConfigArgsDict']] iframe_config: The iframe configuration
         :param pulumi.Input[_builtins.int] initialization_timeout: The initialization timeout in milliseconds. Required when IsService is true.
@@ -248,6 +267,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_config: Optional[pulumi.Input[Union['ApplicationConfigArgs', 'ApplicationConfigArgsDict']]] = None,
                  application_source_config: Optional[pulumi.Input[Union['ApplicationSourceConfigPropertiesArgs', 'ApplicationSourceConfigPropertiesArgsDict']]] = None,
+                 application_type: Optional[pulumi.Input['ApplicationType']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  iframe_config: Optional[pulumi.Input[Union['ApplicationIframeConfigArgs', 'ApplicationIframeConfigArgsDict']]] = None,
                  initialization_timeout: Optional[pulumi.Input[_builtins.int]] = None,
@@ -269,8 +289,7 @@ class Application(pulumi.CustomResource):
             if application_source_config is None and not opts.urn:
                 raise TypeError("Missing required property 'application_source_config'")
             __props__.__dict__["application_source_config"] = application_source_config
-            if description is None and not opts.urn:
-                raise TypeError("Missing required property 'description'")
+            __props__.__dict__["application_type"] = application_type
             __props__.__dict__["description"] = description
             __props__.__dict__["iframe_config"] = iframe_config
             __props__.__dict__["initialization_timeout"] = initialization_timeout
@@ -308,6 +327,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["application_arn"] = None
         __props__.__dict__["application_config"] = None
         __props__.__dict__["application_source_config"] = None
+        __props__.__dict__["application_type"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["iframe_config"] = None
@@ -344,6 +364,14 @@ class Application(pulumi.CustomResource):
         return pulumi.get(self, "application_source_config")
 
     @_builtins.property
+    @pulumi.getter(name="applicationType")
+    def application_type(self) -> pulumi.Output[Optional['ApplicationType']]:
+        """
+        The type of application
+        """
+        return pulumi.get(self, "application_type")
+
+    @_builtins.property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[_builtins.str]:
         """
@@ -353,7 +381,7 @@ class Application(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Output[_builtins.str]:
+    def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The application description.
         """

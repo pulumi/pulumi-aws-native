@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancing.Outputs
 {
 
-    /// <summary>
-    /// If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
-    /// </summary>
     [OutputType]
     public sealed class LoadBalancerConnectionSettings
     {

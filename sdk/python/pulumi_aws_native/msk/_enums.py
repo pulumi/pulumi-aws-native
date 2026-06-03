@@ -12,6 +12,9 @@ __all__ = [
     'ClusterNetworkType',
     'ClusterRebalancingStatus',
     'ClusterStorageMode',
+    'ReplicatorConsumerGroupOffsetSyncMode',
+    'ReplicatorKafkaClusterEncryptionInTransitType',
+    'ReplicatorKafkaClusterSaslScramMechanism',
     'ReplicatorReplicationInfoTargetCompressionType',
     'ReplicatorReplicationStartingPositionType',
     'ReplicatorReplicationTopicNameConfigurationType',
@@ -65,6 +68,32 @@ class ClusterStorageMode(_builtins.str, Enum):
     """
     LOCAL = "LOCAL"
     TIERED = "TIERED"
+
+
+@pulumi.type_token("aws-native:msk:ReplicatorConsumerGroupOffsetSyncMode")
+class ReplicatorConsumerGroupOffsetSyncMode(_builtins.str, Enum):
+    """
+    The consumer group offset synchronization mode.
+    """
+    LEGACY = "LEGACY"
+    ENHANCED = "ENHANCED"
+
+
+@pulumi.type_token("aws-native:msk:ReplicatorKafkaClusterEncryptionInTransitType")
+class ReplicatorKafkaClusterEncryptionInTransitType(_builtins.str, Enum):
+    """
+    The type of encryption in transit to the Apache Kafka cluster.
+    """
+    TLS = "TLS"
+
+
+@pulumi.type_token("aws-native:msk:ReplicatorKafkaClusterSaslScramMechanism")
+class ReplicatorKafkaClusterSaslScramMechanism(_builtins.str, Enum):
+    """
+    The SASL/SCRAM authentication mechanism.
+    """
+    SHA256 = "SHA256"
+    SHA512 = "SHA512"
 
 
 @pulumi.type_token("aws-native:msk:ReplicatorReplicationInfoTargetCompressionType")

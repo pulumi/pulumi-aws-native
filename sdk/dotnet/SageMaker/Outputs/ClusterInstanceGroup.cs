@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly ImmutableArray<Outputs.ClusterInstanceStorageConfig> InstanceStorageConfigs;
         public readonly string InstanceType;
         public readonly Outputs.ClusterKubernetesConfig? KubernetesConfig;
-        public readonly Outputs.ClusterLifeCycleConfig LifeCycleConfig;
+        public readonly Outputs.ClusterLifeCycleConfig? LifeCycleConfig;
         /// <summary>
         /// The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
         /// </summary>
@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.ClusterKubernetesConfig? kubernetesConfig,
 
-            Outputs.ClusterLifeCycleConfig lifeCycleConfig,
+            Outputs.ClusterLifeCycleConfig? lifeCycleConfig,
 
             int? minInstanceCount,
 

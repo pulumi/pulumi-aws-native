@@ -46,11 +46,15 @@ export class Stage extends pulumi.CustomResource {
      */
     declare public readonly apiId: pulumi.Output<string>;
     /**
-     * Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
+     * Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
      */
     declare public readonly autoDeploy: pulumi.Output<boolean | undefined>;
     /**
-     * The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
+     * The identifier.
+     */
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
+    /**
+     * The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
      */
     declare public readonly clientCertificateId: pulumi.Output<string | undefined>;
     /**
@@ -58,7 +62,7 @@ export class Stage extends pulumi.CustomResource {
      */
     declare public readonly defaultRouteSettings: pulumi.Output<outputs.apigatewayv2.StageRouteSettings | undefined>;
     /**
-     * The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
+     * The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
      */
     declare public readonly deploymentId: pulumi.Output<string | undefined>;
     /**
@@ -72,11 +76,11 @@ export class Stage extends pulumi.CustomResource {
      */
     declare public readonly routeSettings: pulumi.Output<any | undefined>;
     /**
-     * The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
+     * The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
      */
     declare public readonly stageName: pulumi.Output<string>;
     /**
-     * A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+     * A map that defines the stage variables for a `Stage` . Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
      */
@@ -113,10 +117,12 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["stageName"] = args?.stageName;
             resourceInputs["stageVariables"] = args?.stageVariables;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["accessLogSettings"] = undefined /*out*/;
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["autoDeploy"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clientCertificateId"] = undefined /*out*/;
             resourceInputs["defaultRouteSettings"] = undefined /*out*/;
             resourceInputs["deploymentId"] = undefined /*out*/;
@@ -146,11 +152,11 @@ export interface StageArgs {
      */
     apiId: pulumi.Input<string>;
     /**
-     * Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
+     * Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
      */
     autoDeploy?: pulumi.Input<boolean>;
     /**
-     * The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
+     * The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
      */
     clientCertificateId?: pulumi.Input<string>;
     /**
@@ -158,7 +164,7 @@ export interface StageArgs {
      */
     defaultRouteSettings?: pulumi.Input<inputs.apigatewayv2.StageRouteSettingsArgs>;
     /**
-     * The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
+     * The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
      */
     deploymentId?: pulumi.Input<string>;
     /**
@@ -172,11 +178,11 @@ export interface StageArgs {
      */
     routeSettings?: any;
     /**
-     * The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
+     * The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
      */
     stageName?: pulumi.Input<string>;
     /**
-     * A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+     * A map that defines the stage variables for a `Stage` . Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
      */

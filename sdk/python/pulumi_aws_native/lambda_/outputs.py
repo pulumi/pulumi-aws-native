@@ -1733,7 +1733,7 @@ class FunctionEphemeralStorage(dict):
 @pulumi.output_type
 class FunctionFileSystemConfig(dict):
     """
-    Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+    Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1756,9 +1756,9 @@ class FunctionFileSystemConfig(dict):
                  arn: _builtins.str,
                  local_mount_path: _builtins.str):
         """
-        Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+        Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
+        :param _builtins.str arn: The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
         :param _builtins.str local_mount_path: The path where the function can access the file system, starting with ``/mnt/``.
         """
         pulumi.set(__self__, "arn", arn)
@@ -1768,7 +1768,7 @@ class FunctionFileSystemConfig(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
+        The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
         """
         return pulumi.get(self, "arn")
 

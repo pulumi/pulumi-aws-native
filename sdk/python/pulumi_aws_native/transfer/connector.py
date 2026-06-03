@@ -28,6 +28,7 @@ class ConnectorArgs:
                  as2_config: Optional[pulumi.Input['As2ConfigPropertiesArgs']] = None,
                  egress_config: Optional[pulumi.Input['ConnectorEgressConfigArgs']] = None,
                  egress_type: Optional[pulumi.Input['ConnectorEgressType']] = None,
+                 ip_address_type: Optional[pulumi.Input['ConnectorIpAddressType']] = None,
                  logging_role: Optional[pulumi.Input[_builtins.str]] = None,
                  security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sftp_config: Optional[pulumi.Input['SftpConfigPropertiesArgs']] = None,
@@ -53,6 +54,8 @@ class ConnectorArgs:
             pulumi.set(__self__, "egress_config", egress_config)
         if egress_type is not None:
             pulumi.set(__self__, "egress_type", egress_type)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if logging_role is not None:
             pulumi.set(__self__, "logging_role", logging_role)
         if security_policy_name is not None:
@@ -111,6 +114,15 @@ class ConnectorArgs:
     @egress_type.setter
     def egress_type(self, value: Optional[pulumi.Input['ConnectorEgressType']]):
         pulumi.set(self, "egress_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input['ConnectorIpAddressType']]:
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input['ConnectorIpAddressType']]):
+        pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingRole")
@@ -183,6 +195,7 @@ class Connector(pulumi.CustomResource):
                  as2_config: Optional[pulumi.Input[Union['As2ConfigPropertiesArgs', 'As2ConfigPropertiesArgsDict']]] = None,
                  egress_config: Optional[pulumi.Input[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict']]] = None,
                  egress_type: Optional[pulumi.Input['ConnectorEgressType']] = None,
+                 ip_address_type: Optional[pulumi.Input['ConnectorIpAddressType']] = None,
                  logging_role: Optional[pulumi.Input[_builtins.str]] = None,
                  security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sftp_config: Optional[pulumi.Input[Union['SftpConfigPropertiesArgs', 'SftpConfigPropertiesArgsDict']]] = None,
@@ -234,6 +247,7 @@ class Connector(pulumi.CustomResource):
                  as2_config: Optional[pulumi.Input[Union['As2ConfigPropertiesArgs', 'As2ConfigPropertiesArgsDict']]] = None,
                  egress_config: Optional[pulumi.Input[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict']]] = None,
                  egress_type: Optional[pulumi.Input['ConnectorEgressType']] = None,
+                 ip_address_type: Optional[pulumi.Input['ConnectorIpAddressType']] = None,
                  logging_role: Optional[pulumi.Input[_builtins.str]] = None,
                  security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sftp_config: Optional[pulumi.Input[Union['SftpConfigPropertiesArgs', 'SftpConfigPropertiesArgsDict']]] = None,
@@ -254,6 +268,7 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["as2_config"] = as2_config
             __props__.__dict__["egress_config"] = egress_config
             __props__.__dict__["egress_type"] = egress_type
+            __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["logging_role"] = logging_role
             __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["sftp_config"] = sftp_config
@@ -293,6 +308,7 @@ class Connector(pulumi.CustomResource):
         __props__.__dict__["egress_config"] = None
         __props__.__dict__["egress_type"] = None
         __props__.__dict__["error_message"] = None
+        __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["logging_role"] = None
         __props__.__dict__["security_policy_name"] = None
         __props__.__dict__["service_managed_egress_ip_addresses"] = None
@@ -357,6 +373,11 @@ class Connector(pulumi.CustomResource):
         Detailed error message when Connector in ERRORED status
         """
         return pulumi.get(self, "error_message")
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Output[Optional['ConnectorIpAddressType']]:
+        return pulumi.get(self, "ip_address_type")
 
     @_builtins.property
     @pulumi.getter(name="loggingRole")

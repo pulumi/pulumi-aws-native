@@ -39,6 +39,10 @@ export interface GetAutoScalingGroupResult {
      */
     readonly availabilityZoneDistribution?: outputs.autoscaling.AutoScalingGroupAvailabilityZoneDistribution;
     /**
+     * The Availability Zone IDs where the Auto Scaling group can launch instances.
+     */
+    readonly availabilityZoneIds?: string[];
+    /**
      * The Availability Zone impairment policy for the Auto Scaling group.
      */
     readonly availabilityZoneImpairmentPolicy?: outputs.autoscaling.AutoScalingGroupAvailabilityZoneImpairmentPolicy;

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::MeteredProduct Resource Type
+ * Resource Type definition for AWS::Deadline::MeteredProduct
  */
 export function getMeteredProduct(args: GetMeteredProductArgs, opts?: pulumi.InvokeOptions): Promise<GetMeteredProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,7 +40,7 @@ export interface GetMeteredProductResult {
     readonly vendor?: string;
 }
 /**
- * Definition of AWS::Deadline::MeteredProduct Resource Type
+ * Resource Type definition for AWS::Deadline::MeteredProduct
  */
 export function getMeteredProductOutput(args: GetMeteredProductOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMeteredProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

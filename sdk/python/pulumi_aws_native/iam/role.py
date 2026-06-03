@@ -371,9 +371,9 @@ class Role(pulumi.CustomResource):
                 "--job-bookmark-option": "job-bookmark-enable",
             },
             execution_property={
-                "max_concurrent_runs": 2,
+                "max_concurrent_runs": float(2),
             },
-            max_retries=0,
+            max_retries=float(0),
             name="cf-job1",
             role=my_job_role.id)
 
@@ -416,9 +416,9 @@ class Role(pulumi.CustomResource):
                 "--job-bookmark-option": "job-bookmark-enable",
             },
             execution_property={
-                "max_concurrent_runs": 2,
+                "max_concurrent_runs": float(2),
             },
-            max_retries=0,
+            max_retries=float(0),
             name="cf-job1",
             role=my_job_role.id)
 
@@ -463,7 +463,7 @@ class Role(pulumi.CustomResource):
             default_arguments={
                 "--job-bookmark-option": "job-bookmark-enable",
             },
-            max_retries=0)
+            max_retries=float(0))
         my_job_trigger = aws_native.glue.Trigger("myJobTrigger",
             name="MyJobTrigger",
             type="CONDITIONAL",
@@ -523,7 +523,7 @@ class Role(pulumi.CustomResource):
             default_arguments={
                 "--job-bookmark-option": "job-bookmark-enable",
             },
-            max_retries=0)
+            max_retries=float(0))
         my_job_trigger = aws_native.glue.Trigger("myJobTrigger",
             name="MyJobTrigger",
             type="CONDITIONAL",
@@ -586,7 +586,7 @@ class Role(pulumi.CustomResource):
                     "admin": ["admin1"],
                 },
                 "allowed_organizations": ["org1"],
-                "login_validity_duration": 60,
+                "login_validity_duration": float(60),
             })
         pulumi.export("workspaceEndpoint", amazon_grafana_workspace.endpoint)
         pulumi.export("workspaceStatus", amazon_grafana_workspace.status)
@@ -637,7 +637,7 @@ class Role(pulumi.CustomResource):
                     "admin": ["admin1"],
                 },
                 "allowed_organizations": ["org1"],
-                "login_validity_duration": 60,
+                "login_validity_duration": float(60),
             })
         pulumi.export("workspaceEndpoint", amazon_grafana_workspace.endpoint)
         pulumi.export("workspaceStatus", amazon_grafana_workspace.status)
@@ -924,9 +924,9 @@ class Role(pulumi.CustomResource):
                 "--job-bookmark-option": "job-bookmark-enable",
             },
             execution_property={
-                "max_concurrent_runs": 2,
+                "max_concurrent_runs": float(2),
             },
-            max_retries=0,
+            max_retries=float(0),
             name="cf-job1",
             role=my_job_role.id)
 
@@ -969,9 +969,9 @@ class Role(pulumi.CustomResource):
                 "--job-bookmark-option": "job-bookmark-enable",
             },
             execution_property={
-                "max_concurrent_runs": 2,
+                "max_concurrent_runs": float(2),
             },
-            max_retries=0,
+            max_retries=float(0),
             name="cf-job1",
             role=my_job_role.id)
 
@@ -1016,7 +1016,7 @@ class Role(pulumi.CustomResource):
             default_arguments={
                 "--job-bookmark-option": "job-bookmark-enable",
             },
-            max_retries=0)
+            max_retries=float(0))
         my_job_trigger = aws_native.glue.Trigger("myJobTrigger",
             name="MyJobTrigger",
             type="CONDITIONAL",
@@ -1076,7 +1076,7 @@ class Role(pulumi.CustomResource):
             default_arguments={
                 "--job-bookmark-option": "job-bookmark-enable",
             },
-            max_retries=0)
+            max_retries=float(0))
         my_job_trigger = aws_native.glue.Trigger("myJobTrigger",
             name="MyJobTrigger",
             type="CONDITIONAL",
@@ -1139,7 +1139,7 @@ class Role(pulumi.CustomResource):
                     "admin": ["admin1"],
                 },
                 "allowed_organizations": ["org1"],
-                "login_validity_duration": 60,
+                "login_validity_duration": float(60),
             })
         pulumi.export("workspaceEndpoint", amazon_grafana_workspace.endpoint)
         pulumi.export("workspaceStatus", amazon_grafana_workspace.status)
@@ -1190,7 +1190,7 @@ class Role(pulumi.CustomResource):
                     "admin": ["admin1"],
                 },
                 "allowed_organizations": ["org1"],
-                "login_validity_duration": 60,
+                "login_validity_duration": float(60),
             })
         pulumi.export("workspaceEndpoint", amazon_grafana_workspace.endpoint)
         pulumi.export("workspaceStatus", amazon_grafana_workspace.status)

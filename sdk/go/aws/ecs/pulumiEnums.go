@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CapacityProviderAutoRepairConfigurationActionsStatus string
+
+const (
+	CapacityProviderAutoRepairConfigurationActionsStatusEnabled  = CapacityProviderAutoRepairConfigurationActionsStatus("ENABLED")
+	CapacityProviderAutoRepairConfigurationActionsStatusDisabled = CapacityProviderAutoRepairConfigurationActionsStatus("DISABLED")
+)
+
+func (CapacityProviderAutoRepairConfigurationActionsStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderAutoRepairConfigurationActionsStatus)(nil)).Elem()
+}
+
+func (e CapacityProviderAutoRepairConfigurationActionsStatus) ToCapacityProviderAutoRepairConfigurationActionsStatusOutput() CapacityProviderAutoRepairConfigurationActionsStatusOutput {
+	return pulumi.ToOutput(e).(CapacityProviderAutoRepairConfigurationActionsStatusOutput)
+}
+
+func (e CapacityProviderAutoRepairConfigurationActionsStatus) ToCapacityProviderAutoRepairConfigurationActionsStatusOutputWithContext(ctx context.Context) CapacityProviderAutoRepairConfigurationActionsStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityProviderAutoRepairConfigurationActionsStatusOutput)
+}
+
+func (e CapacityProviderAutoRepairConfigurationActionsStatus) ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutput() CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput {
+	return e.ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderAutoRepairConfigurationActionsStatus) ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutputWithContext(ctx context.Context) CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput {
+	return CapacityProviderAutoRepairConfigurationActionsStatus(e).ToCapacityProviderAutoRepairConfigurationActionsStatusOutputWithContext(ctx).ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutputWithContext(ctx)
+}
+
+func (e CapacityProviderAutoRepairConfigurationActionsStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderAutoRepairConfigurationActionsStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderAutoRepairConfigurationActionsStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderAutoRepairConfigurationActionsStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityProviderAutoRepairConfigurationActionsStatusOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderAutoRepairConfigurationActionsStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderAutoRepairConfigurationActionsStatus)(nil)).Elem()
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusOutput) ToCapacityProviderAutoRepairConfigurationActionsStatusOutput() CapacityProviderAutoRepairConfigurationActionsStatusOutput {
+	return o
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusOutput) ToCapacityProviderAutoRepairConfigurationActionsStatusOutputWithContext(ctx context.Context) CapacityProviderAutoRepairConfigurationActionsStatusOutput {
+	return o
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusOutput) ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutput() CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput {
+	return o.ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusOutput) ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutputWithContext(ctx context.Context) CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderAutoRepairConfigurationActionsStatus) *CapacityProviderAutoRepairConfigurationActionsStatus {
+		return &v
+	}).(CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput)
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderAutoRepairConfigurationActionsStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderAutoRepairConfigurationActionsStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderAutoRepairConfigurationActionsStatus)(nil)).Elem()
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput) ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutput() CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput {
+	return o
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput) ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutputWithContext(ctx context.Context) CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput {
+	return o
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput) Elem() CapacityProviderAutoRepairConfigurationActionsStatusOutput {
+	return o.ApplyT(func(v *CapacityProviderAutoRepairConfigurationActionsStatus) CapacityProviderAutoRepairConfigurationActionsStatus {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderAutoRepairConfigurationActionsStatus
+		return ret
+	}).(CapacityProviderAutoRepairConfigurationActionsStatusOutput)
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderAutoRepairConfigurationActionsStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityProviderAutoRepairConfigurationActionsStatusInput is an input type that accepts values of the CapacityProviderAutoRepairConfigurationActionsStatus enum
+// A concrete instance of `CapacityProviderAutoRepairConfigurationActionsStatusInput` can be one of the following:
+//
+//	CapacityProviderAutoRepairConfigurationActionsStatusEnabled
+//	CapacityProviderAutoRepairConfigurationActionsStatusDisabled
+type CapacityProviderAutoRepairConfigurationActionsStatusInput interface {
+	pulumi.Input
+
+	ToCapacityProviderAutoRepairConfigurationActionsStatusOutput() CapacityProviderAutoRepairConfigurationActionsStatusOutput
+	ToCapacityProviderAutoRepairConfigurationActionsStatusOutputWithContext(context.Context) CapacityProviderAutoRepairConfigurationActionsStatusOutput
+}
+
+var capacityProviderAutoRepairConfigurationActionsStatusPtrType = reflect.TypeOf((**CapacityProviderAutoRepairConfigurationActionsStatus)(nil)).Elem()
+
+type CapacityProviderAutoRepairConfigurationActionsStatusPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutput() CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput
+	ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutputWithContext(context.Context) CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput
+}
+
+type capacityProviderAutoRepairConfigurationActionsStatusPtr string
+
+func CapacityProviderAutoRepairConfigurationActionsStatusPtr(v string) CapacityProviderAutoRepairConfigurationActionsStatusPtrInput {
+	return (*capacityProviderAutoRepairConfigurationActionsStatusPtr)(&v)
+}
+
+func (*capacityProviderAutoRepairConfigurationActionsStatusPtr) ElementType() reflect.Type {
+	return capacityProviderAutoRepairConfigurationActionsStatusPtrType
+}
+
+func (in *capacityProviderAutoRepairConfigurationActionsStatusPtr) ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutput() CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput {
+	return pulumi.ToOutput(in).(CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput)
+}
+
+func (in *capacityProviderAutoRepairConfigurationActionsStatusPtr) ToCapacityProviderAutoRepairConfigurationActionsStatusPtrOutputWithContext(ctx context.Context) CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput)
+}
+
 // The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.
 type CapacityProviderAutoScalingGroupProviderManagedDraining string
 
@@ -3159,6 +3324,7 @@ const (
 	ClusterCapacityProviderAssociationsCapacityProvider0FargateSpot = ClusterCapacityProviderAssociationsCapacityProvider0("FARGATE_SPOT")
 )
 
+// Specifies whether tags are propagated from the daemon to the daemon tasks.
 type DaemonPropagateTags string
 
 const (
@@ -4820,6 +4986,7 @@ const (
 	ServiceDeploymentLifecycleHookLifecycleStagesItemPostScaleUp                = ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_SCALE_UP")
 	ServiceDeploymentLifecycleHookLifecycleStagesItemTestTrafficShift           = ServiceDeploymentLifecycleHookLifecycleStagesItem("TEST_TRAFFIC_SHIFT")
 	ServiceDeploymentLifecycleHookLifecycleStagesItemPostTestTrafficShift       = ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_TEST_TRAFFIC_SHIFT")
+	ServiceDeploymentLifecycleHookLifecycleStagesItemPreProductionTrafficShift  = ServiceDeploymentLifecycleHookLifecycleStagesItem("PRE_PRODUCTION_TRAFFIC_SHIFT")
 	ServiceDeploymentLifecycleHookLifecycleStagesItemProductionTrafficShift     = ServiceDeploymentLifecycleHookLifecycleStagesItem("PRODUCTION_TRAFFIC_SHIFT")
 	ServiceDeploymentLifecycleHookLifecycleStagesItemPostProductionTrafficShift = ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_PRODUCTION_TRAFFIC_SHIFT")
 )
@@ -4951,6 +5118,7 @@ func (o ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput) ToStringPtrO
 //	ServiceDeploymentLifecycleHookLifecycleStagesItemPostScaleUp
 //	ServiceDeploymentLifecycleHookLifecycleStagesItemTestTrafficShift
 //	ServiceDeploymentLifecycleHookLifecycleStagesItemPostTestTrafficShift
+//	ServiceDeploymentLifecycleHookLifecycleStagesItemPreProductionTrafficShift
 //	ServiceDeploymentLifecycleHookLifecycleStagesItemProductionTrafficShift
 //	ServiceDeploymentLifecycleHookLifecycleStagesItemPostProductionTrafficShift
 type ServiceDeploymentLifecycleHookLifecycleStagesItemInput interface {
@@ -5032,10 +5200,179 @@ func (o ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput) Index(i pu
 	}).(ServiceDeploymentLifecycleHookLifecycleStagesItemOutput)
 }
 
-// Determines whether to propagate the tags from the task definition to
-// the Amazon EBS volume. Tags can only propagate to a “SERVICE“ specified in
-// “ServiceVolumeConfiguration“. If no value is specified, the tags aren't
-// propagated.
+// The type of action the lifecycle hook performs. Valid values are:
+//
+//   - “AWS_LAMBDA“ - Invokes a Lambda function at the specified lifecycle stage. This is the default value.
+//
+//   - “PAUSE“ - Pauses the deployment at the specified lifecycle stage until you call “ContinueServiceDeployment“ to continue or roll back.
+//
+//     This field is optional. If not specified, the default value is “AWS_LAMBDA“.
+type ServiceDeploymentLifecycleHookTargetType string
+
+const (
+	ServiceDeploymentLifecycleHookTargetTypeAwsLambda = ServiceDeploymentLifecycleHookTargetType("AWS_LAMBDA")
+	ServiceDeploymentLifecycleHookTargetTypePause     = ServiceDeploymentLifecycleHookTargetType("PAUSE")
+)
+
+func (ServiceDeploymentLifecycleHookTargetType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentLifecycleHookTargetType)(nil)).Elem()
+}
+
+func (e ServiceDeploymentLifecycleHookTargetType) ToServiceDeploymentLifecycleHookTargetTypeOutput() ServiceDeploymentLifecycleHookTargetTypeOutput {
+	return pulumi.ToOutput(e).(ServiceDeploymentLifecycleHookTargetTypeOutput)
+}
+
+func (e ServiceDeploymentLifecycleHookTargetType) ToServiceDeploymentLifecycleHookTargetTypeOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookTargetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceDeploymentLifecycleHookTargetTypeOutput)
+}
+
+func (e ServiceDeploymentLifecycleHookTargetType) ToServiceDeploymentLifecycleHookTargetTypePtrOutput() ServiceDeploymentLifecycleHookTargetTypePtrOutput {
+	return e.ToServiceDeploymentLifecycleHookTargetTypePtrOutputWithContext(context.Background())
+}
+
+func (e ServiceDeploymentLifecycleHookTargetType) ToServiceDeploymentLifecycleHookTargetTypePtrOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookTargetTypePtrOutput {
+	return ServiceDeploymentLifecycleHookTargetType(e).ToServiceDeploymentLifecycleHookTargetTypeOutputWithContext(ctx).ToServiceDeploymentLifecycleHookTargetTypePtrOutputWithContext(ctx)
+}
+
+func (e ServiceDeploymentLifecycleHookTargetType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceDeploymentLifecycleHookTargetType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceDeploymentLifecycleHookTargetType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceDeploymentLifecycleHookTargetType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceDeploymentLifecycleHookTargetTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentLifecycleHookTargetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentLifecycleHookTargetType)(nil)).Elem()
+}
+
+func (o ServiceDeploymentLifecycleHookTargetTypeOutput) ToServiceDeploymentLifecycleHookTargetTypeOutput() ServiceDeploymentLifecycleHookTargetTypeOutput {
+	return o
+}
+
+func (o ServiceDeploymentLifecycleHookTargetTypeOutput) ToServiceDeploymentLifecycleHookTargetTypeOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookTargetTypeOutput {
+	return o
+}
+
+func (o ServiceDeploymentLifecycleHookTargetTypeOutput) ToServiceDeploymentLifecycleHookTargetTypePtrOutput() ServiceDeploymentLifecycleHookTargetTypePtrOutput {
+	return o.ToServiceDeploymentLifecycleHookTargetTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentLifecycleHookTargetTypeOutput) ToServiceDeploymentLifecycleHookTargetTypePtrOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookTargetTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDeploymentLifecycleHookTargetType) *ServiceDeploymentLifecycleHookTargetType {
+		return &v
+	}).(ServiceDeploymentLifecycleHookTargetTypePtrOutput)
+}
+
+func (o ServiceDeploymentLifecycleHookTargetTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentLifecycleHookTargetTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceDeploymentLifecycleHookTargetType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceDeploymentLifecycleHookTargetTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentLifecycleHookTargetTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceDeploymentLifecycleHookTargetType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceDeploymentLifecycleHookTargetTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentLifecycleHookTargetTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentLifecycleHookTargetType)(nil)).Elem()
+}
+
+func (o ServiceDeploymentLifecycleHookTargetTypePtrOutput) ToServiceDeploymentLifecycleHookTargetTypePtrOutput() ServiceDeploymentLifecycleHookTargetTypePtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentLifecycleHookTargetTypePtrOutput) ToServiceDeploymentLifecycleHookTargetTypePtrOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookTargetTypePtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentLifecycleHookTargetTypePtrOutput) Elem() ServiceDeploymentLifecycleHookTargetTypeOutput {
+	return o.ApplyT(func(v *ServiceDeploymentLifecycleHookTargetType) ServiceDeploymentLifecycleHookTargetType {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDeploymentLifecycleHookTargetType
+		return ret
+	}).(ServiceDeploymentLifecycleHookTargetTypeOutput)
+}
+
+func (o ServiceDeploymentLifecycleHookTargetTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentLifecycleHookTargetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceDeploymentLifecycleHookTargetType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceDeploymentLifecycleHookTargetTypeInput is an input type that accepts values of the ServiceDeploymentLifecycleHookTargetType enum
+// A concrete instance of `ServiceDeploymentLifecycleHookTargetTypeInput` can be one of the following:
+//
+//	ServiceDeploymentLifecycleHookTargetTypeAwsLambda
+//	ServiceDeploymentLifecycleHookTargetTypePause
+type ServiceDeploymentLifecycleHookTargetTypeInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentLifecycleHookTargetTypeOutput() ServiceDeploymentLifecycleHookTargetTypeOutput
+	ToServiceDeploymentLifecycleHookTargetTypeOutputWithContext(context.Context) ServiceDeploymentLifecycleHookTargetTypeOutput
+}
+
+var serviceDeploymentLifecycleHookTargetTypePtrType = reflect.TypeOf((**ServiceDeploymentLifecycleHookTargetType)(nil)).Elem()
+
+type ServiceDeploymentLifecycleHookTargetTypePtrInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentLifecycleHookTargetTypePtrOutput() ServiceDeploymentLifecycleHookTargetTypePtrOutput
+	ToServiceDeploymentLifecycleHookTargetTypePtrOutputWithContext(context.Context) ServiceDeploymentLifecycleHookTargetTypePtrOutput
+}
+
+type serviceDeploymentLifecycleHookTargetTypePtr string
+
+func ServiceDeploymentLifecycleHookTargetTypePtr(v string) ServiceDeploymentLifecycleHookTargetTypePtrInput {
+	return (*serviceDeploymentLifecycleHookTargetTypePtr)(&v)
+}
+
+func (*serviceDeploymentLifecycleHookTargetTypePtr) ElementType() reflect.Type {
+	return serviceDeploymentLifecycleHookTargetTypePtrType
+}
+
+func (in *serviceDeploymentLifecycleHookTargetTypePtr) ToServiceDeploymentLifecycleHookTargetTypePtrOutput() ServiceDeploymentLifecycleHookTargetTypePtrOutput {
+	return pulumi.ToOutput(in).(ServiceDeploymentLifecycleHookTargetTypePtrOutput)
+}
+
+func (in *serviceDeploymentLifecycleHookTargetTypePtr) ToServiceDeploymentLifecycleHookTargetTypePtrOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookTargetTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceDeploymentLifecycleHookTargetTypePtrOutput)
+}
+
+// Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a “SERVICE“ specified in “ServiceVolumeConfiguration“. If no value is specified, the tags aren't propagated.
 type ServiceEbsTagSpecificationPropagateTags string
 
 const (
@@ -5199,6 +5536,171 @@ func (in *serviceEbsTagSpecificationPropagateTagsPtr) ToServiceEbsTagSpecificati
 
 func (in *serviceEbsTagSpecificationPropagateTagsPtr) ToServiceEbsTagSpecificationPropagateTagsPtrOutputWithContext(ctx context.Context) ServiceEbsTagSpecificationPropagateTagsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceEbsTagSpecificationPropagateTagsPtrOutput)
+}
+
+type ServiceHookTimeoutConfigAction string
+
+const (
+	ServiceHookTimeoutConfigActionRollback = ServiceHookTimeoutConfigAction("ROLLBACK")
+	ServiceHookTimeoutConfigActionContinue = ServiceHookTimeoutConfigAction("CONTINUE")
+)
+
+func (ServiceHookTimeoutConfigAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceHookTimeoutConfigAction)(nil)).Elem()
+}
+
+func (e ServiceHookTimeoutConfigAction) ToServiceHookTimeoutConfigActionOutput() ServiceHookTimeoutConfigActionOutput {
+	return pulumi.ToOutput(e).(ServiceHookTimeoutConfigActionOutput)
+}
+
+func (e ServiceHookTimeoutConfigAction) ToServiceHookTimeoutConfigActionOutputWithContext(ctx context.Context) ServiceHookTimeoutConfigActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceHookTimeoutConfigActionOutput)
+}
+
+func (e ServiceHookTimeoutConfigAction) ToServiceHookTimeoutConfigActionPtrOutput() ServiceHookTimeoutConfigActionPtrOutput {
+	return e.ToServiceHookTimeoutConfigActionPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceHookTimeoutConfigAction) ToServiceHookTimeoutConfigActionPtrOutputWithContext(ctx context.Context) ServiceHookTimeoutConfigActionPtrOutput {
+	return ServiceHookTimeoutConfigAction(e).ToServiceHookTimeoutConfigActionOutputWithContext(ctx).ToServiceHookTimeoutConfigActionPtrOutputWithContext(ctx)
+}
+
+func (e ServiceHookTimeoutConfigAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceHookTimeoutConfigAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceHookTimeoutConfigAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceHookTimeoutConfigAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceHookTimeoutConfigActionOutput struct{ *pulumi.OutputState }
+
+func (ServiceHookTimeoutConfigActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceHookTimeoutConfigAction)(nil)).Elem()
+}
+
+func (o ServiceHookTimeoutConfigActionOutput) ToServiceHookTimeoutConfigActionOutput() ServiceHookTimeoutConfigActionOutput {
+	return o
+}
+
+func (o ServiceHookTimeoutConfigActionOutput) ToServiceHookTimeoutConfigActionOutputWithContext(ctx context.Context) ServiceHookTimeoutConfigActionOutput {
+	return o
+}
+
+func (o ServiceHookTimeoutConfigActionOutput) ToServiceHookTimeoutConfigActionPtrOutput() ServiceHookTimeoutConfigActionPtrOutput {
+	return o.ToServiceHookTimeoutConfigActionPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceHookTimeoutConfigActionOutput) ToServiceHookTimeoutConfigActionPtrOutputWithContext(ctx context.Context) ServiceHookTimeoutConfigActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceHookTimeoutConfigAction) *ServiceHookTimeoutConfigAction {
+		return &v
+	}).(ServiceHookTimeoutConfigActionPtrOutput)
+}
+
+func (o ServiceHookTimeoutConfigActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceHookTimeoutConfigActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceHookTimeoutConfigAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHookTimeoutConfigActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceHookTimeoutConfigActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceHookTimeoutConfigAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceHookTimeoutConfigActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceHookTimeoutConfigActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceHookTimeoutConfigAction)(nil)).Elem()
+}
+
+func (o ServiceHookTimeoutConfigActionPtrOutput) ToServiceHookTimeoutConfigActionPtrOutput() ServiceHookTimeoutConfigActionPtrOutput {
+	return o
+}
+
+func (o ServiceHookTimeoutConfigActionPtrOutput) ToServiceHookTimeoutConfigActionPtrOutputWithContext(ctx context.Context) ServiceHookTimeoutConfigActionPtrOutput {
+	return o
+}
+
+func (o ServiceHookTimeoutConfigActionPtrOutput) Elem() ServiceHookTimeoutConfigActionOutput {
+	return o.ApplyT(func(v *ServiceHookTimeoutConfigAction) ServiceHookTimeoutConfigAction {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceHookTimeoutConfigAction
+		return ret
+	}).(ServiceHookTimeoutConfigActionOutput)
+}
+
+func (o ServiceHookTimeoutConfigActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceHookTimeoutConfigActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceHookTimeoutConfigAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceHookTimeoutConfigActionInput is an input type that accepts values of the ServiceHookTimeoutConfigAction enum
+// A concrete instance of `ServiceHookTimeoutConfigActionInput` can be one of the following:
+//
+//	ServiceHookTimeoutConfigActionRollback
+//	ServiceHookTimeoutConfigActionContinue
+type ServiceHookTimeoutConfigActionInput interface {
+	pulumi.Input
+
+	ToServiceHookTimeoutConfigActionOutput() ServiceHookTimeoutConfigActionOutput
+	ToServiceHookTimeoutConfigActionOutputWithContext(context.Context) ServiceHookTimeoutConfigActionOutput
+}
+
+var serviceHookTimeoutConfigActionPtrType = reflect.TypeOf((**ServiceHookTimeoutConfigAction)(nil)).Elem()
+
+type ServiceHookTimeoutConfigActionPtrInput interface {
+	pulumi.Input
+
+	ToServiceHookTimeoutConfigActionPtrOutput() ServiceHookTimeoutConfigActionPtrOutput
+	ToServiceHookTimeoutConfigActionPtrOutputWithContext(context.Context) ServiceHookTimeoutConfigActionPtrOutput
+}
+
+type serviceHookTimeoutConfigActionPtr string
+
+func ServiceHookTimeoutConfigActionPtr(v string) ServiceHookTimeoutConfigActionPtrInput {
+	return (*serviceHookTimeoutConfigActionPtr)(&v)
+}
+
+func (*serviceHookTimeoutConfigActionPtr) ElementType() reflect.Type {
+	return serviceHookTimeoutConfigActionPtrType
+}
+
+func (in *serviceHookTimeoutConfigActionPtr) ToServiceHookTimeoutConfigActionPtrOutput() ServiceHookTimeoutConfigActionPtrOutput {
+	return pulumi.ToOutput(in).(ServiceHookTimeoutConfigActionPtrOutput)
+}
+
+func (in *serviceHookTimeoutConfigActionPtr) ToServiceHookTimeoutConfigActionPtrOutputWithContext(ctx context.Context) ServiceHookTimeoutConfigActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceHookTimeoutConfigActionPtrOutput)
 }
 
 // The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -7212,6 +7714,8 @@ func (in *taskSetScaleUnitPtr) ToTaskSetScaleUnitPtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoRepairConfigurationActionsStatusInput)(nil)).Elem(), CapacityProviderAutoRepairConfigurationActionsStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoRepairConfigurationActionsStatusPtrInput)(nil)).Elem(), CapacityProviderAutoRepairConfigurationActionsStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedDrainingInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedDraining("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedDrainingPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedDraining("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedTerminationProtection("DISABLED"))
@@ -7271,8 +7775,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentLifecycleHookLifecycleStagesItemInput)(nil)).Elem(), ServiceDeploymentLifecycleHookLifecycleStagesItem("RECONCILE_SERVICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentLifecycleHookLifecycleStagesItemPtrInput)(nil)).Elem(), ServiceDeploymentLifecycleHookLifecycleStagesItem("RECONCILE_SERVICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentLifecycleHookLifecycleStagesItemArrayInput)(nil)).Elem(), ServiceDeploymentLifecycleHookLifecycleStagesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentLifecycleHookTargetTypeInput)(nil)).Elem(), ServiceDeploymentLifecycleHookTargetType("AWS_LAMBDA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentLifecycleHookTargetTypePtrInput)(nil)).Elem(), ServiceDeploymentLifecycleHookTargetType("AWS_LAMBDA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEbsTagSpecificationPropagateTagsInput)(nil)).Elem(), ServiceEbsTagSpecificationPropagateTags("SERVICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEbsTagSpecificationPropagateTagsPtrInput)(nil)).Elem(), ServiceEbsTagSpecificationPropagateTags("SERVICE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHookTimeoutConfigActionInput)(nil)).Elem(), ServiceHookTimeoutConfigAction("ROLLBACK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHookTimeoutConfigActionPtrInput)(nil)).Elem(), ServiceHookTimeoutConfigAction("ROLLBACK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLaunchTypeInput)(nil)).Elem(), ServiceLaunchType("EC2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLaunchTypePtrInput)(nil)).Elem(), ServiceLaunchType("EC2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlacementConstraintTypeInput)(nil)).Elem(), ServicePlacementConstraintType("distinctInstance"))
@@ -7297,6 +7805,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetLaunchTypePtrInput)(nil)).Elem(), TaskSetLaunchType("EC2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetScaleUnitInput)(nil)).Elem(), TaskSetScaleUnit("PERCENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetScaleUnitPtrInput)(nil)).Elem(), TaskSetScaleUnit("PERCENT"))
+	pulumi.RegisterOutputType(CapacityProviderAutoRepairConfigurationActionsStatusOutput{})
+	pulumi.RegisterOutputType(CapacityProviderAutoRepairConfigurationActionsStatusPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedDrainingOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionOutput{})
@@ -7362,8 +7872,12 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDeploymentLifecycleHookLifecycleStagesItemOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentLifecycleHookTargetTypeOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentLifecycleHookTargetTypePtrOutput{})
 	pulumi.RegisterOutputType(ServiceEbsTagSpecificationPropagateTagsOutput{})
 	pulumi.RegisterOutputType(ServiceEbsTagSpecificationPropagateTagsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceHookTimeoutConfigActionOutput{})
+	pulumi.RegisterOutputType(ServiceHookTimeoutConfigActionPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLaunchTypeOutput{})
 	pulumi.RegisterOutputType(ServiceLaunchTypePtrOutput{})
 	pulumi.RegisterOutputType(ServicePlacementConstraintTypeOutput{})

@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
 {
 
     /// <summary>
-    /// Parameters for BedrockAgentCore log delivery
+    /// Parameters for log delivery configuration
     /// </summary>
     public sealed class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         private InputList<Pulumi.AwsNative.ObservabilityAdmin.TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem>? _logTypes;
 
         /// <summary>
-        /// Types of logs to deliver for BedrockAgentCore resources
+        /// Types of logs to deliver
         /// </summary>
         public InputList<Pulumi.AwsNative.ObservabilityAdmin.TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem> LogTypes
         {

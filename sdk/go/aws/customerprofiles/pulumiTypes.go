@@ -2544,6 +2544,141 @@ func (o DomainMatchingRuleArrayOutput) Index(i pulumi.IntInput) DomainMatchingRu
 	}).(DomainMatchingRuleOutput)
 }
 
+// Represents a field in a DomainObjectType.
+type DomainObjectTypeField struct {
+	// The content type of the field.
+	ContentType *DomainObjectTypeFieldContentType `pulumi:"contentType"`
+	// The feature type of the field.
+	FeatureType *DomainObjectTypeFieldFeatureType `pulumi:"featureType"`
+	// The source field name.
+	Source string `pulumi:"source"`
+	// The target field name.
+	Target string `pulumi:"target"`
+}
+
+// DomainObjectTypeFieldInput is an input type that accepts DomainObjectTypeFieldArgs and DomainObjectTypeFieldOutput values.
+// You can construct a concrete instance of `DomainObjectTypeFieldInput` via:
+//
+//	DomainObjectTypeFieldArgs{...}
+type DomainObjectTypeFieldInput interface {
+	pulumi.Input
+
+	ToDomainObjectTypeFieldOutput() DomainObjectTypeFieldOutput
+	ToDomainObjectTypeFieldOutputWithContext(context.Context) DomainObjectTypeFieldOutput
+}
+
+// Represents a field in a DomainObjectType.
+type DomainObjectTypeFieldArgs struct {
+	// The content type of the field.
+	ContentType DomainObjectTypeFieldContentTypePtrInput `pulumi:"contentType"`
+	// The feature type of the field.
+	FeatureType DomainObjectTypeFieldFeatureTypePtrInput `pulumi:"featureType"`
+	// The source field name.
+	Source pulumi.StringInput `pulumi:"source"`
+	// The target field name.
+	Target pulumi.StringInput `pulumi:"target"`
+}
+
+func (DomainObjectTypeFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainObjectTypeField)(nil)).Elem()
+}
+
+func (i DomainObjectTypeFieldArgs) ToDomainObjectTypeFieldOutput() DomainObjectTypeFieldOutput {
+	return i.ToDomainObjectTypeFieldOutputWithContext(context.Background())
+}
+
+func (i DomainObjectTypeFieldArgs) ToDomainObjectTypeFieldOutputWithContext(ctx context.Context) DomainObjectTypeFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainObjectTypeFieldOutput)
+}
+
+// DomainObjectTypeFieldMapInput is an input type that accepts DomainObjectTypeFieldMap and DomainObjectTypeFieldMapOutput values.
+// You can construct a concrete instance of `DomainObjectTypeFieldMapInput` via:
+//
+//	DomainObjectTypeFieldMap{ "key": DomainObjectTypeFieldArgs{...} }
+type DomainObjectTypeFieldMapInput interface {
+	pulumi.Input
+
+	ToDomainObjectTypeFieldMapOutput() DomainObjectTypeFieldMapOutput
+	ToDomainObjectTypeFieldMapOutputWithContext(context.Context) DomainObjectTypeFieldMapOutput
+}
+
+type DomainObjectTypeFieldMap map[string]DomainObjectTypeFieldInput
+
+func (DomainObjectTypeFieldMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DomainObjectTypeField)(nil)).Elem()
+}
+
+func (i DomainObjectTypeFieldMap) ToDomainObjectTypeFieldMapOutput() DomainObjectTypeFieldMapOutput {
+	return i.ToDomainObjectTypeFieldMapOutputWithContext(context.Background())
+}
+
+func (i DomainObjectTypeFieldMap) ToDomainObjectTypeFieldMapOutputWithContext(ctx context.Context) DomainObjectTypeFieldMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainObjectTypeFieldMapOutput)
+}
+
+// Represents a field in a DomainObjectType.
+type DomainObjectTypeFieldOutput struct{ *pulumi.OutputState }
+
+func (DomainObjectTypeFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainObjectTypeField)(nil)).Elem()
+}
+
+func (o DomainObjectTypeFieldOutput) ToDomainObjectTypeFieldOutput() DomainObjectTypeFieldOutput {
+	return o
+}
+
+func (o DomainObjectTypeFieldOutput) ToDomainObjectTypeFieldOutputWithContext(ctx context.Context) DomainObjectTypeFieldOutput {
+	return o
+}
+
+// The content type of the field.
+func (o DomainObjectTypeFieldOutput) ContentType() DomainObjectTypeFieldContentTypePtrOutput {
+	return o.ApplyT(func(v DomainObjectTypeField) *DomainObjectTypeFieldContentType { return v.ContentType }).(DomainObjectTypeFieldContentTypePtrOutput)
+}
+
+// The feature type of the field.
+func (o DomainObjectTypeFieldOutput) FeatureType() DomainObjectTypeFieldFeatureTypePtrOutput {
+	return o.ApplyT(func(v DomainObjectTypeField) *DomainObjectTypeFieldFeatureType { return v.FeatureType }).(DomainObjectTypeFieldFeatureTypePtrOutput)
+}
+
+// The source field name.
+func (o DomainObjectTypeFieldOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainObjectTypeField) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// The target field name.
+func (o DomainObjectTypeFieldOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainObjectTypeField) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type DomainObjectTypeFieldMapOutput struct{ *pulumi.OutputState }
+
+func (DomainObjectTypeFieldMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DomainObjectTypeField)(nil)).Elem()
+}
+
+func (o DomainObjectTypeFieldMapOutput) ToDomainObjectTypeFieldMapOutput() DomainObjectTypeFieldMapOutput {
+	return o
+}
+
+func (o DomainObjectTypeFieldMapOutput) ToDomainObjectTypeFieldMapOutputWithContext(ctx context.Context) DomainObjectTypeFieldMapOutput {
+	return o
+}
+
+func (o DomainObjectTypeFieldMapOutput) MapIndex(k pulumi.StringInput) DomainObjectTypeFieldOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DomainObjectTypeField {
+		return vs[0].(map[string]DomainObjectTypeField)[vs[1].(string)]
+	}).(DomainObjectTypeFieldOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DomainObjectTypeTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // Progress information for data store setup.
 type DomainReadiness struct {
 	// A message describing the current progress.
@@ -10049,6 +10184,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMatchingPtrInput)(nil)).Elem(), DomainMatchingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMatchingRuleInput)(nil)).Elem(), DomainMatchingRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMatchingRuleArrayInput)(nil)).Elem(), DomainMatchingRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainObjectTypeFieldInput)(nil)).Elem(), DomainObjectTypeFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainObjectTypeFieldMapInput)(nil)).Elem(), DomainObjectTypeFieldMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainReadinessInput)(nil)).Elem(), DomainReadinessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainReadinessPtrInput)(nil)).Elem(), DomainReadinessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRuleBasedMatchingInput)(nil)).Elem(), DomainRuleBasedMatchingArgs{})
@@ -10176,6 +10313,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainMatchingPtrOutput{})
 	pulumi.RegisterOutputType(DomainMatchingRuleOutput{})
 	pulumi.RegisterOutputType(DomainMatchingRuleArrayOutput{})
+	pulumi.RegisterOutputType(DomainObjectTypeFieldOutput{})
+	pulumi.RegisterOutputType(DomainObjectTypeFieldMapOutput{})
 	pulumi.RegisterOutputType(DomainReadinessOutput{})
 	pulumi.RegisterOutputType(DomainReadinessPtrOutput{})
 	pulumi.RegisterOutputType(DomainRuleBasedMatchingOutput{})

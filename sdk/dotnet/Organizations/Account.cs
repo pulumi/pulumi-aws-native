@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.Organizations
         public Output<ImmutableArray<string>> ParentIds { get; private set; } = null!;
 
         /// <summary>
+        /// The paths in the organization where the account exists.
+        /// </summary>
+        [Output("paths")]
+        public Output<ImmutableArray<string>> Paths { get; private set; } = null!;
+
+        /// <summary>
         /// The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified.
         /// </summary>
         [Output("roleName")]

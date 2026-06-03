@@ -18,12 +18,16 @@ from ._enums import *
 __all__ = [
     'AlarmDimensionArgs',
     'AlarmDimensionArgsDict',
+    'AlarmEvaluationCriteriaArgs',
+    'AlarmEvaluationCriteriaArgsDict',
     'AlarmMetricDataQueryArgs',
     'AlarmMetricDataQueryArgsDict',
     'AlarmMetricStatArgs',
     'AlarmMetricStatArgsDict',
     'AlarmMetricArgs',
     'AlarmMetricArgsDict',
+    'AlarmPromQlCriteriaArgs',
+    'AlarmPromQlCriteriaArgsDict',
     'MetricStreamFilterArgs',
     'MetricStreamFilterArgsDict',
     'MetricStreamStatisticsConfigurationArgs',
@@ -88,6 +92,26 @@ class AlarmDimensionArgs:
     @value.setter
     def value(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "value", value)
+
+
+class AlarmEvaluationCriteriaArgsDict(TypedDict):
+    prom_ql_criteria: NotRequired[pulumi.Input['AlarmPromQlCriteriaArgsDict']]
+
+@pulumi.input_type
+class AlarmEvaluationCriteriaArgs:
+    def __init__(__self__, *,
+                 prom_ql_criteria: Optional[pulumi.Input['AlarmPromQlCriteriaArgs']] = None):
+        if prom_ql_criteria is not None:
+            pulumi.set(__self__, "prom_ql_criteria", prom_ql_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="promQlCriteria")
+    def prom_ql_criteria(self) -> Optional[pulumi.Input['AlarmPromQlCriteriaArgs']]:
+        return pulumi.get(self, "prom_ql_criteria")
+
+    @prom_ql_criteria.setter
+    def prom_ql_criteria(self, value: Optional[pulumi.Input['AlarmPromQlCriteriaArgs']]):
+        pulumi.set(self, "prom_ql_criteria", value)
 
 
 class AlarmMetricDataQueryArgsDict(TypedDict):
@@ -437,6 +461,75 @@ class AlarmMetricArgs:
     @namespace.setter
     def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "namespace", value)
+
+
+class AlarmPromQlCriteriaArgsDict(TypedDict):
+    pending_period: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The pending period for the alarm.
+    """
+    query: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The PromQL query string.
+    """
+    recovery_period: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The recovery period for the alarm.
+    """
+
+@pulumi.input_type
+class AlarmPromQlCriteriaArgs:
+    def __init__(__self__, *,
+                 pending_period: Optional[pulumi.Input[_builtins.int]] = None,
+                 query: Optional[pulumi.Input[_builtins.str]] = None,
+                 recovery_period: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] pending_period: The pending period for the alarm.
+        :param pulumi.Input[_builtins.str] query: The PromQL query string.
+        :param pulumi.Input[_builtins.int] recovery_period: The recovery period for the alarm.
+        """
+        if pending_period is not None:
+            pulumi.set(__self__, "pending_period", pending_period)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if recovery_period is not None:
+            pulumi.set(__self__, "recovery_period", recovery_period)
+
+    @_builtins.property
+    @pulumi.getter(name="pendingPeriod")
+    def pending_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The pending period for the alarm.
+        """
+        return pulumi.get(self, "pending_period")
+
+    @pending_period.setter
+    def pending_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "pending_period", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The PromQL query string.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "query", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recoveryPeriod")
+    def recovery_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The recovery period for the alarm.
+        """
+        return pulumi.get(self, "recovery_period")
+
+    @recovery_period.setter
+    def recovery_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "recovery_period", value)
 
 
 class MetricStreamFilterArgsDict(TypedDict):

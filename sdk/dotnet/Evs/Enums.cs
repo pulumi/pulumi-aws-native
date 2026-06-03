@@ -91,6 +91,7 @@ namespace Pulumi.AwsNative.Evs
         }
 
         public static EnvironmentHostInfoForCreateInstanceType I4iMetal { get; } = new EnvironmentHostInfoForCreateInstanceType("i4i.metal");
+        public static EnvironmentHostInfoForCreateInstanceType I7iMetal24xl { get; } = new EnvironmentHostInfoForCreateInstanceType("i7i.metal-24xl");
 
         public static bool operator ==(EnvironmentHostInfoForCreateInstanceType left, EnvironmentHostInfoForCreateInstanceType right) => left.Equals(right);
         public static bool operator !=(EnvironmentHostInfoForCreateInstanceType left, EnvironmentHostInfoForCreateInstanceType right) => !left.Equals(right);

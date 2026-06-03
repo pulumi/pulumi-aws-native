@@ -18,7 +18,7 @@ type Service struct {
 	pulumi.CustomResourceState
 
 	// List of accessible resources for this service
-	AccessibleResources pulumi.ArrayOutput `pulumi:"accessibleResources"`
+	AccessibleResources pulumi.StringMapArrayOutput `pulumi:"accessibleResources"`
 	// Additional details specific to the service type
 	AdditionalServiceDetails ServiceAdditionalServiceDetailsOutput `pulumi:"additionalServiceDetails"`
 	// The Amazon Resource Name (ARN) of the Service.
@@ -47,7 +47,6 @@ func NewService(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"kmsKeyArn",
-		"serviceDetails",
 		"serviceType",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -144,8 +143,8 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 }
 
 // List of accessible resources for this service
-func (o ServiceOutput) AccessibleResources() pulumi.ArrayOutput {
-	return o.ApplyT(func(v *Service) pulumi.ArrayOutput { return v.AccessibleResources }).(pulumi.ArrayOutput)
+func (o ServiceOutput) AccessibleResources() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringMapArrayOutput { return v.AccessibleResources }).(pulumi.StringMapArrayOutput)
 }
 
 // Additional details specific to the service type

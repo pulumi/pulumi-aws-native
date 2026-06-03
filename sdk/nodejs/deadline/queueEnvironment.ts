@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::QueueEnvironment Resource Type
+ * Resource Type definition for AWS::Deadline::QueueEnvironment
  */
 export class QueueEnvironment extends pulumi.CustomResource {
     /**

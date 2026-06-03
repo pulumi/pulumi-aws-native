@@ -50,6 +50,8 @@ __all__ = [
     'MatchingWorkflowInputSourceArgsDict',
     'MatchingWorkflowIntermediateSourceConfigurationArgs',
     'MatchingWorkflowIntermediateSourceConfigurationArgsDict',
+    'MatchingWorkflowMatchingConfigArgs',
+    'MatchingWorkflowMatchingConfigArgsDict',
     'MatchingWorkflowOutputAttributeArgs',
     'MatchingWorkflowOutputAttributeArgsDict',
     'MatchingWorkflowOutputSourceArgs',
@@ -878,6 +880,9 @@ class IdNamespaceRuleArgs:
 
 
 class MatchingWorkflowCustomerProfilesIntegrationConfigArgsDict(TypedDict):
+    """
+    The Customer Profiles integration configuration for the output source
+    """
     domain_arn: pulumi.Input[_builtins.str]
     object_type_arn: pulumi.Input[_builtins.str]
 
@@ -886,6 +891,9 @@ class MatchingWorkflowCustomerProfilesIntegrationConfigArgs:
     def __init__(__self__, *,
                  domain_arn: pulumi.Input[_builtins.str],
                  object_type_arn: pulumi.Input[_builtins.str]):
+        """
+        The Customer Profiles integration configuration for the output source
+        """
         pulumi.set(__self__, "domain_arn", domain_arn)
         pulumi.set(__self__, "object_type_arn", object_type_arn)
 
@@ -1035,6 +1043,40 @@ class MatchingWorkflowIntermediateSourceConfigurationArgs:
     @intermediate_s3_path.setter
     def intermediate_s3_path(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "intermediate_s3_path", value)
+
+
+class MatchingWorkflowMatchingConfigArgsDict(TypedDict):
+    """
+    Configuration for matching behavior within rule condition properties
+    """
+    enable_transitive_matching: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables transitive matching to process records across all rule levels and connect unmatched records to existing match groups
+    """
+
+@pulumi.input_type
+class MatchingWorkflowMatchingConfigArgs:
+    def __init__(__self__, *,
+                 enable_transitive_matching: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        Configuration for matching behavior within rule condition properties
+
+        :param pulumi.Input[_builtins.bool] enable_transitive_matching: Enables transitive matching to process records across all rule levels and connect unmatched records to existing match groups
+        """
+        if enable_transitive_matching is not None:
+            pulumi.set(__self__, "enable_transitive_matching", enable_transitive_matching)
+
+    @_builtins.property
+    @pulumi.getter(name="enableTransitiveMatching")
+    def enable_transitive_matching(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables transitive matching to process records across all rule levels and connect unmatched records to existing match groups
+        """
+        return pulumi.get(self, "enable_transitive_matching")
+
+    @enable_transitive_matching.setter
+    def enable_transitive_matching(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_transitive_matching", value)
 
 
 class MatchingWorkflowOutputAttributeArgsDict(TypedDict):
@@ -1451,15 +1493,19 @@ class MatchingWorkflowRuleConditionPropertiesArgsDict(TypedDict):
     """
     A list of rule objects, each of which have fields `ruleName` and `condition` .
     """
+    matching_config: NotRequired[pulumi.Input['MatchingWorkflowMatchingConfigArgsDict']]
 
 @pulumi.input_type
 class MatchingWorkflowRuleConditionPropertiesArgs:
     def __init__(__self__, *,
-                 rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgs']]]):
+                 rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgs']]],
+                 matching_config: Optional[pulumi.Input['MatchingWorkflowMatchingConfigArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgs']]] rules: A list of rule objects, each of which have fields `ruleName` and `condition` .
         """
         pulumi.set(__self__, "rules", rules)
+        if matching_config is not None:
+            pulumi.set(__self__, "matching_config", matching_config)
 
     @_builtins.property
     @pulumi.getter
@@ -1472,6 +1518,15 @@ class MatchingWorkflowRuleConditionPropertiesArgs:
     @rules.setter
     def rules(self, value: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgs']]]):
         pulumi.set(self, "rules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchingConfig")
+    def matching_config(self) -> Optional[pulumi.Input['MatchingWorkflowMatchingConfigArgs']]:
+        return pulumi.get(self, "matching_config")
+
+    @matching_config.setter
+    def matching_config(self, value: Optional[pulumi.Input['MatchingWorkflowMatchingConfigArgs']]):
+        pulumi.set(self, "matching_config", value)
 
 
 class MatchingWorkflowRuleConditionArgsDict(TypedDict):

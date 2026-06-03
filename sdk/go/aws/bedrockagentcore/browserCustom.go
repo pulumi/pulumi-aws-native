@@ -22,10 +22,14 @@ type BrowserCustom struct {
 	BrowserId pulumi.StringOutput `pulumi:"browserId"`
 	// Browser signing configuration.
 	BrowserSigning BrowserCustomBrowserSigningPtrOutput `pulumi:"browserSigning"`
+	// List of root CA certificates in PEM format.
+	Certificates BrowserCustomCertificateArrayOutput `pulumi:"certificates"`
 	// Timestamp when the browser was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The description of the browser.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A list of enterprise policy files for the browser.
+	EnterprisePolicies BrowserCustomBrowserEnterprisePolicyArrayOutput `pulumi:"enterprisePolicies"`
 	// The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
 	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
 	// The reason for failure if the browser creation or operation failed.
@@ -56,7 +60,9 @@ func NewBrowserCustom(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"browserSigning",
+		"certificates[*]",
 		"description",
+		"enterprisePolicies[*]",
 		"executionRoleArn",
 		"name",
 		"networkConfiguration",
@@ -98,8 +104,12 @@ func (BrowserCustomState) ElementType() reflect.Type {
 type browserCustomArgs struct {
 	// Browser signing configuration.
 	BrowserSigning *BrowserCustomBrowserSigning `pulumi:"browserSigning"`
+	// List of root CA certificates in PEM format.
+	Certificates []BrowserCustomCertificate `pulumi:"certificates"`
 	// The description of the browser.
 	Description *string `pulumi:"description"`
+	// A list of enterprise policy files for the browser.
+	EnterprisePolicies []BrowserCustomBrowserEnterprisePolicy `pulumi:"enterprisePolicies"`
 	// The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// The name of the browser.
@@ -116,8 +126,12 @@ type browserCustomArgs struct {
 type BrowserCustomArgs struct {
 	// Browser signing configuration.
 	BrowserSigning BrowserCustomBrowserSigningPtrInput
+	// List of root CA certificates in PEM format.
+	Certificates BrowserCustomCertificateArrayInput
 	// The description of the browser.
 	Description pulumi.StringPtrInput
+	// A list of enterprise policy files for the browser.
+	EnterprisePolicies BrowserCustomBrowserEnterprisePolicyArrayInput
 	// The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
 	ExecutionRoleArn pulumi.StringPtrInput
 	// The name of the browser.
@@ -182,6 +196,11 @@ func (o BrowserCustomOutput) BrowserSigning() BrowserCustomBrowserSigningPtrOutp
 	return o.ApplyT(func(v *BrowserCustom) BrowserCustomBrowserSigningPtrOutput { return v.BrowserSigning }).(BrowserCustomBrowserSigningPtrOutput)
 }
 
+// List of root CA certificates in PEM format.
+func (o BrowserCustomOutput) Certificates() BrowserCustomCertificateArrayOutput {
+	return o.ApplyT(func(v *BrowserCustom) BrowserCustomCertificateArrayOutput { return v.Certificates }).(BrowserCustomCertificateArrayOutput)
+}
+
 // Timestamp when the browser was created.
 func (o BrowserCustomOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrowserCustom) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
@@ -190,6 +209,11 @@ func (o BrowserCustomOutput) CreatedAt() pulumi.StringOutput {
 // The description of the browser.
 func (o BrowserCustomOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrowserCustom) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A list of enterprise policy files for the browser.
+func (o BrowserCustomOutput) EnterprisePolicies() BrowserCustomBrowserEnterprisePolicyArrayOutput {
+	return o.ApplyT(func(v *BrowserCustom) BrowserCustomBrowserEnterprisePolicyArrayOutput { return v.EnterprisePolicies }).(BrowserCustomBrowserEnterprisePolicyArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.

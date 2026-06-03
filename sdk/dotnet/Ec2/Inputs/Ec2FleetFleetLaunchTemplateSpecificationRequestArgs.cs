@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("launchTemplateName")]
         public Input<string>? LaunchTemplateName { get; set; }
 
+        [Input("launchTemplateSpecificationUserData")]
+        public Input<string>? LaunchTemplateSpecificationUserData { get; set; }
+
         /// <summary>
         /// The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
         /// 

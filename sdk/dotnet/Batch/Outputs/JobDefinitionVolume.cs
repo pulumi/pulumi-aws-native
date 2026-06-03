@@ -27,6 +27,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
         /// </summary>
         public readonly string? Name;
+        public readonly Outputs.JobDefinitionS3FilesVolumeConfiguration? S3FilesVolumeConfiguration;
 
         [OutputConstructor]
         private JobDefinitionVolume(
@@ -34,11 +35,14 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             Outputs.JobDefinitionHost? host,
 
-            string? name)
+            string? name,
+
+            Outputs.JobDefinitionS3FilesVolumeConfiguration? s3FilesVolumeConfiguration)
         {
             EfsVolumeConfiguration = efsVolumeConfiguration;
             Host = host;
             Name = name;
+            S3FilesVolumeConfiguration = s3FilesVolumeConfiguration;
         }
     }
 }

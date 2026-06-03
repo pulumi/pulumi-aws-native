@@ -208,6 +208,25 @@ export const BlueprintType = {
  */
 export type BlueprintType = (typeof BlueprintType)[keyof typeof BlueprintType];
 
+export const DataAutomationLibraryEntityType = {
+    Vocabulary: "VOCABULARY",
+} as const;
+
+/**
+ * Entity types supported in DataAutomationLibraries
+ */
+export type DataAutomationLibraryEntityType = (typeof DataAutomationLibraryEntityType)[keyof typeof DataAutomationLibraryEntityType];
+
+export const DataAutomationLibraryStatus = {
+    Active: "ACTIVE",
+    Deleting: "DELETING",
+} as const;
+
+/**
+ * Status of DataAutomationLibrary
+ */
+export type DataAutomationLibraryStatus = (typeof DataAutomationLibraryStatus)[keyof typeof DataAutomationLibraryStatus];
+
 export const DataAutomationProjectAudioExtractionCategoryType = {
     AudioContentModeration: "AUDIO_CONTENT_MODERATION",
     Transcript: "TRANSCRIPT",
@@ -569,6 +588,35 @@ export const DataSourceWebScopeType = {
  * The scope that a web crawl job will be restricted to.
  */
 export type DataSourceWebScopeType = (typeof DataSourceWebScopeType)[keyof typeof DataSourceWebScopeType];
+
+export const EnforcedGuardrailConfigurationConfigOwner = {
+    Account: "ACCOUNT",
+} as const;
+
+/**
+ * Configuration owner type
+ */
+export type EnforcedGuardrailConfigurationConfigOwner = (typeof EnforcedGuardrailConfigurationConfigOwner)[keyof typeof EnforcedGuardrailConfigurationConfigOwner];
+
+export const EnforcedGuardrailConfigurationSelectiveContentGuardingMessages = {
+    Selective: "SELECTIVE",
+    Comprehensive: "COMPREHENSIVE",
+} as const;
+
+/**
+ * Selective guarding mode for user messages
+ */
+export type EnforcedGuardrailConfigurationSelectiveContentGuardingMessages = (typeof EnforcedGuardrailConfigurationSelectiveContentGuardingMessages)[keyof typeof EnforcedGuardrailConfigurationSelectiveContentGuardingMessages];
+
+export const EnforcedGuardrailConfigurationSelectiveContentGuardingSystem = {
+    Selective: "SELECTIVE",
+    Comprehensive: "COMPREHENSIVE",
+} as const;
+
+/**
+ * Selective guarding mode for system prompts
+ */
+export type EnforcedGuardrailConfigurationSelectiveContentGuardingSystem = (typeof EnforcedGuardrailConfigurationSelectiveContentGuardingSystem)[keyof typeof EnforcedGuardrailConfigurationSelectiveContentGuardingSystem];
 
 export const FlowAliasConcurrencyType = {
     Automatic: "Automatic",

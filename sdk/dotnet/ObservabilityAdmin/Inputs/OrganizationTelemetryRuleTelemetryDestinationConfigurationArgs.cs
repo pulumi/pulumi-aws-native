@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         public Input<Inputs.OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs>? ElbLoadBalancerLoggingParameters { get; set; }
 
         /// <summary>
+        /// Parameters for log delivery configuration
+        /// </summary>
+        [Input("logDeliveryParameters")]
+        public Input<Inputs.OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs>? LogDeliveryParameters { get; set; }
+
+        /// <summary>
         /// The number of days to retain the telemetry data in the destination.
         /// </summary>
         [Input("retentionInDays")]

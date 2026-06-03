@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::MeteredProduct Resource Type
+// Resource Type definition for AWS::Deadline::MeteredProduct
 func LookupMeteredProduct(ctx *pulumi.Context, args *LookupMeteredProductArgs, opts ...pulumi.InvokeOption) (*LookupMeteredProductResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMeteredProductResult

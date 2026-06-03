@@ -40,15 +40,20 @@ __all__ = [
     'Ec2FleetFleetLaunchTemplateConfigRequest',
     'Ec2FleetFleetLaunchTemplateOverridesRequest',
     'Ec2FleetFleetLaunchTemplateSpecificationRequest',
+    'Ec2FleetIamInstanceProfileSpecification',
+    'Ec2FleetInstanceMetadataOptionsRequest',
     'Ec2FleetInstanceRequirementsRequest',
+    'Ec2FleetIpv6AddressRequest',
     'Ec2FleetMaintenanceStrategies',
     'Ec2FleetMemoryGiBPerVCpuRequest',
     'Ec2FleetMemoryMiBRequest',
     'Ec2FleetNetworkBandwidthGbpsRequest',
     'Ec2FleetNetworkInterfaceCountRequest',
+    'Ec2FleetNetworkInterfaceSpecificationRequest',
     'Ec2FleetOnDemandOptionsRequest',
     'Ec2FleetPerformanceFactorReferenceRequest',
     'Ec2FleetPlacement',
+    'Ec2FleetPrivateIpAddressSpecificationRequest',
     'Ec2FleetReservedCapacityOptionsRequest',
     'Ec2FleetSpotOptionsRequest',
     'Ec2FleetTag',
@@ -1392,12 +1397,20 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
             suggest = "availability_zone_id"
         elif key == "blockDeviceMappings":
             suggest = "block_device_mappings"
+        elif key == "iamInstanceProfile":
+            suggest = "iam_instance_profile"
         elif key == "instanceRequirements":
             suggest = "instance_requirements"
         elif key == "instanceType":
             suggest = "instance_type"
+        elif key == "keyName":
+            suggest = "key_name"
         elif key == "maxPrice":
             suggest = "max_price"
+        elif key == "metadataOptions":
+            suggest = "metadata_options"
+        elif key == "networkInterfaces":
+            suggest = "network_interfaces"
         elif key == "subnetId":
             suggest = "subnet_id"
         elif key == "weightedCapacity":
@@ -1418,9 +1431,13 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
                  availability_zone: Optional[_builtins.str] = None,
                  availability_zone_id: Optional[_builtins.str] = None,
                  block_device_mappings: Optional[Sequence['outputs.Ec2FleetBlockDeviceMapping']] = None,
+                 iam_instance_profile: Optional['outputs.Ec2FleetIamInstanceProfileSpecification'] = None,
                  instance_requirements: Optional['outputs.Ec2FleetInstanceRequirementsRequest'] = None,
                  instance_type: Optional[_builtins.str] = None,
+                 key_name: Optional[_builtins.str] = None,
                  max_price: Optional[_builtins.str] = None,
+                 metadata_options: Optional['outputs.Ec2FleetInstanceMetadataOptionsRequest'] = None,
+                 network_interfaces: Optional[Sequence['outputs.Ec2FleetNetworkInterfaceSpecificationRequest']] = None,
                  placement: Optional['outputs.Ec2FleetPlacement'] = None,
                  priority: Optional[_builtins.float] = None,
                  subnet_id: Optional[_builtins.str] = None,
@@ -1471,12 +1488,20 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
             pulumi.set(__self__, "availability_zone_id", availability_zone_id)
         if block_device_mappings is not None:
             pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+        if iam_instance_profile is not None:
+            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
         if instance_requirements is not None:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
         if max_price is not None:
             pulumi.set(__self__, "max_price", max_price)
+        if metadata_options is not None:
+            pulumi.set(__self__, "metadata_options", metadata_options)
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
         if placement is not None:
             pulumi.set(__self__, "placement", placement)
         if priority is not None:
@@ -1519,6 +1544,11 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
         return pulumi.get(self, "block_device_mappings")
 
     @_builtins.property
+    @pulumi.getter(name="iamInstanceProfile")
+    def iam_instance_profile(self) -> Optional['outputs.Ec2FleetIamInstanceProfileSpecification']:
+        return pulumi.get(self, "iam_instance_profile")
+
+    @_builtins.property
     @pulumi.getter(name="instanceRequirements")
     def instance_requirements(self) -> Optional['outputs.Ec2FleetInstanceRequirementsRequest']:
         """
@@ -1541,6 +1571,11 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key_name")
+
+    @_builtins.property
     @pulumi.getter(name="maxPrice")
     def max_price(self) -> Optional[_builtins.str]:
         """
@@ -1551,6 +1586,16 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
         > If you specify a maximum price, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an `InvalidParameterValue` error message.
         """
         return pulumi.get(self, "max_price")
+
+    @_builtins.property
+    @pulumi.getter(name="metadataOptions")
+    def metadata_options(self) -> Optional['outputs.Ec2FleetInstanceMetadataOptionsRequest']:
+        return pulumi.get(self, "metadata_options")
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[Sequence['outputs.Ec2FleetNetworkInterfaceSpecificationRequest']]:
+        return pulumi.get(self, "network_interfaces")
 
     @_builtins.property
     @pulumi.getter
@@ -1604,6 +1649,8 @@ class Ec2FleetFleetLaunchTemplateSpecificationRequest(dict):
             suggest = "launch_template_id"
         elif key == "launchTemplateName":
             suggest = "launch_template_name"
+        elif key == "launchTemplateSpecificationUserData":
+            suggest = "launch_template_specification_user_data"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in Ec2FleetFleetLaunchTemplateSpecificationRequest. Access the value via the '{suggest}' property getter instead.")
@@ -1619,7 +1666,8 @@ class Ec2FleetFleetLaunchTemplateSpecificationRequest(dict):
     def __init__(__self__, *,
                  version: _builtins.str,
                  launch_template_id: Optional[_builtins.str] = None,
-                 launch_template_name: Optional[_builtins.str] = None):
+                 launch_template_name: Optional[_builtins.str] = None,
+                 launch_template_specification_user_data: Optional[_builtins.str] = None):
         """
         :param _builtins.str version: The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
                
@@ -1638,6 +1686,8 @@ class Ec2FleetFleetLaunchTemplateSpecificationRequest(dict):
             pulumi.set(__self__, "launch_template_id", launch_template_id)
         if launch_template_name is not None:
             pulumi.set(__self__, "launch_template_name", launch_template_name)
+        if launch_template_specification_user_data is not None:
+            pulumi.set(__self__, "launch_template_specification_user_data", launch_template_specification_user_data)
 
     @_builtins.property
     @pulumi.getter
@@ -1670,6 +1720,82 @@ class Ec2FleetFleetLaunchTemplateSpecificationRequest(dict):
         You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
         """
         return pulumi.get(self, "launch_template_name")
+
+    @_builtins.property
+    @pulumi.getter(name="launchTemplateSpecificationUserData")
+    def launch_template_specification_user_data(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "launch_template_specification_user_data")
+
+
+@pulumi.output_type
+class Ec2FleetIamInstanceProfileSpecification(dict):
+    def __init__(__self__, *,
+                 arn: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None):
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class Ec2FleetInstanceMetadataOptionsRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpEndpoint":
+            suggest = "http_endpoint"
+        elif key == "httpPutResponseHopLimit":
+            suggest = "http_put_response_hop_limit"
+        elif key == "httpTokens":
+            suggest = "http_tokens"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetInstanceMetadataOptionsRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Ec2FleetInstanceMetadataOptionsRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Ec2FleetInstanceMetadataOptionsRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 http_endpoint: Optional['Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint'] = None,
+                 http_put_response_hop_limit: Optional[_builtins.int] = None,
+                 http_tokens: Optional['Ec2FleetInstanceMetadataOptionsRequestHttpTokens'] = None):
+        if http_endpoint is not None:
+            pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if http_put_response_hop_limit is not None:
+            pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
+        if http_tokens is not None:
+            pulumi.set(__self__, "http_tokens", http_tokens)
+
+    @_builtins.property
+    @pulumi.getter(name="httpEndpoint")
+    def http_endpoint(self) -> Optional['Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint']:
+        return pulumi.get(self, "http_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="httpPutResponseHopLimit")
+    def http_put_response_hop_limit(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "http_put_response_hop_limit")
+
+    @_builtins.property
+    @pulumi.getter(name="httpTokens")
+    def http_tokens(self) -> Optional['Ec2FleetInstanceMetadataOptionsRequestHttpTokens']:
+        return pulumi.get(self, "http_tokens")
 
 
 @pulumi.output_type
@@ -2337,6 +2463,36 @@ class Ec2FleetInstanceRequirementsRequest(dict):
 
 
 @pulumi.output_type
+class Ec2FleetIpv6AddressRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv6Address":
+            suggest = "ipv6_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetIpv6AddressRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Ec2FleetIpv6AddressRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Ec2FleetIpv6AddressRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv6_address: Optional[_builtins.str] = None):
+        if ipv6_address is not None:
+            pulumi.set(__self__, "ipv6_address", ipv6_address)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "ipv6_address")
+
+
+@pulumi.output_type
 class Ec2FleetMaintenanceStrategies(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2494,6 +2650,162 @@ class Ec2FleetNetworkInterfaceCountRequest(dict):
         The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class Ec2FleetNetworkInterfaceSpecificationRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associatePublicIpAddress":
+            suggest = "associate_public_ip_address"
+        elif key == "deleteOnTermination":
+            suggest = "delete_on_termination"
+        elif key == "deviceIndex":
+            suggest = "device_index"
+        elif key == "interfaceType":
+            suggest = "interface_type"
+        elif key == "ipv6AddressCount":
+            suggest = "ipv6_address_count"
+        elif key == "ipv6Addresses":
+            suggest = "ipv6_addresses"
+        elif key == "networkCardIndex":
+            suggest = "network_card_index"
+        elif key == "networkInterfaceId":
+            suggest = "network_interface_id"
+        elif key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIpAddresses":
+            suggest = "private_ip_addresses"
+        elif key == "secondaryPrivateIpAddressCount":
+            suggest = "secondary_private_ip_address_count"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetNetworkInterfaceSpecificationRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Ec2FleetNetworkInterfaceSpecificationRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Ec2FleetNetworkInterfaceSpecificationRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 associate_public_ip_address: Optional[_builtins.bool] = None,
+                 delete_on_termination: Optional[_builtins.bool] = None,
+                 description: Optional[_builtins.str] = None,
+                 device_index: Optional[_builtins.int] = None,
+                 groups: Optional[Sequence[_builtins.str]] = None,
+                 interface_type: Optional[_builtins.str] = None,
+                 ipv6_address_count: Optional[_builtins.int] = None,
+                 ipv6_addresses: Optional[Sequence['outputs.Ec2FleetIpv6AddressRequest']] = None,
+                 network_card_index: Optional[_builtins.int] = None,
+                 network_interface_id: Optional[_builtins.str] = None,
+                 private_ip_address: Optional[_builtins.str] = None,
+                 private_ip_addresses: Optional[Sequence['outputs.Ec2FleetPrivateIpAddressSpecificationRequest']] = None,
+                 secondary_private_ip_address_count: Optional[_builtins.int] = None,
+                 subnet_id: Optional[_builtins.str] = None):
+        if associate_public_ip_address is not None:
+            pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if device_index is not None:
+            pulumi.set(__self__, "device_index", device_index)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if interface_type is not None:
+            pulumi.set(__self__, "interface_type", interface_type)
+        if ipv6_address_count is not None:
+            pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
+        if ipv6_addresses is not None:
+            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+        if network_card_index is not None:
+            pulumi.set(__self__, "network_card_index", network_card_index)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_addresses is not None:
+            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        if secondary_private_ip_address_count is not None:
+            pulumi.set(__self__, "secondary_private_ip_address_count", secondary_private_ip_address_count)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="associatePublicIpAddress")
+    def associate_public_ip_address(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "associate_public_ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "delete_on_termination")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceIndex")
+    def device_index(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "device_index")
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "groups")
+
+    @_builtins.property
+    @pulumi.getter(name="interfaceType")
+    def interface_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "interface_type")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6AddressCount")
+    def ipv6_address_count(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "ipv6_address_count")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> Optional[Sequence['outputs.Ec2FleetIpv6AddressRequest']]:
+        return pulumi.get(self, "ipv6_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="networkCardIndex")
+    def network_card_index(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "network_card_index")
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "network_interface_id")
+
+    @_builtins.property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "private_ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="privateIpAddresses")
+    def private_ip_addresses(self) -> Optional[Sequence['outputs.Ec2FleetPrivateIpAddressSpecificationRequest']]:
+        return pulumi.get(self, "private_ip_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryPrivateIpAddressCount")
+    def secondary_private_ip_address_count(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "secondary_private_ip_address_count")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type
@@ -2872,6 +3184,44 @@ class Ec2FleetPlacement(dict):
         This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) . The `host` tenancy is not supported for [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) or for T3 instances that are configured for the `unlimited` CPU credit option.
         """
         return pulumi.get(self, "tenancy")
+
+
+@pulumi.output_type
+class Ec2FleetPrivateIpAddressSpecificationRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIpAddress":
+            suggest = "private_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetPrivateIpAddressSpecificationRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Ec2FleetPrivateIpAddressSpecificationRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Ec2FleetPrivateIpAddressSpecificationRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 primary: Optional[_builtins.bool] = None,
+                 private_ip_address: Optional[_builtins.str] = None):
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+
+    @_builtins.property
+    @pulumi.getter
+    def primary(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "primary")
+
+    @_builtins.property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "private_ip_address")
 
 
 @pulumi.output_type
@@ -5556,6 +5906,8 @@ class LaunchTemplateCpuOptions(dict):
             suggest = "amd_sev_snp"
         elif key == "coreCount":
             suggest = "core_count"
+        elif key == "nestedVirtualization":
+            suggest = "nested_virtualization"
         elif key == "threadsPerCore":
             suggest = "threads_per_core"
 
@@ -5573,6 +5925,7 @@ class LaunchTemplateCpuOptions(dict):
     def __init__(__self__, *,
                  amd_sev_snp: Optional['LaunchTemplateCpuOptionsAmdSevSnp'] = None,
                  core_count: Optional[_builtins.int] = None,
+                 nested_virtualization: Optional['LaunchTemplateCpuOptionsNestedVirtualization'] = None,
                  threads_per_core: Optional[_builtins.int] = None):
         """
         Specifies the CPU options for an instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *User Guide*.
@@ -5580,12 +5933,15 @@ class LaunchTemplateCpuOptions(dict):
 
         :param 'LaunchTemplateCpuOptionsAmdSevSnp' amd_sev_snp: Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
         :param _builtins.int core_count: The number of CPU cores for the instance.
+        :param 'LaunchTemplateCpuOptionsNestedVirtualization' nested_virtualization: Indicates whether the instance is enabled for nested virtualization.
         :param _builtins.int threads_per_core: The number of threads per CPU core. To disable multithreading for the instance, specify a value of ``1``. Otherwise, specify the default value of ``2``.
         """
         if amd_sev_snp is not None:
             pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
         if core_count is not None:
             pulumi.set(__self__, "core_count", core_count)
+        if nested_virtualization is not None:
+            pulumi.set(__self__, "nested_virtualization", nested_virtualization)
         if threads_per_core is not None:
             pulumi.set(__self__, "threads_per_core", threads_per_core)
 
@@ -5604,6 +5960,14 @@ class LaunchTemplateCpuOptions(dict):
         The number of CPU cores for the instance.
         """
         return pulumi.get(self, "core_count")
+
+    @_builtins.property
+    @pulumi.getter(name="nestedVirtualization")
+    def nested_virtualization(self) -> Optional['LaunchTemplateCpuOptionsNestedVirtualization']:
+        """
+        Indicates whether the instance is enabled for nested virtualization.
+        """
+        return pulumi.get(self, "nested_virtualization")
 
     @_builtins.property
     @pulumi.getter(name="threadsPerCore")
@@ -6737,12 +7101,19 @@ class LaunchTemplateInstanceRequirements(dict):
                  +  For instance types with NVIDIA A100 GPUs, specify ``a100``.
                  +  For instance types with NVIDIA H100 GPUs, specify ``h100``.
                  +  For instance types with AWS Inferentia chips, specify ``inferentia``.
+                 +  For instance types with AWS Inferentia2 chips, specify ``inferentia2``.
+                 +  For instance types with Habana Gaudi HL-205 GPUs, specify ``gaudi-hl-205``.
                  +  For instance types with NVIDIA GRID K520 GPUs, specify ``k520``.
                  +  For instance types with NVIDIA K80 GPUs, specify ``k80``.
+                 +  For instance types with NVIDIA L4 GPUs, specify ``l4``.
+                 +  For instance types with NVIDIA L40S GPUs, specify ``l40s``.
                  +  For instance types with NVIDIA M60 GPUs, specify ``m60``.
                  +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.
+                 +  For instance types with AWS Trainium chips, specify ``trainium``.
+                 +  For instance types with AWS Trainium2 chips, specify ``trainium2``.
                  +  For instance types with NVIDIA T4 GPUs, specify ``t4``.
                  +  For instance types with NVIDIA T4G GPUs, specify ``t4g``.
+                 +  For instance types with Xilinx U30 cards, specify ``u30``.
                  +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
                  +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
                  
@@ -6753,6 +7124,7 @@ class LaunchTemplateInstanceRequirements(dict):
                  +  For instance types with FPGA accelerators, specify ``fpga``.
                  +  For instance types with GPU accelerators, specify ``gpu``.
                  +  For instance types with Inference accelerators, specify ``inference``.
+                 +  For instance types with Media accelerators, specify ``media``.
                  
                 Default: Any accelerator type
         :param Sequence[_builtins.str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -6918,12 +7290,19 @@ class LaunchTemplateInstanceRequirements(dict):
           +  For instance types with NVIDIA A100 GPUs, specify ``a100``.
           +  For instance types with NVIDIA H100 GPUs, specify ``h100``.
           +  For instance types with AWS Inferentia chips, specify ``inferentia``.
+          +  For instance types with AWS Inferentia2 chips, specify ``inferentia2``.
+          +  For instance types with Habana Gaudi HL-205 GPUs, specify ``gaudi-hl-205``.
           +  For instance types with NVIDIA GRID K520 GPUs, specify ``k520``.
           +  For instance types with NVIDIA K80 GPUs, specify ``k80``.
+          +  For instance types with NVIDIA L4 GPUs, specify ``l4``.
+          +  For instance types with NVIDIA L40S GPUs, specify ``l40s``.
           +  For instance types with NVIDIA M60 GPUs, specify ``m60``.
           +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.
+          +  For instance types with AWS Trainium chips, specify ``trainium``.
+          +  For instance types with AWS Trainium2 chips, specify ``trainium2``.
           +  For instance types with NVIDIA T4 GPUs, specify ``t4``.
           +  For instance types with NVIDIA T4G GPUs, specify ``t4g``.
+          +  For instance types with Xilinx U30 cards, specify ``u30``.
           +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
           +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
           
@@ -6948,6 +7327,7 @@ class LaunchTemplateInstanceRequirements(dict):
           +  For instance types with FPGA accelerators, specify ``fpga``.
           +  For instance types with GPU accelerators, specify ``gpu``.
           +  For instance types with Inference accelerators, specify ``inference``.
+          +  For instance types with Media accelerators, specify ``media``.
           
          Default: Any accelerator type
         """

@@ -480,7 +480,8 @@ type ExportResourceTag struct {
 
 type ExportS3Destination struct {
 	// The name of the Amazon S3 bucket used as the destination of a data export file.
-	S3Bucket string `pulumi:"s3Bucket"`
+	S3Bucket      string  `pulumi:"s3Bucket"`
+	S3BucketOwner *string `pulumi:"s3BucketOwner"`
 	// The output configuration for the data export.
 	S3OutputConfigurations ExportS3OutputConfigurations `pulumi:"s3OutputConfigurations"`
 	// The S3 path prefix you want prepended to the name of your data export.
@@ -502,7 +503,8 @@ type ExportS3DestinationInput interface {
 
 type ExportS3DestinationArgs struct {
 	// The name of the Amazon S3 bucket used as the destination of a data export file.
-	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+	S3Bucket      pulumi.StringInput    `pulumi:"s3Bucket"`
+	S3BucketOwner pulumi.StringPtrInput `pulumi:"s3BucketOwner"`
 	// The output configuration for the data export.
 	S3OutputConfigurations ExportS3OutputConfigurationsInput `pulumi:"s3OutputConfigurations"`
 	// The S3 path prefix you want prepended to the name of your data export.
@@ -540,6 +542,10 @@ func (o ExportS3DestinationOutput) ToExportS3DestinationOutputWithContext(ctx co
 // The name of the Amazon S3 bucket used as the destination of a data export file.
 func (o ExportS3DestinationOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportS3Destination) string { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+func (o ExportS3DestinationOutput) S3BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportS3Destination) *string { return v.S3BucketOwner }).(pulumi.StringPtrOutput)
 }
 
 // The output configuration for the data export.
@@ -588,6 +594,15 @@ func (o ExportS3DestinationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExportS3DestinationPtrOutput) S3BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketOwner
 	}).(pulumi.StringPtrOutput)
 }
 

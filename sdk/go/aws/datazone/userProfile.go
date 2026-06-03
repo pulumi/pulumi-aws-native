@@ -23,6 +23,8 @@ type UserProfile struct {
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// The identifier of the Amazon DataZone domain in which the user profile would be created.
 	DomainIdentifier pulumi.StringOutput `pulumi:"domainIdentifier"`
+	// The session name of the user profile.
+	SessionName pulumi.StringPtrOutput `pulumi:"sessionName"`
 	// The status of the user profile.
 	Status UserProfileStatusPtrOutput `pulumi:"status"`
 	// The type of the user profile.
@@ -87,6 +89,8 @@ func (UserProfileState) ElementType() reflect.Type {
 type userProfileArgs struct {
 	// The identifier of the Amazon DataZone domain in which the user profile would be created.
 	DomainIdentifier string `pulumi:"domainIdentifier"`
+	// The session name of the user profile.
+	SessionName *string `pulumi:"sessionName"`
 	// The status of the user profile.
 	Status *UserProfileStatus `pulumi:"status"`
 	// The ID of the user.
@@ -99,6 +103,8 @@ type userProfileArgs struct {
 type UserProfileArgs struct {
 	// The identifier of the Amazon DataZone domain in which the user profile would be created.
 	DomainIdentifier pulumi.StringInput
+	// The session name of the user profile.
+	SessionName pulumi.StringPtrInput
 	// The status of the user profile.
 	Status UserProfileStatusPtrInput
 	// The ID of the user.
@@ -161,6 +167,11 @@ func (o UserProfileOutput) DomainId() pulumi.StringOutput {
 // The identifier of the Amazon DataZone domain in which the user profile would be created.
 func (o UserProfileOutput) DomainIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.DomainIdentifier }).(pulumi.StringOutput)
+}
+
+// The session name of the user profile.
+func (o UserProfileOutput) SessionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfile) pulumi.StringPtrOutput { return v.SessionName }).(pulumi.StringPtrOutput)
 }
 
 // The status of the user profile.

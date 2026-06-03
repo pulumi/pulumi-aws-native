@@ -35,8 +35,10 @@ __all__ = [
     'OrganizationTelemetryRuleFilter',
     'OrganizationTelemetryRuleLabelNameCondition',
     'OrganizationTelemetryRuleLoggingFilter',
+    'OrganizationTelemetryRuleRegionStatus',
     'OrganizationTelemetryRuleSingleHeader',
     'OrganizationTelemetryRuleTelemetryDestinationConfiguration',
+    'OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties',
     'OrganizationTelemetryRuleTelemetryRule',
     'OrganizationTelemetryRuleVpcFlowLogParameters',
     'OrganizationTelemetryRuleWafLoggingParameters',
@@ -57,6 +59,7 @@ __all__ = [
     'TelemetryRuleFilter',
     'TelemetryRuleLabelNameCondition',
     'TelemetryRuleLoggingFilter',
+    'TelemetryRuleRegionStatus',
     'TelemetryRuleSingleHeader',
     'TelemetryRuleTelemetryDestinationConfiguration',
     'TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties',
@@ -1009,6 +1012,71 @@ class OrganizationTelemetryRuleLoggingFilter(dict):
 
 
 @pulumi.output_type
+class OrganizationTelemetryRuleRegionStatus(dict):
+    """
+    Status of a telemetry rule in a specific region
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleArn":
+            suggest = "rule_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationTelemetryRuleRegionStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationTelemetryRuleRegionStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationTelemetryRuleRegionStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: Optional[_builtins.str] = None,
+                 rule_arn: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None):
+        """
+        Status of a telemetry rule in a specific region
+
+        :param _builtins.str region: The AWS region code
+        :param _builtins.str rule_arn: The ARN of the rule in this region
+        :param _builtins.str status: The replication status of the rule in this region
+        """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if rule_arn is not None:
+            pulumi.set(__self__, "rule_arn", rule_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        """
+        The AWS region code
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleArn")
+    def rule_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the rule in this region
+        """
+        return pulumi.get(self, "rule_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        The replication status of the rule in this region
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class OrganizationTelemetryRuleSingleHeader(dict):
     """
     Header for the field to match.
@@ -1047,6 +1115,8 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
             suggest = "destination_type"
         elif key == "elbLoadBalancerLoggingParameters":
             suggest = "elb_load_balancer_logging_parameters"
+        elif key == "logDeliveryParameters":
+            suggest = "log_delivery_parameters"
         elif key == "retentionInDays":
             suggest = "retention_in_days"
         elif key == "vpcFlowLogParameters":
@@ -1070,6 +1140,7 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
                  destination_pattern: Optional[_builtins.str] = None,
                  destination_type: Optional['OrganizationTelemetryRuleDestinationType'] = None,
                  elb_load_balancer_logging_parameters: Optional['outputs.OrganizationTelemetryRuleElbLoadBalancerLoggingParameters'] = None,
+                 log_delivery_parameters: Optional['outputs.OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties'] = None,
                  retention_in_days: Optional[_builtins.int] = None,
                  vpc_flow_log_parameters: Optional['outputs.OrganizationTelemetryRuleVpcFlowLogParameters'] = None,
                  waf_logging_parameters: Optional['outputs.OrganizationTelemetryRuleWafLoggingParameters'] = None):
@@ -1080,6 +1151,7 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
         :param _builtins.str destination_pattern: The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
         :param 'OrganizationTelemetryRuleDestinationType' destination_type: The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
         :param 'OrganizationTelemetryRuleElbLoadBalancerLoggingParameters' elb_load_balancer_logging_parameters: Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
+        :param 'OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties' log_delivery_parameters: Parameters for log delivery configuration
         :param _builtins.int retention_in_days: The number of days to retain the telemetry data in the destination.
         :param 'OrganizationTelemetryRuleVpcFlowLogParameters' vpc_flow_log_parameters: Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
         :param 'OrganizationTelemetryRuleWafLoggingParameters' waf_logging_parameters: Configuration parameters specific to WAF logging when WAF is the resource type.
@@ -1092,6 +1164,8 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
             pulumi.set(__self__, "destination_type", destination_type)
         if elb_load_balancer_logging_parameters is not None:
             pulumi.set(__self__, "elb_load_balancer_logging_parameters", elb_load_balancer_logging_parameters)
+        if log_delivery_parameters is not None:
+            pulumi.set(__self__, "log_delivery_parameters", log_delivery_parameters)
         if retention_in_days is not None:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
         if vpc_flow_log_parameters is not None:
@@ -1132,6 +1206,14 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
         return pulumi.get(self, "elb_load_balancer_logging_parameters")
 
     @_builtins.property
+    @pulumi.getter(name="logDeliveryParameters")
+    def log_delivery_parameters(self) -> Optional['outputs.OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties']:
+        """
+        Parameters for log delivery configuration
+        """
+        return pulumi.get(self, "log_delivery_parameters")
+
+    @_builtins.property
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[_builtins.int]:
         """
@@ -1157,6 +1239,47 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
 
 
 @pulumi.output_type
+class OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties(dict):
+    """
+    Parameters for log delivery configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logTypes":
+            suggest = "log_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_types: Optional[Sequence['OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']] = None):
+        """
+        Parameters for log delivery configuration
+
+        :param Sequence['OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem'] log_types: Types of logs to deliver
+        """
+        if log_types is not None:
+            pulumi.set(__self__, "log_types", log_types)
+
+    @_builtins.property
+    @pulumi.getter(name="logTypes")
+    def log_types(self) -> Optional[Sequence['OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']]:
+        """
+        Types of logs to deliver
+        """
+        return pulumi.get(self, "log_types")
+
+
+@pulumi.output_type
 class OrganizationTelemetryRuleTelemetryRule(dict):
     """
     The telemetry rule
@@ -1168,6 +1291,10 @@ class OrganizationTelemetryRuleTelemetryRule(dict):
             suggest = "resource_type"
         elif key == "telemetryType":
             suggest = "telemetry_type"
+        elif key == "allRegions":
+            suggest = "all_regions"
+        elif key == "allowFieldUpdates":
+            suggest = "allow_field_updates"
         elif key == "destinationConfiguration":
             suggest = "destination_configuration"
         elif key == "selectionCriteria":
@@ -1189,7 +1316,10 @@ class OrganizationTelemetryRuleTelemetryRule(dict):
     def __init__(__self__, *,
                  resource_type: 'OrganizationTelemetryRuleResourceType',
                  telemetry_type: 'OrganizationTelemetryRuleTelemetryType',
+                 all_regions: Optional[_builtins.bool] = None,
+                 allow_field_updates: Optional[_builtins.bool] = None,
                  destination_configuration: Optional['outputs.OrganizationTelemetryRuleTelemetryDestinationConfiguration'] = None,
+                 regions: Optional[Sequence[_builtins.str]] = None,
                  scope: Optional[_builtins.str] = None,
                  selection_criteria: Optional[_builtins.str] = None,
                  telemetry_source_types: Optional[Sequence['OrganizationTelemetryRuleTelemetrySourceType']] = None):
@@ -1198,15 +1328,23 @@ class OrganizationTelemetryRuleTelemetryRule(dict):
 
         :param 'OrganizationTelemetryRuleResourceType' resource_type: The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
         :param 'OrganizationTelemetryRuleTelemetryType' telemetry_type: The type of telemetry to collect (Logs, Metrics, or Traces).
+        :param _builtins.bool all_regions: When true, the rule is replicated to all supported regions
         :param 'OrganizationTelemetryRuleTelemetryDestinationConfiguration' destination_configuration: Configuration specifying where and how the telemetry data should be delivered.
+        :param Sequence[_builtins.str] regions: List of AWS region codes where the rule should be replicated
         :param _builtins.str scope: The organizational scope to which the rule applies, specified using accounts or organizational units.
         :param _builtins.str selection_criteria: Criteria for selecting which resources the rule applies to, such as resource tags.
         :param Sequence['OrganizationTelemetryRuleTelemetrySourceType'] telemetry_source_types: The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
         """
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "telemetry_type", telemetry_type)
+        if all_regions is not None:
+            pulumi.set(__self__, "all_regions", all_regions)
+        if allow_field_updates is not None:
+            pulumi.set(__self__, "allow_field_updates", allow_field_updates)
         if destination_configuration is not None:
             pulumi.set(__self__, "destination_configuration", destination_configuration)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
         if selection_criteria is not None:
@@ -1231,12 +1369,33 @@ class OrganizationTelemetryRuleTelemetryRule(dict):
         return pulumi.get(self, "telemetry_type")
 
     @_builtins.property
+    @pulumi.getter(name="allRegions")
+    def all_regions(self) -> Optional[_builtins.bool]:
+        """
+        When true, the rule is replicated to all supported regions
+        """
+        return pulumi.get(self, "all_regions")
+
+    @_builtins.property
+    @pulumi.getter(name="allowFieldUpdates")
+    def allow_field_updates(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "allow_field_updates")
+
+    @_builtins.property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> Optional['outputs.OrganizationTelemetryRuleTelemetryDestinationConfiguration']:
         """
         Configuration specifying where and how the telemetry data should be delivered.
         """
         return pulumi.get(self, "destination_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def regions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of AWS region codes where the rule should be replicated
+        """
+        return pulumi.get(self, "regions")
 
     @_builtins.property
     @pulumi.getter
@@ -1708,6 +1867,10 @@ class TelemetryRule(dict):
             suggest = "resource_type"
         elif key == "telemetryType":
             suggest = "telemetry_type"
+        elif key == "allRegions":
+            suggest = "all_regions"
+        elif key == "allowFieldUpdates":
+            suggest = "allow_field_updates"
         elif key == "destinationConfiguration":
             suggest = "destination_configuration"
         elif key == "selectionCriteria":
@@ -1729,7 +1892,10 @@ class TelemetryRule(dict):
     def __init__(__self__, *,
                  resource_type: 'TelemetryRuleResourceType',
                  telemetry_type: 'TelemetryRuleTelemetryType',
+                 all_regions: Optional[_builtins.bool] = None,
+                 allow_field_updates: Optional[_builtins.bool] = None,
                  destination_configuration: Optional['outputs.TelemetryRuleTelemetryDestinationConfiguration'] = None,
+                 regions: Optional[Sequence[_builtins.str]] = None,
                  selection_criteria: Optional[_builtins.str] = None,
                  telemetry_source_types: Optional[Sequence['TelemetryRuleTelemetrySourceType']] = None):
         """
@@ -1737,14 +1903,22 @@ class TelemetryRule(dict):
 
         :param 'TelemetryRuleResourceType' resource_type: The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
         :param 'TelemetryRuleTelemetryType' telemetry_type: The type of telemetry to collect (Logs, Metrics, or Traces).
+        :param _builtins.bool all_regions: When true, the rule is replicated to all supported regions
         :param 'TelemetryRuleTelemetryDestinationConfiguration' destination_configuration: Configuration specifying where and how the telemetry data should be delivered.
+        :param Sequence[_builtins.str] regions: List of AWS region codes where the rule should be replicated
         :param _builtins.str selection_criteria: Criteria for selecting which resources the rule applies to, such as resource tags.
         :param Sequence['TelemetryRuleTelemetrySourceType'] telemetry_source_types: The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
         """
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "telemetry_type", telemetry_type)
+        if all_regions is not None:
+            pulumi.set(__self__, "all_regions", all_regions)
+        if allow_field_updates is not None:
+            pulumi.set(__self__, "allow_field_updates", allow_field_updates)
         if destination_configuration is not None:
             pulumi.set(__self__, "destination_configuration", destination_configuration)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
         if selection_criteria is not None:
             pulumi.set(__self__, "selection_criteria", selection_criteria)
         if telemetry_source_types is not None:
@@ -1767,12 +1941,33 @@ class TelemetryRule(dict):
         return pulumi.get(self, "telemetry_type")
 
     @_builtins.property
+    @pulumi.getter(name="allRegions")
+    def all_regions(self) -> Optional[_builtins.bool]:
+        """
+        When true, the rule is replicated to all supported regions
+        """
+        return pulumi.get(self, "all_regions")
+
+    @_builtins.property
+    @pulumi.getter(name="allowFieldUpdates")
+    def allow_field_updates(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "allow_field_updates")
+
+    @_builtins.property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> Optional['outputs.TelemetryRuleTelemetryDestinationConfiguration']:
         """
         Configuration specifying where and how the telemetry data should be delivered.
         """
         return pulumi.get(self, "destination_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def regions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of AWS region codes where the rule should be replicated
+        """
+        return pulumi.get(self, "regions")
 
     @_builtins.property
     @pulumi.getter(name="selectionCriteria")
@@ -2331,6 +2526,71 @@ class TelemetryRuleLoggingFilter(dict):
 
 
 @pulumi.output_type
+class TelemetryRuleRegionStatus(dict):
+    """
+    Status of a telemetry rule in a specific region
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleArn":
+            suggest = "rule_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TelemetryRuleRegionStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TelemetryRuleRegionStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TelemetryRuleRegionStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: Optional[_builtins.str] = None,
+                 rule_arn: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None):
+        """
+        Status of a telemetry rule in a specific region
+
+        :param _builtins.str region: The AWS region code
+        :param _builtins.str rule_arn: The ARN of the rule in this region
+        :param _builtins.str status: The replication status of the rule in this region
+        """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if rule_arn is not None:
+            pulumi.set(__self__, "rule_arn", rule_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        """
+        The AWS region code
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleArn")
+    def rule_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the rule in this region
+        """
+        return pulumi.get(self, "rule_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        The replication status of the rule in this region
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class TelemetryRuleSingleHeader(dict):
     """
     Header for the field to match.
@@ -2405,7 +2665,7 @@ class TelemetryRuleTelemetryDestinationConfiguration(dict):
         :param _builtins.str destination_pattern: The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
         :param 'TelemetryRuleDestinationType' destination_type: The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
         :param 'TelemetryRuleElbLoadBalancerLoggingParameters' elb_load_balancer_logging_parameters: Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
-        :param 'TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties' log_delivery_parameters: Parameters for BedrockAgentCore log delivery
+        :param 'TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties' log_delivery_parameters: Parameters for log delivery configuration
         :param _builtins.int retention_in_days: The number of days to retain the telemetry data in the destination.
         :param 'TelemetryRuleVpcFlowLogParameters' vpc_flow_log_parameters: Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
         :param 'TelemetryRuleWafLoggingParameters' waf_logging_parameters: Configuration parameters specific to WAF logging when WAF is the resource type.
@@ -2463,7 +2723,7 @@ class TelemetryRuleTelemetryDestinationConfiguration(dict):
     @pulumi.getter(name="logDeliveryParameters")
     def log_delivery_parameters(self) -> Optional['outputs.TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties']:
         """
-        Parameters for BedrockAgentCore log delivery
+        Parameters for log delivery configuration
         """
         return pulumi.get(self, "log_delivery_parameters")
 
@@ -2495,7 +2755,7 @@ class TelemetryRuleTelemetryDestinationConfiguration(dict):
 @pulumi.output_type
 class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties(dict):
     """
-    Parameters for BedrockAgentCore log delivery
+    Parameters for log delivery configuration
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2517,9 +2777,9 @@ class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropert
     def __init__(__self__, *,
                  log_types: Optional[Sequence['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']] = None):
         """
-        Parameters for BedrockAgentCore log delivery
+        Parameters for log delivery configuration
 
-        :param Sequence['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem'] log_types: Types of logs to deliver for BedrockAgentCore resources
+        :param Sequence['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem'] log_types: Types of logs to deliver
         """
         if log_types is not None:
             pulumi.set(__self__, "log_types", log_types)
@@ -2528,7 +2788,7 @@ class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropert
     @pulumi.getter(name="logTypes")
     def log_types(self) -> Optional[Sequence['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']]:
         """
-        Types of logs to deliver for BedrockAgentCore resources
+        Types of logs to deliver
         """
         return pulumi.get(self, "log_types")
 

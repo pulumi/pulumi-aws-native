@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Deadline
 {
     /// <summary>
-    /// Definition of AWS::Deadline::QueueFleetAssociation Resource Type
+    /// Resource Type definition for AWS::Deadline::QueueFleetAssociation
     /// </summary>
     [AwsNativeResourceType("aws-native:deadline:QueueFleetAssociation")]
     public partial class QueueFleetAssociation : global::Pulumi.CustomResource

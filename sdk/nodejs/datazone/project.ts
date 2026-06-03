@@ -74,9 +74,21 @@ export class Project extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
+     * The project membership assignments.
+     */
+    declare public readonly membershipAssignments: pulumi.Output<outputs.datazone.ProjectMembershipAssignment[] | undefined>;
+    /**
      * The name of the Amazon DataZone project.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The project category.
+     */
+    declare public readonly projectCategory: pulumi.Output<string | undefined>;
+    /**
+     * The project execution role ARN.
+     */
+    declare public readonly projectExecutionRole: pulumi.Output<string | undefined>;
     /**
      * The project profile ID.
      */
@@ -116,7 +128,10 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["domainIdentifier"] = args?.domainIdentifier;
             resourceInputs["domainUnitId"] = args?.domainUnitId;
             resourceInputs["glossaryTerms"] = args?.glossaryTerms;
+            resourceInputs["membershipAssignments"] = args?.membershipAssignments;
             resourceInputs["name"] = args?.name;
+            resourceInputs["projectCategory"] = args?.projectCategory;
+            resourceInputs["projectExecutionRole"] = args?.projectExecutionRole;
             resourceInputs["projectProfileId"] = args?.projectProfileId;
             resourceInputs["projectProfileVersion"] = args?.projectProfileVersion;
             resourceInputs["resourceTags"] = args?.resourceTags;
@@ -137,7 +152,10 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["domainUnitId"] = undefined /*out*/;
             resourceInputs["glossaryTerms"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
+            resourceInputs["membershipAssignments"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["projectCategory"] = undefined /*out*/;
+            resourceInputs["projectExecutionRole"] = undefined /*out*/;
             resourceInputs["projectProfileId"] = undefined /*out*/;
             resourceInputs["projectProfileVersion"] = undefined /*out*/;
             resourceInputs["projectStatus"] = undefined /*out*/;
@@ -145,7 +163,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["userParameters"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "projectProfileId"] };
+        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "membershipAssignments[*]", "projectCategory", "projectExecutionRole", "projectProfileId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }
@@ -172,9 +190,21 @@ export interface ProjectArgs {
      */
     glossaryTerms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The project membership assignments.
+     */
+    membershipAssignments?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectMembershipAssignmentArgs>[]>;
+    /**
      * The name of the Amazon DataZone project.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The project category.
+     */
+    projectCategory?: pulumi.Input<string>;
+    /**
+     * The project execution role ARN.
+     */
+    projectExecutionRole?: pulumi.Input<string>;
     /**
      * The project profile ID.
      */

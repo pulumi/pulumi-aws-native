@@ -29,7 +29,7 @@ export interface GetRouterInputResult {
      * The Amazon Resource Name (ARN) of the router input.
      */
     readonly arn?: string;
-    readonly configuration?: outputs.mediaconnect.RouterInputConfiguration0Properties | outputs.mediaconnect.RouterInputConfiguration1Properties | outputs.mediaconnect.RouterInputConfiguration2Properties | outputs.mediaconnect.RouterInputConfiguration3Properties;
+    readonly configuration?: outputs.mediaconnect.RouterInputConfiguration0Properties | outputs.mediaconnect.RouterInputConfiguration1Properties | outputs.mediaconnect.RouterInputConfiguration2Properties | outputs.mediaconnect.RouterInputConfiguration3Properties | outputs.mediaconnect.RouterInputConfiguration4Properties;
     /**
      * The timestamp when the router input was created.
      */

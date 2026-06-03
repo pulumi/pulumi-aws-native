@@ -145,6 +145,16 @@ export const FormTypeStatus = {
  */
 export type FormTypeStatus = (typeof FormTypeStatus)[keyof typeof FormTypeStatus];
 
+export const GroupProfileGroupType = {
+    DatazoneSsoGroup: "DATAZONE_SSO_GROUP",
+    IamRoleSessionGroup: "IAM_ROLE_SESSION_GROUP",
+} as const;
+
+/**
+ * The type of the group.
+ */
+export type GroupProfileGroupType = (typeof GroupProfileGroupType)[keyof typeof GroupProfileGroupType];
+
 export const GroupProfileStatus = {
     Assigned: "ASSIGNED",
     NotAssigned: "NOT_ASSIGNED",
@@ -257,6 +267,13 @@ export const ProjectStatus = {
 
 export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
 
+export const ProjectUserDesignation = {
+    ProjectOwner: "PROJECT_OWNER",
+    ProjectContributor: "PROJECT_CONTRIBUTOR",
+} as const;
+
+export type ProjectUserDesignation = (typeof ProjectUserDesignation)[keyof typeof ProjectUserDesignation];
+
 export const UserProfileStatus = {
     Assigned: "ASSIGNED",
     NotAssigned: "NOT_ASSIGNED",
@@ -283,6 +300,7 @@ export const UserProfileUserType = {
     IamUser: "IAM_USER",
     IamRole: "IAM_ROLE",
     SsoUser: "SSO_USER",
+    IamRoleSession: "IAM_ROLE_SESSION",
 } as const;
 
 /**

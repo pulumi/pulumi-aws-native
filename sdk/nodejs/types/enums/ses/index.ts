@@ -51,9 +51,18 @@ export type MailManagerIngressPointIngressPointStatusToUpdate = (typeof MailMana
 export const MailManagerIngressPointIngressPointType = {
     Open: "OPEN",
     Auth: "AUTH",
+    Mtls: "MTLS",
 } as const;
 
 export type MailManagerIngressPointIngressPointType = (typeof MailManagerIngressPointIngressPointType)[keyof typeof MailManagerIngressPointIngressPointType];
+
+export const MailManagerIngressPointTlsPolicy = {
+    Required: "REQUIRED",
+    Optional: "OPTIONAL",
+    Fips: "FIPS",
+} as const;
+
+export type MailManagerIngressPointTlsPolicy = (typeof MailManagerIngressPointTlsPolicy)[keyof typeof MailManagerIngressPointTlsPolicy];
 
 export const MailManagerRuleSetActionFailurePolicy = {
     Continue: "CONTINUE",
@@ -61,6 +70,13 @@ export const MailManagerRuleSetActionFailurePolicy = {
 } as const;
 
 export type MailManagerRuleSetActionFailurePolicy = (typeof MailManagerRuleSetActionFailurePolicy)[keyof typeof MailManagerRuleSetActionFailurePolicy];
+
+export const MailManagerRuleSetLambdaInvocationType = {
+    Event: "EVENT",
+    RequestResponse: "REQUEST_RESPONSE",
+} as const;
+
+export type MailManagerRuleSetLambdaInvocationType = (typeof MailManagerRuleSetLambdaInvocationType)[keyof typeof MailManagerRuleSetLambdaInvocationType];
 
 export const MailManagerRuleSetMailFrom = {
     Replace: "REPLACE",
@@ -94,6 +110,19 @@ export const MailManagerRuleSetRuleBooleanOperator = {
 } as const;
 
 export type MailManagerRuleSetRuleBooleanOperator = (typeof MailManagerRuleSetRuleBooleanOperator)[keyof typeof MailManagerRuleSetRuleBooleanOperator];
+
+export const MailManagerRuleSetRuleClientCertificateAttribute = {
+    Cn: "CN",
+    SanRfc822Name: "SAN_RFC822_NAME",
+    SanDnsName: "SAN_DNS_NAME",
+    SanDirectoryName: "SAN_DIRECTORY_NAME",
+    SanUniformResourceIdentifier: "SAN_UNIFORM_RESOURCE_IDENTIFIER",
+    SanIpAddress: "SAN_IP_ADDRESS",
+    SanRegisteredId: "SAN_REGISTERED_ID",
+    SerialNumber: "SERIAL_NUMBER",
+} as const;
+
+export type MailManagerRuleSetRuleClientCertificateAttribute = (typeof MailManagerRuleSetRuleClientCertificateAttribute)[keyof typeof MailManagerRuleSetRuleClientCertificateAttribute];
 
 export const MailManagerRuleSetRuleDmarcOperator = {
     Equals: "EQUALS",

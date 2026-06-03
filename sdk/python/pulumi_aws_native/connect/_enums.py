@@ -219,6 +219,9 @@ class EvaluationFormLanguageConfigurationFormLanguage(_builtins.str, Enum):
     FR_FR = "fr-FR"
     IT_IT = "it-IT"
     PT_BR = "pt-BR"
+    JA_JP = "ja-JP"
+    KO_KR = "ko-KR"
+    ZH_CN = "zh-CN"
 
 
 @pulumi.type_token("aws-native:connect:EvaluationFormMultiSelectQuestionPropertiesDisplayAs")
@@ -339,6 +342,7 @@ class EvaluationFormTargetConfigurationContactInteractionType(_builtins.str, Enu
     """
     AGENT = "AGENT"
     AUTOMATED = "AUTOMATED"
+    CUSTOMER = "CUSTOMER"
 
 
 @pulumi.type_token("aws-native:connect:HoursOfOperationConfigDay")
@@ -450,6 +454,13 @@ class IntegrationAssociationIntegrationType(_builtins.str, Enum):
     LAMBDA_FUNCTION = "LAMBDA_FUNCTION"
     APPLICATION = "APPLICATION"
     CASES_DOMAIN = "CASES_DOMAIN"
+    WISDOM_ASSISTANT = "WISDOM_ASSISTANT"
+    WISDOM_KNOWLEDGE_BASE = "WISDOM_KNOWLEDGE_BASE"
+    WISDOM_QUICK_RESPONSES = "WISDOM_QUICK_RESPONSES"
+    FILE_SCANNER = "FILE_SCANNER"
+    MESSAGE_PROCESSOR = "MESSAGE_PROCESSOR"
+    Q_MESSAGE_TEMPLATES = "Q_MESSAGE_TEMPLATES"
+    SES_IDENTITY = "SES_IDENTITY"
 
 
 @pulumi.type_token("aws-native:connect:NotificationPriority")

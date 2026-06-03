@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::QueueLimitAssociation Resource Type
+ * Resource Type definition for AWS::Deadline::QueueLimitAssociation
  */
 export class QueueLimitAssociation extends pulumi.CustomResource {
     /**

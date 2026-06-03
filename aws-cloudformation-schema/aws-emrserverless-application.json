@@ -35,6 +35,11 @@
           "description" : "Enabled you to connect an Application to Amazon EMR Studio to run interactive workloads in a notebook",
           "type" : "boolean",
           "default" : false
+        },
+        "SessionEnabled" : {
+          "description" : "Enables interactive sessions on the application",
+          "type" : "boolean",
+          "default" : false
         }
       }
     },

@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     [OutputType]
     public sealed class OriginEndpointDashManifestConfiguration
     {
+        public readonly Outputs.OriginEndpointDashAvailabilityStartTimeConfigurationProperties? AvailabilityStartTimeConfiguration;
         /// <summary>
         /// &lt;p&gt;The base URL to use for retrieving segments.&lt;/p&gt;
         /// </summary>
@@ -86,6 +87,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// &lt;p&gt;The amount of time (in seconds) that the player should be from the end of the manifest.&lt;/p&gt;
         /// </summary>
         public readonly int? SuggestedPresentationDelaySeconds;
+        public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointUriPathType? UriPathType;
         /// <summary>
         /// Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
         /// </summary>
@@ -93,6 +95,8 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
         [OutputConstructor]
         private OriginEndpointDashManifestConfiguration(
+            Outputs.OriginEndpointDashAvailabilityStartTimeConfigurationProperties? availabilityStartTimeConfiguration,
+
             ImmutableArray<Outputs.OriginEndpointDashBaseUrl> baseUrls,
 
             Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashCompactness? compactness,
@@ -125,8 +129,11 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
             int? suggestedPresentationDelaySeconds,
 
+            Pulumi.AwsNative.MediaPackageV2.OriginEndpointUriPathType? uriPathType,
+
             Outputs.OriginEndpointDashUtcTiming? utcTiming)
         {
+            AvailabilityStartTimeConfiguration = availabilityStartTimeConfiguration;
             BaseUrls = baseUrls;
             Compactness = compactness;
             DrmSignaling = drmSignaling;
@@ -143,6 +150,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
             SegmentTemplateFormat = segmentTemplateFormat;
             SubtitleConfiguration = subtitleConfiguration;
             SuggestedPresentationDelaySeconds = suggestedPresentationDelaySeconds;
+            UriPathType = uriPathType;
             UtcTiming = utcTiming;
         }
     }

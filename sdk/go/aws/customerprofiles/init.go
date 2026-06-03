@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CalculatedAttributeDefinition{}
 	case "aws-native:customerprofiles:Domain":
 		r = &Domain{}
+	case "aws-native:customerprofiles:DomainObjectType":
+		r = &DomainObjectType{}
 	case "aws-native:customerprofiles:EventStream":
 		r = &EventStream{}
 	case "aws-native:customerprofiles:EventTrigger":

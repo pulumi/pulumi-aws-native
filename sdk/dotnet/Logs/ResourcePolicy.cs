@@ -17,9 +17,11 @@ namespace Pulumi.AwsNative.Logs
     {
         /// <summary>
         /// The policy document
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
         /// </summary>
         [Output("policyDocument")]
-        public Output<string> PolicyDocument { get; private set; } = null!;
+        public Output<object> PolicyDocument { get; private set; } = null!;
 
         /// <summary>
         /// A name for resource policy
@@ -78,9 +80,11 @@ namespace Pulumi.AwsNative.Logs
     {
         /// <summary>
         /// The policy document
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
         /// </summary>
         [Input("policyDocument", required: true)]
-        public Input<string> PolicyDocument { get; set; } = null!;
+        public Input<object> PolicyDocument { get; set; } = null!;
 
         /// <summary>
         /// A name for resource policy

@@ -16,13 +16,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class BrowserCustomS3Location
     {
-        /// <summary>
-        /// The S3 location bucket name.
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// The S3 location object prefix.
-        /// </summary>
         public readonly string Prefix;
 
         [OutputConstructor]

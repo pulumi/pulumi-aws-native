@@ -404,7 +404,7 @@ class Queue(pulumi.CustomResource):
             statistic="Sum",
             period=300,
             evaluation_periods=1,
-            threshold=10,
+            threshold=float(10),
             comparison_operator="GreaterThanThreshold",
             alarm_actions=[alarm_topic.id],
             insufficient_data_actions=[alarm_topic.id])
@@ -439,7 +439,7 @@ class Queue(pulumi.CustomResource):
             statistic="Sum",
             period=300,
             evaluation_periods=1,
-            threshold=10,
+            threshold=float(10),
             comparison_operator="GreaterThanThreshold",
             alarm_actions=[alarm_topic.id],
             insufficient_data_actions=[alarm_topic.id])
@@ -577,7 +577,7 @@ class Queue(pulumi.CustomResource):
             statistic="Sum",
             period=300,
             evaluation_periods=1,
-            threshold=10,
+            threshold=float(10),
             comparison_operator="GreaterThanThreshold",
             alarm_actions=[alarm_topic.id],
             insufficient_data_actions=[alarm_topic.id])
@@ -612,7 +612,7 @@ class Queue(pulumi.CustomResource):
             statistic="Sum",
             period=300,
             evaluation_periods=1,
-            threshold=10,
+            threshold=float(10),
             comparison_operator="GreaterThanThreshold",
             alarm_actions=[alarm_topic.id],
             insufficient_data_actions=[alarm_topic.id])

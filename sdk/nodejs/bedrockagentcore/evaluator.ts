@@ -62,6 +62,10 @@ export class Evaluator extends pulumi.CustomResource {
      */
     declare public readonly evaluatorName: pulumi.Output<string>;
     /**
+     * The ARN of the KMS key used to encrypt evaluator data.
+     */
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    /**
      * The evaluation level that determines the scope of evaluation.
      */
     declare public readonly level: pulumi.Output<enums.bedrockagentcore.EvaluatorLevel>;
@@ -98,6 +102,7 @@ export class Evaluator extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["evaluatorConfig"] = args?.evaluatorConfig;
             resourceInputs["evaluatorName"] = args?.evaluatorName;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
             resourceInputs["level"] = args?.level;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -112,6 +117,7 @@ export class Evaluator extends pulumi.CustomResource {
             resourceInputs["evaluatorConfig"] = undefined /*out*/;
             resourceInputs["evaluatorId"] = undefined /*out*/;
             resourceInputs["evaluatorName"] = undefined /*out*/;
+            resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["level"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -140,6 +146,10 @@ export interface EvaluatorArgs {
      * The name of the evaluator. Must be unique within your account.
      */
     evaluatorName?: pulumi.Input<string>;
+    /**
+     * The ARN of the KMS key used to encrypt evaluator data.
+     */
+    kmsKeyArn?: pulumi.Input<string>;
     /**
      * The evaluation level that determines the scope of evaluation.
      */

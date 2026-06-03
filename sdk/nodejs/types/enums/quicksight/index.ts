@@ -2459,6 +2459,7 @@ export const DataSourceType = {
     Db2as400: "DB2_AS400",
     Exasol: "EXASOL",
     File: "FILE",
+    FullyManagedKnowledgeBase: "FULLY_MANAGED_KNOWLEDGE_BASE",
     Github: "GITHUB",
     InternationalDataCorporation: "INTERNATIONAL_DATA_CORPORATION",
     Jira: "JIRA",
@@ -2497,6 +2498,7 @@ export const DataSourceType = {
     OneDrive: "ONE_DRIVE",
     WebCrawler: "WEB_CRAWLER",
     Box: "BOX",
+    Googlesheets: "GOOGLESHEETS",
 } as const;
 
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];

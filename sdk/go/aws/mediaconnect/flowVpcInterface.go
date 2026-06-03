@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,6 +29,8 @@ type FlowVpcInterface struct {
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// Subnet must be in the AZ of the Flow
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+	// Key-value pairs that can be used to tag and organize this VPC network interface.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewFlowVpcInterface registers a new resource with the given unique name, arguments, and options.
@@ -97,6 +100,8 @@ type flowVpcInterfaceArgs struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Subnet must be in the AZ of the Flow
 	SubnetId string `pulumi:"subnetId"`
+	// Key-value pairs that can be used to tag and organize this VPC network interface.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FlowVpcInterface resource.
@@ -111,6 +116,8 @@ type FlowVpcInterfaceArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// Subnet must be in the AZ of the Flow
 	SubnetId pulumi.StringInput
+	// Key-value pairs that can be used to tag and organize this VPC network interface.
+	Tags aws.TagArrayInput
 }
 
 func (FlowVpcInterfaceArgs) ElementType() reflect.Type {
@@ -178,6 +185,11 @@ func (o FlowVpcInterfaceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 // Subnet must be in the AZ of the Flow
 func (o FlowVpcInterfaceOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowVpcInterface) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// Key-value pairs that can be used to tag and organize this VPC network interface.
+func (o FlowVpcInterfaceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *FlowVpcInterface) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

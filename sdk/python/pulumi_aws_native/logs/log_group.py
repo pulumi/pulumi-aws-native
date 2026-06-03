@@ -35,6 +35,7 @@ class LogGroupArgs:
         """
         The set of arguments for constructing a LogGroup resource.
 
+        :param pulumi.Input[_builtins.bool] bearer_token_authentication_enabled: Indicates whether bearer token authentication is enabled for this log group. When enabled, bearer token authentication is allowed on operations until it is explicitly disabled.
         :param Any data_protection_policy: Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
@@ -84,6 +85,9 @@ class LogGroupArgs:
     @_builtins.property
     @pulumi.getter(name="bearerTokenAuthenticationEnabled")
     def bearer_token_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether bearer token authentication is enabled for this log group. When enabled, bearer token authentication is allowed on operations until it is explicitly disabled.
+        """
         return pulumi.get(self, "bearer_token_authentication_enabled")
 
     @bearer_token_authentication_enabled.setter
@@ -241,6 +245,7 @@ class LogGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] bearer_token_authentication_enabled: Indicates whether bearer token authentication is enabled for this log group. When enabled, bearer token authentication is allowed on operations until it is explicitly disabled.
         :param Any data_protection_policy: Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
@@ -373,6 +378,9 @@ class LogGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="bearerTokenAuthenticationEnabled")
     def bearer_token_authentication_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether bearer token authentication is enabled for this log group. When enabled, bearer token authentication is allowed on operations until it is explicitly disabled.
+        """
         return pulumi.get(self, "bearer_token_authentication_enabled")
 
     @_builtins.property

@@ -16,13 +16,13 @@
   "required" : [ "Code", "Role" ],
   "handlers" : {
     "read" : {
-      "permissions" : [ "lambda:GetFunction", "lambda:GetFunctionCodeSigningConfig", "lambda:GetFunctionRecursionConfig", "lambda:GetRuntimeManagementConfig", "lambda:GetFunctionScalingConfig" ]
+      "permissions" : [ "lambda:GetFunction", "kms:Decrypt", "lambda:GetFunctionCodeSigningConfig", "lambda:GetFunctionRecursionConfig", "lambda:GetRuntimeManagementConfig", "lambda:GetFunctionScalingConfig" ]
     },
     "create" : {
-      "permissions" : [ "lambda:CreateFunction", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:Encrypt", "kms:GenerateDataKey", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig", "lambda:GetLayerVersion", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:TagResource", "lambda:PutFunctionRecursionConfig", "lambda:GetFunctionRecursionConfig", "lambda:PutFunctionScalingConfig", "lambda:PassCapacityProvider" ]
+      "permissions" : [ "lambda:CreateFunction", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "s3files:ListMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:Encrypt", "kms:GenerateDataKey", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig", "lambda:GetLayerVersion", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:TagResource", "lambda:PutFunctionRecursionConfig", "lambda:GetFunctionRecursionConfig", "lambda:PutFunctionScalingConfig", "lambda:PassCapacityProvider" ]
     },
     "update" : {
-      "permissions" : [ "lambda:DeleteFunctionConcurrency", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "lambda:TagResource", "lambda:UntagResource", "lambda:UpdateFunctionConfiguration", "lambda:UpdateFunctionCode", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:GenerateDataKey", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:PutFunctionCodeSigningConfig", "lambda:DeleteFunctionCodeSigningConfig", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig", "lambda:PutFunctionRecursionConfig", "lambda:GetFunctionRecursionConfig", "lambda:PutFunctionScalingConfig", "lambda:PublishVersion", "lambda:PassCapacityProvider" ]
+      "permissions" : [ "lambda:DeleteFunctionConcurrency", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "lambda:TagResource", "lambda:UntagResource", "lambda:UpdateFunctionConfiguration", "lambda:UpdateFunctionCode", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "s3files:ListMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:GenerateDataKey", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:PutFunctionCodeSigningConfig", "lambda:DeleteFunctionCodeSigningConfig", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig", "lambda:PutFunctionRecursionConfig", "lambda:GetFunctionRecursionConfig", "lambda:PutFunctionScalingConfig", "lambda:PublishVersion", "lambda:PassCapacityProvider" ]
     },
     "list" : {
       "permissions" : [ "lambda:ListFunctions" ]
@@ -333,13 +333,13 @@
       }
     },
     "FileSystemConfig" : {
-      "description" : "Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).",
+      "description" : "Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "Arn" : {
-          "pattern" : "^arn:aws[a-zA-Z-]*:elasticfilesystem:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:\\d{12}:access-point/fsap-[a-f0-9]{17}$",
-          "description" : "The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.",
+          "pattern" : "^arn:aws[a-zA-Z-]*:elasticfilesystem:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:\\d{12}:access-point/fsap-[a-f0-9]{17}$|^arn:aws[-a-z]*:s3files:[0-9a-z-:]+:file-system/fs-[0-9a-f]{17,40}/access-point/fsap-[0-9a-f]{17,40}$",
+          "description" : "The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.",
           "type" : "string",
           "maxLength" : 200
         },
@@ -437,7 +437,7 @@
     },
     "FileSystemConfigs" : {
       "maxItems" : 1,
-      "description" : "Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.\n For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).",
+      "description" : "Connection settings for an Amazon EFS or Amazon S3 Files file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) or [AWS::S3Files::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3files-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.\n For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).",
       "type" : "array",
       "items" : {
         "$ref" : "#/definitions/FileSystemConfig"

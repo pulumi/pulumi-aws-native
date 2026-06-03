@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDirectoryBucketResult:
-    def __init__(__self__, arn=None, availability_zone_name=None, bucket_encryption=None, lifecycle_configuration=None, tags=None):
+    def __init__(__self__, arn=None, availability_zone_name=None, bucket_encryption=None, inventory_configurations=None, lifecycle_configuration=None, metrics_configurations=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,9 +36,15 @@ class GetDirectoryBucketResult:
         if bucket_encryption and not isinstance(bucket_encryption, dict):
             raise TypeError("Expected argument 'bucket_encryption' to be a dict")
         pulumi.set(__self__, "bucket_encryption", bucket_encryption)
+        if inventory_configurations and not isinstance(inventory_configurations, list):
+            raise TypeError("Expected argument 'inventory_configurations' to be a list")
+        pulumi.set(__self__, "inventory_configurations", inventory_configurations)
         if lifecycle_configuration and not isinstance(lifecycle_configuration, dict):
             raise TypeError("Expected argument 'lifecycle_configuration' to be a dict")
         pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
+        if metrics_configurations and not isinstance(metrics_configurations, list):
+            raise TypeError("Expected argument 'metrics_configurations' to be a list")
+        pulumi.set(__self__, "metrics_configurations", metrics_configurations)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -68,12 +74,28 @@ class GetDirectoryBucketResult:
         return pulumi.get(self, "bucket_encryption")
 
     @_builtins.property
+    @pulumi.getter(name="inventoryConfigurations")
+    def inventory_configurations(self) -> Optional[Sequence['outputs.DirectoryBucketInventoryConfiguration']]:
+        """
+        The inventory configuration for an Amazon S3 Express bucket.
+        """
+        return pulumi.get(self, "inventory_configurations")
+
+    @_builtins.property
     @pulumi.getter(name="lifecycleConfiguration")
     def lifecycle_configuration(self) -> Optional['outputs.DirectoryBucketLifecycleConfiguration']:
         """
         Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
         """
         return pulumi.get(self, "lifecycle_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="metricsConfigurations")
+    def metrics_configurations(self) -> Optional[Sequence['outputs.DirectoryBucketMetricsConfiguration']]:
+        """
+        Specifies the metrics configurations for the Amazon S3 Express bucket.
+        """
+        return pulumi.get(self, "metrics_configurations")
 
     @_builtins.property
     @pulumi.getter
@@ -93,7 +115,9 @@ class AwaitableGetDirectoryBucketResult(GetDirectoryBucketResult):
             arn=self.arn,
             availability_zone_name=self.availability_zone_name,
             bucket_encryption=self.bucket_encryption,
+            inventory_configurations=self.inventory_configurations,
             lifecycle_configuration=self.lifecycle_configuration,
+            metrics_configurations=self.metrics_configurations,
             tags=self.tags)
 
 
@@ -114,7 +138,9 @@ def get_directory_bucket(bucket_name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         availability_zone_name=pulumi.get(__ret__, 'availability_zone_name'),
         bucket_encryption=pulumi.get(__ret__, 'bucket_encryption'),
+        inventory_configurations=pulumi.get(__ret__, 'inventory_configurations'),
         lifecycle_configuration=pulumi.get(__ret__, 'lifecycle_configuration'),
+        metrics_configurations=pulumi.get(__ret__, 'metrics_configurations'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_directory_bucket_output(bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryBucketResult]:
@@ -132,5 +158,7 @@ def get_directory_bucket_output(bucket_name: Optional[pulumi.Input[_builtins.str
         arn=pulumi.get(__response__, 'arn'),
         availability_zone_name=pulumi.get(__response__, 'availability_zone_name'),
         bucket_encryption=pulumi.get(__response__, 'bucket_encryption'),
+        inventory_configurations=pulumi.get(__response__, 'inventory_configurations'),
         lifecycle_configuration=pulumi.get(__response__, 'lifecycle_configuration'),
+        metrics_configurations=pulumi.get(__response__, 'metrics_configurations'),
         tags=pulumi.get(__response__, 'tags')))

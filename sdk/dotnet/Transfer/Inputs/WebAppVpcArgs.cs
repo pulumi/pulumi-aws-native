@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.Transfer.Inputs
     /// </summary>
     public sealed class WebAppVpcArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IP address type for the VPC endpoint used by the web app.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<Pulumi.AwsNative.Transfer.WebAppVpcIpAddressType>? IpAddressType { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
         public InputList<string> SecurityGroupIds

@@ -90,7 +90,7 @@ def get_storage_profile(farm_id: Optional[_builtins.str] = None,
                         storage_profile_id: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageProfileResult:
     """
-    Definition of AWS::Deadline::StorageProfile Resource Type
+    Resource Type definition for AWS::Deadline::StorageProfile
 
 
     :param _builtins.str farm_id: The unique identifier of the farm that contains the storage profile.
@@ -111,7 +111,7 @@ def get_storage_profile_output(farm_id: Optional[pulumi.Input[_builtins.str]] = 
                                storage_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageProfileResult]:
     """
-    Definition of AWS::Deadline::StorageProfile Resource Type
+    Resource Type definition for AWS::Deadline::StorageProfile
 
 
     :param _builtins.str farm_id: The unique identifier of the farm that contains the storage profile.

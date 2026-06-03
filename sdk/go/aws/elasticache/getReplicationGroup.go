@@ -54,6 +54,10 @@ type LookupReplicationGroupResult struct {
 	ReadEndPoint    *ReadEndPointProperties   `pulumi:"readEndPoint"`
 	// The endpoint of the reader node in the replication group.
 	ReaderEndPoint *ReplicationGroupEndpoint `pulumi:"readerEndPoint"`
+	// An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
+	//
+	// **Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone.
+	ReplicasPerNodeGroup *int `pulumi:"replicasPerNodeGroup"`
 	// A user-created description for the replication group.
 	ReplicationGroupDescription *string `pulumi:"replicationGroupDescription"`
 	// The number of days for which ElastiCache retains automatic snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted.
@@ -168,6 +172,13 @@ func (o LookupReplicationGroupResultOutput) ReadEndPoint() ReadEndPointPropertie
 // The endpoint of the reader node in the replication group.
 func (o LookupReplicationGroupResultOutput) ReaderEndPoint() ReplicationGroupEndpointPtrOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) *ReplicationGroupEndpoint { return v.ReaderEndPoint }).(ReplicationGroupEndpointPtrOutput)
+}
+
+// An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
+//
+// **Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone.
+func (o LookupReplicationGroupResultOutput) ReplicasPerNodeGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupReplicationGroupResult) *int { return v.ReplicasPerNodeGroup }).(pulumi.IntPtrOutput)
 }
 
 // A user-created description for the replication group.

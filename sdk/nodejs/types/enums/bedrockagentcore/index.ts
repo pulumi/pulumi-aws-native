@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const BrowserCustomBrowserEnterprisePolicyType = {
+    Managed: "MANAGED",
+    Recommended: "RECOMMENDED",
+} as const;
+
+/**
+ * The type of browser enterprise policy.
+ */
+export type BrowserCustomBrowserEnterprisePolicyType = (typeof BrowserCustomBrowserEnterprisePolicyType)[keyof typeof BrowserCustomBrowserEnterprisePolicyType];
+
 export const BrowserCustomBrowserNetworkMode = {
     Public: "PUBLIC",
     Vpc: "VPC",
@@ -63,6 +73,31 @@ export const CodeInterpreterCustomCodeInterpreterStatus = {
  */
 export type CodeInterpreterCustomCodeInterpreterStatus = (typeof CodeInterpreterCustomCodeInterpreterStatus)[keyof typeof CodeInterpreterCustomCodeInterpreterStatus];
 
+export const DatasetSchemaType = {
+    AgentcoreEvaluationPredefinedV1: "AGENTCORE_EVALUATION_PREDEFINED_V1",
+    AgentcoreEvaluationSimulatedV1: "AGENTCORE_EVALUATION_SIMULATED_V1",
+} as const;
+
+/**
+ * Versioned schema type governing the structure of examples. Immutable after creation.
+ */
+export type DatasetSchemaType = (typeof DatasetSchemaType)[keyof typeof DatasetSchemaType];
+
+export const DatasetStatus = {
+    Creating: "CREATING",
+    Updating: "UPDATING",
+    Deleting: "DELETING",
+    Active: "ACTIVE",
+    CreateFailed: "CREATE_FAILED",
+    UpdateFailed: "UPDATE_FAILED",
+    DeleteFailed: "DELETE_FAILED",
+} as const;
+
+/**
+ * The current status of the dataset.
+ */
+export type DatasetStatus = (typeof DatasetStatus)[keyof typeof DatasetStatus];
+
 export const EvaluatorLevel = {
     ToolCall: "TOOL_CALL",
     Trace: "TRACE",
@@ -86,6 +121,7 @@ export const GatewayAuthorizerType = {
     CustomJwt: "CUSTOM_JWT",
     AwsIam: "AWS_IAM",
     None: "NONE",
+    AuthenticateOnly: "AUTHENTICATE_ONLY",
 } as const;
 
 export type GatewayAuthorizerType = (typeof GatewayAuthorizerType)[keyof typeof GatewayAuthorizerType];
@@ -134,12 +170,6 @@ export const GatewayPolicyEngineMode = {
  */
 export type GatewayPolicyEngineMode = (typeof GatewayPolicyEngineMode)[keyof typeof GatewayPolicyEngineMode];
 
-export const GatewayProtocolType = {
-    Mcp: "MCP",
-} as const;
-
-export type GatewayProtocolType = (typeof GatewayProtocolType)[keyof typeof GatewayProtocolType];
-
 export const GatewaySearchType = {
     Semantic: "SEMANTIC",
 } as const;
@@ -168,13 +198,23 @@ export const GatewayTargetCredentialProviderType = {
     GatewayIamRole: "GATEWAY_IAM_ROLE",
     Oauth: "OAUTH",
     ApiKey: "API_KEY",
+    CallerIamCredentials: "CALLER_IAM_CREDENTIALS",
+    JwtPassthrough: "JWT_PASSTHROUGH",
 } as const;
 
 export type GatewayTargetCredentialProviderType = (typeof GatewayTargetCredentialProviderType)[keyof typeof GatewayTargetCredentialProviderType];
 
+export const GatewayTargetMcpServerListingMode = {
+    Default: "DEFAULT",
+    Dynamic: "DYNAMIC",
+} as const;
+
+export type GatewayTargetMcpServerListingMode = (typeof GatewayTargetMcpServerListingMode)[keyof typeof GatewayTargetMcpServerListingMode];
+
 export const GatewayTargetOAuthGrantType = {
     AuthorizationCode: "AUTHORIZATION_CODE",
     ClientCredentials: "CLIENT_CREDENTIALS",
+    TokenExchange: "TOKEN_EXCHANGE",
 } as const;
 
 export type GatewayTargetOAuthGrantType = (typeof GatewayTargetOAuthGrantType)[keyof typeof GatewayTargetOAuthGrantType];
@@ -202,6 +242,13 @@ export const GatewayTargetSchemaType = {
 
 export type GatewayTargetSchemaType = (typeof GatewayTargetSchemaType)[keyof typeof GatewayTargetSchemaType];
 
+export const GatewayTargetTargetProtocolType = {
+    Mcp: "MCP",
+    Http: "HTTP",
+} as const;
+
+export type GatewayTargetTargetProtocolType = (typeof GatewayTargetTargetProtocolType)[keyof typeof GatewayTargetTargetProtocolType];
+
 export const GatewayTargetTargetStatus = {
     Creating: "CREATING",
     Updating: "UPDATING",
@@ -211,9 +258,71 @@ export const GatewayTargetTargetStatus = {
     Failed: "FAILED",
     Synchronizing: "SYNCHRONIZING",
     SynchronizeUnsuccessful: "SYNCHRONIZE_UNSUCCESSFUL",
+    CreatePendingAuth: "CREATE_PENDING_AUTH",
+    UpdatePendingAuth: "UPDATE_PENDING_AUTH",
+    SynchronizePendingAuth: "SYNCHRONIZE_PENDING_AUTH",
 } as const;
 
 export type GatewayTargetTargetStatus = (typeof GatewayTargetTargetStatus)[keyof typeof GatewayTargetTargetStatus];
+
+export const HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator = {
+    Equals: "EQUALS",
+    Contains: "CONTAINS",
+    ContainsAny: "CONTAINS_ANY",
+} as const;
+
+export type HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator = (typeof HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator)[keyof typeof HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator];
+
+export const HarnessCustomClaimValidationTypeInboundTokenClaimValueType = {
+    String: "STRING",
+    StringArray: "STRING_ARRAY",
+} as const;
+
+export type HarnessCustomClaimValidationTypeInboundTokenClaimValueType = (typeof HarnessCustomClaimValidationTypeInboundTokenClaimValueType)[keyof typeof HarnessCustomClaimValidationTypeInboundTokenClaimValueType];
+
+export const HarnessNetworkConfigurationNetworkMode = {
+    Public: "PUBLIC",
+    Vpc: "VPC",
+} as const;
+
+export type HarnessNetworkConfigurationNetworkMode = (typeof HarnessNetworkConfigurationNetworkMode)[keyof typeof HarnessNetworkConfigurationNetworkMode];
+
+export const HarnessOAuthCredentialProviderGrantType = {
+    ClientCredentials: "CLIENT_CREDENTIALS",
+    AuthorizationCode: "AUTHORIZATION_CODE",
+} as const;
+
+export type HarnessOAuthCredentialProviderGrantType = (typeof HarnessOAuthCredentialProviderGrantType)[keyof typeof HarnessOAuthCredentialProviderGrantType];
+
+export const HarnessStatus = {
+    Creating: "CREATING",
+    CreateFailed: "CREATE_FAILED",
+    Updating: "UPDATING",
+    UpdateFailed: "UPDATE_FAILED",
+    Ready: "READY",
+    Deleting: "DELETING",
+    DeleteFailed: "DELETE_FAILED",
+} as const;
+
+export type HarnessStatus = (typeof HarnessStatus)[keyof typeof HarnessStatus];
+
+export const HarnessToolType = {
+    RemoteMcp: "remote_mcp",
+    AgentcoreBrowser: "agentcore_browser",
+    AgentcoreGateway: "agentcore_gateway",
+    InlineFunction: "inline_function",
+    AgentcoreCodeInterpreter: "agentcore_code_interpreter",
+} as const;
+
+export type HarnessToolType = (typeof HarnessToolType)[keyof typeof HarnessToolType];
+
+export const HarnessTruncationConfigurationStrategy = {
+    SlidingWindow: "sliding_window",
+    Summarization: "summarization",
+    None: "none",
+} as const;
+
+export type HarnessTruncationConfigurationStrategy = (typeof HarnessTruncationConfigurationStrategy)[keyof typeof HarnessTruncationConfigurationStrategy];
 
 export const MemoryContentConfigurationLevel = {
     MetadataOnly: "METADATA_ONLY",
@@ -283,6 +392,17 @@ export const MemoryEpisodicMemoryStrategyType = {
  * Type of memory strategy
  */
 export type MemoryEpisodicMemoryStrategyType = (typeof MemoryEpisodicMemoryStrategyType)[keyof typeof MemoryEpisodicMemoryStrategyType];
+
+export const MemoryMetadataValueType = {
+    String: "STRING",
+    Stringlist: "STRINGLIST",
+    Number: "NUMBER",
+} as const;
+
+/**
+ * Supported data types for metadata values
+ */
+export type MemoryMetadataValueType = (typeof MemoryMetadataValueType)[keyof typeof MemoryMetadataValueType];
 
 export const MemorySemanticMemoryStrategyStatus = {
     Creating: "CREATING",
@@ -404,6 +524,27 @@ export const OAuth2CredentialProviderCredentialProviderVendor = {
  */
 export type OAuth2CredentialProviderCredentialProviderVendor = (typeof OAuth2CredentialProviderCredentialProviderVendor)[keyof typeof OAuth2CredentialProviderCredentialProviderVendor];
 
+export const OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType = {
+    TokenExchange: "TOKEN_EXCHANGE",
+    JwtAuthorizationGrant: "JWT_AUTHORIZATION_GRANT",
+} as const;
+
+/**
+ * The grant type for on-behalf-of token exchange
+ */
+export type OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType = (typeof OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType)[keyof typeof OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType];
+
+export const OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent = {
+    None: "NONE",
+    M2m: "M2M",
+    AwsIamIdTokenJwt: "AWS_IAM_ID_TOKEN_JWT",
+} as const;
+
+/**
+ * The actor token content type
+ */
+export type OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent = (typeof OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent)[keyof typeof OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent];
+
 export const OnlineEvaluationConfigExecutionStatus = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
@@ -437,6 +578,16 @@ export const OnlineEvaluationConfigStatus = {
 } as const;
 
 export type OnlineEvaluationConfigStatus = (typeof OnlineEvaluationConfigStatus)[keyof typeof OnlineEvaluationConfigStatus];
+
+export const PaymentCredentialProviderVendorType = {
+    CoinbaseCdp: "CoinbaseCDP",
+    StripePrivy: "StripePrivy",
+} as const;
+
+/**
+ * Supported vendor types for payment providers
+ */
+export type PaymentCredentialProviderVendorType = (typeof PaymentCredentialProviderVendorType)[keyof typeof PaymentCredentialProviderVendorType];
 
 export const PolicyEngineStatus = {
     Creating: "CREATING",
@@ -478,6 +629,7 @@ export const RuntimeAgentManagedRuntimeType = {
     Python312: "PYTHON_3_12",
     Python313: "PYTHON_3_13",
     Python314: "PYTHON_3_14",
+    Node22: "NODE_22",
 } as const;
 
 /**

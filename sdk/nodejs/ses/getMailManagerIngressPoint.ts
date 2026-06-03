@@ -57,6 +57,7 @@ export interface GetMailManagerIngressPointResult {
      * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     readonly tags?: outputs.Tag[];
+    readonly tlsPolicy?: enums.ses.MailManagerIngressPointTlsPolicy;
     /**
      * The identifier of an existing traffic policy that you attach to an ingress endpoint resource.
      */

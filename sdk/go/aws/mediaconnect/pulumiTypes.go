@@ -9947,6 +9947,11 @@ func (o FlowVpcInterfaceAttachmentPtrOutput) VpcInterfaceName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type FlowVpcInterfaceTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // The network settings for a gateway.
 type GatewayNetwork struct {
 	// A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -10521,6 +10526,93 @@ func (o RouterInputConfiguration3PropertiesPtrOutput) MediaConnectFlow() RouterI
 		}
 		return &v.MediaConnectFlow
 	}).(RouterInputMediaConnectFlowRouterInputConfigurationPtrOutput)
+}
+
+// The configuration settings for a router input.
+type RouterInputConfiguration4Properties struct {
+	MediaLiveChannel RouterInputMediaLiveChannelRouterInputConfiguration `pulumi:"mediaLiveChannel"`
+}
+
+// RouterInputConfiguration4PropertiesInput is an input type that accepts RouterInputConfiguration4PropertiesArgs and RouterInputConfiguration4PropertiesOutput values.
+// You can construct a concrete instance of `RouterInputConfiguration4PropertiesInput` via:
+//
+//	RouterInputConfiguration4PropertiesArgs{...}
+type RouterInputConfiguration4PropertiesInput interface {
+	pulumi.Input
+
+	ToRouterInputConfiguration4PropertiesOutput() RouterInputConfiguration4PropertiesOutput
+	ToRouterInputConfiguration4PropertiesOutputWithContext(context.Context) RouterInputConfiguration4PropertiesOutput
+}
+
+// The configuration settings for a router input.
+type RouterInputConfiguration4PropertiesArgs struct {
+	MediaLiveChannel RouterInputMediaLiveChannelRouterInputConfigurationInput `pulumi:"mediaLiveChannel"`
+}
+
+func (RouterInputConfiguration4PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputConfiguration4Properties)(nil)).Elem()
+}
+
+func (i RouterInputConfiguration4PropertiesArgs) ToRouterInputConfiguration4PropertiesOutput() RouterInputConfiguration4PropertiesOutput {
+	return i.ToRouterInputConfiguration4PropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterInputConfiguration4PropertiesArgs) ToRouterInputConfiguration4PropertiesOutputWithContext(ctx context.Context) RouterInputConfiguration4PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputConfiguration4PropertiesOutput)
+}
+
+// The configuration settings for a router input.
+type RouterInputConfiguration4PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputConfiguration4PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputConfiguration4Properties)(nil)).Elem()
+}
+
+func (o RouterInputConfiguration4PropertiesOutput) ToRouterInputConfiguration4PropertiesOutput() RouterInputConfiguration4PropertiesOutput {
+	return o
+}
+
+func (o RouterInputConfiguration4PropertiesOutput) ToRouterInputConfiguration4PropertiesOutputWithContext(ctx context.Context) RouterInputConfiguration4PropertiesOutput {
+	return o
+}
+
+func (o RouterInputConfiguration4PropertiesOutput) MediaLiveChannel() RouterInputMediaLiveChannelRouterInputConfigurationOutput {
+	return o.ApplyT(func(v RouterInputConfiguration4Properties) RouterInputMediaLiveChannelRouterInputConfiguration {
+		return v.MediaLiveChannel
+	}).(RouterInputMediaLiveChannelRouterInputConfigurationOutput)
+}
+
+type RouterInputConfiguration4PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputConfiguration4PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputConfiguration4Properties)(nil)).Elem()
+}
+
+func (o RouterInputConfiguration4PropertiesPtrOutput) ToRouterInputConfiguration4PropertiesPtrOutput() RouterInputConfiguration4PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputConfiguration4PropertiesPtrOutput) ToRouterInputConfiguration4PropertiesPtrOutputWithContext(ctx context.Context) RouterInputConfiguration4PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputConfiguration4PropertiesPtrOutput) Elem() RouterInputConfiguration4PropertiesOutput {
+	return o.ApplyT(func(v *RouterInputConfiguration4Properties) RouterInputConfiguration4Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputConfiguration4Properties
+		return ret
+	}).(RouterInputConfiguration4PropertiesOutput)
+}
+
+func (o RouterInputConfiguration4PropertiesPtrOutput) MediaLiveChannel() RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputConfiguration4Properties) *RouterInputMediaLiveChannelRouterInputConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.MediaLiveChannel
+	}).(RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput)
 }
 
 // Configuration settings for default maintenance scheduling.
@@ -11681,6 +11773,426 @@ func (o RouterInputMediaConnectFlowRouterInputConfigurationPtrOutput) SourceTran
 	}).(RouterInputFlowTransitEncryptionPtrOutput)
 }
 
+// Configuration settings for connecting a router input to a MediaLive channel output.
+type RouterInputMediaLiveChannelRouterInputConfiguration struct {
+	// The ARN of the MediaLive channel to connect to this router input.
+	MediaLiveChannelArn *string `pulumi:"mediaLiveChannelArn"`
+	// The name of the MediaLive channel output to connect to this router input.
+	MediaLiveChannelOutputName *string                                `pulumi:"mediaLiveChannelOutputName"`
+	MediaLivePipelineId        *RouterInputMediaLiveChannelPipelineId `pulumi:"mediaLivePipelineId"`
+	SourceTransitDecryption    RouterInputMediaLiveTransitEncryption  `pulumi:"sourceTransitDecryption"`
+}
+
+// RouterInputMediaLiveChannelRouterInputConfigurationInput is an input type that accepts RouterInputMediaLiveChannelRouterInputConfigurationArgs and RouterInputMediaLiveChannelRouterInputConfigurationOutput values.
+// You can construct a concrete instance of `RouterInputMediaLiveChannelRouterInputConfigurationInput` via:
+//
+//	RouterInputMediaLiveChannelRouterInputConfigurationArgs{...}
+type RouterInputMediaLiveChannelRouterInputConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterInputMediaLiveChannelRouterInputConfigurationOutput() RouterInputMediaLiveChannelRouterInputConfigurationOutput
+	ToRouterInputMediaLiveChannelRouterInputConfigurationOutputWithContext(context.Context) RouterInputMediaLiveChannelRouterInputConfigurationOutput
+}
+
+// Configuration settings for connecting a router input to a MediaLive channel output.
+type RouterInputMediaLiveChannelRouterInputConfigurationArgs struct {
+	// The ARN of the MediaLive channel to connect to this router input.
+	MediaLiveChannelArn pulumi.StringPtrInput `pulumi:"mediaLiveChannelArn"`
+	// The name of the MediaLive channel output to connect to this router input.
+	MediaLiveChannelOutputName pulumi.StringPtrInput                         `pulumi:"mediaLiveChannelOutputName"`
+	MediaLivePipelineId        RouterInputMediaLiveChannelPipelineIdPtrInput `pulumi:"mediaLivePipelineId"`
+	SourceTransitDecryption    RouterInputMediaLiveTransitEncryptionInput    `pulumi:"sourceTransitDecryption"`
+}
+
+func (RouterInputMediaLiveChannelRouterInputConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMediaLiveChannelRouterInputConfiguration)(nil)).Elem()
+}
+
+func (i RouterInputMediaLiveChannelRouterInputConfigurationArgs) ToRouterInputMediaLiveChannelRouterInputConfigurationOutput() RouterInputMediaLiveChannelRouterInputConfigurationOutput {
+	return i.ToRouterInputMediaLiveChannelRouterInputConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterInputMediaLiveChannelRouterInputConfigurationArgs) ToRouterInputMediaLiveChannelRouterInputConfigurationOutputWithContext(ctx context.Context) RouterInputMediaLiveChannelRouterInputConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputMediaLiveChannelRouterInputConfigurationOutput)
+}
+
+// Configuration settings for connecting a router input to a MediaLive channel output.
+type RouterInputMediaLiveChannelRouterInputConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMediaLiveChannelRouterInputConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMediaLiveChannelRouterInputConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputMediaLiveChannelRouterInputConfigurationOutput) ToRouterInputMediaLiveChannelRouterInputConfigurationOutput() RouterInputMediaLiveChannelRouterInputConfigurationOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveChannelRouterInputConfigurationOutput) ToRouterInputMediaLiveChannelRouterInputConfigurationOutputWithContext(ctx context.Context) RouterInputMediaLiveChannelRouterInputConfigurationOutput {
+	return o
+}
+
+// The ARN of the MediaLive channel to connect to this router input.
+func (o RouterInputMediaLiveChannelRouterInputConfigurationOutput) MediaLiveChannelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouterInputMediaLiveChannelRouterInputConfiguration) *string { return v.MediaLiveChannelArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the MediaLive channel output to connect to this router input.
+func (o RouterInputMediaLiveChannelRouterInputConfigurationOutput) MediaLiveChannelOutputName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouterInputMediaLiveChannelRouterInputConfiguration) *string {
+		return v.MediaLiveChannelOutputName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RouterInputMediaLiveChannelRouterInputConfigurationOutput) MediaLivePipelineId() RouterInputMediaLiveChannelPipelineIdPtrOutput {
+	return o.ApplyT(func(v RouterInputMediaLiveChannelRouterInputConfiguration) *RouterInputMediaLiveChannelPipelineId {
+		return v.MediaLivePipelineId
+	}).(RouterInputMediaLiveChannelPipelineIdPtrOutput)
+}
+
+func (o RouterInputMediaLiveChannelRouterInputConfigurationOutput) SourceTransitDecryption() RouterInputMediaLiveTransitEncryptionOutput {
+	return o.ApplyT(func(v RouterInputMediaLiveChannelRouterInputConfiguration) RouterInputMediaLiveTransitEncryption {
+		return v.SourceTransitDecryption
+	}).(RouterInputMediaLiveTransitEncryptionOutput)
+}
+
+type RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputMediaLiveChannelRouterInputConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput) ToRouterInputMediaLiveChannelRouterInputConfigurationPtrOutput() RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput) ToRouterInputMediaLiveChannelRouterInputConfigurationPtrOutputWithContext(ctx context.Context) RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput) Elem() RouterInputMediaLiveChannelRouterInputConfigurationOutput {
+	return o.ApplyT(func(v *RouterInputMediaLiveChannelRouterInputConfiguration) RouterInputMediaLiveChannelRouterInputConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputMediaLiveChannelRouterInputConfiguration
+		return ret
+	}).(RouterInputMediaLiveChannelRouterInputConfigurationOutput)
+}
+
+// The ARN of the MediaLive channel to connect to this router input.
+func (o RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput) MediaLiveChannelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouterInputMediaLiveChannelRouterInputConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MediaLiveChannelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the MediaLive channel output to connect to this router input.
+func (o RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput) MediaLiveChannelOutputName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouterInputMediaLiveChannelRouterInputConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MediaLiveChannelOutputName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput) MediaLivePipelineId() RouterInputMediaLiveChannelPipelineIdPtrOutput {
+	return o.ApplyT(func(v *RouterInputMediaLiveChannelRouterInputConfiguration) *RouterInputMediaLiveChannelPipelineId {
+		if v == nil {
+			return nil
+		}
+		return v.MediaLivePipelineId
+	}).(RouterInputMediaLiveChannelPipelineIdPtrOutput)
+}
+
+func (o RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput) SourceTransitDecryption() RouterInputMediaLiveTransitEncryptionPtrOutput {
+	return o.ApplyT(func(v *RouterInputMediaLiveChannelRouterInputConfiguration) *RouterInputMediaLiveTransitEncryption {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceTransitDecryption
+	}).(RouterInputMediaLiveTransitEncryptionPtrOutput)
+}
+
+// The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
+type RouterInputMediaLiveTransitEncryption struct {
+	EncryptionKeyConfiguration interface{}                                   `pulumi:"encryptionKeyConfiguration"`
+	EncryptionKeyType          *RouterInputMediaLiveTransitEncryptionKeyType `pulumi:"encryptionKeyType"`
+}
+
+// RouterInputMediaLiveTransitEncryptionInput is an input type that accepts RouterInputMediaLiveTransitEncryptionArgs and RouterInputMediaLiveTransitEncryptionOutput values.
+// You can construct a concrete instance of `RouterInputMediaLiveTransitEncryptionInput` via:
+//
+//	RouterInputMediaLiveTransitEncryptionArgs{...}
+type RouterInputMediaLiveTransitEncryptionInput interface {
+	pulumi.Input
+
+	ToRouterInputMediaLiveTransitEncryptionOutput() RouterInputMediaLiveTransitEncryptionOutput
+	ToRouterInputMediaLiveTransitEncryptionOutputWithContext(context.Context) RouterInputMediaLiveTransitEncryptionOutput
+}
+
+// The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
+type RouterInputMediaLiveTransitEncryptionArgs struct {
+	EncryptionKeyConfiguration pulumi.Input                                         `pulumi:"encryptionKeyConfiguration"`
+	EncryptionKeyType          RouterInputMediaLiveTransitEncryptionKeyTypePtrInput `pulumi:"encryptionKeyType"`
+}
+
+func (RouterInputMediaLiveTransitEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMediaLiveTransitEncryption)(nil)).Elem()
+}
+
+func (i RouterInputMediaLiveTransitEncryptionArgs) ToRouterInputMediaLiveTransitEncryptionOutput() RouterInputMediaLiveTransitEncryptionOutput {
+	return i.ToRouterInputMediaLiveTransitEncryptionOutputWithContext(context.Background())
+}
+
+func (i RouterInputMediaLiveTransitEncryptionArgs) ToRouterInputMediaLiveTransitEncryptionOutputWithContext(ctx context.Context) RouterInputMediaLiveTransitEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputMediaLiveTransitEncryptionOutput)
+}
+
+// The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
+type RouterInputMediaLiveTransitEncryptionOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMediaLiveTransitEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMediaLiveTransitEncryption)(nil)).Elem()
+}
+
+func (o RouterInputMediaLiveTransitEncryptionOutput) ToRouterInputMediaLiveTransitEncryptionOutput() RouterInputMediaLiveTransitEncryptionOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveTransitEncryptionOutput) ToRouterInputMediaLiveTransitEncryptionOutputWithContext(ctx context.Context) RouterInputMediaLiveTransitEncryptionOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveTransitEncryptionOutput) EncryptionKeyConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v RouterInputMediaLiveTransitEncryption) interface{} { return v.EncryptionKeyConfiguration }).(pulumi.AnyOutput)
+}
+
+func (o RouterInputMediaLiveTransitEncryptionOutput) EncryptionKeyType() RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput {
+	return o.ApplyT(func(v RouterInputMediaLiveTransitEncryption) *RouterInputMediaLiveTransitEncryptionKeyType {
+		return v.EncryptionKeyType
+	}).(RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput)
+}
+
+type RouterInputMediaLiveTransitEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMediaLiveTransitEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputMediaLiveTransitEncryption)(nil)).Elem()
+}
+
+func (o RouterInputMediaLiveTransitEncryptionPtrOutput) ToRouterInputMediaLiveTransitEncryptionPtrOutput() RouterInputMediaLiveTransitEncryptionPtrOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveTransitEncryptionPtrOutput) ToRouterInputMediaLiveTransitEncryptionPtrOutputWithContext(ctx context.Context) RouterInputMediaLiveTransitEncryptionPtrOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveTransitEncryptionPtrOutput) Elem() RouterInputMediaLiveTransitEncryptionOutput {
+	return o.ApplyT(func(v *RouterInputMediaLiveTransitEncryption) RouterInputMediaLiveTransitEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputMediaLiveTransitEncryption
+		return ret
+	}).(RouterInputMediaLiveTransitEncryptionOutput)
+}
+
+func (o RouterInputMediaLiveTransitEncryptionPtrOutput) EncryptionKeyConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RouterInputMediaLiveTransitEncryption) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKeyConfiguration
+	}).(pulumi.AnyOutput)
+}
+
+func (o RouterInputMediaLiveTransitEncryptionPtrOutput) EncryptionKeyType() RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput {
+	return o.ApplyT(func(v *RouterInputMediaLiveTransitEncryption) *RouterInputMediaLiveTransitEncryptionKeyType {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKeyType
+	}).(RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput)
+}
+
+// Configuration settings for the MediaLive transit encryption key.
+type RouterInputMediaLiveTransitEncryptionKeyConfiguration0Properties struct {
+	SecretsManager RouterInputSecretsManagerEncryptionKeyConfiguration `pulumi:"secretsManager"`
+}
+
+// RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesInput is an input type that accepts RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs and RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesInput` via:
+//
+//	RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs{...}
+type RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToRouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput() RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput
+	ToRouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutputWithContext(context.Context) RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput
+}
+
+// Configuration settings for the MediaLive transit encryption key.
+type RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs struct {
+	SecretsManager RouterInputSecretsManagerEncryptionKeyConfigurationInput `pulumi:"secretsManager"`
+}
+
+func (RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMediaLiveTransitEncryptionKeyConfiguration0Properties)(nil)).Elem()
+}
+
+func (i RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs) ToRouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput() RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput {
+	return i.ToRouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs) ToRouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutputWithContext(ctx context.Context) RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput)
+}
+
+// Configuration settings for the MediaLive transit encryption key.
+type RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMediaLiveTransitEncryptionKeyConfiguration0Properties)(nil)).Elem()
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput) ToRouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput() RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput) ToRouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutputWithContext(ctx context.Context) RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput) SecretsManager() RouterInputSecretsManagerEncryptionKeyConfigurationOutput {
+	return o.ApplyT(func(v RouterInputMediaLiveTransitEncryptionKeyConfiguration0Properties) RouterInputSecretsManagerEncryptionKeyConfiguration {
+		return v.SecretsManager
+	}).(RouterInputSecretsManagerEncryptionKeyConfigurationOutput)
+}
+
+type RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputMediaLiveTransitEncryptionKeyConfiguration0Properties)(nil)).Elem()
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesPtrOutput) ToRouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesPtrOutput() RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesPtrOutput) ToRouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesPtrOutput) Elem() RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *RouterInputMediaLiveTransitEncryptionKeyConfiguration0Properties) RouterInputMediaLiveTransitEncryptionKeyConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputMediaLiveTransitEncryptionKeyConfiguration0Properties
+		return ret
+	}).(RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput)
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesPtrOutput) SecretsManager() RouterInputSecretsManagerEncryptionKeyConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputMediaLiveTransitEncryptionKeyConfiguration0Properties) *RouterInputSecretsManagerEncryptionKeyConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretsManager
+	}).(RouterInputSecretsManagerEncryptionKeyConfigurationPtrOutput)
+}
+
+// Configuration settings for the MediaLive transit encryption key.
+type RouterInputMediaLiveTransitEncryptionKeyConfiguration1Properties struct {
+	Automatic RouterInputAutomaticEncryptionKeyConfiguration `pulumi:"automatic"`
+}
+
+// RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesInput is an input type that accepts RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs and RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesInput` via:
+//
+//	RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs{...}
+type RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToRouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput() RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput
+	ToRouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutputWithContext(context.Context) RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput
+}
+
+// Configuration settings for the MediaLive transit encryption key.
+type RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs struct {
+	Automatic RouterInputAutomaticEncryptionKeyConfigurationInput `pulumi:"automatic"`
+}
+
+func (RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMediaLiveTransitEncryptionKeyConfiguration1Properties)(nil)).Elem()
+}
+
+func (i RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs) ToRouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput() RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput {
+	return i.ToRouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs) ToRouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutputWithContext(ctx context.Context) RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput)
+}
+
+// Configuration settings for the MediaLive transit encryption key.
+type RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputMediaLiveTransitEncryptionKeyConfiguration1Properties)(nil)).Elem()
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput) ToRouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput() RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput) ToRouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutputWithContext(ctx context.Context) RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput) Automatic() RouterInputAutomaticEncryptionKeyConfigurationOutput {
+	return o.ApplyT(func(v RouterInputMediaLiveTransitEncryptionKeyConfiguration1Properties) RouterInputAutomaticEncryptionKeyConfiguration {
+		return v.Automatic
+	}).(RouterInputAutomaticEncryptionKeyConfigurationOutput)
+}
+
+type RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputMediaLiveTransitEncryptionKeyConfiguration1Properties)(nil)).Elem()
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesPtrOutput) ToRouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesPtrOutput() RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesPtrOutput) ToRouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesPtrOutput) Elem() RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *RouterInputMediaLiveTransitEncryptionKeyConfiguration1Properties) RouterInputMediaLiveTransitEncryptionKeyConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputMediaLiveTransitEncryptionKeyConfiguration1Properties
+		return ret
+	}).(RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput)
+}
+
+func (o RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesPtrOutput) Automatic() RouterInputAutomaticEncryptionKeyConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputMediaLiveTransitEncryptionKeyConfiguration1Properties) *RouterInputAutomaticEncryptionKeyConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Automatic
+	}).(RouterInputAutomaticEncryptionKeyConfigurationPtrOutput)
+}
+
 // Configuration settings for a merge router input that combines two input sources.
 type RouterInputMergeRouterInputConfiguration struct {
 	// The time window in milliseconds for merging the two input sources.
@@ -12633,11 +13145,11 @@ func (o RouterInputRtpRouterInputConfigurationPtrOutput) Port() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+// The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
 type RouterInputSecretsManagerEncryptionKeyConfiguration struct {
-	// The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+	// The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
 	RoleArn string `pulumi:"roleArn"`
-	// The ARN of the AWS Secrets Manager secret used for transit encryption.
+	// The ARN of the Secrets Manager secret used for transit encryption.
 	SecretArn string `pulumi:"secretArn"`
 }
 
@@ -12652,11 +13164,11 @@ type RouterInputSecretsManagerEncryptionKeyConfigurationInput interface {
 	ToRouterInputSecretsManagerEncryptionKeyConfigurationOutputWithContext(context.Context) RouterInputSecretsManagerEncryptionKeyConfigurationOutput
 }
 
-// The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+// The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
 type RouterInputSecretsManagerEncryptionKeyConfigurationArgs struct {
-	// The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+	// The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// The ARN of the AWS Secrets Manager secret used for transit encryption.
+	// The ARN of the Secrets Manager secret used for transit encryption.
 	SecretArn pulumi.StringInput `pulumi:"secretArn"`
 }
 
@@ -12713,7 +13225,7 @@ func (i *routerInputSecretsManagerEncryptionKeyConfigurationPtrType) ToRouterInp
 	return pulumi.ToOutputWithContext(ctx, i).(RouterInputSecretsManagerEncryptionKeyConfigurationPtrOutput)
 }
 
-// The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+// The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
 type RouterInputSecretsManagerEncryptionKeyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RouterInputSecretsManagerEncryptionKeyConfigurationOutput) ElementType() reflect.Type {
@@ -12738,12 +13250,12 @@ func (o RouterInputSecretsManagerEncryptionKeyConfigurationOutput) ToRouterInput
 	}).(RouterInputSecretsManagerEncryptionKeyConfigurationPtrOutput)
 }
 
-// The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+// The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
 func (o RouterInputSecretsManagerEncryptionKeyConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RouterInputSecretsManagerEncryptionKeyConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the AWS Secrets Manager secret used for transit encryption.
+// The ARN of the Secrets Manager secret used for transit encryption.
 func (o RouterInputSecretsManagerEncryptionKeyConfigurationOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RouterInputSecretsManagerEncryptionKeyConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
 }
@@ -12772,7 +13284,7 @@ func (o RouterInputSecretsManagerEncryptionKeyConfigurationPtrOutput) Elem() Rou
 	}).(RouterInputSecretsManagerEncryptionKeyConfigurationOutput)
 }
 
-// The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+// The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
 func (o RouterInputSecretsManagerEncryptionKeyConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouterInputSecretsManagerEncryptionKeyConfiguration) *string {
 		if v == nil {
@@ -12782,7 +13294,7 @@ func (o RouterInputSecretsManagerEncryptionKeyConfigurationPtrOutput) RoleArn() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS Secrets Manager secret used for transit encryption.
+// The ARN of the Secrets Manager secret used for transit encryption.
 func (o RouterInputSecretsManagerEncryptionKeyConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouterInputSecretsManagerEncryptionKeyConfiguration) *string {
 		if v == nil {
@@ -15242,7 +15754,7 @@ func (o RouterOutputResourceMediaLiveInputRouterOutputConfigurationPtrOutput) Me
 	}).(RouterOutputResourceMediaLiveInputPipelineIdPtrOutput)
 }
 
-// The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through AWS Secrets Manager.
+// The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
 type RouterOutputResourceMediaLiveTransitEncryption struct {
 	EncryptionKeyConfiguration interface{}                                            `pulumi:"encryptionKeyConfiguration"`
 	EncryptionKeyType          *RouterOutputResourceMediaLiveTransitEncryptionKeyType `pulumi:"encryptionKeyType"`
@@ -15259,7 +15771,7 @@ type RouterOutputResourceMediaLiveTransitEncryptionInput interface {
 	ToRouterOutputResourceMediaLiveTransitEncryptionOutputWithContext(context.Context) RouterOutputResourceMediaLiveTransitEncryptionOutput
 }
 
-// The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through AWS Secrets Manager.
+// The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
 type RouterOutputResourceMediaLiveTransitEncryptionArgs struct {
 	EncryptionKeyConfiguration pulumi.Input                                                  `pulumi:"encryptionKeyConfiguration"`
 	EncryptionKeyType          RouterOutputResourceMediaLiveTransitEncryptionKeyTypePtrInput `pulumi:"encryptionKeyType"`
@@ -15277,7 +15789,7 @@ func (i RouterOutputResourceMediaLiveTransitEncryptionArgs) ToRouterOutputResour
 	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceMediaLiveTransitEncryptionOutput)
 }
 
-// The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through AWS Secrets Manager.
+// The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
 type RouterOutputResourceMediaLiveTransitEncryptionOutput struct{ *pulumi.OutputState }
 
 func (RouterOutputResourceMediaLiveTransitEncryptionOutput) ElementType() reflect.Type {
@@ -16519,11 +17031,11 @@ func (o RouterOutputResourceRtpRouterOutputConfigurationPtrOutput) ForwardErrorC
 	}).(RouterOutputResourceForwardErrorCorrectionStatePtrOutput)
 }
 
-// The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+// The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
 type RouterOutputResourceSecretsManagerEncryptionKeyConfiguration struct {
-	// The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+	// The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
 	RoleArn string `pulumi:"roleArn"`
-	// The ARN of the AWS Secrets Manager secret used for transit encryption.
+	// The ARN of the Secrets Manager secret used for transit encryption.
 	SecretArn string `pulumi:"secretArn"`
 }
 
@@ -16538,11 +17050,11 @@ type RouterOutputResourceSecretsManagerEncryptionKeyConfigurationInput interface
 	ToRouterOutputResourceSecretsManagerEncryptionKeyConfigurationOutputWithContext(context.Context) RouterOutputResourceSecretsManagerEncryptionKeyConfigurationOutput
 }
 
-// The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+// The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
 type RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgs struct {
-	// The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+	// The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// The ARN of the AWS Secrets Manager secret used for transit encryption.
+	// The ARN of the Secrets Manager secret used for transit encryption.
 	SecretArn pulumi.StringInput `pulumi:"secretArn"`
 }
 
@@ -16599,7 +17111,7 @@ func (i *routerOutputResourceSecretsManagerEncryptionKeyConfigurationPtrType) To
 	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceSecretsManagerEncryptionKeyConfigurationPtrOutput)
 }
 
-// The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+// The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
 type RouterOutputResourceSecretsManagerEncryptionKeyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RouterOutputResourceSecretsManagerEncryptionKeyConfigurationOutput) ElementType() reflect.Type {
@@ -16624,12 +17136,12 @@ func (o RouterOutputResourceSecretsManagerEncryptionKeyConfigurationOutput) ToRo
 	}).(RouterOutputResourceSecretsManagerEncryptionKeyConfigurationPtrOutput)
 }
 
-// The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+// The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
 func (o RouterOutputResourceSecretsManagerEncryptionKeyConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RouterOutputResourceSecretsManagerEncryptionKeyConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the AWS Secrets Manager secret used for transit encryption.
+// The ARN of the Secrets Manager secret used for transit encryption.
 func (o RouterOutputResourceSecretsManagerEncryptionKeyConfigurationOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RouterOutputResourceSecretsManagerEncryptionKeyConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
 }
@@ -16658,7 +17170,7 @@ func (o RouterOutputResourceSecretsManagerEncryptionKeyConfigurationPtrOutput) E
 	}).(RouterOutputResourceSecretsManagerEncryptionKeyConfigurationOutput)
 }
 
-// The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+// The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
 func (o RouterOutputResourceSecretsManagerEncryptionKeyConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouterOutputResourceSecretsManagerEncryptionKeyConfiguration) *string {
 		if v == nil {
@@ -16668,7 +17180,7 @@ func (o RouterOutputResourceSecretsManagerEncryptionKeyConfigurationPtrOutput) R
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS Secrets Manager secret used for transit encryption.
+// The ARN of the Secrets Manager secret used for transit encryption.
 func (o RouterOutputResourceSecretsManagerEncryptionKeyConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouterOutputResourceSecretsManagerEncryptionKeyConfiguration) *string {
 		if v == nil {
@@ -17363,6 +17875,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputConfiguration1PropertiesInput)(nil)).Elem(), RouterInputConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputConfiguration2PropertiesInput)(nil)).Elem(), RouterInputConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputConfiguration3PropertiesInput)(nil)).Elem(), RouterInputConfiguration3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputConfiguration4PropertiesInput)(nil)).Elem(), RouterInputConfiguration4PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputDefaultMaintenanceConfigurationInput)(nil)).Elem(), RouterInputDefaultMaintenanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputDefaultMaintenanceConfigurationPtrInput)(nil)).Elem(), RouterInputDefaultMaintenanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFailoverRouterInputConfigurationInput)(nil)).Elem(), RouterInputFailoverRouterInputConfigurationArgs{})
@@ -17378,6 +17891,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMaintenanceConfiguration1PropertiesInput)(nil)).Elem(), RouterInputMaintenanceConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMaintenanceConfiguration1PropertiesPtrInput)(nil)).Elem(), RouterInputMaintenanceConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMediaConnectFlowRouterInputConfigurationInput)(nil)).Elem(), RouterInputMediaConnectFlowRouterInputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMediaLiveChannelRouterInputConfigurationInput)(nil)).Elem(), RouterInputMediaLiveChannelRouterInputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMediaLiveTransitEncryptionInput)(nil)).Elem(), RouterInputMediaLiveTransitEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesInput)(nil)).Elem(), RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesInput)(nil)).Elem(), RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMergeRouterInputConfigurationInput)(nil)).Elem(), RouterInputMergeRouterInputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMergeRouterInputProtocolConfiguration0PropertiesInput)(nil)).Elem(), RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMergeRouterInputProtocolConfiguration1PropertiesInput)(nil)).Elem(), RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs{})
@@ -17573,6 +18090,8 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputConfiguration2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputConfiguration3PropertiesOutput{})
 	pulumi.RegisterOutputType(RouterInputConfiguration3PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputConfiguration4PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputConfiguration4PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputDefaultMaintenanceConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputDefaultMaintenanceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputFailoverRouterInputConfigurationOutput{})
@@ -17593,6 +18112,14 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputMaintenanceConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputMediaConnectFlowRouterInputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputMediaConnectFlowRouterInputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputMediaLiveChannelRouterInputConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputMediaLiveTransitEncryptionOutput{})
+	pulumi.RegisterOutputType(RouterInputMediaLiveTransitEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputMergeRouterInputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputMergeRouterInputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputMergeRouterInputProtocolConfiguration0PropertiesOutput{})

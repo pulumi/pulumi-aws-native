@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.Msk
         /// </summary>
         public readonly string? CurrentVersion;
         /// <summary>
+        /// Configuration for log delivery for the replicator.
+        /// </summary>
+        public readonly Outputs.LogDelivery? LogDelivery;
+        /// <summary>
         /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         /// </summary>
         public readonly ImmutableArray<Outputs.ReplicatorReplicationInfo> ReplicationInfoList;
@@ -84,6 +88,8 @@ namespace Pulumi.AwsNative.Msk
         private GetReplicatorResult(
             string? currentVersion,
 
+            Outputs.LogDelivery? logDelivery,
+
             ImmutableArray<Outputs.ReplicatorReplicationInfo> replicationInfoList,
 
             string? replicatorArn,
@@ -91,6 +97,7 @@ namespace Pulumi.AwsNative.Msk
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CurrentVersion = currentVersion;
+            LogDelivery = logDelivery;
             ReplicationInfoList = replicationInfoList;
             ReplicatorArn = replicatorArn;
             Tags = tags;

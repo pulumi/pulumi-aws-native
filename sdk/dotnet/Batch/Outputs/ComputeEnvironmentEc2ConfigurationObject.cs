@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class ComputeEnvironmentEc2ConfigurationObject
     {
+        public readonly string? BatchImageStatus;
         /// <summary>
         /// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` set in the `computeResource` object.
         /// 
@@ -55,12 +56,15 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
         [OutputConstructor]
         private ComputeEnvironmentEc2ConfigurationObject(
+            string? batchImageStatus,
+
             string? imageIdOverride,
 
             string? imageKubernetesVersion,
 
             string imageType)
         {
+            BatchImageStatus = batchImageStatus;
             ImageIdOverride = imageIdOverride;
             ImageKubernetesVersion = imageKubernetesVersion;
             ImageType = imageType;

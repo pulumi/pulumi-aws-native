@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("startTag")]
         public Input<Inputs.OriginEndpointStartTagArgs>? StartTag { get; set; }
 
+        [Input("uriPathType")]
+        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointUriPathType>? UriPathType { get; set; }
+
         /// <summary>
         /// &lt;p&gt;The egress domain URL for stream delivery from MediaPackage.&lt;/p&gt;
         /// </summary>

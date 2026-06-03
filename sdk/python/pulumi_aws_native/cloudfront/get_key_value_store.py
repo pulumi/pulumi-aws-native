@@ -53,7 +53,7 @@ class GetKeyValueStoreResult:
     @pulumi.getter
     def comment(self) -> Optional[_builtins.str]:
         """
-        A comment for the key value store.
+        A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
         """
         return pulumi.get(self, "comment")
 
@@ -76,6 +76,9 @@ class GetKeyValueStoreResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A complex type that contains zero or more ``Tag`` elements.
+        """
         return pulumi.get(self, "tags")
 
 

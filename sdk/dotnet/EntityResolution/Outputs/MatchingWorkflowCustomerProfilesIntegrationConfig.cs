@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EntityResolution.Outputs
 {
 
+    /// <summary>
+    /// The Customer Profiles integration configuration for the output source
+    /// </summary>
     [OutputType]
     public sealed class MatchingWorkflowCustomerProfilesIntegrationConfig
     {

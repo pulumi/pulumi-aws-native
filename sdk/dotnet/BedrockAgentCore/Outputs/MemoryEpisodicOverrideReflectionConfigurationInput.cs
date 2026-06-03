@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class MemoryEpisodicOverrideReflectionConfigurationInput
     {
         public readonly string AppendToPrompt;
+        public readonly Outputs.MemoryRecordSchema? MemoryRecordSchema;
         public readonly string ModelId;
         public readonly ImmutableArray<string> NamespaceTemplates;
         public readonly ImmutableArray<string> Namespaces;
@@ -22,6 +23,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         private MemoryEpisodicOverrideReflectionConfigurationInput(
             string appendToPrompt,
 
+            Outputs.MemoryRecordSchema? memoryRecordSchema,
+
             string modelId,
 
             ImmutableArray<string> namespaceTemplates,
@@ -29,6 +32,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
             ImmutableArray<string> namespaces)
         {
             AppendToPrompt = appendToPrompt;
+            MemoryRecordSchema = memoryRecordSchema;
             ModelId = modelId;
             NamespaceTemplates = namespaceTemplates;
             Namespaces = namespaces;

@@ -114,6 +114,12 @@
           "minLength" : 0,
           "pattern" : "^[\\S\\s]*$"
         },
+        "S3BucketOwner" : {
+          "type" : "string",
+          "maxLength" : 12,
+          "minLength" : 12,
+          "pattern" : "^[0-9]{12}$"
+        },
         "S3Prefix" : {
           "type" : "string",
           "maxLength" : 1024,
@@ -154,7 +160,7 @@
     },
     "S3OutputType" : {
       "type" : "string",
-      "enum" : [ "CUSTOM" ]
+      "enum" : [ "CUSTOM", "ATHENA", "REDSHIFT" ]
     },
     "TableConfigurations" : {
       "type" : "object",
@@ -200,7 +206,7 @@
   "required" : [ "Export" ],
   "readOnlyProperties" : [ "/properties/ExportArn", "/properties/Export/ExportArn" ],
   "primaryIdentifier" : [ "/properties/ExportArn" ],
-  "createOnlyProperties" : [ "/properties/Export/Name", "/properties/Export/DataQuery/TableConfigurations", "/properties/Export/RefreshCadence" ],
+  "createOnlyProperties" : [ "/properties/Export/Name", "/properties/Export/RefreshCadence" ],
   "documentationUrl" : "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DataExports_CreateExport.html#API_DataExports_CreateExport_RequestSyntax",
   "handlers" : {
     "create" : {
@@ -223,7 +229,7 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
+    "cloudFormationSystemTags" : true,
     "permissions" : [ "bcm-data-exports:ListTagsForResource", "bcm-data-exports:TagResource", "bcm-data-exports:UntagResource" ],
     "tagProperty" : "/properties/Tags"
   },

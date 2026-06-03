@@ -231,7 +231,7 @@ namespace Pulumi.AwsNative.Pcs
     }
 
     /// <summary>
-    /// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
+    /// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
     /// </summary>
     [EnumType]
     public readonly struct ComputeNodeGroupPurchaseOption : IEquatable<ComputeNodeGroupPurchaseOption>
@@ -246,6 +246,7 @@ namespace Pulumi.AwsNative.Pcs
         public static ComputeNodeGroupPurchaseOption Ondemand { get; } = new ComputeNodeGroupPurchaseOption("ONDEMAND");
         public static ComputeNodeGroupPurchaseOption Spot { get; } = new ComputeNodeGroupPurchaseOption("SPOT");
         public static ComputeNodeGroupPurchaseOption CapacityBlock { get; } = new ComputeNodeGroupPurchaseOption("CAPACITY_BLOCK");
+        public static ComputeNodeGroupPurchaseOption InterruptibleCapacityReservation { get; } = new ComputeNodeGroupPurchaseOption("INTERRUPTIBLE_CAPACITY_RESERVATION");
 
         public static bool operator ==(ComputeNodeGroupPurchaseOption left, ComputeNodeGroupPurchaseOption right) => left.Equals(right);
         public static bool operator !=(ComputeNodeGroupPurchaseOption left, ComputeNodeGroupPurchaseOption right) => !left.Equals(right);

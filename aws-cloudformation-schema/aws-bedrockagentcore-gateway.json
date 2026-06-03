@@ -17,7 +17,7 @@
     },
     "AuthorizerType" : {
       "type" : "string",
-      "enum" : [ "CUSTOM_JWT", "AWS_IAM", "NONE" ]
+      "enum" : [ "CUSTOM_JWT", "AWS_IAM", "NONE", "AUTHENTICATE_ONLY" ]
     },
     "CustomJWTAuthorizerConfiguration" : {
       "type" : "object",
@@ -360,7 +360,11 @@
       "$ref" : "#/definitions/GatewayProtocolConfiguration"
     },
     "ProtocolType" : {
-      "$ref" : "#/definitions/GatewayProtocolType"
+      "allOf" : [ {
+        "$ref" : "#/definitions/GatewayProtocolType"
+      }, {
+        "default" : "MCP"
+      } ]
     },
     "RoleArn" : {
       "type" : "string",
@@ -390,7 +394,7 @@
       "$ref" : "#/definitions/WorkloadIdentityDetails"
     }
   },
-  "required" : [ "AuthorizerType", "Name", "ProtocolType", "RoleArn" ],
+  "required" : [ "AuthorizerType", "Name", "RoleArn" ],
   "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/GatewayArn", "/properties/GatewayIdentifier", "/properties/GatewayUrl", "/properties/Status", "/properties/StatusReasons", "/properties/UpdatedAt", "/properties/WorkloadIdentityDetails" ],
   "primaryIdentifier" : [ "/properties/GatewayIdentifier" ],
   "handlers" : {
@@ -415,7 +419,7 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
+    "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "bedrock-agentcore:ListTagsForResource", "bedrock-agentcore:TagResource", "bedrock-agentcore:UntagResource" ]
   }

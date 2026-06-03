@@ -175,9 +175,181 @@ func (in *applicationContactHandlingScopePtr) ToApplicationContactHandlingScopeP
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationContactHandlingScopePtrOutput)
 }
 
+// The type of application
+type ApplicationType string
+
+const (
+	ApplicationTypeStandard  = ApplicationType("STANDARD")
+	ApplicationTypeService   = ApplicationType("SERVICE")
+	ApplicationTypeMcpServer = ApplicationType("MCP_SERVER")
+)
+
+func (ApplicationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
+}
+
+func (e ApplicationType) ToApplicationTypeOutput() ApplicationTypeOutput {
+	return pulumi.ToOutput(e).(ApplicationTypeOutput)
+}
+
+func (e ApplicationType) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationTypeOutput)
+}
+
+func (e ApplicationType) ToApplicationTypePtrOutput() ApplicationTypePtrOutput {
+	return e.ToApplicationTypePtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationType) ToApplicationTypePtrOutputWithContext(ctx context.Context) ApplicationTypePtrOutput {
+	return ApplicationType(e).ToApplicationTypeOutputWithContext(ctx).ToApplicationTypePtrOutputWithContext(ctx)
+}
+
+func (e ApplicationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
+}
+
+func (o ApplicationTypeOutput) ToApplicationTypeOutput() ApplicationTypeOutput {
+	return o
+}
+
+func (o ApplicationTypeOutput) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
+	return o
+}
+
+func (o ApplicationTypeOutput) ToApplicationTypePtrOutput() ApplicationTypePtrOutput {
+	return o.ToApplicationTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationTypeOutput) ToApplicationTypePtrOutputWithContext(ctx context.Context) ApplicationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationType) *ApplicationType {
+		return &v
+	}).(ApplicationTypePtrOutput)
+}
+
+func (o ApplicationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationType)(nil)).Elem()
+}
+
+func (o ApplicationTypePtrOutput) ToApplicationTypePtrOutput() ApplicationTypePtrOutput {
+	return o
+}
+
+func (o ApplicationTypePtrOutput) ToApplicationTypePtrOutputWithContext(ctx context.Context) ApplicationTypePtrOutput {
+	return o
+}
+
+func (o ApplicationTypePtrOutput) Elem() ApplicationTypeOutput {
+	return o.ApplyT(func(v *ApplicationType) ApplicationType {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationType
+		return ret
+	}).(ApplicationTypeOutput)
+}
+
+func (o ApplicationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationTypeInput is an input type that accepts values of the ApplicationType enum
+// A concrete instance of `ApplicationTypeInput` can be one of the following:
+//
+//	ApplicationTypeStandard
+//	ApplicationTypeService
+//	ApplicationTypeMcpServer
+type ApplicationTypeInput interface {
+	pulumi.Input
+
+	ToApplicationTypeOutput() ApplicationTypeOutput
+	ToApplicationTypeOutputWithContext(context.Context) ApplicationTypeOutput
+}
+
+var applicationTypePtrType = reflect.TypeOf((**ApplicationType)(nil)).Elem()
+
+type ApplicationTypePtrInput interface {
+	pulumi.Input
+
+	ToApplicationTypePtrOutput() ApplicationTypePtrOutput
+	ToApplicationTypePtrOutputWithContext(context.Context) ApplicationTypePtrOutput
+}
+
+type applicationTypePtr string
+
+func ApplicationTypePtr(v string) ApplicationTypePtrInput {
+	return (*applicationTypePtr)(&v)
+}
+
+func (*applicationTypePtr) ElementType() reflect.Type {
+	return applicationTypePtrType
+}
+
+func (in *applicationTypePtr) ToApplicationTypePtrOutput() ApplicationTypePtrOutput {
+	return pulumi.ToOutput(in).(ApplicationTypePtrOutput)
+}
+
+func (in *applicationTypePtr) ToApplicationTypePtrOutputWithContext(ctx context.Context) ApplicationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationContactHandlingScopeInput)(nil)).Elem(), ApplicationContactHandlingScope("CROSS_CONTACTS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationContactHandlingScopePtrInput)(nil)).Elem(), ApplicationContactHandlingScope("CROSS_CONTACTS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTypeInput)(nil)).Elem(), ApplicationType("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTypePtrInput)(nil)).Elem(), ApplicationType("STANDARD"))
 	pulumi.RegisterOutputType(ApplicationContactHandlingScopeOutput{})
 	pulumi.RegisterOutputType(ApplicationContactHandlingScopePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationTypePtrOutput{})
 }

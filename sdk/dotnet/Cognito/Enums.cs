@@ -224,4 +224,32 @@ namespace Pulumi.AwsNative.Cognito
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct UserPoolWebAuthnFactorConfiguration : IEquatable<UserPoolWebAuthnFactorConfiguration>
+    {
+        private readonly string _value;
+
+        private UserPoolWebAuthnFactorConfiguration(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserPoolWebAuthnFactorConfiguration SingleFactor { get; } = new UserPoolWebAuthnFactorConfiguration("SINGLE_FACTOR");
+        public static UserPoolWebAuthnFactorConfiguration MultiFactorWithUserVerification { get; } = new UserPoolWebAuthnFactorConfiguration("MULTI_FACTOR_WITH_USER_VERIFICATION");
+
+        public static bool operator ==(UserPoolWebAuthnFactorConfiguration left, UserPoolWebAuthnFactorConfiguration right) => left.Equals(right);
+        public static bool operator !=(UserPoolWebAuthnFactorConfiguration left, UserPoolWebAuthnFactorConfiguration right) => !left.Equals(right);
+
+        public static explicit operator string(UserPoolWebAuthnFactorConfiguration value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserPoolWebAuthnFactorConfiguration other && Equals(other);
+        public bool Equals(UserPoolWebAuthnFactorConfiguration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

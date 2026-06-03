@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::Queue Resource Type
+ * Resource Type definition for AWS::Deadline::Queue
  */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,13 +69,14 @@ export interface GetQueueResult {
      * The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
      */
     readonly roleArn?: string;
+    readonly schedulingConfiguration?: outputs.deadline.QueueSchedulingConfiguration;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
 }
 /**
- * Definition of AWS::Deadline::Queue Resource Type
+ * Resource Type definition for AWS::Deadline::Queue
  */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

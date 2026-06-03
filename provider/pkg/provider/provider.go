@@ -19,6 +19,7 @@ import (
 	"bytes"
 	"compress/gzip"
 	"context"
+	"crypto/sha256"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -27,6 +28,7 @@ import (
 	"runtime"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
@@ -48,6 +50,19 @@ import (
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/pkg/errors"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
+	"google.golang.org/protobuf/types/known/emptypb"
+	"google.golang.org/protobuf/types/known/structpb"
+
+	"github.com/pulumi/pulumi-go-provider/resourcex"
+	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
+	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
+
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
@@ -56,17 +71,6 @@ import (
 	pOutputs "github.com/pulumi/pulumi-aws-native/provider/pkg/outputs"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
-	"github.com/pulumi/pulumi-go-provider/resourcex"
-	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
-	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
-	"google.golang.org/grpc/codes"
-	"google.golang.org/grpc/status"
-	"google.golang.org/protobuf/types/known/emptypb"
-	"google.golang.org/protobuf/types/known/structpb"
 )
 
 // The APN 1.1 AWS Marketplace identifier to should be used in the User-Agent header.
@@ -99,6 +103,8 @@ type cfnProvider struct {
 	partition           partition
 	resourceMap         *metadata.CloudAPIMetadata
 	roleArn             *string
+	listSessionsMu      sync.Mutex
+	listSessions        *listSessionStore
 	autoNamingConfig    *autonaming.ProviderAutoNamingConfig
 	allowedAccountIds   []string
 	forbiddenAccountIds []string
@@ -133,6 +139,7 @@ func NewAwsNativeProvider(host *provider.HostClient, name, version string,
 		name:           name,
 		version:        version,
 		resourceMap:    resourceMap,
+		listSessions:   newListSessionStore(defaultListSessionTTL),
 		pulumiSchema:   pulumiSchema,
 		transformCache: resources.NewTransformCache(),
 	}, nil
@@ -844,19 +851,25 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 	// Extract old inputs from the `__inputs` field of the old state.
 	oldInputs := resources.ParseCheckpointObject(oldState)
 
-	diff := oldInputs.Diff(newInputs)
-
-	if diff == nil {
-		return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
-	}
-
-	// Apply propertyTransform-based diff suppression for semantically equivalent values.
-	// This handles cases where AWS returns normalized values (e.g., lowercase identifiers,
-	// REPLICATING instead of DISABLED for EFS replication) that should not trigger updates.
 	resourceToken := string(urn.Type())
 	if spec, hasSpec := p.resourceMap.Resources[resourceToken]; hasSpec {
-		diff = resources.SuppressAWSManagedDiffs(resourceToken, &spec, diff, oldInputs, p.transformCache)
+		classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
+		baseline := classifier.ActualInputBaselineFromOutputs(oldInputs, oldState, newInputs)
+		diff := baseline.Diff(newInputs)
+
+		// Apply propertyTransform-based diff suppression for semantically equivalent values.
+		// This handles cases where AWS returns normalized values (e.g., lowercase identifiers,
+		// REPLICATING instead of DISABLED for EFS replication) that should not trigger updates.
+		diff = resources.SuppressAWSManagedDiffsWithContext(
+			resourceToken, &spec, diff, oldInputs, baseline, newInputs, p.transformCache)
 		if diff == nil || (len(diff.Adds) == 0 && len(diff.Updates) == 0 && len(diff.Deletes) == 0) {
+			return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
+		}
+	} else {
+		if _, ok := p.customResources[resourceToken]; !ok {
+			return nil, errors.Errorf("Resource type %s not found", resourceToken)
+		}
+		if diff := oldInputs.Diff(newInputs); diff == nil {
 			return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
 		}
 	}
@@ -925,7 +938,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		// Convert SDK inputs to CFN payload.
 		payload, err := naming.SdkToCfn(&spec, p.resourceMap.Types, resourcex.Decode(inputs))
 		if err != nil {
-			return nil, fmt.Errorf("Failed to convert value for %s: %w", resourceToken, err)
+			return nil, fmt.Errorf("failed to convert value for %s: %w", resourceToken, err)
 		}
 
 		// Create the resource with Cloud API.
@@ -936,18 +949,16 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 			return nil, errors.Wrapf(createErr, "creating resource")
 		}
 
-		rawOutputs := naming.CfnToSdk(resourceState)
+		rawOutputs, err := naming.CfnToSdkV2(&spec, p.resourceMap.Types, resourceState)
+		if err != nil {
+			return nil, fmt.Errorf("failed to convert value for %s: %w", resourceToken, err)
+		}
 		// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
 		if hasSpec && len(spec.WriteOnly) > 0 {
-			inputsMap := inputs.Mappable()
-			for _, writeOnlyProp := range spec.WriteOnly {
-				if _, ok := rawOutputs[writeOnlyProp]; !ok {
-					inputValue, ok := inputsMap[writeOnlyProp]
-					if ok {
-						rawOutputs[writeOnlyProp] = inputValue
-					}
-				}
-			}
+			outputProps := resource.NewPropertyMapFromMap(rawOutputs)
+			classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
+			classifier.AddWriteOnlyOutputFallbacks(outputProps, inputs)
+			rawOutputs = resourcex.Decode(outputProps)
 		}
 		outputs = resources.CheckpointObject(inputs, rawOutputs)
 	}
@@ -1033,61 +1044,33 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			// Not Exists means that the resource was deleted.
 			return &pulumirpc.ReadResponse{Id: ""}, nil
 		}
-		rawState := naming.CfnToSdk(resourceState)
+		rawState, err := naming.CfnToSdkV2(&spec, p.resourceMap.Types, resourceState)
+		if err != nil {
+			return nil, fmt.Errorf("failed to convert value for %s: %w", resourceToken, err)
+		}
 
 		if inputs == nil {
 			// There may be no old state (i.e., importing a new resource).
 			// Extract inputs from the response body.
 			newStateProps := resource.NewPropertyMapFromMap(rawState)
-			newInputs, err = schema.GetInputsFromState(&spec, newStateProps)
-			if err != nil {
-				return nil, err
-			}
+			classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
+			newInputs = classifier.ProjectWritableOutputState(newStateProps)
 			if len(spec.WriteOnly) > 0 {
-				p.host.Log(ctx, diag.Warning, urn, fmt.Sprintf("Can't import write-only properties: %s", strings.Join(spec.WriteOnly, ", ")))
+				_ = p.host.Log(ctx, diag.Warning, urn,
+					fmt.Sprintf("Can't import write-only properties: %s", strings.Join(spec.WriteOnly, ", ")))
 			}
 		} else {
-			// It's hard to infer the changes in the inputs shape based on the outputs without false positives.
-			// The current approach is complicated but it's aimed to minimize the noise while refreshing:
-			// 0. We have "old" inputs and outputs before refresh and "new" outputs read from AWS.
-			// 1. Project old outputs to their corresponding input shape (exclude attributes).
-			oldInputProjection, err := schema.GetInputsFromState(&spec, oldState)
-			if err != nil {
-				return nil, err
-			}
-			oldStateMap := oldState.Mappable()
-			// Fill in the write-only properties from the old state as they won't included when reading.
-			if len(spec.WriteOnly) > 0 {
-				missingProps := make([]string, 0, len(spec.WriteOnly))
-				for _, writeOnlyProp := range spec.WriteOnly {
-					if _, ok := rawState[writeOnlyProp]; !ok {
-						oldValue, ok := oldStateMap[writeOnlyProp]
-						missingProps = append(missingProps, writeOnlyProp)
-						if ok {
-							rawState[writeOnlyProp] = oldValue
-						}
-					}
-				}
-				p.host.Log(ctx, diag.Warning, urn, fmt.Sprintf("Can't refresh write-only properties: %s", strings.Join(missingProps, ", ")))
-			}
-			// 2. Project new outputs to their corresponding input shape (exclude attributes).
 			newStateProps := resource.NewPropertyMapFromMap(rawState)
-			newInputProjection, err := schema.GetInputsFromState(&spec, newStateProps)
-			if err != nil {
-				return nil, err
-			}
-			// 3. Calculate the difference between two projections. This should give us actual significant changes
-			// that happened in AWS between the last resource update and its current state.
-			diff := oldInputProjection.Diff(newInputProjection)
-			// 4. Suppress AWS-managed changes from the diff. This removes:
-			//    - aws:* prefixed tags that AWS adds automatically (users cannot manage these)
-			//    - Resource-specific state transitions (e.g., EFS replication protection)
-			diff = resources.SuppressAWSManagedDiffs(resourceToken, &spec, diff, inputs, p.transformCache)
-			// 5. Apply this difference to the actual inputs (not a projection) that we have in state.
-			newInputs = resources.ApplyDiff(inputs, diff)
+			classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
+			classifier.AddWriteOnlyOutputFallbacks(newStateProps, inputs)
+			resources.PreserveSecretWrappers(newStateProps, inputs)
+			baseline := classifier.ActualInputBaselineFromOutputs(inputs, newStateProps, inputs)
+			newInputs = resources.SuppressBaselineDiffs(resourceToken, &spec, inputs, baseline, p.transformCache)
+			newState = resources.CheckpointPropertyMap(newInputs, newStateProps)
 		}
-
-		newState = resources.CheckpointObject(newInputs, rawState)
+		if newState == nil {
+			newState = resources.CheckpointObject(newInputs, rawState)
+		}
 	}
 	// Store both outputs and inputs into the state checkpoint.
 	checkpoint, err := plugin.MarshalProperties(
@@ -1179,29 +1162,27 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 			return nil, errors.Errorf("Resource type %s not found", resourceToken)
 		}
 
-		ops, err := resources.CalcPatch(oldInputs, newInputs, spec, p.resourceMap.Types)
+		classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
+		ops, err := resources.CalcPatchWithActualOutputs(
+			oldInputs, oldState, newInputs, spec, p.resourceMap.Types, classifier, resourceToken, p.transformCache)
 		if err != nil {
 			return nil, err
 		}
-
 		glog.V(9).Infof("%s.UpdateResource %q id %q state %+v", label, spec.CfType, id, ops)
 		resourceState, err := p.ccc.Update(p.canceler.context, urn, spec.CfType, id, ops)
 		if err != nil {
 			return nil, err
 		}
-		rawOutputs := naming.CfnToSdk(resourceState)
+		rawOutputs, err := naming.CfnToSdkV2(&spec, p.resourceMap.Types, resourceState)
+		if err != nil {
+			return nil, fmt.Errorf("failed to convert value for %s: %w", resourceToken, err)
+		}
 
 		// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
 		if len(spec.WriteOnly) > 0 {
-			inputsMap := newInputs.Mappable()
-			for _, writeOnlyProp := range spec.WriteOnly {
-				if _, ok := rawOutputs[writeOnlyProp]; !ok {
-					inputValue, ok := inputsMap[writeOnlyProp]
-					if ok {
-						rawOutputs[writeOnlyProp] = inputValue
-					}
-				}
-			}
+			outputProps := resource.NewPropertyMapFromMap(rawOutputs)
+			classifier.AddWriteOnlyOutputFallbacks(outputProps, newInputs)
+			rawOutputs = resourcex.Decode(outputProps)
 		}
 		outputs = resources.CheckpointObject(newInputs, rawOutputs)
 	}
@@ -1260,6 +1241,293 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	}
 
 	return &pbempty.Empty{}, nil
+}
+
+// cloudControlListMaxResultsLimit is the CloudControl ListResources MaxResults upper bound.
+// The provider clamps per-RPC page sizes to this API limit before calling CloudControl.
+const cloudControlListMaxResultsLimit int32 = 100
+
+// List streams resource identifiers for one provider resource type.
+func (p *cfnProvider) List(req *pulumirpc.ListRequest, stream pulumirpc.ResourceProvider_ListServer) error {
+	if req.GetLimit() < 0 {
+		return status.Error(codes.InvalidArgument, "limit must be >= 0")
+	}
+	if req.GetPageSize() < 0 {
+		return status.Error(codes.InvalidArgument, "page_size must be >= 0")
+	}
+	if req.GetPageSize() > int64(cloudControlListMaxResultsLimit) {
+		return status.Errorf(codes.InvalidArgument, "page_size must be <= %d", cloudControlListMaxResultsLimit)
+	}
+
+	token := req.GetToken()
+	if _, isCustom := p.customResources[token]; isCustom {
+		return status.Errorf(codes.Unimplemented, "resource type %s does not support List", token)
+	}
+	spec, ok := p.resourceMap.Resources[token]
+	if !ok {
+		return status.Errorf(codes.InvalidArgument, "resource type %s not found", token)
+	}
+	if !spec.HasListHandler {
+		return status.Errorf(codes.Unimplemented, "resource type %s does not support List", token)
+	}
+
+	query, err := unmarshalListQuery(req.GetQuery(), token)
+	if err != nil {
+		return err
+	}
+	if query.ContainsUnknowns() {
+		return stream.Send(&pulumirpc.ListResponse{
+			Response: &pulumirpc.ListResponse_Computed_{
+				Computed: &pulumirpc.ListResponse_Computed{},
+			},
+		})
+	}
+	query = filterNullProperties(query)
+
+	cfnQuery, err := convertListQueryToCfn(&spec, p.resourceMap.Types, query)
+	if err != nil {
+		return err
+	}
+
+	var resourceModel *string
+	if len(cfnQuery) > 0 {
+		payload, err := json.Marshal(cfnQuery)
+		if err != nil {
+			return status.Errorf(codes.InvalidArgument, "failed to serialize List query: %v", err)
+		}
+		s := string(payload)
+		resourceModel = &s
+	}
+
+	queryHash := listQueryHash(resourceModel)
+	var session *listSession
+	var providerContinuationToken string
+	var releaseSession func()
+	if req.GetContinuationToken() != "" {
+		session, releaseSession, err = p.ensureListSessions().get(
+			req.GetContinuationToken(), token, queryHash, req.GetLimit())
+		if err != nil {
+			return err
+		}
+		defer releaseSession()
+		providerContinuationToken = req.GetContinuationToken()
+	} else {
+		session = &listSession{
+			resourceToken: token,
+			queryHash:     queryHash,
+			limit:         req.GetLimit(),
+		}
+	}
+
+	remainingLimit := session.remainingLimit()
+	if remainingLimit != nil && *remainingLimit <= 0 {
+		if providerContinuationToken != "" {
+			p.ensureListSessions().remove(providerContinuationToken)
+		}
+		return nil
+	}
+
+	maxResults := effectiveCloudControlListMaxResults(req.GetPageSize(), remainingLimitValue(remainingLimit))
+	identifiers := session.bufferedIDs
+	continuation := session.nextTokenPtr()
+	if len(identifiers) == 0 {
+		listCtx, cancel := p.listContext(stream.Context())
+		defer cancel()
+		glog.V(9).Infof("%s.ListResources %q token %q resourceModel %t nextToken %t maxResults %s", p.name,
+			spec.CfType, token, resourceModel != nil, session.cloudControlNextToken != "",
+			client.FormatListMaxResults(maxResults))
+		identifiers, continuation, err = p.ccc.List(listCtx, spec.CfType, client.ListRequest{
+			ResourceModel: resourceModel,
+			NextToken:     session.nextTokenPtr(),
+			MaxResults:    maxResults,
+		})
+		if err != nil {
+			return fmt.Errorf("listing %s (%s): %w", token, spec.CfType, err)
+		}
+		glog.V(9).Infof("%s.ListResources %q token %q returned %d resources continuation %t",
+			p.name, spec.CfType, token, len(identifiers), continuation != nil && *continuation != "")
+	}
+
+	idsToStream, bufferedIDs := chunkListIdentifiers(identifiers, maxResults)
+
+	for _, identifier := range idsToStream {
+		if err := stream.Send(&pulumirpc.ListResponse{
+			Response: &pulumirpc.ListResponse_Result_{
+				Result: &pulumirpc.ListResponse_Result{Id: identifier},
+			},
+		}); err != nil {
+			return err
+		}
+	}
+
+	nextReturned := session.returned + int64(len(idsToStream))
+	nextCloudControlToken := ""
+	if continuation != nil {
+		nextCloudControlToken = *continuation
+	}
+	hasContinuation := len(bufferedIDs) > 0 || nextCloudControlToken != ""
+	if !hasContinuation || (session.limit > 0 && nextReturned >= session.limit) {
+		if providerContinuationToken != "" {
+			p.ensureListSessions().remove(providerContinuationToken)
+		}
+		return nil
+	}
+
+	if providerContinuationToken == "" {
+		session.bufferedIDs = bufferedIDs
+		session.returned = nextReturned
+		session.cloudControlNextToken = nextCloudControlToken
+		providerContinuationToken, err = p.ensureListSessions().put(session)
+		if err != nil {
+			return err
+		}
+	}
+	if err := stream.Send(&pulumirpc.ListResponse{
+		Response: &pulumirpc.ListResponse_Continuation_{
+			Continuation: &pulumirpc.ListResponse_Continuation{ContinuationToken: providerContinuationToken},
+		},
+	}); err != nil {
+		if req.GetContinuationToken() == "" {
+			p.ensureListSessions().remove(providerContinuationToken)
+		}
+		return err
+	}
+	session.bufferedIDs = bufferedIDs
+	session.returned = nextReturned
+	session.cloudControlNextToken = nextCloudControlToken
+	return nil
+}
+
+// ensureListSessions lazily initializes the provider-owned List continuation session store.
+func (p *cfnProvider) ensureListSessions() *listSessionStore {
+	p.listSessionsMu.Lock()
+	defer p.listSessionsMu.Unlock()
+	if p.listSessions == nil {
+		p.listSessions = newListSessionStore(defaultListSessionTTL)
+	}
+	return p.listSessions
+}
+
+// chunkListIdentifiers applies the provider RPC chunk size after CloudControl returns.
+func chunkListIdentifiers(identifiers []string, maxResults *int32) ([]string, []string) {
+	if maxResults == nil || len(identifiers) <= int(*maxResults) {
+		return identifiers, nil
+	}
+	return identifiers[:*maxResults], identifiers[*maxResults:]
+}
+
+// listContext links List calls to the provider cancellation context when one exists.
+func (p *cfnProvider) listContext(streamCtx context.Context) (context.Context, context.CancelFunc) {
+	if p.canceler == nil || p.canceler.context == nil {
+		return streamCtx, func() {}
+	}
+	ctx, cancel := context.WithCancel(streamCtx)
+	stop := context.AfterFunc(p.canceler.context, cancel)
+	return ctx, func() {
+		stop()
+		cancel()
+	}
+}
+
+// unmarshalListQuery converts the RPC query struct into Pulumi property values.
+func unmarshalListQuery(query *structpb.Struct, token string) (resource.PropertyMap, error) {
+	if query == nil {
+		return resource.PropertyMap{}, nil
+	}
+	props, err := plugin.UnmarshalProperties(query, plugin.MarshalOptions{
+		Label:        fmt.Sprintf("List(%s).query", token),
+		KeepUnknowns: true,
+		RejectAssets: true,
+		KeepSecrets:  true,
+	})
+	if err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, "failed to parse List query: %v", err)
+	}
+	return props, nil
+}
+
+// convertListQueryToCfn validates a List query and converts SDK property names to CloudFormation names.
+func convertListQueryToCfn(
+	spec *metadata.CloudAPIResource,
+	types map[string]metadata.CloudAPIType,
+	query resource.PropertyMap,
+) (map[string]interface{}, error) {
+	if spec.ListInputs == nil || len(spec.ListInputs.Properties) == 0 {
+		if len(query) == 0 {
+			return nil, nil
+		}
+		return nil, status.Error(codes.InvalidArgument, "List query is not supported for this resource type")
+	}
+
+	listSpec := listQueryResourceSpec(spec)
+	failures, err := resources.ValidateResource(listSpec, types, query)
+	if err != nil {
+		return nil, err
+	}
+	if len(failures) > 0 {
+		return nil, status.Error(codes.InvalidArgument, formatValidationFailures(failures))
+	}
+	if len(query) == 0 {
+		return nil, nil
+	}
+	cfnQuery, err := naming.SdkToCfn(listSpec, types, resourcex.Decode(query))
+	if err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, "failed to convert List query: %v", err)
+	}
+	return cfnQuery, nil
+}
+
+// listQueryResourceSpec adapts generated List input metadata to the existing resource validation/conversion pipeline.
+func listQueryResourceSpec(spec *metadata.CloudAPIResource) *metadata.CloudAPIResource {
+	return &metadata.CloudAPIResource{
+		Inputs:            spec.ListInputs.Properties,
+		Required:          spec.ListInputs.Required,
+		IrreversibleNames: spec.ListIrreversibleNames,
+	}
+}
+
+// formatValidationFailures formats List query validation failures for the direct List RPC error.
+func formatValidationFailures(failures []resources.ValidationFailure) string {
+	reasons := make([]string, 0, len(failures))
+	for _, failure := range failures {
+		reasons = append(reasons, failure.Reason)
+	}
+	return strings.Join(reasons, "; ")
+}
+
+// listQueryHash returns a stable hash for the CloudFormation List resource model payload.
+func listQueryHash(resourceModel *string) string {
+	if resourceModel == nil {
+		return ""
+	}
+	hash := sha256.Sum256([]byte(*resourceModel))
+	return fmt.Sprintf("%x", hash[:])
+}
+
+// remainingLimitValue returns zero when there is no caller limit remaining to enforce.
+func remainingLimitValue(limit *int64) int64 {
+	if limit == nil {
+		return 0
+	}
+	return *limit
+}
+
+// effectiveCloudControlListMaxResults computes the CloudControl MaxResults value for one ListResources call.
+func effectiveCloudControlListMaxResults(pageSize, limit int64) *int32 {
+	var effective int64
+	switch {
+	case pageSize > 0 && limit > 0:
+		effective = min(pageSize, limit)
+	case pageSize > 0:
+		effective = pageSize
+	case limit > 0:
+		effective = limit
+	default:
+		return nil
+	}
+	effective = min(effective, int64(cloudControlListMaxResultsLimit))
+	maxResults := int32(effective)
+	return &maxResults
 }
 
 // Construct creates a new component resource.

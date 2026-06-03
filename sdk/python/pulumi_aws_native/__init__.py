@@ -69,6 +69,8 @@ if typing.TYPE_CHECKING:
     auditmanager = __auditmanager
     import pulumi_aws_native.autoscaling as __autoscaling
     autoscaling = __autoscaling
+    import pulumi_aws_native.awsexternalanthropic as __awsexternalanthropic
+    awsexternalanthropic = __awsexternalanthropic
     import pulumi_aws_native.b2bi as __b2bi
     b2bi = __b2bi
     import pulumi_aws_native.backup as __backup
@@ -79,6 +81,8 @@ if typing.TYPE_CHECKING:
     batch = __batch
     import pulumi_aws_native.bcmdataexports as __bcmdataexports
     bcmdataexports = __bcmdataexports
+    import pulumi_aws_native.bcmpricingcalculator as __bcmpricingcalculator
+    bcmpricingcalculator = __bcmpricingcalculator
     import pulumi_aws_native.bedrock as __bedrock
     bedrock = __bedrock
     import pulumi_aws_native.bedrockagentcore as __bedrockagentcore
@@ -87,6 +91,8 @@ if typing.TYPE_CHECKING:
     bedrockmantle = __bedrockmantle
     import pulumi_aws_native.billing as __billing
     billing = __billing
+    import pulumi_aws_native.braket as __braket
+    braket = __braket
     import pulumi_aws_native.budgets as __budgets
     budgets = __budgets
     import pulumi_aws_native.cases as __cases
@@ -415,6 +421,8 @@ if typing.TYPE_CHECKING:
     resourceexplorer2 = __resourceexplorer2
     import pulumi_aws_native.resourcegroups as __resourcegroups
     resourcegroups = __resourcegroups
+    import pulumi_aws_native.robomaker as __robomaker
+    robomaker = __robomaker
     import pulumi_aws_native.rolesanywhere as __rolesanywhere
     rolesanywhere = __rolesanywhere
     import pulumi_aws_native.route53 as __route53
@@ -437,6 +445,8 @@ if typing.TYPE_CHECKING:
     s3 = __s3
     import pulumi_aws_native.s3express as __s3express
     s3express = __s3express
+    import pulumi_aws_native.s3files as __s3files
+    s3files = __s3files
     import pulumi_aws_native.s3objectlambda as __s3objectlambda
     s3objectlambda = __s3objectlambda
     import pulumi_aws_native.s3outposts as __s3outposts
@@ -545,15 +555,18 @@ else:
     athena = _utilities.lazy_import('pulumi_aws_native.athena')
     auditmanager = _utilities.lazy_import('pulumi_aws_native.auditmanager')
     autoscaling = _utilities.lazy_import('pulumi_aws_native.autoscaling')
+    awsexternalanthropic = _utilities.lazy_import('pulumi_aws_native.awsexternalanthropic')
     b2bi = _utilities.lazy_import('pulumi_aws_native.b2bi')
     backup = _utilities.lazy_import('pulumi_aws_native.backup')
     backupgateway = _utilities.lazy_import('pulumi_aws_native.backupgateway')
     batch = _utilities.lazy_import('pulumi_aws_native.batch')
     bcmdataexports = _utilities.lazy_import('pulumi_aws_native.bcmdataexports')
+    bcmpricingcalculator = _utilities.lazy_import('pulumi_aws_native.bcmpricingcalculator')
     bedrock = _utilities.lazy_import('pulumi_aws_native.bedrock')
     bedrockagentcore = _utilities.lazy_import('pulumi_aws_native.bedrockagentcore')
     bedrockmantle = _utilities.lazy_import('pulumi_aws_native.bedrockmantle')
     billing = _utilities.lazy_import('pulumi_aws_native.billing')
+    braket = _utilities.lazy_import('pulumi_aws_native.braket')
     budgets = _utilities.lazy_import('pulumi_aws_native.budgets')
     cases = _utilities.lazy_import('pulumi_aws_native.cases')
     cassandra = _utilities.lazy_import('pulumi_aws_native.cassandra')
@@ -718,6 +731,7 @@ else:
     resiliencehub = _utilities.lazy_import('pulumi_aws_native.resiliencehub')
     resourceexplorer2 = _utilities.lazy_import('pulumi_aws_native.resourceexplorer2')
     resourcegroups = _utilities.lazy_import('pulumi_aws_native.resourcegroups')
+    robomaker = _utilities.lazy_import('pulumi_aws_native.robomaker')
     rolesanywhere = _utilities.lazy_import('pulumi_aws_native.rolesanywhere')
     route53 = _utilities.lazy_import('pulumi_aws_native.route53')
     route53globalresolver = _utilities.lazy_import('pulumi_aws_native.route53globalresolver')
@@ -729,6 +743,7 @@ else:
     rum = _utilities.lazy_import('pulumi_aws_native.rum')
     s3 = _utilities.lazy_import('pulumi_aws_native.s3')
     s3express = _utilities.lazy_import('pulumi_aws_native.s3express')
+    s3files = _utilities.lazy_import('pulumi_aws_native.s3files')
     s3objectlambda = _utilities.lazy_import('pulumi_aws_native.s3objectlambda')
     s3outposts = _utilities.lazy_import('pulumi_aws_native.s3outposts')
     s3tables = _utilities.lazy_import('pulumi_aws_native.s3tables')
@@ -967,7 +982,8 @@ _utilities.register(
    "aws-native:appstream:DirectoryConfig": "DirectoryConfig",
    "aws-native:appstream:Entitlement": "Entitlement",
    "aws-native:appstream:ImageBuilder": "ImageBuilder",
-   "aws-native:appstream:Stack": "Stack"
+   "aws-native:appstream:Stack": "Stack",
+   "aws-native:appstream:StackUserAssociation": "StackUserAssociation"
   }
  },
  {
@@ -1050,6 +1066,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "awsexternalanthropic",
+  "fqn": "pulumi_aws_native.awsexternalanthropic",
+  "classes": {
+   "aws-native:awsexternalanthropic:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "b2bi",
   "fqn": "pulumi_aws_native.b2bi",
   "classes": {
@@ -1107,6 +1131,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "bcmpricingcalculator",
+  "fqn": "pulumi_aws_native.bcmpricingcalculator",
+  "classes": {
+   "aws-native:bcmpricingcalculator:BillScenario": "BillScenario"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "bedrock",
   "fqn": "pulumi_aws_native.bedrock",
   "classes": {
@@ -1116,8 +1148,10 @@ _utilities.register(
    "aws-native:bedrock:AutomatedReasoningPolicy": "AutomatedReasoningPolicy",
    "aws-native:bedrock:AutomatedReasoningPolicyVersion": "AutomatedReasoningPolicyVersion",
    "aws-native:bedrock:Blueprint": "Blueprint",
+   "aws-native:bedrock:DataAutomationLibrary": "DataAutomationLibrary",
    "aws-native:bedrock:DataAutomationProject": "DataAutomationProject",
    "aws-native:bedrock:DataSource": "DataSource",
+   "aws-native:bedrock:EnforcedGuardrailConfiguration": "EnforcedGuardrailConfiguration",
    "aws-native:bedrock:Flow": "Flow",
    "aws-native:bedrock:FlowAlias": "FlowAlias",
    "aws-native:bedrock:FlowVersion": "FlowVersion",
@@ -1126,7 +1160,8 @@ _utilities.register(
    "aws-native:bedrock:IntelligentPromptRouter": "IntelligentPromptRouter",
    "aws-native:bedrock:KnowledgeBase": "KnowledgeBase",
    "aws-native:bedrock:Prompt": "Prompt",
-   "aws-native:bedrock:PromptVersion": "PromptVersion"
+   "aws-native:bedrock:PromptVersion": "PromptVersion",
+   "aws-native:bedrock:ResourcePolicy": "ResourcePolicy"
   }
  },
  {
@@ -1138,12 +1173,15 @@ _utilities.register(
    "aws-native:bedrockagentcore:BrowserCustom": "BrowserCustom",
    "aws-native:bedrockagentcore:BrowserProfile": "BrowserProfile",
    "aws-native:bedrockagentcore:CodeInterpreterCustom": "CodeInterpreterCustom",
+   "aws-native:bedrockagentcore:Dataset": "Dataset",
    "aws-native:bedrockagentcore:Evaluator": "Evaluator",
    "aws-native:bedrockagentcore:Gateway": "Gateway",
    "aws-native:bedrockagentcore:GatewayTarget": "GatewayTarget",
+   "aws-native:bedrockagentcore:Harness": "Harness",
    "aws-native:bedrockagentcore:Memory": "Memory",
    "aws-native:bedrockagentcore:OAuth2CredentialProvider": "OAuth2CredentialProvider",
    "aws-native:bedrockagentcore:OnlineEvaluationConfig": "OnlineEvaluationConfig",
+   "aws-native:bedrockagentcore:PaymentCredentialProvider": "PaymentCredentialProvider",
    "aws-native:bedrockagentcore:Policy": "Policy",
    "aws-native:bedrockagentcore:PolicyEngine": "PolicyEngine",
    "aws-native:bedrockagentcore:Runtime": "Runtime",
@@ -1165,6 +1203,14 @@ _utilities.register(
   "fqn": "pulumi_aws_native.billing",
   "classes": {
    "aws-native:billing:BillingView": "BillingView"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "braket",
+  "fqn": "pulumi_aws_native.braket",
+  "classes": {
+   "aws-native:braket:SpendingLimit": "SpendingLimit"
   }
  },
  {
@@ -1318,7 +1364,8 @@ _utilities.register(
    "aws-native:cloudwatch:AlarmMuteRule": "AlarmMuteRule",
    "aws-native:cloudwatch:CompositeAlarm": "CompositeAlarm",
    "aws-native:cloudwatch:Dashboard": "Dashboard",
-   "aws-native:cloudwatch:MetricStream": "MetricStream"
+   "aws-native:cloudwatch:MetricStream": "MetricStream",
+   "aws-native:cloudwatch:OTelEnrichment": "OTelEnrichment"
   }
  },
  {
@@ -1451,6 +1498,7 @@ _utilities.register(
    "aws-native:configuration:ConfigurationAggregator": "ConfigurationAggregator",
    "aws-native:configuration:ConformancePack": "ConformancePack",
    "aws-native:configuration:OrganizationConformancePack": "OrganizationConformancePack",
+   "aws-native:configuration:RemediationConfiguration": "RemediationConfiguration",
    "aws-native:configuration:StoredQuery": "StoredQuery"
   }
  },
@@ -1528,6 +1576,7 @@ _utilities.register(
   "classes": {
    "aws-native:customerprofiles:CalculatedAttributeDefinition": "CalculatedAttributeDefinition",
    "aws-native:customerprofiles:Domain": "Domain",
+   "aws-native:customerprofiles:DomainObjectType": "DomainObjectType",
    "aws-native:customerprofiles:EventStream": "EventStream",
    "aws-native:customerprofiles:EventTrigger": "EventTrigger",
    "aws-native:customerprofiles:Integration": "Integration",
@@ -1658,6 +1707,7 @@ _utilities.register(
   "classes": {
    "aws-native:devopsagent:AgentSpace": "AgentSpace",
    "aws-native:devopsagent:Association": "Association",
+   "aws-native:devopsagent:PrivateConnection": "PrivateConnection",
    "aws-native:devopsagent:Service": "Service"
   }
  },
@@ -1913,6 +1963,7 @@ _utilities.register(
   "mod": "elasticache",
   "fqn": "pulumi_aws_native.elasticache",
   "classes": {
+   "aws-native:elasticache:CacheCluster": "CacheCluster",
    "aws-native:elasticache:GlobalReplicationGroup": "GlobalReplicationGroup",
    "aws-native:elasticache:ParameterGroup": "ParameterGroup",
    "aws-native:elasticache:ReplicationGroup": "ReplicationGroup",
@@ -2818,6 +2869,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.neptunegraph",
   "classes": {
    "aws-native:neptunegraph:Graph": "Graph",
+   "aws-native:neptunegraph:GraphSnapshot": "GraphSnapshot",
    "aws-native:neptunegraph:PrivateGraphEndpoint": "PrivateGraphEndpoint"
   }
  },
@@ -2925,6 +2977,7 @@ _utilities.register(
    "aws-native:opensearchserverless:AccessPolicy": "AccessPolicy",
    "aws-native:opensearchserverless:Collection": "Collection",
    "aws-native:opensearchserverless:CollectionGroup": "CollectionGroup",
+   "aws-native:opensearchserverless:CollectionIndex": "CollectionIndex",
    "aws-native:opensearchserverless:Index": "Index",
    "aws-native:opensearchserverless:LifecyclePolicy": "LifecyclePolicy",
    "aws-native:opensearchserverless:SecurityConfig": "SecurityConfig",
@@ -3212,6 +3265,19 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "robomaker",
+  "fqn": "pulumi_aws_native.robomaker",
+  "classes": {
+   "aws-native:robomaker:Fleet": "Fleet",
+   "aws-native:robomaker:Robot": "Robot",
+   "aws-native:robomaker:RobotApplication": "RobotApplication",
+   "aws-native:robomaker:RobotApplicationVersion": "RobotApplicationVersion",
+   "aws-native:robomaker:SimulationApplication": "SimulationApplication",
+   "aws-native:robomaker:SimulationApplicationVersion": "SimulationApplicationVersion"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "rolesanywhere",
   "fqn": "pulumi_aws_native.rolesanywhere",
   "classes": {
@@ -3341,6 +3407,17 @@ _utilities.register(
    "aws-native:s3express:AccessPoint": "AccessPoint",
    "aws-native:s3express:BucketPolicy": "BucketPolicy",
    "aws-native:s3express:DirectoryBucket": "DirectoryBucket"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "s3files",
+  "fqn": "pulumi_aws_native.s3files",
+  "classes": {
+   "aws-native:s3files:AccessPoint": "AccessPoint",
+   "aws-native:s3files:FileSystem": "FileSystem",
+   "aws-native:s3files:FileSystemPolicy": "FileSystemPolicy",
+   "aws-native:s3files:MountTarget": "MountTarget"
   }
  },
  {
@@ -3752,6 +3829,7 @@ _utilities.register(
    "aws-native:verifiedpermissions:IdentitySource": "IdentitySource",
    "aws-native:verifiedpermissions:Policy": "Policy",
    "aws-native:verifiedpermissions:PolicyStore": "PolicyStore",
+   "aws-native:verifiedpermissions:PolicyStoreAlias": "PolicyStoreAlias",
    "aws-native:verifiedpermissions:PolicyTemplate": "PolicyTemplate"
   }
  },

@@ -43,7 +43,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "servicecatalog:AssociateResource", "cloudformation:DescribeStacks" ]
+      "permissions" : [ "servicecatalog:AssociateResource", "servicecatalog:ListAssociatedResources", "cloudformation:DescribeStacks" ]
     },
     "read" : {
       "permissions" : [ "servicecatalog:ListAssociatedResources" ]

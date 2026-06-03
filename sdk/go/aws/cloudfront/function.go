@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -40,6 +41,8 @@ type Function struct {
 	// A name to identify the function.
 	Name  pulumi.StringOutput `pulumi:"name"`
 	Stage pulumi.StringOutput `pulumi:"stage"`
+	// A complex type that contains zero or more ``Tag`` elements.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewFunction registers a new resource with the given unique name, arguments, and options.
@@ -102,6 +105,8 @@ type functionArgs struct {
 	FunctionMetadata *FunctionMetadata `pulumi:"functionMetadata"`
 	// A name to identify the function.
 	Name *string `pulumi:"name"`
+	// A complex type that contains zero or more ``Tag`` elements.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Function resource.
@@ -116,6 +121,8 @@ type FunctionArgs struct {
 	FunctionMetadata FunctionMetadataPtrInput
 	// A name to identify the function.
 	Name pulumi.StringPtrInput
+	// A complex type that contains zero or more ``Tag`` elements.
+	Tags aws.TagArrayInput
 }
 
 func (FunctionArgs) ElementType() reflect.Type {
@@ -193,6 +200,11 @@ func (o FunctionOutput) Name() pulumi.StringOutput {
 
 func (o FunctionOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Stage }).(pulumi.StringOutput)
+}
+
+// A complex type that contains zero or more “Tag“ elements.
+func (o FunctionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Function) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

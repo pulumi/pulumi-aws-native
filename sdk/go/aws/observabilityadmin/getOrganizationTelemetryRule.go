@@ -29,6 +29,8 @@ type LookupOrganizationTelemetryRuleArgs struct {
 }
 
 type LookupOrganizationTelemetryRuleResult struct {
+	// Per-region replication status of the rule
+	RegionStatuses []OrganizationTelemetryRuleRegionStatus `pulumi:"regionStatuses"`
 	// The name of the organization telemetry rule.
 	Rule *OrganizationTelemetryRuleTelemetryRule `pulumi:"rule"`
 	// The arn of the organization telemetry rule
@@ -67,6 +69,13 @@ func (o LookupOrganizationTelemetryRuleResultOutput) ToLookupOrganizationTelemet
 
 func (o LookupOrganizationTelemetryRuleResultOutput) ToLookupOrganizationTelemetryRuleResultOutputWithContext(ctx context.Context) LookupOrganizationTelemetryRuleResultOutput {
 	return o
+}
+
+// Per-region replication status of the rule
+func (o LookupOrganizationTelemetryRuleResultOutput) RegionStatuses() OrganizationTelemetryRuleRegionStatusArrayOutput {
+	return o.ApplyT(func(v LookupOrganizationTelemetryRuleResult) []OrganizationTelemetryRuleRegionStatus {
+		return v.RegionStatuses
+	}).(OrganizationTelemetryRuleRegionStatusArrayOutput)
 }
 
 // The name of the organization telemetry rule.

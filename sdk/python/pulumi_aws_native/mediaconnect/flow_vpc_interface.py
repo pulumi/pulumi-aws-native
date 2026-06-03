@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['FlowVpcInterfaceInitArgs', 'FlowVpcInterface']
 
@@ -23,7 +25,8 @@ class FlowVpcInterfaceInitArgs:
                  role_arn: pulumi.Input[_builtins.str],
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  subnet_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FlowVpcInterface resource.
 
@@ -32,6 +35,7 @@ class FlowVpcInterfaceInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Security Group IDs to be used on ENI.
         :param pulumi.Input[_builtins.str] subnet_id: Subnet must be in the AZ of the Flow
         :param pulumi.Input[_builtins.str] name: Immutable and has to be a unique against other VpcInterfaces in this Flow.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to tag and organize this VPC network interface.
         """
         pulumi.set(__self__, "flow_arn", flow_arn)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -39,6 +43,8 @@ class FlowVpcInterfaceInitArgs:
         pulumi.set(__self__, "subnet_id", subnet_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="flowArn")
@@ -100,6 +106,18 @@ class FlowVpcInterfaceInitArgs:
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Key-value pairs that can be used to tag and organize this VPC network interface.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:mediaconnect:FlowVpcInterface")
 class FlowVpcInterface(pulumi.CustomResource):
@@ -112,6 +130,7 @@ class FlowVpcInterface(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaConnect::FlowVpcInterface
@@ -124,6 +143,7 @@ class FlowVpcInterface(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] role_arn: Role Arn MediaConnect can assume to create ENIs in customer's account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Security Group IDs to be used on ENI.
         :param pulumi.Input[_builtins.str] subnet_id: Subnet must be in the AZ of the Flow
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to tag and organize this VPC network interface.
         """
         ...
     @overload
@@ -155,6 +175,7 @@ class FlowVpcInterface(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -177,6 +198,7 @@ class FlowVpcInterface(pulumi.CustomResource):
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["network_interface_ids"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["flowArn", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -208,6 +230,7 @@ class FlowVpcInterface(pulumi.CustomResource):
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["subnet_id"] = None
+        __props__.__dict__["tags"] = None
         return FlowVpcInterface(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -257,4 +280,12 @@ class FlowVpcInterface(pulumi.CustomResource):
         Subnet must be in the AZ of the Flow
         """
         return pulumi.get(self, "subnet_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Key-value pairs that can be used to tag and organize this VPC network interface.
+        """
+        return pulumi.get(self, "tags")
 

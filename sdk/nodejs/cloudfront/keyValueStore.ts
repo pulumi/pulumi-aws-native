@@ -46,7 +46,7 @@ export class KeyValueStore extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
-     * A comment for the key value store.
+     * A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
     /**
@@ -61,6 +61,9 @@ export class KeyValueStore extends pulumi.CustomResource {
      * The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
+    /**
+     * A complex type that contains zero or more ``Tag`` elements.
+     */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -102,7 +105,7 @@ export class KeyValueStore extends pulumi.CustomResource {
  */
 export interface KeyValueStoreArgs {
     /**
-     * A comment for the key value store.
+     * A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
      */
     comment?: pulumi.Input<string>;
     /**
@@ -113,5 +116,8 @@ export interface KeyValueStoreArgs {
      * The name of the key value store.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A complex type that contains zero or more ``Tag`` elements.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

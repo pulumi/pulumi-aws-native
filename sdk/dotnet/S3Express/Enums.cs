@@ -104,6 +104,135 @@ namespace Pulumi.AwsNative.S3Express
     }
 
     /// <summary>
+    /// Specifies the file format used when exporting data to Amazon S3.
+    /// </summary>
+    [EnumType]
+    public readonly struct DirectoryBucketDestinationFormat : IEquatable<DirectoryBucketDestinationFormat>
+    {
+        private readonly string _value;
+
+        private DirectoryBucketDestinationFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DirectoryBucketDestinationFormat Csv { get; } = new DirectoryBucketDestinationFormat("CSV");
+        public static DirectoryBucketDestinationFormat Orc { get; } = new DirectoryBucketDestinationFormat("ORC");
+        public static DirectoryBucketDestinationFormat Parquet { get; } = new DirectoryBucketDestinationFormat("Parquet");
+
+        public static bool operator ==(DirectoryBucketDestinationFormat left, DirectoryBucketDestinationFormat right) => left.Equals(right);
+        public static bool operator !=(DirectoryBucketDestinationFormat left, DirectoryBucketDestinationFormat right) => !left.Equals(right);
+
+        public static explicit operator string(DirectoryBucketDestinationFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DirectoryBucketDestinationFormat other && Equals(other);
+        public bool Equals(DirectoryBucketDestinationFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Object versions to include in the inventory list.
+    /// </summary>
+    [EnumType]
+    public readonly struct DirectoryBucketInventoryConfigurationIncludedObjectVersions : IEquatable<DirectoryBucketInventoryConfigurationIncludedObjectVersions>
+    {
+        private readonly string _value;
+
+        private DirectoryBucketInventoryConfigurationIncludedObjectVersions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DirectoryBucketInventoryConfigurationIncludedObjectVersions All { get; } = new DirectoryBucketInventoryConfigurationIncludedObjectVersions("All");
+        public static DirectoryBucketInventoryConfigurationIncludedObjectVersions Current { get; } = new DirectoryBucketInventoryConfigurationIncludedObjectVersions("Current");
+
+        public static bool operator ==(DirectoryBucketInventoryConfigurationIncludedObjectVersions left, DirectoryBucketInventoryConfigurationIncludedObjectVersions right) => left.Equals(right);
+        public static bool operator !=(DirectoryBucketInventoryConfigurationIncludedObjectVersions left, DirectoryBucketInventoryConfigurationIncludedObjectVersions right) => !left.Equals(right);
+
+        public static explicit operator string(DirectoryBucketInventoryConfigurationIncludedObjectVersions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DirectoryBucketInventoryConfigurationIncludedObjectVersions other && Equals(other);
+        public bool Equals(DirectoryBucketInventoryConfigurationIncludedObjectVersions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DirectoryBucketInventoryConfigurationOptionalFieldsItem : IEquatable<DirectoryBucketInventoryConfigurationOptionalFieldsItem>
+    {
+        private readonly string _value;
+
+        private DirectoryBucketInventoryConfigurationOptionalFieldsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DirectoryBucketInventoryConfigurationOptionalFieldsItem Size { get; } = new DirectoryBucketInventoryConfigurationOptionalFieldsItem("Size");
+        public static DirectoryBucketInventoryConfigurationOptionalFieldsItem LastModifiedDate { get; } = new DirectoryBucketInventoryConfigurationOptionalFieldsItem("LastModifiedDate");
+        public static DirectoryBucketInventoryConfigurationOptionalFieldsItem StorageClass { get; } = new DirectoryBucketInventoryConfigurationOptionalFieldsItem("StorageClass");
+        public static DirectoryBucketInventoryConfigurationOptionalFieldsItem ETag { get; } = new DirectoryBucketInventoryConfigurationOptionalFieldsItem("ETag");
+        public static DirectoryBucketInventoryConfigurationOptionalFieldsItem IsMultipartUploaded { get; } = new DirectoryBucketInventoryConfigurationOptionalFieldsItem("IsMultipartUploaded");
+        public static DirectoryBucketInventoryConfigurationOptionalFieldsItem EncryptionStatus { get; } = new DirectoryBucketInventoryConfigurationOptionalFieldsItem("EncryptionStatus");
+        public static DirectoryBucketInventoryConfigurationOptionalFieldsItem BucketKeyStatus { get; } = new DirectoryBucketInventoryConfigurationOptionalFieldsItem("BucketKeyStatus");
+        public static DirectoryBucketInventoryConfigurationOptionalFieldsItem ChecksumAlgorithm { get; } = new DirectoryBucketInventoryConfigurationOptionalFieldsItem("ChecksumAlgorithm");
+        public static DirectoryBucketInventoryConfigurationOptionalFieldsItem LifecycleExpirationDate { get; } = new DirectoryBucketInventoryConfigurationOptionalFieldsItem("LifecycleExpirationDate");
+
+        public static bool operator ==(DirectoryBucketInventoryConfigurationOptionalFieldsItem left, DirectoryBucketInventoryConfigurationOptionalFieldsItem right) => left.Equals(right);
+        public static bool operator !=(DirectoryBucketInventoryConfigurationOptionalFieldsItem left, DirectoryBucketInventoryConfigurationOptionalFieldsItem right) => !left.Equals(right);
+
+        public static explicit operator string(DirectoryBucketInventoryConfigurationOptionalFieldsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DirectoryBucketInventoryConfigurationOptionalFieldsItem other && Equals(other);
+        public bool Equals(DirectoryBucketInventoryConfigurationOptionalFieldsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the schedule for generating inventory results.
+    /// </summary>
+    [EnumType]
+    public readonly struct DirectoryBucketInventoryConfigurationScheduleFrequency : IEquatable<DirectoryBucketInventoryConfigurationScheduleFrequency>
+    {
+        private readonly string _value;
+
+        private DirectoryBucketInventoryConfigurationScheduleFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DirectoryBucketInventoryConfigurationScheduleFrequency Daily { get; } = new DirectoryBucketInventoryConfigurationScheduleFrequency("Daily");
+        public static DirectoryBucketInventoryConfigurationScheduleFrequency Weekly { get; } = new DirectoryBucketInventoryConfigurationScheduleFrequency("Weekly");
+
+        public static bool operator ==(DirectoryBucketInventoryConfigurationScheduleFrequency left, DirectoryBucketInventoryConfigurationScheduleFrequency right) => left.Equals(right);
+        public static bool operator !=(DirectoryBucketInventoryConfigurationScheduleFrequency left, DirectoryBucketInventoryConfigurationScheduleFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(DirectoryBucketInventoryConfigurationScheduleFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DirectoryBucketInventoryConfigurationScheduleFrequency other && Equals(other);
+        public bool Equals(DirectoryBucketInventoryConfigurationScheduleFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
     /// </summary>
     [EnumType]

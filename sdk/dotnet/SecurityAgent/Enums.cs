@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.SecurityAgent
 {
+    /// <summary>
+    /// Type of authentication provider
+    /// </summary>
     [EnumType]
     public readonly struct PentestAuthenticationProviderType : IEquatable<PentestAuthenticationProviderType>
     {
@@ -37,6 +40,9 @@ namespace Pulumi.AwsNative.SecurityAgent
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Strategy for remediating code vulnerabilities discovered during the pentest
+    /// </summary>
     [EnumType]
     public readonly struct PentestCodeRemediationStrategy : IEquatable<PentestCodeRemediationStrategy>
     {
@@ -65,6 +71,9 @@ namespace Pulumi.AwsNative.SecurityAgent
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Whether to allow or deny traffic matching this rule
+    /// </summary>
     [EnumType]
     public readonly struct PentestNetworkTrafficRuleEffect : IEquatable<PentestNetworkTrafficRuleEffect>
     {
@@ -93,6 +102,9 @@ namespace Pulumi.AwsNative.SecurityAgent
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Type of pattern matching for this rule
+    /// </summary>
     [EnumType]
     public readonly struct PentestNetworkTrafficRuleNetworkTrafficRuleType : IEquatable<PentestNetworkTrafficRuleNetworkTrafficRuleType>
     {
@@ -120,6 +132,9 @@ namespace Pulumi.AwsNative.SecurityAgent
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Type of security risk to test for
+    /// </summary>
     [EnumType]
     public readonly struct PentestRiskType : IEquatable<PentestRiskType>
     {
@@ -219,6 +234,7 @@ namespace Pulumi.AwsNative.SecurityAgent
 
         public static TargetDomainVerificationDetailsMethod DnsTxt { get; } = new TargetDomainVerificationDetailsMethod("DNS_TXT");
         public static TargetDomainVerificationDetailsMethod HttpRoute { get; } = new TargetDomainVerificationDetailsMethod("HTTP_ROUTE");
+        public static TargetDomainVerificationDetailsMethod PrivateVpc { get; } = new TargetDomainVerificationDetailsMethod("PRIVATE_VPC");
 
         public static bool operator ==(TargetDomainVerificationDetailsMethod left, TargetDomainVerificationDetailsMethod right) => left.Equals(right);
         public static bool operator !=(TargetDomainVerificationDetailsMethod left, TargetDomainVerificationDetailsMethod right) => !left.Equals(right);
@@ -250,6 +266,7 @@ namespace Pulumi.AwsNative.SecurityAgent
 
         public static TargetDomainVerificationMethod DnsTxt { get; } = new TargetDomainVerificationMethod("DNS_TXT");
         public static TargetDomainVerificationMethod HttpRoute { get; } = new TargetDomainVerificationMethod("HTTP_ROUTE");
+        public static TargetDomainVerificationMethod PrivateVpc { get; } = new TargetDomainVerificationMethod("PRIVATE_VPC");
 
         public static bool operator ==(TargetDomainVerificationMethod left, TargetDomainVerificationMethod right) => left.Equals(right);
         public static bool operator !=(TargetDomainVerificationMethod left, TargetDomainVerificationMethod right) => !left.Equals(right);

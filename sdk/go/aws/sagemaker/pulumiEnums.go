@@ -3136,6 +3136,8 @@ const (
 	DomainAppInstanceTypeMlR6id16xlarge          = DomainAppInstanceType("ml.r6id.16xlarge")
 	DomainAppInstanceTypeMlR6id24xlarge          = DomainAppInstanceType("ml.r6id.24xlarge")
 	DomainAppInstanceTypeMlR6id32xlarge          = DomainAppInstanceType("ml.r6id.32xlarge")
+	DomainAppInstanceTypeMlP54xlarge             = DomainAppInstanceType("ml.p5.4xlarge")
+	DomainAppInstanceTypeMlP6b20048xlarge        = DomainAppInstanceType("ml.p6-b200.48xlarge")
 )
 
 func (DomainAppInstanceType) ElementType() reflect.Type {
@@ -3423,6 +3425,8 @@ func (o DomainAppInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 //	DomainAppInstanceTypeMlR6id16xlarge
 //	DomainAppInstanceTypeMlR6id24xlarge
 //	DomainAppInstanceTypeMlR6id32xlarge
+//	DomainAppInstanceTypeMlP54xlarge
+//	DomainAppInstanceTypeMlP6b20048xlarge
 type DomainAppInstanceTypeInput interface {
 	pulumi.Input
 
@@ -20976,6 +20980,8 @@ const (
 	SpaceResourceSpecInstanceTypeMlR6id16xlarge          = SpaceResourceSpecInstanceType("ml.r6id.16xlarge")
 	SpaceResourceSpecInstanceTypeMlR6id24xlarge          = SpaceResourceSpecInstanceType("ml.r6id.24xlarge")
 	SpaceResourceSpecInstanceTypeMlR6id32xlarge          = SpaceResourceSpecInstanceType("ml.r6id.32xlarge")
+	SpaceResourceSpecInstanceTypeMlP54xlarge             = SpaceResourceSpecInstanceType("ml.p5.4xlarge")
+	SpaceResourceSpecInstanceTypeMlP6b20048xlarge        = SpaceResourceSpecInstanceType("ml.p6-b200.48xlarge")
 )
 
 func (SpaceResourceSpecInstanceType) ElementType() reflect.Type {
@@ -21263,6 +21269,8 @@ func (o SpaceResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx
 //	SpaceResourceSpecInstanceTypeMlR6id16xlarge
 //	SpaceResourceSpecInstanceTypeMlR6id24xlarge
 //	SpaceResourceSpecInstanceTypeMlR6id32xlarge
+//	SpaceResourceSpecInstanceTypeMlP54xlarge
+//	SpaceResourceSpecInstanceTypeMlP6b20048xlarge
 type SpaceResourceSpecInstanceTypeInput interface {
 	pulumi.Input
 

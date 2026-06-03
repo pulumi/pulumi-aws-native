@@ -29,7 +29,8 @@ type Domain struct {
 	// Container for parameters required to enable all machine learning features.
 	AimlOptions DomainAimlOptionsPtrOutput `pulumi:"aimlOptions"`
 	// The Amazon Resource Name (ARN) of the CloudFormation stack.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn                           pulumi.StringOutput                          `pulumi:"arn"`
+	AutomatedSnapshotPauseOptions DomainAutomatedSnapshotPauseOptionsPtrOutput `pulumi:"automatedSnapshotPauseOptions"`
 	// The resource ID. For example, `123456789012/my-domain` .
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Container for the cluster configuration of a domain.
@@ -141,7 +142,8 @@ type domainArgs struct {
 	// If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
 	AdvancedSecurityOptions *DomainAdvancedSecurityOptionsInput `pulumi:"advancedSecurityOptions"`
 	// Container for parameters required to enable all machine learning features.
-	AimlOptions *DomainAimlOptions `pulumi:"aimlOptions"`
+	AimlOptions                   *DomainAimlOptions                   `pulumi:"aimlOptions"`
+	AutomatedSnapshotPauseOptions *DomainAutomatedSnapshotPauseOptions `pulumi:"automatedSnapshotPauseOptions"`
 	// Container for the cluster configuration of a domain.
 	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
 	// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
@@ -201,7 +203,8 @@ type DomainArgs struct {
 	// If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsInputPtrInput
 	// Container for parameters required to enable all machine learning features.
-	AimlOptions DomainAimlOptionsPtrInput
+	AimlOptions                   DomainAimlOptionsPtrInput
+	AutomatedSnapshotPauseOptions DomainAutomatedSnapshotPauseOptionsPtrInput
 	// Container for the cluster configuration of a domain.
 	ClusterConfig DomainClusterConfigPtrInput
 	// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
@@ -312,6 +315,10 @@ func (o DomainOutput) AimlOptions() DomainAimlOptionsPtrOutput {
 // The Amazon Resource Name (ARN) of the CloudFormation stack.
 func (o DomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) AutomatedSnapshotPauseOptions() DomainAutomatedSnapshotPauseOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainAutomatedSnapshotPauseOptionsPtrOutput { return v.AutomatedSnapshotPauseOptions }).(DomainAutomatedSnapshotPauseOptionsPtrOutput)
 }
 
 // The resource ID. For example, `123456789012/my-domain` .

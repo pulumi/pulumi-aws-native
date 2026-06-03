@@ -19,6 +19,7 @@ __all__ = [
     'DomainVersion',
     'EnvironmentStatus',
     'FormTypeStatus',
+    'GroupProfileGroupType',
     'GroupProfileStatus',
     'OwnerEntityType',
     'OwnerType',
@@ -31,6 +32,7 @@ __all__ = [
     'ProjectProfileDeploymentMode',
     'ProjectProfileStatus',
     'ProjectStatus',
+    'ProjectUserDesignation',
     'UserProfileStatus',
     'UserProfileType',
     'UserProfileUserType',
@@ -168,6 +170,15 @@ class FormTypeStatus(_builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:datazone:GroupProfileGroupType")
+class GroupProfileGroupType(_builtins.str, Enum):
+    """
+    The type of the group.
+    """
+    DATAZONE_SSO_GROUP = "DATAZONE_SSO_GROUP"
+    IAM_ROLE_SESSION_GROUP = "IAM_ROLE_SESSION_GROUP"
+
+
 @pulumi.type_token("aws-native:datazone:GroupProfileStatus")
 class GroupProfileStatus(_builtins.str, Enum):
     """
@@ -268,6 +279,12 @@ class ProjectStatus(_builtins.str, Enum):
     UPDATE_FAILED = "UPDATE_FAILED"
 
 
+@pulumi.type_token("aws-native:datazone:ProjectUserDesignation")
+class ProjectUserDesignation(_builtins.str, Enum):
+    PROJECT_OWNER = "PROJECT_OWNER"
+    PROJECT_CONTRIBUTOR = "PROJECT_CONTRIBUTOR"
+
+
 @pulumi.type_token("aws-native:datazone:UserProfileStatus")
 class UserProfileStatus(_builtins.str, Enum):
     """
@@ -296,3 +313,4 @@ class UserProfileUserType(_builtins.str, Enum):
     IAM_USER = "IAM_USER"
     IAM_ROLE = "IAM_ROLE"
     SSO_USER = "SSO_USER"
+    IAM_ROLE_SESSION = "IAM_ROLE_SESSION"

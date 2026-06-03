@@ -139,8 +139,9 @@ class OrganizationTelemetryRule(pulumi.CustomResource):
             __props__.__dict__["rule"] = rule
             __props__.__dict__["rule_name"] = rule_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["region_statuses"] = None
             __props__.__dict__["rule_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ruleName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["rule.allRegions", "ruleName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(OrganizationTelemetryRule, __self__).__init__(
             'aws-native:observabilityadmin:OrganizationTelemetryRule',
@@ -164,11 +165,20 @@ class OrganizationTelemetryRule(pulumi.CustomResource):
 
         __props__ = OrganizationTelemetryRuleArgs.__new__(OrganizationTelemetryRuleArgs)
 
+        __props__.__dict__["region_statuses"] = None
         __props__.__dict__["rule"] = None
         __props__.__dict__["rule_arn"] = None
         __props__.__dict__["rule_name"] = None
         __props__.__dict__["tags"] = None
         return OrganizationTelemetryRule(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="regionStatuses")
+    def region_statuses(self) -> pulumi.Output[Sequence['outputs.OrganizationTelemetryRuleRegionStatus']]:
+        """
+        Per-region replication status of the rule
+        """
+        return pulumi.get(self, "region_statuses")
 
     @_builtins.property
     @pulumi.getter

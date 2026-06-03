@@ -5132,9 +5132,9 @@ func (o FunctionEphemeralStoragePtrOutput) Size() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 type FunctionFileSystemConfig struct {
-	// The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
+	// The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
 	Arn string `pulumi:"arn"`
 	// The path where the function can access the file system, starting with ``/mnt/``.
 	LocalMountPath string `pulumi:"localMountPath"`
@@ -5151,9 +5151,9 @@ type FunctionFileSystemConfigInput interface {
 	ToFunctionFileSystemConfigOutputWithContext(context.Context) FunctionFileSystemConfigOutput
 }
 
-// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 type FunctionFileSystemConfigArgs struct {
-	// The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
+	// The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The path where the function can access the file system, starting with ``/mnt/``.
 	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
@@ -5196,7 +5196,7 @@ func (i FunctionFileSystemConfigArray) ToFunctionFileSystemConfigArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigArrayOutput)
 }
 
-// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 type FunctionFileSystemConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionFileSystemConfigOutput) ElementType() reflect.Type {
@@ -5211,7 +5211,7 @@ func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigOutputWithCont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
+// The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
 func (o FunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.Arn }).(pulumi.StringOutput)
 }

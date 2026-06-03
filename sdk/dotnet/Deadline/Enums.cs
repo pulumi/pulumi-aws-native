@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.Deadline
         public static FleetAcceleratorSelectionName A10g { get; } = new FleetAcceleratorSelectionName("a10g");
         public static FleetAcceleratorSelectionName L4 { get; } = new FleetAcceleratorSelectionName("l4");
         public static FleetAcceleratorSelectionName L40s { get; } = new FleetAcceleratorSelectionName("l40s");
+        public static FleetAcceleratorSelectionName RtxProServer6000 { get; } = new FleetAcceleratorSelectionName("rtx-pro-server-6000");
 
         public static bool operator ==(FleetAcceleratorSelectionName left, FleetAcceleratorSelectionName right) => left.Equals(right);
         public static bool operator !=(FleetAcceleratorSelectionName left, FleetAcceleratorSelectionName right) => !left.Equals(right);

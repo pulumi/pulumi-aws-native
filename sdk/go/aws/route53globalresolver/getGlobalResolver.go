@@ -28,19 +28,21 @@ type LookupGlobalResolverArgs struct {
 }
 
 type LookupGlobalResolverResult struct {
-	Arn                 *string                         `pulumi:"arn"`
-	CreatedAt           *string                         `pulumi:"createdAt"`
-	Description         *string                         `pulumi:"description"`
-	DnsName             *string                         `pulumi:"dnsName"`
-	GlobalResolverId    *string                         `pulumi:"globalResolverId"`
-	IPv4Addresses       []string                        `pulumi:"iPv4Addresses"`
-	IPv6Addresses       []string                        `pulumi:"iPv6Addresses"`
-	IpAddressType       *GlobalResolverIpAddressType    `pulumi:"ipAddressType"`
-	Name                *string                         `pulumi:"name"`
-	ObservabilityRegion *string                         `pulumi:"observabilityRegion"`
-	Status              *GlobalResolverCrResourceStatus `pulumi:"status"`
-	Tags                []aws.Tag                       `pulumi:"tags"`
-	UpdatedAt           *string                         `pulumi:"updatedAt"`
+	Arn                 *string                      `pulumi:"arn"`
+	CreatedAt           *string                      `pulumi:"createdAt"`
+	Description         *string                      `pulumi:"description"`
+	DnsName             *string                      `pulumi:"dnsName"`
+	GlobalResolverId    *string                      `pulumi:"globalResolverId"`
+	IPv4Addresses       []string                     `pulumi:"iPv4Addresses"`
+	IPv6Addresses       []string                     `pulumi:"iPv6Addresses"`
+	IpAddressType       *GlobalResolverIpAddressType `pulumi:"ipAddressType"`
+	Name                *string                      `pulumi:"name"`
+	ObservabilityRegion *string                      `pulumi:"observabilityRegion"`
+	// A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+	Regions   []string                        `pulumi:"regions"`
+	Status    *GlobalResolverCrResourceStatus `pulumi:"status"`
+	Tags      []aws.Tag                       `pulumi:"tags"`
+	UpdatedAt *string                         `pulumi:"updatedAt"`
 }
 
 func LookupGlobalResolverOutput(ctx *pulumi.Context, args LookupGlobalResolverOutputArgs, opts ...pulumi.InvokeOption) LookupGlobalResolverResultOutput {
@@ -112,6 +114,11 @@ func (o LookupGlobalResolverResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupGlobalResolverResultOutput) ObservabilityRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalResolverResult) *string { return v.ObservabilityRegion }).(pulumi.StringPtrOutput)
+}
+
+// A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+func (o LookupGlobalResolverResultOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupGlobalResolverResult) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupGlobalResolverResultOutput) Status() GlobalResolverCrResourceStatusPtrOutput {

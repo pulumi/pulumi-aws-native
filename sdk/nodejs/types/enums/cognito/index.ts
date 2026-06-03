@@ -72,3 +72,10 @@ export const UserPoolTier = {
  * The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
  */
 export type UserPoolTier = (typeof UserPoolTier)[keyof typeof UserPoolTier];
+
+export const UserPoolWebAuthnFactorConfiguration = {
+    SingleFactor: "SINGLE_FACTOR",
+    MultiFactorWithUserVerification: "MULTI_FACTOR_WITH_USER_VERIFICATION",
+} as const;
+
+export type UserPoolWebAuthnFactorConfiguration = (typeof UserPoolWebAuthnFactorConfiguration)[keyof typeof UserPoolWebAuthnFactorConfiguration];

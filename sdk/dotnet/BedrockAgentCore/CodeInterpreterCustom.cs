@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     public partial class CodeInterpreterCustom : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// List of root CA certificates in PEM format.
+        /// </summary>
+        [Output("certificates")]
+        public Output<ImmutableArray<Outputs.CodeInterpreterCustomCertificate>> Certificates { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of a CodeInterpreter resource.
         /// </summary>
         [Output("codeInterpreterArn")]
@@ -106,6 +112,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "certificates[*]",
                     "description",
                     "executionRoleArn",
                     "name",
@@ -133,6 +140,18 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
     public sealed class CodeInterpreterCustomArgs : global::Pulumi.ResourceArgs
     {
+        [Input("certificates")]
+        private InputList<Inputs.CodeInterpreterCustomCertificateArgs>? _certificates;
+
+        /// <summary>
+        /// List of root CA certificates in PEM format.
+        /// </summary>
+        public InputList<Inputs.CodeInterpreterCustomCertificateArgs> Certificates
+        {
+            get => _certificates ?? (_certificates = new InputList<Inputs.CodeInterpreterCustomCertificateArgs>());
+            set => _certificates = value;
+        }
+
         /// <summary>
         /// The description of the code interpreter.
         /// </summary>

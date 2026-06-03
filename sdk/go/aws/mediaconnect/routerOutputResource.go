@@ -38,7 +38,7 @@ type RouterOutputResource struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The type of the router output.
 	OutputType RouterOutputResourceRouterOutputTypeOutput `pulumi:"outputType"`
-	// The AWS Region for the router output. Defaults to the current region if not specified.
+	// The Amazon Web Services Region for the router output. Defaults to the current region if not specified.
 	RegionName pulumi.StringPtrOutput `pulumi:"regionName"`
 	// The current state of the association between the router output and its input.
 	RoutedState RouterOutputResourceRouterOutputRoutedStateOutput `pulumi:"routedState"`
@@ -120,7 +120,7 @@ type routerOutputResourceArgs struct {
 	MaximumBitrate int `pulumi:"maximumBitrate"`
 	// The name of the router output.
 	Name *string `pulumi:"name"`
-	// The AWS Region for the router output. Defaults to the current region if not specified.
+	// The Amazon Web Services Region for the router output. Defaults to the current region if not specified.
 	RegionName *string `pulumi:"regionName"`
 	// Indicates whether the router output is configured for Regional or global routing.
 	RoutingScope RouterOutputResourceRoutingScope `pulumi:"routingScope"`
@@ -141,7 +141,7 @@ type RouterOutputResourceArgs struct {
 	MaximumBitrate pulumi.IntInput
 	// The name of the router output.
 	Name pulumi.StringPtrInput
-	// The AWS Region for the router output. Defaults to the current region if not specified.
+	// The Amazon Web Services Region for the router output. Defaults to the current region if not specified.
 	RegionName pulumi.StringPtrInput
 	// Indicates whether the router output is configured for Regional or global routing.
 	RoutingScope RouterOutputResourceRoutingScopeInput
@@ -242,7 +242,7 @@ func (o RouterOutputResourceOutput) OutputType() RouterOutputResourceRouterOutpu
 	return o.ApplyT(func(v *RouterOutputResource) RouterOutputResourceRouterOutputTypeOutput { return v.OutputType }).(RouterOutputResourceRouterOutputTypeOutput)
 }
 
-// The AWS Region for the router output. Defaults to the current region if not specified.
+// The Amazon Web Services Region for the router output. Defaults to the current region if not specified.
 func (o RouterOutputResourceOutput) RegionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouterOutputResource) pulumi.StringPtrOutput { return v.RegionName }).(pulumi.StringPtrOutput)
 }

@@ -173,7 +173,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
             file_system_path=file_system_path,
             data_repository_path="s3://example-bucket",
             batch_import_meta_data_on_create=True,
-            imported_file_chunk_size=imported_file_chunk_size,
+            imported_file_chunk_size=int(imported_file_chunk_size),
             s3={
                 "auto_import_policy": {
                     "events": [
@@ -235,7 +235,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
             file_system_path=file_system_path,
             data_repository_path="s3://example-bucket",
             batch_import_meta_data_on_create=True,
-            imported_file_chunk_size=imported_file_chunk_size,
+            imported_file_chunk_size=int(imported_file_chunk_size),
             s3={
                 "auto_import_policy": {
                     "events": [

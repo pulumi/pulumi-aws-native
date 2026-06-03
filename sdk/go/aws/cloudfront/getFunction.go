@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -54,6 +55,8 @@ type LookupFunctionResult struct {
 	// Contains metadata about a CloudFront function.
 	FunctionMetadata *FunctionMetadata `pulumi:"functionMetadata"`
 	Stage            *string           `pulumi:"stage"`
+	// A complex type that contains zero or more ``Tag`` elements.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionResultOutput {
@@ -122,6 +125,11 @@ func (o LookupFunctionResultOutput) FunctionMetadata() FunctionMetadataPtrOutput
 
 func (o LookupFunctionResultOutput) Stage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Stage }).(pulumi.StringPtrOutput)
+}
+
+// A complex type that contains zero or more “Tag“ elements.
+func (o LookupFunctionResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFunctionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

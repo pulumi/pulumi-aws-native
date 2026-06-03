@@ -70,6 +70,12 @@ namespace Pulumi.AwsNative.Odb
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// The list of EC2 placement group IDs associated with your ODB network.
+        /// </summary>
+        [Output("ec2PlacementGroupIds")]
+        public Output<ImmutableArray<string>> Ec2PlacementGroupIds { get; private set; } = null!;
+
+        /// <summary>
         /// The AWS Key Management Service (KMS) access configuration for the ODB network.
         /// </summary>
         [Output("kmsAccess")]

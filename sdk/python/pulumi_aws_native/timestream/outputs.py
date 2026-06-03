@@ -17,6 +17,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'InfluxDbClusterMaintenanceSchedule',
+    'InfluxDbInstanceMaintenanceSchedule',
     'LogDeliveryConfigurationProperties',
     'LogDeliveryConfigurationPropertiesS3ConfigurationProperties',
     'MagneticStoreWritePropertiesProperties',
@@ -37,6 +39,108 @@ __all__ = [
     'SchemaProperties',
     'TablePartitionKey',
 ]
+
+@pulumi.output_type
+class InfluxDbClusterMaintenanceSchedule(dict):
+    """
+    The maintenance schedule for the InfluxDB cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preferredMaintenanceWindow":
+            suggest = "preferred_maintenance_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfluxDbClusterMaintenanceSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfluxDbClusterMaintenanceSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfluxDbClusterMaintenanceSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 preferred_maintenance_window: _builtins.str,
+                 timezone: _builtins.str):
+        """
+        The maintenance schedule for the InfluxDB cluster.
+
+        :param _builtins.str preferred_maintenance_window: The preferred maintenance window in format ddd:HH:MM-ddd:HH:MM.
+        :param _builtins.str timezone: The IANA timezone identifier for the maintenance schedule.
+        """
+        pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter(name="preferredMaintenanceWindow")
+    def preferred_maintenance_window(self) -> _builtins.str:
+        """
+        The preferred maintenance window in format ddd:HH:MM-ddd:HH:MM.
+        """
+        return pulumi.get(self, "preferred_maintenance_window")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> _builtins.str:
+        """
+        The IANA timezone identifier for the maintenance schedule.
+        """
+        return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
+class InfluxDbInstanceMaintenanceSchedule(dict):
+    """
+    The maintenance schedule for the InfluxDB instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preferredMaintenanceWindow":
+            suggest = "preferred_maintenance_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfluxDbInstanceMaintenanceSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfluxDbInstanceMaintenanceSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfluxDbInstanceMaintenanceSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 preferred_maintenance_window: _builtins.str,
+                 timezone: _builtins.str):
+        """
+        The maintenance schedule for the InfluxDB instance.
+
+        :param _builtins.str preferred_maintenance_window: The preferred maintenance window in format ddd:HH:MM-ddd:HH:MM.
+        :param _builtins.str timezone: The IANA timezone identifier for the maintenance schedule.
+        """
+        pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter(name="preferredMaintenanceWindow")
+    def preferred_maintenance_window(self) -> _builtins.str:
+        """
+        The preferred maintenance window in format ddd:HH:MM-ddd:HH:MM.
+        """
+        return pulumi.get(self, "preferred_maintenance_window")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> _builtins.str:
+        """
+        The IANA timezone identifier for the maintenance schedule.
+        """
+        return pulumi.get(self, "timezone")
+
 
 @pulumi.output_type
 class LogDeliveryConfigurationProperties(dict):

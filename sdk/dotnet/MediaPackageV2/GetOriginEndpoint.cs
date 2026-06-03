@@ -128,6 +128,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// The tags associated with the origin endpoint.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointUriSeparator? UriSeparator;
 
         [OutputConstructor]
         private GetOriginEndpointResult(
@@ -163,7 +164,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
             int? startoverWindowSeconds,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            Pulumi.AwsNative.MediaPackageV2.OriginEndpointUriSeparator? uriSeparator)
         {
             Arn = arn;
             ContainerType = containerType;
@@ -182,6 +185,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
             Segment = segment;
             StartoverWindowSeconds = startoverWindowSeconds;
             Tags = tags;
+            UriSeparator = uriSeparator;
         }
     }
 }

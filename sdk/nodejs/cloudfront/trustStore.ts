@@ -73,6 +73,10 @@ export class TrustStore extends pulumi.CustomResource {
      * A complex type that contains zero or more ``Tag`` elements.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
+     */
+    declare public readonly useClientCertificateOcspEndpoint: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a TrustStore resource with the given unique name, arguments, and options.
@@ -88,6 +92,7 @@ export class TrustStore extends pulumi.CustomResource {
             resourceInputs["caCertificatesBundleSource"] = args?.caCertificatesBundleSource;
             resourceInputs["name"] = args?.name;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["useClientCertificateOcspEndpoint"] = args?.useClientCertificateOcspEndpoint;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
@@ -104,6 +109,7 @@ export class TrustStore extends pulumi.CustomResource {
             resourceInputs["numberOfCaCertificates"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["useClientCertificateOcspEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["name"] };
@@ -128,4 +134,8 @@ export interface TrustStoreArgs {
      * A complex type that contains zero or more ``Tag`` elements.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
+     */
+    useClientCertificateOcspEndpoint?: pulumi.Input<boolean>;
 }

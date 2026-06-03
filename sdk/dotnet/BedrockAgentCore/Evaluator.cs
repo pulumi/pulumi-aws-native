@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<string> EvaluatorName { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the KMS key used to encrypt evaluator data.
+        /// </summary>
+        [Output("kmsKeyArn")]
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
+
+        /// <summary>
         /// The evaluation level that determines the scope of evaluation.
         /// </summary>
         [Output("level")]
@@ -141,6 +147,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("evaluatorName")]
         public Input<string>? EvaluatorName { get; set; }
+
+        /// <summary>
+        /// The ARN of the KMS key used to encrypt evaluator data.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
         /// The evaluation level that determines the scope of evaluation.

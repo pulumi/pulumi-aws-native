@@ -42,6 +42,10 @@ export class Connection extends pulumi.CustomResource {
      */
     declare public readonly awsLocation: pulumi.Output<outputs.datazone.ConnectionAwsLocation | undefined>;
     /**
+     * The configurations of the connection.
+     */
+    declare public readonly configurations: pulumi.Output<outputs.datazone.ConnectionConfiguration[] | undefined>;
+    /**
      * The ID of the connection.
      */
     declare public /*out*/ readonly connectionId: pulumi.Output<string>;
@@ -92,7 +96,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * Connection props.
      */
-    declare public readonly props: pulumi.Output<outputs.datazone.ConnectionPropertiesInput0Properties | outputs.datazone.ConnectionPropertiesInput1Properties | outputs.datazone.ConnectionPropertiesInput2Properties | outputs.datazone.ConnectionPropertiesInput3Properties | outputs.datazone.ConnectionPropertiesInput4Properties | outputs.datazone.ConnectionPropertiesInput5Properties | outputs.datazone.ConnectionPropertiesInput6Properties | outputs.datazone.ConnectionPropertiesInput7Properties | outputs.datazone.ConnectionPropertiesInput8Properties | outputs.datazone.ConnectionPropertiesInput9Properties | outputs.datazone.ConnectionPropertiesInput10Properties | outputs.datazone.ConnectionPropertiesInput11Properties | undefined>;
+    declare public readonly props: pulumi.Output<outputs.datazone.ConnectionPropertiesInput0Properties | outputs.datazone.ConnectionPropertiesInput1Properties | outputs.datazone.ConnectionPropertiesInput2Properties | outputs.datazone.ConnectionPropertiesInput3Properties | outputs.datazone.ConnectionPropertiesInput4Properties | outputs.datazone.ConnectionPropertiesInput5Properties | outputs.datazone.ConnectionPropertiesInput6Properties | outputs.datazone.ConnectionPropertiesInput7Properties | outputs.datazone.ConnectionPropertiesInput8Properties | outputs.datazone.ConnectionPropertiesInput9Properties | outputs.datazone.ConnectionPropertiesInput10Properties | outputs.datazone.ConnectionPropertiesInput11Properties | outputs.datazone.ConnectionPropertiesInput12Properties | undefined>;
     /**
      * The scope of the connection.
      */
@@ -117,6 +121,7 @@ export class Connection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
             resourceInputs["awsLocation"] = args?.awsLocation;
+            resourceInputs["configurations"] = args?.configurations;
             resourceInputs["description"] = args?.description;
             resourceInputs["domainIdentifier"] = args?.domainIdentifier;
             resourceInputs["enableTrustedIdentityPropagation"] = args?.enableTrustedIdentityPropagation;
@@ -134,6 +139,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["awsLocation"] = undefined /*out*/;
+            resourceInputs["configurations"] = undefined /*out*/;
             resourceInputs["connectionId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
@@ -166,6 +172,10 @@ export interface ConnectionArgs {
      */
     awsLocation?: pulumi.Input<inputs.datazone.ConnectionAwsLocationArgs>;
     /**
+     * The configurations of the connection.
+     */
+    configurations?: pulumi.Input<pulumi.Input<inputs.datazone.ConnectionConfigurationArgs>[]>;
+    /**
      * The description of the connection.
      */
     description?: pulumi.Input<string>;
@@ -192,7 +202,7 @@ export interface ConnectionArgs {
     /**
      * Connection props.
      */
-    props?: pulumi.Input<inputs.datazone.ConnectionPropertiesInput0PropertiesArgs | inputs.datazone.ConnectionPropertiesInput1PropertiesArgs | inputs.datazone.ConnectionPropertiesInput2PropertiesArgs | inputs.datazone.ConnectionPropertiesInput3PropertiesArgs | inputs.datazone.ConnectionPropertiesInput4PropertiesArgs | inputs.datazone.ConnectionPropertiesInput5PropertiesArgs | inputs.datazone.ConnectionPropertiesInput6PropertiesArgs | inputs.datazone.ConnectionPropertiesInput7PropertiesArgs | inputs.datazone.ConnectionPropertiesInput8PropertiesArgs | inputs.datazone.ConnectionPropertiesInput9PropertiesArgs | inputs.datazone.ConnectionPropertiesInput10PropertiesArgs | inputs.datazone.ConnectionPropertiesInput11PropertiesArgs>;
+    props?: pulumi.Input<inputs.datazone.ConnectionPropertiesInput0PropertiesArgs | inputs.datazone.ConnectionPropertiesInput1PropertiesArgs | inputs.datazone.ConnectionPropertiesInput2PropertiesArgs | inputs.datazone.ConnectionPropertiesInput3PropertiesArgs | inputs.datazone.ConnectionPropertiesInput4PropertiesArgs | inputs.datazone.ConnectionPropertiesInput5PropertiesArgs | inputs.datazone.ConnectionPropertiesInput6PropertiesArgs | inputs.datazone.ConnectionPropertiesInput7PropertiesArgs | inputs.datazone.ConnectionPropertiesInput8PropertiesArgs | inputs.datazone.ConnectionPropertiesInput9PropertiesArgs | inputs.datazone.ConnectionPropertiesInput10PropertiesArgs | inputs.datazone.ConnectionPropertiesInput11PropertiesArgs | inputs.datazone.ConnectionPropertiesInput12PropertiesArgs>;
     /**
      * The scope of the connection.
      */

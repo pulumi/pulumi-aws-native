@@ -61,6 +61,7 @@ export class Domain extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the CloudFormation stack.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public readonly automatedSnapshotPauseOptions: pulumi.Output<outputs.opensearchservice.DomainAutomatedSnapshotPauseOptions | undefined>;
     /**
      * The resource ID. For example, `123456789012/my-domain` .
      */
@@ -171,6 +172,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["advancedOptions"] = args?.advancedOptions;
             resourceInputs["advancedSecurityOptions"] = args?.advancedSecurityOptions;
             resourceInputs["aimlOptions"] = args?.aimlOptions;
+            resourceInputs["automatedSnapshotPauseOptions"] = args?.automatedSnapshotPauseOptions;
             resourceInputs["clusterConfig"] = args?.clusterConfig;
             resourceInputs["cognitoOptions"] = args?.cognitoOptions;
             resourceInputs["deploymentStrategyOptions"] = args?.deploymentStrategyOptions;
@@ -202,6 +204,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["advancedSecurityOptions"] = undefined /*out*/;
             resourceInputs["aimlOptions"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["automatedSnapshotPauseOptions"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clusterConfig"] = undefined /*out*/;
             resourceInputs["cognitoOptions"] = undefined /*out*/;
@@ -258,6 +261,7 @@ export interface DomainArgs {
      * Container for parameters required to enable all machine learning features.
      */
     aimlOptions?: pulumi.Input<inputs.opensearchservice.DomainAimlOptionsArgs>;
+    automatedSnapshotPauseOptions?: pulumi.Input<inputs.opensearchservice.DomainAutomatedSnapshotPauseOptionsArgs>;
     /**
      * Container for the cluster configuration of a domain.
      */

@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAgentSpaceResult:
-    def __init__(__self__, agent_space_id=None, arn=None, created_at=None, description=None, name=None, operator_app=None, tags=None, updated_at=None):
+    def __init__(__self__, agent_space_id=None, arn=None, created_at=None, description=None, locale=None, name=None, operator_app=None, tags=None, updated_at=None):
         if agent_space_id and not isinstance(agent_space_id, str):
             raise TypeError("Expected argument 'agent_space_id' to be a str")
         pulumi.set(__self__, "agent_space_id", agent_space_id)
@@ -38,6 +38,9 @@ class GetAgentSpaceResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if locale and not isinstance(locale, str):
+            raise TypeError("Expected argument 'locale' to be a str")
+        pulumi.set(__self__, "locale", locale)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -85,6 +88,14 @@ class GetAgentSpaceResult:
 
     @_builtins.property
     @pulumi.getter
+    def locale(self) -> Optional[_builtins.str]:
+        """
+        The locale for the AgentSpace, which determines the language used in agent responses.
+        """
+        return pulumi.get(self, "locale")
+
+    @_builtins.property
+    @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
         The name of the AgentSpace.
@@ -123,6 +134,7 @@ class AwaitableGetAgentSpaceResult(GetAgentSpaceResult):
             arn=self.arn,
             created_at=self.created_at,
             description=self.description,
+            locale=self.locale,
             name=self.name,
             operator_app=self.operator_app,
             tags=self.tags,
@@ -147,6 +159,7 @@ def get_agent_space(agent_space_id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
+        locale=pulumi.get(__ret__, 'locale'),
         name=pulumi.get(__ret__, 'name'),
         operator_app=pulumi.get(__ret__, 'operator_app'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -168,6 +181,7 @@ def get_agent_space_output(agent_space_id: Optional[pulumi.Input[_builtins.str]]
         arn=pulumi.get(__response__, 'arn'),
         created_at=pulumi.get(__response__, 'created_at'),
         description=pulumi.get(__response__, 'description'),
+        locale=pulumi.get(__response__, 'locale'),
         name=pulumi.get(__response__, 'name'),
         operator_app=pulumi.get(__response__, 'operator_app'),
         tags=pulumi.get(__response__, 'tags'),

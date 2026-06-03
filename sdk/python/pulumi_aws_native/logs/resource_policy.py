@@ -19,12 +19,14 @@ __all__ = ['ResourcePolicyArgs', 'ResourcePolicy']
 @pulumi.input_type
 class ResourcePolicyArgs:
     def __init__(__self__, *,
-                 policy_document: pulumi.Input[_builtins.str],
+                 policy_document: Any,
                  policy_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
 
-        :param pulumi.Input[_builtins.str] policy_document: The policy document
+        :param Any policy_document: The policy document
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
         :param pulumi.Input[_builtins.str] policy_name: A name for resource policy
         """
         pulumi.set(__self__, "policy_document", policy_document)
@@ -33,14 +35,16 @@ class ResourcePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> pulumi.Input[_builtins.str]:
+    def policy_document(self) -> Any:
         """
         The policy document
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: pulumi.Input[_builtins.str]):
+    def policy_document(self, value: Any):
         pulumi.set(self, "policy_document", value)
 
     @_builtins.property
@@ -62,7 +66,7 @@ class ResourcePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_document: Optional[Any] = None,
                  policy_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -71,7 +75,9 @@ class ResourcePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy_document: The policy document
+        :param Any policy_document: The policy document
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
         :param pulumi.Input[_builtins.str] policy_name: A name for resource policy
         """
         ...
@@ -99,7 +105,7 @@ class ResourcePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_document: Optional[Any] = None,
                  policy_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -144,9 +150,11 @@ class ResourcePolicy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> pulumi.Output[_builtins.str]:
+    def policy_document(self) -> pulumi.Output[Any]:
         """
         The policy document
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::ResourcePolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

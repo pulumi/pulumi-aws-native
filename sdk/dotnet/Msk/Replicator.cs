@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.Msk
         public Output<ImmutableArray<Outputs.ReplicatorKafkaCluster>> KafkaClusters { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration for log delivery for the replicator.
+        /// </summary>
+        [Output("logDelivery")]
+        public Output<Outputs.LogDelivery?> LogDelivery { get; private set; } = null!;
+
+        /// <summary>
         /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         /// </summary>
         [Output("replicationInfoList")]
@@ -90,9 +96,12 @@ namespace Pulumi.AwsNative.Msk
                 {
                     "description",
                     "kafkaClusters[*]",
+                    "replicationInfoList[*].consumerGroupReplication.consumerGroupOffsetSyncMode",
                     "replicationInfoList[*].sourceKafkaClusterArn",
+                    "replicationInfoList[*].sourceKafkaClusterId",
                     "replicationInfoList[*].targetCompressionType",
                     "replicationInfoList[*].targetKafkaClusterArn",
+                    "replicationInfoList[*].targetKafkaClusterId",
                     "replicationInfoList[*].topicReplication.startingPosition",
                     "replicationInfoList[*].topicReplication.topicNameConfiguration",
                     "replicatorName",
@@ -137,6 +146,12 @@ namespace Pulumi.AwsNative.Msk
             get => _kafkaClusters ?? (_kafkaClusters = new InputList<Inputs.ReplicatorKafkaClusterArgs>());
             set => _kafkaClusters = value;
         }
+
+        /// <summary>
+        /// Configuration for log delivery for the replicator.
+        /// </summary>
+        [Input("logDelivery")]
+        public Input<Inputs.LogDeliveryArgs>? LogDelivery { get; set; }
 
         [Input("replicationInfoList", required: true)]
         private InputList<Inputs.ReplicatorReplicationInfoArgs>? _replicationInfoList;

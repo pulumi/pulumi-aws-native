@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetFlowVpcInterfaceResult',
@@ -23,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFlowVpcInterfaceResult:
-    def __init__(__self__, network_interface_ids=None, role_arn=None, security_group_ids=None, subnet_id=None):
+    def __init__(__self__, network_interface_ids=None, role_arn=None, security_group_ids=None, subnet_id=None, tags=None):
         if network_interface_ids and not isinstance(network_interface_ids, list):
             raise TypeError("Expected argument 'network_interface_ids' to be a list")
         pulumi.set(__self__, "network_interface_ids", network_interface_ids)
@@ -36,6 +37,9 @@ class GetFlowVpcInterfaceResult:
         if subnet_id and not isinstance(subnet_id, str):
             raise TypeError("Expected argument 'subnet_id' to be a str")
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceIds")
@@ -69,6 +73,14 @@ class GetFlowVpcInterfaceResult:
         """
         return pulumi.get(self, "subnet_id")
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Key-value pairs that can be used to tag and organize this VPC network interface.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetFlowVpcInterfaceResult(GetFlowVpcInterfaceResult):
     # pylint: disable=using-constant-test
@@ -79,7 +91,8 @@ class AwaitableGetFlowVpcInterfaceResult(GetFlowVpcInterfaceResult):
             network_interface_ids=self.network_interface_ids,
             role_arn=self.role_arn,
             security_group_ids=self.security_group_ids,
-            subnet_id=self.subnet_id)
+            subnet_id=self.subnet_id,
+            tags=self.tags)
 
 
 def get_flow_vpc_interface(flow_arn: Optional[_builtins.str] = None,
@@ -102,7 +115,8 @@ def get_flow_vpc_interface(flow_arn: Optional[_builtins.str] = None,
         network_interface_ids=pulumi.get(__ret__, 'network_interface_ids'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
-        subnet_id=pulumi.get(__ret__, 'subnet_id'))
+        subnet_id=pulumi.get(__ret__, 'subnet_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_flow_vpc_interface_output(flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
                                   name: Optional[pulumi.Input[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowVpcInterfaceResult]:
@@ -122,4 +136,5 @@ def get_flow_vpc_interface_output(flow_arn: Optional[pulumi.Input[_builtins.str]
         network_interface_ids=pulumi.get(__response__, 'network_interface_ids'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
-        subnet_id=pulumi.get(__response__, 'subnet_id')))
+        subnet_id=pulumi.get(__response__, 'subnet_id'),
+        tags=pulumi.get(__response__, 'tags')))

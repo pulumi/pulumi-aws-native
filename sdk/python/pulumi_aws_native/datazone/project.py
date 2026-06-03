@@ -26,7 +26,10 @@ class ProjectArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_unit_id: Optional[pulumi.Input[_builtins.str]] = None,
                  glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 membership_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectMembershipAssignmentArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_category: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_execution_role: Optional[pulumi.Input[_builtins.str]] = None,
                  project_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
                  project_profile_version: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectResourceTagArgs']]]] = None,
@@ -38,7 +41,10 @@ class ProjectArgs:
         :param pulumi.Input[_builtins.str] description: The description of the Amazon DataZone project.
         :param pulumi.Input[_builtins.str] domain_unit_id: The ID of the domain unit.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: The glossary terms that can be used in this Amazon DataZone project.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectMembershipAssignmentArgs']]] membership_assignments: The project membership assignments.
         :param pulumi.Input[_builtins.str] name: The name of the Amazon DataZone project.
+        :param pulumi.Input[_builtins.str] project_category: The project category.
+        :param pulumi.Input[_builtins.str] project_execution_role: The project execution role ARN.
         :param pulumi.Input[_builtins.str] project_profile_id: The project profile ID.
         :param pulumi.Input[_builtins.str] project_profile_version: The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectResourceTagArgs']]] resource_tags: The resource tags of the project.
@@ -51,8 +57,14 @@ class ProjectArgs:
             pulumi.set(__self__, "domain_unit_id", domain_unit_id)
         if glossary_terms is not None:
             pulumi.set(__self__, "glossary_terms", glossary_terms)
+        if membership_assignments is not None:
+            pulumi.set(__self__, "membership_assignments", membership_assignments)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if project_category is not None:
+            pulumi.set(__self__, "project_category", project_category)
+        if project_execution_role is not None:
+            pulumi.set(__self__, "project_execution_role", project_execution_role)
         if project_profile_id is not None:
             pulumi.set(__self__, "project_profile_id", project_profile_id)
         if project_profile_version is not None:
@@ -111,6 +123,18 @@ class ProjectArgs:
         pulumi.set(self, "glossary_terms", value)
 
     @_builtins.property
+    @pulumi.getter(name="membershipAssignments")
+    def membership_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectMembershipAssignmentArgs']]]]:
+        """
+        The project membership assignments.
+        """
+        return pulumi.get(self, "membership_assignments")
+
+    @membership_assignments.setter
+    def membership_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectMembershipAssignmentArgs']]]]):
+        pulumi.set(self, "membership_assignments", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -121,6 +145,30 @@ class ProjectArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="projectCategory")
+    def project_category(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The project category.
+        """
+        return pulumi.get(self, "project_category")
+
+    @project_category.setter
+    def project_category(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "project_category", value)
+
+    @_builtins.property
+    @pulumi.getter(name="projectExecutionRole")
+    def project_execution_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The project execution role ARN.
+        """
+        return pulumi.get(self, "project_execution_role")
+
+    @project_execution_role.setter
+    def project_execution_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "project_execution_role", value)
 
     @_builtins.property
     @pulumi.getter(name="projectProfileId")
@@ -181,7 +229,10 @@ class Project(pulumi.CustomResource):
                  domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_unit_id: Optional[pulumi.Input[_builtins.str]] = None,
                  glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 membership_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectMembershipAssignmentArgs', 'ProjectMembershipAssignmentArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_category: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_execution_role: Optional[pulumi.Input[_builtins.str]] = None,
                  project_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
                  project_profile_version: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectResourceTagArgs', 'ProjectResourceTagArgsDict']]]]] = None,
@@ -197,7 +248,10 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the Amazon DataZone domain in which this project is created.
         :param pulumi.Input[_builtins.str] domain_unit_id: The ID of the domain unit.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: The glossary terms that can be used in this Amazon DataZone project.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectMembershipAssignmentArgs', 'ProjectMembershipAssignmentArgsDict']]]] membership_assignments: The project membership assignments.
         :param pulumi.Input[_builtins.str] name: The name of the Amazon DataZone project.
+        :param pulumi.Input[_builtins.str] project_category: The project category.
+        :param pulumi.Input[_builtins.str] project_execution_role: The project execution role ARN.
         :param pulumi.Input[_builtins.str] project_profile_id: The project profile ID.
         :param pulumi.Input[_builtins.str] project_profile_version: The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectResourceTagArgs', 'ProjectResourceTagArgsDict']]]] resource_tags: The resource tags of the project.
@@ -232,7 +286,10 @@ class Project(pulumi.CustomResource):
                  domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_unit_id: Optional[pulumi.Input[_builtins.str]] = None,
                  glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 membership_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectMembershipAssignmentArgs', 'ProjectMembershipAssignmentArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_category: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_execution_role: Optional[pulumi.Input[_builtins.str]] = None,
                  project_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
                  project_profile_version: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectResourceTagArgs', 'ProjectResourceTagArgsDict']]]]] = None,
@@ -252,7 +309,10 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["domain_identifier"] = domain_identifier
             __props__.__dict__["domain_unit_id"] = domain_unit_id
             __props__.__dict__["glossary_terms"] = glossary_terms
+            __props__.__dict__["membership_assignments"] = membership_assignments
             __props__.__dict__["name"] = name
+            __props__.__dict__["project_category"] = project_category
+            __props__.__dict__["project_execution_role"] = project_execution_role
             __props__.__dict__["project_profile_id"] = project_profile_id
             __props__.__dict__["project_profile_version"] = project_profile_version
             __props__.__dict__["resource_tags"] = resource_tags
@@ -263,7 +323,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["domain_id"] = None
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["project_status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "projectProfileId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "membershipAssignments[*]", "projectCategory", "projectExecutionRole", "projectProfileId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Project, __self__).__init__(
             'aws-native:datazone:Project',
@@ -296,7 +356,10 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["domain_unit_id"] = None
         __props__.__dict__["glossary_terms"] = None
         __props__.__dict__["last_updated_at"] = None
+        __props__.__dict__["membership_assignments"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["project_category"] = None
+        __props__.__dict__["project_execution_role"] = None
         __props__.__dict__["project_profile_id"] = None
         __props__.__dict__["project_profile_version"] = None
         __props__.__dict__["project_status"] = None
@@ -377,12 +440,36 @@ class Project(pulumi.CustomResource):
         return pulumi.get(self, "last_updated_at")
 
     @_builtins.property
+    @pulumi.getter(name="membershipAssignments")
+    def membership_assignments(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectMembershipAssignment']]]:
+        """
+        The project membership assignments.
+        """
+        return pulumi.get(self, "membership_assignments")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         The name of the Amazon DataZone project.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="projectCategory")
+    def project_category(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The project category.
+        """
+        return pulumi.get(self, "project_category")
+
+    @_builtins.property
+    @pulumi.getter(name="projectExecutionRole")
+    def project_execution_role(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The project execution role ARN.
+        """
+        return pulumi.get(self, "project_execution_role")
 
     @_builtins.property
     @pulumi.getter(name="projectProfileId")

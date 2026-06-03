@@ -1083,6 +1083,8 @@ func (o ApplicationInitialCapacityConfigKeyValuePairArrayOutput) Index(i pulumi.
 type ApplicationInteractiveConfiguration struct {
 	// Enables an Apache Livy endpoint that you can connect to and run interactive jobs
 	LivyEndpointEnabled *bool `pulumi:"livyEndpointEnabled"`
+	// Enables interactive sessions on the application
+	SessionEnabled *bool `pulumi:"sessionEnabled"`
 	// Enabled you to connect an Application to Amazon EMR Studio to run interactive workloads in a notebook
 	StudioEnabled *bool `pulumi:"studioEnabled"`
 }
@@ -1101,6 +1103,8 @@ type ApplicationInteractiveConfigurationInput interface {
 type ApplicationInteractiveConfigurationArgs struct {
 	// Enables an Apache Livy endpoint that you can connect to and run interactive jobs
 	LivyEndpointEnabled pulumi.BoolPtrInput `pulumi:"livyEndpointEnabled"`
+	// Enables interactive sessions on the application
+	SessionEnabled pulumi.BoolPtrInput `pulumi:"sessionEnabled"`
 	// Enabled you to connect an Application to Amazon EMR Studio to run interactive workloads in a notebook
 	StudioEnabled pulumi.BoolPtrInput `pulumi:"studioEnabled"`
 }
@@ -1187,6 +1191,11 @@ func (o ApplicationInteractiveConfigurationOutput) LivyEndpointEnabled() pulumi.
 	return o.ApplyT(func(v ApplicationInteractiveConfiguration) *bool { return v.LivyEndpointEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Enables interactive sessions on the application
+func (o ApplicationInteractiveConfigurationOutput) SessionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInteractiveConfiguration) *bool { return v.SessionEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Enabled you to connect an Application to Amazon EMR Studio to run interactive workloads in a notebook
 func (o ApplicationInteractiveConfigurationOutput) StudioEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInteractiveConfiguration) *bool { return v.StudioEnabled }).(pulumi.BoolPtrOutput)
@@ -1223,6 +1232,16 @@ func (o ApplicationInteractiveConfigurationPtrOutput) LivyEndpointEnabled() pulu
 			return nil
 		}
 		return v.LivyEndpointEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enables interactive sessions on the application
+func (o ApplicationInteractiveConfigurationPtrOutput) SessionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationInteractiveConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SessionEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 

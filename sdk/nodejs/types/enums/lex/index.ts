@@ -11,6 +11,18 @@ export const BotAliasStatus = {
 
 export type BotAliasStatus = (typeof BotAliasStatus)[keyof typeof BotAliasStatus];
 
+export const BotAudioFillerSettingsAudioType = {
+    MelodyChipperChime: "MELODY_CHIPPER_CHIME",
+    MelodyCuriousCrawl: "MELODY_CURIOUS_CRAWL",
+    MelodyRisingRipple: "MELODY_RISING_RIPPLE",
+    MelodyPatientPing: "MELODY_PATIENT_PING",
+    MelodyPonderingPong: "MELODY_PONDERING_PONG",
+    TypingKineticKeys: "TYPING_KINETIC_KEYS",
+    TypingQuietQwerty: "TYPING_QUIET_QWERTY",
+} as const;
+
+export type BotAudioFillerSettingsAudioType = (typeof BotAudioFillerSettingsAudioType)[keyof typeof BotAudioFillerSettingsAudioType];
+
 export const BotAudioRecognitionStrategy = {
     UseSlotValuesAsCustomVocabulary: "UseSlotValuesAsCustomVocabulary",
 } as const;
@@ -96,6 +108,7 @@ export const BotSpeechModelPreference = {
     Standard: "Standard",
     Neural: "Neural",
     Deepgram: "Deepgram",
+    Advanced: "Advanced",
 } as const;
 
 export type BotSpeechModelPreference = (typeof BotSpeechModelPreference)[keyof typeof BotSpeechModelPreference];

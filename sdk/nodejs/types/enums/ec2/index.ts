@@ -98,6 +98,20 @@ export const Ec2FleetExcessCapacityTerminationPolicy = {
  */
 export type Ec2FleetExcessCapacityTerminationPolicy = (typeof Ec2FleetExcessCapacityTerminationPolicy)[keyof typeof Ec2FleetExcessCapacityTerminationPolicy];
 
+export const Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint = {
+    Disabled: "disabled",
+    Enabled: "enabled",
+} as const;
+
+export type Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint = (typeof Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint)[keyof typeof Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint];
+
+export const Ec2FleetInstanceMetadataOptionsRequestHttpTokens = {
+    Optional: "optional",
+    Required: "required",
+} as const;
+
+export type Ec2FleetInstanceMetadataOptionsRequestHttpTokens = (typeof Ec2FleetInstanceMetadataOptionsRequestHttpTokens)[keyof typeof Ec2FleetInstanceMetadataOptionsRequestHttpTokens];
+
 export const Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem = {
     AmazonWebServices: "amazon-web-services",
     Amd: "amd",
@@ -313,6 +327,7 @@ export type Ec2FleetTagSpecificationResourceType = (typeof Ec2FleetTagSpecificat
 export const Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType = {
     OnDemand: "on-demand",
     Spot: "spot",
+    CapacityBlock: "capacity-block",
     ReservedCapacity: "reserved-capacity",
 } as const;
 
@@ -653,6 +668,16 @@ export const LaunchTemplateCpuOptionsAmdSevSnp = {
  * Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
  */
 export type LaunchTemplateCpuOptionsAmdSevSnp = (typeof LaunchTemplateCpuOptionsAmdSevSnp)[keyof typeof LaunchTemplateCpuOptionsAmdSevSnp];
+
+export const LaunchTemplateCpuOptionsNestedVirtualization = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+/**
+ * Indicates whether the instance is enabled for nested virtualization.
+ */
+export type LaunchTemplateCpuOptionsNestedVirtualization = (typeof LaunchTemplateCpuOptionsNestedVirtualization)[keyof typeof LaunchTemplateCpuOptionsNestedVirtualization];
 
 export const NetworkInsightsAccessScopeAnalysisFindingsFound = {
     True: "true",

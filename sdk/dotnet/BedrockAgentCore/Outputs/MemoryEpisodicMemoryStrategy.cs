@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         /// </summary>
         public readonly string? CreatedAt;
         public readonly string? Description;
+        public readonly Outputs.MemoryRecordSchema? MemoryRecordSchema;
         public readonly string Name;
         public readonly ImmutableArray<string> NamespaceTemplates;
         public readonly ImmutableArray<string> Namespaces;
@@ -45,6 +46,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             string? description,
 
+            Outputs.MemoryRecordSchema? memoryRecordSchema,
+
             string name,
 
             ImmutableArray<string> namespaceTemplates,
@@ -63,6 +66,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         {
             CreatedAt = createdAt;
             Description = description;
+            MemoryRecordSchema = memoryRecordSchema;
             Name = name;
             NamespaceTemplates = namespaceTemplates;
             Namespaces = namespaces;

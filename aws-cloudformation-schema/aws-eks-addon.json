@@ -34,7 +34,7 @@
         },
         "RoleArn" : {
           "type" : "string",
-          "pattern" : "^arn:aws(-cn|-us-gov|-iso(-[a-z])?)?:iam::\\d{12}:(role)\\/*",
+          "pattern" : "^arn:aws[a-zA-Z-]*:iam::\\d{12}:(role)\\/*",
           "description" : "The IAM role ARN that the pod identity association is created for."
         }
       },
@@ -126,6 +126,9 @@
   "createOnlyProperties" : [ "/properties/ClusterName", "/properties/AddonName", "/properties/NamespaceConfig" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "writeOnlyProperties" : [ "/properties/ResolveConflicts", "/properties/PreserveOnDelete", "/properties/PodIdentityAssociations" ],
+  "propertyTransform" : {
+    "/properties/ConfigurationValues" : "$replace(ConfigurationValues, /\n$/, '')"
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "eks:CreateAddon", "eks:DescribeAddon", "eks:TagResource", "iam:PassRole", "iam:GetRole", "eks:CreatePodIdentityAssociation" ]

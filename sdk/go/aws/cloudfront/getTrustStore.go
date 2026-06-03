@@ -43,6 +43,8 @@ type LookupTrustStoreResult struct {
 	Status *TrustStoreStatus `pulumi:"status"`
 	// A complex type that contains zero or more ``Tag`` elements.
 	Tags []aws.Tag `pulumi:"tags"`
+	// A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
+	UseClientCertificateOcspEndpoint *bool `pulumi:"useClientCertificateOcspEndpoint"`
 }
 
 func LookupTrustStoreOutput(ctx *pulumi.Context, args LookupTrustStoreOutputArgs, opts ...pulumi.InvokeOption) LookupTrustStoreResultOutput {
@@ -110,6 +112,11 @@ func (o LookupTrustStoreResultOutput) Status() TrustStoreStatusPtrOutput {
 // A complex type that contains zero or more “Tag“ elements.
 func (o LookupTrustStoreResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTrustStoreResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
+func (o LookupTrustStoreResultOutput) UseClientCertificateOcspEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTrustStoreResult) *bool { return v.UseClientCertificateOcspEndpoint }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

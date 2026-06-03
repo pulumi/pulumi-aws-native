@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("endpoint", required: true)]
         public Input<string> Endpoint { get; set; } = null!;
 
+        [Input("listingMode")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.GatewayTargetMcpServerListingMode>? ListingMode { get; set; }
+
+        [Input("mcpToolSchema")]
+        public InputUnion<Inputs.GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs, Inputs.GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs>? McpToolSchema { get; set; }
+
         public GatewayTargetMcpServerTargetConfigurationArgs()
         {
         }

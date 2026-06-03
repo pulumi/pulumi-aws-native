@@ -33,6 +33,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// For more information, see [Block device mappings for volumes on Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide* .
         /// </summary>
         public readonly ImmutableArray<Outputs.Ec2FleetBlockDeviceMapping> BlockDeviceMappings;
+        public readonly Outputs.Ec2FleetIamInstanceProfileSpecification? IamInstanceProfile;
         /// <summary>
         /// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
         /// 
@@ -47,6 +48,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// &gt; If you specify `InstanceType` , you can't specify `InstanceRequirements` .
         /// </summary>
         public readonly string? InstanceType;
+        public readonly string? KeyName;
         /// <summary>
         /// The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
         /// 
@@ -55,6 +57,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// &gt; If you specify a maximum price, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an `InvalidParameterValue` error message.
         /// </summary>
         public readonly string? MaxPrice;
+        public readonly Outputs.Ec2FleetInstanceMetadataOptionsRequest? MetadataOptions;
+        public readonly ImmutableArray<Outputs.Ec2FleetNetworkInterfaceSpecificationRequest> NetworkInterfaces;
         /// <summary>
         /// The location where the instance launched, if applicable.
         /// </summary>
@@ -90,11 +94,19 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             ImmutableArray<Outputs.Ec2FleetBlockDeviceMapping> blockDeviceMappings,
 
+            Outputs.Ec2FleetIamInstanceProfileSpecification? iamInstanceProfile,
+
             Outputs.Ec2FleetInstanceRequirementsRequest? instanceRequirements,
 
             string? instanceType,
 
+            string? keyName,
+
             string? maxPrice,
+
+            Outputs.Ec2FleetInstanceMetadataOptionsRequest? metadataOptions,
+
+            ImmutableArray<Outputs.Ec2FleetNetworkInterfaceSpecificationRequest> networkInterfaces,
 
             Outputs.Ec2FleetPlacement? placement,
 
@@ -107,9 +119,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             AvailabilityZone = availabilityZone;
             AvailabilityZoneId = availabilityZoneId;
             BlockDeviceMappings = blockDeviceMappings;
+            IamInstanceProfile = iamInstanceProfile;
             InstanceRequirements = instanceRequirements;
             InstanceType = instanceType;
+            KeyName = keyName;
             MaxPrice = maxPrice;
+            MetadataOptions = metadataOptions;
+            NetworkInterfaces = networkInterfaces;
             Placement = placement;
             Priority = priority;
             SubnetId = subnetId;

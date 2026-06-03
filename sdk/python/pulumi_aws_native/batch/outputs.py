@@ -66,6 +66,7 @@ __all__ = [
     'JobDefinitionResourceRetentionPolicy',
     'JobDefinitionRetryStrategy',
     'JobDefinitionRuntimePlatform',
+    'JobDefinitionS3FilesVolumeConfiguration',
     'JobDefinitionSecret',
     'JobDefinitionTaskContainerDependency',
     'JobDefinitionTaskContainerProperties',
@@ -563,6 +564,8 @@ class ComputeEnvironmentEc2ConfigurationObject(dict):
         suggest = None
         if key == "imageType":
             suggest = "image_type"
+        elif key == "batchImageStatus":
+            suggest = "batch_image_status"
         elif key == "imageIdOverride":
             suggest = "image_id_override"
         elif key == "imageKubernetesVersion":
@@ -581,6 +584,7 @@ class ComputeEnvironmentEc2ConfigurationObject(dict):
 
     def __init__(__self__, *,
                  image_type: _builtins.str,
+                 batch_image_status: Optional[_builtins.str] = None,
                  image_id_override: Optional[_builtins.str] = None,
                  image_kubernetes_version: Optional[_builtins.str] = None):
         """
@@ -616,6 +620,8 @@ class ComputeEnvironmentEc2ConfigurationObject(dict):
         :param _builtins.str image_kubernetes_version: The Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used.
         """
         pulumi.set(__self__, "image_type", image_type)
+        if batch_image_status is not None:
+            pulumi.set(__self__, "batch_image_status", batch_image_status)
         if image_id_override is not None:
             pulumi.set(__self__, "image_id_override", image_id_override)
         if image_kubernetes_version is not None:
@@ -653,6 +659,11 @@ class ComputeEnvironmentEc2ConfigurationObject(dict):
         - **EKS_AL2023_NVIDIA** - [Amazon Linux 2023 (accelerated)](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for GPU instance families and can be used for all non AWS Graviton-based instance types.
         """
         return pulumi.get(self, "image_type")
+
+    @_builtins.property
+    @pulumi.getter(name="batchImageStatus")
+    def batch_image_status(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "batch_image_status")
 
     @_builtins.property
     @pulumi.getter(name="imageIdOverride")
@@ -4478,6 +4489,65 @@ class JobDefinitionRuntimePlatform(dict):
 
 
 @pulumi.output_type
+class JobDefinitionS3FilesVolumeConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileSystemArn":
+            suggest = "file_system_arn"
+        elif key == "accessPointArn":
+            suggest = "access_point_arn"
+        elif key == "rootDirectory":
+            suggest = "root_directory"
+        elif key == "transitEncryptionPort":
+            suggest = "transit_encryption_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionS3FilesVolumeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionS3FilesVolumeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionS3FilesVolumeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_system_arn: _builtins.str,
+                 access_point_arn: Optional[_builtins.str] = None,
+                 root_directory: Optional[_builtins.str] = None,
+                 transit_encryption_port: Optional[_builtins.int] = None):
+        pulumi.set(__self__, "file_system_arn", file_system_arn)
+        if access_point_arn is not None:
+            pulumi.set(__self__, "access_point_arn", access_point_arn)
+        if root_directory is not None:
+            pulumi.set(__self__, "root_directory", root_directory)
+        if transit_encryption_port is not None:
+            pulumi.set(__self__, "transit_encryption_port", transit_encryption_port)
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemArn")
+    def file_system_arn(self) -> _builtins.str:
+        return pulumi.get(self, "file_system_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "access_point_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="rootDirectory")
+    def root_directory(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "root_directory")
+
+    @_builtins.property
+    @pulumi.getter(name="transitEncryptionPort")
+    def transit_encryption_port(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "transit_encryption_port")
+
+
+@pulumi.output_type
 class JobDefinitionSecret(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4602,6 +4672,10 @@ class JobDefinitionTaskContainerProperties(dict):
             suggest = "repository_credentials"
         elif key == "resourceRequirements":
             suggest = "resource_requirements"
+        elif key == "startTimeout":
+            suggest = "start_timeout"
+        elif key == "stopTimeout":
+            suggest = "stop_timeout"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in JobDefinitionTaskContainerProperties. Access the value via the '{suggest}' property getter instead.")
@@ -4630,6 +4704,8 @@ class JobDefinitionTaskContainerProperties(dict):
                  repository_credentials: Optional['outputs.JobDefinitionRepositoryCredentials'] = None,
                  resource_requirements: Optional[Sequence['outputs.JobDefinitionResourceRequirement']] = None,
                  secrets: Optional[Sequence['outputs.JobDefinitionSecret']] = None,
+                 start_timeout: Optional[_builtins.int] = None,
+                 stop_timeout: Optional[_builtins.int] = None,
                  ulimits: Optional[Sequence['outputs.JobDefinitionUlimit']] = None,
                  user: Optional[_builtins.str] = None):
         """
@@ -4721,6 +4797,10 @@ class JobDefinitionTaskContainerProperties(dict):
             pulumi.set(__self__, "resource_requirements", resource_requirements)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
+        if start_timeout is not None:
+            pulumi.set(__self__, "start_timeout", start_timeout)
+        if stop_timeout is not None:
+            pulumi.set(__self__, "stop_timeout", stop_timeout)
         if ulimits is not None:
             pulumi.set(__self__, "ulimits", ulimits)
         if user is not None:
@@ -4867,6 +4947,16 @@ class JobDefinitionTaskContainerProperties(dict):
         The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the Amazon Elastic Container Service Developer Guide.
         """
         return pulumi.get(self, "secrets")
+
+    @_builtins.property
+    @pulumi.getter(name="startTimeout")
+    def start_timeout(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "start_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="stopTimeout")
+    def stop_timeout(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "stop_timeout")
 
     @_builtins.property
     @pulumi.getter
@@ -5060,6 +5150,8 @@ class JobDefinitionVolume(dict):
         suggest = None
         if key == "efsVolumeConfiguration":
             suggest = "efs_volume_configuration"
+        elif key == "s3FilesVolumeConfiguration":
+            suggest = "s3_files_volume_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in JobDefinitionVolume. Access the value via the '{suggest}' property getter instead.")
@@ -5075,7 +5167,8 @@ class JobDefinitionVolume(dict):
     def __init__(__self__, *,
                  efs_volume_configuration: Optional['outputs.JobDefinitionEfsVolumeConfiguration'] = None,
                  host: Optional['outputs.JobDefinitionHost'] = None,
-                 name: Optional[_builtins.str] = None):
+                 name: Optional[_builtins.str] = None,
+                 s3_files_volume_configuration: Optional['outputs.JobDefinitionS3FilesVolumeConfiguration'] = None):
         """
         :param 'JobDefinitionEfsVolumeConfiguration' efs_volume_configuration: This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs that are running on Fargate resources must specify a `platformVersion` of at least `1.4.0` .
         :param 'JobDefinitionHost' host: The contents of the `host` parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
@@ -5089,6 +5182,8 @@ class JobDefinitionVolume(dict):
             pulumi.set(__self__, "host", host)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if s3_files_volume_configuration is not None:
+            pulumi.set(__self__, "s3_files_volume_configuration", s3_files_volume_configuration)
 
     @_builtins.property
     @pulumi.getter(name="efsVolumeConfiguration")
@@ -5115,6 +5210,11 @@ class JobDefinitionVolume(dict):
         The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="s3FilesVolumeConfiguration")
+    def s3_files_volume_configuration(self) -> Optional['outputs.JobDefinitionS3FilesVolumeConfiguration']:
+        return pulumi.get(self, "s3_files_volume_configuration")
 
 
 @pulumi.output_type
@@ -5302,8 +5402,8 @@ class QuotaShareCapacityLimit(dict):
                  capacity_unit: _builtins.str,
                  max_capacity: _builtins.int):
         """
-        :param _builtins.str capacity_unit: The unit of compute capacity for the capacityLimit.
-        :param _builtins.int max_capacity: The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+        :param _builtins.str capacity_unit: The unit of compute capacity for the capacityLimit. For example, `ml.m5.large`.
+        :param _builtins.int max_capacity: The maximum capacity available for the quota share. This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share without borrowing.
         """
         pulumi.set(__self__, "capacity_unit", capacity_unit)
         pulumi.set(__self__, "max_capacity", max_capacity)
@@ -5312,7 +5412,7 @@ class QuotaShareCapacityLimit(dict):
     @pulumi.getter(name="capacityUnit")
     def capacity_unit(self) -> _builtins.str:
         """
-        The unit of compute capacity for the capacityLimit.
+        The unit of compute capacity for the capacityLimit. For example, `ml.m5.large`.
         """
         return pulumi.get(self, "capacity_unit")
 
@@ -5320,7 +5420,7 @@ class QuotaShareCapacityLimit(dict):
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> _builtins.int:
         """
-        The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+        The maximum capacity available for the quota share. This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share without borrowing.
         """
         return pulumi.get(self, "max_capacity")
 
@@ -5347,7 +5447,7 @@ class QuotaSharePreemptionConfiguration(dict):
     def __init__(__self__, *,
                  in_share_preemption: 'QuotaSharePreemptionConfigurationInSharePreemption'):
         """
-        :param 'QuotaSharePreemptionConfigurationInSharePreemption' in_share_preemption: Whether preemption is enabled within the quota share.
+        :param 'QuotaSharePreemptionConfigurationInSharePreemption' in_share_preemption: Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.
         """
         pulumi.set(__self__, "in_share_preemption", in_share_preemption)
 
@@ -5355,7 +5455,7 @@ class QuotaSharePreemptionConfiguration(dict):
     @pulumi.getter(name="inSharePreemption")
     def in_share_preemption(self) -> 'QuotaSharePreemptionConfigurationInSharePreemption':
         """
-        Whether preemption is enabled within the quota share.
+        Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.
         """
         return pulumi.get(self, "in_share_preemption")
 
@@ -5383,8 +5483,8 @@ class QuotaShareResourceSharingConfiguration(dict):
                  strategy: 'QuotaShareResourceSharingConfigurationStrategy',
                  borrow_limit: Optional[_builtins.int] = None):
         """
-        :param 'QuotaShareResourceSharingConfigurationStrategy' strategy: The resource sharing strategy.
-        :param _builtins.int borrow_limit: The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+        :param 'QuotaShareResourceSharingConfigurationStrategy' strategy: The resource sharing strategy for the quota share. The `RESERVE` strategy allows a quota share to reserve idle capacity for itself. `LEND` configures the share to lend its idle capacity to another share in need of capacity. The `LEND_AND_BORROW` strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.
+        :param _builtins.int borrow_limit: The maximum percentage of additional capacity that the quota share can borrow from other shares. `BorrowLimit` can only be applied to quota shares with a strategy of `LEND_AND_BORROW`. This value is expressed as a percentage of the quota share's configured CapacityLimits. The `BorrowLimit` is applied uniformly across all capacity units. For example, if the `BorrowLimit` is 200, the quota share can borrow up to 200% of its configured `maxCapacity` for each capacity unit. The default `BorrowLimit` is -1, which indicates unlimited borrowing.
         """
         pulumi.set(__self__, "strategy", strategy)
         if borrow_limit is not None:
@@ -5394,7 +5494,7 @@ class QuotaShareResourceSharingConfiguration(dict):
     @pulumi.getter
     def strategy(self) -> 'QuotaShareResourceSharingConfigurationStrategy':
         """
-        The resource sharing strategy.
+        The resource sharing strategy for the quota share. The `RESERVE` strategy allows a quota share to reserve idle capacity for itself. `LEND` configures the share to lend its idle capacity to another share in need of capacity. The `LEND_AND_BORROW` strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.
         """
         return pulumi.get(self, "strategy")
 
@@ -5402,7 +5502,7 @@ class QuotaShareResourceSharingConfiguration(dict):
     @pulumi.getter(name="borrowLimit")
     def borrow_limit(self) -> Optional[_builtins.int]:
         """
-        The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+        The maximum percentage of additional capacity that the quota share can borrow from other shares. `BorrowLimit` can only be applied to quota shares with a strategy of `LEND_AND_BORROW`. This value is expressed as a percentage of the quota share's configured CapacityLimits. The `BorrowLimit` is applied uniformly across all capacity units. For example, if the `BorrowLimit` is 200, the quota share can borrow up to 200% of its configured `maxCapacity` for each capacity unit. The default `BorrowLimit` is -1, which indicates unlimited borrowing.
         """
         return pulumi.get(self, "borrow_limit")
 

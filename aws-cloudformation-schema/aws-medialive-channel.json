@@ -878,6 +878,13 @@
         "MultiplexSettings" : {
           "$ref" : "#/definitions/MultiplexProgramChannelDestinationSettings"
         },
+        "MediaConnectRouterSettings" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/MediaConnectRouterOutputDestinationSettings"
+          }
+        },
         "Id" : {
           "type" : "string"
         },
@@ -906,6 +913,21 @@
         },
         "FollowerChannelSettings" : {
           "$ref" : "#/definitions/FollowerChannelSettings"
+        }
+      }
+    },
+    "MediaConnectRouterOutputSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Destination" : {
+          "$ref" : "#/definitions/OutputLocationRef"
+        },
+        "ConnectedRouterInputs" : {
+          "$ref" : "#/definitions/MediaConnectRouterOutputConnectionMap"
+        },
+        "ContainerSettings" : {
+          "$ref" : "#/definitions/MediaConnectRouterContainerSettings"
         }
       }
     },
@@ -1096,6 +1118,18 @@
         },
         "Pid" : {
           "type" : "integer"
+        }
+      }
+    },
+    "MediaConnectRouterOutputDestinationSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SecretArn" : {
+          "type" : "string"
+        },
+        "EncryptionType" : {
+          "type" : "string"
         }
       }
     },
@@ -1562,6 +1596,9 @@
         },
         "SrtGroupSettings" : {
           "$ref" : "#/definitions/SrtGroupSettings"
+        },
+        "MediaConnectRouterGroupSettings" : {
+          "$ref" : "#/definitions/MediaConnectRouterGroupSettings"
         },
         "ArchiveGroupSettings" : {
           "$ref" : "#/definitions/ArchiveGroupSettings"
@@ -2413,6 +2450,19 @@
       "type" : "object",
       "additionalProperties" : false
     },
+    "MediaConnectRouterGroupSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AvailabilityZones" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
     "InputAttachment" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -2504,6 +2554,9 @@
         },
         "Hdr10Settings" : {
           "$ref" : "#/definitions/Hdr10Settings"
+        },
+        "Hlg2020Settings" : {
+          "$ref" : "#/definitions/Hlg2020Settings"
         }
       }
     },
@@ -2579,6 +2632,9 @@
         },
         "MultiplexOutputSettings" : {
           "$ref" : "#/definitions/MultiplexOutputSettings"
+        },
+        "MediaConnectRouterOutputSettings" : {
+          "$ref" : "#/definitions/MediaConnectRouterOutputSettings"
         },
         "CmafIngestOutputSettings" : {
           "$ref" : "#/definitions/CmafIngestOutputSettings"
@@ -2866,6 +2922,18 @@
       "additionalProperties" : false,
       "properties" : {
         "StyleControl" : {
+          "type" : "string"
+        }
+      }
+    },
+    "MediaConnectRouterOutputConnectionMap" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Pipeline0" : {
+          "type" : "string"
+        },
+        "Pipeline1" : {
           "type" : "string"
         }
       }
@@ -3577,6 +3645,15 @@
         },
         "CopyrightHolder" : {
           "type" : "string"
+        }
+      }
+    },
+    "MediaConnectRouterContainerSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "M2tsSettings" : {
+          "$ref" : "#/definitions/M2tsSettings"
         }
       }
     },

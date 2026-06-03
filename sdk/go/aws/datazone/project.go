@@ -34,8 +34,14 @@ type Project struct {
 	GlossaryTerms pulumi.StringArrayOutput `pulumi:"glossaryTerms"`
 	// The timestamp of when the project was last updated.
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
+	// The project membership assignments.
+	MembershipAssignments ProjectMembershipAssignmentArrayOutput `pulumi:"membershipAssignments"`
 	// The name of the Amazon DataZone project.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The project category.
+	ProjectCategory pulumi.StringPtrOutput `pulumi:"projectCategory"`
+	// The project execution role ARN.
+	ProjectExecutionRole pulumi.StringPtrOutput `pulumi:"projectExecutionRole"`
 	// The project profile ID.
 	ProjectProfileId pulumi.StringPtrOutput `pulumi:"projectProfileId"`
 	// The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
@@ -60,6 +66,9 @@ func NewProject(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"domainIdentifier",
+		"membershipAssignments[*]",
+		"projectCategory",
+		"projectExecutionRole",
 		"projectProfileId",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -104,8 +113,14 @@ type projectArgs struct {
 	DomainUnitId *string `pulumi:"domainUnitId"`
 	// The glossary terms that can be used in this Amazon DataZone project.
 	GlossaryTerms []string `pulumi:"glossaryTerms"`
+	// The project membership assignments.
+	MembershipAssignments []ProjectMembershipAssignment `pulumi:"membershipAssignments"`
 	// The name of the Amazon DataZone project.
 	Name *string `pulumi:"name"`
+	// The project category.
+	ProjectCategory *string `pulumi:"projectCategory"`
+	// The project execution role ARN.
+	ProjectExecutionRole *string `pulumi:"projectExecutionRole"`
 	// The project profile ID.
 	ProjectProfileId *string `pulumi:"projectProfileId"`
 	// The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
@@ -126,8 +141,14 @@ type ProjectArgs struct {
 	DomainUnitId pulumi.StringPtrInput
 	// The glossary terms that can be used in this Amazon DataZone project.
 	GlossaryTerms pulumi.StringArrayInput
+	// The project membership assignments.
+	MembershipAssignments ProjectMembershipAssignmentArrayInput
 	// The name of the Amazon DataZone project.
 	Name pulumi.StringPtrInput
+	// The project category.
+	ProjectCategory pulumi.StringPtrInput
+	// The project execution role ARN.
+	ProjectExecutionRole pulumi.StringPtrInput
 	// The project profile ID.
 	ProjectProfileId pulumi.StringPtrInput
 	// The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
@@ -220,9 +241,24 @@ func (o ProjectOutput) LastUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
 }
 
+// The project membership assignments.
+func (o ProjectOutput) MembershipAssignments() ProjectMembershipAssignmentArrayOutput {
+	return o.ApplyT(func(v *Project) ProjectMembershipAssignmentArrayOutput { return v.MembershipAssignments }).(ProjectMembershipAssignmentArrayOutput)
+}
+
 // The name of the Amazon DataZone project.
 func (o ProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The project category.
+func (o ProjectOutput) ProjectCategory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.ProjectCategory }).(pulumi.StringPtrOutput)
+}
+
+// The project execution role ARN.
+func (o ProjectOutput) ProjectExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.ProjectExecutionRole }).(pulumi.StringPtrOutput)
 }
 
 // The project profile ID.

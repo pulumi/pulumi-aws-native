@@ -420,6 +420,37 @@ namespace Pulumi.AwsNative.Transfer
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// IP address type for Connector
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectorIpAddressType : IEquatable<ConnectorIpAddressType>
+    {
+        private readonly string _value;
+
+        private ConnectorIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorIpAddressType Ipv4 { get; } = new ConnectorIpAddressType("IPV4");
+        public static ConnectorIpAddressType Dualstack { get; } = new ConnectorIpAddressType("DUALSTACK");
+
+        public static bool operator ==(ConnectorIpAddressType left, ConnectorIpAddressType right) => left.Equals(right);
+        public static bool operator !=(ConnectorIpAddressType left, ConnectorIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorIpAddressType other && Equals(other);
+        public bool Equals(ConnectorIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct ConnectorStatus : IEquatable<ConnectorStatus>
     {
@@ -879,6 +910,37 @@ namespace Pulumi.AwsNative.Transfer
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WebAppEndpointPolicy other && Equals(other);
         public bool Equals(WebAppEndpointPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The IP address type for the VPC endpoint used by the web app.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebAppVpcIpAddressType : IEquatable<WebAppVpcIpAddressType>
+    {
+        private readonly string _value;
+
+        private WebAppVpcIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAppVpcIpAddressType Ipv4 { get; } = new WebAppVpcIpAddressType("IPV4");
+        public static WebAppVpcIpAddressType Dualstack { get; } = new WebAppVpcIpAddressType("DUALSTACK");
+
+        public static bool operator ==(WebAppVpcIpAddressType left, WebAppVpcIpAddressType right) => left.Equals(right);
+        public static bool operator !=(WebAppVpcIpAddressType left, WebAppVpcIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(WebAppVpcIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAppVpcIpAddressType other && Equals(other);
+        public bool Equals(WebAppVpcIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

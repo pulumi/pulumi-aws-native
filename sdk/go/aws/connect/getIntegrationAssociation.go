@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -44,6 +45,8 @@ type LookupIntegrationAssociationArgs struct {
 type LookupIntegrationAssociationResult struct {
 	// Identifier of the association with an Amazon Connect instance.
 	IntegrationAssociationId *string `pulumi:"integrationAssociationId"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupIntegrationAssociationOutput(ctx *pulumi.Context, args LookupIntegrationAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationAssociationResultOutput {
@@ -95,6 +98,11 @@ func (o LookupIntegrationAssociationResultOutput) ToLookupIntegrationAssociation
 // Identifier of the association with an Amazon Connect instance.
 func (o LookupIntegrationAssociationResultOutput) IntegrationAssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIntegrationAssociationResult) *string { return v.IntegrationAssociationId }).(pulumi.StringPtrOutput)
+}
+
+// The tags used to organize, track, or control access for this resource.
+func (o LookupIntegrationAssociationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupIntegrationAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

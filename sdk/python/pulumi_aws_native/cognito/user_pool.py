@@ -49,6 +49,7 @@ class UserPoolArgs:
                  username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  username_configuration: Optional[pulumi.Input['UserPoolUsernameConfigurationArgs']] = None,
                  verification_message_template: Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']] = None,
+                 web_authn_factor_configuration: Optional[pulumi.Input['UserPoolWebAuthnFactorConfiguration']] = None,
                  web_authn_relying_party_id: Optional[pulumi.Input[_builtins.str]] = None,
                  web_authn_user_verification: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -166,6 +167,8 @@ class UserPoolArgs:
             pulumi.set(__self__, "username_configuration", username_configuration)
         if verification_message_template is not None:
             pulumi.set(__self__, "verification_message_template", verification_message_template)
+        if web_authn_factor_configuration is not None:
+            pulumi.set(__self__, "web_authn_factor_configuration", web_authn_factor_configuration)
         if web_authn_relying_party_id is not None:
             pulumi.set(__self__, "web_authn_relying_party_id", web_authn_relying_party_id)
         if web_authn_user_verification is not None:
@@ -514,6 +517,15 @@ class UserPoolArgs:
         pulumi.set(self, "verification_message_template", value)
 
     @_builtins.property
+    @pulumi.getter(name="webAuthnFactorConfiguration")
+    def web_authn_factor_configuration(self) -> Optional[pulumi.Input['UserPoolWebAuthnFactorConfiguration']]:
+        return pulumi.get(self, "web_authn_factor_configuration")
+
+    @web_authn_factor_configuration.setter
+    def web_authn_factor_configuration(self, value: Optional[pulumi.Input['UserPoolWebAuthnFactorConfiguration']]):
+        pulumi.set(self, "web_authn_factor_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="webAuthnRelyingPartyId")
     def web_authn_relying_party_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -577,6 +589,7 @@ class UserPool(pulumi.CustomResource):
                  username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  username_configuration: Optional[pulumi.Input[Union['UserPoolUsernameConfigurationArgs', 'UserPoolUsernameConfigurationArgsDict']]] = None,
                  verification_message_template: Optional[pulumi.Input[Union['UserPoolVerificationMessageTemplateArgs', 'UserPoolVerificationMessageTemplateArgsDict']]] = None,
+                 web_authn_factor_configuration: Optional[pulumi.Input['UserPoolWebAuthnFactorConfiguration']] = None,
                  web_authn_relying_party_id: Optional[pulumi.Input[_builtins.str]] = None,
                  web_authn_user_verification: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -696,6 +709,7 @@ class UserPool(pulumi.CustomResource):
                  username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  username_configuration: Optional[pulumi.Input[Union['UserPoolUsernameConfigurationArgs', 'UserPoolUsernameConfigurationArgsDict']]] = None,
                  verification_message_template: Optional[pulumi.Input[Union['UserPoolVerificationMessageTemplateArgs', 'UserPoolVerificationMessageTemplateArgsDict']]] = None,
+                 web_authn_factor_configuration: Optional[pulumi.Input['UserPoolWebAuthnFactorConfiguration']] = None,
                  web_authn_relying_party_id: Optional[pulumi.Input[_builtins.str]] = None,
                  web_authn_user_verification: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -734,6 +748,7 @@ class UserPool(pulumi.CustomResource):
             __props__.__dict__["username_attributes"] = username_attributes
             __props__.__dict__["username_configuration"] = username_configuration
             __props__.__dict__["verification_message_template"] = verification_message_template
+            __props__.__dict__["web_authn_factor_configuration"] = web_authn_factor_configuration
             __props__.__dict__["web_authn_relying_party_id"] = web_authn_relying_party_id
             __props__.__dict__["web_authn_user_verification"] = web_authn_user_verification
             __props__.__dict__["arn"] = None
@@ -793,6 +808,7 @@ class UserPool(pulumi.CustomResource):
         __props__.__dict__["username_attributes"] = None
         __props__.__dict__["username_configuration"] = None
         __props__.__dict__["verification_message_template"] = None
+        __props__.__dict__["web_authn_factor_configuration"] = None
         __props__.__dict__["web_authn_relying_party_id"] = None
         __props__.__dict__["web_authn_user_verification"] = None
         return UserPool(resource_name, opts=opts, __props__=__props__)
@@ -1062,6 +1078,11 @@ class UserPool(pulumi.CustomResource):
         Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
         """
         return pulumi.get(self, "verification_message_template")
+
+    @_builtins.property
+    @pulumi.getter(name="webAuthnFactorConfiguration")
+    def web_authn_factor_configuration(self) -> pulumi.Output[Optional['UserPoolWebAuthnFactorConfiguration']]:
+        return pulumi.get(self, "web_authn_factor_configuration")
 
     @_builtins.property
     @pulumi.getter(name="webAuthnRelyingPartyId")

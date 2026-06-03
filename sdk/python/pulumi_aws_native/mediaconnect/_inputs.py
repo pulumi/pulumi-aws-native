@@ -150,6 +150,8 @@ __all__ = [
     'RouterInputConfiguration2PropertiesArgsDict',
     'RouterInputConfiguration3PropertiesArgs',
     'RouterInputConfiguration3PropertiesArgsDict',
+    'RouterInputConfiguration4PropertiesArgs',
+    'RouterInputConfiguration4PropertiesArgsDict',
     'RouterInputDefaultMaintenanceConfigurationArgs',
     'RouterInputDefaultMaintenanceConfigurationArgsDict',
     'RouterInputFailoverRouterInputConfigurationArgs',
@@ -174,6 +176,14 @@ __all__ = [
     'RouterInputMaintenanceConfiguration1PropertiesArgsDict',
     'RouterInputMediaConnectFlowRouterInputConfigurationArgs',
     'RouterInputMediaConnectFlowRouterInputConfigurationArgsDict',
+    'RouterInputMediaLiveChannelRouterInputConfigurationArgs',
+    'RouterInputMediaLiveChannelRouterInputConfigurationArgsDict',
+    'RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs',
+    'RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict',
+    'RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs',
+    'RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgsDict',
+    'RouterInputMediaLiveTransitEncryptionArgs',
+    'RouterInputMediaLiveTransitEncryptionArgsDict',
     'RouterInputMergeRouterInputConfigurationArgs',
     'RouterInputMergeRouterInputConfigurationArgsDict',
     'RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs',
@@ -4889,6 +4899,31 @@ class RouterInputConfiguration3PropertiesArgs:
         pulumi.set(self, "media_connect_flow", value)
 
 
+class RouterInputConfiguration4PropertiesArgsDict(TypedDict):
+    """
+    The configuration settings for a router input.
+    """
+    media_live_channel: pulumi.Input['RouterInputMediaLiveChannelRouterInputConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterInputConfiguration4PropertiesArgs:
+    def __init__(__self__, *,
+                 media_live_channel: pulumi.Input['RouterInputMediaLiveChannelRouterInputConfigurationArgs']):
+        """
+        The configuration settings for a router input.
+        """
+        pulumi.set(__self__, "media_live_channel", media_live_channel)
+
+    @_builtins.property
+    @pulumi.getter(name="mediaLiveChannel")
+    def media_live_channel(self) -> pulumi.Input['RouterInputMediaLiveChannelRouterInputConfigurationArgs']:
+        return pulumi.get(self, "media_live_channel")
+
+    @media_live_channel.setter
+    def media_live_channel(self, value: pulumi.Input['RouterInputMediaLiveChannelRouterInputConfigurationArgs']):
+        pulumi.set(self, "media_live_channel", value)
+
+
 class RouterInputDefaultMaintenanceConfigurationArgsDict(TypedDict):
     """
     Configuration settings for default maintenance scheduling.
@@ -5292,6 +5327,173 @@ class RouterInputMediaConnectFlowRouterInputConfigurationArgs:
         pulumi.set(self, "flow_output_arn", value)
 
 
+class RouterInputMediaLiveChannelRouterInputConfigurationArgsDict(TypedDict):
+    """
+    Configuration settings for connecting a router input to a MediaLive channel output.
+    """
+    source_transit_decryption: pulumi.Input['RouterInputMediaLiveTransitEncryptionArgsDict']
+    media_live_channel_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the MediaLive channel to connect to this router input.
+    """
+    media_live_channel_output_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the MediaLive channel output to connect to this router input.
+    """
+    media_live_pipeline_id: NotRequired[pulumi.Input['RouterInputMediaLiveChannelPipelineId']]
+
+@pulumi.input_type
+class RouterInputMediaLiveChannelRouterInputConfigurationArgs:
+    def __init__(__self__, *,
+                 source_transit_decryption: pulumi.Input['RouterInputMediaLiveTransitEncryptionArgs'],
+                 media_live_channel_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 media_live_channel_output_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 media_live_pipeline_id: Optional[pulumi.Input['RouterInputMediaLiveChannelPipelineId']] = None):
+        """
+        Configuration settings for connecting a router input to a MediaLive channel output.
+
+        :param pulumi.Input[_builtins.str] media_live_channel_arn: The ARN of the MediaLive channel to connect to this router input.
+        :param pulumi.Input[_builtins.str] media_live_channel_output_name: The name of the MediaLive channel output to connect to this router input.
+        """
+        pulumi.set(__self__, "source_transit_decryption", source_transit_decryption)
+        if media_live_channel_arn is not None:
+            pulumi.set(__self__, "media_live_channel_arn", media_live_channel_arn)
+        if media_live_channel_output_name is not None:
+            pulumi.set(__self__, "media_live_channel_output_name", media_live_channel_output_name)
+        if media_live_pipeline_id is not None:
+            pulumi.set(__self__, "media_live_pipeline_id", media_live_pipeline_id)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceTransitDecryption")
+    def source_transit_decryption(self) -> pulumi.Input['RouterInputMediaLiveTransitEncryptionArgs']:
+        return pulumi.get(self, "source_transit_decryption")
+
+    @source_transit_decryption.setter
+    def source_transit_decryption(self, value: pulumi.Input['RouterInputMediaLiveTransitEncryptionArgs']):
+        pulumi.set(self, "source_transit_decryption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mediaLiveChannelArn")
+    def media_live_channel_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the MediaLive channel to connect to this router input.
+        """
+        return pulumi.get(self, "media_live_channel_arn")
+
+    @media_live_channel_arn.setter
+    def media_live_channel_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "media_live_channel_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mediaLiveChannelOutputName")
+    def media_live_channel_output_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the MediaLive channel output to connect to this router input.
+        """
+        return pulumi.get(self, "media_live_channel_output_name")
+
+    @media_live_channel_output_name.setter
+    def media_live_channel_output_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "media_live_channel_output_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mediaLivePipelineId")
+    def media_live_pipeline_id(self) -> Optional[pulumi.Input['RouterInputMediaLiveChannelPipelineId']]:
+        return pulumi.get(self, "media_live_pipeline_id")
+
+    @media_live_pipeline_id.setter
+    def media_live_pipeline_id(self, value: Optional[pulumi.Input['RouterInputMediaLiveChannelPipelineId']]):
+        pulumi.set(self, "media_live_pipeline_id", value)
+
+
+class RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    Configuration settings for the MediaLive transit encryption key.
+    """
+    secrets_manager: pulumi.Input['RouterInputSecretsManagerEncryptionKeyConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 secrets_manager: pulumi.Input['RouterInputSecretsManagerEncryptionKeyConfigurationArgs']):
+        """
+        Configuration settings for the MediaLive transit encryption key.
+        """
+        pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> pulumi.Input['RouterInputSecretsManagerEncryptionKeyConfigurationArgs']:
+        return pulumi.get(self, "secrets_manager")
+
+    @secrets_manager.setter
+    def secrets_manager(self, value: pulumi.Input['RouterInputSecretsManagerEncryptionKeyConfigurationArgs']):
+        pulumi.set(self, "secrets_manager", value)
+
+
+class RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    Configuration settings for the MediaLive transit encryption key.
+    """
+    automatic: pulumi.Input['RouterInputAutomaticEncryptionKeyConfigurationArgsDict']
+
+@pulumi.input_type
+class RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 automatic: pulumi.Input['RouterInputAutomaticEncryptionKeyConfigurationArgs']):
+        """
+        Configuration settings for the MediaLive transit encryption key.
+        """
+        pulumi.set(__self__, "automatic", automatic)
+
+    @_builtins.property
+    @pulumi.getter
+    def automatic(self) -> pulumi.Input['RouterInputAutomaticEncryptionKeyConfigurationArgs']:
+        return pulumi.get(self, "automatic")
+
+    @automatic.setter
+    def automatic(self, value: pulumi.Input['RouterInputAutomaticEncryptionKeyConfigurationArgs']):
+        pulumi.set(self, "automatic", value)
+
+
+class RouterInputMediaLiveTransitEncryptionArgsDict(TypedDict):
+    """
+    The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
+    """
+    encryption_key_configuration: pulumi.Input[Union['RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
+    encryption_key_type: NotRequired[pulumi.Input['RouterInputMediaLiveTransitEncryptionKeyType']]
+
+@pulumi.input_type
+class RouterInputMediaLiveTransitEncryptionArgs:
+    def __init__(__self__, *,
+                 encryption_key_configuration: pulumi.Input[Union['RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs']],
+                 encryption_key_type: Optional[pulumi.Input['RouterInputMediaLiveTransitEncryptionKeyType']] = None):
+        """
+        The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
+        """
+        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
+        if encryption_key_type is not None:
+            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyConfiguration")
+    def encryption_key_configuration(self) -> pulumi.Input[Union['RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "encryption_key_configuration")
+
+    @encryption_key_configuration.setter
+    def encryption_key_configuration(self, value: pulumi.Input[Union['RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "encryption_key_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyType")
+    def encryption_key_type(self) -> Optional[pulumi.Input['RouterInputMediaLiveTransitEncryptionKeyType']]:
+        return pulumi.get(self, "encryption_key_type")
+
+    @encryption_key_type.setter
+    def encryption_key_type(self, value: Optional[pulumi.Input['RouterInputMediaLiveTransitEncryptionKeyType']]):
+        pulumi.set(self, "encryption_key_type", value)
+
+
 class RouterInputMergeRouterInputConfigurationArgsDict(TypedDict):
     """
     Configuration settings for a merge router input that combines two input sources.
@@ -5658,15 +5860,15 @@ class RouterInputRtpRouterInputConfigurationArgs:
 
 class RouterInputSecretsManagerEncryptionKeyConfigurationArgsDict(TypedDict):
     """
-    The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+    The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
     """
     role_arn: pulumi.Input[_builtins.str]
     """
-    The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+    The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
     """
     secret_arn: pulumi.Input[_builtins.str]
     """
-    The ARN of the AWS Secrets Manager secret used for transit encryption.
+    The ARN of the Secrets Manager secret used for transit encryption.
     """
 
 @pulumi.input_type
@@ -5675,10 +5877,10 @@ class RouterInputSecretsManagerEncryptionKeyConfigurationArgs:
                  role_arn: pulumi.Input[_builtins.str],
                  secret_arn: pulumi.Input[_builtins.str]):
         """
-        The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+        The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
 
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
-        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the AWS Secrets Manager secret used for transit encryption.
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
+        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the Secrets Manager secret used for transit encryption.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "secret_arn", secret_arn)
@@ -5687,7 +5889,7 @@ class RouterInputSecretsManagerEncryptionKeyConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+        The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
         """
         return pulumi.get(self, "role_arn")
 
@@ -5699,7 +5901,7 @@ class RouterInputSecretsManagerEncryptionKeyConfigurationArgs:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the AWS Secrets Manager secret used for transit encryption.
+        The ARN of the Secrets Manager secret used for transit encryption.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -6561,7 +6763,7 @@ class RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesA
 
 class RouterOutputResourceMediaLiveTransitEncryptionArgsDict(TypedDict):
     """
-    The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through AWS Secrets Manager.
+    The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
     """
     encryption_key_configuration: pulumi.Input[Union['RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
     encryption_key_type: NotRequired[pulumi.Input['RouterOutputResourceMediaLiveTransitEncryptionKeyType']]
@@ -6572,7 +6774,7 @@ class RouterOutputResourceMediaLiveTransitEncryptionArgs:
                  encryption_key_configuration: pulumi.Input[Union['RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs']],
                  encryption_key_type: Optional[pulumi.Input['RouterOutputResourceMediaLiveTransitEncryptionKeyType']] = None):
         """
-        The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through AWS Secrets Manager.
+        The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
         """
         pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
         if encryption_key_type is not None:
@@ -6936,15 +7138,15 @@ class RouterOutputResourceRtpRouterOutputConfigurationArgs:
 
 class RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgsDict(TypedDict):
     """
-    The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+    The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
     """
     role_arn: pulumi.Input[_builtins.str]
     """
-    The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+    The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
     """
     secret_arn: pulumi.Input[_builtins.str]
     """
-    The ARN of the AWS Secrets Manager secret used for transit encryption.
+    The ARN of the Secrets Manager secret used for transit encryption.
     """
 
 @pulumi.input_type
@@ -6953,10 +7155,10 @@ class RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgs:
                  role_arn: pulumi.Input[_builtins.str],
                  secret_arn: pulumi.Input[_builtins.str]):
         """
-        The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+        The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
 
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
-        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the AWS Secrets Manager secret used for transit encryption.
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
+        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the Secrets Manager secret used for transit encryption.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "secret_arn", secret_arn)
@@ -6965,7 +7167,7 @@ class RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+        The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
         """
         return pulumi.get(self, "role_arn")
 
@@ -6977,7 +7179,7 @@ class RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgs:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the AWS Secrets Manager secret used for transit encryption.
+        The ARN of the Secrets Manager secret used for transit encryption.
         """
         return pulumi.get(self, "secret_arn")
 

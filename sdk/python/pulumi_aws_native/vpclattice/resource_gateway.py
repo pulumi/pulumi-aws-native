@@ -27,6 +27,7 @@ class ResourceGatewayArgs:
                  ip_address_type: Optional[pulumi.Input['ResourceGatewayIpAddressType']] = None,
                  ipv4_addresses_per_eni: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_config_dns_resolution: Optional[pulumi.Input['ResourceGatewayResourceConfigDnsResolution']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -48,6 +49,8 @@ class ResourceGatewayArgs:
             pulumi.set(__self__, "ipv4_addresses_per_eni", ipv4_addresses_per_eni)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if resource_config_dns_resolution is not None:
+            pulumi.set(__self__, "resource_config_dns_resolution", resource_config_dns_resolution)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if tags is not None:
@@ -114,6 +117,15 @@ class ResourceGatewayArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="resourceConfigDnsResolution")
+    def resource_config_dns_resolution(self) -> Optional[pulumi.Input['ResourceGatewayResourceConfigDnsResolution']]:
+        return pulumi.get(self, "resource_config_dns_resolution")
+
+    @resource_config_dns_resolution.setter
+    def resource_config_dns_resolution(self, value: Optional[pulumi.Input['ResourceGatewayResourceConfigDnsResolution']]):
+        pulumi.set(self, "resource_config_dns_resolution", value)
+
+    @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -147,6 +159,7 @@ class ResourceGateway(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input['ResourceGatewayIpAddressType']] = None,
                  ipv4_addresses_per_eni: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_config_dns_resolution: Optional[pulumi.Input['ResourceGatewayResourceConfigDnsResolution']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -194,6 +207,7 @@ class ResourceGateway(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input['ResourceGatewayIpAddressType']] = None,
                  ipv4_addresses_per_eni: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_config_dns_resolution: Optional[pulumi.Input['ResourceGatewayResourceConfigDnsResolution']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -210,6 +224,7 @@ class ResourceGateway(pulumi.CustomResource):
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["ipv4_addresses_per_eni"] = ipv4_addresses_per_eni
             __props__.__dict__["name"] = name
+            __props__.__dict__["resource_config_dns_resolution"] = resource_config_dns_resolution
             __props__.__dict__["security_group_ids"] = security_group_ids
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
@@ -220,7 +235,7 @@ class ResourceGateway(pulumi.CustomResource):
             __props__.__dict__["vpc_identifier"] = vpc_identifier
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ipAddressType", "name", "subnetIds[*]", "vpcIdentifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ipAddressType", "name", "resourceConfigDnsResolution", "subnetIds[*]", "vpcIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResourceGateway, __self__).__init__(
             'aws-native:vpclattice:ResourceGateway',
@@ -249,6 +264,7 @@ class ResourceGateway(pulumi.CustomResource):
         __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["ipv4_addresses_per_eni"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["resource_config_dns_resolution"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
@@ -294,6 +310,11 @@ class ResourceGateway(pulumi.CustomResource):
         The name of the resource gateway.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigDnsResolution")
+    def resource_config_dns_resolution(self) -> pulumi.Output[Optional['ResourceGatewayResourceConfigDnsResolution']]:
+        return pulumi.get(self, "resource_config_dns_resolution")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")

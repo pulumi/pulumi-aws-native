@@ -1,7 +1,4 @@
 {
-  "propertyTransform" : {
-    "/properties/AutoScalingGroupProvider/AutoScalingGroupArn" : "$split(AutoScalingGroupProvider.AutoScalingGroupArn, \"autoScalingGroupName/\")[-1] $OR $split(AutoScalingGroupArn, \"autoScalingGroupName/\")[-1]"
-  },
   "tagging" : {
     "permissions" : [ "ecs:TagResource", "ecs:UntagResource", "ecs:ListTagsForResource" ],
     "taggable" : true,
@@ -9,6 +6,9 @@
     "tagUpdatable" : true,
     "tagProperty" : "/properties/Tags",
     "cloudFormationSystemTags" : true
+  },
+  "propertyTransform" : {
+    "/properties/AutoScalingGroupProvider/AutoScalingGroupArn" : "$split(AutoScalingGroupProvider.AutoScalingGroupArn, \"autoScalingGroupName/\")[-1] $OR $split(AutoScalingGroupArn, \"autoScalingGroupName/\")[-1]"
   },
   "handlers" : {
     "read" : {
@@ -76,6 +76,16 @@
         },
         "Max" : {
           "type" : "integer"
+        }
+      }
+    },
+    "AutoRepairConfiguration" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ActionsStatus" : {
+          "type" : "string",
+          "enum" : [ "ENABLED", "DISABLED" ]
         }
       }
     },
@@ -427,6 +437,9 @@
         "InfrastructureRoleArn" : {
           "type" : "string"
         },
+        "AutoRepairConfiguration" : {
+          "$ref" : "#/definitions/AutoRepairConfiguration"
+        },
         "PropagateTags" : {
           "type" : "string",
           "enum" : [ "CAPACITY_PROVIDER", "NONE" ]
@@ -451,6 +464,7 @@
       "required" : [ "InfrastructureRoleArn", "InstanceLaunchTemplate" ]
     }
   },
+  "conditionalCreateOnlyProperties" : [ "/properties/ManagedInstancesProvider/InstanceLaunchTemplate/CapacityOptionType" ],
   "properties" : {
     "AutoScalingGroupProvider" : {
       "$ref" : "#/definitions/AutoScalingGroupProvider"
@@ -470,6 +484,5 @@
     "ManagedInstancesProvider" : {
       "$ref" : "#/definitions/ManagedInstancesProvider"
     }
-  },
-  "conditionalCreateOnlyProperties" : [ "/properties/ManagedInstancesProvider/InstanceLaunchTemplate/CapacityOptionType" ]
+  }
 }

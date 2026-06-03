@@ -28,7 +28,8 @@ type Campaign struct {
 	// The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
 	ConnectCampaignFlowArn pulumi.StringPtrOutput `pulumi:"connectCampaignFlowArn"`
 	// The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
-	ConnectInstanceId pulumi.StringOutput `pulumi:"connectInstanceId"`
+	ConnectInstanceId pulumi.StringOutput                `pulumi:"connectInstanceId"`
+	EntryLimitsConfig CampaignEntryLimitsConfigPtrOutput `pulumi:"entryLimitsConfig"`
 	// The name of the outbound campaign.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Contains the schedule configuration.
@@ -97,7 +98,8 @@ type campaignArgs struct {
 	// The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
 	ConnectCampaignFlowArn *string `pulumi:"connectCampaignFlowArn"`
 	// The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
-	ConnectInstanceId string `pulumi:"connectInstanceId"`
+	ConnectInstanceId string                     `pulumi:"connectInstanceId"`
+	EntryLimitsConfig *CampaignEntryLimitsConfig `pulumi:"entryLimitsConfig"`
 	// The name of the outbound campaign.
 	Name *string `pulumi:"name"`
 	// Contains the schedule configuration.
@@ -122,6 +124,7 @@ type CampaignArgs struct {
 	ConnectCampaignFlowArn pulumi.StringPtrInput
 	// The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
 	ConnectInstanceId pulumi.StringInput
+	EntryLimitsConfig CampaignEntryLimitsConfigPtrInput
 	// The name of the outbound campaign.
 	Name pulumi.StringPtrInput
 	// Contains the schedule configuration.
@@ -199,6 +202,10 @@ func (o CampaignOutput) ConnectCampaignFlowArn() pulumi.StringPtrOutput {
 // The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
 func (o CampaignOutput) ConnectInstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Campaign) pulumi.StringOutput { return v.ConnectInstanceId }).(pulumi.StringOutput)
+}
+
+func (o CampaignOutput) EntryLimitsConfig() CampaignEntryLimitsConfigPtrOutput {
+	return o.ApplyT(func(v *Campaign) CampaignEntryLimitsConfigPtrOutput { return v.EntryLimitsConfig }).(CampaignEntryLimitsConfigPtrOutput)
 }
 
 // The name of the outbound campaign.

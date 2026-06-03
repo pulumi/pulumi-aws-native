@@ -97,6 +97,14 @@
       "default" : "available",
       "enum" : [ "available", "inactive", "inactive-except-restore" ]
     },
+    "DatabaseInstallationFiles" : {
+      "type" : "array",
+      "description" : "",
+      "insertionOrder" : false,
+      "items" : {
+        "type" : "string"
+      }
+    },
     "Tags" : {
       "description" : "A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*",
       "type" : "array",
@@ -117,7 +125,7 @@
   "writeOnlyProperties" : [ "/properties/Manifest", "/properties/SourceCustomDbEngineVersionIdentifier", "/properties/UseAwsProvidedLatestImage" ],
   "readOnlyProperties" : [ "/properties/DBEngineVersionArn" ],
   "primaryIdentifier" : [ "/properties/Engine", "/properties/EngineVersion" ],
-  "createOnlyProperties" : [ "/properties/Engine", "/properties/EngineVersion", "/properties/DatabaseInstallationFilesS3BucketName", "/properties/DatabaseInstallationFilesS3Prefix", "/properties/ImageId", "/properties/KMSKeyId", "/properties/Manifest", "/properties/SourceCustomDbEngineVersionIdentifier", "/properties/UseAwsProvidedLatestImage" ],
+  "createOnlyProperties" : [ "/properties/Engine", "/properties/EngineVersion", "/properties/DatabaseInstallationFilesS3BucketName", "/properties/DatabaseInstallationFilesS3Prefix", "/properties/DatabaseInstallationFiles", "/properties/ImageId", "/properties/KMSKeyId", "/properties/Manifest", "/properties/SourceCustomDbEngineVersionIdentifier", "/properties/UseAwsProvidedLatestImage" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:CopySnapshot", "ec2:DeleteSnapshot", "ec2:DescribeSnapshots", "kms:CreateGrant", "kms:Decrypt", "kms:DescribeKey", "kms:GenerateDataKey", "kms:ReEncrypt", "mediaimport:CreateDatabaseBinarySnapshot", "rds:AddTagsToResource", "rds:CreateCustomDBEngineVersion", "rds:DescribeDBEngineVersions", "rds:ModifyCustomDBEngineVersion", "s3:CreateBucket", "s3:GetObject", "s3:GetObjectAcl", "s3:GetObjectTagging", "s3:ListBucket", "s3:PutBucketObjectLockConfiguration", "s3:PutBucketPolicy", "s3:PutBucketVersioning" ],

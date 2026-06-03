@@ -20,6 +20,7 @@ __all__ = [
     'ChannelIngestEndpoint',
     'ChannelInputSwitchConfiguration',
     'ChannelOutputHeaderConfiguration',
+    'OriginEndpointDashAvailabilityStartTimeConfigurationProperties',
     'OriginEndpointDashBaseUrl',
     'OriginEndpointDashDvbFontDownload',
     'OriginEndpointDashDvbMetricsReporting',
@@ -112,8 +113,8 @@ class ChannelInputSwitchConfiguration(dict):
         """
         <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
 
-        :param _builtins.bool mqcs_input_switching: <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
-        :param _builtins.int preferred_input: For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
+        :param _builtins.bool mqcs_input_switching: <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is false. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+        :param _builtins.int preferred_input: <p>For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select <code>1</code> to prefer the first ingest endpoint, or <code>2</code> to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.</p>
         """
         if mqcs_input_switching is not None:
             pulumi.set(__self__, "mqcs_input_switching", mqcs_input_switching)
@@ -124,7 +125,7 @@ class ChannelInputSwitchConfiguration(dict):
     @pulumi.getter(name="mqcsInputSwitching")
     def mqcs_input_switching(self) -> Optional[_builtins.bool]:
         """
-        <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+        <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is false. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
         """
         return pulumi.get(self, "mqcs_input_switching")
 
@@ -132,7 +133,7 @@ class ChannelInputSwitchConfiguration(dict):
     @pulumi.getter(name="preferredInput")
     def preferred_input(self) -> Optional[_builtins.int]:
         """
-        For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
+        <p>For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select <code>1</code> to prefer the first ingest endpoint, or <code>2</code> to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.</p>
         """
         return pulumi.get(self, "preferred_input")
 
@@ -176,6 +177,35 @@ class ChannelOutputHeaderConfiguration(dict):
         <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
         """
         return pulumi.get(self, "publish_mqcs")
+
+
+@pulumi.output_type
+class OriginEndpointDashAvailabilityStartTimeConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fixedAvailabilityStartTime":
+            suggest = "fixed_availability_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginEndpointDashAvailabilityStartTimeConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginEndpointDashAvailabilityStartTimeConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginEndpointDashAvailabilityStartTimeConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fixed_availability_start_time: _builtins.str):
+        pulumi.set(__self__, "fixed_availability_start_time", fixed_availability_start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="fixedAvailabilityStartTime")
+    def fixed_availability_start_time(self) -> _builtins.str:
+        return pulumi.get(self, "fixed_availability_start_time")
 
 
 @pulumi.output_type
@@ -442,6 +472,8 @@ class OriginEndpointDashManifestConfiguration(dict):
         suggest = None
         if key == "manifestName":
             suggest = "manifest_name"
+        elif key == "availabilityStartTimeConfiguration":
+            suggest = "availability_start_time_configuration"
         elif key == "baseUrls":
             suggest = "base_urls"
         elif key == "drmSignaling":
@@ -468,6 +500,8 @@ class OriginEndpointDashManifestConfiguration(dict):
             suggest = "subtitle_configuration"
         elif key == "suggestedPresentationDelaySeconds":
             suggest = "suggested_presentation_delay_seconds"
+        elif key == "uriPathType":
+            suggest = "uri_path_type"
         elif key == "utcTiming":
             suggest = "utc_timing"
 
@@ -484,6 +518,7 @@ class OriginEndpointDashManifestConfiguration(dict):
 
     def __init__(__self__, *,
                  manifest_name: _builtins.str,
+                 availability_start_time_configuration: Optional['outputs.OriginEndpointDashAvailabilityStartTimeConfigurationProperties'] = None,
                  base_urls: Optional[Sequence['outputs.OriginEndpointDashBaseUrl']] = None,
                  compactness: Optional['OriginEndpointDashCompactness'] = None,
                  drm_signaling: Optional['OriginEndpointDashDrmSignaling'] = None,
@@ -499,6 +534,7 @@ class OriginEndpointDashManifestConfiguration(dict):
                  segment_template_format: Optional['OriginEndpointDashSegmentTemplateFormat'] = None,
                  subtitle_configuration: Optional['outputs.OriginEndpointDashSubtitleConfiguration'] = None,
                  suggested_presentation_delay_seconds: Optional[_builtins.int] = None,
+                 uri_path_type: Optional['OriginEndpointUriPathType'] = None,
                  utc_timing: Optional['outputs.OriginEndpointDashUtcTiming'] = None):
         """
         <p>Retrieve the DASH manifest configuration.</p>
@@ -528,6 +564,8 @@ class OriginEndpointDashManifestConfiguration(dict):
         :param 'OriginEndpointDashUtcTiming' utc_timing: Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
         """
         pulumi.set(__self__, "manifest_name", manifest_name)
+        if availability_start_time_configuration is not None:
+            pulumi.set(__self__, "availability_start_time_configuration", availability_start_time_configuration)
         if base_urls is not None:
             pulumi.set(__self__, "base_urls", base_urls)
         if compactness is not None:
@@ -558,6 +596,8 @@ class OriginEndpointDashManifestConfiguration(dict):
             pulumi.set(__self__, "subtitle_configuration", subtitle_configuration)
         if suggested_presentation_delay_seconds is not None:
             pulumi.set(__self__, "suggested_presentation_delay_seconds", suggested_presentation_delay_seconds)
+        if uri_path_type is not None:
+            pulumi.set(__self__, "uri_path_type", uri_path_type)
         if utc_timing is not None:
             pulumi.set(__self__, "utc_timing", utc_timing)
 
@@ -568,6 +608,11 @@ class OriginEndpointDashManifestConfiguration(dict):
         <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
         """
         return pulumi.get(self, "manifest_name")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityStartTimeConfiguration")
+    def availability_start_time_configuration(self) -> Optional['outputs.OriginEndpointDashAvailabilityStartTimeConfigurationProperties']:
+        return pulumi.get(self, "availability_start_time_configuration")
 
     @_builtins.property
     @pulumi.getter(name="baseUrls")
@@ -694,6 +739,11 @@ class OriginEndpointDashManifestConfiguration(dict):
         <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
         """
         return pulumi.get(self, "suggested_presentation_delay_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="uriPathType")
+    def uri_path_type(self) -> Optional['OriginEndpointUriPathType']:
+        return pulumi.get(self, "uri_path_type")
 
     @_builtins.property
     @pulumi.getter(name="utcTiming")
@@ -1364,6 +1414,8 @@ class OriginEndpointHlsManifestConfiguration(dict):
             suggest = "scte_hls"
         elif key == "startTag":
             suggest = "start_tag"
+        elif key == "uriPathType":
+            suggest = "uri_path_type"
         elif key == "urlEncodeChildManifest":
             suggest = "url_encode_child_manifest"
 
@@ -1386,6 +1438,7 @@ class OriginEndpointHlsManifestConfiguration(dict):
                  program_date_time_interval_seconds: Optional[_builtins.int] = None,
                  scte_hls: Optional['outputs.OriginEndpointScteHls'] = None,
                  start_tag: Optional['outputs.OriginEndpointStartTag'] = None,
+                 uri_path_type: Optional['OriginEndpointUriPathType'] = None,
                  url: Optional[_builtins.str] = None,
                  url_encode_child_manifest: Optional[_builtins.bool] = None):
         """
@@ -1414,6 +1467,8 @@ class OriginEndpointHlsManifestConfiguration(dict):
             pulumi.set(__self__, "scte_hls", scte_hls)
         if start_tag is not None:
             pulumi.set(__self__, "start_tag", start_tag)
+        if uri_path_type is not None:
+            pulumi.set(__self__, "uri_path_type", uri_path_type)
         if url is not None:
             pulumi.set(__self__, "url", url)
         if url_encode_child_manifest is not None:
@@ -1476,6 +1531,11 @@ class OriginEndpointHlsManifestConfiguration(dict):
         return pulumi.get(self, "start_tag")
 
     @_builtins.property
+    @pulumi.getter(name="uriPathType")
+    def uri_path_type(self) -> Optional['OriginEndpointUriPathType']:
+        return pulumi.get(self, "uri_path_type")
+
+    @_builtins.property
     @pulumi.getter
     def url(self) -> Optional[_builtins.str]:
         """
@@ -1514,6 +1574,8 @@ class OriginEndpointLowLatencyHlsManifestConfiguration(dict):
             suggest = "scte_hls"
         elif key == "startTag":
             suggest = "start_tag"
+        elif key == "uriPathType":
+            suggest = "uri_path_type"
         elif key == "urlEncodeChildManifest":
             suggest = "url_encode_child_manifest"
 
@@ -1536,6 +1598,7 @@ class OriginEndpointLowLatencyHlsManifestConfiguration(dict):
                  program_date_time_interval_seconds: Optional[_builtins.int] = None,
                  scte_hls: Optional['outputs.OriginEndpointScteHls'] = None,
                  start_tag: Optional['outputs.OriginEndpointStartTag'] = None,
+                 uri_path_type: Optional['OriginEndpointUriPathType'] = None,
                  url: Optional[_builtins.str] = None,
                  url_encode_child_manifest: Optional[_builtins.bool] = None):
         """
@@ -1564,6 +1627,8 @@ class OriginEndpointLowLatencyHlsManifestConfiguration(dict):
             pulumi.set(__self__, "scte_hls", scte_hls)
         if start_tag is not None:
             pulumi.set(__self__, "start_tag", start_tag)
+        if uri_path_type is not None:
+            pulumi.set(__self__, "uri_path_type", uri_path_type)
         if url is not None:
             pulumi.set(__self__, "url", url)
         if url_encode_child_manifest is not None:
@@ -1624,6 +1689,11 @@ class OriginEndpointLowLatencyHlsManifestConfiguration(dict):
         To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
         """
         return pulumi.get(self, "start_tag")
+
+    @_builtins.property
+    @pulumi.getter(name="uriPathType")
+    def uri_path_type(self) -> Optional['OriginEndpointUriPathType']:
+        return pulumi.get(self, "uri_path_type")
 
     @_builtins.property
     @pulumi.getter
@@ -1718,6 +1788,9 @@ class OriginEndpointMssManifestConfiguration(dict):
 
 @pulumi.output_type
 class OriginEndpointPolicyCdnAuthConfiguration(dict):
+    """
+    <p>The settings to enable CDN authorization headers in MediaPackage.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1741,8 +1814,10 @@ class OriginEndpointPolicyCdnAuthConfiguration(dict):
                  cdn_identifier_secret_arns: Sequence[_builtins.str],
                  secrets_role_arn: _builtins.str):
         """
-        :param Sequence[_builtins.str] cdn_identifier_secret_arns: The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
-        :param _builtins.str secrets_role_arn: The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS  for CDN authorization.
+        <p>The settings to enable CDN authorization headers in MediaPackage.</p>
+
+        :param Sequence[_builtins.str] cdn_identifier_secret_arns: <p>The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.</p>
+        :param _builtins.str secrets_role_arn: <p>The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and KMS for CDN authorization.</p>
         """
         pulumi.set(__self__, "cdn_identifier_secret_arns", cdn_identifier_secret_arns)
         pulumi.set(__self__, "secrets_role_arn", secrets_role_arn)
@@ -1751,7 +1826,7 @@ class OriginEndpointPolicyCdnAuthConfiguration(dict):
     @pulumi.getter(name="cdnIdentifierSecretArns")
     def cdn_identifier_secret_arns(self) -> Sequence[_builtins.str]:
         """
-        The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
+        <p>The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.</p>
         """
         return pulumi.get(self, "cdn_identifier_secret_arns")
 
@@ -1759,7 +1834,7 @@ class OriginEndpointPolicyCdnAuthConfiguration(dict):
     @pulumi.getter(name="secretsRoleArn")
     def secrets_role_arn(self) -> _builtins.str:
         """
-        The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS  for CDN authorization.
+        <p>The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and KMS for CDN authorization.</p>
         """
         return pulumi.get(self, "secrets_role_arn")
 
@@ -1772,7 +1847,9 @@ class OriginEndpointScte(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "scteFilter":
+        if key == "customAdTypes":
+            suggest = "custom_ad_types"
+        elif key == "scteFilter":
             suggest = "scte_filter"
         elif key == "scteInSegments":
             suggest = "scte_in_segments"
@@ -1789,11 +1866,13 @@ class OriginEndpointScte(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 custom_ad_types: Optional[Sequence['OriginEndpointCustomAdType']] = None,
                  scte_filter: Optional[Sequence['OriginEndpointScteFilter']] = None,
                  scte_in_segments: Optional['OriginEndpointScteInSegments'] = None):
         """
         <p>The SCTE configuration.</p>
 
+        :param Sequence['OriginEndpointCustomAdType'] custom_ad_types: <p>A list of additional non-Ad SCTE-35 event types to treat as advertisements. When configured, events matching these types produce ad markers (such as <code>SCTE35-OUT</code> and <code>SCTE35-IN</code> in HLS DATERANGE tags) in manifests.</p> <p>Valid values: <code>PROGRAM</code> | <code>CHAPTER</code> | <code>UNSCHEDULED_EVENT</code> | <code>ALTERNATE_CONTENT_OPPORTUNITY</code> | <code>NETWORK</code> </p> <p>If you don't specify any values, the default is empty (only default ad types are used).</p>
         :param Sequence['OriginEndpointScteFilter'] scte_filter: <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
         :param 'OriginEndpointScteInSegments' scte_in_segments: Controls whether SCTE-35 messages are included in segment files.
                
@@ -1802,10 +1881,20 @@ class OriginEndpointScte(dict):
                
                For DASH manifests, when set to `All` , an `InbandEventStream` tag signals that SCTE messages are present in segments. This setting works independently of manifest ad markers.
         """
+        if custom_ad_types is not None:
+            pulumi.set(__self__, "custom_ad_types", custom_ad_types)
         if scte_filter is not None:
             pulumi.set(__self__, "scte_filter", scte_filter)
         if scte_in_segments is not None:
             pulumi.set(__self__, "scte_in_segments", scte_in_segments)
+
+    @_builtins.property
+    @pulumi.getter(name="customAdTypes")
+    def custom_ad_types(self) -> Optional[Sequence['OriginEndpointCustomAdType']]:
+        """
+        <p>A list of additional non-Ad SCTE-35 event types to treat as advertisements. When configured, events matching these types produce ad markers (such as <code>SCTE35-OUT</code> and <code>SCTE35-IN</code> in HLS DATERANGE tags) in manifests.</p> <p>Valid values: <code>PROGRAM</code> | <code>CHAPTER</code> | <code>UNSCHEDULED_EVENT</code> | <code>ALTERNATE_CONTENT_OPPORTUNITY</code> | <code>NETWORK</code> </p> <p>If you don't specify any values, the default is empty (only default ad types are used).</p>
+        """
+        return pulumi.get(self, "custom_ad_types")
 
     @_builtins.property
     @pulumi.getter(name="scteFilter")
@@ -1839,6 +1928,8 @@ class OriginEndpointScteDash(dict):
         suggest = None
         if key == "adMarkerDash":
             suggest = "ad_marker_dash"
+        elif key == "scteInManifests":
+            suggest = "scte_in_manifests"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OriginEndpointScteDash. Access the value via the '{suggest}' property getter instead.")
@@ -1852,7 +1943,8 @@ class OriginEndpointScteDash(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 ad_marker_dash: Optional['OriginEndpointAdMarkerDash'] = None):
+                 ad_marker_dash: Optional['OriginEndpointAdMarkerDash'] = None,
+                 scte_in_manifests: Optional['OriginEndpointScteInManifests'] = None):
         """
         <p>The SCTE configuration.</p>
 
@@ -1865,6 +1957,8 @@ class OriginEndpointScteDash(dict):
         """
         if ad_marker_dash is not None:
             pulumi.set(__self__, "ad_marker_dash", ad_marker_dash)
+        if scte_in_manifests is not None:
+            pulumi.set(__self__, "scte_in_manifests", scte_in_manifests)
 
     @_builtins.property
     @pulumi.getter(name="adMarkerDash")
@@ -1879,6 +1973,11 @@ class OriginEndpointScteDash(dict):
         """
         return pulumi.get(self, "ad_marker_dash")
 
+    @_builtins.property
+    @pulumi.getter(name="scteInManifests")
+    def scte_in_manifests(self) -> Optional['OriginEndpointScteInManifests']:
+        return pulumi.get(self, "scte_in_manifests")
+
 
 @pulumi.output_type
 class OriginEndpointScteHls(dict):
@@ -1890,6 +1989,8 @@ class OriginEndpointScteHls(dict):
         suggest = None
         if key == "adMarkerHls":
             suggest = "ad_marker_hls"
+        elif key == "scteInManifests":
+            suggest = "scte_in_manifests"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OriginEndpointScteHls. Access the value via the '{suggest}' property getter instead.")
@@ -1903,7 +2004,8 @@ class OriginEndpointScteHls(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 ad_marker_hls: Optional['OriginEndpointAdMarkerHls'] = None):
+                 ad_marker_hls: Optional['OriginEndpointAdMarkerHls'] = None,
+                 scte_in_manifests: Optional['OriginEndpointScteInManifests'] = None):
         """
         <p>The SCTE configuration.</p>
 
@@ -1911,6 +2013,8 @@ class OriginEndpointScteHls(dict):
         """
         if ad_marker_hls is not None:
             pulumi.set(__self__, "ad_marker_hls", ad_marker_hls)
+        if scte_in_manifests is not None:
+            pulumi.set(__self__, "scte_in_manifests", scte_in_manifests)
 
     @_builtins.property
     @pulumi.getter(name="adMarkerHls")
@@ -1919,6 +2023,11 @@ class OriginEndpointScteHls(dict):
         The SCTE-35 HLS ad-marker configuration.
         """
         return pulumi.get(self, "ad_marker_hls")
+
+    @_builtins.property
+    @pulumi.getter(name="scteInManifests")
+    def scte_in_manifests(self) -> Optional['OriginEndpointScteInManifests']:
+        return pulumi.get(self, "scte_in_manifests")
 
 
 @pulumi.output_type
@@ -2087,7 +2196,7 @@ class OriginEndpointSpekeKeyProvider(dict):
         :param _builtins.str resource_id: <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p> <p>The following example shows a resource ID: <code>MovieNight20171126093045</code> </p>
         :param _builtins.str role_arn: <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p> <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code> </p>
         :param _builtins.str url: <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p> <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code> </p>
-        :param _builtins.str certificate_arn: <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
+        :param _builtins.str certificate_arn: <p>The ARN for the certificate that you imported to Amazon Web Services Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
         """
         pulumi.set(__self__, "drm_systems", drm_systems)
         pulumi.set(__self__, "encryption_contract_configuration", encryption_contract_configuration)
@@ -2141,7 +2250,7 @@ class OriginEndpointSpekeKeyProvider(dict):
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[_builtins.str]:
         """
-        <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
+        <p>The ARN for the certificate that you imported to Amazon Web Services Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
         """
         return pulumi.get(self, "certificate_arn")
 

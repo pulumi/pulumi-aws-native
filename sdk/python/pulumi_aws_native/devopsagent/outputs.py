@@ -21,6 +21,7 @@ __all__ = [
     'AgentSpaceIdcAuthConfiguration',
     'AgentSpaceOperatorApp',
     'AssociationServiceConfiguration',
+    'PrivateConnectionConnectionConfiguration',
     'ServiceAdditionalServiceDetails',
     'ServiceDetails',
 ]
@@ -176,6 +177,18 @@ class AssociationServiceConfiguration(dict):
 
 
 @pulumi.output_type
+class PrivateConnectionConnectionConfiguration(dict):
+    """
+    The connection configuration, either SelfManaged or ServiceManaged.
+    """
+    def __init__(__self__):
+        """
+        The connection configuration, either SelfManaged or ServiceManaged.
+        """
+        pass
+
+
+@pulumi.output_type
 class ServiceAdditionalServiceDetails(dict):
     """
     Additional details specific to the service type returned after registration
@@ -190,11 +203,11 @@ class ServiceAdditionalServiceDetails(dict):
 @pulumi.output_type
 class ServiceDetails(dict):
     """
-    Service-specific configuration details
+    Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
     """
     def __init__(__self__):
         """
-        Service-specific configuration details
+        Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
         """
         pass
 

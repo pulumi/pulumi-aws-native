@@ -1554,6 +1554,62 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     [EnumType]
+    public readonly struct RouterInputMediaLiveChannelPipelineId : IEquatable<RouterInputMediaLiveChannelPipelineId>
+    {
+        private readonly string _value;
+
+        private RouterInputMediaLiveChannelPipelineId(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputMediaLiveChannelPipelineId Pipeline0 { get; } = new RouterInputMediaLiveChannelPipelineId("PIPELINE_0");
+        public static RouterInputMediaLiveChannelPipelineId Pipeline1 { get; } = new RouterInputMediaLiveChannelPipelineId("PIPELINE_1");
+
+        public static bool operator ==(RouterInputMediaLiveChannelPipelineId left, RouterInputMediaLiveChannelPipelineId right) => left.Equals(right);
+        public static bool operator !=(RouterInputMediaLiveChannelPipelineId left, RouterInputMediaLiveChannelPipelineId right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputMediaLiveChannelPipelineId value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputMediaLiveChannelPipelineId other && Equals(other);
+        public bool Equals(RouterInputMediaLiveChannelPipelineId other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterInputMediaLiveTransitEncryptionKeyType : IEquatable<RouterInputMediaLiveTransitEncryptionKeyType>
+    {
+        private readonly string _value;
+
+        private RouterInputMediaLiveTransitEncryptionKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputMediaLiveTransitEncryptionKeyType SecretsManager { get; } = new RouterInputMediaLiveTransitEncryptionKeyType("SECRETS_MANAGER");
+        public static RouterInputMediaLiveTransitEncryptionKeyType Automatic { get; } = new RouterInputMediaLiveTransitEncryptionKeyType("AUTOMATIC");
+
+        public static bool operator ==(RouterInputMediaLiveTransitEncryptionKeyType left, RouterInputMediaLiveTransitEncryptionKeyType right) => left.Equals(right);
+        public static bool operator !=(RouterInputMediaLiveTransitEncryptionKeyType left, RouterInputMediaLiveTransitEncryptionKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputMediaLiveTransitEncryptionKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputMediaLiveTransitEncryptionKeyType other && Equals(other);
+        public bool Equals(RouterInputMediaLiveTransitEncryptionKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct RouterInputProtocol : IEquatable<RouterInputProtocol>
     {
         private readonly string _value;
@@ -1718,6 +1774,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public static RouterInputType Failover { get; } = new RouterInputType("FAILOVER");
         public static RouterInputType Merge { get; } = new RouterInputType("MERGE");
         public static RouterInputType MediaconnectFlow { get; } = new RouterInputType("MEDIACONNECT_FLOW");
+        public static RouterInputType MedialiveChannel { get; } = new RouterInputType("MEDIALIVE_CHANNEL");
 
         public static bool operator ==(RouterInputType left, RouterInputType right) => left.Equals(right);
         public static bool operator !=(RouterInputType left, RouterInputType right) => !left.Equals(right);

@@ -101,7 +101,7 @@ class LicenseEndpoint(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Definition of AWS::Deadline::LicenseEndpoint Resource Type
+        Resource Type definition for AWS::Deadline::LicenseEndpoint
 
 
         :param str resource_name: The name of the resource.
@@ -118,7 +118,7 @@ class LicenseEndpoint(pulumi.CustomResource):
                  args: LicenseEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::Deadline::LicenseEndpoint Resource Type
+        Resource Type definition for AWS::Deadline::LicenseEndpoint
 
 
         :param str resource_name: The name of the resource.

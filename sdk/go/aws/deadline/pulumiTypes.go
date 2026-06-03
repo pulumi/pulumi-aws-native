@@ -3349,6 +3349,124 @@ func (o QueuePosixUserPtrOutput) User() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type QueueSchedulingConfiguration struct {
+}
+
+// QueueSchedulingConfigurationInput is an input type that accepts QueueSchedulingConfigurationArgs and QueueSchedulingConfigurationOutput values.
+// You can construct a concrete instance of `QueueSchedulingConfigurationInput` via:
+//
+//	QueueSchedulingConfigurationArgs{...}
+type QueueSchedulingConfigurationInput interface {
+	pulumi.Input
+
+	ToQueueSchedulingConfigurationOutput() QueueSchedulingConfigurationOutput
+	ToQueueSchedulingConfigurationOutputWithContext(context.Context) QueueSchedulingConfigurationOutput
+}
+
+type QueueSchedulingConfigurationArgs struct {
+}
+
+func (QueueSchedulingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueSchedulingConfiguration)(nil)).Elem()
+}
+
+func (i QueueSchedulingConfigurationArgs) ToQueueSchedulingConfigurationOutput() QueueSchedulingConfigurationOutput {
+	return i.ToQueueSchedulingConfigurationOutputWithContext(context.Background())
+}
+
+func (i QueueSchedulingConfigurationArgs) ToQueueSchedulingConfigurationOutputWithContext(ctx context.Context) QueueSchedulingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSchedulingConfigurationOutput)
+}
+
+func (i QueueSchedulingConfigurationArgs) ToQueueSchedulingConfigurationPtrOutput() QueueSchedulingConfigurationPtrOutput {
+	return i.ToQueueSchedulingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i QueueSchedulingConfigurationArgs) ToQueueSchedulingConfigurationPtrOutputWithContext(ctx context.Context) QueueSchedulingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSchedulingConfigurationOutput).ToQueueSchedulingConfigurationPtrOutputWithContext(ctx)
+}
+
+// QueueSchedulingConfigurationPtrInput is an input type that accepts QueueSchedulingConfigurationArgs, QueueSchedulingConfigurationPtr and QueueSchedulingConfigurationPtrOutput values.
+// You can construct a concrete instance of `QueueSchedulingConfigurationPtrInput` via:
+//
+//	        QueueSchedulingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type QueueSchedulingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToQueueSchedulingConfigurationPtrOutput() QueueSchedulingConfigurationPtrOutput
+	ToQueueSchedulingConfigurationPtrOutputWithContext(context.Context) QueueSchedulingConfigurationPtrOutput
+}
+
+type queueSchedulingConfigurationPtrType QueueSchedulingConfigurationArgs
+
+func QueueSchedulingConfigurationPtr(v *QueueSchedulingConfigurationArgs) QueueSchedulingConfigurationPtrInput {
+	return (*queueSchedulingConfigurationPtrType)(v)
+}
+
+func (*queueSchedulingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueSchedulingConfiguration)(nil)).Elem()
+}
+
+func (i *queueSchedulingConfigurationPtrType) ToQueueSchedulingConfigurationPtrOutput() QueueSchedulingConfigurationPtrOutput {
+	return i.ToQueueSchedulingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *queueSchedulingConfigurationPtrType) ToQueueSchedulingConfigurationPtrOutputWithContext(ctx context.Context) QueueSchedulingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSchedulingConfigurationPtrOutput)
+}
+
+type QueueSchedulingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (QueueSchedulingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueSchedulingConfiguration)(nil)).Elem()
+}
+
+func (o QueueSchedulingConfigurationOutput) ToQueueSchedulingConfigurationOutput() QueueSchedulingConfigurationOutput {
+	return o
+}
+
+func (o QueueSchedulingConfigurationOutput) ToQueueSchedulingConfigurationOutputWithContext(ctx context.Context) QueueSchedulingConfigurationOutput {
+	return o
+}
+
+func (o QueueSchedulingConfigurationOutput) ToQueueSchedulingConfigurationPtrOutput() QueueSchedulingConfigurationPtrOutput {
+	return o.ToQueueSchedulingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o QueueSchedulingConfigurationOutput) ToQueueSchedulingConfigurationPtrOutputWithContext(ctx context.Context) QueueSchedulingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueueSchedulingConfiguration) *QueueSchedulingConfiguration {
+		return &v
+	}).(QueueSchedulingConfigurationPtrOutput)
+}
+
+type QueueSchedulingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (QueueSchedulingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueSchedulingConfiguration)(nil)).Elem()
+}
+
+func (o QueueSchedulingConfigurationPtrOutput) ToQueueSchedulingConfigurationPtrOutput() QueueSchedulingConfigurationPtrOutput {
+	return o
+}
+
+func (o QueueSchedulingConfigurationPtrOutput) ToQueueSchedulingConfigurationPtrOutputWithContext(ctx context.Context) QueueSchedulingConfigurationPtrOutput {
+	return o
+}
+
+func (o QueueSchedulingConfigurationPtrOutput) Elem() QueueSchedulingConfigurationOutput {
+	return o.ApplyT(func(v *QueueSchedulingConfiguration) QueueSchedulingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret QueueSchedulingConfiguration
+		return ret
+	}).(QueueSchedulingConfigurationOutput)
+}
+
 // A key-value pair to associate with a resource.
 type QueueTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -3666,6 +3784,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueJobRunAsUserPtrInput)(nil)).Elem(), QueueJobRunAsUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueuePosixUserInput)(nil)).Elem(), QueuePosixUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueuePosixUserPtrInput)(nil)).Elem(), QueuePosixUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueSchedulingConfigurationInput)(nil)).Elem(), QueueSchedulingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueSchedulingConfigurationPtrInput)(nil)).Elem(), QueueSchedulingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueWindowsUserInput)(nil)).Elem(), QueueWindowsUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueWindowsUserPtrInput)(nil)).Elem(), QueueWindowsUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileFileSystemLocationInput)(nil)).Elem(), StorageProfileFileSystemLocationArgs{})
@@ -3718,6 +3838,8 @@ func init() {
 	pulumi.RegisterOutputType(QueueJobRunAsUserPtrOutput{})
 	pulumi.RegisterOutputType(QueuePosixUserOutput{})
 	pulumi.RegisterOutputType(QueuePosixUserPtrOutput{})
+	pulumi.RegisterOutputType(QueueSchedulingConfigurationOutput{})
+	pulumi.RegisterOutputType(QueueSchedulingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(QueueWindowsUserOutput{})
 	pulumi.RegisterOutputType(QueueWindowsUserPtrOutput{})
 	pulumi.RegisterOutputType(StorageProfileFileSystemLocationOutput{})

@@ -32,6 +32,10 @@ export interface GetGlobalResolverResult {
     readonly ipAddressType?: enums.route53globalresolver.GlobalResolverIpAddressType;
     readonly name?: string;
     readonly observabilityRegion?: string;
+    /**
+     * A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+     */
+    readonly regions?: string[];
     readonly status?: enums.route53globalresolver.GlobalResolverCrResourceStatus;
     readonly tags?: outputs.Tag[];
     readonly updatedAt?: string;

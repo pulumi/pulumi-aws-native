@@ -2553,6 +2553,66 @@ func (o OrganizationTelemetryRuleLoggingFilterPtrOutput) Filters() OrganizationT
 	}).(OrganizationTelemetryRuleFilterArrayOutput)
 }
 
+// Status of a telemetry rule in a specific region
+type OrganizationTelemetryRuleRegionStatus struct {
+	// The AWS region code
+	Region *string `pulumi:"region"`
+	// The ARN of the rule in this region
+	RuleArn *string `pulumi:"ruleArn"`
+	// The replication status of the rule in this region
+	Status *string `pulumi:"status"`
+}
+
+// Status of a telemetry rule in a specific region
+type OrganizationTelemetryRuleRegionStatusOutput struct{ *pulumi.OutputState }
+
+func (OrganizationTelemetryRuleRegionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationTelemetryRuleRegionStatus)(nil)).Elem()
+}
+
+func (o OrganizationTelemetryRuleRegionStatusOutput) ToOrganizationTelemetryRuleRegionStatusOutput() OrganizationTelemetryRuleRegionStatusOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleRegionStatusOutput) ToOrganizationTelemetryRuleRegionStatusOutputWithContext(ctx context.Context) OrganizationTelemetryRuleRegionStatusOutput {
+	return o
+}
+
+// The AWS region code
+func (o OrganizationTelemetryRuleRegionStatusOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleRegionStatus) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the rule in this region
+func (o OrganizationTelemetryRuleRegionStatusOutput) RuleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleRegionStatus) *string { return v.RuleArn }).(pulumi.StringPtrOutput)
+}
+
+// The replication status of the rule in this region
+func (o OrganizationTelemetryRuleRegionStatusOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleRegionStatus) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type OrganizationTelemetryRuleRegionStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationTelemetryRuleRegionStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationTelemetryRuleRegionStatus)(nil)).Elem()
+}
+
+func (o OrganizationTelemetryRuleRegionStatusArrayOutput) ToOrganizationTelemetryRuleRegionStatusArrayOutput() OrganizationTelemetryRuleRegionStatusArrayOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleRegionStatusArrayOutput) ToOrganizationTelemetryRuleRegionStatusArrayOutputWithContext(ctx context.Context) OrganizationTelemetryRuleRegionStatusArrayOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleRegionStatusArrayOutput) Index(i pulumi.IntInput) OrganizationTelemetryRuleRegionStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationTelemetryRuleRegionStatus {
+		return vs[0].([]OrganizationTelemetryRuleRegionStatus)[vs[1].(int)]
+	}).(OrganizationTelemetryRuleRegionStatusOutput)
+}
+
 // Header for the field to match.
 type OrganizationTelemetryRuleSingleHeader struct {
 	// The name of the header
@@ -2711,6 +2771,8 @@ type OrganizationTelemetryRuleTelemetryDestinationConfiguration struct {
 	DestinationType *OrganizationTelemetryRuleDestinationType `pulumi:"destinationType"`
 	// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 	ElbLoadBalancerLoggingParameters *OrganizationTelemetryRuleElbLoadBalancerLoggingParameters `pulumi:"elbLoadBalancerLoggingParameters"`
+	// Parameters for log delivery configuration
+	LogDeliveryParameters *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties `pulumi:"logDeliveryParameters"`
 	// The number of days to retain the telemetry data in the destination.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
@@ -2740,6 +2802,8 @@ type OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs struct {
 	DestinationType OrganizationTelemetryRuleDestinationTypePtrInput `pulumi:"destinationType"`
 	// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 	ElbLoadBalancerLoggingParameters OrganizationTelemetryRuleElbLoadBalancerLoggingParametersPtrInput `pulumi:"elbLoadBalancerLoggingParameters"`
+	// Parameters for log delivery configuration
+	LogDeliveryParameters OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput `pulumi:"logDeliveryParameters"`
 	// The number of days to retain the telemetry data in the destination.
 	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
 	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
@@ -2854,6 +2918,13 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) ElbLoa
 	}).(OrganizationTelemetryRuleElbLoadBalancerLoggingParametersPtrOutput)
 }
 
+// Parameters for log delivery configuration
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) LogDeliveryParameters() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties {
+		return v.LogDeliveryParameters
+	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput)
+}
+
 // The number of days to retain the telemetry data in the destination.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfiguration) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
@@ -2937,6 +3008,16 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) Elb
 	}).(OrganizationTelemetryRuleElbLoadBalancerLoggingParametersPtrOutput)
 }
 
+// Parameters for log delivery configuration
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) LogDeliveryParameters() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties {
+		if v == nil {
+			return nil
+		}
+		return v.LogDeliveryParameters
+	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput)
+}
+
 // The number of days to retain the telemetry data in the destination.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfiguration) *int {
@@ -2967,10 +3048,157 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) Waf
 	}).(OrganizationTelemetryRuleWafLoggingParametersPtrOutput)
 }
 
+// Parameters for log delivery configuration
+type OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties struct {
+	// Types of logs to deliver
+	LogTypes []OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem `pulumi:"logTypes"`
+}
+
+// OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesInput is an input type that accepts OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs and OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput values.
+// You can construct a concrete instance of `OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesInput` via:
+//
+//	OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs{...}
+type OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesInput interface {
+	pulumi.Input
+
+	ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput
+	ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutputWithContext(context.Context) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput
+}
+
+// Parameters for log delivery configuration
+type OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs struct {
+	// Types of logs to deliver
+	LogTypes OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemArrayInput `pulumi:"logTypes"`
+}
+
+func (OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties)(nil)).Elem()
+}
+
+func (i OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput {
+	return i.ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutputWithContext(context.Background())
+}
+
+func (i OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutputWithContext(ctx context.Context) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput)
+}
+
+func (i OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return i.ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(ctx context.Context) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput).ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(ctx)
+}
+
+// OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput is an input type that accepts OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs, OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtr and OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput` via:
+//
+//	        OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput
+	ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(context.Context) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput
+}
+
+type organizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrType OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs
+
+func OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtr(v *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput {
+	return (*organizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrType)(v)
+}
+
+func (*organizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties)(nil)).Elem()
+}
+
+func (i *organizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrType) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return i.ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrType) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(ctx context.Context) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput)
+}
+
+// Parameters for log delivery configuration
+type OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties)(nil)).Elem()
+}
+
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutputWithContext(ctx context.Context) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return o.ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(ctx context.Context) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties) *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties {
+		return &v
+	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput)
+}
+
+// Types of logs to deliver
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput) LogTypes() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemArrayOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties) []OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem {
+		return v.LogTypes
+	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemArrayOutput)
+}
+
+type OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties)(nil)).Elem()
+}
+
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput) ToOrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutputWithContext(ctx context.Context) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput) Elem() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties) OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties
+		return ret
+	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput)
+}
+
+// Types of logs to deliver
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput) LogTypes() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemArrayOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties) []OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem {
+		if v == nil {
+			return nil
+		}
+		return v.LogTypes
+	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemArrayOutput)
+}
+
 // The telemetry rule
 type OrganizationTelemetryRuleTelemetryRule struct {
+	// When true, the rule is replicated to all supported regions
+	AllRegions        *bool `pulumi:"allRegions"`
+	AllowFieldUpdates *bool `pulumi:"allowFieldUpdates"`
 	// Configuration specifying where and how the telemetry data should be delivered.
 	DestinationConfiguration *OrganizationTelemetryRuleTelemetryDestinationConfiguration `pulumi:"destinationConfiguration"`
+	// List of AWS region codes where the rule should be replicated
+	Regions []string `pulumi:"regions"`
 	// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
 	ResourceType OrganizationTelemetryRuleResourceType `pulumi:"resourceType"`
 	// The organizational scope to which the rule applies, specified using accounts or organizational units.
@@ -2996,8 +3224,13 @@ type OrganizationTelemetryRuleTelemetryRuleInput interface {
 
 // The telemetry rule
 type OrganizationTelemetryRuleTelemetryRuleArgs struct {
+	// When true, the rule is replicated to all supported regions
+	AllRegions        pulumi.BoolPtrInput `pulumi:"allRegions"`
+	AllowFieldUpdates pulumi.BoolPtrInput `pulumi:"allowFieldUpdates"`
 	// Configuration specifying where and how the telemetry data should be delivered.
 	DestinationConfiguration OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrInput `pulumi:"destinationConfiguration"`
+	// List of AWS region codes where the rule should be replicated
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
 	// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
 	ResourceType OrganizationTelemetryRuleResourceTypeInput `pulumi:"resourceType"`
 	// The organizational scope to which the rule applies, specified using accounts or organizational units.
@@ -3037,11 +3270,25 @@ func (o OrganizationTelemetryRuleTelemetryRuleOutput) ToOrganizationTelemetryRul
 	return o
 }
 
+// When true, the rule is replicated to all supported regions
+func (o OrganizationTelemetryRuleTelemetryRuleOutput) AllRegions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryRule) *bool { return v.AllRegions }).(pulumi.BoolPtrOutput)
+}
+
+func (o OrganizationTelemetryRuleTelemetryRuleOutput) AllowFieldUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryRule) *bool { return v.AllowFieldUpdates }).(pulumi.BoolPtrOutput)
+}
+
 // Configuration specifying where and how the telemetry data should be delivered.
 func (o OrganizationTelemetryRuleTelemetryRuleOutput) DestinationConfiguration() OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryRule) *OrganizationTelemetryRuleTelemetryDestinationConfiguration {
 		return v.DestinationConfiguration
 	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput)
+}
+
+// List of AWS region codes where the rule should be replicated
+func (o OrganizationTelemetryRuleTelemetryRuleOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryRule) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
 // The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
@@ -3099,6 +3346,25 @@ func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) Elem() OrganizationTele
 	}).(OrganizationTelemetryRuleTelemetryRuleOutput)
 }
 
+// When true, the rule is replicated to all supported regions
+func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) AllRegions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllRegions
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) AllowFieldUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowFieldUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Configuration specifying where and how the telemetry data should be delivered.
 func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) DestinationConfiguration() OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryRule) *OrganizationTelemetryRuleTelemetryDestinationConfiguration {
@@ -3107,6 +3373,16 @@ func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) DestinationConfiguratio
 		}
 		return v.DestinationConfiguration
 	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput)
+}
+
+// List of AWS region codes where the rule should be replicated
+func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
 }
 
 // The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
@@ -4095,8 +4371,13 @@ func (o TelemetryPipelinesTelemetryPipelineStatusReasonPtrOutput) Description() 
 
 // The telemetry rule
 type TelemetryRuleType struct {
+	// When true, the rule is replicated to all supported regions
+	AllRegions        *bool `pulumi:"allRegions"`
+	AllowFieldUpdates *bool `pulumi:"allowFieldUpdates"`
 	// Configuration specifying where and how the telemetry data should be delivered.
 	DestinationConfiguration *TelemetryRuleTelemetryDestinationConfiguration `pulumi:"destinationConfiguration"`
+	// List of AWS region codes where the rule should be replicated
+	Regions []string `pulumi:"regions"`
 	// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
 	ResourceType TelemetryRuleResourceType `pulumi:"resourceType"`
 	// Criteria for selecting which resources the rule applies to, such as resource tags.
@@ -4120,8 +4401,13 @@ type TelemetryRuleTypeInput interface {
 
 // The telemetry rule
 type TelemetryRuleTypeArgs struct {
+	// When true, the rule is replicated to all supported regions
+	AllRegions        pulumi.BoolPtrInput `pulumi:"allRegions"`
+	AllowFieldUpdates pulumi.BoolPtrInput `pulumi:"allowFieldUpdates"`
 	// Configuration specifying where and how the telemetry data should be delivered.
 	DestinationConfiguration TelemetryRuleTelemetryDestinationConfigurationPtrInput `pulumi:"destinationConfiguration"`
+	// List of AWS region codes where the rule should be replicated
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
 	// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
 	ResourceType TelemetryRuleResourceTypeInput `pulumi:"resourceType"`
 	// Criteria for selecting which resources the rule applies to, such as resource tags.
@@ -4159,11 +4445,25 @@ func (o TelemetryRuleTypeOutput) ToTelemetryRuleTypeOutputWithContext(ctx contex
 	return o
 }
 
+// When true, the rule is replicated to all supported regions
+func (o TelemetryRuleTypeOutput) AllRegions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleType) *bool { return v.AllRegions }).(pulumi.BoolPtrOutput)
+}
+
+func (o TelemetryRuleTypeOutput) AllowFieldUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleType) *bool { return v.AllowFieldUpdates }).(pulumi.BoolPtrOutput)
+}
+
 // Configuration specifying where and how the telemetry data should be delivered.
 func (o TelemetryRuleTypeOutput) DestinationConfiguration() TelemetryRuleTelemetryDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleType) *TelemetryRuleTelemetryDestinationConfiguration {
 		return v.DestinationConfiguration
 	}).(TelemetryRuleTelemetryDestinationConfigurationPtrOutput)
+}
+
+// List of AWS region codes where the rule should be replicated
+func (o TelemetryRuleTypeOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleType) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
 // The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
@@ -4210,6 +4510,25 @@ func (o TelemetryRuleTypePtrOutput) Elem() TelemetryRuleTypeOutput {
 	}).(TelemetryRuleTypeOutput)
 }
 
+// When true, the rule is replicated to all supported regions
+func (o TelemetryRuleTypePtrOutput) AllRegions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllRegions
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TelemetryRuleTypePtrOutput) AllowFieldUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowFieldUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Configuration specifying where and how the telemetry data should be delivered.
 func (o TelemetryRuleTypePtrOutput) DestinationConfiguration() TelemetryRuleTelemetryDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleType) *TelemetryRuleTelemetryDestinationConfiguration {
@@ -4218,6 +4537,16 @@ func (o TelemetryRuleTypePtrOutput) DestinationConfiguration() TelemetryRuleTele
 		}
 		return v.DestinationConfiguration
 	}).(TelemetryRuleTelemetryDestinationConfigurationPtrOutput)
+}
+
+// List of AWS region codes where the rule should be replicated
+func (o TelemetryRuleTypePtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TelemetryRuleType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
 }
 
 // The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
@@ -5599,6 +5928,66 @@ func (o TelemetryRuleLoggingFilterPtrOutput) Filters() TelemetryRuleFilterArrayO
 	}).(TelemetryRuleFilterArrayOutput)
 }
 
+// Status of a telemetry rule in a specific region
+type TelemetryRuleRegionStatus struct {
+	// The AWS region code
+	Region *string `pulumi:"region"`
+	// The ARN of the rule in this region
+	RuleArn *string `pulumi:"ruleArn"`
+	// The replication status of the rule in this region
+	Status *string `pulumi:"status"`
+}
+
+// Status of a telemetry rule in a specific region
+type TelemetryRuleRegionStatusOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRegionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRegionStatus)(nil)).Elem()
+}
+
+func (o TelemetryRuleRegionStatusOutput) ToTelemetryRuleRegionStatusOutput() TelemetryRuleRegionStatusOutput {
+	return o
+}
+
+func (o TelemetryRuleRegionStatusOutput) ToTelemetryRuleRegionStatusOutputWithContext(ctx context.Context) TelemetryRuleRegionStatusOutput {
+	return o
+}
+
+// The AWS region code
+func (o TelemetryRuleRegionStatusOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRegionStatus) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the rule in this region
+func (o TelemetryRuleRegionStatusOutput) RuleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRegionStatus) *string { return v.RuleArn }).(pulumi.StringPtrOutput)
+}
+
+// The replication status of the rule in this region
+func (o TelemetryRuleRegionStatusOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRegionStatus) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleRegionStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRegionStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleRegionStatus)(nil)).Elem()
+}
+
+func (o TelemetryRuleRegionStatusArrayOutput) ToTelemetryRuleRegionStatusArrayOutput() TelemetryRuleRegionStatusArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleRegionStatusArrayOutput) ToTelemetryRuleRegionStatusArrayOutputWithContext(ctx context.Context) TelemetryRuleRegionStatusArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleRegionStatusArrayOutput) Index(i pulumi.IntInput) TelemetryRuleRegionStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TelemetryRuleRegionStatus {
+		return vs[0].([]TelemetryRuleRegionStatus)[vs[1].(int)]
+	}).(TelemetryRuleRegionStatusOutput)
+}
+
 // Header for the field to match.
 type TelemetryRuleSingleHeader struct {
 	// The name of the header
@@ -5757,7 +6146,7 @@ type TelemetryRuleTelemetryDestinationConfiguration struct {
 	DestinationType *TelemetryRuleDestinationType `pulumi:"destinationType"`
 	// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 	ElbLoadBalancerLoggingParameters *TelemetryRuleElbLoadBalancerLoggingParameters `pulumi:"elbLoadBalancerLoggingParameters"`
-	// Parameters for BedrockAgentCore log delivery
+	// Parameters for log delivery configuration
 	LogDeliveryParameters *TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties `pulumi:"logDeliveryParameters"`
 	// The number of days to retain the telemetry data in the destination.
 	RetentionInDays *int `pulumi:"retentionInDays"`
@@ -5788,7 +6177,7 @@ type TelemetryRuleTelemetryDestinationConfigurationArgs struct {
 	DestinationType TelemetryRuleDestinationTypePtrInput `pulumi:"destinationType"`
 	// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 	ElbLoadBalancerLoggingParameters TelemetryRuleElbLoadBalancerLoggingParametersPtrInput `pulumi:"elbLoadBalancerLoggingParameters"`
-	// Parameters for BedrockAgentCore log delivery
+	// Parameters for log delivery configuration
 	LogDeliveryParameters TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput `pulumi:"logDeliveryParameters"`
 	// The number of days to retain the telemetry data in the destination.
 	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
@@ -5902,7 +6291,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationOutput) ElbLoadBalancerLog
 	}).(TelemetryRuleElbLoadBalancerLoggingParametersPtrOutput)
 }
 
-// Parameters for BedrockAgentCore log delivery
+// Parameters for log delivery configuration
 func (o TelemetryRuleTelemetryDestinationConfigurationOutput) LogDeliveryParameters() TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties {
 		return v.LogDeliveryParameters
@@ -5992,7 +6381,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) ElbLoadBalancer
 	}).(TelemetryRuleElbLoadBalancerLoggingParametersPtrOutput)
 }
 
-// Parameters for BedrockAgentCore log delivery
+// Parameters for log delivery configuration
 func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) LogDeliveryParameters() TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties {
 		if v == nil {
@@ -6032,9 +6421,9 @@ func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) WafLoggingParam
 	}).(TelemetryRuleWafLoggingParametersPtrOutput)
 }
 
-// Parameters for BedrockAgentCore log delivery
+// Parameters for log delivery configuration
 type TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties struct {
-	// Types of logs to deliver for BedrockAgentCore resources
+	// Types of logs to deliver
 	LogTypes []TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem `pulumi:"logTypes"`
 }
 
@@ -6049,9 +6438,9 @@ type TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperti
 	ToTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutputWithContext(context.Context) TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput
 }
 
-// Parameters for BedrockAgentCore log delivery
+// Parameters for log delivery configuration
 type TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs struct {
-	// Types of logs to deliver for BedrockAgentCore resources
+	// Types of logs to deliver
 	LogTypes TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemArrayInput `pulumi:"logTypes"`
 }
 
@@ -6108,7 +6497,7 @@ func (i *telemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProp
 	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput)
 }
 
-// Parameters for BedrockAgentCore log delivery
+// Parameters for log delivery configuration
 type TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput struct{ *pulumi.OutputState }
 
 func (TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput) ElementType() reflect.Type {
@@ -6133,7 +6522,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPrope
 	}).(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput)
 }
 
-// Types of logs to deliver for BedrockAgentCore resources
+// Types of logs to deliver
 func (o TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput) LogTypes() TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemArrayOutput {
 	return o.ApplyT(func(v TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties) []TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem {
 		return v.LogTypes
@@ -6164,7 +6553,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPrope
 	}).(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput)
 }
 
-// Types of logs to deliver for BedrockAgentCore resources
+// Types of logs to deliver
 func (o TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput) LogTypes() TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemArrayOutput {
 	return o.ApplyT(func(v *TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties) []TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem {
 		if v == nil {
@@ -6568,6 +6957,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleSingleHeaderPtrInput)(nil)).Elem(), OrganizationTelemetryRuleSingleHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleTelemetryDestinationConfigurationInput)(nil)).Elem(), OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrInput)(nil)).Elem(), OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesInput)(nil)).Elem(), OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput)(nil)).Elem(), OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleTelemetryRuleInput)(nil)).Elem(), OrganizationTelemetryRuleTelemetryRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleVpcFlowLogParametersInput)(nil)).Elem(), OrganizationTelemetryRuleVpcFlowLogParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleVpcFlowLogParametersPtrInput)(nil)).Elem(), OrganizationTelemetryRuleVpcFlowLogParametersArgs{})
@@ -6644,10 +7035,14 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleLabelNameConditionPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleLoggingFilterOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleLoggingFilterPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationTelemetryRuleRegionStatusOutput{})
+	pulumi.RegisterOutputType(OrganizationTelemetryRuleRegionStatusArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleSingleHeaderOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleSingleHeaderPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleTelemetryRuleOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleTelemetryRulePtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleVpcFlowLogParametersOutput{})
@@ -6687,6 +7082,8 @@ func init() {
 	pulumi.RegisterOutputType(TelemetryRuleLabelNameConditionPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleLoggingFilterOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleLoggingFilterPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRegionStatusOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRegionStatusArrayOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleSingleHeaderOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleSingleHeaderPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleTelemetryDestinationConfigurationOutput{})

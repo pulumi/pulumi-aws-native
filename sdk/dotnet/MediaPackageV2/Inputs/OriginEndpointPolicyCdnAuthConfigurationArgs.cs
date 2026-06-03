@@ -10,13 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaPackageV2.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The settings to enable CDN authorization headers in MediaPackage.&lt;/p&gt;
+    /// </summary>
     public sealed class OriginEndpointPolicyCdnAuthConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("cdnIdentifierSecretArns", required: true)]
         private InputList<string>? _cdnIdentifierSecretArns;
 
         /// <summary>
-        /// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
+        /// &lt;p&gt;The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.&lt;/p&gt;
         /// </summary>
         public InputList<string> CdnIdentifierSecretArns
         {
@@ -25,7 +28,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         }
 
         /// <summary>
-        /// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS  for CDN authorization.
+        /// &lt;p&gt;The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and KMS for CDN authorization.&lt;/p&gt;
         /// </summary>
         [Input("secretsRoleArn", required: true)]
         public Input<string> SecretsRoleArn { get; set; } = null!;

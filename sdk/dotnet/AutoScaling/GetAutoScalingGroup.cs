@@ -85,6 +85,10 @@ namespace Pulumi.AwsNative.AutoScaling
         /// </summary>
         public readonly Outputs.AutoScalingGroupAvailabilityZoneDistribution? AvailabilityZoneDistribution;
         /// <summary>
+        /// The Availability Zone IDs where the Auto Scaling group can launch instances.
+        /// </summary>
+        public readonly ImmutableArray<string> AvailabilityZoneIds;
+        /// <summary>
         /// The Availability Zone impairment policy for the Auto Scaling group.
         /// </summary>
         public readonly Outputs.AutoScalingGroupAvailabilityZoneImpairmentPolicy? AvailabilityZoneImpairmentPolicy;
@@ -242,6 +246,8 @@ namespace Pulumi.AwsNative.AutoScaling
 
             Outputs.AutoScalingGroupAvailabilityZoneDistribution? availabilityZoneDistribution,
 
+            ImmutableArray<string> availabilityZoneIds,
+
             Outputs.AutoScalingGroupAvailabilityZoneImpairmentPolicy? availabilityZoneImpairmentPolicy,
 
             ImmutableArray<string> availabilityZones,
@@ -310,6 +316,7 @@ namespace Pulumi.AwsNative.AutoScaling
         {
             AutoScalingGroupArn = autoScalingGroupArn;
             AvailabilityZoneDistribution = availabilityZoneDistribution;
+            AvailabilityZoneIds = availabilityZoneIds;
             AvailabilityZoneImpairmentPolicy = availabilityZoneImpairmentPolicy;
             AvailabilityZones = availabilityZones;
             CapacityRebalance = capacityRebalance;

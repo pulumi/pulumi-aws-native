@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Schema describing various properties for ECS DaemonTaskDefinition
+ * The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
  */
 export function getDaemonTaskDefinition(args: GetDaemonTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDaemonTaskDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -18,21 +18,15 @@ export function getDaemonTaskDefinition(args: GetDaemonTaskDefinitionArgs, opts?
 }
 
 export interface GetDaemonTaskDefinitionArgs {
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
-     */
     daemonTaskDefinitionArn: string;
 }
 
 export interface GetDaemonTaskDefinitionResult {
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
-     */
     readonly daemonTaskDefinitionArn?: string;
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Schema describing various properties for ECS DaemonTaskDefinition
+ * The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
  */
 export function getDaemonTaskDefinitionOutput(args: GetDaemonTaskDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDaemonTaskDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,8 +36,5 @@ export function getDaemonTaskDefinitionOutput(args: GetDaemonTaskDefinitionOutpu
 }
 
 export interface GetDaemonTaskDefinitionOutputArgs {
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
-     */
     daemonTaskDefinitionArn: pulumi.Input<string>;
 }

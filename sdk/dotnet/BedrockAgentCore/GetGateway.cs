@@ -99,8 +99,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public readonly Outputs.GatewayProtocolConfigurationProperties? ProtocolConfiguration;
         /// <summary>
         /// The protocol type for the gateway target.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
         /// </summary>
-        public readonly Pulumi.AwsNative.BedrockAgentCore.GatewayProtocolType? ProtocolType;
+        public readonly object? ProtocolType;
         public readonly string? RoleArn;
         /// <summary>
         /// The status for the gateway.
@@ -145,7 +147,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             Outputs.GatewayProtocolConfigurationProperties? protocolConfiguration,
 
-            Pulumi.AwsNative.BedrockAgentCore.GatewayProtocolType? protocolType,
+            object? protocolType,
 
             string? roleArn,
 

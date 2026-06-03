@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
     /// </summary>
     public sealed class OriginEndpointDashManifestConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("availabilityStartTimeConfiguration")]
+        public Input<Inputs.OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs>? AvailabilityStartTimeConfiguration { get; set; }
+
         [Input("baseUrls")]
         private InputList<Inputs.OriginEndpointDashBaseUrlArgs>? _baseUrls;
 
@@ -134,6 +137,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         /// </summary>
         [Input("suggestedPresentationDelaySeconds")]
         public Input<int>? SuggestedPresentationDelaySeconds { get; set; }
+
+        [Input("uriPathType")]
+        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointUriPathType>? UriPathType { get; set; }
 
         /// <summary>
         /// Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).

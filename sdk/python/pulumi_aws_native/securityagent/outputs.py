@@ -499,11 +499,22 @@ class ApplicationIdCConfiguration(dict):
 
 @pulumi.output_type
 class PentestActor(dict):
+    """
+    An authenticated actor to be used during pentest execution
+    """
     def __init__(__self__, *,
                  authentication: Optional['outputs.PentestAuthentication'] = None,
                  description: Optional[_builtins.str] = None,
                  identifier: Optional[_builtins.str] = None,
                  uris: Optional[Sequence[_builtins.str]] = None):
+        """
+        An authenticated actor to be used during pentest execution
+
+        :param 'PentestAuthentication' authentication: Authentication credentials for this actor
+        :param _builtins.str description: Description of the actor
+        :param _builtins.str identifier: Identifier for the actor
+        :param Sequence[_builtins.str] uris: List of URIs this actor is authorized to access
+        """
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
         if description is not None:
@@ -516,26 +527,41 @@ class PentestActor(dict):
     @_builtins.property
     @pulumi.getter
     def authentication(self) -> Optional['outputs.PentestAuthentication']:
+        """
+        Authentication credentials for this actor
+        """
         return pulumi.get(self, "authentication")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
+        """
+        Description of the actor
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> Optional[_builtins.str]:
+        """
+        Identifier for the actor
+        """
         return pulumi.get(self, "identifier")
 
     @_builtins.property
     @pulumi.getter
     def uris(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of URIs this actor is authorized to access
+        """
         return pulumi.get(self, "uris")
 
 
 @pulumi.output_type
 class PentestAssets(dict):
+    """
+    Collection of assets to be tested during the pentest
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -561,6 +587,15 @@ class PentestAssets(dict):
                  endpoints: Optional[Sequence['outputs.PentestEndpoint']] = None,
                  integrated_repositories: Optional[Sequence['outputs.PentestIntegratedRepository']] = None,
                  source_code: Optional[Sequence['outputs.PentestSourceCodeRepository']] = None):
+        """
+        Collection of assets to be tested during the pentest
+
+        :param Sequence['PentestActor'] actors: List of actors used during testing
+        :param Sequence['PentestDocumentInfo'] documents: List of documents providing additional context for the pentest
+        :param Sequence['PentestEndpoint'] endpoints: List of endpoints to test
+        :param Sequence['PentestIntegratedRepository'] integrated_repositories: List of repositories connected via provider integrations
+        :param Sequence['PentestSourceCodeRepository'] source_code: List of source code repositories to analyze
+        """
         if actors is not None:
             pulumi.set(__self__, "actors", actors)
         if documents is not None:
@@ -575,31 +610,49 @@ class PentestAssets(dict):
     @_builtins.property
     @pulumi.getter
     def actors(self) -> Optional[Sequence['outputs.PentestActor']]:
+        """
+        List of actors used during testing
+        """
         return pulumi.get(self, "actors")
 
     @_builtins.property
     @pulumi.getter
     def documents(self) -> Optional[Sequence['outputs.PentestDocumentInfo']]:
+        """
+        List of documents providing additional context for the pentest
+        """
         return pulumi.get(self, "documents")
 
     @_builtins.property
     @pulumi.getter
     def endpoints(self) -> Optional[Sequence['outputs.PentestEndpoint']]:
+        """
+        List of endpoints to test
+        """
         return pulumi.get(self, "endpoints")
 
     @_builtins.property
     @pulumi.getter(name="integratedRepositories")
     def integrated_repositories(self) -> Optional[Sequence['outputs.PentestIntegratedRepository']]:
+        """
+        List of repositories connected via provider integrations
+        """
         return pulumi.get(self, "integrated_repositories")
 
     @_builtins.property
     @pulumi.getter(name="sourceCode")
     def source_code(self) -> Optional[Sequence['outputs.PentestSourceCodeRepository']]:
+        """
+        List of source code repositories to analyze
+        """
         return pulumi.get(self, "source_code")
 
 
 @pulumi.output_type
 class PentestAuthentication(dict):
+    """
+    Authentication configuration for a pentest actor
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -620,6 +673,12 @@ class PentestAuthentication(dict):
     def __init__(__self__, *,
                  provider_type: Optional['PentestAuthenticationProviderType'] = None,
                  value: Optional[_builtins.str] = None):
+        """
+        Authentication configuration for a pentest actor
+
+        :param 'PentestAuthenticationProviderType' provider_type: Type of authentication provider
+        :param _builtins.str value: Reference value for the authentication provider, such as a secret ARN or Lambda ARN
+        """
         if provider_type is not None:
             pulumi.set(__self__, "provider_type", provider_type)
         if value is not None:
@@ -628,16 +687,25 @@ class PentestAuthentication(dict):
     @_builtins.property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> Optional['PentestAuthenticationProviderType']:
+        """
+        Type of authentication provider
+        """
         return pulumi.get(self, "provider_type")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
+        """
+        Reference value for the authentication provider, such as a secret ARN or Lambda ARN
+        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class PentestCloudWatchLog(dict):
+    """
+    CloudWatch Logs configuration for pentest output
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -660,6 +728,12 @@ class PentestCloudWatchLog(dict):
     def __init__(__self__, *,
                  log_group: Optional[_builtins.str] = None,
                  log_stream: Optional[_builtins.str] = None):
+        """
+        CloudWatch Logs configuration for pentest output
+
+        :param _builtins.str log_group: CloudWatch log group
+        :param _builtins.str log_stream: CloudWatch log stream
+        """
         if log_group is not None:
             pulumi.set(__self__, "log_group", log_group)
         if log_stream is not None:
@@ -668,19 +742,34 @@ class PentestCloudWatchLog(dict):
     @_builtins.property
     @pulumi.getter(name="logGroup")
     def log_group(self) -> Optional[_builtins.str]:
+        """
+        CloudWatch log group
+        """
         return pulumi.get(self, "log_group")
 
     @_builtins.property
     @pulumi.getter(name="logStream")
     def log_stream(self) -> Optional[_builtins.str]:
+        """
+        CloudWatch log stream
+        """
         return pulumi.get(self, "log_stream")
 
 
 @pulumi.output_type
 class PentestCustomHeader(dict):
+    """
+    A custom header to include in outbound requests
+    """
     def __init__(__self__, *,
                  name: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
+        """
+        A custom header to include in outbound requests
+
+        :param _builtins.str name: Name of the header
+        :param _builtins.str value: Value of the header
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -689,16 +778,25 @@ class PentestCustomHeader(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the header
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
+        """
+        Value of the header
+        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class PentestDocumentInfo(dict):
+    """
+    A document stored in S3 that provides context for the pentest
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -721,6 +819,12 @@ class PentestDocumentInfo(dict):
     def __init__(__self__, *,
                  artifact_id: Optional[_builtins.str] = None,
                  s3_location: Optional[_builtins.str] = None):
+        """
+        A document stored in S3 that provides context for the pentest
+
+        :param _builtins.str artifact_id: Artifact identifier
+        :param _builtins.str s3_location: S3 document location
+        """
         if artifact_id is not None:
             pulumi.set(__self__, "artifact_id", artifact_id)
         if s3_location is not None:
@@ -729,29 +833,49 @@ class PentestDocumentInfo(dict):
     @_builtins.property
     @pulumi.getter(name="artifactId")
     def artifact_id(self) -> Optional[_builtins.str]:
+        """
+        Artifact identifier
+        """
         return pulumi.get(self, "artifact_id")
 
     @_builtins.property
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> Optional[_builtins.str]:
+        """
+        S3 document location
+        """
         return pulumi.get(self, "s3_location")
 
 
 @pulumi.output_type
 class PentestEndpoint(dict):
+    """
+    An endpoint to be tested during the pentest
+    """
     def __init__(__self__, *,
                  uri: Optional[_builtins.str] = None):
+        """
+        An endpoint to be tested during the pentest
+
+        :param _builtins.str uri: URI of the endpoint to test
+        """
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
 
     @_builtins.property
     @pulumi.getter
     def uri(self) -> Optional[_builtins.str]:
+        """
+        URI of the endpoint to test
+        """
         return pulumi.get(self, "uri")
 
 
 @pulumi.output_type
 class PentestIntegratedRepository(dict):
+    """
+    A repository connected via a provider integration
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -774,22 +898,37 @@ class PentestIntegratedRepository(dict):
     def __init__(__self__, *,
                  integration_id: _builtins.str,
                  provider_resource_id: _builtins.str):
+        """
+        A repository connected via a provider integration
+
+        :param _builtins.str integration_id: Unique identifier of the provider integration
+        :param _builtins.str provider_resource_id: Identifier of the resource within the provider integration
+        """
         pulumi.set(__self__, "integration_id", integration_id)
         pulumi.set(__self__, "provider_resource_id", provider_resource_id)
 
     @_builtins.property
     @pulumi.getter(name="integrationId")
     def integration_id(self) -> _builtins.str:
+        """
+        Unique identifier of the provider integration
+        """
         return pulumi.get(self, "integration_id")
 
     @_builtins.property
     @pulumi.getter(name="providerResourceId")
     def provider_resource_id(self) -> _builtins.str:
+        """
+        Identifier of the resource within the provider integration
+        """
         return pulumi.get(self, "provider_resource_id")
 
 
 @pulumi.output_type
 class PentestNetworkTrafficConfig(dict):
+    """
+    Network traffic configuration for the pentest
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -810,6 +949,12 @@ class PentestNetworkTrafficConfig(dict):
     def __init__(__self__, *,
                  custom_headers: Optional[Sequence['outputs.PentestCustomHeader']] = None,
                  rules: Optional[Sequence['outputs.PentestNetworkTrafficRule']] = None):
+        """
+        Network traffic configuration for the pentest
+
+        :param Sequence['PentestCustomHeader'] custom_headers: Custom headers to include in outbound requests
+        :param Sequence['PentestNetworkTrafficRule'] rules: Ordered list of network traffic rules
+        """
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
         if rules is not None:
@@ -818,16 +963,25 @@ class PentestNetworkTrafficConfig(dict):
     @_builtins.property
     @pulumi.getter(name="customHeaders")
     def custom_headers(self) -> Optional[Sequence['outputs.PentestCustomHeader']]:
+        """
+        Custom headers to include in outbound requests
+        """
         return pulumi.get(self, "custom_headers")
 
     @_builtins.property
     @pulumi.getter
     def rules(self) -> Optional[Sequence['outputs.PentestNetworkTrafficRule']]:
+        """
+        Ordered list of network traffic rules
+        """
         return pulumi.get(self, "rules")
 
 
 @pulumi.output_type
 class PentestNetworkTrafficRule(dict):
+    """
+    Network traffic rule
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -849,6 +1003,13 @@ class PentestNetworkTrafficRule(dict):
                  effect: Optional['PentestNetworkTrafficRuleEffect'] = None,
                  network_traffic_rule_type: Optional['PentestNetworkTrafficRuleNetworkTrafficRuleType'] = None,
                  pattern: Optional[_builtins.str] = None):
+        """
+        Network traffic rule
+
+        :param 'PentestNetworkTrafficRuleEffect' effect: Whether to allow or deny traffic matching this rule
+        :param 'PentestNetworkTrafficRuleNetworkTrafficRuleType' network_traffic_rule_type: Type of pattern matching for this rule
+        :param _builtins.str pattern: URL pattern this rule applies to
+        """
         if effect is not None:
             pulumi.set(__self__, "effect", effect)
         if network_traffic_rule_type is not None:
@@ -859,21 +1020,33 @@ class PentestNetworkTrafficRule(dict):
     @_builtins.property
     @pulumi.getter
     def effect(self) -> Optional['PentestNetworkTrafficRuleEffect']:
+        """
+        Whether to allow or deny traffic matching this rule
+        """
         return pulumi.get(self, "effect")
 
     @_builtins.property
     @pulumi.getter(name="networkTrafficRuleType")
     def network_traffic_rule_type(self) -> Optional['PentestNetworkTrafficRuleNetworkTrafficRuleType']:
+        """
+        Type of pattern matching for this rule
+        """
         return pulumi.get(self, "network_traffic_rule_type")
 
     @_builtins.property
     @pulumi.getter
     def pattern(self) -> Optional[_builtins.str]:
+        """
+        URL pattern this rule applies to
+        """
         return pulumi.get(self, "pattern")
 
 
 @pulumi.output_type
 class PentestSourceCodeRepository(dict):
+    """
+    A source code archive stored in S3 for analysis during the pentest
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -893,17 +1066,28 @@ class PentestSourceCodeRepository(dict):
 
     def __init__(__self__, *,
                  s3_location: Optional[_builtins.str] = None):
+        """
+        A source code archive stored in S3 for analysis during the pentest
+
+        :param _builtins.str s3_location: S3 source code location
+        """
         if s3_location is not None:
             pulumi.set(__self__, "s3_location", s3_location)
 
     @_builtins.property
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> Optional[_builtins.str]:
+        """
+        S3 source code location
+        """
         return pulumi.get(self, "s3_location")
 
 
 @pulumi.output_type
 class PentestVpcConfig(dict):
+    """
+    VPC configuration that the pentest agent accesses
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -929,6 +1113,12 @@ class PentestVpcConfig(dict):
                  security_group_arns: Optional[Sequence[_builtins.str]] = None,
                  subnet_arns: Optional[Sequence[_builtins.str]] = None,
                  vpc_arn: Optional[_builtins.str] = None):
+        """
+        VPC configuration that the pentest agent accesses
+
+        :param Sequence[_builtins.str] security_group_arns: List of security groups in the VPC
+        :param Sequence[_builtins.str] subnet_arns: List of subnets in the VPC
+        """
         if security_group_arns is not None:
             pulumi.set(__self__, "security_group_arns", security_group_arns)
         if subnet_arns is not None:
@@ -939,11 +1129,17 @@ class PentestVpcConfig(dict):
     @_builtins.property
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of security groups in the VPC
+        """
         return pulumi.get(self, "security_group_arns")
 
     @_builtins.property
     @pulumi.getter(name="subnetArns")
     def subnet_arns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of subnets in the VPC
+        """
         return pulumi.get(self, "subnet_arns")
 
     @_builtins.property

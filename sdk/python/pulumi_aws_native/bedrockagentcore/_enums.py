@@ -7,11 +7,14 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'BrowserCustomBrowserEnterprisePolicyType',
     'BrowserCustomBrowserNetworkMode',
     'BrowserCustomBrowserStatus',
     'BrowserProfileStatus',
     'CodeInterpreterCustomCodeInterpreterNetworkMode',
     'CodeInterpreterCustomCodeInterpreterStatus',
+    'DatasetSchemaType',
+    'DatasetStatus',
     'EvaluatorLevel',
     'EvaluatorStatus',
     'GatewayAuthorizerType',
@@ -20,21 +23,30 @@ __all__ = [
     'GatewayInboundTokenClaimValueType',
     'GatewayInterceptionPoint',
     'GatewayPolicyEngineMode',
-    'GatewayProtocolType',
     'GatewaySearchType',
     'GatewayStatus',
     'GatewayTargetApiKeyCredentialLocation',
     'GatewayTargetCredentialProviderType',
+    'GatewayTargetMcpServerListingMode',
     'GatewayTargetOAuthGrantType',
     'GatewayTargetRestApiMethod',
     'GatewayTargetSchemaType',
+    'GatewayTargetTargetProtocolType',
     'GatewayTargetTargetStatus',
+    'HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator',
+    'HarnessCustomClaimValidationTypeInboundTokenClaimValueType',
+    'HarnessNetworkConfigurationNetworkMode',
+    'HarnessOAuthCredentialProviderGrantType',
+    'HarnessStatus',
+    'HarnessToolType',
+    'HarnessTruncationConfigurationStrategy',
     'MemoryContentConfigurationLevel',
     'MemoryContentConfigurationType',
     'MemoryCustomMemoryStrategyStatus',
     'MemoryCustomMemoryStrategyType',
     'MemoryEpisodicMemoryStrategyStatus',
     'MemoryEpisodicMemoryStrategyType',
+    'MemoryMetadataValueType',
     'MemorySemanticMemoryStrategyStatus',
     'MemorySemanticMemoryStrategyType',
     'MemoryStatus',
@@ -43,9 +55,12 @@ __all__ = [
     'MemoryUserPreferenceMemoryStrategyStatus',
     'MemoryUserPreferenceMemoryStrategyType',
     'OAuth2CredentialProviderCredentialProviderVendor',
+    'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType',
+    'OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent',
     'OnlineEvaluationConfigExecutionStatus',
     'OnlineEvaluationConfigFilterOperator',
     'OnlineEvaluationConfigStatus',
+    'PaymentCredentialProviderVendorType',
     'PolicyEngineStatus',
     'PolicyStatus',
     'PolicyValidationMode',
@@ -57,6 +72,15 @@ __all__ = [
     'RuntimeNetworkMode',
     'RuntimeProtocolConfiguration',
 ]
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:BrowserCustomBrowserEnterprisePolicyType")
+class BrowserCustomBrowserEnterprisePolicyType(_builtins.str, Enum):
+    """
+    The type of browser enterprise policy.
+    """
+    MANAGED = "MANAGED"
+    RECOMMENDED = "RECOMMENDED"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:BrowserCustomBrowserNetworkMode")
@@ -115,6 +139,29 @@ class CodeInterpreterCustomCodeInterpreterStatus(_builtins.str, Enum):
     DELETED = "DELETED"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:DatasetSchemaType")
+class DatasetSchemaType(_builtins.str, Enum):
+    """
+    Versioned schema type governing the structure of examples. Immutable after creation.
+    """
+    AGENTCORE_EVALUATION_PREDEFINED_V1 = "AGENTCORE_EVALUATION_PREDEFINED_V1"
+    AGENTCORE_EVALUATION_SIMULATED_V1 = "AGENTCORE_EVALUATION_SIMULATED_V1"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:DatasetStatus")
+class DatasetStatus(_builtins.str, Enum):
+    """
+    The current status of the dataset.
+    """
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    ACTIVE = "ACTIVE"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    DELETE_FAILED = "DELETE_FAILED"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:EvaluatorLevel")
 class EvaluatorLevel(_builtins.str, Enum):
     TOOL_CALL = "TOOL_CALL"
@@ -137,6 +184,7 @@ class GatewayAuthorizerType(_builtins.str, Enum):
     CUSTOM_JWT = "CUSTOM_JWT"
     AWS_IAM = "AWS_IAM"
     NONE = "NONE"
+    AUTHENTICATE_ONLY = "AUTHENTICATE_ONLY"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayClaimMatchOperator")
@@ -178,11 +226,6 @@ class GatewayPolicyEngineMode(_builtins.str, Enum):
     ENFORCE = "ENFORCE"
 
 
-@pulumi.type_token("aws-native:bedrockagentcore:GatewayProtocolType")
-class GatewayProtocolType(_builtins.str, Enum):
-    MCP = "MCP"
-
-
 @pulumi.type_token("aws-native:bedrockagentcore:GatewaySearchType")
 class GatewaySearchType(_builtins.str, Enum):
     SEMANTIC = "SEMANTIC"
@@ -209,12 +252,21 @@ class GatewayTargetCredentialProviderType(_builtins.str, Enum):
     GATEWAY_IAM_ROLE = "GATEWAY_IAM_ROLE"
     OAUTH = "OAUTH"
     API_KEY = "API_KEY"
+    CALLER_IAM_CREDENTIALS = "CALLER_IAM_CREDENTIALS"
+    JWT_PASSTHROUGH = "JWT_PASSTHROUGH"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetMcpServerListingMode")
+class GatewayTargetMcpServerListingMode(_builtins.str, Enum):
+    DEFAULT = "DEFAULT"
+    DYNAMIC = "DYNAMIC"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetOAuthGrantType")
 class GatewayTargetOAuthGrantType(_builtins.str, Enum):
     AUTHORIZATION_CODE = "AUTHORIZATION_CODE"
     CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS"
+    TOKEN_EXCHANGE = "TOKEN_EXCHANGE"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetRestApiMethod")
@@ -238,6 +290,12 @@ class GatewayTargetSchemaType(_builtins.str, Enum):
     INTEGER = "integer"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetTargetProtocolType")
+class GatewayTargetTargetProtocolType(_builtins.str, Enum):
+    MCP = "MCP"
+    HTTP = "HTTP"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetTargetStatus")
 class GatewayTargetTargetStatus(_builtins.str, Enum):
     CREATING = "CREATING"
@@ -248,6 +306,61 @@ class GatewayTargetTargetStatus(_builtins.str, Enum):
     FAILED = "FAILED"
     SYNCHRONIZING = "SYNCHRONIZING"
     SYNCHRONIZE_UNSUCCESSFUL = "SYNCHRONIZE_UNSUCCESSFUL"
+    CREATE_PENDING_AUTH = "CREATE_PENDING_AUTH"
+    UPDATE_PENDING_AUTH = "UPDATE_PENDING_AUTH"
+    SYNCHRONIZE_PENDING_AUTH = "SYNCHRONIZE_PENDING_AUTH"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator")
+class HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator(_builtins.str, Enum):
+    EQUALS = "EQUALS"
+    CONTAINS = "CONTAINS"
+    CONTAINS_ANY = "CONTAINS_ANY"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessCustomClaimValidationTypeInboundTokenClaimValueType")
+class HarnessCustomClaimValidationTypeInboundTokenClaimValueType(_builtins.str, Enum):
+    STRING = "STRING"
+    STRING_ARRAY = "STRING_ARRAY"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessNetworkConfigurationNetworkMode")
+class HarnessNetworkConfigurationNetworkMode(_builtins.str, Enum):
+    PUBLIC = "PUBLIC"
+    VPC = "VPC"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessOAuthCredentialProviderGrantType")
+class HarnessOAuthCredentialProviderGrantType(_builtins.str, Enum):
+    CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS"
+    AUTHORIZATION_CODE = "AUTHORIZATION_CODE"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessStatus")
+class HarnessStatus(_builtins.str, Enum):
+    CREATING = "CREATING"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATING = "UPDATING"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    READY = "READY"
+    DELETING = "DELETING"
+    DELETE_FAILED = "DELETE_FAILED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessToolType")
+class HarnessToolType(_builtins.str, Enum):
+    REMOTE_MCP = "remote_mcp"
+    AGENTCORE_BROWSER = "agentcore_browser"
+    AGENTCORE_GATEWAY = "agentcore_gateway"
+    INLINE_FUNCTION = "inline_function"
+    AGENTCORE_CODE_INTERPRETER = "agentcore_code_interpreter"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessTruncationConfigurationStrategy")
+class HarnessTruncationConfigurationStrategy(_builtins.str, Enum):
+    SLIDING_WINDOW = "sliding_window"
+    SUMMARIZATION = "summarization"
+    NONE = "none"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:MemoryContentConfigurationLevel")
@@ -311,6 +424,16 @@ class MemoryEpisodicMemoryStrategyType(_builtins.str, Enum):
     USER_PREFERENCE = "USER_PREFERENCE"
     CUSTOM = "CUSTOM"
     EPISODIC = "EPISODIC"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:MemoryMetadataValueType")
+class MemoryMetadataValueType(_builtins.str, Enum):
+    """
+    Supported data types for metadata values
+    """
+    STRING = "STRING"
+    STRINGLIST = "STRINGLIST"
+    NUMBER = "NUMBER"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:MemorySemanticMemoryStrategyStatus")
@@ -425,6 +548,25 @@ class OAuth2CredentialProviderCredentialProviderVendor(_builtins.str, Enum):
     COGNITO_OAUTH2 = "CognitoOauth2"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType")
+class OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType(_builtins.str, Enum):
+    """
+    The grant type for on-behalf-of token exchange
+    """
+    TOKEN_EXCHANGE = "TOKEN_EXCHANGE"
+    JWT_AUTHORIZATION_GRANT = "JWT_AUTHORIZATION_GRANT"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent")
+class OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent(_builtins.str, Enum):
+    """
+    The actor token content type
+    """
+    NONE = "NONE"
+    M2M = "M2M"
+    AWS_IAM_ID_TOKEN_JWT = "AWS_IAM_ID_TOKEN_JWT"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:OnlineEvaluationConfigExecutionStatus")
 class OnlineEvaluationConfigExecutionStatus(_builtins.str, Enum):
     ENABLED = "ENABLED"
@@ -454,6 +596,15 @@ class OnlineEvaluationConfigStatus(_builtins.str, Enum):
     UPDATING = "UPDATING"
     UPDATE_FAILED = "UPDATE_FAILED"
     DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentCredentialProviderVendorType")
+class PaymentCredentialProviderVendorType(_builtins.str, Enum):
+    """
+    Supported vendor types for payment providers
+    """
+    COINBASE_CDP = "CoinbaseCDP"
+    STRIPE_PRIVY = "StripePrivy"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:PolicyEngineStatus")
@@ -497,6 +648,7 @@ class RuntimeAgentManagedRuntimeType(_builtins.str, Enum):
     PYTHON312 = "PYTHON_3_12"
     PYTHON313 = "PYTHON_3_13"
     PYTHON314 = "PYTHON_3_14"
+    NODE22 = "NODE_22"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:RuntimeAgentStatus")

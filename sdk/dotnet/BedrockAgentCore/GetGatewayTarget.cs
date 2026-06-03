@@ -75,6 +75,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     [OutputType]
     public sealed class GetGatewayTargetResult
     {
+        public readonly Outputs.GatewayTargetAuthorizationDataProperties? AuthorizationData;
         /// <summary>
         /// The date and time at which the gateway target was created.
         /// </summary>
@@ -94,6 +95,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The name for the gateway target.
         /// </summary>
         public readonly string? Name;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.GatewayTargetTargetProtocolType? ProtocolType;
         /// <summary>
         /// The status for the gateway target.
         /// </summary>
@@ -105,7 +107,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// <summary>
         /// The target configuration for the Smithy model target.
         /// </summary>
-        public readonly Outputs.GatewayTargetTargetConfigurationProperties? TargetConfiguration;
+        public readonly Union<Outputs.GatewayTargetTargetConfiguration0Properties, Outputs.GatewayTargetTargetConfiguration1Properties>? TargetConfiguration;
         /// <summary>
         /// The target ID for the gateway target.
         /// </summary>
@@ -117,6 +119,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         [OutputConstructor]
         private GetGatewayTargetResult(
+            Outputs.GatewayTargetAuthorizationDataProperties? authorizationData,
+
             string? createdAt,
 
             ImmutableArray<Outputs.GatewayTargetCredentialProviderConfiguration> credentialProviderConfigurations,
@@ -131,16 +135,19 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? name,
 
+            Pulumi.AwsNative.BedrockAgentCore.GatewayTargetTargetProtocolType? protocolType,
+
             Pulumi.AwsNative.BedrockAgentCore.GatewayTargetTargetStatus? status,
 
             ImmutableArray<string> statusReasons,
 
-            Outputs.GatewayTargetTargetConfigurationProperties? targetConfiguration,
+            Union<Outputs.GatewayTargetTargetConfiguration0Properties, Outputs.GatewayTargetTargetConfiguration1Properties>? targetConfiguration,
 
             string? targetId,
 
             string? updatedAt)
         {
+            AuthorizationData = authorizationData;
             CreatedAt = createdAt;
             CredentialProviderConfigurations = credentialProviderConfigurations;
             Description = description;
@@ -148,6 +155,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             LastSynchronizedAt = lastSynchronizedAt;
             MetadataConfiguration = metadataConfiguration;
             Name = name;
+            ProtocolType = protocolType;
             Status = status;
             StatusReasons = statusReasons;
             TargetConfiguration = targetConfiguration;

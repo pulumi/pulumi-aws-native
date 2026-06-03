@@ -2,23 +2,1111 @@ package provider
 
 import (
 	"context"
+	"errors"
+	"fmt"
+	"reflect"
 	"testing"
 	"time"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
+	"github.com/mattbaird/jsonpatch"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	gomock "go.uber.org/mock/gomock"
+	grpcmetadata "google.golang.org/grpc/metadata"
+	"google.golang.org/protobuf/types/known/structpb"
+
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
-	gomock "go.uber.org/mock/gomock"
-	"google.golang.org/protobuf/types/known/structpb"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
 )
+
+type listTestStream struct {
+	ctx          context.Context
+	sendErr      error
+	sendErrAfter int
+	afterSend    func(*pulumirpc.ListResponse)
+	responses    []*pulumirpc.ListResponse
+}
+
+const testBucketA = "bucket-a"
+
+func (s *listTestStream) Send(response *pulumirpc.ListResponse) error {
+	if s.sendErr != nil && (s.sendErrAfter == 0 || len(s.responses) >= s.sendErrAfter) {
+		return s.sendErr
+	}
+	s.responses = append(s.responses, response)
+	if s.afterSend != nil {
+		s.afterSend(response)
+	}
+	return nil
+}
+
+func (s *listTestStream) SetHeader(grpcmetadata.MD) error {
+	return nil
+}
+
+func (s *listTestStream) SendHeader(grpcmetadata.MD) error {
+	return nil
+}
+
+func (s *listTestStream) SetTrailer(grpcmetadata.MD) {
+}
+
+func (s *listTestStream) Context() context.Context {
+	if s.ctx != nil {
+		return s.ctx
+	}
+	return context.Background()
+}
+
+func (s *listTestStream) SendMsg(any) error {
+	return nil
+}
+
+func (s *listTestStream) RecvMsg(any) error {
+	return nil
+}
+
+func listQueryStruct(t *testing.T, props resource.PropertyMap) *structpb.Struct {
+	query, err := plugin.MarshalProperties(props, plugin.MarshalOptions{
+		Label:        "list.query",
+		KeepUnknowns: true,
+		KeepSecrets:  true,
+	})
+	require.NoError(t, err)
+	return query
+}
+
+func testListableResource(
+	cfType string,
+	props map[string]metadata.ListHandlerProperty,
+	required ...string,
+) metadata.CloudAPIResource {
+	listProperties := map[string]schema.PropertySpec{}
+	irreversibleNames := map[string]string{}
+	for cfnName, prop := range props {
+		sdkName := naming.ToSdkName(cfnName)
+		listProperties[sdkName] = schema.PropertySpec{
+			TypeSpec: schema.TypeSpec{Type: prop.Type},
+		}
+		if naming.ToCfnName(sdkName, nil) != cfnName {
+			irreversibleNames[sdkName] = cfnName
+		}
+	}
+	if len(irreversibleNames) == 0 {
+		irreversibleNames = nil
+	}
+
+	listRequired := make([]string, len(required))
+	for i, cfnName := range required {
+		listRequired[i] = naming.ToSdkName(cfnName)
+	}
+
+	return metadata.CloudAPIResource{
+		CfType:         cfType,
+		HasListHandler: true,
+		ListHandlerSchema: &metadata.ListHandlerSchema{
+			Properties: props,
+			Required:   required,
+		},
+		ListInputs: &schema.ObjectTypeSpec{
+			Type:       "object",
+			Properties: listProperties,
+			Required:   listRequired,
+		},
+		ListIrreversibleNames: irreversibleNames,
+	}
+}
+
+func TestListRejectsNonListableResource(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType: "AWS::S3::Bucket",
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             client.NewMockCloudControlClient(ctrl),
+	}
+
+	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, &listTestStream{})
+
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), "does not support List")
+}
+
+func TestListRejectsUnknownResource(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	provider := &cfnProvider{
+		resourceMap:     &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             client.NewMockCloudControlClient(ctrl),
+	}
+
+	err := provider.List(&pulumirpc.ListRequest{Token: "aws:missing/resource:Resource"}, &listTestStream{})
+
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), "not found")
+}
+
+func TestListReturnsComputedForUnknownQuery(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:apigateway/stage:Stage": testListableResource(
+				"AWS::ApiGateway::Stage",
+				map[string]metadata.ListHandlerProperty{"RestApiId": {Type: "string"}},
+			),
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             client.NewMockCloudControlClient(ctrl),
+	}
+
+	stream := &listTestStream{}
+	err := provider.List(&pulumirpc.ListRequest{
+		Token: "aws:apigateway/stage:Stage",
+		Query: listQueryStruct(t, resource.PropertyMap{
+			"restApiId": resource.MakeComputed(resource.NewStringProperty("")),
+		}),
+	}, stream)
+
+	require.NoError(t, err)
+	require.Len(t, stream.responses, 1)
+	assert.NotNil(t, stream.responses[0].GetComputed())
+}
+
+func TestListReturnsComputedForUnknownContinuationQuery(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:apigateway/stage:Stage": testListableResource(
+				"AWS::ApiGateway::Stage",
+				map[string]metadata.ListHandlerProperty{"RestApiId": {Type: "string"}},
+				"RestApiId",
+			),
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             client.NewMockCloudControlClient(ctrl),
+	}
+
+	stream := &listTestStream{}
+	err := provider.List(&pulumirpc.ListRequest{
+		Token:             "aws:apigateway/stage:Stage",
+		ContinuationToken: "not-validated-before-computed",
+		Query: listQueryStruct(t, resource.PropertyMap{
+			"restApiId": resource.NewOutputProperty(resource.Output{Known: false}),
+		}),
+	}, stream)
+
+	require.NoError(t, err)
+	require.Len(t, stream.responses, 1)
+	assert.NotNil(t, stream.responses[0].GetComputed())
+}
+
+func TestListRejectsQueryWhenListInputsAreEmpty(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType:            "AWS::S3::Bucket",
+				HasListHandler:    true,
+				ListHandlerSchema: &metadata.ListHandlerSchema{},
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             client.NewMockCloudControlClient(ctrl),
+	}
+
+	err := provider.List(&pulumirpc.ListRequest{
+		Token: "aws:s3/bucket:Bucket",
+		Query: listQueryStruct(t, resource.PropertyMap{
+			"name": resource.NewStringProperty(testBucketA),
+		}),
+	}, &listTestStream{})
+
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), "List query is not supported")
+}
+
+func TestListRejectsInvalidQueryBeforeCloudControl(t *testing.T) {
+	tests := []struct {
+		name      string
+		spec      metadata.CloudAPIResource
+		query     resource.PropertyMap
+		wantError string
+	}{
+		{
+			name: "nil list handler schema with query",
+			spec: metadata.CloudAPIResource{
+				CfType:         "AWS::S3::Bucket",
+				HasListHandler: true,
+			},
+			query: resource.PropertyMap{
+				"name": resource.NewStringProperty(testBucketA),
+			},
+			wantError: "List query is not supported",
+		},
+		{
+			name: "missing required",
+			spec: testListableResource(
+				"AWS::ApiGateway::Stage",
+				map[string]metadata.ListHandlerProperty{"RestApiId": {Type: "string"}},
+				"RestApiId",
+			),
+			query:     resource.PropertyMap{},
+			wantError: "missing required property restApiId",
+		},
+		{
+			name: "unknown property",
+			spec: testListableResource(
+				"AWS::ApiGateway::Stage",
+				map[string]metadata.ListHandlerProperty{"RestApiId": {Type: "string"}},
+			),
+			query: resource.PropertyMap{
+				"restApiId": resource.NewStringProperty("api-123"),
+				"unknown":   resource.NewStringProperty("value"),
+			},
+			wantError: "unknown property unknown",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ctrl := gomock.NewController(t)
+			defer ctrl.Finish()
+
+			provider := &cfnProvider{
+				resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+					"aws:apigateway/stage:Stage": tt.spec,
+				}},
+				customResources: map[string]resources.CustomResource{},
+				ccc:             client.NewMockCloudControlClient(ctrl),
+			}
+
+			err := provider.List(&pulumirpc.ListRequest{
+				Token: "aws:apigateway/stage:Stage",
+				Query: listQueryStruct(t, tt.query),
+			}, &listTestStream{})
+
+			require.Error(t, err)
+			assert.Contains(t, err.Error(), tt.wantError)
+		})
+	}
+}
+
+func TestListEmptyQueryAndContinuationUsesProviderToken(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType:         "AWS::S3::Bucket",
+				HasListHandler: true,
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
+	}
+
+	id1, id2, continuation := testBucketA, "bucket-b", "next-page"
+	expectedMaxResults := int32(50)
+	mockCCC.EXPECT().
+		List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{MaxResults: &expectedMaxResults}).
+		Return([]string{id1, id2}, &continuation, nil)
+
+	id3 := "bucket-c"
+	expectedContinuationMaxResults := int32(48)
+	mockCCC.EXPECT().
+		List(gomock.Any(), "AWS::S3::Bucket", gomock.Any()).
+		DoAndReturn(func(
+			_ context.Context,
+			_ string,
+			request client.ListRequest,
+		) ([]string, *string, error) {
+			assert.Equal(t, &continuation, request.NextToken)
+			assert.Equal(t, &expectedContinuationMaxResults, request.MaxResults)
+			return []string{id3}, nil, nil
+		})
+
+	stream := &listTestStream{}
+	err := provider.List(&pulumirpc.ListRequest{
+		Token:    "aws:s3/bucket:Bucket",
+		PageSize: 75,
+		Limit:    50,
+	}, stream)
+
+	require.NoError(t, err)
+	require.Len(t, stream.responses, 3)
+	assert.Equal(t, id1, stream.responses[0].GetResult().GetId())
+	assert.Equal(t, id2, stream.responses[1].GetResult().GetId())
+	providerContinuation := stream.responses[2].GetContinuation().GetContinuationToken()
+	require.NotEmpty(t, providerContinuation)
+	assert.NotEqual(t, continuation, providerContinuation)
+
+	continuationStream := &listTestStream{}
+	err = provider.List(&pulumirpc.ListRequest{
+		Token:             "aws:s3/bucket:Bucket",
+		PageSize:          75,
+		Limit:             50,
+		ContinuationToken: providerContinuation,
+	}, continuationStream)
+
+	require.NoError(t, err)
+	require.Len(t, continuationStream.responses, 1)
+	assert.Equal(t, id3, continuationStream.responses[0].GetResult().GetId())
+}
+
+func TestListStoresInitializedSessionBeforeSendingContinuation(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType:         "AWS::S3::Bucket",
+				HasListHandler: true,
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
+	}
+
+	continuation := "next-page"
+	mockCCC.EXPECT().
+		List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{}).
+		Return([]string{"bucket-1"}, &continuation, nil)
+
+	stream := &listTestStream{
+		afterSend: func(response *pulumirpc.ListResponse) {
+			providerToken := response.GetContinuation().GetContinuationToken()
+			if providerToken == "" {
+				return
+			}
+
+			store := provider.ensureListSessions()
+			store.mu.Lock()
+			defer store.mu.Unlock()
+			session := store.sessions[providerToken]
+			require.NotNil(t, session)
+			assert.Equal(t, int64(1), session.returned)
+			assert.Equal(t, continuation, session.cloudControlNextToken)
+		},
+	}
+
+	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, stream)
+
+	require.NoError(t, err)
+	require.Len(t, stream.responses, 2)
+}
+
+func TestListMaxResults(t *testing.T) {
+	tests := []struct {
+		name     string
+		pageSize int64
+		limit    int64
+		expected *int32
+	}{
+		{name: "page size only", pageSize: 25, expected: int32Ptr(25)},
+		{name: "limit only", limit: 15, expected: int32Ptr(15)},
+		{name: "page size smaller than limit", pageSize: 10, limit: 50, expected: int32Ptr(10)},
+		{name: "omitted", expected: nil},
+		{name: "limit capped to CloudControl max", limit: 250, expected: int32Ptr(100)},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ctrl := gomock.NewController(t)
+			defer ctrl.Finish()
+
+			mockCCC := client.NewMockCloudControlClient(ctrl)
+			provider := &cfnProvider{
+				resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+					"aws:s3/bucket:Bucket": {
+						CfType:         "AWS::S3::Bucket",
+						HasListHandler: true,
+					},
+				}},
+				customResources: map[string]resources.CustomResource{},
+				ccc:             mockCCC,
+			}
+
+			mockCCC.EXPECT().
+				List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{MaxResults: tt.expected}).
+				Return(nil, nil, nil)
+
+			err := provider.List(&pulumirpc.ListRequest{
+				Token:    "aws:s3/bucket:Bucket",
+				PageSize: tt.pageSize,
+				Limit:    tt.limit,
+			}, &listTestStream{})
+
+			require.NoError(t, err)
+		})
+	}
+}
+
+func TestListRejectsInvalidLimitAndPageSize(t *testing.T) {
+	tests := []struct {
+		name      string
+		req       *pulumirpc.ListRequest
+		wantError string
+	}{
+		{
+			name: "negative limit",
+			req: &pulumirpc.ListRequest{
+				Limit: -1,
+			},
+			wantError: "limit must be >= 0",
+		},
+		{
+			name: "negative page size",
+			req: &pulumirpc.ListRequest{
+				PageSize: -1,
+			},
+			wantError: "page_size must be >= 0",
+		},
+		{
+			name: "page size exceeds CloudControl max",
+			req: &pulumirpc.ListRequest{
+				PageSize: int64(cloudControlListMaxResultsLimit) + 1,
+			},
+			wantError: "page_size must be <= 100",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			err := (&cfnProvider{}).List(tt.req, &listTestStream{})
+
+			require.Error(t, err)
+			assert.Contains(t, err.Error(), tt.wantError)
+		})
+	}
+}
+
+func TestListContinuationStopsAtLimit(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType:         "AWS::S3::Bucket",
+				HasListHandler: true,
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
+	}
+
+	firstNextToken, secondNextToken := "next-1", "next-2"
+	firstMaxResults := int32(5)
+	secondMaxResults := int32(1)
+	gomock.InOrder(
+		mockCCC.EXPECT().
+			List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{MaxResults: &firstMaxResults}).
+			Return([]string{"bucket-1", "bucket-2", "bucket-3", "bucket-4"}, &firstNextToken, nil),
+		mockCCC.EXPECT().
+			List(gomock.Any(), "AWS::S3::Bucket", gomock.Any()).
+			DoAndReturn(func(
+				_ context.Context,
+				_ string,
+				request client.ListRequest,
+			) ([]string, *string, error) {
+				assert.Equal(t, &firstNextToken, request.NextToken)
+				assert.Equal(t, &secondMaxResults, request.MaxResults)
+				return []string{"bucket-5"}, &secondNextToken, nil
+			}),
+	)
+
+	stream := &listTestStream{}
+	err := provider.List(&pulumirpc.ListRequest{
+		Token:    "aws:s3/bucket:Bucket",
+		PageSize: 20,
+		Limit:    5,
+	}, stream)
+
+	require.NoError(t, err)
+	require.Len(t, stream.responses, 5)
+	providerContinuation := stream.responses[4].GetContinuation().GetContinuationToken()
+	require.NotEmpty(t, providerContinuation)
+
+	continuationStream := &listTestStream{}
+	err = provider.List(&pulumirpc.ListRequest{
+		Token:             "aws:s3/bucket:Bucket",
+		PageSize:          20,
+		Limit:             5,
+		ContinuationToken: providerContinuation,
+	}, continuationStream)
+
+	require.NoError(t, err)
+	require.Len(t, continuationStream.responses, 1)
+	assert.Equal(t, "bucket-5", continuationStream.responses[0].GetResult().GetId())
+
+	err = provider.List(&pulumirpc.ListRequest{
+		Token:             "aws:s3/bucket:Bucket",
+		PageSize:          20,
+		Limit:             5,
+		ContinuationToken: providerContinuation,
+	}, &listTestStream{})
+
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), "invalid or expired continuation_token")
+}
+
+func TestListRejectsInvalidContinuation(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType:         "AWS::S3::Bucket",
+				HasListHandler: true,
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             client.NewMockCloudControlClient(ctrl),
+	}
+
+	err := provider.List(&pulumirpc.ListRequest{
+		Token:             "aws:s3/bucket:Bucket",
+		ContinuationToken: "missing",
+	}, &listTestStream{})
+
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), "invalid or expired continuation_token")
+}
+
+func TestListRejectsExpiredAndInUseContinuation(t *testing.T) {
+	tests := []struct {
+		name      string
+		session   *listSession
+		wantError string
+	}{
+		{
+			name: "expired",
+			session: &listSession{
+				cloudControlNextToken: "next",
+				resourceToken:         "aws:s3/bucket:Bucket",
+				lastAccess:            time.Now().Add(-2 * defaultListSessionTTL),
+			},
+			wantError: "invalid or expired continuation_token",
+		},
+		{
+			name: "in use",
+			session: &listSession{
+				cloudControlNextToken: "next",
+				resourceToken:         "aws:s3/bucket:Bucket",
+				lastAccess:            time.Now(),
+				inUse:                 true,
+			},
+			wantError: "already in use",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ctrl := gomock.NewController(t)
+			defer ctrl.Finish()
+
+			provider := &cfnProvider{
+				resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+					"aws:s3/bucket:Bucket": {
+						CfType:         "AWS::S3::Bucket",
+						HasListHandler: true,
+					},
+				}},
+				customResources: map[string]resources.CustomResource{},
+				ccc:             client.NewMockCloudControlClient(ctrl),
+				listSessions:    newListSessionStore(defaultListSessionTTL),
+			}
+			provider.listSessions.sessions["provider-token"] = tt.session
+
+			err := provider.List(&pulumirpc.ListRequest{
+				Token:             "aws:s3/bucket:Bucket",
+				ContinuationToken: "provider-token",
+			}, &listTestStream{})
+
+			require.Error(t, err)
+			assert.Contains(t, err.Error(), tt.wantError)
+		})
+	}
+}
+
+func TestListRejectsContinuationRequestChanges(t *testing.T) {
+	tests := []struct {
+		name      string
+		req       *pulumirpc.ListRequest
+		session   *listSession
+		wantError string
+		resources map[string]metadata.CloudAPIResource
+	}{
+		{
+			name: "changed token",
+			req: &pulumirpc.ListRequest{
+				Token:             "aws:logs/logGroup:LogGroup",
+				Limit:             5,
+				ContinuationToken: "provider-token",
+			},
+			session: &listSession{
+				cloudControlNextToken: "next",
+				resourceToken:         "aws:s3/bucket:Bucket",
+				limit:                 5,
+			},
+			wantError: "different resource type",
+		},
+		{
+			name: "changed limit",
+			req: &pulumirpc.ListRequest{
+				Token:             "aws:s3/bucket:Bucket",
+				Limit:             6,
+				ContinuationToken: "provider-token",
+			},
+			session: &listSession{
+				cloudControlNextToken: "next",
+				resourceToken:         "aws:s3/bucket:Bucket",
+				limit:                 5,
+			},
+			wantError: "different limit",
+		},
+		{
+			name: "changed query",
+			req: &pulumirpc.ListRequest{
+				Token:             "aws:apigateway/stage:Stage",
+				Limit:             5,
+				ContinuationToken: "provider-token",
+				Query: listQueryStruct(t, resource.PropertyMap{
+					"restApiId": resource.NewStringProperty("api-123"),
+				}),
+			},
+			session: &listSession{
+				cloudControlNextToken: "next",
+				resourceToken:         "aws:apigateway/stage:Stage",
+				queryHash:             "different-query",
+				limit:                 5,
+			},
+			resources: map[string]metadata.CloudAPIResource{
+				"aws:apigateway/stage:Stage": testListableResource(
+					"AWS::ApiGateway::Stage",
+					map[string]metadata.ListHandlerProperty{"RestApiId": {Type: "string"}},
+					"RestApiId",
+				),
+			},
+			wantError: "different query",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ctrl := gomock.NewController(t)
+			defer ctrl.Finish()
+
+			resourcesByToken := map[string]metadata.CloudAPIResource{
+				"aws:s3/bucket:Bucket": {
+					CfType:         "AWS::S3::Bucket",
+					HasListHandler: true,
+				},
+				"aws:logs/logGroup:LogGroup": {
+					CfType:         "AWS::Logs::LogGroup",
+					HasListHandler: true,
+				},
+			}
+			for token, resourceSpec := range tt.resources {
+				resourcesByToken[token] = resourceSpec
+			}
+			provider := &cfnProvider{
+				resourceMap:     &metadata.CloudAPIMetadata{Resources: resourcesByToken},
+				customResources: map[string]resources.CustomResource{},
+				ccc:             client.NewMockCloudControlClient(ctrl),
+				listSessions:    newListSessionStore(defaultListSessionTTL),
+			}
+			tt.session.lastAccess = time.Now()
+			provider.listSessions.sessions["provider-token"] = tt.session
+
+			err := provider.List(tt.req, &listTestStream{})
+
+			require.Error(t, err)
+			assert.Contains(t, err.Error(), tt.wantError)
+		})
+	}
+}
+
+func TestListBuffersWhenCloudControlReturnsMoreThanRequested(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType:         "AWS::S3::Bucket",
+				HasListHandler: true,
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
+	}
+
+	id1, id2 := testBucketA, "bucket-b"
+	expectedMaxResults := int32(1)
+	mockCCC.EXPECT().
+		List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{MaxResults: &expectedMaxResults}).
+		Return([]string{id1, id2}, nil, nil)
+
+	stream := &listTestStream{}
+	err := provider.List(&pulumirpc.ListRequest{
+		Token:    "aws:s3/bucket:Bucket",
+		PageSize: 1,
+	}, stream)
+
+	require.NoError(t, err)
+	require.Len(t, stream.responses, 2)
+	assert.Equal(t, id1, stream.responses[0].GetResult().GetId())
+	providerContinuation := stream.responses[1].GetContinuation().GetContinuationToken()
+	require.NotEmpty(t, providerContinuation)
+
+	continuationStream := &listTestStream{}
+	err = provider.List(&pulumirpc.ListRequest{
+		Token:             "aws:s3/bucket:Bucket",
+		PageSize:          1,
+		ContinuationToken: providerContinuation,
+	}, continuationStream)
+
+	require.NoError(t, err)
+	require.Len(t, continuationStream.responses, 1)
+	assert.Equal(t, id2, continuationStream.responses[0].GetResult().GetId())
+}
+
+func TestListWrapsCloudControlErrorsWithTokenContext(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType:         "AWS::S3::Bucket",
+				HasListHandler: true,
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
+	}
+
+	expectedErr := errors.New("access denied")
+	mockCCC.EXPECT().
+		List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{}).
+		Return(nil, nil, expectedErr)
+
+	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, &listTestStream{})
+
+	require.ErrorIs(t, err, expectedErr)
+	assert.Contains(t, err.Error(), "aws:s3/bucket:Bucket")
+	assert.Contains(t, err.Error(), "AWS::S3::Bucket")
+}
+
+func TestListPropagatesProviderCancellation(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	providerCtx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType:         "AWS::S3::Bucket",
+				HasListHandler: true,
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
+		canceler: &cancellationContext{
+			context: providerCtx,
+			cancel:  cancel,
+		},
+	}
+
+	mockCCC.EXPECT().
+		List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{}).
+		DoAndReturn(func(
+			ctx context.Context,
+			_ string,
+			_ client.ListRequest,
+		) ([]string, *string, error) {
+			cancel()
+			select {
+			case <-ctx.Done():
+			case <-time.After(time.Second):
+				t.Fatal("timed out waiting for List context cancellation")
+			}
+			return nil, nil, ctx.Err()
+		})
+
+	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, &listTestStream{})
+
+	require.ErrorIs(t, err, context.Canceled)
+}
+
+func TestListReturnsStreamSendError(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType:         "AWS::S3::Bucket",
+				HasListHandler: true,
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
+	}
+
+	id := testBucketA
+	mockCCC.EXPECT().
+		List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{}).
+		Return([]string{id}, nil, nil)
+
+	sendErr := errors.New("send failed")
+	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, &listTestStream{sendErr: sendErr})
+
+	require.ErrorIs(t, err, sendErr)
+}
+
+func TestListContinuationSendErrorKeepsOldTokenUsable(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:s3/bucket:Bucket": {
+				CfType:         "AWS::S3::Bucket",
+				HasListHandler: true,
+			},
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
+	}
+
+	firstNextToken, secondNextToken := "next-1", "next-2"
+	gomock.InOrder(
+		mockCCC.EXPECT().
+			List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{}).
+			Return([]string{"bucket-1"}, &firstNextToken, nil),
+		mockCCC.EXPECT().
+			List(gomock.Any(), "AWS::S3::Bucket", gomock.Any()).
+			DoAndReturn(func(
+				_ context.Context,
+				_ string,
+				request client.ListRequest,
+			) ([]string, *string, error) {
+				assert.Equal(t, &firstNextToken, request.NextToken)
+				return []string{"bucket-2"}, &secondNextToken, nil
+			}),
+		mockCCC.EXPECT().
+			List(gomock.Any(), "AWS::S3::Bucket", gomock.Any()).
+			DoAndReturn(func(
+				_ context.Context,
+				_ string,
+				request client.ListRequest,
+			) ([]string, *string, error) {
+				assert.Equal(t, &firstNextToken, request.NextToken)
+				return []string{"bucket-2"}, nil, nil
+			}),
+	)
+
+	stream := &listTestStream{}
+	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, stream)
+
+	require.NoError(t, err)
+	require.Len(t, stream.responses, 2)
+	providerContinuation := stream.responses[1].GetContinuation().GetContinuationToken()
+
+	sendErr := errors.New("send failed")
+	err = provider.List(&pulumirpc.ListRequest{
+		Token:             "aws:s3/bucket:Bucket",
+		ContinuationToken: providerContinuation,
+	}, &listTestStream{sendErr: sendErr, sendErrAfter: 1})
+
+	require.ErrorIs(t, err, sendErr)
+
+	retryStream := &listTestStream{}
+	err = provider.List(&pulumirpc.ListRequest{
+		Token:             "aws:s3/bucket:Bucket",
+		ContinuationToken: providerContinuation,
+	}, retryStream)
+
+	require.NoError(t, err)
+	require.Len(t, retryStream.responses, 1)
+	assert.Equal(t, "bucket-2", retryStream.responses[0].GetResult().GetId())
+}
+
+func TestListScopedQueryConvertsToCloudFormationCasing(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:apigateway/stage:Stage": testListableResource(
+				"AWS::ApiGateway::Stage",
+				map[string]metadata.ListHandlerProperty{
+					"RestApiId":      {Type: "string"},
+					"IncludeValues":  {Type: "boolean"},
+					"MinimumVersion": {Type: "integer"},
+				},
+				"RestApiId",
+			),
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
+	}
+
+	mockCCC.EXPECT().
+		List(gomock.Any(), "AWS::ApiGateway::Stage", gomock.Any()).
+		DoAndReturn(func(
+			_ context.Context,
+			_ string,
+			request client.ListRequest,
+		) ([]string, *string, error) {
+			require.NotNil(t, request.ResourceModel)
+			assert.JSONEq(t, `{"RestApiId":"api-123","IncludeValues":true,"MinimumVersion":2}`, *request.ResourceModel)
+			assert.Nil(t, request.NextToken)
+			assert.Nil(t, request.MaxResults)
+			return nil, nil, nil
+		})
+
+	err := provider.List(&pulumirpc.ListRequest{
+		Token: "aws:apigateway/stage:Stage",
+		Query: listQueryStruct(t, resource.PropertyMap{
+			"restApiId": resource.NewOutputProperty(resource.Output{
+				Element: resource.MakeSecret(resource.NewStringProperty("api-123")),
+				Known:   true,
+			}),
+			"includeValues":  resource.NewBoolProperty(true),
+			"minimumVersion": resource.NewNumberProperty(2),
+		}),
+	}, &listTestStream{})
+
+	require.NoError(t, err)
+}
+
+func TestListScopedQueryContinuation(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	provider := &cfnProvider{
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws:apigateway/stage:Stage": testListableResource(
+				"AWS::ApiGateway::Stage",
+				map[string]metadata.ListHandlerProperty{"RestApiId": {Type: "string"}},
+				"RestApiId",
+			),
+		}},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
+	}
+
+	firstNextToken := "next"
+	query := listQueryStruct(t, resource.PropertyMap{
+		"restApiId": resource.NewStringProperty("api-123"),
+	})
+	gomock.InOrder(
+		mockCCC.EXPECT().
+			List(gomock.Any(), "AWS::ApiGateway::Stage", gomock.Any()).
+			DoAndReturn(func(
+				_ context.Context,
+				_ string,
+				request client.ListRequest,
+			) ([]string, *string, error) {
+				require.NotNil(t, request.ResourceModel)
+				assert.JSONEq(t, `{"RestApiId":"api-123"}`, *request.ResourceModel)
+				assert.Nil(t, request.NextToken)
+				return []string{"stage-1"}, &firstNextToken, nil
+			}),
+		mockCCC.EXPECT().
+			List(gomock.Any(), "AWS::ApiGateway::Stage", gomock.Any()).
+			DoAndReturn(func(
+				_ context.Context,
+				_ string,
+				request client.ListRequest,
+			) ([]string, *string, error) {
+				require.NotNil(t, request.ResourceModel)
+				assert.JSONEq(t, `{"RestApiId":"api-123"}`, *request.ResourceModel)
+				assert.Equal(t, &firstNextToken, request.NextToken)
+				return []string{"stage-2"}, nil, nil
+			}),
+	)
+
+	stream := &listTestStream{}
+	err := provider.List(&pulumirpc.ListRequest{
+		Token: "aws:apigateway/stage:Stage",
+		Query: query,
+	}, stream)
+
+	require.NoError(t, err)
+	require.Len(t, stream.responses, 2)
+	providerContinuation := stream.responses[1].GetContinuation().GetContinuationToken()
+	require.NotEmpty(t, providerContinuation)
+
+	continuationStream := &listTestStream{}
+	err = provider.List(&pulumirpc.ListRequest{
+		Token:             "aws:apigateway/stage:Stage",
+		Query:             query,
+		ContinuationToken: providerContinuation,
+	}, continuationStream)
+
+	require.NoError(t, err)
+	require.Len(t, continuationStream.responses, 1)
+	assert.Equal(t, "stage-2", continuationStream.responses[0].GetResult().GetId())
+}
+
+func TestListRejectsInvalidQuery(t *testing.T) {
+	spec := testListableResource(
+		"AWS::ApiGateway::Stage",
+		map[string]metadata.ListHandlerProperty{"RestApiId": {Type: "string"}},
+		"RestApiId",
+	)
+
+	_, err := convertListQueryToCfn(&spec, nil, resource.PropertyMap{})
+	require.ErrorContains(t, err, "missing required property restApiId")
+
+	_, err = convertListQueryToCfn(&spec, nil, resource.PropertyMap{
+		"restApiId": resource.NewStringProperty("api-123"),
+		"unknown":   resource.NewStringProperty("value"),
+	})
+	require.ErrorContains(t, err, "unknown property unknown")
+
+}
 
 func TestConfigure(t *testing.T) {
 	ctrl := gomock.NewController(t)
@@ -220,7 +1308,7 @@ func TestCreatePreview(t *testing.T) {
 	provider := &cfnProvider{
 		name: "test-provider",
 		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-			"aws-native:s3:Bucket": metadata.CloudAPIResource{
+			"aws-native:s3:Bucket": {
 				CfType: "AWS::S3::Bucket",
 				Outputs: map[string]schema.PropertySpec{
 					"arn":        {TypeSpec: schema.TypeSpec{Type: "string"}},
@@ -293,7 +1381,7 @@ func TestUpdatePreview(t *testing.T) {
 	provider := &cfnProvider{
 		name: "test-provider",
 		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-			"aws-native:s3:Bucket": metadata.CloudAPIResource{
+			"aws-native:s3:Bucket": {
 				CfType: "AWS::S3::Bucket",
 				Outputs: map[string]schema.PropertySpec{
 					"arn":        {TypeSpec: schema.TypeSpec{Type: "string"}},
@@ -432,6 +1520,56 @@ func TestCreate(t *testing.T) {
 		assert.Equal(t, "input value", inputs["my"].StringValue())
 	})
 
+	t.Run("StandardResource/PreservesAnyPropertyKeys", func(t *testing.T) {
+		provider.resourceMap.Resources["aws:iam/role:Role"] = metadata.CloudAPIResource{
+			CfType: "AWS::IAM::Role",
+			Inputs: map[string]schema.PropertySpec{
+				"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"awsId": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			IrreversibleNames: map[string]string{
+				"awsId": "Id",
+			},
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:iam/role:Role", "name"))
+		policyDocument := resource.NewObjectProperty(resource.PropertyMap{
+			"Version": resource.NewStringProperty("2012-10-17"),
+			"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"Action": resource.NewStringProperty("sts:AssumeRole"),
+				}),
+			}),
+		})
+		req.Properties = mustMarshalProperties(t, resource.PropertyMap{
+			"assumeRolePolicyDocument": policyDocument,
+		})
+
+		mockCCC.EXPECT().Create(ctx, gomock.Any(), "AWS::IAM::Role", gomock.Any()).Return(
+			stringPtr("role-id"),
+			map[string]interface{}{
+				"Id": "role-output-id",
+				"AssumeRolePolicyDocument": map[string]interface{}{
+					"Version": "2012-10-17",
+					"Statement": []interface{}{
+						map[string]interface{}{"Action": "sts:AssumeRole"},
+					},
+				},
+			}, nil,
+		)
+
+		resp, err := provider.Create(ctx, req)
+		assert.NoError(t, err)
+		require.NotNil(t, resp.Properties)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "role-output-id", props["awsId"].StringValue())
+		doc := props["assumeRolePolicyDocument"].ObjectValue()
+		assert.Equal(t, "2012-10-17", doc["Version"].StringValue())
+		statement := doc["Statement"].ArrayValue()[0].ObjectValue()
+		assert.Equal(t, "sts:AssumeRole", statement["Action"].StringValue())
+	})
+
 	t.Run("StandardResource/NotFound", func(t *testing.T) {
 		req.Urn = string(resource.NewURN("stack", "project", "parent", "unknown:resource", "name"))
 
@@ -460,6 +1598,7 @@ func TestCreate(t *testing.T) {
 			CfType: "AWS::S3::Bucket",
 		}
 		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.Properties = mustMarshalProperties(t, resource.PropertyMap{"my": resource.NewStringProperty("input value")})
 
 		mockCCC.EXPECT().Create(ctx, gomock.Any(), "AWS::S3::Bucket", gomock.Any()).Return(
 			stringPtr("bucket-id"), map[string]interface{}{"foo": "bar"}, assert.AnError,
@@ -591,6 +1730,45 @@ func TestRead(t *testing.T) {
 		assert.Equal(t, "my-bucket", inputs["bucketName"].StringValue())
 		assert.True(t, inputs.HasValue("objectLockEnabled"), "Expected 'objectLockEnabled' property in inputs")
 		assert.True(t, inputs["objectLockEnabled"].BoolValue())
+	})
+
+	t.Run("StandardResource/ImportPreservesAnyPropertyKeys", func(t *testing.T) {
+		provider.resourceMap.Resources["aws:iam/role:Role"] = metadata.CloudAPIResource{
+			CfType: "AWS::IAM::Role",
+			Inputs: map[string]schema.PropertySpec{
+				"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+			},
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:iam/role:Role", "name"))
+		req.Properties = mustMarshalProperties(t, resource.PropertyMap{"foo": resource.NewStringProperty("bar")})
+
+		mockCCC.EXPECT().Read(ctx, "AWS::IAM::Role", "resource-id").Return(
+			map[string]interface{}{
+				"AssumeRolePolicyDocument": map[string]interface{}{
+					"Version": "2012-10-17",
+					"Statement": []interface{}{
+						map[string]interface{}{"Action": "sts:AssumeRole"},
+					},
+				},
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, req)
+		assert.NoError(t, err)
+		require.NotNil(t, resp.Properties)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		doc := props["assumeRolePolicyDocument"].ObjectValue()
+		assert.True(t, doc.HasValue("Version"), "Expected Any property key to be preserved")
+		assert.Equal(t, "2012-10-17", doc["Version"].StringValue())
+		statement := doc["Statement"].ArrayValue()[0].ObjectValue()
+		assert.True(t, statement.HasValue("Action"), "Expected nested Any property key to be preserved")
+		assert.Equal(t, "sts:AssumeRole", statement["Action"].StringValue())
+
+		require.NotNil(t, resp.Inputs)
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		inputDoc := inputs["assumeRolePolicyDocument"].ObjectValue()
+		assert.True(t, inputDoc.HasValue("Version"), "Expected imported inputs to preserve Any property key")
+		assert.Equal(t, "2012-10-17", inputDoc["Version"].StringValue())
 	})
 
 	t.Run("StandardResource/NotFound", func(t *testing.T) {
@@ -775,15 +1953,22 @@ func TestUpdate(t *testing.T) {
 			"bucketName":        resource.NewStringProperty("new-bucket"),
 			"objectLockEnabled": resource.NewBoolProperty(false),
 		}
+		oldInputs := resource.PropertyMap{
+			"bucketName":        resource.NewStringProperty("my-bucket"),
+			"objectLockEnabled": resource.NewBoolProperty(true),
+		}
 		req.News = mustMarshalProperties(t, inputs)
 
 		req.Olds = mustMarshalProperties(t, resource.PropertyMap{
 			"bucketName":        resource.NewStringProperty("my-bucket"),
 			"objectLockEnabled": resource.NewBoolProperty(true),
-			"__inputs":          resource.MakeSecret(resource.NewObjectProperty(inputs)),
+			"__inputs":          resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
 		})
 
-		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", gomock.Any()).Return(
+		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/BucketName", Value: "new-bucket"},
+			{Operation: "replace", Path: "/ObjectLockEnabled", Value: false},
+		})).Return(
 			map[string]interface{}{
 				// Change the bucket name and object lock status according to the inputs
 				"bucketName":        resource.NewStringProperty("new-bucket"),
@@ -809,19 +1994,980 @@ func TestUpdate(t *testing.T) {
 		assert.False(t, checkpoint["objectLockEnabled"].BoolValue())
 	})
 
+	t.Run("StandardResource/PreservesAnyPropertyKeys", func(t *testing.T) {
+		provider.resourceMap.Resources["aws:iam/role:Role"] = metadata.CloudAPIResource{
+			CfType: "AWS::IAM::Role",
+			Inputs: map[string]schema.PropertySpec{
+				"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"awsId": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			IrreversibleNames: map[string]string{
+				"awsId": "Id",
+			},
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:iam/role:Role", "name"))
+		oldPolicyDocument := resource.NewObjectProperty(resource.PropertyMap{
+			"Version": resource.NewStringProperty("2012-10-17"),
+		})
+		newPolicyDocument := resource.NewObjectProperty(resource.PropertyMap{
+			"Version": resource.NewStringProperty("2012-10-17"),
+			"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"Action": resource.NewStringProperty("sts:AssumeRole"),
+				}),
+			}),
+		})
+		req.News = mustMarshalProperties(t, resource.PropertyMap{
+			"assumeRolePolicyDocument": newPolicyDocument,
+		})
+		req.Olds = mustMarshalProperties(t, resource.PropertyMap{
+			"assumeRolePolicyDocument": oldPolicyDocument,
+			"__inputs": resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{
+				"assumeRolePolicyDocument": oldPolicyDocument,
+			})),
+		})
+
+		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::IAM::Role", "resource-id", gomock.Any()).Return(
+			map[string]interface{}{
+				"Id": "role-output-id",
+				"AssumeRolePolicyDocument": map[string]interface{}{
+					"Version": "2012-10-17",
+					"Statement": []interface{}{
+						map[string]interface{}{"Action": "sts:AssumeRole"},
+					},
+				},
+			}, nil,
+		)
+
+		resp, err := provider.Update(ctx, req)
+		assert.NoError(t, err)
+		require.NotNil(t, resp.Properties)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "role-output-id", props["awsId"].StringValue())
+		doc := props["assumeRolePolicyDocument"].ObjectValue()
+		assert.Equal(t, "2012-10-17", doc["Version"].StringValue())
+		statement := doc["Statement"].ArrayValue()[0].ObjectValue()
+		assert.Equal(t, "sts:AssumeRole", statement["Action"].StringValue())
+	})
+
+	t.Run("StandardResource/ActualBaselineRepairDrift", func(t *testing.T) {
+		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
+			CfType: "AWS::S3::Bucket",
+			Inputs: map[string]schema.PropertySpec{
+				"bucketName": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"bucketName": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.News = mustMarshalProperties(t, resource.PropertyMap{
+			"bucketName": resource.NewStringProperty("desired-bucket"),
+		})
+		req.Olds = mustMarshalProperties(t, resource.PropertyMap{
+			"bucketName": resource.NewStringProperty("actual-drifted-bucket"),
+			"__inputs": resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{
+				"bucketName": resource.NewStringProperty("desired-bucket"),
+			})),
+		})
+
+		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/BucketName", Value: "desired-bucket"},
+		})).Return(
+			map[string]interface{}{
+				"bucketName": "desired-bucket",
+			}, nil,
+		)
+
+		resp, err := provider.Update(ctx, req)
+		require.NoError(t, err)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "desired-bucket", props["bucketName"].StringValue())
+	})
+
+	t.Run("StandardResource/WriteOnlyResend", func(t *testing.T) {
+		provider.resourceMap.Resources["aws:rds/dbInstance:DBInstance"] = metadata.CloudAPIResource{
+			CfType: "AWS::RDS::DBInstance",
+			Inputs: map[string]schema.PropertySpec{
+				"password": {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"engine":   {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"engine": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			WriteOnly: []string{"password"},
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:rds/dbInstance:DBInstance", "name"))
+		req.News = mustMarshalProperties(t, resource.PropertyMap{
+			"password": resource.NewStringProperty("secret"),
+			"engine":   resource.NewStringProperty("mysql"),
+		})
+		req.Olds = mustMarshalProperties(t, resource.PropertyMap{
+			"engine": resource.NewStringProperty("postgres"),
+			"__inputs": resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{
+				"password": resource.NewStringProperty("secret"),
+				"engine":   resource.NewStringProperty("postgres"),
+			})),
+		})
+
+		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::RDS::DBInstance", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/Engine", Value: "mysql"},
+			{Operation: "add", Path: "/Password", Value: "secret"},
+		})).Return(
+			map[string]interface{}{
+				"engine": "mysql",
+			}, nil,
+		)
+
+		resp, err := provider.Update(ctx, req)
+		require.NoError(t, err)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "mysql", props["engine"].StringValue())
+		assert.Equal(t, "secret", props["password"].StringValue())
+	})
+
+	t.Run("StandardResource/CreateOnlyWriteOnlyCarriedButNotResent", func(t *testing.T) {
+		provider.resourceMap.Resources["aws:rds/dbInstance:DBInstance"] = metadata.CloudAPIResource{
+			CfType: "AWS::RDS::DBInstance",
+			Inputs: map[string]schema.PropertySpec{
+				"password": {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"engine":   {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"engine": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			WriteOnly:  []string{"password"},
+			CreateOnly: []string{"password"},
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:rds/dbInstance:DBInstance", "name"))
+		req.News = mustMarshalProperties(t, resource.PropertyMap{
+			"password": resource.NewStringProperty("secret"),
+			"engine":   resource.NewStringProperty("mysql"),
+		})
+		req.Olds = mustMarshalProperties(t, resource.PropertyMap{
+			"engine": resource.NewStringProperty("postgres"),
+			"__inputs": resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{
+				"password": resource.NewStringProperty("secret"),
+				"engine":   resource.NewStringProperty("postgres"),
+			})),
+		})
+
+		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::RDS::DBInstance", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/Engine", Value: "mysql"},
+		})).Return(
+			map[string]interface{}{
+				"engine": "mysql",
+			}, nil,
+		)
+
+		resp, err := provider.Update(ctx, req)
+		require.NoError(t, err)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "mysql", props["engine"].StringValue())
+		assert.Equal(t, "secret", props["password"].StringValue())
+	})
+
 	t.Run("StandardResource/Error", func(t *testing.T) {
 		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
 			CfType: "AWS::S3::Bucket",
+			Inputs: map[string]schema.PropertySpec{
+				"bucketName": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
 		}
 		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.News = mustMarshalProperties(t, resource.PropertyMap{
+			"bucketName": resource.NewStringProperty("new-bucket"),
+		})
+		req.Olds = mustMarshalProperties(t, resource.PropertyMap{
+			"bucketName": resource.NewStringProperty("old-bucket"),
+			"__inputs":   resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{"bucketName": resource.NewStringProperty("old-bucket")})),
+		})
 
-		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", gomock.Any()).Return(
+		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/BucketName", Value: "new-bucket"},
+		})).Return(
 			nil, assert.AnError,
 		)
 
 		resp, err := provider.Update(ctx, req)
 		assert.Error(t, err)
 		assert.Nil(t, resp)
+	})
+
+}
+
+func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	ctx, cancel := context.WithCancel(context.Background())
+	provider := &cfnProvider{
+		name: "test-provider",
+		resourceMap: &metadata.CloudAPIMetadata{
+			Resources: map[string]metadata.CloudAPIResource{
+				"aws:rds/dbInstance:DBInstance": {
+					CfType:       "AWS::RDS::DBInstance",
+					TagsProperty: "tags",
+					Inputs: map[string]schema.PropertySpec{
+						"backupTarget": {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"engine":       {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"password":     {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type:                 "object",
+								AdditionalProperties: &schema.TypeSpec{Type: "string"},
+							},
+						},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						"backupTarget": {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"engine":       {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type:                 "object",
+								AdditionalProperties: &schema.TypeSpec{Type: "string"},
+							},
+						},
+					},
+					WriteOnly: []string{"password"},
+				},
+				"aws:logs/logGroup:LogGroup": {
+					CfType:       "AWS::Logs::LogGroup",
+					TagsProperty: "tags",
+					TagsStyle:    default_tags.TagsStyleKeyValueArray,
+					Inputs: map[string]schema.PropertySpec{
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:index:Tag"},
+							},
+						},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:index:Tag"},
+							},
+						},
+					},
+				},
+				"aws:iam:Role": {
+					CfType: "AWS::IAM::Role",
+					Inputs: map[string]schema.PropertySpec{
+						"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policies": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:iam:RolePolicy"},
+							},
+						},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policies": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:iam:RolePolicy"},
+							},
+						},
+					},
+				},
+			},
+			Types: map[string]metadata.CloudAPIType{
+				"aws-native:index:Tag": {
+					Type: "object",
+					Properties: map[string]schema.PropertySpec{
+						"key":   {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"value": {TypeSpec: schema.TypeSpec{Type: "string"}},
+					},
+				},
+				"aws-native:iam:RolePolicy": {
+					Type: "object",
+					Properties: map[string]schema.PropertySpec{
+						"policyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policyName":     {TypeSpec: schema.TypeSpec{Type: "string"}},
+					},
+				},
+			},
+		},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             client.NewMockCloudControlClient(ctrl),
+		canceler: &cancellationContext{
+			context: ctx,
+			cancel:  cancel,
+		},
+	}
+	urn := resource.NewURN("stack", "project", "parent", "aws:rds/dbInstance:DBInstance", "name")
+
+	t.Run("external drift on managed input reports diff", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{"engine": resource.NewStringProperty("abc")}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(urn),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"engine":   resource.NewStringProperty("xyz"),
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+			News: mustMarshalProperties(t, oldInputs),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_UNKNOWN, resp.Changes)
+	})
+
+	t.Run("newly visible optional computed default is ignored when unowned", func(t *testing.T) {
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(urn),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"backupTarget": resource.NewStringProperty("region"),
+				"__inputs":     resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{})),
+			}),
+			News: mustMarshalProperties(t, resource.PropertyMap{}),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
+	t.Run("user starts managing same optional computed value without cloud operation", func(t *testing.T) {
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(urn),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"backupTarget": resource.NewStringProperty("region"),
+				"__inputs":     resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{})),
+			}),
+			News: mustMarshalProperties(t, resource.PropertyMap{
+				"backupTarget": resource.NewStringProperty("region"),
+			}),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
+	t.Run("user starts managing different optional computed value reports diff", func(t *testing.T) {
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(urn),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"backupTarget": resource.NewStringProperty("region"),
+				"__inputs":     resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{})),
+			}),
+			News: mustMarshalProperties(t, resource.PropertyMap{
+				"backupTarget": resource.NewStringProperty("local"),
+			}),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_UNKNOWN, resp.Changes)
+	})
+
+	t.Run("owned tag map drift reports diff", func(t *testing.T) {
+		desiredTags := resource.PropertyMap{
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"owner": resource.NewStringProperty("team"),
+			}),
+		}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(urn),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"tags": resource.NewObjectProperty(resource.PropertyMap{
+					"owner": resource.NewStringProperty("team"),
+					"extra": resource.NewStringProperty("external"),
+				}),
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(desiredTags)),
+			}),
+			News: mustMarshalProperties(t, desiredTags),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_UNKNOWN, resp.Changes)
+	})
+
+	t.Run("aws managed tag in actual baseline does not report diff", func(t *testing.T) {
+		desiredTags := resource.PropertyMap{
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"owner": resource.NewStringProperty("team"),
+			}),
+		}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(urn),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"tags": resource.NewObjectProperty(resource.PropertyMap{
+					"owner":       resource.NewStringProperty("team"),
+					"aws:managed": resource.NewStringProperty("external"),
+				}),
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(desiredTags)),
+			}),
+			News: mustMarshalProperties(t, desiredTags),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
+	t.Run("key value array tag reorder in actual baseline does not report diff", func(t *testing.T) {
+		arrayURN := resource.NewURN("stack", "project", "parent", "aws:logs/logGroup:LogGroup", "name")
+		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Environment"),
+				"value": resource.NewStringProperty("prod"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Name"),
+				"value": resource.NewStringProperty("my-resource"),
+			}),
+		})
+		actualTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Name"),
+				"value": resource.NewStringProperty("my-resource"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Environment"),
+				"value": resource.NewStringProperty("prod"),
+			}),
+		})
+		desiredTags := resource.PropertyMap{"tags": oldTags}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(arrayURN),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"tags":     actualTags,
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(desiredTags)),
+			}),
+			News: mustMarshalProperties(t, desiredTags),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
+	t.Run("normalized IAM policy document actual baseline does not report diff", func(t *testing.T) {
+		roleURN := resource.NewURN("stack", "project", "parent", "aws:iam:Role", "name")
+		oldInputs := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewStringProperty(`{
+				"Version": "2012-10-17",
+				"Statement": [{
+					"Effect": "Allow",
+					"Principal": {"Service": "ec2.amazonaws.com"},
+					"Action": "sts:AssumeRole"
+				}]
+			}`),
+			"policies": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"policyName": resource.NewStringProperty("test-policy"),
+					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
+						"Version": resource.NewStringProperty("2012-10-17"),
+						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+							resource.NewObjectProperty(resource.PropertyMap{
+								"Effect":   resource.NewStringProperty("Allow"),
+								"Action":   resource.NewStringProperty("*"),
+								"Resource": resource.NewStringProperty("*"),
+							}),
+						}),
+					}),
+				}),
+			}),
+		}
+		actualOutputs := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewObjectProperty(resource.PropertyMap{
+				"Version": resource.NewStringProperty("2012-10-17"),
+				"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+					resource.NewObjectProperty(resource.PropertyMap{
+						"Effect":    resource.NewStringProperty("Allow"),
+						"Principal": resource.NewObjectProperty(resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")}),
+						"Action":    resource.NewStringProperty("sts:AssumeRole"),
+					}),
+				}),
+			}),
+			"policies": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"policyName": resource.NewStringProperty("test-policy"),
+					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
+						"Version": resource.NewStringProperty("2012-10-17"),
+						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+							resource.NewObjectProperty(resource.PropertyMap{
+								"Effect":   resource.NewStringProperty("Allow"),
+								"Action":   resource.NewArrayProperty([]resource.PropertyValue{resource.NewStringProperty("*")}),
+								"Resource": resource.NewStringProperty("*"),
+							}),
+						}),
+					}),
+				}),
+			}),
+		}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(roleURN),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"assumeRolePolicyDocument": actualOutputs["assumeRolePolicyDocument"],
+				"policies":                 actualOutputs["policies"],
+				"__inputs":                 resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+			News: mustMarshalProperties(t, oldInputs),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
+	t.Run("write-only input from checkpoint does not become a diff", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{
+			"password": resource.NewStringProperty("secret"),
+		}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(urn),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+			News: mustMarshalProperties(t, oldInputs),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
+	t.Run("custom resource uses old input diff fallback", func(t *testing.T) {
+		mockCustomResource := resources.NewMockCustomResource(ctrl)
+		provider.customResources["custom:resource"] = mockCustomResource
+		oldInputs := resource.PropertyMap{"name": resource.NewStringProperty("old")}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(resource.NewURN("stack", "project", "parent", "custom:resource", "name")),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+			News: mustMarshalProperties(t, resource.PropertyMap{
+				"name": resource.NewStringProperty("new"),
+			}),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_UNKNOWN, resp.Changes)
+	})
+
+	t.Run("missing standard spec returns error", func(t *testing.T) {
+		_, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(resource.NewURN("stack", "project", "parent", "aws:missing:Resource", "name")),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{})),
+			}),
+			News: mustMarshalProperties(t, resource.PropertyMap{}),
+		})
+		require.Error(t, err)
+		assert.Contains(t, err.Error(), "Resource type aws:missing:Resource not found")
+	})
+}
+
+func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	ctx, cancel := context.WithCancel(context.Background())
+	provider := &cfnProvider{
+		name: "test-provider",
+		resourceMap: &metadata.CloudAPIMetadata{
+			Resources: map[string]metadata.CloudAPIResource{
+				"aws:rds/dbInstance:DBInstance": {
+					CfType: "AWS::RDS::DBInstance",
+					Inputs: map[string]schema.PropertySpec{
+						"backupTarget": {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"engine":       {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"password":     {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type:                 "object",
+								AdditionalProperties: &schema.TypeSpec{Type: "string"},
+							},
+						},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						"backupTarget": {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"engine":       {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type:                 "object",
+								AdditionalProperties: &schema.TypeSpec{Type: "string"},
+							},
+						},
+					},
+					TagsProperty: "tags",
+					WriteOnly:    []string{"password"},
+					CreateOnly:   []string{"password"},
+				},
+				"aws:logs/logGroup:LogGroup": {
+					CfType: "AWS::Logs::LogGroup",
+					Inputs: map[string]schema.PropertySpec{
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type: "array",
+								Items: &schema.TypeSpec{
+									Ref: "#/types/aws-native:index:Tag",
+								},
+							},
+						},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						"tags": {
+							TypeSpec: schema.TypeSpec{
+								Type: "array",
+								Items: &schema.TypeSpec{
+									Ref: "#/types/aws-native:index:Tag",
+								},
+							},
+						},
+					},
+					TagsProperty: "tags",
+					TagsStyle:    default_tags.TagsStyleKeyValueArray,
+				},
+				"aws:iam:Role": {
+					CfType: "AWS::IAM::Role",
+					Inputs: map[string]schema.PropertySpec{
+						"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policies": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:iam:RolePolicy"},
+							},
+						},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						"assumeRolePolicyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policies": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Ref: "#/types/aws-native:iam:RolePolicy"},
+							},
+						},
+					},
+				},
+			},
+			Types: map[string]metadata.CloudAPIType{
+				"aws-native:index:Tag": {
+					Properties: map[string]schema.PropertySpec{
+						"key":   {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"value": {TypeSpec: schema.TypeSpec{Type: "string"}},
+					},
+				},
+				"aws-native:iam:RolePolicy": {
+					Type: "object",
+					Properties: map[string]schema.PropertySpec{
+						"policyDocument": {TypeSpec: schema.TypeSpec{Ref: "pulumi.json#/Any"}},
+						"policyName":     {TypeSpec: schema.TypeSpec{Type: "string"}},
+					},
+				},
+			},
+		},
+		customResources: map[string]resources.CustomResource{},
+		ccc:             mockCCC,
+		canceler: &cancellationContext{
+			context: ctx,
+			cancel:  cancel,
+		},
+	}
+	urn := resource.NewURN("stack", "project", "parent", "aws:rds/dbInstance:DBInstance", "name")
+
+	t.Run("managed drift uses live actual value", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{"engine": resource.NewStringProperty("postgres")}
+		mockCCC.EXPECT().Read(ctx, "AWS::RDS::DBInstance", "resource-id").Return(
+			map[string]interface{}{
+				"engine": "mysql",
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(urn),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"engine":   resource.NewStringProperty("postgres"),
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "mysql", props["engine"].StringValue())
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.Equal(t, "mysql", inputs["engine"].StringValue())
+		checkpoint := props["__inputs"].SecretValue().Element.ObjectValue()
+		assert.Equal(t, "mysql", checkpoint["engine"].StringValue())
+	})
+
+	t.Run("managed optional computed drift uses live actual value", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{
+			"backupTarget": resource.NewStringProperty("local"),
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::RDS::DBInstance", "resource-id").Return(
+			map[string]interface{}{
+				"backupTarget": "region",
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(urn),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"backupTarget": resource.NewStringProperty("local"),
+				"__inputs":     resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "region", props["backupTarget"].StringValue())
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.Equal(t, "region", inputs["backupTarget"].StringValue())
+		checkpoint := props["__inputs"].SecretValue().Element.ObjectValue()
+		assert.Equal(t, "region", checkpoint["backupTarget"].StringValue())
+	})
+
+	t.Run("unowned optional computed default stays absent from inputs", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{"engine": resource.NewStringProperty("postgres")}
+		mockCCC.EXPECT().Read(ctx, "AWS::RDS::DBInstance", "resource-id").Return(
+			map[string]interface{}{
+				"engine":       "postgres",
+				"backupTarget": "region",
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(urn),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"engine":   resource.NewStringProperty("postgres"),
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "region", props["backupTarget"].StringValue())
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.False(t, inputs.HasValue("backupTarget"))
+		assert.Equal(t, "postgres", inputs["engine"].StringValue())
+		checkpoint := props["__inputs"].SecretValue().Element.ObjectValue()
+		assert.False(t, checkpoint.HasValue("backupTarget"))
+		assert.Equal(t, "postgres", checkpoint["engine"].StringValue())
+	})
+
+	t.Run("aws managed tag drift is not checkpointed as owned input", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"owner": resource.NewStringProperty("team"),
+			}),
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::RDS::DBInstance", "resource-id").Return(
+			map[string]interface{}{
+				"tags": map[string]interface{}{
+					"owner":       "team",
+					"aws:managed": "external",
+				},
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(urn),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"tags":     resource.NewObjectProperty(oldInputs["tags"].ObjectValue()),
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		props := mustUnmarshalProperties(t, resp.Properties)
+		stateTags := props["tags"].ObjectValue()
+		assert.Equal(t, resource.NewStringProperty("external"), stateTags["aws:managed"])
+
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		inputTags := inputs["tags"].ObjectValue()
+		assert.False(t, inputTags.HasValue("aws:managed"))
+		checkpointTags := props["__inputs"].SecretValue().Element.ObjectValue()["tags"].ObjectValue()
+		assert.False(t, checkpointTags.HasValue("aws:managed"))
+	})
+
+	t.Run("key value array tag reorder is not checkpointed as owned input drift", func(t *testing.T) {
+		arrayURN := resource.NewURN("stack", "project", "parent", "aws:logs/logGroup:LogGroup", "name")
+		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Environment"),
+				"value": resource.NewStringProperty("prod"),
+			}),
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("Name"),
+				"value": resource.NewStringProperty("my-resource"),
+			}),
+		})
+		refreshedTags := []interface{}{
+			map[string]interface{}{"key": "Name", "value": "my-resource"},
+			map[string]interface{}{"key": "Environment", "value": "prod"},
+		}
+		oldInputs := resource.PropertyMap{
+			"tags": oldTags,
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::Logs::LogGroup", "resource-id").Return(
+			map[string]interface{}{
+				"tags": refreshedTags,
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(arrayURN),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"tags":     oldTags,
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.True(t, oldTags.DeepEquals(inputs["tags"]))
+		props := mustUnmarshalProperties(t, resp.Properties)
+		checkpointTags := props["__inputs"].SecretValue().Element.ObjectValue()["tags"]
+		assert.True(t, oldTags.DeepEquals(checkpointTags))
+	})
+
+	t.Run("secret tag value remains secret after refresh", func(t *testing.T) {
+		arrayURN := resource.NewURN("stack", "project", "parent", "aws:logs/logGroup:LogGroup", "name")
+		oldTags := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewObjectProperty(resource.PropertyMap{
+				"key":   resource.NewStringProperty("secretfoo"),
+				"value": resource.MakeSecret(resource.NewStringProperty("secretbar")),
+			}),
+		})
+		oldInputs := resource.PropertyMap{
+			"tags": oldTags,
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::Logs::LogGroup", "resource-id").Return(
+			map[string]interface{}{
+				"tags": []interface{}{
+					map[string]interface{}{"key": "secretfoo", "value": "secretbar"},
+				},
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(arrayURN),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"tags":     oldTags,
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		inputTagValue := inputs["tags"].ArrayValue()[0].ObjectValue()["value"]
+		require.True(t, inputTagValue.IsSecret())
+		assert.Equal(t, resource.NewStringProperty("secretbar"), inputTagValue.SecretValue().Element)
+
+		props := mustUnmarshalProperties(t, resp.Properties)
+		outputTagValue := props["tags"].ArrayValue()[0].ObjectValue()["value"]
+		require.True(t, outputTagValue.IsSecret())
+		assert.Equal(t, resource.NewStringProperty("secretbar"), outputTagValue.SecretValue().Element)
+
+		checkpointTagValue := props["__inputs"].SecretValue().Element.ObjectValue()["tags"].
+			ArrayValue()[0].ObjectValue()["value"]
+		require.True(t, checkpointTagValue.IsSecret())
+		assert.Equal(t, resource.NewStringProperty("secretbar"), checkpointTagValue.SecretValue().Element)
+	})
+
+	t.Run("normalized IAM policy document is not checkpointed as owned input drift", func(t *testing.T) {
+		roleURN := resource.NewURN("stack", "project", "parent", "aws:iam:Role", "name")
+		oldInputs := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewStringProperty(`{
+				"Version": "2012-10-17",
+				"Statement": [{
+					"Effect": "Allow",
+					"Principal": {"Service": "ec2.amazonaws.com"},
+					"Action": "sts:AssumeRole"
+				}]
+			}`),
+			"policies": resource.NewArrayProperty([]resource.PropertyValue{
+				resource.NewObjectProperty(resource.PropertyMap{
+					"policyName": resource.NewStringProperty("test-policy"),
+					"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
+						"Version": resource.NewStringProperty("2012-10-17"),
+						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
+							resource.NewObjectProperty(resource.PropertyMap{
+								"Effect":   resource.NewStringProperty("Allow"),
+								"Action":   resource.NewStringProperty("*"),
+								"Resource": resource.NewStringProperty("*"),
+							}),
+						}),
+					}),
+				}),
+			}),
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::IAM::Role", "resource-id").Return(
+			map[string]interface{}{
+				"AssumeRolePolicyDocument": map[string]interface{}{
+					"Version": "2012-10-17",
+					"Statement": []interface{}{
+						map[string]interface{}{
+							"Effect":    "Allow",
+							"Principal": map[string]interface{}{"Service": "ec2.amazonaws.com"},
+							"Action":    "sts:AssumeRole",
+						},
+					},
+				},
+				"Policies": []interface{}{
+					map[string]interface{}{
+						"PolicyName": "test-policy",
+						"PolicyDocument": map[string]interface{}{
+							"Version": "2012-10-17",
+							"Statement": []interface{}{
+								map[string]interface{}{
+									"Effect":   "Allow",
+									"Action":   "*",
+									"Resource": "*",
+								},
+							},
+						},
+					},
+				},
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(roleURN),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"assumeRolePolicyDocument": oldInputs["assumeRolePolicyDocument"],
+				"policies":                 oldInputs["policies"],
+				"__inputs":                 resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.True(t, oldInputs["assumeRolePolicyDocument"].DeepEquals(inputs["assumeRolePolicyDocument"]))
+		assert.True(t, oldInputs["policies"].DeepEquals(inputs["policies"]))
+		props := mustUnmarshalProperties(t, resp.Properties)
+		checkpoint := props["__inputs"].SecretValue().Element.ObjectValue()
+		assert.True(t, oldInputs["assumeRolePolicyDocument"].DeepEquals(checkpoint["assumeRolePolicyDocument"]))
+		assert.True(t, oldInputs["policies"].DeepEquals(checkpoint["policies"]))
+	})
+
+	t.Run("create-only write-only value is carried forward through refresh", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{
+			"engine":   resource.NewStringProperty("postgres"),
+			"password": resource.NewStringProperty("secret"),
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::RDS::DBInstance", "resource-id").Return(
+			map[string]interface{}{
+				"engine": "postgres",
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(urn),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"engine":   resource.NewStringProperty("postgres"),
+				"password": resource.NewStringProperty("secret"),
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "secret", props["password"].StringValue())
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.Equal(t, "secret", inputs["password"].StringValue())
+		checkpoint := props["__inputs"].SecretValue().Element.ObjectValue()
+		assert.Equal(t, "secret", checkpoint["password"].StringValue())
 	})
 }
 
@@ -920,6 +3066,23 @@ func mustUnmarshalProperties(t *testing.T, props *structpb.Struct) resource.Prop
 	return unmarshaled
 }
 
+func jsonPatchEquals(expected []jsonpatch.JsonPatchOperation) gomock.Matcher {
+	return jsonPatchMatcher{expected: expected}
+}
+
+type jsonPatchMatcher struct {
+	expected []jsonpatch.JsonPatchOperation
+}
+
+func (m jsonPatchMatcher) Matches(x interface{}) bool {
+	actual, ok := x.([]jsonpatch.JsonPatchOperation)
+	return ok && reflect.DeepEqual(m.expected, actual)
+}
+
+func (m jsonPatchMatcher) String() string {
+	return fmt.Sprintf("equals JSON patch %v", m.expected)
+}
+
 func parsePluginError(err error) (
 	resourceStatus resource.Status, id resource.ID, inputs, props *structpb.Struct, resourceErr error,
 ) {
@@ -944,4 +3107,8 @@ func parsePluginError(err error) (
 
 func stringPtr(s string) *string {
 	return &s
+}
+
+func int32Ptr(i int32) *int32 {
+	return &i
 }

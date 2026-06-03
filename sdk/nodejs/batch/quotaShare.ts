@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Batch::QuotaShare
+ * Creates an AWS Batch quota share. Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits.
  */
 export class QuotaShare extends pulumi.CustomResource {
     /**
@@ -38,15 +38,15 @@ export class QuotaShare extends pulumi.CustomResource {
     }
 
     /**
-     * The capacity limits for the quota share.
+     * A list that specifies the quantity and type of compute capacity allocated to the quota share.
      */
     declare public readonly capacityLimits: pulumi.Output<outputs.batch.QuotaShareCapacityLimit[]>;
     /**
-     * The Amazon Resource Name (ARN) or name of the job queue.
+     * The AWS Batch job queue associated with the quota share. This can be the job queue name or ARN. A job queue must be in the `VALID` state before you can associate it with a quota share.
      */
     declare public readonly jobQueue: pulumi.Output<string>;
     /**
-     * The preemption configuration for the quota share.
+     * Specifies the preemption behavior for jobs in a quota share.
      */
     declare public readonly preemptionConfiguration: pulumi.Output<outputs.batch.QuotaSharePreemptionConfiguration>;
     /**
@@ -54,19 +54,19 @@ export class QuotaShare extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly quotaShareArn: pulumi.Output<string>;
     /**
-     * The name of the quota share.
+     * The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      */
     declare public readonly quotaShareName: pulumi.Output<string>;
     /**
-     * The resource sharing configuration for the quota share.
+     * Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
      */
     declare public readonly resourceSharingConfiguration: pulumi.Output<outputs.batch.QuotaShareResourceSharingConfiguration>;
     /**
-     * The state of the quota share.
+     * The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
      */
     declare public readonly state: pulumi.Output<enums.batch.QuotaShareState | undefined>;
     /**
-     * A key-value pair to associate with a resource.
+     * The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -123,31 +123,31 @@ export class QuotaShare extends pulumi.CustomResource {
  */
 export interface QuotaShareArgs {
     /**
-     * The capacity limits for the quota share.
+     * A list that specifies the quantity and type of compute capacity allocated to the quota share.
      */
     capacityLimits: pulumi.Input<pulumi.Input<inputs.batch.QuotaShareCapacityLimitArgs>[]>;
     /**
-     * The Amazon Resource Name (ARN) or name of the job queue.
+     * The AWS Batch job queue associated with the quota share. This can be the job queue name or ARN. A job queue must be in the `VALID` state before you can associate it with a quota share.
      */
     jobQueue: pulumi.Input<string>;
     /**
-     * The preemption configuration for the quota share.
+     * Specifies the preemption behavior for jobs in a quota share.
      */
     preemptionConfiguration: pulumi.Input<inputs.batch.QuotaSharePreemptionConfigurationArgs>;
     /**
-     * The name of the quota share.
+     * The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      */
     quotaShareName?: pulumi.Input<string>;
     /**
-     * The resource sharing configuration for the quota share.
+     * Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
      */
     resourceSharingConfiguration: pulumi.Input<inputs.batch.QuotaShareResourceSharingConfigurationArgs>;
     /**
-     * The state of the quota share.
+     * The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
      */
     state?: pulumi.Input<enums.batch.QuotaShareState>;
     /**
-     * A key-value pair to associate with a resource.
+     * The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

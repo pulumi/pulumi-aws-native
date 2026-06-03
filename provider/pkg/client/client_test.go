@@ -15,16 +15,19 @@ import (
 	"github.com/aws/smithy-go"
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 	"github.com/mattbaird/jsonpatch"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
 var testURN = resource.URN("urn:pulumi:stack::project::type::name")
 
+const exampleTypeName = "exampleType"
+
 func TestClientRead(t *testing.T) {
 	ctx := context.TODO()
-	typeName := "exampleType"
+	typeName := exampleTypeName
 	identifier := "exampleIdentifier"
 
 	// Mock API implementation
@@ -105,9 +108,106 @@ func TestClientRead(t *testing.T) {
 	})
 }
 
+func TestClientList(t *testing.T) {
+	ctx := context.TODO()
+	typeName := exampleTypeName
+	resourceModel := `{"Scope":"parent"}`
+	nextToken := "next"
+	maxResults := int32(25)
+	continuation := "more"
+
+	mockAPI := &mockAPI{}
+	client := &clientImpl{api: mockAPI}
+	mockAPI.ListResourcesFunc = func(
+		_ context.Context,
+		actualTypeName string,
+		actualResourceModel *string,
+		actualNextToken *string,
+		actualMaxResults *int32,
+	) ([]types.ResourceDescription, *string, error) {
+		assert.Equal(t, typeName, actualTypeName)
+		assert.Equal(t, &resourceModel, actualResourceModel)
+		assert.Equal(t, &nextToken, actualNextToken)
+		assert.Equal(t, &maxResults, actualMaxResults)
+		return []types.ResourceDescription{{Identifier: aws.String("id-1")}}, &continuation, nil
+	}
+
+	identifiers, actualContinuation, err := client.List(ctx, typeName, ListRequest{
+		ResourceModel: &resourceModel,
+		NextToken:     &nextToken,
+		MaxResults:    &maxResults,
+	})
+
+	require.NoError(t, err)
+	assert.Equal(t, []string{"id-1"}, identifiers)
+	assert.Equal(t, &continuation, actualContinuation)
+}
+
+func TestClientListRejectsEmptyIdentifier(t *testing.T) {
+	tests := []struct {
+		name       string
+		identifier *string
+	}{
+		{name: "nil", identifier: nil},
+		{name: "empty", identifier: aws.String("")},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			mockAPI := &mockAPI{}
+			client := &clientImpl{api: mockAPI}
+			mockAPI.ListResourcesFunc = func(
+				context.Context,
+				string,
+				*string,
+				*string,
+				*int32,
+			) ([]types.ResourceDescription, *string, error) {
+				return []types.ResourceDescription{{Identifier: tt.identifier}}, nil, nil
+			}
+
+			_, _, err := client.List(context.Background(), exampleTypeName, ListRequest{})
+
+			require.Error(t, err)
+			assert.Contains(t, err.Error(), "empty identifier")
+		})
+	}
+}
+
+func TestClientListWrapsErrorsWithRequestContext(t *testing.T) {
+	resourceModel := `{"Scope":"parent"}`
+	nextToken := "next"
+	maxResults := int32(25)
+	expectedErr := errors.New("access denied")
+
+	mockAPI := &mockAPI{}
+	client := &clientImpl{api: mockAPI}
+	mockAPI.ListResourcesFunc = func(
+		context.Context,
+		string,
+		*string,
+		*string,
+		*int32,
+	) ([]types.ResourceDescription, *string, error) {
+		return nil, nil, expectedErr
+	}
+
+	_, _, err := client.List(context.Background(), exampleTypeName, ListRequest{
+		ResourceModel: &resourceModel,
+		NextToken:     &nextToken,
+		MaxResults:    &maxResults,
+	})
+
+	require.ErrorIs(t, err, expectedErr)
+	assert.Contains(t, err.Error(), exampleTypeName)
+	assert.Contains(t, err.Error(), "resourceModel=true")
+	assert.Contains(t, err.Error(), "nextToken=true")
+	assert.Contains(t, err.Error(), "maxResults=25")
+}
+
 func TestClientCreate(t *testing.T) {
 	ctx := context.TODO()
-	typeName := "exampleType"
+	typeName := exampleTypeName
 	desiredState := map[string]interface{}{"input1": "value1"}
 
 	// Mock API implementation
@@ -336,9 +436,18 @@ func TestClientCreate(t *testing.T) {
 // Mock API implementation
 type mockAPI struct {
 	GetResourceFunc                 func(ctx context.Context, typeName, identifier string) (map[string]interface{}, error)
+	ListResourcesFunc               listResourcesFunc
 	CreateResourceFunc              func(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error)
 	WaitForResourceOpCompletionFunc func(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error)
 }
+
+type listResourcesFunc func(
+	ctx context.Context,
+	typeName string,
+	resourceModel *string,
+	nextToken *string,
+	maxResults *int32,
+) ([]types.ResourceDescription, *string, error)
 
 func (m *mockAPI) GetResource(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
 	return m.GetResourceFunc(ctx, typeName, identifier)
@@ -346,6 +455,16 @@ func (m *mockAPI) GetResource(ctx context.Context, typeName, identifier string) 
 
 func (m *mockAPI) CreateResource(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error) {
 	return m.CreateResourceFunc(ctx, cfType, desiredState)
+}
+
+func (m *mockAPI) ListResources(
+	ctx context.Context,
+	typeName string,
+	resourceModel *string,
+	nextToken *string,
+	maxResults *int32,
+) ([]types.ResourceDescription, *string, error) {
+	return m.ListResourcesFunc(ctx, typeName, resourceModel, nextToken, maxResults)
 }
 
 // UpdateResource updates a resource of the specified type with the specified changeset.

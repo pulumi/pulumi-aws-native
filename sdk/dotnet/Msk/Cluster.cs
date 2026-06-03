@@ -102,6 +102,9 @@ namespace Pulumi.AwsNative.Msk
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        [Output("zookeeperAccess")]
+        public Output<Outputs.ClusterZookeeperAccess?> ZookeeperAccess { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Cluster resource with the given unique name, arguments, and options.
@@ -236,6 +239,9 @@ namespace Pulumi.AwsNative.Msk
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        [Input("zookeeperAccess")]
+        public Input<Inputs.ClusterZookeeperAccessArgs>? ZookeeperAccess { get; set; }
 
         public ClusterArgs()
         {

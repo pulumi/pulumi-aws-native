@@ -402,6 +402,8 @@ class ApplicationInteractiveConfiguration(dict):
         suggest = None
         if key == "livyEndpointEnabled":
             suggest = "livy_endpoint_enabled"
+        elif key == "sessionEnabled":
+            suggest = "session_enabled"
         elif key == "studioEnabled":
             suggest = "studio_enabled"
 
@@ -418,13 +420,17 @@ class ApplicationInteractiveConfiguration(dict):
 
     def __init__(__self__, *,
                  livy_endpoint_enabled: Optional[_builtins.bool] = None,
+                 session_enabled: Optional[_builtins.bool] = None,
                  studio_enabled: Optional[_builtins.bool] = None):
         """
         :param _builtins.bool livy_endpoint_enabled: Enables an Apache Livy endpoint that you can connect to and run interactive jobs
+        :param _builtins.bool session_enabled: Enables interactive sessions on the application
         :param _builtins.bool studio_enabled: Enabled you to connect an Application to Amazon EMR Studio to run interactive workloads in a notebook
         """
         if livy_endpoint_enabled is not None:
             pulumi.set(__self__, "livy_endpoint_enabled", livy_endpoint_enabled)
+        if session_enabled is not None:
+            pulumi.set(__self__, "session_enabled", session_enabled)
         if studio_enabled is not None:
             pulumi.set(__self__, "studio_enabled", studio_enabled)
 
@@ -435,6 +441,14 @@ class ApplicationInteractiveConfiguration(dict):
         Enables an Apache Livy endpoint that you can connect to and run interactive jobs
         """
         return pulumi.get(self, "livy_endpoint_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="sessionEnabled")
+    def session_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Enables interactive sessions on the application
+        """
+        return pulumi.get(self, "session_enabled")
 
     @_builtins.property
     @pulumi.getter(name="studioEnabled")

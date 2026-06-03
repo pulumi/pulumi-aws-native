@@ -50,8 +50,10 @@ type LookupGatewayResult struct {
 	// The protocol configuration for the gateway target.
 	ProtocolConfiguration *GatewayProtocolConfigurationProperties `pulumi:"protocolConfiguration"`
 	// The protocol type for the gateway target.
-	ProtocolType *GatewayProtocolType `pulumi:"protocolType"`
-	RoleArn      *string              `pulumi:"roleArn"`
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
+	ProtocolType interface{} `pulumi:"protocolType"`
+	RoleArn      *string     `pulumi:"roleArn"`
 	// The status for the gateway.
 	Status *GatewayStatus `pulumi:"status"`
 	// The status reasons for the gateway.
@@ -157,8 +159,10 @@ func (o LookupGatewayResultOutput) ProtocolConfiguration() GatewayProtocolConfig
 }
 
 // The protocol type for the gateway target.
-func (o LookupGatewayResultOutput) ProtocolType() GatewayProtocolTypePtrOutput {
-	return o.ApplyT(func(v LookupGatewayResult) *GatewayProtocolType { return v.ProtocolType }).(GatewayProtocolTypePtrOutput)
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
+func (o LookupGatewayResultOutput) ProtocolType() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupGatewayResult) interface{} { return v.ProtocolType }).(pulumi.AnyOutput)
 }
 
 func (o LookupGatewayResultOutput) RoleArn() pulumi.StringPtrOutput {

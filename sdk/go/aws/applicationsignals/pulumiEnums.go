@@ -607,6 +607,173 @@ func (in *serviceLevelObjectiveRequestBasedSliMetricMetricTypePtr) ToServiceLeve
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput)
 }
 
+type ServiceLevelObjectiveSelectionType string
+
+const (
+	ServiceLevelObjectiveSelectionTypeExplicit = ServiceLevelObjectiveSelectionType("EXPLICIT")
+	ServiceLevelObjectiveSelectionTypePrefix   = ServiceLevelObjectiveSelectionType("PREFIX")
+	ServiceLevelObjectiveSelectionTypeRegex    = ServiceLevelObjectiveSelectionType("REGEX")
+)
+
+func (ServiceLevelObjectiveSelectionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSelectionType)(nil)).Elem()
+}
+
+func (e ServiceLevelObjectiveSelectionType) ToServiceLevelObjectiveSelectionTypeOutput() ServiceLevelObjectiveSelectionTypeOutput {
+	return pulumi.ToOutput(e).(ServiceLevelObjectiveSelectionTypeOutput)
+}
+
+func (e ServiceLevelObjectiveSelectionType) ToServiceLevelObjectiveSelectionTypeOutputWithContext(ctx context.Context) ServiceLevelObjectiveSelectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceLevelObjectiveSelectionTypeOutput)
+}
+
+func (e ServiceLevelObjectiveSelectionType) ToServiceLevelObjectiveSelectionTypePtrOutput() ServiceLevelObjectiveSelectionTypePtrOutput {
+	return e.ToServiceLevelObjectiveSelectionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ServiceLevelObjectiveSelectionType) ToServiceLevelObjectiveSelectionTypePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSelectionTypePtrOutput {
+	return ServiceLevelObjectiveSelectionType(e).ToServiceLevelObjectiveSelectionTypeOutputWithContext(ctx).ToServiceLevelObjectiveSelectionTypePtrOutputWithContext(ctx)
+}
+
+func (e ServiceLevelObjectiveSelectionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceLevelObjectiveSelectionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceLevelObjectiveSelectionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceLevelObjectiveSelectionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceLevelObjectiveSelectionTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSelectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSelectionType)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSelectionTypeOutput) ToServiceLevelObjectiveSelectionTypeOutput() ServiceLevelObjectiveSelectionTypeOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSelectionTypeOutput) ToServiceLevelObjectiveSelectionTypeOutputWithContext(ctx context.Context) ServiceLevelObjectiveSelectionTypeOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSelectionTypeOutput) ToServiceLevelObjectiveSelectionTypePtrOutput() ServiceLevelObjectiveSelectionTypePtrOutput {
+	return o.ToServiceLevelObjectiveSelectionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSelectionTypeOutput) ToServiceLevelObjectiveSelectionTypePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSelectionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveSelectionType) *ServiceLevelObjectiveSelectionType {
+		return &v
+	}).(ServiceLevelObjectiveSelectionTypePtrOutput)
+}
+
+func (o ServiceLevelObjectiveSelectionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSelectionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceLevelObjectiveSelectionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceLevelObjectiveSelectionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSelectionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceLevelObjectiveSelectionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelObjectiveSelectionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSelectionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSelectionType)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSelectionTypePtrOutput) ToServiceLevelObjectiveSelectionTypePtrOutput() ServiceLevelObjectiveSelectionTypePtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSelectionTypePtrOutput) ToServiceLevelObjectiveSelectionTypePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSelectionTypePtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSelectionTypePtrOutput) Elem() ServiceLevelObjectiveSelectionTypeOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSelectionType) ServiceLevelObjectiveSelectionType {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveSelectionType
+		return ret
+	}).(ServiceLevelObjectiveSelectionTypeOutput)
+}
+
+func (o ServiceLevelObjectiveSelectionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSelectionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceLevelObjectiveSelectionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceLevelObjectiveSelectionTypeInput is an input type that accepts values of the ServiceLevelObjectiveSelectionType enum
+// A concrete instance of `ServiceLevelObjectiveSelectionTypeInput` can be one of the following:
+//
+//	ServiceLevelObjectiveSelectionTypeExplicit
+//	ServiceLevelObjectiveSelectionTypePrefix
+//	ServiceLevelObjectiveSelectionTypeRegex
+type ServiceLevelObjectiveSelectionTypeInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSelectionTypeOutput() ServiceLevelObjectiveSelectionTypeOutput
+	ToServiceLevelObjectiveSelectionTypeOutputWithContext(context.Context) ServiceLevelObjectiveSelectionTypeOutput
+}
+
+var serviceLevelObjectiveSelectionTypePtrType = reflect.TypeOf((**ServiceLevelObjectiveSelectionType)(nil)).Elem()
+
+type ServiceLevelObjectiveSelectionTypePtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSelectionTypePtrOutput() ServiceLevelObjectiveSelectionTypePtrOutput
+	ToServiceLevelObjectiveSelectionTypePtrOutputWithContext(context.Context) ServiceLevelObjectiveSelectionTypePtrOutput
+}
+
+type serviceLevelObjectiveSelectionTypePtr string
+
+func ServiceLevelObjectiveSelectionTypePtr(v string) ServiceLevelObjectiveSelectionTypePtrInput {
+	return (*serviceLevelObjectiveSelectionTypePtr)(&v)
+}
+
+func (*serviceLevelObjectiveSelectionTypePtr) ElementType() reflect.Type {
+	return serviceLevelObjectiveSelectionTypePtrType
+}
+
+func (in *serviceLevelObjectiveSelectionTypePtr) ToServiceLevelObjectiveSelectionTypePtrOutput() ServiceLevelObjectiveSelectionTypePtrOutput {
+	return pulumi.ToOutput(in).(ServiceLevelObjectiveSelectionTypePtrOutput)
+}
+
+func (in *serviceLevelObjectiveSelectionTypePtr) ToServiceLevelObjectiveSelectionTypePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSelectionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceLevelObjectiveSelectionTypePtrOutput)
+}
+
 // The arithmetic operation used when comparing the specified metric to the threshold.
 type ServiceLevelObjectiveSliComparisonOperator string
 
@@ -950,6 +1117,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliComparisonOperator("GreaterThanOrEqualTo"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliMetricMetricTypeInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliMetricMetricType("LATENCY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliMetricMetricType("LATENCY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSelectionTypeInput)(nil)).Elem(), ServiceLevelObjectiveSelectionType("EXPLICIT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSelectionTypePtrInput)(nil)).Elem(), ServiceLevelObjectiveSelectionType("EXPLICIT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliComparisonOperatorInput)(nil)).Elem(), ServiceLevelObjectiveSliComparisonOperator("GreaterThanOrEqualTo"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliComparisonOperatorPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliComparisonOperator("GreaterThanOrEqualTo"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliMetricMetricTypeInput)(nil)).Elem(), ServiceLevelObjectiveSliMetricMetricType("LATENCY"))
@@ -962,6 +1131,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSelectionTypeOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSelectionTypePtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliComparisonOperatorOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliComparisonOperatorPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliMetricMetricTypeOutput{})

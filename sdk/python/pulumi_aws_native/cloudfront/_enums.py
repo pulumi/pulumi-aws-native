@@ -150,6 +150,7 @@ class DistributionTenantWebAclCustomizationAction(_builtins.str, Enum):
 class DistributionViewerMtlsMode(_builtins.str, Enum):
     REQUIRED = "required"
     OPTIONAL = "optional"
+    PASSTHROUGH = "passthrough"
 
 
 @pulumi.type_token("aws-native:cloudfront:MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus")

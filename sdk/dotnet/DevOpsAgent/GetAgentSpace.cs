@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.DevOpsAgent
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The locale for the AgentSpace, which determines the language used in agent responses.
+        /// </summary>
+        public readonly string? Locale;
+        /// <summary>
         /// The name of the AgentSpace.
         /// </summary>
         public readonly string? Name;
@@ -103,6 +107,8 @@ namespace Pulumi.AwsNative.DevOpsAgent
 
             string? description,
 
+            string? locale,
+
             string? name,
 
             Outputs.AgentSpaceOperatorApp? operatorApp,
@@ -115,6 +121,7 @@ namespace Pulumi.AwsNative.DevOpsAgent
             Arn = arn;
             CreatedAt = createdAt;
             Description = description;
+            Locale = locale;
             Name = name;
             OperatorApp = operatorApp;
             Tags = tags;

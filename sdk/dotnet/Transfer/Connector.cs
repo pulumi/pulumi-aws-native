@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Transfer
         [Output("errorMessage")]
         public Output<string> ErrorMessage { get; private set; } = null!;
 
+        [Output("ipAddressType")]
+        public Output<Pulumi.AwsNative.Transfer.ConnectorIpAddressType?> IpAddressType { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the logging role for the connector.
         /// </summary>
@@ -167,6 +170,9 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         [Input("egressType")]
         public Input<Pulumi.AwsNative.Transfer.ConnectorEgressType>? EgressType { get; set; }
+
+        [Input("ipAddressType")]
+        public Input<Pulumi.AwsNative.Transfer.ConnectorIpAddressType>? IpAddressType { get; set; }
 
         /// <summary>
         /// Specifies the logging role for the connector.

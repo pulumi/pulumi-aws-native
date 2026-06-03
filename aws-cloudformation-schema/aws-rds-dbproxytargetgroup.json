@@ -87,15 +87,16 @@
     "cloudFormationSystemTags" : false
   },
   "primaryIdentifier" : [ "/properties/TargetGroupArn" ],
+  "additionalIdentifiers" : [ [ "/properties/DBProxyName", "/properties/TargetGroupName" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "rds:DescribeDBProxies", "rds:DescribeDBProxyTargetGroups", "rds:ModifyDBProxyTargetGroup", "rds:RegisterDBProxyTargets" ]
+      "permissions" : [ "rds:DescribeDBProxies", "rds:DescribeDBProxyTargetGroups", "rds:DescribeDBProxyTargets", "rds:ModifyDBProxyTargetGroup", "rds:RegisterDBProxyTargets" ]
     },
     "read" : {
       "permissions" : [ "rds:DescribeDBProxyTargetGroups", "rds:DescribeDBProxyTargets" ]
     },
     "update" : {
-      "permissions" : [ "rds:DescribeDBProxyTargetGroups", "rds:ModifyDBProxyTargetGroup", "rds:RegisterDBProxyTargets", "rds:DeregisterDBProxyTargets" ]
+      "permissions" : [ "rds:DescribeDBProxyTargetGroups", "rds:DescribeDBProxyTargets", "rds:ModifyDBProxyTargetGroup", "rds:RegisterDBProxyTargets", "rds:DeregisterDBProxyTargets" ]
     },
     "delete" : {
       "permissions" : [ "rds:DeregisterDBProxyTargets" ]

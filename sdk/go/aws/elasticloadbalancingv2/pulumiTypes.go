@@ -1766,7 +1766,7 @@ type ListenerMutualAuthentication struct {
 	AdvertiseTrustStoreCaNames *string `pulumi:"advertiseTrustStoreCaNames"`
 	// Indicates whether expired client certificates are ignored.
 	IgnoreClientCertificateExpiry *bool `pulumi:"ignoreClientCertificateExpiry"`
-	// The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+	// The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value on initial resource creation is ``off``. After mutual authentication is turned on, you must explicitly set the ``Mode`` to ``off`` to turn it off; removing the property from your template will not turn it off.
 	Mode *string `pulumi:"mode"`
 	// The Amazon Resource Name (ARN) of the trust store.
 	TrustStoreArn *string `pulumi:"trustStoreArn"`
@@ -1789,7 +1789,7 @@ type ListenerMutualAuthenticationArgs struct {
 	AdvertiseTrustStoreCaNames pulumi.StringPtrInput `pulumi:"advertiseTrustStoreCaNames"`
 	// Indicates whether expired client certificates are ignored.
 	IgnoreClientCertificateExpiry pulumi.BoolPtrInput `pulumi:"ignoreClientCertificateExpiry"`
-	// The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+	// The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value on initial resource creation is ``off``. After mutual authentication is turned on, you must explicitly set the ``Mode`` to ``off`` to turn it off; removing the property from your template will not turn it off.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// The Amazon Resource Name (ARN) of the trust store.
 	TrustStoreArn pulumi.StringPtrInput `pulumi:"trustStoreArn"`
@@ -1883,7 +1883,7 @@ func (o ListenerMutualAuthenticationOutput) IgnoreClientCertificateExpiry() pulu
 	return o.ApplyT(func(v ListenerMutualAuthentication) *bool { return v.IgnoreClientCertificateExpiry }).(pulumi.BoolPtrOutput)
 }
 
-// The client certificate handling method. Options are “off“, “passthrough“ or “verify“. The default value is “off“.
+// The client certificate handling method. Options are “off“, “passthrough“ or “verify“. The default value on initial resource creation is “off“. After mutual authentication is turned on, you must explicitly set the “Mode“ to “off“ to turn it off; removing the property from your template will not turn it off.
 func (o ListenerMutualAuthenticationOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerMutualAuthentication) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -1937,7 +1937,7 @@ func (o ListenerMutualAuthenticationPtrOutput) IgnoreClientCertificateExpiry() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The client certificate handling method. Options are “off“, “passthrough“ or “verify“. The default value is “off“.
+// The client certificate handling method. Options are “off“, “passthrough“ or “verify“. The default value on initial resource creation is “off“. After mutual authentication is turned on, you must explicitly set the “Mode“ to “off“ to turn it off; removing the property from your template will not turn it off.
 func (o ListenerMutualAuthenticationPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerMutualAuthentication) *string {
 		if v == nil {

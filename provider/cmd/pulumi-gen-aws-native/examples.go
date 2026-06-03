@@ -122,7 +122,7 @@ func generateExample(yaml string, metadata *metadata.CloudAPIMetadata, languages
 		if resourceType == "" {
 			for _, node := range program.Nodes {
 				if res, ok := node.(*pcl.Resource); ok {
-					resourceType = res.Token
+					resourceType, _ = res.GetToken()
 					break
 				}
 			}

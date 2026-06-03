@@ -26,6 +26,10 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly int? CoreCount;
         /// <summary>
+        /// Indicates whether the instance is enabled for nested virtualization.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Ec2.LaunchTemplateCpuOptionsNestedVirtualization? NestedVirtualization;
+        /// <summary>
         /// The number of threads per CPU core. To disable multithreading for the instance, specify a value of ``1``. Otherwise, specify the default value of ``2``.
         /// </summary>
         public readonly int? ThreadsPerCore;
@@ -36,10 +40,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             int? coreCount,
 
+            Pulumi.AwsNative.Ec2.LaunchTemplateCpuOptionsNestedVirtualization? nestedVirtualization,
+
             int? threadsPerCore)
         {
             AmdSevSnp = amdSevSnp;
             CoreCount = coreCount;
+            NestedVirtualization = nestedVirtualization;
             ThreadsPerCore = threadsPerCore;
         }
     }

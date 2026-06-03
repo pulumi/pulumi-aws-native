@@ -81,6 +81,7 @@ export class ServerlessCache extends pulumi.CustomResource {
      * The major engine version of the Serverless Cache.
      */
     declare public readonly majorEngineVersion: pulumi.Output<string | undefined>;
+    declare public readonly networkType: pulumi.Output<enums.elasticache.ServerlessCacheNetworkType | undefined>;
     /**
      * Represents the information required for client programs to connect to a cache node. This value is read-only.
      */
@@ -140,6 +141,7 @@ export class ServerlessCache extends pulumi.CustomResource {
             resourceInputs["finalSnapshotName"] = args?.finalSnapshotName;
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["majorEngineVersion"] = args?.majorEngineVersion;
+            resourceInputs["networkType"] = args?.networkType;
             resourceInputs["readerEndpoint"] = args?.readerEndpoint;
             resourceInputs["securityGroupIds"] = args?.securityGroupIds;
             resourceInputs["serverlessCacheName"] = args?.serverlessCacheName;
@@ -164,6 +166,7 @@ export class ServerlessCache extends pulumi.CustomResource {
             resourceInputs["fullEngineVersion"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["majorEngineVersion"] = undefined /*out*/;
+            resourceInputs["networkType"] = undefined /*out*/;
             resourceInputs["readerEndpoint"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["serverlessCacheName"] = undefined /*out*/;
@@ -175,7 +178,7 @@ export class ServerlessCache extends pulumi.CustomResource {
             resourceInputs["userGroupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["kmsKeyId", "serverlessCacheName", "snapshotArnsToRestore[*]", "subnetIds[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["kmsKeyId", "networkType", "serverlessCacheName", "snapshotArnsToRestore[*]", "subnetIds[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ServerlessCache.__pulumiType, name, resourceInputs, opts);
     }
@@ -217,6 +220,7 @@ export interface ServerlessCacheArgs {
      * The major engine version of the Serverless Cache.
      */
     majorEngineVersion?: pulumi.Input<string>;
+    networkType?: pulumi.Input<enums.elasticache.ServerlessCacheNetworkType>;
     /**
      * Represents the information required for client programs to connect to a cache node. This value is read-only.
      */

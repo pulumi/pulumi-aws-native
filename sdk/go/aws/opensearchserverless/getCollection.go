@@ -40,7 +40,8 @@ type LookupCollectionResult struct {
 	// The identifier of the collection
 	Id *string `pulumi:"id"`
 	// Key Management Service key used to encrypt the collection.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	KmsKeyArn     *string                  `pulumi:"kmsKeyArn"`
+	VectorOptions *CollectionVectorOptions `pulumi:"vectorOptions"`
 }
 
 func LookupCollectionOutput(ctx *pulumi.Context, args LookupCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupCollectionResultOutput {
@@ -107,6 +108,10 @@ func (o LookupCollectionResultOutput) Id() pulumi.StringPtrOutput {
 // Key Management Service key used to encrypt the collection.
 func (o LookupCollectionResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCollectionResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCollectionResultOutput) VectorOptions() CollectionVectorOptionsPtrOutput {
+	return o.ApplyT(func(v LookupCollectionResult) *CollectionVectorOptions { return v.VectorOptions }).(CollectionVectorOptionsPtrOutput)
 }
 
 func init() {

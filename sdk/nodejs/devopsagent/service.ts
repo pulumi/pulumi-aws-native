@@ -40,7 +40,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * List of accessible resources for this service
      */
-    declare public /*out*/ readonly accessibleResources: pulumi.Output<any[]>;
+    declare public /*out*/ readonly accessibleResources: pulumi.Output<{[key: string]: string}[]>;
     /**
      * Additional details specific to the service type
      */
@@ -103,7 +103,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["kmsKeyArn", "serviceDetails", "serviceType"] };
+        const replaceOnChanges = { replaceOnChanges: ["kmsKeyArn", "serviceType"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

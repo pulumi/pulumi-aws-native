@@ -18,13 +18,21 @@ from ._enums import *
 
 __all__ = [
     'ApiKeyCredentialProviderApiKeySecretArn',
+    'BrowserCustomBrowserEnterprisePolicy',
     'BrowserCustomBrowserNetworkConfiguration',
     'BrowserCustomBrowserSigning',
+    'BrowserCustomCertificate',
+    'BrowserCustomCertificateLocation',
     'BrowserCustomRecordingConfig',
     'BrowserCustomS3Location',
     'BrowserCustomVpcConfig',
+    'CodeInterpreterCustomCertificate',
+    'CodeInterpreterCustomCertificateLocation',
     'CodeInterpreterCustomCodeInterpreterNetworkConfiguration',
     'CodeInterpreterCustomVpcConfig',
+    'DatasetDataSourceType',
+    'DatasetInlineExamplesSource',
+    'DatasetS3Source',
     'EvaluatorBedrockEvaluatorModelConfig',
     'EvaluatorCategoricalScaleDefinition',
     'EvaluatorCodeBasedEvaluatorConfig',
@@ -53,9 +61,13 @@ __all__ = [
     'GatewayTargetApiKeyCredentialProvider',
     'GatewayTargetApiSchemaConfiguration0Properties',
     'GatewayTargetApiSchemaConfiguration1Properties',
+    'GatewayTargetAuthorizationDataProperties',
     'GatewayTargetCredentialProvider0Properties',
     'GatewayTargetCredentialProvider1Properties',
+    'GatewayTargetCredentialProvider2Properties',
     'GatewayTargetCredentialProviderConfiguration',
+    'GatewayTargetHttpTargetConfigurationProperties',
+    'GatewayTargetIamCredentialProvider',
     'GatewayTargetMcpLambdaTargetConfiguration',
     'GatewayTargetMcpServerTargetConfiguration',
     'GatewayTargetMcpTargetConfiguration0Properties',
@@ -63,15 +75,56 @@ __all__ = [
     'GatewayTargetMcpTargetConfiguration2Properties',
     'GatewayTargetMcpTargetConfiguration3Properties',
     'GatewayTargetMcpTargetConfiguration4Properties',
+    'GatewayTargetMcpToolSchemaConfiguration0Properties',
+    'GatewayTargetMcpToolSchemaConfiguration1Properties',
     'GatewayTargetMetadataConfiguration',
+    'GatewayTargetOAuth2AuthorizationData',
     'GatewayTargetOAuthCredentialProvider',
+    'GatewayTargetRuntimeTargetConfiguration',
     'GatewayTargetS3Configuration',
     'GatewayTargetSchemaDefinition',
-    'GatewayTargetTargetConfigurationProperties',
+    'GatewayTargetTargetConfiguration0Properties',
+    'GatewayTargetTargetConfiguration1Properties',
     'GatewayTargetToolDefinition',
     'GatewayTargetToolSchema0Properties',
     'GatewayTargetToolSchema1Properties',
     'GatewayWorkloadIdentityDetails',
+    'HarnessAgentCoreBrowserConfig',
+    'HarnessAgentCoreCodeInterpreterConfig',
+    'HarnessAgentCoreGatewayConfig',
+    'HarnessAgentCoreMemoryConfiguration',
+    'HarnessAgentCoreMemoryRetrievalConfig',
+    'HarnessAgentCoreRuntimeEnvironment',
+    'HarnessAuthorizerConfiguration',
+    'HarnessAuthorizingClaimMatchValueType',
+    'HarnessBedrockModelConfig',
+    'HarnessClaimMatchValueType',
+    'HarnessContainerConfiguration',
+    'HarnessCustomClaimValidationType',
+    'HarnessCustomJwtAuthorizerConfiguration',
+    'HarnessEnvironmentArtifact',
+    'HarnessEnvironmentProvider',
+    'HarnessFilesystemConfiguration',
+    'HarnessGatewayOutboundAuth',
+    'HarnessGeminiModelConfig',
+    'HarnessInlineFunctionConfig',
+    'HarnessLifecycleConfiguration',
+    'HarnessMemoryConfiguration',
+    'HarnessModelConfiguration',
+    'HarnessNetworkConfiguration',
+    'HarnessOAuthCredentialProvider',
+    'HarnessOpenAiModelConfig',
+    'HarnessRemoteMcpConfig',
+    'HarnessSessionStorageConfiguration',
+    'HarnessSkill',
+    'HarnessSlidingWindowConfiguration',
+    'HarnessSummarizationConfiguration',
+    'HarnessSystemContentBlock',
+    'HarnessTool',
+    'HarnessToolConfiguration',
+    'HarnessTruncationConfiguration',
+    'HarnessTruncationStrategyConfiguration',
+    'HarnessVpcConfig',
     'InterceptorConfigurationProperties',
     'MemoryContentConfiguration',
     'MemoryCustomConfigurationInput',
@@ -82,9 +135,15 @@ __all__ = [
     'MemoryEpisodicOverrideExtractionConfigurationInput',
     'MemoryEpisodicOverrideReflectionConfigurationInput',
     'MemoryEpisodicReflectionConfigurationInput',
+    'MemoryExtractionConfig',
+    'MemoryIndexedKey',
     'MemoryInvocationConfigurationInput',
     'MemoryKinesisResource',
+    'MemoryLlmExtractionConfig',
     'MemoryMessageBasedTriggerInput',
+    'MemoryMetadataSchemaEntry',
+    'MemoryNumberValidation',
+    'MemoryRecordSchema',
     'MemorySelfManagedConfiguration',
     'MemorySemanticMemoryStrategy',
     'MemorySemanticOverride',
@@ -93,6 +152,8 @@ __all__ = [
     'MemoryStrategy',
     'MemoryStreamDeliveryResource',
     'MemoryStreamDeliveryResources',
+    'MemoryStringListValidation',
+    'MemoryStringValidation',
     'MemorySummaryMemoryStrategy',
     'MemorySummaryOverride',
     'MemorySummaryOverrideConsolidationConfigurationInput',
@@ -103,6 +164,7 @@ __all__ = [
     'MemoryUserPreferenceOverride',
     'MemoryUserPreferenceOverrideConsolidationConfigurationInput',
     'MemoryUserPreferenceOverrideExtractionConfigurationInput',
+    'MemoryValidation',
     'OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput',
     'OAuth2CredentialProviderClientSecretArn',
     'OAuth2CredentialProviderCustomOauth2ProviderConfigInput',
@@ -115,8 +177,10 @@ __all__ = [
     'OAuth2CredentialProviderOauth2Discovery',
     'OAuth2CredentialProviderOauth2ProviderConfigInput',
     'OAuth2CredentialProviderOauth2ProviderConfigOutput',
+    'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig',
     'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput',
     'OAuth2CredentialProviderSlackOauth2ProviderConfigInput',
+    'OAuth2CredentialProviderTokenExchangeGrantTypeConfig',
     'OnlineEvaluationConfigCloudWatchLogsInputConfig',
     'OnlineEvaluationConfigCloudWatchOutputConfig',
     'OnlineEvaluationConfigDataSourceConfig',
@@ -127,6 +191,13 @@ __all__ = [
     'OnlineEvaluationConfigRule',
     'OnlineEvaluationConfigSamplingConfig',
     'OnlineEvaluationConfigSessionConfig',
+    'PaymentCredentialProviderCoinbaseCdpConfigurationInput',
+    'PaymentCredentialProviderCoinbaseCdpConfigurationOutput',
+    'PaymentCredentialProviderPaymentProviderConfigurationInput',
+    'PaymentCredentialProviderPaymentProviderConfigurationOutput',
+    'PaymentCredentialProviderSecretInfo',
+    'PaymentCredentialProviderStripePrivyConfigurationInput',
+    'PaymentCredentialProviderStripePrivyConfigurationOutput',
     'PolicyCedarPolicy',
     'PolicyDefinition',
     'RuntimeAgentRuntimeArtifact',
@@ -138,10 +209,12 @@ __all__ = [
     'RuntimeContainerConfiguration',
     'RuntimeCustomClaimValidationType',
     'RuntimeCustomJwtAuthorizerConfiguration',
+    'RuntimeEfsAccessPointConfiguration',
     'RuntimeFilesystemConfiguration',
     'RuntimeLifecycleConfiguration',
     'RuntimeNetworkConfiguration',
     'RuntimeRequestHeaderConfiguration',
+    'RuntimeS3FilesAccessPointConfiguration',
     'RuntimeS3Location',
     'RuntimeSessionStorageConfiguration',
     'RuntimeVpcConfig',
@@ -186,6 +259,40 @@ class ApiKeyCredentialProviderApiKeySecretArn(dict):
         The ARN of the secret in AWS Secrets Manager
         """
         return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class BrowserCustomBrowserEnterprisePolicy(dict):
+    """
+    Browser enterprise policy configuration.
+    """
+    def __init__(__self__, *,
+                 location: 'outputs.BrowserCustomS3Location',
+                 type: 'BrowserCustomBrowserEnterprisePolicyType'):
+        """
+        Browser enterprise policy configuration.
+
+        :param 'BrowserCustomS3Location' location: The S3 location of the enterprise policy file.
+        :param 'BrowserCustomBrowserEnterprisePolicyType' type: The type of browser enterprise policy.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> 'outputs.BrowserCustomS3Location':
+        """
+        The S3 location of the enterprise policy file.
+        """
+        return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'BrowserCustomBrowserEnterprisePolicyType':
+        """
+        The type of browser enterprise policy.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -258,6 +365,86 @@ class BrowserCustomBrowserSigning(dict):
 
 
 @pulumi.output_type
+class BrowserCustomCertificate(dict):
+    """
+    A root CA certificate configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateLocation":
+            suggest = "certificate_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BrowserCustomCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BrowserCustomCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BrowserCustomCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_location: 'outputs.BrowserCustomCertificateLocation'):
+        """
+        A root CA certificate configuration.
+
+        :param 'BrowserCustomCertificateLocation' certificate_location: Certificate location in Secrets Manager.
+        """
+        pulumi.set(__self__, "certificate_location", certificate_location)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateLocation")
+    def certificate_location(self) -> 'outputs.BrowserCustomCertificateLocation':
+        """
+        Certificate location in Secrets Manager.
+        """
+        return pulumi.get(self, "certificate_location")
+
+
+@pulumi.output_type
+class BrowserCustomCertificateLocation(dict):
+    """
+    Certificate location in Secrets Manager.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BrowserCustomCertificateLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BrowserCustomCertificateLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BrowserCustomCertificateLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_arn: _builtins.str):
+        """
+        Certificate location in Secrets Manager.
+
+        :param _builtins.str secret_arn: Secrets Manager secret ARN.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        Secrets Manager secret ARN.
+        """
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
 class BrowserCustomRecordingConfig(dict):
     """
     Recording configuration for browser
@@ -320,9 +507,6 @@ class BrowserCustomS3Location(dict):
                  prefix: _builtins.str):
         """
         S3 Location Configuration
-
-        :param _builtins.str bucket: The S3 location bucket name.
-        :param _builtins.str prefix: The S3 location object prefix.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "prefix", prefix)
@@ -330,17 +514,11 @@ class BrowserCustomS3Location(dict):
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> _builtins.str:
-        """
-        The S3 location bucket name.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> _builtins.str:
-        """
-        The S3 location object prefix.
-        """
         return pulumi.get(self, "prefix")
 
 
@@ -384,6 +562,86 @@ class BrowserCustomVpcConfig(dict):
     @pulumi.getter
     def subnets(self) -> Sequence[_builtins.str]:
         return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class CodeInterpreterCustomCertificate(dict):
+    """
+    A root CA certificate configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateLocation":
+            suggest = "certificate_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeInterpreterCustomCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeInterpreterCustomCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeInterpreterCustomCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_location: 'outputs.CodeInterpreterCustomCertificateLocation'):
+        """
+        A root CA certificate configuration.
+
+        :param 'CodeInterpreterCustomCertificateLocation' certificate_location: Certificate location in Secrets Manager.
+        """
+        pulumi.set(__self__, "certificate_location", certificate_location)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateLocation")
+    def certificate_location(self) -> 'outputs.CodeInterpreterCustomCertificateLocation':
+        """
+        Certificate location in Secrets Manager.
+        """
+        return pulumi.get(self, "certificate_location")
+
+
+@pulumi.output_type
+class CodeInterpreterCustomCertificateLocation(dict):
+    """
+    Certificate location in Secrets Manager.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeInterpreterCustomCertificateLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeInterpreterCustomCertificateLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeInterpreterCustomCertificateLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_arn: _builtins.str):
+        """
+        Certificate location in Secrets Manager.
+
+        :param _builtins.str secret_arn: Secrets Manager secret ARN.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        Secrets Manager secret ARN.
+        """
+        return pulumi.get(self, "secret_arn")
 
 
 @pulumi.output_type
@@ -476,6 +734,115 @@ class CodeInterpreterCustomVpcConfig(dict):
     @pulumi.getter
     def subnets(self) -> Sequence[_builtins.str]:
         return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class DatasetDataSourceType(dict):
+    """
+    Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inlineExamples":
+            suggest = "inline_examples"
+        elif key == "s3Source":
+            suggest = "s3_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetDataSourceType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetDataSourceType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetDataSourceType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inline_examples: Optional['outputs.DatasetInlineExamplesSource'] = None,
+                 s3_source: Optional['outputs.DatasetS3Source'] = None):
+        """
+        Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
+        """
+        if inline_examples is not None:
+            pulumi.set(__self__, "inline_examples", inline_examples)
+        if s3_source is not None:
+            pulumi.set(__self__, "s3_source", s3_source)
+
+    @_builtins.property
+    @pulumi.getter(name="inlineExamples")
+    def inline_examples(self) -> Optional['outputs.DatasetInlineExamplesSource']:
+        return pulumi.get(self, "inline_examples")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Source")
+    def s3_source(self) -> Optional['outputs.DatasetS3Source']:
+        return pulumi.get(self, "s3_source")
+
+
+@pulumi.output_type
+class DatasetInlineExamplesSource(dict):
+    """
+    Inline examples provided directly in the request body.
+    """
+    def __init__(__self__, *,
+                 examples: Sequence[Any]):
+        """
+        Inline examples provided directly in the request body.
+
+        :param Sequence[Any] examples: Examples to add. Each example is a free-form JSON document validated against the declared schemaType.
+        """
+        pulumi.set(__self__, "examples", examples)
+
+    @_builtins.property
+    @pulumi.getter
+    def examples(self) -> Sequence[Any]:
+        """
+        Examples to add. Each example is a free-form JSON document validated against the declared schemaType.
+        """
+        return pulumi.get(self, "examples")
+
+
+@pulumi.output_type
+class DatasetS3Source(dict):
+    """
+    S3 location of a JSONL file containing dataset examples.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetS3Source. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetS3Source.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetS3Source.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_uri: _builtins.str):
+        """
+        S3 location of a JSONL file containing dataset examples.
+
+        :param _builtins.str s3_uri: S3 URI of the JSONL file (e.g. s3://my-bucket/path/to/examples.jsonl).
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        """
+        S3 URI of the JSONL file (e.g. s3://my-bucket/path/to/examples.jsonl).
+        """
+        return pulumi.get(self, "s3_uri")
 
 
 @pulumi.output_type
@@ -1614,6 +1981,18 @@ class GatewayTargetApiSchemaConfiguration1Properties(dict):
 
 
 @pulumi.output_type
+class GatewayTargetAuthorizationDataProperties(dict):
+    def __init__(__self__, *,
+                 oauth2: 'outputs.GatewayTargetOAuth2AuthorizationData'):
+        pulumi.set(__self__, "oauth2", oauth2)
+
+    @_builtins.property
+    @pulumi.getter
+    def oauth2(self) -> 'outputs.GatewayTargetOAuth2AuthorizationData':
+        return pulumi.get(self, "oauth2")
+
+
+@pulumi.output_type
 class GatewayTargetCredentialProvider0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1672,6 +2051,35 @@ class GatewayTargetCredentialProvider1Properties(dict):
 
 
 @pulumi.output_type
+class GatewayTargetCredentialProvider2Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iamCredentialProvider":
+            suggest = "iam_credential_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetCredentialProvider2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetCredentialProvider2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetCredentialProvider2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iam_credential_provider: 'outputs.GatewayTargetIamCredentialProvider'):
+        pulumi.set(__self__, "iam_credential_provider", iam_credential_provider)
+
+    @_builtins.property
+    @pulumi.getter(name="iamCredentialProvider")
+    def iam_credential_provider(self) -> 'outputs.GatewayTargetIamCredentialProvider':
+        return pulumi.get(self, "iam_credential_provider")
+
+
+@pulumi.output_type
 class GatewayTargetCredentialProviderConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1697,7 +2105,7 @@ class GatewayTargetCredentialProviderConfiguration(dict):
                  credential_provider: Optional[Any] = None):
         """
         :param 'GatewayTargetCredentialProviderType' credential_provider_type: The credential provider type for the gateway target.
-        :param Union['GatewayTargetCredentialProvider0Properties', 'GatewayTargetCredentialProvider1Properties'] credential_provider: The credential provider for the gateway target.
+        :param Union['GatewayTargetCredentialProvider0Properties', 'GatewayTargetCredentialProvider1Properties', 'GatewayTargetCredentialProvider2Properties'] credential_provider: The credential provider for the gateway target.
         """
         pulumi.set(__self__, "credential_provider_type", credential_provider_type)
         if credential_provider is not None:
@@ -1718,6 +2126,55 @@ class GatewayTargetCredentialProviderConfiguration(dict):
         The credential provider for the gateway target.
         """
         return pulumi.get(self, "credential_provider")
+
+
+@pulumi.output_type
+class GatewayTargetHttpTargetConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentcoreRuntime":
+            suggest = "agentcore_runtime"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetHttpTargetConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetHttpTargetConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetHttpTargetConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agentcore_runtime: 'outputs.GatewayTargetRuntimeTargetConfiguration'):
+        pulumi.set(__self__, "agentcore_runtime", agentcore_runtime)
+
+    @_builtins.property
+    @pulumi.getter(name="agentcoreRuntime")
+    def agentcore_runtime(self) -> 'outputs.GatewayTargetRuntimeTargetConfiguration':
+        return pulumi.get(self, "agentcore_runtime")
+
+
+@pulumi.output_type
+class GatewayTargetIamCredentialProvider(dict):
+    def __init__(__self__, *,
+                 service: _builtins.str,
+                 region: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "service", service)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> _builtins.str:
+        return pulumi.get(self, "service")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type
@@ -1760,14 +2217,49 @@ class GatewayTargetMcpLambdaTargetConfiguration(dict):
 
 @pulumi.output_type
 class GatewayTargetMcpServerTargetConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "listingMode":
+            suggest = "listing_mode"
+        elif key == "mcpToolSchema":
+            suggest = "mcp_tool_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetMcpServerTargetConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetMcpServerTargetConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetMcpServerTargetConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 endpoint: _builtins.str):
+                 endpoint: _builtins.str,
+                 listing_mode: Optional['GatewayTargetMcpServerListingMode'] = None,
+                 mcp_tool_schema: Optional[Any] = None):
         pulumi.set(__self__, "endpoint", endpoint)
+        if listing_mode is not None:
+            pulumi.set(__self__, "listing_mode", listing_mode)
+        if mcp_tool_schema is not None:
+            pulumi.set(__self__, "mcp_tool_schema", mcp_tool_schema)
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
         return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="listingMode")
+    def listing_mode(self) -> Optional['GatewayTargetMcpServerListingMode']:
+        return pulumi.get(self, "listing_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpToolSchema")
+    def mcp_tool_schema(self) -> Optional[Any]:
+        return pulumi.get(self, "mcp_tool_schema")
 
 
 @pulumi.output_type
@@ -1916,6 +2408,47 @@ class GatewayTargetMcpTargetConfiguration4Properties(dict):
 
 
 @pulumi.output_type
+class GatewayTargetMcpToolSchemaConfiguration0Properties(dict):
+    def __init__(__self__, *,
+                 s3: 'outputs.GatewayTargetS3Configuration'):
+        pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> 'outputs.GatewayTargetS3Configuration':
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class GatewayTargetMcpToolSchemaConfiguration1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inlinePayload":
+            suggest = "inline_payload"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetMcpToolSchemaConfiguration1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetMcpToolSchemaConfiguration1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetMcpToolSchemaConfiguration1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inline_payload: _builtins.str):
+        pulumi.set(__self__, "inline_payload", inline_payload)
+
+    @_builtins.property
+    @pulumi.getter(name="inlinePayload")
+    def inline_payload(self) -> _builtins.str:
+        return pulumi.get(self, "inline_payload")
+
+
+@pulumi.output_type
 class GatewayTargetMetadataConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1963,6 +2496,45 @@ class GatewayTargetMetadataConfiguration(dict):
     @pulumi.getter(name="allowedResponseHeaders")
     def allowed_response_headers(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "allowed_response_headers")
+
+
+@pulumi.output_type
+class GatewayTargetOAuth2AuthorizationData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationUrl":
+            suggest = "authorization_url"
+        elif key == "userId":
+            suggest = "user_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetOAuth2AuthorizationData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetOAuth2AuthorizationData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetOAuth2AuthorizationData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_url: _builtins.str,
+                 user_id: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "authorization_url", authorization_url)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationUrl")
+    def authorization_url(self) -> _builtins.str:
+        return pulumi.get(self, "authorization_url")
+
+    @_builtins.property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "user_id")
 
 
 @pulumi.output_type
@@ -2035,6 +2607,26 @@ class GatewayTargetOAuthCredentialProvider(dict):
     @pulumi.getter(name="grantType")
     def grant_type(self) -> Optional['GatewayTargetOAuthGrantType']:
         return pulumi.get(self, "grant_type")
+
+
+@pulumi.output_type
+class GatewayTargetRuntimeTargetConfiguration(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 qualifier: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "arn", arn)
+        if qualifier is not None:
+            pulumi.set(__self__, "qualifier", qualifier)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def qualifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "qualifier")
 
 
 @pulumi.output_type
@@ -2120,7 +2712,7 @@ class GatewayTargetSchemaDefinition(dict):
 
 
 @pulumi.output_type
-class GatewayTargetTargetConfigurationProperties(dict):
+class GatewayTargetTargetConfiguration0Properties(dict):
     def __init__(__self__, *,
                  mcp: Any):
         pulumi.set(__self__, "mcp", mcp)
@@ -2129,6 +2721,18 @@ class GatewayTargetTargetConfigurationProperties(dict):
     @pulumi.getter
     def mcp(self) -> Any:
         return pulumi.get(self, "mcp")
+
+
+@pulumi.output_type
+class GatewayTargetTargetConfiguration1Properties(dict):
+    def __init__(__self__, *,
+                 http: 'outputs.GatewayTargetHttpTargetConfigurationProperties'):
+        pulumi.set(__self__, "http", http)
+
+    @_builtins.property
+    @pulumi.getter
+    def http(self) -> 'outputs.GatewayTargetHttpTargetConfigurationProperties':
+        return pulumi.get(self, "http")
 
 
 @pulumi.output_type
@@ -2252,6 +2856,1523 @@ class GatewayWorkloadIdentityDetails(dict):
     @pulumi.getter(name="workloadIdentityArn")
     def workload_identity_arn(self) -> _builtins.str:
         return pulumi.get(self, "workload_identity_arn")
+
+
+@pulumi.output_type
+class HarnessAgentCoreBrowserConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "browserArn":
+            suggest = "browser_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessAgentCoreBrowserConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessAgentCoreBrowserConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessAgentCoreBrowserConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 browser_arn: Optional[_builtins.str] = None):
+        if browser_arn is not None:
+            pulumi.set(__self__, "browser_arn", browser_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="browserArn")
+    def browser_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "browser_arn")
+
+
+@pulumi.output_type
+class HarnessAgentCoreCodeInterpreterConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeInterpreterArn":
+            suggest = "code_interpreter_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessAgentCoreCodeInterpreterConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessAgentCoreCodeInterpreterConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessAgentCoreCodeInterpreterConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code_interpreter_arn: Optional[_builtins.str] = None):
+        if code_interpreter_arn is not None:
+            pulumi.set(__self__, "code_interpreter_arn", code_interpreter_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="codeInterpreterArn")
+    def code_interpreter_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "code_interpreter_arn")
+
+
+@pulumi.output_type
+class HarnessAgentCoreGatewayConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gatewayArn":
+            suggest = "gateway_arn"
+        elif key == "outboundAuth":
+            suggest = "outbound_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessAgentCoreGatewayConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessAgentCoreGatewayConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessAgentCoreGatewayConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 gateway_arn: _builtins.str,
+                 outbound_auth: Optional['outputs.HarnessGatewayOutboundAuth'] = None):
+        pulumi.set(__self__, "gateway_arn", gateway_arn)
+        if outbound_auth is not None:
+            pulumi.set(__self__, "outbound_auth", outbound_auth)
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayArn")
+    def gateway_arn(self) -> _builtins.str:
+        return pulumi.get(self, "gateway_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="outboundAuth")
+    def outbound_auth(self) -> Optional['outputs.HarnessGatewayOutboundAuth']:
+        return pulumi.get(self, "outbound_auth")
+
+
+@pulumi.output_type
+class HarnessAgentCoreMemoryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actorId":
+            suggest = "actor_id"
+        elif key == "messagesCount":
+            suggest = "messages_count"
+        elif key == "retrievalConfig":
+            suggest = "retrieval_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessAgentCoreMemoryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessAgentCoreMemoryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessAgentCoreMemoryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 actor_id: Optional[_builtins.str] = None,
+                 messages_count: Optional[_builtins.int] = None,
+                 retrieval_config: Optional[Mapping[str, 'outputs.HarnessAgentCoreMemoryRetrievalConfig']] = None):
+        pulumi.set(__self__, "arn", arn)
+        if actor_id is not None:
+            pulumi.set(__self__, "actor_id", actor_id)
+        if messages_count is not None:
+            pulumi.set(__self__, "messages_count", messages_count)
+        if retrieval_config is not None:
+            pulumi.set(__self__, "retrieval_config", retrieval_config)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="actorId")
+    def actor_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "actor_id")
+
+    @_builtins.property
+    @pulumi.getter(name="messagesCount")
+    def messages_count(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "messages_count")
+
+    @_builtins.property
+    @pulumi.getter(name="retrievalConfig")
+    def retrieval_config(self) -> Optional[Mapping[str, 'outputs.HarnessAgentCoreMemoryRetrievalConfig']]:
+        return pulumi.get(self, "retrieval_config")
+
+
+@pulumi.output_type
+class HarnessAgentCoreMemoryRetrievalConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "relevanceScore":
+            suggest = "relevance_score"
+        elif key == "strategyId":
+            suggest = "strategy_id"
+        elif key == "topK":
+            suggest = "top_k"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessAgentCoreMemoryRetrievalConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessAgentCoreMemoryRetrievalConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessAgentCoreMemoryRetrievalConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 relevance_score: Optional[_builtins.float] = None,
+                 strategy_id: Optional[_builtins.str] = None,
+                 top_k: Optional[_builtins.int] = None):
+        if relevance_score is not None:
+            pulumi.set(__self__, "relevance_score", relevance_score)
+        if strategy_id is not None:
+            pulumi.set(__self__, "strategy_id", strategy_id)
+        if top_k is not None:
+            pulumi.set(__self__, "top_k", top_k)
+
+    @_builtins.property
+    @pulumi.getter(name="relevanceScore")
+    def relevance_score(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "relevance_score")
+
+    @_builtins.property
+    @pulumi.getter(name="strategyId")
+    def strategy_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "strategy_id")
+
+    @_builtins.property
+    @pulumi.getter(name="topK")
+    def top_k(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "top_k")
+
+
+@pulumi.output_type
+class HarnessAgentCoreRuntimeEnvironment(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentRuntimeArn":
+            suggest = "agent_runtime_arn"
+        elif key == "agentRuntimeId":
+            suggest = "agent_runtime_id"
+        elif key == "agentRuntimeName":
+            suggest = "agent_runtime_name"
+        elif key == "filesystemConfigurations":
+            suggest = "filesystem_configurations"
+        elif key == "lifecycleConfiguration":
+            suggest = "lifecycle_configuration"
+        elif key == "networkConfiguration":
+            suggest = "network_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessAgentCoreRuntimeEnvironment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessAgentCoreRuntimeEnvironment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessAgentCoreRuntimeEnvironment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_runtime_arn: Optional[_builtins.str] = None,
+                 agent_runtime_id: Optional[_builtins.str] = None,
+                 agent_runtime_name: Optional[_builtins.str] = None,
+                 filesystem_configurations: Optional[Sequence['outputs.HarnessFilesystemConfiguration']] = None,
+                 lifecycle_configuration: Optional['outputs.HarnessLifecycleConfiguration'] = None,
+                 network_configuration: Optional['outputs.HarnessNetworkConfiguration'] = None):
+        """
+        :param _builtins.str agent_runtime_arn: The ARN of the underlying AgentCore Runtime.
+        :param _builtins.str agent_runtime_id: The ID of the underlying AgentCore Runtime.
+        :param _builtins.str agent_runtime_name: The name of the underlying AgentCore Runtime.
+        """
+        if agent_runtime_arn is not None:
+            pulumi.set(__self__, "agent_runtime_arn", agent_runtime_arn)
+        if agent_runtime_id is not None:
+            pulumi.set(__self__, "agent_runtime_id", agent_runtime_id)
+        if agent_runtime_name is not None:
+            pulumi.set(__self__, "agent_runtime_name", agent_runtime_name)
+        if filesystem_configurations is not None:
+            pulumi.set(__self__, "filesystem_configurations", filesystem_configurations)
+        if lifecycle_configuration is not None:
+            pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
+        if network_configuration is not None:
+            pulumi.set(__self__, "network_configuration", network_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="agentRuntimeArn")
+    def agent_runtime_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the underlying AgentCore Runtime.
+        """
+        return pulumi.get(self, "agent_runtime_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="agentRuntimeId")
+    def agent_runtime_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the underlying AgentCore Runtime.
+        """
+        return pulumi.get(self, "agent_runtime_id")
+
+    @_builtins.property
+    @pulumi.getter(name="agentRuntimeName")
+    def agent_runtime_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the underlying AgentCore Runtime.
+        """
+        return pulumi.get(self, "agent_runtime_name")
+
+    @_builtins.property
+    @pulumi.getter(name="filesystemConfigurations")
+    def filesystem_configurations(self) -> Optional[Sequence['outputs.HarnessFilesystemConfiguration']]:
+        return pulumi.get(self, "filesystem_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="lifecycleConfiguration")
+    def lifecycle_configuration(self) -> Optional['outputs.HarnessLifecycleConfiguration']:
+        return pulumi.get(self, "lifecycle_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> Optional['outputs.HarnessNetworkConfiguration']:
+        return pulumi.get(self, "network_configuration")
+
+
+@pulumi.output_type
+class HarnessAuthorizerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customJwtAuthorizer":
+            suggest = "custom_jwt_authorizer"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessAuthorizerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessAuthorizerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessAuthorizerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_jwt_authorizer: Optional['outputs.HarnessCustomJwtAuthorizerConfiguration'] = None):
+        if custom_jwt_authorizer is not None:
+            pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
+
+    @_builtins.property
+    @pulumi.getter(name="customJwtAuthorizer")
+    def custom_jwt_authorizer(self) -> Optional['outputs.HarnessCustomJwtAuthorizerConfiguration']:
+        return pulumi.get(self, "custom_jwt_authorizer")
+
+
+@pulumi.output_type
+class HarnessAuthorizingClaimMatchValueType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "claimMatchOperator":
+            suggest = "claim_match_operator"
+        elif key == "claimMatchValue":
+            suggest = "claim_match_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessAuthorizingClaimMatchValueType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessAuthorizingClaimMatchValueType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessAuthorizingClaimMatchValueType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 claim_match_operator: 'HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator',
+                 claim_match_value: 'outputs.HarnessClaimMatchValueType'):
+        pulumi.set(__self__, "claim_match_operator", claim_match_operator)
+        pulumi.set(__self__, "claim_match_value", claim_match_value)
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchOperator")
+    def claim_match_operator(self) -> 'HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator':
+        return pulumi.get(self, "claim_match_operator")
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchValue")
+    def claim_match_value(self) -> 'outputs.HarnessClaimMatchValueType':
+        return pulumi.get(self, "claim_match_value")
+
+
+@pulumi.output_type
+class HarnessBedrockModelConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelId":
+            suggest = "model_id"
+        elif key == "maxTokens":
+            suggest = "max_tokens"
+        elif key == "topP":
+            suggest = "top_p"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessBedrockModelConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessBedrockModelConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessBedrockModelConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_id: _builtins.str,
+                 max_tokens: Optional[_builtins.int] = None,
+                 temperature: Optional[_builtins.float] = None,
+                 top_p: Optional[_builtins.float] = None):
+        pulumi.set(__self__, "model_id", model_id)
+        if max_tokens is not None:
+            pulumi.set(__self__, "max_tokens", max_tokens)
+        if temperature is not None:
+            pulumi.set(__self__, "temperature", temperature)
+        if top_p is not None:
+            pulumi.set(__self__, "top_p", top_p)
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> _builtins.str:
+        return pulumi.get(self, "model_id")
+
+    @_builtins.property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_tokens")
+
+    @_builtins.property
+    @pulumi.getter
+    def temperature(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "temperature")
+
+    @_builtins.property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "top_p")
+
+
+@pulumi.output_type
+class HarnessClaimMatchValueType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValueString":
+            suggest = "match_value_string"
+        elif key == "matchValueStringList":
+            suggest = "match_value_string_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessClaimMatchValueType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessClaimMatchValueType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessClaimMatchValueType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_value_string: Optional[_builtins.str] = None,
+                 match_value_string_list: Optional[Sequence[_builtins.str]] = None):
+        if match_value_string is not None:
+            pulumi.set(__self__, "match_value_string", match_value_string)
+        if match_value_string_list is not None:
+            pulumi.set(__self__, "match_value_string_list", match_value_string_list)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueString")
+    def match_value_string(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "match_value_string")
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueStringList")
+    def match_value_string_list(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "match_value_string_list")
+
+
+@pulumi.output_type
+class HarnessContainerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerUri":
+            suggest = "container_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessContainerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessContainerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessContainerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_uri: _builtins.str):
+        """
+        :param _builtins.str container_uri: The ECR URI of the container.
+        """
+        pulumi.set(__self__, "container_uri", container_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="containerUri")
+    def container_uri(self) -> _builtins.str:
+        """
+        The ECR URI of the container.
+        """
+        return pulumi.get(self, "container_uri")
+
+
+@pulumi.output_type
+class HarnessCustomClaimValidationType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizingClaimMatchValue":
+            suggest = "authorizing_claim_match_value"
+        elif key == "inboundTokenClaimName":
+            suggest = "inbound_token_claim_name"
+        elif key == "inboundTokenClaimValueType":
+            suggest = "inbound_token_claim_value_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessCustomClaimValidationType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessCustomClaimValidationType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessCustomClaimValidationType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorizing_claim_match_value: 'outputs.HarnessAuthorizingClaimMatchValueType',
+                 inbound_token_claim_name: _builtins.str,
+                 inbound_token_claim_value_type: 'HarnessCustomClaimValidationTypeInboundTokenClaimValueType'):
+        pulumi.set(__self__, "authorizing_claim_match_value", authorizing_claim_match_value)
+        pulumi.set(__self__, "inbound_token_claim_name", inbound_token_claim_name)
+        pulumi.set(__self__, "inbound_token_claim_value_type", inbound_token_claim_value_type)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizingClaimMatchValue")
+    def authorizing_claim_match_value(self) -> 'outputs.HarnessAuthorizingClaimMatchValueType':
+        return pulumi.get(self, "authorizing_claim_match_value")
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimName")
+    def inbound_token_claim_name(self) -> _builtins.str:
+        return pulumi.get(self, "inbound_token_claim_name")
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimValueType")
+    def inbound_token_claim_value_type(self) -> 'HarnessCustomClaimValidationTypeInboundTokenClaimValueType':
+        return pulumi.get(self, "inbound_token_claim_value_type")
+
+
+@pulumi.output_type
+class HarnessCustomJwtAuthorizerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "discoveryUrl":
+            suggest = "discovery_url"
+        elif key == "allowedAudience":
+            suggest = "allowed_audience"
+        elif key == "allowedClients":
+            suggest = "allowed_clients"
+        elif key == "allowedScopes":
+            suggest = "allowed_scopes"
+        elif key == "customClaims":
+            suggest = "custom_claims"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessCustomJwtAuthorizerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessCustomJwtAuthorizerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessCustomJwtAuthorizerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 discovery_url: _builtins.str,
+                 allowed_audience: Optional[Sequence[_builtins.str]] = None,
+                 allowed_clients: Optional[Sequence[_builtins.str]] = None,
+                 allowed_scopes: Optional[Sequence[_builtins.str]] = None,
+                 custom_claims: Optional[Sequence['outputs.HarnessCustomClaimValidationType']] = None):
+        pulumi.set(__self__, "discovery_url", discovery_url)
+        if allowed_audience is not None:
+            pulumi.set(__self__, "allowed_audience", allowed_audience)
+        if allowed_clients is not None:
+            pulumi.set(__self__, "allowed_clients", allowed_clients)
+        if allowed_scopes is not None:
+            pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if custom_claims is not None:
+            pulumi.set(__self__, "custom_claims", custom_claims)
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> _builtins.str:
+        return pulumi.get(self, "discovery_url")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAudience")
+    def allowed_audience(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_audience")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedClients")
+    def allowed_clients(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_clients")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedScopes")
+    def allowed_scopes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_scopes")
+
+    @_builtins.property
+    @pulumi.getter(name="customClaims")
+    def custom_claims(self) -> Optional[Sequence['outputs.HarnessCustomClaimValidationType']]:
+        return pulumi.get(self, "custom_claims")
+
+
+@pulumi.output_type
+class HarnessEnvironmentArtifact(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerConfiguration":
+            suggest = "container_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessEnvironmentArtifact. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessEnvironmentArtifact.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessEnvironmentArtifact.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_configuration: Optional['outputs.HarnessContainerConfiguration'] = None):
+        if container_configuration is not None:
+            pulumi.set(__self__, "container_configuration", container_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="containerConfiguration")
+    def container_configuration(self) -> Optional['outputs.HarnessContainerConfiguration']:
+        return pulumi.get(self, "container_configuration")
+
+
+@pulumi.output_type
+class HarnessEnvironmentProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentCoreRuntimeEnvironment":
+            suggest = "agent_core_runtime_environment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessEnvironmentProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessEnvironmentProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessEnvironmentProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_core_runtime_environment: Optional['outputs.HarnessAgentCoreRuntimeEnvironment'] = None):
+        if agent_core_runtime_environment is not None:
+            pulumi.set(__self__, "agent_core_runtime_environment", agent_core_runtime_environment)
+
+    @_builtins.property
+    @pulumi.getter(name="agentCoreRuntimeEnvironment")
+    def agent_core_runtime_environment(self) -> Optional['outputs.HarnessAgentCoreRuntimeEnvironment']:
+        return pulumi.get(self, "agent_core_runtime_environment")
+
+
+@pulumi.output_type
+class HarnessFilesystemConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sessionStorage":
+            suggest = "session_storage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessFilesystemConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessFilesystemConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessFilesystemConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 session_storage: 'outputs.HarnessSessionStorageConfiguration'):
+        pulumi.set(__self__, "session_storage", session_storage)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionStorage")
+    def session_storage(self) -> 'outputs.HarnessSessionStorageConfiguration':
+        return pulumi.get(self, "session_storage")
+
+
+@pulumi.output_type
+class HarnessGatewayOutboundAuth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsIam":
+            suggest = "aws_iam"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessGatewayOutboundAuth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessGatewayOutboundAuth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessGatewayOutboundAuth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_iam: Optional[Any] = None,
+                 none: Optional[Any] = None,
+                 oauth: Optional['outputs.HarnessOAuthCredentialProvider'] = None):
+        if aws_iam is not None:
+            pulumi.set(__self__, "aws_iam", aws_iam)
+        if none is not None:
+            pulumi.set(__self__, "none", none)
+        if oauth is not None:
+            pulumi.set(__self__, "oauth", oauth)
+
+    @_builtins.property
+    @pulumi.getter(name="awsIam")
+    def aws_iam(self) -> Optional[Any]:
+        return pulumi.get(self, "aws_iam")
+
+    @_builtins.property
+    @pulumi.getter
+    def none(self) -> Optional[Any]:
+        return pulumi.get(self, "none")
+
+    @_builtins.property
+    @pulumi.getter
+    def oauth(self) -> Optional['outputs.HarnessOAuthCredentialProvider']:
+        return pulumi.get(self, "oauth")
+
+
+@pulumi.output_type
+class HarnessGeminiModelConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKeyArn":
+            suggest = "api_key_arn"
+        elif key == "modelId":
+            suggest = "model_id"
+        elif key == "maxTokens":
+            suggest = "max_tokens"
+        elif key == "topK":
+            suggest = "top_k"
+        elif key == "topP":
+            suggest = "top_p"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessGeminiModelConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessGeminiModelConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessGeminiModelConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key_arn: _builtins.str,
+                 model_id: _builtins.str,
+                 max_tokens: Optional[_builtins.int] = None,
+                 temperature: Optional[_builtins.float] = None,
+                 top_k: Optional[_builtins.int] = None,
+                 top_p: Optional[_builtins.float] = None):
+        pulumi.set(__self__, "api_key_arn", api_key_arn)
+        pulumi.set(__self__, "model_id", model_id)
+        if max_tokens is not None:
+            pulumi.set(__self__, "max_tokens", max_tokens)
+        if temperature is not None:
+            pulumi.set(__self__, "temperature", temperature)
+        if top_k is not None:
+            pulumi.set(__self__, "top_k", top_k)
+        if top_p is not None:
+            pulumi.set(__self__, "top_p", top_p)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyArn")
+    def api_key_arn(self) -> _builtins.str:
+        return pulumi.get(self, "api_key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> _builtins.str:
+        return pulumi.get(self, "model_id")
+
+    @_builtins.property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_tokens")
+
+    @_builtins.property
+    @pulumi.getter
+    def temperature(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "temperature")
+
+    @_builtins.property
+    @pulumi.getter(name="topK")
+    def top_k(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "top_k")
+
+    @_builtins.property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "top_p")
+
+
+@pulumi.output_type
+class HarnessInlineFunctionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputSchema":
+            suggest = "input_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessInlineFunctionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessInlineFunctionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessInlineFunctionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: _builtins.str,
+                 input_schema: Any):
+        """
+        :param Any input_schema: JSON Schema describing the tool's input parameters.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "input_schema", input_schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="inputSchema")
+    def input_schema(self) -> Any:
+        """
+        JSON Schema describing the tool's input parameters.
+        """
+        return pulumi.get(self, "input_schema")
+
+
+@pulumi.output_type
+class HarnessLifecycleConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleRuntimeSessionTimeout":
+            suggest = "idle_runtime_session_timeout"
+        elif key == "maxLifetime":
+            suggest = "max_lifetime"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessLifecycleConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessLifecycleConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessLifecycleConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_runtime_session_timeout: Optional[_builtins.int] = None,
+                 max_lifetime: Optional[_builtins.int] = None):
+        if idle_runtime_session_timeout is not None:
+            pulumi.set(__self__, "idle_runtime_session_timeout", idle_runtime_session_timeout)
+        if max_lifetime is not None:
+            pulumi.set(__self__, "max_lifetime", max_lifetime)
+
+    @_builtins.property
+    @pulumi.getter(name="idleRuntimeSessionTimeout")
+    def idle_runtime_session_timeout(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "idle_runtime_session_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="maxLifetime")
+    def max_lifetime(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_lifetime")
+
+
+@pulumi.output_type
+class HarnessMemoryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentCoreMemoryConfiguration":
+            suggest = "agent_core_memory_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessMemoryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessMemoryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessMemoryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_core_memory_configuration: Optional['outputs.HarnessAgentCoreMemoryConfiguration'] = None):
+        if agent_core_memory_configuration is not None:
+            pulumi.set(__self__, "agent_core_memory_configuration", agent_core_memory_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="agentCoreMemoryConfiguration")
+    def agent_core_memory_configuration(self) -> Optional['outputs.HarnessAgentCoreMemoryConfiguration']:
+        return pulumi.get(self, "agent_core_memory_configuration")
+
+
+@pulumi.output_type
+class HarnessModelConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockModelConfig":
+            suggest = "bedrock_model_config"
+        elif key == "geminiModelConfig":
+            suggest = "gemini_model_config"
+        elif key == "openAiModelConfig":
+            suggest = "open_ai_model_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessModelConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessModelConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessModelConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bedrock_model_config: Optional['outputs.HarnessBedrockModelConfig'] = None,
+                 gemini_model_config: Optional['outputs.HarnessGeminiModelConfig'] = None,
+                 open_ai_model_config: Optional['outputs.HarnessOpenAiModelConfig'] = None):
+        if bedrock_model_config is not None:
+            pulumi.set(__self__, "bedrock_model_config", bedrock_model_config)
+        if gemini_model_config is not None:
+            pulumi.set(__self__, "gemini_model_config", gemini_model_config)
+        if open_ai_model_config is not None:
+            pulumi.set(__self__, "open_ai_model_config", open_ai_model_config)
+
+    @_builtins.property
+    @pulumi.getter(name="bedrockModelConfig")
+    def bedrock_model_config(self) -> Optional['outputs.HarnessBedrockModelConfig']:
+        return pulumi.get(self, "bedrock_model_config")
+
+    @_builtins.property
+    @pulumi.getter(name="geminiModelConfig")
+    def gemini_model_config(self) -> Optional['outputs.HarnessGeminiModelConfig']:
+        return pulumi.get(self, "gemini_model_config")
+
+    @_builtins.property
+    @pulumi.getter(name="openAiModelConfig")
+    def open_ai_model_config(self) -> Optional['outputs.HarnessOpenAiModelConfig']:
+        return pulumi.get(self, "open_ai_model_config")
+
+
+@pulumi.output_type
+class HarnessNetworkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkMode":
+            suggest = "network_mode"
+        elif key == "networkModeConfig":
+            suggest = "network_mode_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_mode: 'HarnessNetworkConfigurationNetworkMode',
+                 network_mode_config: Optional['outputs.HarnessVpcConfig'] = None):
+        pulumi.set(__self__, "network_mode", network_mode)
+        if network_mode_config is not None:
+            pulumi.set(__self__, "network_mode_config", network_mode_config)
+
+    @_builtins.property
+    @pulumi.getter(name="networkMode")
+    def network_mode(self) -> 'HarnessNetworkConfigurationNetworkMode':
+        return pulumi.get(self, "network_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="networkModeConfig")
+    def network_mode_config(self) -> Optional['outputs.HarnessVpcConfig']:
+        return pulumi.get(self, "network_mode_config")
+
+
+@pulumi.output_type
+class HarnessOAuthCredentialProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerArn":
+            suggest = "provider_arn"
+        elif key == "customParameters":
+            suggest = "custom_parameters"
+        elif key == "defaultReturnUrl":
+            suggest = "default_return_url"
+        elif key == "grantType":
+            suggest = "grant_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessOAuthCredentialProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessOAuthCredentialProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessOAuthCredentialProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_arn: _builtins.str,
+                 scopes: Sequence[_builtins.str],
+                 custom_parameters: Optional[Mapping[str, _builtins.str]] = None,
+                 default_return_url: Optional[_builtins.str] = None,
+                 grant_type: Optional['HarnessOAuthCredentialProviderGrantType'] = None):
+        pulumi.set(__self__, "provider_arn", provider_arn)
+        pulumi.set(__self__, "scopes", scopes)
+        if custom_parameters is not None:
+            pulumi.set(__self__, "custom_parameters", custom_parameters)
+        if default_return_url is not None:
+            pulumi.set(__self__, "default_return_url", default_return_url)
+        if grant_type is not None:
+            pulumi.set(__self__, "grant_type", grant_type)
+
+    @_builtins.property
+    @pulumi.getter(name="providerArn")
+    def provider_arn(self) -> _builtins.str:
+        return pulumi.get(self, "provider_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def scopes(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "scopes")
+
+    @_builtins.property
+    @pulumi.getter(name="customParameters")
+    def custom_parameters(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "custom_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultReturnUrl")
+    def default_return_url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default_return_url")
+
+    @_builtins.property
+    @pulumi.getter(name="grantType")
+    def grant_type(self) -> Optional['HarnessOAuthCredentialProviderGrantType']:
+        return pulumi.get(self, "grant_type")
+
+
+@pulumi.output_type
+class HarnessOpenAiModelConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKeyArn":
+            suggest = "api_key_arn"
+        elif key == "modelId":
+            suggest = "model_id"
+        elif key == "maxTokens":
+            suggest = "max_tokens"
+        elif key == "topP":
+            suggest = "top_p"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessOpenAiModelConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessOpenAiModelConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessOpenAiModelConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key_arn: _builtins.str,
+                 model_id: _builtins.str,
+                 max_tokens: Optional[_builtins.int] = None,
+                 temperature: Optional[_builtins.float] = None,
+                 top_p: Optional[_builtins.float] = None):
+        pulumi.set(__self__, "api_key_arn", api_key_arn)
+        pulumi.set(__self__, "model_id", model_id)
+        if max_tokens is not None:
+            pulumi.set(__self__, "max_tokens", max_tokens)
+        if temperature is not None:
+            pulumi.set(__self__, "temperature", temperature)
+        if top_p is not None:
+            pulumi.set(__self__, "top_p", top_p)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyArn")
+    def api_key_arn(self) -> _builtins.str:
+        return pulumi.get(self, "api_key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> _builtins.str:
+        return pulumi.get(self, "model_id")
+
+    @_builtins.property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_tokens")
+
+    @_builtins.property
+    @pulumi.getter
+    def temperature(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "temperature")
+
+    @_builtins.property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "top_p")
+
+
+@pulumi.output_type
+class HarnessRemoteMcpConfig(dict):
+    def __init__(__self__, *,
+                 url: _builtins.str,
+                 headers: Optional[Mapping[str, _builtins.str]] = None):
+        pulumi.set(__self__, "url", url)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> _builtins.str:
+        return pulumi.get(self, "url")
+
+    @_builtins.property
+    @pulumi.getter
+    def headers(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "headers")
+
+
+@pulumi.output_type
+class HarnessSessionStorageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPath":
+            suggest = "mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessSessionStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessSessionStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessSessionStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mount_path: _builtins.str):
+        pulumi.set(__self__, "mount_path", mount_path)
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> _builtins.str:
+        return pulumi.get(self, "mount_path")
+
+
+@pulumi.output_type
+class HarnessSkill(dict):
+    def __init__(__self__, *,
+                 path: _builtins.str):
+        """
+        :param _builtins.str path: The filesystem path to the skill definition.
+        """
+        pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        """
+        The filesystem path to the skill definition.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class HarnessSlidingWindowConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "messagesCount":
+            suggest = "messages_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessSlidingWindowConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessSlidingWindowConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessSlidingWindowConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 messages_count: Optional[_builtins.int] = None):
+        if messages_count is not None:
+            pulumi.set(__self__, "messages_count", messages_count)
+
+    @_builtins.property
+    @pulumi.getter(name="messagesCount")
+    def messages_count(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "messages_count")
+
+
+@pulumi.output_type
+class HarnessSummarizationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preserveRecentMessages":
+            suggest = "preserve_recent_messages"
+        elif key == "summarizationSystemPrompt":
+            suggest = "summarization_system_prompt"
+        elif key == "summaryRatio":
+            suggest = "summary_ratio"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessSummarizationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessSummarizationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessSummarizationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 preserve_recent_messages: Optional[_builtins.int] = None,
+                 summarization_system_prompt: Optional[_builtins.str] = None,
+                 summary_ratio: Optional[_builtins.float] = None):
+        if preserve_recent_messages is not None:
+            pulumi.set(__self__, "preserve_recent_messages", preserve_recent_messages)
+        if summarization_system_prompt is not None:
+            pulumi.set(__self__, "summarization_system_prompt", summarization_system_prompt)
+        if summary_ratio is not None:
+            pulumi.set(__self__, "summary_ratio", summary_ratio)
+
+    @_builtins.property
+    @pulumi.getter(name="preserveRecentMessages")
+    def preserve_recent_messages(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "preserve_recent_messages")
+
+    @_builtins.property
+    @pulumi.getter(name="summarizationSystemPrompt")
+    def summarization_system_prompt(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "summarization_system_prompt")
+
+    @_builtins.property
+    @pulumi.getter(name="summaryRatio")
+    def summary_ratio(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "summary_ratio")
+
+
+@pulumi.output_type
+class HarnessSystemContentBlock(dict):
+    def __init__(__self__, *,
+                 text: _builtins.str):
+        """
+        :param _builtins.str text: The text content of the system prompt block.
+        """
+        pulumi.set(__self__, "text", text)
+
+    @_builtins.property
+    @pulumi.getter
+    def text(self) -> _builtins.str:
+        """
+        The text content of the system prompt block.
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class HarnessTool(dict):
+    def __init__(__self__, *,
+                 type: 'HarnessToolType',
+                 config: Optional['outputs.HarnessToolConfiguration'] = None,
+                 name: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "type", type)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'HarnessToolType':
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def config(self) -> Optional['outputs.HarnessToolConfiguration']:
+        return pulumi.get(self, "config")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class HarnessToolConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentCoreBrowser":
+            suggest = "agent_core_browser"
+        elif key == "agentCoreCodeInterpreter":
+            suggest = "agent_core_code_interpreter"
+        elif key == "agentCoreGateway":
+            suggest = "agent_core_gateway"
+        elif key == "inlineFunction":
+            suggest = "inline_function"
+        elif key == "remoteMcp":
+            suggest = "remote_mcp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessToolConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessToolConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessToolConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_core_browser: Optional['outputs.HarnessAgentCoreBrowserConfig'] = None,
+                 agent_core_code_interpreter: Optional['outputs.HarnessAgentCoreCodeInterpreterConfig'] = None,
+                 agent_core_gateway: Optional['outputs.HarnessAgentCoreGatewayConfig'] = None,
+                 inline_function: Optional['outputs.HarnessInlineFunctionConfig'] = None,
+                 remote_mcp: Optional['outputs.HarnessRemoteMcpConfig'] = None):
+        if agent_core_browser is not None:
+            pulumi.set(__self__, "agent_core_browser", agent_core_browser)
+        if agent_core_code_interpreter is not None:
+            pulumi.set(__self__, "agent_core_code_interpreter", agent_core_code_interpreter)
+        if agent_core_gateway is not None:
+            pulumi.set(__self__, "agent_core_gateway", agent_core_gateway)
+        if inline_function is not None:
+            pulumi.set(__self__, "inline_function", inline_function)
+        if remote_mcp is not None:
+            pulumi.set(__self__, "remote_mcp", remote_mcp)
+
+    @_builtins.property
+    @pulumi.getter(name="agentCoreBrowser")
+    def agent_core_browser(self) -> Optional['outputs.HarnessAgentCoreBrowserConfig']:
+        return pulumi.get(self, "agent_core_browser")
+
+    @_builtins.property
+    @pulumi.getter(name="agentCoreCodeInterpreter")
+    def agent_core_code_interpreter(self) -> Optional['outputs.HarnessAgentCoreCodeInterpreterConfig']:
+        return pulumi.get(self, "agent_core_code_interpreter")
+
+    @_builtins.property
+    @pulumi.getter(name="agentCoreGateway")
+    def agent_core_gateway(self) -> Optional['outputs.HarnessAgentCoreGatewayConfig']:
+        return pulumi.get(self, "agent_core_gateway")
+
+    @_builtins.property
+    @pulumi.getter(name="inlineFunction")
+    def inline_function(self) -> Optional['outputs.HarnessInlineFunctionConfig']:
+        return pulumi.get(self, "inline_function")
+
+    @_builtins.property
+    @pulumi.getter(name="remoteMcp")
+    def remote_mcp(self) -> Optional['outputs.HarnessRemoteMcpConfig']:
+        return pulumi.get(self, "remote_mcp")
+
+
+@pulumi.output_type
+class HarnessTruncationConfiguration(dict):
+    def __init__(__self__, *,
+                 strategy: 'HarnessTruncationConfigurationStrategy',
+                 config: Optional['outputs.HarnessTruncationStrategyConfiguration'] = None):
+        pulumi.set(__self__, "strategy", strategy)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+
+    @_builtins.property
+    @pulumi.getter
+    def strategy(self) -> 'HarnessTruncationConfigurationStrategy':
+        return pulumi.get(self, "strategy")
+
+    @_builtins.property
+    @pulumi.getter
+    def config(self) -> Optional['outputs.HarnessTruncationStrategyConfiguration']:
+        return pulumi.get(self, "config")
+
+
+@pulumi.output_type
+class HarnessTruncationStrategyConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "slidingWindow":
+            suggest = "sliding_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessTruncationStrategyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessTruncationStrategyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessTruncationStrategyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sliding_window: Optional['outputs.HarnessSlidingWindowConfiguration'] = None,
+                 summarization: Optional['outputs.HarnessSummarizationConfiguration'] = None):
+        if sliding_window is not None:
+            pulumi.set(__self__, "sliding_window", sliding_window)
+        if summarization is not None:
+            pulumi.set(__self__, "summarization", summarization)
+
+    @_builtins.property
+    @pulumi.getter(name="slidingWindow")
+    def sliding_window(self) -> Optional['outputs.HarnessSlidingWindowConfiguration']:
+        return pulumi.get(self, "sliding_window")
+
+    @_builtins.property
+    @pulumi.getter
+    def summarization(self) -> Optional['outputs.HarnessSummarizationConfiguration']:
+        return pulumi.get(self, "summarization")
+
+
+@pulumi.output_type
+class HarnessVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HarnessVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HarnessVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HarnessVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_groups: Sequence[_builtins.str],
+                 subnets: Sequence[_builtins.str]):
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "security_groups")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "subnets")
 
 
 @pulumi.output_type
@@ -2390,6 +4511,8 @@ class MemoryCustomMemoryStrategy(dict):
         suggest = None
         if key == "createdAt":
             suggest = "created_at"
+        elif key == "memoryRecordSchema":
+            suggest = "memory_record_schema"
         elif key == "namespaceTemplates":
             suggest = "namespace_templates"
         elif key == "strategyId":
@@ -2413,6 +4536,7 @@ class MemoryCustomMemoryStrategy(dict):
                  configuration: Optional['outputs.MemoryCustomConfigurationInput'] = None,
                  created_at: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
+                 memory_record_schema: Optional['outputs.MemoryRecordSchema'] = None,
                  namespace_templates: Optional[Sequence[_builtins.str]] = None,
                  namespaces: Optional[Sequence[_builtins.str]] = None,
                  status: Optional['MemoryCustomMemoryStrategyStatus'] = None,
@@ -2433,6 +4557,8 @@ class MemoryCustomMemoryStrategy(dict):
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if memory_record_schema is not None:
+            pulumi.set(__self__, "memory_record_schema", memory_record_schema)
         if namespace_templates is not None:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
@@ -2468,6 +4594,11 @@ class MemoryCustomMemoryStrategy(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="memoryRecordSchema")
+    def memory_record_schema(self) -> Optional['outputs.MemoryRecordSchema']:
+        return pulumi.get(self, "memory_record_schema")
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
@@ -2519,6 +4650,8 @@ class MemoryEpisodicMemoryStrategy(dict):
         suggest = None
         if key == "createdAt":
             suggest = "created_at"
+        elif key == "memoryRecordSchema":
+            suggest = "memory_record_schema"
         elif key == "namespaceTemplates":
             suggest = "namespace_templates"
         elif key == "reflectionConfiguration":
@@ -2543,6 +4676,7 @@ class MemoryEpisodicMemoryStrategy(dict):
                  name: _builtins.str,
                  created_at: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
+                 memory_record_schema: Optional['outputs.MemoryRecordSchema'] = None,
                  namespace_templates: Optional[Sequence[_builtins.str]] = None,
                  namespaces: Optional[Sequence[_builtins.str]] = None,
                  reflection_configuration: Optional['outputs.MemoryEpisodicReflectionConfigurationInput'] = None,
@@ -2562,6 +4696,8 @@ class MemoryEpisodicMemoryStrategy(dict):
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if memory_record_schema is not None:
+            pulumi.set(__self__, "memory_record_schema", memory_record_schema)
         if namespace_templates is not None:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
@@ -2594,6 +4730,11 @@ class MemoryEpisodicMemoryStrategy(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="memoryRecordSchema")
+    def memory_record_schema(self) -> Optional['outputs.MemoryRecordSchema']:
+        return pulumi.get(self, "memory_record_schema")
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
@@ -2757,6 +4898,8 @@ class MemoryEpisodicOverrideReflectionConfigurationInput(dict):
             suggest = "append_to_prompt"
         elif key == "modelId":
             suggest = "model_id"
+        elif key == "memoryRecordSchema":
+            suggest = "memory_record_schema"
         elif key == "namespaceTemplates":
             suggest = "namespace_templates"
 
@@ -2774,10 +4917,13 @@ class MemoryEpisodicOverrideReflectionConfigurationInput(dict):
     def __init__(__self__, *,
                  append_to_prompt: _builtins.str,
                  model_id: _builtins.str,
+                 memory_record_schema: Optional['outputs.MemoryRecordSchema'] = None,
                  namespace_templates: Optional[Sequence[_builtins.str]] = None,
                  namespaces: Optional[Sequence[_builtins.str]] = None):
         pulumi.set(__self__, "append_to_prompt", append_to_prompt)
         pulumi.set(__self__, "model_id", model_id)
+        if memory_record_schema is not None:
+            pulumi.set(__self__, "memory_record_schema", memory_record_schema)
         if namespace_templates is not None:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
@@ -2792,6 +4938,11 @@ class MemoryEpisodicOverrideReflectionConfigurationInput(dict):
     @pulumi.getter(name="modelId")
     def model_id(self) -> _builtins.str:
         return pulumi.get(self, "model_id")
+
+    @_builtins.property
+    @pulumi.getter(name="memoryRecordSchema")
+    def memory_record_schema(self) -> Optional['outputs.MemoryRecordSchema']:
+        return pulumi.get(self, "memory_record_schema")
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
@@ -2809,7 +4960,9 @@ class MemoryEpisodicReflectionConfigurationInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "namespaceTemplates":
+        if key == "memoryRecordSchema":
+            suggest = "memory_record_schema"
+        elif key == "namespaceTemplates":
             suggest = "namespace_templates"
 
         if suggest:
@@ -2824,12 +4977,20 @@ class MemoryEpisodicReflectionConfigurationInput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 memory_record_schema: Optional['outputs.MemoryRecordSchema'] = None,
                  namespace_templates: Optional[Sequence[_builtins.str]] = None,
                  namespaces: Optional[Sequence[_builtins.str]] = None):
+        if memory_record_schema is not None:
+            pulumi.set(__self__, "memory_record_schema", memory_record_schema)
         if namespace_templates is not None:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
+
+    @_builtins.property
+    @pulumi.getter(name="memoryRecordSchema")
+    def memory_record_schema(self) -> Optional['outputs.MemoryRecordSchema']:
+        return pulumi.get(self, "memory_record_schema")
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
@@ -2840,6 +5001,55 @@ class MemoryEpisodicReflectionConfigurationInput(dict):
     @pulumi.getter
     def namespaces(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "namespaces")
+
+
+@pulumi.output_type
+class MemoryExtractionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "llmExtractionConfig":
+            suggest = "llm_extraction_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemoryExtractionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemoryExtractionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemoryExtractionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 llm_extraction_config: Optional['outputs.MemoryLlmExtractionConfig'] = None):
+        if llm_extraction_config is not None:
+            pulumi.set(__self__, "llm_extraction_config", llm_extraction_config)
+
+    @_builtins.property
+    @pulumi.getter(name="llmExtractionConfig")
+    def llm_extraction_config(self) -> Optional['outputs.MemoryLlmExtractionConfig']:
+        return pulumi.get(self, "llm_extraction_config")
+
+
+@pulumi.output_type
+class MemoryIndexedKey(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 type: 'MemoryMetadataValueType'):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'MemoryMetadataValueType':
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -2921,6 +5131,51 @@ class MemoryKinesisResource(dict):
 
 
 @pulumi.output_type
+class MemoryLlmExtractionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "llmExtractionInstruction":
+            suggest = "llm_extraction_instruction"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemoryLlmExtractionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemoryLlmExtractionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemoryLlmExtractionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 definition: _builtins.str,
+                 llm_extraction_instruction: Optional[_builtins.str] = None,
+                 validation: Optional['outputs.MemoryValidation'] = None):
+        pulumi.set(__self__, "definition", definition)
+        if llm_extraction_instruction is not None:
+            pulumi.set(__self__, "llm_extraction_instruction", llm_extraction_instruction)
+        if validation is not None:
+            pulumi.set(__self__, "validation", validation)
+
+    @_builtins.property
+    @pulumi.getter
+    def definition(self) -> _builtins.str:
+        return pulumi.get(self, "definition")
+
+    @_builtins.property
+    @pulumi.getter(name="llmExtractionInstruction")
+    def llm_extraction_instruction(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "llm_extraction_instruction")
+
+    @_builtins.property
+    @pulumi.getter
+    def validation(self) -> Optional['outputs.MemoryValidation']:
+        return pulumi.get(self, "validation")
+
+
+@pulumi.output_type
 class MemoryMessageBasedTriggerInput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2948,6 +5203,121 @@ class MemoryMessageBasedTriggerInput(dict):
     @pulumi.getter(name="messageCount")
     def message_count(self) -> Optional[_builtins.int]:
         return pulumi.get(self, "message_count")
+
+
+@pulumi.output_type
+class MemoryMetadataSchemaEntry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extractionConfig":
+            suggest = "extraction_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemoryMetadataSchemaEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemoryMetadataSchemaEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemoryMetadataSchemaEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 extraction_config: Optional['outputs.MemoryExtractionConfig'] = None,
+                 type: Optional['MemoryMetadataValueType'] = None):
+        pulumi.set(__self__, "key", key)
+        if extraction_config is not None:
+            pulumi.set(__self__, "extraction_config", extraction_config)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter(name="extractionConfig")
+    def extraction_config(self) -> Optional['outputs.MemoryExtractionConfig']:
+        return pulumi.get(self, "extraction_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional['MemoryMetadataValueType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MemoryNumberValidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxValue":
+            suggest = "max_value"
+        elif key == "minValue":
+            suggest = "min_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemoryNumberValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemoryNumberValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemoryNumberValidation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_value: Optional[_builtins.float] = None,
+                 min_value: Optional[_builtins.float] = None):
+        if max_value is not None:
+            pulumi.set(__self__, "max_value", max_value)
+        if min_value is not None:
+            pulumi.set(__self__, "min_value", min_value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "max_value")
+
+    @_builtins.property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "min_value")
+
+
+@pulumi.output_type
+class MemoryRecordSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metadataSchema":
+            suggest = "metadata_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemoryRecordSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemoryRecordSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemoryRecordSchema.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metadata_schema: Optional[Sequence['outputs.MemoryMetadataSchemaEntry']] = None):
+        if metadata_schema is not None:
+            pulumi.set(__self__, "metadata_schema", metadata_schema)
+
+    @_builtins.property
+    @pulumi.getter(name="metadataSchema")
+    def metadata_schema(self) -> Optional[Sequence['outputs.MemoryMetadataSchemaEntry']]:
+        return pulumi.get(self, "metadata_schema")
 
 
 @pulumi.output_type
@@ -3007,6 +5377,8 @@ class MemorySemanticMemoryStrategy(dict):
         suggest = None
         if key == "createdAt":
             suggest = "created_at"
+        elif key == "memoryRecordSchema":
+            suggest = "memory_record_schema"
         elif key == "namespaceTemplates":
             suggest = "namespace_templates"
         elif key == "strategyId":
@@ -3029,6 +5401,7 @@ class MemorySemanticMemoryStrategy(dict):
                  name: _builtins.str,
                  created_at: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
+                 memory_record_schema: Optional['outputs.MemoryRecordSchema'] = None,
                  namespace_templates: Optional[Sequence[_builtins.str]] = None,
                  namespaces: Optional[Sequence[_builtins.str]] = None,
                  status: Optional['MemorySemanticMemoryStrategyStatus'] = None,
@@ -3047,6 +5420,8 @@ class MemorySemanticMemoryStrategy(dict):
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if memory_record_schema is not None:
+            pulumi.set(__self__, "memory_record_schema", memory_record_schema)
         if namespace_templates is not None:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
@@ -3077,6 +5452,11 @@ class MemorySemanticMemoryStrategy(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="memoryRecordSchema")
+    def memory_record_schema(self) -> Optional['outputs.MemoryRecordSchema']:
+        return pulumi.get(self, "memory_record_schema")
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
@@ -3314,12 +5694,83 @@ class MemoryStreamDeliveryResources(dict):
 
 
 @pulumi.output_type
+class MemoryStringListValidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedValues":
+            suggest = "allowed_values"
+        elif key == "maxItems":
+            suggest = "max_items"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemoryStringListValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemoryStringListValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemoryStringListValidation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_values: Optional[Sequence[_builtins.str]] = None,
+                 max_items: Optional[_builtins.int] = None):
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if max_items is not None:
+            pulumi.set(__self__, "max_items", max_items)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_values")
+
+    @_builtins.property
+    @pulumi.getter(name="maxItems")
+    def max_items(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_items")
+
+
+@pulumi.output_type
+class MemoryStringValidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedValues":
+            suggest = "allowed_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemoryStringValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemoryStringValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemoryStringValidation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_values: Sequence[_builtins.str]):
+        pulumi.set(__self__, "allowed_values", allowed_values)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "allowed_values")
+
+
+@pulumi.output_type
 class MemorySummaryMemoryStrategy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "createdAt":
             suggest = "created_at"
+        elif key == "memoryRecordSchema":
+            suggest = "memory_record_schema"
         elif key == "namespaceTemplates":
             suggest = "namespace_templates"
         elif key == "strategyId":
@@ -3342,6 +5793,7 @@ class MemorySummaryMemoryStrategy(dict):
                  name: _builtins.str,
                  created_at: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
+                 memory_record_schema: Optional['outputs.MemoryRecordSchema'] = None,
                  namespace_templates: Optional[Sequence[_builtins.str]] = None,
                  namespaces: Optional[Sequence[_builtins.str]] = None,
                  status: Optional['MemorySummaryMemoryStrategyStatus'] = None,
@@ -3360,6 +5812,8 @@ class MemorySummaryMemoryStrategy(dict):
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if memory_record_schema is not None:
+            pulumi.set(__self__, "memory_record_schema", memory_record_schema)
         if namespace_templates is not None:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
@@ -3390,6 +5844,11 @@ class MemorySummaryMemoryStrategy(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="memoryRecordSchema")
+    def memory_record_schema(self) -> Optional['outputs.MemoryRecordSchema']:
+        return pulumi.get(self, "memory_record_schema")
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
@@ -3602,6 +6061,8 @@ class MemoryUserPreferenceMemoryStrategy(dict):
         suggest = None
         if key == "createdAt":
             suggest = "created_at"
+        elif key == "memoryRecordSchema":
+            suggest = "memory_record_schema"
         elif key == "namespaceTemplates":
             suggest = "namespace_templates"
         elif key == "strategyId":
@@ -3624,6 +6085,7 @@ class MemoryUserPreferenceMemoryStrategy(dict):
                  name: _builtins.str,
                  created_at: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
+                 memory_record_schema: Optional['outputs.MemoryRecordSchema'] = None,
                  namespace_templates: Optional[Sequence[_builtins.str]] = None,
                  namespaces: Optional[Sequence[_builtins.str]] = None,
                  status: Optional['MemoryUserPreferenceMemoryStrategyStatus'] = None,
@@ -3642,6 +6104,8 @@ class MemoryUserPreferenceMemoryStrategy(dict):
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if memory_record_schema is not None:
+            pulumi.set(__self__, "memory_record_schema", memory_record_schema)
         if namespace_templates is not None:
             pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
@@ -3672,6 +6136,11 @@ class MemoryUserPreferenceMemoryStrategy(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="memoryRecordSchema")
+    def memory_record_schema(self) -> Optional['outputs.MemoryRecordSchema']:
+        return pulumi.get(self, "memory_record_schema")
 
     @_builtins.property
     @pulumi.getter(name="namespaceTemplates")
@@ -3814,6 +6283,56 @@ class MemoryUserPreferenceOverrideExtractionConfigurationInput(dict):
 
 
 @pulumi.output_type
+class MemoryValidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numberValidation":
+            suggest = "number_validation"
+        elif key == "stringListValidation":
+            suggest = "string_list_validation"
+        elif key == "stringValidation":
+            suggest = "string_validation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemoryValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemoryValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemoryValidation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 number_validation: Optional['outputs.MemoryNumberValidation'] = None,
+                 string_list_validation: Optional['outputs.MemoryStringListValidation'] = None,
+                 string_validation: Optional['outputs.MemoryStringValidation'] = None):
+        if number_validation is not None:
+            pulumi.set(__self__, "number_validation", number_validation)
+        if string_list_validation is not None:
+            pulumi.set(__self__, "string_list_validation", string_list_validation)
+        if string_validation is not None:
+            pulumi.set(__self__, "string_validation", string_validation)
+
+    @_builtins.property
+    @pulumi.getter(name="numberValidation")
+    def number_validation(self) -> Optional['outputs.MemoryNumberValidation']:
+        return pulumi.get(self, "number_validation")
+
+    @_builtins.property
+    @pulumi.getter(name="stringListValidation")
+    def string_list_validation(self) -> Optional['outputs.MemoryStringListValidation']:
+        return pulumi.get(self, "string_list_validation")
+
+    @_builtins.property
+    @pulumi.getter(name="stringValidation")
+    def string_validation(self) -> Optional['outputs.MemoryStringValidation']:
+        return pulumi.get(self, "string_validation")
+
+
+@pulumi.output_type
 class OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput(dict):
     """
     Input configuration for an Atlassian OAuth2 provider
@@ -3905,12 +6424,14 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clientId":
+        if key == "oauthDiscovery":
+            suggest = "oauth_discovery"
+        elif key == "clientId":
             suggest = "client_id"
         elif key == "clientSecret":
             suggest = "client_secret"
-        elif key == "oauthDiscovery":
-            suggest = "oauth_discovery"
+        elif key == "onBehalfOfTokenExchangeConfig":
+            suggest = "on_behalf_of_token_exchange_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderCustomOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
@@ -3924,22 +6445,32 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 client_id: _builtins.str,
-                 client_secret: _builtins.str,
-                 oauth_discovery: 'outputs.OAuth2CredentialProviderOauth2Discovery'):
+                 oauth_discovery: 'outputs.OAuth2CredentialProviderOauth2Discovery',
+                 client_id: Optional[_builtins.str] = None,
+                 client_secret: Optional[_builtins.str] = None,
+                 on_behalf_of_token_exchange_config: Optional['outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig'] = None):
         """
         Input configuration for a custom OAuth2 provider
 
         :param _builtins.str client_id: The client ID for the custom OAuth2 provider
         :param _builtins.str client_secret: The client secret for the custom OAuth2 provider
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
         pulumi.set(__self__, "oauth_discovery", oauth_discovery)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if on_behalf_of_token_exchange_config is not None:
+            pulumi.set(__self__, "on_behalf_of_token_exchange_config", on_behalf_of_token_exchange_config)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthDiscovery")
+    def oauth_discovery(self) -> 'outputs.OAuth2CredentialProviderOauth2Discovery':
+        return pulumi.get(self, "oauth_discovery")
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> _builtins.str:
+    def client_id(self) -> Optional[_builtins.str]:
         """
         The client ID for the custom OAuth2 provider
         """
@@ -3947,16 +6478,16 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> _builtins.str:
+    def client_secret(self) -> Optional[_builtins.str]:
         """
         The client secret for the custom OAuth2 provider
         """
         return pulumi.get(self, "client_secret")
 
     @_builtins.property
-    @pulumi.getter(name="oauthDiscovery")
-    def oauth_discovery(self) -> 'outputs.OAuth2CredentialProviderOauth2Discovery':
-        return pulumi.get(self, "oauth_discovery")
+    @pulumi.getter(name="onBehalfOfTokenExchangeConfig")
+    def on_behalf_of_token_exchange_config(self) -> Optional['outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig']:
+        return pulumi.get(self, "on_behalf_of_token_exchange_config")
 
 
 @pulumi.output_type
@@ -4492,6 +7023,8 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
             suggest = "client_id"
         elif key == "oauthDiscovery":
             suggest = "oauth_discovery"
+        elif key == "onBehalfOfTokenExchangeConfig":
+            suggest = "on_behalf_of_token_exchange_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderOauth2ProviderConfigOutput. Access the value via the '{suggest}' property getter instead.")
@@ -4506,7 +7039,8 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
 
     def __init__(__self__, *,
                  client_id: Optional[_builtins.str] = None,
-                 oauth_discovery: Optional['outputs.OAuth2CredentialProviderOauth2Discovery'] = None):
+                 oauth_discovery: Optional['outputs.OAuth2CredentialProviderOauth2Discovery'] = None,
+                 on_behalf_of_token_exchange_config: Optional['outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig'] = None):
         """
         Output configuration for an OAuth2 provider
         """
@@ -4514,6 +7048,8 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
             pulumi.set(__self__, "client_id", client_id)
         if oauth_discovery is not None:
             pulumi.set(__self__, "oauth_discovery", oauth_discovery)
+        if on_behalf_of_token_exchange_config is not None:
+            pulumi.set(__self__, "on_behalf_of_token_exchange_config", on_behalf_of_token_exchange_config)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -4524,6 +7060,61 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
     @pulumi.getter(name="oauthDiscovery")
     def oauth_discovery(self) -> Optional['outputs.OAuth2CredentialProviderOauth2Discovery']:
         return pulumi.get(self, "oauth_discovery")
+
+    @_builtins.property
+    @pulumi.getter(name="onBehalfOfTokenExchangeConfig")
+    def on_behalf_of_token_exchange_config(self) -> Optional['outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig']:
+        return pulumi.get(self, "on_behalf_of_token_exchange_config")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig(dict):
+    """
+    Configuration for on-behalf-of token exchange
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "grantType":
+            suggest = "grant_type"
+        elif key == "tokenExchangeGrantTypeConfig":
+            suggest = "token_exchange_grant_type_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 grant_type: 'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType',
+                 token_exchange_grant_type_config: Optional['outputs.OAuth2CredentialProviderTokenExchangeGrantTypeConfig'] = None):
+        """
+        Configuration for on-behalf-of token exchange
+
+        :param 'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType' grant_type: The grant type for on-behalf-of token exchange
+        """
+        pulumi.set(__self__, "grant_type", grant_type)
+        if token_exchange_grant_type_config is not None:
+            pulumi.set(__self__, "token_exchange_grant_type_config", token_exchange_grant_type_config)
+
+    @_builtins.property
+    @pulumi.getter(name="grantType")
+    def grant_type(self) -> 'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType':
+        """
+        The grant type for on-behalf-of token exchange
+        """
+        return pulumi.get(self, "grant_type")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenExchangeGrantTypeConfig")
+    def token_exchange_grant_type_config(self) -> Optional['outputs.OAuth2CredentialProviderTokenExchangeGrantTypeConfig']:
+        return pulumi.get(self, "token_exchange_grant_type_config")
 
 
 @pulumi.output_type
@@ -4612,6 +7203,60 @@ class OAuth2CredentialProviderSlackOauth2ProviderConfigInput(dict):
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> _builtins.str:
         return pulumi.get(self, "client_secret")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderTokenExchangeGrantTypeConfig(dict):
+    """
+    Configuration for RFC 8693 Token Exchange
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actorTokenContent":
+            suggest = "actor_token_content"
+        elif key == "actorTokenScopes":
+            suggest = "actor_token_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderTokenExchangeGrantTypeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderTokenExchangeGrantTypeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderTokenExchangeGrantTypeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actor_token_content: 'OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent',
+                 actor_token_scopes: Optional[Sequence[_builtins.str]] = None):
+        """
+        Configuration for RFC 8693 Token Exchange
+
+        :param 'OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent' actor_token_content: The actor token content type
+        :param Sequence[_builtins.str] actor_token_scopes: The actor token scopes. Only valid when ActorTokenContent is M2M.
+        """
+        pulumi.set(__self__, "actor_token_content", actor_token_content)
+        if actor_token_scopes is not None:
+            pulumi.set(__self__, "actor_token_scopes", actor_token_scopes)
+
+    @_builtins.property
+    @pulumi.getter(name="actorTokenContent")
+    def actor_token_content(self) -> 'OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent':
+        """
+        The actor token content type
+        """
+        return pulumi.get(self, "actor_token_content")
+
+    @_builtins.property
+    @pulumi.getter(name="actorTokenScopes")
+    def actor_token_scopes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The actor token scopes. Only valid when ActorTokenContent is M2M.
+        """
+        return pulumi.get(self, "actor_token_scopes")
 
 
 @pulumi.output_type
@@ -5065,6 +7710,414 @@ class OnlineEvaluationConfigSessionConfig(dict):
         The number of minutes of inactivity after which an agent session is considered complete.
         """
         return pulumi.get(self, "session_timeout_minutes")
+
+
+@pulumi.output_type
+class PaymentCredentialProviderCoinbaseCdpConfigurationInput(dict):
+    """
+    Coinbase CDP configuration with API credentials
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKeyId":
+            suggest = "api_key_id"
+        elif key == "apiKeySecret":
+            suggest = "api_key_secret"
+        elif key == "walletSecret":
+            suggest = "wallet_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderCoinbaseCdpConfigurationInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentCredentialProviderCoinbaseCdpConfigurationInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentCredentialProviderCoinbaseCdpConfigurationInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key_id: _builtins.str,
+                 api_key_secret: _builtins.str,
+                 wallet_secret: Optional[_builtins.str] = None):
+        """
+        Coinbase CDP configuration with API credentials
+
+        :param _builtins.str api_key_id: The Coinbase CDP API key ID
+        :param _builtins.str api_key_secret: The Coinbase CDP API key secret
+        :param _builtins.str wallet_secret: The Coinbase CDP wallet secret
+        """
+        pulumi.set(__self__, "api_key_id", api_key_id)
+        pulumi.set(__self__, "api_key_secret", api_key_secret)
+        if wallet_secret is not None:
+            pulumi.set(__self__, "wallet_secret", wallet_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyId")
+    def api_key_id(self) -> _builtins.str:
+        """
+        The Coinbase CDP API key ID
+        """
+        return pulumi.get(self, "api_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeySecret")
+    def api_key_secret(self) -> _builtins.str:
+        """
+        The Coinbase CDP API key secret
+        """
+        return pulumi.get(self, "api_key_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="walletSecret")
+    def wallet_secret(self) -> Optional[_builtins.str]:
+        """
+        The Coinbase CDP wallet secret
+        """
+        return pulumi.get(self, "wallet_secret")
+
+
+@pulumi.output_type
+class PaymentCredentialProviderCoinbaseCdpConfigurationOutput(dict):
+    """
+    Coinbase CDP configuration output with secret ARNs
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKeyId":
+            suggest = "api_key_id"
+        elif key == "apiKeySecretArn":
+            suggest = "api_key_secret_arn"
+        elif key == "walletSecretArn":
+            suggest = "wallet_secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderCoinbaseCdpConfigurationOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentCredentialProviderCoinbaseCdpConfigurationOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentCredentialProviderCoinbaseCdpConfigurationOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key_id: _builtins.str,
+                 api_key_secret_arn: 'outputs.PaymentCredentialProviderSecretInfo',
+                 wallet_secret_arn: Optional['outputs.PaymentCredentialProviderSecretInfo'] = None):
+        """
+        Coinbase CDP configuration output with secret ARNs
+
+        :param _builtins.str api_key_id: The Coinbase CDP API key ID
+        """
+        pulumi.set(__self__, "api_key_id", api_key_id)
+        pulumi.set(__self__, "api_key_secret_arn", api_key_secret_arn)
+        if wallet_secret_arn is not None:
+            pulumi.set(__self__, "wallet_secret_arn", wallet_secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyId")
+    def api_key_id(self) -> _builtins.str:
+        """
+        The Coinbase CDP API key ID
+        """
+        return pulumi.get(self, "api_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeySecretArn")
+    def api_key_secret_arn(self) -> 'outputs.PaymentCredentialProviderSecretInfo':
+        return pulumi.get(self, "api_key_secret_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="walletSecretArn")
+    def wallet_secret_arn(self) -> Optional['outputs.PaymentCredentialProviderSecretInfo']:
+        return pulumi.get(self, "wallet_secret_arn")
+
+
+@pulumi.output_type
+class PaymentCredentialProviderPaymentProviderConfigurationInput(dict):
+    """
+    Provider configuration input containing secrets for creation/update
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "coinbaseCdpConfiguration":
+            suggest = "coinbase_cdp_configuration"
+        elif key == "stripePrivyConfiguration":
+            suggest = "stripe_privy_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderPaymentProviderConfigurationInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentCredentialProviderPaymentProviderConfigurationInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentCredentialProviderPaymentProviderConfigurationInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 coinbase_cdp_configuration: Optional['outputs.PaymentCredentialProviderCoinbaseCdpConfigurationInput'] = None,
+                 stripe_privy_configuration: Optional['outputs.PaymentCredentialProviderStripePrivyConfigurationInput'] = None):
+        """
+        Provider configuration input containing secrets for creation/update
+        """
+        if coinbase_cdp_configuration is not None:
+            pulumi.set(__self__, "coinbase_cdp_configuration", coinbase_cdp_configuration)
+        if stripe_privy_configuration is not None:
+            pulumi.set(__self__, "stripe_privy_configuration", stripe_privy_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="coinbaseCdpConfiguration")
+    def coinbase_cdp_configuration(self) -> Optional['outputs.PaymentCredentialProviderCoinbaseCdpConfigurationInput']:
+        return pulumi.get(self, "coinbase_cdp_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="stripePrivyConfiguration")
+    def stripe_privy_configuration(self) -> Optional['outputs.PaymentCredentialProviderStripePrivyConfigurationInput']:
+        return pulumi.get(self, "stripe_privy_configuration")
+
+
+@pulumi.output_type
+class PaymentCredentialProviderPaymentProviderConfigurationOutput(dict):
+    """
+    Provider configuration output containing secret ARNs (no raw secrets)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "coinbaseCdpConfiguration":
+            suggest = "coinbase_cdp_configuration"
+        elif key == "stripePrivyConfiguration":
+            suggest = "stripe_privy_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderPaymentProviderConfigurationOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentCredentialProviderPaymentProviderConfigurationOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentCredentialProviderPaymentProviderConfigurationOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 coinbase_cdp_configuration: Optional['outputs.PaymentCredentialProviderCoinbaseCdpConfigurationOutput'] = None,
+                 stripe_privy_configuration: Optional['outputs.PaymentCredentialProviderStripePrivyConfigurationOutput'] = None):
+        """
+        Provider configuration output containing secret ARNs (no raw secrets)
+        """
+        if coinbase_cdp_configuration is not None:
+            pulumi.set(__self__, "coinbase_cdp_configuration", coinbase_cdp_configuration)
+        if stripe_privy_configuration is not None:
+            pulumi.set(__self__, "stripe_privy_configuration", stripe_privy_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="coinbaseCdpConfiguration")
+    def coinbase_cdp_configuration(self) -> Optional['outputs.PaymentCredentialProviderCoinbaseCdpConfigurationOutput']:
+        return pulumi.get(self, "coinbase_cdp_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="stripePrivyConfiguration")
+    def stripe_privy_configuration(self) -> Optional['outputs.PaymentCredentialProviderStripePrivyConfigurationOutput']:
+        return pulumi.get(self, "stripe_privy_configuration")
+
+
+@pulumi.output_type
+class PaymentCredentialProviderSecretInfo(dict):
+    """
+    Contains information about a secret in AWS Secrets Manager
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderSecretInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentCredentialProviderSecretInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentCredentialProviderSecretInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_arn: _builtins.str):
+        """
+        Contains information about a secret in AWS Secrets Manager
+
+        :param _builtins.str secret_arn: The ARN of the secret in AWS Secrets Manager
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        The ARN of the secret in AWS Secrets Manager
+        """
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class PaymentCredentialProviderStripePrivyConfigurationInput(dict):
+    """
+    Stripe Privy configuration with credentials
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appId":
+            suggest = "app_id"
+        elif key == "appSecret":
+            suggest = "app_secret"
+        elif key == "authorizationId":
+            suggest = "authorization_id"
+        elif key == "authorizationPrivateKey":
+            suggest = "authorization_private_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderStripePrivyConfigurationInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentCredentialProviderStripePrivyConfigurationInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentCredentialProviderStripePrivyConfigurationInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_id: _builtins.str,
+                 app_secret: _builtins.str,
+                 authorization_id: _builtins.str,
+                 authorization_private_key: _builtins.str):
+        """
+        Stripe Privy configuration with credentials
+
+        :param _builtins.str app_id: The app ID provided by Privy
+        :param _builtins.str app_secret: The app secret provided by Privy
+        :param _builtins.str authorization_id: The authorization ID for the Stripe Privy integration
+        :param _builtins.str authorization_private_key: The authorization private key for the Stripe Privy integration
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "app_secret", app_secret)
+        pulumi.set(__self__, "authorization_id", authorization_id)
+        pulumi.set(__self__, "authorization_private_key", authorization_private_key)
+
+    @_builtins.property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> _builtins.str:
+        """
+        The app ID provided by Privy
+        """
+        return pulumi.get(self, "app_id")
+
+    @_builtins.property
+    @pulumi.getter(name="appSecret")
+    def app_secret(self) -> _builtins.str:
+        """
+        The app secret provided by Privy
+        """
+        return pulumi.get(self, "app_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationId")
+    def authorization_id(self) -> _builtins.str:
+        """
+        The authorization ID for the Stripe Privy integration
+        """
+        return pulumi.get(self, "authorization_id")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationPrivateKey")
+    def authorization_private_key(self) -> _builtins.str:
+        """
+        The authorization private key for the Stripe Privy integration
+        """
+        return pulumi.get(self, "authorization_private_key")
+
+
+@pulumi.output_type
+class PaymentCredentialProviderStripePrivyConfigurationOutput(dict):
+    """
+    Stripe Privy configuration output with secret ARNs
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appId":
+            suggest = "app_id"
+        elif key == "appSecretArn":
+            suggest = "app_secret_arn"
+        elif key == "authorizationId":
+            suggest = "authorization_id"
+        elif key == "authorizationPrivateKeyArn":
+            suggest = "authorization_private_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderStripePrivyConfigurationOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentCredentialProviderStripePrivyConfigurationOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentCredentialProviderStripePrivyConfigurationOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_id: _builtins.str,
+                 app_secret_arn: 'outputs.PaymentCredentialProviderSecretInfo',
+                 authorization_id: _builtins.str,
+                 authorization_private_key_arn: 'outputs.PaymentCredentialProviderSecretInfo'):
+        """
+        Stripe Privy configuration output with secret ARNs
+
+        :param _builtins.str app_id: The app ID provided by Privy
+        :param _builtins.str authorization_id: The authorization ID for the Stripe Privy integration
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "app_secret_arn", app_secret_arn)
+        pulumi.set(__self__, "authorization_id", authorization_id)
+        pulumi.set(__self__, "authorization_private_key_arn", authorization_private_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> _builtins.str:
+        """
+        The app ID provided by Privy
+        """
+        return pulumi.get(self, "app_id")
+
+    @_builtins.property
+    @pulumi.getter(name="appSecretArn")
+    def app_secret_arn(self) -> 'outputs.PaymentCredentialProviderSecretInfo':
+        return pulumi.get(self, "app_secret_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationId")
+    def authorization_id(self) -> _builtins.str:
+        """
+        The authorization ID for the Stripe Privy integration
+        """
+        return pulumi.get(self, "authorization_id")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationPrivateKeyArn")
+    def authorization_private_key_arn(self) -> 'outputs.PaymentCredentialProviderSecretInfo':
+        return pulumi.get(self, "authorization_private_key_arn")
 
 
 @pulumi.output_type
@@ -5530,6 +8583,50 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
 
 
 @pulumi.output_type
+class RuntimeEfsAccessPointConfiguration(dict):
+    """
+    Configuration for EFS access point filesystem
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPointArn":
+            suggest = "access_point_arn"
+        elif key == "mountPath":
+            suggest = "mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeEfsAccessPointConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeEfsAccessPointConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeEfsAccessPointConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_point_arn: _builtins.str,
+                 mount_path: _builtins.str):
+        """
+        Configuration for EFS access point filesystem
+        """
+        pulumi.set(__self__, "access_point_arn", access_point_arn)
+        pulumi.set(__self__, "mount_path", mount_path)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> _builtins.str:
+        return pulumi.get(self, "access_point_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> _builtins.str:
+        return pulumi.get(self, "mount_path")
+
+
+@pulumi.output_type
 class RuntimeFilesystemConfiguration(dict):
     """
     Filesystem configuration for the runtime
@@ -5537,7 +8634,11 @@ class RuntimeFilesystemConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sessionStorage":
+        if key == "efsAccessPoint":
+            suggest = "efs_access_point"
+        elif key == "s3FilesAccessPoint":
+            suggest = "s3_files_access_point"
+        elif key == "sessionStorage":
             suggest = "session_storage"
 
         if suggest:
@@ -5552,12 +8653,28 @@ class RuntimeFilesystemConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 efs_access_point: Optional['outputs.RuntimeEfsAccessPointConfiguration'] = None,
+                 s3_files_access_point: Optional['outputs.RuntimeS3FilesAccessPointConfiguration'] = None,
                  session_storage: Optional['outputs.RuntimeSessionStorageConfiguration'] = None):
         """
         Filesystem configuration for the runtime
         """
+        if efs_access_point is not None:
+            pulumi.set(__self__, "efs_access_point", efs_access_point)
+        if s3_files_access_point is not None:
+            pulumi.set(__self__, "s3_files_access_point", s3_files_access_point)
         if session_storage is not None:
             pulumi.set(__self__, "session_storage", session_storage)
+
+    @_builtins.property
+    @pulumi.getter(name="efsAccessPoint")
+    def efs_access_point(self) -> Optional['outputs.RuntimeEfsAccessPointConfiguration']:
+        return pulumi.get(self, "efs_access_point")
+
+    @_builtins.property
+    @pulumi.getter(name="s3FilesAccessPoint")
+    def s3_files_access_point(self) -> Optional['outputs.RuntimeS3FilesAccessPointConfiguration']:
+        return pulumi.get(self, "s3_files_access_point")
 
     @_builtins.property
     @pulumi.getter(name="sessionStorage")
@@ -5699,6 +8816,50 @@ class RuntimeRequestHeaderConfiguration(dict):
     @pulumi.getter(name="requestHeaderAllowlist")
     def request_header_allowlist(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "request_header_allowlist")
+
+
+@pulumi.output_type
+class RuntimeS3FilesAccessPointConfiguration(dict):
+    """
+    Configuration for S3 Files access point filesystem
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPointArn":
+            suggest = "access_point_arn"
+        elif key == "mountPath":
+            suggest = "mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeS3FilesAccessPointConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeS3FilesAccessPointConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeS3FilesAccessPointConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_point_arn: _builtins.str,
+                 mount_path: _builtins.str):
+        """
+        Configuration for S3 Files access point filesystem
+        """
+        pulumi.set(__self__, "access_point_arn", access_point_arn)
+        pulumi.set(__self__, "mount_path", mount_path)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> _builtins.str:
+        return pulumi.get(self, "access_point_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> _builtins.str:
+        return pulumi.get(self, "mount_path")
 
 
 @pulumi.output_type

@@ -30,6 +30,10 @@ export interface GetReplicatorResult {
      */
     readonly currentVersion?: string;
     /**
+     * Configuration for log delivery for the replicator.
+     */
+    readonly logDelivery?: outputs.msk.LogDelivery;
+    /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      */
     readonly replicationInfoList?: outputs.msk.ReplicatorReplicationInfo[];

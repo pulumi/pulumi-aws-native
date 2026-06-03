@@ -36,6 +36,8 @@ type LookupGroupProfileResult struct {
 	GroupName *string `pulumi:"groupName"`
 	// The ID of the Amazon DataZone group profile.
 	Id *string `pulumi:"id"`
+	// The ID of the role principal for the group profile.
+	RolePrincipalId *string `pulumi:"rolePrincipalId"`
 	// The status of a group profile.
 	Status *GroupProfileStatus `pulumi:"status"`
 }
@@ -87,6 +89,11 @@ func (o LookupGroupProfileResultOutput) GroupName() pulumi.StringPtrOutput {
 // The ID of the Amazon DataZone group profile.
 func (o LookupGroupProfileResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGroupProfileResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the role principal for the group profile.
+func (o LookupGroupProfileResultOutput) RolePrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGroupProfileResult) *string { return v.RolePrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The status of a group profile.

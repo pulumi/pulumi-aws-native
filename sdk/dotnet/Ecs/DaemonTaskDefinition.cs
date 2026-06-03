@@ -10,38 +10,56 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs
 {
     /// <summary>
-    /// Resource Schema describing various properties for ECS DaemonTaskDefinition
+    /// The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
     /// </summary>
     [AwsNativeResourceType("aws-native:ecs:DaemonTaskDefinition")]
     public partial class DaemonTaskDefinition : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A list of container definitions in JSON format that describe the containers that make up the daemon task.
+        /// </summary>
         [Output("containerDefinitions")]
         public Output<ImmutableArray<Outputs.DaemonTaskDefinitionDaemonContainerDefinition>> ContainerDefinitions { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of CPU units used by the daemon task.
+        /// </summary>
         [Output("cpu")]
         public Output<string?> Cpu { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
-        /// </summary>
         [Output("daemonTaskDefinitionArn")]
         public Output<string> DaemonTaskDefinitionArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
+        /// </summary>
         [Output("executionRoleArn")]
         public Output<string?> ExecutionRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of a family that this daemon task definition is registered to.
+        /// </summary>
         [Output("family")]
         public Output<string?> Family { get; private set; } = null!;
 
+        /// <summary>
+        /// The amount of memory (in MiB) used by the daemon task.
+        /// </summary>
         [Output("memory")]
         public Output<string?> Memory { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
+        /// </summary>
         [Output("taskRoleArn")]
         public Output<string?> TaskRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of data volume definitions for the daemon task.
+        /// </summary>
         [Output("volumes")]
         public Output<ImmutableArray<Outputs.DaemonTaskDefinitionVolume>> Volumes { get; private set; } = null!;
 
@@ -102,21 +120,37 @@ namespace Pulumi.AwsNative.Ecs
     {
         [Input("containerDefinitions")]
         private InputList<Inputs.DaemonTaskDefinitionDaemonContainerDefinitionArgs>? _containerDefinitions;
+
+        /// <summary>
+        /// A list of container definitions in JSON format that describe the containers that make up the daemon task.
+        /// </summary>
         public InputList<Inputs.DaemonTaskDefinitionDaemonContainerDefinitionArgs> ContainerDefinitions
         {
             get => _containerDefinitions ?? (_containerDefinitions = new InputList<Inputs.DaemonTaskDefinitionDaemonContainerDefinitionArgs>());
             set => _containerDefinitions = value;
         }
 
+        /// <summary>
+        /// The number of CPU units used by the daemon task.
+        /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
+        /// </summary>
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 
+        /// <summary>
+        /// The name of a family that this daemon task definition is registered to.
+        /// </summary>
         [Input("family")]
         public Input<string>? Family { get; set; }
 
+        /// <summary>
+        /// The amount of memory (in MiB) used by the daemon task.
+        /// </summary>
         [Input("memory")]
         public Input<string>? Memory { get; set; }
 
@@ -128,11 +162,18 @@ namespace Pulumi.AwsNative.Ecs
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
+        /// </summary>
         [Input("taskRoleArn")]
         public Input<string>? TaskRoleArn { get; set; }
 
         [Input("volumes")]
         private InputList<Inputs.DaemonTaskDefinitionVolumeArgs>? _volumes;
+
+        /// <summary>
+        /// The list of data volume definitions for the daemon task.
+        /// </summary>
         public InputList<Inputs.DaemonTaskDefinitionVolumeArgs> Volumes
         {
             get => _volumes ?? (_volumes = new InputList<Inputs.DaemonTaskDefinitionVolumeArgs>());

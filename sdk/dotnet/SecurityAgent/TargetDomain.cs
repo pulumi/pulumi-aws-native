@@ -55,6 +55,12 @@ namespace Pulumi.AwsNative.SecurityAgent
         public Output<Pulumi.AwsNative.SecurityAgent.TargetDomainVerificationStatus> VerificationStatus { get; private set; } = null!;
 
         /// <summary>
+        /// Reason for the current target domain verification status
+        /// </summary>
+        [Output("verificationStatusReason")]
+        public Output<string> VerificationStatusReason { get; private set; } = null!;
+
+        /// <summary>
         /// Timestamp when the target domain was last successfully verified
         /// </summary>
         [Output("verifiedAt")]

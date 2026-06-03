@@ -31,6 +31,7 @@ class InfluxDbInstanceArgs:
                  db_storage_type: Optional[pulumi.Input['InfluxDbInstanceDbStorageType']] = None,
                  deployment_type: Optional[pulumi.Input['InfluxDbInstanceDeploymentType']] = None,
                  log_delivery_configuration: Optional[pulumi.Input['LogDeliveryConfigurationPropertiesArgs']] = None,
+                 maintenance_schedule: Optional[pulumi.Input['InfluxDbInstanceMaintenanceScheduleArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_type: Optional[pulumi.Input['InfluxDbInstanceNetworkType']] = None,
                  organization: Optional[pulumi.Input[_builtins.str]] = None,
@@ -51,6 +52,7 @@ class InfluxDbInstanceArgs:
         :param pulumi.Input['InfluxDbInstanceDbStorageType'] db_storage_type: The storage type of the InfluxDB instance.
         :param pulumi.Input['InfluxDbInstanceDeploymentType'] deployment_type: Deployment type of the InfluxDB Instance.
         :param pulumi.Input['LogDeliveryConfigurationPropertiesArgs'] log_delivery_configuration: Configuration for sending logs to customer account from the InfluxDB instance.
+        :param pulumi.Input['InfluxDbInstanceMaintenanceScheduleArgs'] maintenance_schedule: The maintenance schedule for the InfluxDB instance.
         :param pulumi.Input[_builtins.str] name: The unique name that is associated with the InfluxDB instance.
         :param pulumi.Input['InfluxDbInstanceNetworkType'] network_type: Network type of the InfluxDB Instance.
         :param pulumi.Input[_builtins.str] organization: The organization for the InfluxDB instance.
@@ -76,6 +78,8 @@ class InfluxDbInstanceArgs:
             pulumi.set(__self__, "deployment_type", deployment_type)
         if log_delivery_configuration is not None:
             pulumi.set(__self__, "log_delivery_configuration", log_delivery_configuration)
+        if maintenance_schedule is not None:
+            pulumi.set(__self__, "maintenance_schedule", maintenance_schedule)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_type is not None:
@@ -180,6 +184,18 @@ class InfluxDbInstanceArgs:
     @log_delivery_configuration.setter
     def log_delivery_configuration(self, value: Optional[pulumi.Input['LogDeliveryConfigurationPropertiesArgs']]):
         pulumi.set(self, "log_delivery_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceSchedule")
+    def maintenance_schedule(self) -> Optional[pulumi.Input['InfluxDbInstanceMaintenanceScheduleArgs']]:
+        """
+        The maintenance schedule for the InfluxDB instance.
+        """
+        return pulumi.get(self, "maintenance_schedule")
+
+    @maintenance_schedule.setter
+    def maintenance_schedule(self, value: Optional[pulumi.Input['InfluxDbInstanceMaintenanceScheduleArgs']]):
+        pulumi.set(self, "maintenance_schedule", value)
 
     @_builtins.property
     @pulumi.getter
@@ -315,6 +331,7 @@ class InfluxDbInstance(pulumi.CustomResource):
                  db_storage_type: Optional[pulumi.Input['InfluxDbInstanceDbStorageType']] = None,
                  deployment_type: Optional[pulumi.Input['InfluxDbInstanceDeploymentType']] = None,
                  log_delivery_configuration: Optional[pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']]] = None,
+                 maintenance_schedule: Optional[pulumi.Input[Union['InfluxDbInstanceMaintenanceScheduleArgs', 'InfluxDbInstanceMaintenanceScheduleArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_type: Optional[pulumi.Input['InfluxDbInstanceNetworkType']] = None,
                  organization: Optional[pulumi.Input[_builtins.str]] = None,
@@ -339,6 +356,7 @@ class InfluxDbInstance(pulumi.CustomResource):
         :param pulumi.Input['InfluxDbInstanceDbStorageType'] db_storage_type: The storage type of the InfluxDB instance.
         :param pulumi.Input['InfluxDbInstanceDeploymentType'] deployment_type: Deployment type of the InfluxDB Instance.
         :param pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']] log_delivery_configuration: Configuration for sending logs to customer account from the InfluxDB instance.
+        :param pulumi.Input[Union['InfluxDbInstanceMaintenanceScheduleArgs', 'InfluxDbInstanceMaintenanceScheduleArgsDict']] maintenance_schedule: The maintenance schedule for the InfluxDB instance.
         :param pulumi.Input[_builtins.str] name: The unique name that is associated with the InfluxDB instance.
         :param pulumi.Input['InfluxDbInstanceNetworkType'] network_type: Network type of the InfluxDB Instance.
         :param pulumi.Input[_builtins.str] organization: The organization for the InfluxDB instance.
@@ -382,6 +400,7 @@ class InfluxDbInstance(pulumi.CustomResource):
                  db_storage_type: Optional[pulumi.Input['InfluxDbInstanceDbStorageType']] = None,
                  deployment_type: Optional[pulumi.Input['InfluxDbInstanceDeploymentType']] = None,
                  log_delivery_configuration: Optional[pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']]] = None,
+                 maintenance_schedule: Optional[pulumi.Input[Union['InfluxDbInstanceMaintenanceScheduleArgs', 'InfluxDbInstanceMaintenanceScheduleArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_type: Optional[pulumi.Input['InfluxDbInstanceNetworkType']] = None,
                  organization: Optional[pulumi.Input[_builtins.str]] = None,
@@ -408,6 +427,7 @@ class InfluxDbInstance(pulumi.CustomResource):
             __props__.__dict__["db_storage_type"] = db_storage_type
             __props__.__dict__["deployment_type"] = deployment_type
             __props__.__dict__["log_delivery_configuration"] = log_delivery_configuration
+            __props__.__dict__["maintenance_schedule"] = maintenance_schedule
             __props__.__dict__["name"] = name
             __props__.__dict__["network_type"] = network_type
             __props__.__dict__["organization"] = organization
@@ -423,6 +443,7 @@ class InfluxDbInstance(pulumi.CustomResource):
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["influx_auth_parameters_secret_arn"] = None
+            __props__.__dict__["next_maintenance_time"] = None
             __props__.__dict__["secondary_availability_zone"] = None
             __props__.__dict__["status"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucket", "name", "networkType", "organization", "password", "publiclyAccessible", "username", "vpcSecurityGroupIds[*]", "vpcSubnetIds[*]"])
@@ -461,8 +482,10 @@ class InfluxDbInstance(pulumi.CustomResource):
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["influx_auth_parameters_secret_arn"] = None
         __props__.__dict__["log_delivery_configuration"] = None
+        __props__.__dict__["maintenance_schedule"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_type"] = None
+        __props__.__dict__["next_maintenance_time"] = None
         __props__.__dict__["organization"] = None
         __props__.__dict__["password"] = None
         __props__.__dict__["port"] = None
@@ -572,6 +595,14 @@ class InfluxDbInstance(pulumi.CustomResource):
         return pulumi.get(self, "log_delivery_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="maintenanceSchedule")
+    def maintenance_schedule(self) -> pulumi.Output[Optional['outputs.InfluxDbInstanceMaintenanceSchedule']]:
+        """
+        The maintenance schedule for the InfluxDB instance.
+        """
+        return pulumi.get(self, "maintenance_schedule")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -586,6 +617,14 @@ class InfluxDbInstance(pulumi.CustomResource):
         Network type of the InfluxDB Instance.
         """
         return pulumi.get(self, "network_type")
+
+    @_builtins.property
+    @pulumi.getter(name="nextMaintenanceTime")
+    def next_maintenance_time(self) -> pulumi.Output[_builtins.str]:
+        """
+        The timestamp of the next scheduled maintenance event.
+        """
+        return pulumi.get(self, "next_maintenance_time")
 
     @_builtins.property
     @pulumi.getter

@@ -33,6 +33,7 @@ __all__ = [
     'ContinuousDeploymentPolicySingleWeightConfig',
     'ContinuousDeploymentPolicyTrafficConfig',
     'DistributionCacheBehavior',
+    'DistributionCacheTagConfig',
     'DistributionConfig',
     'DistributionConfigTenantConfigProperties',
     'DistributionConnectionFunctionAssociation',
@@ -1440,6 +1441,46 @@ class DistributionCacheBehavior(dict):
 
 
 @pulumi.output_type
+class DistributionCacheTagConfig(dict):
+    """
+    A complex type that specifies the HTTP header name from which CloudFront extracts cache tags from origin responses. When you add ``CacheTagConfig`` to a distribution, CloudFront reads the specified header from origin responses, parses the comma-separated tag values, and stores them with the cached object. You can then invalidate cached objects by tag using the ``CreateInvalidation`` API.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionCacheTagConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionCacheTagConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionCacheTagConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_name: _builtins.str):
+        """
+        A complex type that specifies the HTTP header name from which CloudFront extracts cache tags from origin responses. When you add ``CacheTagConfig`` to a distribution, CloudFront reads the specified header from origin responses, parses the comma-separated tag values, and stores them with the cached object. You can then invalidate cached objects by tag using the ``CreateInvalidation`` API.
+
+        :param _builtins.str header_name: The name of the HTTP header that your origin includes in responses. CloudFront uses this header to extract cache tags. The header value must contain comma-separated tag values (for example, ``product:electronics, category:tv, brand:example``).
+        """
+        pulumi.set(__self__, "header_name", header_name)
+
+    @_builtins.property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> _builtins.str:
+        """
+        The name of the HTTP header that your origin includes in responses. CloudFront uses this header to extract cache tags. The header value must contain comma-separated tag values (for example, ``product:electronics, category:tv, brand:example``).
+        """
+        return pulumi.get(self, "header_name")
+
+
+@pulumi.output_type
 class DistributionConfig(dict):
     """
     A distribution configuration.
@@ -1453,6 +1494,8 @@ class DistributionConfig(dict):
             suggest = "anycast_ip_list_id"
         elif key == "cacheBehaviors":
             suggest = "cache_behaviors"
+        elif key == "cacheTagConfig":
+            suggest = "cache_tag_config"
         elif key == "connectionFunctionAssociation":
             suggest = "connection_function_association"
         elif key == "connectionMode":
@@ -1501,6 +1544,7 @@ class DistributionConfig(dict):
                  aliases: Optional[Sequence[_builtins.str]] = None,
                  anycast_ip_list_id: Optional[_builtins.str] = None,
                  cache_behaviors: Optional[Sequence['outputs.DistributionCacheBehavior']] = None,
+                 cache_tag_config: Optional['outputs.DistributionCacheTagConfig'] = None,
                  cnames: Optional[Sequence[_builtins.str]] = None,
                  comment: Optional[_builtins.str] = None,
                  connection_function_association: Optional['outputs.DistributionConnectionFunctionAssociation'] = None,
@@ -1532,6 +1576,9 @@ class DistributionConfig(dict):
         :param _builtins.str anycast_ip_list_id: To use this field for a multi-tenant distribution, use a connection group instead. For more information, see [ConnectionGroup](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html).
                  ID of the Anycast static IP list that is associated with the distribution.
         :param Sequence['DistributionCacheBehavior'] cache_behaviors: A complex type that contains zero or more ``CacheBehavior`` elements.
+        :param 'DistributionCacheTagConfig' cache_tag_config: Configuration for cache tag extraction from origin responses. When specified, CloudFront reads the header named in ``HeaderName`` from origin responses and stores the comma-separated values as cache tags on the object.
+                Distributions without ``CacheTagConfig`` do not extract tags. When ``CacheTagConfig`` is removed from a distribution via ``UpdateDistribution``, CloudFront stops extracting tags from origin responses.
+                 Changing the ``HeaderName`` on an existing distribution does not retroactively affect previously cached objects. Tag-based invalidations will not apply to objects already cached using a previous header. To ensure tag invalidations function after updating the header name, use path-based invalidations to recache all objects that use cache tags.
         :param Sequence[_builtins.str] cnames: An alias for the CF distribution's domain name.
                  This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
         :param _builtins.str comment: A comment to describe the distribution. The comment cannot be longer than 128 characters.
@@ -1595,6 +1642,8 @@ class DistributionConfig(dict):
             pulumi.set(__self__, "anycast_ip_list_id", anycast_ip_list_id)
         if cache_behaviors is not None:
             pulumi.set(__self__, "cache_behaviors", cache_behaviors)
+        if cache_tag_config is not None:
+            pulumi.set(__self__, "cache_tag_config", cache_tag_config)
         if cnames is not None:
             pulumi.set(__self__, "cnames", cnames)
         if comment is not None:
@@ -1679,6 +1728,16 @@ class DistributionConfig(dict):
         A complex type that contains zero or more ``CacheBehavior`` elements.
         """
         return pulumi.get(self, "cache_behaviors")
+
+    @_builtins.property
+    @pulumi.getter(name="cacheTagConfig")
+    def cache_tag_config(self) -> Optional['outputs.DistributionCacheTagConfig']:
+        """
+        Configuration for cache tag extraction from origin responses. When specified, CloudFront reads the header named in ``HeaderName`` from origin responses and stores the comma-separated values as cache tags on the object.
+         Distributions without ``CacheTagConfig`` do not extract tags. When ``CacheTagConfig`` is removed from a distribution via ``UpdateDistribution``, CloudFront stops extracting tags from origin responses.
+          Changing the ``HeaderName`` on an existing distribution does not retroactively affect previously cached objects. Tag-based invalidations will not apply to objects already cached using a previous header. To ensure tag invalidations function after updating the header name, use path-based invalidations to recache all objects that use cache tags.
+        """
+        return pulumi.get(self, "cache_tag_config")
 
     @_builtins.property
     @pulumi.getter
@@ -3125,7 +3184,7 @@ class DistributionLegacyS3Origin(dict):
 
         :param _builtins.str dns_name: The domain name assigned to your CF distribution.
         :param _builtins.str origin_access_identity: The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
-                 This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+                 This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-originaccesscontrol.html) instead.
         """
         pulumi.set(__self__, "dns_name", dns_name)
         if origin_access_identity is not None:
@@ -3144,7 +3203,7 @@ class DistributionLegacyS3Origin(dict):
     def origin_access_identity(self) -> Optional[_builtins.str]:
         """
         The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
-          This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+          This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-originaccesscontrol.html) instead.
         """
         return pulumi.get(self, "origin_access_identity")
 

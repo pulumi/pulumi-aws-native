@@ -55,7 +55,6 @@ namespace Pulumi.AwsNative.BcmDataExports
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "export.dataQuery.tableConfigurations.*",
                     "export.name",
                     "export.refreshCadence",
                 },

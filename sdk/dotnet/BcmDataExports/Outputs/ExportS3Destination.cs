@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.BcmDataExports.Outputs
         /// The name of the Amazon S3 bucket used as the destination of a data export file.
         /// </summary>
         public readonly string S3Bucket;
+        public readonly string? S3BucketOwner;
         /// <summary>
         /// The output configuration for the data export.
         /// </summary>
@@ -34,6 +35,8 @@ namespace Pulumi.AwsNative.BcmDataExports.Outputs
         private ExportS3Destination(
             string s3Bucket,
 
+            string? s3BucketOwner,
+
             Outputs.ExportS3OutputConfigurations s3OutputConfigurations,
 
             string s3Prefix,
@@ -41,6 +44,7 @@ namespace Pulumi.AwsNative.BcmDataExports.Outputs
             string s3Region)
         {
             S3Bucket = s3Bucket;
+            S3BucketOwner = s3BucketOwner;
             S3OutputConfigurations = s3OutputConfigurations;
             S3Prefix = s3Prefix;
             S3Region = s3Region;

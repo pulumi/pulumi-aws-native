@@ -48862,6 +48862,7 @@ const (
 	DataSourceTypeDb2as400                     = DataSourceType("DB2_AS400")
 	DataSourceTypeExasol                       = DataSourceType("EXASOL")
 	DataSourceTypeFile                         = DataSourceType("FILE")
+	DataSourceTypeFullyManagedKnowledgeBase    = DataSourceType("FULLY_MANAGED_KNOWLEDGE_BASE")
 	DataSourceTypeGithub                       = DataSourceType("GITHUB")
 	DataSourceTypeInternationalDataCorporation = DataSourceType("INTERNATIONAL_DATA_CORPORATION")
 	DataSourceTypeJira                         = DataSourceType("JIRA")
@@ -48900,6 +48901,7 @@ const (
 	DataSourceTypeOneDrive                     = DataSourceType("ONE_DRIVE")
 	DataSourceTypeWebCrawler                   = DataSourceType("WEB_CRAWLER")
 	DataSourceTypeBox                          = DataSourceType("BOX")
+	DataSourceTypeGooglesheets                 = DataSourceType("GOOGLESHEETS")
 )
 
 func (DataSourceType) ElementType() reflect.Type {
@@ -49039,6 +49041,7 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 //	DataSourceTypeDb2as400
 //	DataSourceTypeExasol
 //	DataSourceTypeFile
+//	DataSourceTypeFullyManagedKnowledgeBase
 //	DataSourceTypeGithub
 //	DataSourceTypeInternationalDataCorporation
 //	DataSourceTypeJira
@@ -49077,6 +49080,7 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 //	DataSourceTypeOneDrive
 //	DataSourceTypeWebCrawler
 //	DataSourceTypeBox
+//	DataSourceTypeGooglesheets
 type DataSourceTypeInput interface {
 	pulumi.Input
 

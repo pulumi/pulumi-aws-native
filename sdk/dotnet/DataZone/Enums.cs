@@ -403,6 +403,37 @@ namespace Pulumi.AwsNative.DataZone
     }
 
     /// <summary>
+    /// The type of the group.
+    /// </summary>
+    [EnumType]
+    public readonly struct GroupProfileGroupType : IEquatable<GroupProfileGroupType>
+    {
+        private readonly string _value;
+
+        private GroupProfileGroupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GroupProfileGroupType DatazoneSsoGroup { get; } = new GroupProfileGroupType("DATAZONE_SSO_GROUP");
+        public static GroupProfileGroupType IamRoleSessionGroup { get; } = new GroupProfileGroupType("IAM_ROLE_SESSION_GROUP");
+
+        public static bool operator ==(GroupProfileGroupType left, GroupProfileGroupType right) => left.Equals(right);
+        public static bool operator !=(GroupProfileGroupType left, GroupProfileGroupType right) => !left.Equals(right);
+
+        public static explicit operator string(GroupProfileGroupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GroupProfileGroupType other && Equals(other);
+        public bool Equals(GroupProfileGroupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the group profile.
     /// </summary>
     [EnumType]
@@ -766,6 +797,34 @@ namespace Pulumi.AwsNative.DataZone
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ProjectUserDesignation : IEquatable<ProjectUserDesignation>
+    {
+        private readonly string _value;
+
+        private ProjectUserDesignation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProjectUserDesignation ProjectOwner { get; } = new ProjectUserDesignation("PROJECT_OWNER");
+        public static ProjectUserDesignation ProjectContributor { get; } = new ProjectUserDesignation("PROJECT_CONTRIBUTOR");
+
+        public static bool operator ==(ProjectUserDesignation left, ProjectUserDesignation right) => left.Equals(right);
+        public static bool operator !=(ProjectUserDesignation left, ProjectUserDesignation right) => !left.Equals(right);
+
+        public static explicit operator string(ProjectUserDesignation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProjectUserDesignation other && Equals(other);
+        public bool Equals(ProjectUserDesignation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The status of the user profile.
     /// </summary>
@@ -846,6 +905,7 @@ namespace Pulumi.AwsNative.DataZone
         public static UserProfileUserType IamUser { get; } = new UserProfileUserType("IAM_USER");
         public static UserProfileUserType IamRole { get; } = new UserProfileUserType("IAM_ROLE");
         public static UserProfileUserType SsoUser { get; } = new UserProfileUserType("SSO_USER");
+        public static UserProfileUserType IamRoleSession { get; } = new UserProfileUserType("IAM_ROLE_SESSION");
 
         public static bool operator ==(UserProfileUserType left, UserProfileUserType right) => left.Equals(right);
         public static bool operator !=(UserProfileUserType left, UserProfileUserType right) => !left.Equals(right);

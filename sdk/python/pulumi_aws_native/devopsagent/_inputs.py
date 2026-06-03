@@ -24,6 +24,8 @@ __all__ = [
     'AgentSpaceOperatorAppArgsDict',
     'AssociationServiceConfigurationArgs',
     'AssociationServiceConfigurationArgsDict',
+    'PrivateConnectionConnectionConfigurationArgs',
+    'PrivateConnectionConnectionConfigurationArgsDict',
     'ServiceDetailsArgs',
     'ServiceDetailsArgsDict',
 ]
@@ -191,9 +193,24 @@ class AssociationServiceConfigurationArgs:
         pass
 
 
+class PrivateConnectionConnectionConfigurationArgsDict(TypedDict):
+    """
+    The connection configuration, either SelfManaged or ServiceManaged.
+    """
+    pass
+
+@pulumi.input_type
+class PrivateConnectionConnectionConfigurationArgs:
+    def __init__(__self__):
+        """
+        The connection configuration, either SelfManaged or ServiceManaged.
+        """
+        pass
+
+
 class ServiceDetailsArgsDict(TypedDict):
     """
-    Service-specific configuration details
+    Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
     """
     pass
 
@@ -201,7 +218,7 @@ class ServiceDetailsArgsDict(TypedDict):
 class ServiceDetailsArgs:
     def __init__(__self__):
         """
-        Service-specific configuration details
+        Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
         """
         pass
 

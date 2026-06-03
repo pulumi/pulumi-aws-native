@@ -92,6 +92,10 @@ namespace Pulumi.AwsNative.Organizations
         /// </summary>
         public readonly ImmutableArray<string> ParentIds;
         /// <summary>
+        /// The paths in the organization where the account exists.
+        /// </summary>
+        public readonly ImmutableArray<string> Paths;
+        /// <summary>
         /// The state of the account in the organization.
         /// </summary>
         public readonly Pulumi.AwsNative.Organizations.AccountState? State;
@@ -120,6 +124,8 @@ namespace Pulumi.AwsNative.Organizations
 
             ImmutableArray<string> parentIds,
 
+            ImmutableArray<string> paths,
+
             Pulumi.AwsNative.Organizations.AccountState? state,
 
             Pulumi.AwsNative.Organizations.AccountStatus? status,
@@ -133,6 +139,7 @@ namespace Pulumi.AwsNative.Organizations
             JoinedMethod = joinedMethod;
             JoinedTimestamp = joinedTimestamp;
             ParentIds = parentIds;
+            Paths = paths;
             State = state;
             Status = status;
             Tags = tags;

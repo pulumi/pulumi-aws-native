@@ -38,6 +38,10 @@ export class OrganizationTelemetryRule extends pulumi.CustomResource {
     }
 
     /**
+     * Per-region replication status of the rule
+     */
+    declare public /*out*/ readonly regionStatuses: pulumi.Output<outputs.observabilityadmin.OrganizationTelemetryRuleRegionStatus[]>;
+    /**
      * The name of the organization telemetry rule.
      */
     declare public readonly rule: pulumi.Output<outputs.observabilityadmin.OrganizationTelemetryRuleTelemetryRule>;
@@ -71,15 +75,17 @@ export class OrganizationTelemetryRule extends pulumi.CustomResource {
             resourceInputs["rule"] = args?.rule;
             resourceInputs["ruleName"] = args?.ruleName;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["regionStatuses"] = undefined /*out*/;
             resourceInputs["ruleArn"] = undefined /*out*/;
         } else {
+            resourceInputs["regionStatuses"] = undefined /*out*/;
             resourceInputs["rule"] = undefined /*out*/;
             resourceInputs["ruleArn"] = undefined /*out*/;
             resourceInputs["ruleName"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["ruleName"] };
+        const replaceOnChanges = { replaceOnChanges: ["rule.allRegions", "ruleName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(OrganizationTelemetryRule.__pulumiType, name, resourceInputs, opts);
     }

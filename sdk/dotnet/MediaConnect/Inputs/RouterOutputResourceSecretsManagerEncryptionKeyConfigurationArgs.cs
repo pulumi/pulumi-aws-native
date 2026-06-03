@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
 {
 
     /// <summary>
-    /// The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+    /// The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
     /// </summary>
     public sealed class RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+        /// The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the AWS Secrets Manager secret used for transit encryption.
+        /// The ARN of the Secrets Manager secret used for transit encryption.
         /// </summary>
         [Input("secretArn", required: true)]
         public Input<string> SecretArn { get; set; } = null!;

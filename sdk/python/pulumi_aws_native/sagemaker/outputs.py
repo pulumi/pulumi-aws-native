@@ -286,7 +286,6 @@ __all__ = [
     'ProcessingJobAthenaDatasetDefinition',
     'ProcessingJobClusterConfig',
     'ProcessingJobDatasetDefinition',
-    'ProcessingJobEnvironment',
     'ProcessingJobExperimentConfig',
     'ProcessingJobFeatureStoreOutput',
     'ProcessingJobNetworkConfig',
@@ -1110,8 +1109,6 @@ class ClusterInstanceGroup(dict):
             suggest = "instance_group_name"
         elif key == "instanceType":
             suggest = "instance_type"
-        elif key == "lifeCycleConfig":
-            suggest = "life_cycle_config"
         elif key == "capacityRequirements":
             suggest = "capacity_requirements"
         elif key == "currentCount":
@@ -1122,6 +1119,8 @@ class ClusterInstanceGroup(dict):
             suggest = "instance_storage_configs"
         elif key == "kubernetesConfig":
             suggest = "kubernetes_config"
+        elif key == "lifeCycleConfig":
+            suggest = "life_cycle_config"
         elif key == "minInstanceCount":
             suggest = "min_instance_count"
         elif key == "onStartDeepHealthChecks":
@@ -1153,12 +1152,12 @@ class ClusterInstanceGroup(dict):
                  instance_count: _builtins.int,
                  instance_group_name: _builtins.str,
                  instance_type: _builtins.str,
-                 life_cycle_config: 'outputs.ClusterLifeCycleConfig',
                  capacity_requirements: Optional['outputs.ClusterCapacityRequirements'] = None,
                  current_count: Optional[_builtins.int] = None,
                  image_id: Optional[_builtins.str] = None,
                  instance_storage_configs: Optional[Sequence['outputs.ClusterInstanceStorageConfig']] = None,
                  kubernetes_config: Optional['outputs.ClusterKubernetesConfig'] = None,
+                 life_cycle_config: Optional['outputs.ClusterLifeCycleConfig'] = None,
                  min_instance_count: Optional[_builtins.int] = None,
                  on_start_deep_health_checks: Optional[Sequence['ClusterDeepHealthCheckType']] = None,
                  override_vpc_config: Optional['outputs.ClusterVpcConfig'] = None,
@@ -1179,7 +1178,6 @@ class ClusterInstanceGroup(dict):
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_group_name", instance_group_name)
         pulumi.set(__self__, "instance_type", instance_type)
-        pulumi.set(__self__, "life_cycle_config", life_cycle_config)
         if capacity_requirements is not None:
             pulumi.set(__self__, "capacity_requirements", capacity_requirements)
         if current_count is not None:
@@ -1190,6 +1188,8 @@ class ClusterInstanceGroup(dict):
             pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
         if kubernetes_config is not None:
             pulumi.set(__self__, "kubernetes_config", kubernetes_config)
+        if life_cycle_config is not None:
+            pulumi.set(__self__, "life_cycle_config", life_cycle_config)
         if min_instance_count is not None:
             pulumi.set(__self__, "min_instance_count", min_instance_count)
         if on_start_deep_health_checks is not None:
@@ -1229,11 +1229,6 @@ class ClusterInstanceGroup(dict):
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
-    @pulumi.getter(name="lifeCycleConfig")
-    def life_cycle_config(self) -> 'outputs.ClusterLifeCycleConfig':
-        return pulumi.get(self, "life_cycle_config")
-
-    @_builtins.property
     @pulumi.getter(name="capacityRequirements")
     def capacity_requirements(self) -> Optional['outputs.ClusterCapacityRequirements']:
         return pulumi.get(self, "capacity_requirements")
@@ -1260,6 +1255,11 @@ class ClusterInstanceGroup(dict):
     @pulumi.getter(name="kubernetesConfig")
     def kubernetes_config(self) -> Optional['outputs.ClusterKubernetesConfig']:
         return pulumi.get(self, "kubernetes_config")
+
+    @_builtins.property
+    @pulumi.getter(name="lifeCycleConfig")
+    def life_cycle_config(self) -> Optional['outputs.ClusterLifeCycleConfig']:
+        return pulumi.get(self, "life_cycle_config")
 
     @_builtins.property
     @pulumi.getter(name="minInstanceCount")
@@ -1394,13 +1394,15 @@ class ClusterKubernetesTaint(dict):
 @pulumi.output_type
 class ClusterLifeCycleConfig(dict):
     """
-    The lifecycle configuration for a SageMaker HyperPod cluster.
+    The lifecycle configuration for a SageMaker HyperPod cluster. When omitted, the instance group uses Bootstrap mode. When provided with SourceS3Uri and OnCreate, uses Customer Managed mode. When provided with SourceS3Uri and OnInitComplete, uses Extended mode.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "onCreate":
             suggest = "on_create"
+        elif key == "onInitComplete":
+            suggest = "on_init_complete"
         elif key == "sourceS3Uri":
             suggest = "source_s3_uri"
 
@@ -1416,28 +1418,42 @@ class ClusterLifeCycleConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 on_create: _builtins.str,
-                 source_s3_uri: _builtins.str):
+                 on_create: Optional[_builtins.str] = None,
+                 on_init_complete: Optional[_builtins.str] = None,
+                 source_s3_uri: Optional[_builtins.str] = None):
         """
-        The lifecycle configuration for a SageMaker HyperPod cluster.
+        The lifecycle configuration for a SageMaker HyperPod cluster. When omitted, the instance group uses Bootstrap mode. When provided with SourceS3Uri and OnCreate, uses Customer Managed mode. When provided with SourceS3Uri and OnInitComplete, uses Extended mode.
 
-        :param _builtins.str on_create: The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
+        :param _builtins.str on_create: The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation. Mutually exclusive with OnInitComplete.
+        :param _builtins.str on_init_complete: The file name of the extension script under SourceS3Uri. This script runs after HyperPod configures the default software on the instance. Mutually exclusive with OnCreate.
         :param _builtins.str source_s3_uri: An Amazon S3 bucket path where your lifecycle scripts are stored.
         """
-        pulumi.set(__self__, "on_create", on_create)
-        pulumi.set(__self__, "source_s3_uri", source_s3_uri)
+        if on_create is not None:
+            pulumi.set(__self__, "on_create", on_create)
+        if on_init_complete is not None:
+            pulumi.set(__self__, "on_init_complete", on_init_complete)
+        if source_s3_uri is not None:
+            pulumi.set(__self__, "source_s3_uri", source_s3_uri)
 
     @_builtins.property
     @pulumi.getter(name="onCreate")
-    def on_create(self) -> _builtins.str:
+    def on_create(self) -> Optional[_builtins.str]:
         """
-        The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
+        The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation. Mutually exclusive with OnInitComplete.
         """
         return pulumi.get(self, "on_create")
 
     @_builtins.property
+    @pulumi.getter(name="onInitComplete")
+    def on_init_complete(self) -> Optional[_builtins.str]:
+        """
+        The file name of the extension script under SourceS3Uri. This script runs after HyperPod configures the default software on the instance. Mutually exclusive with OnCreate.
+        """
+        return pulumi.get(self, "on_init_complete")
+
+    @_builtins.property
     @pulumi.getter(name="sourceS3Uri")
-    def source_s3_uri(self) -> _builtins.str:
+    def source_s3_uri(self) -> Optional[_builtins.str]:
         """
         An Amazon S3 bucket path where your lifecycle scripts are stored.
         """
@@ -17149,18 +17165,6 @@ class ProcessingJobDatasetDefinition(dict):
         Configuration for Redshift Dataset Definition input.
         """
         return pulumi.get(self, "redshift_dataset_definition")
-
-
-@pulumi.output_type
-class ProcessingJobEnvironment(dict):
-    """
-    Sets the environment variables in the Docker container
-    """
-    def __init__(__self__):
-        """
-        Sets the environment variables in the Docker container
-        """
-        pass
 
 
 @pulumi.output_type

@@ -1128,6 +1128,27 @@
       }
     }
   },
+  "aws-native:appstream:StackUserAssociation": {
+    "cfTypeName": "AWS::AppStream::StackUserAssociation",
+    "properties": {
+      "authenticationType": {
+        "type": "string",
+        "description": "The authentication type for the user who is associated with the stack. You must specify USERPOOL."
+      },
+      "sendEmailNotification": {
+        "type": "boolean",
+        "description": "Specifies whether a welcome email is sent to a user after the user is created in the user pool."
+      },
+      "stackName": {
+        "type": "string",
+        "description": "The name of the stack that is associated with the user."
+      },
+      "userName": {
+        "type": "string",
+        "description": "The name of the user who is associated with the stack."
+      }
+    }
+  },
   "aws-native:appsync:DomainName": {
     "cfTypeName": "AWS::AppSync::DomainName",
     "properties": {
@@ -1606,6 +1627,25 @@
       }
     }
   },
+  "aws-native:bedrock:EnforcedGuardrailConfiguration": {
+    "cfTypeName": "AWS::Bedrock::EnforcedGuardrailConfiguration",
+    "properties": {
+      "guardrailIdentifier": {
+        "type": "string",
+        "description": "Identifier for the guardrail, could be the ID or the ARN"
+      },
+      "guardrailVersion": {
+        "type": "string",
+        "description": "Numerical guardrail version (not DRAFT)"
+      },
+      "modelEnforcement": {
+        "$ref": "#/types/aws-native:bedrock:EnforcedGuardrailConfigurationModelEnforcement"
+      },
+      "selectiveContentGuarding": {
+        "$ref": "#/types/aws-native:bedrock:EnforcedGuardrailConfigurationSelectiveContentGuarding"
+      }
+    }
+  },
   "aws-native:bedrock:FlowVersion": {
     "cfTypeName": "AWS::Bedrock::FlowVersion",
     "properties": {
@@ -1649,6 +1689,19 @@
           "type": "string"
         },
         "description": "A map of tags attached to the prompt version and their values."
+      }
+    }
+  },
+  "aws-native:bedrock:ResourcePolicy": {
+    "cfTypeName": "AWS::Bedrock::ResourcePolicy",
+    "properties": {
+      "policyDocument": {
+        "$ref": "pulumi.json#/Any",
+        "description": "The IAM policy document defining access permissions for the guardrail and guardrail profile resources\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Bedrock::ResourcePolicy` for more information about the expected schema for this property."
+      },
+      "resourceArn": {
+        "type": "string",
+        "description": "The ARN of the Bedrock Guardrail or Guardrail Profile resource"
       }
     }
   },
@@ -1711,6 +1764,34 @@
           "type": "string"
         },
         "description": "The tags for the agent."
+      }
+    }
+  },
+  "aws-native:braket:SpendingLimit": {
+    "cfTypeName": "AWS::Braket::SpendingLimit",
+    "properties": {
+      "deviceArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the quantum device to apply the spending limit to."
+      },
+      "spendingLimit": {
+        "type": "string",
+        "description": "The maximum amount that can be spent on the specified device, in USD.",
+        "language": {
+          "csharp": {
+            "name": "SpendingLimitValue"
+          }
+        }
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags to apply to the spending limit."
+      },
+      "timePeriod": {
+        "$ref": "#/types/aws-native:braket:SpendingLimitTimePeriod"
       }
     }
   },
@@ -2289,6 +2370,10 @@
       }
     }
   },
+  "aws-native:cloudwatch:OTelEnrichment": {
+    "cfTypeName": "AWS::CloudWatch::OTelEnrichment",
+    "properties": {}
+  },
   "aws-native:codeartifact:PackageGroup": {
     "cfTypeName": "AWS::CodeArtifact::PackageGroup",
     "properties": {
@@ -2625,6 +2710,51 @@
       }
     }
   },
+  "aws-native:configuration:RemediationConfiguration": {
+    "cfTypeName": "AWS::Config::RemediationConfiguration",
+    "properties": {
+      "automatic": {
+        "type": "boolean",
+        "description": "The remediation is triggered automatically."
+      },
+      "configRuleName": {
+        "type": "string",
+        "description": "The name of the AWS Config rule."
+      },
+      "executionControls": {
+        "$ref": "#/types/aws-native:configuration:RemediationConfigurationExecutionControls",
+        "description": "An ExecutionControls object."
+      },
+      "maximumAutomaticAttempts": {
+        "type": "integer",
+        "description": "The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.\n\nFor example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptSeconds as 50 seconds, AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds."
+      },
+      "parameters": {
+        "$ref": "pulumi.json#/Any",
+        "description": "An object of the RemediationParameterValue. For more information, see [RemediationParameterValue](https://docs.aws.amazon.com/config/latest/APIReference/API_RemediationParameterValue.html) .\n\n\u003e The type is a map of strings to RemediationParameterValue.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property."
+      },
+      "resourceType": {
+        "type": "string",
+        "description": "The type of a resource."
+      },
+      "retryAttemptSeconds": {
+        "type": "integer",
+        "description": "Time window to determine whether or not to add a remediation exception to prevent infinite remediation attempts. If `MaximumAutomaticAttempts` remediation attempts have been made under `RetryAttemptSeconds` , a remediation exception will be added to the resource. If you do not select a number, the default is 60 seconds.\n\nFor example, if you specify `RetryAttemptSeconds` as 50 seconds and `MaximumAutomaticAttempts` as 5, AWS Config will run auto-remediations 5 times within 50 seconds before adding a remediation exception to the resource."
+      },
+      "targetId": {
+        "type": "string",
+        "description": "Target ID is the name of the SSM document."
+      },
+      "targetType": {
+        "type": "string",
+        "description": "The type of the target. Target executes remediation. For example, SSM document."
+      },
+      "targetVersion": {
+        "type": "string",
+        "description": "Version of the target. For example, version of the SSM document.\n\n\u003e If you make backward incompatible changes to the SSM document, you must call PutRemediationConfiguration API again to ensure the remediations can run."
+      }
+    }
+  },
   "aws-native:connect:ApprovedOrigin": {
     "cfTypeName": "AWS::Connect::ApprovedOrigin",
     "properties": {
@@ -2855,6 +2985,13 @@
       "integrationType": {
         "$ref": "#/types/aws-native:connect:IntegrationAssociationIntegrationType",
         "description": "Specifies the integration type to be associated with the instance.\n\n*Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags used to organize, track, or control access for this resource."
       }
     }
   },
@@ -3697,6 +3834,13 @@
         "type": "string",
         "description": "The ID of the group."
       },
+      "groupType": {
+        "$ref": "#/types/aws-native:datazone:GroupProfileGroupType"
+      },
+      "rolePrincipalArn": {
+        "type": "string",
+        "description": "The ARN of the role principal for the group profile."
+      },
       "status": {
         "$ref": "#/types/aws-native:datazone:GroupProfileStatus",
         "description": "The status of a group profile."
@@ -3845,6 +3989,10 @@
       "domainIdentifier": {
         "type": "string",
         "description": "The identifier of the Amazon DataZone domain in which the user profile would be created."
+      },
+      "sessionName": {
+        "type": "string",
+        "description": "The session name of the user profile."
       },
       "status": {
         "$ref": "#/types/aws-native:datazone:UserProfileStatus",
@@ -4017,6 +4165,10 @@
         "type": "string",
         "description": "The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users."
       },
+      "identityCenterRegion": {
+        "type": "string",
+        "description": "The AWS region where IAM Identity Center is enabled. Required when Identity Center is in a different region than the monitor."
+      },
       "roleArn": {
         "type": "string",
         "description": "The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources."
@@ -4078,6 +4230,9 @@
       "roleArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue."
+      },
+      "schedulingConfiguration": {
+        "$ref": "#/types/aws-native:deadline:QueueSchedulingConfiguration"
       },
       "tags": {
         "type": "array",
@@ -8045,19 +8200,24 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:ecs:DaemonTaskDefinitionDaemonContainerDefinition"
-        }
+        },
+        "description": "A list of container definitions in JSON format that describe the containers that make up the daemon task."
       },
       "cpu": {
-        "type": "string"
+        "type": "string",
+        "description": "The number of CPU units used by the daemon task."
       },
       "executionRoleArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf."
       },
       "family": {
-        "type": "string"
+        "type": "string",
+        "description": "The name of a family that this daemon task definition is registered to."
       },
       "memory": {
-        "type": "string"
+        "type": "string",
+        "description": "The amount of memory (in MiB) used by the daemon task."
       },
       "tags": {
         "type": "array",
@@ -8066,13 +8226,15 @@
         }
       },
       "taskRoleArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf."
       },
       "volumes": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:ecs:DaemonTaskDefinitionVolume"
-        }
+        },
+        "description": "The list of data volume definitions for the daemon task."
       }
     }
   },
@@ -8656,7 +8818,7 @@
       },
       "replicasPerNodeGroup": {
         "type": "integer",
-        "description": "An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5."
+        "description": "An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.\n\n**Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone."
       },
       "replicationGroupDescription": {
         "type": "string",
@@ -9966,9 +10128,13 @@
         "type": "string",
         "description": "The ID of the environment for the connection. Required when creating a connection through AWS. Mutually exclusive with ActivationKey."
       },
+      "remoteAccount": {
+        "$ref": "#/types/aws-native:interconnect:RemoteAccountProperties",
+        "description": "The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount."
+      },
       "remoteOwnerAccount": {
         "type": "string",
-        "description": "The account ID of the remote owner. Required when creating a connection through AWS."
+        "description": "Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS."
       },
       "tags": {
         "type": "array",
@@ -13387,6 +13553,12 @@
   "aws-native:rds:CustomDbEngineVersion": {
     "cfTypeName": "AWS::RDS::CustomDBEngineVersion",
     "properties": {
+      "databaseInstallationFiles": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
       "databaseInstallationFilesS3BucketName": {
         "type": "string",
         "description": "The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``."
@@ -14568,6 +14740,32 @@
       }
     }
   },
+  "aws-native:robomaker:RobotApplicationVersion": {
+    "cfTypeName": "AWS::RoboMaker::RobotApplicationVersion",
+    "properties": {
+      "application": {
+        "type": "string",
+        "description": "The application information for the robot application."
+      },
+      "currentRevisionId": {
+        "type": "string",
+        "description": "The revision ID of robot application."
+      }
+    }
+  },
+  "aws-native:robomaker:SimulationApplicationVersion": {
+    "cfTypeName": "AWS::RoboMaker::SimulationApplicationVersion",
+    "properties": {
+      "application": {
+        "type": "string",
+        "description": "The application information for the simulation application."
+      },
+      "currentRevisionId": {
+        "type": "string",
+        "description": "The revision ID of robot application."
+      }
+    }
+  },
   "aws-native:route53:Dnssec": {
     "cfTypeName": "AWS::Route53::DNSSEC",
     "properties": {
@@ -14924,6 +15122,103 @@
       }
     }
   },
+  "aws-native:s3files:AccessPoint": {
+    "cfTypeName": "AWS::S3Files::AccessPoint",
+    "properties": {
+      "clientToken": {
+        "type": "string",
+        "description": "(optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation."
+      },
+      "fileSystemId": {
+        "type": "string",
+        "description": "The ID of the S3 Files file system that the access point provides access to."
+      },
+      "posixUser": {
+        "$ref": "#/types/aws-native:s3files:AccessPointPosixUser",
+        "description": "The operating system user and group applied to all compute drive requests made using the access point."
+      },
+      "rootDirectory": {
+        "$ref": "#/types/aws-native:s3files:AccessPointRootDirectory",
+        "description": "Specifies the directory on the Amazon EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the RootDirectory\u003ePath specified does not exist, EFS creates it and applies the CreationPermissions settings when a client connects to an access point. When specifying a RootDirectory, you need to provide the Path, and the CreationPermissions is optional."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      }
+    }
+  },
+  "aws-native:s3files:FileSystem": {
+    "cfTypeName": "AWS::S3Files::FileSystem",
+    "properties": {
+      "acceptBucketWarning": {
+        "type": "boolean"
+      },
+      "bucket": {
+        "type": "string"
+      },
+      "clientToken": {
+        "type": "string"
+      },
+      "kmsKeyId": {
+        "type": "string"
+      },
+      "prefix": {
+        "type": "string"
+      },
+      "roleArn": {
+        "type": "string"
+      },
+      "synchronizationConfiguration": {
+        "$ref": "#/types/aws-native:s3files:FileSystemSynchronizationConfiguration"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      }
+    }
+  },
+  "aws-native:s3files:FileSystemPolicy": {
+    "cfTypeName": "AWS::S3Files::FileSystemPolicy",
+    "properties": {
+      "fileSystemId": {
+        "type": "string"
+      },
+      "policy": {
+        "$ref": "pulumi.json#/Any",
+        "description": "Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Files::FileSystemPolicy` for more information about the expected schema for this property."
+      }
+    }
+  },
+  "aws-native:s3files:MountTarget": {
+    "cfTypeName": "AWS::S3Files::MountTarget",
+    "properties": {
+      "fileSystemId": {
+        "type": "string"
+      },
+      "ipAddressType": {
+        "$ref": "#/types/aws-native:s3files:MountTargetIpAddressType"
+      },
+      "ipv4Address": {
+        "type": "string"
+      },
+      "ipv6Address": {
+        "type": "string"
+      },
+      "securityGroups": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "subnetId": {
+        "type": "string"
+      }
+    }
+  },
   "aws-native:s3objectlambda:AccessPointPolicy": {
     "cfTypeName": "AWS::S3ObjectLambda::AccessPointPolicy",
     "properties": {
@@ -15209,34 +15504,43 @@
     "cfTypeName": "AWS::SecurityAgent::Pentest",
     "properties": {
       "agentSpaceId": {
-        "type": "string"
+        "type": "string",
+        "description": "Identifier of agent space where the pentest should be created"
       },
       "assets": {
-        "$ref": "#/types/aws-native:securityagent:PentestAssets"
+        "$ref": "#/types/aws-native:securityagent:PentestAssets",
+        "description": "Collection of assets to be tested or used during the penetration test"
       },
       "codeRemediationStrategy": {
-        "$ref": "#/types/aws-native:securityagent:PentestCodeRemediationStrategy"
+        "$ref": "#/types/aws-native:securityagent:PentestCodeRemediationStrategy",
+        "description": "Strategy for code remediation on findings"
       },
       "excludeRiskTypes": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:securityagent:PentestRiskType"
-        }
+        },
+        "description": "A list of risk types excluded from the pentest execution"
       },
       "logConfig": {
-        "$ref": "#/types/aws-native:securityagent:PentestCloudWatchLog"
+        "$ref": "#/types/aws-native:securityagent:PentestCloudWatchLog",
+        "description": "CloudWatch logs config"
       },
       "networkTrafficConfig": {
-        "$ref": "#/types/aws-native:securityagent:PentestNetworkTrafficConfig"
+        "$ref": "#/types/aws-native:securityagent:PentestNetworkTrafficConfig",
+        "description": "Configuration for network traffic filtering"
       },
       "serviceRole": {
-        "type": "string"
+        "type": "string",
+        "description": "Service role for accessing resources"
       },
       "title": {
-        "type": "string"
+        "type": "string",
+        "description": "Title of the penetration test"
       },
       "vpcConfig": {
-        "$ref": "#/types/aws-native:securityagent:PentestVpcConfig"
+        "$ref": "#/types/aws-native:securityagent:PentestVpcConfig",
+        "description": "VPC configuration that the security testing environment accesses"
       }
     }
   },
@@ -16785,6 +17089,9 @@
       "egressType": {
         "$ref": "#/types/aws-native:transfer:ConnectorEgressType",
         "description": "Specifies the egress type for the connector."
+      },
+      "ipAddressType": {
+        "$ref": "#/types/aws-native:transfer:ConnectorIpAddressType"
       },
       "loggingRole": {
         "type": "string",

@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
     [OutputType]
     public sealed class ServiceLevelObjectiveRequestBasedSliMetric
     {
+        public readonly Outputs.ServiceLevelObjectiveCompositeSliConfig? CompositeSliConfig;
         /// <summary>
         /// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
         /// </summary>
@@ -31,6 +32,8 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
         /// - `AwsAccountId` allows you to create an SLO for an object that exists in another account.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? KeyAttributes;
+        public readonly string? MetricName;
+        public readonly Outputs.ServiceLevelObjectiveMetricSource? MetricSource;
         /// <summary>
         /// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
         /// </summary>
@@ -50,9 +53,15 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
 
         [OutputConstructor]
         private ServiceLevelObjectiveRequestBasedSliMetric(
+            Outputs.ServiceLevelObjectiveCompositeSliConfig? compositeSliConfig,
+
             Outputs.ServiceLevelObjectiveDependencyConfig? dependencyConfig,
 
             ImmutableDictionary<string, string>? keyAttributes,
+
+            string? metricName,
+
+            Outputs.ServiceLevelObjectiveMetricSource? metricSource,
 
             Pulumi.AwsNative.ApplicationSignals.ServiceLevelObjectiveRequestBasedSliMetricMetricType? metricType,
 
@@ -62,8 +71,11 @@ namespace Pulumi.AwsNative.ApplicationSignals.Outputs
 
             ImmutableArray<Outputs.ServiceLevelObjectiveMetricDataQuery> totalRequestCountMetric)
         {
+            CompositeSliConfig = compositeSliConfig;
             DependencyConfig = dependencyConfig;
             KeyAttributes = keyAttributes;
+            MetricName = metricName;
+            MetricSource = metricSource;
             MetricType = metricType;
             MonitoredRequestCountMetric = monitoredRequestCountMetric;
             OperationName = operationName;

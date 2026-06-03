@@ -53,6 +53,10 @@ export interface GetTrustStoreResult {
      * A complex type that contains zero or more ``Tag`` elements.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
+     */
+    readonly useClientCertificateOcspEndpoint?: boolean;
 }
 /**
  * A trust store.

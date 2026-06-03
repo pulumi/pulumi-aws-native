@@ -16,16 +16,34 @@ namespace Pulumi.AwsNative.Msk.Inputs
     public sealed class ReplicatorKafkaClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Details of an Amazon MSK cluster. Exactly one of AmazonMskCluster is required.
+        /// Details of an Amazon MSK cluster.
         /// </summary>
-        [Input("amazonMskCluster", required: true)]
-        public Input<Inputs.ReplicatorAmazonMskClusterArgs> AmazonMskCluster { get; set; } = null!;
+        [Input("amazonMskCluster")]
+        public Input<Inputs.ReplicatorAmazonMskClusterArgs>? AmazonMskCluster { get; set; }
+
+        /// <summary>
+        /// Details of an Apache Kafka cluster.
+        /// </summary>
+        [Input("apacheKafkaCluster")]
+        public Input<Inputs.ReplicatorApacheKafkaClusterArgs>? ApacheKafkaCluster { get; set; }
+
+        /// <summary>
+        /// Details of the client authentication used by the Apache Kafka cluster.
+        /// </summary>
+        [Input("clientAuthentication")]
+        public Input<Inputs.ReplicatorKafkaClusterClientAuthenticationArgs>? ClientAuthentication { get; set; }
+
+        /// <summary>
+        /// Details of encryption in transit to the Apache Kafka cluster.
+        /// </summary>
+        [Input("encryptionInTransit")]
+        public Input<Inputs.ReplicatorKafkaClusterEncryptionInTransitArgs>? EncryptionInTransit { get; set; }
 
         /// <summary>
         /// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         /// </summary>
-        [Input("vpcConfig", required: true)]
-        public Input<Inputs.ReplicatorKafkaClusterClientVpcConfigArgs> VpcConfig { get; set; } = null!;
+        [Input("vpcConfig")]
+        public Input<Inputs.ReplicatorKafkaClusterClientVpcConfigArgs>? VpcConfig { get; set; }
 
         public ReplicatorKafkaClusterArgs()
         {

@@ -146,6 +146,41 @@
         }
       },
       "additionalProperties" : false
+    },
+    "CertificateLocation" : {
+      "type" : "object",
+      "properties" : {
+        "SecretArn" : {
+          "type" : "string",
+          "pattern" : "^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):secretsmanager:[a-z0-9-]+:\\d{12}:secret:[a-zA-Z0-9/_+=.@-]+$",
+          "description" : "Secrets Manager secret ARN."
+        }
+      },
+      "required" : [ "SecretArn" ],
+      "additionalProperties" : false,
+      "description" : "Certificate location in Secrets Manager."
+    },
+    "Certificate" : {
+      "type" : "object",
+      "properties" : {
+        "CertificateLocation" : {
+          "$ref" : "#/definitions/CertificateLocation",
+          "description" : "Certificate location in Secrets Manager."
+        }
+      },
+      "required" : [ "CertificateLocation" ],
+      "additionalProperties" : false,
+      "description" : "A root CA certificate configuration."
+    },
+    "CertificateList" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Certificate"
+      },
+      "insertionOrder" : false,
+      "minItems" : 0,
+      "maxItems" : 10,
+      "description" : "List of root CA certificates."
     }
   },
   "properties" : {
@@ -172,6 +207,10 @@
     "NetworkConfiguration" : {
       "$ref" : "#/definitions/CodeInterpreterNetworkConfiguration",
       "description" : "Network configuration for code interpreter."
+    },
+    "Certificates" : {
+      "$ref" : "#/definitions/CertificateList",
+      "description" : "List of root CA certificates in PEM format."
     },
     "Status" : {
       "$ref" : "#/definitions/CodeInterpreterStatus",
@@ -200,10 +239,10 @@
   "readOnlyProperties" : [ "/properties/CodeInterpreterId", "/properties/CodeInterpreterArn", "/properties/Status", "/properties/FailureReason", "/properties/CreatedAt", "/properties/LastUpdatedAt" ],
   "primaryIdentifier" : [ "/properties/CodeInterpreterId" ],
   "additionalIdentifiers" : [ [ "/properties/CodeInterpreterArn" ] ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Description", "/properties/NetworkConfiguration", "/properties/ExecutionRoleArn" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Description", "/properties/NetworkConfiguration", "/properties/Certificates", "/properties/ExecutionRoleArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "bedrock-agentcore:CreateCodeInterpreter", "bedrock-agentcore:GetCodeInterpreter", "bedrock-agentcore:TagResource", "bedrock-agentcore:ListTagsForResource", "iam:CreateServiceLinkedRole", "iam:PassRole" ]
+      "permissions" : [ "bedrock-agentcore:CreateCodeInterpreter", "bedrock-agentcore:GetCodeInterpreter", "bedrock-agentcore:TagResource", "bedrock-agentcore:ListTagsForResource", "iam:CreateServiceLinkedRole", "iam:PassRole", "secretsmanager:GetSecretValue" ]
     },
     "read" : {
       "permissions" : [ "bedrock-agentcore:GetCodeInterpreter", "bedrock-agentcore:ListTagsForResource" ]

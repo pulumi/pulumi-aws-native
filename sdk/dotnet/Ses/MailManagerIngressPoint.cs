@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Ses
         /// The configuration of the ingress endpoint resource.
         /// </summary>
         [Output("ingressPointConfiguration")]
-        public Output<Union<Outputs.MailManagerIngressPointIngressPointConfiguration0Properties, Outputs.MailManagerIngressPointIngressPointConfiguration1Properties>?> IngressPointConfiguration { get; private set; } = null!;
+        public Output<object?> IngressPointConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the ingress endpoint resource.
@@ -74,6 +74,9 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        [Output("tlsPolicy")]
+        public Output<Pulumi.AwsNative.Ses.MailManagerIngressPointTlsPolicy?> TlsPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of an existing traffic policy that you attach to an ingress endpoint resource.
@@ -141,7 +144,7 @@ namespace Pulumi.AwsNative.Ses
         /// The configuration of the ingress endpoint resource.
         /// </summary>
         [Input("ingressPointConfiguration")]
-        public InputUnion<Inputs.MailManagerIngressPointIngressPointConfiguration0PropertiesArgs, Inputs.MailManagerIngressPointIngressPointConfiguration1PropertiesArgs>? IngressPointConfiguration { get; set; }
+        public object? IngressPointConfiguration { get; set; }
 
         /// <summary>
         /// A user friendly name for an ingress endpoint resource.
@@ -178,6 +181,9 @@ namespace Pulumi.AwsNative.Ses
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        [Input("tlsPolicy")]
+        public Input<Pulumi.AwsNative.Ses.MailManagerIngressPointTlsPolicy>? TlsPolicy { get; set; }
 
         /// <summary>
         /// The identifier of an existing traffic policy that you attach to an ingress endpoint resource.

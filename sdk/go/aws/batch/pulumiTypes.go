@@ -960,6 +960,7 @@ func (o ComputeEnvironmentComputeScalingPolicyPtrOutput) MinScaleDownDelayMinute
 }
 
 type ComputeEnvironmentEc2ConfigurationObject struct {
+	BatchImageStatus *string `pulumi:"batchImageStatus"`
 	// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` set in the `computeResource` object.
 	//
 	// > The AMI that you choose for a compute environment must match the architecture of the instance types that you intend to use for that compute environment. For example, if your compute environment uses A1 instance types, the compute resource AMI that you choose must support ARM instances. Amazon ECS vends both x86 and ARM versions of the Amazon ECS-optimized Amazon Linux 2 AMI. For more information, see [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html) in the *Amazon Elastic Container Service Developer Guide* .
@@ -1007,6 +1008,7 @@ type ComputeEnvironmentEc2ConfigurationObjectInput interface {
 }
 
 type ComputeEnvironmentEc2ConfigurationObjectArgs struct {
+	BatchImageStatus pulumi.StringPtrInput `pulumi:"batchImageStatus"`
 	// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` set in the `computeResource` object.
 	//
 	// > The AMI that you choose for a compute environment must match the architecture of the instance types that you intend to use for that compute environment. For example, if your compute environment uses A1 instance types, the compute resource AMI that you choose must support ARM instances. Amazon ECS vends both x86 and ARM versions of the Amazon ECS-optimized Amazon Linux 2 AMI. For more information, see [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html) in the *Amazon Elastic Container Service Developer Guide* .
@@ -1091,6 +1093,10 @@ func (o ComputeEnvironmentEc2ConfigurationObjectOutput) ToComputeEnvironmentEc2C
 
 func (o ComputeEnvironmentEc2ConfigurationObjectOutput) ToComputeEnvironmentEc2ConfigurationObjectOutputWithContext(ctx context.Context) ComputeEnvironmentEc2ConfigurationObjectOutput {
 	return o
+}
+
+func (o ComputeEnvironmentEc2ConfigurationObjectOutput) BatchImageStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentEc2ConfigurationObject) *string { return v.BatchImageStatus }).(pulumi.StringPtrOutput)
 }
 
 // The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` set in the `computeResource` object.
@@ -9881,6 +9887,184 @@ func (o JobDefinitionRuntimePlatformPtrOutput) OperatingSystemFamily() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type JobDefinitionS3FilesVolumeConfiguration struct {
+	AccessPointArn        *string `pulumi:"accessPointArn"`
+	FileSystemArn         string  `pulumi:"fileSystemArn"`
+	RootDirectory         *string `pulumi:"rootDirectory"`
+	TransitEncryptionPort *int    `pulumi:"transitEncryptionPort"`
+}
+
+// JobDefinitionS3FilesVolumeConfigurationInput is an input type that accepts JobDefinitionS3FilesVolumeConfigurationArgs and JobDefinitionS3FilesVolumeConfigurationOutput values.
+// You can construct a concrete instance of `JobDefinitionS3FilesVolumeConfigurationInput` via:
+//
+//	JobDefinitionS3FilesVolumeConfigurationArgs{...}
+type JobDefinitionS3FilesVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToJobDefinitionS3FilesVolumeConfigurationOutput() JobDefinitionS3FilesVolumeConfigurationOutput
+	ToJobDefinitionS3FilesVolumeConfigurationOutputWithContext(context.Context) JobDefinitionS3FilesVolumeConfigurationOutput
+}
+
+type JobDefinitionS3FilesVolumeConfigurationArgs struct {
+	AccessPointArn        pulumi.StringPtrInput `pulumi:"accessPointArn"`
+	FileSystemArn         pulumi.StringInput    `pulumi:"fileSystemArn"`
+	RootDirectory         pulumi.StringPtrInput `pulumi:"rootDirectory"`
+	TransitEncryptionPort pulumi.IntPtrInput    `pulumi:"transitEncryptionPort"`
+}
+
+func (JobDefinitionS3FilesVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionS3FilesVolumeConfiguration)(nil)).Elem()
+}
+
+func (i JobDefinitionS3FilesVolumeConfigurationArgs) ToJobDefinitionS3FilesVolumeConfigurationOutput() JobDefinitionS3FilesVolumeConfigurationOutput {
+	return i.ToJobDefinitionS3FilesVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionS3FilesVolumeConfigurationArgs) ToJobDefinitionS3FilesVolumeConfigurationOutputWithContext(ctx context.Context) JobDefinitionS3FilesVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionS3FilesVolumeConfigurationOutput)
+}
+
+func (i JobDefinitionS3FilesVolumeConfigurationArgs) ToJobDefinitionS3FilesVolumeConfigurationPtrOutput() JobDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return i.ToJobDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionS3FilesVolumeConfigurationArgs) ToJobDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionS3FilesVolumeConfigurationOutput).ToJobDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionS3FilesVolumeConfigurationPtrInput is an input type that accepts JobDefinitionS3FilesVolumeConfigurationArgs, JobDefinitionS3FilesVolumeConfigurationPtr and JobDefinitionS3FilesVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionS3FilesVolumeConfigurationPtrInput` via:
+//
+//	        JobDefinitionS3FilesVolumeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionS3FilesVolumeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionS3FilesVolumeConfigurationPtrOutput() JobDefinitionS3FilesVolumeConfigurationPtrOutput
+	ToJobDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(context.Context) JobDefinitionS3FilesVolumeConfigurationPtrOutput
+}
+
+type jobDefinitionS3FilesVolumeConfigurationPtrType JobDefinitionS3FilesVolumeConfigurationArgs
+
+func JobDefinitionS3FilesVolumeConfigurationPtr(v *JobDefinitionS3FilesVolumeConfigurationArgs) JobDefinitionS3FilesVolumeConfigurationPtrInput {
+	return (*jobDefinitionS3FilesVolumeConfigurationPtrType)(v)
+}
+
+func (*jobDefinitionS3FilesVolumeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionS3FilesVolumeConfiguration)(nil)).Elem()
+}
+
+func (i *jobDefinitionS3FilesVolumeConfigurationPtrType) ToJobDefinitionS3FilesVolumeConfigurationPtrOutput() JobDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return i.ToJobDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionS3FilesVolumeConfigurationPtrType) ToJobDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionS3FilesVolumeConfigurationPtrOutput)
+}
+
+type JobDefinitionS3FilesVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionS3FilesVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionS3FilesVolumeConfiguration)(nil)).Elem()
+}
+
+func (o JobDefinitionS3FilesVolumeConfigurationOutput) ToJobDefinitionS3FilesVolumeConfigurationOutput() JobDefinitionS3FilesVolumeConfigurationOutput {
+	return o
+}
+
+func (o JobDefinitionS3FilesVolumeConfigurationOutput) ToJobDefinitionS3FilesVolumeConfigurationOutputWithContext(ctx context.Context) JobDefinitionS3FilesVolumeConfigurationOutput {
+	return o
+}
+
+func (o JobDefinitionS3FilesVolumeConfigurationOutput) ToJobDefinitionS3FilesVolumeConfigurationPtrOutput() JobDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return o.ToJobDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionS3FilesVolumeConfigurationOutput) ToJobDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionS3FilesVolumeConfiguration) *JobDefinitionS3FilesVolumeConfiguration {
+		return &v
+	}).(JobDefinitionS3FilesVolumeConfigurationPtrOutput)
+}
+
+func (o JobDefinitionS3FilesVolumeConfigurationOutput) AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionS3FilesVolumeConfiguration) *string { return v.AccessPointArn }).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionS3FilesVolumeConfigurationOutput) FileSystemArn() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionS3FilesVolumeConfiguration) string { return v.FileSystemArn }).(pulumi.StringOutput)
+}
+
+func (o JobDefinitionS3FilesVolumeConfigurationOutput) RootDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionS3FilesVolumeConfiguration) *string { return v.RootDirectory }).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionS3FilesVolumeConfigurationOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobDefinitionS3FilesVolumeConfiguration) *int { return v.TransitEncryptionPort }).(pulumi.IntPtrOutput)
+}
+
+type JobDefinitionS3FilesVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionS3FilesVolumeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionS3FilesVolumeConfiguration)(nil)).Elem()
+}
+
+func (o JobDefinitionS3FilesVolumeConfigurationPtrOutput) ToJobDefinitionS3FilesVolumeConfigurationPtrOutput() JobDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o JobDefinitionS3FilesVolumeConfigurationPtrOutput) ToJobDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o JobDefinitionS3FilesVolumeConfigurationPtrOutput) Elem() JobDefinitionS3FilesVolumeConfigurationOutput {
+	return o.ApplyT(func(v *JobDefinitionS3FilesVolumeConfiguration) JobDefinitionS3FilesVolumeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionS3FilesVolumeConfiguration
+		return ret
+	}).(JobDefinitionS3FilesVolumeConfigurationOutput)
+}
+
+func (o JobDefinitionS3FilesVolumeConfigurationPtrOutput) AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionS3FilesVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessPointArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionS3FilesVolumeConfigurationPtrOutput) FileSystemArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionS3FilesVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionS3FilesVolumeConfigurationPtrOutput) RootDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionS3FilesVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RootDirectory
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionS3FilesVolumeConfigurationPtrOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionS3FilesVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TransitEncryptionPort
+	}).(pulumi.IntPtrOutput)
+}
+
 type JobDefinitionSecret struct {
 	// The name of the secret.
 	Name string `pulumi:"name"`
@@ -10163,7 +10347,9 @@ type JobDefinitionTaskContainerProperties struct {
 	// The type and amount of a resource to assign to a container. The only supported resource is a GPU.
 	ResourceRequirements []JobDefinitionResourceRequirement `pulumi:"resourceRequirements"`
 	// The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the Amazon Elastic Container Service Developer Guide.
-	Secrets []JobDefinitionSecret `pulumi:"secrets"`
+	Secrets      []JobDefinitionSecret `pulumi:"secrets"`
+	StartTimeout *int                  `pulumi:"startTimeout"`
+	StopTimeout  *int                  `pulumi:"stopTimeout"`
 	// A list of `ulimits` to set in the container. If a `ulimit` value is specified in a task definition, it overrides the default values set by Docker. This parameter maps to `Ulimits` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--ulimit` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// Amazon ECS tasks hosted on Fargate use the default resource limit values set by the operating system with the exception of the nofile resource limit parameter which Fargate overrides. The `nofile` resource limit sets a restriction on the number of open files that a container can use. The default `nofile` soft limit is `1024` and the default hard limit is `65535` .
@@ -10252,7 +10438,9 @@ type JobDefinitionTaskContainerPropertiesArgs struct {
 	// The type and amount of a resource to assign to a container. The only supported resource is a GPU.
 	ResourceRequirements JobDefinitionResourceRequirementArrayInput `pulumi:"resourceRequirements"`
 	// The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the Amazon Elastic Container Service Developer Guide.
-	Secrets JobDefinitionSecretArrayInput `pulumi:"secrets"`
+	Secrets      JobDefinitionSecretArrayInput `pulumi:"secrets"`
+	StartTimeout pulumi.IntPtrInput            `pulumi:"startTimeout"`
+	StopTimeout  pulumi.IntPtrInput            `pulumi:"stopTimeout"`
 	// A list of `ulimits` to set in the container. If a `ulimit` value is specified in a task definition, it overrides the default values set by Docker. This parameter maps to `Ulimits` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--ulimit` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// Amazon ECS tasks hosted on Fargate use the default resource limit values set by the operating system with the exception of the nofile resource limit parameter which Fargate overrides. The `nofile` resource limit sets a restriction on the number of open files that a container can use. The default `nofile` soft limit is `1024` and the default hard limit is `65535` .
@@ -10432,6 +10620,14 @@ func (o JobDefinitionTaskContainerPropertiesOutput) ResourceRequirements() JobDe
 // The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the Amazon Elastic Container Service Developer Guide.
 func (o JobDefinitionTaskContainerPropertiesOutput) Secrets() JobDefinitionSecretArrayOutput {
 	return o.ApplyT(func(v JobDefinitionTaskContainerProperties) []JobDefinitionSecret { return v.Secrets }).(JobDefinitionSecretArrayOutput)
+}
+
+func (o JobDefinitionTaskContainerPropertiesOutput) StartTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobDefinitionTaskContainerProperties) *int { return v.StartTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionTaskContainerPropertiesOutput) StopTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobDefinitionTaskContainerProperties) *int { return v.StopTimeout }).(pulumi.IntPtrOutput)
 }
 
 // A list of `ulimits` to set in the container. If a `ulimit` value is specified in a task definition, it overrides the default values set by Docker. This parameter maps to `Ulimits` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--ulimit` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
@@ -10880,7 +11076,8 @@ type JobDefinitionVolume struct {
 	// > This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
 	Host *JobDefinitionHost `pulumi:"host"`
 	// The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
-	Name *string `pulumi:"name"`
+	Name                       *string                                  `pulumi:"name"`
+	S3FilesVolumeConfiguration *JobDefinitionS3FilesVolumeConfiguration `pulumi:"s3FilesVolumeConfiguration"`
 }
 
 // JobDefinitionVolumeInput is an input type that accepts JobDefinitionVolumeArgs and JobDefinitionVolumeOutput values.
@@ -10902,7 +11099,8 @@ type JobDefinitionVolumeArgs struct {
 	// > This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
 	Host JobDefinitionHostPtrInput `pulumi:"host"`
 	// The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name                       pulumi.StringPtrInput                           `pulumi:"name"`
+	S3FilesVolumeConfiguration JobDefinitionS3FilesVolumeConfigurationPtrInput `pulumi:"s3FilesVolumeConfiguration"`
 }
 
 func (JobDefinitionVolumeArgs) ElementType() reflect.Type {
@@ -10971,6 +11169,12 @@ func (o JobDefinitionVolumeOutput) Host() JobDefinitionHostPtrOutput {
 // The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
 func (o JobDefinitionVolumeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionVolume) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionVolumeOutput) S3FilesVolumeConfiguration() JobDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v JobDefinitionVolume) *JobDefinitionS3FilesVolumeConfiguration {
+		return v.S3FilesVolumeConfiguration
+	}).(JobDefinitionS3FilesVolumeConfigurationPtrOutput)
 }
 
 type JobDefinitionVolumeArrayOutput struct{ *pulumi.OutputState }
@@ -11330,9 +11534,9 @@ func (o JobQueueServiceEnvironmentOrderArrayOutput) Index(i pulumi.IntInput) Job
 }
 
 type QuotaShareCapacityLimit struct {
-	// The unit of compute capacity for the capacityLimit.
+	// The unit of compute capacity for the capacityLimit. For example, `ml.m5.large`.
 	CapacityUnit string `pulumi:"capacityUnit"`
-	// The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+	// The maximum capacity available for the quota share. This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share without borrowing.
 	MaxCapacity int `pulumi:"maxCapacity"`
 }
 
@@ -11348,9 +11552,9 @@ type QuotaShareCapacityLimitInput interface {
 }
 
 type QuotaShareCapacityLimitArgs struct {
-	// The unit of compute capacity for the capacityLimit.
+	// The unit of compute capacity for the capacityLimit. For example, `ml.m5.large`.
 	CapacityUnit pulumi.StringInput `pulumi:"capacityUnit"`
-	// The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+	// The maximum capacity available for the quota share. This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share without borrowing.
 	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
 }
 
@@ -11405,12 +11609,12 @@ func (o QuotaShareCapacityLimitOutput) ToQuotaShareCapacityLimitOutputWithContex
 	return o
 }
 
-// The unit of compute capacity for the capacityLimit.
+// The unit of compute capacity for the capacityLimit. For example, `ml.m5.large`.
 func (o QuotaShareCapacityLimitOutput) CapacityUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v QuotaShareCapacityLimit) string { return v.CapacityUnit }).(pulumi.StringOutput)
 }
 
-// The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+// The maximum capacity available for the quota share. This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share without borrowing.
 func (o QuotaShareCapacityLimitOutput) MaxCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v QuotaShareCapacityLimit) int { return v.MaxCapacity }).(pulumi.IntOutput)
 }
@@ -11436,7 +11640,7 @@ func (o QuotaShareCapacityLimitArrayOutput) Index(i pulumi.IntInput) QuotaShareC
 }
 
 type QuotaSharePreemptionConfiguration struct {
-	// Whether preemption is enabled within the quota share.
+	// Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.
 	InSharePreemption QuotaSharePreemptionConfigurationInSharePreemption `pulumi:"inSharePreemption"`
 }
 
@@ -11452,7 +11656,7 @@ type QuotaSharePreemptionConfigurationInput interface {
 }
 
 type QuotaSharePreemptionConfigurationArgs struct {
-	// Whether preemption is enabled within the quota share.
+	// Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.
 	InSharePreemption QuotaSharePreemptionConfigurationInSharePreemptionInput `pulumi:"inSharePreemption"`
 }
 
@@ -11482,7 +11686,7 @@ func (o QuotaSharePreemptionConfigurationOutput) ToQuotaSharePreemptionConfigura
 	return o
 }
 
-// Whether preemption is enabled within the quota share.
+// Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.
 func (o QuotaSharePreemptionConfigurationOutput) InSharePreemption() QuotaSharePreemptionConfigurationInSharePreemptionOutput {
 	return o.ApplyT(func(v QuotaSharePreemptionConfiguration) QuotaSharePreemptionConfigurationInSharePreemption {
 		return v.InSharePreemption
@@ -11513,7 +11717,7 @@ func (o QuotaSharePreemptionConfigurationPtrOutput) Elem() QuotaSharePreemptionC
 	}).(QuotaSharePreemptionConfigurationOutput)
 }
 
-// Whether preemption is enabled within the quota share.
+// Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.
 func (o QuotaSharePreemptionConfigurationPtrOutput) InSharePreemption() QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput {
 	return o.ApplyT(func(v *QuotaSharePreemptionConfiguration) *QuotaSharePreemptionConfigurationInSharePreemption {
 		if v == nil {
@@ -11524,9 +11728,9 @@ func (o QuotaSharePreemptionConfigurationPtrOutput) InSharePreemption() QuotaSha
 }
 
 type QuotaShareResourceSharingConfiguration struct {
-	// The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+	// The maximum percentage of additional capacity that the quota share can borrow from other shares. `BorrowLimit` can only be applied to quota shares with a strategy of `LEND_AND_BORROW`. This value is expressed as a percentage of the quota share's configured CapacityLimits. The `BorrowLimit` is applied uniformly across all capacity units. For example, if the `BorrowLimit` is 200, the quota share can borrow up to 200% of its configured `maxCapacity` for each capacity unit. The default `BorrowLimit` is -1, which indicates unlimited borrowing.
 	BorrowLimit *int `pulumi:"borrowLimit"`
-	// The resource sharing strategy.
+	// The resource sharing strategy for the quota share. The `RESERVE` strategy allows a quota share to reserve idle capacity for itself. `LEND` configures the share to lend its idle capacity to another share in need of capacity. The `LEND_AND_BORROW` strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.
 	Strategy QuotaShareResourceSharingConfigurationStrategy `pulumi:"strategy"`
 }
 
@@ -11542,9 +11746,9 @@ type QuotaShareResourceSharingConfigurationInput interface {
 }
 
 type QuotaShareResourceSharingConfigurationArgs struct {
-	// The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+	// The maximum percentage of additional capacity that the quota share can borrow from other shares. `BorrowLimit` can only be applied to quota shares with a strategy of `LEND_AND_BORROW`. This value is expressed as a percentage of the quota share's configured CapacityLimits. The `BorrowLimit` is applied uniformly across all capacity units. For example, if the `BorrowLimit` is 200, the quota share can borrow up to 200% of its configured `maxCapacity` for each capacity unit. The default `BorrowLimit` is -1, which indicates unlimited borrowing.
 	BorrowLimit pulumi.IntPtrInput `pulumi:"borrowLimit"`
-	// The resource sharing strategy.
+	// The resource sharing strategy for the quota share. The `RESERVE` strategy allows a quota share to reserve idle capacity for itself. `LEND` configures the share to lend its idle capacity to another share in need of capacity. The `LEND_AND_BORROW` strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.
 	Strategy QuotaShareResourceSharingConfigurationStrategyInput `pulumi:"strategy"`
 }
 
@@ -11574,12 +11778,12 @@ func (o QuotaShareResourceSharingConfigurationOutput) ToQuotaShareResourceSharin
 	return o
 }
 
-// The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+// The maximum percentage of additional capacity that the quota share can borrow from other shares. `BorrowLimit` can only be applied to quota shares with a strategy of `LEND_AND_BORROW`. This value is expressed as a percentage of the quota share's configured CapacityLimits. The `BorrowLimit` is applied uniformly across all capacity units. For example, if the `BorrowLimit` is 200, the quota share can borrow up to 200% of its configured `maxCapacity` for each capacity unit. The default `BorrowLimit` is -1, which indicates unlimited borrowing.
 func (o QuotaShareResourceSharingConfigurationOutput) BorrowLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v QuotaShareResourceSharingConfiguration) *int { return v.BorrowLimit }).(pulumi.IntPtrOutput)
 }
 
-// The resource sharing strategy.
+// The resource sharing strategy for the quota share. The `RESERVE` strategy allows a quota share to reserve idle capacity for itself. `LEND` configures the share to lend its idle capacity to another share in need of capacity. The `LEND_AND_BORROW` strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.
 func (o QuotaShareResourceSharingConfigurationOutput) Strategy() QuotaShareResourceSharingConfigurationStrategyOutput {
 	return o.ApplyT(func(v QuotaShareResourceSharingConfiguration) QuotaShareResourceSharingConfigurationStrategy {
 		return v.Strategy
@@ -11610,7 +11814,7 @@ func (o QuotaShareResourceSharingConfigurationPtrOutput) Elem() QuotaShareResour
 	}).(QuotaShareResourceSharingConfigurationOutput)
 }
 
-// The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+// The maximum percentage of additional capacity that the quota share can borrow from other shares. `BorrowLimit` can only be applied to quota shares with a strategy of `LEND_AND_BORROW`. This value is expressed as a percentage of the quota share's configured CapacityLimits. The `BorrowLimit` is applied uniformly across all capacity units. For example, if the `BorrowLimit` is 200, the quota share can borrow up to 200% of its configured `maxCapacity` for each capacity unit. The default `BorrowLimit` is -1, which indicates unlimited borrowing.
 func (o QuotaShareResourceSharingConfigurationPtrOutput) BorrowLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *QuotaShareResourceSharingConfiguration) *int {
 		if v == nil {
@@ -11620,7 +11824,7 @@ func (o QuotaShareResourceSharingConfigurationPtrOutput) BorrowLimit() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The resource sharing strategy.
+// The resource sharing strategy for the quota share. The `RESERVE` strategy allows a quota share to reserve idle capacity for itself. `LEND` configures the share to lend its idle capacity to another share in need of capacity. The `LEND_AND_BORROW` strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.
 func (o QuotaShareResourceSharingConfigurationPtrOutput) Strategy() QuotaShareResourceSharingConfigurationStrategyPtrOutput {
 	return o.ApplyT(func(v *QuotaShareResourceSharingConfiguration) *QuotaShareResourceSharingConfigurationStrategy {
 		if v == nil {
@@ -12301,6 +12505,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRetryStrategyPtrInput)(nil)).Elem(), JobDefinitionRetryStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRuntimePlatformInput)(nil)).Elem(), JobDefinitionRuntimePlatformArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRuntimePlatformPtrInput)(nil)).Elem(), JobDefinitionRuntimePlatformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionS3FilesVolumeConfigurationInput)(nil)).Elem(), JobDefinitionS3FilesVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionS3FilesVolumeConfigurationPtrInput)(nil)).Elem(), JobDefinitionS3FilesVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionSecretInput)(nil)).Elem(), JobDefinitionSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionSecretArrayInput)(nil)).Elem(), JobDefinitionSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTaskContainerDependencyInput)(nil)).Elem(), JobDefinitionTaskContainerDependencyArgs{})
@@ -12431,6 +12637,8 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRuntimePlatformOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRuntimePlatformPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionS3FilesVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(JobDefinitionS3FilesVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionSecretOutput{})
 	pulumi.RegisterOutputType(JobDefinitionSecretArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTaskContainerDependencyOutput{})

@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'BotAliasStatus',
+    'BotAudioFillerSettingsAudioType',
     'BotAudioRecognitionStrategy',
     'BotBedrockModelSpecificationBedrockTraceStatus',
     'BotDialogActionType',
@@ -29,6 +30,17 @@ class BotAliasStatus(_builtins.str, Enum):
     AVAILABLE = "Available"
     DELETING = "Deleting"
     FAILED = "Failed"
+
+
+@pulumi.type_token("aws-native:lex:BotAudioFillerSettingsAudioType")
+class BotAudioFillerSettingsAudioType(_builtins.str, Enum):
+    MELODY_CHIPPER_CHIME = "MELODY_CHIPPER_CHIME"
+    MELODY_CURIOUS_CRAWL = "MELODY_CURIOUS_CRAWL"
+    MELODY_RISING_RIPPLE = "MELODY_RISING_RIPPLE"
+    MELODY_PATIENT_PING = "MELODY_PATIENT_PING"
+    MELODY_PONDERING_PONG = "MELODY_PONDERING_PONG"
+    TYPING_KINETIC_KEYS = "TYPING_KINETIC_KEYS"
+    TYPING_QUIET_QWERTY = "TYPING_QUIET_QWERTY"
 
 
 @pulumi.type_token("aws-native:lex:BotAudioRecognitionStrategy")
@@ -107,6 +119,7 @@ class BotSpeechModelPreference(_builtins.str, Enum):
     STANDARD = "Standard"
     NEURAL = "Neural"
     DEEPGRAM = "Deepgram"
+    ADVANCED = "Advanced"
 
 
 @pulumi.type_token("aws-native:lex:BotVoiceSettingsEngine")

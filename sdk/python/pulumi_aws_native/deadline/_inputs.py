@@ -62,6 +62,8 @@ __all__ = [
     'QueueJobRunAsUserArgsDict',
     'QueuePosixUserArgs',
     'QueuePosixUserArgsDict',
+    'QueueSchedulingConfigurationArgs',
+    'QueueSchedulingConfigurationArgsDict',
     'QueueWindowsUserArgs',
     'QueueWindowsUserArgsDict',
     'StorageProfileFileSystemLocationArgs',
@@ -1214,6 +1216,15 @@ class QueuePosixUserArgs:
     @user.setter
     def user(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "user", value)
+
+
+class QueueSchedulingConfigurationArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class QueueSchedulingConfigurationArgs:
+    def __init__(__self__):
+        pass
 
 
 class QueueWindowsUserArgsDict(TypedDict):

@@ -452,10 +452,17 @@
       }
     },
     "ClusterLifeCycleConfig" : {
-      "description" : "The lifecycle configuration for a SageMaker HyperPod cluster.",
+      "description" : "The lifecycle configuration for a SageMaker HyperPod cluster. When omitted, the instance group uses Bootstrap mode. When provided with SourceS3Uri and OnCreate, uses Customer Managed mode. When provided with SourceS3Uri and OnInitComplete, uses Extended mode.",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "OnInitComplete" : {
+          "minLength" : 1,
+          "pattern" : "^[\\S\\s]+$",
+          "description" : "The file name of the extension script under SourceS3Uri. This script runs after HyperPod configures the default software on the instance. Mutually exclusive with OnCreate.",
+          "type" : "string",
+          "maxLength" : 128
+        },
         "SourceS3Uri" : {
           "pattern" : "^(https|s3)://([^/]+)/?(.*)$",
           "description" : "An Amazon S3 bucket path where your lifecycle scripts are stored.",
@@ -465,12 +472,11 @@
         "OnCreate" : {
           "minLength" : 1,
           "pattern" : "^[\\S\\s]+$",
-          "description" : "The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.",
+          "description" : "The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation. Mutually exclusive with OnInitComplete.",
           "type" : "string",
           "maxLength" : 128
         }
-      },
-      "required" : [ "OnCreate", "SourceS3Uri" ]
+      }
     },
     "OnStartDeepHealthChecks" : {
       "description" : "Nodes will undergo advanced stress test to detect and replace faulty instances, based on the type of deep health check(s) passed in.",
@@ -581,7 +587,7 @@
           "minimum" : 0
         }
       },
-      "required" : [ "ExecutionRole", "InstanceCount", "InstanceGroupName", "InstanceType", "LifeCycleConfig" ]
+      "required" : [ "ExecutionRole", "InstanceCount", "InstanceGroupName", "InstanceType" ]
     },
     "ClusterAutoScalingConfig" : {
       "description" : "Configuration for cluster auto-scaling",

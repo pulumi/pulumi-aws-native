@@ -48,11 +48,11 @@ export class TemplateGroupAccessControlEntry extends pulumi.CustomResource {
     /**
      * Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
      */
-    declare public readonly groupSecurityIdentifier: pulumi.Output<string | undefined>;
+    declare public readonly groupSecurityIdentifier: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
      */
-    declare public readonly templateArn: pulumi.Output<string | undefined>;
+    declare public readonly templateArn: pulumi.Output<string>;
 
     /**
      * Create a TemplateGroupAccessControlEntry resource with the given unique name, arguments, and options.
@@ -70,6 +70,12 @@ export class TemplateGroupAccessControlEntry extends pulumi.CustomResource {
             }
             if (args?.groupDisplayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupDisplayName'");
+            }
+            if (args?.groupSecurityIdentifier === undefined && !opts.urn) {
+                throw new Error("Missing required property 'groupSecurityIdentifier'");
+            }
+            if (args?.templateArn === undefined && !opts.urn) {
+                throw new Error("Missing required property 'templateArn'");
             }
             resourceInputs["accessRights"] = args?.accessRights;
             resourceInputs["groupDisplayName"] = args?.groupDisplayName;
@@ -103,9 +109,9 @@ export interface TemplateGroupAccessControlEntryArgs {
     /**
      * Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
      */
-    groupSecurityIdentifier?: pulumi.Input<string>;
+    groupSecurityIdentifier: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
      */
-    templateArn?: pulumi.Input<string>;
+    templateArn: pulumi.Input<string>;
 }

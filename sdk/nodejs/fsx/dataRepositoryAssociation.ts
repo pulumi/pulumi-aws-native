@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     fileSystemPath: fileSystemPath,
  *     dataRepositoryPath: "s3://example-bucket",
  *     batchImportMetaDataOnCreate: true,
- *     importedFileChunkSize: importedFileChunkSize,
+ *     importedFileChunkSize: Number(importedFileChunkSize),
  *     s3: {
  *         autoImportPolicy: {
  *             events: [

@@ -8,10 +8,18 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"slices"
 	"strings"
 
 	"github.com/pkg/errors"
+
 	jsschema "github.com/pulumi/jsschema"
+	dotnetgen "github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3/codegen"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/maputil"
+
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
@@ -19,11 +27,6 @@ import (
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/refdb"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema/docs"
-	dotnetgen "github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3/codegen"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
-	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/maputil"
 )
 
 const packageName = "aws-native"
@@ -990,7 +993,23 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 		DeprecationMessage: deprecationMessage,
 	}
 
-	err := ctx.markCreateOnlyProperties(createOnlyProperties, &resourceSpec)
+	hasListHandler, err := ctx.hasListHandler()
+	if err != nil {
+		return err
+	}
+	listHandlerSchema, err := ctx.gatherListHandlerSchema()
+	if err != nil {
+		return err
+	}
+
+	listInputs, err := ctx.gatherListInputsForSchema(hasListHandler, listHandlerSchema)
+	if err != nil {
+		return err
+	}
+	resourceSpec.ListInputs = listInputs
+	listIrreversibleNames := listHandlerIrreversibleNames(listHandlerSchema)
+
+	err = ctx.markCreateOnlyProperties(createOnlyProperties, &resourceSpec)
 	if err != nil {
 		fmt.Printf("%v\n", err)
 	}
@@ -998,20 +1017,23 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 	ctx.pkg.Resources[ctx.resourceToken] = resourceSpec
 
 	ctx.metadata.Resources[ctx.resourceToken] = metadata.CloudAPIResource{
-		CfType:             ctx.cfTypeName,
-		Inputs:             inputProperties,
-		Outputs:            properties,
-		CreateOnly:         createOnlyProperties.SortedValues(),
-		Required:           requiredInputs.SortedValues(),
-		AutoNamingSpec:     autoNamingSpec,
-		WriteOnly:          writeOnlyProperties.SortedValues(),
-		ReadOnly:           readPropSdkNames(ctx.resourceSpec, "readOnlyProperties").SortedValues(),
-		IrreversibleNames:  irreversibleNames,
-		TagsProperty:       naming.ToSdkName(tagsProp),
-		TagsStyle:          tagsStyle,
-		PrimaryIdentifier:  ctx.gatherResourcePrimaryIdentifier(),
-		ListHandlerSchema:  ctx.gatherListHandlerSchema(),
-		PropertyTransforms: readPropertyTransforms(ctx.resourceSpec),
+		CfType:                ctx.cfTypeName,
+		Inputs:                inputProperties,
+		Outputs:               properties,
+		CreateOnly:            createOnlyProperties.SortedValues(),
+		Required:              requiredInputs.SortedValues(),
+		AutoNamingSpec:        autoNamingSpec,
+		WriteOnly:             writeOnlyProperties.SortedValues(),
+		ReadOnly:              readPropSdkNames(ctx.resourceSpec, "readOnlyProperties").SortedValues(),
+		IrreversibleNames:     irreversibleNames,
+		TagsProperty:          naming.ToSdkName(tagsProp),
+		TagsStyle:             tagsStyle,
+		PrimaryIdentifier:     ctx.gatherResourcePrimaryIdentifier(),
+		ListHandlerSchema:     listHandlerSchema,
+		ListInputs:            listInputs,
+		ListIrreversibleNames: listIrreversibleNames,
+		HasListHandler:        hasListHandler,
+		PropertyTransforms:    readPropertyTransforms(ctx.resourceSpec),
 	}
 	return nil
 }
@@ -1025,123 +1047,345 @@ func (ctx *cfSchemaContext) gatherResourcePrimaryIdentifier() []string {
 	return identifiers
 }
 
-func (ctx *cfSchemaContext) gatherListHandlerSchema() *metadata.ListHandlerSchema {
+// hasListHandler reports whether the CloudFormation schema declares a list handler.
+func (ctx *cfSchemaContext) hasListHandler() (bool, error) {
 	handlersAny, ok := ctx.resourceSpec.Extras["handlers"]
 	if !ok {
-		return nil
+		return false, nil
 	}
 	handlers, ok := handlersAny.(map[string]interface{})
 	if !ok {
+		return false, fmt.Errorf("handlers for %s must be an object", ctx.cfTypeName)
+	}
+	listAny, ok := handlers["list"]
+	if !ok {
+		return false, nil
+	}
+	if _, ok := listAny.(map[string]interface{}); !ok {
+		return false, fmt.Errorf("list handler for %s must be an object", ctx.cfTypeName)
+	}
+	return true, nil
+}
+
+// gatherListInputs builds the Pulumi input object type for provider List queries.
+func (ctx *cfSchemaContext) gatherListInputs() (*pschema.ObjectTypeSpec, error) {
+	hasListHandler, err := ctx.hasListHandler()
+	if err != nil {
+		return nil, err
+	}
+	listSchema, err := ctx.gatherListHandlerSchema()
+	if err != nil {
+		return nil, err
+	}
+	return ctx.gatherListInputsForSchema(hasListHandler, listSchema)
+}
+
+// gatherListInputsForSchema converts CloudFormation list handler metadata into Pulumi input properties.
+func (ctx *cfSchemaContext) gatherListInputsForSchema(
+	hasListHandler bool, listSchema *metadata.ListHandlerSchema,
+) (*pschema.ObjectTypeSpec, error) {
+	if !hasListHandler {
+		return nil, nil
+	}
+
+	listInputs := &pschema.ObjectTypeSpec{
+		Type:       jsschema.ObjectType.String(),
+		Properties: map[string]pschema.PropertySpec{},
+	}
+
+	if listSchema == nil {
+		return listInputs, nil
+	}
+
+	cfnNamesBySdkName := map[string]string{}
+	for _, cfnName := range maputil.SortedKeys(listSchema.Properties) {
+		prop := listSchema.Properties[cfnName]
+		sdkName := naming.ToSdkName(cfnName)
+		if previousCfnName, ok := cfnNamesBySdkName[sdkName]; ok {
+			return nil, fmt.Errorf("list handler properties %q and %q for %s both map to SDK name %q",
+				previousCfnName, cfnName, ctx.cfTypeName, sdkName)
+		}
+		cfnNamesBySdkName[sdkName] = cfnName
+		listInputs.Properties[sdkName] = pschema.PropertySpec{
+			Description: naming.SanitizeCfnString(prop.Description),
+			TypeSpec:    listHandlerPropertyTypeSpec(prop.Type),
+		}
+	}
+
+	required := codegen.NewStringSet()
+	for _, cfnName := range listSchema.Required {
+		sdkName := naming.ToSdkName(cfnName)
+		if _, ok := listInputs.Properties[sdkName]; !ok {
+			return nil, fmt.Errorf("required list handler property %q for %s has no schema", cfnName, ctx.cfTypeName)
+		}
+		required.Add(sdkName)
+	}
+	listInputs.Required = required.SortedValues()
+
+	return listInputs, nil
+}
+
+// listHandlerIrreversibleNames maps generated SDK List input names back to their CloudFormation names.
+func listHandlerIrreversibleNames(listSchema *metadata.ListHandlerSchema) map[string]string {
+	if listSchema == nil {
 		return nil
+	}
+	result := map[string]string{}
+	for cfnName := range listSchema.Properties {
+		sdkName := naming.ToSdkName(cfnName)
+		if naming.ToCfnName(sdkName, nil) != cfnName {
+			result[sdkName] = cfnName
+		}
+	}
+	if len(result) == 0 {
+		return nil
+	}
+	return result
+}
+
+// gatherListHandlerSchema extracts and normalizes the CloudFormation list handler schema.
+//
+// Some CloudFormation handler schemas reference resource properties instead of repeating
+// description and type information. This normalizes those references so runtime metadata
+// contains a direct property schema for each supported List query input.
+func (ctx *cfSchemaContext) gatherListHandlerSchema() (*metadata.ListHandlerSchema, error) {
+	handlersAny, ok := ctx.resourceSpec.Extras["handlers"]
+	if !ok {
+		return nil, nil
+	}
+	handlers, ok := handlersAny.(map[string]interface{})
+	if !ok {
+		return nil, fmt.Errorf("handlers for %s must be an object", ctx.cfTypeName)
 	}
 
 	listAny, ok := handlers["list"]
 	if !ok {
-		return nil
+		return nil, nil
 	}
 	list, ok := listAny.(map[string]interface{})
 	if !ok {
-		return nil
+		return nil, fmt.Errorf("list handler for %s must be an object", ctx.cfTypeName)
 	}
 
 	handlerSchemaAny, ok := list["handlerSchema"]
 	if !ok {
-		return nil
+		return nil, nil
 	}
 	handlerSchema, ok := handlerSchemaAny.(map[string]interface{})
 	if !ok {
-		return nil
+		return nil, fmt.Errorf("list handler schema for %s must be an object", ctx.cfTypeName)
 	}
 
 	result := &metadata.ListHandlerSchema{}
 
 	if reqAny, ok := handlerSchema["required"]; ok {
-		if reqSlice, ok := reqAny.([]interface{}); ok {
-			for _, v := range reqSlice {
-				if s, ok := v.(string); ok {
-					result.Required = append(result.Required, s)
-				}
+		reqSlice, ok := reqAny.([]interface{})
+		if !ok {
+			return nil, fmt.Errorf("list handler schema required for %s must be an array", ctx.cfTypeName)
+		}
+		for _, v := range reqSlice {
+			s, ok := v.(string)
+			if !ok {
+				return nil, fmt.Errorf("list handler schema required entries for %s must be strings", ctx.cfTypeName)
 			}
+			result.Required = append(result.Required, s)
 		}
 	}
 
 	if propsAny, ok := handlerSchema["properties"]; ok {
-		if propsMap, ok := propsAny.(map[string]interface{}); ok {
-			result.Properties = map[string]metadata.ListHandlerProperty{}
-			for propName, propVal := range propsMap {
-				propMap, ok := propVal.(map[string]interface{})
-				if !ok {
-					continue
-				}
-
-				var prop metadata.ListHandlerProperty
-				if desc, ok := propMap["description"].(string); ok {
-					prop.Description = desc
-				}
-				if typ, ok := propMap["type"].(string); ok {
-					prop.Type = typ
-				}
-
-				if prop.Description == "" && prop.Type == "" {
-					if ref, ok := propMap["$ref"].(string); ok {
-						refName := parsePropertyNameFromRef(ref)
-						if refName != "" {
-							if propSchema, ok := ctx.resourceSpec.Properties[refName]; ok && propSchema != nil {
-								if prop.Description == "" && propSchema.Description != "" {
-									prop.Description = naming.SanitizeCfnString(propSchema.Description)
-								}
-								if prop.Type == "" {
-									prop.Type = firstPrimitiveType(propSchema.Type)
-								}
-							}
-						}
-					}
-				}
-
-				// Only include properties when at least one field is present.
-				if prop.Description == "" && prop.Type == "" {
-					continue
-				}
-
-				result.Properties[propName] = prop
+		propsMap, ok := propsAny.(map[string]interface{})
+		if !ok {
+			return nil, fmt.Errorf("list handler schema properties for %s must be an object", ctx.cfTypeName)
+		}
+		result.Properties = map[string]metadata.ListHandlerProperty{}
+		for propName, propVal := range propsMap {
+			propMap, ok := propVal.(map[string]interface{})
+			if !ok {
+				return nil, fmt.Errorf("list handler property %q for %s must be an object", propName, ctx.cfTypeName)
 			}
-			if len(result.Properties) == 0 {
-				result.Properties = nil
+
+			prop := ctx.listHandlerPropertyFromMap(propMap)
+
+			if prop.Description == "" && prop.Type == "" {
+				return nil, fmt.Errorf("list handler property %q for %s has no schema", propName, ctx.cfTypeName)
 			}
+
+			resultName := propName
+			if refName := listHandlerResourcePropertyRefName(propMap); refName != "" &&
+				refName != propName && slices.Contains(result.Required, refName) {
+				resultName = refName
+			}
+			result.Properties[resultName] = prop
+		}
+		if len(result.Properties) == 0 {
+			result.Properties = nil
 		}
 	}
 
-	if len(result.Required) == 0 && len(result.Properties) == 0 {
-		return nil
+	for _, requiredName := range result.Required {
+		if _, ok := result.Properties[requiredName]; ok {
+			continue
+		}
+		prop := ctx.listHandlerPropertyFromResourceProperty(requiredName)
+		if prop.Description == "" && prop.Type == "" {
+			return nil, fmt.Errorf("required list handler property %q for %s has no schema", requiredName, ctx.cfTypeName)
+		}
+		if result.Properties == nil {
+			result.Properties = map[string]metadata.ListHandlerProperty{}
+		}
+		result.Properties[requiredName] = prop
 	}
 
-	return result
+	if len(result.Required) == 0 && len(result.Properties) == 0 {
+		return nil, nil
+	}
+
+	return result, nil
 }
 
-func parsePropertyNameFromRef(ref string) string {
-	const propToken = "/properties/"
-	idx := strings.Index(ref, propToken)
-	if idx == -1 {
+// listHandlerResourcePropertyRefName returns the resource property named by a list handler $ref.
+func listHandlerResourcePropertyRefName(propMap map[string]interface{}) string {
+	ref, ok := propMap["$ref"].(string)
+	if !ok {
 		return ""
 	}
-	return ref[idx+len(propToken):]
+	const propertiesPrefix = "resource-schema.json#/properties/"
+	if name, ok := strings.CutPrefix(ref, propertiesPrefix); ok {
+		return name
+	}
+	return ""
+}
+
+// listHandlerPropertyFromMap reads a list handler property schema from the raw CloudFormation map.
+func (ctx *cfSchemaContext) listHandlerPropertyFromMap(propMap map[string]interface{}) metadata.ListHandlerProperty {
+	var prop metadata.ListHandlerProperty
+	if desc, ok := propMap["description"].(string); ok {
+		prop.Description = desc
+	}
+	if typ, ok := propMap["type"].(string); ok {
+		prop.Type = typ
+	}
+
+	if prop.Description == "" && prop.Type == "" {
+		if ref, ok := propMap["$ref"].(string); ok {
+			propSchema := ctx.resolveListHandlerRef(ref, map[string]bool{})
+			prop = listHandlerPropertyFromSchema(propSchema)
+		}
+	}
+	return prop
+}
+
+// listHandlerPropertyFromResourceProperty derives list handler metadata from a resource property schema.
+func (ctx *cfSchemaContext) listHandlerPropertyFromResourceProperty(name string) metadata.ListHandlerProperty {
+	propSchema := ctx.resolveListHandlerSchema(ctx.resourceSpec.Properties[name], map[string]bool{})
+	return listHandlerPropertyFromSchema(propSchema)
+}
+
+// listHandlerPropertyFromSchema converts a JSON schema into the metadata needed for List query inputs.
+func listHandlerPropertyFromSchema(propSchema *jsschema.Schema) metadata.ListHandlerProperty {
+	if propSchema == nil {
+		return metadata.ListHandlerProperty{}
+	}
+	prop := metadata.ListHandlerProperty{}
+	if propSchema.Description != "" {
+		prop.Description = naming.SanitizeCfnString(propSchema.Description)
+	}
+	prop.Type = firstPrimitiveType(propSchema.Type)
+	return prop
+}
+
+// resolveListHandlerRef resolves a list handler $ref against the current resource schema.
+func (ctx *cfSchemaContext) resolveListHandlerRef(ref string, seen map[string]bool) *jsschema.Schema {
+	var schema *jsschema.Schema
+	switch {
+	case strings.Contains(ref, "/properties/"):
+		refName := parsePropertyNameFromRef(ref)
+		if refName == "" {
+			return nil
+		}
+		schema = ctx.resourceSpec.Properties[refName]
+	case strings.Contains(ref, "/definitions/"):
+		refName := parseDefinitionNameFromRef(ref)
+		if refName == "" {
+			return nil
+		}
+		schema = ctx.resourceSpec.Definitions[refName]
+	default:
+		return nil
+	}
+	return ctx.resolveListHandlerSchema(schema, seen)
+}
+
+// resolveListHandlerSchema follows list handler schema references until it reaches a concrete schema.
+func (ctx *cfSchemaContext) resolveListHandlerSchema(schema *jsschema.Schema, seen map[string]bool) *jsschema.Schema {
+	if schema == nil || schema.Reference == "" {
+		return schema
+	}
+	if seen[schema.Reference] {
+		return schema
+	}
+	seen[schema.Reference] = true
+	resolved := ctx.resolveListHandlerRef(schema.Reference, seen)
+	if resolved == nil {
+		return schema
+	}
+	if resolved.Reference != "" {
+		return ctx.resolveListHandlerSchema(resolved, seen)
+	}
+	return resolved
+}
+
+// listHandlerPropertyTypeSpec maps CloudFormation primitive schema types to Pulumi schema type specs.
+func listHandlerPropertyTypeSpec(typ string) pschema.TypeSpec {
+	switch typ {
+	case jsschema.StringType.String():
+		return pschema.TypeSpec{Type: jsschema.StringType.String()}
+	case jsschema.IntegerType.String():
+		return pschema.TypeSpec{Type: jsschema.IntegerType.String()}
+	case jsschema.NumberType.String():
+		return pschema.TypeSpec{Type: jsschema.NumberType.String()}
+	case jsschema.BooleanType.String():
+		return pschema.TypeSpec{Type: jsschema.BooleanType.String()}
+	case jsschema.ArrayType.String():
+		return pschema.TypeSpec{Type: jsschema.ArrayType.String(), Items: &pschema.TypeSpec{Ref: "pulumi.json#/Any"}}
+	default:
+		return pschema.TypeSpec{Ref: "pulumi.json#/Any"}
+	}
+}
+
+// parsePropertyNameFromRef extracts the property name segment from a JSON schema reference.
+func parsePropertyNameFromRef(ref string) string {
+	const propToken = "/properties/"
+	if _, name, ok := strings.Cut(ref, propToken); ok {
+		return name
+	}
+	return ""
+}
+
+// parseDefinitionNameFromRef extracts the definition name segment from a JSON schema reference.
+func parseDefinitionNameFromRef(ref string) string {
+	const definitionToken = "/definitions/"
+	if _, name, ok := strings.Cut(ref, definitionToken); ok {
+		return name
+	}
+	return ""
 }
 
 func firstPrimitiveType(types jsschema.PrimitiveTypes) string {
 	for _, t := range types {
 		switch t {
 		case jsschema.StringType:
-			return "string"
+			return jsschema.StringType.String()
 		case jsschema.NumberType:
-			return "number"
+			return jsschema.NumberType.String()
 		case jsschema.IntegerType:
-			return "integer"
+			return jsschema.IntegerType.String()
 		case jsschema.BooleanType:
-			return "boolean"
+			return jsschema.BooleanType.String()
 		case jsschema.ArrayType:
-			return "array"
+			return jsschema.ArrayType.String()
 		case jsschema.ObjectType:
-			return "object"
+			return jsschema.ObjectType.String()
 		case jsschema.NullType:
 			return "null"
 		}
@@ -1410,6 +1654,7 @@ func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jssc
 				ctx.metadata.Types[tok] = metadata.CloudAPIType{
 					Type:              "object",
 					Properties:        specs,
+					Required:          requiredSpecs.SortedValues(),
 					IrreversibleNames: irreversibleNames,
 				}
 			}
@@ -1441,6 +1686,7 @@ func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jssc
 		ctx.metadata.Types[tok] = metadata.CloudAPIType{
 			Type:              "object",
 			Properties:        specs,
+			Required:          requiredSpecs.SortedValues(),
 			IrreversibleNames: irreversibleNames,
 		}
 		referencedTypeName := fmt.Sprintf("#/types/%s", tok)

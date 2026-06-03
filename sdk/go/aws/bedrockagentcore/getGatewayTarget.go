@@ -30,6 +30,7 @@ type LookupGatewayTargetArgs struct {
 }
 
 type LookupGatewayTargetResult struct {
+	AuthorizationData *GatewayTargetAuthorizationDataProperties `pulumi:"authorizationData"`
 	// The date and time at which the gateway target was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The OAuth credential provider configuration.
@@ -40,13 +41,14 @@ type LookupGatewayTargetResult struct {
 	LastSynchronizedAt    *string                             `pulumi:"lastSynchronizedAt"`
 	MetadataConfiguration *GatewayTargetMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// The name for the gateway target.
-	Name *string `pulumi:"name"`
+	Name         *string                          `pulumi:"name"`
+	ProtocolType *GatewayTargetTargetProtocolType `pulumi:"protocolType"`
 	// The status for the gateway target.
 	Status *GatewayTargetTargetStatus `pulumi:"status"`
 	// The status reasons for the gateway target.
 	StatusReasons []string `pulumi:"statusReasons"`
 	// The target configuration for the Smithy model target.
-	TargetConfiguration *GatewayTargetTargetConfigurationProperties `pulumi:"targetConfiguration"`
+	TargetConfiguration interface{} `pulumi:"targetConfiguration"`
 	// The target ID for the gateway target.
 	TargetId *string `pulumi:"targetId"`
 	// The time at which the resource was updated.
@@ -87,6 +89,12 @@ func (o LookupGatewayTargetResultOutput) ToLookupGatewayTargetResultOutputWithCo
 	return o
 }
 
+func (o LookupGatewayTargetResultOutput) AuthorizationData() GatewayTargetAuthorizationDataPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupGatewayTargetResult) *GatewayTargetAuthorizationDataProperties {
+		return v.AuthorizationData
+	}).(GatewayTargetAuthorizationDataPropertiesPtrOutput)
+}
+
 // The date and time at which the gateway target was created.
 func (o LookupGatewayTargetResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayTargetResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
@@ -121,6 +129,10 @@ func (o LookupGatewayTargetResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayTargetResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupGatewayTargetResultOutput) ProtocolType() GatewayTargetTargetProtocolTypePtrOutput {
+	return o.ApplyT(func(v LookupGatewayTargetResult) *GatewayTargetTargetProtocolType { return v.ProtocolType }).(GatewayTargetTargetProtocolTypePtrOutput)
+}
+
 // The status for the gateway target.
 func (o LookupGatewayTargetResultOutput) Status() GatewayTargetTargetStatusPtrOutput {
 	return o.ApplyT(func(v LookupGatewayTargetResult) *GatewayTargetTargetStatus { return v.Status }).(GatewayTargetTargetStatusPtrOutput)
@@ -132,10 +144,8 @@ func (o LookupGatewayTargetResultOutput) StatusReasons() pulumi.StringArrayOutpu
 }
 
 // The target configuration for the Smithy model target.
-func (o LookupGatewayTargetResultOutput) TargetConfiguration() GatewayTargetTargetConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v LookupGatewayTargetResult) *GatewayTargetTargetConfigurationProperties {
-		return v.TargetConfiguration
-	}).(GatewayTargetTargetConfigurationPropertiesPtrOutput)
+func (o LookupGatewayTargetResultOutput) TargetConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupGatewayTargetResult) interface{} { return v.TargetConfiguration }).(pulumi.AnyOutput)
 }
 
 // The target ID for the gateway target.

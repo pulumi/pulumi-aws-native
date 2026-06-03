@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for AWS::Signer::ProfilePermission
  */
 export class ProfilePermission extends pulumi.CustomResource {
     /**

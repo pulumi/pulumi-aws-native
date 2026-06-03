@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<Outputs.BrowserCustomBrowserSigning?> BrowserSigning { get; private set; } = null!;
 
         /// <summary>
+        /// List of root CA certificates in PEM format.
+        /// </summary>
+        [Output("certificates")]
+        public Output<ImmutableArray<Outputs.BrowserCustomCertificate>> Certificates { get; private set; } = null!;
+
+        /// <summary>
         /// Timestamp when the browser was created.
         /// </summary>
         [Output("createdAt")]
@@ -44,6 +50,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of enterprise policy files for the browser.
+        /// </summary>
+        [Output("enterprisePolicies")]
+        public Output<ImmutableArray<Outputs.BrowserCustomBrowserEnterprisePolicy>> EnterprisePolicies { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
@@ -119,7 +131,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
                 ReplaceOnChanges =
                 {
                     "browserSigning",
+                    "certificates[*]",
                     "description",
+                    "enterprisePolicies[*]",
                     "executionRoleArn",
                     "name",
                     "networkConfiguration",
@@ -153,11 +167,35 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Input("browserSigning")]
         public Input<Inputs.BrowserCustomBrowserSigningArgs>? BrowserSigning { get; set; }
 
+        [Input("certificates")]
+        private InputList<Inputs.BrowserCustomCertificateArgs>? _certificates;
+
+        /// <summary>
+        /// List of root CA certificates in PEM format.
+        /// </summary>
+        public InputList<Inputs.BrowserCustomCertificateArgs> Certificates
+        {
+            get => _certificates ?? (_certificates = new InputList<Inputs.BrowserCustomCertificateArgs>());
+            set => _certificates = value;
+        }
+
         /// <summary>
         /// The description of the browser.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("enterprisePolicies")]
+        private InputList<Inputs.BrowserCustomBrowserEnterprisePolicyArgs>? _enterprisePolicies;
+
+        /// <summary>
+        /// A list of enterprise policy files for the browser.
+        /// </summary>
+        public InputList<Inputs.BrowserCustomBrowserEnterprisePolicyArgs> EnterprisePolicies
+        {
+            get => _enterprisePolicies ?? (_enterprisePolicies = new InputList<Inputs.BrowserCustomBrowserEnterprisePolicyArgs>());
+            set => _enterprisePolicies = value;
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.

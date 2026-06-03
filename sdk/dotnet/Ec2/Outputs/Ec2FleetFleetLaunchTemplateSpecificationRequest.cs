@@ -25,6 +25,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
         /// </summary>
         public readonly string? LaunchTemplateName;
+        public readonly string? LaunchTemplateSpecificationUserData;
         /// <summary>
         /// The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
         /// 
@@ -40,10 +41,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             string? launchTemplateName,
 
+            string? launchTemplateSpecificationUserData,
+
             string version)
         {
             LaunchTemplateId = launchTemplateId;
             LaunchTemplateName = launchTemplateName;
+            LaunchTemplateSpecificationUserData = launchTemplateSpecificationUserData;
             Version = version;
         }
     }

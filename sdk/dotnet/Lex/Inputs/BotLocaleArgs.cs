@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
     public sealed class BotLocaleArgs : global::Pulumi.ResourceArgs
     {
+        [Input("audioFillerSettings")]
+        public Input<Inputs.BotAudioFillerSettingsArgs>? AudioFillerSettings { get; set; }
+
         /// <summary>
         /// Specifies a custom vocabulary to use with a specific locale.
         /// </summary>

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -58,6 +61,10 @@ export class FlowVpcInterface extends pulumi.CustomResource {
      * Subnet must be in the AZ of the Flow
      */
     declare public readonly subnetId: pulumi.Output<string>;
+    /**
+     * Key-value pairs that can be used to tag and organize this VPC network interface.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FlowVpcInterface resource with the given unique name, arguments, and options.
@@ -87,6 +94,7 @@ export class FlowVpcInterface extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["securityGroupIds"] = args?.securityGroupIds;
             resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["networkInterfaceIds"] = undefined /*out*/;
         } else {
             resourceInputs["flowArn"] = undefined /*out*/;
@@ -95,6 +103,7 @@ export class FlowVpcInterface extends pulumi.CustomResource {
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["flowArn", "name"] };
@@ -127,4 +136,8 @@ export interface FlowVpcInterfaceArgs {
      * Subnet must be in the AZ of the Flow
      */
     subnetId: pulumi.Input<string>;
+    /**
+     * Key-value pairs that can be used to tag and organize this VPC network interface.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

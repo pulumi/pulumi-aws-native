@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
     public sealed class LoadBalancerPoliciesArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes", required: true)]
-        private InputList<Inputs.LoadBalancerPolicyItemArgs>? _attributes;
+        private InputList<object>? _attributes;
 
         /// <summary>
         /// The policy attributes.
         /// </summary>
-        public InputList<Inputs.LoadBalancerPolicyItemArgs> Attributes
+        public InputList<object> Attributes
         {
-            get => _attributes ?? (_attributes = new InputList<Inputs.LoadBalancerPolicyItemArgs>());
+            get => _attributes ?? (_attributes = new InputList<object>());
             set => _attributes = value;
         }
 

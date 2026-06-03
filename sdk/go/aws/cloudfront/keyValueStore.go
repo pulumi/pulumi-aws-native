@@ -20,7 +20,7 @@ type KeyValueStore struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The unique Id for the key value store.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// A comment for the key value store.
+	// A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The import source for the key value store.
 	ImportSource KeyValueStoreImportSourcePtrOutput `pulumi:"importSource"`
@@ -28,7 +28,8 @@ type KeyValueStore struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
 	Status pulumi.StringOutput `pulumi:"status"`
-	Tags   aws.TagArrayOutput  `pulumi:"tags"`
+	// A complex type that contains zero or more ``Tag`` elements.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewKeyValueStore registers a new resource with the given unique name, arguments, and options.
@@ -75,23 +76,25 @@ func (KeyValueStoreState) ElementType() reflect.Type {
 }
 
 type keyValueStoreArgs struct {
-	// A comment for the key value store.
+	// A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
 	Comment *string `pulumi:"comment"`
 	// The import source for the key value store.
 	ImportSource *KeyValueStoreImportSource `pulumi:"importSource"`
 	// The name of the key value store.
-	Name *string   `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a KeyValueStore resource.
 type KeyValueStoreArgs struct {
-	// A comment for the key value store.
+	// A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
 	Comment pulumi.StringPtrInput
 	// The import source for the key value store.
 	ImportSource KeyValueStoreImportSourcePtrInput
 	// The name of the key value store.
 	Name pulumi.StringPtrInput
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags aws.TagArrayInput
 }
 
@@ -142,7 +145,7 @@ func (o KeyValueStoreOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// A comment for the key value store.
+// A comment to describe the Key Value Store. Omitting “Comment“ from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
 func (o KeyValueStoreOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
@@ -162,6 +165,7 @@ func (o KeyValueStoreOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// A complex type that contains zero or more “Tag“ elements.
 func (o KeyValueStoreOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *KeyValueStore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

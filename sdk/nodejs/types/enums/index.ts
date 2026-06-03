@@ -24,6 +24,7 @@ import * as b2bi from "./b2bi";
 import * as backup from "./backup";
 import * as batch from "./batch";
 import * as bcmdataexports from "./bcmdataexports";
+import * as bcmpricingcalculator from "./bcmpricingcalculator";
 import * as bedrock from "./bedrock";
 import * as bedrockagentcore from "./bedrockagentcore";
 import * as billing from "./billing";
@@ -129,6 +130,7 @@ import * as memorydb from "./memorydb";
 import * as msk from "./msk";
 import * as mwaa from "./mwaa";
 import * as mwaaserverless from "./mwaaserverless";
+import * as neptunegraph from "./neptunegraph";
 import * as networkfirewall from "./networkfirewall";
 import * as oam from "./oam";
 import * as observabilityadmin from "./observabilityadmin";
@@ -158,6 +160,7 @@ import * as refactorspaces from "./refactorspaces";
 import * as resiliencehub from "./resiliencehub";
 import * as resourceexplorer2 from "./resourceexplorer2";
 import * as resourcegroups from "./resourcegroups";
+import * as robomaker from "./robomaker";
 import * as rolesanywhere from "./rolesanywhere";
 import * as route53 from "./route53";
 import * as route53globalresolver from "./route53globalresolver";
@@ -168,6 +171,7 @@ import * as rtbfabric from "./rtbfabric";
 import * as rum from "./rum";
 import * as s3 from "./s3";
 import * as s3express from "./s3express";
+import * as s3files from "./s3files";
 import * as s3outposts from "./s3outposts";
 import * as s3tables from "./s3tables";
 import * as s3vectors from "./s3vectors";
@@ -226,6 +230,7 @@ export {
     backup,
     batch,
     bcmdataexports,
+    bcmpricingcalculator,
     bedrock,
     bedrockagentcore,
     billing,
@@ -331,6 +336,7 @@ export {
     msk,
     mwaa,
     mwaaserverless,
+    neptunegraph,
     networkfirewall,
     oam,
     observabilityadmin,
@@ -360,6 +366,7 @@ export {
     resiliencehub,
     resourceexplorer2,
     resourcegroups,
+    robomaker,
     rolesanywhere,
     route53,
     route53globalresolver,
@@ -370,6 +377,7 @@ export {
     rum,
     s3,
     s3express,
+    s3files,
     s3outposts,
     s3tables,
     s3vectors,

@@ -812,6 +812,245 @@ func (o DirectoryBucketBucketEncryptionPtrOutput) ServerSideEncryptionConfigurat
 	}).(DirectoryBucketServerSideEncryptionRuleArrayOutput)
 }
 
+// Specifies information about where to publish inventory reports for an Amazon S3 Express bucket.
+type DirectoryBucketDestination struct {
+	// The account ID that owns the destination S3 bucket.
+	BucketAccountId *string `pulumi:"bucketAccountId"`
+	// The Amazon Resource Name (ARN) of the destination Amazon S3 bucket to which data is exported.
+	BucketArn string `pulumi:"bucketArn"`
+	// Specifies the file format used when exporting data to Amazon S3.
+	Format DirectoryBucketDestinationFormat `pulumi:"format"`
+	// The prefix to use when exporting data. The prefix is prepended to all results.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// DirectoryBucketDestinationInput is an input type that accepts DirectoryBucketDestinationArgs and DirectoryBucketDestinationOutput values.
+// You can construct a concrete instance of `DirectoryBucketDestinationInput` via:
+//
+//	DirectoryBucketDestinationArgs{...}
+type DirectoryBucketDestinationInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketDestinationOutput() DirectoryBucketDestinationOutput
+	ToDirectoryBucketDestinationOutputWithContext(context.Context) DirectoryBucketDestinationOutput
+}
+
+// Specifies information about where to publish inventory reports for an Amazon S3 Express bucket.
+type DirectoryBucketDestinationArgs struct {
+	// The account ID that owns the destination S3 bucket.
+	BucketAccountId pulumi.StringPtrInput `pulumi:"bucketAccountId"`
+	// The Amazon Resource Name (ARN) of the destination Amazon S3 bucket to which data is exported.
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// Specifies the file format used when exporting data to Amazon S3.
+	Format DirectoryBucketDestinationFormatInput `pulumi:"format"`
+	// The prefix to use when exporting data. The prefix is prepended to all results.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (DirectoryBucketDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketDestination)(nil)).Elem()
+}
+
+func (i DirectoryBucketDestinationArgs) ToDirectoryBucketDestinationOutput() DirectoryBucketDestinationOutput {
+	return i.ToDirectoryBucketDestinationOutputWithContext(context.Background())
+}
+
+func (i DirectoryBucketDestinationArgs) ToDirectoryBucketDestinationOutputWithContext(ctx context.Context) DirectoryBucketDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketDestinationOutput)
+}
+
+// Specifies information about where to publish inventory reports for an Amazon S3 Express bucket.
+type DirectoryBucketDestinationOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketDestination)(nil)).Elem()
+}
+
+func (o DirectoryBucketDestinationOutput) ToDirectoryBucketDestinationOutput() DirectoryBucketDestinationOutput {
+	return o
+}
+
+func (o DirectoryBucketDestinationOutput) ToDirectoryBucketDestinationOutputWithContext(ctx context.Context) DirectoryBucketDestinationOutput {
+	return o
+}
+
+// The account ID that owns the destination S3 bucket.
+func (o DirectoryBucketDestinationOutput) BucketAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryBucketDestination) *string { return v.BucketAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the destination Amazon S3 bucket to which data is exported.
+func (o DirectoryBucketDestinationOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectoryBucketDestination) string { return v.BucketArn }).(pulumi.StringOutput)
+}
+
+// Specifies the file format used when exporting data to Amazon S3.
+func (o DirectoryBucketDestinationOutput) Format() DirectoryBucketDestinationFormatOutput {
+	return o.ApplyT(func(v DirectoryBucketDestination) DirectoryBucketDestinationFormat { return v.Format }).(DirectoryBucketDestinationFormatOutput)
+}
+
+// The prefix to use when exporting data. The prefix is prepended to all results.
+func (o DirectoryBucketDestinationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryBucketDestination) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// Specifies an inventory configuration for an Amazon S3 Express bucket
+type DirectoryBucketInventoryConfiguration struct {
+	Destination DirectoryBucketDestination `pulumi:"destination"`
+	// Specifies whether the inventory is enabled or disabled.
+	Enabled bool `pulumi:"enabled"`
+	// The ID used to identify the inventory configuration.
+	Id string `pulumi:"id"`
+	// Object versions to include in the inventory list.
+	IncludedObjectVersions DirectoryBucketInventoryConfigurationIncludedObjectVersions `pulumi:"includedObjectVersions"`
+	// Contains the optional fields that are included in the inventory results.
+	OptionalFields []DirectoryBucketInventoryConfigurationOptionalFieldsItem `pulumi:"optionalFields"`
+	// The prefix that is prepended to all inventory results.
+	Prefix *string `pulumi:"prefix"`
+	// Specifies the schedule for generating inventory results.
+	ScheduleFrequency DirectoryBucketInventoryConfigurationScheduleFrequency `pulumi:"scheduleFrequency"`
+}
+
+// DirectoryBucketInventoryConfigurationInput is an input type that accepts DirectoryBucketInventoryConfigurationArgs and DirectoryBucketInventoryConfigurationOutput values.
+// You can construct a concrete instance of `DirectoryBucketInventoryConfigurationInput` via:
+//
+//	DirectoryBucketInventoryConfigurationArgs{...}
+type DirectoryBucketInventoryConfigurationInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketInventoryConfigurationOutput() DirectoryBucketInventoryConfigurationOutput
+	ToDirectoryBucketInventoryConfigurationOutputWithContext(context.Context) DirectoryBucketInventoryConfigurationOutput
+}
+
+// Specifies an inventory configuration for an Amazon S3 Express bucket
+type DirectoryBucketInventoryConfigurationArgs struct {
+	Destination DirectoryBucketDestinationInput `pulumi:"destination"`
+	// Specifies whether the inventory is enabled or disabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The ID used to identify the inventory configuration.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Object versions to include in the inventory list.
+	IncludedObjectVersions DirectoryBucketInventoryConfigurationIncludedObjectVersionsInput `pulumi:"includedObjectVersions"`
+	// Contains the optional fields that are included in the inventory results.
+	OptionalFields DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayInput `pulumi:"optionalFields"`
+	// The prefix that is prepended to all inventory results.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// Specifies the schedule for generating inventory results.
+	ScheduleFrequency DirectoryBucketInventoryConfigurationScheduleFrequencyInput `pulumi:"scheduleFrequency"`
+}
+
+func (DirectoryBucketInventoryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketInventoryConfiguration)(nil)).Elem()
+}
+
+func (i DirectoryBucketInventoryConfigurationArgs) ToDirectoryBucketInventoryConfigurationOutput() DirectoryBucketInventoryConfigurationOutput {
+	return i.ToDirectoryBucketInventoryConfigurationOutputWithContext(context.Background())
+}
+
+func (i DirectoryBucketInventoryConfigurationArgs) ToDirectoryBucketInventoryConfigurationOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketInventoryConfigurationOutput)
+}
+
+// DirectoryBucketInventoryConfigurationArrayInput is an input type that accepts DirectoryBucketInventoryConfigurationArray and DirectoryBucketInventoryConfigurationArrayOutput values.
+// You can construct a concrete instance of `DirectoryBucketInventoryConfigurationArrayInput` via:
+//
+//	DirectoryBucketInventoryConfigurationArray{ DirectoryBucketInventoryConfigurationArgs{...} }
+type DirectoryBucketInventoryConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketInventoryConfigurationArrayOutput() DirectoryBucketInventoryConfigurationArrayOutput
+	ToDirectoryBucketInventoryConfigurationArrayOutputWithContext(context.Context) DirectoryBucketInventoryConfigurationArrayOutput
+}
+
+type DirectoryBucketInventoryConfigurationArray []DirectoryBucketInventoryConfigurationInput
+
+func (DirectoryBucketInventoryConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryBucketInventoryConfiguration)(nil)).Elem()
+}
+
+func (i DirectoryBucketInventoryConfigurationArray) ToDirectoryBucketInventoryConfigurationArrayOutput() DirectoryBucketInventoryConfigurationArrayOutput {
+	return i.ToDirectoryBucketInventoryConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DirectoryBucketInventoryConfigurationArray) ToDirectoryBucketInventoryConfigurationArrayOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketInventoryConfigurationArrayOutput)
+}
+
+// Specifies an inventory configuration for an Amazon S3 Express bucket
+type DirectoryBucketInventoryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketInventoryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketInventoryConfiguration)(nil)).Elem()
+}
+
+func (o DirectoryBucketInventoryConfigurationOutput) ToDirectoryBucketInventoryConfigurationOutput() DirectoryBucketInventoryConfigurationOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationOutput) ToDirectoryBucketInventoryConfigurationOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationOutput) Destination() DirectoryBucketDestinationOutput {
+	return o.ApplyT(func(v DirectoryBucketInventoryConfiguration) DirectoryBucketDestination { return v.Destination }).(DirectoryBucketDestinationOutput)
+}
+
+// Specifies whether the inventory is enabled or disabled.
+func (o DirectoryBucketInventoryConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DirectoryBucketInventoryConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The ID used to identify the inventory configuration.
+func (o DirectoryBucketInventoryConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectoryBucketInventoryConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Object versions to include in the inventory list.
+func (o DirectoryBucketInventoryConfigurationOutput) IncludedObjectVersions() DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput {
+	return o.ApplyT(func(v DirectoryBucketInventoryConfiguration) DirectoryBucketInventoryConfigurationIncludedObjectVersions {
+		return v.IncludedObjectVersions
+	}).(DirectoryBucketInventoryConfigurationIncludedObjectVersionsOutput)
+}
+
+// Contains the optional fields that are included in the inventory results.
+func (o DirectoryBucketInventoryConfigurationOutput) OptionalFields() DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput {
+	return o.ApplyT(func(v DirectoryBucketInventoryConfiguration) []DirectoryBucketInventoryConfigurationOptionalFieldsItem {
+		return v.OptionalFields
+	}).(DirectoryBucketInventoryConfigurationOptionalFieldsItemArrayOutput)
+}
+
+// The prefix that is prepended to all inventory results.
+func (o DirectoryBucketInventoryConfigurationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryBucketInventoryConfiguration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the schedule for generating inventory results.
+func (o DirectoryBucketInventoryConfigurationOutput) ScheduleFrequency() DirectoryBucketInventoryConfigurationScheduleFrequencyOutput {
+	return o.ApplyT(func(v DirectoryBucketInventoryConfiguration) DirectoryBucketInventoryConfigurationScheduleFrequency {
+		return v.ScheduleFrequency
+	}).(DirectoryBucketInventoryConfigurationScheduleFrequencyOutput)
+}
+
+type DirectoryBucketInventoryConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketInventoryConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryBucketInventoryConfiguration)(nil)).Elem()
+}
+
+func (o DirectoryBucketInventoryConfigurationArrayOutput) ToDirectoryBucketInventoryConfigurationArrayOutput() DirectoryBucketInventoryConfigurationArrayOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationArrayOutput) ToDirectoryBucketInventoryConfigurationArrayOutputWithContext(ctx context.Context) DirectoryBucketInventoryConfigurationArrayOutput {
+	return o
+}
+
+func (o DirectoryBucketInventoryConfigurationArrayOutput) Index(i pulumi.IntInput) DirectoryBucketInventoryConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DirectoryBucketInventoryConfiguration {
+		return vs[0].([]DirectoryBucketInventoryConfiguration)[vs[1].(int)]
+	}).(DirectoryBucketInventoryConfigurationOutput)
+}
+
 type DirectoryBucketLifecycleConfiguration struct {
 	// A lifecycle rule for individual objects in an Amazon S3 Express bucket.
 	Rules []DirectoryBucketRule `pulumi:"rules"`
@@ -947,6 +1186,124 @@ func (o DirectoryBucketLifecycleConfigurationPtrOutput) Rules() DirectoryBucketR
 		}
 		return v.Rules
 	}).(DirectoryBucketRuleArrayOutput)
+}
+
+// Specifies a metrics configuration for the CloudWatch request metrics from an Amazon S3 Express bucket.
+type DirectoryBucketMetricsConfiguration struct {
+	// The access point ARN used when evaluating a metrics filter.
+	AccessPointArn *string `pulumi:"accessPointArn"`
+	// The ID used to identify the metrics configuration.
+	Id string `pulumi:"id"`
+	// The prefix used when evaluating a metrics filter.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// DirectoryBucketMetricsConfigurationInput is an input type that accepts DirectoryBucketMetricsConfigurationArgs and DirectoryBucketMetricsConfigurationOutput values.
+// You can construct a concrete instance of `DirectoryBucketMetricsConfigurationInput` via:
+//
+//	DirectoryBucketMetricsConfigurationArgs{...}
+type DirectoryBucketMetricsConfigurationInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketMetricsConfigurationOutput() DirectoryBucketMetricsConfigurationOutput
+	ToDirectoryBucketMetricsConfigurationOutputWithContext(context.Context) DirectoryBucketMetricsConfigurationOutput
+}
+
+// Specifies a metrics configuration for the CloudWatch request metrics from an Amazon S3 Express bucket.
+type DirectoryBucketMetricsConfigurationArgs struct {
+	// The access point ARN used when evaluating a metrics filter.
+	AccessPointArn pulumi.StringPtrInput `pulumi:"accessPointArn"`
+	// The ID used to identify the metrics configuration.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The prefix used when evaluating a metrics filter.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (DirectoryBucketMetricsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketMetricsConfiguration)(nil)).Elem()
+}
+
+func (i DirectoryBucketMetricsConfigurationArgs) ToDirectoryBucketMetricsConfigurationOutput() DirectoryBucketMetricsConfigurationOutput {
+	return i.ToDirectoryBucketMetricsConfigurationOutputWithContext(context.Background())
+}
+
+func (i DirectoryBucketMetricsConfigurationArgs) ToDirectoryBucketMetricsConfigurationOutputWithContext(ctx context.Context) DirectoryBucketMetricsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketMetricsConfigurationOutput)
+}
+
+// DirectoryBucketMetricsConfigurationArrayInput is an input type that accepts DirectoryBucketMetricsConfigurationArray and DirectoryBucketMetricsConfigurationArrayOutput values.
+// You can construct a concrete instance of `DirectoryBucketMetricsConfigurationArrayInput` via:
+//
+//	DirectoryBucketMetricsConfigurationArray{ DirectoryBucketMetricsConfigurationArgs{...} }
+type DirectoryBucketMetricsConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketMetricsConfigurationArrayOutput() DirectoryBucketMetricsConfigurationArrayOutput
+	ToDirectoryBucketMetricsConfigurationArrayOutputWithContext(context.Context) DirectoryBucketMetricsConfigurationArrayOutput
+}
+
+type DirectoryBucketMetricsConfigurationArray []DirectoryBucketMetricsConfigurationInput
+
+func (DirectoryBucketMetricsConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryBucketMetricsConfiguration)(nil)).Elem()
+}
+
+func (i DirectoryBucketMetricsConfigurationArray) ToDirectoryBucketMetricsConfigurationArrayOutput() DirectoryBucketMetricsConfigurationArrayOutput {
+	return i.ToDirectoryBucketMetricsConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DirectoryBucketMetricsConfigurationArray) ToDirectoryBucketMetricsConfigurationArrayOutputWithContext(ctx context.Context) DirectoryBucketMetricsConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketMetricsConfigurationArrayOutput)
+}
+
+// Specifies a metrics configuration for the CloudWatch request metrics from an Amazon S3 Express bucket.
+type DirectoryBucketMetricsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketMetricsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketMetricsConfiguration)(nil)).Elem()
+}
+
+func (o DirectoryBucketMetricsConfigurationOutput) ToDirectoryBucketMetricsConfigurationOutput() DirectoryBucketMetricsConfigurationOutput {
+	return o
+}
+
+func (o DirectoryBucketMetricsConfigurationOutput) ToDirectoryBucketMetricsConfigurationOutputWithContext(ctx context.Context) DirectoryBucketMetricsConfigurationOutput {
+	return o
+}
+
+// The access point ARN used when evaluating a metrics filter.
+func (o DirectoryBucketMetricsConfigurationOutput) AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryBucketMetricsConfiguration) *string { return v.AccessPointArn }).(pulumi.StringPtrOutput)
+}
+
+// The ID used to identify the metrics configuration.
+func (o DirectoryBucketMetricsConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectoryBucketMetricsConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The prefix used when evaluating a metrics filter.
+func (o DirectoryBucketMetricsConfigurationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryBucketMetricsConfiguration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type DirectoryBucketMetricsConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketMetricsConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryBucketMetricsConfiguration)(nil)).Elem()
+}
+
+func (o DirectoryBucketMetricsConfigurationArrayOutput) ToDirectoryBucketMetricsConfigurationArrayOutput() DirectoryBucketMetricsConfigurationArrayOutput {
+	return o
+}
+
+func (o DirectoryBucketMetricsConfigurationArrayOutput) ToDirectoryBucketMetricsConfigurationArrayOutputWithContext(ctx context.Context) DirectoryBucketMetricsConfigurationArrayOutput {
+	return o
+}
+
+func (o DirectoryBucketMetricsConfigurationArrayOutput) Index(i pulumi.IntInput) DirectoryBucketMetricsConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DirectoryBucketMetricsConfiguration {
+		return vs[0].([]DirectoryBucketMetricsConfiguration)[vs[1].(int)]
+	}).(DirectoryBucketMetricsConfigurationOutput)
 }
 
 // You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
@@ -1409,8 +1766,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketAbortIncompleteMultipartUploadPtrInput)(nil)).Elem(), DirectoryBucketAbortIncompleteMultipartUploadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketBucketEncryptionInput)(nil)).Elem(), DirectoryBucketBucketEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketBucketEncryptionPtrInput)(nil)).Elem(), DirectoryBucketBucketEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketDestinationInput)(nil)).Elem(), DirectoryBucketDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketInventoryConfigurationInput)(nil)).Elem(), DirectoryBucketInventoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketInventoryConfigurationArrayInput)(nil)).Elem(), DirectoryBucketInventoryConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketLifecycleConfigurationInput)(nil)).Elem(), DirectoryBucketLifecycleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketLifecycleConfigurationPtrInput)(nil)).Elem(), DirectoryBucketLifecycleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketMetricsConfigurationInput)(nil)).Elem(), DirectoryBucketMetricsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketMetricsConfigurationArrayInput)(nil)).Elem(), DirectoryBucketMetricsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketRuleInput)(nil)).Elem(), DirectoryBucketRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketRuleArrayInput)(nil)).Elem(), DirectoryBucketRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketServerSideEncryptionByDefaultInput)(nil)).Elem(), DirectoryBucketServerSideEncryptionByDefaultArgs{})
@@ -1427,8 +1789,13 @@ func init() {
 	pulumi.RegisterOutputType(DirectoryBucketAbortIncompleteMultipartUploadPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketBucketEncryptionOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketBucketEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketDestinationOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketInventoryConfigurationOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketInventoryConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketLifecycleConfigurationOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketLifecycleConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketMetricsConfigurationOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketMetricsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketRuleOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketRuleArrayOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketServerSideEncryptionByDefaultOutput{})

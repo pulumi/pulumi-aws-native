@@ -78,6 +78,10 @@ export interface GetDomainResult {
      */
     readonly tagPropagation?: enums.sagemaker.DomainTagPropagation;
     /**
+     * A list of tags to apply to the user profile.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * The URL to the created domain.
      */
     readonly url?: string;

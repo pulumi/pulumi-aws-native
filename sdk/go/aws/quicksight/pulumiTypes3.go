@@ -13,6 +13,1818 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateFreeFormSectionLayoutConfiguration struct {
+	// The elements that are included in the free-form layout.
+	Elements []TemplateFreeFormLayoutElement `pulumi:"elements"`
+}
+
+// TemplateFreeFormSectionLayoutConfigurationInput is an input type that accepts TemplateFreeFormSectionLayoutConfigurationArgs and TemplateFreeFormSectionLayoutConfigurationOutput values.
+// You can construct a concrete instance of `TemplateFreeFormSectionLayoutConfigurationInput` via:
+//
+//	TemplateFreeFormSectionLayoutConfigurationArgs{...}
+type TemplateFreeFormSectionLayoutConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateFreeFormSectionLayoutConfigurationOutput() TemplateFreeFormSectionLayoutConfigurationOutput
+	ToTemplateFreeFormSectionLayoutConfigurationOutputWithContext(context.Context) TemplateFreeFormSectionLayoutConfigurationOutput
+}
+
+type TemplateFreeFormSectionLayoutConfigurationArgs struct {
+	// The elements that are included in the free-form layout.
+	Elements TemplateFreeFormLayoutElementArrayInput `pulumi:"elements"`
+}
+
+func (TemplateFreeFormSectionLayoutConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFreeFormSectionLayoutConfiguration)(nil)).Elem()
+}
+
+func (i TemplateFreeFormSectionLayoutConfigurationArgs) ToTemplateFreeFormSectionLayoutConfigurationOutput() TemplateFreeFormSectionLayoutConfigurationOutput {
+	return i.ToTemplateFreeFormSectionLayoutConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateFreeFormSectionLayoutConfigurationArgs) ToTemplateFreeFormSectionLayoutConfigurationOutputWithContext(ctx context.Context) TemplateFreeFormSectionLayoutConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFreeFormSectionLayoutConfigurationOutput)
+}
+
+func (i TemplateFreeFormSectionLayoutConfigurationArgs) ToTemplateFreeFormSectionLayoutConfigurationPtrOutput() TemplateFreeFormSectionLayoutConfigurationPtrOutput {
+	return i.ToTemplateFreeFormSectionLayoutConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateFreeFormSectionLayoutConfigurationArgs) ToTemplateFreeFormSectionLayoutConfigurationPtrOutputWithContext(ctx context.Context) TemplateFreeFormSectionLayoutConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFreeFormSectionLayoutConfigurationOutput).ToTemplateFreeFormSectionLayoutConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateFreeFormSectionLayoutConfigurationPtrInput is an input type that accepts TemplateFreeFormSectionLayoutConfigurationArgs, TemplateFreeFormSectionLayoutConfigurationPtr and TemplateFreeFormSectionLayoutConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateFreeFormSectionLayoutConfigurationPtrInput` via:
+//
+//	        TemplateFreeFormSectionLayoutConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateFreeFormSectionLayoutConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateFreeFormSectionLayoutConfigurationPtrOutput() TemplateFreeFormSectionLayoutConfigurationPtrOutput
+	ToTemplateFreeFormSectionLayoutConfigurationPtrOutputWithContext(context.Context) TemplateFreeFormSectionLayoutConfigurationPtrOutput
+}
+
+type templateFreeFormSectionLayoutConfigurationPtrType TemplateFreeFormSectionLayoutConfigurationArgs
+
+func TemplateFreeFormSectionLayoutConfigurationPtr(v *TemplateFreeFormSectionLayoutConfigurationArgs) TemplateFreeFormSectionLayoutConfigurationPtrInput {
+	return (*templateFreeFormSectionLayoutConfigurationPtrType)(v)
+}
+
+func (*templateFreeFormSectionLayoutConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFreeFormSectionLayoutConfiguration)(nil)).Elem()
+}
+
+func (i *templateFreeFormSectionLayoutConfigurationPtrType) ToTemplateFreeFormSectionLayoutConfigurationPtrOutput() TemplateFreeFormSectionLayoutConfigurationPtrOutput {
+	return i.ToTemplateFreeFormSectionLayoutConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateFreeFormSectionLayoutConfigurationPtrType) ToTemplateFreeFormSectionLayoutConfigurationPtrOutputWithContext(ctx context.Context) TemplateFreeFormSectionLayoutConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFreeFormSectionLayoutConfigurationPtrOutput)
+}
+
+type TemplateFreeFormSectionLayoutConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateFreeFormSectionLayoutConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFreeFormSectionLayoutConfiguration)(nil)).Elem()
+}
+
+func (o TemplateFreeFormSectionLayoutConfigurationOutput) ToTemplateFreeFormSectionLayoutConfigurationOutput() TemplateFreeFormSectionLayoutConfigurationOutput {
+	return o
+}
+
+func (o TemplateFreeFormSectionLayoutConfigurationOutput) ToTemplateFreeFormSectionLayoutConfigurationOutputWithContext(ctx context.Context) TemplateFreeFormSectionLayoutConfigurationOutput {
+	return o
+}
+
+func (o TemplateFreeFormSectionLayoutConfigurationOutput) ToTemplateFreeFormSectionLayoutConfigurationPtrOutput() TemplateFreeFormSectionLayoutConfigurationPtrOutput {
+	return o.ToTemplateFreeFormSectionLayoutConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateFreeFormSectionLayoutConfigurationOutput) ToTemplateFreeFormSectionLayoutConfigurationPtrOutputWithContext(ctx context.Context) TemplateFreeFormSectionLayoutConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFreeFormSectionLayoutConfiguration) *TemplateFreeFormSectionLayoutConfiguration {
+		return &v
+	}).(TemplateFreeFormSectionLayoutConfigurationPtrOutput)
+}
+
+// The elements that are included in the free-form layout.
+func (o TemplateFreeFormSectionLayoutConfigurationOutput) Elements() TemplateFreeFormLayoutElementArrayOutput {
+	return o.ApplyT(func(v TemplateFreeFormSectionLayoutConfiguration) []TemplateFreeFormLayoutElement { return v.Elements }).(TemplateFreeFormLayoutElementArrayOutput)
+}
+
+type TemplateFreeFormSectionLayoutConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateFreeFormSectionLayoutConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFreeFormSectionLayoutConfiguration)(nil)).Elem()
+}
+
+func (o TemplateFreeFormSectionLayoutConfigurationPtrOutput) ToTemplateFreeFormSectionLayoutConfigurationPtrOutput() TemplateFreeFormSectionLayoutConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateFreeFormSectionLayoutConfigurationPtrOutput) ToTemplateFreeFormSectionLayoutConfigurationPtrOutputWithContext(ctx context.Context) TemplateFreeFormSectionLayoutConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateFreeFormSectionLayoutConfigurationPtrOutput) Elem() TemplateFreeFormSectionLayoutConfigurationOutput {
+	return o.ApplyT(func(v *TemplateFreeFormSectionLayoutConfiguration) TemplateFreeFormSectionLayoutConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateFreeFormSectionLayoutConfiguration
+		return ret
+	}).(TemplateFreeFormSectionLayoutConfigurationOutput)
+}
+
+// The elements that are included in the free-form layout.
+func (o TemplateFreeFormSectionLayoutConfigurationPtrOutput) Elements() TemplateFreeFormLayoutElementArrayOutput {
+	return o.ApplyT(func(v *TemplateFreeFormSectionLayoutConfiguration) []TemplateFreeFormLayoutElement {
+		if v == nil {
+			return nil
+		}
+		return v.Elements
+	}).(TemplateFreeFormLayoutElementArrayOutput)
+}
+
+type TemplateFunnelChartAggregatedFieldWells struct {
+	// The category field wells of a funnel chart. Values are grouped by category fields.
+	Category []TemplateDimensionField `pulumi:"category"`
+	// The value field wells of a funnel chart. Values are aggregated based on categories.
+	Values []TemplateMeasureField `pulumi:"values"`
+}
+
+// TemplateFunnelChartAggregatedFieldWellsInput is an input type that accepts TemplateFunnelChartAggregatedFieldWellsArgs and TemplateFunnelChartAggregatedFieldWellsOutput values.
+// You can construct a concrete instance of `TemplateFunnelChartAggregatedFieldWellsInput` via:
+//
+//	TemplateFunnelChartAggregatedFieldWellsArgs{...}
+type TemplateFunnelChartAggregatedFieldWellsInput interface {
+	pulumi.Input
+
+	ToTemplateFunnelChartAggregatedFieldWellsOutput() TemplateFunnelChartAggregatedFieldWellsOutput
+	ToTemplateFunnelChartAggregatedFieldWellsOutputWithContext(context.Context) TemplateFunnelChartAggregatedFieldWellsOutput
+}
+
+type TemplateFunnelChartAggregatedFieldWellsArgs struct {
+	// The category field wells of a funnel chart. Values are grouped by category fields.
+	Category TemplateDimensionFieldArrayInput `pulumi:"category"`
+	// The value field wells of a funnel chart. Values are aggregated based on categories.
+	Values TemplateMeasureFieldArrayInput `pulumi:"values"`
+}
+
+func (TemplateFunnelChartAggregatedFieldWellsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFunnelChartAggregatedFieldWells)(nil)).Elem()
+}
+
+func (i TemplateFunnelChartAggregatedFieldWellsArgs) ToTemplateFunnelChartAggregatedFieldWellsOutput() TemplateFunnelChartAggregatedFieldWellsOutput {
+	return i.ToTemplateFunnelChartAggregatedFieldWellsOutputWithContext(context.Background())
+}
+
+func (i TemplateFunnelChartAggregatedFieldWellsArgs) ToTemplateFunnelChartAggregatedFieldWellsOutputWithContext(ctx context.Context) TemplateFunnelChartAggregatedFieldWellsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartAggregatedFieldWellsOutput)
+}
+
+func (i TemplateFunnelChartAggregatedFieldWellsArgs) ToTemplateFunnelChartAggregatedFieldWellsPtrOutput() TemplateFunnelChartAggregatedFieldWellsPtrOutput {
+	return i.ToTemplateFunnelChartAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateFunnelChartAggregatedFieldWellsArgs) ToTemplateFunnelChartAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateFunnelChartAggregatedFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartAggregatedFieldWellsOutput).ToTemplateFunnelChartAggregatedFieldWellsPtrOutputWithContext(ctx)
+}
+
+// TemplateFunnelChartAggregatedFieldWellsPtrInput is an input type that accepts TemplateFunnelChartAggregatedFieldWellsArgs, TemplateFunnelChartAggregatedFieldWellsPtr and TemplateFunnelChartAggregatedFieldWellsPtrOutput values.
+// You can construct a concrete instance of `TemplateFunnelChartAggregatedFieldWellsPtrInput` via:
+//
+//	        TemplateFunnelChartAggregatedFieldWellsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateFunnelChartAggregatedFieldWellsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateFunnelChartAggregatedFieldWellsPtrOutput() TemplateFunnelChartAggregatedFieldWellsPtrOutput
+	ToTemplateFunnelChartAggregatedFieldWellsPtrOutputWithContext(context.Context) TemplateFunnelChartAggregatedFieldWellsPtrOutput
+}
+
+type templateFunnelChartAggregatedFieldWellsPtrType TemplateFunnelChartAggregatedFieldWellsArgs
+
+func TemplateFunnelChartAggregatedFieldWellsPtr(v *TemplateFunnelChartAggregatedFieldWellsArgs) TemplateFunnelChartAggregatedFieldWellsPtrInput {
+	return (*templateFunnelChartAggregatedFieldWellsPtrType)(v)
+}
+
+func (*templateFunnelChartAggregatedFieldWellsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFunnelChartAggregatedFieldWells)(nil)).Elem()
+}
+
+func (i *templateFunnelChartAggregatedFieldWellsPtrType) ToTemplateFunnelChartAggregatedFieldWellsPtrOutput() TemplateFunnelChartAggregatedFieldWellsPtrOutput {
+	return i.ToTemplateFunnelChartAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateFunnelChartAggregatedFieldWellsPtrType) ToTemplateFunnelChartAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateFunnelChartAggregatedFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartAggregatedFieldWellsPtrOutput)
+}
+
+type TemplateFunnelChartAggregatedFieldWellsOutput struct{ *pulumi.OutputState }
+
+func (TemplateFunnelChartAggregatedFieldWellsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFunnelChartAggregatedFieldWells)(nil)).Elem()
+}
+
+func (o TemplateFunnelChartAggregatedFieldWellsOutput) ToTemplateFunnelChartAggregatedFieldWellsOutput() TemplateFunnelChartAggregatedFieldWellsOutput {
+	return o
+}
+
+func (o TemplateFunnelChartAggregatedFieldWellsOutput) ToTemplateFunnelChartAggregatedFieldWellsOutputWithContext(ctx context.Context) TemplateFunnelChartAggregatedFieldWellsOutput {
+	return o
+}
+
+func (o TemplateFunnelChartAggregatedFieldWellsOutput) ToTemplateFunnelChartAggregatedFieldWellsPtrOutput() TemplateFunnelChartAggregatedFieldWellsPtrOutput {
+	return o.ToTemplateFunnelChartAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateFunnelChartAggregatedFieldWellsOutput) ToTemplateFunnelChartAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateFunnelChartAggregatedFieldWellsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFunnelChartAggregatedFieldWells) *TemplateFunnelChartAggregatedFieldWells {
+		return &v
+	}).(TemplateFunnelChartAggregatedFieldWellsPtrOutput)
+}
+
+// The category field wells of a funnel chart. Values are grouped by category fields.
+func (o TemplateFunnelChartAggregatedFieldWellsOutput) Category() TemplateDimensionFieldArrayOutput {
+	return o.ApplyT(func(v TemplateFunnelChartAggregatedFieldWells) []TemplateDimensionField { return v.Category }).(TemplateDimensionFieldArrayOutput)
+}
+
+// The value field wells of a funnel chart. Values are aggregated based on categories.
+func (o TemplateFunnelChartAggregatedFieldWellsOutput) Values() TemplateMeasureFieldArrayOutput {
+	return o.ApplyT(func(v TemplateFunnelChartAggregatedFieldWells) []TemplateMeasureField { return v.Values }).(TemplateMeasureFieldArrayOutput)
+}
+
+type TemplateFunnelChartAggregatedFieldWellsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateFunnelChartAggregatedFieldWellsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFunnelChartAggregatedFieldWells)(nil)).Elem()
+}
+
+func (o TemplateFunnelChartAggregatedFieldWellsPtrOutput) ToTemplateFunnelChartAggregatedFieldWellsPtrOutput() TemplateFunnelChartAggregatedFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateFunnelChartAggregatedFieldWellsPtrOutput) ToTemplateFunnelChartAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) TemplateFunnelChartAggregatedFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateFunnelChartAggregatedFieldWellsPtrOutput) Elem() TemplateFunnelChartAggregatedFieldWellsOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartAggregatedFieldWells) TemplateFunnelChartAggregatedFieldWells {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateFunnelChartAggregatedFieldWells
+		return ret
+	}).(TemplateFunnelChartAggregatedFieldWellsOutput)
+}
+
+// The category field wells of a funnel chart. Values are grouped by category fields.
+func (o TemplateFunnelChartAggregatedFieldWellsPtrOutput) Category() TemplateDimensionFieldArrayOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartAggregatedFieldWells) []TemplateDimensionField {
+		if v == nil {
+			return nil
+		}
+		return v.Category
+	}).(TemplateDimensionFieldArrayOutput)
+}
+
+// The value field wells of a funnel chart. Values are aggregated based on categories.
+func (o TemplateFunnelChartAggregatedFieldWellsPtrOutput) Values() TemplateMeasureFieldArrayOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartAggregatedFieldWells) []TemplateMeasureField {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(TemplateMeasureFieldArrayOutput)
+}
+
+type TemplateFunnelChartConfiguration struct {
+	// The label options of the categories that are displayed in a `FunnelChartVisual` .
+	CategoryLabelOptions *TemplateChartAxisLabelOptions `pulumi:"categoryLabelOptions"`
+	// The options that determine the presentation of the data labels.
+	DataLabelOptions *TemplateFunnelChartDataLabelOptions `pulumi:"dataLabelOptions"`
+	// The field well configuration of a `FunnelChartVisual` .
+	FieldWells *TemplateFunnelChartFieldWells `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions *TemplateVisualInteractionOptions `pulumi:"interactions"`
+	// The sort configuration of a `FunnelChartVisual` .
+	SortConfiguration *TemplateFunnelChartSortConfiguration `pulumi:"sortConfiguration"`
+	// The tooltip configuration of a `FunnelChartVisual` .
+	Tooltip *TemplateTooltipOptions `pulumi:"tooltip"`
+	// The label options for the values that are displayed in a `FunnelChartVisual` .
+	ValueLabelOptions *TemplateChartAxisLabelOptions `pulumi:"valueLabelOptions"`
+	// The visual palette configuration of a `FunnelChartVisual` .
+	VisualPalette *TemplateVisualPalette `pulumi:"visualPalette"`
+}
+
+// TemplateFunnelChartConfigurationInput is an input type that accepts TemplateFunnelChartConfigurationArgs and TemplateFunnelChartConfigurationOutput values.
+// You can construct a concrete instance of `TemplateFunnelChartConfigurationInput` via:
+//
+//	TemplateFunnelChartConfigurationArgs{...}
+type TemplateFunnelChartConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateFunnelChartConfigurationOutput() TemplateFunnelChartConfigurationOutput
+	ToTemplateFunnelChartConfigurationOutputWithContext(context.Context) TemplateFunnelChartConfigurationOutput
+}
+
+type TemplateFunnelChartConfigurationArgs struct {
+	// The label options of the categories that are displayed in a `FunnelChartVisual` .
+	CategoryLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"categoryLabelOptions"`
+	// The options that determine the presentation of the data labels.
+	DataLabelOptions TemplateFunnelChartDataLabelOptionsPtrInput `pulumi:"dataLabelOptions"`
+	// The field well configuration of a `FunnelChartVisual` .
+	FieldWells TemplateFunnelChartFieldWellsPtrInput `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions TemplateVisualInteractionOptionsPtrInput `pulumi:"interactions"`
+	// The sort configuration of a `FunnelChartVisual` .
+	SortConfiguration TemplateFunnelChartSortConfigurationPtrInput `pulumi:"sortConfiguration"`
+	// The tooltip configuration of a `FunnelChartVisual` .
+	Tooltip TemplateTooltipOptionsPtrInput `pulumi:"tooltip"`
+	// The label options for the values that are displayed in a `FunnelChartVisual` .
+	ValueLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"valueLabelOptions"`
+	// The visual palette configuration of a `FunnelChartVisual` .
+	VisualPalette TemplateVisualPalettePtrInput `pulumi:"visualPalette"`
+}
+
+func (TemplateFunnelChartConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFunnelChartConfiguration)(nil)).Elem()
+}
+
+func (i TemplateFunnelChartConfigurationArgs) ToTemplateFunnelChartConfigurationOutput() TemplateFunnelChartConfigurationOutput {
+	return i.ToTemplateFunnelChartConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateFunnelChartConfigurationArgs) ToTemplateFunnelChartConfigurationOutputWithContext(ctx context.Context) TemplateFunnelChartConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartConfigurationOutput)
+}
+
+func (i TemplateFunnelChartConfigurationArgs) ToTemplateFunnelChartConfigurationPtrOutput() TemplateFunnelChartConfigurationPtrOutput {
+	return i.ToTemplateFunnelChartConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateFunnelChartConfigurationArgs) ToTemplateFunnelChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateFunnelChartConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartConfigurationOutput).ToTemplateFunnelChartConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateFunnelChartConfigurationPtrInput is an input type that accepts TemplateFunnelChartConfigurationArgs, TemplateFunnelChartConfigurationPtr and TemplateFunnelChartConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateFunnelChartConfigurationPtrInput` via:
+//
+//	        TemplateFunnelChartConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateFunnelChartConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateFunnelChartConfigurationPtrOutput() TemplateFunnelChartConfigurationPtrOutput
+	ToTemplateFunnelChartConfigurationPtrOutputWithContext(context.Context) TemplateFunnelChartConfigurationPtrOutput
+}
+
+type templateFunnelChartConfigurationPtrType TemplateFunnelChartConfigurationArgs
+
+func TemplateFunnelChartConfigurationPtr(v *TemplateFunnelChartConfigurationArgs) TemplateFunnelChartConfigurationPtrInput {
+	return (*templateFunnelChartConfigurationPtrType)(v)
+}
+
+func (*templateFunnelChartConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFunnelChartConfiguration)(nil)).Elem()
+}
+
+func (i *templateFunnelChartConfigurationPtrType) ToTemplateFunnelChartConfigurationPtrOutput() TemplateFunnelChartConfigurationPtrOutput {
+	return i.ToTemplateFunnelChartConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateFunnelChartConfigurationPtrType) ToTemplateFunnelChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateFunnelChartConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartConfigurationPtrOutput)
+}
+
+type TemplateFunnelChartConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateFunnelChartConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFunnelChartConfiguration)(nil)).Elem()
+}
+
+func (o TemplateFunnelChartConfigurationOutput) ToTemplateFunnelChartConfigurationOutput() TemplateFunnelChartConfigurationOutput {
+	return o
+}
+
+func (o TemplateFunnelChartConfigurationOutput) ToTemplateFunnelChartConfigurationOutputWithContext(ctx context.Context) TemplateFunnelChartConfigurationOutput {
+	return o
+}
+
+func (o TemplateFunnelChartConfigurationOutput) ToTemplateFunnelChartConfigurationPtrOutput() TemplateFunnelChartConfigurationPtrOutput {
+	return o.ToTemplateFunnelChartConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateFunnelChartConfigurationOutput) ToTemplateFunnelChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateFunnelChartConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFunnelChartConfiguration) *TemplateFunnelChartConfiguration {
+		return &v
+	}).(TemplateFunnelChartConfigurationPtrOutput)
+}
+
+// The label options of the categories that are displayed in a `FunnelChartVisual` .
+func (o TemplateFunnelChartConfigurationOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartConfiguration) *TemplateChartAxisLabelOptions { return v.CategoryLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
+}
+
+// The options that determine the presentation of the data labels.
+func (o TemplateFunnelChartConfigurationOutput) DataLabelOptions() TemplateFunnelChartDataLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartConfiguration) *TemplateFunnelChartDataLabelOptions {
+		return v.DataLabelOptions
+	}).(TemplateFunnelChartDataLabelOptionsPtrOutput)
+}
+
+// The field well configuration of a `FunnelChartVisual` .
+func (o TemplateFunnelChartConfigurationOutput) FieldWells() TemplateFunnelChartFieldWellsPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartConfiguration) *TemplateFunnelChartFieldWells { return v.FieldWells }).(TemplateFunnelChartFieldWellsPtrOutput)
+}
+
+// The general visual interactions setup for a visual.
+func (o TemplateFunnelChartConfigurationOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartConfiguration) *TemplateVisualInteractionOptions { return v.Interactions }).(TemplateVisualInteractionOptionsPtrOutput)
+}
+
+// The sort configuration of a `FunnelChartVisual` .
+func (o TemplateFunnelChartConfigurationOutput) SortConfiguration() TemplateFunnelChartSortConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartConfiguration) *TemplateFunnelChartSortConfiguration {
+		return v.SortConfiguration
+	}).(TemplateFunnelChartSortConfigurationPtrOutput)
+}
+
+// The tooltip configuration of a `FunnelChartVisual` .
+func (o TemplateFunnelChartConfigurationOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartConfiguration) *TemplateTooltipOptions { return v.Tooltip }).(TemplateTooltipOptionsPtrOutput)
+}
+
+// The label options for the values that are displayed in a `FunnelChartVisual` .
+func (o TemplateFunnelChartConfigurationOutput) ValueLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartConfiguration) *TemplateChartAxisLabelOptions { return v.ValueLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
+}
+
+// The visual palette configuration of a `FunnelChartVisual` .
+func (o TemplateFunnelChartConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
+}
+
+type TemplateFunnelChartConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateFunnelChartConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFunnelChartConfiguration)(nil)).Elem()
+}
+
+func (o TemplateFunnelChartConfigurationPtrOutput) ToTemplateFunnelChartConfigurationPtrOutput() TemplateFunnelChartConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateFunnelChartConfigurationPtrOutput) ToTemplateFunnelChartConfigurationPtrOutputWithContext(ctx context.Context) TemplateFunnelChartConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateFunnelChartConfigurationPtrOutput) Elem() TemplateFunnelChartConfigurationOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartConfiguration) TemplateFunnelChartConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateFunnelChartConfiguration
+		return ret
+	}).(TemplateFunnelChartConfigurationOutput)
+}
+
+// The label options of the categories that are displayed in a `FunnelChartVisual` .
+func (o TemplateFunnelChartConfigurationPtrOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartConfiguration) *TemplateChartAxisLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CategoryLabelOptions
+	}).(TemplateChartAxisLabelOptionsPtrOutput)
+}
+
+// The options that determine the presentation of the data labels.
+func (o TemplateFunnelChartConfigurationPtrOutput) DataLabelOptions() TemplateFunnelChartDataLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartConfiguration) *TemplateFunnelChartDataLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.DataLabelOptions
+	}).(TemplateFunnelChartDataLabelOptionsPtrOutput)
+}
+
+// The field well configuration of a `FunnelChartVisual` .
+func (o TemplateFunnelChartConfigurationPtrOutput) FieldWells() TemplateFunnelChartFieldWellsPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartConfiguration) *TemplateFunnelChartFieldWells {
+		if v == nil {
+			return nil
+		}
+		return v.FieldWells
+	}).(TemplateFunnelChartFieldWellsPtrOutput)
+}
+
+// The general visual interactions setup for a visual.
+func (o TemplateFunnelChartConfigurationPtrOutput) Interactions() TemplateVisualInteractionOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartConfiguration) *TemplateVisualInteractionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Interactions
+	}).(TemplateVisualInteractionOptionsPtrOutput)
+}
+
+// The sort configuration of a `FunnelChartVisual` .
+func (o TemplateFunnelChartConfigurationPtrOutput) SortConfiguration() TemplateFunnelChartSortConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartConfiguration) *TemplateFunnelChartSortConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SortConfiguration
+	}).(TemplateFunnelChartSortConfigurationPtrOutput)
+}
+
+// The tooltip configuration of a `FunnelChartVisual` .
+func (o TemplateFunnelChartConfigurationPtrOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartConfiguration) *TemplateTooltipOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Tooltip
+	}).(TemplateTooltipOptionsPtrOutput)
+}
+
+// The label options for the values that are displayed in a `FunnelChartVisual` .
+func (o TemplateFunnelChartConfigurationPtrOutput) ValueLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartConfiguration) *TemplateChartAxisLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.ValueLabelOptions
+	}).(TemplateChartAxisLabelOptionsPtrOutput)
+}
+
+// The visual palette configuration of a `FunnelChartVisual` .
+func (o TemplateFunnelChartConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartConfiguration) *TemplateVisualPalette {
+		if v == nil {
+			return nil
+		}
+		return v.VisualPalette
+	}).(TemplateVisualPalettePtrOutput)
+}
+
+type TemplateFunnelChartDataLabelOptions struct {
+	// The visibility of the category labels within the data labels.
+	CategoryLabelVisibility *TemplateVisibility `pulumi:"categoryLabelVisibility"`
+	// The color of the data label text.
+	LabelColor *string `pulumi:"labelColor"`
+	// The font configuration for the data labels.
+	//
+	// Only the `FontSize` attribute of the font configuration is used for data labels.
+	LabelFontConfiguration *TemplateFontConfiguration `pulumi:"labelFontConfiguration"`
+	// Determines the style of the metric labels.
+	MeasureDataLabelStyle *TemplateFunnelChartMeasureDataLabelStyle `pulumi:"measureDataLabelStyle"`
+	// The visibility of the measure labels within the data labels.
+	MeasureLabelVisibility *TemplateVisibility `pulumi:"measureLabelVisibility"`
+	// Determines the positioning of the data label relative to a section of the funnel.
+	Position *TemplateDataLabelPosition `pulumi:"position"`
+	// The visibility option that determines if data labels are displayed.
+	Visibility *TemplateVisibility `pulumi:"visibility"`
+}
+
+// TemplateFunnelChartDataLabelOptionsInput is an input type that accepts TemplateFunnelChartDataLabelOptionsArgs and TemplateFunnelChartDataLabelOptionsOutput values.
+// You can construct a concrete instance of `TemplateFunnelChartDataLabelOptionsInput` via:
+//
+//	TemplateFunnelChartDataLabelOptionsArgs{...}
+type TemplateFunnelChartDataLabelOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateFunnelChartDataLabelOptionsOutput() TemplateFunnelChartDataLabelOptionsOutput
+	ToTemplateFunnelChartDataLabelOptionsOutputWithContext(context.Context) TemplateFunnelChartDataLabelOptionsOutput
+}
+
+type TemplateFunnelChartDataLabelOptionsArgs struct {
+	// The visibility of the category labels within the data labels.
+	CategoryLabelVisibility TemplateVisibilityPtrInput `pulumi:"categoryLabelVisibility"`
+	// The color of the data label text.
+	LabelColor pulumi.StringPtrInput `pulumi:"labelColor"`
+	// The font configuration for the data labels.
+	//
+	// Only the `FontSize` attribute of the font configuration is used for data labels.
+	LabelFontConfiguration TemplateFontConfigurationPtrInput `pulumi:"labelFontConfiguration"`
+	// Determines the style of the metric labels.
+	MeasureDataLabelStyle TemplateFunnelChartMeasureDataLabelStylePtrInput `pulumi:"measureDataLabelStyle"`
+	// The visibility of the measure labels within the data labels.
+	MeasureLabelVisibility TemplateVisibilityPtrInput `pulumi:"measureLabelVisibility"`
+	// Determines the positioning of the data label relative to a section of the funnel.
+	Position TemplateDataLabelPositionPtrInput `pulumi:"position"`
+	// The visibility option that determines if data labels are displayed.
+	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+}
+
+func (TemplateFunnelChartDataLabelOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFunnelChartDataLabelOptions)(nil)).Elem()
+}
+
+func (i TemplateFunnelChartDataLabelOptionsArgs) ToTemplateFunnelChartDataLabelOptionsOutput() TemplateFunnelChartDataLabelOptionsOutput {
+	return i.ToTemplateFunnelChartDataLabelOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateFunnelChartDataLabelOptionsArgs) ToTemplateFunnelChartDataLabelOptionsOutputWithContext(ctx context.Context) TemplateFunnelChartDataLabelOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartDataLabelOptionsOutput)
+}
+
+func (i TemplateFunnelChartDataLabelOptionsArgs) ToTemplateFunnelChartDataLabelOptionsPtrOutput() TemplateFunnelChartDataLabelOptionsPtrOutput {
+	return i.ToTemplateFunnelChartDataLabelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateFunnelChartDataLabelOptionsArgs) ToTemplateFunnelChartDataLabelOptionsPtrOutputWithContext(ctx context.Context) TemplateFunnelChartDataLabelOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartDataLabelOptionsOutput).ToTemplateFunnelChartDataLabelOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateFunnelChartDataLabelOptionsPtrInput is an input type that accepts TemplateFunnelChartDataLabelOptionsArgs, TemplateFunnelChartDataLabelOptionsPtr and TemplateFunnelChartDataLabelOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateFunnelChartDataLabelOptionsPtrInput` via:
+//
+//	        TemplateFunnelChartDataLabelOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateFunnelChartDataLabelOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateFunnelChartDataLabelOptionsPtrOutput() TemplateFunnelChartDataLabelOptionsPtrOutput
+	ToTemplateFunnelChartDataLabelOptionsPtrOutputWithContext(context.Context) TemplateFunnelChartDataLabelOptionsPtrOutput
+}
+
+type templateFunnelChartDataLabelOptionsPtrType TemplateFunnelChartDataLabelOptionsArgs
+
+func TemplateFunnelChartDataLabelOptionsPtr(v *TemplateFunnelChartDataLabelOptionsArgs) TemplateFunnelChartDataLabelOptionsPtrInput {
+	return (*templateFunnelChartDataLabelOptionsPtrType)(v)
+}
+
+func (*templateFunnelChartDataLabelOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFunnelChartDataLabelOptions)(nil)).Elem()
+}
+
+func (i *templateFunnelChartDataLabelOptionsPtrType) ToTemplateFunnelChartDataLabelOptionsPtrOutput() TemplateFunnelChartDataLabelOptionsPtrOutput {
+	return i.ToTemplateFunnelChartDataLabelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateFunnelChartDataLabelOptionsPtrType) ToTemplateFunnelChartDataLabelOptionsPtrOutputWithContext(ctx context.Context) TemplateFunnelChartDataLabelOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartDataLabelOptionsPtrOutput)
+}
+
+type TemplateFunnelChartDataLabelOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateFunnelChartDataLabelOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFunnelChartDataLabelOptions)(nil)).Elem()
+}
+
+func (o TemplateFunnelChartDataLabelOptionsOutput) ToTemplateFunnelChartDataLabelOptionsOutput() TemplateFunnelChartDataLabelOptionsOutput {
+	return o
+}
+
+func (o TemplateFunnelChartDataLabelOptionsOutput) ToTemplateFunnelChartDataLabelOptionsOutputWithContext(ctx context.Context) TemplateFunnelChartDataLabelOptionsOutput {
+	return o
+}
+
+func (o TemplateFunnelChartDataLabelOptionsOutput) ToTemplateFunnelChartDataLabelOptionsPtrOutput() TemplateFunnelChartDataLabelOptionsPtrOutput {
+	return o.ToTemplateFunnelChartDataLabelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateFunnelChartDataLabelOptionsOutput) ToTemplateFunnelChartDataLabelOptionsPtrOutputWithContext(ctx context.Context) TemplateFunnelChartDataLabelOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFunnelChartDataLabelOptions) *TemplateFunnelChartDataLabelOptions {
+		return &v
+	}).(TemplateFunnelChartDataLabelOptionsPtrOutput)
+}
+
+// The visibility of the category labels within the data labels.
+func (o TemplateFunnelChartDataLabelOptionsOutput) CategoryLabelVisibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartDataLabelOptions) *TemplateVisibility { return v.CategoryLabelVisibility }).(TemplateVisibilityPtrOutput)
+}
+
+// The color of the data label text.
+func (o TemplateFunnelChartDataLabelOptionsOutput) LabelColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartDataLabelOptions) *string { return v.LabelColor }).(pulumi.StringPtrOutput)
+}
+
+// The font configuration for the data labels.
+//
+// Only the `FontSize` attribute of the font configuration is used for data labels.
+func (o TemplateFunnelChartDataLabelOptionsOutput) LabelFontConfiguration() TemplateFontConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartDataLabelOptions) *TemplateFontConfiguration {
+		return v.LabelFontConfiguration
+	}).(TemplateFontConfigurationPtrOutput)
+}
+
+// Determines the style of the metric labels.
+func (o TemplateFunnelChartDataLabelOptionsOutput) MeasureDataLabelStyle() TemplateFunnelChartMeasureDataLabelStylePtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartDataLabelOptions) *TemplateFunnelChartMeasureDataLabelStyle {
+		return v.MeasureDataLabelStyle
+	}).(TemplateFunnelChartMeasureDataLabelStylePtrOutput)
+}
+
+// The visibility of the measure labels within the data labels.
+func (o TemplateFunnelChartDataLabelOptionsOutput) MeasureLabelVisibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartDataLabelOptions) *TemplateVisibility { return v.MeasureLabelVisibility }).(TemplateVisibilityPtrOutput)
+}
+
+// Determines the positioning of the data label relative to a section of the funnel.
+func (o TemplateFunnelChartDataLabelOptionsOutput) Position() TemplateDataLabelPositionPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartDataLabelOptions) *TemplateDataLabelPosition { return v.Position }).(TemplateDataLabelPositionPtrOutput)
+}
+
+// The visibility option that determines if data labels are displayed.
+func (o TemplateFunnelChartDataLabelOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartDataLabelOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+}
+
+type TemplateFunnelChartDataLabelOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateFunnelChartDataLabelOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFunnelChartDataLabelOptions)(nil)).Elem()
+}
+
+func (o TemplateFunnelChartDataLabelOptionsPtrOutput) ToTemplateFunnelChartDataLabelOptionsPtrOutput() TemplateFunnelChartDataLabelOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateFunnelChartDataLabelOptionsPtrOutput) ToTemplateFunnelChartDataLabelOptionsPtrOutputWithContext(ctx context.Context) TemplateFunnelChartDataLabelOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateFunnelChartDataLabelOptionsPtrOutput) Elem() TemplateFunnelChartDataLabelOptionsOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartDataLabelOptions) TemplateFunnelChartDataLabelOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateFunnelChartDataLabelOptions
+		return ret
+	}).(TemplateFunnelChartDataLabelOptionsOutput)
+}
+
+// The visibility of the category labels within the data labels.
+func (o TemplateFunnelChartDataLabelOptionsPtrOutput) CategoryLabelVisibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartDataLabelOptions) *TemplateVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.CategoryLabelVisibility
+	}).(TemplateVisibilityPtrOutput)
+}
+
+// The color of the data label text.
+func (o TemplateFunnelChartDataLabelOptionsPtrOutput) LabelColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartDataLabelOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LabelColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// The font configuration for the data labels.
+//
+// Only the `FontSize` attribute of the font configuration is used for data labels.
+func (o TemplateFunnelChartDataLabelOptionsPtrOutput) LabelFontConfiguration() TemplateFontConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartDataLabelOptions) *TemplateFontConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LabelFontConfiguration
+	}).(TemplateFontConfigurationPtrOutput)
+}
+
+// Determines the style of the metric labels.
+func (o TemplateFunnelChartDataLabelOptionsPtrOutput) MeasureDataLabelStyle() TemplateFunnelChartMeasureDataLabelStylePtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartDataLabelOptions) *TemplateFunnelChartMeasureDataLabelStyle {
+		if v == nil {
+			return nil
+		}
+		return v.MeasureDataLabelStyle
+	}).(TemplateFunnelChartMeasureDataLabelStylePtrOutput)
+}
+
+// The visibility of the measure labels within the data labels.
+func (o TemplateFunnelChartDataLabelOptionsPtrOutput) MeasureLabelVisibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartDataLabelOptions) *TemplateVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.MeasureLabelVisibility
+	}).(TemplateVisibilityPtrOutput)
+}
+
+// Determines the positioning of the data label relative to a section of the funnel.
+func (o TemplateFunnelChartDataLabelOptionsPtrOutput) Position() TemplateDataLabelPositionPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartDataLabelOptions) *TemplateDataLabelPosition {
+		if v == nil {
+			return nil
+		}
+		return v.Position
+	}).(TemplateDataLabelPositionPtrOutput)
+}
+
+// The visibility option that determines if data labels are displayed.
+func (o TemplateFunnelChartDataLabelOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartDataLabelOptions) *TemplateVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.Visibility
+	}).(TemplateVisibilityPtrOutput)
+}
+
+type TemplateFunnelChartFieldWells struct {
+	// The field well configuration of a `FunnelChartVisual` .
+	FunnelChartAggregatedFieldWells *TemplateFunnelChartAggregatedFieldWells `pulumi:"funnelChartAggregatedFieldWells"`
+}
+
+// TemplateFunnelChartFieldWellsInput is an input type that accepts TemplateFunnelChartFieldWellsArgs and TemplateFunnelChartFieldWellsOutput values.
+// You can construct a concrete instance of `TemplateFunnelChartFieldWellsInput` via:
+//
+//	TemplateFunnelChartFieldWellsArgs{...}
+type TemplateFunnelChartFieldWellsInput interface {
+	pulumi.Input
+
+	ToTemplateFunnelChartFieldWellsOutput() TemplateFunnelChartFieldWellsOutput
+	ToTemplateFunnelChartFieldWellsOutputWithContext(context.Context) TemplateFunnelChartFieldWellsOutput
+}
+
+type TemplateFunnelChartFieldWellsArgs struct {
+	// The field well configuration of a `FunnelChartVisual` .
+	FunnelChartAggregatedFieldWells TemplateFunnelChartAggregatedFieldWellsPtrInput `pulumi:"funnelChartAggregatedFieldWells"`
+}
+
+func (TemplateFunnelChartFieldWellsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFunnelChartFieldWells)(nil)).Elem()
+}
+
+func (i TemplateFunnelChartFieldWellsArgs) ToTemplateFunnelChartFieldWellsOutput() TemplateFunnelChartFieldWellsOutput {
+	return i.ToTemplateFunnelChartFieldWellsOutputWithContext(context.Background())
+}
+
+func (i TemplateFunnelChartFieldWellsArgs) ToTemplateFunnelChartFieldWellsOutputWithContext(ctx context.Context) TemplateFunnelChartFieldWellsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartFieldWellsOutput)
+}
+
+func (i TemplateFunnelChartFieldWellsArgs) ToTemplateFunnelChartFieldWellsPtrOutput() TemplateFunnelChartFieldWellsPtrOutput {
+	return i.ToTemplateFunnelChartFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateFunnelChartFieldWellsArgs) ToTemplateFunnelChartFieldWellsPtrOutputWithContext(ctx context.Context) TemplateFunnelChartFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartFieldWellsOutput).ToTemplateFunnelChartFieldWellsPtrOutputWithContext(ctx)
+}
+
+// TemplateFunnelChartFieldWellsPtrInput is an input type that accepts TemplateFunnelChartFieldWellsArgs, TemplateFunnelChartFieldWellsPtr and TemplateFunnelChartFieldWellsPtrOutput values.
+// You can construct a concrete instance of `TemplateFunnelChartFieldWellsPtrInput` via:
+//
+//	        TemplateFunnelChartFieldWellsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateFunnelChartFieldWellsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateFunnelChartFieldWellsPtrOutput() TemplateFunnelChartFieldWellsPtrOutput
+	ToTemplateFunnelChartFieldWellsPtrOutputWithContext(context.Context) TemplateFunnelChartFieldWellsPtrOutput
+}
+
+type templateFunnelChartFieldWellsPtrType TemplateFunnelChartFieldWellsArgs
+
+func TemplateFunnelChartFieldWellsPtr(v *TemplateFunnelChartFieldWellsArgs) TemplateFunnelChartFieldWellsPtrInput {
+	return (*templateFunnelChartFieldWellsPtrType)(v)
+}
+
+func (*templateFunnelChartFieldWellsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFunnelChartFieldWells)(nil)).Elem()
+}
+
+func (i *templateFunnelChartFieldWellsPtrType) ToTemplateFunnelChartFieldWellsPtrOutput() TemplateFunnelChartFieldWellsPtrOutput {
+	return i.ToTemplateFunnelChartFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateFunnelChartFieldWellsPtrType) ToTemplateFunnelChartFieldWellsPtrOutputWithContext(ctx context.Context) TemplateFunnelChartFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartFieldWellsPtrOutput)
+}
+
+type TemplateFunnelChartFieldWellsOutput struct{ *pulumi.OutputState }
+
+func (TemplateFunnelChartFieldWellsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFunnelChartFieldWells)(nil)).Elem()
+}
+
+func (o TemplateFunnelChartFieldWellsOutput) ToTemplateFunnelChartFieldWellsOutput() TemplateFunnelChartFieldWellsOutput {
+	return o
+}
+
+func (o TemplateFunnelChartFieldWellsOutput) ToTemplateFunnelChartFieldWellsOutputWithContext(ctx context.Context) TemplateFunnelChartFieldWellsOutput {
+	return o
+}
+
+func (o TemplateFunnelChartFieldWellsOutput) ToTemplateFunnelChartFieldWellsPtrOutput() TemplateFunnelChartFieldWellsPtrOutput {
+	return o.ToTemplateFunnelChartFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateFunnelChartFieldWellsOutput) ToTemplateFunnelChartFieldWellsPtrOutputWithContext(ctx context.Context) TemplateFunnelChartFieldWellsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFunnelChartFieldWells) *TemplateFunnelChartFieldWells {
+		return &v
+	}).(TemplateFunnelChartFieldWellsPtrOutput)
+}
+
+// The field well configuration of a `FunnelChartVisual` .
+func (o TemplateFunnelChartFieldWellsOutput) FunnelChartAggregatedFieldWells() TemplateFunnelChartAggregatedFieldWellsPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartFieldWells) *TemplateFunnelChartAggregatedFieldWells {
+		return v.FunnelChartAggregatedFieldWells
+	}).(TemplateFunnelChartAggregatedFieldWellsPtrOutput)
+}
+
+type TemplateFunnelChartFieldWellsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateFunnelChartFieldWellsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFunnelChartFieldWells)(nil)).Elem()
+}
+
+func (o TemplateFunnelChartFieldWellsPtrOutput) ToTemplateFunnelChartFieldWellsPtrOutput() TemplateFunnelChartFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateFunnelChartFieldWellsPtrOutput) ToTemplateFunnelChartFieldWellsPtrOutputWithContext(ctx context.Context) TemplateFunnelChartFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateFunnelChartFieldWellsPtrOutput) Elem() TemplateFunnelChartFieldWellsOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartFieldWells) TemplateFunnelChartFieldWells {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateFunnelChartFieldWells
+		return ret
+	}).(TemplateFunnelChartFieldWellsOutput)
+}
+
+// The field well configuration of a `FunnelChartVisual` .
+func (o TemplateFunnelChartFieldWellsPtrOutput) FunnelChartAggregatedFieldWells() TemplateFunnelChartAggregatedFieldWellsPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartFieldWells) *TemplateFunnelChartAggregatedFieldWells {
+		if v == nil {
+			return nil
+		}
+		return v.FunnelChartAggregatedFieldWells
+	}).(TemplateFunnelChartAggregatedFieldWellsPtrOutput)
+}
+
+type TemplateFunnelChartSortConfiguration struct {
+	// The limit on the number of categories displayed.
+	CategoryItemsLimit *TemplateItemsLimitConfiguration `pulumi:"categoryItemsLimit"`
+	// The sort configuration of the category fields.
+	CategorySort []TemplateFieldSortOptions `pulumi:"categorySort"`
+}
+
+// TemplateFunnelChartSortConfigurationInput is an input type that accepts TemplateFunnelChartSortConfigurationArgs and TemplateFunnelChartSortConfigurationOutput values.
+// You can construct a concrete instance of `TemplateFunnelChartSortConfigurationInput` via:
+//
+//	TemplateFunnelChartSortConfigurationArgs{...}
+type TemplateFunnelChartSortConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateFunnelChartSortConfigurationOutput() TemplateFunnelChartSortConfigurationOutput
+	ToTemplateFunnelChartSortConfigurationOutputWithContext(context.Context) TemplateFunnelChartSortConfigurationOutput
+}
+
+type TemplateFunnelChartSortConfigurationArgs struct {
+	// The limit on the number of categories displayed.
+	CategoryItemsLimit TemplateItemsLimitConfigurationPtrInput `pulumi:"categoryItemsLimit"`
+	// The sort configuration of the category fields.
+	CategorySort TemplateFieldSortOptionsArrayInput `pulumi:"categorySort"`
+}
+
+func (TemplateFunnelChartSortConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFunnelChartSortConfiguration)(nil)).Elem()
+}
+
+func (i TemplateFunnelChartSortConfigurationArgs) ToTemplateFunnelChartSortConfigurationOutput() TemplateFunnelChartSortConfigurationOutput {
+	return i.ToTemplateFunnelChartSortConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateFunnelChartSortConfigurationArgs) ToTemplateFunnelChartSortConfigurationOutputWithContext(ctx context.Context) TemplateFunnelChartSortConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartSortConfigurationOutput)
+}
+
+func (i TemplateFunnelChartSortConfigurationArgs) ToTemplateFunnelChartSortConfigurationPtrOutput() TemplateFunnelChartSortConfigurationPtrOutput {
+	return i.ToTemplateFunnelChartSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateFunnelChartSortConfigurationArgs) ToTemplateFunnelChartSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateFunnelChartSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartSortConfigurationOutput).ToTemplateFunnelChartSortConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateFunnelChartSortConfigurationPtrInput is an input type that accepts TemplateFunnelChartSortConfigurationArgs, TemplateFunnelChartSortConfigurationPtr and TemplateFunnelChartSortConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateFunnelChartSortConfigurationPtrInput` via:
+//
+//	        TemplateFunnelChartSortConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateFunnelChartSortConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateFunnelChartSortConfigurationPtrOutput() TemplateFunnelChartSortConfigurationPtrOutput
+	ToTemplateFunnelChartSortConfigurationPtrOutputWithContext(context.Context) TemplateFunnelChartSortConfigurationPtrOutput
+}
+
+type templateFunnelChartSortConfigurationPtrType TemplateFunnelChartSortConfigurationArgs
+
+func TemplateFunnelChartSortConfigurationPtr(v *TemplateFunnelChartSortConfigurationArgs) TemplateFunnelChartSortConfigurationPtrInput {
+	return (*templateFunnelChartSortConfigurationPtrType)(v)
+}
+
+func (*templateFunnelChartSortConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFunnelChartSortConfiguration)(nil)).Elem()
+}
+
+func (i *templateFunnelChartSortConfigurationPtrType) ToTemplateFunnelChartSortConfigurationPtrOutput() TemplateFunnelChartSortConfigurationPtrOutput {
+	return i.ToTemplateFunnelChartSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateFunnelChartSortConfigurationPtrType) ToTemplateFunnelChartSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateFunnelChartSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartSortConfigurationPtrOutput)
+}
+
+type TemplateFunnelChartSortConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateFunnelChartSortConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFunnelChartSortConfiguration)(nil)).Elem()
+}
+
+func (o TemplateFunnelChartSortConfigurationOutput) ToTemplateFunnelChartSortConfigurationOutput() TemplateFunnelChartSortConfigurationOutput {
+	return o
+}
+
+func (o TemplateFunnelChartSortConfigurationOutput) ToTemplateFunnelChartSortConfigurationOutputWithContext(ctx context.Context) TemplateFunnelChartSortConfigurationOutput {
+	return o
+}
+
+func (o TemplateFunnelChartSortConfigurationOutput) ToTemplateFunnelChartSortConfigurationPtrOutput() TemplateFunnelChartSortConfigurationPtrOutput {
+	return o.ToTemplateFunnelChartSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateFunnelChartSortConfigurationOutput) ToTemplateFunnelChartSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateFunnelChartSortConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFunnelChartSortConfiguration) *TemplateFunnelChartSortConfiguration {
+		return &v
+	}).(TemplateFunnelChartSortConfigurationPtrOutput)
+}
+
+// The limit on the number of categories displayed.
+func (o TemplateFunnelChartSortConfigurationOutput) CategoryItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartSortConfiguration) *TemplateItemsLimitConfiguration {
+		return v.CategoryItemsLimit
+	}).(TemplateItemsLimitConfigurationPtrOutput)
+}
+
+// The sort configuration of the category fields.
+func (o TemplateFunnelChartSortConfigurationOutput) CategorySort() TemplateFieldSortOptionsArrayOutput {
+	return o.ApplyT(func(v TemplateFunnelChartSortConfiguration) []TemplateFieldSortOptions { return v.CategorySort }).(TemplateFieldSortOptionsArrayOutput)
+}
+
+type TemplateFunnelChartSortConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateFunnelChartSortConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFunnelChartSortConfiguration)(nil)).Elem()
+}
+
+func (o TemplateFunnelChartSortConfigurationPtrOutput) ToTemplateFunnelChartSortConfigurationPtrOutput() TemplateFunnelChartSortConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateFunnelChartSortConfigurationPtrOutput) ToTemplateFunnelChartSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateFunnelChartSortConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateFunnelChartSortConfigurationPtrOutput) Elem() TemplateFunnelChartSortConfigurationOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartSortConfiguration) TemplateFunnelChartSortConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateFunnelChartSortConfiguration
+		return ret
+	}).(TemplateFunnelChartSortConfigurationOutput)
+}
+
+// The limit on the number of categories displayed.
+func (o TemplateFunnelChartSortConfigurationPtrOutput) CategoryItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartSortConfiguration) *TemplateItemsLimitConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CategoryItemsLimit
+	}).(TemplateItemsLimitConfigurationPtrOutput)
+}
+
+// The sort configuration of the category fields.
+func (o TemplateFunnelChartSortConfigurationPtrOutput) CategorySort() TemplateFieldSortOptionsArrayOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartSortConfiguration) []TemplateFieldSortOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CategorySort
+	}).(TemplateFieldSortOptionsArrayOutput)
+}
+
+type TemplateFunnelChartVisual struct {
+	// The list of custom actions that are configured for a visual.
+	Actions []TemplateVisualCustomAction `pulumi:"actions"`
+	// The configuration of a `FunnelChartVisual` .
+	ChartConfiguration *TemplateFunnelChartConfiguration `pulumi:"chartConfiguration"`
+	// The column hierarchy that is used during drill-downs and drill-ups.
+	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
+	// The subtitle that is displayed on the visual.
+	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
+	// The title that is displayed on the visual.
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+	VisualId string `pulumi:"visualId"`
+}
+
+// TemplateFunnelChartVisualInput is an input type that accepts TemplateFunnelChartVisualArgs and TemplateFunnelChartVisualOutput values.
+// You can construct a concrete instance of `TemplateFunnelChartVisualInput` via:
+//
+//	TemplateFunnelChartVisualArgs{...}
+type TemplateFunnelChartVisualInput interface {
+	pulumi.Input
+
+	ToTemplateFunnelChartVisualOutput() TemplateFunnelChartVisualOutput
+	ToTemplateFunnelChartVisualOutputWithContext(context.Context) TemplateFunnelChartVisualOutput
+}
+
+type TemplateFunnelChartVisualArgs struct {
+	// The list of custom actions that are configured for a visual.
+	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
+	// The configuration of a `FunnelChartVisual` .
+	ChartConfiguration TemplateFunnelChartConfigurationPtrInput `pulumi:"chartConfiguration"`
+	// The column hierarchy that is used during drill-downs and drill-ups.
+	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
+	// The subtitle that is displayed on the visual.
+	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
+	// The title that is displayed on the visual.
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+	VisualId pulumi.StringInput `pulumi:"visualId"`
+}
+
+func (TemplateFunnelChartVisualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFunnelChartVisual)(nil)).Elem()
+}
+
+func (i TemplateFunnelChartVisualArgs) ToTemplateFunnelChartVisualOutput() TemplateFunnelChartVisualOutput {
+	return i.ToTemplateFunnelChartVisualOutputWithContext(context.Background())
+}
+
+func (i TemplateFunnelChartVisualArgs) ToTemplateFunnelChartVisualOutputWithContext(ctx context.Context) TemplateFunnelChartVisualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartVisualOutput)
+}
+
+func (i TemplateFunnelChartVisualArgs) ToTemplateFunnelChartVisualPtrOutput() TemplateFunnelChartVisualPtrOutput {
+	return i.ToTemplateFunnelChartVisualPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateFunnelChartVisualArgs) ToTemplateFunnelChartVisualPtrOutputWithContext(ctx context.Context) TemplateFunnelChartVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartVisualOutput).ToTemplateFunnelChartVisualPtrOutputWithContext(ctx)
+}
+
+// TemplateFunnelChartVisualPtrInput is an input type that accepts TemplateFunnelChartVisualArgs, TemplateFunnelChartVisualPtr and TemplateFunnelChartVisualPtrOutput values.
+// You can construct a concrete instance of `TemplateFunnelChartVisualPtrInput` via:
+//
+//	        TemplateFunnelChartVisualArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateFunnelChartVisualPtrInput interface {
+	pulumi.Input
+
+	ToTemplateFunnelChartVisualPtrOutput() TemplateFunnelChartVisualPtrOutput
+	ToTemplateFunnelChartVisualPtrOutputWithContext(context.Context) TemplateFunnelChartVisualPtrOutput
+}
+
+type templateFunnelChartVisualPtrType TemplateFunnelChartVisualArgs
+
+func TemplateFunnelChartVisualPtr(v *TemplateFunnelChartVisualArgs) TemplateFunnelChartVisualPtrInput {
+	return (*templateFunnelChartVisualPtrType)(v)
+}
+
+func (*templateFunnelChartVisualPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFunnelChartVisual)(nil)).Elem()
+}
+
+func (i *templateFunnelChartVisualPtrType) ToTemplateFunnelChartVisualPtrOutput() TemplateFunnelChartVisualPtrOutput {
+	return i.ToTemplateFunnelChartVisualPtrOutputWithContext(context.Background())
+}
+
+func (i *templateFunnelChartVisualPtrType) ToTemplateFunnelChartVisualPtrOutputWithContext(ctx context.Context) TemplateFunnelChartVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFunnelChartVisualPtrOutput)
+}
+
+type TemplateFunnelChartVisualOutput struct{ *pulumi.OutputState }
+
+func (TemplateFunnelChartVisualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFunnelChartVisual)(nil)).Elem()
+}
+
+func (o TemplateFunnelChartVisualOutput) ToTemplateFunnelChartVisualOutput() TemplateFunnelChartVisualOutput {
+	return o
+}
+
+func (o TemplateFunnelChartVisualOutput) ToTemplateFunnelChartVisualOutputWithContext(ctx context.Context) TemplateFunnelChartVisualOutput {
+	return o
+}
+
+func (o TemplateFunnelChartVisualOutput) ToTemplateFunnelChartVisualPtrOutput() TemplateFunnelChartVisualPtrOutput {
+	return o.ToTemplateFunnelChartVisualPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateFunnelChartVisualOutput) ToTemplateFunnelChartVisualPtrOutputWithContext(ctx context.Context) TemplateFunnelChartVisualPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFunnelChartVisual) *TemplateFunnelChartVisual {
+		return &v
+	}).(TemplateFunnelChartVisualPtrOutput)
+}
+
+// The list of custom actions that are configured for a visual.
+func (o TemplateFunnelChartVisualOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v TemplateFunnelChartVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
+}
+
+// The configuration of a `FunnelChartVisual` .
+func (o TemplateFunnelChartVisualOutput) ChartConfiguration() TemplateFunnelChartConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartVisual) *TemplateFunnelChartConfiguration { return v.ChartConfiguration }).(TemplateFunnelChartConfigurationPtrOutput)
+}
+
+// The column hierarchy that is used during drill-downs and drill-ups.
+func (o TemplateFunnelChartVisualOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v TemplateFunnelChartVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
+}
+
+// The subtitle that is displayed on the visual.
+func (o TemplateFunnelChartVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+// The title that is displayed on the visual.
+func (o TemplateFunnelChartVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+// The alt text for the visual.
+func (o TemplateFunnelChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateFunnelChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+func (o TemplateFunnelChartVisualOutput) VisualId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateFunnelChartVisual) string { return v.VisualId }).(pulumi.StringOutput)
+}
+
+type TemplateFunnelChartVisualPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateFunnelChartVisualPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFunnelChartVisual)(nil)).Elem()
+}
+
+func (o TemplateFunnelChartVisualPtrOutput) ToTemplateFunnelChartVisualPtrOutput() TemplateFunnelChartVisualPtrOutput {
+	return o
+}
+
+func (o TemplateFunnelChartVisualPtrOutput) ToTemplateFunnelChartVisualPtrOutputWithContext(ctx context.Context) TemplateFunnelChartVisualPtrOutput {
+	return o
+}
+
+func (o TemplateFunnelChartVisualPtrOutput) Elem() TemplateFunnelChartVisualOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartVisual) TemplateFunnelChartVisual {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateFunnelChartVisual
+		return ret
+	}).(TemplateFunnelChartVisualOutput)
+}
+
+// The list of custom actions that are configured for a visual.
+func (o TemplateFunnelChartVisualPtrOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartVisual) []TemplateVisualCustomAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(TemplateVisualCustomActionArrayOutput)
+}
+
+// The configuration of a `FunnelChartVisual` .
+func (o TemplateFunnelChartVisualPtrOutput) ChartConfiguration() TemplateFunnelChartConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartVisual) *TemplateFunnelChartConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ChartConfiguration
+	}).(TemplateFunnelChartConfigurationPtrOutput)
+}
+
+// The column hierarchy that is used during drill-downs and drill-ups.
+func (o TemplateFunnelChartVisualPtrOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartVisual) []TemplateColumnHierarchy {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnHierarchies
+	}).(TemplateColumnHierarchyArrayOutput)
+}
+
+// The subtitle that is displayed on the visual.
+func (o TemplateFunnelChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartVisual) *TemplateVisualSubtitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Subtitle
+	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+// The title that is displayed on the visual.
+func (o TemplateFunnelChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartVisual) *TemplateVisualTitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+// The alt text for the visual.
+func (o TemplateFunnelChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VisualContentAltText
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
+func (o TemplateFunnelChartVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateFunnelChartVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VisualId
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateGaugeChartArcConditionalFormatting struct {
+	// The conditional formatting of the arc foreground color.
+	ForegroundColor *TemplateConditionalFormattingColor `pulumi:"foregroundColor"`
+}
+
+// TemplateGaugeChartArcConditionalFormattingInput is an input type that accepts TemplateGaugeChartArcConditionalFormattingArgs and TemplateGaugeChartArcConditionalFormattingOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartArcConditionalFormattingInput` via:
+//
+//	TemplateGaugeChartArcConditionalFormattingArgs{...}
+type TemplateGaugeChartArcConditionalFormattingInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartArcConditionalFormattingOutput() TemplateGaugeChartArcConditionalFormattingOutput
+	ToTemplateGaugeChartArcConditionalFormattingOutputWithContext(context.Context) TemplateGaugeChartArcConditionalFormattingOutput
+}
+
+type TemplateGaugeChartArcConditionalFormattingArgs struct {
+	// The conditional formatting of the arc foreground color.
+	ForegroundColor TemplateConditionalFormattingColorPtrInput `pulumi:"foregroundColor"`
+}
+
+func (TemplateGaugeChartArcConditionalFormattingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartArcConditionalFormatting)(nil)).Elem()
+}
+
+func (i TemplateGaugeChartArcConditionalFormattingArgs) ToTemplateGaugeChartArcConditionalFormattingOutput() TemplateGaugeChartArcConditionalFormattingOutput {
+	return i.ToTemplateGaugeChartArcConditionalFormattingOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartArcConditionalFormattingArgs) ToTemplateGaugeChartArcConditionalFormattingOutputWithContext(ctx context.Context) TemplateGaugeChartArcConditionalFormattingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartArcConditionalFormattingOutput)
+}
+
+func (i TemplateGaugeChartArcConditionalFormattingArgs) ToTemplateGaugeChartArcConditionalFormattingPtrOutput() TemplateGaugeChartArcConditionalFormattingPtrOutput {
+	return i.ToTemplateGaugeChartArcConditionalFormattingPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartArcConditionalFormattingArgs) ToTemplateGaugeChartArcConditionalFormattingPtrOutputWithContext(ctx context.Context) TemplateGaugeChartArcConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartArcConditionalFormattingOutput).ToTemplateGaugeChartArcConditionalFormattingPtrOutputWithContext(ctx)
+}
+
+// TemplateGaugeChartArcConditionalFormattingPtrInput is an input type that accepts TemplateGaugeChartArcConditionalFormattingArgs, TemplateGaugeChartArcConditionalFormattingPtr and TemplateGaugeChartArcConditionalFormattingPtrOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartArcConditionalFormattingPtrInput` via:
+//
+//	        TemplateGaugeChartArcConditionalFormattingArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGaugeChartArcConditionalFormattingPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartArcConditionalFormattingPtrOutput() TemplateGaugeChartArcConditionalFormattingPtrOutput
+	ToTemplateGaugeChartArcConditionalFormattingPtrOutputWithContext(context.Context) TemplateGaugeChartArcConditionalFormattingPtrOutput
+}
+
+type templateGaugeChartArcConditionalFormattingPtrType TemplateGaugeChartArcConditionalFormattingArgs
+
+func TemplateGaugeChartArcConditionalFormattingPtr(v *TemplateGaugeChartArcConditionalFormattingArgs) TemplateGaugeChartArcConditionalFormattingPtrInput {
+	return (*templateGaugeChartArcConditionalFormattingPtrType)(v)
+}
+
+func (*templateGaugeChartArcConditionalFormattingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGaugeChartArcConditionalFormatting)(nil)).Elem()
+}
+
+func (i *templateGaugeChartArcConditionalFormattingPtrType) ToTemplateGaugeChartArcConditionalFormattingPtrOutput() TemplateGaugeChartArcConditionalFormattingPtrOutput {
+	return i.ToTemplateGaugeChartArcConditionalFormattingPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGaugeChartArcConditionalFormattingPtrType) ToTemplateGaugeChartArcConditionalFormattingPtrOutputWithContext(ctx context.Context) TemplateGaugeChartArcConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartArcConditionalFormattingPtrOutput)
+}
+
+type TemplateGaugeChartArcConditionalFormattingOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartArcConditionalFormattingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartArcConditionalFormatting)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartArcConditionalFormattingOutput) ToTemplateGaugeChartArcConditionalFormattingOutput() TemplateGaugeChartArcConditionalFormattingOutput {
+	return o
+}
+
+func (o TemplateGaugeChartArcConditionalFormattingOutput) ToTemplateGaugeChartArcConditionalFormattingOutputWithContext(ctx context.Context) TemplateGaugeChartArcConditionalFormattingOutput {
+	return o
+}
+
+func (o TemplateGaugeChartArcConditionalFormattingOutput) ToTemplateGaugeChartArcConditionalFormattingPtrOutput() TemplateGaugeChartArcConditionalFormattingPtrOutput {
+	return o.ToTemplateGaugeChartArcConditionalFormattingPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGaugeChartArcConditionalFormattingOutput) ToTemplateGaugeChartArcConditionalFormattingPtrOutputWithContext(ctx context.Context) TemplateGaugeChartArcConditionalFormattingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGaugeChartArcConditionalFormatting) *TemplateGaugeChartArcConditionalFormatting {
+		return &v
+	}).(TemplateGaugeChartArcConditionalFormattingPtrOutput)
+}
+
+// The conditional formatting of the arc foreground color.
+func (o TemplateGaugeChartArcConditionalFormattingOutput) ForegroundColor() TemplateConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartArcConditionalFormatting) *TemplateConditionalFormattingColor {
+		return v.ForegroundColor
+	}).(TemplateConditionalFormattingColorPtrOutput)
+}
+
+type TemplateGaugeChartArcConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartArcConditionalFormattingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGaugeChartArcConditionalFormatting)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartArcConditionalFormattingPtrOutput) ToTemplateGaugeChartArcConditionalFormattingPtrOutput() TemplateGaugeChartArcConditionalFormattingPtrOutput {
+	return o
+}
+
+func (o TemplateGaugeChartArcConditionalFormattingPtrOutput) ToTemplateGaugeChartArcConditionalFormattingPtrOutputWithContext(ctx context.Context) TemplateGaugeChartArcConditionalFormattingPtrOutput {
+	return o
+}
+
+func (o TemplateGaugeChartArcConditionalFormattingPtrOutput) Elem() TemplateGaugeChartArcConditionalFormattingOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartArcConditionalFormatting) TemplateGaugeChartArcConditionalFormatting {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGaugeChartArcConditionalFormatting
+		return ret
+	}).(TemplateGaugeChartArcConditionalFormattingOutput)
+}
+
+// The conditional formatting of the arc foreground color.
+func (o TemplateGaugeChartArcConditionalFormattingPtrOutput) ForegroundColor() TemplateConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartArcConditionalFormatting) *TemplateConditionalFormattingColor {
+		if v == nil {
+			return nil
+		}
+		return v.ForegroundColor
+	}).(TemplateConditionalFormattingColorPtrOutput)
+}
+
+type TemplateGaugeChartColorConfiguration struct {
+	// The background color configuration of a `GaugeChartVisual` .
+	BackgroundColor *string `pulumi:"backgroundColor"`
+	// The foreground color configuration of a `GaugeChartVisual` .
+	ForegroundColor *string `pulumi:"foregroundColor"`
+}
+
+// TemplateGaugeChartColorConfigurationInput is an input type that accepts TemplateGaugeChartColorConfigurationArgs and TemplateGaugeChartColorConfigurationOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartColorConfigurationInput` via:
+//
+//	TemplateGaugeChartColorConfigurationArgs{...}
+type TemplateGaugeChartColorConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartColorConfigurationOutput() TemplateGaugeChartColorConfigurationOutput
+	ToTemplateGaugeChartColorConfigurationOutputWithContext(context.Context) TemplateGaugeChartColorConfigurationOutput
+}
+
+type TemplateGaugeChartColorConfigurationArgs struct {
+	// The background color configuration of a `GaugeChartVisual` .
+	BackgroundColor pulumi.StringPtrInput `pulumi:"backgroundColor"`
+	// The foreground color configuration of a `GaugeChartVisual` .
+	ForegroundColor pulumi.StringPtrInput `pulumi:"foregroundColor"`
+}
+
+func (TemplateGaugeChartColorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartColorConfiguration)(nil)).Elem()
+}
+
+func (i TemplateGaugeChartColorConfigurationArgs) ToTemplateGaugeChartColorConfigurationOutput() TemplateGaugeChartColorConfigurationOutput {
+	return i.ToTemplateGaugeChartColorConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartColorConfigurationArgs) ToTemplateGaugeChartColorConfigurationOutputWithContext(ctx context.Context) TemplateGaugeChartColorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartColorConfigurationOutput)
+}
+
+func (i TemplateGaugeChartColorConfigurationArgs) ToTemplateGaugeChartColorConfigurationPtrOutput() TemplateGaugeChartColorConfigurationPtrOutput {
+	return i.ToTemplateGaugeChartColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartColorConfigurationArgs) ToTemplateGaugeChartColorConfigurationPtrOutputWithContext(ctx context.Context) TemplateGaugeChartColorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartColorConfigurationOutput).ToTemplateGaugeChartColorConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateGaugeChartColorConfigurationPtrInput is an input type that accepts TemplateGaugeChartColorConfigurationArgs, TemplateGaugeChartColorConfigurationPtr and TemplateGaugeChartColorConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartColorConfigurationPtrInput` via:
+//
+//	        TemplateGaugeChartColorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGaugeChartColorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartColorConfigurationPtrOutput() TemplateGaugeChartColorConfigurationPtrOutput
+	ToTemplateGaugeChartColorConfigurationPtrOutputWithContext(context.Context) TemplateGaugeChartColorConfigurationPtrOutput
+}
+
+type templateGaugeChartColorConfigurationPtrType TemplateGaugeChartColorConfigurationArgs
+
+func TemplateGaugeChartColorConfigurationPtr(v *TemplateGaugeChartColorConfigurationArgs) TemplateGaugeChartColorConfigurationPtrInput {
+	return (*templateGaugeChartColorConfigurationPtrType)(v)
+}
+
+func (*templateGaugeChartColorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGaugeChartColorConfiguration)(nil)).Elem()
+}
+
+func (i *templateGaugeChartColorConfigurationPtrType) ToTemplateGaugeChartColorConfigurationPtrOutput() TemplateGaugeChartColorConfigurationPtrOutput {
+	return i.ToTemplateGaugeChartColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGaugeChartColorConfigurationPtrType) ToTemplateGaugeChartColorConfigurationPtrOutputWithContext(ctx context.Context) TemplateGaugeChartColorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartColorConfigurationPtrOutput)
+}
+
+type TemplateGaugeChartColorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartColorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartColorConfiguration)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartColorConfigurationOutput) ToTemplateGaugeChartColorConfigurationOutput() TemplateGaugeChartColorConfigurationOutput {
+	return o
+}
+
+func (o TemplateGaugeChartColorConfigurationOutput) ToTemplateGaugeChartColorConfigurationOutputWithContext(ctx context.Context) TemplateGaugeChartColorConfigurationOutput {
+	return o
+}
+
+func (o TemplateGaugeChartColorConfigurationOutput) ToTemplateGaugeChartColorConfigurationPtrOutput() TemplateGaugeChartColorConfigurationPtrOutput {
+	return o.ToTemplateGaugeChartColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGaugeChartColorConfigurationOutput) ToTemplateGaugeChartColorConfigurationPtrOutputWithContext(ctx context.Context) TemplateGaugeChartColorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGaugeChartColorConfiguration) *TemplateGaugeChartColorConfiguration {
+		return &v
+	}).(TemplateGaugeChartColorConfigurationPtrOutput)
+}
+
+// The background color configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartColorConfigurationOutput) BackgroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartColorConfiguration) *string { return v.BackgroundColor }).(pulumi.StringPtrOutput)
+}
+
+// The foreground color configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartColorConfigurationOutput) ForegroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartColorConfiguration) *string { return v.ForegroundColor }).(pulumi.StringPtrOutput)
+}
+
+type TemplateGaugeChartColorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartColorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGaugeChartColorConfiguration)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartColorConfigurationPtrOutput) ToTemplateGaugeChartColorConfigurationPtrOutput() TemplateGaugeChartColorConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateGaugeChartColorConfigurationPtrOutput) ToTemplateGaugeChartColorConfigurationPtrOutputWithContext(ctx context.Context) TemplateGaugeChartColorConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateGaugeChartColorConfigurationPtrOutput) Elem() TemplateGaugeChartColorConfigurationOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartColorConfiguration) TemplateGaugeChartColorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGaugeChartColorConfiguration
+		return ret
+	}).(TemplateGaugeChartColorConfigurationOutput)
+}
+
+// The background color configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartColorConfigurationPtrOutput) BackgroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartColorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BackgroundColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// The foreground color configuration of a `GaugeChartVisual` .
+func (o TemplateGaugeChartColorConfigurationPtrOutput) ForegroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartColorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ForegroundColor
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateGaugeChartConditionalFormatting struct {
+	// Conditional formatting options of a `GaugeChartVisual` .
+	ConditionalFormattingOptions []TemplateGaugeChartConditionalFormattingOption `pulumi:"conditionalFormattingOptions"`
+}
+
+// TemplateGaugeChartConditionalFormattingInput is an input type that accepts TemplateGaugeChartConditionalFormattingArgs and TemplateGaugeChartConditionalFormattingOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartConditionalFormattingInput` via:
+//
+//	TemplateGaugeChartConditionalFormattingArgs{...}
+type TemplateGaugeChartConditionalFormattingInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartConditionalFormattingOutput() TemplateGaugeChartConditionalFormattingOutput
+	ToTemplateGaugeChartConditionalFormattingOutputWithContext(context.Context) TemplateGaugeChartConditionalFormattingOutput
+}
+
+type TemplateGaugeChartConditionalFormattingArgs struct {
+	// Conditional formatting options of a `GaugeChartVisual` .
+	ConditionalFormattingOptions TemplateGaugeChartConditionalFormattingOptionArrayInput `pulumi:"conditionalFormattingOptions"`
+}
+
+func (TemplateGaugeChartConditionalFormattingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartConditionalFormatting)(nil)).Elem()
+}
+
+func (i TemplateGaugeChartConditionalFormattingArgs) ToTemplateGaugeChartConditionalFormattingOutput() TemplateGaugeChartConditionalFormattingOutput {
+	return i.ToTemplateGaugeChartConditionalFormattingOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartConditionalFormattingArgs) ToTemplateGaugeChartConditionalFormattingOutputWithContext(ctx context.Context) TemplateGaugeChartConditionalFormattingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartConditionalFormattingOutput)
+}
+
+func (i TemplateGaugeChartConditionalFormattingArgs) ToTemplateGaugeChartConditionalFormattingPtrOutput() TemplateGaugeChartConditionalFormattingPtrOutput {
+	return i.ToTemplateGaugeChartConditionalFormattingPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartConditionalFormattingArgs) ToTemplateGaugeChartConditionalFormattingPtrOutputWithContext(ctx context.Context) TemplateGaugeChartConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartConditionalFormattingOutput).ToTemplateGaugeChartConditionalFormattingPtrOutputWithContext(ctx)
+}
+
+// TemplateGaugeChartConditionalFormattingPtrInput is an input type that accepts TemplateGaugeChartConditionalFormattingArgs, TemplateGaugeChartConditionalFormattingPtr and TemplateGaugeChartConditionalFormattingPtrOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartConditionalFormattingPtrInput` via:
+//
+//	        TemplateGaugeChartConditionalFormattingArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGaugeChartConditionalFormattingPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartConditionalFormattingPtrOutput() TemplateGaugeChartConditionalFormattingPtrOutput
+	ToTemplateGaugeChartConditionalFormattingPtrOutputWithContext(context.Context) TemplateGaugeChartConditionalFormattingPtrOutput
+}
+
+type templateGaugeChartConditionalFormattingPtrType TemplateGaugeChartConditionalFormattingArgs
+
+func TemplateGaugeChartConditionalFormattingPtr(v *TemplateGaugeChartConditionalFormattingArgs) TemplateGaugeChartConditionalFormattingPtrInput {
+	return (*templateGaugeChartConditionalFormattingPtrType)(v)
+}
+
+func (*templateGaugeChartConditionalFormattingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGaugeChartConditionalFormatting)(nil)).Elem()
+}
+
+func (i *templateGaugeChartConditionalFormattingPtrType) ToTemplateGaugeChartConditionalFormattingPtrOutput() TemplateGaugeChartConditionalFormattingPtrOutput {
+	return i.ToTemplateGaugeChartConditionalFormattingPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGaugeChartConditionalFormattingPtrType) ToTemplateGaugeChartConditionalFormattingPtrOutputWithContext(ctx context.Context) TemplateGaugeChartConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartConditionalFormattingPtrOutput)
+}
+
+type TemplateGaugeChartConditionalFormattingOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartConditionalFormattingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartConditionalFormatting)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartConditionalFormattingOutput) ToTemplateGaugeChartConditionalFormattingOutput() TemplateGaugeChartConditionalFormattingOutput {
+	return o
+}
+
+func (o TemplateGaugeChartConditionalFormattingOutput) ToTemplateGaugeChartConditionalFormattingOutputWithContext(ctx context.Context) TemplateGaugeChartConditionalFormattingOutput {
+	return o
+}
+
+func (o TemplateGaugeChartConditionalFormattingOutput) ToTemplateGaugeChartConditionalFormattingPtrOutput() TemplateGaugeChartConditionalFormattingPtrOutput {
+	return o.ToTemplateGaugeChartConditionalFormattingPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGaugeChartConditionalFormattingOutput) ToTemplateGaugeChartConditionalFormattingPtrOutputWithContext(ctx context.Context) TemplateGaugeChartConditionalFormattingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGaugeChartConditionalFormatting) *TemplateGaugeChartConditionalFormatting {
+		return &v
+	}).(TemplateGaugeChartConditionalFormattingPtrOutput)
+}
+
+// Conditional formatting options of a `GaugeChartVisual` .
+func (o TemplateGaugeChartConditionalFormattingOutput) ConditionalFormattingOptions() TemplateGaugeChartConditionalFormattingOptionArrayOutput {
+	return o.ApplyT(func(v TemplateGaugeChartConditionalFormatting) []TemplateGaugeChartConditionalFormattingOption {
+		return v.ConditionalFormattingOptions
+	}).(TemplateGaugeChartConditionalFormattingOptionArrayOutput)
+}
+
+type TemplateGaugeChartConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartConditionalFormattingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGaugeChartConditionalFormatting)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartConditionalFormattingPtrOutput) ToTemplateGaugeChartConditionalFormattingPtrOutput() TemplateGaugeChartConditionalFormattingPtrOutput {
+	return o
+}
+
+func (o TemplateGaugeChartConditionalFormattingPtrOutput) ToTemplateGaugeChartConditionalFormattingPtrOutputWithContext(ctx context.Context) TemplateGaugeChartConditionalFormattingPtrOutput {
+	return o
+}
+
+func (o TemplateGaugeChartConditionalFormattingPtrOutput) Elem() TemplateGaugeChartConditionalFormattingOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartConditionalFormatting) TemplateGaugeChartConditionalFormatting {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGaugeChartConditionalFormatting
+		return ret
+	}).(TemplateGaugeChartConditionalFormattingOutput)
+}
+
+// Conditional formatting options of a `GaugeChartVisual` .
+func (o TemplateGaugeChartConditionalFormattingPtrOutput) ConditionalFormattingOptions() TemplateGaugeChartConditionalFormattingOptionArrayOutput {
+	return o.ApplyT(func(v *TemplateGaugeChartConditionalFormatting) []TemplateGaugeChartConditionalFormattingOption {
+		if v == nil {
+			return nil
+		}
+		return v.ConditionalFormattingOptions
+	}).(TemplateGaugeChartConditionalFormattingOptionArrayOutput)
+}
+
 type TemplateGaugeChartConditionalFormattingOption struct {
 	// The options that determine the presentation of the arc of a `GaugeChartVisual` .
 	Arc *TemplateGaugeChartArcConditionalFormatting `pulumi:"arc"`
@@ -63187,6 +64999,26 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFreeFormSectionLayoutConfigurationInput)(nil)).Elem(), TemplateFreeFormSectionLayoutConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFreeFormSectionLayoutConfigurationPtrInput)(nil)).Elem(), TemplateFreeFormSectionLayoutConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFunnelChartAggregatedFieldWellsInput)(nil)).Elem(), TemplateFunnelChartAggregatedFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFunnelChartAggregatedFieldWellsPtrInput)(nil)).Elem(), TemplateFunnelChartAggregatedFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFunnelChartConfigurationInput)(nil)).Elem(), TemplateFunnelChartConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFunnelChartConfigurationPtrInput)(nil)).Elem(), TemplateFunnelChartConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFunnelChartDataLabelOptionsInput)(nil)).Elem(), TemplateFunnelChartDataLabelOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFunnelChartDataLabelOptionsPtrInput)(nil)).Elem(), TemplateFunnelChartDataLabelOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFunnelChartFieldWellsInput)(nil)).Elem(), TemplateFunnelChartFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFunnelChartFieldWellsPtrInput)(nil)).Elem(), TemplateFunnelChartFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFunnelChartSortConfigurationInput)(nil)).Elem(), TemplateFunnelChartSortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFunnelChartSortConfigurationPtrInput)(nil)).Elem(), TemplateFunnelChartSortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFunnelChartVisualInput)(nil)).Elem(), TemplateFunnelChartVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFunnelChartVisualPtrInput)(nil)).Elem(), TemplateFunnelChartVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartArcConditionalFormattingInput)(nil)).Elem(), TemplateGaugeChartArcConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartArcConditionalFormattingPtrInput)(nil)).Elem(), TemplateGaugeChartArcConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartColorConfigurationInput)(nil)).Elem(), TemplateGaugeChartColorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartColorConfigurationPtrInput)(nil)).Elem(), TemplateGaugeChartColorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartConditionalFormattingInput)(nil)).Elem(), TemplateGaugeChartConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartConditionalFormattingPtrInput)(nil)).Elem(), TemplateGaugeChartConditionalFormattingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartConditionalFormattingOptionInput)(nil)).Elem(), TemplateGaugeChartConditionalFormattingOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartConditionalFormattingOptionArrayInput)(nil)).Elem(), TemplateGaugeChartConditionalFormattingOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartConfigurationInput)(nil)).Elem(), TemplateGaugeChartConfigurationArgs{})
@@ -63890,6 +65722,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateFreeFormSectionLayoutConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateFreeFormSectionLayoutConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateFunnelChartAggregatedFieldWellsOutput{})
+	pulumi.RegisterOutputType(TemplateFunnelChartAggregatedFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateFunnelChartConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateFunnelChartConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateFunnelChartDataLabelOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateFunnelChartDataLabelOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateFunnelChartFieldWellsOutput{})
+	pulumi.RegisterOutputType(TemplateFunnelChartFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateFunnelChartSortConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateFunnelChartSortConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateFunnelChartVisualOutput{})
+	pulumi.RegisterOutputType(TemplateFunnelChartVisualPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGaugeChartArcConditionalFormattingOutput{})
+	pulumi.RegisterOutputType(TemplateGaugeChartArcConditionalFormattingPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGaugeChartColorConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateGaugeChartColorConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGaugeChartConditionalFormattingOutput{})
+	pulumi.RegisterOutputType(TemplateGaugeChartConditionalFormattingPtrOutput{})
 	pulumi.RegisterOutputType(TemplateGaugeChartConditionalFormattingOptionOutput{})
 	pulumi.RegisterOutputType(TemplateGaugeChartConditionalFormattingOptionArrayOutput{})
 	pulumi.RegisterOutputType(TemplateGaugeChartConfigurationOutput{})

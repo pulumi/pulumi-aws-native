@@ -37,11 +37,11 @@ export class ServicePrincipalName extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
      */
-    declare public readonly connectorArn: pulumi.Output<string | undefined>;
+    declare public readonly connectorArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
      */
-    declare public readonly directoryRegistrationArn: pulumi.Output<string | undefined>;
+    declare public readonly directoryRegistrationArn: pulumi.Output<string>;
 
     /**
      * Create a ServicePrincipalName resource with the given unique name, arguments, and options.
@@ -50,10 +50,16 @@ export class ServicePrincipalName extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ServicePrincipalNameArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServicePrincipalNameArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.connectorArn === undefined && !opts.urn) {
+                throw new Error("Missing required property 'connectorArn'");
+            }
+            if (args?.directoryRegistrationArn === undefined && !opts.urn) {
+                throw new Error("Missing required property 'directoryRegistrationArn'");
+            }
             resourceInputs["connectorArn"] = args?.connectorArn;
             resourceInputs["directoryRegistrationArn"] = args?.directoryRegistrationArn;
         } else {
@@ -74,9 +80,9 @@ export interface ServicePrincipalNameArgs {
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
      */
-    connectorArn?: pulumi.Input<string>;
+    connectorArn: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
      */
-    directoryRegistrationArn?: pulumi.Input<string>;
+    directoryRegistrationArn: pulumi.Input<string>;
 }

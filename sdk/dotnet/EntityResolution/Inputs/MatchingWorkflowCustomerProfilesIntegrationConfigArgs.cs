@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EntityResolution.Inputs
 {
 
+    /// <summary>
+    /// The Customer Profiles integration configuration for the output source
+    /// </summary>
     public sealed class MatchingWorkflowCustomerProfilesIntegrationConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("domainArn", required: true)]

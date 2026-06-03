@@ -31,6 +31,7 @@ class FleetAcceleratorSelectionName(_builtins.str, Enum):
     A10G = "a10g"
     L4 = "l4"
     L40S = "l40s"
+    RTX_PRO_SERVER6000 = "rtx-pro-server-6000"
 
 
 @pulumi.type_token("aws-native:deadline:FleetAcceleratorType")

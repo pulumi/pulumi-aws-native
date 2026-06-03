@@ -162,6 +162,9 @@ export const EvaluationFormLanguageConfigurationFormLanguage = {
     FrFr: "fr-FR",
     ItIt: "it-IT",
     PtBr: "pt-BR",
+    JaJp: "ja-JP",
+    KoKr: "ko-KR",
+    ZhCn: "zh-CN",
 } as const;
 
 /**
@@ -293,6 +296,7 @@ export type EvaluationFormStatus = (typeof EvaluationFormStatus)[keyof typeof Ev
 export const EvaluationFormTargetConfigurationContactInteractionType = {
     Agent: "AGENT",
     Automated: "AUTOMATED",
+    Customer: "CUSTOMER",
 } as const;
 
 /**
@@ -414,6 +418,13 @@ export const IntegrationAssociationIntegrationType = {
     LambdaFunction: "LAMBDA_FUNCTION",
     Application: "APPLICATION",
     CasesDomain: "CASES_DOMAIN",
+    WisdomAssistant: "WISDOM_ASSISTANT",
+    WisdomKnowledgeBase: "WISDOM_KNOWLEDGE_BASE",
+    WisdomQuickResponses: "WISDOM_QUICK_RESPONSES",
+    FileScanner: "FILE_SCANNER",
+    MessageProcessor: "MESSAGE_PROCESSOR",
+    QMessageTemplates: "Q_MESSAGE_TEMPLATES",
+    SesIdentity: "SES_IDENTITY",
 } as const;
 
 /**

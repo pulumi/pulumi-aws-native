@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Deadline
 {
     /// <summary>
-    /// Definition of AWS::Deadline::StorageProfile Resource Type
+    /// Resource Type definition for AWS::Deadline::StorageProfile
     /// </summary>
     [AwsNativeResourceType("aws-native:deadline:StorageProfile")]
     public partial class StorageProfile : global::Pulumi.CustomResource

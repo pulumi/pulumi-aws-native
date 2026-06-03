@@ -54,6 +54,10 @@ export interface GetAccountResult {
      */
     readonly parentIds?: string[];
     /**
+     * The paths in the organization where the account exists.
+     */
+    readonly paths?: string[];
+    /**
      * The state of the account in the organization.
      */
     readonly state?: enums.organizations.AccountState;

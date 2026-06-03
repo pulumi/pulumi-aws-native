@@ -48,6 +48,9 @@ export class GlobalResolver extends pulumi.CustomResource {
     declare public readonly ipAddressType: pulumi.Output<enums.route53globalresolver.GlobalResolverIpAddressType | undefined>;
     declare public readonly name: pulumi.Output<string>;
     declare public readonly observabilityRegion: pulumi.Output<string | undefined>;
+    /**
+     * A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+     */
     declare public readonly regions: pulumi.Output<string[]>;
     declare public /*out*/ readonly status: pulumi.Output<enums.route53globalresolver.GlobalResolverCrResourceStatus>;
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -100,7 +103,7 @@ export class GlobalResolver extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["clientToken", "regions[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["clientToken"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(GlobalResolver.__pulumiType, name, resourceInputs, opts);
     }
@@ -115,6 +118,9 @@ export interface GlobalResolverArgs {
     ipAddressType?: pulumi.Input<enums.route53globalresolver.GlobalResolverIpAddressType>;
     name?: pulumi.Input<string>;
     observabilityRegion?: pulumi.Input<string>;
+    /**
+     * A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+     */
     regions: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

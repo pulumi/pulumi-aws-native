@@ -26,13 +26,15 @@ class TrustStoreArgs:
     def __init__(__self__, *,
                  ca_certificates_bundle_source: Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 use_client_certificate_ocsp_endpoint: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TrustStore resource.
 
         :param pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs'] ca_certificates_bundle_source: A CA certificates bundle source.
         :param pulumi.Input[_builtins.str] name: The trust store's name.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more ``Tag`` elements.
+        :param pulumi.Input[_builtins.bool] use_client_certificate_ocsp_endpoint: A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
         """
         if ca_certificates_bundle_source is not None:
             pulumi.set(__self__, "ca_certificates_bundle_source", ca_certificates_bundle_source)
@@ -40,6 +42,8 @@ class TrustStoreArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if use_client_certificate_ocsp_endpoint is not None:
+            pulumi.set(__self__, "use_client_certificate_ocsp_endpoint", use_client_certificate_ocsp_endpoint)
 
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleSource")
@@ -77,6 +81,18 @@ class TrustStoreArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter(name="useClientCertificateOcspEndpoint")
+    def use_client_certificate_ocsp_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
+        """
+        return pulumi.get(self, "use_client_certificate_ocsp_endpoint")
+
+    @use_client_certificate_ocsp_endpoint.setter
+    def use_client_certificate_ocsp_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_client_certificate_ocsp_endpoint", value)
+
 
 @pulumi.type_token("aws-native:cloudfront:TrustStore")
 class TrustStore(pulumi.CustomResource):
@@ -87,6 +103,7 @@ class TrustStore(pulumi.CustomResource):
                  ca_certificates_bundle_source: Optional[pulumi.Input[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 use_client_certificate_ocsp_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
         A trust store.
@@ -97,6 +114,7 @@ class TrustStore(pulumi.CustomResource):
         :param pulumi.Input[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']] ca_certificates_bundle_source: A CA certificates bundle source.
         :param pulumi.Input[_builtins.str] name: The trust store's name.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more ``Tag`` elements.
+        :param pulumi.Input[_builtins.bool] use_client_certificate_ocsp_endpoint: A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
         """
         ...
     @overload
@@ -126,6 +144,7 @@ class TrustStore(pulumi.CustomResource):
                  ca_certificates_bundle_source: Optional[pulumi.Input[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 use_client_certificate_ocsp_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -138,6 +157,7 @@ class TrustStore(pulumi.CustomResource):
             __props__.__dict__["ca_certificates_bundle_source"] = ca_certificates_bundle_source
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["use_client_certificate_ocsp_endpoint"] = use_client_certificate_ocsp_endpoint
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["e_tag"] = None
@@ -177,6 +197,7 @@ class TrustStore(pulumi.CustomResource):
         __props__.__dict__["number_of_ca_certificates"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["use_client_certificate_ocsp_endpoint"] = None
         return TrustStore(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -250,4 +271,12 @@ class TrustStore(pulumi.CustomResource):
         A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="useClientCertificateOcspEndpoint")
+    def use_client_certificate_ocsp_endpoint(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
+        """
+        return pulumi.get(self, "use_client_certificate_ocsp_endpoint")
 

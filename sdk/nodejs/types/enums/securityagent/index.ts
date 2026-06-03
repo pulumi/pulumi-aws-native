@@ -9,6 +9,9 @@ export const PentestAuthenticationProviderType = {
     AwsInternal: "AWS_INTERNAL",
 } as const;
 
+/**
+ * Type of authentication provider
+ */
 export type PentestAuthenticationProviderType = (typeof PentestAuthenticationProviderType)[keyof typeof PentestAuthenticationProviderType];
 
 export const PentestCodeRemediationStrategy = {
@@ -16,6 +19,9 @@ export const PentestCodeRemediationStrategy = {
     Disabled: "DISABLED",
 } as const;
 
+/**
+ * Strategy for remediating code vulnerabilities discovered during the pentest
+ */
 export type PentestCodeRemediationStrategy = (typeof PentestCodeRemediationStrategy)[keyof typeof PentestCodeRemediationStrategy];
 
 export const PentestNetworkTrafficRuleEffect = {
@@ -23,12 +29,18 @@ export const PentestNetworkTrafficRuleEffect = {
     Deny: "DENY",
 } as const;
 
+/**
+ * Whether to allow or deny traffic matching this rule
+ */
 export type PentestNetworkTrafficRuleEffect = (typeof PentestNetworkTrafficRuleEffect)[keyof typeof PentestNetworkTrafficRuleEffect];
 
 export const PentestNetworkTrafficRuleNetworkTrafficRuleType = {
     Url: "URL",
 } as const;
 
+/**
+ * Type of pattern matching for this rule
+ */
 export type PentestNetworkTrafficRuleNetworkTrafficRuleType = (typeof PentestNetworkTrafficRuleNetworkTrafficRuleType)[keyof typeof PentestNetworkTrafficRuleNetworkTrafficRuleType];
 
 export const PentestRiskType = {
@@ -62,6 +74,9 @@ export const PentestRiskType = {
     Unknown: "UNKNOWN",
 } as const;
 
+/**
+ * Type of security risk to test for
+ */
 export type PentestRiskType = (typeof PentestRiskType)[keyof typeof PentestRiskType];
 
 export const TargetDomainDnsVerificationDnsRecordType = {
@@ -76,6 +91,7 @@ export type TargetDomainDnsVerificationDnsRecordType = (typeof TargetDomainDnsVe
 export const TargetDomainVerificationDetailsMethod = {
     DnsTxt: "DNS_TXT",
     HttpRoute: "HTTP_ROUTE",
+    PrivateVpc: "PRIVATE_VPC",
 } as const;
 
 /**
@@ -86,6 +102,7 @@ export type TargetDomainVerificationDetailsMethod = (typeof TargetDomainVerifica
 export const TargetDomainVerificationMethod = {
     DnsTxt: "DNS_TXT",
     HttpRoute: "HTTP_ROUTE",
+    PrivateVpc: "PRIVATE_VPC",
 } as const;
 
 /**

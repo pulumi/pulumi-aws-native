@@ -12,20 +12,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Schema describing various properties for ECS DaemonTaskDefinition
+// The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
 type DaemonTaskDefinition struct {
 	pulumi.CustomResourceState
 
+	// A list of container definitions in JSON format that describe the containers that make up the daemon task.
 	ContainerDefinitions DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput `pulumi:"containerDefinitions"`
-	Cpu                  pulumi.StringPtrOutput                                   `pulumi:"cpu"`
-	// The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
-	DaemonTaskDefinitionArn pulumi.StringOutput                   `pulumi:"daemonTaskDefinitionArn"`
-	ExecutionRoleArn        pulumi.StringPtrOutput                `pulumi:"executionRoleArn"`
-	Family                  pulumi.StringPtrOutput                `pulumi:"family"`
-	Memory                  pulumi.StringPtrOutput                `pulumi:"memory"`
-	Tags                    aws.TagArrayOutput                    `pulumi:"tags"`
-	TaskRoleArn             pulumi.StringPtrOutput                `pulumi:"taskRoleArn"`
-	Volumes                 DaemonTaskDefinitionVolumeArrayOutput `pulumi:"volumes"`
+	// The number of CPU units used by the daemon task.
+	Cpu                     pulumi.StringPtrOutput `pulumi:"cpu"`
+	DaemonTaskDefinitionArn pulumi.StringOutput    `pulumi:"daemonTaskDefinitionArn"`
+	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
+	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
+	// The name of a family that this daemon task definition is registered to.
+	Family pulumi.StringPtrOutput `pulumi:"family"`
+	// The amount of memory (in MiB) used by the daemon task.
+	Memory pulumi.StringPtrOutput `pulumi:"memory"`
+	Tags   aws.TagArrayOutput     `pulumi:"tags"`
+	// The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
+	TaskRoleArn pulumi.StringPtrOutput `pulumi:"taskRoleArn"`
+	// The list of data volume definitions for the daemon task.
+	Volumes DaemonTaskDefinitionVolumeArrayOutput `pulumi:"volumes"`
 }
 
 // NewDaemonTaskDefinition registers a new resource with the given unique name, arguments, and options.
@@ -78,26 +84,40 @@ func (DaemonTaskDefinitionState) ElementType() reflect.Type {
 }
 
 type daemonTaskDefinitionArgs struct {
+	// A list of container definitions in JSON format that describe the containers that make up the daemon task.
 	ContainerDefinitions []DaemonTaskDefinitionDaemonContainerDefinition `pulumi:"containerDefinitions"`
-	Cpu                  *string                                         `pulumi:"cpu"`
-	ExecutionRoleArn     *string                                         `pulumi:"executionRoleArn"`
-	Family               *string                                         `pulumi:"family"`
-	Memory               *string                                         `pulumi:"memory"`
-	Tags                 []aws.Tag                                       `pulumi:"tags"`
-	TaskRoleArn          *string                                         `pulumi:"taskRoleArn"`
-	Volumes              []DaemonTaskDefinitionVolume                    `pulumi:"volumes"`
+	// The number of CPU units used by the daemon task.
+	Cpu *string `pulumi:"cpu"`
+	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
+	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
+	// The name of a family that this daemon task definition is registered to.
+	Family *string `pulumi:"family"`
+	// The amount of memory (in MiB) used by the daemon task.
+	Memory *string   `pulumi:"memory"`
+	Tags   []aws.Tag `pulumi:"tags"`
+	// The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
+	TaskRoleArn *string `pulumi:"taskRoleArn"`
+	// The list of data volume definitions for the daemon task.
+	Volumes []DaemonTaskDefinitionVolume `pulumi:"volumes"`
 }
 
 // The set of arguments for constructing a DaemonTaskDefinition resource.
 type DaemonTaskDefinitionArgs struct {
+	// A list of container definitions in JSON format that describe the containers that make up the daemon task.
 	ContainerDefinitions DaemonTaskDefinitionDaemonContainerDefinitionArrayInput
-	Cpu                  pulumi.StringPtrInput
-	ExecutionRoleArn     pulumi.StringPtrInput
-	Family               pulumi.StringPtrInput
-	Memory               pulumi.StringPtrInput
-	Tags                 aws.TagArrayInput
-	TaskRoleArn          pulumi.StringPtrInput
-	Volumes              DaemonTaskDefinitionVolumeArrayInput
+	// The number of CPU units used by the daemon task.
+	Cpu pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
+	ExecutionRoleArn pulumi.StringPtrInput
+	// The name of a family that this daemon task definition is registered to.
+	Family pulumi.StringPtrInput
+	// The amount of memory (in MiB) used by the daemon task.
+	Memory pulumi.StringPtrInput
+	Tags   aws.TagArrayInput
+	// The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
+	TaskRoleArn pulumi.StringPtrInput
+	// The list of data volume definitions for the daemon task.
+	Volumes DaemonTaskDefinitionVolumeArrayInput
 }
 
 func (DaemonTaskDefinitionArgs) ElementType() reflect.Type {
@@ -137,29 +157,33 @@ func (o DaemonTaskDefinitionOutput) ToDaemonTaskDefinitionOutputWithContext(ctx 
 	return o
 }
 
+// A list of container definitions in JSON format that describe the containers that make up the daemon task.
 func (o DaemonTaskDefinitionOutput) ContainerDefinitions() DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput {
 	return o.ApplyT(func(v *DaemonTaskDefinition) DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput {
 		return v.ContainerDefinitions
 	}).(DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput)
 }
 
+// The number of CPU units used by the daemon task.
 func (o DaemonTaskDefinitionOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DaemonTaskDefinition) pulumi.StringPtrOutput { return v.Cpu }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
 func (o DaemonTaskDefinitionOutput) DaemonTaskDefinitionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DaemonTaskDefinition) pulumi.StringOutput { return v.DaemonTaskDefinitionArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
 func (o DaemonTaskDefinitionOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DaemonTaskDefinition) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of a family that this daemon task definition is registered to.
 func (o DaemonTaskDefinitionOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DaemonTaskDefinition) pulumi.StringPtrOutput { return v.Family }).(pulumi.StringPtrOutput)
 }
 
+// The amount of memory (in MiB) used by the daemon task.
 func (o DaemonTaskDefinitionOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DaemonTaskDefinition) pulumi.StringPtrOutput { return v.Memory }).(pulumi.StringPtrOutput)
 }
@@ -168,10 +192,12 @@ func (o DaemonTaskDefinitionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DaemonTaskDefinition) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
 func (o DaemonTaskDefinitionOutput) TaskRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DaemonTaskDefinition) pulumi.StringPtrOutput { return v.TaskRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The list of data volume definitions for the daemon task.
 func (o DaemonTaskDefinitionOutput) Volumes() DaemonTaskDefinitionVolumeArrayOutput {
 	return o.ApplyT(func(v *DaemonTaskDefinition) DaemonTaskDefinitionVolumeArrayOutput { return v.Volumes }).(DaemonTaskDefinitionVolumeArrayOutput)
 }

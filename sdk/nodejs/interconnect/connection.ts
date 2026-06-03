@@ -78,7 +78,11 @@ export class Connection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly provider: pulumi.Output<outputs.interconnect.ConnectionProvider>;
     /**
-     * The account ID of the remote owner. Required when creating a connection through AWS.
+     * The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+     */
+    declare public readonly remoteAccount: pulumi.Output<outputs.interconnect.RemoteAccountProperties | undefined>;
+    /**
+     * Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
      */
     declare public readonly remoteOwnerAccount: pulumi.Output<string | undefined>;
     /**
@@ -117,6 +121,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["bandwidth"] = args?.bandwidth;
             resourceInputs["description"] = args?.description;
             resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["remoteAccount"] = args?.remoteAccount;
             resourceInputs["remoteOwnerAccount"] = args?.remoteOwnerAccount;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
@@ -138,6 +143,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["environmentId"] = undefined /*out*/;
             resourceInputs["ownerAccount"] = undefined /*out*/;
             resourceInputs["provider"] = undefined /*out*/;
+            resourceInputs["remoteAccount"] = undefined /*out*/;
             resourceInputs["remoteOwnerAccount"] = undefined /*out*/;
             resourceInputs["sharedId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -145,7 +151,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["activationKey", "attachPoint", "environmentId"] };
+        const replaceOnChanges = { replaceOnChanges: ["activationKey", "attachPoint", "environmentId", "remoteAccount"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Connection.__pulumiType, name, resourceInputs, opts);
     }
@@ -176,7 +182,11 @@ export interface ConnectionArgs {
      */
     environmentId?: pulumi.Input<string>;
     /**
-     * The account ID of the remote owner. Required when creating a connection through AWS.
+     * The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+     */
+    remoteAccount?: pulumi.Input<inputs.interconnect.RemoteAccountPropertiesArgs>;
+    /**
+     * Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
      */
     remoteOwnerAccount?: pulumi.Input<string>;
     /**

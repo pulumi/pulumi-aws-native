@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Ecs
     public static class GetDaemonTaskDefinition
     {
         /// <summary>
-        /// Resource Schema describing various properties for ECS DaemonTaskDefinition
+        /// The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
         /// </summary>
         public static Task<GetDaemonTaskDefinitionResult> InvokeAsync(GetDaemonTaskDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDaemonTaskDefinitionResult>("aws-native:ecs:getDaemonTaskDefinition", args ?? new GetDaemonTaskDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Schema describing various properties for ECS DaemonTaskDefinition
+        /// The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
         /// </summary>
         public static Output<GetDaemonTaskDefinitionResult> Invoke(GetDaemonTaskDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaemonTaskDefinitionResult>("aws-native:ecs:getDaemonTaskDefinition", args ?? new GetDaemonTaskDefinitionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Schema describing various properties for ECS DaemonTaskDefinition
+        /// The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
         /// </summary>
         public static Output<GetDaemonTaskDefinitionResult> Invoke(GetDaemonTaskDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaemonTaskDefinitionResult>("aws-native:ecs:getDaemonTaskDefinition", args ?? new GetDaemonTaskDefinitionInvokeArgs(), options.WithDefaults());
@@ -33,9 +33,6 @@ namespace Pulumi.AwsNative.Ecs
 
     public sealed class GetDaemonTaskDefinitionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
-        /// </summary>
         [Input("daemonTaskDefinitionArn", required: true)]
         public string DaemonTaskDefinitionArn { get; set; } = null!;
 
@@ -47,9 +44,6 @@ namespace Pulumi.AwsNative.Ecs
 
     public sealed class GetDaemonTaskDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
-        /// </summary>
         [Input("daemonTaskDefinitionArn", required: true)]
         public Input<string> DaemonTaskDefinitionArn { get; set; } = null!;
 
@@ -63,9 +57,6 @@ namespace Pulumi.AwsNative.Ecs
     [OutputType]
     public sealed class GetDaemonTaskDefinitionResult
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
-        /// </summary>
         public readonly string? DaemonTaskDefinitionArn;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

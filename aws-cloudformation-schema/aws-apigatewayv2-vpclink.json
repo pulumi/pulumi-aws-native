@@ -10,6 +10,7 @@
     "SubnetIds" : {
       "type" : "array",
       "uniqueItems" : false,
+      "insertionOrder" : false,
       "items" : {
         "type" : "string"
       },
@@ -18,6 +19,7 @@
     "SecurityGroupIds" : {
       "type" : "array",
       "uniqueItems" : false,
+      "insertionOrder" : false,
       "items" : {
         "type" : "string"
       },
@@ -55,7 +57,7 @@
       "permissions" : [ "apigateway:POST", "apigateway:GET", "apigateway:TagResource", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
     },
     "update" : {
-      "permissions" : [ "apigateway:PATCH", "apigateway:GET", "apigateway:TagResource", "apigateway:unTagResource", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
+      "permissions" : [ "apigateway:PATCH", "apigateway:POST", "apigateway:GET", "apigateway:DELETE", "apigateway:TagResource", "apigateway:unTagResource", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
     },
     "read" : {
       "permissions" : [ "apigateway:GET", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]

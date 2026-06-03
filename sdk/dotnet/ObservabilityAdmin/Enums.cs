@@ -277,6 +277,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public static OrganizationTelemetryRuleResourceType AwseksCluster { get; } = new OrganizationTelemetryRuleResourceType("AWS::EKS::Cluster");
         public static OrganizationTelemetryRuleResourceType AwsElasticLoadBalancingV2LoadBalancer { get; } = new OrganizationTelemetryRuleResourceType("AWS::ElasticLoadBalancingV2::LoadBalancer");
         public static OrganizationTelemetryRuleResourceType Awsec2Instance { get; } = new OrganizationTelemetryRuleResourceType("AWS::EC2::Instance");
+        public static OrganizationTelemetryRuleResourceType AwsSecurityHubHub { get; } = new OrganizationTelemetryRuleResourceType("AWS::SecurityHub::Hub");
 
         public static bool operator ==(OrganizationTelemetryRuleResourceType left, OrganizationTelemetryRuleResourceType right) => left.Equals(right);
         public static bool operator !=(OrganizationTelemetryRuleResourceType left, OrganizationTelemetryRuleResourceType right) => !left.Equals(right);
@@ -286,6 +287,33 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OrganizationTelemetryRuleResourceType other && Equals(other);
         public bool Equals(OrganizationTelemetryRuleResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem : IEquatable<OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem>
+    {
+        private readonly string _value;
+
+        private OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem SecurityFindingLogs { get; } = new OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("SECURITY_FINDING_LOGS");
+
+        public static bool operator ==(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem left, OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem right) => left.Equals(right);
+        public static bool operator !=(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem left, OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem other && Equals(other);
+        public bool Equals(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -695,6 +723,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public static TelemetryRuleResourceType AwsBedrockAgentCoreRuntime { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::Runtime");
         public static TelemetryRuleResourceType AwsBedrockAgentCoreBrowser { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::Browser");
         public static TelemetryRuleResourceType AwsBedrockAgentCoreCodeInterpreter { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::CodeInterpreter");
+        public static TelemetryRuleResourceType AwsSecurityHubHub { get; } = new TelemetryRuleResourceType("AWS::SecurityHub::Hub");
 
         public static bool operator ==(TelemetryRuleResourceType left, TelemetryRuleResourceType right) => left.Equals(right);
         public static bool operator !=(TelemetryRuleResourceType left, TelemetryRuleResourceType right) => !left.Equals(right);
@@ -723,6 +752,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
 
         public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem ApplicationLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("APPLICATION_LOGS");
         public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem UsageLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("USAGE_LOGS");
+        public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem SecurityFindingLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("SECURITY_FINDING_LOGS");
 
         public static bool operator ==(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem left, TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem right) => left.Equals(right);
         public static bool operator !=(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem left, TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem right) => !left.Equals(right);

@@ -8607,6 +8607,14 @@ type InstanceTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A key-value pair to associate with a resource.
+type IntegrationAssociationTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 type LockVersionProperties struct {
 	Attribute *string `pulumi:"attribute"`
 	DataTable *string `pulumi:"dataTable"`
@@ -9375,7 +9383,7 @@ type QuickConnectConfig struct {
 	PhoneConfig *QuickConnectPhoneNumberQuickConnectConfig `pulumi:"phoneConfig"`
 	// The queue configuration. This is required only if QuickConnectType is QUEUE.
 	QueueConfig *QuickConnectQueueQuickConnectConfig `pulumi:"queueConfig"`
-	// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+	// The type of quick connect. In the Connect Customer console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 	QuickConnectType QuickConnectType `pulumi:"quickConnectType"`
 	// The user configuration. This is required only if QuickConnectType is USER.
 	UserConfig *QuickConnectUserQuickConnectConfig `pulumi:"userConfig"`
@@ -9398,7 +9406,7 @@ type QuickConnectConfigArgs struct {
 	PhoneConfig QuickConnectPhoneNumberQuickConnectConfigPtrInput `pulumi:"phoneConfig"`
 	// The queue configuration. This is required only if QuickConnectType is QUEUE.
 	QueueConfig QuickConnectQueueQuickConnectConfigPtrInput `pulumi:"queueConfig"`
-	// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+	// The type of quick connect. In the Connect Customer console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 	QuickConnectType QuickConnectTypeInput `pulumi:"quickConnectType"`
 	// The user configuration. This is required only if QuickConnectType is USER.
 	UserConfig QuickConnectUserQuickConnectConfigPtrInput `pulumi:"userConfig"`
@@ -9441,7 +9449,7 @@ func (o QuickConnectConfigOutput) QueueConfig() QuickConnectQueueQuickConnectCon
 	return o.ApplyT(func(v QuickConnectConfig) *QuickConnectQueueQuickConnectConfig { return v.QueueConfig }).(QuickConnectQueueQuickConnectConfigPtrOutput)
 }
 
-// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+// The type of quick connect. In the Connect Customer console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 func (o QuickConnectConfigOutput) QuickConnectType() QuickConnectTypeOutput {
 	return o.ApplyT(func(v QuickConnectConfig) QuickConnectType { return v.QuickConnectType }).(QuickConnectTypeOutput)
 }
@@ -9495,7 +9503,7 @@ func (o QuickConnectConfigPtrOutput) QueueConfig() QuickConnectQueueQuickConnect
 	}).(QuickConnectQueueQuickConnectConfigPtrOutput)
 }
 
-// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+// The type of quick connect. In the Connect Customer console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 func (o QuickConnectConfigPtrOutput) QuickConnectType() QuickConnectTypePtrOutput {
 	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectType {
 		if v == nil {

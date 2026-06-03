@@ -47,7 +47,7 @@
         "ContactInteractionType" : {
           "description" : "The contact interaction type for this evaluation form.",
           "type" : "string",
-          "enum" : [ "AGENT", "AUTOMATED" ]
+          "enum" : [ "AGENT", "AUTOMATED", "CUSTOMER" ]
         }
       },
       "required" : [ "ContactInteractionType" ]
@@ -60,7 +60,7 @@
         "FormLanguage" : {
           "description" : "The language for the evaluation form.",
           "type" : "string",
-          "enum" : [ "de-DE", "en-US", "es-ES", "fr-FR", "it-IT", "pt-BR" ]
+          "enum" : [ "de-DE", "en-US", "es-ES", "fr-FR", "it-IT", "pt-BR", "ja-JP", "ko-KR", "zh-CN" ]
         }
       }
     },
@@ -435,8 +435,7 @@
           "description" : "Automation answer source.",
           "$ref" : "#/definitions/EvaluationFormQuestionAutomationAnswerSource"
         }
-      },
-      "required" : [ "Options" ]
+      }
     },
     "EvaluationFormSingleSelectQuestionOption" : {
       "description" : "Information about the automation configuration in single select questions.",
@@ -588,8 +587,7 @@
           "description" : "",
           "$ref" : "#/definitions/EvaluationFormQuestionAutomationAnswerSource"
         }
-      },
-      "required" : [ "Options" ]
+      }
     },
     "EvaluationFormMultiSelectQuestionOption" : {
       "description" : "An option for a multi-select question in an evaluation form.",

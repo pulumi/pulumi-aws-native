@@ -247,7 +247,7 @@ class AnomalyMonitor(pulumi.CustomResource):
             monitor_dimension=aws_native.ce.AnomalyMonitorMonitorDimension.SERVICE)
         anomaly_subscription = aws_native.ce.AnomalySubscription("anomalySubscription",
             subscription_name="SubscriptionName",
-            threshold=100,
+            threshold=float(100),
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY,
             monitor_arn_list=[
                 custom_anomaly_monitor_with_linked_account.id,
@@ -275,7 +275,7 @@ class AnomalyMonitor(pulumi.CustomResource):
             monitor_dimension=aws_native.ce.AnomalyMonitorMonitorDimension.SERVICE)
         anomaly_subscription = aws_native.ce.AnomalySubscription("anomalySubscription",
             subscription_name="SubscriptionName",
-            threshold=100,
+            threshold=float(100),
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY,
             monitor_arn_list=[
                 custom_anomaly_monitor_with_linked_account.id,
@@ -303,7 +303,7 @@ class AnomalyMonitor(pulumi.CustomResource):
             monitor_dimension=aws_native.ce.AnomalyMonitorMonitorDimension.SERVICE)
         anomaly_subscription = aws_native.ce.AnomalySubscription("anomalySubscription",
             subscription_name="SubscriptionName",
-            threshold=100,
+            threshold=float(100),
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY,
             monitor_arn_list=[
                 custom_anomaly_monitor_with_linked_account.id,
@@ -331,7 +331,7 @@ class AnomalyMonitor(pulumi.CustomResource):
             monitor_dimension=aws_native.ce.AnomalyMonitorMonitorDimension.SERVICE)
         anomaly_subscription = aws_native.ce.AnomalySubscription("anomalySubscription",
             subscription_name="SubscriptionName",
-            threshold=100,
+            threshold=float(100),
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY,
             monitor_arn_list=[
                 custom_anomaly_monitor_with_linked_account.id,
@@ -481,7 +481,7 @@ class AnomalyMonitor(pulumi.CustomResource):
             monitor_dimension=aws_native.ce.AnomalyMonitorMonitorDimension.SERVICE)
         anomaly_subscription = aws_native.ce.AnomalySubscription("anomalySubscription",
             subscription_name="SubscriptionName",
-            threshold=100,
+            threshold=float(100),
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY,
             monitor_arn_list=[
                 custom_anomaly_monitor_with_linked_account.id,
@@ -509,7 +509,7 @@ class AnomalyMonitor(pulumi.CustomResource):
             monitor_dimension=aws_native.ce.AnomalyMonitorMonitorDimension.SERVICE)
         anomaly_subscription = aws_native.ce.AnomalySubscription("anomalySubscription",
             subscription_name="SubscriptionName",
-            threshold=100,
+            threshold=float(100),
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY,
             monitor_arn_list=[
                 custom_anomaly_monitor_with_linked_account.id,
@@ -537,7 +537,7 @@ class AnomalyMonitor(pulumi.CustomResource):
             monitor_dimension=aws_native.ce.AnomalyMonitorMonitorDimension.SERVICE)
         anomaly_subscription = aws_native.ce.AnomalySubscription("anomalySubscription",
             subscription_name="SubscriptionName",
-            threshold=100,
+            threshold=float(100),
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY,
             monitor_arn_list=[
                 custom_anomaly_monitor_with_linked_account.id,
@@ -565,7 +565,7 @@ class AnomalyMonitor(pulumi.CustomResource):
             monitor_dimension=aws_native.ce.AnomalyMonitorMonitorDimension.SERVICE)
         anomaly_subscription = aws_native.ce.AnomalySubscription("anomalySubscription",
             subscription_name="SubscriptionName",
-            threshold=100,
+            threshold=float(100),
             frequency=aws_native.ce.AnomalySubscriptionFrequency.DAILY,
             monitor_arn_list=[
                 custom_anomaly_monitor_with_linked_account.id,

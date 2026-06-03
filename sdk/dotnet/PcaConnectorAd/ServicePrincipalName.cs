@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.PcaConnectorAd
         /// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
         /// </summary>
         [Output("connectorArn")]
-        public Output<string?> ConnectorArn { get; private set; } = null!;
+        public Output<string> ConnectorArn { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
         /// </summary>
         [Output("directoryRegistrationArn")]
-        public Output<string?> DirectoryRegistrationArn { get; private set; } = null!;
+        public Output<string> DirectoryRegistrationArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.PcaConnectorAd
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ServicePrincipalName(string name, ServicePrincipalNameArgs? args = null, CustomResourceOptions? options = null)
+        public ServicePrincipalName(string name, ServicePrincipalNameArgs args, CustomResourceOptions? options = null)
             : base("aws-native:pcaconnectorad:ServicePrincipalName", name, args ?? new ServicePrincipalNameArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -80,14 +80,14 @@ namespace Pulumi.AwsNative.PcaConnectorAd
         /// <summary>
         /// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
         /// </summary>
-        [Input("connectorArn")]
-        public Input<string>? ConnectorArn { get; set; }
+        [Input("connectorArn", required: true)]
+        public Input<string> ConnectorArn { get; set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
         /// </summary>
-        [Input("directoryRegistrationArn")]
-        public Input<string>? DirectoryRegistrationArn { get; set; }
+        [Input("directoryRegistrationArn", required: true)]
+        public Input<string> DirectoryRegistrationArn { get; set; } = null!;
 
         public ServicePrincipalNameArgs()
         {

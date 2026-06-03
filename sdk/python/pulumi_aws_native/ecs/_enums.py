@@ -7,6 +7,7 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'CapacityProviderAutoRepairConfigurationActionsStatus',
     'CapacityProviderAutoScalingGroupProviderManagedDraining',
     'CapacityProviderAutoScalingGroupProviderManagedTerminationProtection',
     'CapacityProviderCapacityReservationRequestReservationPreference',
@@ -37,7 +38,9 @@ __all__ = [
     'ServiceDeploymentConfigurationStrategy',
     'ServiceDeploymentControllerType',
     'ServiceDeploymentLifecycleHookLifecycleStagesItem',
+    'ServiceDeploymentLifecycleHookTargetType',
     'ServiceEbsTagSpecificationPropagateTags',
+    'ServiceHookTimeoutConfigAction',
     'ServiceLaunchType',
     'ServicePlacementConstraintType',
     'ServicePlacementStrategyType',
@@ -51,6 +54,12 @@ __all__ = [
     'TaskSetLaunchType',
     'TaskSetScaleUnit',
 ]
+
+
+@pulumi.type_token("aws-native:ecs:CapacityProviderAutoRepairConfigurationActionsStatus")
+class CapacityProviderAutoRepairConfigurationActionsStatus(_builtins.str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:ecs:CapacityProviderAutoScalingGroupProviderManagedDraining")
@@ -229,6 +238,9 @@ class ClusterCapacityProviderAssociationsCapacityProvider0(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:ecs:DaemonPropagateTags")
 class DaemonPropagateTags(_builtins.str, Enum):
+    """
+    Specifies whether tags are propagated from the daemon to the daemon tasks.
+    """
     DAEMON = "DAEMON"
     NONE = "NONE"
 
@@ -368,20 +380,37 @@ class ServiceDeploymentLifecycleHookLifecycleStagesItem(_builtins.str, Enum):
     POST_SCALE_UP = "POST_SCALE_UP"
     TEST_TRAFFIC_SHIFT = "TEST_TRAFFIC_SHIFT"
     POST_TEST_TRAFFIC_SHIFT = "POST_TEST_TRAFFIC_SHIFT"
+    PRE_PRODUCTION_TRAFFIC_SHIFT = "PRE_PRODUCTION_TRAFFIC_SHIFT"
     PRODUCTION_TRAFFIC_SHIFT = "PRODUCTION_TRAFFIC_SHIFT"
     POST_PRODUCTION_TRAFFIC_SHIFT = "POST_PRODUCTION_TRAFFIC_SHIFT"
+
+
+@pulumi.type_token("aws-native:ecs:ServiceDeploymentLifecycleHookTargetType")
+class ServiceDeploymentLifecycleHookTargetType(_builtins.str, Enum):
+    """
+    The type of action the lifecycle hook performs. Valid values are:
+      +  ``AWS_LAMBDA`` - Invokes a Lambda function at the specified lifecycle stage. This is the default value.
+      +  ``PAUSE`` - Pauses the deployment at the specified lifecycle stage until you call ``ContinueServiceDeployment`` to continue or roll back.
+      
+     This field is optional. If not specified, the default value is ``AWS_LAMBDA``.
+    """
+    AWS_LAMBDA = "AWS_LAMBDA"
+    PAUSE = "PAUSE"
 
 
 @pulumi.type_token("aws-native:ecs:ServiceEbsTagSpecificationPropagateTags")
 class ServiceEbsTagSpecificationPropagateTags(_builtins.str, Enum):
     """
-    Determines whether to propagate the tags from the task definition to 
-    the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in 
-    ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't 
-    propagated.
+    Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't propagated.
     """
     SERVICE = "SERVICE"
     TASK_DEFINITION = "TASK_DEFINITION"
+
+
+@pulumi.type_token("aws-native:ecs:ServiceHookTimeoutConfigAction")
+class ServiceHookTimeoutConfigAction(_builtins.str, Enum):
+    ROLLBACK = "ROLLBACK"
+    CONTINUE_ = "CONTINUE"
 
 
 @pulumi.type_token("aws-native:ecs:ServiceLaunchType")

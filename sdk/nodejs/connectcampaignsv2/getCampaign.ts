@@ -45,6 +45,7 @@ export interface GetCampaignResult {
      * The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
      */
     readonly connectCampaignFlowArn?: string;
+    readonly entryLimitsConfig?: outputs.connectcampaignsv2.CampaignEntryLimitsConfig;
     /**
      * The name of the outbound campaign.
      */

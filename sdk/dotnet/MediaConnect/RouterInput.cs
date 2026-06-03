@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region for the router input. Defaults to the current region if not specified.
+        /// The Amazon Web Services Region for the router input. Defaults to the current region if not specified.
         /// </summary>
         [Output("regionName")]
         public Output<string?> RegionName { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The AWS Region for the router input. Defaults to the current region if not specified.
+        /// The Amazon Web Services Region for the router input. Defaults to the current region if not specified.
         /// </summary>
         [Input("regionName")]
         public Input<string>? RegionName { get; set; }

@@ -132,6 +132,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        [Output("uriSeparator")]
+        public Output<Pulumi.AwsNative.MediaPackageV2.OriginEndpointUriSeparator?> UriSeparator { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a OriginEndpoint resource with the given unique name, arguments, and options.
@@ -290,6 +293,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        [Input("uriSeparator")]
+        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointUriSeparator>? UriSeparator { get; set; }
 
         public OriginEndpointArgs()
         {

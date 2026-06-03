@@ -15,6 +15,8 @@ __all__ = [
     'Ec2FleetCapacityReservationOptionsRequestUsageStrategy',
     'Ec2FleetEbsBlockDeviceVolumeType',
     'Ec2FleetExcessCapacityTerminationPolicy',
+    'Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint',
+    'Ec2FleetInstanceMetadataOptionsRequestHttpTokens',
     'Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem',
     'Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem',
     'Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem',
@@ -59,6 +61,7 @@ __all__ = [
     'KeyPairKeyFormat',
     'KeyPairKeyType',
     'LaunchTemplateCpuOptionsAmdSevSnp',
+    'LaunchTemplateCpuOptionsNestedVirtualization',
     'NetworkInsightsAccessScopeAnalysisFindingsFound',
     'NetworkInsightsAccessScopeAnalysisStatus',
     'NetworkInsightsAccessScopeProtocol',
@@ -212,6 +215,18 @@ class Ec2FleetExcessCapacityTerminationPolicy(_builtins.str, Enum):
     """
     TERMINATION = "termination"
     NO_TERMINATION = "no-termination"
+
+
+@pulumi.type_token("aws-native:ec2:Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint")
+class Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint(_builtins.str, Enum):
+    DISABLED = "disabled"
+    ENABLED = "enabled"
+
+
+@pulumi.type_token("aws-native:ec2:Ec2FleetInstanceMetadataOptionsRequestHttpTokens")
+class Ec2FleetInstanceMetadataOptionsRequestHttpTokens(_builtins.str, Enum):
+    OPTIONAL = "optional"
+    REQUIRED = "required"
 
 
 @pulumi.type_token("aws-native:ec2:Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem")
@@ -420,6 +435,7 @@ class Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType(_built
     """
     ON_DEMAND = "on-demand"
     SPOT = "spot"
+    CAPACITY_BLOCK = "capacity-block"
     RESERVED_CAPACITY = "reserved-capacity"
 
 
@@ -721,6 +737,15 @@ class KeyPairKeyType(_builtins.str, Enum):
 class LaunchTemplateCpuOptionsAmdSevSnp(_builtins.str, Enum):
     """
     Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
+    """
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+
+
+@pulumi.type_token("aws-native:ec2:LaunchTemplateCpuOptionsNestedVirtualization")
+class LaunchTemplateCpuOptionsNestedVirtualization(_builtins.str, Enum):
+    """
+    Indicates whether the instance is enabled for nested virtualization.
     """
     ENABLED = "enabled"
     DISABLED = "disabled"

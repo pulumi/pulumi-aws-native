@@ -36,7 +36,8 @@ type MailManagerIngressPoint struct {
 	// The update status of an ingress endpoint.
 	StatusToUpdate MailManagerIngressPointIngressPointStatusToUpdatePtrOutput `pulumi:"statusToUpdate"`
 	// The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags      aws.TagArrayOutput                        `pulumi:"tags"`
+	TlsPolicy MailManagerIngressPointTlsPolicyPtrOutput `pulumi:"tlsPolicy"`
 	// The identifier of an existing traffic policy that you attach to an ingress endpoint resource.
 	TrafficPolicyId pulumi.StringOutput `pulumi:"trafficPolicyId"`
 	// The type of the ingress endpoint to create.
@@ -108,7 +109,8 @@ type mailManagerIngressPointArgs struct {
 	// The update status of an ingress endpoint.
 	StatusToUpdate *MailManagerIngressPointIngressPointStatusToUpdate `pulumi:"statusToUpdate"`
 	// The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags      []aws.Tag                         `pulumi:"tags"`
+	TlsPolicy *MailManagerIngressPointTlsPolicy `pulumi:"tlsPolicy"`
 	// The identifier of an existing traffic policy that you attach to an ingress endpoint resource.
 	TrafficPolicyId string `pulumi:"trafficPolicyId"`
 	// The type of the ingress endpoint to create.
@@ -128,7 +130,8 @@ type MailManagerIngressPointArgs struct {
 	// The update status of an ingress endpoint.
 	StatusToUpdate MailManagerIngressPointIngressPointStatusToUpdatePtrInput
 	// The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
-	Tags aws.TagArrayInput
+	Tags      aws.TagArrayInput
+	TlsPolicy MailManagerIngressPointTlsPolicyPtrInput
 	// The identifier of an existing traffic policy that you attach to an ingress endpoint resource.
 	TrafficPolicyId pulumi.StringInput
 	// The type of the ingress endpoint to create.
@@ -222,6 +225,10 @@ func (o MailManagerIngressPointOutput) StatusToUpdate() MailManagerIngressPointI
 // The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 func (o MailManagerIngressPointOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *MailManagerIngressPoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o MailManagerIngressPointOutput) TlsPolicy() MailManagerIngressPointTlsPolicyPtrOutput {
+	return o.ApplyT(func(v *MailManagerIngressPoint) MailManagerIngressPointTlsPolicyPtrOutput { return v.TlsPolicy }).(MailManagerIngressPointTlsPolicyPtrOutput)
 }
 
 // The identifier of an existing traffic policy that you attach to an ingress endpoint resource.

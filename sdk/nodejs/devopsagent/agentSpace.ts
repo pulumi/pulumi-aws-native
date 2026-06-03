@@ -58,6 +58,10 @@ export class AgentSpace extends pulumi.CustomResource {
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
+     * The locale for the AgentSpace, which determines the language used in agent responses.
+     */
+    declare public readonly locale: pulumi.Output<string | undefined>;
+    /**
      * The name of the AgentSpace.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -84,6 +88,7 @@ export class AgentSpace extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["description"] = args?.description;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["locale"] = args?.locale;
             resourceInputs["name"] = args?.name;
             resourceInputs["operatorApp"] = args?.operatorApp;
             resourceInputs["tags"] = args?.tags;
@@ -97,6 +102,7 @@ export class AgentSpace extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
+            resourceInputs["locale"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operatorApp"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -121,6 +127,10 @@ export interface AgentSpaceArgs {
      * The ARN of the KMS key to use for encryption.
      */
     kmsKeyArn?: pulumi.Input<string>;
+    /**
+     * The locale for the AgentSpace, which determines the language used in agent responses.
+     */
+    locale?: pulumi.Input<string>;
     /**
      * The name of the AgentSpace.
      */

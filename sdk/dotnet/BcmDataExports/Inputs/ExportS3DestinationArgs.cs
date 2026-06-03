@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.BcmDataExports.Inputs
         [Input("s3Bucket", required: true)]
         public Input<string> S3Bucket { get; set; } = null!;
 
+        [Input("s3BucketOwner")]
+        public Input<string>? S3BucketOwner { get; set; }
+
         /// <summary>
         /// The output configuration for the data export.
         /// </summary>

@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CapacityProviderAutoRepairConfigurationActionsStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type CapacityProviderAutoRepairConfigurationActionsStatus = (typeof CapacityProviderAutoRepairConfigurationActionsStatus)[keyof typeof CapacityProviderAutoRepairConfigurationActionsStatus];
+
 export const CapacityProviderAutoScalingGroupProviderManagedDraining = {
     Disabled: "DISABLED",
     Enabled: "ENABLED",
@@ -199,6 +206,9 @@ export const DaemonPropagateTags = {
     None: "NONE",
 } as const;
 
+/**
+ * Specifies whether tags are propagated from the daemon to the daemon tasks.
+ */
 export type DaemonPropagateTags = (typeof DaemonPropagateTags)[keyof typeof DaemonPropagateTags];
 
 export const DaemonStatus = {
@@ -345,11 +355,26 @@ export const ServiceDeploymentLifecycleHookLifecycleStagesItem = {
     PostScaleUp: "POST_SCALE_UP",
     TestTrafficShift: "TEST_TRAFFIC_SHIFT",
     PostTestTrafficShift: "POST_TEST_TRAFFIC_SHIFT",
+    PreProductionTrafficShift: "PRE_PRODUCTION_TRAFFIC_SHIFT",
     ProductionTrafficShift: "PRODUCTION_TRAFFIC_SHIFT",
     PostProductionTrafficShift: "POST_PRODUCTION_TRAFFIC_SHIFT",
 } as const;
 
 export type ServiceDeploymentLifecycleHookLifecycleStagesItem = (typeof ServiceDeploymentLifecycleHookLifecycleStagesItem)[keyof typeof ServiceDeploymentLifecycleHookLifecycleStagesItem];
+
+export const ServiceDeploymentLifecycleHookTargetType = {
+    AwsLambda: "AWS_LAMBDA",
+    Pause: "PAUSE",
+} as const;
+
+/**
+ * The type of action the lifecycle hook performs. Valid values are:
+ *   +  ``AWS_LAMBDA`` - Invokes a Lambda function at the specified lifecycle stage. This is the default value.
+ *   +  ``PAUSE`` - Pauses the deployment at the specified lifecycle stage until you call ``ContinueServiceDeployment`` to continue or roll back.
+ *   
+ *  This field is optional. If not specified, the default value is ``AWS_LAMBDA``.
+ */
+export type ServiceDeploymentLifecycleHookTargetType = (typeof ServiceDeploymentLifecycleHookTargetType)[keyof typeof ServiceDeploymentLifecycleHookTargetType];
 
 export const ServiceEbsTagSpecificationPropagateTags = {
     Service: "SERVICE",
@@ -357,12 +382,16 @@ export const ServiceEbsTagSpecificationPropagateTags = {
 } as const;
 
 /**
- * Determines whether to propagate the tags from the task definition to 
- * the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in 
- * ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't 
- * propagated.
+ * Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't propagated.
  */
 export type ServiceEbsTagSpecificationPropagateTags = (typeof ServiceEbsTagSpecificationPropagateTags)[keyof typeof ServiceEbsTagSpecificationPropagateTags];
+
+export const ServiceHookTimeoutConfigAction = {
+    Rollback: "ROLLBACK",
+    Continue: "CONTINUE",
+} as const;
+
+export type ServiceHookTimeoutConfigAction = (typeof ServiceHookTimeoutConfigAction)[keyof typeof ServiceHookTimeoutConfigAction];
 
 export const ServiceLaunchType = {
     Ec2: "EC2",

@@ -33,6 +33,8 @@ type LookupApplicationResult struct {
 	ApplicationArn *string `pulumi:"applicationArn"`
 	// The description information for the Identity Center (SSO) Application
 	Description *string `pulumi:"description"`
+	// The ARN of the identity store associated with the Identity Center instance
+	IdentityStoreArn *string `pulumi:"identityStoreArn"`
 	// The name you want to assign to this Identity Center (SSO) Application
 	Name *string `pulumi:"name"`
 	// A structure that describes the options for the portal associated with an application
@@ -83,6 +85,11 @@ func (o LookupApplicationResultOutput) ApplicationArn() pulumi.StringPtrOutput {
 // The description information for the Identity Center (SSO) Application
 func (o LookupApplicationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the identity store associated with the Identity Center instance
+func (o LookupApplicationResultOutput) IdentityStoreArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *string { return v.IdentityStoreArn }).(pulumi.StringPtrOutput)
 }
 
 // The name you want to assign to this Identity Center (SSO) Application

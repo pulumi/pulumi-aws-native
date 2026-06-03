@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     /// </summary>
     public sealed class RuntimeFilesystemConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("efsAccessPoint")]
+        public Input<Inputs.RuntimeEfsAccessPointConfigurationArgs>? EfsAccessPoint { get; set; }
+
+        [Input("s3FilesAccessPoint")]
+        public Input<Inputs.RuntimeS3FilesAccessPointConfigurationArgs>? S3FilesAccessPoint { get; set; }
+
         [Input("sessionStorage")]
         public Input<Inputs.RuntimeSessionStorageConfigurationArgs>? SessionStorage { get; set; }
 

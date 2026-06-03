@@ -35,8 +35,12 @@ type LookupDirectoryBucketResult struct {
 	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
 	// Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
 	BucketEncryption *DirectoryBucketBucketEncryption `pulumi:"bucketEncryption"`
+	// The inventory configuration for an Amazon S3 Express bucket.
+	InventoryConfigurations []DirectoryBucketInventoryConfiguration `pulumi:"inventoryConfigurations"`
 	// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
 	LifecycleConfiguration *DirectoryBucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
+	// Specifies the metrics configurations for the Amazon S3 Express bucket.
+	MetricsConfigurations []DirectoryBucketMetricsConfiguration `pulumi:"metricsConfigurations"`
 	// An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -88,11 +92,25 @@ func (o LookupDirectoryBucketResultOutput) BucketEncryption() DirectoryBucketBuc
 	return o.ApplyT(func(v LookupDirectoryBucketResult) *DirectoryBucketBucketEncryption { return v.BucketEncryption }).(DirectoryBucketBucketEncryptionPtrOutput)
 }
 
+// The inventory configuration for an Amazon S3 Express bucket.
+func (o LookupDirectoryBucketResultOutput) InventoryConfigurations() DirectoryBucketInventoryConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupDirectoryBucketResult) []DirectoryBucketInventoryConfiguration {
+		return v.InventoryConfigurations
+	}).(DirectoryBucketInventoryConfigurationArrayOutput)
+}
+
 // Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
 func (o LookupDirectoryBucketResultOutput) LifecycleConfiguration() DirectoryBucketLifecycleConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDirectoryBucketResult) *DirectoryBucketLifecycleConfiguration {
 		return v.LifecycleConfiguration
 	}).(DirectoryBucketLifecycleConfigurationPtrOutput)
+}
+
+// Specifies the metrics configurations for the Amazon S3 Express bucket.
+func (o LookupDirectoryBucketResultOutput) MetricsConfigurations() DirectoryBucketMetricsConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupDirectoryBucketResult) []DirectoryBucketMetricsConfiguration {
+		return v.MetricsConfigurations
+	}).(DirectoryBucketMetricsConfigurationArrayOutput)
 }
 
 // An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .

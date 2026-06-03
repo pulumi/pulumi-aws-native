@@ -31,12 +31,16 @@ type LookupResolverEndpointArgs struct {
 type LookupResolverEndpointResult struct {
 	// The Amazon Resource Name (ARN) of the resolver endpoint, such as arn:aws:route53resolver:us-east-1:123456789012:resolver-endpoint/resolver-endpoint-a1bzhi.
 	Arn *string `pulumi:"arn"`
+	// Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint. When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
+	Dns64Enabled *bool `pulumi:"dns64Enabled"`
 	// The ID of the VPC that you want to create the resolver endpoint in.
 	HostVpcId *string `pulumi:"hostVpcId"`
 	// The number of IP addresses that the resolver endpoint can use for DNS queries.
 	IpAddressCount *string `pulumi:"ipAddressCount"`
 	// The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
 	IpAddresses []ResolverEndpointIpAddressRequest `pulumi:"ipAddresses"`
+	// Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint. When set to true, this property allows your Endpoint ENIs to reach public IPv6 target nameservers through an internet gateway. Default is false.
+	Ipv6InternetAccessEnabled *bool `pulumi:"ipv6InternetAccessEnabled"`
 	// A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
 	Name *string `pulumi:"name"`
 	// Protocols used for the endpoint. DoH-FIPS is applicable for inbound endpoints only.
@@ -90,6 +94,11 @@ func (o LookupResolverEndpointResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint. When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
+func (o LookupResolverEndpointResultOutput) Dns64Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) *bool { return v.Dns64Enabled }).(pulumi.BoolPtrOutput)
+}
+
 // The ID of the VPC that you want to create the resolver endpoint in.
 func (o LookupResolverEndpointResultOutput) HostVpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.HostVpcId }).(pulumi.StringPtrOutput)
@@ -103,6 +112,11 @@ func (o LookupResolverEndpointResultOutput) IpAddressCount() pulumi.StringPtrOut
 // The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
 func (o LookupResolverEndpointResultOutput) IpAddresses() ResolverEndpointIpAddressRequestArrayOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) []ResolverEndpointIpAddressRequest { return v.IpAddresses }).(ResolverEndpointIpAddressRequestArrayOutput)
+}
+
+// Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint. When set to true, this property allows your Endpoint ENIs to reach public IPv6 target nameservers through an internet gateway. Default is false.
+func (o LookupResolverEndpointResultOutput) Ipv6InternetAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) *bool { return v.Ipv6InternetAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.

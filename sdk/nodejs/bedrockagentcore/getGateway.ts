@@ -64,8 +64,10 @@ export interface GetGatewayResult {
     readonly protocolConfiguration?: outputs.bedrockagentcore.GatewayProtocolConfigurationProperties;
     /**
      * The protocol type for the gateway target.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::BedrockAgentCore::Gateway` for more information about the expected schema for this property.
      */
-    readonly protocolType?: enums.bedrockagentcore.GatewayProtocolType;
+    readonly protocolType?: any;
     readonly roleArn?: string;
     /**
      * The status for the gateway.

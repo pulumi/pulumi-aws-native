@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetOrganizationalUnitResult:
-    def __init__(__self__, arn=None, id=None, name=None, tags=None):
+    def __init__(__self__, arn=None, id=None, name=None, path=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -34,6 +34,9 @@ class GetOrganizationalUnitResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if path and not isinstance(path, str):
+            raise TypeError("Expected argument 'path' to be a str")
+        pulumi.set(__self__, "path", path)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -64,6 +67,14 @@ class GetOrganizationalUnitResult:
 
     @_builtins.property
     @pulumi.getter
+    def path(self) -> Optional[_builtins.str]:
+        """
+        The path in the organization where this OU exists.
+        """
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         A list of tags that you want to attach to the newly created OU.
@@ -80,6 +91,7 @@ class AwaitableGetOrganizationalUnitResult(GetOrganizationalUnitResult):
             arn=self.arn,
             id=self.id,
             name=self.name,
+            path=self.path,
             tags=self.tags)
 
 
@@ -100,6 +112,7 @@ def get_organizational_unit(id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        path=pulumi.get(__ret__, 'path'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_organizational_unit_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationalUnitResult]:
@@ -117,4 +130,5 @@ def get_organizational_unit_output(id: Optional[pulumi.Input[_builtins.str]] = N
         arn=pulumi.get(__response__, 'arn'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        path=pulumi.get(__response__, 'path'),
         tags=pulumi.get(__response__, 'tags')))

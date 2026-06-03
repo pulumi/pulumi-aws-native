@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTrustStoreResult:
-    def __init__(__self__, arn=None, e_tag=None, id=None, last_modified_time=None, number_of_ca_certificates=None, status=None, tags=None):
+    def __init__(__self__, arn=None, e_tag=None, id=None, last_modified_time=None, number_of_ca_certificates=None, status=None, tags=None, use_client_certificate_ocsp_endpoint=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +47,9 @@ class GetTrustStoreResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if use_client_certificate_ocsp_endpoint and not isinstance(use_client_certificate_ocsp_endpoint, bool):
+            raise TypeError("Expected argument 'use_client_certificate_ocsp_endpoint' to be a bool")
+        pulumi.set(__self__, "use_client_certificate_ocsp_endpoint", use_client_certificate_ocsp_endpoint)
 
     @_builtins.property
     @pulumi.getter
@@ -104,6 +107,14 @@ class GetTrustStoreResult:
         """
         return pulumi.get(self, "tags")
 
+    @_builtins.property
+    @pulumi.getter(name="useClientCertificateOcspEndpoint")
+    def use_client_certificate_ocsp_endpoint(self) -> Optional[_builtins.bool]:
+        """
+        A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
+        """
+        return pulumi.get(self, "use_client_certificate_ocsp_endpoint")
+
 
 class AwaitableGetTrustStoreResult(GetTrustStoreResult):
     # pylint: disable=using-constant-test
@@ -117,7 +128,8 @@ class AwaitableGetTrustStoreResult(GetTrustStoreResult):
             last_modified_time=self.last_modified_time,
             number_of_ca_certificates=self.number_of_ca_certificates,
             status=self.status,
-            tags=self.tags)
+            tags=self.tags,
+            use_client_certificate_ocsp_endpoint=self.use_client_certificate_ocsp_endpoint)
 
 
 def get_trust_store(id: Optional[_builtins.str] = None,
@@ -140,7 +152,8 @@ def get_trust_store(id: Optional[_builtins.str] = None,
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         number_of_ca_certificates=pulumi.get(__ret__, 'number_of_ca_certificates'),
         status=pulumi.get(__ret__, 'status'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        use_client_certificate_ocsp_endpoint=pulumi.get(__ret__, 'use_client_certificate_ocsp_endpoint'))
 def get_trust_store_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustStoreResult]:
     """
@@ -160,4 +173,5 @@ def get_trust_store_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         last_modified_time=pulumi.get(__response__, 'last_modified_time'),
         number_of_ca_certificates=pulumi.get(__response__, 'number_of_ca_certificates'),
         status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        use_client_certificate_ocsp_endpoint=pulumi.get(__response__, 'use_client_certificate_ocsp_endpoint')))

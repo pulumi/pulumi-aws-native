@@ -195,6 +195,7 @@ namespace Pulumi.AwsNative.Cognito
         /// Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
         /// </summary>
         public readonly Outputs.UserPoolVerificationMessageTemplate? VerificationMessageTemplate;
+        public readonly Pulumi.AwsNative.Cognito.UserPoolWebAuthnFactorConfiguration? WebAuthnFactorConfiguration;
         /// <summary>
         /// Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
         /// 
@@ -272,6 +273,8 @@ namespace Pulumi.AwsNative.Cognito
 
             Outputs.UserPoolVerificationMessageTemplate? verificationMessageTemplate,
 
+            Pulumi.AwsNative.Cognito.UserPoolWebAuthnFactorConfiguration? webAuthnFactorConfiguration,
+
             string? webAuthnRelyingPartyId,
 
             string? webAuthnUserVerification)
@@ -306,6 +309,7 @@ namespace Pulumi.AwsNative.Cognito
             UsernameAttributes = usernameAttributes;
             UsernameConfiguration = usernameConfiguration;
             VerificationMessageTemplate = verificationMessageTemplate;
+            WebAuthnFactorConfiguration = webAuthnFactorConfiguration;
             WebAuthnRelyingPartyId = webAuthnRelyingPartyId;
             WebAuthnUserVerification = webAuthnUserVerification;
         }

@@ -22,7 +22,10 @@ __all__ = [
     'AccessPointVpcConfiguration',
     'DirectoryBucketAbortIncompleteMultipartUpload',
     'DirectoryBucketBucketEncryption',
+    'DirectoryBucketDestination',
+    'DirectoryBucketInventoryConfiguration',
     'DirectoryBucketLifecycleConfiguration',
+    'DirectoryBucketMetricsConfiguration',
     'DirectoryBucketRule',
     'DirectoryBucketServerSideEncryptionByDefault',
     'DirectoryBucketServerSideEncryptionRule',
@@ -269,6 +272,191 @@ class DirectoryBucketBucketEncryption(dict):
 
 
 @pulumi.output_type
+class DirectoryBucketDestination(dict):
+    """
+    Specifies information about where to publish inventory reports for an Amazon S3 Express bucket.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "bucketAccountId":
+            suggest = "bucket_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryBucketDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryBucketDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryBucketDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: _builtins.str,
+                 format: 'DirectoryBucketDestinationFormat',
+                 bucket_account_id: Optional[_builtins.str] = None,
+                 prefix: Optional[_builtins.str] = None):
+        """
+        Specifies information about where to publish inventory reports for an Amazon S3 Express bucket.
+
+        :param _builtins.str bucket_arn: The Amazon Resource Name (ARN) of the destination Amazon S3 bucket to which data is exported.
+        :param 'DirectoryBucketDestinationFormat' format: Specifies the file format used when exporting data to Amazon S3.
+        :param _builtins.str bucket_account_id: The account ID that owns the destination S3 bucket. 
+        :param _builtins.str prefix: The prefix to use when exporting data. The prefix is prepended to all results.
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "format", format)
+        if bucket_account_id is not None:
+            pulumi.set(__self__, "bucket_account_id", bucket_account_id)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the destination Amazon S3 bucket to which data is exported.
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> 'DirectoryBucketDestinationFormat':
+        """
+        Specifies the file format used when exporting data to Amazon S3.
+        """
+        return pulumi.get(self, "format")
+
+    @_builtins.property
+    @pulumi.getter(name="bucketAccountId")
+    def bucket_account_id(self) -> Optional[_builtins.str]:
+        """
+        The account ID that owns the destination S3 bucket. 
+        """
+        return pulumi.get(self, "bucket_account_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> Optional[_builtins.str]:
+        """
+        The prefix to use when exporting data. The prefix is prepended to all results.
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class DirectoryBucketInventoryConfiguration(dict):
+    """
+    Specifies an inventory configuration for an Amazon S3 Express bucket
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includedObjectVersions":
+            suggest = "included_object_versions"
+        elif key == "scheduleFrequency":
+            suggest = "schedule_frequency"
+        elif key == "optionalFields":
+            suggest = "optional_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryBucketInventoryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryBucketInventoryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryBucketInventoryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: 'outputs.DirectoryBucketDestination',
+                 enabled: _builtins.bool,
+                 id: _builtins.str,
+                 included_object_versions: 'DirectoryBucketInventoryConfigurationIncludedObjectVersions',
+                 schedule_frequency: 'DirectoryBucketInventoryConfigurationScheduleFrequency',
+                 optional_fields: Optional[Sequence['DirectoryBucketInventoryConfigurationOptionalFieldsItem']] = None,
+                 prefix: Optional[_builtins.str] = None):
+        """
+        Specifies an inventory configuration for an Amazon S3 Express bucket
+
+        :param _builtins.bool enabled: Specifies whether the inventory is enabled or disabled.
+        :param _builtins.str id: The ID used to identify the inventory configuration.
+        :param 'DirectoryBucketInventoryConfigurationIncludedObjectVersions' included_object_versions: Object versions to include in the inventory list.
+        :param 'DirectoryBucketInventoryConfigurationScheduleFrequency' schedule_frequency: Specifies the schedule for generating inventory results.
+        :param Sequence['DirectoryBucketInventoryConfigurationOptionalFieldsItem'] optional_fields: Contains the optional fields that are included in the inventory results.
+        :param _builtins.str prefix: The prefix that is prepended to all inventory results.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "included_object_versions", included_object_versions)
+        pulumi.set(__self__, "schedule_frequency", schedule_frequency)
+        if optional_fields is not None:
+            pulumi.set(__self__, "optional_fields", optional_fields)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> 'outputs.DirectoryBucketDestination':
+        return pulumi.get(self, "destination")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Specifies whether the inventory is enabled or disabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID used to identify the inventory configuration.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="includedObjectVersions")
+    def included_object_versions(self) -> 'DirectoryBucketInventoryConfigurationIncludedObjectVersions':
+        """
+        Object versions to include in the inventory list.
+        """
+        return pulumi.get(self, "included_object_versions")
+
+    @_builtins.property
+    @pulumi.getter(name="scheduleFrequency")
+    def schedule_frequency(self) -> 'DirectoryBucketInventoryConfigurationScheduleFrequency':
+        """
+        Specifies the schedule for generating inventory results.
+        """
+        return pulumi.get(self, "schedule_frequency")
+
+    @_builtins.property
+    @pulumi.getter(name="optionalFields")
+    def optional_fields(self) -> Optional[Sequence['DirectoryBucketInventoryConfigurationOptionalFieldsItem']]:
+        """
+        Contains the optional fields that are included in the inventory results.
+        """
+        return pulumi.get(self, "optional_fields")
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> Optional[_builtins.str]:
+        """
+        The prefix that is prepended to all inventory results.
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
 class DirectoryBucketLifecycleConfiguration(dict):
     def __init__(__self__, *,
                  rules: Sequence['outputs.DirectoryBucketRule']):
@@ -284,6 +472,70 @@ class DirectoryBucketLifecycleConfiguration(dict):
         A lifecycle rule for individual objects in an Amazon S3 Express bucket.
         """
         return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class DirectoryBucketMetricsConfiguration(dict):
+    """
+    Specifies a metrics configuration for the CloudWatch request metrics from an Amazon S3 Express bucket.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPointArn":
+            suggest = "access_point_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryBucketMetricsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryBucketMetricsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryBucketMetricsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 access_point_arn: Optional[_builtins.str] = None,
+                 prefix: Optional[_builtins.str] = None):
+        """
+        Specifies a metrics configuration for the CloudWatch request metrics from an Amazon S3 Express bucket.
+
+        :param _builtins.str id: The ID used to identify the metrics configuration.
+        :param _builtins.str access_point_arn: The access point ARN used when evaluating a metrics filter.
+        :param _builtins.str prefix: The prefix used when evaluating a metrics filter.
+        """
+        pulumi.set(__self__, "id", id)
+        if access_point_arn is not None:
+            pulumi.set(__self__, "access_point_arn", access_point_arn)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID used to identify the metrics configuration.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> Optional[_builtins.str]:
+        """
+        The access point ARN used when evaluating a metrics filter.
+        """
+        return pulumi.get(self, "access_point_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> Optional[_builtins.str]:
+        """
+        The prefix used when evaluating a metrics filter.
+        """
+        return pulumi.get(self, "prefix")
 
 
 @pulumi.output_type

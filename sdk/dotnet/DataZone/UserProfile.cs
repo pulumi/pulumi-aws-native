@@ -37,6 +37,12 @@ namespace Pulumi.AwsNative.DataZone
         public Output<string> DomainIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The session name of the user profile.
+        /// </summary>
+        [Output("sessionName")]
+        public Output<string?> SessionName { get; private set; } = null!;
+
+        /// <summary>
         /// The status of the user profile.
         /// </summary>
         [Output("status")]
@@ -116,6 +122,12 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         [Input("domainIdentifier", required: true)]
         public Input<string> DomainIdentifier { get; set; } = null!;
+
+        /// <summary>
+        /// The session name of the user profile.
+        /// </summary>
+        [Input("sessionName")]
+        public Input<string>? SessionName { get; set; }
 
         /// <summary>
         /// The status of the user profile.
