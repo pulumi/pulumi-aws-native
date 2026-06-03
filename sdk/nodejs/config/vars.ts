@@ -134,10 +134,10 @@ Object.defineProperty(exports, "profile", {
 /**
  * The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
  */
-export declare const region: string | undefined;
+export declare const region: enums.Region | undefined;
 Object.defineProperty(exports, "region", {
     get() {
-        return __config.get("region");
+        return __config.getObject<enums.Region>("region");
     },
     enumerable: true,
 });
