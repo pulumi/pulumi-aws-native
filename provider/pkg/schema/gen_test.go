@@ -546,8 +546,8 @@ func TestGatherPackage_regionGeneration(t *testing.T) {
 		},
 	})
 
-	assert.Contains(t, packageSpec.Types, "aws-native:index/Region:Region")
-	regionEnum := packageSpec.Types["aws-native:index/Region:Region"].Enum
+	assert.Contains(t, packageSpec.Types, "aws-native:index:Region")
+	regionEnum := packageSpec.Types["aws-native:index:Region"].Enum
 
 	assert.Equal(t, []schema.EnumValueSpec{
 		{Value: "cn-north-1", Name: "CnNorth1", Description: "China (Beijing)"},

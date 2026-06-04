@@ -144,7 +144,7 @@ func GatherPackage(
 					Description: "The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.",
 					TypeSpec: pschema.TypeSpec{
 						Type: "string",
-						Ref:  "#/types/aws-native:index/region:Region",
+						Ref:  "#/types/aws-native:index:region",
 					},
 				},
 				"s3UsePathStyle": {
@@ -246,7 +246,7 @@ func GatherPackage(
 						Description: "The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.",
 						TypeSpec: pschema.TypeSpec{
 							Type: "string",
-							Ref:  "#/types/aws-native:index/region:Region",
+							Ref:  "#/types/aws-native:index:region",
 						},
 					},
 					"s3UsePathStyle": {
@@ -344,7 +344,7 @@ func GatherPackage(
 					Description: "The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.",
 					TypeSpec: pschema.TypeSpec{
 						Type: "string",
-						Ref:  "#/types/aws-native:index/region:Region",
+						Ref:  "#/types/aws-native:index:region",
 					},
 				},
 				"s3UsePathStyle": {
@@ -522,7 +522,7 @@ func GatherPackage(
 	}
 
 	// Generate the region enum.
-	p.Types["aws-native:index/Region:Region"] = generateRegionEnum(regionInfo)
+	p.Types["aws-native:index:Region"] = generateRegionEnum(regionInfo)
 
 	// Add getters for CFN pseudo parameters.
 	for name, property := range pseudoParameters {
