@@ -41,7 +41,7 @@ func NewProvider(ctx *pulumi.Context,
 	}
 	if args.Region == nil {
 		if d := internal.GetEnvOrDefault(nil, nil, "AWS_REGION", "AWS_DEFAULT_REGION"); d != nil {
-			args.Region = d.(string)
+			args.Region = Region(d.(string))
 		}
 	}
 	if args.SharedCredentialsFile == nil {

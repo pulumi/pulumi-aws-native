@@ -7,6 +7,8 @@ import * as outputs from "./types/output";
 import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
+import {Region} from "./index";
+
 /**
  * The provider type for the AWS Cloud Control package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
  */
@@ -63,7 +65,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["insecure"] = pulumi.output(args?.insecure).apply(JSON.stringify);
             resourceInputs["maxRetries"] = pulumi.output(args?.maxRetries).apply(JSON.stringify);
             resourceInputs["profile"] = (args?.profile) ?? utilities.getEnv("AWS_PROFILE");
-            resourceInputs["region"] = (args?.region) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
+            resourceInputs["region"] = pulumi.output((args?.region) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION")).apply(JSON.stringify);
             resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["s3UsePathStyle"] = pulumi.output(args?.s3UsePathStyle).apply(JSON.stringify);
             resourceInputs["secretKey"] = args?.secretKey ? pulumi.secret(args.secretKey) : undefined;
@@ -131,7 +133,7 @@ export interface ProviderArgs {
     /**
      * The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
      */
-    region: pulumi.Input<enums.Region>;
+    region: pulumi.Input<Region>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
      */

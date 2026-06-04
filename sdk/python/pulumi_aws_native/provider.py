@@ -13,7 +13,6 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['ProviderArgs', 'Provider']
@@ -21,7 +20,7 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input['Region']] = None,
+                 region: Optional[Any] = None,
                  access_key: Optional[pulumi.Input[_builtins.str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  assume_role: Optional[pulumi.Input['ProviderAssumeRoleArgs']] = None,
@@ -46,7 +45,7 @@ class ProviderArgs:
         """
         The set of arguments for constructing a Provider resource.
 
-        :param pulumi.Input['Region'] region: The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
+        :param Any region: The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
         :param pulumi.Input[_builtins.str] access_key: The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_account_ids: List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
         :param pulumi.Input['ProviderAssumeRoleArgs'] assume_role: Configuration for retrieving temporary credentials from the STS service.
@@ -129,14 +128,14 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> pulumi.Input['Region']:
+    def region(self) -> Any:
         """
         The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: pulumi.Input['Region']):
+    def region(self, value: Any):
         pulumi.set(self, "region", value)
 
     @_builtins.property
@@ -409,7 +408,7 @@ class Provider(pulumi.ProviderResource):
                  insecure: Optional[pulumi.Input[_builtins.bool]] = None,
                  max_retries: Optional[pulumi.Input[_builtins.int]] = None,
                  profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input['Region']] = None,
+                 region: Optional[Any] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_use_path_style: Optional[pulumi.Input[_builtins.bool]] = None,
                  secret_key: Optional[pulumi.Input[_builtins.str]] = None,
@@ -438,7 +437,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`.
         :param pulumi.Input[_builtins.int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         :param pulumi.Input[_builtins.str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
-        :param pulumi.Input['Region'] region: The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
+        :param Any region: The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
         :param pulumi.Input[_builtins.bool] s3_use_path_style: Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
         :param pulumi.Input[_builtins.str] secret_key: The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
@@ -486,7 +485,7 @@ class Provider(pulumi.ProviderResource):
                  insecure: Optional[pulumi.Input[_builtins.bool]] = None,
                  max_retries: Optional[pulumi.Input[_builtins.int]] = None,
                  profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input['Region']] = None,
+                 region: Optional[Any] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_use_path_style: Optional[pulumi.Input[_builtins.bool]] = None,
                  secret_key: Optional[pulumi.Input[_builtins.str]] = None,
