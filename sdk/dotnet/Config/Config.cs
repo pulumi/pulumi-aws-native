@@ -142,11 +142,11 @@ namespace Pulumi.AwsNative
             set => _profile.Set(value);
         }
 
-        private static readonly __Value<Pulumi.AwsNative.Types.Region?> _region = new __Value<Pulumi.AwsNative.Types.Region?>(() => __config.GetObject<Pulumi.AwsNative.Types.Region>("region"));
+        private static readonly __Value<string?> _region = new __Value<string?>(() => __config.Get("region"));
         /// <summary>
         /// The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
         /// </summary>
-        public static Pulumi.AwsNative.Types.Region? Region
+        public static string? Region
         {
             get => _region.Get();
             set => _region.Set(value);

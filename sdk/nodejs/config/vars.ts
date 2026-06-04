@@ -139,7 +139,7 @@ Object.defineProperty(exports, "profile", {
 export declare const region: Region | undefined;
 Object.defineProperty(exports, "region", {
     get() {
-        return __config.getObject<Region>("region");
+        return <Region>__config.get("region");
     },
     enumerable: true,
 });

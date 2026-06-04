@@ -32,6 +32,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     declare public readonly profile: pulumi.Output<string | undefined>;
     /**
+     * The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
+     */
+    declare public readonly region: pulumi.Output<Region | undefined>;
+    /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
      */
     declare public readonly roleArn: pulumi.Output<string | undefined>;
@@ -65,7 +69,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["insecure"] = pulumi.output(args?.insecure).apply(JSON.stringify);
             resourceInputs["maxRetries"] = pulumi.output(args?.maxRetries).apply(JSON.stringify);
             resourceInputs["profile"] = (args?.profile) ?? utilities.getEnv("AWS_PROFILE");
-            resourceInputs["region"] = pulumi.output((args?.region) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION")).apply(JSON.stringify);
+            resourceInputs["region"] = (args?.region) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
             resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["s3UsePathStyle"] = pulumi.output(args?.s3UsePathStyle).apply(JSON.stringify);
             resourceInputs["secretKey"] = args?.secretKey ? pulumi.secret(args.secretKey) : undefined;

@@ -143,7 +143,8 @@ func GatherPackage(
 				"region": {
 					Description: "The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.",
 					TypeSpec: pschema.TypeSpec{
-						Ref: "#/types/aws-native:index:region",
+						Type: "string",
+						Ref:  "#/types/aws-native:index:region",
 					},
 				},
 				"s3UsePathStyle": {
@@ -244,7 +245,8 @@ func GatherPackage(
 					"region": {
 						Description: "The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.",
 						TypeSpec: pschema.TypeSpec{
-							Ref: "#/types/aws-native:index:region",
+							Type: "string",
+							Ref:  "#/types/aws-native:index:region",
 						},
 					},
 					"s3UsePathStyle": {
@@ -341,7 +343,8 @@ func GatherPackage(
 					},
 					Description: "The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.",
 					TypeSpec: pschema.TypeSpec{
-						Ref: "#/types/aws-native:index:region",
+						Type: "string",
+						Ref:  "#/types/aws-native:index:region",
 					},
 				},
 				"s3UsePathStyle": {
