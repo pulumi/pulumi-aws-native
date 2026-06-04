@@ -187,7 +187,7 @@ def get_subnet(subnet_id: Optional[_builtins.str] = None,
         private_dns_name_options_on_launch=pulumi.get(__ret__, 'private_dns_name_options_on_launch'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_subnet_output(subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_subnet_output(subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetResult]:
     """
     Specifies a subnet for the specified VPC.

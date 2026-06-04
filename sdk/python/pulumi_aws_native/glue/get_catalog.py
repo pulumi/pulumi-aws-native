@@ -211,7 +211,7 @@ def get_catalog(resource_arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_redshift_catalog=pulumi.get(__ret__, 'target_redshift_catalog'),
         update_time=pulumi.get(__ret__, 'update_time'))
-def get_catalog_output(resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_catalog_output(resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCatalogResult]:
     """
     Creates a catalog in the Glue Data Catalog.

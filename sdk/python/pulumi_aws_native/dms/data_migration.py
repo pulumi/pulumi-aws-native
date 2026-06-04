@@ -27,11 +27,11 @@ class DataMigrationArgs:
                  data_migration_type: pulumi.Input['DataMigrationType'],
                  migration_project_identifier: pulumi.Input[_builtins.str],
                  service_access_role_arn: pulumi.Input[_builtins.str],
-                 data_migration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_migration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_migration_settings: Optional[pulumi.Input['DataMigrationSettingsArgs']] = None,
-                 source_data_settings: Optional[pulumi.Input[Sequence[pulumi.Input['DataMigrationSourceDataSettingsArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 data_migration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_migration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_migration_settings: pulumi.Input[Optional['DataMigrationSettingsArgs']] = None,
+                 source_data_settings: pulumi.Input[Optional[Sequence[pulumi.Input['DataMigrationSourceDataSettingsArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataMigration resource.
 
@@ -96,62 +96,62 @@ class DataMigrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataMigrationIdentifier")
-    def data_migration_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_migration_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property describes an ARN of the data migration.
         """
         return pulumi.get(self, "data_migration_identifier")
 
     @data_migration_identifier.setter
-    def data_migration_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_migration_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_migration_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="dataMigrationName")
-    def data_migration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_migration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property describes a name to identify the data migration.
         """
         return pulumi.get(self, "data_migration_name")
 
     @data_migration_name.setter
-    def data_migration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_migration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_migration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataMigrationSettings")
-    def data_migration_settings(self) -> Optional[pulumi.Input['DataMigrationSettingsArgs']]:
+    def data_migration_settings(self) -> pulumi.Input[Optional['DataMigrationSettingsArgs']]:
         """
         The property describes the settings for the data migration.
         """
         return pulumi.get(self, "data_migration_settings")
 
     @data_migration_settings.setter
-    def data_migration_settings(self, value: Optional[pulumi.Input['DataMigrationSettingsArgs']]):
+    def data_migration_settings(self, value: pulumi.Input[Optional['DataMigrationSettingsArgs']]):
         pulumi.set(self, "data_migration_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDataSettings")
-    def source_data_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataMigrationSourceDataSettingsArgs']]]]:
+    def source_data_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataMigrationSourceDataSettingsArgs']]]]:
         """
         The property describes the settings for the data migration.
         """
         return pulumi.get(self, "source_data_settings")
 
     @source_data_settings.setter
-    def source_data_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataMigrationSourceDataSettingsArgs']]]]):
+    def source_data_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataMigrationSourceDataSettingsArgs']]]]):
         pulumi.set(self, "source_data_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -161,14 +161,14 @@ class DataMigration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_migration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_migration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_migration_settings: Optional[pulumi.Input[Union['DataMigrationSettingsArgs', 'DataMigrationSettingsArgsDict']]] = None,
-                 data_migration_type: Optional[pulumi.Input['DataMigrationType']] = None,
-                 migration_project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_data_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataMigrationSourceDataSettingsArgs', 'DataMigrationSourceDataSettingsArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 data_migration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_migration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_migration_settings: pulumi.Input[Optional[Union['DataMigrationSettingsArgs', 'DataMigrationSettingsArgsDict']]] = None,
+                 data_migration_type: pulumi.Input[Optional['DataMigrationType']] = None,
+                 migration_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_data_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataMigrationSourceDataSettingsArgs', 'DataMigrationSourceDataSettingsArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DMS::DataMigration.
@@ -210,14 +210,14 @@ class DataMigration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_migration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_migration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_migration_settings: Optional[pulumi.Input[Union['DataMigrationSettingsArgs', 'DataMigrationSettingsArgsDict']]] = None,
-                 data_migration_type: Optional[pulumi.Input['DataMigrationType']] = None,
-                 migration_project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_data_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataMigrationSourceDataSettingsArgs', 'DataMigrationSourceDataSettingsArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 data_migration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_migration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_migration_settings: pulumi.Input[Optional[Union['DataMigrationSettingsArgs', 'DataMigrationSettingsArgsDict']]] = None,
+                 data_migration_type: pulumi.Input[Optional['DataMigrationType']] = None,
+                 migration_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_data_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataMigrationSourceDataSettingsArgs', 'DataMigrationSourceDataSettingsArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

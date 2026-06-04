@@ -170,8 +170,8 @@ def get_link(global_network_id: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_link_output(global_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                    link_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_link_output(global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                    link_id: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkResult]:
     """
     The AWS::NetworkManager::Link type describes a link.

@@ -28,12 +28,12 @@ class PhoneNumberArgs:
                  mandatory_keywords: pulumi.Input['MandatoryKeywordsPropertiesArgs'],
                  number_capabilities: pulumi.Input[Sequence[pulumi.Input['PhoneNumberNumberCapabilitiesItem']]],
                  number_type: pulumi.Input['PhoneNumberNumberType'],
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 opt_out_list_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_keywords: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberOptionalKeywordArgs']]]] = None,
-                 self_managed_opt_outs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 two_way: Optional[pulumi.Input['TwoWayPropertiesArgs']] = None):
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 opt_out_list_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_keywords: pulumi.Input[Optional[Sequence[pulumi.Input['PhoneNumberOptionalKeywordArgs']]]] = None,
+                 self_managed_opt_outs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 two_way: pulumi.Input[Optional['TwoWayPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PhoneNumber resource.
 
@@ -115,74 +115,74 @@ class PhoneNumberArgs:
 
     @_builtins.property
     @pulumi.getter(name="deletionProtectionEnabled")
-    def deletion_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true the sender ID can't be deleted. By default this is set to false.
         """
         return pulumi.get(self, "deletion_protection_enabled")
 
     @deletion_protection_enabled.setter
-    def deletion_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="optOutListName")
-    def opt_out_list_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def opt_out_list_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the OptOutList to associate with the phone number. You can use the OptOutListName or OptOutListArn.
         """
         return pulumi.get(self, "opt_out_list_name")
 
     @opt_out_list_name.setter
-    def opt_out_list_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def opt_out_list_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "opt_out_list_name", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalKeywords")
-    def optional_keywords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberOptionalKeywordArgs']]]]:
+    def optional_keywords(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PhoneNumberOptionalKeywordArgs']]]]:
         """
         A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
         """
         return pulumi.get(self, "optional_keywords")
 
     @optional_keywords.setter
-    def optional_keywords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberOptionalKeywordArgs']]]]):
+    def optional_keywords(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PhoneNumberOptionalKeywordArgs']]]]):
         pulumi.set(self, "optional_keywords", value)
 
     @_builtins.property
     @pulumi.getter(name="selfManagedOptOutsEnabled")
-    def self_managed_opt_outs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def self_managed_opt_outs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.
         """
         return pulumi.get(self, "self_managed_opt_outs_enabled")
 
     @self_managed_opt_outs_enabled.setter
-    def self_managed_opt_outs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def self_managed_opt_outs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "self_managed_opt_outs_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="twoWay")
-    def two_way(self) -> Optional[pulumi.Input['TwoWayPropertiesArgs']]:
+    def two_way(self) -> pulumi.Input[Optional['TwoWayPropertiesArgs']]:
         """
         When you set up two-way SMS, you can receive incoming messages from your customers. When one of your customers sends a message to your phone number, the message body is sent to an Amazon SNS topic or Amazon Connect for processing.
         """
         return pulumi.get(self, "two_way")
 
     @two_way.setter
-    def two_way(self, value: Optional[pulumi.Input['TwoWayPropertiesArgs']]):
+    def two_way(self, value: pulumi.Input[Optional['TwoWayPropertiesArgs']]):
         pulumi.set(self, "two_way", value)
 
 
@@ -192,16 +192,16 @@ class PhoneNumber(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iso_country_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 mandatory_keywords: Optional[pulumi.Input[Union['MandatoryKeywordsPropertiesArgs', 'MandatoryKeywordsPropertiesArgsDict']]] = None,
-                 number_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberNumberCapabilitiesItem']]]] = None,
-                 number_type: Optional[pulumi.Input['PhoneNumberNumberType']] = None,
-                 opt_out_list_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_keywords: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PhoneNumberOptionalKeywordArgs', 'PhoneNumberOptionalKeywordArgsDict']]]]] = None,
-                 self_managed_opt_outs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 two_way: Optional[pulumi.Input[Union['TwoWayPropertiesArgs', 'TwoWayPropertiesArgsDict']]] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iso_country_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 mandatory_keywords: pulumi.Input[Optional[Union['MandatoryKeywordsPropertiesArgs', 'MandatoryKeywordsPropertiesArgsDict']]] = None,
+                 number_capabilities: pulumi.Input[Optional[Sequence[pulumi.Input['PhoneNumberNumberCapabilitiesItem']]]] = None,
+                 number_type: pulumi.Input[Optional['PhoneNumberNumberType']] = None,
+                 opt_out_list_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_keywords: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PhoneNumberOptionalKeywordArgs', 'PhoneNumberOptionalKeywordArgsDict']]]]] = None,
+                 self_managed_opt_outs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 two_way: pulumi.Input[Optional[Union['TwoWayPropertiesArgs', 'TwoWayPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SMSVOICE::PhoneNumber
@@ -245,16 +245,16 @@ class PhoneNumber(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iso_country_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 mandatory_keywords: Optional[pulumi.Input[Union['MandatoryKeywordsPropertiesArgs', 'MandatoryKeywordsPropertiesArgsDict']]] = None,
-                 number_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberNumberCapabilitiesItem']]]] = None,
-                 number_type: Optional[pulumi.Input['PhoneNumberNumberType']] = None,
-                 opt_out_list_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_keywords: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PhoneNumberOptionalKeywordArgs', 'PhoneNumberOptionalKeywordArgsDict']]]]] = None,
-                 self_managed_opt_outs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 two_way: Optional[pulumi.Input[Union['TwoWayPropertiesArgs', 'TwoWayPropertiesArgsDict']]] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iso_country_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 mandatory_keywords: pulumi.Input[Optional[Union['MandatoryKeywordsPropertiesArgs', 'MandatoryKeywordsPropertiesArgsDict']]] = None,
+                 number_capabilities: pulumi.Input[Optional[Sequence[pulumi.Input['PhoneNumberNumberCapabilitiesItem']]]] = None,
+                 number_type: pulumi.Input[Optional['PhoneNumberNumberType']] = None,
+                 opt_out_list_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_keywords: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PhoneNumberOptionalKeywordArgs', 'PhoneNumberOptionalKeywordArgsDict']]]]] = None,
+                 self_managed_opt_outs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 two_way: pulumi.Input[Optional[Union['TwoWayPropertiesArgs', 'TwoWayPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

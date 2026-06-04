@@ -78,11 +78,11 @@ class EnvironmentHostInfoForCreateArgsDict(TypedDict):
     """
     The name of the SSH key that is used to access the host.
     """
-    dedicated_host_id: NotRequired[pulumi.Input[_builtins.str]]
+    dedicated_host_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique ID of the Amazon EC2 Dedicated Host.
     """
-    placement_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    placement_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique ID of the placement group where the host is placed.
     """
@@ -93,8 +93,8 @@ class EnvironmentHostInfoForCreateArgs:
                  host_name: pulumi.Input[_builtins.str],
                  instance_type: pulumi.Input['EnvironmentHostInfoForCreateInstanceType'],
                  key_name: pulumi.Input[_builtins.str],
-                 dedicated_host_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_group_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 dedicated_host_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_group_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] host_name: The DNS hostname of the host. DNS hostnames for hosts must be unique across Amazon EVS environments and within VCF.
         :param pulumi.Input['EnvironmentHostInfoForCreateInstanceType'] instance_type: The EC2 instance type that represents the host.
@@ -148,26 +148,26 @@ class EnvironmentHostInfoForCreateArgs:
 
     @_builtins.property
     @pulumi.getter(name="dedicatedHostId")
-    def dedicated_host_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dedicated_host_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique ID of the Amazon EC2 Dedicated Host.
         """
         return pulumi.get(self, "dedicated_host_id")
 
     @dedicated_host_id.setter
-    def dedicated_host_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dedicated_host_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dedicated_host_id", value)
 
     @_builtins.property
     @pulumi.getter(name="placementGroupId")
-    def placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique ID of the placement group where the host is placed.
         """
         return pulumi.get(self, "placement_group_id")
 
     @placement_group_id.setter
-    def placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "placement_group_id", value)
 
 
@@ -249,11 +249,11 @@ class InitialVlansPropertiesArgsDict(TypedDict):
     """
     The host VMkernel management VLAN subnet. This VLAN subnet carries traffic for managing ESXi hosts and communicating with VMware vCenter Server.
     """
-    hcx_network_acl_id: NotRequired[pulumi.Input[_builtins.str]]
+    hcx_network_acl_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A unique ID for a network access control list that the HCX VLAN uses. Required when `isHcxPublic` is set to `true` .
     """
-    is_hcx_public: NotRequired[pulumi.Input[_builtins.bool]]
+    is_hcx_public: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determines if the HCX VLAN that Amazon EVS provisions is public or private.
     """
@@ -271,8 +271,8 @@ class InitialVlansPropertiesArgs:
                  v_tep: pulumi.Input['EnvironmentInitialVlanInfoArgs'],
                  vm_management: pulumi.Input['EnvironmentInitialVlanInfoArgs'],
                  vmk_management: pulumi.Input['EnvironmentInitialVlanInfoArgs'],
-                 hcx_network_acl_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_hcx_public: Optional[pulumi.Input[_builtins.bool]] = None):
+                 hcx_network_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_hcx_public: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The initial Vlan configuration only required upon creation. Modification after creation will have no effect
 
@@ -438,26 +438,26 @@ class InitialVlansPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="hcxNetworkAclId")
-    def hcx_network_acl_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hcx_network_acl_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique ID for a network access control list that the HCX VLAN uses. Required when `isHcxPublic` is set to `true` .
         """
         return pulumi.get(self, "hcx_network_acl_id")
 
     @hcx_network_acl_id.setter
-    def hcx_network_acl_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hcx_network_acl_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hcx_network_acl_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isHcxPublic")
-    def is_hcx_public(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_hcx_public(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if the HCX VLAN that Amazon EVS provisions is public or private.
         """
         return pulumi.get(self, "is_hcx_public")
 
     @is_hcx_public.setter
-    def is_hcx_public(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_hcx_public(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_hcx_public", value)
 
 
@@ -517,7 +517,7 @@ class ServiceAccessSecurityGroupsPropertiesArgsDict(TypedDict):
     """
     The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
     """
-    security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The security groups that allow service access.
     """
@@ -525,7 +525,7 @@ class ServiceAccessSecurityGroupsPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceAccessSecurityGroupsPropertiesArgs:
     def __init__(__self__, *,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
 
@@ -536,14 +536,14 @@ class ServiceAccessSecurityGroupsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The security groups that allow service access.
         """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
-    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_groups", value)
 
 

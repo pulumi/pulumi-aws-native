@@ -27,12 +27,12 @@ class ActionConnectorArgs:
                  action_connector_id: pulumi.Input[_builtins.str],
                  aws_account_id: pulumi.Input[_builtins.str],
                  type: pulumi.Input['ActionConnectorType'],
-                 authentication_config: Optional[pulumi.Input['ActionConnectorAuthConfigArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ActionConnectorResourcePermissionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vpc_connection_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_config: pulumi.Input[Optional['ActionConnectorAuthConfigArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input['ActionConnectorResourcePermissionArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_connection_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ActionConnector resource.
         """
@@ -81,56 +81,56 @@ class ActionConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationConfig")
-    def authentication_config(self) -> Optional[pulumi.Input['ActionConnectorAuthConfigArgs']]:
+    def authentication_config(self) -> pulumi.Input[Optional['ActionConnectorAuthConfigArgs']]:
         return pulumi.get(self, "authentication_config")
 
     @authentication_config.setter
-    def authentication_config(self, value: Optional[pulumi.Input['ActionConnectorAuthConfigArgs']]):
+    def authentication_config(self, value: pulumi.Input[Optional['ActionConnectorAuthConfigArgs']]):
         pulumi.set(self, "authentication_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActionConnectorResourcePermissionArgs']]]]:
+    def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ActionConnectorResourcePermissionArgs']]]]:
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActionConnectorResourcePermissionArgs']]]]):
+    def permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ActionConnectorResourcePermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConnectionArn")
-    def vpc_connection_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_connection_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "vpc_connection_arn")
 
     @vpc_connection_arn.setter
-    def vpc_connection_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_connection_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_connection_arn", value)
 
 
@@ -140,15 +140,15 @@ class ActionConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_config: Optional[pulumi.Input[Union['ActionConnectorAuthConfigArgs', 'ActionConnectorAuthConfigArgsDict']]] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActionConnectorResourcePermissionArgs', 'ActionConnectorResourcePermissionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['ActionConnectorType']] = None,
-                 vpc_connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_config: pulumi.Input[Optional[Union['ActionConnectorAuthConfigArgs', 'ActionConnectorAuthConfigArgsDict']]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionConnectorResourcePermissionArgs', 'ActionConnectorResourcePermissionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['ActionConnectorType']] = None,
+                 vpc_connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::ActionConnector Resource Type.
@@ -182,15 +182,15 @@ class ActionConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_config: Optional[pulumi.Input[Union['ActionConnectorAuthConfigArgs', 'ActionConnectorAuthConfigArgsDict']]] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActionConnectorResourcePermissionArgs', 'ActionConnectorResourcePermissionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['ActionConnectorType']] = None,
-                 vpc_connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_config: pulumi.Input[Optional[Union['ActionConnectorAuthConfigArgs', 'ActionConnectorAuthConfigArgsDict']]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionConnectorResourcePermissionArgs', 'ActionConnectorResourcePermissionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['ActionConnectorType']] = None,
+                 vpc_connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

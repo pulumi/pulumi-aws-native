@@ -25,11 +25,11 @@ __all__ = ['EnvironmentArgs', 'Environment']
 class EnvironmentArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[_builtins.str],
-                 deletion_protection_check: Optional[pulumi.Input['EnvironmentDeletionProtectionCheck']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 deletion_protection_check: pulumi.Input[Optional['EnvironmentDeletionProtectionCheck']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitors: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
 
@@ -66,62 +66,62 @@ class EnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="deletionProtectionCheck")
-    def deletion_protection_check(self) -> Optional[pulumi.Input['EnvironmentDeletionProtectionCheck']]:
+    def deletion_protection_check(self) -> pulumi.Input[Optional['EnvironmentDeletionProtectionCheck']]:
         """
         On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
         """
         return pulumi.get(self, "deletion_protection_check")
 
     @deletion_protection_check.setter
-    def deletion_protection_check(self, value: Optional[pulumi.Input['EnvironmentDeletionProtectionCheck']]):
+    def deletion_protection_check(self, value: pulumi.Input[Optional['EnvironmentDeletionProtectionCheck']]):
         pulumi.set(self, "deletion_protection_check", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the environment.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]]:
+    def monitors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]]:
         """
         Amazon CloudWatch alarms to monitor during the deployment process.
         """
         return pulumi.get(self, "monitors")
 
     @monitors.setter
-    def monitors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]]):
+    def monitors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]]):
         pulumi.set(self, "monitors", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the environment.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -131,12 +131,12 @@ class Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_protection_check: Optional[pulumi.Input['EnvironmentDeletionProtectionCheck']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentMonitorArgs', 'EnvironmentMonitorArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_protection_check: pulumi.Input[Optional['EnvironmentDeletionProtectionCheck']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentMonitorArgs', 'EnvironmentMonitorArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppConfig::Environment
@@ -176,12 +176,12 @@ class Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_protection_check: Optional[pulumi.Input['EnvironmentDeletionProtectionCheck']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentMonitorArgs', 'EnvironmentMonitorArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_protection_check: pulumi.Input[Optional['EnvironmentDeletionProtectionCheck']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentMonitorArgs', 'EnvironmentMonitorArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

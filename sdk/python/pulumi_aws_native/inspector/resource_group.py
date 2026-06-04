@@ -52,7 +52,7 @@ class ResourceGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceGroupTagArgs', 'ResourceGroupTagArgsDict']]]]] = None,
+                 resource_group_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupTagArgs', 'ResourceGroupTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Inspector::ResourceGroup
@@ -89,7 +89,7 @@ class ResourceGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceGroupTagArgs', 'ResourceGroupTagArgsDict']]]]] = None,
+                 resource_group_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupTagArgs', 'ResourceGroupTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -24,22 +24,22 @@ __all__ = ['SubnetArgs', 'Subnet']
 class SubnetArgs:
     def __init__(__self__, *,
                  vpc_id: pulumi.Input[_builtins.str],
-                 assign_ipv6_address_on_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_dns64: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_lni_at_device_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv4_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_native: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 map_public_ip_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns_name_options_on_launch: Optional[pulumi.Input['PrivateDnsNameOptionsOnLaunchPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 assign_ipv6_address_on_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_dns64: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_lni_at_device_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_native: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv6_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 map_public_ip_on_launch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_name_options_on_launch: pulumi.Input[Optional['PrivateDnsNameOptionsOnLaunchPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Subnet resource.
 
@@ -121,7 +121,7 @@ class SubnetArgs:
 
     @_builtins.property
     @pulumi.getter(name="assignIpv6AddressOnCreation")
-    def assign_ipv6_address_on_creation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def assign_ipv6_address_on_creation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is ``false``.
          If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
@@ -129,12 +129,12 @@ class SubnetArgs:
         return pulumi.get(self, "assign_ipv6_address_on_creation")
 
     @assign_ipv6_address_on_creation.setter
-    def assign_ipv6_address_on_creation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def assign_ipv6_address_on_creation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "assign_ipv6_address_on_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Availability Zone of the subnet.
          If you update this property, you must also update the ``CidrBlock`` property.
@@ -142,24 +142,24 @@ class SubnetArgs:
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AZ ID of the subnet.
         """
         return pulumi.get(self, "availability_zone_id")
 
     @availability_zone_id.setter
-    def availability_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 CIDR block assigned to the subnet.
          If you update this property, we create a new subnet, and then delete the existing one.
@@ -167,12 +167,12 @@ class SubnetArgs:
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
-    def cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDns64")
-    def enable_dns64(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_dns64(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
           You must first configure a NAT gateway in a public subnet (separate from the subnet containing the IPv6-only workloads). For example, the subnet containing the NAT gateway should have a ``0.0.0.0/0`` route pointing to the internet gateway. For more information, see [Configure DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough) in the *User Guide*.
@@ -180,48 +180,48 @@ class SubnetArgs:
         return pulumi.get(self, "enable_dns64")
 
     @enable_dns64.setter
-    def enable_dns64(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_dns64(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_dns64", value)
 
     @_builtins.property
     @pulumi.getter(name="enableLniAtDeviceIndex")
-    def enable_lni_at_device_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def enable_lni_at_device_index(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates the device position for local network interfaces in this subnet. For example, ``1`` indicates local network interfaces in this subnet are the secondary network interface (eth1).
         """
         return pulumi.get(self, "enable_lni_at_device_index")
 
     @enable_lni_at_device_index.setter
-    def enable_lni_at_device_index(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def enable_lni_at_device_index(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "enable_lni_at_device_index", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4IpamPoolId")
-    def ipv4_ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv4_ipam_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An IPv4 IPAM pool ID for the subnet.
         """
         return pulumi.get(self, "ipv4_ipam_pool_id")
 
     @ipv4_ipam_pool_id.setter
-    def ipv4_ipam_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv4_ipam_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv4_ipam_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4NetmaskLength")
-    def ipv4_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv4_netmask_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An IPv4 netmask length for the subnet.
         """
         return pulumi.get(self, "ipv4_netmask_length")
 
     @ipv4_netmask_length.setter
-    def ipv4_netmask_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv4_netmask_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv4_netmask_length", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv6 CIDR block.
          If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
@@ -229,48 +229,48 @@ class SubnetArgs:
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
-    def ipv6_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6IpamPoolId")
-    def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_ipam_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An IPv6 IPAM pool ID for the subnet.
         """
         return pulumi.get(self, "ipv6_ipam_pool_id")
 
     @ipv6_ipam_pool_id.setter
-    def ipv6_ipam_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_ipam_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_ipam_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Native")
-    def ipv6_native(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ipv6_native(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this is an IPv6 only subnet. For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.
         """
         return pulumi.get(self, "ipv6_native")
 
     @ipv6_native.setter
-    def ipv6_native(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ipv6_native(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ipv6_native", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6NetmaskLength")
-    def ipv6_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv6_netmask_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An IPv6 netmask length for the subnet.
         """
         return pulumi.get(self, "ipv6_netmask_length")
 
     @ipv6_netmask_length.setter
-    def ipv6_netmask_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv6_netmask_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv6_netmask_length", value)
 
     @_builtins.property
     @pulumi.getter(name="mapPublicIpOnLaunch")
-    def map_public_ip_on_launch(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def map_public_ip_on_launch(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
          AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
@@ -278,24 +278,24 @@ class SubnetArgs:
         return pulumi.get(self, "map_public_ip_on_launch")
 
     @map_public_ip_on_launch.setter
-    def map_public_ip_on_launch(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def map_public_ip_on_launch(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "map_public_ip_on_launch", value)
 
     @_builtins.property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outpost_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Outpost.
         """
         return pulumi.get(self, "outpost_arn")
 
     @outpost_arn.setter
-    def outpost_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outpost_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outpost_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDnsNameOptionsOnLaunch")
-    def private_dns_name_options_on_launch(self) -> Optional[pulumi.Input['PrivateDnsNameOptionsOnLaunchPropertiesArgs']]:
+    def private_dns_name_options_on_launch(self) -> pulumi.Input[Optional['PrivateDnsNameOptionsOnLaunchPropertiesArgs']]:
         """
         The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
          Available options:
@@ -306,19 +306,19 @@ class SubnetArgs:
         return pulumi.get(self, "private_dns_name_options_on_launch")
 
     @private_dns_name_options_on_launch.setter
-    def private_dns_name_options_on_launch(self, value: Optional[pulumi.Input['PrivateDnsNameOptionsOnLaunchPropertiesArgs']]):
+    def private_dns_name_options_on_launch(self, value: pulumi.Input[Optional['PrivateDnsNameOptionsOnLaunchPropertiesArgs']]):
         pulumi.set(self, "private_dns_name_options_on_launch", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Any tags assigned to the subnet.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -328,23 +328,23 @@ class Subnet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assign_ipv6_address_on_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_dns64: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_lni_at_device_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv4_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_native: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 map_public_ip_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns_name_options_on_launch: Optional[pulumi.Input[Union['PrivateDnsNameOptionsOnLaunchPropertiesArgs', 'PrivateDnsNameOptionsOnLaunchPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 assign_ipv6_address_on_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_dns64: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_lni_at_device_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_native: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv6_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 map_public_ip_on_launch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_name_options_on_launch: pulumi.Input[Optional[Union['PrivateDnsNameOptionsOnLaunchPropertiesArgs', 'PrivateDnsNameOptionsOnLaunchPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Specifies a subnet for the specified VPC.
@@ -410,23 +410,23 @@ class Subnet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assign_ipv6_address_on_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_dns64: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_lni_at_device_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv4_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_native: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 map_public_ip_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns_name_options_on_launch: Optional[pulumi.Input[Union['PrivateDnsNameOptionsOnLaunchPropertiesArgs', 'PrivateDnsNameOptionsOnLaunchPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 assign_ipv6_address_on_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_dns64: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_lni_at_device_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_native: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv6_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 map_public_ip_on_launch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_name_options_on_launch: pulumi.Input[Optional[Union['PrivateDnsNameOptionsOnLaunchPropertiesArgs', 'PrivateDnsNameOptionsOnLaunchPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

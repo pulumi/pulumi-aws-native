@@ -148,7 +148,7 @@ def get_workspace(workspace_id: Optional[_builtins.str] = None,
         volume_encryption_key=pulumi.get(__ret__, 'volume_encryption_key'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'),
         workspace_properties=pulumi.get(__ret__, 'workspace_properties'))
-def get_workspace_output(workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_output(workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Resource Type definition for AWS::WorkSpaces::Workspace

@@ -142,7 +142,7 @@ def get_data_protection_settings(data_protection_settings_arn: Optional[_builtin
         display_name=pulumi.get(__ret__, 'display_name'),
         inline_redaction_configuration=pulumi.get(__ret__, 'inline_redaction_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_data_protection_settings_output(data_protection_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_protection_settings_output(data_protection_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataProtectionSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::DataProtectionSettings Resource Type

@@ -23,11 +23,11 @@ __all__ = ['ManagedLoginBrandingArgs', 'ManagedLoginBranding']
 class ManagedLoginBrandingArgs:
     def __init__(__self__, *,
                  user_pool_id: pulumi.Input[_builtins.str],
-                 assets: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedLoginBrandingAssetTypeArgs']]]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_merged_resources: Optional[pulumi.Input[_builtins.bool]] = None,
+                 assets: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedLoginBrandingAssetTypeArgs']]]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_merged_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  settings: Optional[Any] = None,
-                 use_cognito_provided_values: Optional[pulumi.Input[_builtins.bool]] = None):
+                 use_cognito_provided_values: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ManagedLoginBranding resource.
 
@@ -75,38 +75,38 @@ class ManagedLoginBrandingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def assets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedLoginBrandingAssetTypeArgs']]]]:
+    def assets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedLoginBrandingAssetTypeArgs']]]]:
         """
         An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
         """
         return pulumi.get(self, "assets")
 
     @assets.setter
-    def assets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedLoginBrandingAssetTypeArgs']]]]):
+    def assets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedLoginBrandingAssetTypeArgs']]]]):
         pulumi.set(self, "assets", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="returnMergedResources")
-    def return_merged_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def return_merged_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
         """
         return pulumi.get(self, "return_merged_resources")
 
     @return_merged_resources.setter
-    def return_merged_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def return_merged_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "return_merged_resources", value)
 
     @_builtins.property
@@ -132,7 +132,7 @@ class ManagedLoginBrandingArgs:
 
     @_builtins.property
     @pulumi.getter(name="useCognitoProvidedValues")
-    def use_cognito_provided_values(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_cognito_provided_values(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding editor.
 
@@ -141,7 +141,7 @@ class ManagedLoginBrandingArgs:
         return pulumi.get(self, "use_cognito_provided_values")
 
     @use_cognito_provided_values.setter
-    def use_cognito_provided_values(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_cognito_provided_values(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_cognito_provided_values", value)
 
 
@@ -151,12 +151,12 @@ class ManagedLoginBranding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetTypeArgs', 'ManagedLoginBrandingAssetTypeArgsDict']]]]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_merged_resources: Optional[pulumi.Input[_builtins.bool]] = None,
+                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetTypeArgs', 'ManagedLoginBrandingAssetTypeArgsDict']]]]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_merged_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  settings: Optional[Any] = None,
-                 use_cognito_provided_values: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_cognito_provided_values: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Cognito::ManagedLoginBranding
@@ -207,12 +207,12 @@ class ManagedLoginBranding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetTypeArgs', 'ManagedLoginBrandingAssetTypeArgsDict']]]]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_merged_resources: Optional[pulumi.Input[_builtins.bool]] = None,
+                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetTypeArgs', 'ManagedLoginBrandingAssetTypeArgsDict']]]]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_merged_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  settings: Optional[Any] = None,
-                 use_cognito_provided_values: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_cognito_provided_values: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

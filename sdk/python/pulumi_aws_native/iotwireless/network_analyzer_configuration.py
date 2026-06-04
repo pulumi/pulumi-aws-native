@@ -24,12 +24,12 @@ __all__ = ['NetworkAnalyzerConfigurationArgs', 'NetworkAnalyzerConfiguration']
 @pulumi.input_type
 class NetworkAnalyzerConfigurationArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 trace_content: Optional[pulumi.Input['TraceContentPropertiesArgs']] = None,
-                 wireless_devices: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 wireless_gateways: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 trace_content: pulumi.Input[Optional['TraceContentPropertiesArgs']] = None,
+                 wireless_devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 wireless_gateways: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkAnalyzerConfiguration resource.
 
@@ -55,74 +55,74 @@ class NetworkAnalyzerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the new resource
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the network analyzer configuration
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="traceContent")
-    def trace_content(self) -> Optional[pulumi.Input['TraceContentPropertiesArgs']]:
+    def trace_content(self) -> pulumi.Input[Optional['TraceContentPropertiesArgs']]:
         """
         Trace content for your wireless gateway and wireless device resources
         """
         return pulumi.get(self, "trace_content")
 
     @trace_content.setter
-    def trace_content(self, value: Optional[pulumi.Input['TraceContentPropertiesArgs']]):
+    def trace_content(self, value: pulumi.Input[Optional['TraceContentPropertiesArgs']]):
         pulumi.set(self, "trace_content", value)
 
     @_builtins.property
     @pulumi.getter(name="wirelessDevices")
-    def wireless_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def wireless_devices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of wireless gateway resources that have been added to the network analyzer configuration
         """
         return pulumi.get(self, "wireless_devices")
 
     @wireless_devices.setter
-    def wireless_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def wireless_devices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "wireless_devices", value)
 
     @_builtins.property
     @pulumi.getter(name="wirelessGateways")
-    def wireless_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def wireless_gateways(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of wireless gateway resources that have been added to the network analyzer configuration
         """
         return pulumi.get(self, "wireless_gateways")
 
     @wireless_gateways.setter
-    def wireless_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def wireless_gateways(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "wireless_gateways", value)
 
 
@@ -132,12 +132,12 @@ class NetworkAnalyzerConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 trace_content: Optional[pulumi.Input[Union['TraceContentPropertiesArgs', 'TraceContentPropertiesArgsDict']]] = None,
-                 wireless_devices: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 wireless_gateways: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 trace_content: pulumi.Input[Optional[Union['TraceContentPropertiesArgs', 'TraceContentPropertiesArgsDict']]] = None,
+                 wireless_devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 wireless_gateways: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Create and manage NetworkAnalyzerConfiguration resource.
@@ -177,12 +177,12 @@ class NetworkAnalyzerConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 trace_content: Optional[pulumi.Input[Union['TraceContentPropertiesArgs', 'TraceContentPropertiesArgsDict']]] = None,
-                 wireless_devices: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 wireless_gateways: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 trace_content: pulumi.Input[Optional[Union['TraceContentPropertiesArgs', 'TraceContentPropertiesArgsDict']]] = None,
+                 wireless_devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 wireless_gateways: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

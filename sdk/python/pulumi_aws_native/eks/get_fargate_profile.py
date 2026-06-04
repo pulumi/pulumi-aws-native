@@ -78,8 +78,8 @@ def get_fargate_profile(cluster_name: Optional[_builtins.str] = None,
     return AwaitableGetFargateProfileResult(
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_fargate_profile_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               fargate_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_fargate_profile_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               fargate_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFargateProfileResult]:
     """
     Resource Schema for AWS::EKS::FargateProfile

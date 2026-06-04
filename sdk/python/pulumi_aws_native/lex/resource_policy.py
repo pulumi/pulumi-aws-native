@@ -63,8 +63,8 @@ class ResourcePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict']]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict']]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
@@ -100,8 +100,8 @@ class ResourcePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict']]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict']]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

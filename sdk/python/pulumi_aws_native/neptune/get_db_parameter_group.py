@@ -81,7 +81,7 @@ def get_db_parameter_group(name: Optional[_builtins.str] = None,
     return AwaitableGetDbParameterGroupResult(
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_db_parameter_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_parameter_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbParameterGroupResult]:
     """
     AWS::Neptune::DBParameterGroup creates a new DB parameter group. This type can be declared in a template and referenced in the DBParameterGroupName parameter of AWS::Neptune::DBInstance

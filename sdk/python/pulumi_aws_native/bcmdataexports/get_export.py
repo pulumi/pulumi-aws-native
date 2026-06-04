@@ -87,7 +87,7 @@ def get_export(export_arn: Optional[_builtins.str] = None,
         export=pulumi.get(__ret__, 'export'),
         export_arn=pulumi.get(__ret__, 'export_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_export_output(export_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_export_output(export_arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportResult]:
     """
     Definition of AWS::BCMDataExports::Export Resource Type

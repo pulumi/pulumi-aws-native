@@ -19,10 +19,10 @@ __all__ = ['HubArgs', 'Hub']
 @pulumi.input_type
 class HubArgs:
     def __init__(__self__, *,
-                 auto_enable_controls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 control_finding_generator: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_default_standards: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 auto_enable_controls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 control_finding_generator: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_default_standards: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Hub resource.
 
@@ -44,43 +44,43 @@ class HubArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoEnableControls")
-    def auto_enable_controls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_enable_controls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to automatically enable new controls when they are added to standards that are enabled
         """
         return pulumi.get(self, "auto_enable_controls")
 
     @auto_enable_controls.setter
-    def auto_enable_controls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_enable_controls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_enable_controls", value)
 
     @_builtins.property
     @pulumi.getter(name="controlFindingGenerator")
-    def control_finding_generator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_finding_generator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
         """
         return pulumi.get(self, "control_finding_generator")
 
     @control_finding_generator.setter
-    def control_finding_generator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_finding_generator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_finding_generator", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDefaultStandards")
-    def enable_default_standards(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_default_standards(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the security standards that Security Hub has designated as automatically enabled.
         """
         return pulumi.get(self, "enable_default_standards")
 
     @enable_default_standards.setter
-    def enable_default_standards(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_default_standards(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_default_standards", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         An array of key-value pairs to apply to this resource.
 
@@ -89,7 +89,7 @@ class HubArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -99,10 +99,10 @@ class Hub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_enable_controls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 control_finding_generator: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_default_standards: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auto_enable_controls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 control_finding_generator: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_default_standards: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The AWS::SecurityHub::Hub resource represents the implementation of the AWS Security Hub service in your account. One hub resource is created for each Region in which you enable Security Hub.
@@ -274,10 +274,10 @@ class Hub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_enable_controls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 control_finding_generator: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_default_standards: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auto_enable_controls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 control_finding_generator: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_default_standards: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

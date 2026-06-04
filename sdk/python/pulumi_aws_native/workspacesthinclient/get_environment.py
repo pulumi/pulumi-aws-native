@@ -285,7 +285,7 @@ def get_environment(id: Optional[_builtins.str] = None,
         software_set_update_schedule=pulumi.get(__ret__, 'software_set_update_schedule'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_environment_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Resource type definition for AWS::WorkSpacesThinClient::Environment.

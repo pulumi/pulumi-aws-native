@@ -115,7 +115,7 @@ def get_domain(domain_arn: Optional[_builtins.str] = None,
         domain_id=pulumi.get(__ret__, 'domain_id'),
         domain_status=pulumi.get(__ret__, 'domain_status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_domain_output(domain_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_output(domain_arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     A domain, which is a container for all case data, such as cases, fields, templates and layouts. Each Amazon Connect instance can be associated with only one Cases domain.

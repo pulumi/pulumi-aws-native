@@ -171,8 +171,8 @@ def get_data_accessor(application_id: Optional[_builtins.str] = None,
         idc_application_arn=pulumi.get(__ret__, 'idc_application_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_data_accessor_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                             data_accessor_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_accessor_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                             data_accessor_id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataAccessorResult]:
     """
     Definition of AWS::QBusiness::DataAccessor Resource Type

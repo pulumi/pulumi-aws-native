@@ -128,7 +128,7 @@ def get_location_efs(location_arn: Optional[_builtins.str] = None,
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_location_efs_output(location_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_location_efs_output(location_arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationEfsResult]:
     """
     Resource schema for AWS::DataSync::LocationEFS.

@@ -26,9 +26,9 @@ class CapabilityArgs:
     def __init__(__self__, *,
                  configuration: pulumi.Input['CapabilityConfigurationPropertiesArgs'],
                  type: pulumi.Input['CapabilityType'],
-                 instructions_documents: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityS3LocationArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 instructions_documents: pulumi.Input[Optional[Sequence[pulumi.Input['CapabilityS3LocationArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Capability resource.
 
@@ -73,38 +73,38 @@ class CapabilityArgs:
 
     @_builtins.property
     @pulumi.getter(name="instructionsDocuments")
-    def instructions_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityS3LocationArgs']]]]:
+    def instructions_documents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CapabilityS3LocationArgs']]]]:
         """
         Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
         """
         return pulumi.get(self, "instructions_documents")
 
     @instructions_documents.setter
-    def instructions_documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityS3LocationArgs']]]]):
+    def instructions_documents(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CapabilityS3LocationArgs']]]]):
         pulumi.set(self, "instructions_documents", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the capability.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -114,11 +114,11 @@ class Capability(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['CapabilityConfigurationPropertiesArgs', 'CapabilityConfigurationPropertiesArgsDict']]] = None,
-                 instructions_documents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CapabilityS3LocationArgs', 'CapabilityS3LocationArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['CapabilityType']] = None,
+                 configuration: pulumi.Input[Optional[Union['CapabilityConfigurationPropertiesArgs', 'CapabilityConfigurationPropertiesArgsDict']]] = None,
+                 instructions_documents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapabilityS3LocationArgs', 'CapabilityS3LocationArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['CapabilityType']] = None,
                  __props__=None):
         """
         Definition of AWS::B2BI::Capability Resource Type
@@ -157,11 +157,11 @@ class Capability(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['CapabilityConfigurationPropertiesArgs', 'CapabilityConfigurationPropertiesArgsDict']]] = None,
-                 instructions_documents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CapabilityS3LocationArgs', 'CapabilityS3LocationArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['CapabilityType']] = None,
+                 configuration: pulumi.Input[Optional[Union['CapabilityConfigurationPropertiesArgs', 'CapabilityConfigurationPropertiesArgsDict']]] = None,
+                 instructions_documents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapabilityS3LocationArgs', 'CapabilityS3LocationArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['CapabilityType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

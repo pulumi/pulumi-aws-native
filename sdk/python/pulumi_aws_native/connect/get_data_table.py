@@ -184,8 +184,8 @@ def get_data_table(arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         time_zone=pulumi.get(__ret__, 'time_zone'),
         value_lock_level=pulumi.get(__ret__, 'value_lock_level'))
-def get_data_table_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                          instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_table_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                          instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataTableResult]:
     """
     Resource Type definition for AWS::Connect::DataTable

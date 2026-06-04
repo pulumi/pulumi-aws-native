@@ -414,7 +414,7 @@ def get_bucket(bucket_name: Optional[_builtins.str] = None,
         versioning_configuration=pulumi.get(__ret__, 'versioning_configuration'),
         website_configuration=pulumi.get(__ret__, 'website_configuration'),
         website_url=pulumi.get(__ret__, 'website_url'))
-def get_bucket_output(bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bucket_output(bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketResult]:
     """
     The ``AWS::S3::Bucket`` resource creates an Amazon S3 bucket in the same AWS Region where you create the AWS CloudFormation stack.

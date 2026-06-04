@@ -23,9 +23,9 @@ __all__ = ['BridgeSourceInitArgs', 'BridgeSource']
 class BridgeSourceInitArgs:
     def __init__(__self__, *,
                  bridge_arn: pulumi.Input[_builtins.str],
-                 flow_source: Optional[pulumi.Input['BridgeSourceBridgeFlowSourceArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_source: Optional[pulumi.Input['BridgeSourceBridgeNetworkSourceArgs']] = None):
+                 flow_source: pulumi.Input[Optional['BridgeSourceBridgeFlowSourceArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_source: pulumi.Input[Optional['BridgeSourceBridgeNetworkSourceArgs']] = None):
         """
         The set of arguments for constructing a BridgeSource resource.
 
@@ -56,38 +56,38 @@ class BridgeSourceInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="flowSource")
-    def flow_source(self) -> Optional[pulumi.Input['BridgeSourceBridgeFlowSourceArgs']]:
+    def flow_source(self) -> pulumi.Input[Optional['BridgeSourceBridgeFlowSourceArgs']]:
         """
         The source of the flow.
         """
         return pulumi.get(self, "flow_source")
 
     @flow_source.setter
-    def flow_source(self, value: Optional[pulumi.Input['BridgeSourceBridgeFlowSourceArgs']]):
+    def flow_source(self, value: pulumi.Input[Optional['BridgeSourceBridgeFlowSourceArgs']]):
         pulumi.set(self, "flow_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the source.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSource")
-    def network_source(self) -> Optional[pulumi.Input['BridgeSourceBridgeNetworkSourceArgs']]:
+    def network_source(self) -> pulumi.Input[Optional['BridgeSourceBridgeNetworkSourceArgs']]:
         """
         The source of the network.
         """
         return pulumi.get(self, "network_source")
 
     @network_source.setter
-    def network_source(self, value: Optional[pulumi.Input['BridgeSourceBridgeNetworkSourceArgs']]):
+    def network_source(self, value: pulumi.Input[Optional['BridgeSourceBridgeNetworkSourceArgs']]):
         pulumi.set(self, "network_source", value)
 
 
@@ -97,10 +97,10 @@ class BridgeSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bridge_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 flow_source: Optional[pulumi.Input[Union['BridgeSourceBridgeFlowSourceArgs', 'BridgeSourceBridgeFlowSourceArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_source: Optional[pulumi.Input[Union['BridgeSourceBridgeNetworkSourceArgs', 'BridgeSourceBridgeNetworkSourceArgsDict']]] = None,
+                 bridge_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 flow_source: pulumi.Input[Optional[Union['BridgeSourceBridgeFlowSourceArgs', 'BridgeSourceBridgeFlowSourceArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_source: pulumi.Input[Optional[Union['BridgeSourceBridgeNetworkSourceArgs', 'BridgeSourceBridgeNetworkSourceArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaConnect::BridgeSource
@@ -138,10 +138,10 @@ class BridgeSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bridge_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 flow_source: Optional[pulumi.Input[Union['BridgeSourceBridgeFlowSourceArgs', 'BridgeSourceBridgeFlowSourceArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_source: Optional[pulumi.Input[Union['BridgeSourceBridgeNetworkSourceArgs', 'BridgeSourceBridgeNetworkSourceArgsDict']]] = None,
+                 bridge_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 flow_source: pulumi.Input[Optional[Union['BridgeSourceBridgeFlowSourceArgs', 'BridgeSourceBridgeFlowSourceArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_source: pulumi.Input[Optional[Union['BridgeSourceBridgeNetworkSourceArgs', 'BridgeSourceBridgeNetworkSourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

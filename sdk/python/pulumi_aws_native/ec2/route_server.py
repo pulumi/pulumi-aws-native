@@ -23,10 +23,10 @@ __all__ = ['RouteServerArgs', 'RouteServer']
 class RouteServerArgs:
     def __init__(__self__, *,
                  amazon_side_asn: pulumi.Input[_builtins.int],
-                 persist_routes: Optional[pulumi.Input['RouteServerPersistRoutes']] = None,
-                 persist_routes_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 sns_notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 persist_routes: pulumi.Input[Optional['RouteServerPersistRoutes']] = None,
+                 persist_routes_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 sns_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RouteServer resource.
 
@@ -60,50 +60,50 @@ class RouteServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="persistRoutes")
-    def persist_routes(self) -> Optional[pulumi.Input['RouteServerPersistRoutes']]:
+    def persist_routes(self) -> pulumi.Input[Optional['RouteServerPersistRoutes']]:
         """
         Whether to enable persistent routes
         """
         return pulumi.get(self, "persist_routes")
 
     @persist_routes.setter
-    def persist_routes(self, value: Optional[pulumi.Input['RouteServerPersistRoutes']]):
+    def persist_routes(self, value: pulumi.Input[Optional['RouteServerPersistRoutes']]):
         pulumi.set(self, "persist_routes", value)
 
     @_builtins.property
     @pulumi.getter(name="persistRoutesDuration")
-    def persist_routes_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def persist_routes_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The duration of persistent routes in minutes
         """
         return pulumi.get(self, "persist_routes_duration")
 
     @persist_routes_duration.setter
-    def persist_routes_duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def persist_routes_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "persist_routes_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="snsNotificationsEnabled")
-    def sns_notifications_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sns_notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable SNS notifications
         """
         return pulumi.get(self, "sns_notifications_enabled")
 
     @sns_notifications_enabled.setter
-    def sns_notifications_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sns_notifications_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sns_notifications_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -113,11 +113,11 @@ class RouteServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amazon_side_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 persist_routes: Optional[pulumi.Input['RouteServerPersistRoutes']] = None,
-                 persist_routes_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 sns_notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 amazon_side_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 persist_routes: pulumi.Input[Optional['RouteServerPersistRoutes']] = None,
+                 persist_routes_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 sns_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         VPC Route Server
@@ -156,11 +156,11 @@ class RouteServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amazon_side_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 persist_routes: Optional[pulumi.Input['RouteServerPersistRoutes']] = None,
-                 persist_routes_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 sns_notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 amazon_side_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 persist_routes: pulumi.Input[Optional['RouteServerPersistRoutes']] = None,
+                 persist_routes_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 sns_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

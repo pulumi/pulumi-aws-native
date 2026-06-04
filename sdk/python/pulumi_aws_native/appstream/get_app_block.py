@@ -88,7 +88,7 @@ def get_app_block(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         created_time=pulumi.get(__ret__, 'created_time'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_app_block_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_block_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppBlockResult]:
     """
     Resource Type definition for AWS::AppStream::AppBlock

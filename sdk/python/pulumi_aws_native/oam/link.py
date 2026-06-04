@@ -24,9 +24,9 @@ class LinkArgs:
     def __init__(__self__, *,
                  resource_types: pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]],
                  sink_identifier: pulumi.Input[_builtins.str],
-                 label_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_configuration: Optional[pulumi.Input['LinkConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 label_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_configuration: pulumi.Input[Optional['LinkConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Link resource.
 
@@ -79,7 +79,7 @@ class LinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="labelTemplate")
-    def label_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
 
@@ -94,31 +94,31 @@ class LinkArgs:
         return pulumi.get(self, "label_template")
 
     @label_template.setter
-    def label_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label_template", value)
 
     @_builtins.property
     @pulumi.getter(name="linkConfiguration")
-    def link_configuration(self) -> Optional[pulumi.Input['LinkConfigurationArgs']]:
+    def link_configuration(self) -> pulumi.Input[Optional['LinkConfigurationArgs']]:
         """
         Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
         """
         return pulumi.get(self, "link_configuration")
 
     @link_configuration.setter
-    def link_configuration(self, value: Optional[pulumi.Input['LinkConfigurationArgs']]):
+    def link_configuration(self, value: pulumi.Input[Optional['LinkConfigurationArgs']]):
         pulumi.set(self, "link_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the link
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -128,11 +128,11 @@ class Link(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 label_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_configuration: Optional[pulumi.Input[Union['LinkConfigurationArgs', 'LinkConfigurationArgsDict']]] = None,
-                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]]] = None,
-                 sink_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 label_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_configuration: pulumi.Input[Optional[Union['LinkConfigurationArgs', 'LinkConfigurationArgsDict']]] = None,
+                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input['LinkResourceType']]]] = None,
+                 sink_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Oam::Link Resource Type
@@ -179,11 +179,11 @@ class Link(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 label_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_configuration: Optional[pulumi.Input[Union['LinkConfigurationArgs', 'LinkConfigurationArgsDict']]] = None,
-                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]]] = None,
-                 sink_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 label_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_configuration: pulumi.Input[Optional[Union['LinkConfigurationArgs', 'LinkConfigurationArgsDict']]] = None,
+                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input['LinkResourceType']]]] = None,
+                 sink_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

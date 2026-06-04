@@ -21,7 +21,7 @@ class ResourcePolicyArgs:
     def __init__(__self__, *,
                  resource_policy: Any,
                  secret_id: pulumi.Input[_builtins.str],
-                 block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None):
+                 block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
 
@@ -64,14 +64,14 @@ class ResourcePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="blockPublicPolicy")
-    def block_public_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def block_public_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to block resource-based policies that allow broad access to the secret.
         """
         return pulumi.get(self, "block_public_policy")
 
     @block_public_policy.setter
-    def block_public_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def block_public_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "block_public_policy", value)
 
 
@@ -81,9 +81,9 @@ class ResourcePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
+                 block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_policy: Optional[Any] = None,
-                 secret_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SecretsManager::ResourcePolicy
@@ -122,9 +122,9 @@ class ResourcePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
+                 block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_policy: Optional[Any] = None,
-                 secret_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

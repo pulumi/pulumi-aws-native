@@ -28,14 +28,14 @@ class ExperimentArgs:
                  online_ab_config: pulumi.Input['ExperimentOnlineAbConfigObjectArgs'],
                  project: pulumi.Input[_builtins.str],
                  treatments: pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentObjectArgs']]],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 randomization_salt: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_segment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 running_status: Optional[pulumi.Input['ExperimentRunningStatusObjectArgs']] = None,
-                 sampling_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 segment: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 randomization_salt: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_segment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 running_status: pulumi.Input[Optional['ExperimentRunningStatusObjectArgs']] = None,
+                 sampling_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 segment: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Experiment resource.
 
@@ -127,67 +127,67 @@ class ExperimentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description of the experiment.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the new experiment.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="randomizationSalt")
-    def randomization_salt(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def randomization_salt(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
         """
         return pulumi.get(self, "randomization_salt")
 
     @randomization_salt.setter
-    def randomization_salt(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def randomization_salt(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "randomization_salt", value)
 
     @_builtins.property
     @pulumi.getter(name="removeSegment")
-    def remove_segment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remove_segment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
         """
         return pulumi.get(self, "remove_segment")
 
     @remove_segment.setter
-    def remove_segment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remove_segment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remove_segment", value)
 
     @_builtins.property
     @pulumi.getter(name="runningStatus")
-    def running_status(self) -> Optional[pulumi.Input['ExperimentRunningStatusObjectArgs']]:
+    def running_status(self) -> pulumi.Input[Optional['ExperimentRunningStatusObjectArgs']]:
         """
         Start Experiment. Default is False
         """
         return pulumi.get(self, "running_status")
 
     @running_status.setter
-    def running_status(self, value: Optional[pulumi.Input['ExperimentRunningStatusObjectArgs']]):
+    def running_status(self, value: pulumi.Input[Optional['ExperimentRunningStatusObjectArgs']]):
         pulumi.set(self, "running_status", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingRate")
-    def sampling_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sampling_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
 
@@ -196,12 +196,12 @@ class ExperimentArgs:
         return pulumi.get(self, "sampling_rate")
 
     @sampling_rate.setter
-    def sampling_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sampling_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sampling_rate", value)
 
     @_builtins.property
     @pulumi.getter
-    def segment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def segment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
 
@@ -210,19 +210,19 @@ class ExperimentArgs:
         return pulumi.get(self, "segment")
 
     @segment.setter
-    def segment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def segment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "segment", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -232,18 +232,18 @@ class Experiment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_goals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentMetricGoalObjectArgs', 'ExperimentMetricGoalObjectArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 online_ab_config: Optional[pulumi.Input[Union['ExperimentOnlineAbConfigObjectArgs', 'ExperimentOnlineAbConfigObjectArgsDict']]] = None,
-                 project: Optional[pulumi.Input[_builtins.str]] = None,
-                 randomization_salt: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_segment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 running_status: Optional[pulumi.Input[Union['ExperimentRunningStatusObjectArgs', 'ExperimentRunningStatusObjectArgsDict']]] = None,
-                 sampling_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 segment: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 treatments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTreatmentObjectArgs', 'ExperimentTreatmentObjectArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_goals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentMetricGoalObjectArgs', 'ExperimentMetricGoalObjectArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 online_ab_config: pulumi.Input[Optional[Union['ExperimentOnlineAbConfigObjectArgs', 'ExperimentOnlineAbConfigObjectArgsDict']]] = None,
+                 project: pulumi.Input[Optional[_builtins.str]] = None,
+                 randomization_salt: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_segment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 running_status: pulumi.Input[Optional[Union['ExperimentRunningStatusObjectArgs', 'ExperimentRunningStatusObjectArgsDict']]] = None,
+                 sampling_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 segment: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 treatments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTreatmentObjectArgs', 'ExperimentTreatmentObjectArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Evidently::Experiment.
@@ -293,18 +293,18 @@ class Experiment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_goals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentMetricGoalObjectArgs', 'ExperimentMetricGoalObjectArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 online_ab_config: Optional[pulumi.Input[Union['ExperimentOnlineAbConfigObjectArgs', 'ExperimentOnlineAbConfigObjectArgsDict']]] = None,
-                 project: Optional[pulumi.Input[_builtins.str]] = None,
-                 randomization_salt: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_segment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 running_status: Optional[pulumi.Input[Union['ExperimentRunningStatusObjectArgs', 'ExperimentRunningStatusObjectArgsDict']]] = None,
-                 sampling_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 segment: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 treatments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTreatmentObjectArgs', 'ExperimentTreatmentObjectArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_goals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentMetricGoalObjectArgs', 'ExperimentMetricGoalObjectArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 online_ab_config: pulumi.Input[Optional[Union['ExperimentOnlineAbConfigObjectArgs', 'ExperimentOnlineAbConfigObjectArgsDict']]] = None,
+                 project: pulumi.Input[Optional[_builtins.str]] = None,
+                 randomization_salt: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_segment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 running_status: pulumi.Input[Optional[Union['ExperimentRunningStatusObjectArgs', 'ExperimentRunningStatusObjectArgsDict']]] = None,
+                 sampling_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 segment: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 treatments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTreatmentObjectArgs', 'ExperimentTreatmentObjectArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

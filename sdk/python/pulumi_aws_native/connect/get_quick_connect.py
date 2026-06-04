@@ -142,7 +142,7 @@ def get_quick_connect(quick_connect_arn: Optional[_builtins.str] = None,
         quick_connect_config=pulumi.get(__ret__, 'quick_connect_config'),
         quick_connect_type=pulumi.get(__ret__, 'quick_connect_type'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_quick_connect_output(quick_connect_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_quick_connect_output(quick_connect_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuickConnectResult]:
     """
     Resource Type definition for AWS::Connect::QuickConnect

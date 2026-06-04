@@ -21,10 +21,10 @@ __all__ = ['CertificateArgs', 'Certificate']
 class CertificateArgs:
     def __init__(__self__, *,
                  status: pulumi.Input['CertificateStatus'],
-                 ca_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_mode: Optional[pulumi.Input['CertificateMode']] = None,
-                 certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_signing_request: Optional[pulumi.Input[_builtins.str]] = None):
+                 ca_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_mode: pulumi.Input[Optional['CertificateMode']] = None,
+                 certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_signing_request: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
 
@@ -70,19 +70,19 @@ class CertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="caCertificatePem")
-    def ca_certificate_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_certificate_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CA certificate used to sign the device certificate being registered, not available when CertificateMode is SNI_ONLY.
         """
         return pulumi.get(self, "ca_certificate_pem")
 
     @ca_certificate_pem.setter
-    def ca_certificate_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_certificate_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_certificate_pem", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateMode")
-    def certificate_mode(self) -> Optional[pulumi.Input['CertificateMode']]:
+    def certificate_mode(self) -> pulumi.Input[Optional['CertificateMode']]:
         """
         Specifies which mode of certificate registration to use with this resource. Valid options are DEFAULT with CaCertificatePem and CertificatePem, SNI_ONLY with CertificatePem, and Default with CertificateSigningRequest.
 
@@ -93,31 +93,31 @@ class CertificateArgs:
         return pulumi.get(self, "certificate_mode")
 
     @certificate_mode.setter
-    def certificate_mode(self, value: Optional[pulumi.Input['CertificateMode']]):
+    def certificate_mode(self, value: pulumi.Input[Optional['CertificateMode']]):
         pulumi.set(self, "certificate_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="certificatePem")
-    def certificate_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate data in PEM format. Requires SNI_ONLY for the certificate mode or the accompanying CACertificatePem for registration.
         """
         return pulumi.get(self, "certificate_pem")
 
     @certificate_pem.setter
-    def certificate_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_pem", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateSigningRequest")
-    def certificate_signing_request(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_signing_request(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate signing request (CSR).
         """
         return pulumi.get(self, "certificate_signing_request")
 
     @certificate_signing_request.setter
-    def certificate_signing_request(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_signing_request(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_signing_request", value)
 
 
@@ -127,11 +127,11 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ca_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_mode: Optional[pulumi.Input['CertificateMode']] = None,
-                 certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_signing_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['CertificateStatus']] = None,
+                 ca_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_mode: pulumi.Input[Optional['CertificateMode']] = None,
+                 certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_signing_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['CertificateStatus']] = None,
                  __props__=None):
         """
         Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate.
@@ -178,11 +178,11 @@ class Certificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ca_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_mode: Optional[pulumi.Input['CertificateMode']] = None,
-                 certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_signing_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['CertificateStatus']] = None,
+                 ca_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_mode: pulumi.Input[Optional['CertificateMode']] = None,
+                 certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_signing_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['CertificateStatus']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

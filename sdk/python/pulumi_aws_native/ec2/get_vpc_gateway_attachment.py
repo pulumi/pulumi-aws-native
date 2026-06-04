@@ -90,8 +90,8 @@ def get_vpc_gateway_attachment(attachment_type: Optional[_builtins.str] = None,
         attachment_type=pulumi.get(__ret__, 'attachment_type'),
         internet_gateway_id=pulumi.get(__ret__, 'internet_gateway_id'),
         vpn_gateway_id=pulumi.get(__ret__, 'vpn_gateway_id'))
-def get_vpc_gateway_attachment_output(attachment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                                      vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_gateway_attachment_output(attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                                      vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcGatewayAttachmentResult]:
     """
     Resource Type definition for AWS::EC2::VPCGatewayAttachment

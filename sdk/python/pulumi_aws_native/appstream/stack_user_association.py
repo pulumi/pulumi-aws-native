@@ -22,7 +22,7 @@ class StackUserAssociationArgs:
                  authentication_type: pulumi.Input[_builtins.str],
                  stack_name: pulumi.Input[_builtins.str],
                  user_name: pulumi.Input[_builtins.str],
-                 send_email_notification: Optional[pulumi.Input[_builtins.bool]] = None):
+                 send_email_notification: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a StackUserAssociation resource.
 
@@ -75,14 +75,14 @@ class StackUserAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="sendEmailNotification")
-    def send_email_notification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_email_notification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether a welcome email is sent to a user after the user is created in the user pool.
         """
         return pulumi.get(self, "send_email_notification")
 
     @send_email_notification.setter
-    def send_email_notification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_email_notification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_email_notification", value)
 
 
@@ -92,10 +92,10 @@ class StackUserAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppStream::StackUserAssociation
@@ -133,10 +133,10 @@ class StackUserAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

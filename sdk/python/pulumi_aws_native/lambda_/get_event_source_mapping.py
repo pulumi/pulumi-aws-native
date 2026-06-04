@@ -419,7 +419,7 @@ def get_event_source_mapping(id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         topics=pulumi.get(__ret__, 'topics'),
         tumbling_window_in_seconds=pulumi.get(__ret__, 'tumbling_window_in_seconds'))
-def get_event_source_mapping_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_source_mapping_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventSourceMappingResult]:
     """
     The ``AWS::Lambda::EventSourceMapping`` resource creates a mapping between an event source and an LAMlong function. LAM reads items from the event source and triggers the function.

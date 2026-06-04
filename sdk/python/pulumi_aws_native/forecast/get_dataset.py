@@ -144,7 +144,7 @@ def get_dataset(arn: Optional[_builtins.str] = None,
         encryption_config=pulumi.get(__ret__, 'encryption_config'),
         schema=pulumi.get(__ret__, 'schema'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_dataset_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dataset_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetResult]:
     """
     Resource Type Definition for AWS::Forecast::Dataset

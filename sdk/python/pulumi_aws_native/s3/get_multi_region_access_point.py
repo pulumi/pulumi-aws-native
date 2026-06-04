@@ -74,7 +74,7 @@ def get_multi_region_access_point(name: Optional[_builtins.str] = None,
     return AwaitableGetMultiRegionAccessPointResult(
         alias=pulumi.get(__ret__, 'alias'),
         created_at=pulumi.get(__ret__, 'created_at'))
-def get_multi_region_access_point_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_multi_region_access_point_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMultiRegionAccessPointResult]:
     """
     AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.

@@ -155,7 +155,7 @@ def get_table(table_arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         version_token=pulumi.get(__ret__, 'version_token'),
         warehouse_location=pulumi.get(__ret__, 'warehouse_location'))
-def get_table_output(table_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_table_output(table_arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """
     Resource Type definition for AWS::S3Tables::Table

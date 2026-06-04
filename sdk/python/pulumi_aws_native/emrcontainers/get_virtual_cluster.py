@@ -101,7 +101,7 @@ def get_virtual_cluster(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         security_configuration_id=pulumi.get(__ret__, 'security_configuration_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_virtual_cluster_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_cluster_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualClusterResult]:
     """
     Resource Schema of AWS::EMRContainers::VirtualCluster Type

@@ -172,7 +172,7 @@ def get_id_namespace(id_namespace_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_id_namespace_output(id_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_id_namespace_output(id_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdNamespaceResult]:
     """
     IdNamespace defined in AWS Entity Resolution service

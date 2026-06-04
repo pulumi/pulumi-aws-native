@@ -76,7 +76,7 @@ def get_cluster_policy(cluster_arn: Optional[_builtins.str] = None,
     return AwaitableGetClusterPolicyResult(
         current_version=pulumi.get(__ret__, 'current_version'),
         policy=pulumi.get(__ret__, 'policy'))
-def get_cluster_policy_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_policy_output(cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterPolicyResult]:
     """
     Resource Type definition for AWS::MSK::ClusterPolicy

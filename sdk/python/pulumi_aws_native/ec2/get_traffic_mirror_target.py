@@ -69,7 +69,7 @@ def get_traffic_mirror_target(id: Optional[_builtins.str] = None,
     return AwaitableGetTrafficMirrorTargetResult(
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_traffic_mirror_target_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_traffic_mirror_target_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficMirrorTargetResult]:
     """
     The description of the Traffic Mirror target.

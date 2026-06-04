@@ -138,9 +138,9 @@ def get_ip_set(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         ip_address_version=pulumi.get(__ret__, 'ip_address_version'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_ip_set_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                      name: Optional[pulumi.Input[_builtins.str]] = None,
-                      scope: Optional[pulumi.Input['IpSetScope']] = None,
+def get_ip_set_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                      name: pulumi.Input[Optional[_builtins.str]] = None,
+                      scope: pulumi.Input[Optional['IpSetScope']] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpSetResult]:
     """
     Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually

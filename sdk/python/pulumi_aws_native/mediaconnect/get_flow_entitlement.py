@@ -129,7 +129,7 @@ def get_flow_entitlement(entitlement_arn: Optional[_builtins.str] = None,
         entitlement_status=pulumi.get(__ret__, 'entitlement_status'),
         subscribers=pulumi.get(__ret__, 'subscribers'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_flow_entitlement_output(entitlement_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_flow_entitlement_output(entitlement_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowEntitlementResult]:
     """
     Resource schema for AWS::MediaConnect::FlowEntitlement

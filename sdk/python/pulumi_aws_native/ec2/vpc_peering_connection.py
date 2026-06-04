@@ -23,11 +23,11 @@ class VpcPeeringConnectionArgs:
     def __init__(__self__, *,
                  peer_vpc_id: pulumi.Input[_builtins.str],
                  vpc_id: pulumi.Input[_builtins.str],
-                 assume_role_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 assume_role_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcPeeringConnection resource.
 
@@ -78,62 +78,62 @@ class VpcPeeringConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="assumeRoleRegion")
-    def assume_role_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assume_role_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
         """
         return pulumi.get(self, "assume_role_region")
 
     @assume_role_region.setter
-    def assume_role_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assume_role_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assume_role_region", value)
 
     @_builtins.property
     @pulumi.getter(name="peerOwnerId")
-    def peer_owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peer_owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account ID of the owner of the accepter VPC.
         """
         return pulumi.get(self, "peer_owner_id")
 
     @peer_owner_id.setter
-    def peer_owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peer_owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peer_owner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="peerRegion")
-    def peer_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peer_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
         """
         return pulumi.get(self, "peer_region")
 
     @peer_region.setter
-    def peer_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peer_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peer_region", value)
 
     @_builtins.property
     @pulumi.getter(name="peerRoleArn")
-    def peer_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peer_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
         """
         return pulumi.get(self, "peer_role_arn")
 
     @peer_role_arn.setter
-    def peer_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peer_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peer_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Any tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -143,13 +143,13 @@ class VpcPeeringConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assume_role_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 assume_role_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::VPCPeeringConnection
@@ -190,13 +190,13 @@ class VpcPeeringConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assume_role_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 assume_role_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

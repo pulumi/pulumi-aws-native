@@ -26,20 +26,20 @@ __all__ = [
     'DomainNameConfigurationArgsDict',
     'DomainNameMutualTlsAuthenticationArgs',
     'DomainNameMutualTlsAuthenticationArgsDict',
-    'IntegrationResponseParameterMapArgs',
-    'IntegrationResponseParameterMapArgsDict',
     'IntegrationResponseParameterArgs',
     'IntegrationResponseParameterArgsDict',
+    'IntegrationResponseParameterMapArgs',
+    'IntegrationResponseParameterMapArgsDict',
     'IntegrationTlsConfigArgs',
     'IntegrationTlsConfigArgsDict',
     'RouteParameterConstraintsArgs',
     'RouteParameterConstraintsArgsDict',
     'RouteResponseParameterConstraintsArgs',
     'RouteResponseParameterConstraintsArgsDict',
-    'RoutingRuleActionInvokeApiArgs',
-    'RoutingRuleActionInvokeApiArgsDict',
     'RoutingRuleActionArgs',
     'RoutingRuleActionArgsDict',
+    'RoutingRuleActionInvokeApiArgs',
+    'RoutingRuleActionInvokeApiArgsDict',
     'RoutingRuleConditionArgs',
     'RoutingRuleConditionArgsDict',
     'RoutingRuleMatchBasePathsArgs',
@@ -58,19 +58,19 @@ class ApiBodyS3LocationArgsDict(TypedDict):
     """
     The ``BodyS3Location`` property specifies an S3 location from which to import an OpenAPI definition. Supported only for HTTP APIs.
     """
-    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The S3 bucket that contains the OpenAPI definition to import. Required if you specify a ``BodyS3Location`` for an API.
     """
-    etag: NotRequired[pulumi.Input[_builtins.str]]
+    etag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Etag of the S3 object.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The key of the S3 object. Required if you specify a ``BodyS3Location`` for an API.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the S3 object.
     """
@@ -78,10 +78,10 @@ class ApiBodyS3LocationArgsDict(TypedDict):
 @pulumi.input_type
 class ApiBodyS3LocationArgs:
     def __init__(__self__, *,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ``BodyS3Location`` property specifies an S3 location from which to import an OpenAPI definition. Supported only for HTTP APIs.
 
@@ -101,50 +101,50 @@ class ApiBodyS3LocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 bucket that contains the OpenAPI definition to import. Required if you specify a ``BodyS3Location`` for an API.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Etag of the S3 object.
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key of the S3 object. Required if you specify a ``BodyS3Location`` for an API.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the S3 object.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -152,27 +152,27 @@ class ApiCorsArgsDict(TypedDict):
     """
     The ``Cors`` property specifies a CORS configuration for an API. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
     """
-    allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_credentials: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether credentials are included in the CORS request. Supported only for HTTP APIs.
     """
-    allow_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allow_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Represents a collection of allowed headers. Supported only for HTTP APIs.
     """
-    allow_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allow_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Represents a collection of allowed HTTP methods. Supported only for HTTP APIs.
     """
-    allow_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allow_origins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Represents a collection of allowed origins. Supported only for HTTP APIs.
     """
-    expose_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    expose_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Represents a collection of exposed headers. Supported only for HTTP APIs.
     """
-    max_age: NotRequired[pulumi.Input[_builtins.int]]
+    max_age: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of seconds that the browser should cache preflight request results. Supported only for HTTP APIs.
     """
@@ -180,12 +180,12 @@ class ApiCorsArgsDict(TypedDict):
 @pulumi.input_type
 class ApiCorsArgs:
     def __init__(__self__, *,
-                 allow_credentials: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allow_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allow_origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 expose_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_age: Optional[pulumi.Input[_builtins.int]] = None):
+                 allow_credentials: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allow_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allow_origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 expose_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_age: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The ``Cors`` property specifies a CORS configuration for an API. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
 
@@ -211,74 +211,74 @@ class ApiCorsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowCredentials")
-    def allow_credentials(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_credentials(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether credentials are included in the CORS request. Supported only for HTTP APIs.
         """
         return pulumi.get(self, "allow_credentials")
 
     @allow_credentials.setter
-    def allow_credentials(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_credentials(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="allowHeaders")
-    def allow_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allow_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Represents a collection of allowed headers. Supported only for HTTP APIs.
         """
         return pulumi.get(self, "allow_headers")
 
     @allow_headers.setter
-    def allow_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allow_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allow_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="allowMethods")
-    def allow_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allow_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Represents a collection of allowed HTTP methods. Supported only for HTTP APIs.
         """
         return pulumi.get(self, "allow_methods")
 
     @allow_methods.setter
-    def allow_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allow_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allow_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="allowOrigins")
-    def allow_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allow_origins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Represents a collection of allowed origins. Supported only for HTTP APIs.
         """
         return pulumi.get(self, "allow_origins")
 
     @allow_origins.setter
-    def allow_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allow_origins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allow_origins", value)
 
     @_builtins.property
     @pulumi.getter(name="exposeHeaders")
-    def expose_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def expose_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Represents a collection of exposed headers. Supported only for HTTP APIs.
         """
         return pulumi.get(self, "expose_headers")
 
     @expose_headers.setter
-    def expose_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def expose_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "expose_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAge")
-    def max_age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of seconds that the browser should cache preflight request results. Supported only for HTTP APIs.
         """
         return pulumi.get(self, "max_age")
 
     @max_age.setter
-    def max_age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_age", value)
 
 
@@ -286,11 +286,11 @@ class AuthorizerJwtConfigurationArgsDict(TypedDict):
     """
     The ``JWTConfiguration`` property specifies the configuration of a JWT authorizer. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
     """
-    audience: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    audience: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of the intended recipients of the JWT. A valid JWT must provide an ``aud`` that matches at least one entry in this list. See [RFC 7519](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc7519#section-4.1.3). Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
     """
-    issuer: NotRequired[pulumi.Input[_builtins.str]]
+    issuer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: ``https://cognito-idp.{region}.amazonaws.com/{userPoolId}``. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
     """
@@ -298,8 +298,8 @@ class AuthorizerJwtConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AuthorizerJwtConfigurationArgs:
     def __init__(__self__, *,
-                 audience: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None):
+                 audience: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ``JWTConfiguration`` property specifies the configuration of a JWT authorizer. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
 
@@ -313,26 +313,26 @@ class AuthorizerJwtConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def audience(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def audience(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the intended recipients of the JWT. A valid JWT must provide an ``aud`` that matches at least one entry in this list. See [RFC 7519](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc7519#section-4.1.3). Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
         """
         return pulumi.get(self, "audience")
 
     @audience.setter
-    def audience(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def audience(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "audience", value)
 
     @_builtins.property
     @pulumi.getter
-    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: ``https://cognito-idp.{region}.amazonaws.com/{userPoolId}``. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
         """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
-    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer", value)
 
 
@@ -341,27 +341,27 @@ class DomainNameConfigurationArgsDict(TypedDict):
     The ``DomainNameConfiguration`` property type specifies the configuration for an API's domain name.
       ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
     """
-    certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
     """
-    certificate_name: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.
     """
-    endpoint_type: NotRequired[pulumi.Input[_builtins.str]]
+    endpoint_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The endpoint type.
     """
-    ip_address_type: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address types that can invoke the domain name. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name.
     """
-    ownership_verification_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    ownership_verification_certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
     """
-    security_policy: NotRequired[pulumi.Input[_builtins.str]]
+    security_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are ``TLS_1_0`` and ``TLS_1_2``.
     """
@@ -369,12 +369,12 @@ class DomainNameConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DomainNameConfigurationArgs:
     def __init__(__self__, *,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ownership_verification_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ownership_verification_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ``DomainNameConfiguration`` property type specifies the configuration for an API's domain name.
           ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
@@ -401,74 +401,74 @@ class DomainNameConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
         """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.
         """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
-    def certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint type.
         """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
-    def endpoint_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address types that can invoke the domain name. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ownershipVerificationCertificateArn")
-    def ownership_verification_certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ownership_verification_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
         """
         return pulumi.get(self, "ownership_verification_certificate_arn")
 
     @ownership_verification_certificate_arn.setter
-    def ownership_verification_certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ownership_verification_certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ownership_verification_certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="securityPolicy")
-    def security_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are ``TLS_1_0`` and ``TLS_1_2``.
         """
         return pulumi.get(self, "security_policy")
 
     @security_policy.setter
-    def security_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_policy", value)
 
 
@@ -476,11 +476,11 @@ class DomainNameMutualTlsAuthenticationArgsDict(TypedDict):
     """
     If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
     """
-    truststore_uri: NotRequired[pulumi.Input[_builtins.str]]
+    truststore_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, ``s3://bucket-name/key-name``. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
     """
-    truststore_version: NotRequired[pulumi.Input[_builtins.str]]
+    truststore_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
     """
@@ -488,8 +488,8 @@ class DomainNameMutualTlsAuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class DomainNameMutualTlsAuthenticationArgs:
     def __init__(__self__, *,
-                 truststore_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 truststore_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 truststore_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 truststore_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
 
@@ -503,67 +503,41 @@ class DomainNameMutualTlsAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="truststoreUri")
-    def truststore_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def truststore_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, ``s3://bucket-name/key-name``. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
         """
         return pulumi.get(self, "truststore_uri")
 
     @truststore_uri.setter
-    def truststore_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def truststore_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "truststore_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="truststoreVersion")
-    def truststore_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def truststore_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
         """
         return pulumi.get(self, "truststore_version")
 
     @truststore_version.setter
-    def truststore_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def truststore_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "truststore_version", value)
-
-
-class IntegrationResponseParameterMapArgsDict(TypedDict):
-    """
-    map of response parameter lists
-    """
-    response_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgsDict']]]]
-
-@pulumi.input_type
-class IntegrationResponseParameterMapArgs:
-    def __init__(__self__, *,
-                 response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]] = None):
-        """
-        map of response parameter lists
-        """
-        if response_parameters is not None:
-            pulumi.set(__self__, "response_parameters", response_parameters)
-
-    @_builtins.property
-    @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]:
-        return pulumi.get(self, "response_parameters")
-
-    @response_parameters.setter
-    def response_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]):
-        pulumi.set(self, "response_parameters", value)
 
 
 class IntegrationResponseParameterArgsDict(TypedDict):
     """
     response parameter
     """
-    destination: NotRequired[pulumi.Input[_builtins.str]]
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    destination: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class IntegrationResponseParameterArgs:
     def __init__(__self__, *,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         response parameter
         """
@@ -574,28 +548,54 @@ class IntegrationResponseParameterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
+
+
+class IntegrationResponseParameterMapArgsDict(TypedDict):
+    """
+    map of response parameter lists
+    """
+    response_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationResponseParameterArgsDict']]]]]
+
+@pulumi.input_type
+class IntegrationResponseParameterMapArgs:
+    def __init__(__self__, *,
+                 response_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]] = None):
+        """
+        map of response parameter lists
+        """
+        if response_parameters is not None:
+            pulumi.set(__self__, "response_parameters", response_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="responseParameters")
+    def response_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]:
+        return pulumi.get(self, "response_parameters")
+
+    @response_parameters.setter
+    def response_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]):
+        pulumi.set(self, "response_parameters", value)
 
 
 class IntegrationTlsConfigArgsDict(TypedDict):
     """
     The TlsConfig property specifies the TLS configuration for a private integration. Supported only for HTTP APIs.
     """
-    server_name_to_verify: NotRequired[pulumi.Input[_builtins.str]]
+    server_name_to_verify: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
     """
@@ -603,7 +603,7 @@ class IntegrationTlsConfigArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationTlsConfigArgs:
     def __init__(__self__, *,
-                 server_name_to_verify: Optional[pulumi.Input[_builtins.str]] = None):
+                 server_name_to_verify: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The TlsConfig property specifies the TLS configuration for a private integration. Supported only for HTTP APIs.
 
@@ -614,14 +614,14 @@ class IntegrationTlsConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="serverNameToVerify")
-    def server_name_to_verify(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_name_to_verify(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
         """
         return pulumi.get(self, "server_name_to_verify")
 
     @server_name_to_verify.setter
-    def server_name_to_verify(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_name_to_verify(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_name_to_verify", value)
 
 
@@ -677,6 +677,34 @@ class RouteResponseParameterConstraintsArgs:
         pulumi.set(self, "required", value)
 
 
+class RoutingRuleActionArgsDict(TypedDict):
+    invoke_api: pulumi.Input['RoutingRuleActionInvokeApiArgsDict']
+    """
+    Represents an InvokeApi action.
+    """
+
+@pulumi.input_type
+class RoutingRuleActionArgs:
+    def __init__(__self__, *,
+                 invoke_api: pulumi.Input['RoutingRuleActionInvokeApiArgs']):
+        """
+        :param pulumi.Input['RoutingRuleActionInvokeApiArgs'] invoke_api: Represents an InvokeApi action.
+        """
+        pulumi.set(__self__, "invoke_api", invoke_api)
+
+    @_builtins.property
+    @pulumi.getter(name="invokeApi")
+    def invoke_api(self) -> pulumi.Input['RoutingRuleActionInvokeApiArgs']:
+        """
+        Represents an InvokeApi action.
+        """
+        return pulumi.get(self, "invoke_api")
+
+    @invoke_api.setter
+    def invoke_api(self, value: pulumi.Input['RoutingRuleActionInvokeApiArgs']):
+        pulumi.set(self, "invoke_api", value)
+
+
 class RoutingRuleActionInvokeApiArgsDict(TypedDict):
     api_id: pulumi.Input[_builtins.str]
     """
@@ -686,7 +714,7 @@ class RoutingRuleActionInvokeApiArgsDict(TypedDict):
     """
     The name of the target stage.
     """
-    strip_base_path: NotRequired[pulumi.Input[_builtins.bool]]
+    strip_base_path: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The strip base path setting. When true, API Gateway strips the incoming matched base path when forwarding the request to the target API.
     """
@@ -696,7 +724,7 @@ class RoutingRuleActionInvokeApiArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[_builtins.str],
                  stage: pulumi.Input[_builtins.str],
-                 strip_base_path: Optional[pulumi.Input[_builtins.bool]] = None):
+                 strip_base_path: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] api_id: The API identifier of the target API.
         :param pulumi.Input[_builtins.str] stage: The name of the target stage.
@@ -733,51 +761,23 @@ class RoutingRuleActionInvokeApiArgs:
 
     @_builtins.property
     @pulumi.getter(name="stripBasePath")
-    def strip_base_path(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strip_base_path(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The strip base path setting. When true, API Gateway strips the incoming matched base path when forwarding the request to the target API.
         """
         return pulumi.get(self, "strip_base_path")
 
     @strip_base_path.setter
-    def strip_base_path(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strip_base_path(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strip_base_path", value)
 
 
-class RoutingRuleActionArgsDict(TypedDict):
-    invoke_api: pulumi.Input['RoutingRuleActionInvokeApiArgsDict']
-    """
-    Represents an InvokeApi action.
-    """
-
-@pulumi.input_type
-class RoutingRuleActionArgs:
-    def __init__(__self__, *,
-                 invoke_api: pulumi.Input['RoutingRuleActionInvokeApiArgs']):
-        """
-        :param pulumi.Input['RoutingRuleActionInvokeApiArgs'] invoke_api: Represents an InvokeApi action.
-        """
-        pulumi.set(__self__, "invoke_api", invoke_api)
-
-    @_builtins.property
-    @pulumi.getter(name="invokeApi")
-    def invoke_api(self) -> pulumi.Input['RoutingRuleActionInvokeApiArgs']:
-        """
-        Represents an InvokeApi action.
-        """
-        return pulumi.get(self, "invoke_api")
-
-    @invoke_api.setter
-    def invoke_api(self, value: pulumi.Input['RoutingRuleActionInvokeApiArgs']):
-        pulumi.set(self, "invoke_api", value)
-
-
 class RoutingRuleConditionArgsDict(TypedDict):
-    match_base_paths: NotRequired[pulumi.Input['RoutingRuleMatchBasePathsArgsDict']]
+    match_base_paths: NotRequired[pulumi.Input[Optional['RoutingRuleMatchBasePathsArgsDict']]]
     """
     The base path to be matched.
     """
-    match_headers: NotRequired[pulumi.Input['RoutingRuleMatchHeadersArgsDict']]
+    match_headers: NotRequired[pulumi.Input[Optional['RoutingRuleMatchHeadersArgsDict']]]
     """
     The headers to be matched.
     """
@@ -785,8 +785,8 @@ class RoutingRuleConditionArgsDict(TypedDict):
 @pulumi.input_type
 class RoutingRuleConditionArgs:
     def __init__(__self__, *,
-                 match_base_paths: Optional[pulumi.Input['RoutingRuleMatchBasePathsArgs']] = None,
-                 match_headers: Optional[pulumi.Input['RoutingRuleMatchHeadersArgs']] = None):
+                 match_base_paths: pulumi.Input[Optional['RoutingRuleMatchBasePathsArgs']] = None,
+                 match_headers: pulumi.Input[Optional['RoutingRuleMatchHeadersArgs']] = None):
         """
         :param pulumi.Input['RoutingRuleMatchBasePathsArgs'] match_base_paths: The base path to be matched.
         :param pulumi.Input['RoutingRuleMatchHeadersArgs'] match_headers: The headers to be matched.
@@ -798,26 +798,26 @@ class RoutingRuleConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchBasePaths")
-    def match_base_paths(self) -> Optional[pulumi.Input['RoutingRuleMatchBasePathsArgs']]:
+    def match_base_paths(self) -> pulumi.Input[Optional['RoutingRuleMatchBasePathsArgs']]:
         """
         The base path to be matched.
         """
         return pulumi.get(self, "match_base_paths")
 
     @match_base_paths.setter
-    def match_base_paths(self, value: Optional[pulumi.Input['RoutingRuleMatchBasePathsArgs']]):
+    def match_base_paths(self, value: pulumi.Input[Optional['RoutingRuleMatchBasePathsArgs']]):
         pulumi.set(self, "match_base_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="matchHeaders")
-    def match_headers(self) -> Optional[pulumi.Input['RoutingRuleMatchHeadersArgs']]:
+    def match_headers(self) -> pulumi.Input[Optional['RoutingRuleMatchHeadersArgs']]:
         """
         The headers to be matched.
         """
         return pulumi.get(self, "match_headers")
 
     @match_headers.setter
-    def match_headers(self, value: Optional[pulumi.Input['RoutingRuleMatchHeadersArgs']]):
+    def match_headers(self, value: pulumi.Input[Optional['RoutingRuleMatchHeadersArgs']]):
         pulumi.set(self, "match_headers", value)
 
 
@@ -925,11 +925,11 @@ class RoutingRuleMatchHeadersArgs:
 
 
 class StageAccessLogSettingsArgsDict(TypedDict):
-    destination_arn: NotRequired[pulumi.Input[_builtins.str]]
+    destination_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the CloudWatch Logs log group to receive access logs. This parameter is required to enable access logging.
     """
-    format: NotRequired[pulumi.Input[_builtins.str]]
+    format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. This parameter is required to enable access logging.
     """
@@ -937,8 +937,8 @@ class StageAccessLogSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class StageAccessLogSettingsArgs:
     def __init__(__self__, *,
-                 destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] destination_arn: The ARN of the CloudWatch Logs log group to receive access logs. This parameter is required to enable access logging.
         :param pulumi.Input[_builtins.str] format: A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. This parameter is required to enable access logging.
@@ -950,47 +950,47 @@ class StageAccessLogSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationArn")
-    def destination_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the CloudWatch Logs log group to receive access logs. This parameter is required to enable access logging.
         """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
-    def destination_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. This parameter is required to enable access logging.
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "format", value)
 
 
 class StageRouteSettingsArgsDict(TypedDict):
-    data_trace_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    data_trace_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether ( `true` ) or not ( `false` ) data trace logging is enabled for this route. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
     """
-    detailed_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    detailed_metrics_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether detailed metrics are enabled.
     """
-    logging_level: NotRequired[pulumi.Input[_builtins.str]]
+    logging_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the logging level for this route: `INFO` , `ERROR` , or `OFF` . This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
     """
-    throttling_burst_limit: NotRequired[pulumi.Input[_builtins.int]]
+    throttling_burst_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the throttling burst limit.
     """
-    throttling_rate_limit: NotRequired[pulumi.Input[_builtins.float]]
+    throttling_rate_limit: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Specifies the throttling rate limit.
     """
@@ -998,11 +998,11 @@ class StageRouteSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class StageRouteSettingsArgs:
     def __init__(__self__, *,
-                 data_trace_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 detailed_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logging_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 throttling_burst_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 throttling_rate_limit: Optional[pulumi.Input[_builtins.float]] = None):
+                 data_trace_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 detailed_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logging_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 throttling_burst_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 throttling_rate_limit: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.bool] data_trace_enabled: Specifies whether ( `true` ) or not ( `false` ) data trace logging is enabled for this route. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
         :param pulumi.Input[_builtins.bool] detailed_metrics_enabled: Specifies whether detailed metrics are enabled.
@@ -1023,62 +1023,62 @@ class StageRouteSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataTraceEnabled")
-    def data_trace_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_trace_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether ( `true` ) or not ( `false` ) data trace logging is enabled for this route. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "data_trace_enabled")
 
     @data_trace_enabled.setter
-    def data_trace_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_trace_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_trace_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="detailedMetricsEnabled")
-    def detailed_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def detailed_metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether detailed metrics are enabled.
         """
         return pulumi.get(self, "detailed_metrics_enabled")
 
     @detailed_metrics_enabled.setter
-    def detailed_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def detailed_metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "detailed_metrics_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingLevel")
-    def logging_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logging_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the logging level for this route: `INFO` , `ERROR` , or `OFF` . This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "logging_level")
 
     @logging_level.setter
-    def logging_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logging_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logging_level", value)
 
     @_builtins.property
     @pulumi.getter(name="throttlingBurstLimit")
-    def throttling_burst_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throttling_burst_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the throttling burst limit.
         """
         return pulumi.get(self, "throttling_burst_limit")
 
     @throttling_burst_limit.setter
-    def throttling_burst_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throttling_burst_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throttling_burst_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="throttlingRateLimit")
-    def throttling_rate_limit(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def throttling_rate_limit(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies the throttling rate limit.
         """
         return pulumi.get(self, "throttling_rate_limit")
 
     @throttling_rate_limit.setter
-    def throttling_rate_limit(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def throttling_rate_limit(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "throttling_rate_limit", value)
 
 

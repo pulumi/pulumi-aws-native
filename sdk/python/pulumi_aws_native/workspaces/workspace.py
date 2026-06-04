@@ -26,11 +26,11 @@ class WorkspaceArgs:
                  bundle_id: pulumi.Input[_builtins.str],
                  directory_id: pulumi.Input[_builtins.str],
                  user_name: pulumi.Input[_builtins.str],
-                 root_volume_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 user_volume_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 volume_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_properties: Optional[pulumi.Input['WorkspacePropertiesArgs']] = None):
+                 root_volume_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 user_volume_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 volume_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_properties: pulumi.Input[Optional['WorkspacePropertiesArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
 
@@ -95,62 +95,62 @@ class WorkspaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="rootVolumeEncryptionEnabled")
-    def root_volume_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def root_volume_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the data stored on the root volume is encrypted.
         """
         return pulumi.get(self, "root_volume_encryption_enabled")
 
     @root_volume_encryption_enabled.setter
-    def root_volume_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def root_volume_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "root_volume_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the WorkSpace.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userVolumeEncryptionEnabled")
-    def user_volume_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def user_volume_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the data stored on the user volume is encrypted.
         """
         return pulumi.get(self, "user_volume_encryption_enabled")
 
     @user_volume_encryption_enabled.setter
-    def user_volume_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def user_volume_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "user_volume_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeEncryptionKey")
-    def volume_encryption_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_encryption_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The symmetric AWS KMS key used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric KMS keys.
         """
         return pulumi.get(self, "volume_encryption_key")
 
     @volume_encryption_key.setter
-    def volume_encryption_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_encryption_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_encryption_key", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceProperties")
-    def workspace_properties(self) -> Optional[pulumi.Input['WorkspacePropertiesArgs']]:
+    def workspace_properties(self) -> pulumi.Input[Optional['WorkspacePropertiesArgs']]:
         """
         The WorkSpace properties.
         """
         return pulumi.get(self, "workspace_properties")
 
     @workspace_properties.setter
-    def workspace_properties(self, value: Optional[pulumi.Input['WorkspacePropertiesArgs']]):
+    def workspace_properties(self, value: pulumi.Input[Optional['WorkspacePropertiesArgs']]):
         pulumi.set(self, "workspace_properties", value)
 
 
@@ -160,14 +160,14 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_volume_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_volume_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 volume_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_properties: Optional[pulumi.Input[Union['WorkspacePropertiesArgs', 'WorkspacePropertiesArgsDict']]] = None,
+                 bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_volume_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_volume_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 volume_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_properties: pulumi.Input[Optional[Union['WorkspacePropertiesArgs', 'WorkspacePropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::WorkSpaces::Workspace
@@ -209,14 +209,14 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_volume_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_volume_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 volume_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_properties: Optional[pulumi.Input[Union['WorkspacePropertiesArgs', 'WorkspacePropertiesArgsDict']]] = None,
+                 bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_volume_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_volume_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 volume_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_properties: pulumi.Input[Optional[Union['WorkspacePropertiesArgs', 'WorkspacePropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

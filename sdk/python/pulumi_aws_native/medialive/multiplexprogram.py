@@ -22,12 +22,12 @@ __all__ = ['MultiplexprogramArgs', 'Multiplexprogram']
 @pulumi.input_type
 class MultiplexprogramArgs:
     def __init__(__self__, *,
-                 multiplex_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 multiplex_program_settings: Optional[pulumi.Input['MultiplexprogramMultiplexProgramSettingsArgs']] = None,
-                 packet_identifiers_map: Optional[pulumi.Input['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs']] = None,
-                 pipeline_details: Optional[pulumi.Input[Sequence[pulumi.Input['MultiplexprogramMultiplexProgramPipelineDetailArgs']]]] = None,
-                 preferred_channel_pipeline: Optional[pulumi.Input['MultiplexprogramPreferredChannelPipeline']] = None,
-                 program_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 multiplex_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 multiplex_program_settings: pulumi.Input[Optional['MultiplexprogramMultiplexProgramSettingsArgs']] = None,
+                 packet_identifiers_map: pulumi.Input[Optional['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs']] = None,
+                 pipeline_details: pulumi.Input[Optional[Sequence[pulumi.Input['MultiplexprogramMultiplexProgramPipelineDetailArgs']]]] = None,
+                 preferred_channel_pipeline: pulumi.Input[Optional['MultiplexprogramPreferredChannelPipeline']] = None,
+                 program_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Multiplexprogram resource.
 
@@ -53,74 +53,74 @@ class MultiplexprogramArgs:
 
     @_builtins.property
     @pulumi.getter(name="multiplexId")
-    def multiplex_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def multiplex_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the multiplex that the program belongs to.
         """
         return pulumi.get(self, "multiplex_id")
 
     @multiplex_id.setter
-    def multiplex_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def multiplex_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "multiplex_id", value)
 
     @_builtins.property
     @pulumi.getter(name="multiplexProgramSettings")
-    def multiplex_program_settings(self) -> Optional[pulumi.Input['MultiplexprogramMultiplexProgramSettingsArgs']]:
+    def multiplex_program_settings(self) -> pulumi.Input[Optional['MultiplexprogramMultiplexProgramSettingsArgs']]:
         """
         The settings for this multiplex program.
         """
         return pulumi.get(self, "multiplex_program_settings")
 
     @multiplex_program_settings.setter
-    def multiplex_program_settings(self, value: Optional[pulumi.Input['MultiplexprogramMultiplexProgramSettingsArgs']]):
+    def multiplex_program_settings(self, value: pulumi.Input[Optional['MultiplexprogramMultiplexProgramSettingsArgs']]):
         pulumi.set(self, "multiplex_program_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="packetIdentifiersMap")
-    def packet_identifiers_map(self) -> Optional[pulumi.Input['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs']]:
+    def packet_identifiers_map(self) -> pulumi.Input[Optional['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs']]:
         """
         The packet identifier map for this multiplex program.
         """
         return pulumi.get(self, "packet_identifiers_map")
 
     @packet_identifiers_map.setter
-    def packet_identifiers_map(self, value: Optional[pulumi.Input['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs']]):
+    def packet_identifiers_map(self, value: pulumi.Input[Optional['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs']]):
         pulumi.set(self, "packet_identifiers_map", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineDetails")
-    def pipeline_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MultiplexprogramMultiplexProgramPipelineDetailArgs']]]]:
+    def pipeline_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MultiplexprogramMultiplexProgramPipelineDetailArgs']]]]:
         """
         Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
         """
         return pulumi.get(self, "pipeline_details")
 
     @pipeline_details.setter
-    def pipeline_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MultiplexprogramMultiplexProgramPipelineDetailArgs']]]]):
+    def pipeline_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MultiplexprogramMultiplexProgramPipelineDetailArgs']]]]):
         pulumi.set(self, "pipeline_details", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredChannelPipeline")
-    def preferred_channel_pipeline(self) -> Optional[pulumi.Input['MultiplexprogramPreferredChannelPipeline']]:
+    def preferred_channel_pipeline(self) -> pulumi.Input[Optional['MultiplexprogramPreferredChannelPipeline']]:
         """
         The settings for this multiplex program.
         """
         return pulumi.get(self, "preferred_channel_pipeline")
 
     @preferred_channel_pipeline.setter
-    def preferred_channel_pipeline(self, value: Optional[pulumi.Input['MultiplexprogramPreferredChannelPipeline']]):
+    def preferred_channel_pipeline(self, value: pulumi.Input[Optional['MultiplexprogramPreferredChannelPipeline']]):
         pulumi.set(self, "preferred_channel_pipeline", value)
 
     @_builtins.property
     @pulumi.getter(name="programName")
-    def program_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def program_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the multiplex program.
         """
         return pulumi.get(self, "program_name")
 
     @program_name.setter
-    def program_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def program_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "program_name", value)
 
 
@@ -130,12 +130,12 @@ class Multiplexprogram(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 multiplex_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 multiplex_program_settings: Optional[pulumi.Input[Union['MultiplexprogramMultiplexProgramSettingsArgs', 'MultiplexprogramMultiplexProgramSettingsArgsDict']]] = None,
-                 packet_identifiers_map: Optional[pulumi.Input[Union['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs', 'MultiplexprogramMultiplexProgramPacketIdentifiersMapArgsDict']]] = None,
-                 pipeline_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MultiplexprogramMultiplexProgramPipelineDetailArgs', 'MultiplexprogramMultiplexProgramPipelineDetailArgsDict']]]]] = None,
-                 preferred_channel_pipeline: Optional[pulumi.Input['MultiplexprogramPreferredChannelPipeline']] = None,
-                 program_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 multiplex_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 multiplex_program_settings: pulumi.Input[Optional[Union['MultiplexprogramMultiplexProgramSettingsArgs', 'MultiplexprogramMultiplexProgramSettingsArgsDict']]] = None,
+                 packet_identifiers_map: pulumi.Input[Optional[Union['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs', 'MultiplexprogramMultiplexProgramPacketIdentifiersMapArgsDict']]] = None,
+                 pipeline_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiplexprogramMultiplexProgramPipelineDetailArgs', 'MultiplexprogramMultiplexProgramPipelineDetailArgsDict']]]]] = None,
+                 preferred_channel_pipeline: pulumi.Input[Optional['MultiplexprogramPreferredChannelPipeline']] = None,
+                 program_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaLive::Multiplexprogram
@@ -175,12 +175,12 @@ class Multiplexprogram(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 multiplex_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 multiplex_program_settings: Optional[pulumi.Input[Union['MultiplexprogramMultiplexProgramSettingsArgs', 'MultiplexprogramMultiplexProgramSettingsArgsDict']]] = None,
-                 packet_identifiers_map: Optional[pulumi.Input[Union['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs', 'MultiplexprogramMultiplexProgramPacketIdentifiersMapArgsDict']]] = None,
-                 pipeline_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MultiplexprogramMultiplexProgramPipelineDetailArgs', 'MultiplexprogramMultiplexProgramPipelineDetailArgsDict']]]]] = None,
-                 preferred_channel_pipeline: Optional[pulumi.Input['MultiplexprogramPreferredChannelPipeline']] = None,
-                 program_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 multiplex_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 multiplex_program_settings: pulumi.Input[Optional[Union['MultiplexprogramMultiplexProgramSettingsArgs', 'MultiplexprogramMultiplexProgramSettingsArgsDict']]] = None,
+                 packet_identifiers_map: pulumi.Input[Optional[Union['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs', 'MultiplexprogramMultiplexProgramPacketIdentifiersMapArgsDict']]] = None,
+                 pipeline_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiplexprogramMultiplexProgramPipelineDetailArgs', 'MultiplexprogramMultiplexProgramPipelineDetailArgsDict']]]]] = None,
+                 preferred_channel_pipeline: pulumi.Input[Optional['MultiplexprogramPreferredChannelPipeline']] = None,
+                 program_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

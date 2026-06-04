@@ -28,10 +28,10 @@ class MatchingWorkflowArgs:
                  output_source_config: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowOutputSourceArgs']]],
                  resolution_techniques: pulumi.Input['MatchingWorkflowResolutionTechniquesArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 incremental_run_config: Optional[pulumi.Input['MatchingWorkflowIncrementalRunConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 workflow_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 incremental_run_config: pulumi.Input[Optional['MatchingWorkflowIncrementalRunConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MatchingWorkflow resource.
 
@@ -109,19 +109,19 @@ class MatchingWorkflowArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the MatchingWorkflow
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="incrementalRunConfig")
-    def incremental_run_config(self) -> Optional[pulumi.Input['MatchingWorkflowIncrementalRunConfigArgs']]:
+    def incremental_run_config(self) -> pulumi.Input[Optional['MatchingWorkflowIncrementalRunConfigArgs']]:
         """
         Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
 
@@ -130,31 +130,31 @@ class MatchingWorkflowArgs:
         return pulumi.get(self, "incremental_run_config")
 
     @incremental_run_config.setter
-    def incremental_run_config(self, value: Optional[pulumi.Input['MatchingWorkflowIncrementalRunConfigArgs']]):
+    def incremental_run_config(self, value: pulumi.Input[Optional['MatchingWorkflowIncrementalRunConfigArgs']]):
         pulumi.set(self, "incremental_run_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags used to organize, track, or control access for this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowName")
-    def workflow_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workflow_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the MatchingWorkflow
         """
         return pulumi.get(self, "workflow_name")
 
     @workflow_name.setter
-    def workflow_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workflow_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workflow_name", value)
 
 
@@ -164,14 +164,14 @@ class MatchingWorkflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 incremental_run_config: Optional[pulumi.Input[Union['MatchingWorkflowIncrementalRunConfigArgs', 'MatchingWorkflowIncrementalRunConfigArgsDict']]] = None,
-                 input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict']]]]] = None,
-                 output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict']]]]] = None,
-                 resolution_techniques: Optional[pulumi.Input[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 incremental_run_config: pulumi.Input[Optional[Union['MatchingWorkflowIncrementalRunConfigArgs', 'MatchingWorkflowIncrementalRunConfigArgsDict']]] = None,
+                 input_source_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict']]]]] = None,
+                 output_source_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict']]]]] = None,
+                 resolution_techniques: pulumi.Input[Optional[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         MatchingWorkflow defined in AWS Entity Resolution service
@@ -215,14 +215,14 @@ class MatchingWorkflow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 incremental_run_config: Optional[pulumi.Input[Union['MatchingWorkflowIncrementalRunConfigArgs', 'MatchingWorkflowIncrementalRunConfigArgsDict']]] = None,
-                 input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict']]]]] = None,
-                 output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict']]]]] = None,
-                 resolution_techniques: Optional[pulumi.Input[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 incremental_run_config: pulumi.Input[Optional[Union['MatchingWorkflowIncrementalRunConfigArgs', 'MatchingWorkflowIncrementalRunConfigArgsDict']]] = None,
+                 input_source_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict']]]]] = None,
+                 output_source_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict']]]]] = None,
+                 resolution_techniques: pulumi.Input[Optional[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

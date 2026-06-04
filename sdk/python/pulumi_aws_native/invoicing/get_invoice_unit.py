@@ -128,7 +128,7 @@ def get_invoice_unit(invoice_unit_arn: Optional[_builtins.str] = None,
         resource_tags=pulumi.get(__ret__, 'resource_tags'),
         rule=pulumi.get(__ret__, 'rule'),
         tax_inheritance_disabled=pulumi.get(__ret__, 'tax_inheritance_disabled'))
-def get_invoice_unit_output(invoice_unit_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_invoice_unit_output(invoice_unit_arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInvoiceUnitResult]:
     """
     An invoice unit is a set of mutually exclusive accounts that correspond to your business entity. Invoice units allow you to separate AWS account costs and configures your invoice for each business entity.

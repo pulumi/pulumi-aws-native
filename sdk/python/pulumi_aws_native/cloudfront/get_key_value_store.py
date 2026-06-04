@@ -114,7 +114,7 @@ def get_key_value_store(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_key_value_store_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_key_value_store_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyValueStoreResult]:
     """
     The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.

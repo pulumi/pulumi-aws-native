@@ -114,7 +114,7 @@ def get_network_insights_access_scope(network_insights_access_scope_id: Optional
         network_insights_access_scope_id=pulumi.get(__ret__, 'network_insights_access_scope_id'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_date=pulumi.get(__ret__, 'updated_date'))
-def get_network_insights_access_scope_output(network_insights_access_scope_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_insights_access_scope_output(network_insights_access_scope_id: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInsightsAccessScopeResult]:
     """
     Resource schema for AWS::EC2::NetworkInsightsAccessScope

@@ -114,7 +114,7 @@ def get_segment(arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         pattern=pulumi.get(__ret__, 'pattern'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_segment_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_segment_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSegmentResult]:
     """
     Resource Type definition for AWS::Evidently::Segment

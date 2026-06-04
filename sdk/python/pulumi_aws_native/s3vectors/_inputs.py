@@ -30,11 +30,11 @@ class IndexEncryptionConfigurationArgsDict(TypedDict):
     """
     The encryption configuration for the index.
     """
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
     """
-    sse_type: NotRequired[pulumi.Input['IndexEncryptionConfigurationSseType']]
+    sse_type: NotRequired[pulumi.Input[Optional['IndexEncryptionConfigurationSseType']]]
     """
     Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.
     """
@@ -42,8 +42,8 @@ class IndexEncryptionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class IndexEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sse_type: Optional[pulumi.Input['IndexEncryptionConfigurationSseType']] = None):
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sse_type: pulumi.Input[Optional['IndexEncryptionConfigurationSseType']] = None):
         """
         The encryption configuration for the index.
 
@@ -57,26 +57,26 @@ class IndexEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sseType")
-    def sse_type(self) -> Optional[pulumi.Input['IndexEncryptionConfigurationSseType']]:
+    def sse_type(self) -> pulumi.Input[Optional['IndexEncryptionConfigurationSseType']]:
         """
         Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.
         """
         return pulumi.get(self, "sse_type")
 
     @sse_type.setter
-    def sse_type(self, value: Optional[pulumi.Input['IndexEncryptionConfigurationSseType']]):
+    def sse_type(self, value: pulumi.Input[Optional['IndexEncryptionConfigurationSseType']]):
         pulumi.set(self, "sse_type", value)
 
 
@@ -84,7 +84,7 @@ class IndexMetadataConfigurationArgsDict(TypedDict):
     """
     The metadata configuration for the vector index.
     """
-    non_filterable_metadata_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    non_filterable_metadata_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Non-filterable metadata keys allow you to enrich vectors with additional context during storage and retrieval. Unlike default metadata keys, these keys cannot be used as query filters. Non-filterable metadata keys can be retrieved but cannot be searched, queried, or filtered. You can access non-filterable metadata keys of your vectors after finding the vectors.
     """
@@ -92,7 +92,7 @@ class IndexMetadataConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class IndexMetadataConfigurationArgs:
     def __init__(__self__, *,
-                 non_filterable_metadata_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 non_filterable_metadata_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The metadata configuration for the vector index.
 
@@ -103,14 +103,14 @@ class IndexMetadataConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="nonFilterableMetadataKeys")
-    def non_filterable_metadata_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def non_filterable_metadata_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Non-filterable metadata keys allow you to enrich vectors with additional context during storage and retrieval. Unlike default metadata keys, these keys cannot be used as query filters. Non-filterable metadata keys can be retrieved but cannot be searched, queried, or filtered. You can access non-filterable metadata keys of your vectors after finding the vectors.
         """
         return pulumi.get(self, "non_filterable_metadata_keys")
 
     @non_filterable_metadata_keys.setter
-    def non_filterable_metadata_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def non_filterable_metadata_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "non_filterable_metadata_keys", value)
 
 
@@ -118,11 +118,11 @@ class VectorBucketEncryptionConfigurationArgsDict(TypedDict):
     """
     The encryption configuration for the vector bucket.
     """
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
     """
-    sse_type: NotRequired[pulumi.Input['VectorBucketEncryptionConfigurationSseType']]
+    sse_type: NotRequired[pulumi.Input[Optional['VectorBucketEncryptionConfigurationSseType']]]
     """
     The server-side encryption type to use for the encryption configuration of the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically AES256.
     """
@@ -130,8 +130,8 @@ class VectorBucketEncryptionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class VectorBucketEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sse_type: Optional[pulumi.Input['VectorBucketEncryptionConfigurationSseType']] = None):
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sse_type: pulumi.Input[Optional['VectorBucketEncryptionConfigurationSseType']] = None):
         """
         The encryption configuration for the vector bucket.
 
@@ -145,26 +145,26 @@ class VectorBucketEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sseType")
-    def sse_type(self) -> Optional[pulumi.Input['VectorBucketEncryptionConfigurationSseType']]:
+    def sse_type(self) -> pulumi.Input[Optional['VectorBucketEncryptionConfigurationSseType']]:
         """
         The server-side encryption type to use for the encryption configuration of the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically AES256.
         """
         return pulumi.get(self, "sse_type")
 
     @sse_type.setter
-    def sse_type(self, value: Optional[pulumi.Input['VectorBucketEncryptionConfigurationSseType']]):
+    def sse_type(self, value: pulumi.Input[Optional['VectorBucketEncryptionConfigurationSseType']]):
         pulumi.set(self, "sse_type", value)
 
 

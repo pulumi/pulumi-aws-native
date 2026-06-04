@@ -115,7 +115,7 @@ def get_global_replication_group(global_replication_group_id: Optional[_builtins
         global_replication_group_id=pulumi.get(__ret__, 'global_replication_group_id'),
         members=pulumi.get(__ret__, 'members'),
         status=pulumi.get(__ret__, 'status'))
-def get_global_replication_group_output(global_replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_global_replication_group_output(global_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalReplicationGroupResult]:
     """
     The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.

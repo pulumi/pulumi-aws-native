@@ -128,7 +128,7 @@ def get_configuration_set(configuration_set_name: Optional[_builtins.str] = None
         message_feedback_enabled=pulumi.get(__ret__, 'message_feedback_enabled'),
         protect_configuration_id=pulumi.get(__ret__, 'protect_configuration_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_configuration_set_output(configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_set_output(configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationSetResult]:
     """
     Resource Type definition for AWS::SMSVOICE::ConfigurationSet

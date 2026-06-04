@@ -28,9 +28,9 @@ class CustomActionTypeArgs:
                  output_artifact_details: pulumi.Input['CustomActionTypeArtifactDetailsArgs'],
                  provider: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
-                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertiesArgs']]]] = None,
-                 settings: Optional[pulumi.Input['CustomActionTypeSettingsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 configuration_properties: pulumi.Input[Optional[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertiesArgs']]]] = None,
+                 settings: pulumi.Input[Optional['CustomActionTypeSettingsArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomActionType resource.
 
@@ -117,38 +117,38 @@ class CustomActionTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationProperties")
-    def configuration_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertiesArgs']]]]:
+    def configuration_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertiesArgs']]]]:
         """
         The configuration properties for the custom action.
         """
         return pulumi.get(self, "configuration_properties")
 
     @configuration_properties.setter
-    def configuration_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertiesArgs']]]]):
+    def configuration_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertiesArgs']]]]):
         pulumi.set(self, "configuration_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['CustomActionTypeSettingsArgs']]:
+    def settings(self) -> pulumi.Input[Optional['CustomActionTypeSettingsArgs']]:
         """
         URLs that provide users information about this custom action.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['CustomActionTypeSettingsArgs']]):
+    def settings(self, value: pulumi.Input[Optional['CustomActionTypeSettingsArgs']]):
         pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Any tags assigned to the custom action.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -158,14 +158,14 @@ class CustomActionType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertiesArgs', 'CustomActionTypeConfigurationPropertiesArgsDict']]]]] = None,
-                 input_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']]] = None,
-                 output_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']]] = None,
-                 provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertiesArgs', 'CustomActionTypeConfigurationPropertiesArgsDict']]]]] = None,
+                 input_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']]] = None,
+                 output_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']]] = None,
+                 provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline.
@@ -207,14 +207,14 @@ class CustomActionType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertiesArgs', 'CustomActionTypeConfigurationPropertiesArgsDict']]]]] = None,
-                 input_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']]] = None,
-                 output_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']]] = None,
-                 provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertiesArgs', 'CustomActionTypeConfigurationPropertiesArgsDict']]]]] = None,
+                 input_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']]] = None,
+                 output_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']]] = None,
+                 provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -193,7 +193,7 @@ def get_verified_access_group(verified_access_group_id: Optional[_builtins.str] 
         verified_access_group_arn=pulumi.get(__ret__, 'verified_access_group_arn'),
         verified_access_group_id=pulumi.get(__ret__, 'verified_access_group_id'),
         verified_access_instance_id=pulumi.get(__ret__, 'verified_access_instance_id'))
-def get_verified_access_group_output(verified_access_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_verified_access_group_output(verified_access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVerifiedAccessGroupResult]:
     """
     The AWS::EC2::VerifiedAccessGroup resource creates an AWS EC2 Verified Access Group.

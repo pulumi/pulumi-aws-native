@@ -173,7 +173,7 @@ def get_vpc(vpc_id: Optional[_builtins.str] = None,
         ipv6_cidr_blocks=pulumi.get(__ret__, 'ipv6_cidr_blocks'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_vpc_output(vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_output(vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcResult]:
     """
     Specifies a virtual private cloud (VPC).

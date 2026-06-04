@@ -136,7 +136,7 @@ def get_streaming_image(streaming_image_id: Optional[_builtins.str] = None,
         owner=pulumi.get(__ret__, 'owner'),
         platform=pulumi.get(__ret__, 'platform'),
         streaming_image_id=pulumi.get(__ret__, 'streaming_image_id'))
-def get_streaming_image_output(streaming_image_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_streaming_image_output(streaming_image_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamingImageResult]:
     """
     Resource Type definition for AWS::NimbleStudio::StreamingImage

@@ -34,15 +34,15 @@ class AssessmentAwsAccountArgsDict(TypedDict):
     """
     The AWS account associated with the assessment.
     """
-    email_address: NotRequired[pulumi.Input[_builtins.str]]
+    email_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The email address that's associated with the AWS account .
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier for the AWS account .
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the AWS account .
     """
@@ -50,9 +50,9 @@ class AssessmentAwsAccountArgsDict(TypedDict):
 @pulumi.input_type
 class AssessmentAwsAccountArgs:
     def __init__(__self__, *,
-                 email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The AWS account associated with the assessment.
 
@@ -69,38 +69,38 @@ class AssessmentAwsAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailAddress")
-    def email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address that's associated with the AWS account .
         """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
-    def email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the AWS account .
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the AWS account .
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -108,7 +108,7 @@ class AssessmentAwsServiceArgsDict(TypedDict):
     """
     An AWS service such as Amazon S3, AWS CloudTrail, and so on.
     """
-    service_name: NotRequired[pulumi.Input[_builtins.str]]
+    service_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the AWS service .
     """
@@ -116,7 +116,7 @@ class AssessmentAwsServiceArgsDict(TypedDict):
 @pulumi.input_type
 class AssessmentAwsServiceArgs:
     def __init__(__self__, *,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An AWS service such as Amazon S3, AWS CloudTrail, and so on.
 
@@ -127,14 +127,14 @@ class AssessmentAwsServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the AWS service .
         """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
-    def service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_name", value)
 
 
@@ -142,23 +142,23 @@ class AssessmentDelegationArgsDict(TypedDict):
     """
     The assignment of a control set to a delegate for review.
     """
-    assessment_id: NotRequired[pulumi.Input[_builtins.str]]
+    assessment_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier for the assessment that's associated with the delegation.
     """
-    assessment_name: NotRequired[pulumi.Input[_builtins.str]]
+    assessment_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the assessment that's associated with the delegation.
     """
-    comment: NotRequired[pulumi.Input[_builtins.str]]
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The comment that's related to the delegation.
     """
-    control_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    control_set_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier for the control set that's associated with the delegation.
     """
-    created_by: NotRequired[pulumi.Input[_builtins.str]]
+    created_by: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The user or role that created the delegation.
 
@@ -168,23 +168,23 @@ class AssessmentDelegationArgsDict(TypedDict):
 
     *Pattern* : `^[a-zA-Z0-9-_()\\\\[\\\\]\\\\s]+$`
     """
-    creation_time: NotRequired[pulumi.Input[_builtins.float]]
+    creation_time: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Specifies when the delegation was created.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique identifier for the delegation.
     """
-    last_updated: NotRequired[pulumi.Input[_builtins.float]]
+    last_updated: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Specifies when the delegation was last updated.
     """
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the IAM role.
     """
-    role_type: NotRequired[pulumi.Input['AssessmentRoleType']]
+    role_type: NotRequired[pulumi.Input[Optional['AssessmentRoleType']]]
     """
     The type of customer persona.
 
@@ -194,7 +194,7 @@ class AssessmentDelegationArgsDict(TypedDict):
     > 
     > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
     """
-    status: NotRequired[pulumi.Input['AssessmentDelegationStatus']]
+    status: NotRequired[pulumi.Input[Optional['AssessmentDelegationStatus']]]
     """
     The status of the delegation.
     """
@@ -202,17 +202,17 @@ class AssessmentDelegationArgsDict(TypedDict):
 @pulumi.input_type
 class AssessmentDelegationArgs:
     def __init__(__self__, *,
-                 assessment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 control_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 creation_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated: Optional[pulumi.Input[_builtins.float]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_type: Optional[pulumi.Input['AssessmentRoleType']] = None,
-                 status: Optional[pulumi.Input['AssessmentDelegationStatus']] = None):
+                 assessment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 creation_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated: pulumi.Input[Optional[_builtins.float]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_type: pulumi.Input[Optional['AssessmentRoleType']] = None,
+                 status: pulumi.Input[Optional['AssessmentDelegationStatus']] = None):
         """
         The assignment of a control set to a delegate for review.
 
@@ -265,55 +265,55 @@ class AssessmentDelegationArgs:
 
     @_builtins.property
     @pulumi.getter(name="assessmentId")
-    def assessment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assessment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the assessment that's associated with the delegation.
         """
         return pulumi.get(self, "assessment_id")
 
     @assessment_id.setter
-    def assessment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assessment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assessment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="assessmentName")
-    def assessment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the assessment that's associated with the delegation.
         """
         return pulumi.get(self, "assessment_name")
 
     @assessment_name.setter
-    def assessment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The comment that's related to the delegation.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="controlSetId")
-    def control_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the control set that's associated with the delegation.
         """
         return pulumi.get(self, "control_set_id")
 
     @control_set_id.setter
-    def control_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user or role that created the delegation.
 
@@ -326,60 +326,60 @@ class AssessmentDelegationArgs:
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def creation_time(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies when the delegation was created.
         """
         return pulumi.get(self, "creation_time")
 
     @creation_time.setter
-    def creation_time(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def creation_time(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "creation_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier for the delegation.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdated")
-    def last_updated(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def last_updated(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies when the delegation was last updated.
         """
         return pulumi.get(self, "last_updated")
 
     @last_updated.setter
-    def last_updated(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def last_updated(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "last_updated", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the IAM role.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="roleType")
-    def role_type(self) -> Optional[pulumi.Input['AssessmentRoleType']]:
+    def role_type(self) -> pulumi.Input[Optional['AssessmentRoleType']]:
         """
         The type of customer persona.
 
@@ -392,19 +392,19 @@ class AssessmentDelegationArgs:
         return pulumi.get(self, "role_type")
 
     @role_type.setter
-    def role_type(self, value: Optional[pulumi.Input['AssessmentRoleType']]):
+    def role_type(self, value: pulumi.Input[Optional['AssessmentRoleType']]):
         pulumi.set(self, "role_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['AssessmentDelegationStatus']]:
+    def status(self) -> pulumi.Input[Optional['AssessmentDelegationStatus']]:
         """
         The status of the delegation.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['AssessmentDelegationStatus']]):
+    def status(self, value: pulumi.Input[Optional['AssessmentDelegationStatus']]):
         pulumi.set(self, "status", value)
 
 
@@ -412,11 +412,11 @@ class AssessmentReportsDestinationArgsDict(TypedDict):
     """
     The destination in which evidence reports are stored for the specified assessment.
     """
-    destination: NotRequired[pulumi.Input[_builtins.str]]
+    destination: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The destination bucket where Audit Manager stores assessment reports.
     """
-    destination_type: NotRequired[pulumi.Input['AssessmentReportDestinationType']]
+    destination_type: NotRequired[pulumi.Input[Optional['AssessmentReportDestinationType']]]
     """
     The destination type, such as Amazon S3.
     """
@@ -424,8 +424,8 @@ class AssessmentReportsDestinationArgsDict(TypedDict):
 @pulumi.input_type
 class AssessmentReportsDestinationArgs:
     def __init__(__self__, *,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_type: Optional[pulumi.Input['AssessmentReportDestinationType']] = None):
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_type: pulumi.Input[Optional['AssessmentReportDestinationType']] = None):
         """
         The destination in which evidence reports are stored for the specified assessment.
 
@@ -439,26 +439,26 @@ class AssessmentReportsDestinationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The destination bucket where Audit Manager stores assessment reports.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationType")
-    def destination_type(self) -> Optional[pulumi.Input['AssessmentReportDestinationType']]:
+    def destination_type(self) -> pulumi.Input[Optional['AssessmentReportDestinationType']]:
         """
         The destination type, such as Amazon S3.
         """
         return pulumi.get(self, "destination_type")
 
     @destination_type.setter
-    def destination_type(self, value: Optional[pulumi.Input['AssessmentReportDestinationType']]):
+    def destination_type(self, value: pulumi.Input[Optional['AssessmentReportDestinationType']]):
         pulumi.set(self, "destination_type", value)
 
 
@@ -466,11 +466,11 @@ class AssessmentRoleArgsDict(TypedDict):
     """
     The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
     """
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the IAM role.
     """
-    role_type: NotRequired[pulumi.Input['AssessmentRoleType']]
+    role_type: NotRequired[pulumi.Input[Optional['AssessmentRoleType']]]
     """
     The type of customer persona.
 
@@ -484,8 +484,8 @@ class AssessmentRoleArgsDict(TypedDict):
 @pulumi.input_type
 class AssessmentRoleArgs:
     def __init__(__self__, *,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_type: Optional[pulumi.Input['AssessmentRoleType']] = None):
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_type: pulumi.Input[Optional['AssessmentRoleType']] = None):
         """
         The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
 
@@ -505,19 +505,19 @@ class AssessmentRoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the IAM role.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="roleType")
-    def role_type(self) -> Optional[pulumi.Input['AssessmentRoleType']]:
+    def role_type(self) -> pulumi.Input[Optional['AssessmentRoleType']]:
         """
         The type of customer persona.
 
@@ -530,7 +530,7 @@ class AssessmentRoleArgs:
         return pulumi.get(self, "role_type")
 
     @role_type.setter
-    def role_type(self, value: Optional[pulumi.Input['AssessmentRoleType']]):
+    def role_type(self, value: pulumi.Input[Optional['AssessmentRoleType']]):
         pulumi.set(self, "role_type", value)
 
 
@@ -538,11 +538,11 @@ class AssessmentScopeArgsDict(TypedDict):
     """
     The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
     """
-    aws_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsAccountArgsDict']]]]
+    aws_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentAwsAccountArgsDict']]]]]
     """
     The AWS accounts included in scope.
     """
-    aws_services: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsServiceArgsDict']]]]
+    aws_services: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentAwsServiceArgsDict']]]]]
     """
     The AWS services included in scope.
     """
@@ -550,8 +550,8 @@ class AssessmentScopeArgsDict(TypedDict):
 @pulumi.input_type
 class AssessmentScopeArgs:
     def __init__(__self__, *,
-                 aws_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsAccountArgs']]]] = None,
-                 aws_services: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsServiceArgs']]]] = None):
+                 aws_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentAwsAccountArgs']]]] = None,
+                 aws_services: pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentAwsServiceArgs']]]] = None):
         """
         The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
 
@@ -565,26 +565,26 @@ class AssessmentScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsAccounts")
-    def aws_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsAccountArgs']]]]:
+    def aws_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentAwsAccountArgs']]]]:
         """
         The AWS accounts included in scope.
         """
         return pulumi.get(self, "aws_accounts")
 
     @aws_accounts.setter
-    def aws_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsAccountArgs']]]]):
+    def aws_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentAwsAccountArgs']]]]):
         pulumi.set(self, "aws_accounts", value)
 
     @_builtins.property
     @pulumi.getter(name="awsServices")
-    def aws_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsServiceArgs']]]]:
+    def aws_services(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentAwsServiceArgs']]]]:
         """
         The AWS services included in scope.
         """
         return pulumi.get(self, "aws_services")
 
     @aws_services.setter
-    def aws_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsServiceArgs']]]]):
+    def aws_services(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentAwsServiceArgs']]]]):
         pulumi.set(self, "aws_services", value)
 
 

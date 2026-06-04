@@ -193,7 +193,7 @@ def get_repository_creation_template(prefix: Optional[_builtins.str] = None,
         repository_policy=pulumi.get(__ret__, 'repository_policy'),
         resource_tags=pulumi.get(__ret__, 'resource_tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_repository_creation_template_output(prefix: Optional[pulumi.Input[_builtins.str]] = None,
+def get_repository_creation_template_output(prefix: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryCreationTemplateResult]:
     """
     The details of the repository creation template associated with the request.

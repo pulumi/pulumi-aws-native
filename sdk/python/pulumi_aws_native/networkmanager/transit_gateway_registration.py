@@ -61,8 +61,8 @@ class TransitGatewayRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 global_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AWS::NetworkManager::TransitGatewayRegistration type registers a transit gateway in your global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
@@ -98,8 +98,8 @@ class TransitGatewayRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 global_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -118,7 +118,7 @@ def get_firewall_policy(firewall_policy_arn: Optional[_builtins.str] = None,
         firewall_policy_arn=pulumi.get(__ret__, 'firewall_policy_arn'),
         firewall_policy_id=pulumi.get(__ret__, 'firewall_policy_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_firewall_policy_output(firewall_policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_policy_output(firewall_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyResult]:
     """
     Resource type definition for AWS::NetworkFirewall::FirewallPolicy

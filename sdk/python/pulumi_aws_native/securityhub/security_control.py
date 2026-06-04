@@ -23,9 +23,9 @@ __all__ = ['SecurityControlArgs', 'SecurityControl']
 class SecurityControlArgs:
     def __init__(__self__, *,
                  parameters: pulumi.Input[Mapping[str, pulumi.Input['SecurityControlParameterConfigurationArgs']]],
-                 last_update_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_control_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_control_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 last_update_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_control_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityControl resource.
 
@@ -56,38 +56,38 @@ class SecurityControlArgs:
 
     @_builtins.property
     @pulumi.getter(name="lastUpdateReason")
-    def last_update_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_update_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The most recent reason for updating the customizable properties of a security control. This differs from the UpdateReason field of the BatchUpdateStandardsControlAssociations API, which tracks the reason for updating the enablement status of a control. This field accepts alphanumeric characters in addition to white spaces, dashes, and underscores.
         """
         return pulumi.get(self, "last_update_reason")
 
     @last_update_reason.setter
-    def last_update_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_update_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_update_reason", value)
 
     @_builtins.property
     @pulumi.getter(name="securityControlArn")
-    def security_control_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_control_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for a security control across standards, such as `arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1`. This parameter doesn't mention a specific standard.
         """
         return pulumi.get(self, "security_control_arn")
 
     @security_control_arn.setter
-    def security_control_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_control_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_control_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="securityControlId")
-    def security_control_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_control_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of a security control across standards. Values for this field typically consist of an AWS service name and a number, such as APIGateway.3.
         """
         return pulumi.get(self, "security_control_id")
 
     @security_control_id.setter
-    def security_control_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_control_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_control_id", value)
 
 
@@ -97,10 +97,10 @@ class SecurityControl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 last_update_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['SecurityControlParameterConfigurationArgs', 'SecurityControlParameterConfigurationArgsDict']]]]] = None,
-                 security_control_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_control_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 last_update_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['SecurityControlParameterConfigurationArgs', 'SecurityControlParameterConfigurationArgsDict']]]]] = None,
+                 security_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_control_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A security control in Security Hub describes a security best practice related to a specific resource.
@@ -138,10 +138,10 @@ class SecurityControl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 last_update_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['SecurityControlParameterConfigurationArgs', 'SecurityControlParameterConfigurationArgsDict']]]]] = None,
-                 security_control_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_control_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 last_update_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['SecurityControlParameterConfigurationArgs', 'SecurityControlParameterConfigurationArgsDict']]]]] = None,
+                 security_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_control_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

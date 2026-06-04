@@ -147,7 +147,7 @@ def get_vpn_connection(vpn_connection_id: Optional[_builtins.str] = None,
         vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'),
         vpn_gateway_id=pulumi.get(__ret__, 'vpn_gateway_id'),
         vpn_tunnel_options_specifications=pulumi.get(__ret__, 'vpn_tunnel_options_specifications'))
-def get_vpn_connection_output(vpn_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpn_connection_output(vpn_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnConnectionResult]:
     """
     Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.

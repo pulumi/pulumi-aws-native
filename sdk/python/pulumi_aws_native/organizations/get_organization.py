@@ -140,7 +140,7 @@ def get_organization(id: Optional[_builtins.str] = None,
         management_account_email=pulumi.get(__ret__, 'management_account_email'),
         management_account_id=pulumi.get(__ret__, 'management_account_id'),
         root_id=pulumi.get(__ret__, 'root_id'))
-def get_organization_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_organization_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationResult]:
     """
     Resource schema for AWS::Organizations::Organization

@@ -99,8 +99,8 @@ def get_event_invoke_config(function_name: Optional[_builtins.str] = None,
         destination_config=pulumi.get(__ret__, 'destination_config'),
         maximum_event_age_in_seconds=pulumi.get(__ret__, 'maximum_event_age_in_seconds'),
         maximum_retry_attempts=pulumi.get(__ret__, 'maximum_retry_attempts'))
-def get_event_invoke_config_output(function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   qualifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_invoke_config_output(function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   qualifier: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventInvokeConfigResult]:
     """
     The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.

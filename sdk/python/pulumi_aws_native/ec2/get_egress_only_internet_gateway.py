@@ -75,7 +75,7 @@ def get_egress_only_internet_gateway(id: Optional[_builtins.str] = None,
     return AwaitableGetEgressOnlyInternetGatewayResult(
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_egress_only_internet_gateway_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_egress_only_internet_gateway_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEgressOnlyInternetGatewayResult]:
     """
     Resource Type definition for AWS::EC2::EgressOnlyInternetGateway

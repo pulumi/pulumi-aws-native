@@ -64,8 +64,8 @@ def get_collection_index(id: Optional[_builtins.str] = None,
 
     return AwaitableGetCollectionIndexResult(
         index_schema=pulumi.get(__ret__, 'index_schema'))
-def get_collection_index_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                                index_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_collection_index_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                                index_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCollectionIndexResult]:
     """
     Resource schema for AWS::OpenSearchServerless::CollectionIndex

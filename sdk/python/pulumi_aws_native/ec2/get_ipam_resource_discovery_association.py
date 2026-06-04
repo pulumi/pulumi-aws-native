@@ -166,7 +166,7 @@ def get_ipam_resource_discovery_association(ipam_resource_discovery_association_
         resource_discovery_status=pulumi.get(__ret__, 'resource_discovery_status'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_ipam_resource_discovery_association_output(ipam_resource_discovery_association_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ipam_resource_discovery_association_output(ipam_resource_discovery_association_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamResourceDiscoveryAssociationResult]:
     """
     Resource Schema of AWS::EC2::IPAMResourceDiscoveryAssociation Type

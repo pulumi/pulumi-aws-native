@@ -146,8 +146,8 @@ def get_scaling_policy(arn: Optional[_builtins.str] = None,
         predictive_scaling_policy_configuration=pulumi.get(__ret__, 'predictive_scaling_policy_configuration'),
         step_scaling_policy_configuration=pulumi.get(__ret__, 'step_scaling_policy_configuration'),
         target_tracking_scaling_policy_configuration=pulumi.get(__ret__, 'target_tracking_scaling_policy_configuration'))
-def get_scaling_policy_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                              scalable_dimension: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scaling_policy_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                              scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScalingPolicyResult]:
     """
     The ``AWS::ApplicationAutoScaling::ScalingPolicy`` resource defines a scaling policy that Application Auto Scaling uses to adjust the capacity of a scalable target.

@@ -21,8 +21,8 @@ __all__ = ['TrustStoreRevocationArgs', 'TrustStoreRevocation']
 @pulumi.input_type
 class TrustStoreRevocationArgs:
     def __init__(__self__, *,
-                 revocation_contents: Optional[pulumi.Input[Sequence[pulumi.Input['TrustStoreRevocationRevocationContentArgs']]]] = None,
-                 trust_store_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 revocation_contents: pulumi.Input[Optional[Sequence[pulumi.Input['TrustStoreRevocationRevocationContentArgs']]]] = None,
+                 trust_store_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrustStoreRevocation resource.
 
@@ -36,26 +36,26 @@ class TrustStoreRevocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="revocationContents")
-    def revocation_contents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrustStoreRevocationRevocationContentArgs']]]]:
+    def revocation_contents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrustStoreRevocationRevocationContentArgs']]]]:
         """
         The attributes required to create a trust store revocation.
         """
         return pulumi.get(self, "revocation_contents")
 
     @revocation_contents.setter
-    def revocation_contents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrustStoreRevocationRevocationContentArgs']]]]):
+    def revocation_contents(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrustStoreRevocationRevocationContentArgs']]]]):
         pulumi.set(self, "revocation_contents", value)
 
     @_builtins.property
     @pulumi.getter(name="trustStoreArn")
-    def trust_store_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust_store_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the trust store.
         """
         return pulumi.get(self, "trust_store_arn")
 
     @trust_store_arn.setter
-    def trust_store_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust_store_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust_store_arn", value)
 
 
@@ -65,8 +65,8 @@ class TrustStoreRevocation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 revocation_contents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrustStoreRevocationRevocationContentArgs', 'TrustStoreRevocationRevocationContentArgsDict']]]]] = None,
-                 trust_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 revocation_contents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrustStoreRevocationRevocationContentArgs', 'TrustStoreRevocationRevocationContentArgsDict']]]]] = None,
+                 trust_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStoreRevocation
@@ -102,8 +102,8 @@ class TrustStoreRevocation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 revocation_contents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrustStoreRevocationRevocationContentArgs', 'TrustStoreRevocationRevocationContentArgsDict']]]]] = None,
-                 trust_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 revocation_contents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrustStoreRevocationRevocationContentArgs', 'TrustStoreRevocationRevocationContentArgsDict']]]]] = None,
+                 trust_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -26,11 +26,11 @@ class DetectorModelArgs:
     def __init__(__self__, *,
                  detector_model_definition: pulumi.Input['DetectorModelDefinitionArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 detector_model_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detector_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_method: Optional[pulumi.Input['DetectorModelEvaluationMethod']] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 detector_model_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detector_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_method: pulumi.Input[Optional['DetectorModelEvaluationMethod']] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DetectorModel resource.
 
@@ -83,43 +83,43 @@ class DetectorModelArgs:
 
     @_builtins.property
     @pulumi.getter(name="detectorModelDescription")
-    def detector_model_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def detector_model_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A brief description of the detector model.
         """
         return pulumi.get(self, "detector_model_description")
 
     @detector_model_description.setter
-    def detector_model_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def detector_model_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "detector_model_description", value)
 
     @_builtins.property
     @pulumi.getter(name="detectorModelName")
-    def detector_model_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def detector_model_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the detector model.
         """
         return pulumi.get(self, "detector_model_name")
 
     @detector_model_name.setter
-    def detector_model_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def detector_model_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "detector_model_name", value)
 
     @_builtins.property
     @pulumi.getter(name="evaluationMethod")
-    def evaluation_method(self) -> Optional[pulumi.Input['DetectorModelEvaluationMethod']]:
+    def evaluation_method(self) -> pulumi.Input[Optional['DetectorModelEvaluationMethod']]:
         """
         Information about the order in which events are evaluated and how actions are executed.
         """
         return pulumi.get(self, "evaluation_method")
 
     @evaluation_method.setter
-    def evaluation_method(self, value: Optional[pulumi.Input['DetectorModelEvaluationMethod']]):
+    def evaluation_method(self, value: pulumi.Input[Optional['DetectorModelEvaluationMethod']]):
         pulumi.set(self, "evaluation_method", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. ITE can continue to route input to its corresponding detector instance based on this identifying information. 
          This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct detector instance, the device must send a message payload that contains the same attribute-value.
@@ -127,12 +127,12 @@ class DetectorModelArgs:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
          For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
@@ -140,7 +140,7 @@ class DetectorModelArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -150,13 +150,13 @@ class DetectorModel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 detector_model_definition: Optional[pulumi.Input[Union['DetectorModelDefinitionArgs', 'DetectorModelDefinitionArgsDict']]] = None,
-                 detector_model_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detector_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_method: Optional[pulumi.Input['DetectorModelEvaluationMethod']] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 detector_model_definition: pulumi.Input[Optional[Union['DetectorModelDefinitionArgs', 'DetectorModelDefinitionArgsDict']]] = None,
+                 detector_model_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detector_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_method: pulumi.Input[Optional['DetectorModelEvaluationMethod']] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::IoTEvents::DetectorModel resource creates a detector model. You create a *detector model* (a model of your equipment or process) using *states*. For each state, you define conditional (Boolean) logic that evaluates the incoming inputs to detect significant events. When an event is detected, it can change the state or trigger custom-built or predefined actions using other AWS services. You can define additional events that trigger actions when entering or exiting a state and, optionally, when a condition is met. For more information, see [How to Use](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *Developer Guide*.
@@ -207,13 +207,13 @@ class DetectorModel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 detector_model_definition: Optional[pulumi.Input[Union['DetectorModelDefinitionArgs', 'DetectorModelDefinitionArgsDict']]] = None,
-                 detector_model_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detector_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_method: Optional[pulumi.Input['DetectorModelEvaluationMethod']] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 detector_model_definition: pulumi.Input[Optional[Union['DetectorModelDefinitionArgs', 'DetectorModelDefinitionArgsDict']]] = None,
+                 detector_model_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detector_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_method: pulumi.Input[Optional['DetectorModelEvaluationMethod']] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

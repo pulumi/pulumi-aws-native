@@ -54,13 +54,13 @@ class PackageGroupOriginConfigurationArgs:
 
 class PackageGroupRestrictionTypeArgsDict(TypedDict):
     restriction_mode: pulumi.Input['PackageGroupRestrictionTypeRestrictionMode']
-    repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class PackageGroupRestrictionTypeArgs:
     def __init__(__self__, *,
                  restriction_mode: pulumi.Input['PackageGroupRestrictionTypeRestrictionMode'],
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "restriction_mode", restriction_mode)
         if repositories is not None:
             pulumi.set(__self__, "repositories", repositories)
@@ -76,24 +76,24 @@ class PackageGroupRestrictionTypeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def repositories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "repositories")
 
     @repositories.setter
-    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def repositories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "repositories", value)
 
 
 class PackageGroupRestrictionsArgsDict(TypedDict):
-    external_upstream: NotRequired[pulumi.Input['PackageGroupRestrictionTypeArgsDict']]
+    external_upstream: NotRequired[pulumi.Input[Optional['PackageGroupRestrictionTypeArgsDict']]]
     """
     The external upstream restriction determines if new package versions can be ingested or retained from external connections.
     """
-    internal_upstream: NotRequired[pulumi.Input['PackageGroupRestrictionTypeArgsDict']]
+    internal_upstream: NotRequired[pulumi.Input[Optional['PackageGroupRestrictionTypeArgsDict']]]
     """
     The internal upstream restriction determines if new package versions can be ingested or retained from upstream repositories.
     """
-    publish: NotRequired[pulumi.Input['PackageGroupRestrictionTypeArgsDict']]
+    publish: NotRequired[pulumi.Input[Optional['PackageGroupRestrictionTypeArgsDict']]]
     """
     The publish restriction determines if new package versions can be published.
     """
@@ -101,9 +101,9 @@ class PackageGroupRestrictionsArgsDict(TypedDict):
 @pulumi.input_type
 class PackageGroupRestrictionsArgs:
     def __init__(__self__, *,
-                 external_upstream: Optional[pulumi.Input['PackageGroupRestrictionTypeArgs']] = None,
-                 internal_upstream: Optional[pulumi.Input['PackageGroupRestrictionTypeArgs']] = None,
-                 publish: Optional[pulumi.Input['PackageGroupRestrictionTypeArgs']] = None):
+                 external_upstream: pulumi.Input[Optional['PackageGroupRestrictionTypeArgs']] = None,
+                 internal_upstream: pulumi.Input[Optional['PackageGroupRestrictionTypeArgs']] = None,
+                 publish: pulumi.Input[Optional['PackageGroupRestrictionTypeArgs']] = None):
         """
         :param pulumi.Input['PackageGroupRestrictionTypeArgs'] external_upstream: The external upstream restriction determines if new package versions can be ingested or retained from external connections.
         :param pulumi.Input['PackageGroupRestrictionTypeArgs'] internal_upstream: The internal upstream restriction determines if new package versions can be ingested or retained from upstream repositories.
@@ -118,38 +118,38 @@ class PackageGroupRestrictionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="externalUpstream")
-    def external_upstream(self) -> Optional[pulumi.Input['PackageGroupRestrictionTypeArgs']]:
+    def external_upstream(self) -> pulumi.Input[Optional['PackageGroupRestrictionTypeArgs']]:
         """
         The external upstream restriction determines if new package versions can be ingested or retained from external connections.
         """
         return pulumi.get(self, "external_upstream")
 
     @external_upstream.setter
-    def external_upstream(self, value: Optional[pulumi.Input['PackageGroupRestrictionTypeArgs']]):
+    def external_upstream(self, value: pulumi.Input[Optional['PackageGroupRestrictionTypeArgs']]):
         pulumi.set(self, "external_upstream", value)
 
     @_builtins.property
     @pulumi.getter(name="internalUpstream")
-    def internal_upstream(self) -> Optional[pulumi.Input['PackageGroupRestrictionTypeArgs']]:
+    def internal_upstream(self) -> pulumi.Input[Optional['PackageGroupRestrictionTypeArgs']]:
         """
         The internal upstream restriction determines if new package versions can be ingested or retained from upstream repositories.
         """
         return pulumi.get(self, "internal_upstream")
 
     @internal_upstream.setter
-    def internal_upstream(self, value: Optional[pulumi.Input['PackageGroupRestrictionTypeArgs']]):
+    def internal_upstream(self, value: pulumi.Input[Optional['PackageGroupRestrictionTypeArgs']]):
         pulumi.set(self, "internal_upstream", value)
 
     @_builtins.property
     @pulumi.getter
-    def publish(self) -> Optional[pulumi.Input['PackageGroupRestrictionTypeArgs']]:
+    def publish(self) -> pulumi.Input[Optional['PackageGroupRestrictionTypeArgs']]:
         """
         The publish restriction determines if new package versions can be published.
         """
         return pulumi.get(self, "publish")
 
     @publish.setter
-    def publish(self, value: Optional[pulumi.Input['PackageGroupRestrictionTypeArgs']]):
+    def publish(self, value: pulumi.Input[Optional['PackageGroupRestrictionTypeArgs']]):
         pulumi.set(self, "publish", value)
 
 

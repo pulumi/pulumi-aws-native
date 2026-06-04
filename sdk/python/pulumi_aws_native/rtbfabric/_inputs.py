@@ -18,22 +18,22 @@ from ._enums import *
 __all__ = [
     'InboundExternalLinkLinkAttributesArgs',
     'InboundExternalLinkLinkAttributesArgsDict',
-    'InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs',
-    'InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict',
-    'InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs',
-    'InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict',
     'InboundExternalLinkLinkLogSettingsArgs',
     'InboundExternalLinkLinkLogSettingsArgsDict',
+    'InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs',
+    'InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict',
+    'InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs',
+    'InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict',
     'InboundExternalLinkResponderErrorMaskingForHttpCodeArgs',
     'InboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict',
     'LinkAttributesArgs',
     'LinkAttributesArgsDict',
-    'LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs',
-    'LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict',
-    'LinkLogSettingsApplicationLogsPropertiesArgs',
-    'LinkLogSettingsApplicationLogsPropertiesArgsDict',
     'LinkLogSettingsArgs',
     'LinkLogSettingsArgsDict',
+    'LinkLogSettingsApplicationLogsPropertiesArgs',
+    'LinkLogSettingsApplicationLogsPropertiesArgsDict',
+    'LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs',
+    'LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict',
     'LinkModuleConfigurationArgs',
     'LinkModuleConfigurationArgsDict',
     'LinkModuleParametersArgs',
@@ -42,12 +42,12 @@ __all__ = [
     'LinkResponderErrorMaskingForHttpCodeArgsDict',
     'OutboundExternalLinkLinkAttributesArgs',
     'OutboundExternalLinkLinkAttributesArgsDict',
-    'OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs',
-    'OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict',
-    'OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs',
-    'OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict',
     'OutboundExternalLinkLinkLogSettingsArgs',
     'OutboundExternalLinkLinkLogSettingsArgsDict',
+    'OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs',
+    'OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict',
+    'OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs',
+    'OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict',
     'OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs',
     'OutboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict',
     'ResponderGatewayManagedEndpointConfigurationArgs',
@@ -57,14 +57,14 @@ __all__ = [
 ]
 
 class InboundExternalLinkLinkAttributesArgsDict(TypedDict):
-    customer_provided_id: NotRequired[pulumi.Input[_builtins.str]]
-    responder_error_masking: NotRequired[pulumi.Input[Sequence[pulumi.Input['InboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict']]]]
+    customer_provided_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    responder_error_masking: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict']]]]]
 
 @pulumi.input_type
 class InboundExternalLinkLinkAttributesArgs:
     def __init__(__self__, *,
-                 customer_provided_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 responder_error_masking: Optional[pulumi.Input[Sequence[pulumi.Input['InboundExternalLinkResponderErrorMaskingForHttpCodeArgs']]]] = None):
+                 customer_provided_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 responder_error_masking: pulumi.Input[Optional[Sequence[pulumi.Input['InboundExternalLinkResponderErrorMaskingForHttpCodeArgs']]]] = None):
         if customer_provided_id is not None:
             pulumi.set(__self__, "customer_provided_id", customer_provided_id)
         if responder_error_masking is not None:
@@ -72,21 +72,59 @@ class InboundExternalLinkLinkAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerProvidedId")
-    def customer_provided_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_provided_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "customer_provided_id")
 
     @customer_provided_id.setter
-    def customer_provided_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_provided_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_provided_id", value)
 
     @_builtins.property
     @pulumi.getter(name="responderErrorMasking")
-    def responder_error_masking(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InboundExternalLinkResponderErrorMaskingForHttpCodeArgs']]]]:
+    def responder_error_masking(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InboundExternalLinkResponderErrorMaskingForHttpCodeArgs']]]]:
         return pulumi.get(self, "responder_error_masking")
 
     @responder_error_masking.setter
-    def responder_error_masking(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InboundExternalLinkResponderErrorMaskingForHttpCodeArgs']]]]):
+    def responder_error_masking(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InboundExternalLinkResponderErrorMaskingForHttpCodeArgs']]]]):
         pulumi.set(self, "responder_error_masking", value)
+
+
+class InboundExternalLinkLinkLogSettingsArgsDict(TypedDict):
+    application_logs: pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict']
+
+@pulumi.input_type
+class InboundExternalLinkLinkLogSettingsArgs:
+    def __init__(__self__, *,
+                 application_logs: pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs']):
+        pulumi.set(__self__, "application_logs", application_logs)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationLogs")
+    def application_logs(self) -> pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs']:
+        return pulumi.get(self, "application_logs")
+
+    @application_logs.setter
+    def application_logs(self, value: pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs']):
+        pulumi.set(self, "application_logs", value)
+
+
+class InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict(TypedDict):
+    link_application_log_sampling: pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict']
+
+@pulumi.input_type
+class InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs:
+    def __init__(__self__, *,
+                 link_application_log_sampling: pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']):
+        pulumi.set(__self__, "link_application_log_sampling", link_application_log_sampling)
+
+    @_builtins.property
+    @pulumi.getter(name="linkApplicationLogSampling")
+    def link_application_log_sampling(self) -> pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']:
+        return pulumi.get(self, "link_application_log_sampling")
+
+    @link_application_log_sampling.setter
+    def link_application_log_sampling(self, value: pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']):
+        pulumi.set(self, "link_application_log_sampling", value)
 
 
 class InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict(TypedDict):
@@ -120,49 +158,11 @@ class InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplication
         pulumi.set(self, "filter_log", value)
 
 
-class InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict(TypedDict):
-    link_application_log_sampling: pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict']
-
-@pulumi.input_type
-class InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs:
-    def __init__(__self__, *,
-                 link_application_log_sampling: pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']):
-        pulumi.set(__self__, "link_application_log_sampling", link_application_log_sampling)
-
-    @_builtins.property
-    @pulumi.getter(name="linkApplicationLogSampling")
-    def link_application_log_sampling(self) -> pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']:
-        return pulumi.get(self, "link_application_log_sampling")
-
-    @link_application_log_sampling.setter
-    def link_application_log_sampling(self, value: pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']):
-        pulumi.set(self, "link_application_log_sampling", value)
-
-
-class InboundExternalLinkLinkLogSettingsArgsDict(TypedDict):
-    application_logs: pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict']
-
-@pulumi.input_type
-class InboundExternalLinkLinkLogSettingsArgs:
-    def __init__(__self__, *,
-                 application_logs: pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs']):
-        pulumi.set(__self__, "application_logs", application_logs)
-
-    @_builtins.property
-    @pulumi.getter(name="applicationLogs")
-    def application_logs(self) -> pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs']:
-        return pulumi.get(self, "application_logs")
-
-    @application_logs.setter
-    def application_logs(self, value: pulumi.Input['InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs']):
-        pulumi.set(self, "application_logs", value)
-
-
 class InboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict(TypedDict):
     action: pulumi.Input['InboundExternalLinkResponderErrorMaskingForHttpCodeAction']
     http_code: pulumi.Input[_builtins.str]
     logging_types: pulumi.Input[Sequence[pulumi.Input['InboundExternalLinkResponderErrorMaskingLoggingType']]]
-    response_logging_percentage: NotRequired[pulumi.Input[_builtins.float]]
+    response_logging_percentage: NotRequired[pulumi.Input[Optional[_builtins.float]]]
 
 @pulumi.input_type
 class InboundExternalLinkResponderErrorMaskingForHttpCodeArgs:
@@ -170,7 +170,7 @@ class InboundExternalLinkResponderErrorMaskingForHttpCodeArgs:
                  action: pulumi.Input['InboundExternalLinkResponderErrorMaskingForHttpCodeAction'],
                  http_code: pulumi.Input[_builtins.str],
                  logging_types: pulumi.Input[Sequence[pulumi.Input['InboundExternalLinkResponderErrorMaskingLoggingType']]],
-                 response_logging_percentage: Optional[pulumi.Input[_builtins.float]] = None):
+                 response_logging_percentage: pulumi.Input[Optional[_builtins.float]] = None):
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "http_code", http_code)
         pulumi.set(__self__, "logging_types", logging_types)
@@ -206,20 +206,20 @@ class InboundExternalLinkResponderErrorMaskingForHttpCodeArgs:
 
     @_builtins.property
     @pulumi.getter(name="responseLoggingPercentage")
-    def response_logging_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def response_logging_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "response_logging_percentage")
 
     @response_logging_percentage.setter
-    def response_logging_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def response_logging_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "response_logging_percentage", value)
 
 
 class LinkAttributesArgsDict(TypedDict):
-    customer_provided_id: NotRequired[pulumi.Input[_builtins.str]]
+    customer_provided_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The customer-provided unique identifier of the link.
     """
-    responder_error_masking: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingForHttpCodeArgsDict']]]]
+    responder_error_masking: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinkResponderErrorMaskingForHttpCodeArgsDict']]]]]
     """
     Describes the masking for HTTP error codes.
     """
@@ -227,8 +227,8 @@ class LinkAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class LinkAttributesArgs:
     def __init__(__self__, *,
-                 customer_provided_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 responder_error_masking: Optional[pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingForHttpCodeArgs']]]] = None):
+                 customer_provided_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 responder_error_masking: pulumi.Input[Optional[Sequence[pulumi.Input['LinkResponderErrorMaskingForHttpCodeArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] customer_provided_id: The customer-provided unique identifier of the link.
         :param pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingForHttpCodeArgs']]] responder_error_masking: Describes the masking for HTTP error codes.
@@ -240,27 +240,80 @@ class LinkAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerProvidedId")
-    def customer_provided_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_provided_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer-provided unique identifier of the link.
         """
         return pulumi.get(self, "customer_provided_id")
 
     @customer_provided_id.setter
-    def customer_provided_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_provided_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_provided_id", value)
 
     @_builtins.property
     @pulumi.getter(name="responderErrorMasking")
-    def responder_error_masking(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingForHttpCodeArgs']]]]:
+    def responder_error_masking(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinkResponderErrorMaskingForHttpCodeArgs']]]]:
         """
         Describes the masking for HTTP error codes.
         """
         return pulumi.get(self, "responder_error_masking")
 
     @responder_error_masking.setter
-    def responder_error_masking(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingForHttpCodeArgs']]]]):
+    def responder_error_masking(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinkResponderErrorMaskingForHttpCodeArgs']]]]):
         pulumi.set(self, "responder_error_masking", value)
+
+
+class LinkLogSettingsArgsDict(TypedDict):
+    application_logs: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgsDict']
+    """
+    Describes the configuration of a link application log.
+    """
+
+@pulumi.input_type
+class LinkLogSettingsArgs:
+    def __init__(__self__, *,
+                 application_logs: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgs']):
+        """
+        :param pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgs'] application_logs: Describes the configuration of a link application log.
+        """
+        pulumi.set(__self__, "application_logs", application_logs)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationLogs")
+    def application_logs(self) -> pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgs']:
+        """
+        Describes the configuration of a link application log.
+        """
+        return pulumi.get(self, "application_logs")
+
+    @application_logs.setter
+    def application_logs(self, value: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgs']):
+        pulumi.set(self, "application_logs", value)
+
+
+class LinkLogSettingsApplicationLogsPropertiesArgsDict(TypedDict):
+    """
+    Describes the configuration of a link application log.
+    """
+    link_application_log_sampling: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict']
+
+@pulumi.input_type
+class LinkLogSettingsApplicationLogsPropertiesArgs:
+    def __init__(__self__, *,
+                 link_application_log_sampling: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']):
+        """
+        Describes the configuration of a link application log.
+        """
+        pulumi.set(__self__, "link_application_log_sampling", link_application_log_sampling)
+
+    @_builtins.property
+    @pulumi.getter(name="linkApplicationLogSampling")
+    def link_application_log_sampling(self) -> pulumi.Input['LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']:
+        return pulumi.get(self, "link_application_log_sampling")
+
+    @link_application_log_sampling.setter
+    def link_application_log_sampling(self, value: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']):
+        pulumi.set(self, "link_application_log_sampling", value)
 
 
 class LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict(TypedDict):
@@ -294,72 +347,19 @@ class LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperti
         pulumi.set(self, "filter_log", value)
 
 
-class LinkLogSettingsApplicationLogsPropertiesArgsDict(TypedDict):
-    """
-    Describes the configuration of a link application log.
-    """
-    link_application_log_sampling: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict']
-
-@pulumi.input_type
-class LinkLogSettingsApplicationLogsPropertiesArgs:
-    def __init__(__self__, *,
-                 link_application_log_sampling: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']):
-        """
-        Describes the configuration of a link application log.
-        """
-        pulumi.set(__self__, "link_application_log_sampling", link_application_log_sampling)
-
-    @_builtins.property
-    @pulumi.getter(name="linkApplicationLogSampling")
-    def link_application_log_sampling(self) -> pulumi.Input['LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']:
-        return pulumi.get(self, "link_application_log_sampling")
-
-    @link_application_log_sampling.setter
-    def link_application_log_sampling(self, value: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']):
-        pulumi.set(self, "link_application_log_sampling", value)
-
-
-class LinkLogSettingsArgsDict(TypedDict):
-    application_logs: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgsDict']
-    """
-    Describes the configuration of a link application log.
-    """
-
-@pulumi.input_type
-class LinkLogSettingsArgs:
-    def __init__(__self__, *,
-                 application_logs: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgs']):
-        """
-        :param pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgs'] application_logs: Describes the configuration of a link application log.
-        """
-        pulumi.set(__self__, "application_logs", application_logs)
-
-    @_builtins.property
-    @pulumi.getter(name="applicationLogs")
-    def application_logs(self) -> pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgs']:
-        """
-        Describes the configuration of a link application log.
-        """
-        return pulumi.get(self, "application_logs")
-
-    @application_logs.setter
-    def application_logs(self, value: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgs']):
-        pulumi.set(self, "application_logs", value)
-
-
 class LinkModuleConfigurationArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
-    depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    module_parameters: NotRequired[pulumi.Input['LinkModuleParametersArgsDict']]
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    depends_on: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    module_parameters: NotRequired[pulumi.Input[Optional['LinkModuleParametersArgsDict']]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class LinkModuleConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 module_parameters: Optional[pulumi.Input['LinkModuleParametersArgs']] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 depends_on: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 module_parameters: pulumi.Input[Optional['LinkModuleParametersArgs']] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "name", name)
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
@@ -379,29 +379,29 @@ class LinkModuleConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def depends_on(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "depends_on")
 
     @depends_on.setter
-    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def depends_on(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "depends_on", value)
 
     @_builtins.property
     @pulumi.getter(name="moduleParameters")
-    def module_parameters(self) -> Optional[pulumi.Input['LinkModuleParametersArgs']]:
+    def module_parameters(self) -> pulumi.Input[Optional['LinkModuleParametersArgs']]:
         return pulumi.get(self, "module_parameters")
 
     @module_parameters.setter
-    def module_parameters(self, value: Optional[pulumi.Input['LinkModuleParametersArgs']]):
+    def module_parameters(self, value: pulumi.Input[Optional['LinkModuleParametersArgs']]):
         pulumi.set(self, "module_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -427,7 +427,7 @@ class LinkResponderErrorMaskingForHttpCodeArgsDict(TypedDict):
     """
     The error log type.
     """
-    response_logging_percentage: NotRequired[pulumi.Input[_builtins.float]]
+    response_logging_percentage: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The percentage of response logging.
     """
@@ -438,7 +438,7 @@ class LinkResponderErrorMaskingForHttpCodeArgs:
                  action: pulumi.Input['LinkResponderErrorMaskingForHttpCodeAction'],
                  http_code: pulumi.Input[_builtins.str],
                  logging_types: pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingLoggingType']]],
-                 response_logging_percentage: Optional[pulumi.Input[_builtins.float]] = None):
+                 response_logging_percentage: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input['LinkResponderErrorMaskingForHttpCodeAction'] action: The action for the error..
         :param pulumi.Input[_builtins.str] http_code: The HTTP error code.
@@ -489,26 +489,26 @@ class LinkResponderErrorMaskingForHttpCodeArgs:
 
     @_builtins.property
     @pulumi.getter(name="responseLoggingPercentage")
-    def response_logging_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def response_logging_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The percentage of response logging.
         """
         return pulumi.get(self, "response_logging_percentage")
 
     @response_logging_percentage.setter
-    def response_logging_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def response_logging_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "response_logging_percentage", value)
 
 
 class OutboundExternalLinkLinkAttributesArgsDict(TypedDict):
-    customer_provided_id: NotRequired[pulumi.Input[_builtins.str]]
-    responder_error_masking: NotRequired[pulumi.Input[Sequence[pulumi.Input['OutboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict']]]]
+    customer_provided_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    responder_error_masking: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OutboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict']]]]]
 
 @pulumi.input_type
 class OutboundExternalLinkLinkAttributesArgs:
     def __init__(__self__, *,
-                 customer_provided_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 responder_error_masking: Optional[pulumi.Input[Sequence[pulumi.Input['OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs']]]] = None):
+                 customer_provided_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 responder_error_masking: pulumi.Input[Optional[Sequence[pulumi.Input['OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs']]]] = None):
         if customer_provided_id is not None:
             pulumi.set(__self__, "customer_provided_id", customer_provided_id)
         if responder_error_masking is not None:
@@ -516,21 +516,59 @@ class OutboundExternalLinkLinkAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerProvidedId")
-    def customer_provided_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_provided_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "customer_provided_id")
 
     @customer_provided_id.setter
-    def customer_provided_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_provided_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_provided_id", value)
 
     @_builtins.property
     @pulumi.getter(name="responderErrorMasking")
-    def responder_error_masking(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs']]]]:
+    def responder_error_masking(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs']]]]:
         return pulumi.get(self, "responder_error_masking")
 
     @responder_error_masking.setter
-    def responder_error_masking(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs']]]]):
+    def responder_error_masking(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs']]]]):
         pulumi.set(self, "responder_error_masking", value)
+
+
+class OutboundExternalLinkLinkLogSettingsArgsDict(TypedDict):
+    application_logs: pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict']
+
+@pulumi.input_type
+class OutboundExternalLinkLinkLogSettingsArgs:
+    def __init__(__self__, *,
+                 application_logs: pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs']):
+        pulumi.set(__self__, "application_logs", application_logs)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationLogs")
+    def application_logs(self) -> pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs']:
+        return pulumi.get(self, "application_logs")
+
+    @application_logs.setter
+    def application_logs(self, value: pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs']):
+        pulumi.set(self, "application_logs", value)
+
+
+class OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict(TypedDict):
+    link_application_log_sampling: pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict']
+
+@pulumi.input_type
+class OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs:
+    def __init__(__self__, *,
+                 link_application_log_sampling: pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']):
+        pulumi.set(__self__, "link_application_log_sampling", link_application_log_sampling)
+
+    @_builtins.property
+    @pulumi.getter(name="linkApplicationLogSampling")
+    def link_application_log_sampling(self) -> pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']:
+        return pulumi.get(self, "link_application_log_sampling")
+
+    @link_application_log_sampling.setter
+    def link_application_log_sampling(self, value: pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']):
+        pulumi.set(self, "link_application_log_sampling", value)
 
 
 class OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict(TypedDict):
@@ -564,49 +602,11 @@ class OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicatio
         pulumi.set(self, "filter_log", value)
 
 
-class OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict(TypedDict):
-    link_application_log_sampling: pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict']
-
-@pulumi.input_type
-class OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs:
-    def __init__(__self__, *,
-                 link_application_log_sampling: pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']):
-        pulumi.set(__self__, "link_application_log_sampling", link_application_log_sampling)
-
-    @_builtins.property
-    @pulumi.getter(name="linkApplicationLogSampling")
-    def link_application_log_sampling(self) -> pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']:
-        return pulumi.get(self, "link_application_log_sampling")
-
-    @link_application_log_sampling.setter
-    def link_application_log_sampling(self, value: pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']):
-        pulumi.set(self, "link_application_log_sampling", value)
-
-
-class OutboundExternalLinkLinkLogSettingsArgsDict(TypedDict):
-    application_logs: pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgsDict']
-
-@pulumi.input_type
-class OutboundExternalLinkLinkLogSettingsArgs:
-    def __init__(__self__, *,
-                 application_logs: pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs']):
-        pulumi.set(__self__, "application_logs", application_logs)
-
-    @_builtins.property
-    @pulumi.getter(name="applicationLogs")
-    def application_logs(self) -> pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs']:
-        return pulumi.get(self, "application_logs")
-
-    @application_logs.setter
-    def application_logs(self, value: pulumi.Input['OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs']):
-        pulumi.set(self, "application_logs", value)
-
-
 class OutboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict(TypedDict):
     action: pulumi.Input['OutboundExternalLinkResponderErrorMaskingForHttpCodeAction']
     http_code: pulumi.Input[_builtins.str]
     logging_types: pulumi.Input[Sequence[pulumi.Input['OutboundExternalLinkResponderErrorMaskingLoggingType']]]
-    response_logging_percentage: NotRequired[pulumi.Input[_builtins.float]]
+    response_logging_percentage: NotRequired[pulumi.Input[Optional[_builtins.float]]]
 
 @pulumi.input_type
 class OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs:
@@ -614,7 +614,7 @@ class OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs:
                  action: pulumi.Input['OutboundExternalLinkResponderErrorMaskingForHttpCodeAction'],
                  http_code: pulumi.Input[_builtins.str],
                  logging_types: pulumi.Input[Sequence[pulumi.Input['OutboundExternalLinkResponderErrorMaskingLoggingType']]],
-                 response_logging_percentage: Optional[pulumi.Input[_builtins.float]] = None):
+                 response_logging_percentage: pulumi.Input[Optional[_builtins.float]] = None):
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "http_code", http_code)
         pulumi.set(__self__, "logging_types", logging_types)
@@ -650,11 +650,11 @@ class OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs:
 
     @_builtins.property
     @pulumi.getter(name="responseLoggingPercentage")
-    def response_logging_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def response_logging_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "response_logging_percentage")
 
     @response_logging_percentage.setter
-    def response_logging_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def response_logging_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "response_logging_percentage", value)
 
 

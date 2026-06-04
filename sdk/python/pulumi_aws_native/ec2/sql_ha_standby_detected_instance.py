@@ -21,7 +21,7 @@ __all__ = ['SqlHaStandbyDetectedInstanceArgs', 'SqlHaStandbyDetectedInstance']
 class SqlHaStandbyDetectedInstanceArgs:
     def __init__(__self__, *,
                  instance_id: pulumi.Input[_builtins.str],
-                 sql_server_credentials: Optional[pulumi.Input[_builtins.str]] = None):
+                 sql_server_credentials: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlHaStandbyDetectedInstance resource.
         """
@@ -40,11 +40,11 @@ class SqlHaStandbyDetectedInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="sqlServerCredentials")
-    def sql_server_credentials(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql_server_credentials(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "sql_server_credentials")
 
     @sql_server_credentials.setter
-    def sql_server_credentials(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql_server_credentials(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_server_credentials", value)
 
 
@@ -54,8 +54,8 @@ class SqlHaStandbyDetectedInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_server_credentials: Optional[pulumi.Input[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_server_credentials: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::SqlHaStandbyDetectedInstance
@@ -89,8 +89,8 @@ class SqlHaStandbyDetectedInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_server_credentials: Optional[pulumi.Input[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_server_credentials: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

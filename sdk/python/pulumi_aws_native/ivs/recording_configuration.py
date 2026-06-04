@@ -25,11 +25,11 @@ __all__ = ['RecordingConfigurationArgs', 'RecordingConfiguration']
 class RecordingConfigurationArgs:
     def __init__(__self__, *,
                  destination_configuration: pulumi.Input['RecordingConfigurationDestinationConfigurationArgs'],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recording_reconnect_window_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 rendition_configuration: Optional[pulumi.Input['RecordingConfigurationRenditionConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recording_reconnect_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 rendition_configuration: pulumi.Input[Optional['RecordingConfigurationRenditionConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 thumbnail_configuration: pulumi.Input[Optional['RecordingConfigurationThumbnailConfigurationArgs']] = None):
         """
         The set of arguments for constructing a RecordingConfiguration resource.
 
@@ -66,62 +66,62 @@ class RecordingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Recording Configuration Name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="recordingReconnectWindowSeconds")
-    def recording_reconnect_window_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def recording_reconnect_window_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Recording Reconnect Window Seconds. (0 means disabled)
         """
         return pulumi.get(self, "recording_reconnect_window_seconds")
 
     @recording_reconnect_window_seconds.setter
-    def recording_reconnect_window_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def recording_reconnect_window_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "recording_reconnect_window_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="renditionConfiguration")
-    def rendition_configuration(self) -> Optional[pulumi.Input['RecordingConfigurationRenditionConfigurationArgs']]:
+    def rendition_configuration(self) -> pulumi.Input[Optional['RecordingConfigurationRenditionConfigurationArgs']]:
         """
         A rendition configuration describes which renditions should be recorded for a stream. See the RenditionConfiguration property type for more information.
         """
         return pulumi.get(self, "rendition_configuration")
 
     @rendition_configuration.setter
-    def rendition_configuration(self, value: Optional[pulumi.Input['RecordingConfigurationRenditionConfigurationArgs']]):
+    def rendition_configuration(self, value: pulumi.Input[Optional['RecordingConfigurationRenditionConfigurationArgs']]):
         pulumi.set(self, "rendition_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the asset model.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="thumbnailConfiguration")
-    def thumbnail_configuration(self) -> Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']]:
+    def thumbnail_configuration(self) -> pulumi.Input[Optional['RecordingConfigurationThumbnailConfigurationArgs']]:
         """
         A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the ThumbnailConfiguration property type for more information.
         """
         return pulumi.get(self, "thumbnail_configuration")
 
     @thumbnail_configuration.setter
-    def thumbnail_configuration(self, value: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']]):
+    def thumbnail_configuration(self, value: pulumi.Input[Optional['RecordingConfigurationThumbnailConfigurationArgs']]):
         pulumi.set(self, "thumbnail_configuration", value)
 
 
@@ -131,12 +131,12 @@ class RecordingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_configuration: Optional[pulumi.Input[Union['RecordingConfigurationDestinationConfigurationArgs', 'RecordingConfigurationDestinationConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recording_reconnect_window_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 rendition_configuration: Optional[pulumi.Input[Union['RecordingConfigurationRenditionConfigurationArgs', 'RecordingConfigurationRenditionConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 thumbnail_configuration: Optional[pulumi.Input[Union['RecordingConfigurationThumbnailConfigurationArgs', 'RecordingConfigurationThumbnailConfigurationArgsDict']]] = None,
+                 destination_configuration: pulumi.Input[Optional[Union['RecordingConfigurationDestinationConfigurationArgs', 'RecordingConfigurationDestinationConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recording_reconnect_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 rendition_configuration: pulumi.Input[Optional[Union['RecordingConfigurationRenditionConfigurationArgs', 'RecordingConfigurationRenditionConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 thumbnail_configuration: pulumi.Input[Optional[Union['RecordingConfigurationThumbnailConfigurationArgs', 'RecordingConfigurationThumbnailConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IVS::RecordingConfiguration
@@ -176,12 +176,12 @@ class RecordingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_configuration: Optional[pulumi.Input[Union['RecordingConfigurationDestinationConfigurationArgs', 'RecordingConfigurationDestinationConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recording_reconnect_window_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 rendition_configuration: Optional[pulumi.Input[Union['RecordingConfigurationRenditionConfigurationArgs', 'RecordingConfigurationRenditionConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 thumbnail_configuration: Optional[pulumi.Input[Union['RecordingConfigurationThumbnailConfigurationArgs', 'RecordingConfigurationThumbnailConfigurationArgsDict']]] = None,
+                 destination_configuration: pulumi.Input[Optional[Union['RecordingConfigurationDestinationConfigurationArgs', 'RecordingConfigurationDestinationConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recording_reconnect_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 rendition_configuration: pulumi.Input[Optional[Union['RecordingConfigurationRenditionConfigurationArgs', 'RecordingConfigurationRenditionConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 thumbnail_configuration: pulumi.Input[Optional[Union['RecordingConfigurationThumbnailConfigurationArgs', 'RecordingConfigurationThumbnailConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

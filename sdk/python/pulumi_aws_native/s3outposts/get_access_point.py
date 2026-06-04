@@ -76,7 +76,7 @@ def get_access_point(arn: Optional[_builtins.str] = None,
     return AwaitableGetAccessPointResult(
         arn=pulumi.get(__ret__, 'arn'),
         policy=pulumi.get(__ret__, 'policy'))
-def get_access_point_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_point_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
     Resource Type Definition for AWS::S3Outposts::AccessPoint

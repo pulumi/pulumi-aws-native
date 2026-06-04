@@ -88,7 +88,7 @@ def get_vdm_attributes(vdm_attributes_resource_id: Optional[_builtins.str] = Non
         dashboard_attributes=pulumi.get(__ret__, 'dashboard_attributes'),
         guardian_attributes=pulumi.get(__ret__, 'guardian_attributes'),
         vdm_attributes_resource_id=pulumi.get(__ret__, 'vdm_attributes_resource_id'))
-def get_vdm_attributes_output(vdm_attributes_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vdm_attributes_output(vdm_attributes_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVdmAttributesResult]:
     """
     Resource Type definition for AWS::SES::VdmAttributes

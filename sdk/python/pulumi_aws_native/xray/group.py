@@ -23,10 +23,10 @@ __all__ = ['GroupArgs', 'Group']
 @pulumi.input_type
 class GroupArgs:
     def __init__(__self__, *,
-                 filter_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 insights_configuration: Optional[pulumi.Input['GroupInsightsConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 filter_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 insights_configuration: pulumi.Input[Optional['GroupInsightsConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Group resource.
 
@@ -49,31 +49,31 @@ class GroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="filterExpression")
-    def filter_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filter expression defining criteria by which to group traces.
         """
         return pulumi.get(self, "filter_expression")
 
     @filter_expression.setter
-    def filter_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The case-sensitive name of the new group. Names must be unique.
         """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
-    def group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="insightsConfiguration")
-    def insights_configuration(self) -> Optional[pulumi.Input['GroupInsightsConfigurationArgs']]:
+    def insights_configuration(self) -> pulumi.Input[Optional['GroupInsightsConfigurationArgs']]:
         """
         The structure containing configurations related to insights.
 
@@ -83,19 +83,19 @@ class GroupArgs:
         return pulumi.get(self, "insights_configuration")
 
     @insights_configuration.setter
-    def insights_configuration(self, value: Optional[pulumi.Input['GroupInsightsConfigurationArgs']]):
+    def insights_configuration(self, value: pulumi.Input[Optional['GroupInsightsConfigurationArgs']]):
         pulumi.set(self, "insights_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -105,10 +105,10 @@ class Group(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filter_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 insights_configuration: Optional[pulumi.Input[Union['GroupInsightsConfigurationArgs', 'GroupInsightsConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 filter_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 insights_configuration: pulumi.Input[Optional[Union['GroupInsightsConfigurationArgs', 'GroupInsightsConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         This schema provides construct and validation rules for AWS-XRay Group resource parameters.
@@ -213,10 +213,10 @@ class Group(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filter_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 insights_configuration: Optional[pulumi.Input[Union['GroupInsightsConfigurationArgs', 'GroupInsightsConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 filter_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 insights_configuration: pulumi.Input[Optional[Union['GroupInsightsConfigurationArgs', 'GroupInsightsConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

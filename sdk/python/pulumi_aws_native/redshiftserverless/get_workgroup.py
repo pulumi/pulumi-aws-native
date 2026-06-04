@@ -168,7 +168,7 @@ def get_workgroup(workgroup_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         track_name=pulumi.get(__ret__, 'track_name'),
         workgroup=pulumi.get(__ret__, 'workgroup'))
-def get_workgroup_output(workgroup_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workgroup_output(workgroup_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkgroupResult]:
     """
     Definition of AWS::RedshiftServerless::Workgroup Resource Type

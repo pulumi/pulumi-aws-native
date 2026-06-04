@@ -180,7 +180,7 @@ def get_ipam_resource_discovery(ipam_resource_discovery_id: Optional[_builtins.s
         owner_id=pulumi.get(__ret__, 'owner_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_ipam_resource_discovery_output(ipam_resource_discovery_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ipam_resource_discovery_output(ipam_resource_discovery_id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamResourceDiscoveryResult]:
     """
     Resource Schema of AWS::EC2::IPAMResourceDiscovery Type

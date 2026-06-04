@@ -26,16 +26,16 @@ class TaskArgs:
     def __init__(__self__, *,
                  destination_location_arn: pulumi.Input[_builtins.str],
                  source_location_arn: pulumi.Input[_builtins.str],
-                 cloud_watch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]] = None,
-                 includes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]] = None,
-                 manifest_config: Optional[pulumi.Input['TaskManifestConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input['TaskOptionsArgs']] = None,
-                 schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 task_mode: Optional[pulumi.Input['TaskMode']] = None,
-                 task_report_config: Optional[pulumi.Input['TaskReportConfigArgs']] = None):
+                 cloud_watch_log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 excludes: pulumi.Input[Optional[Sequence[pulumi.Input['TaskFilterRuleArgs']]]] = None,
+                 includes: pulumi.Input[Optional[Sequence[pulumi.Input['TaskFilterRuleArgs']]]] = None,
+                 manifest_config: pulumi.Input[Optional['TaskManifestConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional['TaskOptionsArgs']] = None,
+                 schedule: pulumi.Input[Optional['TaskScheduleArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 task_mode: pulumi.Input[Optional['TaskMode']] = None,
+                 task_report_config: pulumi.Input[Optional['TaskReportConfigArgs']] = None):
         """
         The set of arguments for constructing a Task resource.
 
@@ -101,122 +101,122 @@ class TaskArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchLogGroupArn")
-    def cloud_watch_log_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_watch_log_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
         """
         return pulumi.get(self, "cloud_watch_log_group_arn")
 
     @cloud_watch_log_group_arn.setter
-    def cloud_watch_log_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_watch_log_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_watch_log_group_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]]:
+    def excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TaskFilterRuleArgs']]]]:
         """
         Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
         """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
-    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]]):
+    def excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TaskFilterRuleArgs']]]]):
         pulumi.set(self, "excludes", value)
 
     @_builtins.property
     @pulumi.getter
-    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]]:
+    def includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TaskFilterRuleArgs']]]]:
         """
         Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
         """
         return pulumi.get(self, "includes")
 
     @includes.setter
-    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]]):
+    def includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TaskFilterRuleArgs']]]]):
         pulumi.set(self, "includes", value)
 
     @_builtins.property
     @pulumi.getter(name="manifestConfig")
-    def manifest_config(self) -> Optional[pulumi.Input['TaskManifestConfigArgs']]:
+    def manifest_config(self) -> pulumi.Input[Optional['TaskManifestConfigArgs']]:
         """
         The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
         """
         return pulumi.get(self, "manifest_config")
 
     @manifest_config.setter
-    def manifest_config(self, value: Optional[pulumi.Input['TaskManifestConfigArgs']]):
+    def manifest_config(self, value: pulumi.Input[Optional['TaskManifestConfigArgs']]):
         pulumi.set(self, "manifest_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a task. This value is a text reference that is used to identify the task in the console.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input['TaskOptionsArgs']]:
+    def options(self) -> pulumi.Input[Optional['TaskOptionsArgs']]:
         """
         Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input['TaskOptionsArgs']]):
+    def options(self, value: pulumi.Input[Optional['TaskOptionsArgs']]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['TaskScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['TaskScheduleArgs']]:
         """
         Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['TaskScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['TaskScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="taskMode")
-    def task_mode(self) -> Optional[pulumi.Input['TaskMode']]:
+    def task_mode(self) -> pulumi.Input[Optional['TaskMode']]:
         """
         Specifies the task mode for the task.
         """
         return pulumi.get(self, "task_mode")
 
     @task_mode.setter
-    def task_mode(self, value: Optional[pulumi.Input['TaskMode']]):
+    def task_mode(self, value: pulumi.Input[Optional['TaskMode']]):
         pulumi.set(self, "task_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="taskReportConfig")
-    def task_report_config(self) -> Optional[pulumi.Input['TaskReportConfigArgs']]:
+    def task_report_config(self) -> pulumi.Input[Optional['TaskReportConfigArgs']]:
         """
         The configuration of your task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
         """
         return pulumi.get(self, "task_report_config")
 
     @task_report_config.setter
-    def task_report_config(self, value: Optional[pulumi.Input['TaskReportConfigArgs']]):
+    def task_report_config(self, value: pulumi.Input[Optional['TaskReportConfigArgs']]):
         pulumi.set(self, "task_report_config", value)
 
 
@@ -226,18 +226,18 @@ class Task(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_watch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_location_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]]] = None,
-                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]]] = None,
-                 manifest_config: Optional[pulumi.Input[Union['TaskManifestConfigArgs', 'TaskManifestConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']]] = None,
-                 schedule: Optional[pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']]] = None,
-                 source_location_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 task_mode: Optional[pulumi.Input['TaskMode']] = None,
-                 task_report_config: Optional[pulumi.Input[Union['TaskReportConfigArgs', 'TaskReportConfigArgsDict']]] = None,
+                 cloud_watch_log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 excludes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]]] = None,
+                 includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]]] = None,
+                 manifest_config: pulumi.Input[Optional[Union['TaskManifestConfigArgs', 'TaskManifestConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']]] = None,
+                 source_location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 task_mode: pulumi.Input[Optional['TaskMode']] = None,
+                 task_report_config: pulumi.Input[Optional[Union['TaskReportConfigArgs', 'TaskReportConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::Task.
@@ -331,18 +331,18 @@ class Task(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_watch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_location_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]]] = None,
-                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]]] = None,
-                 manifest_config: Optional[pulumi.Input[Union['TaskManifestConfigArgs', 'TaskManifestConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']]] = None,
-                 schedule: Optional[pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']]] = None,
-                 source_location_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 task_mode: Optional[pulumi.Input['TaskMode']] = None,
-                 task_report_config: Optional[pulumi.Input[Union['TaskReportConfigArgs', 'TaskReportConfigArgsDict']]] = None,
+                 cloud_watch_log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 excludes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]]] = None,
+                 includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]]] = None,
+                 manifest_config: pulumi.Input[Optional[Union['TaskManifestConfigArgs', 'TaskManifestConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']]] = None,
+                 source_location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 task_mode: pulumi.Input[Optional['TaskMode']] = None,
+                 task_report_config: pulumi.Input[Optional[Union['TaskReportConfigArgs', 'TaskReportConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

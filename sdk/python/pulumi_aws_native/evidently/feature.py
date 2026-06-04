@@ -26,12 +26,12 @@ class FeatureArgs:
     def __init__(__self__, *,
                  project: pulumi.Input[_builtins.str],
                  variations: pulumi.Input[Sequence[pulumi.Input['FeatureVariationObjectArgs']]],
-                 default_variation: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureEntityOverrideArgs']]]] = None,
-                 evaluation_strategy: Optional[pulumi.Input['FeatureEvaluationStrategy']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 default_variation: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['FeatureEntityOverrideArgs']]]] = None,
+                 evaluation_strategy: pulumi.Input[Optional['FeatureEvaluationStrategy']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Feature resource.
 
@@ -93,7 +93,7 @@ class FeatureArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultVariation")
-    def default_variation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_variation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
 
@@ -104,67 +104,67 @@ class FeatureArgs:
         return pulumi.get(self, "default_variation")
 
     @default_variation.setter
-    def default_variation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_variation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_variation", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description of the feature.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="entityOverrides")
-    def entity_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FeatureEntityOverrideArgs']]]]:
+    def entity_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FeatureEntityOverrideArgs']]]]:
         """
         Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
         """
         return pulumi.get(self, "entity_overrides")
 
     @entity_overrides.setter
-    def entity_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureEntityOverrideArgs']]]]):
+    def entity_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FeatureEntityOverrideArgs']]]]):
         pulumi.set(self, "entity_overrides", value)
 
     @_builtins.property
     @pulumi.getter(name="evaluationStrategy")
-    def evaluation_strategy(self) -> Optional[pulumi.Input['FeatureEvaluationStrategy']]:
+    def evaluation_strategy(self) -> pulumi.Input[Optional['FeatureEvaluationStrategy']]:
         """
         Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
         """
         return pulumi.get(self, "evaluation_strategy")
 
     @evaluation_strategy.setter
-    def evaluation_strategy(self, value: Optional[pulumi.Input['FeatureEvaluationStrategy']]):
+    def evaluation_strategy(self, value: pulumi.Input[Optional['FeatureEvaluationStrategy']]):
         pulumi.set(self, "evaluation_strategy", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the feature. It can include up to 127 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -174,14 +174,14 @@ class Feature(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_variation: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeatureEntityOverrideArgs', 'FeatureEntityOverrideArgsDict']]]]] = None,
-                 evaluation_strategy: Optional[pulumi.Input['FeatureEvaluationStrategy']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 variations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationObjectArgs', 'FeatureVariationObjectArgsDict']]]]] = None,
+                 default_variation: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureEntityOverrideArgs', 'FeatureEntityOverrideArgsDict']]]]] = None,
+                 evaluation_strategy: pulumi.Input[Optional['FeatureEvaluationStrategy']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 variations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureVariationObjectArgs', 'FeatureVariationObjectArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Evidently::Feature.
@@ -229,14 +229,14 @@ class Feature(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_variation: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeatureEntityOverrideArgs', 'FeatureEntityOverrideArgsDict']]]]] = None,
-                 evaluation_strategy: Optional[pulumi.Input['FeatureEvaluationStrategy']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 variations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationObjectArgs', 'FeatureVariationObjectArgsDict']]]]] = None,
+                 default_variation: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureEntityOverrideArgs', 'FeatureEntityOverrideArgsDict']]]]] = None,
+                 evaluation_strategy: pulumi.Input[Optional['FeatureEvaluationStrategy']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 variations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureVariationObjectArgs', 'FeatureVariationObjectArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

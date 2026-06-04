@@ -23,12 +23,12 @@ __all__ = ['SolutionArgs', 'Solution']
 class SolutionArgs:
     def __init__(__self__, *,
                  dataset_group_arn: pulumi.Input[_builtins.str],
-                 event_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 perform_auto_ml: Optional[pulumi.Input[_builtins.bool]] = None,
-                 perform_hpo: Optional[pulumi.Input[_builtins.bool]] = None,
-                 recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 solution_config: Optional[pulumi.Input['SolutionConfigArgs']] = None):
+                 event_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 perform_auto_ml: pulumi.Input[Optional[_builtins.bool]] = None,
+                 perform_hpo: pulumi.Input[Optional[_builtins.bool]] = None,
+                 recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 solution_config: pulumi.Input[Optional['SolutionConfigArgs']] = None):
         """
         The set of arguments for constructing a Solution resource.
 
@@ -68,74 +68,74 @@ class SolutionArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventType")
-    def event_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When your have multiple event types (using an EVENT_TYPE schema field), this parameter specifies which event type (for example, 'click' or 'like') is used for training the model. If you do not provide an eventType, Amazon Personalize will use all interactions for training with equal weight regardless of type.
         """
         return pulumi.get(self, "event_type")
 
     @event_type.setter
-    def event_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the solution
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="performAutoMl")
-    def perform_auto_ml(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def perform_auto_ml(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
         """
         return pulumi.get(self, "perform_auto_ml")
 
     @perform_auto_ml.setter
-    def perform_auto_ml(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def perform_auto_ml(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "perform_auto_ml", value)
 
     @_builtins.property
     @pulumi.getter(name="performHpo")
-    def perform_hpo(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def perform_hpo(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
         """
         return pulumi.get(self, "perform_hpo")
 
     @perform_hpo.setter
-    def perform_hpo(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def perform_hpo(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "perform_hpo", value)
 
     @_builtins.property
     @pulumi.getter(name="recipeArn")
-    def recipe_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recipe_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the recipe to use for model training. Only specified when performAutoML is false.
         """
         return pulumi.get(self, "recipe_arn")
 
     @recipe_arn.setter
-    def recipe_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recipe_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recipe_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="solutionConfig")
-    def solution_config(self) -> Optional[pulumi.Input['SolutionConfigArgs']]:
+    def solution_config(self) -> pulumi.Input[Optional['SolutionConfigArgs']]:
         """
         Describes the configuration properties for the solution.
         """
         return pulumi.get(self, "solution_config")
 
     @solution_config.setter
-    def solution_config(self, value: Optional[pulumi.Input['SolutionConfigArgs']]):
+    def solution_config(self, value: pulumi.Input[Optional['SolutionConfigArgs']]):
         pulumi.set(self, "solution_config", value)
 
 
@@ -145,13 +145,13 @@ class Solution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataset_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 perform_auto_ml: Optional[pulumi.Input[_builtins.bool]] = None,
-                 perform_hpo: Optional[pulumi.Input[_builtins.bool]] = None,
-                 recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 solution_config: Optional[pulumi.Input[Union['SolutionConfigArgs', 'SolutionConfigArgsDict']]] = None,
+                 dataset_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 perform_auto_ml: pulumi.Input[Optional[_builtins.bool]] = None,
+                 perform_hpo: pulumi.Input[Optional[_builtins.bool]] = None,
+                 recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 solution_config: pulumi.Input[Optional[Union['SolutionConfigArgs', 'SolutionConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Personalize::Solution.
@@ -256,13 +256,13 @@ class Solution(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataset_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 perform_auto_ml: Optional[pulumi.Input[_builtins.bool]] = None,
-                 perform_hpo: Optional[pulumi.Input[_builtins.bool]] = None,
-                 recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 solution_config: Optional[pulumi.Input[Union['SolutionConfigArgs', 'SolutionConfigArgsDict']]] = None,
+                 dataset_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 perform_auto_ml: pulumi.Input[Optional[_builtins.bool]] = None,
+                 perform_hpo: pulumi.Input[Optional[_builtins.bool]] = None,
+                 recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 solution_config: pulumi.Input[Optional[Union['SolutionConfigArgs', 'SolutionConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

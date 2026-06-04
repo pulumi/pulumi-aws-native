@@ -167,7 +167,7 @@ def get_bridge(bridge_arn: Optional[_builtins.str] = None,
         placement_arn=pulumi.get(__ret__, 'placement_arn'),
         source_failover_config=pulumi.get(__ret__, 'source_failover_config'),
         sources=pulumi.get(__ret__, 'sources'))
-def get_bridge_output(bridge_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bridge_output(bridge_arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBridgeResult]:
     """
     Resource schema for AWS::MediaConnect::Bridge

@@ -146,7 +146,7 @@ def get_resource_configuration(arn: Optional[_builtins.str] = None,
         port_ranges=pulumi.get(__ret__, 'port_ranges'),
         resource_configuration_definition=pulumi.get(__ret__, 'resource_configuration_definition'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_resource_configuration_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_configuration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceConfigurationResult]:
     """
     VpcLattice ResourceConfiguration CFN resource

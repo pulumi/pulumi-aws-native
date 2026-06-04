@@ -139,7 +139,7 @@ def get_browser_profile(profile_id: Optional[_builtins.str] = None,
         profile_id=pulumi.get(__ret__, 'profile_id'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_browser_profile_output(profile_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_browser_profile_output(profile_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrowserProfileResult]:
     """
     Resource definition for AWS::BedrockAgentCore::BrowserProfile

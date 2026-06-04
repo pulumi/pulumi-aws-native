@@ -318,7 +318,7 @@ def get_broker(id: Optional[_builtins.str] = None,
         stomp_endpoints=pulumi.get(__ret__, 'stomp_endpoints'),
         tags=pulumi.get(__ret__, 'tags'),
         wss_endpoints=pulumi.get(__ret__, 'wss_endpoints'))
-def get_broker_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_broker_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerResult]:
     """
     Resource type definition for AWS::AmazonMQ::Broker

@@ -22,16 +22,16 @@ __all__ = ['ScalingPolicyArgs', 'ScalingPolicy']
 class ScalingPolicyArgs:
     def __init__(__self__, *,
                  auto_scaling_group_name: pulumi.Input[_builtins.str],
-                 adjustment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cooldown: Optional[pulumi.Input[_builtins.str]] = None,
-                 estimated_instance_warmup: Optional[pulumi.Input[_builtins.int]] = None,
-                 metric_aggregation_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_adjustment_magnitude: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 predictive_scaling_configuration: Optional[pulumi.Input['ScalingPolicyPredictiveScalingConfigurationArgs']] = None,
-                 scaling_adjustment: Optional[pulumi.Input[_builtins.int]] = None,
-                 step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyStepAdjustmentArgs']]]] = None,
-                 target_tracking_configuration: Optional[pulumi.Input['ScalingPolicyTargetTrackingConfigurationArgs']] = None):
+                 adjustment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cooldown: pulumi.Input[Optional[_builtins.str]] = None,
+                 estimated_instance_warmup: pulumi.Input[Optional[_builtins.int]] = None,
+                 metric_aggregation_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_adjustment_magnitude: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 predictive_scaling_configuration: pulumi.Input[Optional['ScalingPolicyPredictiveScalingConfigurationArgs']] = None,
+                 scaling_adjustment: pulumi.Input[Optional[_builtins.int]] = None,
+                 step_adjustments: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPolicyStepAdjustmentArgs']]]] = None,
+                 target_tracking_configuration: pulumi.Input[Optional['ScalingPolicyTargetTrackingConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ScalingPolicy resource.
 
@@ -83,122 +83,122 @@ class ScalingPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="adjustmentType")
-    def adjustment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def adjustment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the scaling adjustment is interpreted. The valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
         """
         return pulumi.get(self, "adjustment_type")
 
     @adjustment_type.setter
-    def adjustment_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def adjustment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "adjustment_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def cooldown(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cooldown(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The duration of the policy's cooldown period, in seconds. When a cooldown period is specified here, it overrides the default cooldown period defined for the Auto Scaling group.
         """
         return pulumi.get(self, "cooldown")
 
     @cooldown.setter
-    def cooldown(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cooldown(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cooldown", value)
 
     @_builtins.property
     @pulumi.getter(name="estimatedInstanceWarmup")
-    def estimated_instance_warmup(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def estimated_instance_warmup(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. If not provided, the default is to use the value from the default cooldown period for the Auto Scaling group. Valid only if the policy type is TargetTrackingScaling or StepScaling.
         """
         return pulumi.get(self, "estimated_instance_warmup")
 
     @estimated_instance_warmup.setter
-    def estimated_instance_warmup(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def estimated_instance_warmup(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "estimated_instance_warmup", value)
 
     @_builtins.property
     @pulumi.getter(name="metricAggregationType")
-    def metric_aggregation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_aggregation_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The aggregation type for the CloudWatch metrics. The valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average. Valid only if the policy type is StepScaling.
         """
         return pulumi.get(self, "metric_aggregation_type")
 
     @metric_aggregation_type.setter
-    def metric_aggregation_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_aggregation_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_aggregation_type", value)
 
     @_builtins.property
     @pulumi.getter(name="minAdjustmentMagnitude")
-    def min_adjustment_magnitude(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_adjustment_magnitude(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum value to scale by when the adjustment type is PercentChangeInCapacity. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a MinAdjustmentMagnitude of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a MinAdjustmentMagnitude of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.
         """
         return pulumi.get(self, "min_adjustment_magnitude")
 
     @min_adjustment_magnitude.setter
-    def min_adjustment_magnitude(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_adjustment_magnitude(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_adjustment_magnitude", value)
 
     @_builtins.property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         One of the following policy types: TargetTrackingScaling, StepScaling, SimpleScaling (default), PredictiveScaling
         """
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
-    def policy_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_type", value)
 
     @_builtins.property
     @pulumi.getter(name="predictiveScalingConfiguration")
-    def predictive_scaling_configuration(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingConfigurationArgs']]:
+    def predictive_scaling_configuration(self) -> pulumi.Input[Optional['ScalingPolicyPredictiveScalingConfigurationArgs']]:
         """
         A predictive scaling policy. Includes support for predefined metrics only.
         """
         return pulumi.get(self, "predictive_scaling_configuration")
 
     @predictive_scaling_configuration.setter
-    def predictive_scaling_configuration(self, value: Optional[pulumi.Input['ScalingPolicyPredictiveScalingConfigurationArgs']]):
+    def predictive_scaling_configuration(self, value: pulumi.Input[Optional['ScalingPolicyPredictiveScalingConfigurationArgs']]):
         pulumi.set(self, "predictive_scaling_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingAdjustment")
-    def scaling_adjustment(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scaling_adjustment(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value. Required if the policy type is SimpleScaling. (Not used with any other policy type.)
         """
         return pulumi.get(self, "scaling_adjustment")
 
     @scaling_adjustment.setter
-    def scaling_adjustment(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scaling_adjustment(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scaling_adjustment", value)
 
     @_builtins.property
     @pulumi.getter(name="stepAdjustments")
-    def step_adjustments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyStepAdjustmentArgs']]]]:
+    def step_adjustments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPolicyStepAdjustmentArgs']]]]:
         """
         A set of adjustments that enable you to scale based on the size of the alarm breach. Required if the policy type is StepScaling. (Not used with any other policy type.)
         """
         return pulumi.get(self, "step_adjustments")
 
     @step_adjustments.setter
-    def step_adjustments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyStepAdjustmentArgs']]]]):
+    def step_adjustments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPolicyStepAdjustmentArgs']]]]):
         pulumi.set(self, "step_adjustments", value)
 
     @_builtins.property
     @pulumi.getter(name="targetTrackingConfiguration")
-    def target_tracking_configuration(self) -> Optional[pulumi.Input['ScalingPolicyTargetTrackingConfigurationArgs']]:
+    def target_tracking_configuration(self) -> pulumi.Input[Optional['ScalingPolicyTargetTrackingConfigurationArgs']]:
         """
         A target tracking scaling policy. Includes support for predefined or customized metrics.
         """
         return pulumi.get(self, "target_tracking_configuration")
 
     @target_tracking_configuration.setter
-    def target_tracking_configuration(self, value: Optional[pulumi.Input['ScalingPolicyTargetTrackingConfigurationArgs']]):
+    def target_tracking_configuration(self, value: pulumi.Input[Optional['ScalingPolicyTargetTrackingConfigurationArgs']]):
         pulumi.set(self, "target_tracking_configuration", value)
 
 
@@ -208,17 +208,17 @@ class ScalingPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 adjustment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_scaling_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cooldown: Optional[pulumi.Input[_builtins.str]] = None,
-                 estimated_instance_warmup: Optional[pulumi.Input[_builtins.int]] = None,
-                 metric_aggregation_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_adjustment_magnitude: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 predictive_scaling_configuration: Optional[pulumi.Input[Union['ScalingPolicyPredictiveScalingConfigurationArgs', 'ScalingPolicyPredictiveScalingConfigurationArgsDict']]] = None,
-                 scaling_adjustment: Optional[pulumi.Input[_builtins.int]] = None,
-                 step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPolicyStepAdjustmentArgs', 'ScalingPolicyStepAdjustmentArgsDict']]]]] = None,
-                 target_tracking_configuration: Optional[pulumi.Input[Union['ScalingPolicyTargetTrackingConfigurationArgs', 'ScalingPolicyTargetTrackingConfigurationArgsDict']]] = None,
+                 adjustment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_scaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cooldown: pulumi.Input[Optional[_builtins.str]] = None,
+                 estimated_instance_warmup: pulumi.Input[Optional[_builtins.int]] = None,
+                 metric_aggregation_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_adjustment_magnitude: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 predictive_scaling_configuration: pulumi.Input[Optional[Union['ScalingPolicyPredictiveScalingConfigurationArgs', 'ScalingPolicyPredictiveScalingConfigurationArgsDict']]] = None,
+                 scaling_adjustment: pulumi.Input[Optional[_builtins.int]] = None,
+                 step_adjustments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPolicyStepAdjustmentArgs', 'ScalingPolicyStepAdjustmentArgsDict']]]]] = None,
+                 target_tracking_configuration: pulumi.Input[Optional[Union['ScalingPolicyTargetTrackingConfigurationArgs', 'ScalingPolicyTargetTrackingConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         The AWS::AutoScaling::ScalingPolicy resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.
@@ -263,17 +263,17 @@ class ScalingPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 adjustment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_scaling_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cooldown: Optional[pulumi.Input[_builtins.str]] = None,
-                 estimated_instance_warmup: Optional[pulumi.Input[_builtins.int]] = None,
-                 metric_aggregation_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_adjustment_magnitude: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 predictive_scaling_configuration: Optional[pulumi.Input[Union['ScalingPolicyPredictiveScalingConfigurationArgs', 'ScalingPolicyPredictiveScalingConfigurationArgsDict']]] = None,
-                 scaling_adjustment: Optional[pulumi.Input[_builtins.int]] = None,
-                 step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPolicyStepAdjustmentArgs', 'ScalingPolicyStepAdjustmentArgsDict']]]]] = None,
-                 target_tracking_configuration: Optional[pulumi.Input[Union['ScalingPolicyTargetTrackingConfigurationArgs', 'ScalingPolicyTargetTrackingConfigurationArgsDict']]] = None,
+                 adjustment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_scaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cooldown: pulumi.Input[Optional[_builtins.str]] = None,
+                 estimated_instance_warmup: pulumi.Input[Optional[_builtins.int]] = None,
+                 metric_aggregation_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_adjustment_magnitude: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 predictive_scaling_configuration: pulumi.Input[Optional[Union['ScalingPolicyPredictiveScalingConfigurationArgs', 'ScalingPolicyPredictiveScalingConfigurationArgsDict']]] = None,
+                 scaling_adjustment: pulumi.Input[Optional[_builtins.int]] = None,
+                 step_adjustments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPolicyStepAdjustmentArgs', 'ScalingPolicyStepAdjustmentArgsDict']]]]] = None,
+                 target_tracking_configuration: pulumi.Input[Optional[Union['ScalingPolicyTargetTrackingConfigurationArgs', 'ScalingPolicyTargetTrackingConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

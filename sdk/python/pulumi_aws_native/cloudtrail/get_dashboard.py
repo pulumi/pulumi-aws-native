@@ -181,7 +181,7 @@ def get_dashboard(dashboard_arn: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'),
         widgets=pulumi.get(__ret__, 'widgets'))
-def get_dashboard_output(dashboard_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dashboard_output(dashboard_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDashboardResult]:
     """
     The Amazon CloudTrail dashboard resource allows customers to manage managed dashboards and create custom dashboards. You can manually refresh custom and managed dashboards. For custom dashboards, you can also set up an automatic refresh schedule and modify dashboard widgets.

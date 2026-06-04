@@ -75,7 +75,7 @@ def get_dhcp_options(dhcp_options_id: Optional[_builtins.str] = None,
     return AwaitableGetDhcpOptionsResult(
         dhcp_options_id=pulumi.get(__ret__, 'dhcp_options_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dhcp_options_output(dhcp_options_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDhcpOptionsResult]:
     """
     Resource Type definition for AWS::EC2::DHCPOptions

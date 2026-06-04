@@ -181,7 +181,7 @@ def get_alarm_mute_rule(arn: Optional[_builtins.str] = None,
         start_date=pulumi.get(__ret__, 'start_date'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_alarm_mute_rule_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_alarm_mute_rule_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlarmMuteRuleResult]:
     """
     Resource Type definition for AWS::CloudWatch::AlarmMuteRule that allows defining a rule and targeting alarms to mute their actions during the specified window.

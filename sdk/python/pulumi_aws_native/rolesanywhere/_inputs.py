@@ -22,12 +22,12 @@ __all__ = [
     'ProfileMappingRuleArgsDict',
     'TrustAnchorNotificationSettingArgs',
     'TrustAnchorNotificationSettingArgsDict',
+    'TrustAnchorSourceArgs',
+    'TrustAnchorSourceArgsDict',
     'TrustAnchorSourceData0PropertiesArgs',
     'TrustAnchorSourceData0PropertiesArgsDict',
     'TrustAnchorSourceData1PropertiesArgs',
     'TrustAnchorSourceData1PropertiesArgsDict',
-    'TrustAnchorSourceArgs',
-    'TrustAnchorSourceArgsDict',
 ]
 
 class ProfileAttributeMappingArgsDict(TypedDict):
@@ -114,13 +114,13 @@ class TrustAnchorNotificationSettingArgsDict(TypedDict):
     """
     The event to which this notification setting is applied.
     """
-    channel: NotRequired[pulumi.Input['TrustAnchorNotificationChannel']]
+    channel: NotRequired[pulumi.Input[Optional['TrustAnchorNotificationChannel']]]
     """
     The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.
 
     > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
     """
-    threshold: NotRequired[pulumi.Input[_builtins.float]]
+    threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The number of days before a notification event. This value is required for a notification setting that is enabled.
     """
@@ -130,8 +130,8 @@ class TrustAnchorNotificationSettingArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
                  event: pulumi.Input['TrustAnchorNotificationEvent'],
-                 channel: Optional[pulumi.Input['TrustAnchorNotificationChannel']] = None,
-                 threshold: Optional[pulumi.Input[_builtins.float]] = None):
+                 channel: pulumi.Input[Optional['TrustAnchorNotificationChannel']] = None,
+                 threshold: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the notification setting is enabled.
         :param pulumi.Input['TrustAnchorNotificationEvent'] event: The event to which this notification setting is applied.
@@ -173,7 +173,7 @@ class TrustAnchorNotificationSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def channel(self) -> Optional[pulumi.Input['TrustAnchorNotificationChannel']]:
+    def channel(self) -> pulumi.Input[Optional['TrustAnchorNotificationChannel']]:
         """
         The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.
 
@@ -182,58 +182,20 @@ class TrustAnchorNotificationSettingArgs:
         return pulumi.get(self, "channel")
 
     @channel.setter
-    def channel(self, value: Optional[pulumi.Input['TrustAnchorNotificationChannel']]):
+    def channel(self, value: pulumi.Input[Optional['TrustAnchorNotificationChannel']]):
         pulumi.set(self, "channel", value)
 
     @_builtins.property
     @pulumi.getter
-    def threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of days before a notification event. This value is required for a notification setting that is enabled.
         """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
-    def threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "threshold", value)
-
-
-class TrustAnchorSourceData0PropertiesArgsDict(TypedDict):
-    x509_certificate_data: pulumi.Input[_builtins.str]
-
-@pulumi.input_type
-class TrustAnchorSourceData0PropertiesArgs:
-    def __init__(__self__, *,
-                 x509_certificate_data: pulumi.Input[_builtins.str]):
-        pulumi.set(__self__, "x509_certificate_data", x509_certificate_data)
-
-    @_builtins.property
-    @pulumi.getter(name="x509CertificateData")
-    def x509_certificate_data(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "x509_certificate_data")
-
-    @x509_certificate_data.setter
-    def x509_certificate_data(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "x509_certificate_data", value)
-
-
-class TrustAnchorSourceData1PropertiesArgsDict(TypedDict):
-    acm_pca_arn: pulumi.Input[_builtins.str]
-
-@pulumi.input_type
-class TrustAnchorSourceData1PropertiesArgs:
-    def __init__(__self__, *,
-                 acm_pca_arn: pulumi.Input[_builtins.str]):
-        pulumi.set(__self__, "acm_pca_arn", acm_pca_arn)
-
-    @_builtins.property
-    @pulumi.getter(name="acmPcaArn")
-    def acm_pca_arn(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "acm_pca_arn")
-
-    @acm_pca_arn.setter
-    def acm_pca_arn(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "acm_pca_arn", value)
 
 
 class TrustAnchorSourceArgsDict(TypedDict):
@@ -281,5 +243,43 @@ class TrustAnchorSourceArgs:
     @source_type.setter
     def source_type(self, value: pulumi.Input['TrustAnchorType']):
         pulumi.set(self, "source_type", value)
+
+
+class TrustAnchorSourceData0PropertiesArgsDict(TypedDict):
+    x509_certificate_data: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class TrustAnchorSourceData0PropertiesArgs:
+    def __init__(__self__, *,
+                 x509_certificate_data: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "x509_certificate_data", x509_certificate_data)
+
+    @_builtins.property
+    @pulumi.getter(name="x509CertificateData")
+    def x509_certificate_data(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "x509_certificate_data")
+
+    @x509_certificate_data.setter
+    def x509_certificate_data(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "x509_certificate_data", value)
+
+
+class TrustAnchorSourceData1PropertiesArgsDict(TypedDict):
+    acm_pca_arn: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class TrustAnchorSourceData1PropertiesArgs:
+    def __init__(__self__, *,
+                 acm_pca_arn: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "acm_pca_arn", acm_pca_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="acmPcaArn")
+    def acm_pca_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "acm_pca_arn")
+
+    @acm_pca_arn.setter
+    def acm_pca_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "acm_pca_arn", value)
 
 

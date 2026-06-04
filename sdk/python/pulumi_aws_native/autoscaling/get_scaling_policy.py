@@ -205,7 +205,7 @@ def get_scaling_policy(arn: Optional[_builtins.str] = None,
         scaling_adjustment=pulumi.get(__ret__, 'scaling_adjustment'),
         step_adjustments=pulumi.get(__ret__, 'step_adjustments'),
         target_tracking_configuration=pulumi.get(__ret__, 'target_tracking_configuration'))
-def get_scaling_policy_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scaling_policy_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScalingPolicyResult]:
     """
     The AWS::AutoScaling::ScalingPolicy resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.

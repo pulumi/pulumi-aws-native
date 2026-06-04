@@ -26,18 +26,18 @@ class AnalysisArgs:
     def __init__(__self__, *,
                  analysis_id: pulumi.Input[_builtins.str],
                  aws_account_id: pulumi.Input[_builtins.str],
-                 definition: Optional[pulumi.Input['AnalysisDefinitionArgs']] = None,
-                 errors: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]]] = None,
-                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input['AnalysisParametersArgs']] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]] = None,
-                 sheets: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisSheetArgs']]]] = None,
-                 source_entity: Optional[pulumi.Input['AnalysisSourceEntityArgs']] = None,
-                 status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 theme_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_strategy: Optional[pulumi.Input['AnalysisValidationStrategyArgs']] = None):
+                 definition: pulumi.Input[Optional['AnalysisDefinitionArgs']] = None,
+                 errors: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisErrorArgs']]]] = None,
+                 folder_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional['AnalysisParametersArgs']] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]] = None,
+                 sheets: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisSheetArgs']]]] = None,
+                 source_entity: pulumi.Input[Optional['AnalysisSourceEntityArgs']] = None,
+                 status: pulumi.Input[Optional['AnalysisResourceStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 theme_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_strategy: pulumi.Input[Optional['AnalysisValidationStrategyArgs']] = None):
         """
         The set of arguments for constructing a Analysis resource.
 
@@ -111,61 +111,61 @@ class AnalysisArgs:
 
     @_builtins.property
     @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input['AnalysisDefinitionArgs']]:
+    def definition(self) -> pulumi.Input[Optional['AnalysisDefinitionArgs']]:
         return pulumi.get(self, "definition")
 
     @definition.setter
-    def definition(self, value: Optional[pulumi.Input['AnalysisDefinitionArgs']]):
+    def definition(self, value: pulumi.Input[Optional['AnalysisDefinitionArgs']]):
         pulumi.set(self, "definition", value)
 
     @_builtins.property
     @pulumi.getter
-    def errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]]]:
+    def errors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisErrorArgs']]]]:
         """
         <p>Errors associated with the analysis.</p>
         """
         return pulumi.get(self, "errors")
 
     @errors.setter
-    def errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]]]):
+    def errors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisErrorArgs']]]]):
         pulumi.set(self, "errors", value)
 
     @_builtins.property
     @pulumi.getter(name="folderArns")
-    def folder_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def folder_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "folder_arns")
 
     @folder_arns.setter
-    def folder_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def folder_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "folder_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>The descriptive name of the analysis.</p>
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input['AnalysisParametersArgs']]:
+    def parameters(self) -> pulumi.Input[Optional['AnalysisParametersArgs']]:
         """
         The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input['AnalysisParametersArgs']]):
+    def parameters(self, value: pulumi.Input[Optional['AnalysisParametersArgs']]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]]:
+    def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]]:
         """
         A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
 
@@ -174,24 +174,24 @@ class AnalysisArgs:
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]]):
+    def permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def sheets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisSheetArgs']]]]:
+    def sheets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisSheetArgs']]]]:
         """
         <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
         """
         return pulumi.get(self, "sheets")
 
     @sheets.setter
-    def sheets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisSheetArgs']]]]):
+    def sheets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisSheetArgs']]]]):
         pulumi.set(self, "sheets", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> Optional[pulumi.Input['AnalysisSourceEntityArgs']]:
+    def source_entity(self) -> pulumi.Input[Optional['AnalysisSourceEntityArgs']]:
         """
         A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
 
@@ -200,55 +200,55 @@ class AnalysisArgs:
         return pulumi.get(self, "source_entity")
 
     @source_entity.setter
-    def source_entity(self, value: Optional[pulumi.Input['AnalysisSourceEntityArgs']]):
+    def source_entity(self, value: pulumi.Input[Optional['AnalysisSourceEntityArgs']]):
         pulumi.set(self, "source_entity", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['AnalysisResourceStatus']]:
+    def status(self) -> pulumi.Input[Optional['AnalysisResourceStatus']]:
         """
         Status associated with the analysis.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['AnalysisResourceStatus']]):
+    def status(self, value: pulumi.Input[Optional['AnalysisResourceStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="themeArn")
-    def theme_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def theme_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>The ARN of the theme of the analysis.</p>
         """
         return pulumi.get(self, "theme_arn")
 
     @theme_arn.setter
-    def theme_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def theme_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "theme_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="validationStrategy")
-    def validation_strategy(self) -> Optional[pulumi.Input['AnalysisValidationStrategyArgs']]:
+    def validation_strategy(self) -> pulumi.Input[Optional['AnalysisValidationStrategyArgs']]:
         """
         The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
         """
         return pulumi.get(self, "validation_strategy")
 
     @validation_strategy.setter
-    def validation_strategy(self, value: Optional[pulumi.Input['AnalysisValidationStrategyArgs']]):
+    def validation_strategy(self, value: pulumi.Input[Optional['AnalysisValidationStrategyArgs']]):
         pulumi.set(self, "validation_strategy", value)
 
 
@@ -258,20 +258,20 @@ class Analysis(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analysis_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition: Optional[pulumi.Input[Union['AnalysisDefinitionArgs', 'AnalysisDefinitionArgsDict']]] = None,
-                 errors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisErrorArgs', 'AnalysisErrorArgsDict']]]]] = None,
-                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisResourcePermissionArgs', 'AnalysisResourcePermissionArgsDict']]]]] = None,
-                 sheets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisSheetArgs', 'AnalysisSheetArgsDict']]]]] = None,
-                 source_entity: Optional[pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']]] = None,
-                 status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 theme_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_strategy: Optional[pulumi.Input[Union['AnalysisValidationStrategyArgs', 'AnalysisValidationStrategyArgsDict']]] = None,
+                 analysis_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[Union['AnalysisDefinitionArgs', 'AnalysisDefinitionArgsDict']]] = None,
+                 errors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalysisErrorArgs', 'AnalysisErrorArgsDict']]]]] = None,
+                 folder_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalysisResourcePermissionArgs', 'AnalysisResourcePermissionArgsDict']]]]] = None,
+                 sheets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalysisSheetArgs', 'AnalysisSheetArgsDict']]]]] = None,
+                 source_entity: pulumi.Input[Optional[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']]] = None,
+                 status: pulumi.Input[Optional['AnalysisResourceStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 theme_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_strategy: pulumi.Input[Optional[Union['AnalysisValidationStrategyArgs', 'AnalysisValidationStrategyArgsDict']]] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::Analysis Resource Type.
@@ -321,20 +321,20 @@ class Analysis(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analysis_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition: Optional[pulumi.Input[Union['AnalysisDefinitionArgs', 'AnalysisDefinitionArgsDict']]] = None,
-                 errors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisErrorArgs', 'AnalysisErrorArgsDict']]]]] = None,
-                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisResourcePermissionArgs', 'AnalysisResourcePermissionArgsDict']]]]] = None,
-                 sheets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisSheetArgs', 'AnalysisSheetArgsDict']]]]] = None,
-                 source_entity: Optional[pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']]] = None,
-                 status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 theme_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_strategy: Optional[pulumi.Input[Union['AnalysisValidationStrategyArgs', 'AnalysisValidationStrategyArgsDict']]] = None,
+                 analysis_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[Union['AnalysisDefinitionArgs', 'AnalysisDefinitionArgsDict']]] = None,
+                 errors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalysisErrorArgs', 'AnalysisErrorArgsDict']]]]] = None,
+                 folder_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalysisResourcePermissionArgs', 'AnalysisResourcePermissionArgsDict']]]]] = None,
+                 sheets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalysisSheetArgs', 'AnalysisSheetArgsDict']]]]] = None,
+                 source_entity: pulumi.Input[Optional[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']]] = None,
+                 status: pulumi.Input[Optional['AnalysisResourceStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 theme_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_strategy: pulumi.Input[Optional[Union['AnalysisValidationStrategyArgs', 'AnalysisValidationStrategyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

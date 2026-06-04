@@ -25,13 +25,13 @@ __all__ = ['ConnectionArgs', 'Connection']
 class ConnectionArgs:
     def __init__(__self__, *,
                  attach_point: pulumi.Input['ConnectionAttachPointArgs'],
-                 activation_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_account: Optional[pulumi.Input['RemoteAccountPropertiesArgs']] = None,
-                 remote_owner_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 activation_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 bandwidth: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_account: pulumi.Input[Optional['RemoteAccountPropertiesArgs']] = None,
+                 remote_owner_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Connection resource.
 
@@ -74,86 +74,86 @@ class ConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="activationKey")
-    def activation_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def activation_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The activation key for accepting a connection proposal from a partner CSP. Mutually exclusive with EnvironmentId.
         """
         return pulumi.get(self, "activation_key")
 
     @activation_key.setter
-    def activation_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def activation_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "activation_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def bandwidth(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bandwidth(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bandwidth of the connection (e.g., 50Mbps, 1Gbps). Required when creating a connection through AWS.
         """
         return pulumi.get(self, "bandwidth")
 
     @bandwidth.setter
-    def bandwidth(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bandwidth(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bandwidth", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
-    def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the environment for the connection. Required when creating a connection through AWS. Mutually exclusive with ActivationKey.
         """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
-    def environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteAccount")
-    def remote_account(self) -> Optional[pulumi.Input['RemoteAccountPropertiesArgs']]:
+    def remote_account(self) -> pulumi.Input[Optional['RemoteAccountPropertiesArgs']]:
         """
         The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
         """
         return pulumi.get(self, "remote_account")
 
     @remote_account.setter
-    def remote_account(self, value: Optional[pulumi.Input['RemoteAccountPropertiesArgs']]):
+    def remote_account(self, value: pulumi.Input[Optional['RemoteAccountPropertiesArgs']]):
         pulumi.set(self, "remote_account", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteOwnerAccount")
-    def remote_owner_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_owner_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
         """
         return pulumi.get(self, "remote_owner_account")
 
     @remote_owner_account.setter
-    def remote_owner_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_owner_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_owner_account", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -163,14 +163,14 @@ class Connection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activation_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 attach_point: Optional[pulumi.Input[Union['ConnectionAttachPointArgs', 'ConnectionAttachPointArgsDict']]] = None,
-                 bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_account: Optional[pulumi.Input[Union['RemoteAccountPropertiesArgs', 'RemoteAccountPropertiesArgsDict']]] = None,
-                 remote_owner_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 activation_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 attach_point: pulumi.Input[Optional[Union['ConnectionAttachPointArgs', 'ConnectionAttachPointArgsDict']]] = None,
+                 bandwidth: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_account: pulumi.Input[Optional[Union['RemoteAccountPropertiesArgs', 'RemoteAccountPropertiesArgsDict']]] = None,
+                 remote_owner_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Interconnect::Connection. Creates a managed network connection between AWS and a partner cloud service provider.
@@ -212,14 +212,14 @@ class Connection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activation_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 attach_point: Optional[pulumi.Input[Union['ConnectionAttachPointArgs', 'ConnectionAttachPointArgsDict']]] = None,
-                 bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_account: Optional[pulumi.Input[Union['RemoteAccountPropertiesArgs', 'RemoteAccountPropertiesArgsDict']]] = None,
-                 remote_owner_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 activation_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 attach_point: pulumi.Input[Optional[Union['ConnectionAttachPointArgs', 'ConnectionAttachPointArgsDict']]] = None,
+                 bandwidth: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_account: pulumi.Input[Optional[Union['RemoteAccountPropertiesArgs', 'RemoteAccountPropertiesArgsDict']]] = None,
+                 remote_owner_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

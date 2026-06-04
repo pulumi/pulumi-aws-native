@@ -25,12 +25,12 @@ __all__ = ['ChannelArgs', 'Channel']
 class ChannelArgs:
     def __init__(__self__, *,
                  channel_group_name: pulumi.Input[_builtins.str],
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_switch_configuration: Optional[pulumi.Input['ChannelInputSwitchConfigurationArgs']] = None,
-                 input_type: Optional[pulumi.Input['ChannelInputType']] = None,
-                 output_header_configuration: Optional[pulumi.Input['ChannelOutputHeaderConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_switch_configuration: pulumi.Input[Optional['ChannelInputSwitchConfigurationArgs']] = None,
+                 input_type: pulumi.Input[Optional['ChannelInputType']] = None,
+                 output_header_configuration: pulumi.Input[Optional['ChannelOutputHeaderConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Channel resource.
 
@@ -74,43 +74,43 @@ class ChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="channelName")
-    def channel_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the channel.
         """
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
-    def channel_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         <p>Enter any descriptive text that helps you to identify the channel.</p>
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="inputSwitchConfiguration")
-    def input_switch_configuration(self) -> Optional[pulumi.Input['ChannelInputSwitchConfigurationArgs']]:
+    def input_switch_configuration(self) -> pulumi.Input[Optional['ChannelInputSwitchConfigurationArgs']]:
         """
         The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.
         """
         return pulumi.get(self, "input_switch_configuration")
 
     @input_switch_configuration.setter
-    def input_switch_configuration(self, value: Optional[pulumi.Input['ChannelInputSwitchConfigurationArgs']]):
+    def input_switch_configuration(self, value: pulumi.Input[Optional['ChannelInputSwitchConfigurationArgs']]):
         pulumi.set(self, "input_switch_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="inputType")
-    def input_type(self) -> Optional[pulumi.Input['ChannelInputType']]:
+    def input_type(self) -> pulumi.Input[Optional['ChannelInputType']]:
         """
         The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
 
@@ -122,28 +122,28 @@ class ChannelArgs:
         return pulumi.get(self, "input_type")
 
     @input_type.setter
-    def input_type(self, value: Optional[pulumi.Input['ChannelInputType']]):
+    def input_type(self, value: pulumi.Input[Optional['ChannelInputType']]):
         pulumi.set(self, "input_type", value)
 
     @_builtins.property
     @pulumi.getter(name="outputHeaderConfiguration")
-    def output_header_configuration(self) -> Optional[pulumi.Input['ChannelOutputHeaderConfigurationArgs']]:
+    def output_header_configuration(self) -> pulumi.Input[Optional['ChannelOutputHeaderConfigurationArgs']]:
         """
         The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
         """
         return pulumi.get(self, "output_header_configuration")
 
     @output_header_configuration.setter
-    def output_header_configuration(self, value: Optional[pulumi.Input['ChannelOutputHeaderConfigurationArgs']]):
+    def output_header_configuration(self, value: pulumi.Input[Optional['ChannelOutputHeaderConfigurationArgs']]):
         pulumi.set(self, "output_header_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -153,13 +153,13 @@ class Channel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_switch_configuration: Optional[pulumi.Input[Union['ChannelInputSwitchConfigurationArgs', 'ChannelInputSwitchConfigurationArgsDict']]] = None,
-                 input_type: Optional[pulumi.Input['ChannelInputType']] = None,
-                 output_header_configuration: Optional[pulumi.Input[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 channel_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_switch_configuration: pulumi.Input[Optional[Union['ChannelInputSwitchConfigurationArgs', 'ChannelInputSwitchConfigurationArgsDict']]] = None,
+                 input_type: pulumi.Input[Optional['ChannelInputType']] = None,
+                 output_header_configuration: pulumi.Input[Optional[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         <p>Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.</p>
@@ -204,13 +204,13 @@ class Channel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_switch_configuration: Optional[pulumi.Input[Union['ChannelInputSwitchConfigurationArgs', 'ChannelInputSwitchConfigurationArgsDict']]] = None,
-                 input_type: Optional[pulumi.Input['ChannelInputType']] = None,
-                 output_header_configuration: Optional[pulumi.Input[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 channel_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_switch_configuration: pulumi.Input[Optional[Union['ChannelInputSwitchConfigurationArgs', 'ChannelInputSwitchConfigurationArgsDict']]] = None,
+                 input_type: pulumi.Input[Optional['ChannelInputType']] = None,
+                 output_header_configuration: pulumi.Input[Optional[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -23,9 +23,9 @@ class ServiceEnvironmentArgs:
     def __init__(__self__, *,
                  capacity_limits: pulumi.Input[Sequence[pulumi.Input['ServiceEnvironmentCapacityLimitArgs']]],
                  service_environment_type: pulumi.Input[_builtins.str],
-                 service_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 service_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceEnvironment resource.
 
@@ -70,38 +70,38 @@ class ServiceEnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceEnvironmentName")
-    def service_environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the service environment.
         """
         return pulumi.get(self, "service_environment_name")
 
     @service_environment_name.setter
-    def service_environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_environment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value pair to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -111,11 +111,11 @@ class ServiceEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEnvironmentCapacityLimitArgs', 'ServiceEnvironmentCapacityLimitArgsDict']]]]] = None,
-                 service_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_environment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEnvironmentCapacityLimitArgs', 'ServiceEnvironmentCapacityLimitArgsDict']]]]] = None,
+                 service_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_environment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Batch::ServiceEnvironment
@@ -154,11 +154,11 @@ class ServiceEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEnvironmentCapacityLimitArgs', 'ServiceEnvironmentCapacityLimitArgsDict']]]]] = None,
-                 service_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_environment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEnvironmentCapacityLimitArgs', 'ServiceEnvironmentCapacityLimitArgsDict']]]]] = None,
+                 service_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_environment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

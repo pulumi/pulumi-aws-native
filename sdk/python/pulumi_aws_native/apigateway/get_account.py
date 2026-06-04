@@ -75,7 +75,7 @@ def get_account(id: Optional[_builtins.str] = None,
     return AwaitableGetAccountResult(
         cloud_watch_role_arn=pulumi.get(__ret__, 'cloud_watch_role_arn'),
         id=pulumi.get(__ret__, 'id'))
-def get_account_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_account_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.

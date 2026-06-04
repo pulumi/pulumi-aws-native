@@ -91,8 +91,8 @@ def get_configuration_template(application_name: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         option_settings=pulumi.get(__ret__, 'option_settings'),
         template_name=pulumi.get(__ret__, 'template_name'))
-def get_configuration_template_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      template_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_template_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      template_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationTemplateResult]:
     """
     Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate

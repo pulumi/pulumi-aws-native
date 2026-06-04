@@ -88,7 +88,7 @@ def get_cidr_collection(id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         locations=pulumi.get(__ret__, 'locations'))
-def get_cidr_collection_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cidr_collection_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCidrCollectionResult]:
     """
     Resource Type definition for AWS::Route53::CidrCollection.

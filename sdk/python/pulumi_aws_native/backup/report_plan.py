@@ -25,9 +25,9 @@ class ReportPlanArgs:
     def __init__(__self__, *,
                  report_delivery_channel: pulumi.Input['ReportDeliveryChannelPropertiesArgs'],
                  report_setting: pulumi.Input['ReportSettingPropertiesArgs'],
-                 report_plan_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 report_plan_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_plan_tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ReportPlan resource.
 
@@ -72,38 +72,38 @@ class ReportPlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="reportPlanDescription")
-    def report_plan_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def report_plan_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description of the report plan with a maximum of 1,024 characters.
         """
         return pulumi.get(self, "report_plan_description")
 
     @report_plan_description.setter
-    def report_plan_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def report_plan_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "report_plan_description", value)
 
     @_builtins.property
     @pulumi.getter(name="reportPlanName")
-    def report_plan_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def report_plan_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
         """
         return pulumi.get(self, "report_plan_name")
 
     @report_plan_name.setter
-    def report_plan_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def report_plan_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "report_plan_name", value)
 
     @_builtins.property
     @pulumi.getter(name="reportPlanTags")
-    def report_plan_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def report_plan_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
         """
         return pulumi.get(self, "report_plan_tags")
 
     @report_plan_tags.setter
-    def report_plan_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def report_plan_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "report_plan_tags", value)
 
 
@@ -113,11 +113,11 @@ class ReportPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 report_delivery_channel: Optional[pulumi.Input[Union['ReportDeliveryChannelPropertiesArgs', 'ReportDeliveryChannelPropertiesArgsDict']]] = None,
-                 report_plan_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 report_setting: Optional[pulumi.Input[Union['ReportSettingPropertiesArgs', 'ReportSettingPropertiesArgsDict']]] = None,
+                 report_delivery_channel: pulumi.Input[Optional[Union['ReportDeliveryChannelPropertiesArgs', 'ReportDeliveryChannelPropertiesArgsDict']]] = None,
+                 report_plan_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_plan_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 report_setting: pulumi.Input[Optional[Union['ReportSettingPropertiesArgs', 'ReportSettingPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Contains detailed information about a report plan in AWS Backup Audit Manager.
@@ -156,11 +156,11 @@ class ReportPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 report_delivery_channel: Optional[pulumi.Input[Union['ReportDeliveryChannelPropertiesArgs', 'ReportDeliveryChannelPropertiesArgsDict']]] = None,
-                 report_plan_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 report_setting: Optional[pulumi.Input[Union['ReportSettingPropertiesArgs', 'ReportSettingPropertiesArgsDict']]] = None,
+                 report_delivery_channel: pulumi.Input[Optional[Union['ReportDeliveryChannelPropertiesArgs', 'ReportDeliveryChannelPropertiesArgsDict']]] = None,
+                 report_plan_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_plan_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 report_setting: pulumi.Input[Optional[Union['ReportSettingPropertiesArgs', 'ReportSettingPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

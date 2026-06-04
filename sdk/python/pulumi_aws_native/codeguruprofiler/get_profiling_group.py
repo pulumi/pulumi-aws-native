@@ -102,7 +102,7 @@ def get_profiling_group(profiling_group_name: Optional[_builtins.str] = None,
         anomaly_detection_notification_configuration=pulumi.get(__ret__, 'anomaly_detection_notification_configuration'),
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_profiling_group_output(profiling_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_profiling_group_output(profiling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfilingGroupResult]:
     """
     This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.

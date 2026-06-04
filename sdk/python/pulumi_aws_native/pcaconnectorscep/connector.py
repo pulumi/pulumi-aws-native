@@ -23,9 +23,9 @@ __all__ = ['ConnectorArgs', 'Connector']
 class ConnectorArgs:
     def __init__(__self__, *,
                  certificate_authority_arn: pulumi.Input[_builtins.str],
-                 mobile_device_management: Optional[pulumi.Input['ConnectorMobileDeviceManagementArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 mobile_device_management: pulumi.Input[Optional['ConnectorMobileDeviceManagementArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Connector resource.
 
@@ -54,32 +54,32 @@ class ConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="mobileDeviceManagement")
-    def mobile_device_management(self) -> Optional[pulumi.Input['ConnectorMobileDeviceManagementArgs']]:
+    def mobile_device_management(self) -> pulumi.Input[Optional['ConnectorMobileDeviceManagementArgs']]:
         """
         Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
         """
         return pulumi.get(self, "mobile_device_management")
 
     @mobile_device_management.setter
-    def mobile_device_management(self, value: Optional[pulumi.Input['ConnectorMobileDeviceManagementArgs']]):
+    def mobile_device_management(self, value: pulumi.Input[Optional['ConnectorMobileDeviceManagementArgs']]):
         pulumi.set(self, "mobile_device_management", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
-    def vpc_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
-    def vpc_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_id", value)
 
 
@@ -89,10 +89,10 @@ class Connector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 mobile_device_management: Optional[pulumi.Input[Union['ConnectorMobileDeviceManagementArgs', 'ConnectorMobileDeviceManagementArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_device_management: pulumi.Input[Optional[Union['ConnectorMobileDeviceManagementArgs', 'ConnectorMobileDeviceManagementArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a Connector that allows certificate issuance through Simple Certificate Enrollment Protocol (SCEP)
@@ -128,10 +128,10 @@ class Connector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 mobile_device_management: Optional[pulumi.Input[Union['ConnectorMobileDeviceManagementArgs', 'ConnectorMobileDeviceManagementArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_device_management: pulumi.Input[Optional[Union['ConnectorMobileDeviceManagementArgs', 'ConnectorMobileDeviceManagementArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

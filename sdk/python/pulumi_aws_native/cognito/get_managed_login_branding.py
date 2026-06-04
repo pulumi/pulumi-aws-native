@@ -116,8 +116,8 @@ def get_managed_login_branding(managed_login_branding_id: Optional[_builtins.str
         managed_login_branding_id=pulumi.get(__ret__, 'managed_login_branding_id'),
         settings=pulumi.get(__ret__, 'settings'),
         use_cognito_provided_values=pulumi.get(__ret__, 'use_cognito_provided_values'))
-def get_managed_login_branding_output(managed_login_branding_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                      user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_login_branding_output(managed_login_branding_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                      user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedLoginBrandingResult]:
     """
     Resource Type definition for AWS::Cognito::ManagedLoginBranding

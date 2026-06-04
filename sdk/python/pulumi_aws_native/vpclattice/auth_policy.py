@@ -67,7 +67,7 @@ class AuthPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[Any] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates or updates the auth policy.
@@ -106,7 +106,7 @@ class AuthPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[Any] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

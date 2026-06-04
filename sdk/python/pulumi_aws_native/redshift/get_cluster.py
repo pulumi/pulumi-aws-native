@@ -625,7 +625,7 @@ def get_cluster(cluster_identifier: Optional[_builtins.str] = None,
         snapshot_copy_retention_period=pulumi.get(__ret__, 'snapshot_copy_retention_period'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-def get_cluster_output(cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_output(cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.

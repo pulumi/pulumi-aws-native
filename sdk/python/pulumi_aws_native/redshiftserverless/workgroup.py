@@ -24,24 +24,24 @@ __all__ = ['WorkgroupInitArgs', 'Workgroup']
 @pulumi.input_type
 class WorkgroupInitArgs:
     def __init__(__self__, *,
-                 base_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]] = None,
-                 enhanced_vpc_routing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 price_performance_target: Optional[pulumi.Input['WorkgroupPerformanceTargetArgs']] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 recovery_point_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_owner_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 track_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workgroup: Optional[pulumi.Input['WorkgroupArgs']] = None,
-                 workgroup_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 config_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]] = None,
+                 enhanced_vpc_routing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 price_performance_target: pulumi.Input[Optional['WorkgroupPerformanceTargetArgs']] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 recovery_point_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_owner_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 track_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workgroup: pulumi.Input[Optional['WorkgroupArgs']] = None,
+                 workgroup_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workgroup resource.
 
@@ -103,218 +103,218 @@ class WorkgroupInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="baseCapacity")
-    def base_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def base_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
         """
         return pulumi.get(self, "base_capacity")
 
     @base_capacity.setter
-    def base_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def base_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "base_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="configParameters")
-    def config_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]]:
+    def config_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]]:
         """
         A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
         """
         return pulumi.get(self, "config_parameters")
 
     @config_parameters.setter
-    def config_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]]):
+    def config_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]]):
         pulumi.set(self, "config_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="enhancedVpcRouting")
-    def enhanced_vpc_routing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enhanced_vpc_routing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
         """
         return pulumi.get(self, "enhanced_vpc_routing")
 
     @enhanced_vpc_routing.setter
-    def enhanced_vpc_routing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enhanced_vpc_routing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enhanced_vpc_routing", value)
 
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
         """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
-    def max_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The namespace the workgroup is associated with.
         """
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="pricePerformanceTarget")
-    def price_performance_target(self) -> Optional[pulumi.Input['WorkgroupPerformanceTargetArgs']]:
+    def price_performance_target(self) -> pulumi.Input[Optional['WorkgroupPerformanceTargetArgs']]:
         """
         A property that represents the price performance target settings for the workgroup.
         """
         return pulumi.get(self, "price_performance_target")
 
     @price_performance_target.setter
-    def price_performance_target(self, value: Optional[pulumi.Input['WorkgroupPerformanceTargetArgs']]):
+    def price_performance_target(self, value: pulumi.Input[Optional['WorkgroupPerformanceTargetArgs']]):
         pulumi.set(self, "price_performance_target", value)
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publicly_accessible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value that specifies whether the workgroup can be accessible from a public network.
         """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
-    def publicly_accessible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publicly_accessible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publicly_accessible", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryPointId")
-    def recovery_point_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_point_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The recovery point id to restore from.
         """
         return pulumi.get(self, "recovery_point_id")
 
     @recovery_point_id.setter
-    def recovery_point_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_point_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_point_id", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of security group IDs to associate with the workgroup.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotArn")
-    def snapshot_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the snapshot to restore from.
         """
         return pulumi.get(self, "snapshot_arn")
 
     @snapshot_arn.setter
-    def snapshot_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotName")
-    def snapshot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The snapshot name to restore from.
         """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
-    def snapshot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotOwnerAccount")
-    def snapshot_owner_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_owner_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Web Services account that owns the snapshot.
         """
         return pulumi.get(self, "snapshot_owner_account")
 
     @snapshot_owner_account.setter
-    def snapshot_owner_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_owner_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_owner_account", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of subnet IDs the workgroup is associated with.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The map of the key-value pairs used to tag the workgroup.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trackName")
-    def track_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def track_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
         """
         return pulumi.get(self, "track_name")
 
     @track_name.setter
-    def track_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def track_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "track_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def workgroup(self) -> Optional[pulumi.Input['WorkgroupArgs']]:
+    def workgroup(self) -> pulumi.Input[Optional['WorkgroupArgs']]:
         """
         Definition for workgroup resource
         """
         return pulumi.get(self, "workgroup")
 
     @workgroup.setter
-    def workgroup(self, value: Optional[pulumi.Input['WorkgroupArgs']]):
+    def workgroup(self, value: pulumi.Input[Optional['WorkgroupArgs']]):
         pulumi.set(self, "workgroup", value)
 
     @_builtins.property
     @pulumi.getter(name="workgroupName")
-    def workgroup_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workgroup_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the workgroup.
         """
         return pulumi.get(self, "workgroup_name")
 
     @workgroup_name.setter
-    def workgroup_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workgroup_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workgroup_name", value)
 
 
@@ -324,24 +324,24 @@ class Workgroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 base_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]]] = None,
-                 enhanced_vpc_routing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 price_performance_target: Optional[pulumi.Input[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict']]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 recovery_point_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_owner_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 track_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workgroup: Optional[pulumi.Input[Union['WorkgroupArgs', 'WorkgroupArgsDict']]] = None,
-                 workgroup_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 config_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]]] = None,
+                 enhanced_vpc_routing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 price_performance_target: pulumi.Input[Optional[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict']]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 recovery_point_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_owner_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 track_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workgroup: pulumi.Input[Optional[Union['WorkgroupArgs', 'WorkgroupArgsDict']]] = None,
+                 workgroup_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::RedshiftServerless::Workgroup Resource Type
@@ -393,24 +393,24 @@ class Workgroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 base_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]]] = None,
-                 enhanced_vpc_routing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 price_performance_target: Optional[pulumi.Input[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict']]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 recovery_point_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_owner_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 track_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workgroup: Optional[pulumi.Input[Union['WorkgroupArgs', 'WorkgroupArgsDict']]] = None,
-                 workgroup_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 config_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]]] = None,
+                 enhanced_vpc_routing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 price_performance_target: pulumi.Input[Optional[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict']]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 recovery_point_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_owner_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 track_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workgroup: pulumi.Input[Optional[Union['WorkgroupArgs', 'WorkgroupArgsDict']]] = None,
+                 workgroup_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

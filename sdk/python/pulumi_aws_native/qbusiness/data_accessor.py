@@ -28,8 +28,8 @@ class DataAccessorArgs:
                  application_id: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  principal: pulumi.Input[_builtins.str],
-                 authentication_detail: Optional[pulumi.Input['DataAccessorAuthenticationDetailArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 authentication_detail: pulumi.Input[Optional['DataAccessorAuthenticationDetailArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataAccessor resource.
 
@@ -99,26 +99,26 @@ class DataAccessorArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationDetail")
-    def authentication_detail(self) -> Optional[pulumi.Input['DataAccessorAuthenticationDetailArgs']]:
+    def authentication_detail(self) -> pulumi.Input[Optional['DataAccessorAuthenticationDetailArgs']]:
         """
         The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
         """
         return pulumi.get(self, "authentication_detail")
 
     @authentication_detail.setter
-    def authentication_detail(self, value: Optional[pulumi.Input['DataAccessorAuthenticationDetailArgs']]):
+    def authentication_detail(self, value: pulumi.Input[Optional['DataAccessorAuthenticationDetailArgs']]):
         pulumi.set(self, "authentication_detail", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to associate with the data accessor.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -128,12 +128,12 @@ class DataAccessor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataAccessorActionConfigurationArgs', 'DataAccessorActionConfigurationArgsDict']]]]] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_detail: Optional[pulumi.Input[Union['DataAccessorAuthenticationDetailArgs', 'DataAccessorAuthenticationDetailArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 action_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataAccessorActionConfigurationArgs', 'DataAccessorActionConfigurationArgsDict']]]]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_detail: pulumi.Input[Optional[Union['DataAccessorAuthenticationDetailArgs', 'DataAccessorAuthenticationDetailArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::QBusiness::DataAccessor Resource Type
@@ -173,12 +173,12 @@ class DataAccessor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataAccessorActionConfigurationArgs', 'DataAccessorActionConfigurationArgsDict']]]]] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_detail: Optional[pulumi.Input[Union['DataAccessorAuthenticationDetailArgs', 'DataAccessorAuthenticationDetailArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 action_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataAccessorActionConfigurationArgs', 'DataAccessorActionConfigurationArgsDict']]]]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_detail: pulumi.Input[Optional[Union['DataAccessorAuthenticationDetailArgs', 'DataAccessorAuthenticationDetailArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

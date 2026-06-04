@@ -116,7 +116,7 @@ def get_project(name: Optional[_builtins.str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         sample=pulumi.get(__ret__, 'sample'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_project_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_project_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     Resource schema for AWS::DataBrew::Project.

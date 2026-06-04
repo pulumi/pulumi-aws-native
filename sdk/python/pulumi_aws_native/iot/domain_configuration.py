@@ -24,19 +24,19 @@ __all__ = ['DomainConfigurationArgs', 'DomainConfiguration']
 @pulumi.input_type
 class DomainConfigurationArgs:
     def __init__(__self__, *,
-                 application_protocol: Optional[pulumi.Input['DomainConfigurationApplicationProtocol']] = None,
-                 authentication_type: Optional[pulumi.Input['DomainConfigurationAuthenticationType']] = None,
-                 authorizer_config: Optional[pulumi.Input['DomainConfigurationAuthorizerConfigArgs']] = None,
-                 client_certificate_config: Optional[pulumi.Input['DomainConfigurationClientCertificateConfigArgs']] = None,
-                 domain_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_configuration_status: Optional[pulumi.Input['DomainConfigurationStatus']] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_certificate_config: Optional[pulumi.Input['DomainConfigurationServerCertificateConfigArgs']] = None,
-                 service_type: Optional[pulumi.Input['DomainConfigurationServiceType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 tls_config: Optional[pulumi.Input['DomainConfigurationTlsConfigArgs']] = None,
-                 validation_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_protocol: pulumi.Input[Optional['DomainConfigurationApplicationProtocol']] = None,
+                 authentication_type: pulumi.Input[Optional['DomainConfigurationAuthenticationType']] = None,
+                 authorizer_config: pulumi.Input[Optional['DomainConfigurationAuthorizerConfigArgs']] = None,
+                 client_certificate_config: pulumi.Input[Optional['DomainConfigurationClientCertificateConfigArgs']] = None,
+                 domain_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_configuration_status: pulumi.Input[Optional['DomainConfigurationStatus']] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_certificate_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_certificate_config: pulumi.Input[Optional['DomainConfigurationServerCertificateConfigArgs']] = None,
+                 service_type: pulumi.Input[Optional['DomainConfigurationServiceType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tls_config: pulumi.Input[Optional['DomainConfigurationTlsConfigArgs']] = None,
+                 validation_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainConfiguration resource.
 
@@ -95,67 +95,67 @@ class DomainConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationProtocol")
-    def application_protocol(self) -> Optional[pulumi.Input['DomainConfigurationApplicationProtocol']]:
+    def application_protocol(self) -> pulumi.Input[Optional['DomainConfigurationApplicationProtocol']]:
         """
         An enumerated string that speciﬁes the application-layer protocol.
         """
         return pulumi.get(self, "application_protocol")
 
     @application_protocol.setter
-    def application_protocol(self, value: Optional[pulumi.Input['DomainConfigurationApplicationProtocol']]):
+    def application_protocol(self, value: pulumi.Input[Optional['DomainConfigurationApplicationProtocol']]):
         pulumi.set(self, "application_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input['DomainConfigurationAuthenticationType']]:
+    def authentication_type(self) -> pulumi.Input[Optional['DomainConfigurationAuthenticationType']]:
         """
         An enumerated string that speciﬁes the authentication type.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input['DomainConfigurationAuthenticationType']]):
+    def authentication_type(self, value: pulumi.Input[Optional['DomainConfigurationAuthenticationType']]):
         pulumi.set(self, "authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizerConfig")
-    def authorizer_config(self) -> Optional[pulumi.Input['DomainConfigurationAuthorizerConfigArgs']]:
+    def authorizer_config(self) -> pulumi.Input[Optional['DomainConfigurationAuthorizerConfigArgs']]:
         """
         An object that specifies the authorization service for a domain.
         """
         return pulumi.get(self, "authorizer_config")
 
     @authorizer_config.setter
-    def authorizer_config(self, value: Optional[pulumi.Input['DomainConfigurationAuthorizerConfigArgs']]):
+    def authorizer_config(self, value: pulumi.Input[Optional['DomainConfigurationAuthorizerConfigArgs']]):
         pulumi.set(self, "authorizer_config", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateConfig")
-    def client_certificate_config(self) -> Optional[pulumi.Input['DomainConfigurationClientCertificateConfigArgs']]:
+    def client_certificate_config(self) -> pulumi.Input[Optional['DomainConfigurationClientCertificateConfigArgs']]:
         """
         An object that speciﬁes the client certificate conﬁguration for a domain.
         """
         return pulumi.get(self, "client_certificate_config")
 
     @client_certificate_config.setter
-    def client_certificate_config(self, value: Optional[pulumi.Input['DomainConfigurationClientCertificateConfigArgs']]):
+    def client_certificate_config(self, value: pulumi.Input[Optional['DomainConfigurationClientCertificateConfigArgs']]):
         pulumi.set(self, "client_certificate_config", value)
 
     @_builtins.property
     @pulumi.getter(name="domainConfigurationName")
-    def domain_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the domain configuration. This value must be unique to a region.
         """
         return pulumi.get(self, "domain_configuration_name")
 
     @domain_configuration_name.setter
-    def domain_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="domainConfigurationStatus")
-    def domain_configuration_status(self) -> Optional[pulumi.Input['DomainConfigurationStatus']]:
+    def domain_configuration_status(self) -> pulumi.Input[Optional['DomainConfigurationStatus']]:
         """
         The status to which the domain configuration should be updated.
 
@@ -164,36 +164,36 @@ class DomainConfigurationArgs:
         return pulumi.get(self, "domain_configuration_status")
 
     @domain_configuration_status.setter
-    def domain_configuration_status(self, value: Optional[pulumi.Input['DomainConfigurationStatus']]):
+    def domain_configuration_status(self, value: pulumi.Input[Optional['DomainConfigurationStatus']]):
         pulumi.set(self, "domain_configuration_status", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the domain.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverCertificateArns")
-    def server_certificate_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def server_certificate_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
         """
         return pulumi.get(self, "server_certificate_arns")
 
     @server_certificate_arns.setter
-    def server_certificate_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def server_certificate_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "server_certificate_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="serverCertificateConfig")
-    def server_certificate_config(self) -> Optional[pulumi.Input['DomainConfigurationServerCertificateConfigArgs']]:
+    def server_certificate_config(self) -> pulumi.Input[Optional['DomainConfigurationServerCertificateConfigArgs']]:
         """
         The server certificate configuration.
 
@@ -202,12 +202,12 @@ class DomainConfigurationArgs:
         return pulumi.get(self, "server_certificate_config")
 
     @server_certificate_config.setter
-    def server_certificate_config(self, value: Optional[pulumi.Input['DomainConfigurationServerCertificateConfigArgs']]):
+    def server_certificate_config(self, value: pulumi.Input[Optional['DomainConfigurationServerCertificateConfigArgs']]):
         pulumi.set(self, "server_certificate_config", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceType")
-    def service_type(self) -> Optional[pulumi.Input['DomainConfigurationServiceType']]:
+    def service_type(self) -> pulumi.Input[Optional['DomainConfigurationServiceType']]:
         """
         The type of service delivered by the endpoint.
 
@@ -216,12 +216,12 @@ class DomainConfigurationArgs:
         return pulumi.get(self, "service_type")
 
     @service_type.setter
-    def service_type(self, value: Optional[pulumi.Input['DomainConfigurationServiceType']]):
+    def service_type(self, value: pulumi.Input[Optional['DomainConfigurationServiceType']]):
         pulumi.set(self, "service_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata which can be used to manage the domain configuration.
 
@@ -234,31 +234,31 @@ class DomainConfigurationArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsConfig")
-    def tls_config(self) -> Optional[pulumi.Input['DomainConfigurationTlsConfigArgs']]:
+    def tls_config(self) -> pulumi.Input[Optional['DomainConfigurationTlsConfigArgs']]:
         """
         An object that specifies the TLS configuration for a domain.
         """
         return pulumi.get(self, "tls_config")
 
     @tls_config.setter
-    def tls_config(self, value: Optional[pulumi.Input['DomainConfigurationTlsConfigArgs']]):
+    def tls_config(self, value: pulumi.Input[Optional['DomainConfigurationTlsConfigArgs']]):
         pulumi.set(self, "tls_config", value)
 
     @_builtins.property
     @pulumi.getter(name="validationCertificateArn")
-    def validation_certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def validation_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS -managed domains.
         """
         return pulumi.get(self, "validation_certificate_arn")
 
     @validation_certificate_arn.setter
-    def validation_certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def validation_certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "validation_certificate_arn", value)
 
 
@@ -268,19 +268,19 @@ class DomainConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_protocol: Optional[pulumi.Input['DomainConfigurationApplicationProtocol']] = None,
-                 authentication_type: Optional[pulumi.Input['DomainConfigurationAuthenticationType']] = None,
-                 authorizer_config: Optional[pulumi.Input[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict']]] = None,
-                 client_certificate_config: Optional[pulumi.Input[Union['DomainConfigurationClientCertificateConfigArgs', 'DomainConfigurationClientCertificateConfigArgsDict']]] = None,
-                 domain_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_configuration_status: Optional[pulumi.Input['DomainConfigurationStatus']] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_certificate_config: Optional[pulumi.Input[Union['DomainConfigurationServerCertificateConfigArgs', 'DomainConfigurationServerCertificateConfigArgsDict']]] = None,
-                 service_type: Optional[pulumi.Input['DomainConfigurationServiceType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tls_config: Optional[pulumi.Input[Union['DomainConfigurationTlsConfigArgs', 'DomainConfigurationTlsConfigArgsDict']]] = None,
-                 validation_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_protocol: pulumi.Input[Optional['DomainConfigurationApplicationProtocol']] = None,
+                 authentication_type: pulumi.Input[Optional['DomainConfigurationAuthenticationType']] = None,
+                 authorizer_config: pulumi.Input[Optional[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict']]] = None,
+                 client_certificate_config: pulumi.Input[Optional[Union['DomainConfigurationClientCertificateConfigArgs', 'DomainConfigurationClientCertificateConfigArgsDict']]] = None,
+                 domain_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_configuration_status: pulumi.Input[Optional['DomainConfigurationStatus']] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_certificate_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_certificate_config: pulumi.Input[Optional[Union['DomainConfigurationServerCertificateConfigArgs', 'DomainConfigurationServerCertificateConfigArgsDict']]] = None,
+                 service_type: pulumi.Input[Optional['DomainConfigurationServiceType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tls_config: pulumi.Input[Optional[Union['DomainConfigurationTlsConfigArgs', 'DomainConfigurationTlsConfigArgsDict']]] = None,
+                 validation_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Create and manage a Domain Configuration
@@ -339,19 +339,19 @@ class DomainConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_protocol: Optional[pulumi.Input['DomainConfigurationApplicationProtocol']] = None,
-                 authentication_type: Optional[pulumi.Input['DomainConfigurationAuthenticationType']] = None,
-                 authorizer_config: Optional[pulumi.Input[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict']]] = None,
-                 client_certificate_config: Optional[pulumi.Input[Union['DomainConfigurationClientCertificateConfigArgs', 'DomainConfigurationClientCertificateConfigArgsDict']]] = None,
-                 domain_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_configuration_status: Optional[pulumi.Input['DomainConfigurationStatus']] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_certificate_config: Optional[pulumi.Input[Union['DomainConfigurationServerCertificateConfigArgs', 'DomainConfigurationServerCertificateConfigArgsDict']]] = None,
-                 service_type: Optional[pulumi.Input['DomainConfigurationServiceType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tls_config: Optional[pulumi.Input[Union['DomainConfigurationTlsConfigArgs', 'DomainConfigurationTlsConfigArgsDict']]] = None,
-                 validation_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_protocol: pulumi.Input[Optional['DomainConfigurationApplicationProtocol']] = None,
+                 authentication_type: pulumi.Input[Optional['DomainConfigurationAuthenticationType']] = None,
+                 authorizer_config: pulumi.Input[Optional[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict']]] = None,
+                 client_certificate_config: pulumi.Input[Optional[Union['DomainConfigurationClientCertificateConfigArgs', 'DomainConfigurationClientCertificateConfigArgsDict']]] = None,
+                 domain_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_configuration_status: pulumi.Input[Optional['DomainConfigurationStatus']] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_certificate_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_certificate_config: pulumi.Input[Optional[Union['DomainConfigurationServerCertificateConfigArgs', 'DomainConfigurationServerCertificateConfigArgsDict']]] = None,
+                 service_type: pulumi.Input[Optional['DomainConfigurationServiceType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tls_config: pulumi.Input[Optional[Union['DomainConfigurationTlsConfigArgs', 'DomainConfigurationTlsConfigArgsDict']]] = None,
+                 validation_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

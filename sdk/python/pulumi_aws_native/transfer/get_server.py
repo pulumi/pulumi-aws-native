@@ -391,7 +391,7 @@ def get_server(arn: Optional[_builtins.str] = None,
         structured_log_destinations=pulumi.get(__ret__, 'structured_log_destinations'),
         tags=pulumi.get(__ret__, 'tags'),
         workflow_details=pulumi.get(__ret__, 'workflow_details'))
-def get_server_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Definition of AWS::Transfer::Server Resource Type

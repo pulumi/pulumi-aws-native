@@ -107,7 +107,7 @@ def get_index(arn: Optional[_builtins.str] = None,
         index_state=pulumi.get(__ret__, 'index_state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_index_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_index_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIndexResult]:
     """
     Definition of AWS::ResourceExplorer2::Index Resource Type

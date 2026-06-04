@@ -25,11 +25,11 @@ __all__ = ['DiskArgs', 'Disk']
 class DiskArgs:
     def __init__(__self__, *,
                  size_in_gb: pulumi.Input[_builtins.int],
-                 add_ons: Optional[pulumi.Input[Sequence[pulumi.Input['DiskAddOnArgs']]]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input['DiskLocationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 add_ons: pulumi.Input[Optional[Sequence[pulumi.Input['DiskAddOnArgs']]]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional['DiskLocationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Disk resource.
 
@@ -66,62 +66,62 @@ class DiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="addOns")
-    def add_ons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiskAddOnArgs']]]]:
+    def add_ons(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DiskAddOnArgs']]]]:
         """
         An array of objects representing the add-ons to enable for the new instance.
         """
         return pulumi.get(self, "add_ons")
 
     @add_ons.setter
-    def add_ons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiskAddOnArgs']]]]):
+    def add_ons(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DiskAddOnArgs']]]]):
         pulumi.set(self, "add_ons", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="diskName")
-    def disk_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The names to use for your new Lightsail disk.
         """
         return pulumi.get(self, "disk_name")
 
     @disk_name.setter
-    def disk_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input['DiskLocationArgs']]:
+    def location(self) -> pulumi.Input[Optional['DiskLocationArgs']]:
         """
         The AWS Region and Availability Zone where the disk is located.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input['DiskLocationArgs']]):
+    def location(self, value: pulumi.Input[Optional['DiskLocationArgs']]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -131,12 +131,12 @@ class Disk(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 add_ons: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiskAddOnArgs', 'DiskAddOnArgsDict']]]]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[Union['DiskLocationArgs', 'DiskLocationArgsDict']]] = None,
-                 size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 add_ons: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiskAddOnArgs', 'DiskAddOnArgsDict']]]]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[Union['DiskLocationArgs', 'DiskLocationArgsDict']]] = None,
+                 size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lightsail::Disk
@@ -176,12 +176,12 @@ class Disk(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 add_ons: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DiskAddOnArgs', 'DiskAddOnArgsDict']]]]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[Union['DiskLocationArgs', 'DiskLocationArgsDict']]] = None,
-                 size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 add_ons: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiskAddOnArgs', 'DiskAddOnArgsDict']]]]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[Union['DiskLocationArgs', 'DiskLocationArgsDict']]] = None,
+                 size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -168,7 +168,7 @@ def get_stream(name: Optional[_builtins.str] = None,
         stream_mode_details=pulumi.get(__ret__, 'stream_mode_details'),
         tags=pulumi.get(__ret__, 'tags'),
         warm_throughput_object=pulumi.get(__ret__, 'warm_throughput_object'))
-def get_stream_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_stream_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamResult]:
     """
     Resource Type definition for AWS::Kinesis::Stream

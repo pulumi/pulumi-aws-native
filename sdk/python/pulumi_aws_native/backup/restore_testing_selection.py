@@ -24,11 +24,11 @@ class RestoreTestingSelectionArgs:
                  iam_role_arn: pulumi.Input[_builtins.str],
                  protected_resource_type: pulumi.Input[_builtins.str],
                  restore_testing_plan_name: pulumi.Input[_builtins.str],
-                 protected_resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 protected_resource_conditions: Optional[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsArgs']] = None,
-                 restore_metadata_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 restore_testing_selection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_window_hours: Optional[pulumi.Input[_builtins.int]] = None):
+                 protected_resource_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 protected_resource_conditions: pulumi.Input[Optional['RestoreTestingSelectionProtectedResourceConditionsArgs']] = None,
+                 restore_metadata_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 restore_testing_selection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_window_hours: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a RestoreTestingSelection resource.
 
@@ -101,31 +101,31 @@ class RestoreTestingSelectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="protectedResourceArns")
-    def protected_resource_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def protected_resource_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
         """
         return pulumi.get(self, "protected_resource_arns")
 
     @protected_resource_arns.setter
-    def protected_resource_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def protected_resource_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "protected_resource_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="protectedResourceConditions")
-    def protected_resource_conditions(self) -> Optional[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsArgs']]:
+    def protected_resource_conditions(self) -> pulumi.Input[Optional['RestoreTestingSelectionProtectedResourceConditionsArgs']]:
         """
         In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
         """
         return pulumi.get(self, "protected_resource_conditions")
 
     @protected_resource_conditions.setter
-    def protected_resource_conditions(self, value: Optional[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsArgs']]):
+    def protected_resource_conditions(self, value: pulumi.Input[Optional['RestoreTestingSelectionProtectedResourceConditionsArgs']]):
         pulumi.set(self, "protected_resource_conditions", value)
 
     @_builtins.property
     @pulumi.getter(name="restoreMetadataOverrides")
-    def restore_metadata_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def restore_metadata_overrides(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
 
@@ -134,12 +134,12 @@ class RestoreTestingSelectionArgs:
         return pulumi.get(self, "restore_metadata_overrides")
 
     @restore_metadata_overrides.setter
-    def restore_metadata_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def restore_metadata_overrides(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "restore_metadata_overrides", value)
 
     @_builtins.property
     @pulumi.getter(name="restoreTestingSelectionName")
-    def restore_testing_selection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restore_testing_selection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name of the restore testing selection that belongs to the related restore testing plan.
 
@@ -148,19 +148,19 @@ class RestoreTestingSelectionArgs:
         return pulumi.get(self, "restore_testing_selection_name")
 
     @restore_testing_selection_name.setter
-    def restore_testing_selection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restore_testing_selection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restore_testing_selection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="validationWindowHours")
-    def validation_window_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def validation_window_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
         """
         return pulumi.get(self, "validation_window_hours")
 
     @validation_window_hours.setter
-    def validation_window_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def validation_window_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "validation_window_hours", value)
 
 
@@ -170,14 +170,14 @@ class RestoreTestingSelection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 protected_resource_conditions: Optional[pulumi.Input[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict']]] = None,
-                 protected_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_metadata_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 restore_testing_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_testing_selection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_window_hours: Optional[pulumi.Input[_builtins.int]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_resource_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 protected_resource_conditions: pulumi.Input[Optional[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict']]] = None,
+                 protected_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_metadata_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 restore_testing_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_testing_selection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_window_hours: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Backup::RestoreTestingSelection
@@ -225,14 +225,14 @@ class RestoreTestingSelection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 protected_resource_conditions: Optional[pulumi.Input[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict']]] = None,
-                 protected_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_metadata_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 restore_testing_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_testing_selection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_window_hours: Optional[pulumi.Input[_builtins.int]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_resource_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 protected_resource_conditions: pulumi.Input[Optional[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict']]] = None,
+                 protected_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_metadata_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 restore_testing_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_testing_selection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_window_hours: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

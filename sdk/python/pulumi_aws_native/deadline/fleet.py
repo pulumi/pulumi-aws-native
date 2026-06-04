@@ -29,10 +29,10 @@ class FleetArgs:
                  farm_id: pulumi.Input[_builtins.str],
                  max_worker_count: pulumi.Input[_builtins.int],
                  role_arn: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_configuration: Optional[pulumi.Input['FleetHostConfigurationArgs']] = None,
-                 min_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_configuration: pulumi.Input[Optional['FleetHostConfigurationArgs']] = None,
+                 min_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
 
@@ -130,7 +130,7 @@ class FleetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description that helps identify what the fleet is used for.
 
@@ -139,12 +139,12 @@ class FleetArgs:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="hostConfiguration")
-    def host_configuration(self) -> Optional[pulumi.Input['FleetHostConfigurationArgs']]:
+    def host_configuration(self) -> pulumi.Input[Optional['FleetHostConfigurationArgs']]:
         """
         Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
 
@@ -153,31 +153,31 @@ class FleetArgs:
         return pulumi.get(self, "host_configuration")
 
     @host_configuration.setter
-    def host_configuration(self, value: Optional[pulumi.Input['FleetHostConfigurationArgs']]):
+    def host_configuration(self, value: pulumi.Input[Optional['FleetHostConfigurationArgs']]):
         pulumi.set(self, "host_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="minWorkerCount")
-    def min_worker_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_worker_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of workers in the fleet.
         """
         return pulumi.get(self, "min_worker_count")
 
     @min_worker_count.setter
-    def min_worker_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_worker_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_worker_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -187,15 +187,15 @@ class Fleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration0PropertiesArgsDict'], Union['FleetConfiguration1PropertiesArgs', 'FleetConfiguration1PropertiesArgsDict']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 farm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_configuration: Optional[pulumi.Input[Union['FleetHostConfigurationArgs', 'FleetHostConfigurationArgsDict']]] = None,
-                 max_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration0PropertiesArgsDict'], Union['FleetConfiguration1PropertiesArgs', 'FleetConfiguration1PropertiesArgsDict']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 farm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_configuration: pulumi.Input[Optional[Union['FleetHostConfigurationArgs', 'FleetHostConfigurationArgsDict']]] = None,
+                 max_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Deadline::Fleet
@@ -244,15 +244,15 @@ class Fleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration0PropertiesArgsDict'], Union['FleetConfiguration1PropertiesArgs', 'FleetConfiguration1PropertiesArgsDict']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 farm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_configuration: Optional[pulumi.Input[Union['FleetHostConfigurationArgs', 'FleetHostConfigurationArgsDict']]] = None,
-                 max_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration0PropertiesArgsDict'], Union['FleetConfiguration1PropertiesArgs', 'FleetConfiguration1PropertiesArgsDict']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 farm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_configuration: pulumi.Input[Optional[Union['FleetHostConfigurationArgs', 'FleetHostConfigurationArgsDict']]] = None,
+                 max_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

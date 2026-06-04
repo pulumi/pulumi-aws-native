@@ -230,7 +230,7 @@ def get_distribution_tenant(id: Optional[_builtins.str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_distribution_tenant_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_distribution_tenant_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributionTenantResult]:
     """
     The distribution tenant.

@@ -25,20 +25,20 @@ class WorkspaceArgs:
                  account_access_type: pulumi.Input['WorkspaceAccountAccessType'],
                  authentication_providers: pulumi.Input[Sequence[pulumi.Input['WorkspaceAuthenticationProviderTypes']]],
                  permission_type: pulumi.Input['WorkspacePermissionType'],
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 grafana_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_access_control: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']] = None,
-                 notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]] = None,
-                 organization_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 plugin_admin_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_configuration: Optional[pulumi.Input['WorkspaceSamlConfigurationArgs']] = None,
-                 stack_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']] = None):
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceDataSourceType']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 grafana_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_access_control: pulumi.Input[Optional['WorkspaceNetworkAccessControlArgs']] = None,
+                 notification_destinations: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]] = None,
+                 organization_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 plugin_admin_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_configuration: pulumi.Input[Optional['WorkspaceSamlConfigurationArgs']] = None,
+                 stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_configuration: pulumi.Input[Optional['WorkspaceVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
 
@@ -144,163 +144,163 @@ class WorkspaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientToken")
-    def client_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
         """
         return pulumi.get(self, "client_token")
 
     @client_token.setter
-    def client_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_token", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSources")
-    def data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]]]:
+    def data_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceDataSourceType']]]]:
         """
         List of data sources on the service managed IAM role.
         """
         return pulumi.get(self, "data_sources")
 
     @data_sources.setter
-    def data_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]]]):
+    def data_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceDataSourceType']]]]):
         pulumi.set(self, "data_sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of a workspace.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="grafanaVersion")
-    def grafana_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grafana_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of Grafana to support in your workspace.
         """
         return pulumi.get(self, "grafana_version")
 
     @grafana_version.setter
-    def grafana_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grafana_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grafana_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user friendly name of a workspace.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAccessControl")
-    def network_access_control(self) -> Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]:
+    def network_access_control(self) -> pulumi.Input[Optional['WorkspaceNetworkAccessControlArgs']]:
         """
         The configuration settings for network access to your workspace.
         """
         return pulumi.get(self, "network_access_control")
 
     @network_access_control.setter
-    def network_access_control(self, value: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]):
+    def network_access_control(self, value: pulumi.Input[Optional['WorkspaceNetworkAccessControlArgs']]):
         pulumi.set(self, "network_access_control", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationDestinations")
-    def notification_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]]:
+    def notification_destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]]:
         """
         List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
         """
         return pulumi.get(self, "notification_destinations")
 
     @notification_destinations.setter
-    def notification_destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]]):
+    def notification_destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]]):
         pulumi.set(self, "notification_destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationRoleName")
-    def organization_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization.
         """
         return pulumi.get(self, "organization_role_name")
 
     @organization_role_name.setter
-    def organization_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnits")
-    def organizational_units(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def organizational_units(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
         """
         return pulumi.get(self, "organizational_units")
 
     @organizational_units.setter
-    def organizational_units(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def organizational_units(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "organizational_units", value)
 
     @_builtins.property
     @pulumi.getter(name="pluginAdminEnabled")
-    def plugin_admin_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def plugin_admin_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow workspace admins to install plugins
         """
         return pulumi.get(self, "plugin_admin_enabled")
 
     @plugin_admin_enabled.setter
-    def plugin_admin_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def plugin_admin_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "plugin_admin_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="samlConfiguration")
-    def saml_configuration(self) -> Optional[pulumi.Input['WorkspaceSamlConfigurationArgs']]:
+    def saml_configuration(self) -> pulumi.Input[Optional['WorkspaceSamlConfigurationArgs']]:
         """
         If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
         """
         return pulumi.get(self, "saml_configuration")
 
     @saml_configuration.setter
-    def saml_configuration(self, value: Optional[pulumi.Input['WorkspaceSamlConfigurationArgs']]):
+    def saml_configuration(self, value: pulumi.Input[Optional['WorkspaceSamlConfigurationArgs']]):
         pulumi.set(self, "saml_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="stackSetName")
-    def stack_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
         """
         return pulumi.get(self, "stack_set_name")
 
     @stack_set_name.setter
-    def stack_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> pulumi.Input[Optional['WorkspaceVpcConfigurationArgs']]:
         """
         The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
 
@@ -309,7 +309,7 @@ class WorkspaceArgs:
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: pulumi.Input[Optional['WorkspaceVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
@@ -319,23 +319,23 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_access_type: Optional[pulumi.Input['WorkspaceAccountAccessType']] = None,
-                 authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceAuthenticationProviderTypes']]]] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 grafana_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_access_control: Optional[pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
-                 notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]] = None,
-                 organization_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 permission_type: Optional[pulumi.Input['WorkspacePermissionType']] = None,
-                 plugin_admin_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_configuration: Optional[pulumi.Input[Union['WorkspaceSamlConfigurationArgs', 'WorkspaceSamlConfigurationArgsDict']]] = None,
-                 stack_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_configuration: Optional[pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
+                 account_access_type: pulumi.Input[Optional['WorkspaceAccountAccessType']] = None,
+                 authentication_providers: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceAuthenticationProviderTypes']]]] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceDataSourceType']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 grafana_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_access_control: pulumi.Input[Optional[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
+                 notification_destinations: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]] = None,
+                 organization_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 permission_type: pulumi.Input[Optional['WorkspacePermissionType']] = None,
+                 plugin_admin_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_configuration: pulumi.Input[Optional[Union['WorkspaceSamlConfigurationArgs', 'WorkspaceSamlConfigurationArgsDict']]] = None,
+                 stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Definition of AWS::Grafana::Workspace Resource Type
@@ -394,23 +394,23 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_access_type: Optional[pulumi.Input['WorkspaceAccountAccessType']] = None,
-                 authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceAuthenticationProviderTypes']]]] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 grafana_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_access_control: Optional[pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
-                 notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]] = None,
-                 organization_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 permission_type: Optional[pulumi.Input['WorkspacePermissionType']] = None,
-                 plugin_admin_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_configuration: Optional[pulumi.Input[Union['WorkspaceSamlConfigurationArgs', 'WorkspaceSamlConfigurationArgsDict']]] = None,
-                 stack_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_configuration: Optional[pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
+                 account_access_type: pulumi.Input[Optional['WorkspaceAccountAccessType']] = None,
+                 authentication_providers: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceAuthenticationProviderTypes']]]] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceDataSourceType']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 grafana_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_access_control: pulumi.Input[Optional[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
+                 notification_destinations: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]] = None,
+                 organization_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 permission_type: pulumi.Input[Optional['WorkspacePermissionType']] = None,
+                 plugin_admin_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_configuration: pulumi.Input[Optional[Union['WorkspaceSamlConfigurationArgs', 'WorkspaceSamlConfigurationArgsDict']]] = None,
+                 stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -106,7 +106,7 @@ def get_launch_profile(launch_profile_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         stream_configuration=pulumi.get(__ret__, 'stream_configuration'),
         studio_component_ids=pulumi.get(__ret__, 'studio_component_ids'))
-def get_launch_profile_output(launch_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_launch_profile_output(launch_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLaunchProfileResult]:
     """
     Resource Type definition for AWS::NimbleStudio::LaunchProfile

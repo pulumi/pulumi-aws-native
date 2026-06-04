@@ -23,12 +23,12 @@ __all__ = ['ProjectArgs', 'Project']
 @pulumi.input_type
 class ProjectArgs:
     def __init__(__self__, *,
-                 default_job_timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentVariableArgs']]]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None):
+                 default_job_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectEnvironmentVariableArgs']]]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_config: pulumi.Input[Optional['ProjectVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Project resource.
 
@@ -52,68 +52,68 @@ class ProjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultJobTimeoutMinutes")
-    def default_job_timeout_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_job_timeout_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
         """
         return pulumi.get(self, "default_job_timeout_minutes")
 
     @default_job_timeout_minutes.setter
-    def default_job_timeout_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_job_timeout_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_job_timeout_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentVariableArgs']]]]:
+    def environment_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectEnvironmentVariableArgs']]]]:
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentVariableArgs']]]]):
+    def environment_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectEnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
-    def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
-    def execution_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project's name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['ProjectVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['ProjectVpcConfigArgs']]:
         """
         The VPC security groups and subnets that are attached to a project.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['ProjectVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['ProjectVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
@@ -123,12 +123,12 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_job_timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentVariableArgs', 'ProjectEnvironmentVariableArgsDict']]]]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None,
+                 default_job_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectEnvironmentVariableArgs', 'ProjectEnvironmentVariableArgsDict']]]]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for a Device Farm Project
@@ -166,12 +166,12 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_job_timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentVariableArgs', 'ProjectEnvironmentVariableArgsDict']]]]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None,
+                 default_job_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectEnvironmentVariableArgs', 'ProjectEnvironmentVariableArgsDict']]]]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

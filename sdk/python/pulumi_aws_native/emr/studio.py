@@ -29,16 +29,16 @@ class StudioArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  vpc_id: pulumi.Input[_builtins.str],
                  workspace_security_group_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 idc_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 idc_user_assignment: Optional[pulumi.Input['StudioIdcUserAssignment']] = None,
-                 idp_auth_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 idp_relay_state_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 trusted_identity_propagation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_role: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 idc_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 idc_user_assignment: pulumi.Input[Optional['StudioIdcUserAssignment']] = None,
+                 idp_auth_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 idp_relay_state_parameter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 trusted_identity_propagation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_role: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Studio resource.
 
@@ -174,122 +174,122 @@ class StudioArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A detailed description of the Studio.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
-    def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS KMS key identifier (ARN) used to encrypt AWS EMR Studio workspace and notebook files when backed up to AWS S3.
         """
         return pulumi.get(self, "encryption_key_arn")
 
     @encryption_key_arn.setter
-    def encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="idcInstanceArn")
-    def idc_instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idc_instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM Identity Center instance to create the Studio application.
         """
         return pulumi.get(self, "idc_instance_arn")
 
     @idc_instance_arn.setter
-    def idc_instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idc_instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idc_instance_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="idcUserAssignment")
-    def idc_user_assignment(self) -> Optional[pulumi.Input['StudioIdcUserAssignment']]:
+    def idc_user_assignment(self) -> pulumi.Input[Optional['StudioIdcUserAssignment']]:
         """
         Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
         """
         return pulumi.get(self, "idc_user_assignment")
 
     @idc_user_assignment.setter
-    def idc_user_assignment(self, value: Optional[pulumi.Input['StudioIdcUserAssignment']]):
+    def idc_user_assignment(self, value: pulumi.Input[Optional['StudioIdcUserAssignment']]):
         pulumi.set(self, "idc_user_assignment", value)
 
     @_builtins.property
     @pulumi.getter(name="idpAuthUrl")
-    def idp_auth_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idp_auth_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
         """
         return pulumi.get(self, "idp_auth_url")
 
     @idp_auth_url.setter
-    def idp_auth_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idp_auth_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idp_auth_url", value)
 
     @_builtins.property
     @pulumi.getter(name="idpRelayStateParameterName")
-    def idp_relay_state_parameter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idp_relay_state_parameter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of relay state parameter for external Identity Provider.
         """
         return pulumi.get(self, "idp_relay_state_parameter_name")
 
     @idp_relay_state_parameter_name.setter
-    def idp_relay_state_parameter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idp_relay_state_parameter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idp_relay_state_parameter_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A descriptive name for the Amazon EMR Studio.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedIdentityPropagationEnabled")
-    def trusted_identity_propagation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trusted_identity_propagation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
         """
         return pulumi.get(self, "trusted_identity_propagation_enabled")
 
     @trusted_identity_propagation_enabled.setter
-    def trusted_identity_propagation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trusted_identity_propagation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trusted_identity_propagation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="userRole")
-    def user_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
         """
         return pulumi.get(self, "user_role")
 
     @user_role.setter
-    def user_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_role", value)
 
 
@@ -299,23 +299,23 @@ class Studio(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_mode: Optional[pulumi.Input['StudioAuthMode']] = None,
-                 default_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 idc_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 idc_user_assignment: Optional[pulumi.Input['StudioIdcUserAssignment']] = None,
-                 idp_auth_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 idp_relay_state_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 trusted_identity_propagation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_mode: pulumi.Input[Optional['StudioAuthMode']] = None,
+                 default_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 idc_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 idc_user_assignment: pulumi.Input[Optional['StudioIdcUserAssignment']] = None,
+                 idp_auth_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 idp_relay_state_parameter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 trusted_identity_propagation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::EMR::Studio
@@ -366,23 +366,23 @@ class Studio(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_mode: Optional[pulumi.Input['StudioAuthMode']] = None,
-                 default_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 idc_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 idc_user_assignment: Optional[pulumi.Input['StudioIdcUserAssignment']] = None,
-                 idp_auth_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 idp_relay_state_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 trusted_identity_propagation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_mode: pulumi.Input[Optional['StudioAuthMode']] = None,
+                 default_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 idc_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 idc_user_assignment: pulumi.Input[Optional['StudioIdcUserAssignment']] = None,
+                 idp_auth_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 idp_relay_state_parameter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 trusted_identity_propagation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

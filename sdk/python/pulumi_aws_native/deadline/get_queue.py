@@ -208,7 +208,7 @@ def get_queue(arn: Optional[_builtins.str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         scheduling_configuration=pulumi.get(__ret__, 'scheduling_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_queue_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_queue_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueResult]:
     """
     Resource Type definition for AWS::Deadline::Queue

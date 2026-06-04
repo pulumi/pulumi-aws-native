@@ -101,7 +101,7 @@ def get_cluster_subnet_group(cluster_subnet_group_name: Optional[_builtins.str] 
         description=pulumi.get(__ret__, 'description'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_cluster_subnet_group_output(cluster_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_subnet_group_output(cluster_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterSubnetGroupResult]:
     """
     Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.

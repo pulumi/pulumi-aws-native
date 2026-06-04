@@ -193,8 +193,8 @@ def get_agent_alias(agent_alias_id: Optional[_builtins.str] = None,
         routing_configuration=pulumi.get(__ret__, 'routing_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_agent_alias_output(agent_alias_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           agent_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_agent_alias_output(agent_alias_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           agent_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentAliasResult]:
     """
     Definition of AWS::Bedrock::AgentAlias Resource Type

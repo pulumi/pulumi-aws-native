@@ -20,8 +20,8 @@ __all__ = ['VpcGatewayAttachmentArgs', 'VpcGatewayAttachment']
 class VpcGatewayAttachmentArgs:
     def __init__(__self__, *,
                  vpc_id: pulumi.Input[_builtins.str],
-                 internet_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 internet_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcGatewayAttachment resource.
 
@@ -49,26 +49,26 @@ class VpcGatewayAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="internetGatewayId")
-    def internet_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def internet_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
         """
         return pulumi.get(self, "internet_gateway_id")
 
     @internet_gateway_id.setter
-    def internet_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def internet_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "internet_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpnGatewayId")
-    def vpn_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpn_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the virtual private gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
         """
         return pulumi.get(self, "vpn_gateway_id")
 
     @vpn_gateway_id.setter
-    def vpn_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpn_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpn_gateway_id", value)
 
 
@@ -78,9 +78,9 @@ class VpcGatewayAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 internet_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 internet_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::VPCGatewayAttachment
@@ -117,9 +117,9 @@ class VpcGatewayAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 internet_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 internet_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

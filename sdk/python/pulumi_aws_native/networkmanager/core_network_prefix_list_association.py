@@ -76,9 +76,9 @@ class CoreNetworkPrefixListAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::NetworkManager::CoreNetworkPrefixListAssociation which associates a prefix list with a core network.
@@ -115,9 +115,9 @@ class CoreNetworkPrefixListAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

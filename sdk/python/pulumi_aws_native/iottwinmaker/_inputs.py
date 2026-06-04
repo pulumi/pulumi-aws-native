@@ -22,10 +22,10 @@ __all__ = [
     'ComponentTypeDataConnectorArgsDict',
     'ComponentTypeDataTypeArgs',
     'ComponentTypeDataTypeArgsDict',
-    'ComponentTypeDataValueRelationshipValuePropertiesArgs',
-    'ComponentTypeDataValueRelationshipValuePropertiesArgsDict',
     'ComponentTypeDataValueArgs',
     'ComponentTypeDataValueArgsDict',
+    'ComponentTypeDataValueRelationshipValuePropertiesArgs',
+    'ComponentTypeDataValueRelationshipValuePropertiesArgsDict',
     'ComponentTypeFunctionArgs',
     'ComponentTypeFunctionArgsDict',
     'ComponentTypeLambdaFunctionArgs',
@@ -42,29 +42,29 @@ __all__ = [
     'EntityCompositeComponentArgsDict',
     'EntityDataTypeArgs',
     'EntityDataTypeArgsDict',
-    'EntityDataValueRelationshipValuePropertiesArgs',
-    'EntityDataValueRelationshipValuePropertiesArgsDict',
     'EntityDataValueArgs',
     'EntityDataValueArgsDict',
+    'EntityDataValueRelationshipValuePropertiesArgs',
+    'EntityDataValueRelationshipValuePropertiesArgsDict',
     'EntityDefinitionArgs',
     'EntityDefinitionArgsDict',
-    'EntityPropertyGroupArgs',
-    'EntityPropertyGroupArgsDict',
     'EntityPropertyArgs',
     'EntityPropertyArgsDict',
+    'EntityPropertyGroupArgs',
+    'EntityPropertyGroupArgsDict',
     'EntityRelationshipArgs',
     'EntityRelationshipArgsDict',
-    'EntityStatusErrorPropertiesArgs',
-    'EntityStatusErrorPropertiesArgsDict',
     'EntityStatusArgs',
     'EntityStatusArgsDict',
+    'EntityStatusErrorPropertiesArgs',
+    'EntityStatusErrorPropertiesArgsDict',
 ]
 
 class ComponentTypeCompositeComponentTypeArgsDict(TypedDict):
     """
     An object that sets information about a composite component type.
     """
-    component_type_id: NotRequired[pulumi.Input[_builtins.str]]
+    component_type_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the composite component type.
     """
@@ -72,7 +72,7 @@ class ComponentTypeCompositeComponentTypeArgsDict(TypedDict):
 @pulumi.input_type
 class ComponentTypeCompositeComponentTypeArgs:
     def __init__(__self__, *,
-                 component_type_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 component_type_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object that sets information about a composite component type.
 
@@ -83,14 +83,14 @@ class ComponentTypeCompositeComponentTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="componentTypeId")
-    def component_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the composite component type.
         """
         return pulumi.get(self, "component_type_id")
 
     @component_type_id.setter
-    def component_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_type_id", value)
 
 
@@ -98,11 +98,11 @@ class ComponentTypeDataConnectorArgsDict(TypedDict):
     """
     The data connector.
     """
-    is_native: NotRequired[pulumi.Input[_builtins.bool]]
+    is_native: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value that specifies whether the data connector is native to IoT TwinMaker.
     """
-    lambda_: NotRequired[pulumi.Input['ComponentTypeLambdaFunctionArgsDict']]
+    lambda_: NotRequired[pulumi.Input[Optional['ComponentTypeLambdaFunctionArgsDict']]]
     """
     The Lambda function associated with this data connector.
     """
@@ -110,8 +110,8 @@ class ComponentTypeDataConnectorArgsDict(TypedDict):
 @pulumi.input_type
 class ComponentTypeDataConnectorArgs:
     def __init__(__self__, *,
-                 is_native: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lambda_: Optional[pulumi.Input['ComponentTypeLambdaFunctionArgs']] = None):
+                 is_native: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lambda_: pulumi.Input[Optional['ComponentTypeLambdaFunctionArgs']] = None):
         """
         The data connector.
 
@@ -125,26 +125,26 @@ class ComponentTypeDataConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="isNative")
-    def is_native(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_native(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that specifies whether the data connector is native to IoT TwinMaker.
         """
         return pulumi.get(self, "is_native")
 
     @is_native.setter
-    def is_native(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_native(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_native", value)
 
     @_builtins.property
     @pulumi.getter(name="lambda")
-    def lambda_(self) -> Optional[pulumi.Input['ComponentTypeLambdaFunctionArgs']]:
+    def lambda_(self) -> pulumi.Input[Optional['ComponentTypeLambdaFunctionArgs']]:
         """
         The Lambda function associated with this data connector.
         """
         return pulumi.get(self, "lambda_")
 
     @lambda_.setter
-    def lambda_(self, value: Optional[pulumi.Input['ComponentTypeLambdaFunctionArgs']]):
+    def lambda_(self, value: pulumi.Input[Optional['ComponentTypeLambdaFunctionArgs']]):
         pulumi.set(self, "lambda_", value)
 
 
@@ -156,19 +156,19 @@ class ComponentTypeDataTypeArgsDict(TypedDict):
     """
     The underlying type of the data type.
     """
-    allowed_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentTypeDataValueArgsDict']]]]
+    allowed_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ComponentTypeDataValueArgsDict']]]]]
     """
     The allowed values for this data type.
     """
-    nested_type: NotRequired[pulumi.Input['ComponentTypeDataTypeArgsDict']]
+    nested_type: NotRequired[pulumi.Input[Optional['ComponentTypeDataTypeArgsDict']]]
     """
     The nested type in the data type.
     """
-    relationship: NotRequired[pulumi.Input['ComponentTypeRelationshipArgsDict']]
+    relationship: NotRequired[pulumi.Input[Optional['ComponentTypeRelationshipArgsDict']]]
     """
     A relationship that associates a component with another component.
     """
-    unit_of_measure: NotRequired[pulumi.Input[_builtins.str]]
+    unit_of_measure: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unit of measure used in this data type.
     """
@@ -177,10 +177,10 @@ class ComponentTypeDataTypeArgsDict(TypedDict):
 class ComponentTypeDataTypeArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['ComponentTypeDataTypeType'],
-                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentTypeDataValueArgs']]]] = None,
-                 nested_type: Optional[pulumi.Input['ComponentTypeDataTypeArgs']] = None,
-                 relationship: Optional[pulumi.Input['ComponentTypeRelationshipArgs']] = None,
-                 unit_of_measure: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_values: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentTypeDataValueArgs']]]] = None,
+                 nested_type: pulumi.Input[Optional['ComponentTypeDataTypeArgs']] = None,
+                 relationship: pulumi.Input[Optional['ComponentTypeRelationshipArgs']] = None,
+                 unit_of_measure: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object that specifies the data type of a property.
 
@@ -214,129 +214,90 @@ class ComponentTypeDataTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentTypeDataValueArgs']]]]:
+    def allowed_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ComponentTypeDataValueArgs']]]]:
         """
         The allowed values for this data type.
         """
         return pulumi.get(self, "allowed_values")
 
     @allowed_values.setter
-    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentTypeDataValueArgs']]]]):
+    def allowed_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentTypeDataValueArgs']]]]):
         pulumi.set(self, "allowed_values", value)
 
     @_builtins.property
     @pulumi.getter(name="nestedType")
-    def nested_type(self) -> Optional[pulumi.Input['ComponentTypeDataTypeArgs']]:
+    def nested_type(self) -> pulumi.Input[Optional['ComponentTypeDataTypeArgs']]:
         """
         The nested type in the data type.
         """
         return pulumi.get(self, "nested_type")
 
     @nested_type.setter
-    def nested_type(self, value: Optional[pulumi.Input['ComponentTypeDataTypeArgs']]):
+    def nested_type(self, value: pulumi.Input[Optional['ComponentTypeDataTypeArgs']]):
         pulumi.set(self, "nested_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def relationship(self) -> Optional[pulumi.Input['ComponentTypeRelationshipArgs']]:
+    def relationship(self) -> pulumi.Input[Optional['ComponentTypeRelationshipArgs']]:
         """
         A relationship that associates a component with another component.
         """
         return pulumi.get(self, "relationship")
 
     @relationship.setter
-    def relationship(self, value: Optional[pulumi.Input['ComponentTypeRelationshipArgs']]):
+    def relationship(self, value: pulumi.Input[Optional['ComponentTypeRelationshipArgs']]):
         pulumi.set(self, "relationship", value)
 
     @_builtins.property
     @pulumi.getter(name="unitOfMeasure")
-    def unit_of_measure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit_of_measure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unit of measure used in this data type.
         """
         return pulumi.get(self, "unit_of_measure")
 
     @unit_of_measure.setter
-    def unit_of_measure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit_of_measure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit_of_measure", value)
-
-
-class ComponentTypeDataValueRelationshipValuePropertiesArgsDict(TypedDict):
-    """
-    A value that relates a component to another component.
-    """
-    target_component_name: NotRequired[pulumi.Input[_builtins.str]]
-    target_entity_id: NotRequired[pulumi.Input[_builtins.str]]
-
-@pulumi.input_type
-class ComponentTypeDataValueRelationshipValuePropertiesArgs:
-    def __init__(__self__, *,
-                 target_component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_entity_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        A value that relates a component to another component.
-        """
-        if target_component_name is not None:
-            pulumi.set(__self__, "target_component_name", target_component_name)
-        if target_entity_id is not None:
-            pulumi.set(__self__, "target_entity_id", target_entity_id)
-
-    @_builtins.property
-    @pulumi.getter(name="targetComponentName")
-    def target_component_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "target_component_name")
-
-    @target_component_name.setter
-    def target_component_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "target_component_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="targetEntityId")
-    def target_entity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "target_entity_id")
-
-    @target_entity_id.setter
-    def target_entity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "target_entity_id", value)
 
 
 class ComponentTypeDataValueArgsDict(TypedDict):
     """
     An object that specifies a value for a property.
     """
-    boolean_value: NotRequired[pulumi.Input[_builtins.bool]]
+    boolean_value: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value.
     """
-    double_value: NotRequired[pulumi.Input[_builtins.float]]
+    double_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     A double value.
     """
-    expression: NotRequired[pulumi.Input[_builtins.str]]
+    expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An expression that produces the value.
     """
-    integer_value: NotRequired[pulumi.Input[_builtins.int]]
+    integer_value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     An integer value.
     """
-    list_value: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentTypeDataValueArgsDict']]]]
+    list_value: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ComponentTypeDataValueArgsDict']]]]]
     """
     A list of multiple values.
     """
-    long_value: NotRequired[pulumi.Input[_builtins.float]]
+    long_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     A long value.
     """
-    map_value: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeDataValueArgsDict']]]]
+    map_value: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentTypeDataValueArgsDict']]]]]
     """
     An object that maps strings to multiple DataValue objects. 
     """
-    relationship_value: NotRequired[pulumi.Input['ComponentTypeDataValueRelationshipValuePropertiesArgsDict']]
+    relationship_value: NotRequired[pulumi.Input[Optional['ComponentTypeDataValueRelationshipValuePropertiesArgsDict']]]
     """
     A value that relates a component to another component.
     """
-    string_value: NotRequired[pulumi.Input[_builtins.str]]
+    string_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string value.
     """
@@ -344,15 +305,15 @@ class ComponentTypeDataValueArgsDict(TypedDict):
 @pulumi.input_type
 class ComponentTypeDataValueArgs:
     def __init__(__self__, *,
-                 boolean_value: Optional[pulumi.Input[_builtins.bool]] = None,
-                 double_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 integer_value: Optional[pulumi.Input[_builtins.int]] = None,
-                 list_value: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentTypeDataValueArgs']]]] = None,
-                 long_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 map_value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeDataValueArgs']]]] = None,
-                 relationship_value: Optional[pulumi.Input['ComponentTypeDataValueRelationshipValuePropertiesArgs']] = None,
-                 string_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 boolean_value: pulumi.Input[Optional[_builtins.bool]] = None,
+                 double_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 integer_value: pulumi.Input[Optional[_builtins.int]] = None,
+                 list_value: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentTypeDataValueArgs']]]] = None,
+                 long_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 map_value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentTypeDataValueArgs']]]] = None,
+                 relationship_value: pulumi.Input[Optional['ComponentTypeDataValueRelationshipValuePropertiesArgs']] = None,
+                 string_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object that specifies a value for a property.
 
@@ -387,126 +348,165 @@ class ComponentTypeDataValueArgs:
 
     @_builtins.property
     @pulumi.getter(name="booleanValue")
-    def boolean_value(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def boolean_value(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value.
         """
         return pulumi.get(self, "boolean_value")
 
     @boolean_value.setter
-    def boolean_value(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def boolean_value(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "boolean_value", value)
 
     @_builtins.property
     @pulumi.getter(name="doubleValue")
-    def double_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def double_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         A double value.
         """
         return pulumi.get(self, "double_value")
 
     @double_value.setter
-    def double_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def double_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "double_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An expression that produces the value.
         """
         return pulumi.get(self, "expression")
 
     @expression.setter
-    def expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expression", value)
 
     @_builtins.property
     @pulumi.getter(name="integerValue")
-    def integer_value(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def integer_value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer value.
         """
         return pulumi.get(self, "integer_value")
 
     @integer_value.setter
-    def integer_value(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def integer_value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "integer_value", value)
 
     @_builtins.property
     @pulumi.getter(name="listValue")
-    def list_value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentTypeDataValueArgs']]]]:
+    def list_value(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ComponentTypeDataValueArgs']]]]:
         """
         A list of multiple values.
         """
         return pulumi.get(self, "list_value")
 
     @list_value.setter
-    def list_value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentTypeDataValueArgs']]]]):
+    def list_value(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ComponentTypeDataValueArgs']]]]):
         pulumi.set(self, "list_value", value)
 
     @_builtins.property
     @pulumi.getter(name="longValue")
-    def long_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def long_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         A long value.
         """
         return pulumi.get(self, "long_value")
 
     @long_value.setter
-    def long_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def long_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "long_value", value)
 
     @_builtins.property
     @pulumi.getter(name="mapValue")
-    def map_value(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeDataValueArgs']]]]:
+    def map_value(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentTypeDataValueArgs']]]]:
         """
         An object that maps strings to multiple DataValue objects. 
         """
         return pulumi.get(self, "map_value")
 
     @map_value.setter
-    def map_value(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeDataValueArgs']]]]):
+    def map_value(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentTypeDataValueArgs']]]]):
         pulumi.set(self, "map_value", value)
 
     @_builtins.property
     @pulumi.getter(name="relationshipValue")
-    def relationship_value(self) -> Optional[pulumi.Input['ComponentTypeDataValueRelationshipValuePropertiesArgs']]:
+    def relationship_value(self) -> pulumi.Input[Optional['ComponentTypeDataValueRelationshipValuePropertiesArgs']]:
         """
         A value that relates a component to another component.
         """
         return pulumi.get(self, "relationship_value")
 
     @relationship_value.setter
-    def relationship_value(self, value: Optional[pulumi.Input['ComponentTypeDataValueRelationshipValuePropertiesArgs']]):
+    def relationship_value(self, value: pulumi.Input[Optional['ComponentTypeDataValueRelationshipValuePropertiesArgs']]):
         pulumi.set(self, "relationship_value", value)
 
     @_builtins.property
     @pulumi.getter(name="stringValue")
-    def string_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def string_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string value.
         """
         return pulumi.get(self, "string_value")
 
     @string_value.setter
-    def string_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def string_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "string_value", value)
+
+
+class ComponentTypeDataValueRelationshipValuePropertiesArgsDict(TypedDict):
+    """
+    A value that relates a component to another component.
+    """
+    target_component_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target_entity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ComponentTypeDataValueRelationshipValuePropertiesArgs:
+    def __init__(__self__, *,
+                 target_component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_entity_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A value that relates a component to another component.
+        """
+        if target_component_name is not None:
+            pulumi.set(__self__, "target_component_name", target_component_name)
+        if target_entity_id is not None:
+            pulumi.set(__self__, "target_entity_id", target_entity_id)
+
+    @_builtins.property
+    @pulumi.getter(name="targetComponentName")
+    def target_component_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "target_component_name")
+
+    @target_component_name.setter
+    def target_component_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_component_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetEntityId")
+    def target_entity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "target_entity_id")
+
+    @target_entity_id.setter
+    def target_entity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_entity_id", value)
 
 
 class ComponentTypeFunctionArgsDict(TypedDict):
     """
     The function of component type.
     """
-    implemented_by: NotRequired[pulumi.Input['ComponentTypeDataConnectorArgsDict']]
+    implemented_by: NotRequired[pulumi.Input[Optional['ComponentTypeDataConnectorArgsDict']]]
     """
     The data connector.
     """
-    required_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    required_properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The required properties of the function.
     """
-    scope: NotRequired[pulumi.Input['ComponentTypeFunctionScope']]
+    scope: NotRequired[pulumi.Input[Optional['ComponentTypeFunctionScope']]]
     """
     The scope of the function.
     """
@@ -514,9 +514,9 @@ class ComponentTypeFunctionArgsDict(TypedDict):
 @pulumi.input_type
 class ComponentTypeFunctionArgs:
     def __init__(__self__, *,
-                 implemented_by: Optional[pulumi.Input['ComponentTypeDataConnectorArgs']] = None,
-                 required_properties: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scope: Optional[pulumi.Input['ComponentTypeFunctionScope']] = None):
+                 implemented_by: pulumi.Input[Optional['ComponentTypeDataConnectorArgs']] = None,
+                 required_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 scope: pulumi.Input[Optional['ComponentTypeFunctionScope']] = None):
         """
         The function of component type.
 
@@ -533,38 +533,38 @@ class ComponentTypeFunctionArgs:
 
     @_builtins.property
     @pulumi.getter(name="implementedBy")
-    def implemented_by(self) -> Optional[pulumi.Input['ComponentTypeDataConnectorArgs']]:
+    def implemented_by(self) -> pulumi.Input[Optional['ComponentTypeDataConnectorArgs']]:
         """
         The data connector.
         """
         return pulumi.get(self, "implemented_by")
 
     @implemented_by.setter
-    def implemented_by(self, value: Optional[pulumi.Input['ComponentTypeDataConnectorArgs']]):
+    def implemented_by(self, value: pulumi.Input[Optional['ComponentTypeDataConnectorArgs']]):
         pulumi.set(self, "implemented_by", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredProperties")
-    def required_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def required_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The required properties of the function.
         """
         return pulumi.get(self, "required_properties")
 
     @required_properties.setter
-    def required_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def required_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "required_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['ComponentTypeFunctionScope']]:
+    def scope(self) -> pulumi.Input[Optional['ComponentTypeFunctionScope']]:
         """
         The scope of the function.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['ComponentTypeFunctionScope']]):
+    def scope(self, value: pulumi.Input[Optional['ComponentTypeFunctionScope']]):
         pulumi.set(self, "scope", value)
 
 
@@ -591,31 +591,31 @@ class ComponentTypePropertyDefinitionArgsDict(TypedDict):
     """
     An object that sets information about a property.
     """
-    configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    configurations: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     An object that specifies information about a property.
     """
-    data_type: NotRequired[pulumi.Input['ComponentTypeDataTypeArgsDict']]
+    data_type: NotRequired[pulumi.Input[Optional['ComponentTypeDataTypeArgsDict']]]
     """
     An object that contains information about the data type.
     """
-    default_value: NotRequired[pulumi.Input['ComponentTypeDataValueArgsDict']]
+    default_value: NotRequired[pulumi.Input[Optional['ComponentTypeDataValueArgsDict']]]
     """
     An object that contains the default value.
     """
-    is_external_id: NotRequired[pulumi.Input[_builtins.bool]]
+    is_external_id: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value that specifies whether the property ID comes from an external data store.
     """
-    is_required_in_entity: NotRequired[pulumi.Input[_builtins.bool]]
+    is_required_in_entity: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value that specifies whether the property is required.
     """
-    is_stored_externally: NotRequired[pulumi.Input[_builtins.bool]]
+    is_stored_externally: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value that specifies whether the property is stored externally.
     """
-    is_time_series: NotRequired[pulumi.Input[_builtins.bool]]
+    is_time_series: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value that specifies whether the property consists of time series data.
     """
@@ -623,13 +623,13 @@ class ComponentTypePropertyDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class ComponentTypePropertyDefinitionArgs:
     def __init__(__self__, *,
-                 configurations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 data_type: Optional[pulumi.Input['ComponentTypeDataTypeArgs']] = None,
-                 default_value: Optional[pulumi.Input['ComponentTypeDataValueArgs']] = None,
-                 is_external_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_required_in_entity: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_stored_externally: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_time_series: Optional[pulumi.Input[_builtins.bool]] = None):
+                 configurations: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_type: pulumi.Input[Optional['ComponentTypeDataTypeArgs']] = None,
+                 default_value: pulumi.Input[Optional['ComponentTypeDataValueArgs']] = None,
+                 is_external_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_required_in_entity: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_stored_externally: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_time_series: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         An object that sets information about a property.
 
@@ -658,86 +658,86 @@ class ComponentTypePropertyDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configurations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def configurations(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         An object that specifies information about a property.
         """
         return pulumi.get(self, "configurations")
 
     @configurations.setter
-    def configurations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def configurations(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[pulumi.Input['ComponentTypeDataTypeArgs']]:
+    def data_type(self) -> pulumi.Input[Optional['ComponentTypeDataTypeArgs']]:
         """
         An object that contains information about the data type.
         """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
-    def data_type(self, value: Optional[pulumi.Input['ComponentTypeDataTypeArgs']]):
+    def data_type(self, value: pulumi.Input[Optional['ComponentTypeDataTypeArgs']]):
         pulumi.set(self, "data_type", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input['ComponentTypeDataValueArgs']]:
+    def default_value(self) -> pulumi.Input[Optional['ComponentTypeDataValueArgs']]:
         """
         An object that contains the default value.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input['ComponentTypeDataValueArgs']]):
+    def default_value(self, value: pulumi.Input[Optional['ComponentTypeDataValueArgs']]):
         pulumi.set(self, "default_value", value)
 
     @_builtins.property
     @pulumi.getter(name="isExternalId")
-    def is_external_id(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_external_id(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that specifies whether the property ID comes from an external data store.
         """
         return pulumi.get(self, "is_external_id")
 
     @is_external_id.setter
-    def is_external_id(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_external_id(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isRequiredInEntity")
-    def is_required_in_entity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_required_in_entity(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that specifies whether the property is required.
         """
         return pulumi.get(self, "is_required_in_entity")
 
     @is_required_in_entity.setter
-    def is_required_in_entity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_required_in_entity(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_required_in_entity", value)
 
     @_builtins.property
     @pulumi.getter(name="isStoredExternally")
-    def is_stored_externally(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_stored_externally(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that specifies whether the property is stored externally.
         """
         return pulumi.get(self, "is_stored_externally")
 
     @is_stored_externally.setter
-    def is_stored_externally(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_stored_externally(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_stored_externally", value)
 
     @_builtins.property
     @pulumi.getter(name="isTimeSeries")
-    def is_time_series(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_time_series(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that specifies whether the property consists of time series data.
         """
         return pulumi.get(self, "is_time_series")
 
     @is_time_series.setter
-    def is_time_series(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_time_series(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_time_series", value)
 
 
@@ -745,11 +745,11 @@ class ComponentTypePropertyGroupArgsDict(TypedDict):
     """
     An object that sets information about a property group.
     """
-    group_type: NotRequired[pulumi.Input['ComponentTypePropertyGroupGroupType']]
+    group_type: NotRequired[pulumi.Input[Optional['ComponentTypePropertyGroupGroupType']]]
     """
     The type of property group.
     """
-    property_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    property_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of property names in the property group.
     """
@@ -757,8 +757,8 @@ class ComponentTypePropertyGroupArgsDict(TypedDict):
 @pulumi.input_type
 class ComponentTypePropertyGroupArgs:
     def __init__(__self__, *,
-                 group_type: Optional[pulumi.Input['ComponentTypePropertyGroupGroupType']] = None,
-                 property_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 group_type: pulumi.Input[Optional['ComponentTypePropertyGroupGroupType']] = None,
+                 property_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An object that sets information about a property group.
 
@@ -772,26 +772,26 @@ class ComponentTypePropertyGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupType")
-    def group_type(self) -> Optional[pulumi.Input['ComponentTypePropertyGroupGroupType']]:
+    def group_type(self) -> pulumi.Input[Optional['ComponentTypePropertyGroupGroupType']]:
         """
         The type of property group.
         """
         return pulumi.get(self, "group_type")
 
     @group_type.setter
-    def group_type(self, value: Optional[pulumi.Input['ComponentTypePropertyGroupGroupType']]):
+    def group_type(self, value: pulumi.Input[Optional['ComponentTypePropertyGroupGroupType']]):
         pulumi.set(self, "group_type", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyNames")
-    def property_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def property_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of property names in the property group.
         """
         return pulumi.get(self, "property_names")
 
     @property_names.setter
-    def property_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def property_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "property_names", value)
 
 
@@ -799,11 +799,11 @@ class ComponentTypeRelationshipArgsDict(TypedDict):
     """
     The type of the relationship.
     """
-    relationship_type: NotRequired[pulumi.Input[_builtins.str]]
+    relationship_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of the relationship.
     """
-    target_component_type_id: NotRequired[pulumi.Input[_builtins.str]]
+    target_component_type_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the target component type associated with this relationship.
     """
@@ -811,8 +811,8 @@ class ComponentTypeRelationshipArgsDict(TypedDict):
 @pulumi.input_type
 class ComponentTypeRelationshipArgs:
     def __init__(__self__, *,
-                 relationship_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_component_type_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 relationship_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_component_type_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The type of the relationship.
 
@@ -826,55 +826,55 @@ class ComponentTypeRelationshipArgs:
 
     @_builtins.property
     @pulumi.getter(name="relationshipType")
-    def relationship_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relationship_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the relationship.
         """
         return pulumi.get(self, "relationship_type")
 
     @relationship_type.setter
-    def relationship_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relationship_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relationship_type", value)
 
     @_builtins.property
     @pulumi.getter(name="targetComponentTypeId")
-    def target_component_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_component_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the target component type associated with this relationship.
         """
         return pulumi.get(self, "target_component_type_id")
 
     @target_component_type_id.setter
-    def target_component_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_component_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_component_type_id", value)
 
 
 class EntityComponentArgsDict(TypedDict):
-    component_name: NotRequired[pulumi.Input[_builtins.str]]
+    component_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the component.
     """
-    component_type_id: NotRequired[pulumi.Input[_builtins.str]]
+    component_type_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the component type.
     """
-    defined_in: NotRequired[pulumi.Input[_builtins.str]]
+    defined_in: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the property definition set in the component.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the component.
     """
-    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyArgsDict']]]]
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityPropertyArgsDict']]]]]
     """
     An object that maps strings to the properties to set in the component type. Each string in the mapping must be unique to this object.
     """
-    property_groups: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyGroupArgsDict']]]]
+    property_groups: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityPropertyGroupArgsDict']]]]]
     """
     An object that maps strings to the property groups to set in the component type. Each string in the mapping must be unique to this object.
     """
-    status: NotRequired[pulumi.Input['EntityStatusArgsDict']]
+    status: NotRequired[pulumi.Input[Optional['EntityStatusArgsDict']]]
     """
     The current status of the entity.
     """
@@ -882,13 +882,13 @@ class EntityComponentArgsDict(TypedDict):
 @pulumi.input_type
 class EntityComponentArgs:
     def __init__(__self__, *,
-                 component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 defined_in: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyArgs']]]] = None,
-                 property_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyGroupArgs']]]] = None,
-                 status: Optional[pulumi.Input['EntityStatusArgs']] = None):
+                 component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 defined_in: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityPropertyArgs']]]] = None,
+                 property_groups: pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityPropertyGroupArgs']]]] = None,
+                 status: pulumi.Input[Optional['EntityStatusArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] component_name: The name of the component.
         :param pulumi.Input[_builtins.str] component_type_id: The ID of the component type.
@@ -915,115 +915,115 @@ class EntityComponentArgs:
 
     @_builtins.property
     @pulumi.getter(name="componentName")
-    def component_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the component.
         """
         return pulumi.get(self, "component_name")
 
     @component_name.setter
-    def component_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_name", value)
 
     @_builtins.property
     @pulumi.getter(name="componentTypeId")
-    def component_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the component type.
         """
         return pulumi.get(self, "component_type_id")
 
     @component_type_id.setter
-    def component_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_type_id", value)
 
     @_builtins.property
     @pulumi.getter(name="definedIn")
-    def defined_in(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defined_in(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the property definition set in the component.
         """
         return pulumi.get(self, "defined_in")
 
     @defined_in.setter
-    def defined_in(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defined_in(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defined_in", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the component.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyArgs']]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityPropertyArgs']]]]:
         """
         An object that maps strings to the properties to set in the component type. Each string in the mapping must be unique to this object.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyArgs']]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityPropertyArgs']]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyGroups")
-    def property_groups(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyGroupArgs']]]]:
+    def property_groups(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityPropertyGroupArgs']]]]:
         """
         An object that maps strings to the property groups to set in the component type. Each string in the mapping must be unique to this object.
         """
         return pulumi.get(self, "property_groups")
 
     @property_groups.setter
-    def property_groups(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyGroupArgs']]]]):
+    def property_groups(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityPropertyGroupArgs']]]]):
         pulumi.set(self, "property_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['EntityStatusArgs']]:
+    def status(self) -> pulumi.Input[Optional['EntityStatusArgs']]:
         """
         The current status of the entity.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['EntityStatusArgs']]):
+    def status(self, value: pulumi.Input[Optional['EntityStatusArgs']]):
         pulumi.set(self, "status", value)
 
 
 class EntityCompositeComponentArgsDict(TypedDict):
-    component_name: NotRequired[pulumi.Input[_builtins.str]]
+    component_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the component.
     """
-    component_path: NotRequired[pulumi.Input[_builtins.str]]
+    component_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path of the component.
     """
-    component_type_id: NotRequired[pulumi.Input[_builtins.str]]
+    component_type_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the component type.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the component.
     """
-    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyArgsDict']]]]
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityPropertyArgsDict']]]]]
     """
     An object that maps strings to the properties to set in the component type. Each string in the mapping must be unique to this object.
     """
-    property_groups: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyGroupArgsDict']]]]
+    property_groups: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityPropertyGroupArgsDict']]]]]
     """
     An object that maps strings to the property groups to set in the component type. Each string in the mapping must be unique to this object.
     """
-    status: NotRequired[pulumi.Input['EntityStatusArgsDict']]
+    status: NotRequired[pulumi.Input[Optional['EntityStatusArgsDict']]]
     """
     The current status of the component.
     """
@@ -1031,13 +1031,13 @@ class EntityCompositeComponentArgsDict(TypedDict):
 @pulumi.input_type
 class EntityCompositeComponentArgs:
     def __init__(__self__, *,
-                 component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyArgs']]]] = None,
-                 property_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyGroupArgs']]]] = None,
-                 status: Optional[pulumi.Input['EntityStatusArgs']] = None):
+                 component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityPropertyArgs']]]] = None,
+                 property_groups: pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityPropertyGroupArgs']]]] = None,
+                 status: pulumi.Input[Optional['EntityStatusArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] component_name: The name of the component.
         :param pulumi.Input[_builtins.str] component_path: The path of the component.
@@ -1064,86 +1064,86 @@ class EntityCompositeComponentArgs:
 
     @_builtins.property
     @pulumi.getter(name="componentName")
-    def component_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the component.
         """
         return pulumi.get(self, "component_name")
 
     @component_name.setter
-    def component_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_name", value)
 
     @_builtins.property
     @pulumi.getter(name="componentPath")
-    def component_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path of the component.
         """
         return pulumi.get(self, "component_path")
 
     @component_path.setter
-    def component_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_path", value)
 
     @_builtins.property
     @pulumi.getter(name="componentTypeId")
-    def component_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the component type.
         """
         return pulumi.get(self, "component_type_id")
 
     @component_type_id.setter
-    def component_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_type_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the component.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyArgs']]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityPropertyArgs']]]]:
         """
         An object that maps strings to the properties to set in the component type. Each string in the mapping must be unique to this object.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyArgs']]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityPropertyArgs']]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyGroups")
-    def property_groups(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyGroupArgs']]]]:
+    def property_groups(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityPropertyGroupArgs']]]]:
         """
         An object that maps strings to the property groups to set in the component type. Each string in the mapping must be unique to this object.
         """
         return pulumi.get(self, "property_groups")
 
     @property_groups.setter
-    def property_groups(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyGroupArgs']]]]):
+    def property_groups(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityPropertyGroupArgs']]]]):
         pulumi.set(self, "property_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['EntityStatusArgs']]:
+    def status(self) -> pulumi.Input[Optional['EntityStatusArgs']]:
         """
         The current status of the component.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['EntityStatusArgs']]):
+    def status(self, value: pulumi.Input[Optional['EntityStatusArgs']]):
         pulumi.set(self, "status", value)
 
 
@@ -1151,23 +1151,23 @@ class EntityDataTypeArgsDict(TypedDict):
     """
     An object that specifies the data type of a property.
     """
-    allowed_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['EntityDataValueArgsDict']]]]
+    allowed_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EntityDataValueArgsDict']]]]]
     """
     The allowed values for this data type.
     """
-    nested_type: NotRequired[pulumi.Input['EntityDataTypeArgsDict']]
+    nested_type: NotRequired[pulumi.Input[Optional['EntityDataTypeArgsDict']]]
     """
     The nested type in the data type.
     """
-    relationship: NotRequired[pulumi.Input['EntityRelationshipArgsDict']]
+    relationship: NotRequired[pulumi.Input[Optional['EntityRelationshipArgsDict']]]
     """
     A relationship that associates a component with another component.
     """
-    type: NotRequired[pulumi.Input['EntityDataTypeType']]
+    type: NotRequired[pulumi.Input[Optional['EntityDataTypeType']]]
     """
     The underlying type of the data type.
     """
-    unit_of_measure: NotRequired[pulumi.Input[_builtins.str]]
+    unit_of_measure: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unit of measure used in this data type.
     """
@@ -1175,11 +1175,11 @@ class EntityDataTypeArgsDict(TypedDict):
 @pulumi.input_type
 class EntityDataTypeArgs:
     def __init__(__self__, *,
-                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input['EntityDataValueArgs']]]] = None,
-                 nested_type: Optional[pulumi.Input['EntityDataTypeArgs']] = None,
-                 relationship: Optional[pulumi.Input['EntityRelationshipArgs']] = None,
-                 type: Optional[pulumi.Input['EntityDataTypeType']] = None,
-                 unit_of_measure: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_values: pulumi.Input[Optional[Sequence[pulumi.Input['EntityDataValueArgs']]]] = None,
+                 nested_type: pulumi.Input[Optional['EntityDataTypeArgs']] = None,
+                 relationship: pulumi.Input[Optional['EntityRelationshipArgs']] = None,
+                 type: pulumi.Input[Optional['EntityDataTypeType']] = None,
+                 unit_of_measure: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object that specifies the data type of a property.
 
@@ -1202,141 +1202,102 @@ class EntityDataTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EntityDataValueArgs']]]]:
+    def allowed_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EntityDataValueArgs']]]]:
         """
         The allowed values for this data type.
         """
         return pulumi.get(self, "allowed_values")
 
     @allowed_values.setter
-    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EntityDataValueArgs']]]]):
+    def allowed_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EntityDataValueArgs']]]]):
         pulumi.set(self, "allowed_values", value)
 
     @_builtins.property
     @pulumi.getter(name="nestedType")
-    def nested_type(self) -> Optional[pulumi.Input['EntityDataTypeArgs']]:
+    def nested_type(self) -> pulumi.Input[Optional['EntityDataTypeArgs']]:
         """
         The nested type in the data type.
         """
         return pulumi.get(self, "nested_type")
 
     @nested_type.setter
-    def nested_type(self, value: Optional[pulumi.Input['EntityDataTypeArgs']]):
+    def nested_type(self, value: pulumi.Input[Optional['EntityDataTypeArgs']]):
         pulumi.set(self, "nested_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def relationship(self) -> Optional[pulumi.Input['EntityRelationshipArgs']]:
+    def relationship(self) -> pulumi.Input[Optional['EntityRelationshipArgs']]:
         """
         A relationship that associates a component with another component.
         """
         return pulumi.get(self, "relationship")
 
     @relationship.setter
-    def relationship(self, value: Optional[pulumi.Input['EntityRelationshipArgs']]):
+    def relationship(self, value: pulumi.Input[Optional['EntityRelationshipArgs']]):
         pulumi.set(self, "relationship", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['EntityDataTypeType']]:
+    def type(self) -> pulumi.Input[Optional['EntityDataTypeType']]:
         """
         The underlying type of the data type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['EntityDataTypeType']]):
+    def type(self, value: pulumi.Input[Optional['EntityDataTypeType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="unitOfMeasure")
-    def unit_of_measure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit_of_measure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unit of measure used in this data type.
         """
         return pulumi.get(self, "unit_of_measure")
 
     @unit_of_measure.setter
-    def unit_of_measure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit_of_measure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit_of_measure", value)
-
-
-class EntityDataValueRelationshipValuePropertiesArgsDict(TypedDict):
-    """
-    A value that relates a component to another component.
-    """
-    target_component_name: NotRequired[pulumi.Input[_builtins.str]]
-    target_entity_id: NotRequired[pulumi.Input[_builtins.str]]
-
-@pulumi.input_type
-class EntityDataValueRelationshipValuePropertiesArgs:
-    def __init__(__self__, *,
-                 target_component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_entity_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        A value that relates a component to another component.
-        """
-        if target_component_name is not None:
-            pulumi.set(__self__, "target_component_name", target_component_name)
-        if target_entity_id is not None:
-            pulumi.set(__self__, "target_entity_id", target_entity_id)
-
-    @_builtins.property
-    @pulumi.getter(name="targetComponentName")
-    def target_component_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "target_component_name")
-
-    @target_component_name.setter
-    def target_component_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "target_component_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="targetEntityId")
-    def target_entity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "target_entity_id")
-
-    @target_entity_id.setter
-    def target_entity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "target_entity_id", value)
 
 
 class EntityDataValueArgsDict(TypedDict):
     """
     An object that specifies a value for a property.
     """
-    boolean_value: NotRequired[pulumi.Input[_builtins.bool]]
+    boolean_value: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value.
     """
-    double_value: NotRequired[pulumi.Input[_builtins.float]]
+    double_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     A double value.
     """
-    expression: NotRequired[pulumi.Input[_builtins.str]]
+    expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An expression that produces the value.
     """
-    integer_value: NotRequired[pulumi.Input[_builtins.int]]
+    integer_value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     An integer value.
     """
-    list_value: NotRequired[pulumi.Input[Sequence[pulumi.Input['EntityDataValueArgsDict']]]]
+    list_value: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EntityDataValueArgsDict']]]]]
     """
     A list of multiple values.
     """
-    long_value: NotRequired[pulumi.Input[_builtins.float]]
+    long_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     A long value.
     """
-    map_value: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['EntityDataValueArgsDict']]]]
+    map_value: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityDataValueArgsDict']]]]]
     """
     An object that maps strings to multiple DataValue objects.
     """
-    relationship_value: NotRequired[pulumi.Input['EntityDataValueRelationshipValuePropertiesArgsDict']]
+    relationship_value: NotRequired[pulumi.Input[Optional['EntityDataValueRelationshipValuePropertiesArgsDict']]]
     """
     A value that relates a component to another component.
     """
-    string_value: NotRequired[pulumi.Input[_builtins.str]]
+    string_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string value.
     """
@@ -1344,15 +1305,15 @@ class EntityDataValueArgsDict(TypedDict):
 @pulumi.input_type
 class EntityDataValueArgs:
     def __init__(__self__, *,
-                 boolean_value: Optional[pulumi.Input[_builtins.bool]] = None,
-                 double_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 integer_value: Optional[pulumi.Input[_builtins.int]] = None,
-                 list_value: Optional[pulumi.Input[Sequence[pulumi.Input['EntityDataValueArgs']]]] = None,
-                 long_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 map_value: Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityDataValueArgs']]]] = None,
-                 relationship_value: Optional[pulumi.Input['EntityDataValueRelationshipValuePropertiesArgs']] = None,
-                 string_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 boolean_value: pulumi.Input[Optional[_builtins.bool]] = None,
+                 double_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 integer_value: pulumi.Input[Optional[_builtins.int]] = None,
+                 list_value: pulumi.Input[Optional[Sequence[pulumi.Input['EntityDataValueArgs']]]] = None,
+                 long_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 map_value: pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityDataValueArgs']]]] = None,
+                 relationship_value: pulumi.Input[Optional['EntityDataValueRelationshipValuePropertiesArgs']] = None,
+                 string_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object that specifies a value for a property.
 
@@ -1387,154 +1348,193 @@ class EntityDataValueArgs:
 
     @_builtins.property
     @pulumi.getter(name="booleanValue")
-    def boolean_value(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def boolean_value(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value.
         """
         return pulumi.get(self, "boolean_value")
 
     @boolean_value.setter
-    def boolean_value(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def boolean_value(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "boolean_value", value)
 
     @_builtins.property
     @pulumi.getter(name="doubleValue")
-    def double_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def double_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         A double value.
         """
         return pulumi.get(self, "double_value")
 
     @double_value.setter
-    def double_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def double_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "double_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An expression that produces the value.
         """
         return pulumi.get(self, "expression")
 
     @expression.setter
-    def expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expression", value)
 
     @_builtins.property
     @pulumi.getter(name="integerValue")
-    def integer_value(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def integer_value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer value.
         """
         return pulumi.get(self, "integer_value")
 
     @integer_value.setter
-    def integer_value(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def integer_value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "integer_value", value)
 
     @_builtins.property
     @pulumi.getter(name="listValue")
-    def list_value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EntityDataValueArgs']]]]:
+    def list_value(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EntityDataValueArgs']]]]:
         """
         A list of multiple values.
         """
         return pulumi.get(self, "list_value")
 
     @list_value.setter
-    def list_value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EntityDataValueArgs']]]]):
+    def list_value(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EntityDataValueArgs']]]]):
         pulumi.set(self, "list_value", value)
 
     @_builtins.property
     @pulumi.getter(name="longValue")
-    def long_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def long_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         A long value.
         """
         return pulumi.get(self, "long_value")
 
     @long_value.setter
-    def long_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def long_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "long_value", value)
 
     @_builtins.property
     @pulumi.getter(name="mapValue")
-    def map_value(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityDataValueArgs']]]]:
+    def map_value(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityDataValueArgs']]]]:
         """
         An object that maps strings to multiple DataValue objects.
         """
         return pulumi.get(self, "map_value")
 
     @map_value.setter
-    def map_value(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityDataValueArgs']]]]):
+    def map_value(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityDataValueArgs']]]]):
         pulumi.set(self, "map_value", value)
 
     @_builtins.property
     @pulumi.getter(name="relationshipValue")
-    def relationship_value(self) -> Optional[pulumi.Input['EntityDataValueRelationshipValuePropertiesArgs']]:
+    def relationship_value(self) -> pulumi.Input[Optional['EntityDataValueRelationshipValuePropertiesArgs']]:
         """
         A value that relates a component to another component.
         """
         return pulumi.get(self, "relationship_value")
 
     @relationship_value.setter
-    def relationship_value(self, value: Optional[pulumi.Input['EntityDataValueRelationshipValuePropertiesArgs']]):
+    def relationship_value(self, value: pulumi.Input[Optional['EntityDataValueRelationshipValuePropertiesArgs']]):
         pulumi.set(self, "relationship_value", value)
 
     @_builtins.property
     @pulumi.getter(name="stringValue")
-    def string_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def string_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string value.
         """
         return pulumi.get(self, "string_value")
 
     @string_value.setter
-    def string_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def string_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "string_value", value)
+
+
+class EntityDataValueRelationshipValuePropertiesArgsDict(TypedDict):
+    """
+    A value that relates a component to another component.
+    """
+    target_component_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target_entity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class EntityDataValueRelationshipValuePropertiesArgs:
+    def __init__(__self__, *,
+                 target_component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_entity_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A value that relates a component to another component.
+        """
+        if target_component_name is not None:
+            pulumi.set(__self__, "target_component_name", target_component_name)
+        if target_entity_id is not None:
+            pulumi.set(__self__, "target_entity_id", target_entity_id)
+
+    @_builtins.property
+    @pulumi.getter(name="targetComponentName")
+    def target_component_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "target_component_name")
+
+    @target_component_name.setter
+    def target_component_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_component_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetEntityId")
+    def target_entity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "target_entity_id")
+
+    @target_entity_id.setter
+    def target_entity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_entity_id", value)
 
 
 class EntityDefinitionArgsDict(TypedDict):
     """
     An object that specifies information about a property definition.
     """
-    configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    configuration: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     An object that specifies information about a property configuration.
     """
-    data_type: NotRequired[pulumi.Input['EntityDataTypeArgsDict']]
+    data_type: NotRequired[pulumi.Input[Optional['EntityDataTypeArgsDict']]]
     """
     An object that contains information about the data type.
     """
-    default_value: NotRequired[pulumi.Input['EntityDataValueArgsDict']]
+    default_value: NotRequired[pulumi.Input[Optional['EntityDataValueArgsDict']]]
     """
     An object that contains the default value.
     """
-    is_external_id: NotRequired[pulumi.Input[_builtins.bool]]
+    is_external_id: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value that specifies whether the property ID comes from an external data store.
     """
-    is_final: NotRequired[pulumi.Input[_builtins.bool]]
+    is_final: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value that specifies whether the property definition can be updated.
     """
-    is_imported: NotRequired[pulumi.Input[_builtins.bool]]
+    is_imported: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value that specifies whether the property definition is imported from an external data store.
     """
-    is_inherited: NotRequired[pulumi.Input[_builtins.bool]]
+    is_inherited: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value that specifies whether the property definition is inherited from a parent entity.
     """
-    is_required_in_entity: NotRequired[pulumi.Input[_builtins.bool]]
+    is_required_in_entity: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value that specifies whether the property is required.
     """
-    is_stored_externally: NotRequired[pulumi.Input[_builtins.bool]]
+    is_stored_externally: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value that specifies whether the property is stored externally.
     """
-    is_time_series: NotRequired[pulumi.Input[_builtins.bool]]
+    is_time_series: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value that specifies whether the property consists of time series data.
     """
@@ -1542,16 +1542,16 @@ class EntityDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class EntityDefinitionArgs:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 data_type: Optional[pulumi.Input['EntityDataTypeArgs']] = None,
-                 default_value: Optional[pulumi.Input['EntityDataValueArgs']] = None,
-                 is_external_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_final: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_imported: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_inherited: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_required_in_entity: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_stored_externally: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_time_series: Optional[pulumi.Input[_builtins.bool]] = None):
+                 configuration: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_type: pulumi.Input[Optional['EntityDataTypeArgs']] = None,
+                 default_value: pulumi.Input[Optional['EntityDataValueArgs']] = None,
+                 is_external_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_final: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_imported: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_inherited: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_required_in_entity: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_stored_externally: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_time_series: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         An object that specifies information about a property definition.
 
@@ -1589,188 +1589,134 @@ class EntityDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def configuration(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         An object that specifies information about a property configuration.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def configuration(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[pulumi.Input['EntityDataTypeArgs']]:
+    def data_type(self) -> pulumi.Input[Optional['EntityDataTypeArgs']]:
         """
         An object that contains information about the data type.
         """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
-    def data_type(self, value: Optional[pulumi.Input['EntityDataTypeArgs']]):
+    def data_type(self, value: pulumi.Input[Optional['EntityDataTypeArgs']]):
         pulumi.set(self, "data_type", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input['EntityDataValueArgs']]:
+    def default_value(self) -> pulumi.Input[Optional['EntityDataValueArgs']]:
         """
         An object that contains the default value.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input['EntityDataValueArgs']]):
+    def default_value(self, value: pulumi.Input[Optional['EntityDataValueArgs']]):
         pulumi.set(self, "default_value", value)
 
     @_builtins.property
     @pulumi.getter(name="isExternalId")
-    def is_external_id(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_external_id(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that specifies whether the property ID comes from an external data store.
         """
         return pulumi.get(self, "is_external_id")
 
     @is_external_id.setter
-    def is_external_id(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_external_id(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isFinal")
-    def is_final(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_final(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that specifies whether the property definition can be updated.
         """
         return pulumi.get(self, "is_final")
 
     @is_final.setter
-    def is_final(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_final(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_final", value)
 
     @_builtins.property
     @pulumi.getter(name="isImported")
-    def is_imported(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_imported(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that specifies whether the property definition is imported from an external data store.
         """
         return pulumi.get(self, "is_imported")
 
     @is_imported.setter
-    def is_imported(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_imported(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_imported", value)
 
     @_builtins.property
     @pulumi.getter(name="isInherited")
-    def is_inherited(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_inherited(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that specifies whether the property definition is inherited from a parent entity.
         """
         return pulumi.get(self, "is_inherited")
 
     @is_inherited.setter
-    def is_inherited(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_inherited(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_inherited", value)
 
     @_builtins.property
     @pulumi.getter(name="isRequiredInEntity")
-    def is_required_in_entity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_required_in_entity(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that specifies whether the property is required.
         """
         return pulumi.get(self, "is_required_in_entity")
 
     @is_required_in_entity.setter
-    def is_required_in_entity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_required_in_entity(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_required_in_entity", value)
 
     @_builtins.property
     @pulumi.getter(name="isStoredExternally")
-    def is_stored_externally(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_stored_externally(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that specifies whether the property is stored externally.
         """
         return pulumi.get(self, "is_stored_externally")
 
     @is_stored_externally.setter
-    def is_stored_externally(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_stored_externally(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_stored_externally", value)
 
     @_builtins.property
     @pulumi.getter(name="isTimeSeries")
-    def is_time_series(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_time_series(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that specifies whether the property consists of time series data.
         """
         return pulumi.get(self, "is_time_series")
 
     @is_time_series.setter
-    def is_time_series(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_time_series(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_time_series", value)
-
-
-class EntityPropertyGroupArgsDict(TypedDict):
-    """
-    An object that specifies information about a property group.
-    """
-    group_type: NotRequired[pulumi.Input['EntityPropertyGroupGroupType']]
-    """
-    The type of property group.
-    """
-    property_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The list of property names in the property group.
-    """
-
-@pulumi.input_type
-class EntityPropertyGroupArgs:
-    def __init__(__self__, *,
-                 group_type: Optional[pulumi.Input['EntityPropertyGroupGroupType']] = None,
-                 property_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        An object that specifies information about a property group.
-
-        :param pulumi.Input['EntityPropertyGroupGroupType'] group_type: The type of property group.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_names: The list of property names in the property group.
-        """
-        if group_type is not None:
-            pulumi.set(__self__, "group_type", group_type)
-        if property_names is not None:
-            pulumi.set(__self__, "property_names", property_names)
-
-    @_builtins.property
-    @pulumi.getter(name="groupType")
-    def group_type(self) -> Optional[pulumi.Input['EntityPropertyGroupGroupType']]:
-        """
-        The type of property group.
-        """
-        return pulumi.get(self, "group_type")
-
-    @group_type.setter
-    def group_type(self, value: Optional[pulumi.Input['EntityPropertyGroupGroupType']]):
-        pulumi.set(self, "group_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="propertyNames")
-    def property_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of property names in the property group.
-        """
-        return pulumi.get(self, "property_names")
-
-    @property_names.setter
-    def property_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "property_names", value)
 
 
 class EntityPropertyArgsDict(TypedDict):
     """
     An object that specifies information about a property.
     """
-    definition: NotRequired[pulumi.Input['EntityDefinitionArgsDict']]
+    definition: NotRequired[pulumi.Input[Optional['EntityDefinitionArgsDict']]]
     """
     The definition of the property.
     """
-    value: NotRequired[pulumi.Input['EntityDataValueArgsDict']]
+    value: NotRequired[pulumi.Input[Optional['EntityDataValueArgsDict']]]
     """
     The value of the property.
     """
@@ -1778,8 +1724,8 @@ class EntityPropertyArgsDict(TypedDict):
 @pulumi.input_type
 class EntityPropertyArgs:
     def __init__(__self__, *,
-                 definition: Optional[pulumi.Input['EntityDefinitionArgs']] = None,
-                 value: Optional[pulumi.Input['EntityDataValueArgs']] = None):
+                 definition: pulumi.Input[Optional['EntityDefinitionArgs']] = None,
+                 value: pulumi.Input[Optional['EntityDataValueArgs']] = None):
         """
         An object that specifies information about a property.
 
@@ -1793,38 +1739,92 @@ class EntityPropertyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input['EntityDefinitionArgs']]:
+    def definition(self) -> pulumi.Input[Optional['EntityDefinitionArgs']]:
         """
         The definition of the property.
         """
         return pulumi.get(self, "definition")
 
     @definition.setter
-    def definition(self, value: Optional[pulumi.Input['EntityDefinitionArgs']]):
+    def definition(self, value: pulumi.Input[Optional['EntityDefinitionArgs']]):
         pulumi.set(self, "definition", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input['EntityDataValueArgs']]:
+    def value(self) -> pulumi.Input[Optional['EntityDataValueArgs']]:
         """
         The value of the property.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input['EntityDataValueArgs']]):
+    def value(self, value: pulumi.Input[Optional['EntityDataValueArgs']]):
         pulumi.set(self, "value", value)
+
+
+class EntityPropertyGroupArgsDict(TypedDict):
+    """
+    An object that specifies information about a property group.
+    """
+    group_type: NotRequired[pulumi.Input[Optional['EntityPropertyGroupGroupType']]]
+    """
+    The type of property group.
+    """
+    property_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The list of property names in the property group.
+    """
+
+@pulumi.input_type
+class EntityPropertyGroupArgs:
+    def __init__(__self__, *,
+                 group_type: pulumi.Input[Optional['EntityPropertyGroupGroupType']] = None,
+                 property_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        An object that specifies information about a property group.
+
+        :param pulumi.Input['EntityPropertyGroupGroupType'] group_type: The type of property group.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_names: The list of property names in the property group.
+        """
+        if group_type is not None:
+            pulumi.set(__self__, "group_type", group_type)
+        if property_names is not None:
+            pulumi.set(__self__, "property_names", property_names)
+
+    @_builtins.property
+    @pulumi.getter(name="groupType")
+    def group_type(self) -> pulumi.Input[Optional['EntityPropertyGroupGroupType']]:
+        """
+        The type of property group.
+        """
+        return pulumi.get(self, "group_type")
+
+    @group_type.setter
+    def group_type(self, value: pulumi.Input[Optional['EntityPropertyGroupGroupType']]):
+        pulumi.set(self, "group_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertyNames")
+    def property_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of property names in the property group.
+        """
+        return pulumi.get(self, "property_names")
+
+    @property_names.setter
+    def property_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "property_names", value)
 
 
 class EntityRelationshipArgsDict(TypedDict):
     """
     The type of the relationship.
     """
-    relationship_type: NotRequired[pulumi.Input[_builtins.str]]
+    relationship_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of the relationship.
     """
-    target_component_type_id: NotRequired[pulumi.Input[_builtins.str]]
+    target_component_type_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the target component type associated with this relationship.
     """
@@ -1832,8 +1832,8 @@ class EntityRelationshipArgsDict(TypedDict):
 @pulumi.input_type
 class EntityRelationshipArgs:
     def __init__(__self__, *,
-                 relationship_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_component_type_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 relationship_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_component_type_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The type of the relationship.
 
@@ -1847,41 +1847,74 @@ class EntityRelationshipArgs:
 
     @_builtins.property
     @pulumi.getter(name="relationshipType")
-    def relationship_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relationship_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the relationship.
         """
         return pulumi.get(self, "relationship_type")
 
     @relationship_type.setter
-    def relationship_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relationship_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relationship_type", value)
 
     @_builtins.property
     @pulumi.getter(name="targetComponentTypeId")
-    def target_component_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_component_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the target component type associated with this relationship.
         """
         return pulumi.get(self, "target_component_type_id")
 
     @target_component_type_id.setter
-    def target_component_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_component_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_component_type_id", value)
+
+
+class EntityStatusArgsDict(TypedDict):
+    error: NotRequired[pulumi.Input[Optional[Union[Any, 'EntityStatusErrorPropertiesArgsDict']]]]
+    state: NotRequired[pulumi.Input[Optional['EntityStatusState']]]
+
+@pulumi.input_type
+class EntityStatusArgs:
+    def __init__(__self__, *,
+                 error: pulumi.Input[Optional[Union[Any, 'EntityStatusErrorPropertiesArgs']]] = None,
+                 state: pulumi.Input[Optional['EntityStatusState']] = None):
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter
+    def error(self) -> pulumi.Input[Optional[Union[Any, 'EntityStatusErrorPropertiesArgs']]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: pulumi.Input[Optional[Union[Any, 'EntityStatusErrorPropertiesArgs']]]):
+        pulumi.set(self, "error", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[Optional['EntityStatusState']]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[Optional['EntityStatusState']]):
+        pulumi.set(self, "state", value)
 
 
 class EntityStatusErrorPropertiesArgsDict(TypedDict):
     """
     Error object with Message and Code.
     """
-    code: NotRequired[pulumi.Input['EntityStatusErrorPropertiesCode']]
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    code: NotRequired[pulumi.Input[Optional['EntityStatusErrorPropertiesCode']]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class EntityStatusErrorPropertiesArgs:
     def __init__(__self__, *,
-                 code: Optional[pulumi.Input['EntityStatusErrorPropertiesCode']] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None):
+                 code: pulumi.Input[Optional['EntityStatusErrorPropertiesCode']] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Error object with Message and Code.
         """
@@ -1892,53 +1925,20 @@ class EntityStatusErrorPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input['EntityStatusErrorPropertiesCode']]:
+    def code(self) -> pulumi.Input[Optional['EntityStatusErrorPropertiesCode']]:
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input['EntityStatusErrorPropertiesCode']]):
+    def code(self, value: pulumi.Input[Optional['EntityStatusErrorPropertiesCode']]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
-
-
-class EntityStatusArgsDict(TypedDict):
-    error: NotRequired[pulumi.Input[Union[Any, 'EntityStatusErrorPropertiesArgsDict']]]
-    state: NotRequired[pulumi.Input['EntityStatusState']]
-
-@pulumi.input_type
-class EntityStatusArgs:
-    def __init__(__self__, *,
-                 error: Optional[pulumi.Input[Union[Any, 'EntityStatusErrorPropertiesArgs']]] = None,
-                 state: Optional[pulumi.Input['EntityStatusState']] = None):
-        if error is not None:
-            pulumi.set(__self__, "error", error)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @_builtins.property
-    @pulumi.getter
-    def error(self) -> Optional[pulumi.Input[Union[Any, 'EntityStatusErrorPropertiesArgs']]]:
-        return pulumi.get(self, "error")
-
-    @error.setter
-    def error(self, value: Optional[pulumi.Input[Union[Any, 'EntityStatusErrorPropertiesArgs']]]):
-        pulumi.set(self, "error", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['EntityStatusState']]:
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input['EntityStatusState']]):
-        pulumi.set(self, "state", value)
 
 

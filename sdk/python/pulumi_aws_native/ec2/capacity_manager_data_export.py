@@ -25,8 +25,8 @@ class CapacityManagerDataExportArgs:
                  output_format: pulumi.Input['CapacityManagerDataExportOutputFormat'],
                  s3_bucket_name: pulumi.Input[_builtins.str],
                  schedule: pulumi.Input['CapacityManagerDataExportSchedule'],
-                 s3_bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 s3_bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CapacityManagerDataExport resource.
 
@@ -82,26 +82,26 @@ class CapacityManagerDataExportArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3BucketPrefix")
-    def s3_bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix for the S3 bucket location where exported files will be placed. If not specified, files will be placed in the root of the bucket.
         """
         return pulumi.get(self, "s3_bucket_prefix")
 
     @s3_bucket_prefix.setter
-    def s3_bucket_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to the capacity manager data export.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -111,11 +111,11 @@ class CapacityManagerDataExport(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 output_format: Optional[pulumi.Input['CapacityManagerDataExportOutputFormat']] = None,
-                 s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input['CapacityManagerDataExportSchedule']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 output_format: pulumi.Input[Optional['CapacityManagerDataExportOutputFormat']] = None,
+                 s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional['CapacityManagerDataExportSchedule']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::CapacityManagerDataExport
@@ -154,11 +154,11 @@ class CapacityManagerDataExport(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 output_format: Optional[pulumi.Input['CapacityManagerDataExportOutputFormat']] = None,
-                 s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input['CapacityManagerDataExportSchedule']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 output_format: pulumi.Input[Optional['CapacityManagerDataExportOutputFormat']] = None,
+                 s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional['CapacityManagerDataExportSchedule']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -25,9 +25,9 @@ class ApplicationArgs:
                  description: pulumi.Input[_builtins.str],
                  executable_path: pulumi.Input[_builtins.str],
                  runtime_environment: pulumi.Input['ApplicationRuntimeEnvironmentArgs'],
-                 application_log_output_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 application_log_output_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_log_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -108,38 +108,38 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationLogOutputUri")
-    def application_log_output_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_log_output_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Required if you specify one or more `ApplicationLogPaths` .
         """
         return pulumi.get(self, "application_log_output_uri")
 
     @application_log_output_uri.setter
-    def application_log_output_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_log_output_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_log_output_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationLogPaths")
-    def application_log_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def application_log_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Locations of log files that your content generates during a stream session. Enter path values that are relative to the `ApplicationSourceUri` location. You can specify up to 10 log paths. Amazon GameLift Streams uploads designated log files to the Amazon S3 bucket that you specify in `ApplicationLogOutputUri` at the end of a stream session. To retrieve stored log files, call [GetStreamSession](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html) and get the `LogFileLocationUri` .
         """
         return pulumi.get(self, "application_log_paths")
 
     @application_log_paths.setter
-    def application_log_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def application_log_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "application_log_paths", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A list of labels to assign to the new application resource. Tags are developer-defined key-value pairs. Tagging AWS resources is useful for resource management, access management and cost allocation. See [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* .
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -149,13 +149,13 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_log_output_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 application_source_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 executable_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_environment: Optional[pulumi.Input[Union['ApplicationRuntimeEnvironmentArgs', 'ApplicationRuntimeEnvironmentArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 application_log_output_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_log_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 application_source_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 executable_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_environment: pulumi.Input[Optional[Union['ApplicationRuntimeEnvironmentArgs', 'ApplicationRuntimeEnvironmentArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::GameLiftStreams::Application Resource Type
@@ -200,13 +200,13 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_log_output_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 application_source_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 executable_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_environment: Optional[pulumi.Input[Union['ApplicationRuntimeEnvironmentArgs', 'ApplicationRuntimeEnvironmentArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 application_log_output_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_log_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 application_source_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 executable_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_environment: pulumi.Input[Optional[Union['ApplicationRuntimeEnvironmentArgs', 'ApplicationRuntimeEnvironmentArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -146,7 +146,7 @@ def get_collaboration(collaboration_identifier: Optional[_builtins.str] = None,
         is_metrics_enabled=pulumi.get(__ret__, 'is_metrics_enabled'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_collaboration_output(collaboration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_collaboration_output(collaboration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCollaborationResult]:
     """
     Represents a collaboration between AWS accounts that allows for secure data collaboration

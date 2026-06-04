@@ -77,9 +77,9 @@ class UsagePlanKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_type: Optional[pulumi.Input['UsagePlanKeyKeyType']] = None,
-                 usage_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_type: pulumi.Input[Optional['UsagePlanKeyKeyType']] = None,
+                 usage_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The ``AWS::ApiGateway::UsagePlanKey`` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
@@ -116,9 +116,9 @@ class UsagePlanKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_type: Optional[pulumi.Input['UsagePlanKeyKeyType']] = None,
-                 usage_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_type: pulumi.Input[Optional['UsagePlanKeyKeyType']] = None,
+                 usage_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

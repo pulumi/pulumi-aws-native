@@ -20,8 +20,8 @@ __all__ = ['ResourcePolicyArgs', 'ResourcePolicy']
 class ResourcePolicyArgs:
     def __init__(__self__, *,
                  policy_document: pulumi.Input[_builtins.str],
-                 bypass_policy_lockout_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 bypass_policy_lockout_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
 
@@ -49,26 +49,26 @@ class ResourcePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="bypassPolicyLockoutCheck")
-    def bypass_policy_lockout_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bypass_policy_lockout_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag to indicate whether to bypass the resource policy lockout safety check
         """
         return pulumi.get(self, "bypass_policy_lockout_check")
 
     @bypass_policy_lockout_check.setter
-    def bypass_policy_lockout_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bypass_policy_lockout_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bypass_policy_lockout_check", value)
 
     @_builtins.property
     @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource policy. Must be unique within a specific AWS account.
         """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_name", value)
 
 
@@ -78,9 +78,9 @@ class ResourcePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_policy_lockout_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bypass_policy_lockout_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This schema provides construct and validation rules for AWS-XRay Resource Policy resource parameters.
@@ -169,9 +169,9 @@ class ResourcePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_policy_lockout_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bypass_policy_lockout_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

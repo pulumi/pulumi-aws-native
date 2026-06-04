@@ -94,9 +94,9 @@ def get_service(application_identifier: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         service_identifier=pulumi.get(__ret__, 'service_identifier'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_service_output(application_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                       environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                       service_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_output(application_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                       environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                       service_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Definition of AWS::RefactorSpaces::Service Resource Type

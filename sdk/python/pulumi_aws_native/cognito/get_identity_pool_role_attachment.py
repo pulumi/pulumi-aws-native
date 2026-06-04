@@ -92,7 +92,7 @@ def get_identity_pool_role_attachment(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         role_mappings=pulumi.get(__ret__, 'role_mappings'),
         roles=pulumi.get(__ret__, 'roles'))
-def get_identity_pool_role_attachment_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_identity_pool_role_attachment_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityPoolRoleAttachmentResult]:
     """
     Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment

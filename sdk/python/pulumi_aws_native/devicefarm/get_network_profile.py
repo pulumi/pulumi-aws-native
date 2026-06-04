@@ -207,7 +207,7 @@ def get_network_profile(arn: Optional[_builtins.str] = None,
         uplink_delay_ms=pulumi.get(__ret__, 'uplink_delay_ms'),
         uplink_jitter_ms=pulumi.get(__ret__, 'uplink_jitter_ms'),
         uplink_loss_percent=pulumi.get(__ret__, 'uplink_loss_percent'))
-def get_network_profile_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_profile_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkProfileResult]:
     """
     Resource Type definition for a Device Farm Network Profile

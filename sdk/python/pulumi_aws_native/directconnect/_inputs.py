@@ -35,16 +35,16 @@ class PrivateVirtualInterfaceBgpPeerArgsDict(TypedDict):
     """
     The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
     """
-    amazon_address: NotRequired[pulumi.Input[_builtins.str]]
+    amazon_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address assigned to the Amazon interface.
     """
-    auth_key: NotRequired[pulumi.Input[_builtins.str]]
+    auth_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximum length of 80 characters.
     """
-    bgp_peer_id: NotRequired[pulumi.Input[_builtins.str]]
-    customer_address: NotRequired[pulumi.Input[_builtins.str]]
+    bgp_peer_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    customer_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address assigned to the customer interface.
     """
@@ -54,10 +54,10 @@ class PrivateVirtualInterfaceBgpPeerArgs:
     def __init__(__self__, *,
                  address_family: pulumi.Input[_builtins.str],
                  asn: pulumi.Input[_builtins.str],
-                 amazon_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 bgp_peer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 amazon_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 bgp_peer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about a BGP peer.
 
@@ -104,47 +104,47 @@ class PrivateVirtualInterfaceBgpPeerArgs:
 
     @_builtins.property
     @pulumi.getter(name="amazonAddress")
-    def amazon_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def amazon_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address assigned to the Amazon interface.
         """
         return pulumi.get(self, "amazon_address")
 
     @amazon_address.setter
-    def amazon_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def amazon_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "amazon_address", value)
 
     @_builtins.property
     @pulumi.getter(name="authKey")
-    def auth_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximum length of 80 characters.
         """
         return pulumi.get(self, "auth_key")
 
     @auth_key.setter
-    def auth_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_key", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpPeerId")
-    def bgp_peer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bgp_peer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "bgp_peer_id")
 
     @bgp_peer_id.setter
-    def bgp_peer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bgp_peer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bgp_peer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customerAddress")
-    def customer_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address assigned to the customer interface.
         """
         return pulumi.get(self, "customer_address")
 
     @customer_address.setter
-    def customer_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_address", value)
 
 
@@ -160,16 +160,16 @@ class PublicVirtualInterfaceBgpPeerArgsDict(TypedDict):
     """
     The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
     """
-    amazon_address: NotRequired[pulumi.Input[_builtins.str]]
+    amazon_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address assigned to the Amazon interface.
     """
-    auth_key: NotRequired[pulumi.Input[_builtins.str]]
+    auth_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximum length of 80 characters.
     """
-    bgp_peer_id: NotRequired[pulumi.Input[_builtins.str]]
-    customer_address: NotRequired[pulumi.Input[_builtins.str]]
+    bgp_peer_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    customer_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address assigned to the customer interface.
     """
@@ -179,10 +179,10 @@ class PublicVirtualInterfaceBgpPeerArgs:
     def __init__(__self__, *,
                  address_family: pulumi.Input[_builtins.str],
                  asn: pulumi.Input[_builtins.str],
-                 amazon_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 bgp_peer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 amazon_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 bgp_peer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about a BGP peer.
 
@@ -229,47 +229,47 @@ class PublicVirtualInterfaceBgpPeerArgs:
 
     @_builtins.property
     @pulumi.getter(name="amazonAddress")
-    def amazon_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def amazon_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address assigned to the Amazon interface.
         """
         return pulumi.get(self, "amazon_address")
 
     @amazon_address.setter
-    def amazon_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def amazon_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "amazon_address", value)
 
     @_builtins.property
     @pulumi.getter(name="authKey")
-    def auth_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximum length of 80 characters.
         """
         return pulumi.get(self, "auth_key")
 
     @auth_key.setter
-    def auth_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_key", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpPeerId")
-    def bgp_peer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bgp_peer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "bgp_peer_id")
 
     @bgp_peer_id.setter
-    def bgp_peer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bgp_peer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bgp_peer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customerAddress")
-    def customer_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address assigned to the customer interface.
         """
         return pulumi.get(self, "customer_address")
 
     @customer_address.setter
-    def customer_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_address", value)
 
 
@@ -285,16 +285,16 @@ class TransitVirtualInterfaceBgpPeerArgsDict(TypedDict):
     """
     The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
     """
-    amazon_address: NotRequired[pulumi.Input[_builtins.str]]
+    amazon_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address assigned to the Amazon interface.
     """
-    auth_key: NotRequired[pulumi.Input[_builtins.str]]
+    auth_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximum length of 80 characters.
     """
-    bgp_peer_id: NotRequired[pulumi.Input[_builtins.str]]
-    customer_address: NotRequired[pulumi.Input[_builtins.str]]
+    bgp_peer_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    customer_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address assigned to the customer interface.
     """
@@ -304,10 +304,10 @@ class TransitVirtualInterfaceBgpPeerArgs:
     def __init__(__self__, *,
                  address_family: pulumi.Input[_builtins.str],
                  asn: pulumi.Input[_builtins.str],
-                 amazon_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 bgp_peer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 amazon_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 bgp_peer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A key-value pair to associate with a resource.
 
@@ -354,47 +354,47 @@ class TransitVirtualInterfaceBgpPeerArgs:
 
     @_builtins.property
     @pulumi.getter(name="amazonAddress")
-    def amazon_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def amazon_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address assigned to the Amazon interface.
         """
         return pulumi.get(self, "amazon_address")
 
     @amazon_address.setter
-    def amazon_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def amazon_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "amazon_address", value)
 
     @_builtins.property
     @pulumi.getter(name="authKey")
-    def auth_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximum length of 80 characters.
         """
         return pulumi.get(self, "auth_key")
 
     @auth_key.setter
-    def auth_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_key", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpPeerId")
-    def bgp_peer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bgp_peer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "bgp_peer_id")
 
     @bgp_peer_id.setter
-    def bgp_peer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bgp_peer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bgp_peer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customerAddress")
-    def customer_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address assigned to the customer interface.
         """
         return pulumi.get(self, "customer_address")
 
     @customer_address.setter
-    def customer_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_address", value)
 
 

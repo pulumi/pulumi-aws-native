@@ -223,8 +223,8 @@ def get_maintenance_window_task(window_id: Optional[_builtins.str] = None,
         task_invocation_parameters=pulumi.get(__ret__, 'task_invocation_parameters'),
         task_parameters=pulumi.get(__ret__, 'task_parameters'),
         window_task_id=pulumi.get(__ret__, 'window_task_id'))
-def get_maintenance_window_task_output(window_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                       window_task_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_maintenance_window_task_output(window_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                       window_task_id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaintenanceWindowTaskResult]:
     """
     Resource Type definition for AWS::SSM::MaintenanceWindowTask

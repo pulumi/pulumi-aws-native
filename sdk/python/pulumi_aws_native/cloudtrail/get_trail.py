@@ -291,7 +291,7 @@ def get_trail(trail_name: Optional[_builtins.str] = None,
         sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'),
         sns_topic_name=pulumi.get(__ret__, 'sns_topic_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_trail_output(trail_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_trail_output(trail_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrailResult]:
     """
     Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.

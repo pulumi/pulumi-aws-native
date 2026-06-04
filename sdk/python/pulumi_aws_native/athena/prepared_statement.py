@@ -21,8 +21,8 @@ class PreparedStatementArgs:
     def __init__(__self__, *,
                  query_statement: pulumi.Input[_builtins.str],
                  work_group: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PreparedStatement resource.
 
@@ -64,26 +64,26 @@ class PreparedStatementArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the prepared statement.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="statementName")
-    def statement_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def statement_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the prepared statement.
         """
         return pulumi.get(self, "statement_name")
 
     @statement_name.setter
-    def statement_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def statement_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "statement_name", value)
 
 
@@ -93,10 +93,10 @@ class PreparedStatement(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_statement: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_statement: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_group: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Athena::PreparedStatement
@@ -134,10 +134,10 @@ class PreparedStatement(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_statement: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_statement: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_group: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

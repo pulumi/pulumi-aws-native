@@ -101,7 +101,7 @@ def get_db_proxy_target_group(target_group_arn: Optional[_builtins.str] = None,
         db_cluster_identifiers=pulumi.get(__ret__, 'db_cluster_identifiers'),
         db_instance_identifiers=pulumi.get(__ret__, 'db_instance_identifiers'),
         target_group_arn=pulumi.get(__ret__, 'target_group_arn'))
-def get_db_proxy_target_group_output(target_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_proxy_target_group_output(target_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbProxyTargetGroupResult]:
     """
     Resource schema for AWS::RDS::DBProxyTargetGroup

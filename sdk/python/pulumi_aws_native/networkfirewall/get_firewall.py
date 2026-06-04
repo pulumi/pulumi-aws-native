@@ -254,7 +254,7 @@ def get_firewall(firewall_arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
-def get_firewall_output(firewall_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_output(firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallResult]:
     """
     Resource type definition for AWS::NetworkFirewall::Firewall

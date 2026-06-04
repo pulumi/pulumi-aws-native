@@ -154,7 +154,7 @@ def get_policy_engine(policy_engine_arn: Optional[_builtins.str] = None,
         status_reasons=pulumi.get(__ret__, 'status_reasons'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_policy_engine_output(policy_engine_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_engine_output(policy_engine_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyEngineResult]:
     """
     Resource Type definition for AWS::BedrockAgentCore::PolicyEngine

@@ -272,7 +272,7 @@ def get_model_package(model_package_arn: Optional[_builtins.str] = None,
         skip_model_validation=pulumi.get(__ret__, 'skip_model_validation'),
         source_uri=pulumi.get(__ret__, 'source_uri'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_model_package_output(model_package_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_model_package_output(model_package_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelPackageResult]:
     """
     Resource Type definition for AWS::SageMaker::ModelPackage

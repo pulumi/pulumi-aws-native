@@ -155,7 +155,7 @@ def get_room(arn: Optional[_builtins.str] = None,
         message_review_handler=pulumi.get(__ret__, 'message_review_handler'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_room_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_room_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoomResult]:
     """
     Resource type definition for AWS::IVSChat::Room.

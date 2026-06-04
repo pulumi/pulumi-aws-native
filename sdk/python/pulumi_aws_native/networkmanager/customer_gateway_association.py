@@ -22,7 +22,7 @@ class CustomerGatewayAssociationArgs:
                  customer_gateway_arn: pulumi.Input[_builtins.str],
                  device_id: pulumi.Input[_builtins.str],
                  global_network_id: pulumi.Input[_builtins.str],
-                 link_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 link_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomerGatewayAssociation resource.
 
@@ -75,14 +75,14 @@ class CustomerGatewayAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="linkId")
-    def link_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def link_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the link
         """
         return pulumi.get(self, "link_id")
 
     @link_id.setter
-    def link_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def link_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "link_id", value)
 
 
@@ -92,10 +92,10 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 customer_gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AWS::NetworkManager::CustomerGatewayAssociation type associates a customer gateway with a device and optionally, with a link.
@@ -133,10 +133,10 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 customer_gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
