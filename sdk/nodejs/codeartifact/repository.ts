@@ -130,7 +130,7 @@ export interface RepositoryArgs {
     /**
      * A text description of the repository.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the domain that contains the repository.
      */
@@ -138,27 +138,27 @@ export interface RepositoryArgs {
     /**
      * The 12-digit account ID of the AWS account that owns the domain.
      */
-    domainOwner?: pulumi.Input<string>;
+    domainOwner?: pulumi.Input<string | undefined>;
     /**
      * A list of external connections associated with the repository.
      */
-    externalConnections?: pulumi.Input<pulumi.Input<string>[]>;
+    externalConnections?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The access control resource policy on the provided repository.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
      */
-    permissionsPolicyDocument?: any;
+    permissionsPolicyDocument?: any | undefined;
     /**
      * The name of the repository.
      */
-    repositoryName?: pulumi.Input<string>;
+    repositoryName?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A list of upstream repositories associated with the repository.
      */
-    upstreams?: pulumi.Input<pulumi.Input<string>[]>;
+    upstreams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

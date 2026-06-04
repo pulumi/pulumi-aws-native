@@ -95,19 +95,19 @@ export interface TestGridProjectArgs {
     /**
      * A human-readable description for the project.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A human-readable name for the project.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The VPC security groups and subnets that are attached to a project.
      */
-    vpcConfig?: pulumi.Input<inputs.devicefarm.TestGridProjectVpcConfigArgs>;
+    vpcConfig?: pulumi.Input<inputs.devicefarm.TestGridProjectVpcConfigArgs | undefined>;
 }

@@ -164,15 +164,15 @@ export interface NetworkInsightsAnalysisArgs {
     /**
      * The member accounts that contain resources that the path can traverse.
      */
-    additionalAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Amazon Resource Names (ARN) of the resources that the path must traverse.
      */
-    filterInArns?: pulumi.Input<pulumi.Input<string>[]>;
+    filterInArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Amazon Resource Names (ARN) of the resources that the path must ignore.
      */
-    filterOutArns?: pulumi.Input<pulumi.Input<string>[]>;
+    filterOutArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the path.
      */
@@ -180,5 +180,5 @@ export interface NetworkInsightsAnalysisArgs {
     /**
      * The tags to apply.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

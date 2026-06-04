@@ -135,19 +135,19 @@ export interface ChannelArgs {
     /**
      * <p>The list of audiences defined in channel.</p>
      */
-    audiences?: pulumi.Input<pulumi.Input<string>[]>;
+    audiences?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the channel.
      */
-    channelName?: pulumi.Input<string>;
+    channelName?: pulumi.Input<string | undefined>;
     /**
      * The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
      */
-    fillerSlate?: pulumi.Input<inputs.mediatailor.ChannelSlateSourceArgs>;
+    fillerSlate?: pulumi.Input<inputs.mediatailor.ChannelSlateSourceArgs | undefined>;
     /**
      * The log configuration.
      */
-    logConfiguration?: pulumi.Input<inputs.mediatailor.ChannelLogConfigurationForChannelArgs>;
+    logConfiguration?: pulumi.Input<inputs.mediatailor.ChannelLogConfigurationForChannelArgs | undefined>;
     /**
      * <p>The channel's output properties.</p>
      */
@@ -163,13 +163,13 @@ export interface ChannelArgs {
     /**
      * The tags to assign to the channel.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The tier for this channel. STANDARD tier channels can contain live programs.
      */
-    tier?: pulumi.Input<enums.mediatailor.ChannelTier>;
+    tier?: pulumi.Input<enums.mediatailor.ChannelTier | undefined>;
     /**
      * The configuration for time-shifted viewing.
      */
-    timeShiftConfiguration?: pulumi.Input<inputs.mediatailor.ChannelTimeShiftConfigurationArgs>;
+    timeShiftConfiguration?: pulumi.Input<inputs.mediatailor.ChannelTimeShiftConfigurationArgs | undefined>;
 }

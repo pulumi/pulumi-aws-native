@@ -110,11 +110,11 @@ export interface LayerVersionArgs {
     /**
      * A list of compatible instruction set architectures.
      */
-    compatibleArchitectures?: pulumi.Input<pulumi.Input<string>[]>;
+    compatibleArchitectures?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
      */
-    compatibleRuntimes?: pulumi.Input<pulumi.Input<string>[]>;
+    compatibleRuntimes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The function layer archive.
      */
@@ -122,13 +122,13 @@ export interface LayerVersionArgs {
     /**
      * The description of the version.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name or Amazon Resource Name (ARN) of the layer.
      */
-    layerName?: pulumi.Input<string>;
+    layerName?: pulumi.Input<string | undefined>;
     /**
      * The layer's software license.
      */
-    licenseInfo?: pulumi.Input<string>;
+    licenseInfo?: pulumi.Input<string | undefined>;
 }

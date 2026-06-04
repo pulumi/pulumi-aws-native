@@ -178,27 +178,27 @@ export interface FirewallArgs {
     /**
      * A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `TRUE` , you must first disable this protection before adding or removing Availability Zones.
      */
-    availabilityZoneChangeProtection?: pulumi.Input<boolean>;
+    availabilityZoneChangeProtection?: pulumi.Input<boolean | undefined>;
     /**
      * The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall. Each mapping specifies an Availability Zone where the firewall processes traffic.
      */
-    availabilityZoneMappings?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallAvailabilityZoneMappingArgs>[]>;
+    availabilityZoneMappings?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallAvailabilityZoneMappingArgs>[] | undefined>;
     /**
      * A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
      */
-    deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean | undefined>;
     /**
      * A description of the firewall.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
      */
-    enabledAnalysisTypes?: pulumi.Input<pulumi.Input<enums.networkfirewall.FirewallEnabledAnalysisType>[]>;
+    enabledAnalysisTypes?: pulumi.Input<pulumi.Input<enums.networkfirewall.FirewallEnabledAnalysisType>[] | undefined>;
     /**
      * The descriptive name of the firewall. You can't change the name of a firewall after you create it.
      */
-    firewallName?: pulumi.Input<string>;
+    firewallName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the firewall policy.
      *
@@ -208,11 +208,11 @@ export interface FirewallArgs {
     /**
      * A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
      */
-    firewallPolicyChangeProtection?: pulumi.Input<boolean>;
+    firewallPolicyChangeProtection?: pulumi.Input<boolean | undefined>;
     /**
      * A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
      */
-    subnetChangeProtection?: pulumi.Input<boolean>;
+    subnetChangeProtection?: pulumi.Input<boolean | undefined>;
     /**
      * The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
      *
@@ -220,19 +220,19 @@ export interface FirewallArgs {
      *
      * In addition to these subnets, you can define other endpoints for the firewall in `VpcEndpointAssociation` resources. You can define these additional endpoints for any VPC, and for any of the Availability Zones where the firewall resource already has a subnet mapping. VPC endpoint associations give you the ability to protect multiple VPCs using a single firewall, and to define multiple firewall endpoints for a VPC in a single Availability Zone.
      */
-    subnetMappings?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallSubnetMappingArgs>[]>;
+    subnetMappings?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallSubnetMappingArgs>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
      */
-    transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }

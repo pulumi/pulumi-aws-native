@@ -219,11 +219,11 @@ export interface ResourceVersionArgs {
     /**
      * The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies logging configuration information for a type.
      */
-    loggingConfig?: pulumi.Input<inputs.cloudformation.ResourceVersionLoggingConfigArgs>;
+    loggingConfig?: pulumi.Input<inputs.cloudformation.ResourceVersionLoggingConfigArgs | undefined>;
     /**
      * A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
      *

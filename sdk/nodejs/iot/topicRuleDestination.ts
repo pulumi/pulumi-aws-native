@@ -95,13 +95,13 @@ export interface TopicRuleDestinationArgs {
     /**
      * HTTP URL destination properties.
      */
-    httpUrlProperties?: pulumi.Input<inputs.iot.TopicRuleDestinationHttpUrlDestinationSummaryArgs>;
+    httpUrlProperties?: pulumi.Input<inputs.iot.TopicRuleDestinationHttpUrlDestinationSummaryArgs | undefined>;
     /**
      * The status of the TopicRuleDestination.
      */
-    status?: pulumi.Input<enums.iot.TopicRuleDestinationStatus>;
+    status?: pulumi.Input<enums.iot.TopicRuleDestinationStatus | undefined>;
     /**
      * VPC destination properties.
      */
-    vpcProperties?: pulumi.Input<inputs.iot.TopicRuleDestinationVpcDestinationPropertiesArgs>;
+    vpcProperties?: pulumi.Input<inputs.iot.TopicRuleDestinationVpcDestinationPropertiesArgs | undefined>;
 }

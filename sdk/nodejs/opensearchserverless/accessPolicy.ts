@@ -95,11 +95,11 @@ export interface AccessPolicyArgs {
     /**
      * The description of the policy
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the policy
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The JSON policy document that is the content for the policy
      */

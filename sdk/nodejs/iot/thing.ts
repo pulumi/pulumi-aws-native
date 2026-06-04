@@ -116,11 +116,11 @@ export interface ThingArgs {
     /**
      * A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
      */
-    attributePayload?: pulumi.Input<inputs.iot.ThingAttributePayloadArgs>;
+    attributePayload?: pulumi.Input<inputs.iot.ThingAttributePayloadArgs | undefined>;
     /**
      * The name of the thing to update.
      *
      * You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
      */
-    thingName?: pulumi.Input<string>;
+    thingName?: pulumi.Input<string | undefined>;
 }

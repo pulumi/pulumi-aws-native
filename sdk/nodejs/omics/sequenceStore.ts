@@ -169,39 +169,39 @@ export interface SequenceStoreArgs {
     /**
      * Location of the access logs.
      */
-    accessLogLocation?: pulumi.Input<string>;
+    accessLogLocation?: pulumi.Input<string | undefined>;
     /**
      * A description for the store.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The algorithm family of the ETag.
      */
-    eTagAlgorithmFamily?: pulumi.Input<enums.omics.SequenceStoreETagAlgorithmFamily>;
+    eTagAlgorithmFamily?: pulumi.Input<enums.omics.SequenceStoreETagAlgorithmFamily | undefined>;
     /**
      * An S3 location that is used to store files that have failed a direct upload.
      */
-    fallbackLocation?: pulumi.Input<string>;
+    fallbackLocation?: pulumi.Input<string | undefined>;
     /**
      * A name for the store.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags keys to propagate to the S3 objects associated with read sets in the sequence store.
      */
-    propagatedSetLevelTags?: pulumi.Input<pulumi.Input<string>[]>;
+    propagatedSetLevelTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The resource policy that controls S3 access on the store
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Omics::SequenceStore` for more information about the expected schema for this property.
      */
-    s3AccessPolicy?: any;
+    s3AccessPolicy?: any | undefined;
     /**
      * Server-side encryption (SSE) settings for the store.
      */
-    sseConfig?: pulumi.Input<inputs.omics.SequenceStoreSseConfigArgs>;
+    sseConfig?: pulumi.Input<inputs.omics.SequenceStoreSseConfigArgs | undefined>;
     /**
      * Tags for the store.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

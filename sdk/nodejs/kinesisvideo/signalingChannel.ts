@@ -95,17 +95,17 @@ export interface SignalingChannelArgs {
     /**
      * The period of time a signaling channel retains undelivered messages before they are discarded.
      */
-    messageTtlSeconds?: pulumi.Input<number>;
+    messageTtlSeconds?: pulumi.Input<number | undefined>;
     /**
      * The name of the Kinesis Video Signaling Channel.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type.
      */
-    type?: pulumi.Input<enums.kinesisvideo.SignalingChannelType>;
+    type?: pulumi.Input<enums.kinesisvideo.SignalingChannelType | undefined>;
 }

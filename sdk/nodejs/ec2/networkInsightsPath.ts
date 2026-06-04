@@ -155,23 +155,23 @@ export interface NetworkInsightsPathArgs {
     /**
      * The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
      */
-    destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string | undefined>;
     /**
      * The IP address of the destination.
      */
-    destinationIp?: pulumi.Input<string>;
+    destinationIp?: pulumi.Input<string | undefined>;
     /**
      * The destination port.
      */
-    destinationPort?: pulumi.Input<number>;
+    destinationPort?: pulumi.Input<number | undefined>;
     /**
      * Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify the parameter for the destination IP address.
      */
-    filterAtDestination?: pulumi.Input<inputs.ec2.NetworkInsightsPathPathFilterArgs>;
+    filterAtDestination?: pulumi.Input<inputs.ec2.NetworkInsightsPathPathFilterArgs | undefined>;
     /**
      * Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.
      */
-    filterAtSource?: pulumi.Input<inputs.ec2.NetworkInsightsPathPathFilterArgs>;
+    filterAtSource?: pulumi.Input<inputs.ec2.NetworkInsightsPathPathFilterArgs | undefined>;
     /**
      * The protocol.
      */
@@ -183,9 +183,9 @@ export interface NetworkInsightsPathArgs {
     /**
      * The IP address of the source.
      */
-    sourceIp?: pulumi.Input<string>;
+    sourceIp?: pulumi.Input<string | undefined>;
     /**
      * The tags to add to the path.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

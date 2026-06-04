@@ -103,9 +103,9 @@ export interface ScheduleGroupArgs {
     /**
      * The name of the schedule group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The list of tags to associate with the schedule group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

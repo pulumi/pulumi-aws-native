@@ -128,11 +128,11 @@ export interface LoadBalancerArgs {
     /**
      * The names of the instances attached to the load balancer.
      */
-    attachedInstances?: pulumi.Input<pulumi.Input<string>[]>;
+    attachedInstances?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., "/").
      */
-    healthCheckPath?: pulumi.Input<string>;
+    healthCheckPath?: pulumi.Input<string | undefined>;
     /**
      * The instance port where you're creating your load balancer.
      */
@@ -140,25 +140,25 @@ export interface LoadBalancerArgs {
     /**
      * The IP address type for the load balancer. The possible values are ipv4 for IPv4 only, and dualstack for IPv4 and IPv6. The default value is dualstack.
      */
-    ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string | undefined>;
     /**
      * The name of your load balancer.
      */
-    loadBalancerName?: pulumi.Input<string>;
+    loadBalancerName?: pulumi.Input<string | undefined>;
     /**
      * Configuration option to enable session stickiness.
      */
-    sessionStickinessEnabled?: pulumi.Input<boolean>;
+    sessionStickinessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration option to adjust session stickiness cookie duration parameter.
      */
-    sessionStickinessLbCookieDurationSeconds?: pulumi.Input<string>;
+    sessionStickinessLbCookieDurationSeconds?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the TLS policy to apply to the load balancer.
      */
-    tlsPolicyName?: pulumi.Input<string>;
+    tlsPolicyName?: pulumi.Input<string | undefined>;
 }

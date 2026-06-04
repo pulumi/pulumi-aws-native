@@ -89,9 +89,9 @@ export interface MailManagerAddressListArgs {
     /**
      * A user-friendly name for the address list.
      */
-    addressListName?: pulumi.Input<string>;
+    addressListName?: pulumi.Input<string | undefined>;
     /**
      * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

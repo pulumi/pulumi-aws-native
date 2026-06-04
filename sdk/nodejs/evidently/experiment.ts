@@ -159,7 +159,7 @@ export interface ExperimentArgs {
     /**
      * An optional description of the experiment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
      */
@@ -167,7 +167,7 @@ export interface ExperimentArgs {
     /**
      * A name for the new experiment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
      */
@@ -179,31 +179,31 @@ export interface ExperimentArgs {
     /**
      * When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
      */
-    randomizationSalt?: pulumi.Input<string>;
+    randomizationSalt?: pulumi.Input<string | undefined>;
     /**
      * Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
      */
-    removeSegment?: pulumi.Input<boolean>;
+    removeSegment?: pulumi.Input<boolean | undefined>;
     /**
      * Start Experiment. Default is False
      */
-    runningStatus?: pulumi.Input<inputs.evidently.ExperimentRunningStatusObjectArgs>;
+    runningStatus?: pulumi.Input<inputs.evidently.ExperimentRunningStatusObjectArgs | undefined>;
     /**
      * The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
      *
      * This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
      */
-    samplingRate?: pulumi.Input<number>;
+    samplingRate?: pulumi.Input<number | undefined>;
     /**
      * Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
      *
      * For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
      */
-    segment?: pulumi.Input<string>;
+    segment?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * An array of structures that describe the configuration of each feature variation used in the experiment.
      */

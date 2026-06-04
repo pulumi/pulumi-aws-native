@@ -128,7 +128,7 @@ export interface DomainUnitArgs {
     /**
      * The description of the domain unit.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the domain where you want to create a domain unit.
      */
@@ -136,7 +136,7 @@ export interface DomainUnitArgs {
     /**
      * The name of the domain unit.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the parent domain unit.
      */

@@ -146,7 +146,7 @@ export interface DataSourceArgs {
     /**
      * The data deletion policy for the data source.
      */
-    dataDeletionPolicy?: pulumi.Input<enums.bedrock.DataSourceDataDeletionPolicy>;
+    dataDeletionPolicy?: pulumi.Input<enums.bedrock.DataSourceDataDeletionPolicy | undefined>;
     /**
      * The connection configuration for the data source.
      */
@@ -154,7 +154,7 @@ export interface DataSourceArgs {
     /**
      * Description of the Resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the knowledge base to which to add the data source.
      */
@@ -162,13 +162,13 @@ export interface DataSourceArgs {
     /**
      * The name of the data source.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Contains details about the configuration of the server-side encryption.
      */
-    serverSideEncryptionConfiguration?: pulumi.Input<inputs.bedrock.DataSourceServerSideEncryptionConfigurationArgs>;
+    serverSideEncryptionConfiguration?: pulumi.Input<inputs.bedrock.DataSourceServerSideEncryptionConfigurationArgs | undefined>;
     /**
      * Contains details about how to ingest the documents in the data source.
      */
-    vectorIngestionConfiguration?: pulumi.Input<inputs.bedrock.DataSourceVectorIngestionConfigurationArgs>;
+    vectorIngestionConfiguration?: pulumi.Input<inputs.bedrock.DataSourceVectorIngestionConfigurationArgs | undefined>;
 }

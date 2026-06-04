@@ -92,7 +92,7 @@ export interface AwsLogSourceArgs {
     /**
      * AWS account where you want to collect logs from.
      */
-    accounts?: pulumi.Input<pulumi.Input<string>[]>;
+    accounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ARN for the data lake.
      */
@@ -100,7 +100,7 @@ export interface AwsLogSourceArgs {
     /**
      * The name for a AWS source. This must be a Regionally unique value.
      */
-    sourceName?: pulumi.Input<string>;
+    sourceName?: pulumi.Input<string | undefined>;
     /**
      * The version for a AWS source. This must be a Regionally unique value.
      */

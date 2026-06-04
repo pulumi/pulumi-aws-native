@@ -164,31 +164,31 @@ export interface FlowArgs {
     /**
      * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * The encoding configuration to apply to the NDI source content when transcoding it to a transport stream (TS) for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
      */
-    encodingConfig?: pulumi.Input<inputs.mediaconnect.FlowEncodingConfigArgs>;
+    encodingConfig?: pulumi.Input<inputs.mediaconnect.FlowEncodingConfigArgs | undefined>;
     /**
      * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
      */
-    flowSize?: pulumi.Input<enums.mediaconnect.FlowSize>;
+    flowSize?: pulumi.Input<enums.mediaconnect.FlowSize | undefined>;
     /**
      * The maintenance settings you want to use for the flow.
      */
-    maintenance?: pulumi.Input<inputs.mediaconnect.FlowMaintenanceArgs>;
+    maintenance?: pulumi.Input<inputs.mediaconnect.FlowMaintenanceArgs | undefined>;
     /**
      * The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
      */
-    mediaStreams?: pulumi.Input<pulumi.Input<inputs.mediaconnect.FlowMediaStreamArgs>[]>;
+    mediaStreams?: pulumi.Input<pulumi.Input<inputs.mediaconnect.FlowMediaStreamArgs>[] | undefined>;
     /**
      * The name of the flow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
      */
-    ndiConfig?: pulumi.Input<inputs.mediaconnect.FlowNdiConfigArgs>;
+    ndiConfig?: pulumi.Input<inputs.mediaconnect.FlowNdiConfigArgs | undefined>;
     /**
      * The source of the flow.
      */
@@ -196,17 +196,17 @@ export interface FlowArgs {
     /**
      * The source failover config of the flow.
      */
-    sourceFailoverConfig?: pulumi.Input<inputs.mediaconnect.FlowFailoverConfigArgs>;
+    sourceFailoverConfig?: pulumi.Input<inputs.mediaconnect.FlowFailoverConfigArgs | undefined>;
     /**
      * The source monitoring config of the flow.
      */
-    sourceMonitoringConfig?: pulumi.Input<inputs.mediaconnect.FlowSourceMonitoringConfigArgs>;
+    sourceMonitoringConfig?: pulumi.Input<inputs.mediaconnect.FlowSourceMonitoringConfigArgs | undefined>;
     /**
      * Key-value pairs that can be used to tag this flow.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The VPC interfaces that you added to this flow.
      */
-    vpcInterfaces?: pulumi.Input<pulumi.Input<inputs.mediaconnect.FlowVpcInterfaceArgs>[]>;
+    vpcInterfaces?: pulumi.Input<pulumi.Input<inputs.mediaconnect.FlowVpcInterfaceArgs>[] | undefined>;
 }

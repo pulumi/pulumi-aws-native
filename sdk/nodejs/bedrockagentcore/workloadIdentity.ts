@@ -101,13 +101,13 @@ export interface WorkloadIdentityArgs {
     /**
      * The list of allowed OAuth2 return URLs for resources associated with this workload identity.
      */
-    allowedResourceOauth2ReturnUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedResourceOauth2ReturnUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the workload identity. The name must be unique within your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

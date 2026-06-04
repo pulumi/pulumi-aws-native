@@ -110,14 +110,14 @@ export class FirewallDomainList extends pulumi.CustomResource {
  * The set of arguments for constructing a FirewallDomainList resource.
  */
 export interface FirewallDomainListArgs {
-    clientToken?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * S3 URL to import domains from.
      */
-    domainFileUrl?: pulumi.Input<string>;
-    domains?: pulumi.Input<pulumi.Input<string>[]>;
+    domainFileUrl?: pulumi.Input<string | undefined>;
+    domains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     globalResolverId: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    name?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

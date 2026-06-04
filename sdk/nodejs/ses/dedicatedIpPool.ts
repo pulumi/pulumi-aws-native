@@ -83,13 +83,13 @@ export interface DedicatedIpPoolArgs {
     /**
      * The name of the dedicated IP pool.
      */
-    poolName?: pulumi.Input<string>;
+    poolName?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
      */
-    scalingMode?: pulumi.Input<string>;
+    scalingMode?: pulumi.Input<string | undefined>;
     /**
      * The tags (keys and values) associated with the dedicated IP pool.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

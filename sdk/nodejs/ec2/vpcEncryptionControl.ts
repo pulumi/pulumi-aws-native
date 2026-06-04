@@ -155,45 +155,45 @@ export interface VpcEncryptionControlArgs {
     /**
      * Used to enable or disable EIGW exclusion
      */
-    egressOnlyInternetGatewayExclusionInput?: pulumi.Input<enums.ec2.VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput>;
+    egressOnlyInternetGatewayExclusionInput?: pulumi.Input<enums.ec2.VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput | undefined>;
     /**
      * Used to enable or disable EFS exclusion
      */
-    elasticFileSystemExclusionInput?: pulumi.Input<enums.ec2.VpcEncryptionControlElasticFileSystemExclusionInput>;
+    elasticFileSystemExclusionInput?: pulumi.Input<enums.ec2.VpcEncryptionControlElasticFileSystemExclusionInput | undefined>;
     /**
      * Used to enable or disable IGW exclusion
      */
-    internetGatewayExclusionInput?: pulumi.Input<enums.ec2.VpcEncryptionControlInternetGatewayExclusionInput>;
+    internetGatewayExclusionInput?: pulumi.Input<enums.ec2.VpcEncryptionControlInternetGatewayExclusionInput | undefined>;
     /**
      * Used to enable or disable Lambda exclusion
      */
-    lambdaExclusionInput?: pulumi.Input<enums.ec2.VpcEncryptionControlLambdaExclusionInput>;
+    lambdaExclusionInput?: pulumi.Input<enums.ec2.VpcEncryptionControlLambdaExclusionInput | undefined>;
     /**
      * The VPC encryption control mode, either monitor or enforce.
      */
-    mode?: pulumi.Input<enums.ec2.VpcEncryptionControlMode>;
+    mode?: pulumi.Input<enums.ec2.VpcEncryptionControlMode | undefined>;
     /**
      * Used to enable or disable Nat gateway exclusion
      */
-    natGatewayExclusionInput?: pulumi.Input<enums.ec2.VpcEncryptionControlNatGatewayExclusionInput>;
+    natGatewayExclusionInput?: pulumi.Input<enums.ec2.VpcEncryptionControlNatGatewayExclusionInput | undefined>;
     /**
      * The tags to assign to the VPC encryption control.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Used to enable or disable VGW exclusion
      */
-    virtualPrivateGatewayExclusionInput?: pulumi.Input<enums.ec2.VpcEncryptionControlVirtualPrivateGatewayExclusionInput>;
+    virtualPrivateGatewayExclusionInput?: pulumi.Input<enums.ec2.VpcEncryptionControlVirtualPrivateGatewayExclusionInput | undefined>;
     /**
      * The VPC on which this VPC encryption control is applied.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
     /**
      * Used to enable or disable Vpc Lattice exclusion
      */
-    vpcLatticeExclusionInput?: pulumi.Input<enums.ec2.VpcEncryptionControlVpcLatticeExclusionInput>;
+    vpcLatticeExclusionInput?: pulumi.Input<enums.ec2.VpcEncryptionControlVpcLatticeExclusionInput | undefined>;
     /**
      * Used to enable or disable VPC peering exclusion
      */
-    vpcPeeringExclusionInput?: pulumi.Input<enums.ec2.VpcEncryptionControlVpcPeeringExclusionInput>;
+    vpcPeeringExclusionInput?: pulumi.Input<enums.ec2.VpcEncryptionControlVpcPeeringExclusionInput | undefined>;
 }

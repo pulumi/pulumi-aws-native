@@ -113,11 +113,11 @@ export interface ScheduledAuditArgs {
     /**
      * The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
      */
-    dayOfMonth?: pulumi.Input<string>;
+    dayOfMonth?: pulumi.Input<string | undefined>;
     /**
      * The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
      */
-    dayOfWeek?: pulumi.Input<enums.iot.ScheduledAuditDayOfWeek>;
+    dayOfWeek?: pulumi.Input<enums.iot.ScheduledAuditDayOfWeek | undefined>;
     /**
      * How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
      */
@@ -125,11 +125,11 @@ export interface ScheduledAuditArgs {
     /**
      * The name you want to give to the scheduled audit.
      */
-    scheduledAuditName?: pulumi.Input<string>;
+    scheduledAuditName?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Which checks are performed during the scheduled audit. Checks must be enabled for your account.
      */

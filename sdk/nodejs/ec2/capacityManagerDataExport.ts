@@ -118,7 +118,7 @@ export interface CapacityManagerDataExportArgs {
     /**
      * The prefix for the S3 bucket location where exported files will be placed. If not specified, files will be placed in the root of the bucket.
      */
-    s3BucketPrefix?: pulumi.Input<string>;
+    s3BucketPrefix?: pulumi.Input<string | undefined>;
     /**
      * The schedule for the capacity manager data export. Currently supports hourly exports that provide periodic snapshots of capacity manager data.
      */
@@ -126,5 +126,5 @@ export interface CapacityManagerDataExportArgs {
     /**
      * An array of key-value pairs to apply to the capacity manager data export.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

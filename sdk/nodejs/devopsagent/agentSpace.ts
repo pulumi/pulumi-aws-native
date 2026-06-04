@@ -122,22 +122,22 @@ export interface AgentSpaceArgs {
     /**
      * The description of the AgentSpace.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the KMS key to use for encryption.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The locale for the AgentSpace, which determines the language used in agent responses.
      */
-    locale?: pulumi.Input<string>;
+    locale?: pulumi.Input<string | undefined>;
     /**
      * The name of the AgentSpace.
      */
-    name?: pulumi.Input<string>;
-    operatorApp?: pulumi.Input<inputs.devopsagent.AgentSpaceOperatorAppArgs>;
+    name?: pulumi.Input<string | undefined>;
+    operatorApp?: pulumi.Input<inputs.devopsagent.AgentSpaceOperatorAppArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

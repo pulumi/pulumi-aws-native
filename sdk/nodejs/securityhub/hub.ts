@@ -168,19 +168,19 @@ export interface HubArgs {
     /**
      * Whether to automatically enable new controls when they are added to standards that are enabled
      */
-    autoEnableControls?: pulumi.Input<boolean>;
+    autoEnableControls?: pulumi.Input<boolean | undefined>;
     /**
      * This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
      */
-    controlFindingGenerator?: pulumi.Input<string>;
+    controlFindingGenerator?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable the security standards that Security Hub has designated as automatically enabled.
      */
-    enableDefaultStandards?: pulumi.Input<boolean>;
+    enableDefaultStandards?: pulumi.Input<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

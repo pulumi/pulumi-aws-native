@@ -132,14 +132,14 @@ export interface PolicyArgs {
     /**
      * A human-readable description of the policy's purpose and functionality.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The customer-assigned immutable name for the policy. Must be unique within the policy engine.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the policy engine which contains this policy.
      */
     policyEngineId: pulumi.Input<string>;
-    validationMode?: pulumi.Input<enums.bedrockagentcore.PolicyValidationMode>;
+    validationMode?: pulumi.Input<enums.bedrockagentcore.PolicyValidationMode | undefined>;
 }

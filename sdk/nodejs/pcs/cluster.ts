@@ -140,7 +140,7 @@ export interface ClusterArgs {
     /**
      * The name that identifies the cluster.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The networking configuration for the cluster's control plane.
      */
@@ -156,9 +156,9 @@ export interface ClusterArgs {
     /**
      * Additional options related to the Slurm scheduler.
      */
-    slurmConfiguration?: pulumi.Input<inputs.pcs.SlurmConfigurationPropertiesArgs>;
+    slurmConfiguration?: pulumi.Input<inputs.pcs.SlurmConfigurationPropertiesArgs | undefined>;
     /**
      * 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

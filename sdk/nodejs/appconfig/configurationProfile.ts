@@ -147,15 +147,15 @@ export interface ConfigurationProfileArgs {
     /**
      * On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
      */
-    deletionProtectionCheck?: pulumi.Input<enums.appconfig.ConfigurationProfileDeletionProtectionCheck>;
+    deletionProtectionCheck?: pulumi.Input<enums.appconfig.ConfigurationProfileDeletionProtectionCheck | undefined>;
     /**
      * A description of the configuration profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object.
      */
@@ -163,21 +163,21 @@ export interface ConfigurationProfileArgs {
     /**
      * A name for the configuration profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
      */
-    retrievalRoleArn?: pulumi.Input<string>;
+    retrievalRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * A list of methods for validating the configuration.
      */
-    validators?: pulumi.Input<pulumi.Input<inputs.appconfig.ConfigurationProfileValidatorsArgs>[]>;
+    validators?: pulumi.Input<pulumi.Input<inputs.appconfig.ConfigurationProfileValidatorsArgs>[] | undefined>;
 }

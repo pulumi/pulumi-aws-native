@@ -102,13 +102,13 @@ export interface UserHierarchyGroupArgs {
     /**
      * The name of the user hierarchy group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the parent user hierarchy group.
      */
-    parentGroupArn?: pulumi.Input<string>;
+    parentGroupArn?: pulumi.Input<string | undefined>;
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

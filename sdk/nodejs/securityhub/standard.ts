@@ -90,7 +90,7 @@ export interface StandardArgs {
      * Specifies which controls are to be disabled in a standard. 
      *  *Maximum*: ``100``
      */
-    disabledStandardsControls?: pulumi.Input<pulumi.Input<inputs.securityhub.StandardsControlArgs>[]>;
+    disabledStandardsControls?: pulumi.Input<pulumi.Input<inputs.securityhub.StandardsControlArgs>[] | undefined>;
     /**
      * The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
      */

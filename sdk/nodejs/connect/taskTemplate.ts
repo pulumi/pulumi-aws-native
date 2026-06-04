@@ -138,27 +138,27 @@ export interface TaskTemplateArgs {
     /**
      * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
      */
-    clientToken?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
     /**
      * The constraints for the task template
      */
-    constraints?: pulumi.Input<inputs.connect.ConstraintsPropertiesArgs>;
+    constraints?: pulumi.Input<inputs.connect.ConstraintsPropertiesArgs | undefined>;
     /**
      * The identifier of the contact flow.
      */
-    contactFlowArn?: pulumi.Input<string>;
+    contactFlowArn?: pulumi.Input<string | undefined>;
     /**
      * The default values for fields when a task is created by referencing this template.
      */
-    defaults?: pulumi.Input<pulumi.Input<inputs.connect.TaskTemplateDefaultFieldValueArgs>[]>;
+    defaults?: pulumi.Input<pulumi.Input<inputs.connect.TaskTemplateDefaultFieldValueArgs>[] | undefined>;
     /**
      * The description of the task template.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The list of task template's fields
      */
-    fields?: pulumi.Input<pulumi.Input<inputs.connect.TaskTemplateFieldArgs>[]>;
+    fields?: pulumi.Input<pulumi.Input<inputs.connect.TaskTemplateFieldArgs>[] | undefined>;
     /**
      * The identifier (arn) of the instance.
      */
@@ -166,17 +166,17 @@ export interface TaskTemplateArgs {
     /**
      * The name of the task template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the contact flow.
      */
-    selfAssignContactFlowArn?: pulumi.Input<string>;
+    selfAssignContactFlowArn?: pulumi.Input<string | undefined>;
     /**
      * The status of the task template.
      */
-    status?: pulumi.Input<enums.connect.TaskTemplateStatus>;
+    status?: pulumi.Input<enums.connect.TaskTemplateStatus | undefined>;
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

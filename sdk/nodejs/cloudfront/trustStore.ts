@@ -125,17 +125,17 @@ export interface TrustStoreArgs {
     /**
      * A CA certificates bundle source.
      */
-    caCertificatesBundleSource?: pulumi.Input<inputs.cloudfront.TrustStoreCaCertificatesBundleSourceArgs>;
+    caCertificatesBundleSource?: pulumi.Input<inputs.cloudfront.TrustStoreCaCertificatesBundleSourceArgs | undefined>;
     /**
      * The trust store's name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A complex type that contains zero or more ``Tag`` elements.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
      */
-    useClientCertificateOcspEndpoint?: pulumi.Input<boolean>;
+    useClientCertificateOcspEndpoint?: pulumi.Input<boolean | undefined>;
 }

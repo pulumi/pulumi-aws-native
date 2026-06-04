@@ -100,5 +100,5 @@ export interface BackupPlanArgs {
     /**
      * The tags to assign to the backup plan.
      */
-    backupPlanTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    backupPlanTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -116,7 +116,7 @@ export interface ProfilePermissionArgs {
     /**
      * The version of the signing profile.
      */
-    profileVersion?: pulumi.Input<string>;
+    profileVersion?: pulumi.Input<string | undefined>;
     /**
      * A unique identifier for the cross-account permission statement.
      */

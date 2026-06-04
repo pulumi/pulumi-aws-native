@@ -124,21 +124,21 @@ export interface IpAccessSettingsArgs {
     /**
      * Additional encryption context of the IP access settings.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The custom managed key of the IP access settings.
      *
      * *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
      */
-    customerManagedKey?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<string | undefined>;
     /**
      * The description of the IP access settings.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the IP access settings.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The IP rules of the IP access settings.
      */
@@ -146,5 +146,5 @@ export interface IpAccessSettingsArgs {
     /**
      * The tags to add to the IP access settings resource. A tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

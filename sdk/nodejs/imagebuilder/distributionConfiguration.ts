@@ -98,7 +98,7 @@ export interface DistributionConfigurationArgs {
     /**
      * The description of the distribution configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The distributions of the distribution configuration.
      */
@@ -106,9 +106,9 @@ export interface DistributionConfigurationArgs {
     /**
      * The name of the distribution configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags associated with the component.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

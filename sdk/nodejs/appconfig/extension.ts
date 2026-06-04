@@ -159,21 +159,21 @@ export interface ExtensionArgs {
     /**
      * Description of the extension.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.
      */
-    latestVersionNumber?: pulumi.Input<number>;
+    latestVersionNumber?: pulumi.Input<number | undefined>;
     /**
      * Name of the extension.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.appconfig.ExtensionParameterArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.appconfig.ExtensionParameterArgs>} | undefined>;
     /**
      * An array of key-value tags to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

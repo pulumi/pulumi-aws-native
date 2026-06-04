@@ -193,7 +193,7 @@ export interface TaskArgs {
     /**
      * The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
      */
-    cloudWatchLogGroupArn?: pulumi.Input<string>;
+    cloudWatchLogGroupArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of an AWS storage resource's location.
      */
@@ -201,27 +201,27 @@ export interface TaskArgs {
     /**
      * Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
      */
-    excludes?: pulumi.Input<pulumi.Input<inputs.datasync.TaskFilterRuleArgs>[]>;
+    excludes?: pulumi.Input<pulumi.Input<inputs.datasync.TaskFilterRuleArgs>[] | undefined>;
     /**
      * Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
      */
-    includes?: pulumi.Input<pulumi.Input<inputs.datasync.TaskFilterRuleArgs>[]>;
+    includes?: pulumi.Input<pulumi.Input<inputs.datasync.TaskFilterRuleArgs>[] | undefined>;
     /**
      * The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
      */
-    manifestConfig?: pulumi.Input<inputs.datasync.TaskManifestConfigArgs>;
+    manifestConfig?: pulumi.Input<inputs.datasync.TaskManifestConfigArgs | undefined>;
     /**
      * The name of a task. This value is a text reference that is used to identify the task in the console.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
      */
-    options?: pulumi.Input<inputs.datasync.TaskOptionsArgs>;
+    options?: pulumi.Input<inputs.datasync.TaskOptionsArgs | undefined>;
     /**
      * Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
      */
-    schedule?: pulumi.Input<inputs.datasync.TaskScheduleArgs>;
+    schedule?: pulumi.Input<inputs.datasync.TaskScheduleArgs | undefined>;
     /**
      * The ARN of the source location for the task.
      */
@@ -229,13 +229,13 @@ export interface TaskArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Specifies the task mode for the task.
      */
-    taskMode?: pulumi.Input<enums.datasync.TaskMode>;
+    taskMode?: pulumi.Input<enums.datasync.TaskMode | undefined>;
     /**
      * The configuration of your task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
      */
-    taskReportConfig?: pulumi.Input<inputs.datasync.TaskReportConfigArgs>;
+    taskReportConfig?: pulumi.Input<inputs.datasync.TaskReportConfigArgs | undefined>;
 }

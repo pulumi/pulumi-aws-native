@@ -106,7 +106,7 @@ export interface KeySigningKeyArgs {
     /**
      * An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
      */

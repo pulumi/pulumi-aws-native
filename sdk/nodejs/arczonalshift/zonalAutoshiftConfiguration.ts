@@ -93,15 +93,15 @@ export interface ZonalAutoshiftConfigurationArgs {
      *
      * You can update or delete a practice run configuration. Before you delete a practice run configuration, you must disable zonal autoshift for the resource. A practice run configuration is required when zonal autoshift is enabled.
      */
-    practiceRunConfiguration?: pulumi.Input<inputs.arczonalshift.ZonalAutoshiftConfigurationPracticeRunConfigurationArgs>;
+    practiceRunConfiguration?: pulumi.Input<inputs.arczonalshift.ZonalAutoshiftConfigurationPracticeRunConfigurationArgs | undefined>;
     /**
      * The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
      *
      * At this time, supported resources are Network Load Balancers and Application Load Balancers.
      */
-    resourceIdentifier?: pulumi.Input<string>;
+    resourceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
      */
-    zonalAutoshiftStatus?: pulumi.Input<enums.arczonalshift.ZonalAutoshiftConfigurationZonalAutoshiftStatus>;
+    zonalAutoshiftStatus?: pulumi.Input<enums.arczonalshift.ZonalAutoshiftConfigurationZonalAutoshiftStatus | undefined>;
 }

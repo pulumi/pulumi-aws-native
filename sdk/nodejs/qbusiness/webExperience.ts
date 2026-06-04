@@ -178,45 +178,45 @@ export interface WebExperienceArgs {
     /**
      * The container for browser extension configuration for an Amazon Q Business web experience.
      */
-    browserExtensionConfiguration?: pulumi.Input<inputs.qbusiness.WebExperienceBrowserExtensionConfigurationArgs>;
+    browserExtensionConfiguration?: pulumi.Input<inputs.qbusiness.WebExperienceBrowserExtensionConfigurationArgs | undefined>;
     /**
      * Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
      */
-    customizationConfiguration?: pulumi.Input<inputs.qbusiness.WebExperienceCustomizationConfigurationArgs>;
+    customizationConfiguration?: pulumi.Input<inputs.qbusiness.WebExperienceCustomizationConfigurationArgs | undefined>;
     /**
      * Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
      */
-    identityProviderConfiguration?: pulumi.Input<inputs.qbusiness.WebExperienceIdentityProviderConfiguration0PropertiesArgs | inputs.qbusiness.WebExperienceIdentityProviderConfiguration1PropertiesArgs>;
+    identityProviderConfiguration?: pulumi.Input<inputs.qbusiness.WebExperienceIdentityProviderConfiguration0PropertiesArgs | inputs.qbusiness.WebExperienceIdentityProviderConfiguration1PropertiesArgs | undefined>;
     /**
      * Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
      *
      * > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
      */
-    origins?: pulumi.Input<pulumi.Input<string>[]>;
+    origins?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the service role attached to your web experience.
      *
      * > The `roleArn` parameter is required when your Amazon Q Business application is created with IAM Identity Center. It is not required for SAML-based applications.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Determines whether sample prompts are enabled in the web experience for an end user.
      */
-    samplePromptsControlMode?: pulumi.Input<enums.qbusiness.WebExperienceSamplePromptsControlMode>;
+    samplePromptsControlMode?: pulumi.Input<enums.qbusiness.WebExperienceSamplePromptsControlMode | undefined>;
     /**
      * A subtitle to personalize your Amazon Q Business web experience.
      */
-    subtitle?: pulumi.Input<string>;
+    subtitle?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The title for your Amazon Q Business web experience.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * A message in an Amazon Q Business web experience.
      */
-    welcomeMessage?: pulumi.Input<string>;
+    welcomeMessage?: pulumi.Input<string | undefined>;
 }

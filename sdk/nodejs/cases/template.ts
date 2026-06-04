@@ -137,33 +137,33 @@ export interface TemplateArgs {
     /**
      * A description explaining the purpose and use case for this template. Should indicate what types of cases this template is designed for and any specific workflow it supports.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the Cases domain.
      */
-    domainId?: pulumi.Input<string>;
+    domainId?: pulumi.Input<string | undefined>;
     /**
      * Object to store configuration of layouts associated to the template.
      */
-    layoutConfiguration?: pulumi.Input<inputs.cases.TemplateLayoutConfigurationArgs>;
+    layoutConfiguration?: pulumi.Input<inputs.cases.TemplateLayoutConfigurationArgs | undefined>;
     /**
      * A name for the template. It must be unique per domain.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of fields that must contain a value for a case to be successfully created with this template.
      */
-    requiredFields?: pulumi.Input<pulumi.Input<inputs.cases.TemplateRequiredFieldArgs>[]>;
+    requiredFields?: pulumi.Input<pulumi.Input<inputs.cases.TemplateRequiredFieldArgs>[] | undefined>;
     /**
      * A list of case rules (also known as case field conditions) on a template.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.cases.TemplateRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.cases.TemplateRuleArgs>[] | undefined>;
     /**
      * The status of the template.
      */
-    status?: pulumi.Input<enums.cases.TemplateStatus>;
+    status?: pulumi.Input<enums.cases.TemplateStatus | undefined>;
     /**
      * The tags that you attach to this template.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

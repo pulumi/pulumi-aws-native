@@ -152,11 +152,11 @@ export interface TableArgs {
     /**
      * Contains details about the compaction settings for an Iceberg table.
      */
-    compaction?: pulumi.Input<inputs.s3tables.TableCompactionArgs>;
+    compaction?: pulumi.Input<inputs.s3tables.TableCompactionArgs | undefined>;
     /**
      * Contains details about the metadata for an Iceberg table.
      */
-    icebergMetadata?: pulumi.Input<inputs.s3tables.TableIcebergMetadataArgs>;
+    icebergMetadata?: pulumi.Input<inputs.s3tables.TableIcebergMetadataArgs | undefined>;
     /**
      * The name of the namespace.
      */
@@ -168,11 +168,11 @@ export interface TableArgs {
     /**
      * Contains details about the Iceberg snapshot management settings for the table.
      */
-    snapshotManagement?: pulumi.Input<inputs.s3tables.TableSnapshotManagementArgs>;
+    snapshotManagement?: pulumi.Input<inputs.s3tables.TableSnapshotManagementArgs | undefined>;
     /**
      * The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
      */
-    storageClassConfiguration?: pulumi.Input<inputs.s3tables.TableStorageClassConfigurationArgs>;
+    storageClassConfiguration?: pulumi.Input<inputs.s3tables.TableStorageClassConfigurationArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the table bucket to create the table in.
      */
@@ -180,13 +180,13 @@ export interface TableArgs {
     /**
      * The name for the table.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
     /**
      * User tags (key-value pairs) to associate with the table.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
      */
-    withoutMetadata?: pulumi.Input<enums.s3tables.TableWithoutMetadata>;
+    withoutMetadata?: pulumi.Input<enums.s3tables.TableWithoutMetadata | undefined>;
 }

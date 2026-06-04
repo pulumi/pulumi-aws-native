@@ -131,25 +131,25 @@ export interface OdbPeeringConnectionArgs {
     /**
      * The additional CIDR blocks for the ODB peering connection.
      */
-    additionalPeerNetworkCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalPeerNetworkCidrs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the ODB peering connection.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the ODB network.
      */
-    odbNetworkId?: pulumi.Input<string>;
+    odbNetworkId?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the peer network.
      */
-    peerNetworkId?: pulumi.Input<string>;
+    peerNetworkId?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the VPC route table for which a route to the ODB network is automatically created during peering connection establishment.
      */
-    peerNetworkRouteTableIds?: pulumi.Input<pulumi.Input<string>[]>;
+    peerNetworkRouteTableIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Tags to assign to the Odb peering connection.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

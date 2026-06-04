@@ -152,11 +152,11 @@ export class ModelExplainabilityJobDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a ModelExplainabilityJobDefinition resource.
  */
 export interface ModelExplainabilityJobDefinitionArgs {
-    endpointName?: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.
      */
-    jobDefinitionName?: pulumi.Input<string>;
+    jobDefinitionName?: pulumi.Input<string | undefined>;
     /**
      * Identifies the resources to deploy for a monitoring job.
      */
@@ -168,7 +168,7 @@ export interface ModelExplainabilityJobDefinitionArgs {
     /**
      * The baseline configuration for a model explainability job.
      */
-    modelExplainabilityBaselineConfig?: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs>;
+    modelExplainabilityBaselineConfig?: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs | undefined>;
     /**
      * Inputs for the model explainability job.
      */
@@ -180,7 +180,7 @@ export interface ModelExplainabilityJobDefinitionArgs {
     /**
      * Networking options for a model explainability job.
      */
-    networkConfig?: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionNetworkConfigArgs>;
+    networkConfig?: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionNetworkConfigArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
      */
@@ -188,9 +188,9 @@ export interface ModelExplainabilityJobDefinitionArgs {
     /**
      * A time limit for how long the monitoring job is allowed to run before stopping.
      */
-    stoppingCondition?: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionStoppingConditionArgs>;
+    stoppingCondition?: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionStoppingConditionArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

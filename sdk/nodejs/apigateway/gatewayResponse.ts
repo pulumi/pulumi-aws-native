@@ -104,11 +104,11 @@ export interface GatewayResponseArgs {
     /**
      * Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
      */
-    responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
      */
-    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The response type of the associated GatewayResponse.
      */
@@ -120,5 +120,5 @@ export interface GatewayResponseArgs {
     /**
      * The HTTP status code for this GatewayResponse.
      */
-    statusCode?: pulumi.Input<string>;
+    statusCode?: pulumi.Input<string | undefined>;
 }

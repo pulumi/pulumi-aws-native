@@ -146,36 +146,36 @@ export interface CatalogArgs {
     /**
      * Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
      */
-    allowFullTableExternalDataAccess?: pulumi.Input<enums.glue.CatalogAllowFullTableExternalDataAccess>;
-    catalogProperties?: pulumi.Input<inputs.glue.CatalogPropertiesArgs>;
+    allowFullTableExternalDataAccess?: pulumi.Input<enums.glue.CatalogAllowFullTableExternalDataAccess | undefined>;
+    catalogProperties?: pulumi.Input<inputs.glue.CatalogPropertiesArgs | undefined>;
     /**
      * An array of PrincipalPermissions objects for default database permissions.
      */
-    createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogPrincipalPermissionsArgs>[]>;
+    createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogPrincipalPermissionsArgs>[] | undefined>;
     /**
      * An array of PrincipalPermissions objects for default table permissions.
      */
-    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogPrincipalPermissionsArgs>[]>;
+    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogPrincipalPermissionsArgs>[] | undefined>;
     /**
      * A description of the catalog.
      */
-    description?: pulumi.Input<string>;
-    federatedCatalog?: pulumi.Input<inputs.glue.CatalogFederatedCatalogArgs>;
+    description?: pulumi.Input<string | undefined>;
+    federatedCatalog?: pulumi.Input<inputs.glue.CatalogFederatedCatalogArgs | undefined>;
     /**
      * The name of the catalog to create.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to overwrite child resource permissions with the default permissions.
      */
-    overwriteChildResourcePermissionsWithDefault?: pulumi.Input<enums.glue.CatalogOverwriteChildResourcePermissionsWithDefault>;
+    overwriteChildResourcePermissionsWithDefault?: pulumi.Input<enums.glue.CatalogOverwriteChildResourcePermissionsWithDefault | undefined>;
     /**
      * A map of key-value pairs that define parameters and properties of the catalog.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    targetRedshiftCatalog?: pulumi.Input<inputs.glue.CatalogTargetRedshiftCatalogArgs>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    targetRedshiftCatalog?: pulumi.Input<inputs.glue.CatalogTargetRedshiftCatalogArgs | undefined>;
 }

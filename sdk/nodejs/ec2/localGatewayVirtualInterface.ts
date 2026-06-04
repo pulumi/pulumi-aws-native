@@ -174,15 +174,15 @@ export interface LocalGatewayVirtualInterfaceArgs {
     /**
      * The peer BGP ASN.
      */
-    peerBgpAsn?: pulumi.Input<number>;
+    peerBgpAsn?: pulumi.Input<number | undefined>;
     /**
      * The extended 32-bit ASN of the BGP peer for use with larger ASN values.
      */
-    peerBgpAsnExtended?: pulumi.Input<number>;
+    peerBgpAsnExtended?: pulumi.Input<number | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the VLAN.
      */

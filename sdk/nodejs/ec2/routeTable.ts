@@ -87,7 +87,7 @@ export interface RouteTableArgs {
     /**
      * Any tags assigned to the route table.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the VPC.
      */

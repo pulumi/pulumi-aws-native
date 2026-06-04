@@ -134,7 +134,7 @@ export interface VpcConnectionArgs {
     /**
      * An arbitrary set of tags (key-value pairs) you specify while creating the VPC connection.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the target cluster
      */

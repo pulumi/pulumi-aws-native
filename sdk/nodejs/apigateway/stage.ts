@@ -152,39 +152,39 @@ export interface StageArgs {
     /**
      * Access log settings, including the access log format and access log destination ARN.
      */
-    accessLogSetting?: pulumi.Input<inputs.apigateway.StageAccessLogSettingArgs>;
+    accessLogSetting?: pulumi.Input<inputs.apigateway.StageAccessLogSettingArgs | undefined>;
     /**
      * Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
      */
-    cacheClusterEnabled?: pulumi.Input<boolean>;
+    cacheClusterEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
      */
-    cacheClusterSize?: pulumi.Input<string>;
+    cacheClusterSize?: pulumi.Input<string | undefined>;
     /**
      * Settings for the canary deployment in this stage.
      */
-    canarySetting?: pulumi.Input<inputs.apigateway.StageCanarySettingArgs>;
+    canarySetting?: pulumi.Input<inputs.apigateway.StageCanarySettingArgs | undefined>;
     /**
      * The identifier of a client certificate for an API stage.
      */
-    clientCertificateId?: pulumi.Input<string>;
+    clientCertificateId?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Deployment that the stage points to.
      */
-    deploymentId?: pulumi.Input<string>;
+    deploymentId?: pulumi.Input<string | undefined>;
     /**
      * The stage's description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The version of the associated API documentation.
      */
-    documentationVersion?: pulumi.Input<string>;
+    documentationVersion?: pulumi.Input<string | undefined>;
     /**
      * A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\*&#47;\*` for overriding all methods in the stage.
      */
-    methodSettings?: pulumi.Input<pulumi.Input<inputs.apigateway.StageMethodSettingArgs>[]>;
+    methodSettings?: pulumi.Input<pulumi.Input<inputs.apigateway.StageMethodSettingArgs>[] | undefined>;
     /**
      * The string identifier of the associated RestApi.
      */
@@ -192,17 +192,17 @@ export interface StageArgs {
     /**
      * The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
      */
-    stageName?: pulumi.Input<string>;
+    stageName?: pulumi.Input<string | undefined>;
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Specifies whether active tracing with X-ray is enabled for the Stage.
      */
-    tracingEnabled?: pulumi.Input<boolean>;
+    tracingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
      */
-    variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    variables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

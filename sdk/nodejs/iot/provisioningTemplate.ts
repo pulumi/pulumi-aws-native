@@ -125,15 +125,15 @@ export interface ProvisioningTemplateArgs {
     /**
      * The description of the fleet provisioning template.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * True to enable the fleet provisioning template, otherwise false.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Creates a pre-provisioning hook template.
      */
-    preProvisioningHook?: pulumi.Input<inputs.iot.ProvisioningTemplateProvisioningHookArgs>;
+    preProvisioningHook?: pulumi.Input<inputs.iot.ProvisioningTemplateProvisioningHookArgs | undefined>;
     /**
      * The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
      */
@@ -141,7 +141,7 @@ export interface ProvisioningTemplateArgs {
     /**
      * Metadata that can be used to manage the fleet provisioning template.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The JSON formatted contents of the fleet provisioning template version.
      */
@@ -149,9 +149,9 @@ export interface ProvisioningTemplateArgs {
     /**
      * The name of the fleet provisioning template.
      */
-    templateName?: pulumi.Input<string>;
+    templateName?: pulumi.Input<string | undefined>;
     /**
      * The type of the provisioning template.
      */
-    templateType?: pulumi.Input<enums.iot.ProvisioningTemplateTemplateType>;
+    templateType?: pulumi.Input<enums.iot.ProvisioningTemplateTemplateType | undefined>;
 }

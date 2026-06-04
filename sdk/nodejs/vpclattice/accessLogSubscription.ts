@@ -120,13 +120,13 @@ export interface AccessLogSubscriptionArgs {
     /**
      * The ID or ARN of the service network or service.
      */
-    resourceIdentifier?: pulumi.Input<string>;
+    resourceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Log type of the service network.
      */
-    serviceNetworkLogType?: pulumi.Input<enums.vpclattice.AccessLogSubscriptionServiceNetworkLogType>;
+    serviceNetworkLogType?: pulumi.Input<enums.vpclattice.AccessLogSubscriptionServiceNetworkLogType | undefined>;
     /**
      * The tags for the access log subscription.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

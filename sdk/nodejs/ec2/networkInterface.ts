@@ -209,67 +209,67 @@ export interface NetworkInterfaceArgs {
     /**
      * A connection tracking specification for the network interface.
      */
-    connectionTrackingSpecification?: pulumi.Input<inputs.ec2.NetworkInterfaceConnectionTrackingSpecificationArgs>;
+    connectionTrackingSpecification?: pulumi.Input<inputs.ec2.NetworkInterfaceConnectionTrackingSpecificationArgs | undefined>;
     /**
      * A description for the network interface.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
      */
-    enablePrimaryIpv6?: pulumi.Input<boolean>;
+    enablePrimaryIpv6?: pulumi.Input<boolean | undefined>;
     /**
      * A list of security group IDs associated with this network interface.
      */
-    groupSet?: pulumi.Input<pulumi.Input<string>[]>;
+    groupSet?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicates the type of network interface.
      */
-    interfaceType?: pulumi.Input<string>;
+    interfaceType?: pulumi.Input<string | undefined>;
     /**
      * The number of IPv4 prefixes to assign to a network interface. When you specify a number of IPv4 prefixes, Amazon EC2 selects these prefixes from your existing subnet CIDR reservations, if available, or from free spaces in the subnet. By default, these will be /28 prefixes. You can't specify a count of IPv4 prefixes if you've specified one of the following: specific IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.
      */
-    ipv4PrefixCount?: pulumi.Input<number>;
+    ipv4PrefixCount?: pulumi.Input<number | undefined>;
     /**
      * Assigns a list of IPv4 prefixes to the network interface. If you want EC2 to automatically assign IPv4 prefixes, use the Ipv4PrefixCount property and do not specify this property. Presently, only /28 prefixes are supported. You can't specify IPv4 prefixes if you've specified one of the following: a count of IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.
      */
-    ipv4Prefixes?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceIpv4PrefixSpecificationArgs>[]>;
+    ipv4Prefixes?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceIpv4PrefixSpecificationArgs>[] | undefined>;
     /**
      * The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property.
      */
-    ipv6AddressCount?: pulumi.Input<number>;
+    ipv6AddressCount?: pulumi.Input<number | undefined>;
     /**
      * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
      */
-    ipv6Addresses?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceInstanceIpv6AddressArgs>[]>;
+    ipv6Addresses?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceInstanceIpv6AddressArgs>[] | undefined>;
     /**
      * The number of IPv6 prefixes to assign to a network interface. When you specify a number of IPv6 prefixes, Amazon EC2 selects these prefixes from your existing subnet CIDR reservations, if available, or from free spaces in the subnet. By default, these will be /80 prefixes. You can't specify a count of IPv6 prefixes if you've specified one of the following: specific IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
      */
-    ipv6PrefixCount?: pulumi.Input<number>;
+    ipv6PrefixCount?: pulumi.Input<number | undefined>;
     /**
      * Assigns a list of IPv6 prefixes to the network interface. If you want EC2 to automatically assign IPv6 prefixes, use the Ipv6PrefixCount property and do not specify this property. Presently, only /80 prefixes are supported. You can't specify IPv6 prefixes if you've specified one of the following: a count of IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
      */
-    ipv6Prefixes?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceIpv6PrefixSpecificationArgs>[]>;
+    ipv6Prefixes?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceIpv6PrefixSpecificationArgs>[] | undefined>;
     /**
      * Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. 
      */
-    privateIpAddress?: pulumi.Input<string>;
+    privateIpAddress?: pulumi.Input<string | undefined>;
     /**
      * Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
      */
-    privateIpAddresses?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfacePrivateIpAddressSpecificationArgs>[]>;
+    privateIpAddresses?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfacePrivateIpAddressSpecificationArgs>[] | undefined>;
     /**
      * Public IP DNS hostname type
      */
-    publicIpDnsHostnameTypeSpecification?: pulumi.Input<enums.ec2.NetworkInterfacePublicIpDnsHostnameTypeSpecification>;
+    publicIpDnsHostnameTypeSpecification?: pulumi.Input<enums.ec2.NetworkInterfacePublicIpDnsHostnameTypeSpecification | undefined>;
     /**
      * The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
      */
-    secondaryPrivateIpAddressCount?: pulumi.Input<number>;
+    secondaryPrivateIpAddressCount?: pulumi.Input<number | undefined>;
     /**
      * Indicates whether traffic to or from the instance is validated.
      */
-    sourceDestCheck?: pulumi.Input<boolean>;
+    sourceDestCheck?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the subnet to associate with the network interface.
      */
@@ -277,5 +277,5 @@ export interface NetworkInterfaceArgs {
     /**
      * An arbitrary set of tags (key-value pairs) for this network interface.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

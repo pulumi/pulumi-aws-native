@@ -135,11 +135,11 @@ export interface InferenceComponentArgs {
     /**
      * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
      */
-    deploymentConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentDeploymentConfigArgs>;
+    deploymentConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentDeploymentConfigArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
      */
-    endpointArn?: pulumi.Input<string>;
+    endpointArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the endpoint that hosts the inference component.
      */
@@ -147,12 +147,12 @@ export interface InferenceComponentArgs {
     /**
      * The name of the inference component.
      */
-    inferenceComponentName?: pulumi.Input<string>;
-    runtimeConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentRuntimeConfigArgs>;
+    inferenceComponentName?: pulumi.Input<string | undefined>;
+    runtimeConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentRuntimeConfigArgs | undefined>;
     specification: pulumi.Input<inputs.sagemaker.InferenceComponentSpecificationArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the production variant that hosts the inference component.
      */
-    variantName?: pulumi.Input<string>;
+    variantName?: pulumi.Input<string | undefined>;
 }

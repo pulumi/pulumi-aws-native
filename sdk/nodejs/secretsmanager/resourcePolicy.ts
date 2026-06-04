@@ -94,7 +94,7 @@ export interface ResourcePolicyArgs {
     /**
      * Specifies whether to block resource-based policies that allow broad access to the secret.
      */
-    blockPublicPolicy?: pulumi.Input<boolean>;
+    blockPublicPolicy?: pulumi.Input<boolean | undefined>;
     /**
      * A JSON-formatted string for an AWS resource-based policy.
      *

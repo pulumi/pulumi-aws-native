@@ -89,9 +89,9 @@ export interface TrustStoreRevocationArgs {
     /**
      * The attributes required to create a trust store revocation.
      */
-    revocationContents?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TrustStoreRevocationRevocationContentArgs>[]>;
+    revocationContents?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TrustStoreRevocationRevocationContentArgs>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the trust store.
      */
-    trustStoreArn?: pulumi.Input<string>;
+    trustStoreArn?: pulumi.Input<string | undefined>;
 }

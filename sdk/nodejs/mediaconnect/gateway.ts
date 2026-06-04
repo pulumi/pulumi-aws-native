@@ -105,7 +105,7 @@ export interface GatewayArgs {
     /**
      * The name of the gateway. This name can not be modified after the gateway is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The list of networks in the gateway.
      */

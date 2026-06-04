@@ -149,17 +149,17 @@ export interface ServiceNetworkServiceAssociationArgs {
     /**
      * The DNS information of the service.
      */
-    dnsEntry?: pulumi.Input<inputs.vpclattice.ServiceNetworkServiceAssociationDnsEntryArgs>;
+    dnsEntry?: pulumi.Input<inputs.vpclattice.ServiceNetworkServiceAssociationDnsEntryArgs | undefined>;
     /**
      * The ID or ARN of the service.
      */
-    serviceIdentifier?: pulumi.Input<string>;
+    serviceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
      */
-    serviceNetworkIdentifier?: pulumi.Input<string>;
+    serviceNetworkIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The tags for the association.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

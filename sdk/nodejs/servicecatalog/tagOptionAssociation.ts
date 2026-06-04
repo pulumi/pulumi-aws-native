@@ -74,9 +74,9 @@ export interface TagOptionAssociationArgs {
     /**
      * The CloudformationProduct or Portfolio identifier.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The TagOption identifier.
      */
-    tagOptionId?: pulumi.Input<string>;
+    tagOptionId?: pulumi.Input<string | undefined>;
 }

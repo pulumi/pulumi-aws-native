@@ -89,15 +89,15 @@ export class SamplingRule extends pulumi.CustomResource {
  * The set of arguments for constructing a SamplingRule resource.
  */
 export interface SamplingRuleArgs {
-    ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
     /**
      * The sampling rule to be created or updated.
      */
-    samplingRule?: pulumi.Input<inputs.xray.SamplingRuleArgs>;
-    samplingRuleRecord?: pulumi.Input<inputs.xray.SamplingRuleRecordArgs>;
-    samplingRuleUpdate?: pulumi.Input<inputs.xray.SamplingRuleUpdateArgs>;
+    samplingRule?: pulumi.Input<inputs.xray.SamplingRuleArgs | undefined>;
+    samplingRuleRecord?: pulumi.Input<inputs.xray.SamplingRuleRecordArgs | undefined>;
+    samplingRuleUpdate?: pulumi.Input<inputs.xray.SamplingRuleUpdateArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

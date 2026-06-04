@@ -108,10 +108,10 @@ export interface PaymentCredentialProviderArgs {
     /**
      * Unique name for the payment credential provider
      */
-    name?: pulumi.Input<string>;
-    providerConfigurationInput?: pulumi.Input<inputs.bedrockagentcore.PaymentCredentialProviderPaymentProviderConfigurationInputArgs>;
+    name?: pulumi.Input<string | undefined>;
+    providerConfigurationInput?: pulumi.Input<inputs.bedrockagentcore.PaymentCredentialProviderPaymentProviderConfigurationInputArgs | undefined>;
     /**
      * Tags for the payment credential provider
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

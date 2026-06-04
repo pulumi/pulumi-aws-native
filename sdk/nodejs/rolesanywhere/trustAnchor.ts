@@ -108,15 +108,15 @@ export interface TrustAnchorArgs {
     /**
      * Indicates whether the trust anchor is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the trust anchor.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of notification settings to be associated to the trust anchor.
      */
-    notificationSettings?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.TrustAnchorNotificationSettingArgs>[]>;
+    notificationSettings?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.TrustAnchorNotificationSettingArgs>[] | undefined>;
     /**
      * The trust anchor type and its related certificate data.
      */
@@ -124,5 +124,5 @@ export interface TrustAnchorArgs {
     /**
      * The tags to attach to the trust anchor.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

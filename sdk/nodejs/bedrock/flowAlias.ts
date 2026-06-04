@@ -140,11 +140,11 @@ export interface FlowAliasArgs {
     /**
      * The configuration that specifies how nodes in the flow are executed concurrently.
      */
-    concurrencyConfiguration?: pulumi.Input<inputs.bedrock.FlowAliasConcurrencyConfigurationArgs>;
+    concurrencyConfiguration?: pulumi.Input<inputs.bedrock.FlowAliasConcurrencyConfigurationArgs | undefined>;
     /**
      * Description of the Resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Arn representation of the Flow
      */
@@ -152,7 +152,7 @@ export interface FlowAliasArgs {
     /**
      * Name for a resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Routing configuration for a Flow alias.
      */
@@ -163,5 +163,5 @@ export interface FlowAliasArgs {
      * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
      * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

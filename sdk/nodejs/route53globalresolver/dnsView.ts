@@ -104,12 +104,12 @@ export class DnsView extends pulumi.CustomResource {
  * The set of arguments for constructing a DnsView resource.
  */
 export interface DnsViewArgs {
-    clientToken?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    dnssecValidation?: pulumi.Input<enums.route53globalresolver.DnsViewDnsSecValidationType>;
-    ednsClientSubnet?: pulumi.Input<enums.route53globalresolver.DnsViewEdnsClientSubnetType>;
-    firewallRulesFailOpen?: pulumi.Input<enums.route53globalresolver.DnsViewFirewallRulesFailOpenType>;
+    clientToken?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    dnssecValidation?: pulumi.Input<enums.route53globalresolver.DnsViewDnsSecValidationType | undefined>;
+    ednsClientSubnet?: pulumi.Input<enums.route53globalresolver.DnsViewEdnsClientSubnetType | undefined>;
+    firewallRulesFailOpen?: pulumi.Input<enums.route53globalresolver.DnsViewFirewallRulesFailOpenType | undefined>;
     globalResolverId: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    name?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

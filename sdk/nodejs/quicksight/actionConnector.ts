@@ -114,12 +114,12 @@ export class ActionConnector extends pulumi.CustomResource {
  */
 export interface ActionConnectorArgs {
     actionConnectorId: pulumi.Input<string>;
-    authenticationConfig?: pulumi.Input<inputs.quicksight.ActionConnectorAuthConfigArgs>;
+    authenticationConfig?: pulumi.Input<inputs.quicksight.ActionConnectorAuthConfigArgs | undefined>;
     awsAccountId: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ActionConnectorResourcePermissionArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    description?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ActionConnectorResourcePermissionArgs>[] | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     type: pulumi.Input<enums.quicksight.ActionConnectorType>;
-    vpcConnectionArn?: pulumi.Input<string>;
+    vpcConnectionArn?: pulumi.Input<string | undefined>;
 }

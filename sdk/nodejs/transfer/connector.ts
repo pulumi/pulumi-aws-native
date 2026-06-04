@@ -157,34 +157,34 @@ export interface ConnectorArgs {
     /**
      * Configuration for an AS2 connector.
      */
-    as2Config?: pulumi.Input<inputs.transfer.As2ConfigPropertiesArgs>;
+    as2Config?: pulumi.Input<inputs.transfer.As2ConfigPropertiesArgs | undefined>;
     /**
      * Egress configuration for the connector.
      */
-    egressConfig?: pulumi.Input<inputs.transfer.ConnectorEgressConfigArgs>;
+    egressConfig?: pulumi.Input<inputs.transfer.ConnectorEgressConfigArgs | undefined>;
     /**
      * Specifies the egress type for the connector.
      */
-    egressType?: pulumi.Input<enums.transfer.ConnectorEgressType>;
-    ipAddressType?: pulumi.Input<enums.transfer.ConnectorIpAddressType>;
+    egressType?: pulumi.Input<enums.transfer.ConnectorEgressType | undefined>;
+    ipAddressType?: pulumi.Input<enums.transfer.ConnectorIpAddressType | undefined>;
     /**
      * Specifies the logging role for the connector.
      */
-    loggingRole?: pulumi.Input<string>;
+    loggingRole?: pulumi.Input<string | undefined>;
     /**
      * Security policy for SFTP Connector
      */
-    securityPolicyName?: pulumi.Input<string>;
+    securityPolicyName?: pulumi.Input<string | undefined>;
     /**
      * Configuration for an SFTP connector.
      */
-    sftpConfig?: pulumi.Input<inputs.transfer.SftpConfigPropertiesArgs>;
+    sftpConfig?: pulumi.Input<inputs.transfer.SftpConfigPropertiesArgs | undefined>;
     /**
      * Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * URL for Connector
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }

@@ -215,7 +215,7 @@ export interface JobArgs {
     /**
      * The number of capacity units that are allocated to this job.
      */
-    allocatedCapacity?: pulumi.Input<number>;
+    allocatedCapacity?: pulumi.Input<number | undefined>;
     /**
      * The code that executes a job.
      */
@@ -223,71 +223,71 @@ export interface JobArgs {
     /**
      * Specifies the connections used by a job
      */
-    connections?: pulumi.Input<inputs.glue.JobConnectionsListArgs>;
+    connections?: pulumi.Input<inputs.glue.JobConnectionsListArgs | undefined>;
     /**
      * The default arguments for this job, specified as name-value pairs.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
      */
-    defaultArguments?: any;
+    defaultArguments?: any | undefined;
     /**
      * A description of the job.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the job is run with a standard or flexible execution class.
      */
-    executionClass?: pulumi.Input<string>;
+    executionClass?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of concurrent runs that are allowed for this job.
      */
-    executionProperty?: pulumi.Input<inputs.glue.JobExecutionPropertyArgs>;
+    executionProperty?: pulumi.Input<inputs.glue.JobExecutionPropertyArgs | undefined>;
     /**
      * Glue version determines the versions of Apache Spark and Python that AWS Glue supports.
      */
-    glueVersion?: pulumi.Input<string>;
+    glueVersion?: pulumi.Input<string | undefined>;
     /**
      * Property description not available.
      */
-    jobMode?: pulumi.Input<string>;
+    jobMode?: pulumi.Input<string | undefined>;
     /**
      * Property description not available.
      */
-    jobRunQueuingEnabled?: pulumi.Input<boolean>;
+    jobRunQueuingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * This field is reserved for future use.
      */
-    logUri?: pulumi.Input<string>;
+    logUri?: pulumi.Input<string | undefined>;
     /**
      * Property description not available.
      */
-    maintenanceWindow?: pulumi.Input<string>;
+    maintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
      */
-    maxCapacity?: pulumi.Input<number>;
+    maxCapacity?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of times to retry this job after a JobRun fails
      */
-    maxRetries?: pulumi.Input<number>;
+    maxRetries?: pulumi.Input<number | undefined>;
     /**
      * The name you assign to the job definition
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Non-overridable arguments for this job, specified as name-value pairs.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
      */
-    nonOverridableArguments?: any;
+    nonOverridableArguments?: any | undefined;
     /**
      * Specifies configuration properties of a notification.
      */
-    notificationProperty?: pulumi.Input<inputs.glue.JobNotificationPropertyArgs>;
+    notificationProperty?: pulumi.Input<inputs.glue.JobNotificationPropertyArgs | undefined>;
     /**
      * The number of workers of a defined workerType that are allocated when a job runs.
      */
-    numberOfWorkers?: pulumi.Input<number>;
+    numberOfWorkers?: pulumi.Input<number | undefined>;
     /**
      * The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
      */
@@ -295,19 +295,19 @@ export interface JobArgs {
     /**
      * The name of the SecurityConfiguration structure to be used with this job.
      */
-    securityConfiguration?: pulumi.Input<string>;
+    securityConfiguration?: pulumi.Input<string | undefined>;
     /**
      * The tags to use with this job.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
      */
-    tags?: any;
+    tags?: any | undefined;
     /**
      * The maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * TThe type of predefined worker that is allocated when a job runs.
      */
-    workerType?: pulumi.Input<enums.glue.JobWorkerType>;
+    workerType?: pulumi.Input<enums.glue.JobWorkerType | undefined>;
 }

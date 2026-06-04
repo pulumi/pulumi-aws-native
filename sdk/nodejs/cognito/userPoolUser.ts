@@ -159,11 +159,11 @@ export interface UserPoolUserArgs {
      * > - Validate the `ClientMetadata` value.
      * > - Encrypt the `ClientMetadata` value. Don't send sensitive information in this parameter.
      */
-    clientMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    clientMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specify `EMAIL` if email will be used to send the welcome message. Specify `SMS` if the phone number will be used. The default value is `SMS` . You can specify more than one value.
      */
-    desiredDeliveryMediums?: pulumi.Input<pulumi.Input<string>[]>;
+    desiredDeliveryMediums?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * This parameter is used only if the `phone_number_verified` or `email_verified` attribute is set to `True` . Otherwise, it is ignored.
      *
@@ -171,11 +171,11 @@ export interface UserPoolUserArgs {
      *
      * If this parameter is set to `False` , the API throws an `AliasExistsException` error if the alias already exists. The default value is `False` .
      */
-    forceAliasCreation?: pulumi.Input<boolean>;
+    forceAliasCreation?: pulumi.Input<boolean | undefined>;
     /**
      * Set to `RESEND` to resend the invitation message to a user that already exists, and to reset the temporary-password duration with a new temporary password. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
      */
-    messageAction?: pulumi.Input<string>;
+    messageAction?: pulumi.Input<string | undefined>;
     /**
      * An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than `Username` . However, any attributes that you specify as required (when creating a user pool or in the *Attributes* tab of the console) either you should supply (in your call to `AdminCreateUser` ) or the user should supply (when they sign up in response to your welcome message).
      *
@@ -190,7 +190,7 @@ export interface UserPoolUserArgs {
      * - *email* : The email address of the user to whom the message that contains the code and username will be sent. Required if the `email_verified` attribute is set to `True` , or if `"EMAIL"` is specified in the `DesiredDeliveryMediums` parameter.
      * - *phone_number* : The phone number of the user to whom the message that contains the code and username will be sent. Required if the `phone_number_verified` attribute is set to `True` , or if `"SMS"` is specified in the `DesiredDeliveryMediums` parameter.
      */
-    userAttributes?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolUserAttributeTypeArgs>[]>;
+    userAttributes?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolUserAttributeTypeArgs>[] | undefined>;
     /**
      * The ID of the user pool where you want to create a user.
      */
@@ -202,7 +202,7 @@ export interface UserPoolUserArgs {
      * - You can't change the value of a username after you create it.
      * - You can only provide a value if usernames are a valid sign-in attribute for your user pool. If your user pool only supports phone numbers or email addresses as sign-in attributes, Amazon Cognito automatically generates a username value. For more information, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
     /**
      * Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
      *
@@ -210,5 +210,5 @@ export interface UserPoolUserArgs {
      *
      * For more information about the pre sign-up Lambda trigger, see [Pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) .
      */
-    validationData?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolUserAttributeTypeArgs>[]>;
+    validationData?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolUserAttributeTypeArgs>[] | undefined>;
 }

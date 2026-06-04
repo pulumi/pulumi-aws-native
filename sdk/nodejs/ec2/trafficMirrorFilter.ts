@@ -89,13 +89,13 @@ export interface TrafficMirrorFilterArgs {
     /**
      * The description of a traffic mirror filter.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The network service that is associated with the traffic mirror filter.
      */
-    networkServices?: pulumi.Input<pulumi.Input<enums.ec2.TrafficMirrorFilterTrafficMirrorNetworkService>[]>;
+    networkServices?: pulumi.Input<pulumi.Input<enums.ec2.TrafficMirrorFilterTrafficMirrorNetworkService>[] | undefined>;
     /**
      * The tags for a traffic mirror filter.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

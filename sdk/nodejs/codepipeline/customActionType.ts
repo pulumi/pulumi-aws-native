@@ -135,7 +135,7 @@ export interface CustomActionTypeArgs {
     /**
      * The configuration properties for the custom action.
      */
-    configurationProperties?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeConfigurationPropertiesArgs>[]>;
+    configurationProperties?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeConfigurationPropertiesArgs>[] | undefined>;
     /**
      * The details of the input artifact for the action, such as its commit ID.
      */
@@ -151,11 +151,11 @@ export interface CustomActionTypeArgs {
     /**
      * URLs that provide users information about this custom action.
      */
-    settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettingsArgs>;
+    settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettingsArgs | undefined>;
     /**
      * Any tags assigned to the custom action.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The version identifier of the custom action.
      */

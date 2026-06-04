@@ -115,23 +115,23 @@ export interface PublicTypeVersionArgs {
     /**
      * The Amazon Resource Number (ARN) of the extension.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A url to the S3 bucket where logs for the testType run will be available
      */
-    logDeliveryBucket?: pulumi.Input<string>;
+    logDeliveryBucket?: pulumi.Input<string | undefined>;
     /**
      * The version number of a public third-party extension
      */
-    publicVersionNumber?: pulumi.Input<string>;
+    publicVersionNumber?: pulumi.Input<string | undefined>;
     /**
      * The kind of extension
      */
-    type?: pulumi.Input<enums.cloudformation.PublicTypeVersionType>;
+    type?: pulumi.Input<enums.cloudformation.PublicTypeVersionType | undefined>;
     /**
      * The name of the type being registered.
      *
      * We recommend that type names adhere to the following pattern: company_or_organization::service::type.
      */
-    typeName?: pulumi.Input<string>;
+    typeName?: pulumi.Input<string | undefined>;
 }

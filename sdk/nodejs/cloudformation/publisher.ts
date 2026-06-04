@@ -108,5 +108,5 @@ export interface PublisherArgs {
     /**
      * If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.
      */
-    connectionArn?: pulumi.Input<string>;
+    connectionArn?: pulumi.Input<string | undefined>;
 }

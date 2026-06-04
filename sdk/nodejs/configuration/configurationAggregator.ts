@@ -95,17 +95,17 @@ export interface ConfigurationAggregatorArgs {
     /**
      * Provides a list of source accounts and regions to be aggregated.
      */
-    accountAggregationSources?: pulumi.Input<pulumi.Input<inputs.configuration.ConfigurationAggregatorAccountAggregationSourceArgs>[]>;
+    accountAggregationSources?: pulumi.Input<pulumi.Input<inputs.configuration.ConfigurationAggregatorAccountAggregationSourceArgs>[] | undefined>;
     /**
      * The name of the aggregator.
      */
-    configurationAggregatorName?: pulumi.Input<string>;
+    configurationAggregatorName?: pulumi.Input<string | undefined>;
     /**
      * Provides an organization and list of regions to be aggregated.
      */
-    organizationAggregationSource?: pulumi.Input<inputs.configuration.ConfigurationAggregatorOrganizationAggregationSourceArgs>;
+    organizationAggregationSource?: pulumi.Input<inputs.configuration.ConfigurationAggregatorOrganizationAggregationSourceArgs | undefined>;
     /**
      * The tags for the configuration aggregator.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

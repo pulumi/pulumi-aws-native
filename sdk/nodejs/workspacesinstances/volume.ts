@@ -132,33 +132,33 @@ export interface VolumeArgs {
     /**
      * Indicates whether the volume should be encrypted
      */
-    encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean | undefined>;
     /**
      * The number of I/O operations per second (IOPS)
      */
-    iops?: pulumi.Input<number>;
+    iops?: pulumi.Input<number | undefined>;
     /**
      * The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The size of the volume, in GiBs
      */
-    sizeInGb?: pulumi.Input<number>;
+    sizeInGb?: pulumi.Input<number | undefined>;
     /**
      * The snapshot from which to create the volume
      */
-    snapshotId?: pulumi.Input<string>;
+    snapshotId?: pulumi.Input<string | undefined>;
     /**
      * The tags passed to EBS volume
      */
-    tagSpecifications?: pulumi.Input<pulumi.Input<inputs.workspacesinstances.VolumeTagSpecificationArgs>[]>;
+    tagSpecifications?: pulumi.Input<pulumi.Input<inputs.workspacesinstances.VolumeTagSpecificationArgs>[] | undefined>;
     /**
      * The throughput to provision for a volume, with a maximum of 1,000 MiB/s
      */
-    throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number | undefined>;
     /**
      * The volume type
      */
-    volumeType?: pulumi.Input<enums.workspacesinstances.VolumeType>;
+    volumeType?: pulumi.Input<enums.workspacesinstances.VolumeType | undefined>;
 }

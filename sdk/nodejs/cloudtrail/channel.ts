@@ -95,17 +95,17 @@ export interface ChannelArgs {
     /**
      * One or more resources to which events arriving through a channel are logged and stored.
      */
-    destinations?: pulumi.Input<pulumi.Input<inputs.cloudtrail.ChannelDestinationArgs>[]>;
+    destinations?: pulumi.Input<pulumi.Input<inputs.cloudtrail.ChannelDestinationArgs>[] | undefined>;
     /**
      * The name of the channel.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARN of an on-premises storage solution or application, or a partner event source.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -133,7 +133,7 @@ export interface FhirDatastoreArgs {
     /**
      * The data store name (user-generated).
      */
-    datastoreName?: pulumi.Input<string>;
+    datastoreName?: pulumi.Input<string | undefined>;
     /**
      * The FHIR release version supported by the data store. Current support is for version `R4` .
      */
@@ -141,19 +141,19 @@ export interface FhirDatastoreArgs {
     /**
      * The identity provider configuration selected when the data store was created.
      */
-    identityProviderConfiguration?: pulumi.Input<inputs.healthlake.FhirDatastoreIdentityProviderConfigurationArgs>;
+    identityProviderConfiguration?: pulumi.Input<inputs.healthlake.FhirDatastoreIdentityProviderConfigurationArgs | undefined>;
     /**
      * The preloaded Synthea data configuration for the data store.
      */
-    preloadDataConfig?: pulumi.Input<inputs.healthlake.FhirDatastorePreloadDataConfigArgs>;
+    preloadDataConfig?: pulumi.Input<inputs.healthlake.FhirDatastorePreloadDataConfigArgs | undefined>;
     /**
      * The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
      */
-    sseConfiguration?: pulumi.Input<inputs.healthlake.FhirDatastoreSseConfigurationArgs>;
+    sseConfiguration?: pulumi.Input<inputs.healthlake.FhirDatastoreSseConfigurationArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

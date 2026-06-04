@@ -128,7 +128,7 @@ export interface AppArgs {
     /**
      * The name of the app.
      */
-    appName?: pulumi.Input<string>;
+    appName?: pulumi.Input<string | undefined>;
     /**
      * The type of app.
      */
@@ -140,15 +140,15 @@ export interface AppArgs {
     /**
      * Indicates whether the application is launched in recovery mode.
      */
-    recoveryMode?: pulumi.Input<boolean>;
+    recoveryMode?: pulumi.Input<boolean | undefined>;
     /**
      * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
      */
-    resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpecArgs>;
+    resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpecArgs | undefined>;
     /**
      * A list of tags to apply to the app.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The user profile name.
      */

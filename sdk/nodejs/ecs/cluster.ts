@@ -130,30 +130,30 @@ export interface ClusterArgs {
      *  To use a FARGATElong capacity provider, specify either the ``FARGATE`` or ``FARGATE_SPOT`` capacity providers. The FARGATElong capacity providers are available to all accounts and only need to be associated with a cluster to be used.
      *  The [PutCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html) API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
      */
-    capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    capacityProviders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A user-generated string that you use to identify your cluster. If you don't specify a name, CFNlong generates a unique physical ID for the name.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
      *  Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up. 
      *  For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
-    clusterSettings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSettingsArgs>[]>;
+    clusterSettings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSettingsArgs>[] | undefined>;
     /**
      * The execute command and managed storage configuration for the cluster.
      */
-    configuration?: pulumi.Input<inputs.ecs.ClusterConfigurationArgs>;
+    configuration?: pulumi.Input<inputs.ecs.ClusterConfigurationArgs | undefined>;
     /**
      * The default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
      */
-    defaultCapacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterCapacityProviderStrategyItemArgs>[]>;
+    defaultCapacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterCapacityProviderStrategyItemArgs>[] | undefined>;
     /**
      * Use this parameter to set a default Service Connect namespace. After you set a default Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as client services in the namespace. This setting only applies to new services that set the ``enabled`` parameter to ``true`` in the ``ServiceConnectConfiguration``. You can set the namespace of each service individually in the ``ServiceConnectConfiguration`` to override this default parameter.
      *  Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
-    serviceConnectDefaults?: pulumi.Input<inputs.ecs.ClusterServiceConnectDefaultsArgs>;
+    serviceConnectDefaults?: pulumi.Input<inputs.ecs.ClusterServiceConnectDefaultsArgs | undefined>;
     /**
      * The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
      *  The following basic restrictions apply to tags:
@@ -165,5 +165,5 @@ export interface ClusterArgs {
      *   +  Tag keys and values are case-sensitive.
      *   +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

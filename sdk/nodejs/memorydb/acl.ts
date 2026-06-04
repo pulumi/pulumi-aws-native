@@ -95,13 +95,13 @@ export interface AclArgs {
     /**
      * The name of the acl.
      */
-    aclName?: pulumi.Input<string>;
+    aclName?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this cluster.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * List of users associated to this acl.
      */
-    userNames?: pulumi.Input<pulumi.Input<string>[]>;
+    userNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

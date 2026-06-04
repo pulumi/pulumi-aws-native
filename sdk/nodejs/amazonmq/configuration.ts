@@ -160,15 +160,15 @@ export interface ConfigurationArgs {
     /**
      * The authentication strategy associated with the configuration. The default is SIMPLE.
      */
-    authenticationStrategy?: pulumi.Input<string>;
+    authenticationStrategy?: pulumi.Input<string | undefined>;
     /**
      * The base64-encoded XML configuration.
      */
-    data?: pulumi.Input<string>;
+    data?: pulumi.Input<string | undefined>;
     /**
      * The description of the configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The type of broker engine. Note: Currently, Amazon MQ only supports ACTIVEMQ for creating and editing broker configurations.
      */
@@ -176,13 +176,13 @@ export interface ConfigurationArgs {
     /**
      * The version of the broker engine.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Create tags when creating the configuration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

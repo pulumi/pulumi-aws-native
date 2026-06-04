@@ -86,7 +86,7 @@ export interface DocumentationVersionArgs {
     /**
      * A description about the new documentation snapshot.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The version identifier of the to-be-updated documentation version.
      */

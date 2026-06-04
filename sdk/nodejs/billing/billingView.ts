@@ -128,15 +128,15 @@ export interface BillingViewArgs {
     /**
      * See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
      */
-    dataFilterExpression?: pulumi.Input<inputs.billing.DataFilterExpressionPropertiesArgs>;
+    dataFilterExpression?: pulumi.Input<inputs.billing.DataFilterExpressionPropertiesArgs | undefined>;
     /**
      * The description of the billing view.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the billing view.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of strings that define the billing view's source.
      */
@@ -144,5 +144,5 @@ export interface BillingViewArgs {
     /**
      * An array of key-value pairs associated to the billing view being created.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

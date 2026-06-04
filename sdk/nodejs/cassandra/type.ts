@@ -127,5 +127,5 @@ export interface TypeArgs {
     /**
      * Name of the User-Defined Type.
      */
-    typeName?: pulumi.Input<string>;
+    typeName?: pulumi.Input<string | undefined>;
 }

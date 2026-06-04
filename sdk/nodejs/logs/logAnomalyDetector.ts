@@ -129,29 +129,29 @@ export interface LogAnomalyDetectorArgs {
     /**
      * Account ID for owner of detector
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
      */
-    anomalyVisibilityTime?: pulumi.Input<number>;
+    anomalyVisibilityTime?: pulumi.Input<number | undefined>;
     /**
      * Name of detector
      */
-    detectorName?: pulumi.Input<string>;
+    detectorName?: pulumi.Input<string | undefined>;
     /**
      * How often log group is evaluated
      */
-    evaluationFrequency?: pulumi.Input<enums.logs.LogAnomalyDetectorEvaluationFrequency>;
+    evaluationFrequency?: pulumi.Input<enums.logs.LogAnomalyDetectorEvaluationFrequency | undefined>;
     /**
      * You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
      */
-    filterPattern?: pulumi.Input<string>;
+    filterPattern?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * List of Arns for the given log group
      */
-    logGroupArnList?: pulumi.Input<pulumi.Input<string>[]>;
+    logGroupArnList?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

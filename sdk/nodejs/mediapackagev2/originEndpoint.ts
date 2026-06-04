@@ -206,42 +206,42 @@ export interface OriginEndpointArgs {
     /**
      * <p>A DASH manifest configuration.</p>
      */
-    dashManifests?: pulumi.Input<pulumi.Input<inputs.mediapackagev2.OriginEndpointDashManifestConfigurationArgs>[]>;
+    dashManifests?: pulumi.Input<pulumi.Input<inputs.mediapackagev2.OriginEndpointDashManifestConfigurationArgs>[] | undefined>;
     /**
      * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The failover settings for the endpoint.
      */
-    forceEndpointErrorConfiguration?: pulumi.Input<inputs.mediapackagev2.OriginEndpointForceEndpointErrorConfigurationArgs>;
+    forceEndpointErrorConfiguration?: pulumi.Input<inputs.mediapackagev2.OriginEndpointForceEndpointErrorConfigurationArgs | undefined>;
     /**
      * <p>An HTTP live streaming (HLS) manifest configuration.</p>
      */
-    hlsManifests?: pulumi.Input<pulumi.Input<inputs.mediapackagev2.OriginEndpointHlsManifestConfigurationArgs>[]>;
+    hlsManifests?: pulumi.Input<pulumi.Input<inputs.mediapackagev2.OriginEndpointHlsManifestConfigurationArgs>[] | undefined>;
     /**
      * <p>A low-latency HLS manifest configuration.</p>
      */
-    lowLatencyHlsManifests?: pulumi.Input<pulumi.Input<inputs.mediapackagev2.OriginEndpointLowLatencyHlsManifestConfigurationArgs>[]>;
+    lowLatencyHlsManifests?: pulumi.Input<pulumi.Input<inputs.mediapackagev2.OriginEndpointLowLatencyHlsManifestConfigurationArgs>[] | undefined>;
     /**
      * <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
      */
-    mssManifests?: pulumi.Input<pulumi.Input<inputs.mediapackagev2.OriginEndpointMssManifestConfigurationArgs>[]>;
+    mssManifests?: pulumi.Input<pulumi.Input<inputs.mediapackagev2.OriginEndpointMssManifestConfigurationArgs>[] | undefined>;
     /**
      * The name of the origin endpoint associated with the origin endpoint configuration.
      */
-    originEndpointName?: pulumi.Input<string>;
+    originEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The segment associated with the origin endpoint.
      */
-    segment?: pulumi.Input<inputs.mediapackagev2.OriginEndpointSegmentArgs>;
+    segment?: pulumi.Input<inputs.mediapackagev2.OriginEndpointSegmentArgs | undefined>;
     /**
      * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
      */
-    startoverWindowSeconds?: pulumi.Input<number>;
+    startoverWindowSeconds?: pulumi.Input<number | undefined>;
     /**
      * The tags associated with the origin endpoint.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    uriSeparator?: pulumi.Input<enums.mediapackagev2.OriginEndpointUriSeparator>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    uriSeparator?: pulumi.Input<enums.mediapackagev2.OriginEndpointUriSeparator | undefined>;
 }

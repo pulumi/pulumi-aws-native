@@ -131,37 +131,37 @@ export interface StreamArgs {
     /**
      * The final list of shard-level metrics
      */
-    desiredShardLevelMetrics?: pulumi.Input<pulumi.Input<enums.kinesis.StreamEnhancedMetric>[]>;
+    desiredShardLevelMetrics?: pulumi.Input<pulumi.Input<enums.kinesis.StreamEnhancedMetric>[] | undefined>;
     /**
      * Maximum size of a data record in KiB allowed to be put into Kinesis stream.
      */
-    maxRecordSizeInKiB?: pulumi.Input<number>;
+    maxRecordSizeInKiB?: pulumi.Input<number | undefined>;
     /**
      * The name of the Kinesis stream.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of hours for the data records that are stored in shards to remain accessible.
      */
-    retentionPeriodHours?: pulumi.Input<number>;
+    retentionPeriodHours?: pulumi.Input<number | undefined>;
     /**
      * The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
      */
-    shardCount?: pulumi.Input<number>;
+    shardCount?: pulumi.Input<number | undefined>;
     /**
      * When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
      */
-    streamEncryption?: pulumi.Input<inputs.kinesis.StreamEncryptionArgs>;
+    streamEncryption?: pulumi.Input<inputs.kinesis.StreamEncryptionArgs | undefined>;
     /**
      * The mode in which the stream is running.
      */
-    streamModeDetails?: pulumi.Input<inputs.kinesis.StreamModeDetailsArgs>;
+    streamModeDetails?: pulumi.Input<inputs.kinesis.StreamModeDetailsArgs | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Target warm throughput in MiB/s for the stream. This property can ONLY be set when StreamMode is ON_DEMAND.
      */
-    warmThroughputMiBps?: pulumi.Input<number>;
+    warmThroughputMiBps?: pulumi.Input<number | undefined>;
 }

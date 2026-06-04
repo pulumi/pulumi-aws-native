@@ -128,11 +128,11 @@ export interface BucketArgs {
     /**
      * An object that describes the access rules for the bucket.
      */
-    accessRules?: pulumi.Input<inputs.lightsail.BucketAccessRulesArgs>;
+    accessRules?: pulumi.Input<inputs.lightsail.BucketAccessRulesArgs | undefined>;
     /**
      * The name for the bucket.
      */
-    bucketName?: pulumi.Input<string>;
+    bucketName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the bundle to use for the bucket.
      */
@@ -140,17 +140,17 @@ export interface BucketArgs {
     /**
      * Specifies whether to enable or disable versioning of objects in the bucket.
      */
-    objectVersioning?: pulumi.Input<boolean>;
+    objectVersioning?: pulumi.Input<boolean | undefined>;
     /**
      * An array of strings to specify the AWS account IDs that can access the bucket.
      */
-    readOnlyAccessAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    readOnlyAccessAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The names of the Lightsail resources for which to set bucket access.
      */
-    resourcesReceivingAccess?: pulumi.Input<pulumi.Input<string>[]>;
+    resourcesReceivingAccess?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

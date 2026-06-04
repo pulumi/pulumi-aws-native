@@ -143,25 +143,25 @@ export interface ConfigRuleArgs {
     /**
      * Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
      */
-    compliance?: pulumi.Input<inputs.configuration.CompliancePropertiesArgs>;
+    compliance?: pulumi.Input<inputs.configuration.CompliancePropertiesArgs | undefined>;
     /**
      * A name for the CC rule. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
      */
-    configRuleName?: pulumi.Input<string>;
+    configRuleName?: pulumi.Input<string | undefined>;
     /**
      * The description that you provide for the CC rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
      */
-    evaluationModes?: pulumi.Input<pulumi.Input<inputs.configuration.ConfigRuleEvaluationModeConfigurationArgs>[]>;
+    evaluationModes?: pulumi.Input<pulumi.Input<inputs.configuration.ConfigRuleEvaluationModeConfigurationArgs>[] | undefined>;
     /**
      * A string, in JSON format, that is passed to the CC rule Lambda function.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::ConfigRule` for more information about the expected schema for this property.
      */
-    inputParameters?: any;
+    inputParameters?: any | undefined;
     /**
      * The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
      *   +  You are using an AWS managed rule that is triggered at a periodic frequency.
@@ -169,12 +169,12 @@ export interface ConfigRuleArgs {
      *   
      *   By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
      */
-    maximumExecutionFrequency?: pulumi.Input<string>;
+    maximumExecutionFrequency?: pulumi.Input<string | undefined>;
     /**
      * Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
      *   The scope can be empty.
      */
-    scope?: pulumi.Input<inputs.configuration.ConfigRuleScopeArgs>;
+    scope?: pulumi.Input<inputs.configuration.ConfigRuleScopeArgs | undefined>;
     /**
      * Provides the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
      */

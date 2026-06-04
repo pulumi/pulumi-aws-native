@@ -104,19 +104,19 @@ export interface ApiArgs {
     /**
      * Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
      */
-    eventConfig?: pulumi.Input<inputs.appsync.ApiEventConfigArgs>;
+    eventConfig?: pulumi.Input<inputs.appsync.ApiEventConfigArgs | undefined>;
     /**
      * The name of the `Api` .
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The owner contact information for an API resource.
      *
      * This field accepts any string input with a length of 0 - 256 characters.
      */
-    ownerContact?: pulumi.Input<string>;
+    ownerContact?: pulumi.Input<string | undefined>;
     /**
      * A set of tags (key-value pairs) for this API.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

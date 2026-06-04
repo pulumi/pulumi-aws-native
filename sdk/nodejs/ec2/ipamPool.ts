@@ -219,31 +219,31 @@ export interface IpamPoolArgs {
     /**
      * The default netmask length for allocations made from this pool. This value is used when the netmask length of an allocation isn't specified.
      */
-    allocationDefaultNetmaskLength?: pulumi.Input<number>;
+    allocationDefaultNetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * The maximum allowed netmask length for allocations made from this pool.
      */
-    allocationMaxNetmaskLength?: pulumi.Input<number>;
+    allocationMaxNetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * The minimum allowed netmask length for allocations made from this pool.
      */
-    allocationMinNetmaskLength?: pulumi.Input<number>;
+    allocationMinNetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * When specified, an allocation will not be allowed unless a resource has a matching set of tags.
      */
-    allocationResourceTags?: pulumi.Input<pulumi.Input<inputs.ec2.IpamPoolTagArgs>[]>;
+    allocationResourceTags?: pulumi.Input<pulumi.Input<inputs.ec2.IpamPoolTagArgs>[] | undefined>;
     /**
      * Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
      */
-    autoImport?: pulumi.Input<boolean>;
+    autoImport?: pulumi.Input<boolean | undefined>;
     /**
      * Limits which service in Amazon Web Services that the pool can be used in.
      */
-    awsService?: pulumi.Input<enums.ec2.IpamPoolAwsService>;
+    awsService?: pulumi.Input<enums.ec2.IpamPoolAwsService | undefined>;
     /**
      * The description of the IPAM pool.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Id of the scope this pool is a part of.
      */
@@ -251,29 +251,29 @@ export interface IpamPoolArgs {
     /**
      * The region of this pool. If not set, this will default to "None" which will disable non-custom allocations. If the locale has been specified for the source pool, this value must match.
      */
-    locale?: pulumi.Input<string>;
+    locale?: pulumi.Input<string | undefined>;
     /**
      * A list of cidrs representing the address space available for allocation in this pool.
      */
-    provisionedCidrs?: pulumi.Input<pulumi.Input<inputs.ec2.IpamPoolProvisionedCidrArgs>[]>;
+    provisionedCidrs?: pulumi.Input<pulumi.Input<inputs.ec2.IpamPoolProvisionedCidrArgs>[] | undefined>;
     /**
      * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
      */
-    publicIpSource?: pulumi.Input<enums.ec2.IpamPoolPublicIpSource>;
+    publicIpSource?: pulumi.Input<enums.ec2.IpamPoolPublicIpSource | undefined>;
     /**
      * Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
      */
-    publiclyAdvertisable?: pulumi.Input<boolean>;
+    publiclyAdvertisable?: pulumi.Input<boolean | undefined>;
     /**
      * The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
      */
-    sourceIpamPoolId?: pulumi.Input<string>;
+    sourceIpamPoolId?: pulumi.Input<string | undefined>;
     /**
      * The resource used to provision CIDRs to a resource planning pool.
      */
-    sourceResource?: pulumi.Input<inputs.ec2.IpamPoolSourceResourceArgs>;
+    sourceResource?: pulumi.Input<inputs.ec2.IpamPoolSourceResourceArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }
