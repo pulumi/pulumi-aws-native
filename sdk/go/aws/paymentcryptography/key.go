@@ -34,6 +34,8 @@ type Key struct {
 	KeyOrigin KeyOriginOutput `pulumi:"keyOrigin"`
 	// The state of key that is being created or deleted.
 	KeyState KeyStateEnumOutput `pulumi:"keyState"`
+	// The resource-based policy attached to the key, in JSON format.
+	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// The list of AWS Regions to remove from the key's replication configuration.
 	//
 	// The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
@@ -100,6 +102,8 @@ type keyArgs struct {
 	//
 	// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
 	KeyCheckValueAlgorithm *KeyCheckValueAlgorithm `pulumi:"keyCheckValueAlgorithm"`
+	// The resource-based policy attached to the key, in JSON format.
+	Policy *string `pulumi:"policy"`
 	// The list of AWS Regions to remove from the key's replication configuration.
 	//
 	// The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
@@ -121,6 +125,8 @@ type KeyArgs struct {
 	//
 	// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
 	KeyCheckValueAlgorithm KeyCheckValueAlgorithmPtrInput
+	// The resource-based policy attached to the key, in JSON format.
+	Policy pulumi.StringPtrInput
 	// The list of AWS Regions to remove from the key's replication configuration.
 	//
 	// The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
@@ -204,6 +210,11 @@ func (o KeyOutput) KeyOrigin() KeyOriginOutput {
 // The state of key that is being created or deleted.
 func (o KeyOutput) KeyState() KeyStateEnumOutput {
 	return o.ApplyT(func(v *Key) KeyStateEnumOutput { return v.KeyState }).(KeyStateEnumOutput)
+}
+
+// The resource-based policy attached to the key, in JSON format.
+func (o KeyOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // The list of AWS Regions to remove from the key's replication configuration.

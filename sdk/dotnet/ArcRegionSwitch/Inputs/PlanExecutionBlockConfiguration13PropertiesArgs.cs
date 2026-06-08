@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Inputs
 
     public sealed class PlanExecutionBlockConfiguration13PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("lambdaEventSourceMappingConfig", required: true)]
-        public Input<Inputs.PlanLambdaEventSourceMappingConfigurationArgs> LambdaEventSourceMappingConfig { get; set; } = null!;
+        [Input("rdsPromoteReadReplicaConfig", required: true)]
+        public Input<Inputs.PlanRdsPromoteReadReplicaConfigurationArgs> RdsPromoteReadReplicaConfig { get; set; } = null!;
 
         public PlanExecutionBlockConfiguration13PropertiesArgs()
         {

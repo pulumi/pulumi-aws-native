@@ -46,6 +46,14 @@ export class OAuth2CredentialProvider extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly clientSecretArn: pulumi.Output<outputs.bedrockagentcore.OAuth2CredentialProviderClientSecretArn>;
     /**
+     * The JSON key within the secret that contains the client secret value
+     */
+    declare public /*out*/ readonly clientSecretJsonKey: pulumi.Output<string>;
+    /**
+     * The source of the client secret
+     */
+    declare public /*out*/ readonly clientSecretSource: pulumi.Output<enums.bedrockagentcore.OAuth2CredentialProviderClientSecretSource>;
+    /**
      * The timestamp when the credential provider was created
      */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
@@ -98,6 +106,8 @@ export class OAuth2CredentialProvider extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["callbackUrl"] = undefined /*out*/;
             resourceInputs["clientSecretArn"] = undefined /*out*/;
+            resourceInputs["clientSecretJsonKey"] = undefined /*out*/;
+            resourceInputs["clientSecretSource"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["credentialProviderArn"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
@@ -105,6 +115,8 @@ export class OAuth2CredentialProvider extends pulumi.CustomResource {
         } else {
             resourceInputs["callbackUrl"] = undefined /*out*/;
             resourceInputs["clientSecretArn"] = undefined /*out*/;
+            resourceInputs["clientSecretJsonKey"] = undefined /*out*/;
+            resourceInputs["clientSecretSource"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["credentialProviderArn"] = undefined /*out*/;
             resourceInputs["credentialProviderVendor"] = undefined /*out*/;

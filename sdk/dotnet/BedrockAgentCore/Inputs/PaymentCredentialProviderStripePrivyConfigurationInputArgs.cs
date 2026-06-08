@@ -24,8 +24,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         /// <summary>
         /// The app secret provided by Privy
         /// </summary>
-        [Input("appSecret", required: true)]
-        public Input<string> AppSecret { get; set; } = null!;
+        [Input("appSecret")]
+        public Input<string>? AppSecret { get; set; }
+
+        [Input("appSecretConfig")]
+        public Input<Inputs.PaymentCredentialProviderSecretReferenceArgs>? AppSecretConfig { get; set; }
+
+        [Input("appSecretSource")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType>? AppSecretSource { get; set; }
 
         /// <summary>
         /// The authorization ID for the Stripe Privy integration
@@ -36,8 +42,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         /// <summary>
         /// The authorization private key for the Stripe Privy integration
         /// </summary>
-        [Input("authorizationPrivateKey", required: true)]
-        public Input<string> AuthorizationPrivateKey { get; set; } = null!;
+        [Input("authorizationPrivateKey")]
+        public Input<string>? AuthorizationPrivateKey { get; set; }
+
+        [Input("authorizationPrivateKeyConfig")]
+        public Input<Inputs.PaymentCredentialProviderSecretReferenceArgs>? AuthorizationPrivateKeyConfig { get; set; }
+
+        [Input("authorizationPrivateKeySource")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType>? AuthorizationPrivateKeySource { get; set; }
 
         public PaymentCredentialProviderStripePrivyConfigurationInputArgs()
         {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Outputs
 {
 
+    /// <summary>
+    /// Represents a ``MatchBasePaths`` condition.
+    /// </summary>
     [OutputType]
     public sealed class RoutingRuleMatchBasePaths
     {

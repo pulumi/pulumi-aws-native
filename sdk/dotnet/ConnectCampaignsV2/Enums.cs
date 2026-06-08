@@ -135,6 +135,37 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
     }
 
     /// <summary>
+    /// Local TimeZone Detection scope
+    /// </summary>
+    [EnumType]
+    public readonly struct CampaignLocalTimeZoneDetectionScope : IEquatable<CampaignLocalTimeZoneDetectionScope>
+    {
+        private readonly string _value;
+
+        private CampaignLocalTimeZoneDetectionScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CampaignLocalTimeZoneDetectionScope PrimaryOnly { get; } = new CampaignLocalTimeZoneDetectionScope("PRIMARY_ONLY");
+        public static CampaignLocalTimeZoneDetectionScope AllAvailable { get; } = new CampaignLocalTimeZoneDetectionScope("ALL_AVAILABLE");
+
+        public static bool operator ==(CampaignLocalTimeZoneDetectionScope left, CampaignLocalTimeZoneDetectionScope right) => left.Equals(right);
+        public static bool operator !=(CampaignLocalTimeZoneDetectionScope left, CampaignLocalTimeZoneDetectionScope right) => !left.Equals(right);
+
+        public static explicit operator string(CampaignLocalTimeZoneDetectionScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CampaignLocalTimeZoneDetectionScope other && Equals(other);
+        public bool Equals(CampaignLocalTimeZoneDetectionScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Local TimeZone Detection method
     /// </summary>
     [EnumType]

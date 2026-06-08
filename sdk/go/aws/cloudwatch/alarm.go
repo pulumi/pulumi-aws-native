@@ -38,9 +38,11 @@ type Alarm struct {
 	// The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify ``Dimensions``. Instead, you use ``Metrics``.
 	Dimensions AlarmDimensionArrayOutput `pulumi:"dimensions"`
 	// Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
-	EvaluateLowSampleCountPercentile pulumi.StringPtrOutput           `pulumi:"evaluateLowSampleCountPercentile"`
-	EvaluationCriteria               AlarmEvaluationCriteriaPtrOutput `pulumi:"evaluationCriteria"`
-	EvaluationInterval               pulumi.IntPtrOutput              `pulumi:"evaluationInterval"`
+	EvaluateLowSampleCountPercentile pulumi.StringPtrOutput `pulumi:"evaluateLowSampleCountPercentile"`
+	// The evaluation criteria for the alarm.
+	EvaluationCriteria AlarmEvaluationCriteriaPtrOutput `pulumi:"evaluationCriteria"`
+	// The frequency, in seconds, at which the alarm is evaluated.
+	EvaluationInterval pulumi.IntPtrOutput `pulumi:"evaluationInterval"`
 	// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
 	//  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
 	EvaluationPeriods pulumi.IntPtrOutput `pulumi:"evaluationPeriods"`
@@ -144,9 +146,11 @@ type alarmArgs struct {
 	// The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify ``Dimensions``. Instead, you use ``Metrics``.
 	Dimensions []AlarmDimension `pulumi:"dimensions"`
 	// Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
-	EvaluateLowSampleCountPercentile *string                  `pulumi:"evaluateLowSampleCountPercentile"`
-	EvaluationCriteria               *AlarmEvaluationCriteria `pulumi:"evaluationCriteria"`
-	EvaluationInterval               *int                     `pulumi:"evaluationInterval"`
+	EvaluateLowSampleCountPercentile *string `pulumi:"evaluateLowSampleCountPercentile"`
+	// The evaluation criteria for the alarm.
+	EvaluationCriteria *AlarmEvaluationCriteria `pulumi:"evaluationCriteria"`
+	// The frequency, in seconds, at which the alarm is evaluated.
+	EvaluationInterval *int `pulumi:"evaluationInterval"`
 	// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
 	//  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
 	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
@@ -209,8 +213,10 @@ type AlarmArgs struct {
 	Dimensions AlarmDimensionArrayInput
 	// Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
 	EvaluateLowSampleCountPercentile pulumi.StringPtrInput
-	EvaluationCriteria               AlarmEvaluationCriteriaPtrInput
-	EvaluationInterval               pulumi.IntPtrInput
+	// The evaluation criteria for the alarm.
+	EvaluationCriteria AlarmEvaluationCriteriaPtrInput
+	// The frequency, in seconds, at which the alarm is evaluated.
+	EvaluationInterval pulumi.IntPtrInput
 	// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
 	//  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
 	EvaluationPeriods pulumi.IntPtrInput
@@ -339,10 +345,12 @@ func (o AlarmOutput) EvaluateLowSampleCountPercentile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.EvaluateLowSampleCountPercentile }).(pulumi.StringPtrOutput)
 }
 
+// The evaluation criteria for the alarm.
 func (o AlarmOutput) EvaluationCriteria() AlarmEvaluationCriteriaPtrOutput {
 	return o.ApplyT(func(v *Alarm) AlarmEvaluationCriteriaPtrOutput { return v.EvaluationCriteria }).(AlarmEvaluationCriteriaPtrOutput)
 }
 
+// The frequency, in seconds, at which the alarm is evaluated.
 func (o AlarmOutput) EvaluationInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.IntPtrOutput { return v.EvaluationInterval }).(pulumi.IntPtrOutput)
 }

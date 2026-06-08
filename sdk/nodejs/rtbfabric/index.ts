@@ -15,6 +15,11 @@ export const getLink: typeof import("./getLink").getLink = null as any;
 export const getLinkOutput: typeof import("./getLink").getLinkOutput = null as any;
 utilities.lazyLoad(exports, ["getLink","getLinkOutput"], () => require("./getLink"));
 
+export { GetLinkRoutingRuleArgs, GetLinkRoutingRuleResult, GetLinkRoutingRuleOutputArgs } from "./getLinkRoutingRule";
+export const getLinkRoutingRule: typeof import("./getLinkRoutingRule").getLinkRoutingRule = null as any;
+export const getLinkRoutingRuleOutput: typeof import("./getLinkRoutingRule").getLinkRoutingRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getLinkRoutingRule","getLinkRoutingRuleOutput"], () => require("./getLinkRoutingRule"));
+
 export { GetOutboundExternalLinkArgs, GetOutboundExternalLinkResult, GetOutboundExternalLinkOutputArgs } from "./getOutboundExternalLink";
 export const getOutboundExternalLink: typeof import("./getOutboundExternalLink").getOutboundExternalLink = null as any;
 export const getOutboundExternalLinkOutput: typeof import("./getOutboundExternalLink").getOutboundExternalLinkOutput = null as any;
@@ -39,6 +44,11 @@ export { LinkArgs } from "./link";
 export type Link = import("./link").Link;
 export const Link: typeof import("./link").Link = null as any;
 utilities.lazyLoad(exports, ["Link"], () => require("./link"));
+
+export { LinkRoutingRuleArgs } from "./linkRoutingRule";
+export type LinkRoutingRule = import("./linkRoutingRule").LinkRoutingRule;
+export const LinkRoutingRule: typeof import("./linkRoutingRule").LinkRoutingRule = null as any;
+utilities.lazyLoad(exports, ["LinkRoutingRule"], () => require("./linkRoutingRule"));
 
 export { OutboundExternalLinkArgs } from "./outboundExternalLink";
 export type OutboundExternalLink = import("./outboundExternalLink").OutboundExternalLink;
@@ -67,6 +77,8 @@ const _module = {
                 return new InboundExternalLink(name, <any>undefined, { urn })
             case "aws-native:rtbfabric:Link":
                 return new Link(name, <any>undefined, { urn })
+            case "aws-native:rtbfabric:LinkRoutingRule":
+                return new LinkRoutingRule(name, <any>undefined, { urn })
             case "aws-native:rtbfabric:OutboundExternalLink":
                 return new OutboundExternalLink(name, <any>undefined, { urn })
             case "aws-native:rtbfabric:RequesterGateway":

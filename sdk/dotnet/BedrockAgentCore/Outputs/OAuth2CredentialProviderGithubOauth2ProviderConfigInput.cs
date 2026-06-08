@@ -17,16 +17,24 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class OAuth2CredentialProviderGithubOauth2ProviderConfigInput
     {
         public readonly string ClientId;
-        public readonly string ClientSecret;
+        public readonly string? ClientSecret;
+        public readonly Outputs.OAuth2CredentialProviderSecretReference? ClientSecretConfig;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource? ClientSecretSource;
 
         [OutputConstructor]
         private OAuth2CredentialProviderGithubOauth2ProviderConfigInput(
             string clientId,
 
-            string clientSecret)
+            string? clientSecret,
+
+            Outputs.OAuth2CredentialProviderSecretReference? clientSecretConfig,
+
+            Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource? clientSecretSource)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
+            ClientSecretConfig = clientSecretConfig;
+            ClientSecretSource = clientSecretSource;
         }
     }
 }

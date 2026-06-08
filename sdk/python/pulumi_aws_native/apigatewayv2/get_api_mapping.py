@@ -41,7 +41,7 @@ class GetApiMappingResult:
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[_builtins.str]:
         """
-        The identifier of the API.
+        The API identifier.
         """
         return pulumi.get(self, "api_id")
 

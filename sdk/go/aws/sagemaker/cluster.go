@@ -54,16 +54,6 @@ func NewCluster(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"clusterName",
-		"instanceGroups[*].executionRole",
-		"instanceGroups[*].instanceGroupName",
-		"instanceGroups[*].instanceType",
-		"instanceGroups[*].overrideVpcConfig",
-		"instanceGroups[*].threadsPerCore",
-		"restrictedInstanceGroups[*].executionRole",
-		"restrictedInstanceGroups[*].instanceGroupName",
-		"restrictedInstanceGroups[*].instanceType",
-		"restrictedInstanceGroups[*].overrideVpcConfig",
-		"restrictedInstanceGroups[*].threadsPerCore",
 		"vpcConfig",
 	})
 	opts = append(opts, replaceOnChanges)

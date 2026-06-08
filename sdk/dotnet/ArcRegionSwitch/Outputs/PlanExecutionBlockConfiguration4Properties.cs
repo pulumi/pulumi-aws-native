@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Outputs
     [OutputType]
     public sealed class PlanExecutionBlockConfiguration4Properties
     {
-        public readonly Outputs.PlanGlobalAuroraConfiguration GlobalAuroraConfig;
+        public readonly Outputs.PlanAuroraProvisionedScalingConfiguration AuroraProvisionedScalingConfig;
 
         [OutputConstructor]
-        private PlanExecutionBlockConfiguration4Properties(Outputs.PlanGlobalAuroraConfiguration globalAuroraConfig)
+        private PlanExecutionBlockConfiguration4Properties(Outputs.PlanAuroraProvisionedScalingConfiguration auroraProvisionedScalingConfig)
         {
-            GlobalAuroraConfig = globalAuroraConfig;
+            AuroraProvisionedScalingConfig = auroraProvisionedScalingConfig;
         }
     }
 }

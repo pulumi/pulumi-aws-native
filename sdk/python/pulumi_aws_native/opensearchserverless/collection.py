@@ -25,6 +25,7 @@ __all__ = ['CollectionArgs', 'Collection']
 class CollectionArgs:
     def __init__(__self__, *,
                  collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 deletion_protection: Optional[pulumi.Input['CollectionDeletionProtection']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_config: Optional[pulumi.Input['CollectionEncryptionConfigArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -50,6 +51,8 @@ class CollectionArgs:
         """
         if collection_group_name is not None:
             pulumi.set(__self__, "collection_group_name", collection_group_name)
+        if deletion_protection is not None:
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encryption_config is not None:
@@ -76,6 +79,15 @@ class CollectionArgs:
     @collection_group_name.setter
     def collection_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "collection_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> Optional[pulumi.Input['CollectionDeletionProtection']]:
+        return pulumi.get(self, "deletion_protection")
+
+    @deletion_protection.setter
+    def deletion_protection(self, value: Optional[pulumi.Input['CollectionDeletionProtection']]):
+        pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter
@@ -169,6 +181,7 @@ class Collection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 deletion_protection: Optional[pulumi.Input['CollectionDeletionProtection']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_config: Optional[pulumi.Input[Union['CollectionEncryptionConfigArgs', 'CollectionEncryptionConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -298,6 +311,7 @@ class Collection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 deletion_protection: Optional[pulumi.Input['CollectionDeletionProtection']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_config: Optional[pulumi.Input[Union['CollectionEncryptionConfigArgs', 'CollectionEncryptionConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -315,6 +329,7 @@ class Collection(pulumi.CustomResource):
             __props__ = CollectionArgs.__new__(CollectionArgs)
 
             __props__.__dict__["collection_group_name"] = collection_group_name
+            __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["description"] = description
             __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["name"] = name
@@ -357,6 +372,7 @@ class Collection(pulumi.CustomResource):
         __props__.__dict__["collection_endpoint"] = None
         __props__.__dict__["collection_group_name"] = None
         __props__.__dict__["dashboard_endpoint"] = None
+        __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["encryption_config"] = None
         __props__.__dict__["fips_endpoints"] = None
@@ -407,6 +423,11 @@ class Collection(pulumi.CustomResource):
         The OpenSearch Dashboards endpoint for the collection.
         """
         return pulumi.get(self, "dashboard_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> pulumi.Output[Optional['CollectionDeletionProtection']]:
+        return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter

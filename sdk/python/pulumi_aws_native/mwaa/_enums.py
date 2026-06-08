@@ -39,6 +39,7 @@ class EnvironmentWebserverAccessMode(_builtins.str, Enum):
     """
     PRIVATE_ONLY = "PRIVATE_ONLY"
     PUBLIC_ONLY = "PUBLIC_ONLY"
+    PUBLIC_AND_PRIVATE = "PUBLIC_AND_PRIVATE"
 
 
 @pulumi.type_token("aws-native:mwaa:EnvironmentWorkerReplacementStrategy")

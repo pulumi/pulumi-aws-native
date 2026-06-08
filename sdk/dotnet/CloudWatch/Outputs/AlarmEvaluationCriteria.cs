@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch.Outputs
 {
 
+    /// <summary>
+    /// The evaluation criteria for an alarm. This is a union type that currently supports ``PromQLCriteria``.
+    /// </summary>
     [OutputType]
     public sealed class AlarmEvaluationCriteria
     {
+        /// <summary>
+        /// The PromQL criteria for the alarm evaluation.
+        /// </summary>
         public readonly Outputs.AlarmPromQlCriteria? PromQlCriteria;
 
         [OutputConstructor]

@@ -16,22 +16,34 @@ namespace Pulumi.AwsNative.Eks.Inputs
     public sealed class ClusterOutpostConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specify the Instance type of the machines that should be used to create your cluster.
+        /// The EC2 instance type for the Kubernetes control plane instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all control plane instances and cannot be changed after cluster creation.
         /// </summary>
         [Input("controlPlaneInstanceType", required: true)]
         public Input<string> ControlPlaneInstanceType { get; set; } = null!;
 
         /// <summary>
-        /// Specify the placement group of the control plane machines for your cluster.
+        /// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
         /// </summary>
         [Input("controlPlanePlacement")]
         public Input<Inputs.ClusterControlPlanePlacementArgs>? ControlPlanePlacement { get; set; }
+
+        /// <summary>
+        /// The EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all etcd instances and cannot be changed after cluster creation.
+        /// </summary>
+        [Input("etcdInstanceType")]
+        public Input<string>? EtcdInstanceType { get; set; }
+
+        /// <summary>
+        /// An object representing the placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+        /// </summary>
+        [Input("etcdPlacement")]
+        public Input<Inputs.ClusterEtcdPlacementArgs>? EtcdPlacement { get; set; }
 
         [Input("outpostArns", required: true)]
         private InputList<string>? _outpostArns;
 
         /// <summary>
-        /// Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+        /// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. Only a single Outpost ARN is supported.
         /// </summary>
         public InputList<string> OutpostArns
         {

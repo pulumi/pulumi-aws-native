@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 {
 
+    /// <summary>
+    /// Represents a condition. Conditions can contain up to two ``matchHeaders`` conditions and one ``matchBasePaths`` conditions. API Gateway evaluates header conditions and base path conditions together. You can only use AND between header and base path conditions.
+    /// </summary>
     public sealed class RoutingRuleConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

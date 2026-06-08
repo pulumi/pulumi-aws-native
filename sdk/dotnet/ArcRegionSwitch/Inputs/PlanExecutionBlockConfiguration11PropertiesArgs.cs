@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Inputs
 
     public sealed class PlanExecutionBlockConfiguration11PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("rdsPromoteReadReplicaConfig", required: true)]
-        public Input<Inputs.PlanRdsPromoteReadReplicaConfigurationArgs> RdsPromoteReadReplicaConfig { get; set; } = null!;
+        [Input("route53HealthCheckConfig", required: true)]
+        public Input<Inputs.PlanRoute53HealthCheckConfigurationArgs> Route53HealthCheckConfig { get; set; } = null!;
 
         public PlanExecutionBlockConfiguration11PropertiesArgs()
         {

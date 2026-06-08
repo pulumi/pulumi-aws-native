@@ -28,14 +28,16 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly int InstanceCount;
         public readonly string InstanceGroupName;
+        public readonly Outputs.ClusterInstanceRequirements? InstanceRequirements;
         public readonly ImmutableArray<Outputs.ClusterInstanceStorageConfig> InstanceStorageConfigs;
-        public readonly string InstanceType;
+        public readonly string? InstanceType;
         public readonly Outputs.ClusterKubernetesConfig? KubernetesConfig;
         public readonly Outputs.ClusterLifeCycleConfig? LifeCycleConfig;
         /// <summary>
         /// The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
         /// </summary>
         public readonly int? MinInstanceCount;
+        public readonly Outputs.ClusterNetworkInterface? NetworkInterface;
         public readonly ImmutableArray<Pulumi.AwsNative.SageMaker.ClusterDeepHealthCheckType> OnStartDeepHealthChecks;
         public readonly Outputs.ClusterVpcConfig? OverrideVpcConfig;
         public readonly Outputs.ClusterScheduledUpdateConfig? ScheduledUpdateConfig;
@@ -63,15 +65,19 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string instanceGroupName,
 
+            Outputs.ClusterInstanceRequirements? instanceRequirements,
+
             ImmutableArray<Outputs.ClusterInstanceStorageConfig> instanceStorageConfigs,
 
-            string instanceType,
+            string? instanceType,
 
             Outputs.ClusterKubernetesConfig? kubernetesConfig,
 
             Outputs.ClusterLifeCycleConfig? lifeCycleConfig,
 
             int? minInstanceCount,
+
+            Outputs.ClusterNetworkInterface? networkInterface,
 
             ImmutableArray<Pulumi.AwsNative.SageMaker.ClusterDeepHealthCheckType> onStartDeepHealthChecks,
 
@@ -91,11 +97,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             ImageId = imageId;
             InstanceCount = instanceCount;
             InstanceGroupName = instanceGroupName;
+            InstanceRequirements = instanceRequirements;
             InstanceStorageConfigs = instanceStorageConfigs;
             InstanceType = instanceType;
             KubernetesConfig = kubernetesConfig;
             LifeCycleConfig = lifeCycleConfig;
             MinInstanceCount = minInstanceCount;
+            NetworkInterface = networkInterface;
             OnStartDeepHealthChecks = onStartDeepHealthChecks;
             OverrideVpcConfig = overrideVpcConfig;
             ScheduledUpdateConfig = scheduledUpdateConfig;

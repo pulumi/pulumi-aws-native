@@ -31,7 +31,7 @@
   "typeName" : "AWS::ECS::DaemonTaskDefinition",
   "readOnlyProperties" : [ "/properties/DaemonTaskDefinitionArn" ],
   "description" : "The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.",
-  "createOnlyProperties" : [ "/properties/Family", "/properties/ContainerDefinitions", "/properties/Cpu", "/properties/Memory", "/properties/ExecutionRoleArn", "/properties/TaskRoleArn", "/properties/Volumes" ],
+  "createOnlyProperties" : [ "/properties/Family", "/properties/ContainerDefinitions", "/properties/Cpu", "/properties/Memory", "/properties/ExecutionRoleArn", "/properties/TaskRoleArn", "/properties/Volumes", "/properties/PidMode", "/properties/IpcMode" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/DaemonTaskDefinitionArn" ],
   "definitions" : {
@@ -582,6 +582,10 @@
       "description" : "",
       "type" : "string"
     },
+    "IpcMode" : {
+      "description" : "",
+      "type" : "string"
+    },
     "Volumes" : {
       "uniqueItems" : true,
       "description" : "The list of data volume definitions for the daemon task.",
@@ -610,6 +614,10 @@
     },
     "Cpu" : {
       "description" : "The number of CPU units used by the daemon task.",
+      "type" : "string"
+    },
+    "PidMode" : {
+      "description" : "",
       "type" : "string"
     },
     "Tags" : {

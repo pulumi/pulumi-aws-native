@@ -24,15 +24,19 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
         /// Detects methods for the recipient's timezone.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.ConnectCampaignsV2.CampaignLocalTimeZoneDetectionType> LocalTimeZoneDetection;
+        public readonly Pulumi.AwsNative.ConnectCampaignsV2.CampaignLocalTimeZoneDetectionScope? LocalTimeZoneDetectionScope;
 
         [OutputConstructor]
         private CampaignLocalTimeZoneConfig(
             string? defaultTimeZone,
 
-            ImmutableArray<Pulumi.AwsNative.ConnectCampaignsV2.CampaignLocalTimeZoneDetectionType> localTimeZoneDetection)
+            ImmutableArray<Pulumi.AwsNative.ConnectCampaignsV2.CampaignLocalTimeZoneDetectionType> localTimeZoneDetection,
+
+            Pulumi.AwsNative.ConnectCampaignsV2.CampaignLocalTimeZoneDetectionScope? localTimeZoneDetectionScope)
         {
             DefaultTimeZone = defaultTimeZone;
             LocalTimeZoneDetection = localTimeZoneDetection;
+            LocalTimeZoneDetectionScope = localTimeZoneDetectionScope;
         }
     }
 }

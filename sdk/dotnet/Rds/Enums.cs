@@ -23,6 +23,7 @@ namespace Pulumi.AwsNative.Rds
         public static CustomDbEngineVersionStatus Available { get; } = new CustomDbEngineVersionStatus("available");
         public static CustomDbEngineVersionStatus Inactive { get; } = new CustomDbEngineVersionStatus("inactive");
         public static CustomDbEngineVersionStatus InactiveExceptRestore { get; } = new CustomDbEngineVersionStatus("inactive-except-restore");
+        public static CustomDbEngineVersionStatus PendingValidation { get; } = new CustomDbEngineVersionStatus("pending-validation");
 
         public static bool operator ==(CustomDbEngineVersionStatus left, CustomDbEngineVersionStatus right) => left.Equals(right);
         public static bool operator !=(CustomDbEngineVersionStatus left, CustomDbEngineVersionStatus right) => !left.Equals(right);

@@ -6,6 +6,7 @@ export const CustomDbEngineVersionStatus = {
     Available: "available",
     Inactive: "inactive",
     InactiveExceptRestore: "inactive-except-restore",
+    PendingValidation: "pending-validation",
 } as const;
 
 /**

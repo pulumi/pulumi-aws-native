@@ -31,6 +31,8 @@ type LookupApiKeyCredentialProviderArgs struct {
 type LookupApiKeyCredentialProviderResult struct {
 	// The ARN of the API key secret in AWS Secrets Manager
 	ApiKeySecretArn *ApiKeyCredentialProviderApiKeySecretArn `pulumi:"apiKeySecretArn"`
+	// The JSON key within the secret that contains the API key value
+	ApiKeySecretJsonKey *string `pulumi:"apiKeySecretJsonKey"`
 	// The timestamp when the credential provider was created
 	CreatedTime *string `pulumi:"createdTime"`
 	// The Amazon Resource Name (ARN) of the API key credential provider
@@ -78,6 +80,11 @@ func (o LookupApiKeyCredentialProviderResultOutput) ApiKeySecretArn() ApiKeyCred
 	return o.ApplyT(func(v LookupApiKeyCredentialProviderResult) *ApiKeyCredentialProviderApiKeySecretArn {
 		return v.ApiKeySecretArn
 	}).(ApiKeyCredentialProviderApiKeySecretArnPtrOutput)
+}
+
+// The JSON key within the secret that contains the API key value
+func (o LookupApiKeyCredentialProviderResultOutput) ApiKeySecretJsonKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiKeyCredentialProviderResult) *string { return v.ApiKeySecretJsonKey }).(pulumi.StringPtrOutput)
 }
 
 // The timestamp when the credential provider was created

@@ -17,6 +17,7 @@ const (
 	CustomDbEngineVersionStatusAvailable             = CustomDbEngineVersionStatus("available")
 	CustomDbEngineVersionStatusInactive              = CustomDbEngineVersionStatus("inactive")
 	CustomDbEngineVersionStatusInactiveExceptRestore = CustomDbEngineVersionStatus("inactive-except-restore")
+	CustomDbEngineVersionStatusPendingValidation     = CustomDbEngineVersionStatus("pending-validation")
 )
 
 func (CustomDbEngineVersionStatus) ElementType() reflect.Type {
@@ -144,6 +145,7 @@ func (o CustomDbEngineVersionStatusPtrOutput) ToStringPtrOutputWithContext(ctx c
 //	CustomDbEngineVersionStatusAvailable
 //	CustomDbEngineVersionStatusInactive
 //	CustomDbEngineVersionStatusInactiveExceptRestore
+//	CustomDbEngineVersionStatusPendingValidation
 type CustomDbEngineVersionStatusInput interface {
 	pulumi.Input
 

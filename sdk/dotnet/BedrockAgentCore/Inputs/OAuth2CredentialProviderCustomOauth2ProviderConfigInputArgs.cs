@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     public sealed class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The client authentication method to use when authenticating with the token endpoint
+        /// </summary>
+        [Input("clientAuthenticationMethod")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod>? ClientAuthenticationMethod { get; set; }
+
+        /// <summary>
         /// The client ID for the custom OAuth2 provider
         /// </summary>
         [Input("clientId")]
@@ -26,6 +32,15 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         /// </summary>
         [Input("clientSecret")]
         public Input<string>? ClientSecret { get; set; }
+
+        [Input("clientSecretConfig")]
+        public Input<Inputs.OAuth2CredentialProviderSecretReferenceArgs>? ClientSecretConfig { get; set; }
+
+        /// <summary>
+        /// The source of the client secret
+        /// </summary>
+        [Input("clientSecretSource")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource>? ClientSecretSource { get; set; }
 
         [Input("oauthDiscovery", required: true)]
         public Input<Inputs.OAuth2CredentialProviderOauth2DiscoveryArgs> OauthDiscovery { get; set; } = null!;

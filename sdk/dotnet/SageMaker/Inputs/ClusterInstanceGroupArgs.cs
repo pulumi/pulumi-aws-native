@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("instanceGroupName", required: true)]
         public Input<string> InstanceGroupName { get; set; } = null!;
 
+        [Input("instanceRequirements")]
+        public Input<Inputs.ClusterInstanceRequirementsArgs>? InstanceRequirements { get; set; }
+
         [Input("instanceStorageConfigs")]
         private InputList<Inputs.ClusterInstanceStorageConfigArgs>? _instanceStorageConfigs;
         public InputList<Inputs.ClusterInstanceStorageConfigArgs> InstanceStorageConfigs
@@ -47,8 +50,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
             set => _instanceStorageConfigs = value;
         }
 
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
+        [Input("instanceType")]
+        public Input<string>? InstanceType { get; set; }
 
         [Input("kubernetesConfig")]
         public Input<Inputs.ClusterKubernetesConfigArgs>? KubernetesConfig { get; set; }
@@ -61,6 +64,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// </summary>
         [Input("minInstanceCount")]
         public Input<int>? MinInstanceCount { get; set; }
+
+        [Input("networkInterface")]
+        public Input<Inputs.ClusterNetworkInterfaceArgs>? NetworkInterface { get; set; }
 
         [Input("onStartDeepHealthChecks")]
         private InputList<Pulumi.AwsNative.SageMaker.ClusterDeepHealthCheckType>? _onStartDeepHealthChecks;

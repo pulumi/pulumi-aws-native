@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ApiKeyCredentialProviderApiKeySecretSource = {
+    Managed: "MANAGED",
+    External: "EXTERNAL",
+} as const;
+
+/**
+ * The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+ */
+export type ApiKeyCredentialProviderApiKeySecretSource = (typeof ApiKeyCredentialProviderApiKeySecretSource)[keyof typeof ApiKeyCredentialProviderApiKeySecretSource];
+
 export const BrowserCustomBrowserEnterprisePolicyType = {
     Managed: "MANAGED",
     Recommended: "RECOMMENDED",
@@ -203,6 +213,13 @@ export const GatewayTargetCredentialProviderType = {
 } as const;
 
 export type GatewayTargetCredentialProviderType = (typeof GatewayTargetCredentialProviderType)[keyof typeof GatewayTargetCredentialProviderType];
+
+export const GatewayTargetEndpointIpAddressType = {
+    Ipv4: "IPV4",
+    Ipv6: "IPV6",
+} as const;
+
+export type GatewayTargetEndpointIpAddressType = (typeof GatewayTargetEndpointIpAddressType)[keyof typeof GatewayTargetEndpointIpAddressType];
 
 export const GatewayTargetMcpServerListingMode = {
     Default: "DEFAULT",
@@ -491,6 +508,23 @@ export const MemoryUserPreferenceMemoryStrategyType = {
  */
 export type MemoryUserPreferenceMemoryStrategyType = (typeof MemoryUserPreferenceMemoryStrategyType)[keyof typeof MemoryUserPreferenceMemoryStrategyType];
 
+export const OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource = {
+    Managed: "MANAGED",
+    External: "EXTERNAL",
+} as const;
+
+export type OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource = (typeof OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource)[keyof typeof OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource];
+
+export const OAuth2CredentialProviderClientSecretSource = {
+    Managed: "MANAGED",
+    External: "EXTERNAL",
+} as const;
+
+/**
+ * The source of the client secret
+ */
+export type OAuth2CredentialProviderClientSecretSource = (typeof OAuth2CredentialProviderClientSecretSource)[keyof typeof OAuth2CredentialProviderClientSecretSource];
+
 export const OAuth2CredentialProviderCredentialProviderVendor = {
     GoogleOauth2: "GoogleOauth2",
     GithubOauth2: "GithubOauth2",
@@ -524,6 +558,73 @@ export const OAuth2CredentialProviderCredentialProviderVendor = {
  */
 export type OAuth2CredentialProviderCredentialProviderVendor = (typeof OAuth2CredentialProviderCredentialProviderVendor)[keyof typeof OAuth2CredentialProviderCredentialProviderVendor];
 
+export const OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod = {
+    ClientSecretBasic: "CLIENT_SECRET_BASIC",
+    ClientSecretPost: "CLIENT_SECRET_POST",
+    AwsIamIdTokenJwt: "AWS_IAM_ID_TOKEN_JWT",
+} as const;
+
+/**
+ * The client authentication method to use when authenticating with the token endpoint
+ */
+export type OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod = (typeof OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod)[keyof typeof OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod];
+
+export const OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource = {
+    Managed: "MANAGED",
+    External: "EXTERNAL",
+} as const;
+
+/**
+ * The source of the client secret
+ */
+export type OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource = (typeof OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource)[keyof typeof OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource];
+
+export const OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource = {
+    Managed: "MANAGED",
+    External: "EXTERNAL",
+} as const;
+
+export type OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource = (typeof OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource)[keyof typeof OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource];
+
+export const OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource = {
+    Managed: "MANAGED",
+    External: "EXTERNAL",
+} as const;
+
+export type OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource = (typeof OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource)[keyof typeof OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource];
+
+export const OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource = {
+    Managed: "MANAGED",
+    External: "EXTERNAL",
+} as const;
+
+export type OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource = (typeof OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource)[keyof typeof OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource];
+
+export const OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource = {
+    Managed: "MANAGED",
+    External: "EXTERNAL",
+} as const;
+
+export type OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource = (typeof OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource)[keyof typeof OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource];
+
+export const OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource = {
+    Managed: "MANAGED",
+    External: "EXTERNAL",
+} as const;
+
+export type OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource = (typeof OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource)[keyof typeof OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource];
+
+export const OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod = {
+    ClientSecretBasic: "CLIENT_SECRET_BASIC",
+    ClientSecretPost: "CLIENT_SECRET_POST",
+    AwsIamIdTokenJwt: "AWS_IAM_ID_TOKEN_JWT",
+} as const;
+
+/**
+ * The client authentication method used when authenticating with the token endpoint
+ */
+export type OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod = (typeof OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod)[keyof typeof OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod];
+
 export const OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType = {
     TokenExchange: "TOKEN_EXCHANGE",
     JwtAuthorizationGrant: "JWT_AUTHORIZATION_GRANT",
@@ -533,6 +634,20 @@ export const OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType = {
  * The grant type for on-behalf-of token exchange
  */
 export type OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType = (typeof OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType)[keyof typeof OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType];
+
+export const OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource = {
+    Managed: "MANAGED",
+    External: "EXTERNAL",
+} as const;
+
+export type OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource = (typeof OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource)[keyof typeof OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource];
+
+export const OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource = {
+    Managed: "MANAGED",
+    External: "EXTERNAL",
+} as const;
+
+export type OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource = (typeof OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource)[keyof typeof OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource];
 
 export const OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent = {
     None: "NONE",
@@ -579,6 +694,35 @@ export const OnlineEvaluationConfigStatus = {
 
 export type OnlineEvaluationConfigStatus = (typeof OnlineEvaluationConfigStatus)[keyof typeof OnlineEvaluationConfigStatus];
 
+export const PaymentConnectorStatus = {
+    Creating: "CREATING",
+    Updating: "UPDATING",
+    Deleting: "DELETING",
+    Ready: "READY",
+    CreateFailed: "CREATE_FAILED",
+    UpdateFailed: "UPDATE_FAILED",
+    DeleteFailed: "DELETE_FAILED",
+} as const;
+
+export type PaymentConnectorStatus = (typeof PaymentConnectorStatus)[keyof typeof PaymentConnectorStatus];
+
+export const PaymentConnectorType = {
+    CoinbaseCdp: "CoinbaseCDP",
+    StripePrivy: "StripePrivy",
+} as const;
+
+export type PaymentConnectorType = (typeof PaymentConnectorType)[keyof typeof PaymentConnectorType];
+
+export const PaymentCredentialProviderSecretSourceType = {
+    Managed: "MANAGED",
+    External: "EXTERNAL",
+} as const;
+
+/**
+ * The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+ */
+export type PaymentCredentialProviderSecretSourceType = (typeof PaymentCredentialProviderSecretSourceType)[keyof typeof PaymentCredentialProviderSecretSourceType];
+
 export const PaymentCredentialProviderVendorType = {
     CoinbaseCdp: "CoinbaseCDP",
     StripePrivy: "StripePrivy",
@@ -588,6 +732,40 @@ export const PaymentCredentialProviderVendorType = {
  * Supported vendor types for payment providers
  */
 export type PaymentCredentialProviderVendorType = (typeof PaymentCredentialProviderVendorType)[keyof typeof PaymentCredentialProviderVendorType];
+
+export const PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator = {
+    Equals: "EQUALS",
+    Contains: "CONTAINS",
+    ContainsAny: "CONTAINS_ANY",
+} as const;
+
+export type PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator = (typeof PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator)[keyof typeof PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator];
+
+export const PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType = {
+    String: "STRING",
+    StringArray: "STRING_ARRAY",
+} as const;
+
+export type PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType = (typeof PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType)[keyof typeof PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType];
+
+export const PaymentManagerPaymentsAuthorizerType = {
+    CustomJwt: "CUSTOM_JWT",
+    AwsIam: "AWS_IAM",
+} as const;
+
+export type PaymentManagerPaymentsAuthorizerType = (typeof PaymentManagerPaymentsAuthorizerType)[keyof typeof PaymentManagerPaymentsAuthorizerType];
+
+export const PaymentManagerStatus = {
+    Creating: "CREATING",
+    Updating: "UPDATING",
+    Deleting: "DELETING",
+    Ready: "READY",
+    CreateFailed: "CREATE_FAILED",
+    UpdateFailed: "UPDATE_FAILED",
+    DeleteFailed: "DELETE_FAILED",
+} as const;
+
+export type PaymentManagerStatus = (typeof PaymentManagerStatus)[keyof typeof PaymentManagerStatus];
 
 export const PolicyEngineStatus = {
     Creating: "CREATING",

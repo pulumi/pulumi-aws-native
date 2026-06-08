@@ -89,7 +89,7 @@
       "permissions" : [ "rds:ModifyEventSubscription", "rds:AddSourceIdentifierToSubscription", "rds:RemoveSourceIdentifierFromSubscription", "rds:DescribeEventSubscriptions", "rds:AddTagsToResource", "rds:RemoveTagsFromResource" ]
     },
     "delete" : {
-      "permissions" : [ "rds:DeleteEventSubscription", "rds:RemoveTagsFromResource" ]
+      "permissions" : [ "rds:DeleteEventSubscription", "rds:DescribeEventSubscriptions", "rds:RemoveTagsFromResource" ]
     },
     "list" : {
       "permissions" : [ "rds:DescribeEventSubscriptions", "rds:ListTagsForResource" ]

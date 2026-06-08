@@ -85,6 +85,7 @@ AWS::AppStream::Entitlement
 AWS::AppStream::ImageBuilder
 AWS::AppStream::Stack
 AWS::AppStream::StackUserAssociation
+AWS::AppStream::User
 AWS::AppSync::Api
 AWS::AppSync::ChannelNamespace
 AWS::AppSync::DataSource
@@ -167,9 +168,12 @@ AWS::BedrockAgentCore::Harness
 AWS::BedrockAgentCore::Memory
 AWS::BedrockAgentCore::OAuth2CredentialProvider
 AWS::BedrockAgentCore::OnlineEvaluationConfig
+AWS::BedrockAgentCore::PaymentConnector
 AWS::BedrockAgentCore::PaymentCredentialProvider
+AWS::BedrockAgentCore::PaymentManager
 AWS::BedrockAgentCore::Policy
 AWS::BedrockAgentCore::PolicyEngine
+AWS::BedrockAgentCore::ResourcePolicy
 AWS::BedrockAgentCore::Runtime
 AWS::BedrockAgentCore::RuntimeEndpoint
 AWS::BedrockAgentCore::WorkloadIdentity
@@ -244,6 +248,7 @@ AWS::CloudWatch::Alarm
 AWS::CloudWatch::AlarmMuteRule
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::Dashboard
+AWS::CloudWatch::LogAlarm
 AWS::CloudWatch::MetricStream
 AWS::CloudWatch::OTelEnrichment
 AWS::CodeArtifact::Domain
@@ -1056,6 +1061,7 @@ AWS::RDS::Integration
 AWS::RDS::OptionGroup
 AWS::RTBFabric::InboundExternalLink
 AWS::RTBFabric::Link
+AWS::RTBFabric::LinkRoutingRule
 AWS::RTBFabric::OutboundExternalLink
 AWS::RTBFabric::RequesterGateway
 AWS::RTBFabric::ResponderGateway
@@ -1081,6 +1087,11 @@ AWS::Rekognition::Project
 AWS::Rekognition::StreamProcessor
 AWS::ResilienceHub::App
 AWS::ResilienceHub::ResiliencyPolicy
+AWS::ResilienceHubV2::Policy
+AWS::ResilienceHubV2::Service
+AWS::ResilienceHubV2::ServiceFunction
+AWS::ResilienceHubV2::System
+AWS::ResilienceHubV2::UserJourney
 AWS::ResourceExplorer2::DefaultViewAssociation
 AWS::ResourceExplorer2::Index
 AWS::ResourceExplorer2::View

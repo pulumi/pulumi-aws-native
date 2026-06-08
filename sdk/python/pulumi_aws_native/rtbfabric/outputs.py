@@ -29,11 +29,14 @@ __all__ = [
     'LinkModuleConfiguration',
     'LinkModuleParameters',
     'LinkResponderErrorMaskingForHttpCode',
+    'LinkRoutingRuleQueryStringKeyValuePair',
+    'LinkRoutingRuleRuleCondition',
     'OutboundExternalLinkLinkAttributes',
     'OutboundExternalLinkLinkLogSettings',
     'OutboundExternalLinkLinkLogSettingsApplicationLogsProperties',
     'OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties',
     'OutboundExternalLinkResponderErrorMaskingForHttpCode',
+    'ResponderGatewayListenerConfig',
     'ResponderGatewayManagedEndpointConfiguration',
     'ResponderGatewayTrustStoreConfiguration',
 ]
@@ -522,6 +525,146 @@ class LinkResponderErrorMaskingForHttpCode(dict):
 
 
 @pulumi.output_type
+class LinkRoutingRuleQueryStringKeyValuePair(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str key: Query string key — RFC 3986 unreserved characters.
+        :param _builtins.str value: Query string value — RFC 3986 unreserved characters.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Query string key — RFC 3986 unreserved characters.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Query string value — RFC 3986 unreserved characters.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class LinkRoutingRuleRuleCondition(dict):
+    """
+    Conditions for a routing rule. All non-null fields must match (AND logic). At least one field must be set. HostHeader and HostHeaderWildcard are mutually exclusive. PathPrefix and PathExact are mutually exclusive.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostHeader":
+            suggest = "host_header"
+        elif key == "hostHeaderWildcard":
+            suggest = "host_header_wildcard"
+        elif key == "pathExact":
+            suggest = "path_exact"
+        elif key == "pathPrefix":
+            suggest = "path_prefix"
+        elif key == "queryStringEquals":
+            suggest = "query_string_equals"
+        elif key == "queryStringExists":
+            suggest = "query_string_exists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkRoutingRuleRuleCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkRoutingRuleRuleCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkRoutingRuleRuleCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host_header: Optional[_builtins.str] = None,
+                 host_header_wildcard: Optional[_builtins.str] = None,
+                 path_exact: Optional[_builtins.str] = None,
+                 path_prefix: Optional[_builtins.str] = None,
+                 query_string_equals: Optional['outputs.LinkRoutingRuleQueryStringKeyValuePair'] = None,
+                 query_string_exists: Optional[_builtins.str] = None):
+        """
+        Conditions for a routing rule. All non-null fields must match (AND logic). At least one field must be set. HostHeader and HostHeaderWildcard are mutually exclusive. PathPrefix and PathExact are mutually exclusive.
+
+        :param _builtins.str host_header: Exact host match — RFC 3986 unreserved characters. Mutually exclusive with HostHeaderWildcard.
+        :param _builtins.str host_header_wildcard: Wildcard host pattern (e.g., *.example.com) — RFC 3986 unreserved characters plus *. Mutually exclusive with HostHeader.
+        :param _builtins.str path_exact: Exact path match — must start with /. Mutually exclusive with PathPrefix.
+        :param _builtins.str path_prefix: Path prefix matching — strict starts-with, must start with /. Mutually exclusive with PathExact.
+        :param 'LinkRoutingRuleQueryStringKeyValuePair' query_string_equals: Query string key=value pair match (single pair).
+        :param _builtins.str query_string_exists: Query string key presence check (any value accepted).
+        """
+        if host_header is not None:
+            pulumi.set(__self__, "host_header", host_header)
+        if host_header_wildcard is not None:
+            pulumi.set(__self__, "host_header_wildcard", host_header_wildcard)
+        if path_exact is not None:
+            pulumi.set(__self__, "path_exact", path_exact)
+        if path_prefix is not None:
+            pulumi.set(__self__, "path_prefix", path_prefix)
+        if query_string_equals is not None:
+            pulumi.set(__self__, "query_string_equals", query_string_equals)
+        if query_string_exists is not None:
+            pulumi.set(__self__, "query_string_exists", query_string_exists)
+
+    @_builtins.property
+    @pulumi.getter(name="hostHeader")
+    def host_header(self) -> Optional[_builtins.str]:
+        """
+        Exact host match — RFC 3986 unreserved characters. Mutually exclusive with HostHeaderWildcard.
+        """
+        return pulumi.get(self, "host_header")
+
+    @_builtins.property
+    @pulumi.getter(name="hostHeaderWildcard")
+    def host_header_wildcard(self) -> Optional[_builtins.str]:
+        """
+        Wildcard host pattern (e.g., *.example.com) — RFC 3986 unreserved characters plus *. Mutually exclusive with HostHeader.
+        """
+        return pulumi.get(self, "host_header_wildcard")
+
+    @_builtins.property
+    @pulumi.getter(name="pathExact")
+    def path_exact(self) -> Optional[_builtins.str]:
+        """
+        Exact path match — must start with /. Mutually exclusive with PathPrefix.
+        """
+        return pulumi.get(self, "path_exact")
+
+    @_builtins.property
+    @pulumi.getter(name="pathPrefix")
+    def path_prefix(self) -> Optional[_builtins.str]:
+        """
+        Path prefix matching — strict starts-with, must start with /. Mutually exclusive with PathExact.
+        """
+        return pulumi.get(self, "path_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="queryStringEquals")
+    def query_string_equals(self) -> Optional['outputs.LinkRoutingRuleQueryStringKeyValuePair']:
+        """
+        Query string key=value pair match (single pair).
+        """
+        return pulumi.get(self, "query_string_equals")
+
+    @_builtins.property
+    @pulumi.getter(name="queryStringExists")
+    def query_string_exists(self) -> Optional[_builtins.str]:
+        """
+        Query string key presence check (any value accepted).
+        """
+        return pulumi.get(self, "query_string_exists")
+
+
+@pulumi.output_type
 class OutboundExternalLinkLinkAttributes(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -710,6 +853,18 @@ class OutboundExternalLinkResponderErrorMaskingForHttpCode(dict):
     @pulumi.getter(name="responseLoggingPercentage")
     def response_logging_percentage(self) -> Optional[_builtins.float]:
         return pulumi.get(self, "response_logging_percentage")
+
+
+@pulumi.output_type
+class ResponderGatewayListenerConfig(dict):
+    def __init__(__self__, *,
+                 protocols: Sequence['ResponderGatewayProtocol']):
+        pulumi.set(__self__, "protocols", protocols)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocols(self) -> Sequence['ResponderGatewayProtocol']:
+        return pulumi.get(self, "protocols")
 
 
 @pulumi.output_type

@@ -20,6 +20,12 @@ type ApiKeyCredentialProvider struct {
 	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
 	// The ARN of the API key secret in AWS Secrets Manager
 	ApiKeySecretArn ApiKeyCredentialProviderApiKeySecretArnOutput `pulumi:"apiKeySecretArn"`
+	// Configuration for a customer-provided secret containing the API key
+	ApiKeySecretConfig ApiKeyCredentialProviderSecretReferencePtrOutput `pulumi:"apiKeySecretConfig"`
+	// The JSON key within the secret that contains the API key value
+	ApiKeySecretJsonKey pulumi.StringOutput `pulumi:"apiKeySecretJsonKey"`
+	// The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+	ApiKeySecretSource ApiKeyCredentialProviderApiKeySecretSourcePtrOutput `pulumi:"apiKeySecretSource"`
 	// The timestamp when the credential provider was created
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// The Amazon Resource Name (ARN) of the API key credential provider
@@ -78,6 +84,10 @@ func (ApiKeyCredentialProviderState) ElementType() reflect.Type {
 type apiKeyCredentialProviderArgs struct {
 	// The API key to use for authentication
 	ApiKey *string `pulumi:"apiKey"`
+	// Configuration for a customer-provided secret containing the API key
+	ApiKeySecretConfig *ApiKeyCredentialProviderSecretReference `pulumi:"apiKeySecretConfig"`
+	// The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+	ApiKeySecretSource *ApiKeyCredentialProviderApiKeySecretSource `pulumi:"apiKeySecretSource"`
 	// The name of the API key credential provider
 	Name *string `pulumi:"name"`
 	// Tags to assign to the API key credential provider
@@ -88,6 +98,10 @@ type apiKeyCredentialProviderArgs struct {
 type ApiKeyCredentialProviderArgs struct {
 	// The API key to use for authentication
 	ApiKey pulumi.StringPtrInput
+	// Configuration for a customer-provided secret containing the API key
+	ApiKeySecretConfig ApiKeyCredentialProviderSecretReferencePtrInput
+	// The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+	ApiKeySecretSource ApiKeyCredentialProviderApiKeySecretSourcePtrInput
 	// The name of the API key credential provider
 	Name pulumi.StringPtrInput
 	// Tags to assign to the API key credential provider
@@ -141,6 +155,25 @@ func (o ApiKeyCredentialProviderOutput) ApiKeySecretArn() ApiKeyCredentialProvid
 	return o.ApplyT(func(v *ApiKeyCredentialProvider) ApiKeyCredentialProviderApiKeySecretArnOutput {
 		return v.ApiKeySecretArn
 	}).(ApiKeyCredentialProviderApiKeySecretArnOutput)
+}
+
+// Configuration for a customer-provided secret containing the API key
+func (o ApiKeyCredentialProviderOutput) ApiKeySecretConfig() ApiKeyCredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v *ApiKeyCredentialProvider) ApiKeyCredentialProviderSecretReferencePtrOutput {
+		return v.ApiKeySecretConfig
+	}).(ApiKeyCredentialProviderSecretReferencePtrOutput)
+}
+
+// The JSON key within the secret that contains the API key value
+func (o ApiKeyCredentialProviderOutput) ApiKeySecretJsonKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiKeyCredentialProvider) pulumi.StringOutput { return v.ApiKeySecretJsonKey }).(pulumi.StringOutput)
+}
+
+// The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+func (o ApiKeyCredentialProviderOutput) ApiKeySecretSource() ApiKeyCredentialProviderApiKeySecretSourcePtrOutput {
+	return o.ApplyT(func(v *ApiKeyCredentialProvider) ApiKeyCredentialProviderApiKeySecretSourcePtrOutput {
+		return v.ApiKeySecretSource
+	}).(ApiKeyCredentialProviderApiKeySecretSourcePtrOutput)
 }
 
 // The timestamp when the credential provider was created

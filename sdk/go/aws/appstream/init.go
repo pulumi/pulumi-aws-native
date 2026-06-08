@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Stack{}
 	case "aws-native:appstream:StackUserAssociation":
 		r = &StackUserAssociation{}
+	case "aws-native:appstream:User":
+		r = &User{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

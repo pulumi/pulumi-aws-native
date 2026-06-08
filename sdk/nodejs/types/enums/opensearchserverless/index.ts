@@ -11,6 +11,16 @@ export const AccessPolicyType = {
  */
 export type AccessPolicyType = (typeof AccessPolicyType)[keyof typeof AccessPolicyType];
 
+export const CollectionDeletionProtection = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The deletion protection state of the collection
+ */
+export type CollectionDeletionProtection = (typeof CollectionDeletionProtection)[keyof typeof CollectionDeletionProtection];
+
 export const CollectionGroupStandbyReplicas = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

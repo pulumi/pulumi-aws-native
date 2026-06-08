@@ -28,13 +28,18 @@ type LookupResponderGatewayArgs struct {
 }
 
 type LookupResponderGatewayResult struct {
-	Arn              *string `pulumi:"arn"`
-	CreatedTimestamp *string `pulumi:"createdTimestamp"`
+	AcmCertificateArn            *string                                       `pulumi:"acmCertificateArn"`
+	Arn                          *string                                       `pulumi:"arn"`
+	CertificateAssociationStatus *ResponderGatewayCertificateAssociationStatus `pulumi:"certificateAssociationStatus"`
+	CreatedTimestamp             *string                                       `pulumi:"createdTimestamp"`
 	// An optional description for the responder gateway.
 	Description *string `pulumi:"description"`
 	// The domain name for the responder gateway.
-	DomainName *string `pulumi:"domainName"`
-	GatewayId  *string `pulumi:"gatewayId"`
+	DomainName              *string                         `pulumi:"domainName"`
+	ExternalInboundEndpoint *string                         `pulumi:"externalInboundEndpoint"`
+	GatewayId               *string                         `pulumi:"gatewayId"`
+	GatewayType             *ResponderGatewayGatewayType    `pulumi:"gatewayType"`
+	ListenerConfig          *ResponderGatewayListenerConfig `pulumi:"listenerConfig"`
 	// The configuration for the managed endpoint.
 	ManagedEndpointConfiguration *ResponderGatewayManagedEndpointConfiguration `pulumi:"managedEndpointConfiguration"`
 	// The networking port to use.
@@ -86,8 +91,18 @@ func (o LookupResponderGatewayResultOutput) ToLookupResponderGatewayResultOutput
 	return o
 }
 
+func (o LookupResponderGatewayResultOutput) AcmCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResponderGatewayResult) *string { return v.AcmCertificateArn }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupResponderGatewayResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResponderGatewayResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupResponderGatewayResultOutput) CertificateAssociationStatus() ResponderGatewayCertificateAssociationStatusPtrOutput {
+	return o.ApplyT(func(v LookupResponderGatewayResult) *ResponderGatewayCertificateAssociationStatus {
+		return v.CertificateAssociationStatus
+	}).(ResponderGatewayCertificateAssociationStatusPtrOutput)
 }
 
 func (o LookupResponderGatewayResultOutput) CreatedTimestamp() pulumi.StringPtrOutput {
@@ -104,8 +119,20 @@ func (o LookupResponderGatewayResultOutput) DomainName() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupResponderGatewayResult) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupResponderGatewayResultOutput) ExternalInboundEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResponderGatewayResult) *string { return v.ExternalInboundEndpoint }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupResponderGatewayResultOutput) GatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResponderGatewayResult) *string { return v.GatewayId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupResponderGatewayResultOutput) GatewayType() ResponderGatewayGatewayTypePtrOutput {
+	return o.ApplyT(func(v LookupResponderGatewayResult) *ResponderGatewayGatewayType { return v.GatewayType }).(ResponderGatewayGatewayTypePtrOutput)
+}
+
+func (o LookupResponderGatewayResultOutput) ListenerConfig() ResponderGatewayListenerConfigPtrOutput {
+	return o.ApplyT(func(v LookupResponderGatewayResult) *ResponderGatewayListenerConfig { return v.ListenerConfig }).(ResponderGatewayListenerConfigPtrOutput)
 }
 
 // The configuration for the managed endpoint.

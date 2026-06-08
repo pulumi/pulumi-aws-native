@@ -30,7 +30,7 @@
     "TimeoutDuration" : {
       "type" : "integer",
       "maximum" : 300,
-      "minimum" : 10,
+      "minimum" : 1,
       "description" : "Timeout duration for a preview contact in seconds"
     },
     "RingTimeout" : {
@@ -70,8 +70,8 @@
     },
     "SourceEmailAddressDisplayName" : {
       "type" : "string",
-      "maxLength" : 127,
-      "minLength" : 1,
+      "maxLength" : 256,
+      "minLength" : 0,
       "description" : "The name of the source email address display name"
     },
     "BandwidthAllocation" : {
@@ -94,7 +94,7 @@
       "description" : "Time duration in ISO 8601 format",
       "maxLength" : 50,
       "minLength" : 0,
-      "pattern" : "^[a-zA-Z0-9.]*$"
+      "pattern" : "^P(?:([-+]?[0-9]+)D)?(T(?:([-+]?[0-9]+)H)?(?:([-+]?[0-9]+)M)?(?:([-+]?[0-9]+)(?:[.,]([0-9]{0,9}))?S)?)?$"
     },
     "Iso8601Date" : {
       "type" : "string",
@@ -575,6 +575,11 @@
       "description" : "Local TimeZone Detection method",
       "enum" : [ "ZIP_CODE", "AREA_CODE" ]
     },
+    "LocalTimeZoneDetectionScope" : {
+      "type" : "string",
+      "description" : "Local TimeZone Detection scope",
+      "enum" : [ "PRIMARY_ONLY", "ALL_AVAILABLE" ]
+    },
     "LocalTimeZoneDetection" : {
       "type" : "array",
       "description" : "Local TimeZone Detection method list",
@@ -592,6 +597,9 @@
         },
         "LocalTimeZoneDetection" : {
           "$ref" : "#/definitions/LocalTimeZoneDetection"
+        },
+        "LocalTimeZoneDetectionScope" : {
+          "$ref" : "#/definitions/LocalTimeZoneDetectionScope"
         }
       },
       "additionalProperties" : false

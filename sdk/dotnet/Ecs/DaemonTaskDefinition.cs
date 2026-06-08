@@ -42,11 +42,17 @@ namespace Pulumi.AwsNative.Ecs
         [Output("family")]
         public Output<string?> Family { get; private set; } = null!;
 
+        [Output("ipcMode")]
+        public Output<string?> IpcMode { get; private set; } = null!;
+
         /// <summary>
         /// The amount of memory (in MiB) used by the daemon task.
         /// </summary>
         [Output("memory")]
         public Output<string?> Memory { get; private set; } = null!;
+
+        [Output("pidMode")]
+        public Output<string?> PidMode { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -92,7 +98,9 @@ namespace Pulumi.AwsNative.Ecs
                     "cpu",
                     "executionRoleArn",
                     "family",
+                    "ipcMode",
                     "memory",
+                    "pidMode",
                     "taskRoleArn",
                     "volumes[*]",
                 },
@@ -148,11 +156,17 @@ namespace Pulumi.AwsNative.Ecs
         [Input("family")]
         public Input<string>? Family { get; set; }
 
+        [Input("ipcMode")]
+        public Input<string>? IpcMode { get; set; }
+
         /// <summary>
         /// The amount of memory (in MiB) used by the daemon task.
         /// </summary>
         [Input("memory")]
         public Input<string>? Memory { get; set; }
+
+        [Input("pidMode")]
+        public Input<string>? PidMode { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

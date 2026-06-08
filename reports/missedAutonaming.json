@@ -515,7 +515,7 @@
     "properties": {
       "apiId": {
         "type": "string",
-        "description": "The identifier of the API."
+        "description": "The API identifier."
       },
       "apiMappingKey": {
         "type": "string",
@@ -679,7 +679,7 @@
       },
       "contentHandlingStrategy": {
         "type": "string",
-        "description": "Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:\n  ``CONVERT_TO_BINARY``: Converts a response payload from a Base64-encoded string to the corresponding binary blob.\n  ``CONVERT_TO_TEXT``: Converts a response payload from a binary blob to a Base64-encoded string.\n If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification."
+        "description": "Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:\n ``CONVERT_TO_BINARY``: Converts a response payload from a Base64-encoded string to the corresponding binary blob.\n ``CONVERT_TO_TEXT``: Converts a response payload from a binary blob to a Base64-encoded string.\n If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification."
       },
       "integrationId": {
         "type": "string",
@@ -813,7 +813,7 @@
       },
       "domainNameArn": {
         "type": "string",
-        "description": "The amazon resource name (ARN) of the domain name resource."
+        "description": "The ARN of the domain name."
       },
       "priority": {
         "type": "integer",
@@ -1702,6 +1702,19 @@
       "resourceArn": {
         "type": "string",
         "description": "The ARN of the Bedrock Guardrail or Guardrail Profile resource"
+      }
+    }
+  },
+  "aws-native:bedrockagentcore:ResourcePolicy": {
+    "cfTypeName": "AWS::BedrockAgentCore::ResourcePolicy",
+    "properties": {
+      "policy": {
+        "type": "string",
+        "description": "The resource policy to create or update."
+      },
+      "resourceArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the resource for which to create or update the resource policy."
       }
     }
   },
@@ -6235,6 +6248,9 @@
         "type": "string",
         "description": "The ID of a network interface."
       },
+      "odbNetworkArn": {
+        "type": "string"
+      },
       "routeTableId": {
         "type": "string",
         "description": "The ID of the route table for the route."
@@ -8215,9 +8231,15 @@
         "type": "string",
         "description": "The name of a family that this daemon task definition is registered to."
       },
+      "ipcMode": {
+        "type": "string"
+      },
       "memory": {
         "type": "string",
         "description": "The amount of memory (in MiB) used by the daemon task."
+      },
+      "pidMode": {
+        "type": "string"
       },
       "tags": {
         "type": "array",
@@ -8742,6 +8764,10 @@
       "dataTieringEnabled": {
         "type": "boolean",
         "description": "Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes."
+      },
+      "durability": {
+        "$ref": "#/types/aws-native:elasticache:ReplicationGroupDurability",
+        "description": "The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability."
       },
       "engine": {
         "type": "string",
@@ -12951,6 +12977,10 @@
         "$ref": "#/types/aws-native:paymentcryptography:KeyCheckValueAlgorithm",
         "description": "The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.\n\nFor TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result."
       },
+      "policy": {
+        "type": "string",
+        "description": "The resource-based policy attached to the key, in JSON format."
+      },
       "replicationRegions": {
         "type": "array",
         "items": {
@@ -14884,6 +14914,29 @@
       }
     }
   },
+  "aws-native:rtbfabric:LinkRoutingRule": {
+    "cfTypeName": "AWS::RTBFabric::LinkRoutingRule",
+    "properties": {
+      "conditions": {
+        "$ref": "#/types/aws-native:rtbfabric:LinkRoutingRuleRuleCondition"
+      },
+      "gatewayId": {
+        "type": "string"
+      },
+      "linkId": {
+        "type": "string"
+      },
+      "priority": {
+        "type": "integer"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      }
+    }
+  },
   "aws-native:rtbfabric:OutboundExternalLink": {
     "cfTypeName": "AWS::RTBFabric::OutboundExternalLink",
     "properties": {
@@ -14944,6 +14997,9 @@
   "aws-native:rtbfabric:ResponderGateway": {
     "cfTypeName": "AWS::RTBFabric::ResponderGateway",
     "properties": {
+      "acmCertificateArn": {
+        "type": "string"
+      },
       "description": {
         "type": "string",
         "description": "An optional description for the responder gateway."
@@ -14951,6 +15007,12 @@
       "domainName": {
         "type": "string",
         "description": "The domain name for the responder gateway."
+      },
+      "gatewayType": {
+        "$ref": "#/types/aws-native:rtbfabric:ResponderGatewayGatewayType"
+      },
+      "listenerConfig": {
+        "$ref": "#/types/aws-native:rtbfabric:ResponderGatewayListenerConfig"
       },
       "managedEndpointConfiguration": {
         "$ref": "#/types/aws-native:rtbfabric:ResponderGatewayManagedEndpointConfiguration",

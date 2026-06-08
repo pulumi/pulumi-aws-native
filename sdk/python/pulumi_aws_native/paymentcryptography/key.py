@@ -29,6 +29,7 @@ class KeyArgs:
                  derive_key_usage: Optional[pulumi.Input['KeyDeriveKeyUsage']] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input['KeyCheckValueAlgorithm']] = None,
+                 policy: Optional[pulumi.Input[_builtins.str]] = None,
                  replication_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -41,6 +42,7 @@ class KeyArgs:
         :param pulumi.Input['KeyCheckValueAlgorithm'] key_check_value_algorithm: The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
                
                For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
+        :param pulumi.Input[_builtins.str] policy: The resource-based policy attached to the key, in JSON format.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replication_regions: The list of AWS Regions to remove from the key's replication configuration.
                
                The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
@@ -53,6 +55,8 @@ class KeyArgs:
             pulumi.set(__self__, "enabled", enabled)
         if key_check_value_algorithm is not None:
             pulumi.set(__self__, "key_check_value_algorithm", key_check_value_algorithm)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
         if replication_regions is not None:
             pulumi.set(__self__, "replication_regions", replication_regions)
         if tags is not None:
@@ -121,6 +125,18 @@ class KeyArgs:
         pulumi.set(self, "key_check_value_algorithm", value)
 
     @_builtins.property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The resource-based policy attached to the key, in JSON format.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "policy", value)
+
+    @_builtins.property
     @pulumi.getter(name="replicationRegions")
     def replication_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -155,6 +171,7 @@ class Key(pulumi.CustomResource):
                  exportable: Optional[pulumi.Input[_builtins.bool]] = None,
                  key_attributes: Optional[pulumi.Input[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input['KeyCheckValueAlgorithm']] = None,
+                 policy: Optional[pulumi.Input[_builtins.str]] = None,
                  replication_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -171,6 +188,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input['KeyCheckValueAlgorithm'] key_check_value_algorithm: The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
                
                For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
+        :param pulumi.Input[_builtins.str] policy: The resource-based policy attached to the key, in JSON format.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replication_regions: The list of AWS Regions to remove from the key's replication configuration.
                
                The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
@@ -205,6 +223,7 @@ class Key(pulumi.CustomResource):
                  exportable: Optional[pulumi.Input[_builtins.bool]] = None,
                  key_attributes: Optional[pulumi.Input[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input['KeyCheckValueAlgorithm']] = None,
+                 policy: Optional[pulumi.Input[_builtins.str]] = None,
                  replication_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -225,6 +244,7 @@ class Key(pulumi.CustomResource):
                 raise TypeError("Missing required property 'key_attributes'")
             __props__.__dict__["key_attributes"] = key_attributes
             __props__.__dict__["key_check_value_algorithm"] = key_check_value_algorithm
+            __props__.__dict__["policy"] = policy
             __props__.__dict__["replication_regions"] = replication_regions
             __props__.__dict__["tags"] = tags
             __props__.__dict__["key_identifier"] = None
@@ -261,6 +281,7 @@ class Key(pulumi.CustomResource):
         __props__.__dict__["key_identifier"] = None
         __props__.__dict__["key_origin"] = None
         __props__.__dict__["key_state"] = None
+        __props__.__dict__["policy"] = None
         __props__.__dict__["replication_regions"] = None
         __props__.__dict__["replication_status"] = None
         __props__.__dict__["tags"] = None
@@ -328,6 +349,14 @@ class Key(pulumi.CustomResource):
         The state of key that is being created or deleted.
         """
         return pulumi.get(self, "key_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def policy(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The resource-based policy attached to the key, in JSON format.
+        """
+        return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter(name="replicationRegions")

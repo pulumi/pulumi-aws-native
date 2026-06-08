@@ -10,22 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch.Inputs
 {
 
+    /// <summary>
+    /// Contains the configuration that determines how a PromQL alarm evaluates its contributors, including the query to run and the durations that define when contributors transition between states.
+    /// </summary>
     public sealed class AlarmPromQlCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The pending period for the alarm.
+        /// The duration, in seconds, that a contributor must be continuously breaching before it transitions to the ``ALARM`` state.
         /// </summary>
         [Input("pendingPeriod")]
         public Input<int>? PendingPeriod { get; set; }
 
         /// <summary>
-        /// The PromQL query string.
+        /// The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.
         /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
 
         /// <summary>
-        /// The recovery period for the alarm.
+        /// The duration, in seconds, that a contributor must continuously not be breaching before it transitions back to the ``OK`` state.
         /// </summary>
         [Input("recoveryPeriod")]
         public Input<int>? RecoveryPeriod { get; set; }

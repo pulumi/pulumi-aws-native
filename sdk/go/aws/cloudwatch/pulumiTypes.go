@@ -122,7 +122,9 @@ func (o AlarmDimensionArrayOutput) Index(i pulumi.IntInput) AlarmDimensionOutput
 	}).(AlarmDimensionOutput)
 }
 
+// The evaluation criteria for an alarm. This is a union type that currently supports “PromQLCriteria“.
 type AlarmEvaluationCriteria struct {
+	// The PromQL criteria for the alarm evaluation.
 	PromQlCriteria *AlarmPromQlCriteria `pulumi:"promQlCriteria"`
 }
 
@@ -137,7 +139,9 @@ type AlarmEvaluationCriteriaInput interface {
 	ToAlarmEvaluationCriteriaOutputWithContext(context.Context) AlarmEvaluationCriteriaOutput
 }
 
+// The evaluation criteria for an alarm. This is a union type that currently supports “PromQLCriteria“.
 type AlarmEvaluationCriteriaArgs struct {
+	// The PromQL criteria for the alarm evaluation.
 	PromQlCriteria AlarmPromQlCriteriaPtrInput `pulumi:"promQlCriteria"`
 }
 
@@ -194,6 +198,7 @@ func (i *alarmEvaluationCriteriaPtrType) ToAlarmEvaluationCriteriaPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmEvaluationCriteriaPtrOutput)
 }
 
+// The evaluation criteria for an alarm. This is a union type that currently supports “PromQLCriteria“.
 type AlarmEvaluationCriteriaOutput struct{ *pulumi.OutputState }
 
 func (AlarmEvaluationCriteriaOutput) ElementType() reflect.Type {
@@ -218,6 +223,7 @@ func (o AlarmEvaluationCriteriaOutput) ToAlarmEvaluationCriteriaPtrOutputWithCon
 	}).(AlarmEvaluationCriteriaPtrOutput)
 }
 
+// The PromQL criteria for the alarm evaluation.
 func (o AlarmEvaluationCriteriaOutput) PromQlCriteria() AlarmPromQlCriteriaPtrOutput {
 	return o.ApplyT(func(v AlarmEvaluationCriteria) *AlarmPromQlCriteria { return v.PromQlCriteria }).(AlarmPromQlCriteriaPtrOutput)
 }
@@ -246,6 +252,7 @@ func (o AlarmEvaluationCriteriaPtrOutput) Elem() AlarmEvaluationCriteriaOutput {
 	}).(AlarmEvaluationCriteriaOutput)
 }
 
+// The PromQL criteria for the alarm evaluation.
 func (o AlarmEvaluationCriteriaPtrOutput) PromQlCriteria() AlarmPromQlCriteriaPtrOutput {
 	return o.ApplyT(func(v *AlarmEvaluationCriteria) *AlarmPromQlCriteria {
 		if v == nil {
@@ -843,12 +850,13 @@ type AlarmMuteRuleTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Contains the configuration that determines how a PromQL alarm evaluates its contributors, including the query to run and the durations that define when contributors transition between states.
 type AlarmPromQlCriteria struct {
-	// The pending period for the alarm.
+	// The duration, in seconds, that a contributor must be continuously breaching before it transitions to the ``ALARM`` state.
 	PendingPeriod *int `pulumi:"pendingPeriod"`
-	// The PromQL query string.
+	// The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.
 	Query *string `pulumi:"query"`
-	// The recovery period for the alarm.
+	// The duration, in seconds, that a contributor must continuously not be breaching before it transitions back to the ``OK`` state.
 	RecoveryPeriod *int `pulumi:"recoveryPeriod"`
 }
 
@@ -863,12 +871,13 @@ type AlarmPromQlCriteriaInput interface {
 	ToAlarmPromQlCriteriaOutputWithContext(context.Context) AlarmPromQlCriteriaOutput
 }
 
+// Contains the configuration that determines how a PromQL alarm evaluates its contributors, including the query to run and the durations that define when contributors transition between states.
 type AlarmPromQlCriteriaArgs struct {
-	// The pending period for the alarm.
+	// The duration, in seconds, that a contributor must be continuously breaching before it transitions to the ``ALARM`` state.
 	PendingPeriod pulumi.IntPtrInput `pulumi:"pendingPeriod"`
-	// The PromQL query string.
+	// The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.
 	Query pulumi.StringPtrInput `pulumi:"query"`
-	// The recovery period for the alarm.
+	// The duration, in seconds, that a contributor must continuously not be breaching before it transitions back to the ``OK`` state.
 	RecoveryPeriod pulumi.IntPtrInput `pulumi:"recoveryPeriod"`
 }
 
@@ -925,6 +934,7 @@ func (i *alarmPromQlCriteriaPtrType) ToAlarmPromQlCriteriaPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmPromQlCriteriaPtrOutput)
 }
 
+// Contains the configuration that determines how a PromQL alarm evaluates its contributors, including the query to run and the durations that define when contributors transition between states.
 type AlarmPromQlCriteriaOutput struct{ *pulumi.OutputState }
 
 func (AlarmPromQlCriteriaOutput) ElementType() reflect.Type {
@@ -949,17 +959,17 @@ func (o AlarmPromQlCriteriaOutput) ToAlarmPromQlCriteriaPtrOutputWithContext(ctx
 	}).(AlarmPromQlCriteriaPtrOutput)
 }
 
-// The pending period for the alarm.
+// The duration, in seconds, that a contributor must be continuously breaching before it transitions to the “ALARM“ state.
 func (o AlarmPromQlCriteriaOutput) PendingPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AlarmPromQlCriteria) *int { return v.PendingPeriod }).(pulumi.IntPtrOutput)
 }
 
-// The PromQL query string.
+// The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.
 func (o AlarmPromQlCriteriaOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmPromQlCriteria) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
 
-// The recovery period for the alarm.
+// The duration, in seconds, that a contributor must continuously not be breaching before it transitions back to the “OK“ state.
 func (o AlarmPromQlCriteriaOutput) RecoveryPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AlarmPromQlCriteria) *int { return v.RecoveryPeriod }).(pulumi.IntPtrOutput)
 }
@@ -988,7 +998,7 @@ func (o AlarmPromQlCriteriaPtrOutput) Elem() AlarmPromQlCriteriaOutput {
 	}).(AlarmPromQlCriteriaOutput)
 }
 
-// The pending period for the alarm.
+// The duration, in seconds, that a contributor must be continuously breaching before it transitions to the “ALARM“ state.
 func (o AlarmPromQlCriteriaPtrOutput) PendingPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AlarmPromQlCriteria) *int {
 		if v == nil {
@@ -998,7 +1008,7 @@ func (o AlarmPromQlCriteriaPtrOutput) PendingPeriod() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The PromQL query string.
+// The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.
 func (o AlarmPromQlCriteriaPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmPromQlCriteria) *string {
 		if v == nil {
@@ -1008,7 +1018,7 @@ func (o AlarmPromQlCriteriaPtrOutput) Query() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recovery period for the alarm.
+// The duration, in seconds, that a contributor must continuously not be breaching before it transitions back to the “OK“ state.
 func (o AlarmPromQlCriteriaPtrOutput) RecoveryPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AlarmPromQlCriteria) *int {
 		if v == nil {
@@ -1036,6 +1046,327 @@ type CompositeAlarmTag struct {
 
 // Metadata that you can assign to a cloudwatch dashboard. Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.
 type DashboardTag struct {
+	// A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
+	Key string `pulumi:"key"`
+	// The value for the specified tag key.
+	Value string `pulumi:"value"`
+}
+
+// The schedule configuration for the scheduled query.
+type LogAlarmScheduleConfiguration struct {
+	// The number of seconds into the past to end the query window.
+	EndTimeOffset *int `pulumi:"endTimeOffset"`
+	// The expression that defines when the scheduled query runs, e.g. rate(1 minute).
+	ScheduleExpression string `pulumi:"scheduleExpression"`
+	// The number of seconds into the past to start the query window.
+	StartTimeOffset *int `pulumi:"startTimeOffset"`
+}
+
+// LogAlarmScheduleConfigurationInput is an input type that accepts LogAlarmScheduleConfigurationArgs and LogAlarmScheduleConfigurationOutput values.
+// You can construct a concrete instance of `LogAlarmScheduleConfigurationInput` via:
+//
+//	LogAlarmScheduleConfigurationArgs{...}
+type LogAlarmScheduleConfigurationInput interface {
+	pulumi.Input
+
+	ToLogAlarmScheduleConfigurationOutput() LogAlarmScheduleConfigurationOutput
+	ToLogAlarmScheduleConfigurationOutputWithContext(context.Context) LogAlarmScheduleConfigurationOutput
+}
+
+// The schedule configuration for the scheduled query.
+type LogAlarmScheduleConfigurationArgs struct {
+	// The number of seconds into the past to end the query window.
+	EndTimeOffset pulumi.IntPtrInput `pulumi:"endTimeOffset"`
+	// The expression that defines when the scheduled query runs, e.g. rate(1 minute).
+	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
+	// The number of seconds into the past to start the query window.
+	StartTimeOffset pulumi.IntPtrInput `pulumi:"startTimeOffset"`
+}
+
+func (LogAlarmScheduleConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAlarmScheduleConfiguration)(nil)).Elem()
+}
+
+func (i LogAlarmScheduleConfigurationArgs) ToLogAlarmScheduleConfigurationOutput() LogAlarmScheduleConfigurationOutput {
+	return i.ToLogAlarmScheduleConfigurationOutputWithContext(context.Background())
+}
+
+func (i LogAlarmScheduleConfigurationArgs) ToLogAlarmScheduleConfigurationOutputWithContext(ctx context.Context) LogAlarmScheduleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAlarmScheduleConfigurationOutput)
+}
+
+// The schedule configuration for the scheduled query.
+type LogAlarmScheduleConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LogAlarmScheduleConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAlarmScheduleConfiguration)(nil)).Elem()
+}
+
+func (o LogAlarmScheduleConfigurationOutput) ToLogAlarmScheduleConfigurationOutput() LogAlarmScheduleConfigurationOutput {
+	return o
+}
+
+func (o LogAlarmScheduleConfigurationOutput) ToLogAlarmScheduleConfigurationOutputWithContext(ctx context.Context) LogAlarmScheduleConfigurationOutput {
+	return o
+}
+
+// The number of seconds into the past to end the query window.
+func (o LogAlarmScheduleConfigurationOutput) EndTimeOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LogAlarmScheduleConfiguration) *int { return v.EndTimeOffset }).(pulumi.IntPtrOutput)
+}
+
+// The expression that defines when the scheduled query runs, e.g. rate(1 minute).
+func (o LogAlarmScheduleConfigurationOutput) ScheduleExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v LogAlarmScheduleConfiguration) string { return v.ScheduleExpression }).(pulumi.StringOutput)
+}
+
+// The number of seconds into the past to start the query window.
+func (o LogAlarmScheduleConfigurationOutput) StartTimeOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LogAlarmScheduleConfiguration) *int { return v.StartTimeOffset }).(pulumi.IntPtrOutput)
+}
+
+type LogAlarmScheduleConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LogAlarmScheduleConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogAlarmScheduleConfiguration)(nil)).Elem()
+}
+
+func (o LogAlarmScheduleConfigurationPtrOutput) ToLogAlarmScheduleConfigurationPtrOutput() LogAlarmScheduleConfigurationPtrOutput {
+	return o
+}
+
+func (o LogAlarmScheduleConfigurationPtrOutput) ToLogAlarmScheduleConfigurationPtrOutputWithContext(ctx context.Context) LogAlarmScheduleConfigurationPtrOutput {
+	return o
+}
+
+func (o LogAlarmScheduleConfigurationPtrOutput) Elem() LogAlarmScheduleConfigurationOutput {
+	return o.ApplyT(func(v *LogAlarmScheduleConfiguration) LogAlarmScheduleConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LogAlarmScheduleConfiguration
+		return ret
+	}).(LogAlarmScheduleConfigurationOutput)
+}
+
+// The number of seconds into the past to end the query window.
+func (o LogAlarmScheduleConfigurationPtrOutput) EndTimeOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LogAlarmScheduleConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EndTimeOffset
+	}).(pulumi.IntPtrOutput)
+}
+
+// The expression that defines when the scheduled query runs, e.g. rate(1 minute).
+func (o LogAlarmScheduleConfigurationPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogAlarmScheduleConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of seconds into the past to start the query window.
+func (o LogAlarmScheduleConfigurationPtrOutput) StartTimeOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LogAlarmScheduleConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartTimeOffset
+	}).(pulumi.IntPtrOutput)
+}
+
+// The scheduled query configuration for the log alarm.
+type LogAlarmScheduledQueryConfiguration struct {
+	// The aggregation expression for the scheduled query, e.g. count(*) or avg(latency) by host.
+	AggregationExpression string `pulumi:"aggregationExpression"`
+	// The log groups to query.
+	LogGroupIdentifiers []string `pulumi:"logGroupIdentifiers"`
+	// The query language to use for the scheduled query (CWLI or SQL).
+	QueryLanguage string `pulumi:"queryLanguage"`
+	// The query string to execute against the specified log groups.
+	QueryString string `pulumi:"queryString"`
+	// The schedule configuration.
+	ScheduleConfiguration LogAlarmScheduleConfiguration `pulumi:"scheduleConfiguration"`
+	// The ARN of the IAM role that grants permissions to execute the scheduled query.
+	ScheduledQueryRoleArn string `pulumi:"scheduledQueryRoleArn"`
+}
+
+// LogAlarmScheduledQueryConfigurationInput is an input type that accepts LogAlarmScheduledQueryConfigurationArgs and LogAlarmScheduledQueryConfigurationOutput values.
+// You can construct a concrete instance of `LogAlarmScheduledQueryConfigurationInput` via:
+//
+//	LogAlarmScheduledQueryConfigurationArgs{...}
+type LogAlarmScheduledQueryConfigurationInput interface {
+	pulumi.Input
+
+	ToLogAlarmScheduledQueryConfigurationOutput() LogAlarmScheduledQueryConfigurationOutput
+	ToLogAlarmScheduledQueryConfigurationOutputWithContext(context.Context) LogAlarmScheduledQueryConfigurationOutput
+}
+
+// The scheduled query configuration for the log alarm.
+type LogAlarmScheduledQueryConfigurationArgs struct {
+	// The aggregation expression for the scheduled query, e.g. count(*) or avg(latency) by host.
+	AggregationExpression pulumi.StringInput `pulumi:"aggregationExpression"`
+	// The log groups to query.
+	LogGroupIdentifiers pulumi.StringArrayInput `pulumi:"logGroupIdentifiers"`
+	// The query language to use for the scheduled query (CWLI or SQL).
+	QueryLanguage pulumi.StringInput `pulumi:"queryLanguage"`
+	// The query string to execute against the specified log groups.
+	QueryString pulumi.StringInput `pulumi:"queryString"`
+	// The schedule configuration.
+	ScheduleConfiguration LogAlarmScheduleConfigurationInput `pulumi:"scheduleConfiguration"`
+	// The ARN of the IAM role that grants permissions to execute the scheduled query.
+	ScheduledQueryRoleArn pulumi.StringInput `pulumi:"scheduledQueryRoleArn"`
+}
+
+func (LogAlarmScheduledQueryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAlarmScheduledQueryConfiguration)(nil)).Elem()
+}
+
+func (i LogAlarmScheduledQueryConfigurationArgs) ToLogAlarmScheduledQueryConfigurationOutput() LogAlarmScheduledQueryConfigurationOutput {
+	return i.ToLogAlarmScheduledQueryConfigurationOutputWithContext(context.Background())
+}
+
+func (i LogAlarmScheduledQueryConfigurationArgs) ToLogAlarmScheduledQueryConfigurationOutputWithContext(ctx context.Context) LogAlarmScheduledQueryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAlarmScheduledQueryConfigurationOutput)
+}
+
+// The scheduled query configuration for the log alarm.
+type LogAlarmScheduledQueryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LogAlarmScheduledQueryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAlarmScheduledQueryConfiguration)(nil)).Elem()
+}
+
+func (o LogAlarmScheduledQueryConfigurationOutput) ToLogAlarmScheduledQueryConfigurationOutput() LogAlarmScheduledQueryConfigurationOutput {
+	return o
+}
+
+func (o LogAlarmScheduledQueryConfigurationOutput) ToLogAlarmScheduledQueryConfigurationOutputWithContext(ctx context.Context) LogAlarmScheduledQueryConfigurationOutput {
+	return o
+}
+
+// The aggregation expression for the scheduled query, e.g. count(*) or avg(latency) by host.
+func (o LogAlarmScheduledQueryConfigurationOutput) AggregationExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v LogAlarmScheduledQueryConfiguration) string { return v.AggregationExpression }).(pulumi.StringOutput)
+}
+
+// The log groups to query.
+func (o LogAlarmScheduledQueryConfigurationOutput) LogGroupIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LogAlarmScheduledQueryConfiguration) []string { return v.LogGroupIdentifiers }).(pulumi.StringArrayOutput)
+}
+
+// The query language to use for the scheduled query (CWLI or SQL).
+func (o LogAlarmScheduledQueryConfigurationOutput) QueryLanguage() pulumi.StringOutput {
+	return o.ApplyT(func(v LogAlarmScheduledQueryConfiguration) string { return v.QueryLanguage }).(pulumi.StringOutput)
+}
+
+// The query string to execute against the specified log groups.
+func (o LogAlarmScheduledQueryConfigurationOutput) QueryString() pulumi.StringOutput {
+	return o.ApplyT(func(v LogAlarmScheduledQueryConfiguration) string { return v.QueryString }).(pulumi.StringOutput)
+}
+
+// The schedule configuration.
+func (o LogAlarmScheduledQueryConfigurationOutput) ScheduleConfiguration() LogAlarmScheduleConfigurationOutput {
+	return o.ApplyT(func(v LogAlarmScheduledQueryConfiguration) LogAlarmScheduleConfiguration {
+		return v.ScheduleConfiguration
+	}).(LogAlarmScheduleConfigurationOutput)
+}
+
+// The ARN of the IAM role that grants permissions to execute the scheduled query.
+func (o LogAlarmScheduledQueryConfigurationOutput) ScheduledQueryRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LogAlarmScheduledQueryConfiguration) string { return v.ScheduledQueryRoleArn }).(pulumi.StringOutput)
+}
+
+type LogAlarmScheduledQueryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LogAlarmScheduledQueryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogAlarmScheduledQueryConfiguration)(nil)).Elem()
+}
+
+func (o LogAlarmScheduledQueryConfigurationPtrOutput) ToLogAlarmScheduledQueryConfigurationPtrOutput() LogAlarmScheduledQueryConfigurationPtrOutput {
+	return o
+}
+
+func (o LogAlarmScheduledQueryConfigurationPtrOutput) ToLogAlarmScheduledQueryConfigurationPtrOutputWithContext(ctx context.Context) LogAlarmScheduledQueryConfigurationPtrOutput {
+	return o
+}
+
+func (o LogAlarmScheduledQueryConfigurationPtrOutput) Elem() LogAlarmScheduledQueryConfigurationOutput {
+	return o.ApplyT(func(v *LogAlarmScheduledQueryConfiguration) LogAlarmScheduledQueryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LogAlarmScheduledQueryConfiguration
+		return ret
+	}).(LogAlarmScheduledQueryConfigurationOutput)
+}
+
+// The aggregation expression for the scheduled query, e.g. count(*) or avg(latency) by host.
+func (o LogAlarmScheduledQueryConfigurationPtrOutput) AggregationExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogAlarmScheduledQueryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AggregationExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The log groups to query.
+func (o LogAlarmScheduledQueryConfigurationPtrOutput) LogGroupIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LogAlarmScheduledQueryConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupIdentifiers
+	}).(pulumi.StringArrayOutput)
+}
+
+// The query language to use for the scheduled query (CWLI or SQL).
+func (o LogAlarmScheduledQueryConfigurationPtrOutput) QueryLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogAlarmScheduledQueryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryLanguage
+	}).(pulumi.StringPtrOutput)
+}
+
+// The query string to execute against the specified log groups.
+func (o LogAlarmScheduledQueryConfigurationPtrOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogAlarmScheduledQueryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryString
+	}).(pulumi.StringPtrOutput)
+}
+
+// The schedule configuration.
+func (o LogAlarmScheduledQueryConfigurationPtrOutput) ScheduleConfiguration() LogAlarmScheduleConfigurationPtrOutput {
+	return o.ApplyT(func(v *LogAlarmScheduledQueryConfiguration) *LogAlarmScheduleConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.ScheduleConfiguration
+	}).(LogAlarmScheduleConfigurationPtrOutput)
+}
+
+// The ARN of the IAM role that grants permissions to execute the scheduled query.
+func (o LogAlarmScheduledQueryConfigurationPtrOutput) ScheduledQueryRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogAlarmScheduledQueryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScheduledQueryRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata that you can assign to a log alarm. Tags can help you organize and categorize your resources.
+type LogAlarmTag struct {
 	// A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
 	Key string `pulumi:"key"`
 	// The value for the specified tag key.
@@ -1746,6 +2077,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMetricStatPtrInput)(nil)).Elem(), AlarmMetricStatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmPromQlCriteriaInput)(nil)).Elem(), AlarmPromQlCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmPromQlCriteriaPtrInput)(nil)).Elem(), AlarmPromQlCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmScheduleConfigurationInput)(nil)).Elem(), LogAlarmScheduleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmScheduledQueryConfigurationInput)(nil)).Elem(), LogAlarmScheduledQueryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamFilterInput)(nil)).Elem(), MetricStreamFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamFilterArrayInput)(nil)).Elem(), MetricStreamFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationInput)(nil)).Elem(), MetricStreamStatisticsConfigurationArgs{})
@@ -1768,6 +2101,10 @@ func init() {
 	pulumi.RegisterOutputType(AlarmMetricStatPtrOutput{})
 	pulumi.RegisterOutputType(AlarmPromQlCriteriaOutput{})
 	pulumi.RegisterOutputType(AlarmPromQlCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(LogAlarmScheduleConfigurationOutput{})
+	pulumi.RegisterOutputType(LogAlarmScheduleConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LogAlarmScheduledQueryConfigurationOutput{})
+	pulumi.RegisterOutputType(LogAlarmScheduledQueryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MetricStreamFilterOutput{})
 	pulumi.RegisterOutputType(MetricStreamFilterArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationOutput{})

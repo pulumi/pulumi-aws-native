@@ -41,8 +41,10 @@ type LookupGatewayTargetResult struct {
 	LastSynchronizedAt    *string                             `pulumi:"lastSynchronizedAt"`
 	MetadataConfiguration *GatewayTargetMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// The name for the gateway target.
-	Name         *string                          `pulumi:"name"`
-	ProtocolType *GatewayTargetTargetProtocolType `pulumi:"protocolType"`
+	Name                            *string                               `pulumi:"name"`
+	PrivateEndpoint                 interface{}                           `pulumi:"privateEndpoint"`
+	PrivateEndpointManagedResources []GatewayTargetManagedResourceDetails `pulumi:"privateEndpointManagedResources"`
+	ProtocolType                    *GatewayTargetTargetProtocolType      `pulumi:"protocolType"`
 	// The status for the gateway target.
 	Status *GatewayTargetTargetStatus `pulumi:"status"`
 	// The status reasons for the gateway target.
@@ -127,6 +129,16 @@ func (o LookupGatewayTargetResultOutput) MetadataConfiguration() GatewayTargetMe
 // The name for the gateway target.
 func (o LookupGatewayTargetResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayTargetResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGatewayTargetResultOutput) PrivateEndpoint() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupGatewayTargetResult) interface{} { return v.PrivateEndpoint }).(pulumi.AnyOutput)
+}
+
+func (o LookupGatewayTargetResultOutput) PrivateEndpointManagedResources() GatewayTargetManagedResourceDetailsArrayOutput {
+	return o.ApplyT(func(v LookupGatewayTargetResult) []GatewayTargetManagedResourceDetails {
+		return v.PrivateEndpointManagedResources
+	}).(GatewayTargetManagedResourceDetailsArrayOutput)
 }
 
 func (o LookupGatewayTargetResultOutput) ProtocolType() GatewayTargetTargetProtocolTypePtrOutput {

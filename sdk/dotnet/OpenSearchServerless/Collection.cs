@@ -115,6 +115,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         [Output("dashboardEndpoint")]
         public Output<string> DashboardEndpoint { get; private set; } = null!;
 
+        [Output("deletionProtection")]
+        public Output<Pulumi.AwsNative.OpenSearchServerless.CollectionDeletionProtection?> DeletionProtection { get; private set; } = null!;
+
         /// <summary>
         /// The description of the collection
         /// </summary>
@@ -225,6 +228,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// </summary>
         [Input("collectionGroupName")]
         public Input<string>? CollectionGroupName { get; set; }
+
+        [Input("deletionProtection")]
+        public Input<Pulumi.AwsNative.OpenSearchServerless.CollectionDeletionProtection>? DeletionProtection { get; set; }
 
         /// <summary>
         /// The description of the collection

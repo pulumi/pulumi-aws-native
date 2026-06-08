@@ -28,6 +28,24 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<Outputs.ApiKeyCredentialProviderApiKeySecretArn> ApiKeySecretArn { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration for a customer-provided secret containing the API key
+        /// </summary>
+        [Output("apiKeySecretConfig")]
+        public Output<Outputs.ApiKeyCredentialProviderSecretReference?> ApiKeySecretConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// The JSON key within the secret that contains the API key value
+        /// </summary>
+        [Output("apiKeySecretJsonKey")]
+        public Output<string> ApiKeySecretJsonKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+        /// </summary>
+        [Output("apiKeySecretSource")]
+        public Output<Pulumi.AwsNative.BedrockAgentCore.ApiKeyCredentialProviderApiKeySecretSource?> ApiKeySecretSource { get; private set; } = null!;
+
+        /// <summary>
         /// The timestamp when the credential provider was created
         /// </summary>
         [Output("createdTime")]
@@ -111,6 +129,18 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("apiKey")]
         public Input<string>? ApiKey { get; set; }
+
+        /// <summary>
+        /// Configuration for a customer-provided secret containing the API key
+        /// </summary>
+        [Input("apiKeySecretConfig")]
+        public Input<Inputs.ApiKeyCredentialProviderSecretReferenceArgs>? ApiKeySecretConfig { get; set; }
+
+        /// <summary>
+        /// The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+        /// </summary>
+        [Input("apiKeySecretSource")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.ApiKeyCredentialProviderApiKeySecretSource>? ApiKeySecretSource { get; set; }
 
         /// <summary>
         /// The name of the API key credential provider

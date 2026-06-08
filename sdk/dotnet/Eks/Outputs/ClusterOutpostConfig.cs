@@ -17,15 +17,23 @@ namespace Pulumi.AwsNative.Eks.Outputs
     public sealed class ClusterOutpostConfig
     {
         /// <summary>
-        /// Specify the Instance type of the machines that should be used to create your cluster.
+        /// The EC2 instance type for the Kubernetes control plane instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all control plane instances and cannot be changed after cluster creation.
         /// </summary>
         public readonly string ControlPlaneInstanceType;
         /// <summary>
-        /// Specify the placement group of the control plane machines for your cluster.
+        /// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
         /// </summary>
         public readonly Outputs.ClusterControlPlanePlacement? ControlPlanePlacement;
         /// <summary>
-        /// Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+        /// The EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all etcd instances and cannot be changed after cluster creation.
+        /// </summary>
+        public readonly string? EtcdInstanceType;
+        /// <summary>
+        /// An object representing the placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+        /// </summary>
+        public readonly Outputs.ClusterEtcdPlacement? EtcdPlacement;
+        /// <summary>
+        /// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. Only a single Outpost ARN is supported.
         /// </summary>
         public readonly ImmutableArray<string> OutpostArns;
 
@@ -35,10 +43,16 @@ namespace Pulumi.AwsNative.Eks.Outputs
 
             Outputs.ClusterControlPlanePlacement? controlPlanePlacement,
 
+            string? etcdInstanceType,
+
+            Outputs.ClusterEtcdPlacement? etcdPlacement,
+
             ImmutableArray<string> outpostArns)
         {
             ControlPlaneInstanceType = controlPlaneInstanceType;
             ControlPlanePlacement = controlPlanePlacement;
+            EtcdInstanceType = etcdInstanceType;
+            EtcdPlacement = etcdPlacement;
             OutpostArns = outpostArns;
         }
     }

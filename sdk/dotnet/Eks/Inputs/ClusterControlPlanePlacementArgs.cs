@@ -11,15 +11,21 @@ namespace Pulumi.AwsNative.Eks.Inputs
 {
 
     /// <summary>
-    /// Specify the placement group of the control plane machines for your cluster.
+    /// The placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
     /// </summary>
     public sealed class ClusterControlPlanePlacementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specify the placement group name of the control place machines for your cluster.
+        /// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
+
+        /// <summary>
+        /// Optional parameter to specify the placement group spread level for control plane instances. If not provided, EKS will deploy control plane instances without a placement group.
+        /// </summary>
+        [Input("spreadLevel")]
+        public Input<string>? SpreadLevel { get; set; }
 
         public ClusterControlPlanePlacementArgs()
         {

@@ -358,6 +358,37 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The type of network interface.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterNetworkInterfaceInterfaceType : IEquatable<ClusterNetworkInterfaceInterfaceType>
+    {
+        private readonly string _value;
+
+        private ClusterNetworkInterfaceInterfaceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterNetworkInterfaceInterfaceType Efa { get; } = new ClusterNetworkInterfaceInterfaceType("efa");
+        public static ClusterNetworkInterfaceInterfaceType EfaOnly { get; } = new ClusterNetworkInterfaceInterfaceType("efa-only");
+
+        public static bool operator ==(ClusterNetworkInterfaceInterfaceType left, ClusterNetworkInterfaceInterfaceType right) => left.Equals(right);
+        public static bool operator !=(ClusterNetworkInterfaceInterfaceType left, ClusterNetworkInterfaceInterfaceType right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterNetworkInterfaceInterfaceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterNetworkInterfaceInterfaceType other && Equals(other);
+        public bool Equals(ClusterNetworkInterfaceInterfaceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
     /// </summary>
     [EnumType]

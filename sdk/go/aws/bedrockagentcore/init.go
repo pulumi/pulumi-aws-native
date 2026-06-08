@@ -45,12 +45,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OAuth2CredentialProvider{}
 	case "aws-native:bedrockagentcore:OnlineEvaluationConfig":
 		r = &OnlineEvaluationConfig{}
+	case "aws-native:bedrockagentcore:PaymentConnector":
+		r = &PaymentConnector{}
 	case "aws-native:bedrockagentcore:PaymentCredentialProvider":
 		r = &PaymentCredentialProvider{}
+	case "aws-native:bedrockagentcore:PaymentManager":
+		r = &PaymentManager{}
 	case "aws-native:bedrockagentcore:Policy":
 		r = &Policy{}
 	case "aws-native:bedrockagentcore:PolicyEngine":
 		r = &PolicyEngine{}
+	case "aws-native:bedrockagentcore:ResourcePolicy":
+		r = &ResourcePolicy{}
 	case "aws-native:bedrockagentcore:Runtime":
 		r = &Runtime{}
 	case "aws-native:bedrockagentcore:RuntimeEndpoint":

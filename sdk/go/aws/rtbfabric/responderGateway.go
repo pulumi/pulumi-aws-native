@@ -17,13 +17,18 @@ import (
 type ResponderGateway struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput `pulumi:"arn"`
-	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
+	AcmCertificateArn            pulumi.StringPtrOutput                             `pulumi:"acmCertificateArn"`
+	Arn                          pulumi.StringOutput                                `pulumi:"arn"`
+	CertificateAssociationStatus ResponderGatewayCertificateAssociationStatusOutput `pulumi:"certificateAssociationStatus"`
+	CreatedTimestamp             pulumi.StringOutput                                `pulumi:"createdTimestamp"`
 	// An optional description for the responder gateway.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The domain name for the responder gateway.
-	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
-	GatewayId  pulumi.StringOutput    `pulumi:"gatewayId"`
+	DomainName              pulumi.StringPtrOutput                  `pulumi:"domainName"`
+	ExternalInboundEndpoint pulumi.StringOutput                     `pulumi:"externalInboundEndpoint"`
+	GatewayId               pulumi.StringOutput                     `pulumi:"gatewayId"`
+	GatewayType             ResponderGatewayGatewayTypePtrOutput    `pulumi:"gatewayType"`
+	ListenerConfig          ResponderGatewayListenerConfigPtrOutput `pulumi:"listenerConfig"`
 	// The configuration for the managed endpoint.
 	ManagedEndpointConfiguration ResponderGatewayManagedEndpointConfigurationPtrOutput `pulumi:"managedEndpointConfiguration"`
 	// The networking port to use.
@@ -99,10 +104,13 @@ func (ResponderGatewayState) ElementType() reflect.Type {
 }
 
 type responderGatewayArgs struct {
+	AcmCertificateArn *string `pulumi:"acmCertificateArn"`
 	// An optional description for the responder gateway.
 	Description *string `pulumi:"description"`
 	// The domain name for the responder gateway.
-	DomainName *string `pulumi:"domainName"`
+	DomainName     *string                         `pulumi:"domainName"`
+	GatewayType    *ResponderGatewayGatewayType    `pulumi:"gatewayType"`
+	ListenerConfig *ResponderGatewayListenerConfig `pulumi:"listenerConfig"`
 	// The configuration for the managed endpoint.
 	ManagedEndpointConfiguration *ResponderGatewayManagedEndpointConfiguration `pulumi:"managedEndpointConfiguration"`
 	// The networking port to use.
@@ -123,10 +131,13 @@ type responderGatewayArgs struct {
 
 // The set of arguments for constructing a ResponderGateway resource.
 type ResponderGatewayArgs struct {
+	AcmCertificateArn pulumi.StringPtrInput
 	// An optional description for the responder gateway.
 	Description pulumi.StringPtrInput
 	// The domain name for the responder gateway.
-	DomainName pulumi.StringPtrInput
+	DomainName     pulumi.StringPtrInput
+	GatewayType    ResponderGatewayGatewayTypePtrInput
+	ListenerConfig ResponderGatewayListenerConfigPtrInput
 	// The configuration for the managed endpoint.
 	ManagedEndpointConfiguration ResponderGatewayManagedEndpointConfigurationPtrInput
 	// The networking port to use.
@@ -182,8 +193,18 @@ func (o ResponderGatewayOutput) ToResponderGatewayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ResponderGatewayOutput) AcmCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponderGateway) pulumi.StringPtrOutput { return v.AcmCertificateArn }).(pulumi.StringPtrOutput)
+}
+
 func (o ResponderGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponderGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ResponderGatewayOutput) CertificateAssociationStatus() ResponderGatewayCertificateAssociationStatusOutput {
+	return o.ApplyT(func(v *ResponderGateway) ResponderGatewayCertificateAssociationStatusOutput {
+		return v.CertificateAssociationStatus
+	}).(ResponderGatewayCertificateAssociationStatusOutput)
 }
 
 func (o ResponderGatewayOutput) CreatedTimestamp() pulumi.StringOutput {
@@ -200,8 +221,20 @@ func (o ResponderGatewayOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponderGateway) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
+func (o ResponderGatewayOutput) ExternalInboundEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResponderGateway) pulumi.StringOutput { return v.ExternalInboundEndpoint }).(pulumi.StringOutput)
+}
+
 func (o ResponderGatewayOutput) GatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponderGateway) pulumi.StringOutput { return v.GatewayId }).(pulumi.StringOutput)
+}
+
+func (o ResponderGatewayOutput) GatewayType() ResponderGatewayGatewayTypePtrOutput {
+	return o.ApplyT(func(v *ResponderGateway) ResponderGatewayGatewayTypePtrOutput { return v.GatewayType }).(ResponderGatewayGatewayTypePtrOutput)
+}
+
+func (o ResponderGatewayOutput) ListenerConfig() ResponderGatewayListenerConfigPtrOutput {
+	return o.ApplyT(func(v *ResponderGateway) ResponderGatewayListenerConfigPtrOutput { return v.ListenerConfig }).(ResponderGatewayListenerConfigPtrOutput)
 }
 
 // The configuration for the managed endpoint.

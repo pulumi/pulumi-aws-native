@@ -55,6 +55,7 @@ export class CapacityProvider extends pulumi.CustomResource {
      * The permissions configuration for the capacity provider.
      */
     declare public readonly permissionsConfig: pulumi.Output<outputs.lambda.CapacityProviderPermissionsConfig>;
+    declare public readonly propagateTags: pulumi.Output<outputs.lambda.CapacityProviderPropagateTagsConfig | undefined>;
     /**
      * The current state of the capacity provider.
      */
@@ -90,6 +91,7 @@ export class CapacityProvider extends pulumi.CustomResource {
             resourceInputs["instanceRequirements"] = args?.instanceRequirements;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
             resourceInputs["permissionsConfig"] = args?.permissionsConfig;
+            resourceInputs["propagateTags"] = args?.propagateTags;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["arn"] = undefined /*out*/;
@@ -101,6 +103,7 @@ export class CapacityProvider extends pulumi.CustomResource {
             resourceInputs["instanceRequirements"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["permissionsConfig"] = undefined /*out*/;
+            resourceInputs["propagateTags"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcConfig"] = undefined /*out*/;
@@ -133,6 +136,7 @@ export interface CapacityProviderArgs {
      * The permissions configuration for the capacity provider.
      */
     permissionsConfig: pulumi.Input<inputs.lambda.CapacityProviderPermissionsConfigArgs>;
+    propagateTags?: pulumi.Input<inputs.lambda.CapacityProviderPropagateTagsConfigArgs>;
     /**
      * A key-value pair that provides metadata for the capacity provider.
      */

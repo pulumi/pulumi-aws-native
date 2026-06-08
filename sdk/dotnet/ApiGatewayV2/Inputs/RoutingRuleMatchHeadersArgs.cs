@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 {
 
+    /// <summary>
+    /// Represents a ``MatchHeaders`` condition.
+    /// </summary>
     public sealed class RoutingRuleMatchHeadersArgs : global::Pulumi.ResourceArgs
     {
         [Input("anyOf", required: true)]

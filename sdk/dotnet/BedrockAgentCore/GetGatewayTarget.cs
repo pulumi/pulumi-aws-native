@@ -95,6 +95,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The name for the gateway target.
         /// </summary>
         public readonly string? Name;
+        public readonly Union<Outputs.GatewayTargetPrivateEndpoint0Properties, Outputs.GatewayTargetPrivateEndpoint1Properties>? PrivateEndpoint;
+        public readonly ImmutableArray<Outputs.GatewayTargetManagedResourceDetails> PrivateEndpointManagedResources;
         public readonly Pulumi.AwsNative.BedrockAgentCore.GatewayTargetTargetProtocolType? ProtocolType;
         /// <summary>
         /// The status for the gateway target.
@@ -135,6 +137,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? name,
 
+            Union<Outputs.GatewayTargetPrivateEndpoint0Properties, Outputs.GatewayTargetPrivateEndpoint1Properties>? privateEndpoint,
+
+            ImmutableArray<Outputs.GatewayTargetManagedResourceDetails> privateEndpointManagedResources,
+
             Pulumi.AwsNative.BedrockAgentCore.GatewayTargetTargetProtocolType? protocolType,
 
             Pulumi.AwsNative.BedrockAgentCore.GatewayTargetTargetStatus? status,
@@ -155,6 +161,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             LastSynchronizedAt = lastSynchronizedAt;
             MetadataConfiguration = metadataConfiguration;
             Name = name;
+            PrivateEndpoint = privateEndpoint;
+            PrivateEndpointManagedResources = privateEndpointManagedResources;
             ProtocolType = protocolType;
             Status = status;
             StatusReasons = statusReasons;

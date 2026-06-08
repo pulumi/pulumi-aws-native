@@ -30,6 +30,7 @@ class CapacityProviderArgs:
                  capacity_provider_scaling_config: Optional[pulumi.Input['CapacityProviderScalingConfigArgs']] = None,
                  instance_requirements: Optional[pulumi.Input['CapacityProviderInstanceRequirementsArgs']] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 propagate_tags: Optional[pulumi.Input['CapacityProviderPropagateTagsConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CapacityProvider resource.
@@ -51,6 +52,8 @@ class CapacityProviderArgs:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if propagate_tags is not None:
+            pulumi.set(__self__, "propagate_tags", propagate_tags)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -124,6 +127,15 @@ class CapacityProviderArgs:
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
+    @pulumi.getter(name="propagateTags")
+    def propagate_tags(self) -> Optional[pulumi.Input['CapacityProviderPropagateTagsConfigArgs']]:
+        return pulumi.get(self, "propagate_tags")
+
+    @propagate_tags.setter
+    def propagate_tags(self, value: Optional[pulumi.Input['CapacityProviderPropagateTagsConfigArgs']]):
+        pulumi.set(self, "propagate_tags", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -147,6 +159,7 @@ class CapacityProvider(pulumi.CustomResource):
                  instance_requirements: Optional[pulumi.Input[Union['CapacityProviderInstanceRequirementsArgs', 'CapacityProviderInstanceRequirementsArgsDict']]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  permissions_config: Optional[pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']]] = None,
+                 propagate_tags: Optional[pulumi.Input[Union['CapacityProviderPropagateTagsConfigArgs', 'CapacityProviderPropagateTagsConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_config: Optional[pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']]] = None,
                  __props__=None):
@@ -193,6 +206,7 @@ class CapacityProvider(pulumi.CustomResource):
                  instance_requirements: Optional[pulumi.Input[Union['CapacityProviderInstanceRequirementsArgs', 'CapacityProviderInstanceRequirementsArgsDict']]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  permissions_config: Optional[pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']]] = None,
+                 propagate_tags: Optional[pulumi.Input[Union['CapacityProviderPropagateTagsConfigArgs', 'CapacityProviderPropagateTagsConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_config: Optional[pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']]] = None,
                  __props__=None):
@@ -211,6 +225,7 @@ class CapacityProvider(pulumi.CustomResource):
             if permissions_config is None and not opts.urn:
                 raise TypeError("Missing required property 'permissions_config'")
             __props__.__dict__["permissions_config"] = permissions_config
+            __props__.__dict__["propagate_tags"] = propagate_tags
             __props__.__dict__["tags"] = tags
             if vpc_config is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_config'")
@@ -247,6 +262,7 @@ class CapacityProvider(pulumi.CustomResource):
         __props__.__dict__["instance_requirements"] = None
         __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["permissions_config"] = None
+        __props__.__dict__["propagate_tags"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_config"] = None
@@ -293,6 +309,11 @@ class CapacityProvider(pulumi.CustomResource):
         The permissions configuration for the capacity provider.
         """
         return pulumi.get(self, "permissions_config")
+
+    @_builtins.property
+    @pulumi.getter(name="propagateTags")
+    def propagate_tags(self) -> pulumi.Output[Optional['outputs.CapacityProviderPropagateTagsConfig']]:
+        return pulumi.get(self, "propagate_tags")
 
     @_builtins.property
     @pulumi.getter

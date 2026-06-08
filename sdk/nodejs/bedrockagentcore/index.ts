@@ -105,10 +105,20 @@ export const getOnlineEvaluationConfig: typeof import("./getOnlineEvaluationConf
 export const getOnlineEvaluationConfigOutput: typeof import("./getOnlineEvaluationConfig").getOnlineEvaluationConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getOnlineEvaluationConfig","getOnlineEvaluationConfigOutput"], () => require("./getOnlineEvaluationConfig"));
 
+export { GetPaymentConnectorArgs, GetPaymentConnectorResult, GetPaymentConnectorOutputArgs } from "./getPaymentConnector";
+export const getPaymentConnector: typeof import("./getPaymentConnector").getPaymentConnector = null as any;
+export const getPaymentConnectorOutput: typeof import("./getPaymentConnector").getPaymentConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getPaymentConnector","getPaymentConnectorOutput"], () => require("./getPaymentConnector"));
+
 export { GetPaymentCredentialProviderArgs, GetPaymentCredentialProviderResult, GetPaymentCredentialProviderOutputArgs } from "./getPaymentCredentialProvider";
 export const getPaymentCredentialProvider: typeof import("./getPaymentCredentialProvider").getPaymentCredentialProvider = null as any;
 export const getPaymentCredentialProviderOutput: typeof import("./getPaymentCredentialProvider").getPaymentCredentialProviderOutput = null as any;
 utilities.lazyLoad(exports, ["getPaymentCredentialProvider","getPaymentCredentialProviderOutput"], () => require("./getPaymentCredentialProvider"));
+
+export { GetPaymentManagerArgs, GetPaymentManagerResult, GetPaymentManagerOutputArgs } from "./getPaymentManager";
+export const getPaymentManager: typeof import("./getPaymentManager").getPaymentManager = null as any;
+export const getPaymentManagerOutput: typeof import("./getPaymentManager").getPaymentManagerOutput = null as any;
+utilities.lazyLoad(exports, ["getPaymentManager","getPaymentManagerOutput"], () => require("./getPaymentManager"));
 
 export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
 export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
@@ -119,6 +129,11 @@ export { GetPolicyEngineArgs, GetPolicyEngineResult, GetPolicyEngineOutputArgs }
 export const getPolicyEngine: typeof import("./getPolicyEngine").getPolicyEngine = null as any;
 export const getPolicyEngineOutput: typeof import("./getPolicyEngine").getPolicyEngineOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicyEngine","getPolicyEngineOutput"], () => require("./getPolicyEngine"));
+
+export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
+export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
+export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
 
 export { GetRuntimeArgs, GetRuntimeResult, GetRuntimeOutputArgs } from "./getRuntime";
 export const getRuntime: typeof import("./getRuntime").getRuntime = null as any;
@@ -155,10 +170,20 @@ export type OnlineEvaluationConfig = import("./onlineEvaluationConfig").OnlineEv
 export const OnlineEvaluationConfig: typeof import("./onlineEvaluationConfig").OnlineEvaluationConfig = null as any;
 utilities.lazyLoad(exports, ["OnlineEvaluationConfig"], () => require("./onlineEvaluationConfig"));
 
+export { PaymentConnectorArgs } from "./paymentConnector";
+export type PaymentConnector = import("./paymentConnector").PaymentConnector;
+export const PaymentConnector: typeof import("./paymentConnector").PaymentConnector = null as any;
+utilities.lazyLoad(exports, ["PaymentConnector"], () => require("./paymentConnector"));
+
 export { PaymentCredentialProviderArgs } from "./paymentCredentialProvider";
 export type PaymentCredentialProvider = import("./paymentCredentialProvider").PaymentCredentialProvider;
 export const PaymentCredentialProvider: typeof import("./paymentCredentialProvider").PaymentCredentialProvider = null as any;
 utilities.lazyLoad(exports, ["PaymentCredentialProvider"], () => require("./paymentCredentialProvider"));
+
+export { PaymentManagerArgs } from "./paymentManager";
+export type PaymentManager = import("./paymentManager").PaymentManager;
+export const PaymentManager: typeof import("./paymentManager").PaymentManager = null as any;
+utilities.lazyLoad(exports, ["PaymentManager"], () => require("./paymentManager"));
 
 export { PolicyArgs } from "./policy";
 export type Policy = import("./policy").Policy;
@@ -169,6 +194,11 @@ export { PolicyEngineArgs } from "./policyEngine";
 export type PolicyEngine = import("./policyEngine").PolicyEngine;
 export const PolicyEngine: typeof import("./policyEngine").PolicyEngine = null as any;
 utilities.lazyLoad(exports, ["PolicyEngine"], () => require("./policyEngine"));
+
+export { ResourcePolicyArgs } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
 
 export { RuntimeArgs } from "./runtime";
 export type Runtime = import("./runtime").Runtime;
@@ -217,12 +247,18 @@ const _module = {
                 return new OAuth2CredentialProvider(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:OnlineEvaluationConfig":
                 return new OnlineEvaluationConfig(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:PaymentConnector":
+                return new PaymentConnector(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:PaymentCredentialProvider":
                 return new PaymentCredentialProvider(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:PaymentManager":
+                return new PaymentManager(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Policy":
                 return new Policy(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:PolicyEngine":
                 return new PolicyEngine(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Runtime":
                 return new Runtime(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:RuntimeEndpoint":

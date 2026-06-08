@@ -65,10 +65,10 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "config:DescribeRemediationConfigurations", "config:PutRemediationConfigurations", "iam:PassRole" ]
+      "permissions" : [ "config:DescribeRemediationConfigurations", "config:PutRemediationConfigurations", "iam:PassRole", "iam:CreateServiceLinkedRole" ]
     },
     "update" : {
-      "permissions" : [ "config:PutRemediationConfigurations", "config:DescribeRemediationConfigurations", "iam:PassRole" ]
+      "permissions" : [ "config:PutRemediationConfigurations", "config:DescribeRemediationConfigurations", "iam:PassRole", "iam:CreateServiceLinkedRole" ]
     },
     "delete" : {
       "permissions" : [ "config:DeleteRemediationConfiguration" ]

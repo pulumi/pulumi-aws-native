@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CompositeAlarm{}
 	case "aws-native:cloudwatch:Dashboard":
 		r = &Dashboard{}
+	case "aws-native:cloudwatch:LogAlarm":
+		r = &LogAlarm{}
 	case "aws-native:cloudwatch:MetricStream":
 		r = &MetricStream{}
 	case "aws-native:cloudwatch:OTelEnrichment":

@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Inputs
 
     public sealed class PlanExecutionBlockConfiguration4PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("globalAuroraConfig", required: true)]
-        public Input<Inputs.PlanGlobalAuroraConfigurationArgs> GlobalAuroraConfig { get; set; } = null!;
+        [Input("auroraProvisionedScalingConfig", required: true)]
+        public Input<Inputs.PlanAuroraProvisionedScalingConfigurationArgs> AuroraProvisionedScalingConfig { get; set; } = null!;
 
         public PlanExecutionBlockConfiguration4PropertiesArgs()
         {

@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly Outputs.ApiKeyCredentialProviderApiKeySecretArn? ApiKeySecretArn;
         /// <summary>
+        /// The JSON key within the secret that contains the API key value
+        /// </summary>
+        public readonly string? ApiKeySecretJsonKey;
+        /// <summary>
         /// The timestamp when the credential provider was created
         /// </summary>
         public readonly string? CreatedTime;
@@ -88,6 +92,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         private GetApiKeyCredentialProviderResult(
             Outputs.ApiKeyCredentialProviderApiKeySecretArn? apiKeySecretArn,
 
+            string? apiKeySecretJsonKey,
+
             string? createdTime,
 
             string? credentialProviderArn,
@@ -97,6 +103,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ApiKeySecretArn = apiKeySecretArn;
+            ApiKeySecretJsonKey = apiKeySecretJsonKey;
             CreatedTime = createdTime;
             CredentialProviderArn = credentialProviderArn;
             LastUpdatedTime = lastUpdatedTime;

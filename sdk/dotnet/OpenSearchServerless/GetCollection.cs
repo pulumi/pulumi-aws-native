@@ -75,6 +75,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// The OpenSearch Dashboards endpoint for the collection.
         /// </summary>
         public readonly string? DashboardEndpoint;
+        public readonly Pulumi.AwsNative.OpenSearchServerless.CollectionDeletionProtection? DeletionProtection;
         /// <summary>
         /// The description of the collection
         /// </summary>
@@ -98,6 +99,8 @@ namespace Pulumi.AwsNative.OpenSearchServerless
 
             string? dashboardEndpoint,
 
+            Pulumi.AwsNative.OpenSearchServerless.CollectionDeletionProtection? deletionProtection,
+
             string? description,
 
             Outputs.CollectionFipsEndpoints? fipsEndpoints,
@@ -111,6 +114,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
             Arn = arn;
             CollectionEndpoint = collectionEndpoint;
             DashboardEndpoint = dashboardEndpoint;
+            DeletionProtection = deletionProtection;
             Description = description;
             FipsEndpoints = fipsEndpoints;
             Id = id;

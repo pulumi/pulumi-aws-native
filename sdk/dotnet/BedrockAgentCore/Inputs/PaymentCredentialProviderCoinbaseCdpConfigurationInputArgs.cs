@@ -24,14 +24,26 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         /// <summary>
         /// The Coinbase CDP API key secret
         /// </summary>
-        [Input("apiKeySecret", required: true)]
-        public Input<string> ApiKeySecret { get; set; } = null!;
+        [Input("apiKeySecret")]
+        public Input<string>? ApiKeySecret { get; set; }
+
+        [Input("apiKeySecretConfig")]
+        public Input<Inputs.PaymentCredentialProviderSecretReferenceArgs>? ApiKeySecretConfig { get; set; }
+
+        [Input("apiKeySecretSource")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType>? ApiKeySecretSource { get; set; }
 
         /// <summary>
         /// The Coinbase CDP wallet secret
         /// </summary>
         [Input("walletSecret")]
         public Input<string>? WalletSecret { get; set; }
+
+        [Input("walletSecretConfig")]
+        public Input<Inputs.PaymentCredentialProviderSecretReferenceArgs>? WalletSecretConfig { get; set; }
+
+        [Input("walletSecretSource")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType>? WalletSecretSource { get; set; }
 
         public PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs()
         {

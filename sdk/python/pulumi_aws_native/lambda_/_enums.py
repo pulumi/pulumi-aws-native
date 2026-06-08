@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'CapacityProviderArchitecture',
     'CapacityProviderPredefinedMetricType',
+    'CapacityProviderPropagateTagsMode',
     'CapacityProviderScalingMode',
     'CapacityProviderState',
     'CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment',
@@ -54,6 +55,15 @@ class CapacityProviderPredefinedMetricType(_builtins.str, Enum):
     The predefined metric for target tracking.
     """
     LAMBDA_CAPACITY_PROVIDER_AVERAGE_CPU_UTILIZATION = "LambdaCapacityProviderAverageCPUUtilization"
+
+
+@pulumi.type_token("aws-native:lambda:CapacityProviderPropagateTagsMode")
+class CapacityProviderPropagateTagsMode(_builtins.str, Enum):
+    """
+    The mode for tag propagation.
+    """
+    NONE = "None"
+    EXPLICIT = "Explicit"
 
 
 @pulumi.type_token("aws-native:lambda:CapacityProviderScalingMode")

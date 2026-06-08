@@ -15,8 +15,10 @@ from .get_alarm import *
 from .get_alarm_mute_rule import *
 from .get_composite_alarm import *
 from .get_dashboard import *
+from .get_log_alarm import *
 from .get_metric_stream import *
 from .get_o_tel_enrichment import *
+from .log_alarm import *
 from .metric_stream import *
 from .o_tel_enrichment import *
 from ._inputs import *

@@ -176,6 +176,268 @@ func (in *globalReplicationGroupMemberRolePtr) ToGlobalReplicationGroupMemberRol
 	return pulumi.ToOutputWithContext(ctx, in).(GlobalReplicationGroupMemberRolePtrOutput)
 }
 
+// The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+type ReplicationGroupDurability string
+
+const (
+	ReplicationGroupDurabilityDefault  = ReplicationGroupDurability("default")
+	ReplicationGroupDurabilityAsync    = ReplicationGroupDurability("async")
+	ReplicationGroupDurabilitySync     = ReplicationGroupDurability("sync")
+	ReplicationGroupDurabilityDisabled = ReplicationGroupDurability("disabled")
+)
+
+func (ReplicationGroupDurability) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupDurability)(nil)).Elem()
+}
+
+func (e ReplicationGroupDurability) ToReplicationGroupDurabilityOutput() ReplicationGroupDurabilityOutput {
+	return pulumi.ToOutput(e).(ReplicationGroupDurabilityOutput)
+}
+
+func (e ReplicationGroupDurability) ToReplicationGroupDurabilityOutputWithContext(ctx context.Context) ReplicationGroupDurabilityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicationGroupDurabilityOutput)
+}
+
+func (e ReplicationGroupDurability) ToReplicationGroupDurabilityPtrOutput() ReplicationGroupDurabilityPtrOutput {
+	return e.ToReplicationGroupDurabilityPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationGroupDurability) ToReplicationGroupDurabilityPtrOutputWithContext(ctx context.Context) ReplicationGroupDurabilityPtrOutput {
+	return ReplicationGroupDurability(e).ToReplicationGroupDurabilityOutputWithContext(ctx).ToReplicationGroupDurabilityPtrOutputWithContext(ctx)
+}
+
+func (e ReplicationGroupDurability) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationGroupDurability) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationGroupDurability) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationGroupDurability) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicationGroupDurabilityOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupDurabilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupDurability)(nil)).Elem()
+}
+
+func (o ReplicationGroupDurabilityOutput) ToReplicationGroupDurabilityOutput() ReplicationGroupDurabilityOutput {
+	return o
+}
+
+func (o ReplicationGroupDurabilityOutput) ToReplicationGroupDurabilityOutputWithContext(ctx context.Context) ReplicationGroupDurabilityOutput {
+	return o
+}
+
+func (o ReplicationGroupDurabilityOutput) ToReplicationGroupDurabilityPtrOutput() ReplicationGroupDurabilityPtrOutput {
+	return o.ToReplicationGroupDurabilityPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationGroupDurabilityOutput) ToReplicationGroupDurabilityPtrOutputWithContext(ctx context.Context) ReplicationGroupDurabilityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationGroupDurability) *ReplicationGroupDurability {
+		return &v
+	}).(ReplicationGroupDurabilityPtrOutput)
+}
+
+func (o ReplicationGroupDurabilityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicationGroupDurabilityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationGroupDurability) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicationGroupDurabilityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationGroupDurabilityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationGroupDurability) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicationGroupDurabilityPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupDurabilityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationGroupDurability)(nil)).Elem()
+}
+
+func (o ReplicationGroupDurabilityPtrOutput) ToReplicationGroupDurabilityPtrOutput() ReplicationGroupDurabilityPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupDurabilityPtrOutput) ToReplicationGroupDurabilityPtrOutputWithContext(ctx context.Context) ReplicationGroupDurabilityPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupDurabilityPtrOutput) Elem() ReplicationGroupDurabilityOutput {
+	return o.ApplyT(func(v *ReplicationGroupDurability) ReplicationGroupDurability {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationGroupDurability
+		return ret
+	}).(ReplicationGroupDurabilityOutput)
+}
+
+func (o ReplicationGroupDurabilityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationGroupDurabilityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicationGroupDurability) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReplicationGroupDurabilityInput is an input type that accepts values of the ReplicationGroupDurability enum
+// A concrete instance of `ReplicationGroupDurabilityInput` can be one of the following:
+//
+//	ReplicationGroupDurabilityDefault
+//	ReplicationGroupDurabilityAsync
+//	ReplicationGroupDurabilitySync
+//	ReplicationGroupDurabilityDisabled
+type ReplicationGroupDurabilityInput interface {
+	pulumi.Input
+
+	ToReplicationGroupDurabilityOutput() ReplicationGroupDurabilityOutput
+	ToReplicationGroupDurabilityOutputWithContext(context.Context) ReplicationGroupDurabilityOutput
+}
+
+var replicationGroupDurabilityPtrType = reflect.TypeOf((**ReplicationGroupDurability)(nil)).Elem()
+
+type ReplicationGroupDurabilityPtrInput interface {
+	pulumi.Input
+
+	ToReplicationGroupDurabilityPtrOutput() ReplicationGroupDurabilityPtrOutput
+	ToReplicationGroupDurabilityPtrOutputWithContext(context.Context) ReplicationGroupDurabilityPtrOutput
+}
+
+type replicationGroupDurabilityPtr string
+
+func ReplicationGroupDurabilityPtr(v string) ReplicationGroupDurabilityPtrInput {
+	return (*replicationGroupDurabilityPtr)(&v)
+}
+
+func (*replicationGroupDurabilityPtr) ElementType() reflect.Type {
+	return replicationGroupDurabilityPtrType
+}
+
+func (in *replicationGroupDurabilityPtr) ToReplicationGroupDurabilityPtrOutput() ReplicationGroupDurabilityPtrOutput {
+	return pulumi.ToOutput(in).(ReplicationGroupDurabilityPtrOutput)
+}
+
+func (in *replicationGroupDurabilityPtr) ToReplicationGroupDurabilityPtrOutputWithContext(ctx context.Context) ReplicationGroupDurabilityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicationGroupDurabilityPtrOutput)
+}
+
+// The resolved durability state of the replication group after resolving the default value. This is a read-only property.
+type ReplicationGroupEffectiveDurability string
+
+const (
+	ReplicationGroupEffectiveDurabilityAsync    = ReplicationGroupEffectiveDurability("async")
+	ReplicationGroupEffectiveDurabilitySync     = ReplicationGroupEffectiveDurability("sync")
+	ReplicationGroupEffectiveDurabilityDisabled = ReplicationGroupEffectiveDurability("disabled")
+)
+
+type ReplicationGroupEffectiveDurabilityOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupEffectiveDurabilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupEffectiveDurability)(nil)).Elem()
+}
+
+func (o ReplicationGroupEffectiveDurabilityOutput) ToReplicationGroupEffectiveDurabilityOutput() ReplicationGroupEffectiveDurabilityOutput {
+	return o
+}
+
+func (o ReplicationGroupEffectiveDurabilityOutput) ToReplicationGroupEffectiveDurabilityOutputWithContext(ctx context.Context) ReplicationGroupEffectiveDurabilityOutput {
+	return o
+}
+
+func (o ReplicationGroupEffectiveDurabilityOutput) ToReplicationGroupEffectiveDurabilityPtrOutput() ReplicationGroupEffectiveDurabilityPtrOutput {
+	return o.ToReplicationGroupEffectiveDurabilityPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationGroupEffectiveDurabilityOutput) ToReplicationGroupEffectiveDurabilityPtrOutputWithContext(ctx context.Context) ReplicationGroupEffectiveDurabilityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationGroupEffectiveDurability) *ReplicationGroupEffectiveDurability {
+		return &v
+	}).(ReplicationGroupEffectiveDurabilityPtrOutput)
+}
+
+func (o ReplicationGroupEffectiveDurabilityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicationGroupEffectiveDurabilityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationGroupEffectiveDurability) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicationGroupEffectiveDurabilityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationGroupEffectiveDurabilityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationGroupEffectiveDurability) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicationGroupEffectiveDurabilityPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupEffectiveDurabilityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationGroupEffectiveDurability)(nil)).Elem()
+}
+
+func (o ReplicationGroupEffectiveDurabilityPtrOutput) ToReplicationGroupEffectiveDurabilityPtrOutput() ReplicationGroupEffectiveDurabilityPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupEffectiveDurabilityPtrOutput) ToReplicationGroupEffectiveDurabilityPtrOutputWithContext(ctx context.Context) ReplicationGroupEffectiveDurabilityPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupEffectiveDurabilityPtrOutput) Elem() ReplicationGroupEffectiveDurabilityOutput {
+	return o.ApplyT(func(v *ReplicationGroupEffectiveDurability) ReplicationGroupEffectiveDurability {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationGroupEffectiveDurability
+		return ret
+	}).(ReplicationGroupEffectiveDurabilityOutput)
+}
+
+func (o ReplicationGroupEffectiveDurabilityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationGroupEffectiveDurabilityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicationGroupEffectiveDurability) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The unit of cached data capacity of the Serverless Cache.
 type ServerlessCacheDataStorageUnit string
 
@@ -1011,6 +1273,8 @@ func (in *userGroupEnginePtr) ToUserGroupEnginePtrOutputWithContext(ctx context.
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupMemberRoleInput)(nil)).Elem(), GlobalReplicationGroupMemberRole("PRIMARY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupMemberRolePtrInput)(nil)).Elem(), GlobalReplicationGroupMemberRole("PRIMARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupDurabilityInput)(nil)).Elem(), ReplicationGroupDurability("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupDurabilityPtrInput)(nil)).Elem(), ReplicationGroupDurability("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheDataStorageUnitInput)(nil)).Elem(), ServerlessCacheDataStorageUnit("GB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheDataStorageUnitPtrInput)(nil)).Elem(), ServerlessCacheDataStorageUnit("GB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheNetworkTypeInput)(nil)).Elem(), ServerlessCacheNetworkType("ipv4"))
@@ -1023,6 +1287,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserGroupEnginePtrInput)(nil)).Elem(), UserGroupEngine("redis"))
 	pulumi.RegisterOutputType(GlobalReplicationGroupMemberRoleOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupMemberRolePtrOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupDurabilityOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupDurabilityPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupEffectiveDurabilityOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupEffectiveDurabilityPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheDataStorageUnitOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheDataStorageUnitPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheNetworkTypeOutput{})

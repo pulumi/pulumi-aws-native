@@ -37,6 +37,7 @@ export interface GetCollectionResult {
      * The OpenSearch Dashboards endpoint for the collection.
      */
     readonly dashboardEndpoint?: string;
+    readonly deletionProtection?: enums.opensearchserverless.CollectionDeletionProtection;
     /**
      * The description of the collection
      */

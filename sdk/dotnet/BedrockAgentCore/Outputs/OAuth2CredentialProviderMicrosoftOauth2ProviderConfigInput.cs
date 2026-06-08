@@ -17,7 +17,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput
     {
         public readonly string ClientId;
-        public readonly string ClientSecret;
+        public readonly string? ClientSecret;
+        public readonly Outputs.OAuth2CredentialProviderSecretReference? ClientSecretConfig;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource? ClientSecretSource;
         /// <summary>
         /// The Microsoft Entra ID tenant ID
         /// </summary>
@@ -27,12 +29,18 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         private OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput(
             string clientId,
 
-            string clientSecret,
+            string? clientSecret,
+
+            Outputs.OAuth2CredentialProviderSecretReference? clientSecretConfig,
+
+            Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource? clientSecretSource,
 
             string? tenantId)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
+            ClientSecretConfig = clientSecretConfig;
+            ClientSecretSource = clientSecretSource;
             TenantId = tenantId;
         }
     }

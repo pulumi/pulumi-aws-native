@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Outputs
     [OutputType]
     public sealed class PlanExecutionBlockConfiguration8Properties
     {
-        public readonly Outputs.PlanEksResourceScalingConfiguration EksResourceScalingConfig;
+        public readonly Outputs.PlanRegionSwitchPlanConfiguration RegionSwitchPlanConfig;
 
         [OutputConstructor]
-        private PlanExecutionBlockConfiguration8Properties(Outputs.PlanEksResourceScalingConfiguration eksResourceScalingConfig)
+        private PlanExecutionBlockConfiguration8Properties(Outputs.PlanRegionSwitchPlanConfiguration regionSwitchPlanConfig)
         {
-            EksResourceScalingConfig = eksResourceScalingConfig;
+            RegionSwitchPlanConfig = regionSwitchPlanConfig;
         }
     }
 }

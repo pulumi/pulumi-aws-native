@@ -26,8 +26,12 @@ __all__ = [
     'CapacityProviderInstanceRequirementsArgsDict',
     'CapacityProviderPermissionsConfigArgs',
     'CapacityProviderPermissionsConfigArgsDict',
+    'CapacityProviderPropagateTagsConfigArgs',
+    'CapacityProviderPropagateTagsConfigArgsDict',
     'CapacityProviderScalingConfigArgs',
     'CapacityProviderScalingConfigArgsDict',
+    'CapacityProviderTagArgs',
+    'CapacityProviderTagArgsDict',
     'CapacityProviderTargetTrackingScalingPolicyArgs',
     'CapacityProviderTargetTrackingScalingPolicyArgsDict',
     'CapacityProviderVpcConfigArgs',
@@ -346,6 +350,48 @@ class CapacityProviderPermissionsConfigArgs:
         pulumi.set(self, "capacity_provider_operator_role_arn", value)
 
 
+class CapacityProviderPropagateTagsConfigArgsDict(TypedDict):
+    explicit_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgsDict']]]]
+    """
+    A list of tags to explicitly propagate to managed resources.
+    """
+    mode: NotRequired[pulumi.Input['CapacityProviderPropagateTagsMode']]
+
+@pulumi.input_type
+class CapacityProviderPropagateTagsConfigArgs:
+    def __init__(__self__, *,
+                 explicit_tags: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgs']]]] = None,
+                 mode: Optional[pulumi.Input['CapacityProviderPropagateTagsMode']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgs']]] explicit_tags: A list of tags to explicitly propagate to managed resources.
+        """
+        if explicit_tags is not None:
+            pulumi.set(__self__, "explicit_tags", explicit_tags)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter(name="explicitTags")
+    def explicit_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgs']]]]:
+        """
+        A list of tags to explicitly propagate to managed resources.
+        """
+        return pulumi.get(self, "explicit_tags")
+
+    @explicit_tags.setter
+    def explicit_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgs']]]]):
+        pulumi.set(self, "explicit_tags", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input['CapacityProviderPropagateTagsMode']]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input['CapacityProviderPropagateTagsMode']]):
+        pulumi.set(self, "mode", value)
+
+
 class CapacityProviderScalingConfigArgsDict(TypedDict):
     """
     Configuration that defines how the capacity provider scales compute instances based on demand and policies.
@@ -418,6 +464,59 @@ class CapacityProviderScalingConfigArgs:
     @scaling_policies.setter
     def scaling_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgs']]]]):
         pulumi.set(self, "scaling_policies", value)
+
+
+class CapacityProviderTagArgsDict(TypedDict):
+    """
+    A key-value pair that provides metadata for the capacity provider.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key name of the tag.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value for the tag.
+    """
+
+@pulumi.input_type
+class CapacityProviderTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        A key-value pair that provides metadata for the capacity provider.
+
+        :param pulumi.Input[_builtins.str] key: The key name of the tag.
+        :param pulumi.Input[_builtins.str] value: The value for the tag.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The key name of the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The value for the tag.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
 
 
 class CapacityProviderTargetTrackingScalingPolicyArgsDict(TypedDict):

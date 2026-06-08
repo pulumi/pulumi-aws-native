@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetApiKeyCredentialProviderResult:
-    def __init__(__self__, api_key_secret_arn=None, created_time=None, credential_provider_arn=None, last_updated_time=None, tags=None):
+    def __init__(__self__, api_key_secret_arn=None, api_key_secret_json_key=None, created_time=None, credential_provider_arn=None, last_updated_time=None, tags=None):
         if api_key_secret_arn and not isinstance(api_key_secret_arn, dict):
             raise TypeError("Expected argument 'api_key_secret_arn' to be a dict")
         pulumi.set(__self__, "api_key_secret_arn", api_key_secret_arn)
+        if api_key_secret_json_key and not isinstance(api_key_secret_json_key, str):
+            raise TypeError("Expected argument 'api_key_secret_json_key' to be a str")
+        pulumi.set(__self__, "api_key_secret_json_key", api_key_secret_json_key)
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -49,6 +52,14 @@ class GetApiKeyCredentialProviderResult:
         The ARN of the API key secret in AWS Secrets Manager
         """
         return pulumi.get(self, "api_key_secret_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeySecretJsonKey")
+    def api_key_secret_json_key(self) -> Optional[_builtins.str]:
+        """
+        The JSON key within the secret that contains the API key value
+        """
+        return pulumi.get(self, "api_key_secret_json_key")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
@@ -90,6 +101,7 @@ class AwaitableGetApiKeyCredentialProviderResult(GetApiKeyCredentialProviderResu
             yield self
         return GetApiKeyCredentialProviderResult(
             api_key_secret_arn=self.api_key_secret_arn,
+            api_key_secret_json_key=self.api_key_secret_json_key,
             created_time=self.created_time,
             credential_provider_arn=self.credential_provider_arn,
             last_updated_time=self.last_updated_time,
@@ -111,6 +123,7 @@ def get_api_key_credential_provider(credential_provider_arn: Optional[_builtins.
 
     return AwaitableGetApiKeyCredentialProviderResult(
         api_key_secret_arn=pulumi.get(__ret__, 'api_key_secret_arn'),
+        api_key_secret_json_key=pulumi.get(__ret__, 'api_key_secret_json_key'),
         created_time=pulumi.get(__ret__, 'created_time'),
         credential_provider_arn=pulumi.get(__ret__, 'credential_provider_arn'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
@@ -129,6 +142,7 @@ def get_api_key_credential_provider_output(credential_provider_arn: Optional[pul
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrockagentcore:getApiKeyCredentialProvider', __args__, opts=opts, typ=GetApiKeyCredentialProviderResult)
     return __ret__.apply(lambda __response__: GetApiKeyCredentialProviderResult(
         api_key_secret_arn=pulumi.get(__response__, 'api_key_secret_arn'),
+        api_key_secret_json_key=pulumi.get(__response__, 'api_key_secret_json_key'),
         created_time=pulumi.get(__response__, 'created_time'),
         credential_provider_arn=pulumi.get(__response__, 'credential_provider_arn'),
         last_updated_time=pulumi.get(__response__, 'last_updated_time'),

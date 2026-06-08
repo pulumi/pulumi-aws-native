@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
             set => _localTimeZoneDetection = value;
         }
 
+        [Input("localTimeZoneDetectionScope")]
+        public Input<Pulumi.AwsNative.ConnectCampaignsV2.CampaignLocalTimeZoneDetectionScope>? LocalTimeZoneDetectionScope { get; set; }
+
         public CampaignLocalTimeZoneConfigArgs()
         {
         }

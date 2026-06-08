@@ -63,6 +63,12 @@ namespace Pulumi.AwsNative.PaymentCryptography
         public Output<Pulumi.AwsNative.PaymentCryptography.KeyState> KeyState { get; private set; } = null!;
 
         /// <summary>
+        /// The resource-based policy attached to the key, in JSON format.
+        /// </summary>
+        [Output("policy")]
+        public Output<string?> Policy { get; private set; } = null!;
+
+        /// <summary>
         /// The list of AWS Regions to remove from the key's replication configuration.
         /// 
         /// The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
@@ -152,6 +158,12 @@ namespace Pulumi.AwsNative.PaymentCryptography
         /// </summary>
         [Input("keyCheckValueAlgorithm")]
         public Input<Pulumi.AwsNative.PaymentCryptography.KeyCheckValueAlgorithm>? KeyCheckValueAlgorithm { get; set; }
+
+        /// <summary>
+        /// The resource-based policy attached to the key, in JSON format.
+        /// </summary>
+        [Input("policy")]
+        public Input<string>? Policy { get; set; }
 
         [Input("replicationRegions")]
         private InputList<string>? _replicationRegions;

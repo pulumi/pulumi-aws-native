@@ -33,7 +33,8 @@ type LookupCollectionResult struct {
 	// The endpoint for the collection.
 	CollectionEndpoint *string `pulumi:"collectionEndpoint"`
 	// The OpenSearch Dashboards endpoint for the collection.
-	DashboardEndpoint *string `pulumi:"dashboardEndpoint"`
+	DashboardEndpoint  *string                       `pulumi:"dashboardEndpoint"`
+	DeletionProtection *CollectionDeletionProtection `pulumi:"deletionProtection"`
 	// The description of the collection
 	Description   *string                  `pulumi:"description"`
 	FipsEndpoints *CollectionFipsEndpoints `pulumi:"fipsEndpoints"`
@@ -89,6 +90,10 @@ func (o LookupCollectionResultOutput) CollectionEndpoint() pulumi.StringPtrOutpu
 // The OpenSearch Dashboards endpoint for the collection.
 func (o LookupCollectionResultOutput) DashboardEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCollectionResult) *string { return v.DashboardEndpoint }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCollectionResultOutput) DeletionProtection() CollectionDeletionProtectionPtrOutput {
+	return o.ApplyT(func(v LookupCollectionResult) *CollectionDeletionProtection { return v.DeletionProtection }).(CollectionDeletionProtectionPtrOutput)
 }
 
 // The description of the collection

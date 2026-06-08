@@ -248,7 +248,7 @@ class AuthorizerJwtConfiguration(dict):
 class DomainNameConfiguration(dict):
     """
     The ``DomainNameConfiguration`` property type specifies the configuration for an API's domain name.
-      ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
+     ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -286,12 +286,12 @@ class DomainNameConfiguration(dict):
                  security_policy: Optional[_builtins.str] = None):
         """
         The ``DomainNameConfiguration`` property type specifies the configuration for an API's domain name.
-          ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
+         ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
 
         :param _builtins.str certificate_arn: An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
         :param _builtins.str certificate_name: The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.
         :param _builtins.str endpoint_type: The endpoint type.
-        :param _builtins.str ip_address_type: The IP address types that can invoke the domain name. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name.
+        :param _builtins.str ip_address_type: The IP address types that can invoke the domain name. Use ``ipv4`` to allow only IPv4 addresses to invoke your domain name, or use ``dualstack`` to allow both IPv4 and IPv6 addresses to invoke your domain name.
         :param _builtins.str ownership_verification_certificate_arn: The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
         :param _builtins.str security_policy: The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are ``TLS_1_0`` and ``TLS_1_2``.
         """
@@ -336,7 +336,7 @@ class DomainNameConfiguration(dict):
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[_builtins.str]:
         """
-        The IP address types that can invoke the domain name. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name.
+        The IP address types that can invoke the domain name. Use ``ipv4`` to allow only IPv4 addresses to invoke your domain name, or use ``dualstack`` to allow both IPv4 and IPv6 addresses to invoke your domain name.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -553,6 +553,9 @@ class RouteResponseParameterConstraints(dict):
 
 @pulumi.output_type
 class RoutingRuleAction(dict):
+    """
+    Represents a routing rule action. The only supported action is ``invokeApi``.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -573,6 +576,8 @@ class RoutingRuleAction(dict):
     def __init__(__self__, *,
                  invoke_api: 'outputs.RoutingRuleActionInvokeApi'):
         """
+        Represents a routing rule action. The only supported action is ``invokeApi``.
+
         :param 'RoutingRuleActionInvokeApi' invoke_api: Represents an InvokeApi action.
         """
         pulumi.set(__self__, "invoke_api", invoke_api)
@@ -588,6 +593,9 @@ class RoutingRuleAction(dict):
 
 @pulumi.output_type
 class RoutingRuleActionInvokeApi(dict):
+    """
+    Represents an InvokeApi action.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -612,6 +620,8 @@ class RoutingRuleActionInvokeApi(dict):
                  stage: _builtins.str,
                  strip_base_path: Optional[_builtins.bool] = None):
         """
+        Represents an InvokeApi action.
+
         :param _builtins.str api_id: The API identifier of the target API.
         :param _builtins.str stage: The name of the target stage.
         :param _builtins.bool strip_base_path: The strip base path setting. When true, API Gateway strips the incoming matched base path when forwarding the request to the target API.
@@ -648,6 +658,9 @@ class RoutingRuleActionInvokeApi(dict):
 
 @pulumi.output_type
 class RoutingRuleCondition(dict):
+    """
+    Represents a condition. Conditions can contain up to two ``matchHeaders`` conditions and one ``matchBasePaths`` conditions. API Gateway evaluates header conditions and base path conditions together. You can only use AND between header and base path conditions.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -671,6 +684,8 @@ class RoutingRuleCondition(dict):
                  match_base_paths: Optional['outputs.RoutingRuleMatchBasePaths'] = None,
                  match_headers: Optional['outputs.RoutingRuleMatchHeaders'] = None):
         """
+        Represents a condition. Conditions can contain up to two ``matchHeaders`` conditions and one ``matchBasePaths`` conditions. API Gateway evaluates header conditions and base path conditions together. You can only use AND between header and base path conditions.
+
         :param 'RoutingRuleMatchBasePaths' match_base_paths: The base path to be matched.
         :param 'RoutingRuleMatchHeaders' match_headers: The headers to be matched.
         """
@@ -698,6 +713,9 @@ class RoutingRuleCondition(dict):
 
 @pulumi.output_type
 class RoutingRuleMatchBasePaths(dict):
+    """
+    Represents a ``MatchBasePaths`` condition.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -718,6 +736,8 @@ class RoutingRuleMatchBasePaths(dict):
     def __init__(__self__, *,
                  any_of: Sequence[_builtins.str]):
         """
+        Represents a ``MatchBasePaths`` condition.
+
         :param Sequence[_builtins.str] any_of: The string of the case sensitive base path to be matched.
         """
         pulumi.set(__self__, "any_of", any_of)
@@ -733,6 +753,9 @@ class RoutingRuleMatchBasePaths(dict):
 
 @pulumi.output_type
 class RoutingRuleMatchHeaderValue(dict):
+    """
+    Represents a ``MatchHeaderValue``.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -754,8 +777,10 @@ class RoutingRuleMatchHeaderValue(dict):
                  header: _builtins.str,
                  value_glob: _builtins.str):
         """
-        :param _builtins.str header: The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~.` .
-        :param _builtins.str value_glob: The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~` . Wildcard matching is supported for header glob values but must be for `*prefix-match` , `suffix-match*` , or `*infix*-match` .
+        Represents a ``MatchHeaderValue``.
+
+        :param _builtins.str header: The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are ``a-z``, ``A-Z``, ``0-9``, and the following special characters: ``*?-!#$%&'.^_`|~.``.
+        :param _builtins.str value_glob: The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are ``a-z``, ``A-Z``, ``0-9``, and the following special characters: ``*?-!#$%&'.^_`|~``. Wildcard matching is supported for header glob values but must be for ``*prefix-match``, ``suffix-match*``, or ``*infix*-match``.
         """
         pulumi.set(__self__, "header", header)
         pulumi.set(__self__, "value_glob", value_glob)
@@ -764,7 +789,7 @@ class RoutingRuleMatchHeaderValue(dict):
     @pulumi.getter
     def header(self) -> _builtins.str:
         """
-        The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~.` .
+        The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are ``a-z``, ``A-Z``, ``0-9``, and the following special characters: ``*?-!#$%&'.^_`|~.``.
         """
         return pulumi.get(self, "header")
 
@@ -772,13 +797,16 @@ class RoutingRuleMatchHeaderValue(dict):
     @pulumi.getter(name="valueGlob")
     def value_glob(self) -> _builtins.str:
         """
-        The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~` . Wildcard matching is supported for header glob values but must be for `*prefix-match` , `suffix-match*` , or `*infix*-match` .
+        The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are ``a-z``, ``A-Z``, ``0-9``, and the following special characters: ``*?-!#$%&'.^_`|~``. Wildcard matching is supported for header glob values but must be for ``*prefix-match``, ``suffix-match*``, or ``*infix*-match``.
         """
         return pulumi.get(self, "value_glob")
 
 
 @pulumi.output_type
 class RoutingRuleMatchHeaders(dict):
+    """
+    Represents a ``MatchHeaders`` condition.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -799,6 +827,8 @@ class RoutingRuleMatchHeaders(dict):
     def __init__(__self__, *,
                  any_of: Sequence['outputs.RoutingRuleMatchHeaderValue']):
         """
+        Represents a ``MatchHeaders`` condition.
+
         :param Sequence['RoutingRuleMatchHeaderValue'] any_of: The header name and header value glob to be matched. The matchHeaders condition is matched if any of the header name and header value globs are matched.
         """
         pulumi.set(__self__, "any_of", any_of)

@@ -23,23 +23,39 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         /// <summary>
         /// The Coinbase CDP API key secret
         /// </summary>
-        public readonly string ApiKeySecret;
+        public readonly string? ApiKeySecret;
+        public readonly Outputs.PaymentCredentialProviderSecretReference? ApiKeySecretConfig;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType? ApiKeySecretSource;
         /// <summary>
         /// The Coinbase CDP wallet secret
         /// </summary>
         public readonly string? WalletSecret;
+        public readonly Outputs.PaymentCredentialProviderSecretReference? WalletSecretConfig;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType? WalletSecretSource;
 
         [OutputConstructor]
         private PaymentCredentialProviderCoinbaseCdpConfigurationInput(
             string apiKeyId,
 
-            string apiKeySecret,
+            string? apiKeySecret,
 
-            string? walletSecret)
+            Outputs.PaymentCredentialProviderSecretReference? apiKeySecretConfig,
+
+            Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType? apiKeySecretSource,
+
+            string? walletSecret,
+
+            Outputs.PaymentCredentialProviderSecretReference? walletSecretConfig,
+
+            Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType? walletSecretSource)
         {
             ApiKeyId = apiKeyId;
             ApiKeySecret = apiKeySecret;
+            ApiKeySecretConfig = apiKeySecretConfig;
+            ApiKeySecretSource = apiKeySecretSource;
             WalletSecret = walletSecret;
+            WalletSecretConfig = walletSecretConfig;
+            WalletSecretSource = walletSecretSource;
         }
     }
 }

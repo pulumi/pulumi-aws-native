@@ -166,6 +166,13 @@
     "KeyState" : {
       "$ref" : "#/definitions/KeyState"
     },
+    "Policy" : {
+      "type" : "string",
+      "maxLength" : 20480,
+      "minLength" : 1,
+      "pattern" : "^[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+$",
+      "description" : "The resource-based policy attached to the key, in JSON format."
+    },
     "ReplicationRegions" : {
       "type" : "array",
       "items" : {
@@ -192,13 +199,13 @@
   "primaryIdentifier" : [ "/properties/KeyIdentifier" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "payment-cryptography:GetKey", "payment-cryptography:CreateKey", "payment-cryptography:TagResource" ]
+      "permissions" : [ "payment-cryptography:GetKey", "payment-cryptography:CreateKey", "payment-cryptography:TagResource", "payment-cryptography:PutResourcePolicy" ]
     },
     "read" : {
-      "permissions" : [ "payment-cryptography:GetKey", "payment-cryptography:ListTagsForResource" ]
+      "permissions" : [ "payment-cryptography:GetKey", "payment-cryptography:ListTagsForResource", "payment-cryptography:GetResourcePolicy" ]
     },
     "update" : {
-      "permissions" : [ "payment-cryptography:GetKey", "payment-cryptography:ListTagsForResource", "payment-cryptography:TagResource", "payment-cryptography:UntagResource", "payment-cryptography:StartKeyUsage", "payment-cryptography:StopKeyUsage", "payment-cryptography:AddKeyReplicationRegions", "payment-cryptography:RemoveKeyReplicationRegions" ]
+      "permissions" : [ "payment-cryptography:GetKey", "payment-cryptography:ListTagsForResource", "payment-cryptography:TagResource", "payment-cryptography:UntagResource", "payment-cryptography:StartKeyUsage", "payment-cryptography:StopKeyUsage", "payment-cryptography:AddKeyReplicationRegions", "payment-cryptography:RemoveKeyReplicationRegions", "payment-cryptography:PutResourcePolicy", "payment-cryptography:DeleteResourcePolicy" ]
     },
     "delete" : {
       "permissions" : [ "payment-cryptography:GetKey", "payment-cryptography:DeleteKey" ]

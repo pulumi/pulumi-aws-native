@@ -46,6 +46,18 @@ export class ApiKeyCredentialProvider extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly apiKeySecretArn: pulumi.Output<outputs.bedrockagentcore.ApiKeyCredentialProviderApiKeySecretArn>;
     /**
+     * Configuration for a customer-provided secret containing the API key
+     */
+    declare public readonly apiKeySecretConfig: pulumi.Output<outputs.bedrockagentcore.ApiKeyCredentialProviderSecretReference | undefined>;
+    /**
+     * The JSON key within the secret that contains the API key value
+     */
+    declare public /*out*/ readonly apiKeySecretJsonKey: pulumi.Output<string>;
+    /**
+     * The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+     */
+    declare public readonly apiKeySecretSource: pulumi.Output<enums.bedrockagentcore.ApiKeyCredentialProviderApiKeySecretSource | undefined>;
+    /**
      * The timestamp when the credential provider was created
      */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
@@ -78,15 +90,21 @@ export class ApiKeyCredentialProvider extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["apiKey"] = args?.apiKey;
+            resourceInputs["apiKeySecretConfig"] = args?.apiKeySecretConfig;
+            resourceInputs["apiKeySecretSource"] = args?.apiKeySecretSource;
             resourceInputs["name"] = args?.name;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["apiKeySecretArn"] = undefined /*out*/;
+            resourceInputs["apiKeySecretJsonKey"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["credentialProviderArn"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
         } else {
             resourceInputs["apiKey"] = undefined /*out*/;
             resourceInputs["apiKeySecretArn"] = undefined /*out*/;
+            resourceInputs["apiKeySecretConfig"] = undefined /*out*/;
+            resourceInputs["apiKeySecretJsonKey"] = undefined /*out*/;
+            resourceInputs["apiKeySecretSource"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["credentialProviderArn"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
@@ -108,6 +126,14 @@ export interface ApiKeyCredentialProviderArgs {
      * The API key to use for authentication
      */
     apiKey?: pulumi.Input<string>;
+    /**
+     * Configuration for a customer-provided secret containing the API key
+     */
+    apiKeySecretConfig?: pulumi.Input<inputs.bedrockagentcore.ApiKeyCredentialProviderSecretReferenceArgs>;
+    /**
+     * The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+     */
+    apiKeySecretSource?: pulumi.Input<enums.bedrockagentcore.ApiKeyCredentialProviderApiKeySecretSource>;
     /**
      * The name of the API key credential provider
      */

@@ -84,6 +84,7 @@ namespace Pulumi.AwsNative.Mwaa
 
         public static EnvironmentWebserverAccessMode PrivateOnly { get; } = new EnvironmentWebserverAccessMode("PRIVATE_ONLY");
         public static EnvironmentWebserverAccessMode PublicOnly { get; } = new EnvironmentWebserverAccessMode("PUBLIC_ONLY");
+        public static EnvironmentWebserverAccessMode PublicAndPrivate { get; } = new EnvironmentWebserverAccessMode("PUBLIC_AND_PRIVATE");
 
         public static bool operator ==(EnvironmentWebserverAccessMode left, EnvironmentWebserverAccessMode right) => left.Equals(right);
         public static bool operator !=(EnvironmentWebserverAccessMode left, EnvironmentWebserverAccessMode right) => !left.Equals(right);

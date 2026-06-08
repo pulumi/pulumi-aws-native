@@ -2323,8 +2323,12 @@ func (o WorkspaceCloudWatchLogDestinationOutput) LogGroupArn() pulumi.StringOutp
 type WorkspaceConfiguration struct {
 	// An array of label set and associated limits
 	LimitsPerLabelSets []WorkspaceLimitsPerLabelSet `pulumi:"limitsPerLabelSets"`
+	// The time window in seconds for accepting out-of-order samples
+	OutOfOrderTimeWindowInSeconds *int `pulumi:"outOfOrderTimeWindowInSeconds"`
 	// How many days that metrics are retained in the workspace
 	RetentionPeriodInDays *int `pulumi:"retentionPeriodInDays"`
+	// Duration in seconds to offset rule evaluation queries into the past
+	RuleQueryOffsetInSeconds *int `pulumi:"ruleQueryOffsetInSeconds"`
 }
 
 // WorkspaceConfigurationInput is an input type that accepts WorkspaceConfigurationArgs and WorkspaceConfigurationOutput values.
@@ -2342,8 +2346,12 @@ type WorkspaceConfigurationInput interface {
 type WorkspaceConfigurationArgs struct {
 	// An array of label set and associated limits
 	LimitsPerLabelSets WorkspaceLimitsPerLabelSetArrayInput `pulumi:"limitsPerLabelSets"`
+	// The time window in seconds for accepting out-of-order samples
+	OutOfOrderTimeWindowInSeconds pulumi.IntPtrInput `pulumi:"outOfOrderTimeWindowInSeconds"`
 	// How many days that metrics are retained in the workspace
 	RetentionPeriodInDays pulumi.IntPtrInput `pulumi:"retentionPeriodInDays"`
+	// Duration in seconds to offset rule evaluation queries into the past
+	RuleQueryOffsetInSeconds pulumi.IntPtrInput `pulumi:"ruleQueryOffsetInSeconds"`
 }
 
 func (WorkspaceConfigurationArgs) ElementType() reflect.Type {
@@ -2429,9 +2437,19 @@ func (o WorkspaceConfigurationOutput) LimitsPerLabelSets() WorkspaceLimitsPerLab
 	return o.ApplyT(func(v WorkspaceConfiguration) []WorkspaceLimitsPerLabelSet { return v.LimitsPerLabelSets }).(WorkspaceLimitsPerLabelSetArrayOutput)
 }
 
+// The time window in seconds for accepting out-of-order samples
+func (o WorkspaceConfigurationOutput) OutOfOrderTimeWindowInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceConfiguration) *int { return v.OutOfOrderTimeWindowInSeconds }).(pulumi.IntPtrOutput)
+}
+
 // How many days that metrics are retained in the workspace
 func (o WorkspaceConfigurationOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkspaceConfiguration) *int { return v.RetentionPeriodInDays }).(pulumi.IntPtrOutput)
+}
+
+// Duration in seconds to offset rule evaluation queries into the past
+func (o WorkspaceConfigurationOutput) RuleQueryOffsetInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceConfiguration) *int { return v.RuleQueryOffsetInSeconds }).(pulumi.IntPtrOutput)
 }
 
 type WorkspaceConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2468,6 +2486,16 @@ func (o WorkspaceConfigurationPtrOutput) LimitsPerLabelSets() WorkspaceLimitsPer
 	}).(WorkspaceLimitsPerLabelSetArrayOutput)
 }
 
+// The time window in seconds for accepting out-of-order samples
+func (o WorkspaceConfigurationPtrOutput) OutOfOrderTimeWindowInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OutOfOrderTimeWindowInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 // How many days that metrics are retained in the workspace
 func (o WorkspaceConfigurationPtrOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkspaceConfiguration) *int {
@@ -2475,6 +2503,16 @@ func (o WorkspaceConfigurationPtrOutput) RetentionPeriodInDays() pulumi.IntPtrOu
 			return nil
 		}
 		return v.RetentionPeriodInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// Duration in seconds to offset rule evaluation queries into the past
+func (o WorkspaceConfigurationPtrOutput) RuleQueryOffsetInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RuleQueryOffsetInSeconds
 	}).(pulumi.IntPtrOutput)
 }
 

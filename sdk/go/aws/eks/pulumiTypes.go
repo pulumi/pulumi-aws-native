@@ -1676,10 +1676,12 @@ func (o ClusterComputeConfigPtrOutput) NodeRoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify the placement group of the control plane machines for your cluster.
+// The placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
 type ClusterControlPlanePlacement struct {
-	// Specify the placement group name of the control place machines for your cluster.
+	// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
 	GroupName *string `pulumi:"groupName"`
+	// Optional parameter to specify the placement group spread level for control plane instances. If not provided, EKS will deploy control plane instances without a placement group.
+	SpreadLevel *string `pulumi:"spreadLevel"`
 }
 
 // ClusterControlPlanePlacementInput is an input type that accepts ClusterControlPlanePlacementArgs and ClusterControlPlanePlacementOutput values.
@@ -1693,10 +1695,12 @@ type ClusterControlPlanePlacementInput interface {
 	ToClusterControlPlanePlacementOutputWithContext(context.Context) ClusterControlPlanePlacementOutput
 }
 
-// Specify the placement group of the control plane machines for your cluster.
+// The placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
 type ClusterControlPlanePlacementArgs struct {
-	// Specify the placement group name of the control place machines for your cluster.
+	// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
 	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
+	// Optional parameter to specify the placement group spread level for control plane instances. If not provided, EKS will deploy control plane instances without a placement group.
+	SpreadLevel pulumi.StringPtrInput `pulumi:"spreadLevel"`
 }
 
 func (ClusterControlPlanePlacementArgs) ElementType() reflect.Type {
@@ -1752,7 +1756,7 @@ func (i *clusterControlPlanePlacementPtrType) ToClusterControlPlanePlacementPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterControlPlanePlacementPtrOutput)
 }
 
-// Specify the placement group of the control plane machines for your cluster.
+// The placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
 type ClusterControlPlanePlacementOutput struct{ *pulumi.OutputState }
 
 func (ClusterControlPlanePlacementOutput) ElementType() reflect.Type {
@@ -1777,9 +1781,14 @@ func (o ClusterControlPlanePlacementOutput) ToClusterControlPlanePlacementPtrOut
 	}).(ClusterControlPlanePlacementPtrOutput)
 }
 
-// Specify the placement group name of the control place machines for your cluster.
+// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
 func (o ClusterControlPlanePlacementOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterControlPlanePlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
+}
+
+// Optional parameter to specify the placement group spread level for control plane instances. If not provided, EKS will deploy control plane instances without a placement group.
+func (o ClusterControlPlanePlacementOutput) SpreadLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterControlPlanePlacement) *string { return v.SpreadLevel }).(pulumi.StringPtrOutput)
 }
 
 type ClusterControlPlanePlacementPtrOutput struct{ *pulumi.OutputState }
@@ -1806,13 +1815,23 @@ func (o ClusterControlPlanePlacementPtrOutput) Elem() ClusterControlPlanePlaceme
 	}).(ClusterControlPlanePlacementOutput)
 }
 
-// Specify the placement group name of the control place machines for your cluster.
+// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
 func (o ClusterControlPlanePlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterControlPlanePlacement) *string {
 		if v == nil {
 			return nil
 		}
 		return v.GroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Optional parameter to specify the placement group spread level for control plane instances. If not provided, EKS will deploy control plane instances without a placement group.
+func (o ClusterControlPlanePlacementPtrOutput) SpreadLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterControlPlanePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpreadLevel
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2203,6 +2222,146 @@ func (o ClusterEncryptionConfigArrayOutput) Index(i pulumi.IntInput) ClusterEncr
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterEncryptionConfig {
 		return vs[0].([]ClusterEncryptionConfig)[vs[1].(int)]
 	}).(ClusterEncryptionConfigOutput)
+}
+
+// The placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+type ClusterEtcdPlacement struct {
+	// Optional parameter to specify the placement group spread level for etcd instances. If not provided, EKS will deploy etcd instances without a placement group.
+	SpreadLevel *string `pulumi:"spreadLevel"`
+}
+
+// ClusterEtcdPlacementInput is an input type that accepts ClusterEtcdPlacementArgs and ClusterEtcdPlacementOutput values.
+// You can construct a concrete instance of `ClusterEtcdPlacementInput` via:
+//
+//	ClusterEtcdPlacementArgs{...}
+type ClusterEtcdPlacementInput interface {
+	pulumi.Input
+
+	ToClusterEtcdPlacementOutput() ClusterEtcdPlacementOutput
+	ToClusterEtcdPlacementOutputWithContext(context.Context) ClusterEtcdPlacementOutput
+}
+
+// The placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+type ClusterEtcdPlacementArgs struct {
+	// Optional parameter to specify the placement group spread level for etcd instances. If not provided, EKS will deploy etcd instances without a placement group.
+	SpreadLevel pulumi.StringPtrInput `pulumi:"spreadLevel"`
+}
+
+func (ClusterEtcdPlacementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEtcdPlacement)(nil)).Elem()
+}
+
+func (i ClusterEtcdPlacementArgs) ToClusterEtcdPlacementOutput() ClusterEtcdPlacementOutput {
+	return i.ToClusterEtcdPlacementOutputWithContext(context.Background())
+}
+
+func (i ClusterEtcdPlacementArgs) ToClusterEtcdPlacementOutputWithContext(ctx context.Context) ClusterEtcdPlacementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEtcdPlacementOutput)
+}
+
+func (i ClusterEtcdPlacementArgs) ToClusterEtcdPlacementPtrOutput() ClusterEtcdPlacementPtrOutput {
+	return i.ToClusterEtcdPlacementPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterEtcdPlacementArgs) ToClusterEtcdPlacementPtrOutputWithContext(ctx context.Context) ClusterEtcdPlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEtcdPlacementOutput).ToClusterEtcdPlacementPtrOutputWithContext(ctx)
+}
+
+// ClusterEtcdPlacementPtrInput is an input type that accepts ClusterEtcdPlacementArgs, ClusterEtcdPlacementPtr and ClusterEtcdPlacementPtrOutput values.
+// You can construct a concrete instance of `ClusterEtcdPlacementPtrInput` via:
+//
+//	        ClusterEtcdPlacementArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterEtcdPlacementPtrInput interface {
+	pulumi.Input
+
+	ToClusterEtcdPlacementPtrOutput() ClusterEtcdPlacementPtrOutput
+	ToClusterEtcdPlacementPtrOutputWithContext(context.Context) ClusterEtcdPlacementPtrOutput
+}
+
+type clusterEtcdPlacementPtrType ClusterEtcdPlacementArgs
+
+func ClusterEtcdPlacementPtr(v *ClusterEtcdPlacementArgs) ClusterEtcdPlacementPtrInput {
+	return (*clusterEtcdPlacementPtrType)(v)
+}
+
+func (*clusterEtcdPlacementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEtcdPlacement)(nil)).Elem()
+}
+
+func (i *clusterEtcdPlacementPtrType) ToClusterEtcdPlacementPtrOutput() ClusterEtcdPlacementPtrOutput {
+	return i.ToClusterEtcdPlacementPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterEtcdPlacementPtrType) ToClusterEtcdPlacementPtrOutputWithContext(ctx context.Context) ClusterEtcdPlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEtcdPlacementPtrOutput)
+}
+
+// The placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+type ClusterEtcdPlacementOutput struct{ *pulumi.OutputState }
+
+func (ClusterEtcdPlacementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEtcdPlacement)(nil)).Elem()
+}
+
+func (o ClusterEtcdPlacementOutput) ToClusterEtcdPlacementOutput() ClusterEtcdPlacementOutput {
+	return o
+}
+
+func (o ClusterEtcdPlacementOutput) ToClusterEtcdPlacementOutputWithContext(ctx context.Context) ClusterEtcdPlacementOutput {
+	return o
+}
+
+func (o ClusterEtcdPlacementOutput) ToClusterEtcdPlacementPtrOutput() ClusterEtcdPlacementPtrOutput {
+	return o.ToClusterEtcdPlacementPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterEtcdPlacementOutput) ToClusterEtcdPlacementPtrOutputWithContext(ctx context.Context) ClusterEtcdPlacementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterEtcdPlacement) *ClusterEtcdPlacement {
+		return &v
+	}).(ClusterEtcdPlacementPtrOutput)
+}
+
+// Optional parameter to specify the placement group spread level for etcd instances. If not provided, EKS will deploy etcd instances without a placement group.
+func (o ClusterEtcdPlacementOutput) SpreadLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterEtcdPlacement) *string { return v.SpreadLevel }).(pulumi.StringPtrOutput)
+}
+
+type ClusterEtcdPlacementPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterEtcdPlacementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEtcdPlacement)(nil)).Elem()
+}
+
+func (o ClusterEtcdPlacementPtrOutput) ToClusterEtcdPlacementPtrOutput() ClusterEtcdPlacementPtrOutput {
+	return o
+}
+
+func (o ClusterEtcdPlacementPtrOutput) ToClusterEtcdPlacementPtrOutputWithContext(ctx context.Context) ClusterEtcdPlacementPtrOutput {
+	return o
+}
+
+func (o ClusterEtcdPlacementPtrOutput) Elem() ClusterEtcdPlacementOutput {
+	return o.ApplyT(func(v *ClusterEtcdPlacement) ClusterEtcdPlacement {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterEtcdPlacement
+		return ret
+	}).(ClusterEtcdPlacementOutput)
+}
+
+// Optional parameter to specify the placement group spread level for etcd instances. If not provided, EKS will deploy etcd instances without a placement group.
+func (o ClusterEtcdPlacementPtrOutput) SpreadLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterEtcdPlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpreadLevel
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Kubernetes network configuration for the cluster.
@@ -2652,11 +2811,15 @@ func (o ClusterLoggingTypeConfigArrayOutput) Index(i pulumi.IntInput) ClusterLog
 
 // An object representing the Outpost configuration to use for AWS EKS outpost cluster.
 type ClusterOutpostConfig struct {
-	// Specify the Instance type of the machines that should be used to create your cluster.
+	// The EC2 instance type for the Kubernetes control plane instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all control plane instances and cannot be changed after cluster creation.
 	ControlPlaneInstanceType string `pulumi:"controlPlaneInstanceType"`
-	// Specify the placement group of the control plane machines for your cluster.
+	// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
 	ControlPlanePlacement *ClusterControlPlanePlacement `pulumi:"controlPlanePlacement"`
-	// Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+	// The EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all etcd instances and cannot be changed after cluster creation.
+	EtcdInstanceType *string `pulumi:"etcdInstanceType"`
+	// An object representing the placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+	EtcdPlacement *ClusterEtcdPlacement `pulumi:"etcdPlacement"`
+	// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. Only a single Outpost ARN is supported.
 	OutpostArns []string `pulumi:"outpostArns"`
 }
 
@@ -2673,11 +2836,15 @@ type ClusterOutpostConfigInput interface {
 
 // An object representing the Outpost configuration to use for AWS EKS outpost cluster.
 type ClusterOutpostConfigArgs struct {
-	// Specify the Instance type of the machines that should be used to create your cluster.
+	// The EC2 instance type for the Kubernetes control plane instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all control plane instances and cannot be changed after cluster creation.
 	ControlPlaneInstanceType pulumi.StringInput `pulumi:"controlPlaneInstanceType"`
-	// Specify the placement group of the control plane machines for your cluster.
+	// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
 	ControlPlanePlacement ClusterControlPlanePlacementPtrInput `pulumi:"controlPlanePlacement"`
-	// Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+	// The EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all etcd instances and cannot be changed after cluster creation.
+	EtcdInstanceType pulumi.StringPtrInput `pulumi:"etcdInstanceType"`
+	// An object representing the placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+	EtcdPlacement ClusterEtcdPlacementPtrInput `pulumi:"etcdPlacement"`
+	// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. Only a single Outpost ARN is supported.
 	OutpostArns pulumi.StringArrayInput `pulumi:"outpostArns"`
 }
 
@@ -2759,17 +2926,27 @@ func (o ClusterOutpostConfigOutput) ToClusterOutpostConfigPtrOutputWithContext(c
 	}).(ClusterOutpostConfigPtrOutput)
 }
 
-// Specify the Instance type of the machines that should be used to create your cluster.
+// The EC2 instance type for the Kubernetes control plane instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all control plane instances and cannot be changed after cluster creation.
 func (o ClusterOutpostConfigOutput) ControlPlaneInstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterOutpostConfig) string { return v.ControlPlaneInstanceType }).(pulumi.StringOutput)
 }
 
-// Specify the placement group of the control plane machines for your cluster.
+// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
 func (o ClusterOutpostConfigOutput) ControlPlanePlacement() ClusterControlPlanePlacementPtrOutput {
 	return o.ApplyT(func(v ClusterOutpostConfig) *ClusterControlPlanePlacement { return v.ControlPlanePlacement }).(ClusterControlPlanePlacementPtrOutput)
 }
 
-// Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+// The EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all etcd instances and cannot be changed after cluster creation.
+func (o ClusterOutpostConfigOutput) EtcdInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterOutpostConfig) *string { return v.EtcdInstanceType }).(pulumi.StringPtrOutput)
+}
+
+// An object representing the placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+func (o ClusterOutpostConfigOutput) EtcdPlacement() ClusterEtcdPlacementPtrOutput {
+	return o.ApplyT(func(v ClusterOutpostConfig) *ClusterEtcdPlacement { return v.EtcdPlacement }).(ClusterEtcdPlacementPtrOutput)
+}
+
+// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. Only a single Outpost ARN is supported.
 func (o ClusterOutpostConfigOutput) OutpostArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterOutpostConfig) []string { return v.OutpostArns }).(pulumi.StringArrayOutput)
 }
@@ -2798,7 +2975,7 @@ func (o ClusterOutpostConfigPtrOutput) Elem() ClusterOutpostConfigOutput {
 	}).(ClusterOutpostConfigOutput)
 }
 
-// Specify the Instance type of the machines that should be used to create your cluster.
+// The EC2 instance type for the Kubernetes control plane instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all control plane instances and cannot be changed after cluster creation.
 func (o ClusterOutpostConfigPtrOutput) ControlPlaneInstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterOutpostConfig) *string {
 		if v == nil {
@@ -2808,7 +2985,7 @@ func (o ClusterOutpostConfigPtrOutput) ControlPlaneInstanceType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify the placement group of the control plane machines for your cluster.
+// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
 func (o ClusterOutpostConfigPtrOutput) ControlPlanePlacement() ClusterControlPlanePlacementPtrOutput {
 	return o.ApplyT(func(v *ClusterOutpostConfig) *ClusterControlPlanePlacement {
 		if v == nil {
@@ -2818,7 +2995,27 @@ func (o ClusterOutpostConfigPtrOutput) ControlPlanePlacement() ClusterControlPla
 	}).(ClusterControlPlanePlacementPtrOutput)
 }
 
-// Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+// The EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all etcd instances and cannot be changed after cluster creation.
+func (o ClusterOutpostConfigPtrOutput) EtcdInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EtcdInstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// An object representing the placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+func (o ClusterOutpostConfigPtrOutput) EtcdPlacement() ClusterEtcdPlacementPtrOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfig) *ClusterEtcdPlacement {
+		if v == nil {
+			return nil
+		}
+		return v.EtcdPlacement
+	}).(ClusterEtcdPlacementPtrOutput)
+}
+
+// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. Only a single Outpost ARN is supported.
 func (o ClusterOutpostConfigPtrOutput) OutpostArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterOutpostConfig) []string {
 		if v == nil {
@@ -6266,6 +6463,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterElasticLoadBalancingPtrInput)(nil)).Elem(), ClusterElasticLoadBalancingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigInput)(nil)).Elem(), ClusterEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigArrayInput)(nil)).Elem(), ClusterEncryptionConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEtcdPlacementInput)(nil)).Elem(), ClusterEtcdPlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEtcdPlacementPtrInput)(nil)).Elem(), ClusterEtcdPlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigInput)(nil)).Elem(), ClusterKubernetesNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigPtrInput)(nil)).Elem(), ClusterKubernetesNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingEnabledTypesInput)(nil)).Elem(), ClusterLoggingEnabledTypesArgs{})
@@ -6348,6 +6547,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterElasticLoadBalancingPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterEtcdPlacementOutput{})
+	pulumi.RegisterOutputType(ClusterEtcdPlacementPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingEnabledTypesOutput{})

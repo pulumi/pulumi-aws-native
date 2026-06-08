@@ -29,8 +29,11 @@ class ResponderGatewayArgs:
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  vpc_id: pulumi.Input[_builtins.str],
+                 acm_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 gateway_type: Optional[pulumi.Input['ResponderGatewayGatewayType']] = None,
+                 listener_config: Optional[pulumi.Input['ResponderGatewayListenerConfigArgs']] = None,
                  managed_endpoint_configuration: Optional[pulumi.Input['ResponderGatewayManagedEndpointConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  trust_store_configuration: Optional[pulumi.Input['ResponderGatewayTrustStoreConfigurationArgs']] = None):
@@ -53,10 +56,16 @@ class ResponderGatewayArgs:
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "vpc_id", vpc_id)
+        if acm_certificate_arn is not None:
+            pulumi.set(__self__, "acm_certificate_arn", acm_certificate_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
+        if gateway_type is not None:
+            pulumi.set(__self__, "gateway_type", gateway_type)
+        if listener_config is not None:
+            pulumi.set(__self__, "listener_config", listener_config)
         if managed_endpoint_configuration is not None:
             pulumi.set(__self__, "managed_endpoint_configuration", managed_endpoint_configuration)
         if tags is not None:
@@ -125,6 +134,15 @@ class ResponderGatewayArgs:
         pulumi.set(self, "vpc_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="acmCertificateArn")
+    def acm_certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "acm_certificate_arn")
+
+    @acm_certificate_arn.setter
+    def acm_certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "acm_certificate_arn", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -147,6 +165,24 @@ class ResponderGatewayArgs:
     @domain_name.setter
     def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayType")
+    def gateway_type(self) -> Optional[pulumi.Input['ResponderGatewayGatewayType']]:
+        return pulumi.get(self, "gateway_type")
+
+    @gateway_type.setter
+    def gateway_type(self, value: Optional[pulumi.Input['ResponderGatewayGatewayType']]):
+        pulumi.set(self, "gateway_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="listenerConfig")
+    def listener_config(self) -> Optional[pulumi.Input['ResponderGatewayListenerConfigArgs']]:
+        return pulumi.get(self, "listener_config")
+
+    @listener_config.setter
+    def listener_config(self, value: Optional[pulumi.Input['ResponderGatewayListenerConfigArgs']]):
+        pulumi.set(self, "listener_config", value)
 
     @_builtins.property
     @pulumi.getter(name="managedEndpointConfiguration")
@@ -191,8 +227,11 @@ class ResponderGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 acm_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 gateway_type: Optional[pulumi.Input['ResponderGatewayGatewayType']] = None,
+                 listener_config: Optional[pulumi.Input[Union['ResponderGatewayListenerConfigArgs', 'ResponderGatewayListenerConfigArgsDict']]] = None,
                  managed_endpoint_configuration: Optional[pulumi.Input[Union['ResponderGatewayManagedEndpointConfigurationArgs', 'ResponderGatewayManagedEndpointConfigurationArgsDict']]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
                  protocol: Optional[pulumi.Input['ResponderGatewayProtocol']] = None,
@@ -244,8 +283,11 @@ class ResponderGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 acm_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 gateway_type: Optional[pulumi.Input['ResponderGatewayGatewayType']] = None,
+                 listener_config: Optional[pulumi.Input[Union['ResponderGatewayListenerConfigArgs', 'ResponderGatewayListenerConfigArgsDict']]] = None,
                  managed_endpoint_configuration: Optional[pulumi.Input[Union['ResponderGatewayManagedEndpointConfigurationArgs', 'ResponderGatewayManagedEndpointConfigurationArgsDict']]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
                  protocol: Optional[pulumi.Input['ResponderGatewayProtocol']] = None,
@@ -263,8 +305,11 @@ class ResponderGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResponderGatewayArgs.__new__(ResponderGatewayArgs)
 
+            __props__.__dict__["acm_certificate_arn"] = acm_certificate_arn
             __props__.__dict__["description"] = description
             __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["gateway_type"] = gateway_type
+            __props__.__dict__["listener_config"] = listener_config
             __props__.__dict__["managed_endpoint_configuration"] = managed_endpoint_configuration
             if port is None and not opts.urn:
                 raise TypeError("Missing required property 'port'")
@@ -284,7 +329,9 @@ class ResponderGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["arn"] = None
+            __props__.__dict__["certificate_association_status"] = None
             __props__.__dict__["created_timestamp"] = None
+            __props__.__dict__["external_inbound_endpoint"] = None
             __props__.__dict__["gateway_id"] = None
             __props__.__dict__["responder_gateway_status"] = None
             __props__.__dict__["updated_timestamp"] = None
@@ -310,11 +357,16 @@ class ResponderGateway(pulumi.CustomResource):
 
         __props__ = ResponderGatewayArgs.__new__(ResponderGatewayArgs)
 
+        __props__.__dict__["acm_certificate_arn"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["certificate_association_status"] = None
         __props__.__dict__["created_timestamp"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["domain_name"] = None
+        __props__.__dict__["external_inbound_endpoint"] = None
         __props__.__dict__["gateway_id"] = None
+        __props__.__dict__["gateway_type"] = None
+        __props__.__dict__["listener_config"] = None
         __props__.__dict__["managed_endpoint_configuration"] = None
         __props__.__dict__["port"] = None
         __props__.__dict__["protocol"] = None
@@ -328,9 +380,19 @@ class ResponderGateway(pulumi.CustomResource):
         return ResponderGateway(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
+    @pulumi.getter(name="acmCertificateArn")
+    def acm_certificate_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "acm_certificate_arn")
+
+    @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="certificateAssociationStatus")
+    def certificate_association_status(self) -> pulumi.Output['ResponderGatewayCertificateAssociationStatus']:
+        return pulumi.get(self, "certificate_association_status")
 
     @_builtins.property
     @pulumi.getter(name="createdTimestamp")
@@ -354,9 +416,24 @@ class ResponderGateway(pulumi.CustomResource):
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
+    @pulumi.getter(name="externalInboundEndpoint")
+    def external_inbound_endpoint(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "external_inbound_endpoint")
+
+    @_builtins.property
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "gateway_id")
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayType")
+    def gateway_type(self) -> pulumi.Output[Optional['ResponderGatewayGatewayType']]:
+        return pulumi.get(self, "gateway_type")
+
+    @_builtins.property
+    @pulumi.getter(name="listenerConfig")
+    def listener_config(self) -> pulumi.Output[Optional['outputs.ResponderGatewayListenerConfig']]:
+        return pulumi.get(self, "listener_config")
 
     @_builtins.property
     @pulumi.getter(name="managedEndpointConfiguration")

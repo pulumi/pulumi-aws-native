@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Inputs
 
     public sealed class PlanExecutionBlockConfiguration5PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("parallelConfig", required: true)]
-        public Input<Inputs.PlanParallelExecutionBlockConfigurationArgs> ParallelConfig { get; set; } = null!;
+        [Input("auroraServerlessScalingConfig", required: true)]
+        public Input<Inputs.PlanAuroraServerlessScalingConfigurationArgs> AuroraServerlessScalingConfig { get; set; } = null!;
 
         public PlanExecutionBlockConfiguration5PropertiesArgs()
         {

@@ -69,6 +69,10 @@ export class Key extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly keyState: pulumi.Output<enums.paymentcryptography.KeyState>;
     /**
+     * The resource-based policy attached to the key, in JSON format.
+     */
+    declare public readonly policy: pulumi.Output<string | undefined>;
+    /**
      * The list of AWS Regions to remove from the key's replication configuration.
      *
      * The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
@@ -99,6 +103,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["exportable"] = args?.exportable;
             resourceInputs["keyAttributes"] = args?.keyAttributes;
             resourceInputs["keyCheckValueAlgorithm"] = args?.keyCheckValueAlgorithm;
+            resourceInputs["policy"] = args?.policy;
             resourceInputs["replicationRegions"] = args?.replicationRegions;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["keyIdentifier"] = undefined /*out*/;
@@ -114,6 +119,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["keyIdentifier"] = undefined /*out*/;
             resourceInputs["keyOrigin"] = undefined /*out*/;
             resourceInputs["keyState"] = undefined /*out*/;
+            resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["replicationRegions"] = undefined /*out*/;
             resourceInputs["replicationStatus"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -149,6 +155,10 @@ export interface KeyArgs {
      * For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
      */
     keyCheckValueAlgorithm?: pulumi.Input<enums.paymentcryptography.KeyCheckValueAlgorithm>;
+    /**
+     * The resource-based policy attached to the key, in JSON format.
+     */
+    policy?: pulumi.Input<string>;
     /**
      * The list of AWS Regions to remove from the key's replication configuration.
      *

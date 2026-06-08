@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public sealed class GetApiMappingResult
     {
         /// <summary>
-        /// The identifier of the API.
+        /// The API identifier.
         /// </summary>
         public readonly string? ApiId;
         /// <summary>

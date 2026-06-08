@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetKeyResult:
-    def __init__(__self__, derive_key_usage=None, enabled=None, exportable=None, key_attributes=None, key_check_value_algorithm=None, key_identifier=None, key_origin=None, key_state=None, replication_status=None, tags=None):
+    def __init__(__self__, derive_key_usage=None, enabled=None, exportable=None, key_attributes=None, key_check_value_algorithm=None, key_identifier=None, key_origin=None, key_state=None, policy=None, replication_status=None, tags=None):
         if derive_key_usage and not isinstance(derive_key_usage, str):
             raise TypeError("Expected argument 'derive_key_usage' to be a str")
         pulumi.set(__self__, "derive_key_usage", derive_key_usage)
@@ -51,6 +51,9 @@ class GetKeyResult:
         if key_state and not isinstance(key_state, str):
             raise TypeError("Expected argument 'key_state' to be a str")
         pulumi.set(__self__, "key_state", key_state)
+        if policy and not isinstance(policy, str):
+            raise TypeError("Expected argument 'policy' to be a str")
+        pulumi.set(__self__, "policy", policy)
         if replication_status and not isinstance(replication_status, dict):
             raise TypeError("Expected argument 'replication_status' to be a dict")
         pulumi.set(__self__, "replication_status", replication_status)
@@ -122,6 +125,14 @@ class GetKeyResult:
         return pulumi.get(self, "key_state")
 
     @_builtins.property
+    @pulumi.getter
+    def policy(self) -> Optional[_builtins.str]:
+        """
+        The resource-based policy attached to the key, in JSON format.
+        """
+        return pulumi.get(self, "policy")
+
+    @_builtins.property
     @pulumi.getter(name="replicationStatus")
     def replication_status(self) -> Optional[Mapping[str, 'outputs.KeyReplicationStatusType']]:
         return pulumi.get(self, "replication_status")
@@ -146,6 +157,7 @@ class AwaitableGetKeyResult(GetKeyResult):
             key_identifier=self.key_identifier,
             key_origin=self.key_origin,
             key_state=self.key_state,
+            policy=self.policy,
             replication_status=self.replication_status,
             tags=self.tags)
 
@@ -169,6 +181,7 @@ def get_key(key_identifier: Optional[_builtins.str] = None,
         key_identifier=pulumi.get(__ret__, 'key_identifier'),
         key_origin=pulumi.get(__ret__, 'key_origin'),
         key_state=pulumi.get(__ret__, 'key_state'),
+        policy=pulumi.get(__ret__, 'policy'),
         replication_status=pulumi.get(__ret__, 'replication_status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_key_output(key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
@@ -189,5 +202,6 @@ def get_key_output(key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
         key_identifier=pulumi.get(__response__, 'key_identifier'),
         key_origin=pulumi.get(__response__, 'key_origin'),
         key_state=pulumi.get(__response__, 'key_state'),
+        policy=pulumi.get(__response__, 'policy'),
         replication_status=pulumi.get(__response__, 'replication_status'),
         tags=pulumi.get(__response__, 'tags')))

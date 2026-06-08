@@ -21,18 +21,32 @@ namespace Pulumi.AwsNative.Aps.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkspaceLimitsPerLabelSet> LimitsPerLabelSets;
         /// <summary>
+        /// The time window in seconds for accepting out-of-order samples
+        /// </summary>
+        public readonly int? OutOfOrderTimeWindowInSeconds;
+        /// <summary>
         /// How many days that metrics are retained in the workspace
         /// </summary>
         public readonly int? RetentionPeriodInDays;
+        /// <summary>
+        /// Duration in seconds to offset rule evaluation queries into the past
+        /// </summary>
+        public readonly int? RuleQueryOffsetInSeconds;
 
         [OutputConstructor]
         private WorkspaceConfiguration(
             ImmutableArray<Outputs.WorkspaceLimitsPerLabelSet> limitsPerLabelSets,
 
-            int? retentionPeriodInDays)
+            int? outOfOrderTimeWindowInSeconds,
+
+            int? retentionPeriodInDays,
+
+            int? ruleQueryOffsetInSeconds)
         {
             LimitsPerLabelSets = limitsPerLabelSets;
+            OutOfOrderTimeWindowInSeconds = outOfOrderTimeWindowInSeconds;
             RetentionPeriodInDays = retentionPeriodInDays;
+            RuleQueryOffsetInSeconds = ruleQueryOffsetInSeconds;
         }
     }
 }

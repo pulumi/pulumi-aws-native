@@ -13,6 +13,7 @@ __all__ = [
     'ClusterAutoScalingConfigMode',
     'ClusterDeepHealthCheckType',
     'ClusterKubernetesTaintEffect',
+    'ClusterNetworkInterfaceInterfaceType',
     'ClusterNodeProvisioningMode',
     'ClusterNodeRecovery',
     'ClusterSlurmConfigNodeType',
@@ -361,6 +362,15 @@ class ClusterKubernetesTaintEffect(_builtins.str, Enum):
     NO_SCHEDULE = "NoSchedule"
     PREFER_NO_SCHEDULE = "PreferNoSchedule"
     NO_EXECUTE = "NoExecute"
+
+
+@pulumi.type_token("aws-native:sagemaker:ClusterNetworkInterfaceInterfaceType")
+class ClusterNetworkInterfaceInterfaceType(_builtins.str, Enum):
+    """
+    The type of network interface.
+    """
+    EFA = "efa"
+    EFA_ONLY = "efa-only"
 
 
 @pulumi.type_token("aws-native:sagemaker:ClusterNodeProvisioningMode")

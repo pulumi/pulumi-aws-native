@@ -22,7 +22,9 @@ export interface GetResponderGatewayArgs {
 }
 
 export interface GetResponderGatewayResult {
+    readonly acmCertificateArn?: string;
     readonly arn?: string;
+    readonly certificateAssociationStatus?: enums.rtbfabric.ResponderGatewayCertificateAssociationStatus;
     readonly createdTimestamp?: string;
     /**
      * An optional description for the responder gateway.
@@ -32,7 +34,10 @@ export interface GetResponderGatewayResult {
      * The domain name for the responder gateway.
      */
     readonly domainName?: string;
+    readonly externalInboundEndpoint?: string;
     readonly gatewayId?: string;
+    readonly gatewayType?: enums.rtbfabric.ResponderGatewayGatewayType;
+    readonly listenerConfig?: outputs.rtbfabric.ResponderGatewayListenerConfig;
     /**
      * The configuration for the managed endpoint.
      */

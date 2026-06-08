@@ -957,6 +957,100 @@ func (o LinkResponderErrorMaskingLoggingTypeArrayOutput) Index(i pulumi.IntInput
 	}).(LinkResponderErrorMaskingLoggingTypeOutput)
 }
 
+type LinkRoutingRuleRuleStatus string
+
+const (
+	LinkRoutingRuleRuleStatusCreationInProgress = LinkRoutingRuleRuleStatus("CREATION_IN_PROGRESS")
+	LinkRoutingRuleRuleStatusActive             = LinkRoutingRuleRuleStatus("ACTIVE")
+	LinkRoutingRuleRuleStatusUpdateInProgress   = LinkRoutingRuleRuleStatus("UPDATE_IN_PROGRESS")
+	LinkRoutingRuleRuleStatusDeletionInProgress = LinkRoutingRuleRuleStatus("DELETION_IN_PROGRESS")
+	LinkRoutingRuleRuleStatusDeleted            = LinkRoutingRuleRuleStatus("DELETED")
+	LinkRoutingRuleRuleStatusFailed             = LinkRoutingRuleRuleStatus("FAILED")
+)
+
+type LinkRoutingRuleRuleStatusOutput struct{ *pulumi.OutputState }
+
+func (LinkRoutingRuleRuleStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkRoutingRuleRuleStatus)(nil)).Elem()
+}
+
+func (o LinkRoutingRuleRuleStatusOutput) ToLinkRoutingRuleRuleStatusOutput() LinkRoutingRuleRuleStatusOutput {
+	return o
+}
+
+func (o LinkRoutingRuleRuleStatusOutput) ToLinkRoutingRuleRuleStatusOutputWithContext(ctx context.Context) LinkRoutingRuleRuleStatusOutput {
+	return o
+}
+
+func (o LinkRoutingRuleRuleStatusOutput) ToLinkRoutingRuleRuleStatusPtrOutput() LinkRoutingRuleRuleStatusPtrOutput {
+	return o.ToLinkRoutingRuleRuleStatusPtrOutputWithContext(context.Background())
+}
+
+func (o LinkRoutingRuleRuleStatusOutput) ToLinkRoutingRuleRuleStatusPtrOutputWithContext(ctx context.Context) LinkRoutingRuleRuleStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkRoutingRuleRuleStatus) *LinkRoutingRuleRuleStatus {
+		return &v
+	}).(LinkRoutingRuleRuleStatusPtrOutput)
+}
+
+func (o LinkRoutingRuleRuleStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LinkRoutingRuleRuleStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LinkRoutingRuleRuleStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LinkRoutingRuleRuleStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LinkRoutingRuleRuleStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LinkRoutingRuleRuleStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LinkRoutingRuleRuleStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkRoutingRuleRuleStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkRoutingRuleRuleStatus)(nil)).Elem()
+}
+
+func (o LinkRoutingRuleRuleStatusPtrOutput) ToLinkRoutingRuleRuleStatusPtrOutput() LinkRoutingRuleRuleStatusPtrOutput {
+	return o
+}
+
+func (o LinkRoutingRuleRuleStatusPtrOutput) ToLinkRoutingRuleRuleStatusPtrOutputWithContext(ctx context.Context) LinkRoutingRuleRuleStatusPtrOutput {
+	return o
+}
+
+func (o LinkRoutingRuleRuleStatusPtrOutput) Elem() LinkRoutingRuleRuleStatusOutput {
+	return o.ApplyT(func(v *LinkRoutingRuleRuleStatus) LinkRoutingRuleRuleStatus {
+		if v != nil {
+			return *v
+		}
+		var ret LinkRoutingRuleRuleStatus
+		return ret
+	}).(LinkRoutingRuleRuleStatusOutput)
+}
+
+func (o LinkRoutingRuleRuleStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LinkRoutingRuleRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LinkRoutingRuleRuleStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type LinkStatus string
 
 const (
@@ -1635,6 +1729,265 @@ func (o RequesterGatewayStatusPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
+type ResponderGatewayCertificateAssociationStatus string
+
+const (
+	ResponderGatewayCertificateAssociationStatusPendingAssociation    = ResponderGatewayCertificateAssociationStatus("PENDING_ASSOCIATION")
+	ResponderGatewayCertificateAssociationStatusAssociated            = ResponderGatewayCertificateAssociationStatus("ASSOCIATED")
+	ResponderGatewayCertificateAssociationStatusPendingDisassociation = ResponderGatewayCertificateAssociationStatus("PENDING_DISASSOCIATION")
+	ResponderGatewayCertificateAssociationStatusDisassociated         = ResponderGatewayCertificateAssociationStatus("DISASSOCIATED")
+	ResponderGatewayCertificateAssociationStatusExpired               = ResponderGatewayCertificateAssociationStatus("EXPIRED")
+	ResponderGatewayCertificateAssociationStatusFailed                = ResponderGatewayCertificateAssociationStatus("FAILED")
+)
+
+type ResponderGatewayCertificateAssociationStatusOutput struct{ *pulumi.OutputState }
+
+func (ResponderGatewayCertificateAssociationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponderGatewayCertificateAssociationStatus)(nil)).Elem()
+}
+
+func (o ResponderGatewayCertificateAssociationStatusOutput) ToResponderGatewayCertificateAssociationStatusOutput() ResponderGatewayCertificateAssociationStatusOutput {
+	return o
+}
+
+func (o ResponderGatewayCertificateAssociationStatusOutput) ToResponderGatewayCertificateAssociationStatusOutputWithContext(ctx context.Context) ResponderGatewayCertificateAssociationStatusOutput {
+	return o
+}
+
+func (o ResponderGatewayCertificateAssociationStatusOutput) ToResponderGatewayCertificateAssociationStatusPtrOutput() ResponderGatewayCertificateAssociationStatusPtrOutput {
+	return o.ToResponderGatewayCertificateAssociationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ResponderGatewayCertificateAssociationStatusOutput) ToResponderGatewayCertificateAssociationStatusPtrOutputWithContext(ctx context.Context) ResponderGatewayCertificateAssociationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponderGatewayCertificateAssociationStatus) *ResponderGatewayCertificateAssociationStatus {
+		return &v
+	}).(ResponderGatewayCertificateAssociationStatusPtrOutput)
+}
+
+func (o ResponderGatewayCertificateAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResponderGatewayCertificateAssociationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResponderGatewayCertificateAssociationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResponderGatewayCertificateAssociationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResponderGatewayCertificateAssociationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResponderGatewayCertificateAssociationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResponderGatewayCertificateAssociationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ResponderGatewayCertificateAssociationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponderGatewayCertificateAssociationStatus)(nil)).Elem()
+}
+
+func (o ResponderGatewayCertificateAssociationStatusPtrOutput) ToResponderGatewayCertificateAssociationStatusPtrOutput() ResponderGatewayCertificateAssociationStatusPtrOutput {
+	return o
+}
+
+func (o ResponderGatewayCertificateAssociationStatusPtrOutput) ToResponderGatewayCertificateAssociationStatusPtrOutputWithContext(ctx context.Context) ResponderGatewayCertificateAssociationStatusPtrOutput {
+	return o
+}
+
+func (o ResponderGatewayCertificateAssociationStatusPtrOutput) Elem() ResponderGatewayCertificateAssociationStatusOutput {
+	return o.ApplyT(func(v *ResponderGatewayCertificateAssociationStatus) ResponderGatewayCertificateAssociationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ResponderGatewayCertificateAssociationStatus
+		return ret
+	}).(ResponderGatewayCertificateAssociationStatusOutput)
+}
+
+func (o ResponderGatewayCertificateAssociationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResponderGatewayCertificateAssociationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResponderGatewayCertificateAssociationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResponderGatewayGatewayType string
+
+const (
+	ResponderGatewayGatewayTypeExternal = ResponderGatewayGatewayType("EXTERNAL")
+	ResponderGatewayGatewayTypeInternal = ResponderGatewayGatewayType("INTERNAL")
+)
+
+func (ResponderGatewayGatewayType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponderGatewayGatewayType)(nil)).Elem()
+}
+
+func (e ResponderGatewayGatewayType) ToResponderGatewayGatewayTypeOutput() ResponderGatewayGatewayTypeOutput {
+	return pulumi.ToOutput(e).(ResponderGatewayGatewayTypeOutput)
+}
+
+func (e ResponderGatewayGatewayType) ToResponderGatewayGatewayTypeOutputWithContext(ctx context.Context) ResponderGatewayGatewayTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResponderGatewayGatewayTypeOutput)
+}
+
+func (e ResponderGatewayGatewayType) ToResponderGatewayGatewayTypePtrOutput() ResponderGatewayGatewayTypePtrOutput {
+	return e.ToResponderGatewayGatewayTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResponderGatewayGatewayType) ToResponderGatewayGatewayTypePtrOutputWithContext(ctx context.Context) ResponderGatewayGatewayTypePtrOutput {
+	return ResponderGatewayGatewayType(e).ToResponderGatewayGatewayTypeOutputWithContext(ctx).ToResponderGatewayGatewayTypePtrOutputWithContext(ctx)
+}
+
+func (e ResponderGatewayGatewayType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResponderGatewayGatewayType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResponderGatewayGatewayType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResponderGatewayGatewayType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResponderGatewayGatewayTypeOutput struct{ *pulumi.OutputState }
+
+func (ResponderGatewayGatewayTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponderGatewayGatewayType)(nil)).Elem()
+}
+
+func (o ResponderGatewayGatewayTypeOutput) ToResponderGatewayGatewayTypeOutput() ResponderGatewayGatewayTypeOutput {
+	return o
+}
+
+func (o ResponderGatewayGatewayTypeOutput) ToResponderGatewayGatewayTypeOutputWithContext(ctx context.Context) ResponderGatewayGatewayTypeOutput {
+	return o
+}
+
+func (o ResponderGatewayGatewayTypeOutput) ToResponderGatewayGatewayTypePtrOutput() ResponderGatewayGatewayTypePtrOutput {
+	return o.ToResponderGatewayGatewayTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResponderGatewayGatewayTypeOutput) ToResponderGatewayGatewayTypePtrOutputWithContext(ctx context.Context) ResponderGatewayGatewayTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponderGatewayGatewayType) *ResponderGatewayGatewayType {
+		return &v
+	}).(ResponderGatewayGatewayTypePtrOutput)
+}
+
+func (o ResponderGatewayGatewayTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResponderGatewayGatewayTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResponderGatewayGatewayType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResponderGatewayGatewayTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResponderGatewayGatewayTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResponderGatewayGatewayType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResponderGatewayGatewayTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResponderGatewayGatewayTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponderGatewayGatewayType)(nil)).Elem()
+}
+
+func (o ResponderGatewayGatewayTypePtrOutput) ToResponderGatewayGatewayTypePtrOutput() ResponderGatewayGatewayTypePtrOutput {
+	return o
+}
+
+func (o ResponderGatewayGatewayTypePtrOutput) ToResponderGatewayGatewayTypePtrOutputWithContext(ctx context.Context) ResponderGatewayGatewayTypePtrOutput {
+	return o
+}
+
+func (o ResponderGatewayGatewayTypePtrOutput) Elem() ResponderGatewayGatewayTypeOutput {
+	return o.ApplyT(func(v *ResponderGatewayGatewayType) ResponderGatewayGatewayType {
+		if v != nil {
+			return *v
+		}
+		var ret ResponderGatewayGatewayType
+		return ret
+	}).(ResponderGatewayGatewayTypeOutput)
+}
+
+func (o ResponderGatewayGatewayTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResponderGatewayGatewayTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResponderGatewayGatewayType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResponderGatewayGatewayTypeInput is an input type that accepts values of the ResponderGatewayGatewayType enum
+// A concrete instance of `ResponderGatewayGatewayTypeInput` can be one of the following:
+//
+//	ResponderGatewayGatewayTypeExternal
+//	ResponderGatewayGatewayTypeInternal
+type ResponderGatewayGatewayTypeInput interface {
+	pulumi.Input
+
+	ToResponderGatewayGatewayTypeOutput() ResponderGatewayGatewayTypeOutput
+	ToResponderGatewayGatewayTypeOutputWithContext(context.Context) ResponderGatewayGatewayTypeOutput
+}
+
+var responderGatewayGatewayTypePtrType = reflect.TypeOf((**ResponderGatewayGatewayType)(nil)).Elem()
+
+type ResponderGatewayGatewayTypePtrInput interface {
+	pulumi.Input
+
+	ToResponderGatewayGatewayTypePtrOutput() ResponderGatewayGatewayTypePtrOutput
+	ToResponderGatewayGatewayTypePtrOutputWithContext(context.Context) ResponderGatewayGatewayTypePtrOutput
+}
+
+type responderGatewayGatewayTypePtr string
+
+func ResponderGatewayGatewayTypePtr(v string) ResponderGatewayGatewayTypePtrInput {
+	return (*responderGatewayGatewayTypePtr)(&v)
+}
+
+func (*responderGatewayGatewayTypePtr) ElementType() reflect.Type {
+	return responderGatewayGatewayTypePtrType
+}
+
+func (in *responderGatewayGatewayTypePtr) ToResponderGatewayGatewayTypePtrOutput() ResponderGatewayGatewayTypePtrOutput {
+	return pulumi.ToOutput(in).(ResponderGatewayGatewayTypePtrOutput)
+}
+
+func (in *responderGatewayGatewayTypePtr) ToResponderGatewayGatewayTypePtrOutputWithContext(ctx context.Context) ResponderGatewayGatewayTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResponderGatewayGatewayTypePtrOutput)
+}
+
 type ResponderGatewayProtocol string
 
 const (
@@ -1800,6 +2153,51 @@ func (in *responderGatewayProtocolPtr) ToResponderGatewayProtocolPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(ResponderGatewayProtocolPtrOutput)
 }
 
+// ResponderGatewayProtocolArrayInput is an input type that accepts ResponderGatewayProtocolArray and ResponderGatewayProtocolArrayOutput values.
+// You can construct a concrete instance of `ResponderGatewayProtocolArrayInput` via:
+//
+//	ResponderGatewayProtocolArray{ ResponderGatewayProtocolArgs{...} }
+type ResponderGatewayProtocolArrayInput interface {
+	pulumi.Input
+
+	ToResponderGatewayProtocolArrayOutput() ResponderGatewayProtocolArrayOutput
+	ToResponderGatewayProtocolArrayOutputWithContext(context.Context) ResponderGatewayProtocolArrayOutput
+}
+
+type ResponderGatewayProtocolArray []ResponderGatewayProtocol
+
+func (ResponderGatewayProtocolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponderGatewayProtocol)(nil)).Elem()
+}
+
+func (i ResponderGatewayProtocolArray) ToResponderGatewayProtocolArrayOutput() ResponderGatewayProtocolArrayOutput {
+	return i.ToResponderGatewayProtocolArrayOutputWithContext(context.Background())
+}
+
+func (i ResponderGatewayProtocolArray) ToResponderGatewayProtocolArrayOutputWithContext(ctx context.Context) ResponderGatewayProtocolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponderGatewayProtocolArrayOutput)
+}
+
+type ResponderGatewayProtocolArrayOutput struct{ *pulumi.OutputState }
+
+func (ResponderGatewayProtocolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponderGatewayProtocol)(nil)).Elem()
+}
+
+func (o ResponderGatewayProtocolArrayOutput) ToResponderGatewayProtocolArrayOutput() ResponderGatewayProtocolArrayOutput {
+	return o
+}
+
+func (o ResponderGatewayProtocolArrayOutput) ToResponderGatewayProtocolArrayOutputWithContext(ctx context.Context) ResponderGatewayProtocolArrayOutput {
+	return o
+}
+
+func (o ResponderGatewayProtocolArrayOutput) Index(i pulumi.IntInput) ResponderGatewayProtocolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponderGatewayProtocol {
+		return vs[0].([]ResponderGatewayProtocol)[vs[1].(int)]
+	}).(ResponderGatewayProtocolOutput)
+}
+
 type ResponderGatewayStatus string
 
 const (
@@ -1913,8 +2311,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingLoggingTypeInput)(nil)).Elem(), OutboundExternalLinkResponderErrorMaskingLoggingType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingLoggingTypePtrInput)(nil)).Elem(), OutboundExternalLinkResponderErrorMaskingLoggingType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayInput)(nil)).Elem(), OutboundExternalLinkResponderErrorMaskingLoggingTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayGatewayTypeInput)(nil)).Elem(), ResponderGatewayGatewayType("EXTERNAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayGatewayTypePtrInput)(nil)).Elem(), ResponderGatewayGatewayType("EXTERNAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayProtocolInput)(nil)).Elem(), ResponderGatewayProtocol("HTTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayProtocolPtrInput)(nil)).Elem(), ResponderGatewayProtocol("HTTP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayProtocolArrayInput)(nil)).Elem(), ResponderGatewayProtocolArray{})
 	pulumi.RegisterOutputType(InboundExternalLinkLinkStatusOutput{})
 	pulumi.RegisterOutputType(InboundExternalLinkLinkStatusPtrOutput{})
 	pulumi.RegisterOutputType(InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput{})
@@ -1929,6 +2330,8 @@ func init() {
 	pulumi.RegisterOutputType(LinkResponderErrorMaskingLoggingTypeOutput{})
 	pulumi.RegisterOutputType(LinkResponderErrorMaskingLoggingTypePtrOutput{})
 	pulumi.RegisterOutputType(LinkResponderErrorMaskingLoggingTypeArrayOutput{})
+	pulumi.RegisterOutputType(LinkRoutingRuleRuleStatusOutput{})
+	pulumi.RegisterOutputType(LinkRoutingRuleRuleStatusPtrOutput{})
 	pulumi.RegisterOutputType(LinkStatusOutput{})
 	pulumi.RegisterOutputType(LinkStatusPtrOutput{})
 	pulumi.RegisterOutputType(OutboundExternalLinkLinkStatusOutput{})
@@ -1940,8 +2343,13 @@ func init() {
 	pulumi.RegisterOutputType(OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput{})
 	pulumi.RegisterOutputType(RequesterGatewayStatusOutput{})
 	pulumi.RegisterOutputType(RequesterGatewayStatusPtrOutput{})
+	pulumi.RegisterOutputType(ResponderGatewayCertificateAssociationStatusOutput{})
+	pulumi.RegisterOutputType(ResponderGatewayCertificateAssociationStatusPtrOutput{})
+	pulumi.RegisterOutputType(ResponderGatewayGatewayTypeOutput{})
+	pulumi.RegisterOutputType(ResponderGatewayGatewayTypePtrOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayProtocolOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayProtocolPtrOutput{})
+	pulumi.RegisterOutputType(ResponderGatewayProtocolArrayOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayStatusOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayStatusPtrOutput{})
 }

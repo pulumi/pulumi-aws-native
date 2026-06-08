@@ -394,6 +394,13 @@ export const InstanceStorageConfigInstanceStorageResourceType = {
     MediaStreams: "MEDIA_STREAMS",
     ContactTraceRecords: "CONTACT_TRACE_RECORDS",
     AgentEvents: "AGENT_EVENTS",
+    RealTimeContactAnalysisSegments: "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS",
+    Attachments: "ATTACHMENTS",
+    ContactEvaluations: "CONTACT_EVALUATIONS",
+    ScreenRecordings: "SCREEN_RECORDINGS",
+    RealTimeContactAnalysisChatSegments: "REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS",
+    RealTimeContactAnalysisVoiceSegments: "REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS",
+    EmailMessages: "EMAIL_MESSAGES",
 } as const;
 
 /**

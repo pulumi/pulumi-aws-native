@@ -16,6 +16,8 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['ApiKeyCredentialProviderArgs', 'ApiKeyCredentialProvider']
 
@@ -23,17 +25,25 @@ __all__ = ['ApiKeyCredentialProviderArgs', 'ApiKeyCredentialProvider']
 class ApiKeyCredentialProviderArgs:
     def __init__(__self__, *,
                  api_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key_secret_config: Optional[pulumi.Input['ApiKeyCredentialProviderSecretReferenceArgs']] = None,
+                 api_key_secret_source: Optional[pulumi.Input['ApiKeyCredentialProviderApiKeySecretSource']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ApiKeyCredentialProvider resource.
 
         :param pulumi.Input[_builtins.str] api_key: The API key to use for authentication
+        :param pulumi.Input['ApiKeyCredentialProviderSecretReferenceArgs'] api_key_secret_config: Configuration for a customer-provided secret containing the API key
+        :param pulumi.Input['ApiKeyCredentialProviderApiKeySecretSource'] api_key_secret_source: The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
         :param pulumi.Input[_builtins.str] name: The name of the API key credential provider
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags to assign to the API key credential provider
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if api_key_secret_config is not None:
+            pulumi.set(__self__, "api_key_secret_config", api_key_secret_config)
+        if api_key_secret_source is not None:
+            pulumi.set(__self__, "api_key_secret_source", api_key_secret_source)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -50,6 +60,30 @@ class ApiKeyCredentialProviderArgs:
     @api_key.setter
     def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeySecretConfig")
+    def api_key_secret_config(self) -> Optional[pulumi.Input['ApiKeyCredentialProviderSecretReferenceArgs']]:
+        """
+        Configuration for a customer-provided secret containing the API key
+        """
+        return pulumi.get(self, "api_key_secret_config")
+
+    @api_key_secret_config.setter
+    def api_key_secret_config(self, value: Optional[pulumi.Input['ApiKeyCredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "api_key_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeySecretSource")
+    def api_key_secret_source(self) -> Optional[pulumi.Input['ApiKeyCredentialProviderApiKeySecretSource']]:
+        """
+        The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+        """
+        return pulumi.get(self, "api_key_secret_source")
+
+    @api_key_secret_source.setter
+    def api_key_secret_source(self, value: Optional[pulumi.Input['ApiKeyCredentialProviderApiKeySecretSource']]):
+        pulumi.set(self, "api_key_secret_source", value)
 
     @_builtins.property
     @pulumi.getter
@@ -83,6 +117,8 @@ class ApiKeyCredentialProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key_secret_config: Optional[pulumi.Input[Union['ApiKeyCredentialProviderSecretReferenceArgs', 'ApiKeyCredentialProviderSecretReferenceArgsDict']]] = None,
+                 api_key_secret_source: Optional[pulumi.Input['ApiKeyCredentialProviderApiKeySecretSource']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -93,6 +129,8 @@ class ApiKeyCredentialProvider(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: The API key to use for authentication
+        :param pulumi.Input[Union['ApiKeyCredentialProviderSecretReferenceArgs', 'ApiKeyCredentialProviderSecretReferenceArgsDict']] api_key_secret_config: Configuration for a customer-provided secret containing the API key
+        :param pulumi.Input['ApiKeyCredentialProviderApiKeySecretSource'] api_key_secret_source: The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
         :param pulumi.Input[_builtins.str] name: The name of the API key credential provider
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the API key credential provider
         """
@@ -122,6 +160,8 @@ class ApiKeyCredentialProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key_secret_config: Optional[pulumi.Input[Union['ApiKeyCredentialProviderSecretReferenceArgs', 'ApiKeyCredentialProviderSecretReferenceArgsDict']]] = None,
+                 api_key_secret_source: Optional[pulumi.Input['ApiKeyCredentialProviderApiKeySecretSource']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -134,9 +174,12 @@ class ApiKeyCredentialProvider(pulumi.CustomResource):
             __props__ = ApiKeyCredentialProviderArgs.__new__(ApiKeyCredentialProviderArgs)
 
             __props__.__dict__["api_key"] = api_key
+            __props__.__dict__["api_key_secret_config"] = api_key_secret_config
+            __props__.__dict__["api_key_secret_source"] = api_key_secret_source
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["api_key_secret_arn"] = None
+            __props__.__dict__["api_key_secret_json_key"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["credential_provider_arn"] = None
             __props__.__dict__["last_updated_time"] = None
@@ -166,6 +209,9 @@ class ApiKeyCredentialProvider(pulumi.CustomResource):
 
         __props__.__dict__["api_key"] = None
         __props__.__dict__["api_key_secret_arn"] = None
+        __props__.__dict__["api_key_secret_config"] = None
+        __props__.__dict__["api_key_secret_json_key"] = None
+        __props__.__dict__["api_key_secret_source"] = None
         __props__.__dict__["created_time"] = None
         __props__.__dict__["credential_provider_arn"] = None
         __props__.__dict__["last_updated_time"] = None
@@ -188,6 +234,30 @@ class ApiKeyCredentialProvider(pulumi.CustomResource):
         The ARN of the API key secret in AWS Secrets Manager
         """
         return pulumi.get(self, "api_key_secret_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeySecretConfig")
+    def api_key_secret_config(self) -> pulumi.Output[Optional['outputs.ApiKeyCredentialProviderSecretReference']]:
+        """
+        Configuration for a customer-provided secret containing the API key
+        """
+        return pulumi.get(self, "api_key_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeySecretJsonKey")
+    def api_key_secret_json_key(self) -> pulumi.Output[_builtins.str]:
+        """
+        The JSON key within the secret that contains the API key value
+        """
+        return pulumi.get(self, "api_key_secret_json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeySecretSource")
+    def api_key_secret_source(self) -> pulumi.Output[Optional['ApiKeyCredentialProviderApiKeySecretSource']]:
+        """
+        The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+        """
+        return pulumi.get(self, "api_key_secret_source")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")

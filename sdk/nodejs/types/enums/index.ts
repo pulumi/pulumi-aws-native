@@ -158,6 +158,7 @@ import * as redshift from "./redshift";
 import * as redshiftserverless from "./redshiftserverless";
 import * as refactorspaces from "./refactorspaces";
 import * as resiliencehub from "./resiliencehub";
+import * as resiliencehubv2 from "./resiliencehubv2";
 import * as resourceexplorer2 from "./resourceexplorer2";
 import * as resourcegroups from "./resourcegroups";
 import * as robomaker from "./robomaker";
@@ -364,6 +365,7 @@ export {
     redshiftserverless,
     refactorspaces,
     resiliencehub,
+    resiliencehubv2,
     resourceexplorer2,
     resourcegroups,
     robomaker,

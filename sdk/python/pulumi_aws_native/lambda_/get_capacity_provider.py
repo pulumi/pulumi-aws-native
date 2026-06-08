@@ -26,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetCapacityProviderResult:
-    def __init__(__self__, arn=None, capacity_provider_scaling_config=None, state=None, tags=None):
+    def __init__(__self__, arn=None, capacity_provider_scaling_config=None, propagate_tags=None, state=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if capacity_provider_scaling_config and not isinstance(capacity_provider_scaling_config, dict):
             raise TypeError("Expected argument 'capacity_provider_scaling_config' to be a dict")
         pulumi.set(__self__, "capacity_provider_scaling_config", capacity_provider_scaling_config)
+        if propagate_tags and not isinstance(propagate_tags, dict):
+            raise TypeError("Expected argument 'propagate_tags' to be a dict")
+        pulumi.set(__self__, "propagate_tags", propagate_tags)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -52,6 +55,11 @@ class GetCapacityProviderResult:
         The scaling configuration for the capacity provider.
         """
         return pulumi.get(self, "capacity_provider_scaling_config")
+
+    @_builtins.property
+    @pulumi.getter(name="propagateTags")
+    def propagate_tags(self) -> Optional['outputs.CapacityProviderPropagateTagsConfig']:
+        return pulumi.get(self, "propagate_tags")
 
     @_builtins.property
     @pulumi.getter
@@ -78,6 +86,7 @@ class AwaitableGetCapacityProviderResult(GetCapacityProviderResult):
         return GetCapacityProviderResult(
             arn=self.arn,
             capacity_provider_scaling_config=self.capacity_provider_scaling_config,
+            propagate_tags=self.propagate_tags,
             state=self.state,
             tags=self.tags)
 
@@ -95,6 +104,7 @@ def get_capacity_provider(capacity_provider_name: Optional[_builtins.str] = None
     return AwaitableGetCapacityProviderResult(
         arn=pulumi.get(__ret__, 'arn'),
         capacity_provider_scaling_config=pulumi.get(__ret__, 'capacity_provider_scaling_config'),
+        propagate_tags=pulumi.get(__ret__, 'propagate_tags'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_capacity_provider_output(capacity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -109,5 +119,6 @@ def get_capacity_provider_output(capacity_provider_name: Optional[pulumi.Input[_
     return __ret__.apply(lambda __response__: GetCapacityProviderResult(
         arn=pulumi.get(__response__, 'arn'),
         capacity_provider_scaling_config=pulumi.get(__response__, 'capacity_provider_scaling_config'),
+        propagate_tags=pulumi.get(__response__, 'propagate_tags'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags')))

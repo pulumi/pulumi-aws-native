@@ -57,6 +57,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("privateEndpoint")]
+        public Output<Union<Outputs.GatewayTargetPrivateEndpoint0Properties, Outputs.GatewayTargetPrivateEndpoint1Properties>?> PrivateEndpoint { get; private set; } = null!;
+
+        [Output("privateEndpointManagedResources")]
+        public Output<ImmutableArray<Outputs.GatewayTargetManagedResourceDetails>> PrivateEndpointManagedResources { get; private set; } = null!;
+
         [Output("protocolType")]
         public Output<Pulumi.AwsNative.BedrockAgentCore.GatewayTargetTargetProtocolType> ProtocolType { get; private set; } = null!;
 
@@ -171,6 +177,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("privateEndpoint")]
+        public InputUnion<Inputs.GatewayTargetPrivateEndpoint0PropertiesArgs, Inputs.GatewayTargetPrivateEndpoint1PropertiesArgs>? PrivateEndpoint { get; set; }
 
         /// <summary>
         /// The target configuration for the Smithy model target.

@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCollectionResult:
-    def __init__(__self__, arn=None, collection_endpoint=None, dashboard_endpoint=None, description=None, fips_endpoints=None, id=None, kms_key_arn=None, vector_options=None):
+    def __init__(__self__, arn=None, collection_endpoint=None, dashboard_endpoint=None, deletion_protection=None, description=None, fips_endpoints=None, id=None, kms_key_arn=None, vector_options=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,6 +35,9 @@ class GetCollectionResult:
         if dashboard_endpoint and not isinstance(dashboard_endpoint, str):
             raise TypeError("Expected argument 'dashboard_endpoint' to be a str")
         pulumi.set(__self__, "dashboard_endpoint", dashboard_endpoint)
+        if deletion_protection and not isinstance(deletion_protection, str):
+            raise TypeError("Expected argument 'deletion_protection' to be a str")
+        pulumi.set(__self__, "deletion_protection", deletion_protection)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -74,6 +77,11 @@ class GetCollectionResult:
         The OpenSearch Dashboards endpoint for the collection.
         """
         return pulumi.get(self, "dashboard_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> Optional['CollectionDeletionProtection']:
+        return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter
@@ -119,6 +127,7 @@ class AwaitableGetCollectionResult(GetCollectionResult):
             arn=self.arn,
             collection_endpoint=self.collection_endpoint,
             dashboard_endpoint=self.dashboard_endpoint,
+            deletion_protection=self.deletion_protection,
             description=self.description,
             fips_endpoints=self.fips_endpoints,
             id=self.id,
@@ -143,6 +152,7 @@ def get_collection(id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         collection_endpoint=pulumi.get(__ret__, 'collection_endpoint'),
         dashboard_endpoint=pulumi.get(__ret__, 'dashboard_endpoint'),
+        deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         description=pulumi.get(__ret__, 'description'),
         fips_endpoints=pulumi.get(__ret__, 'fips_endpoints'),
         id=pulumi.get(__ret__, 'id'),
@@ -164,6 +174,7 @@ def get_collection_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         collection_endpoint=pulumi.get(__response__, 'collection_endpoint'),
         dashboard_endpoint=pulumi.get(__response__, 'dashboard_endpoint'),
+        deletion_protection=pulumi.get(__response__, 'deletion_protection'),
         description=pulumi.get(__response__, 'description'),
         fips_endpoints=pulumi.get(__response__, 'fips_endpoints'),
         id=pulumi.get(__response__, 'id'),

@@ -31,6 +31,7 @@ class RouteArgs:
                  local_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 odb_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_peering_connection_id: Optional[pulumi.Input[_builtins.str]] = None):
@@ -77,6 +78,8 @@ class RouteArgs:
             pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if odb_network_arn is not None:
+            pulumi.set(__self__, "odb_network_arn", odb_network_arn)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if vpc_endpoint_id is not None:
@@ -230,6 +233,15 @@ class RouteArgs:
         pulumi.set(self, "network_interface_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="odbNetworkArn")
+    def odb_network_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "odb_network_arn")
+
+    @odb_network_arn.setter
+    def odb_network_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "odb_network_arn", value)
+
+    @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -283,6 +295,7 @@ class Route(pulumi.CustomResource):
                  local_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 odb_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -351,6 +364,7 @@ class Route(pulumi.CustomResource):
                  local_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 odb_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -375,6 +389,7 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["local_gateway_id"] = local_gateway_id
             __props__.__dict__["nat_gateway_id"] = nat_gateway_id
             __props__.__dict__["network_interface_id"] = network_interface_id
+            __props__.__dict__["odb_network_arn"] = odb_network_arn
             if route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_id'")
             __props__.__dict__["route_table_id"] = route_table_id
@@ -418,6 +433,7 @@ class Route(pulumi.CustomResource):
         __props__.__dict__["local_gateway_id"] = None
         __props__.__dict__["nat_gateway_id"] = None
         __props__.__dict__["network_interface_id"] = None
+        __props__.__dict__["odb_network_arn"] = None
         __props__.__dict__["route_table_id"] = None
         __props__.__dict__["transit_gateway_id"] = None
         __props__.__dict__["vpc_endpoint_id"] = None
@@ -520,6 +536,11 @@ class Route(pulumi.CustomResource):
         The ID of a network interface.
         """
         return pulumi.get(self, "network_interface_id")
+
+    @_builtins.property
+    @pulumi.getter(name="odbNetworkArn")
+    def odb_network_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "odb_network_arn")
 
     @_builtins.property
     @pulumi.getter(name="routeTableId")

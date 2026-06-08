@@ -2019,7 +2019,8 @@ type CampaignLocalTimeZoneConfig struct {
 	// The timezone to use for all recipients.
 	DefaultTimeZone *string `pulumi:"defaultTimeZone"`
 	// Detects methods for the recipient's timezone.
-	LocalTimeZoneDetection []CampaignLocalTimeZoneDetectionType `pulumi:"localTimeZoneDetection"`
+	LocalTimeZoneDetection      []CampaignLocalTimeZoneDetectionType `pulumi:"localTimeZoneDetection"`
+	LocalTimeZoneDetectionScope *CampaignLocalTimeZoneDetectionScope `pulumi:"localTimeZoneDetectionScope"`
 }
 
 // CampaignLocalTimeZoneConfigInput is an input type that accepts CampaignLocalTimeZoneConfigArgs and CampaignLocalTimeZoneConfigOutput values.
@@ -2038,7 +2039,8 @@ type CampaignLocalTimeZoneConfigArgs struct {
 	// The timezone to use for all recipients.
 	DefaultTimeZone pulumi.StringPtrInput `pulumi:"defaultTimeZone"`
 	// Detects methods for the recipient's timezone.
-	LocalTimeZoneDetection CampaignLocalTimeZoneDetectionTypeArrayInput `pulumi:"localTimeZoneDetection"`
+	LocalTimeZoneDetection      CampaignLocalTimeZoneDetectionTypeArrayInput `pulumi:"localTimeZoneDetection"`
+	LocalTimeZoneDetectionScope CampaignLocalTimeZoneDetectionScopePtrInput  `pulumi:"localTimeZoneDetectionScope"`
 }
 
 func (CampaignLocalTimeZoneConfigArgs) ElementType() reflect.Type {
@@ -2131,6 +2133,12 @@ func (o CampaignLocalTimeZoneConfigOutput) LocalTimeZoneDetection() CampaignLoca
 	}).(CampaignLocalTimeZoneDetectionTypeArrayOutput)
 }
 
+func (o CampaignLocalTimeZoneConfigOutput) LocalTimeZoneDetectionScope() CampaignLocalTimeZoneDetectionScopePtrOutput {
+	return o.ApplyT(func(v CampaignLocalTimeZoneConfig) *CampaignLocalTimeZoneDetectionScope {
+		return v.LocalTimeZoneDetectionScope
+	}).(CampaignLocalTimeZoneDetectionScopePtrOutput)
+}
+
 type CampaignLocalTimeZoneConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (CampaignLocalTimeZoneConfigPtrOutput) ElementType() reflect.Type {
@@ -2173,6 +2181,15 @@ func (o CampaignLocalTimeZoneConfigPtrOutput) LocalTimeZoneDetection() CampaignL
 		}
 		return v.LocalTimeZoneDetection
 	}).(CampaignLocalTimeZoneDetectionTypeArrayOutput)
+}
+
+func (o CampaignLocalTimeZoneConfigPtrOutput) LocalTimeZoneDetectionScope() CampaignLocalTimeZoneDetectionScopePtrOutput {
+	return o.ApplyT(func(v *CampaignLocalTimeZoneConfig) *CampaignLocalTimeZoneDetectionScope {
+		if v == nil {
+			return nil
+		}
+		return v.LocalTimeZoneDetectionScope
+	}).(CampaignLocalTimeZoneDetectionScopePtrOutput)
 }
 
 // Open Hours config

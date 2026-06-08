@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Inputs
 
     public sealed class PlanExecutionBlockConfiguration12PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("rdsCreateCrossRegionReadReplicaConfig", required: true)]
-        public Input<Inputs.PlanRdsCreateCrossRegionReplicaConfigurationArgs> RdsCreateCrossRegionReadReplicaConfig { get; set; } = null!;
+        [Input("documentDbConfig", required: true)]
+        public Input<Inputs.PlanDocumentDbConfigurationArgs> DocumentDbConfig { get; set; } = null!;
 
         public PlanExecutionBlockConfiguration12PropertiesArgs()
         {

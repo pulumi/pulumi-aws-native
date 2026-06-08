@@ -61,6 +61,17 @@ export const LinkResponderErrorMaskingLoggingType = {
 
 export type LinkResponderErrorMaskingLoggingType = (typeof LinkResponderErrorMaskingLoggingType)[keyof typeof LinkResponderErrorMaskingLoggingType];
 
+export const LinkRoutingRuleRuleStatus = {
+    CreationInProgress: "CREATION_IN_PROGRESS",
+    Active: "ACTIVE",
+    UpdateInProgress: "UPDATE_IN_PROGRESS",
+    DeletionInProgress: "DELETION_IN_PROGRESS",
+    Deleted: "DELETED",
+    Failed: "FAILED",
+} as const;
+
+export type LinkRoutingRuleRuleStatus = (typeof LinkRoutingRuleRuleStatus)[keyof typeof LinkRoutingRuleRuleStatus];
+
 export const LinkStatus = {
     PendingCreation: "PENDING_CREATION",
     PendingRequest: "PENDING_REQUEST",
@@ -127,6 +138,24 @@ export const RequesterGatewayStatus = {
 } as const;
 
 export type RequesterGatewayStatus = (typeof RequesterGatewayStatus)[keyof typeof RequesterGatewayStatus];
+
+export const ResponderGatewayCertificateAssociationStatus = {
+    PendingAssociation: "PENDING_ASSOCIATION",
+    Associated: "ASSOCIATED",
+    PendingDisassociation: "PENDING_DISASSOCIATION",
+    Disassociated: "DISASSOCIATED",
+    Expired: "EXPIRED",
+    Failed: "FAILED",
+} as const;
+
+export type ResponderGatewayCertificateAssociationStatus = (typeof ResponderGatewayCertificateAssociationStatus)[keyof typeof ResponderGatewayCertificateAssociationStatus];
+
+export const ResponderGatewayGatewayType = {
+    External: "EXTERNAL",
+    Internal: "INTERNAL",
+} as const;
+
+export type ResponderGatewayGatewayType = (typeof ResponderGatewayGatewayType)[keyof typeof ResponderGatewayGatewayType];
 
 export const ResponderGatewayProtocol = {
     Http: "HTTP",

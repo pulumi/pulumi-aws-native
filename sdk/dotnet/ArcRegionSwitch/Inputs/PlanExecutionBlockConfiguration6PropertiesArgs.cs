@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Inputs
 
     public sealed class PlanExecutionBlockConfiguration6PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("regionSwitchPlanConfig", required: true)]
-        public Input<Inputs.PlanRegionSwitchPlanConfigurationArgs> RegionSwitchPlanConfig { get; set; } = null!;
+        [Input("globalAuroraConfig", required: true)]
+        public Input<Inputs.PlanGlobalAuroraConfigurationArgs> GlobalAuroraConfig { get; set; } = null!;
 
         public PlanExecutionBlockConfiguration6PropertiesArgs()
         {

@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Inputs
 
     public sealed class PlanExecutionBlockConfiguration7PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("ecsCapacityIncreaseConfig", required: true)]
-        public Input<Inputs.PlanEcsCapacityIncreaseConfigurationArgs> EcsCapacityIncreaseConfig { get; set; } = null!;
+        [Input("parallelConfig", required: true)]
+        public Input<Inputs.PlanParallelExecutionBlockConfigurationArgs> ParallelConfig { get; set; } = null!;
 
         public PlanExecutionBlockConfiguration7PropertiesArgs()
         {

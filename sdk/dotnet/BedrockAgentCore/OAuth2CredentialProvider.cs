@@ -28,6 +28,18 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<Outputs.OAuth2CredentialProviderClientSecretArn> ClientSecretArn { get; private set; } = null!;
 
         /// <summary>
+        /// The JSON key within the secret that contains the client secret value
+        /// </summary>
+        [Output("clientSecretJsonKey")]
+        public Output<string> ClientSecretJsonKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The source of the client secret
+        /// </summary>
+        [Output("clientSecretSource")]
+        public Output<Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderClientSecretSource> ClientSecretSource { get; private set; } = null!;
+
+        /// <summary>
         /// The timestamp when the credential provider was created
         /// </summary>
         [Output("createdTime")]

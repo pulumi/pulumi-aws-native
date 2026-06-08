@@ -315,6 +315,166 @@ func (o PlanAssociatedAlarmMapOutput) MapIndex(k pulumi.StringInput) PlanAssocia
 	}).(PlanAssociatedAlarmOutput)
 }
 
+type PlanAuroraProvisionedScalingConfiguration struct {
+	CrossAccountRole          *string           `pulumi:"crossAccountRole"`
+	ExternalId                *string           `pulumi:"externalId"`
+	GlobalClusterIdentifier   string            `pulumi:"globalClusterIdentifier"`
+	InstanceArns              map[string]string `pulumi:"instanceArns"`
+	RegionDatabaseClusterArns map[string]string `pulumi:"regionDatabaseClusterArns"`
+	TimeoutMinutes            *float64          `pulumi:"timeoutMinutes"`
+}
+
+// PlanAuroraProvisionedScalingConfigurationInput is an input type that accepts PlanAuroraProvisionedScalingConfigurationArgs and PlanAuroraProvisionedScalingConfigurationOutput values.
+// You can construct a concrete instance of `PlanAuroraProvisionedScalingConfigurationInput` via:
+//
+//	PlanAuroraProvisionedScalingConfigurationArgs{...}
+type PlanAuroraProvisionedScalingConfigurationInput interface {
+	pulumi.Input
+
+	ToPlanAuroraProvisionedScalingConfigurationOutput() PlanAuroraProvisionedScalingConfigurationOutput
+	ToPlanAuroraProvisionedScalingConfigurationOutputWithContext(context.Context) PlanAuroraProvisionedScalingConfigurationOutput
+}
+
+type PlanAuroraProvisionedScalingConfigurationArgs struct {
+	CrossAccountRole          pulumi.StringPtrInput  `pulumi:"crossAccountRole"`
+	ExternalId                pulumi.StringPtrInput  `pulumi:"externalId"`
+	GlobalClusterIdentifier   pulumi.StringInput     `pulumi:"globalClusterIdentifier"`
+	InstanceArns              pulumi.StringMapInput  `pulumi:"instanceArns"`
+	RegionDatabaseClusterArns pulumi.StringMapInput  `pulumi:"regionDatabaseClusterArns"`
+	TimeoutMinutes            pulumi.Float64PtrInput `pulumi:"timeoutMinutes"`
+}
+
+func (PlanAuroraProvisionedScalingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanAuroraProvisionedScalingConfiguration)(nil)).Elem()
+}
+
+func (i PlanAuroraProvisionedScalingConfigurationArgs) ToPlanAuroraProvisionedScalingConfigurationOutput() PlanAuroraProvisionedScalingConfigurationOutput {
+	return i.ToPlanAuroraProvisionedScalingConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlanAuroraProvisionedScalingConfigurationArgs) ToPlanAuroraProvisionedScalingConfigurationOutputWithContext(ctx context.Context) PlanAuroraProvisionedScalingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanAuroraProvisionedScalingConfigurationOutput)
+}
+
+type PlanAuroraProvisionedScalingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlanAuroraProvisionedScalingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanAuroraProvisionedScalingConfiguration)(nil)).Elem()
+}
+
+func (o PlanAuroraProvisionedScalingConfigurationOutput) ToPlanAuroraProvisionedScalingConfigurationOutput() PlanAuroraProvisionedScalingConfigurationOutput {
+	return o
+}
+
+func (o PlanAuroraProvisionedScalingConfigurationOutput) ToPlanAuroraProvisionedScalingConfigurationOutputWithContext(ctx context.Context) PlanAuroraProvisionedScalingConfigurationOutput {
+	return o
+}
+
+func (o PlanAuroraProvisionedScalingConfigurationOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanAuroraProvisionedScalingConfiguration) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
+}
+
+func (o PlanAuroraProvisionedScalingConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanAuroraProvisionedScalingConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+func (o PlanAuroraProvisionedScalingConfigurationOutput) GlobalClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanAuroraProvisionedScalingConfiguration) string { return v.GlobalClusterIdentifier }).(pulumi.StringOutput)
+}
+
+func (o PlanAuroraProvisionedScalingConfigurationOutput) InstanceArns() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanAuroraProvisionedScalingConfiguration) map[string]string { return v.InstanceArns }).(pulumi.StringMapOutput)
+}
+
+func (o PlanAuroraProvisionedScalingConfigurationOutput) RegionDatabaseClusterArns() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanAuroraProvisionedScalingConfiguration) map[string]string {
+		return v.RegionDatabaseClusterArns
+	}).(pulumi.StringMapOutput)
+}
+
+func (o PlanAuroraProvisionedScalingConfigurationOutput) TimeoutMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PlanAuroraProvisionedScalingConfiguration) *float64 { return v.TimeoutMinutes }).(pulumi.Float64PtrOutput)
+}
+
+type PlanAuroraServerlessScalingConfiguration struct {
+	CrossAccountRole          *string           `pulumi:"crossAccountRole"`
+	ExternalId                *string           `pulumi:"externalId"`
+	GlobalClusterIdentifier   string            `pulumi:"globalClusterIdentifier"`
+	RegionDatabaseClusterArns map[string]string `pulumi:"regionDatabaseClusterArns"`
+	TargetPercent             *float64          `pulumi:"targetPercent"`
+	TimeoutMinutes            *float64          `pulumi:"timeoutMinutes"`
+}
+
+// PlanAuroraServerlessScalingConfigurationInput is an input type that accepts PlanAuroraServerlessScalingConfigurationArgs and PlanAuroraServerlessScalingConfigurationOutput values.
+// You can construct a concrete instance of `PlanAuroraServerlessScalingConfigurationInput` via:
+//
+//	PlanAuroraServerlessScalingConfigurationArgs{...}
+type PlanAuroraServerlessScalingConfigurationInput interface {
+	pulumi.Input
+
+	ToPlanAuroraServerlessScalingConfigurationOutput() PlanAuroraServerlessScalingConfigurationOutput
+	ToPlanAuroraServerlessScalingConfigurationOutputWithContext(context.Context) PlanAuroraServerlessScalingConfigurationOutput
+}
+
+type PlanAuroraServerlessScalingConfigurationArgs struct {
+	CrossAccountRole          pulumi.StringPtrInput  `pulumi:"crossAccountRole"`
+	ExternalId                pulumi.StringPtrInput  `pulumi:"externalId"`
+	GlobalClusterIdentifier   pulumi.StringInput     `pulumi:"globalClusterIdentifier"`
+	RegionDatabaseClusterArns pulumi.StringMapInput  `pulumi:"regionDatabaseClusterArns"`
+	TargetPercent             pulumi.Float64PtrInput `pulumi:"targetPercent"`
+	TimeoutMinutes            pulumi.Float64PtrInput `pulumi:"timeoutMinutes"`
+}
+
+func (PlanAuroraServerlessScalingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanAuroraServerlessScalingConfiguration)(nil)).Elem()
+}
+
+func (i PlanAuroraServerlessScalingConfigurationArgs) ToPlanAuroraServerlessScalingConfigurationOutput() PlanAuroraServerlessScalingConfigurationOutput {
+	return i.ToPlanAuroraServerlessScalingConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlanAuroraServerlessScalingConfigurationArgs) ToPlanAuroraServerlessScalingConfigurationOutputWithContext(ctx context.Context) PlanAuroraServerlessScalingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanAuroraServerlessScalingConfigurationOutput)
+}
+
+type PlanAuroraServerlessScalingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlanAuroraServerlessScalingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanAuroraServerlessScalingConfiguration)(nil)).Elem()
+}
+
+func (o PlanAuroraServerlessScalingConfigurationOutput) ToPlanAuroraServerlessScalingConfigurationOutput() PlanAuroraServerlessScalingConfigurationOutput {
+	return o
+}
+
+func (o PlanAuroraServerlessScalingConfigurationOutput) ToPlanAuroraServerlessScalingConfigurationOutputWithContext(ctx context.Context) PlanAuroraServerlessScalingConfigurationOutput {
+	return o
+}
+
+func (o PlanAuroraServerlessScalingConfigurationOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanAuroraServerlessScalingConfiguration) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
+}
+
+func (o PlanAuroraServerlessScalingConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanAuroraServerlessScalingConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+func (o PlanAuroraServerlessScalingConfigurationOutput) GlobalClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanAuroraServerlessScalingConfiguration) string { return v.GlobalClusterIdentifier }).(pulumi.StringOutput)
+}
+
+func (o PlanAuroraServerlessScalingConfigurationOutput) RegionDatabaseClusterArns() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanAuroraServerlessScalingConfiguration) map[string]string { return v.RegionDatabaseClusterArns }).(pulumi.StringMapOutput)
+}
+
+func (o PlanAuroraServerlessScalingConfigurationOutput) TargetPercent() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PlanAuroraServerlessScalingConfiguration) *float64 { return v.TargetPercent }).(pulumi.Float64PtrOutput)
+}
+
+func (o PlanAuroraServerlessScalingConfigurationOutput) TimeoutMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PlanAuroraServerlessScalingConfiguration) *float64 { return v.TimeoutMinutes }).(pulumi.Float64PtrOutput)
+}
+
 type PlanCustomActionLambdaConfiguration struct {
 	Lambdas              []PlanLambdas         `pulumi:"lambdas"`
 	RegionToRun          PlanRegionToRunIn     `pulumi:"regionToRun"`
@@ -1557,7 +1717,7 @@ func (o PlanExecutionBlockConfiguration0PropertiesOutput) CustomActionLambdaConf
 }
 
 type PlanExecutionBlockConfiguration10Properties struct {
-	DocumentDbConfig PlanDocumentDbConfiguration `pulumi:"documentDbConfig"`
+	EksResourceScalingConfig PlanEksResourceScalingConfiguration `pulumi:"eksResourceScalingConfig"`
 }
 
 // PlanExecutionBlockConfiguration10PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration10PropertiesArgs and PlanExecutionBlockConfiguration10PropertiesOutput values.
@@ -1572,7 +1732,7 @@ type PlanExecutionBlockConfiguration10PropertiesInput interface {
 }
 
 type PlanExecutionBlockConfiguration10PropertiesArgs struct {
-	DocumentDbConfig PlanDocumentDbConfigurationInput `pulumi:"documentDbConfig"`
+	EksResourceScalingConfig PlanEksResourceScalingConfigurationInput `pulumi:"eksResourceScalingConfig"`
 }
 
 func (PlanExecutionBlockConfiguration10PropertiesArgs) ElementType() reflect.Type {
@@ -1601,14 +1761,14 @@ func (o PlanExecutionBlockConfiguration10PropertiesOutput) ToPlanExecutionBlockC
 	return o
 }
 
-func (o PlanExecutionBlockConfiguration10PropertiesOutput) DocumentDbConfig() PlanDocumentDbConfigurationOutput {
-	return o.ApplyT(func(v PlanExecutionBlockConfiguration10Properties) PlanDocumentDbConfiguration {
-		return v.DocumentDbConfig
-	}).(PlanDocumentDbConfigurationOutput)
+func (o PlanExecutionBlockConfiguration10PropertiesOutput) EksResourceScalingConfig() PlanEksResourceScalingConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration10Properties) PlanEksResourceScalingConfiguration {
+		return v.EksResourceScalingConfig
+	}).(PlanEksResourceScalingConfigurationOutput)
 }
 
 type PlanExecutionBlockConfiguration11Properties struct {
-	RdsPromoteReadReplicaConfig PlanRdsPromoteReadReplicaConfiguration `pulumi:"rdsPromoteReadReplicaConfig"`
+	Route53HealthCheckConfig PlanRoute53HealthCheckConfiguration `pulumi:"route53HealthCheckConfig"`
 }
 
 // PlanExecutionBlockConfiguration11PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration11PropertiesArgs and PlanExecutionBlockConfiguration11PropertiesOutput values.
@@ -1623,7 +1783,7 @@ type PlanExecutionBlockConfiguration11PropertiesInput interface {
 }
 
 type PlanExecutionBlockConfiguration11PropertiesArgs struct {
-	RdsPromoteReadReplicaConfig PlanRdsPromoteReadReplicaConfigurationInput `pulumi:"rdsPromoteReadReplicaConfig"`
+	Route53HealthCheckConfig PlanRoute53HealthCheckConfigurationInput `pulumi:"route53HealthCheckConfig"`
 }
 
 func (PlanExecutionBlockConfiguration11PropertiesArgs) ElementType() reflect.Type {
@@ -1652,14 +1812,14 @@ func (o PlanExecutionBlockConfiguration11PropertiesOutput) ToPlanExecutionBlockC
 	return o
 }
 
-func (o PlanExecutionBlockConfiguration11PropertiesOutput) RdsPromoteReadReplicaConfig() PlanRdsPromoteReadReplicaConfigurationOutput {
-	return o.ApplyT(func(v PlanExecutionBlockConfiguration11Properties) PlanRdsPromoteReadReplicaConfiguration {
-		return v.RdsPromoteReadReplicaConfig
-	}).(PlanRdsPromoteReadReplicaConfigurationOutput)
+func (o PlanExecutionBlockConfiguration11PropertiesOutput) Route53HealthCheckConfig() PlanRoute53HealthCheckConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration11Properties) PlanRoute53HealthCheckConfiguration {
+		return v.Route53HealthCheckConfig
+	}).(PlanRoute53HealthCheckConfigurationOutput)
 }
 
 type PlanExecutionBlockConfiguration12Properties struct {
-	RdsCreateCrossRegionReadReplicaConfig PlanRdsCreateCrossRegionReplicaConfiguration `pulumi:"rdsCreateCrossRegionReadReplicaConfig"`
+	DocumentDbConfig PlanDocumentDbConfiguration `pulumi:"documentDbConfig"`
 }
 
 // PlanExecutionBlockConfiguration12PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration12PropertiesArgs and PlanExecutionBlockConfiguration12PropertiesOutput values.
@@ -1674,7 +1834,7 @@ type PlanExecutionBlockConfiguration12PropertiesInput interface {
 }
 
 type PlanExecutionBlockConfiguration12PropertiesArgs struct {
-	RdsCreateCrossRegionReadReplicaConfig PlanRdsCreateCrossRegionReplicaConfigurationInput `pulumi:"rdsCreateCrossRegionReadReplicaConfig"`
+	DocumentDbConfig PlanDocumentDbConfigurationInput `pulumi:"documentDbConfig"`
 }
 
 func (PlanExecutionBlockConfiguration12PropertiesArgs) ElementType() reflect.Type {
@@ -1703,14 +1863,14 @@ func (o PlanExecutionBlockConfiguration12PropertiesOutput) ToPlanExecutionBlockC
 	return o
 }
 
-func (o PlanExecutionBlockConfiguration12PropertiesOutput) RdsCreateCrossRegionReadReplicaConfig() PlanRdsCreateCrossRegionReplicaConfigurationOutput {
-	return o.ApplyT(func(v PlanExecutionBlockConfiguration12Properties) PlanRdsCreateCrossRegionReplicaConfiguration {
-		return v.RdsCreateCrossRegionReadReplicaConfig
-	}).(PlanRdsCreateCrossRegionReplicaConfigurationOutput)
+func (o PlanExecutionBlockConfiguration12PropertiesOutput) DocumentDbConfig() PlanDocumentDbConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration12Properties) PlanDocumentDbConfiguration {
+		return v.DocumentDbConfig
+	}).(PlanDocumentDbConfigurationOutput)
 }
 
 type PlanExecutionBlockConfiguration13Properties struct {
-	LambdaEventSourceMappingConfig PlanLambdaEventSourceMappingConfiguration `pulumi:"lambdaEventSourceMappingConfig"`
+	RdsPromoteReadReplicaConfig PlanRdsPromoteReadReplicaConfiguration `pulumi:"rdsPromoteReadReplicaConfig"`
 }
 
 // PlanExecutionBlockConfiguration13PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration13PropertiesArgs and PlanExecutionBlockConfiguration13PropertiesOutput values.
@@ -1725,7 +1885,7 @@ type PlanExecutionBlockConfiguration13PropertiesInput interface {
 }
 
 type PlanExecutionBlockConfiguration13PropertiesArgs struct {
-	LambdaEventSourceMappingConfig PlanLambdaEventSourceMappingConfigurationInput `pulumi:"lambdaEventSourceMappingConfig"`
+	RdsPromoteReadReplicaConfig PlanRdsPromoteReadReplicaConfigurationInput `pulumi:"rdsPromoteReadReplicaConfig"`
 }
 
 func (PlanExecutionBlockConfiguration13PropertiesArgs) ElementType() reflect.Type {
@@ -1754,10 +1914,163 @@ func (o PlanExecutionBlockConfiguration13PropertiesOutput) ToPlanExecutionBlockC
 	return o
 }
 
-func (o PlanExecutionBlockConfiguration13PropertiesOutput) LambdaEventSourceMappingConfig() PlanLambdaEventSourceMappingConfigurationOutput {
-	return o.ApplyT(func(v PlanExecutionBlockConfiguration13Properties) PlanLambdaEventSourceMappingConfiguration {
+func (o PlanExecutionBlockConfiguration13PropertiesOutput) RdsPromoteReadReplicaConfig() PlanRdsPromoteReadReplicaConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration13Properties) PlanRdsPromoteReadReplicaConfiguration {
+		return v.RdsPromoteReadReplicaConfig
+	}).(PlanRdsPromoteReadReplicaConfigurationOutput)
+}
+
+type PlanExecutionBlockConfiguration14Properties struct {
+	RdsCreateCrossRegionReadReplicaConfig PlanRdsCreateCrossRegionReplicaConfiguration `pulumi:"rdsCreateCrossRegionReadReplicaConfig"`
+}
+
+// PlanExecutionBlockConfiguration14PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration14PropertiesArgs and PlanExecutionBlockConfiguration14PropertiesOutput values.
+// You can construct a concrete instance of `PlanExecutionBlockConfiguration14PropertiesInput` via:
+//
+//	PlanExecutionBlockConfiguration14PropertiesArgs{...}
+type PlanExecutionBlockConfiguration14PropertiesInput interface {
+	pulumi.Input
+
+	ToPlanExecutionBlockConfiguration14PropertiesOutput() PlanExecutionBlockConfiguration14PropertiesOutput
+	ToPlanExecutionBlockConfiguration14PropertiesOutputWithContext(context.Context) PlanExecutionBlockConfiguration14PropertiesOutput
+}
+
+type PlanExecutionBlockConfiguration14PropertiesArgs struct {
+	RdsCreateCrossRegionReadReplicaConfig PlanRdsCreateCrossRegionReplicaConfigurationInput `pulumi:"rdsCreateCrossRegionReadReplicaConfig"`
+}
+
+func (PlanExecutionBlockConfiguration14PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanExecutionBlockConfiguration14Properties)(nil)).Elem()
+}
+
+func (i PlanExecutionBlockConfiguration14PropertiesArgs) ToPlanExecutionBlockConfiguration14PropertiesOutput() PlanExecutionBlockConfiguration14PropertiesOutput {
+	return i.ToPlanExecutionBlockConfiguration14PropertiesOutputWithContext(context.Background())
+}
+
+func (i PlanExecutionBlockConfiguration14PropertiesArgs) ToPlanExecutionBlockConfiguration14PropertiesOutputWithContext(ctx context.Context) PlanExecutionBlockConfiguration14PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanExecutionBlockConfiguration14PropertiesOutput)
+}
+
+type PlanExecutionBlockConfiguration14PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PlanExecutionBlockConfiguration14PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanExecutionBlockConfiguration14Properties)(nil)).Elem()
+}
+
+func (o PlanExecutionBlockConfiguration14PropertiesOutput) ToPlanExecutionBlockConfiguration14PropertiesOutput() PlanExecutionBlockConfiguration14PropertiesOutput {
+	return o
+}
+
+func (o PlanExecutionBlockConfiguration14PropertiesOutput) ToPlanExecutionBlockConfiguration14PropertiesOutputWithContext(ctx context.Context) PlanExecutionBlockConfiguration14PropertiesOutput {
+	return o
+}
+
+func (o PlanExecutionBlockConfiguration14PropertiesOutput) RdsCreateCrossRegionReadReplicaConfig() PlanRdsCreateCrossRegionReplicaConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration14Properties) PlanRdsCreateCrossRegionReplicaConfiguration {
+		return v.RdsCreateCrossRegionReadReplicaConfig
+	}).(PlanRdsCreateCrossRegionReplicaConfigurationOutput)
+}
+
+type PlanExecutionBlockConfiguration15Properties struct {
+	LambdaEventSourceMappingConfig PlanLambdaEventSourceMappingConfiguration `pulumi:"lambdaEventSourceMappingConfig"`
+}
+
+// PlanExecutionBlockConfiguration15PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration15PropertiesArgs and PlanExecutionBlockConfiguration15PropertiesOutput values.
+// You can construct a concrete instance of `PlanExecutionBlockConfiguration15PropertiesInput` via:
+//
+//	PlanExecutionBlockConfiguration15PropertiesArgs{...}
+type PlanExecutionBlockConfiguration15PropertiesInput interface {
+	pulumi.Input
+
+	ToPlanExecutionBlockConfiguration15PropertiesOutput() PlanExecutionBlockConfiguration15PropertiesOutput
+	ToPlanExecutionBlockConfiguration15PropertiesOutputWithContext(context.Context) PlanExecutionBlockConfiguration15PropertiesOutput
+}
+
+type PlanExecutionBlockConfiguration15PropertiesArgs struct {
+	LambdaEventSourceMappingConfig PlanLambdaEventSourceMappingConfigurationInput `pulumi:"lambdaEventSourceMappingConfig"`
+}
+
+func (PlanExecutionBlockConfiguration15PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanExecutionBlockConfiguration15Properties)(nil)).Elem()
+}
+
+func (i PlanExecutionBlockConfiguration15PropertiesArgs) ToPlanExecutionBlockConfiguration15PropertiesOutput() PlanExecutionBlockConfiguration15PropertiesOutput {
+	return i.ToPlanExecutionBlockConfiguration15PropertiesOutputWithContext(context.Background())
+}
+
+func (i PlanExecutionBlockConfiguration15PropertiesArgs) ToPlanExecutionBlockConfiguration15PropertiesOutputWithContext(ctx context.Context) PlanExecutionBlockConfiguration15PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanExecutionBlockConfiguration15PropertiesOutput)
+}
+
+type PlanExecutionBlockConfiguration15PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PlanExecutionBlockConfiguration15PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanExecutionBlockConfiguration15Properties)(nil)).Elem()
+}
+
+func (o PlanExecutionBlockConfiguration15PropertiesOutput) ToPlanExecutionBlockConfiguration15PropertiesOutput() PlanExecutionBlockConfiguration15PropertiesOutput {
+	return o
+}
+
+func (o PlanExecutionBlockConfiguration15PropertiesOutput) ToPlanExecutionBlockConfiguration15PropertiesOutputWithContext(ctx context.Context) PlanExecutionBlockConfiguration15PropertiesOutput {
+	return o
+}
+
+func (o PlanExecutionBlockConfiguration15PropertiesOutput) LambdaEventSourceMappingConfig() PlanLambdaEventSourceMappingConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration15Properties) PlanLambdaEventSourceMappingConfiguration {
 		return v.LambdaEventSourceMappingConfig
 	}).(PlanLambdaEventSourceMappingConfigurationOutput)
+}
+
+type PlanExecutionBlockConfiguration16Properties struct {
+	NeptuneGlobalDatabaseConfig PlanNeptuneGlobalDatabaseConfiguration `pulumi:"neptuneGlobalDatabaseConfig"`
+}
+
+// PlanExecutionBlockConfiguration16PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration16PropertiesArgs and PlanExecutionBlockConfiguration16PropertiesOutput values.
+// You can construct a concrete instance of `PlanExecutionBlockConfiguration16PropertiesInput` via:
+//
+//	PlanExecutionBlockConfiguration16PropertiesArgs{...}
+type PlanExecutionBlockConfiguration16PropertiesInput interface {
+	pulumi.Input
+
+	ToPlanExecutionBlockConfiguration16PropertiesOutput() PlanExecutionBlockConfiguration16PropertiesOutput
+	ToPlanExecutionBlockConfiguration16PropertiesOutputWithContext(context.Context) PlanExecutionBlockConfiguration16PropertiesOutput
+}
+
+type PlanExecutionBlockConfiguration16PropertiesArgs struct {
+	NeptuneGlobalDatabaseConfig PlanNeptuneGlobalDatabaseConfigurationInput `pulumi:"neptuneGlobalDatabaseConfig"`
+}
+
+func (PlanExecutionBlockConfiguration16PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanExecutionBlockConfiguration16Properties)(nil)).Elem()
+}
+
+func (i PlanExecutionBlockConfiguration16PropertiesArgs) ToPlanExecutionBlockConfiguration16PropertiesOutput() PlanExecutionBlockConfiguration16PropertiesOutput {
+	return i.ToPlanExecutionBlockConfiguration16PropertiesOutputWithContext(context.Background())
+}
+
+func (i PlanExecutionBlockConfiguration16PropertiesArgs) ToPlanExecutionBlockConfiguration16PropertiesOutputWithContext(ctx context.Context) PlanExecutionBlockConfiguration16PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanExecutionBlockConfiguration16PropertiesOutput)
+}
+
+type PlanExecutionBlockConfiguration16PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PlanExecutionBlockConfiguration16PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanExecutionBlockConfiguration16Properties)(nil)).Elem()
+}
+
+func (o PlanExecutionBlockConfiguration16PropertiesOutput) ToPlanExecutionBlockConfiguration16PropertiesOutput() PlanExecutionBlockConfiguration16PropertiesOutput {
+	return o
+}
+
+func (o PlanExecutionBlockConfiguration16PropertiesOutput) ToPlanExecutionBlockConfiguration16PropertiesOutputWithContext(ctx context.Context) PlanExecutionBlockConfiguration16PropertiesOutput {
+	return o
+}
+
+func (o PlanExecutionBlockConfiguration16PropertiesOutput) NeptuneGlobalDatabaseConfig() PlanNeptuneGlobalDatabaseConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration16Properties) PlanNeptuneGlobalDatabaseConfiguration {
+		return v.NeptuneGlobalDatabaseConfig
+	}).(PlanNeptuneGlobalDatabaseConfigurationOutput)
 }
 
 type PlanExecutionBlockConfiguration1Properties struct {
@@ -1914,7 +2227,7 @@ func (o PlanExecutionBlockConfiguration3PropertiesOutput) ArcRoutingControlConfi
 }
 
 type PlanExecutionBlockConfiguration4Properties struct {
-	GlobalAuroraConfig PlanGlobalAuroraConfiguration `pulumi:"globalAuroraConfig"`
+	AuroraProvisionedScalingConfig PlanAuroraProvisionedScalingConfiguration `pulumi:"auroraProvisionedScalingConfig"`
 }
 
 // PlanExecutionBlockConfiguration4PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration4PropertiesArgs and PlanExecutionBlockConfiguration4PropertiesOutput values.
@@ -1929,7 +2242,7 @@ type PlanExecutionBlockConfiguration4PropertiesInput interface {
 }
 
 type PlanExecutionBlockConfiguration4PropertiesArgs struct {
-	GlobalAuroraConfig PlanGlobalAuroraConfigurationInput `pulumi:"globalAuroraConfig"`
+	AuroraProvisionedScalingConfig PlanAuroraProvisionedScalingConfigurationInput `pulumi:"auroraProvisionedScalingConfig"`
 }
 
 func (PlanExecutionBlockConfiguration4PropertiesArgs) ElementType() reflect.Type {
@@ -1958,14 +2271,14 @@ func (o PlanExecutionBlockConfiguration4PropertiesOutput) ToPlanExecutionBlockCo
 	return o
 }
 
-func (o PlanExecutionBlockConfiguration4PropertiesOutput) GlobalAuroraConfig() PlanGlobalAuroraConfigurationOutput {
-	return o.ApplyT(func(v PlanExecutionBlockConfiguration4Properties) PlanGlobalAuroraConfiguration {
-		return v.GlobalAuroraConfig
-	}).(PlanGlobalAuroraConfigurationOutput)
+func (o PlanExecutionBlockConfiguration4PropertiesOutput) AuroraProvisionedScalingConfig() PlanAuroraProvisionedScalingConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration4Properties) PlanAuroraProvisionedScalingConfiguration {
+		return v.AuroraProvisionedScalingConfig
+	}).(PlanAuroraProvisionedScalingConfigurationOutput)
 }
 
 type PlanExecutionBlockConfiguration5Properties struct {
-	ParallelConfig PlanParallelExecutionBlockConfiguration `pulumi:"parallelConfig"`
+	AuroraServerlessScalingConfig PlanAuroraServerlessScalingConfiguration `pulumi:"auroraServerlessScalingConfig"`
 }
 
 // PlanExecutionBlockConfiguration5PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration5PropertiesArgs and PlanExecutionBlockConfiguration5PropertiesOutput values.
@@ -1980,7 +2293,7 @@ type PlanExecutionBlockConfiguration5PropertiesInput interface {
 }
 
 type PlanExecutionBlockConfiguration5PropertiesArgs struct {
-	ParallelConfig PlanParallelExecutionBlockConfigurationInput `pulumi:"parallelConfig"`
+	AuroraServerlessScalingConfig PlanAuroraServerlessScalingConfigurationInput `pulumi:"auroraServerlessScalingConfig"`
 }
 
 func (PlanExecutionBlockConfiguration5PropertiesArgs) ElementType() reflect.Type {
@@ -2009,14 +2322,14 @@ func (o PlanExecutionBlockConfiguration5PropertiesOutput) ToPlanExecutionBlockCo
 	return o
 }
 
-func (o PlanExecutionBlockConfiguration5PropertiesOutput) ParallelConfig() PlanParallelExecutionBlockConfigurationOutput {
-	return o.ApplyT(func(v PlanExecutionBlockConfiguration5Properties) PlanParallelExecutionBlockConfiguration {
-		return v.ParallelConfig
-	}).(PlanParallelExecutionBlockConfigurationOutput)
+func (o PlanExecutionBlockConfiguration5PropertiesOutput) AuroraServerlessScalingConfig() PlanAuroraServerlessScalingConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration5Properties) PlanAuroraServerlessScalingConfiguration {
+		return v.AuroraServerlessScalingConfig
+	}).(PlanAuroraServerlessScalingConfigurationOutput)
 }
 
 type PlanExecutionBlockConfiguration6Properties struct {
-	RegionSwitchPlanConfig PlanRegionSwitchPlanConfiguration `pulumi:"regionSwitchPlanConfig"`
+	GlobalAuroraConfig PlanGlobalAuroraConfiguration `pulumi:"globalAuroraConfig"`
 }
 
 // PlanExecutionBlockConfiguration6PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration6PropertiesArgs and PlanExecutionBlockConfiguration6PropertiesOutput values.
@@ -2031,7 +2344,7 @@ type PlanExecutionBlockConfiguration6PropertiesInput interface {
 }
 
 type PlanExecutionBlockConfiguration6PropertiesArgs struct {
-	RegionSwitchPlanConfig PlanRegionSwitchPlanConfigurationInput `pulumi:"regionSwitchPlanConfig"`
+	GlobalAuroraConfig PlanGlobalAuroraConfigurationInput `pulumi:"globalAuroraConfig"`
 }
 
 func (PlanExecutionBlockConfiguration6PropertiesArgs) ElementType() reflect.Type {
@@ -2060,14 +2373,14 @@ func (o PlanExecutionBlockConfiguration6PropertiesOutput) ToPlanExecutionBlockCo
 	return o
 }
 
-func (o PlanExecutionBlockConfiguration6PropertiesOutput) RegionSwitchPlanConfig() PlanRegionSwitchPlanConfigurationOutput {
-	return o.ApplyT(func(v PlanExecutionBlockConfiguration6Properties) PlanRegionSwitchPlanConfiguration {
-		return v.RegionSwitchPlanConfig
-	}).(PlanRegionSwitchPlanConfigurationOutput)
+func (o PlanExecutionBlockConfiguration6PropertiesOutput) GlobalAuroraConfig() PlanGlobalAuroraConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration6Properties) PlanGlobalAuroraConfiguration {
+		return v.GlobalAuroraConfig
+	}).(PlanGlobalAuroraConfigurationOutput)
 }
 
 type PlanExecutionBlockConfiguration7Properties struct {
-	EcsCapacityIncreaseConfig PlanEcsCapacityIncreaseConfiguration `pulumi:"ecsCapacityIncreaseConfig"`
+	ParallelConfig PlanParallelExecutionBlockConfiguration `pulumi:"parallelConfig"`
 }
 
 // PlanExecutionBlockConfiguration7PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration7PropertiesArgs and PlanExecutionBlockConfiguration7PropertiesOutput values.
@@ -2082,7 +2395,7 @@ type PlanExecutionBlockConfiguration7PropertiesInput interface {
 }
 
 type PlanExecutionBlockConfiguration7PropertiesArgs struct {
-	EcsCapacityIncreaseConfig PlanEcsCapacityIncreaseConfigurationInput `pulumi:"ecsCapacityIncreaseConfig"`
+	ParallelConfig PlanParallelExecutionBlockConfigurationInput `pulumi:"parallelConfig"`
 }
 
 func (PlanExecutionBlockConfiguration7PropertiesArgs) ElementType() reflect.Type {
@@ -2111,14 +2424,14 @@ func (o PlanExecutionBlockConfiguration7PropertiesOutput) ToPlanExecutionBlockCo
 	return o
 }
 
-func (o PlanExecutionBlockConfiguration7PropertiesOutput) EcsCapacityIncreaseConfig() PlanEcsCapacityIncreaseConfigurationOutput {
-	return o.ApplyT(func(v PlanExecutionBlockConfiguration7Properties) PlanEcsCapacityIncreaseConfiguration {
-		return v.EcsCapacityIncreaseConfig
-	}).(PlanEcsCapacityIncreaseConfigurationOutput)
+func (o PlanExecutionBlockConfiguration7PropertiesOutput) ParallelConfig() PlanParallelExecutionBlockConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration7Properties) PlanParallelExecutionBlockConfiguration {
+		return v.ParallelConfig
+	}).(PlanParallelExecutionBlockConfigurationOutput)
 }
 
 type PlanExecutionBlockConfiguration8Properties struct {
-	EksResourceScalingConfig PlanEksResourceScalingConfiguration `pulumi:"eksResourceScalingConfig"`
+	RegionSwitchPlanConfig PlanRegionSwitchPlanConfiguration `pulumi:"regionSwitchPlanConfig"`
 }
 
 // PlanExecutionBlockConfiguration8PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration8PropertiesArgs and PlanExecutionBlockConfiguration8PropertiesOutput values.
@@ -2133,7 +2446,7 @@ type PlanExecutionBlockConfiguration8PropertiesInput interface {
 }
 
 type PlanExecutionBlockConfiguration8PropertiesArgs struct {
-	EksResourceScalingConfig PlanEksResourceScalingConfigurationInput `pulumi:"eksResourceScalingConfig"`
+	RegionSwitchPlanConfig PlanRegionSwitchPlanConfigurationInput `pulumi:"regionSwitchPlanConfig"`
 }
 
 func (PlanExecutionBlockConfiguration8PropertiesArgs) ElementType() reflect.Type {
@@ -2162,14 +2475,14 @@ func (o PlanExecutionBlockConfiguration8PropertiesOutput) ToPlanExecutionBlockCo
 	return o
 }
 
-func (o PlanExecutionBlockConfiguration8PropertiesOutput) EksResourceScalingConfig() PlanEksResourceScalingConfigurationOutput {
-	return o.ApplyT(func(v PlanExecutionBlockConfiguration8Properties) PlanEksResourceScalingConfiguration {
-		return v.EksResourceScalingConfig
-	}).(PlanEksResourceScalingConfigurationOutput)
+func (o PlanExecutionBlockConfiguration8PropertiesOutput) RegionSwitchPlanConfig() PlanRegionSwitchPlanConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration8Properties) PlanRegionSwitchPlanConfiguration {
+		return v.RegionSwitchPlanConfig
+	}).(PlanRegionSwitchPlanConfigurationOutput)
 }
 
 type PlanExecutionBlockConfiguration9Properties struct {
-	Route53HealthCheckConfig PlanRoute53HealthCheckConfiguration `pulumi:"route53HealthCheckConfig"`
+	EcsCapacityIncreaseConfig PlanEcsCapacityIncreaseConfiguration `pulumi:"ecsCapacityIncreaseConfig"`
 }
 
 // PlanExecutionBlockConfiguration9PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration9PropertiesArgs and PlanExecutionBlockConfiguration9PropertiesOutput values.
@@ -2184,7 +2497,7 @@ type PlanExecutionBlockConfiguration9PropertiesInput interface {
 }
 
 type PlanExecutionBlockConfiguration9PropertiesArgs struct {
-	Route53HealthCheckConfig PlanRoute53HealthCheckConfigurationInput `pulumi:"route53HealthCheckConfig"`
+	EcsCapacityIncreaseConfig PlanEcsCapacityIncreaseConfigurationInput `pulumi:"ecsCapacityIncreaseConfig"`
 }
 
 func (PlanExecutionBlockConfiguration9PropertiesArgs) ElementType() reflect.Type {
@@ -2213,10 +2526,10 @@ func (o PlanExecutionBlockConfiguration9PropertiesOutput) ToPlanExecutionBlockCo
 	return o
 }
 
-func (o PlanExecutionBlockConfiguration9PropertiesOutput) Route53HealthCheckConfig() PlanRoute53HealthCheckConfigurationOutput {
-	return o.ApplyT(func(v PlanExecutionBlockConfiguration9Properties) PlanRoute53HealthCheckConfiguration {
-		return v.Route53HealthCheckConfig
-	}).(PlanRoute53HealthCheckConfigurationOutput)
+func (o PlanExecutionBlockConfiguration9PropertiesOutput) EcsCapacityIncreaseConfig() PlanEcsCapacityIncreaseConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration9Properties) PlanEcsCapacityIncreaseConfiguration {
+		return v.EcsCapacityIncreaseConfig
+	}).(PlanEcsCapacityIncreaseConfigurationOutput)
 }
 
 type PlanGlobalAuroraConfiguration struct {
@@ -2990,6 +3303,224 @@ func (o PlanLambdasArrayOutput) Index(i pulumi.IntInput) PlanLambdasOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanLambdas {
 		return vs[0].([]PlanLambdas)[vs[1].(int)]
 	}).(PlanLambdasOutput)
+}
+
+type PlanNeptuneGlobalDatabaseConfiguration struct {
+	Behavior                  interface{}            `pulumi:"behavior"`
+	CrossAccountRole          *string                `pulumi:"crossAccountRole"`
+	ExternalId                *string                `pulumi:"externalId"`
+	GlobalClusterIdentifier   string                 `pulumi:"globalClusterIdentifier"`
+	RegionDatabaseClusterArns map[string]string      `pulumi:"regionDatabaseClusterArns"`
+	TimeoutMinutes            *float64               `pulumi:"timeoutMinutes"`
+	Ungraceful                *PlanNeptuneUngraceful `pulumi:"ungraceful"`
+}
+
+// PlanNeptuneGlobalDatabaseConfigurationInput is an input type that accepts PlanNeptuneGlobalDatabaseConfigurationArgs and PlanNeptuneGlobalDatabaseConfigurationOutput values.
+// You can construct a concrete instance of `PlanNeptuneGlobalDatabaseConfigurationInput` via:
+//
+//	PlanNeptuneGlobalDatabaseConfigurationArgs{...}
+type PlanNeptuneGlobalDatabaseConfigurationInput interface {
+	pulumi.Input
+
+	ToPlanNeptuneGlobalDatabaseConfigurationOutput() PlanNeptuneGlobalDatabaseConfigurationOutput
+	ToPlanNeptuneGlobalDatabaseConfigurationOutputWithContext(context.Context) PlanNeptuneGlobalDatabaseConfigurationOutput
+}
+
+type PlanNeptuneGlobalDatabaseConfigurationArgs struct {
+	Behavior                  pulumi.Input                  `pulumi:"behavior"`
+	CrossAccountRole          pulumi.StringPtrInput         `pulumi:"crossAccountRole"`
+	ExternalId                pulumi.StringPtrInput         `pulumi:"externalId"`
+	GlobalClusterIdentifier   pulumi.StringInput            `pulumi:"globalClusterIdentifier"`
+	RegionDatabaseClusterArns pulumi.StringMapInput         `pulumi:"regionDatabaseClusterArns"`
+	TimeoutMinutes            pulumi.Float64PtrInput        `pulumi:"timeoutMinutes"`
+	Ungraceful                PlanNeptuneUngracefulPtrInput `pulumi:"ungraceful"`
+}
+
+func (PlanNeptuneGlobalDatabaseConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanNeptuneGlobalDatabaseConfiguration)(nil)).Elem()
+}
+
+func (i PlanNeptuneGlobalDatabaseConfigurationArgs) ToPlanNeptuneGlobalDatabaseConfigurationOutput() PlanNeptuneGlobalDatabaseConfigurationOutput {
+	return i.ToPlanNeptuneGlobalDatabaseConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlanNeptuneGlobalDatabaseConfigurationArgs) ToPlanNeptuneGlobalDatabaseConfigurationOutputWithContext(ctx context.Context) PlanNeptuneGlobalDatabaseConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanNeptuneGlobalDatabaseConfigurationOutput)
+}
+
+type PlanNeptuneGlobalDatabaseConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlanNeptuneGlobalDatabaseConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanNeptuneGlobalDatabaseConfiguration)(nil)).Elem()
+}
+
+func (o PlanNeptuneGlobalDatabaseConfigurationOutput) ToPlanNeptuneGlobalDatabaseConfigurationOutput() PlanNeptuneGlobalDatabaseConfigurationOutput {
+	return o
+}
+
+func (o PlanNeptuneGlobalDatabaseConfigurationOutput) ToPlanNeptuneGlobalDatabaseConfigurationOutputWithContext(ctx context.Context) PlanNeptuneGlobalDatabaseConfigurationOutput {
+	return o
+}
+
+func (o PlanNeptuneGlobalDatabaseConfigurationOutput) Behavior() pulumi.AnyOutput {
+	return o.ApplyT(func(v PlanNeptuneGlobalDatabaseConfiguration) interface{} { return v.Behavior }).(pulumi.AnyOutput)
+}
+
+func (o PlanNeptuneGlobalDatabaseConfigurationOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanNeptuneGlobalDatabaseConfiguration) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
+}
+
+func (o PlanNeptuneGlobalDatabaseConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanNeptuneGlobalDatabaseConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+func (o PlanNeptuneGlobalDatabaseConfigurationOutput) GlobalClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanNeptuneGlobalDatabaseConfiguration) string { return v.GlobalClusterIdentifier }).(pulumi.StringOutput)
+}
+
+func (o PlanNeptuneGlobalDatabaseConfigurationOutput) RegionDatabaseClusterArns() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanNeptuneGlobalDatabaseConfiguration) map[string]string { return v.RegionDatabaseClusterArns }).(pulumi.StringMapOutput)
+}
+
+func (o PlanNeptuneGlobalDatabaseConfigurationOutput) TimeoutMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PlanNeptuneGlobalDatabaseConfiguration) *float64 { return v.TimeoutMinutes }).(pulumi.Float64PtrOutput)
+}
+
+func (o PlanNeptuneGlobalDatabaseConfigurationOutput) Ungraceful() PlanNeptuneUngracefulPtrOutput {
+	return o.ApplyT(func(v PlanNeptuneGlobalDatabaseConfiguration) *PlanNeptuneUngraceful { return v.Ungraceful }).(PlanNeptuneUngracefulPtrOutput)
+}
+
+type PlanNeptuneUngraceful struct {
+	Ungraceful *PlanNeptuneUngracefulBehavior `pulumi:"ungraceful"`
+}
+
+// PlanNeptuneUngracefulInput is an input type that accepts PlanNeptuneUngracefulArgs and PlanNeptuneUngracefulOutput values.
+// You can construct a concrete instance of `PlanNeptuneUngracefulInput` via:
+//
+//	PlanNeptuneUngracefulArgs{...}
+type PlanNeptuneUngracefulInput interface {
+	pulumi.Input
+
+	ToPlanNeptuneUngracefulOutput() PlanNeptuneUngracefulOutput
+	ToPlanNeptuneUngracefulOutputWithContext(context.Context) PlanNeptuneUngracefulOutput
+}
+
+type PlanNeptuneUngracefulArgs struct {
+	Ungraceful PlanNeptuneUngracefulBehaviorPtrInput `pulumi:"ungraceful"`
+}
+
+func (PlanNeptuneUngracefulArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanNeptuneUngraceful)(nil)).Elem()
+}
+
+func (i PlanNeptuneUngracefulArgs) ToPlanNeptuneUngracefulOutput() PlanNeptuneUngracefulOutput {
+	return i.ToPlanNeptuneUngracefulOutputWithContext(context.Background())
+}
+
+func (i PlanNeptuneUngracefulArgs) ToPlanNeptuneUngracefulOutputWithContext(ctx context.Context) PlanNeptuneUngracefulOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanNeptuneUngracefulOutput)
+}
+
+func (i PlanNeptuneUngracefulArgs) ToPlanNeptuneUngracefulPtrOutput() PlanNeptuneUngracefulPtrOutput {
+	return i.ToPlanNeptuneUngracefulPtrOutputWithContext(context.Background())
+}
+
+func (i PlanNeptuneUngracefulArgs) ToPlanNeptuneUngracefulPtrOutputWithContext(ctx context.Context) PlanNeptuneUngracefulPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanNeptuneUngracefulOutput).ToPlanNeptuneUngracefulPtrOutputWithContext(ctx)
+}
+
+// PlanNeptuneUngracefulPtrInput is an input type that accepts PlanNeptuneUngracefulArgs, PlanNeptuneUngracefulPtr and PlanNeptuneUngracefulPtrOutput values.
+// You can construct a concrete instance of `PlanNeptuneUngracefulPtrInput` via:
+//
+//	        PlanNeptuneUngracefulArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlanNeptuneUngracefulPtrInput interface {
+	pulumi.Input
+
+	ToPlanNeptuneUngracefulPtrOutput() PlanNeptuneUngracefulPtrOutput
+	ToPlanNeptuneUngracefulPtrOutputWithContext(context.Context) PlanNeptuneUngracefulPtrOutput
+}
+
+type planNeptuneUngracefulPtrType PlanNeptuneUngracefulArgs
+
+func PlanNeptuneUngracefulPtr(v *PlanNeptuneUngracefulArgs) PlanNeptuneUngracefulPtrInput {
+	return (*planNeptuneUngracefulPtrType)(v)
+}
+
+func (*planNeptuneUngracefulPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanNeptuneUngraceful)(nil)).Elem()
+}
+
+func (i *planNeptuneUngracefulPtrType) ToPlanNeptuneUngracefulPtrOutput() PlanNeptuneUngracefulPtrOutput {
+	return i.ToPlanNeptuneUngracefulPtrOutputWithContext(context.Background())
+}
+
+func (i *planNeptuneUngracefulPtrType) ToPlanNeptuneUngracefulPtrOutputWithContext(ctx context.Context) PlanNeptuneUngracefulPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanNeptuneUngracefulPtrOutput)
+}
+
+type PlanNeptuneUngracefulOutput struct{ *pulumi.OutputState }
+
+func (PlanNeptuneUngracefulOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanNeptuneUngraceful)(nil)).Elem()
+}
+
+func (o PlanNeptuneUngracefulOutput) ToPlanNeptuneUngracefulOutput() PlanNeptuneUngracefulOutput {
+	return o
+}
+
+func (o PlanNeptuneUngracefulOutput) ToPlanNeptuneUngracefulOutputWithContext(ctx context.Context) PlanNeptuneUngracefulOutput {
+	return o
+}
+
+func (o PlanNeptuneUngracefulOutput) ToPlanNeptuneUngracefulPtrOutput() PlanNeptuneUngracefulPtrOutput {
+	return o.ToPlanNeptuneUngracefulPtrOutputWithContext(context.Background())
+}
+
+func (o PlanNeptuneUngracefulOutput) ToPlanNeptuneUngracefulPtrOutputWithContext(ctx context.Context) PlanNeptuneUngracefulPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanNeptuneUngraceful) *PlanNeptuneUngraceful {
+		return &v
+	}).(PlanNeptuneUngracefulPtrOutput)
+}
+
+func (o PlanNeptuneUngracefulOutput) Ungraceful() PlanNeptuneUngracefulBehaviorPtrOutput {
+	return o.ApplyT(func(v PlanNeptuneUngraceful) *PlanNeptuneUngracefulBehavior { return v.Ungraceful }).(PlanNeptuneUngracefulBehaviorPtrOutput)
+}
+
+type PlanNeptuneUngracefulPtrOutput struct{ *pulumi.OutputState }
+
+func (PlanNeptuneUngracefulPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanNeptuneUngraceful)(nil)).Elem()
+}
+
+func (o PlanNeptuneUngracefulPtrOutput) ToPlanNeptuneUngracefulPtrOutput() PlanNeptuneUngracefulPtrOutput {
+	return o
+}
+
+func (o PlanNeptuneUngracefulPtrOutput) ToPlanNeptuneUngracefulPtrOutputWithContext(ctx context.Context) PlanNeptuneUngracefulPtrOutput {
+	return o
+}
+
+func (o PlanNeptuneUngracefulPtrOutput) Elem() PlanNeptuneUngracefulOutput {
+	return o.ApplyT(func(v *PlanNeptuneUngraceful) PlanNeptuneUngraceful {
+		if v != nil {
+			return *v
+		}
+		var ret PlanNeptuneUngraceful
+		return ret
+	}).(PlanNeptuneUngracefulOutput)
+}
+
+func (o PlanNeptuneUngracefulPtrOutput) Ungraceful() PlanNeptuneUngracefulBehaviorPtrOutput {
+	return o.ApplyT(func(v *PlanNeptuneUngraceful) *PlanNeptuneUngracefulBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.Ungraceful
+	}).(PlanNeptuneUngracefulBehaviorPtrOutput)
 }
 
 type PlanParallelExecutionBlockConfiguration struct {
@@ -4429,6 +4960,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanAsgArrayInput)(nil)).Elem(), PlanAsgArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanAssociatedAlarmInput)(nil)).Elem(), PlanAssociatedAlarmArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanAssociatedAlarmMapInput)(nil)).Elem(), PlanAssociatedAlarmMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanAuroraProvisionedScalingConfigurationInput)(nil)).Elem(), PlanAuroraProvisionedScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanAuroraServerlessScalingConfigurationInput)(nil)).Elem(), PlanAuroraServerlessScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanCustomActionLambdaConfigurationInput)(nil)).Elem(), PlanCustomActionLambdaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanDocumentDbConfigurationInput)(nil)).Elem(), PlanDocumentDbConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanDocumentDbUngracefulInput)(nil)).Elem(), PlanDocumentDbUngracefulArgs{})
@@ -4452,6 +4985,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration11PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration11PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration12PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration12PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration13PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration13PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration14PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration14PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration15PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration15PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration16PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration16PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration1PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration2PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration3PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration3PropertiesArgs{})
@@ -4472,6 +5008,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanLambdaUngracefulPtrInput)(nil)).Elem(), PlanLambdaUngracefulArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanLambdasInput)(nil)).Elem(), PlanLambdasArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanLambdasArrayInput)(nil)).Elem(), PlanLambdasArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanNeptuneGlobalDatabaseConfigurationInput)(nil)).Elem(), PlanNeptuneGlobalDatabaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanNeptuneUngracefulInput)(nil)).Elem(), PlanNeptuneUngracefulArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanNeptuneUngracefulPtrInput)(nil)).Elem(), PlanNeptuneUngracefulArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanParallelExecutionBlockConfigurationInput)(nil)).Elem(), PlanParallelExecutionBlockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRdsCreateCrossRegionReplicaConfigurationInput)(nil)).Elem(), PlanRdsCreateCrossRegionReplicaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRdsPromoteReadReplicaConfigurationInput)(nil)).Elem(), PlanRdsPromoteReadReplicaConfigurationArgs{})
@@ -4499,6 +5038,8 @@ func init() {
 	pulumi.RegisterOutputType(PlanAsgArrayOutput{})
 	pulumi.RegisterOutputType(PlanAssociatedAlarmOutput{})
 	pulumi.RegisterOutputType(PlanAssociatedAlarmMapOutput{})
+	pulumi.RegisterOutputType(PlanAuroraProvisionedScalingConfigurationOutput{})
+	pulumi.RegisterOutputType(PlanAuroraServerlessScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanCustomActionLambdaConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanDocumentDbConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanDocumentDbUngracefulOutput{})
@@ -4522,6 +5063,9 @@ func init() {
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration11PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration12PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration13PropertiesOutput{})
+	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration14PropertiesOutput{})
+	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration15PropertiesOutput{})
+	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration16PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration2PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration3PropertiesOutput{})
@@ -4544,6 +5088,9 @@ func init() {
 	pulumi.RegisterOutputType(PlanLambdaUngracefulPtrOutput{})
 	pulumi.RegisterOutputType(PlanLambdasOutput{})
 	pulumi.RegisterOutputType(PlanLambdasArrayOutput{})
+	pulumi.RegisterOutputType(PlanNeptuneGlobalDatabaseConfigurationOutput{})
+	pulumi.RegisterOutputType(PlanNeptuneUngracefulOutput{})
+	pulumi.RegisterOutputType(PlanNeptuneUngracefulPtrOutput{})
 	pulumi.RegisterOutputType(PlanParallelExecutionBlockConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanRdsCreateCrossRegionReplicaConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanRdsPromoteReadReplicaConfigurationOutput{})

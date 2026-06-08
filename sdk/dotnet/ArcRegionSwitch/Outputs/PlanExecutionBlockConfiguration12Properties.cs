@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Outputs
     [OutputType]
     public sealed class PlanExecutionBlockConfiguration12Properties
     {
-        public readonly Outputs.PlanRdsCreateCrossRegionReplicaConfiguration RdsCreateCrossRegionReadReplicaConfig;
+        public readonly Outputs.PlanDocumentDbConfiguration DocumentDbConfig;
 
         [OutputConstructor]
-        private PlanExecutionBlockConfiguration12Properties(Outputs.PlanRdsCreateCrossRegionReplicaConfiguration rdsCreateCrossRegionReadReplicaConfig)
+        private PlanExecutionBlockConfiguration12Properties(Outputs.PlanDocumentDbConfiguration documentDbConfig)
         {
-            RdsCreateCrossRegionReadReplicaConfig = rdsCreateCrossRegionReadReplicaConfig;
+            DocumentDbConfig = documentDbConfig;
         }
     }
 }

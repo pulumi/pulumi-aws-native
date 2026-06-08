@@ -21,6 +21,16 @@ export const CapacityProviderPredefinedMetricType = {
  */
 export type CapacityProviderPredefinedMetricType = (typeof CapacityProviderPredefinedMetricType)[keyof typeof CapacityProviderPredefinedMetricType];
 
+export const CapacityProviderPropagateTagsMode = {
+    None: "None",
+    Explicit: "Explicit",
+} as const;
+
+/**
+ * The mode for tag propagation.
+ */
+export type CapacityProviderPropagateTagsMode = (typeof CapacityProviderPropagateTagsMode)[keyof typeof CapacityProviderPropagateTagsMode];
+
 export const CapacityProviderScalingMode = {
     Auto: "Auto",
     Manual: "Manual",

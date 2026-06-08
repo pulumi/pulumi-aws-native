@@ -21,7 +21,17 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         /// </summary>
         public readonly string ApiKeyId;
         public readonly Outputs.PaymentCredentialProviderSecretInfo ApiKeySecretArn;
+        /// <summary>
+        /// The JSON key within the secret that contains the API key secret value
+        /// </summary>
+        public readonly string? ApiKeySecretJsonKey;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType? ApiKeySecretSource;
         public readonly Outputs.PaymentCredentialProviderSecretInfo? WalletSecretArn;
+        /// <summary>
+        /// The JSON key within the secret that contains the wallet secret value
+        /// </summary>
+        public readonly string? WalletSecretJsonKey;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType? WalletSecretSource;
 
         [OutputConstructor]
         private PaymentCredentialProviderCoinbaseCdpConfigurationOutput(
@@ -29,11 +39,23 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             Outputs.PaymentCredentialProviderSecretInfo apiKeySecretArn,
 
-            Outputs.PaymentCredentialProviderSecretInfo? walletSecretArn)
+            string? apiKeySecretJsonKey,
+
+            Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType? apiKeySecretSource,
+
+            Outputs.PaymentCredentialProviderSecretInfo? walletSecretArn,
+
+            string? walletSecretJsonKey,
+
+            Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType? walletSecretSource)
         {
             ApiKeyId = apiKeyId;
             ApiKeySecretArn = apiKeySecretArn;
+            ApiKeySecretJsonKey = apiKeySecretJsonKey;
+            ApiKeySecretSource = apiKeySecretSource;
             WalletSecretArn = walletSecretArn;
+            WalletSecretJsonKey = walletSecretJsonKey;
+            WalletSecretSource = walletSecretSource;
         }
     }
 }

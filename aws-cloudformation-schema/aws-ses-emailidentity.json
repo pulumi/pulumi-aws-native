@@ -149,19 +149,19 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
+    "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
-    "permissions" : [ "ses:TagResource", "ses:UntagResource" ]
+    "permissions" : [ "ses:TagResource", "ses:UntagResource", "ses:ListTagsForResource" ]
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "ses:CreateEmailIdentity", "ses:PutEmailIdentityMailFromAttributes", "ses:PutEmailIdentityFeedbackAttributes", "ses:PutEmailIdentityDkimAttributes", "ses:GetEmailIdentity", "ses:TagResource", "ses:UntagResource" ]
+      "permissions" : [ "ses:CreateEmailIdentity", "ses:PutEmailIdentityMailFromAttributes", "ses:PutEmailIdentityFeedbackAttributes", "ses:PutEmailIdentityDkimAttributes", "ses:GetEmailIdentity", "ses:ListTagsForResource", "ses:TagResource", "ses:UntagResource" ]
     },
     "read" : {
-      "permissions" : [ "ses:GetEmailIdentity" ]
+      "permissions" : [ "ses:GetEmailIdentity", "ses:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "ses:PutEmailIdentityMailFromAttributes", "ses:PutEmailIdentityFeedbackAttributes", "ses:PutEmailIdentityConfigurationSetAttributes", "ses:PutEmailIdentityDkimSigningAttributes", "ses:PutEmailIdentityDkimAttributes", "ses:GetEmailIdentity", "ses:TagResource", "ses:UntagResource" ]
+      "permissions" : [ "ses:PutEmailIdentityMailFromAttributes", "ses:PutEmailIdentityFeedbackAttributes", "ses:PutEmailIdentityConfigurationSetAttributes", "ses:PutEmailIdentityDkimSigningAttributes", "ses:PutEmailIdentityDkimAttributes", "ses:GetEmailIdentity", "ses:ListTagsForResource", "ses:TagResource", "ses:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "ses:DeleteEmailIdentity" ]

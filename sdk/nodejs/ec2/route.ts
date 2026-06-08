@@ -85,6 +85,7 @@ export class Route extends pulumi.CustomResource {
      * The ID of a network interface.
      */
     declare public readonly networkInterfaceId: pulumi.Output<string | undefined>;
+    declare public readonly odbNetworkArn: pulumi.Output<string | undefined>;
     /**
      * The ID of the route table for the route.
      */
@@ -127,6 +128,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["localGatewayId"] = args?.localGatewayId;
             resourceInputs["natGatewayId"] = args?.natGatewayId;
             resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
+            resourceInputs["odbNetworkArn"] = args?.odbNetworkArn;
             resourceInputs["routeTableId"] = args?.routeTableId;
             resourceInputs["transitGatewayId"] = args?.transitGatewayId;
             resourceInputs["vpcEndpointId"] = args?.vpcEndpointId;
@@ -145,6 +147,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["localGatewayId"] = undefined /*out*/;
             resourceInputs["natGatewayId"] = undefined /*out*/;
             resourceInputs["networkInterfaceId"] = undefined /*out*/;
+            resourceInputs["odbNetworkArn"] = undefined /*out*/;
             resourceInputs["routeTableId"] = undefined /*out*/;
             resourceInputs["transitGatewayId"] = undefined /*out*/;
             resourceInputs["vpcEndpointId"] = undefined /*out*/;
@@ -206,6 +209,7 @@ export interface RouteArgs {
      * The ID of a network interface.
      */
     networkInterfaceId?: pulumi.Input<string>;
+    odbNetworkArn?: pulumi.Input<string>;
     /**
      * The ID of the route table for the route.
      */

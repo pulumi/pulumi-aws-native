@@ -1379,6 +1379,172 @@ func (in *clusterKubernetesTaintEffectPtr) ToClusterKubernetesTaintEffectPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterKubernetesTaintEffectPtrOutput)
 }
 
+// The type of network interface.
+type ClusterNetworkInterfaceInterfaceType string
+
+const (
+	ClusterNetworkInterfaceInterfaceTypeEfa     = ClusterNetworkInterfaceInterfaceType("efa")
+	ClusterNetworkInterfaceInterfaceTypeEfaOnly = ClusterNetworkInterfaceInterfaceType("efa-only")
+)
+
+func (ClusterNetworkInterfaceInterfaceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNetworkInterfaceInterfaceType)(nil)).Elem()
+}
+
+func (e ClusterNetworkInterfaceInterfaceType) ToClusterNetworkInterfaceInterfaceTypeOutput() ClusterNetworkInterfaceInterfaceTypeOutput {
+	return pulumi.ToOutput(e).(ClusterNetworkInterfaceInterfaceTypeOutput)
+}
+
+func (e ClusterNetworkInterfaceInterfaceType) ToClusterNetworkInterfaceInterfaceTypeOutputWithContext(ctx context.Context) ClusterNetworkInterfaceInterfaceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterNetworkInterfaceInterfaceTypeOutput)
+}
+
+func (e ClusterNetworkInterfaceInterfaceType) ToClusterNetworkInterfaceInterfaceTypePtrOutput() ClusterNetworkInterfaceInterfaceTypePtrOutput {
+	return e.ToClusterNetworkInterfaceInterfaceTypePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterNetworkInterfaceInterfaceType) ToClusterNetworkInterfaceInterfaceTypePtrOutputWithContext(ctx context.Context) ClusterNetworkInterfaceInterfaceTypePtrOutput {
+	return ClusterNetworkInterfaceInterfaceType(e).ToClusterNetworkInterfaceInterfaceTypeOutputWithContext(ctx).ToClusterNetworkInterfaceInterfaceTypePtrOutputWithContext(ctx)
+}
+
+func (e ClusterNetworkInterfaceInterfaceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterNetworkInterfaceInterfaceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterNetworkInterfaceInterfaceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterNetworkInterfaceInterfaceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterNetworkInterfaceInterfaceTypeOutput struct{ *pulumi.OutputState }
+
+func (ClusterNetworkInterfaceInterfaceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNetworkInterfaceInterfaceType)(nil)).Elem()
+}
+
+func (o ClusterNetworkInterfaceInterfaceTypeOutput) ToClusterNetworkInterfaceInterfaceTypeOutput() ClusterNetworkInterfaceInterfaceTypeOutput {
+	return o
+}
+
+func (o ClusterNetworkInterfaceInterfaceTypeOutput) ToClusterNetworkInterfaceInterfaceTypeOutputWithContext(ctx context.Context) ClusterNetworkInterfaceInterfaceTypeOutput {
+	return o
+}
+
+func (o ClusterNetworkInterfaceInterfaceTypeOutput) ToClusterNetworkInterfaceInterfaceTypePtrOutput() ClusterNetworkInterfaceInterfaceTypePtrOutput {
+	return o.ToClusterNetworkInterfaceInterfaceTypePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNetworkInterfaceInterfaceTypeOutput) ToClusterNetworkInterfaceInterfaceTypePtrOutputWithContext(ctx context.Context) ClusterNetworkInterfaceInterfaceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNetworkInterfaceInterfaceType) *ClusterNetworkInterfaceInterfaceType {
+		return &v
+	}).(ClusterNetworkInterfaceInterfaceTypePtrOutput)
+}
+
+func (o ClusterNetworkInterfaceInterfaceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterNetworkInterfaceInterfaceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterNetworkInterfaceInterfaceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterNetworkInterfaceInterfaceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNetworkInterfaceInterfaceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterNetworkInterfaceInterfaceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterNetworkInterfaceInterfaceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterNetworkInterfaceInterfaceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterNetworkInterfaceInterfaceType)(nil)).Elem()
+}
+
+func (o ClusterNetworkInterfaceInterfaceTypePtrOutput) ToClusterNetworkInterfaceInterfaceTypePtrOutput() ClusterNetworkInterfaceInterfaceTypePtrOutput {
+	return o
+}
+
+func (o ClusterNetworkInterfaceInterfaceTypePtrOutput) ToClusterNetworkInterfaceInterfaceTypePtrOutputWithContext(ctx context.Context) ClusterNetworkInterfaceInterfaceTypePtrOutput {
+	return o
+}
+
+func (o ClusterNetworkInterfaceInterfaceTypePtrOutput) Elem() ClusterNetworkInterfaceInterfaceTypeOutput {
+	return o.ApplyT(func(v *ClusterNetworkInterfaceInterfaceType) ClusterNetworkInterfaceInterfaceType {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterNetworkInterfaceInterfaceType
+		return ret
+	}).(ClusterNetworkInterfaceInterfaceTypeOutput)
+}
+
+func (o ClusterNetworkInterfaceInterfaceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNetworkInterfaceInterfaceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterNetworkInterfaceInterfaceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterNetworkInterfaceInterfaceTypeInput is an input type that accepts values of the ClusterNetworkInterfaceInterfaceType enum
+// A concrete instance of `ClusterNetworkInterfaceInterfaceTypeInput` can be one of the following:
+//
+//	ClusterNetworkInterfaceInterfaceTypeEfa
+//	ClusterNetworkInterfaceInterfaceTypeEfaOnly
+type ClusterNetworkInterfaceInterfaceTypeInput interface {
+	pulumi.Input
+
+	ToClusterNetworkInterfaceInterfaceTypeOutput() ClusterNetworkInterfaceInterfaceTypeOutput
+	ToClusterNetworkInterfaceInterfaceTypeOutputWithContext(context.Context) ClusterNetworkInterfaceInterfaceTypeOutput
+}
+
+var clusterNetworkInterfaceInterfaceTypePtrType = reflect.TypeOf((**ClusterNetworkInterfaceInterfaceType)(nil)).Elem()
+
+type ClusterNetworkInterfaceInterfaceTypePtrInput interface {
+	pulumi.Input
+
+	ToClusterNetworkInterfaceInterfaceTypePtrOutput() ClusterNetworkInterfaceInterfaceTypePtrOutput
+	ToClusterNetworkInterfaceInterfaceTypePtrOutputWithContext(context.Context) ClusterNetworkInterfaceInterfaceTypePtrOutput
+}
+
+type clusterNetworkInterfaceInterfaceTypePtr string
+
+func ClusterNetworkInterfaceInterfaceTypePtr(v string) ClusterNetworkInterfaceInterfaceTypePtrInput {
+	return (*clusterNetworkInterfaceInterfaceTypePtr)(&v)
+}
+
+func (*clusterNetworkInterfaceInterfaceTypePtr) ElementType() reflect.Type {
+	return clusterNetworkInterfaceInterfaceTypePtrType
+}
+
+func (in *clusterNetworkInterfaceInterfaceTypePtr) ToClusterNetworkInterfaceInterfaceTypePtrOutput() ClusterNetworkInterfaceInterfaceTypePtrOutput {
+	return pulumi.ToOutput(in).(ClusterNetworkInterfaceInterfaceTypePtrOutput)
+}
+
+func (in *clusterNetworkInterfaceInterfaceTypePtr) ToClusterNetworkInterfaceInterfaceTypePtrOutputWithContext(ctx context.Context) ClusterNetworkInterfaceInterfaceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterNetworkInterfaceInterfaceTypePtrOutput)
+}
+
 // Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
 type ClusterNodeProvisioningMode string
 
@@ -23816,6 +23982,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDeepHealthCheckTypeArrayInput)(nil)).Elem(), ClusterDeepHealthCheckTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesTaintEffectInput)(nil)).Elem(), ClusterKubernetesTaintEffect("NoSchedule"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesTaintEffectPtrInput)(nil)).Elem(), ClusterKubernetesTaintEffect("NoSchedule"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkInterfaceInterfaceTypeInput)(nil)).Elem(), ClusterNetworkInterfaceInterfaceType("efa"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkInterfaceInterfaceTypePtrInput)(nil)).Elem(), ClusterNetworkInterfaceInterfaceType("efa"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeProvisioningModeInput)(nil)).Elem(), ClusterNodeProvisioningMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeProvisioningModePtrInput)(nil)).Elem(), ClusterNodeProvisioningMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeRecoveryInput)(nil)).Elem(), ClusterNodeRecovery("Automatic"))
@@ -24075,6 +24243,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterDeepHealthCheckTypeArrayOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesTaintEffectOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesTaintEffectPtrOutput{})
+	pulumi.RegisterOutputType(ClusterNetworkInterfaceInterfaceTypeOutput{})
+	pulumi.RegisterOutputType(ClusterNetworkInterfaceInterfaceTypePtrOutput{})
 	pulumi.RegisterOutputType(ClusterNodeProvisioningModeOutput{})
 	pulumi.RegisterOutputType(ClusterNodeProvisioningModePtrOutput{})
 	pulumi.RegisterOutputType(ClusterNodeRecoveryOutput{})

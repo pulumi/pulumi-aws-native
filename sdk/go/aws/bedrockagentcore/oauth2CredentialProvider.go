@@ -21,6 +21,10 @@ type OAuth2CredentialProvider struct {
 	CallbackUrl pulumi.StringOutput `pulumi:"callbackUrl"`
 	// The ARN of the client secret in AWS Secrets Manager
 	ClientSecretArn OAuth2CredentialProviderClientSecretArnOutput `pulumi:"clientSecretArn"`
+	// The JSON key within the secret that contains the client secret value
+	ClientSecretJsonKey pulumi.StringOutput `pulumi:"clientSecretJsonKey"`
+	// The source of the client secret
+	ClientSecretSource OAuth2CredentialProviderClientSecretSourceOutput `pulumi:"clientSecretSource"`
 	// The timestamp when the credential provider was created
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// The Amazon Resource Name (ARN) of the OAuth2 credential provider
@@ -156,6 +160,18 @@ func (o OAuth2CredentialProviderOutput) ClientSecretArn() OAuth2CredentialProvid
 	return o.ApplyT(func(v *OAuth2CredentialProvider) OAuth2CredentialProviderClientSecretArnOutput {
 		return v.ClientSecretArn
 	}).(OAuth2CredentialProviderClientSecretArnOutput)
+}
+
+// The JSON key within the secret that contains the client secret value
+func (o OAuth2CredentialProviderOutput) ClientSecretJsonKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProvider) pulumi.StringOutput { return v.ClientSecretJsonKey }).(pulumi.StringOutput)
+}
+
+// The source of the client secret
+func (o OAuth2CredentialProviderOutput) ClientSecretSource() OAuth2CredentialProviderClientSecretSourceOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProvider) OAuth2CredentialProviderClientSecretSourceOutput {
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderClientSecretSourceOutput)
 }
 
 // The timestamp when the credential provider was created

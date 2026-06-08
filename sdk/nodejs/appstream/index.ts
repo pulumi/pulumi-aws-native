@@ -75,6 +75,11 @@ export const getStack: typeof import("./getStack").getStack = null as any;
 export const getStackOutput: typeof import("./getStack").getStackOutput = null as any;
 utilities.lazyLoad(exports, ["getStack","getStackOutput"], () => require("./getStack"));
 
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+
 export { ImageBuilderArgs } from "./imageBuilder";
 export type ImageBuilder = import("./imageBuilder").ImageBuilder;
 export const ImageBuilder: typeof import("./imageBuilder").ImageBuilder = null as any;
@@ -89,6 +94,11 @@ export { StackUserAssociationArgs } from "./stackUserAssociation";
 export type StackUserAssociation = import("./stackUserAssociation").StackUserAssociation;
 export const StackUserAssociation: typeof import("./stackUserAssociation").StackUserAssociation = null as any;
 utilities.lazyLoad(exports, ["StackUserAssociation"], () => require("./stackUserAssociation"));
+
+export { UserArgs } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
 
 const _module = {
@@ -115,6 +125,8 @@ const _module = {
                 return new Stack(name, <any>undefined, { urn })
             case "aws-native:appstream:StackUserAssociation":
                 return new StackUserAssociation(name, <any>undefined, { urn })
+            case "aws-native:appstream:User":
+                return new User(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

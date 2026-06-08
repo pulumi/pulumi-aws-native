@@ -77,7 +77,13 @@ export class Alarm extends pulumi.CustomResource {
      * Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
      */
     declare public readonly evaluateLowSampleCountPercentile: pulumi.Output<string | undefined>;
+    /**
+     * The evaluation criteria for the alarm.
+     */
     declare public readonly evaluationCriteria: pulumi.Output<outputs.cloudwatch.AlarmEvaluationCriteria | undefined>;
+    /**
+     * The frequency, in seconds, at which the alarm is evaluated.
+     */
     declare public readonly evaluationInterval: pulumi.Output<number | undefined>;
     /**
      * The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
@@ -256,7 +262,13 @@ export interface AlarmArgs {
      * Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
      */
     evaluateLowSampleCountPercentile?: pulumi.Input<string>;
+    /**
+     * The evaluation criteria for the alarm.
+     */
     evaluationCriteria?: pulumi.Input<inputs.cloudwatch.AlarmEvaluationCriteriaArgs>;
+    /**
+     * The frequency, in seconds, at which the alarm is evaluated.
+     */
     evaluationInterval?: pulumi.Input<number>;
     /**
      * The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.

@@ -193,6 +193,38 @@ namespace Pulumi.AwsNative.RtbFabric
     }
 
     [EnumType]
+    public readonly struct LinkRoutingRuleRuleStatus : IEquatable<LinkRoutingRuleRuleStatus>
+    {
+        private readonly string _value;
+
+        private LinkRoutingRuleRuleStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LinkRoutingRuleRuleStatus CreationInProgress { get; } = new LinkRoutingRuleRuleStatus("CREATION_IN_PROGRESS");
+        public static LinkRoutingRuleRuleStatus Active { get; } = new LinkRoutingRuleRuleStatus("ACTIVE");
+        public static LinkRoutingRuleRuleStatus UpdateInProgress { get; } = new LinkRoutingRuleRuleStatus("UPDATE_IN_PROGRESS");
+        public static LinkRoutingRuleRuleStatus DeletionInProgress { get; } = new LinkRoutingRuleRuleStatus("DELETION_IN_PROGRESS");
+        public static LinkRoutingRuleRuleStatus Deleted { get; } = new LinkRoutingRuleRuleStatus("DELETED");
+        public static LinkRoutingRuleRuleStatus Failed { get; } = new LinkRoutingRuleRuleStatus("FAILED");
+
+        public static bool operator ==(LinkRoutingRuleRuleStatus left, LinkRoutingRuleRuleStatus right) => left.Equals(right);
+        public static bool operator !=(LinkRoutingRuleRuleStatus left, LinkRoutingRuleRuleStatus right) => !left.Equals(right);
+
+        public static explicit operator string(LinkRoutingRuleRuleStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LinkRoutingRuleRuleStatus other && Equals(other);
+        public bool Equals(LinkRoutingRuleRuleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct LinkStatus : IEquatable<LinkStatus>
     {
         private readonly string _value;
@@ -357,6 +389,66 @@ namespace Pulumi.AwsNative.RtbFabric
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RequesterGatewayStatus other && Equals(other);
         public bool Equals(RequesterGatewayStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ResponderGatewayCertificateAssociationStatus : IEquatable<ResponderGatewayCertificateAssociationStatus>
+    {
+        private readonly string _value;
+
+        private ResponderGatewayCertificateAssociationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResponderGatewayCertificateAssociationStatus PendingAssociation { get; } = new ResponderGatewayCertificateAssociationStatus("PENDING_ASSOCIATION");
+        public static ResponderGatewayCertificateAssociationStatus Associated { get; } = new ResponderGatewayCertificateAssociationStatus("ASSOCIATED");
+        public static ResponderGatewayCertificateAssociationStatus PendingDisassociation { get; } = new ResponderGatewayCertificateAssociationStatus("PENDING_DISASSOCIATION");
+        public static ResponderGatewayCertificateAssociationStatus Disassociated { get; } = new ResponderGatewayCertificateAssociationStatus("DISASSOCIATED");
+        public static ResponderGatewayCertificateAssociationStatus Expired { get; } = new ResponderGatewayCertificateAssociationStatus("EXPIRED");
+        public static ResponderGatewayCertificateAssociationStatus Failed { get; } = new ResponderGatewayCertificateAssociationStatus("FAILED");
+
+        public static bool operator ==(ResponderGatewayCertificateAssociationStatus left, ResponderGatewayCertificateAssociationStatus right) => left.Equals(right);
+        public static bool operator !=(ResponderGatewayCertificateAssociationStatus left, ResponderGatewayCertificateAssociationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ResponderGatewayCertificateAssociationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResponderGatewayCertificateAssociationStatus other && Equals(other);
+        public bool Equals(ResponderGatewayCertificateAssociationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ResponderGatewayGatewayType : IEquatable<ResponderGatewayGatewayType>
+    {
+        private readonly string _value;
+
+        private ResponderGatewayGatewayType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResponderGatewayGatewayType External { get; } = new ResponderGatewayGatewayType("EXTERNAL");
+        public static ResponderGatewayGatewayType Internal { get; } = new ResponderGatewayGatewayType("INTERNAL");
+
+        public static bool operator ==(ResponderGatewayGatewayType left, ResponderGatewayGatewayType right) => left.Equals(right);
+        public static bool operator !=(ResponderGatewayGatewayType left, ResponderGatewayGatewayType right) => !left.Equals(right);
+
+        public static explicit operator string(ResponderGatewayGatewayType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResponderGatewayGatewayType other && Equals(other);
+        public bool Equals(ResponderGatewayGatewayType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
