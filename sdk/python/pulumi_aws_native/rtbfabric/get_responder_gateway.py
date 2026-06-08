@@ -26,10 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetResponderGatewayResult:
-    def __init__(__self__, arn=None, created_timestamp=None, description=None, domain_name=None, gateway_id=None, managed_endpoint_configuration=None, port=None, protocol=None, responder_gateway_status=None, security_group_ids=None, subnet_ids=None, tags=None, trust_store_configuration=None, updated_timestamp=None, vpc_id=None):
+    def __init__(__self__, acm_certificate_arn=None, arn=None, certificate_association_status=None, created_timestamp=None, description=None, domain_name=None, external_inbound_endpoint=None, gateway_id=None, gateway_type=None, listener_config=None, managed_endpoint_configuration=None, port=None, protocol=None, responder_gateway_status=None, security_group_ids=None, subnet_ids=None, tags=None, trust_store_configuration=None, updated_timestamp=None, vpc_id=None):
+        if acm_certificate_arn and not isinstance(acm_certificate_arn, str):
+            raise TypeError("Expected argument 'acm_certificate_arn' to be a str")
+        pulumi.set(__self__, "acm_certificate_arn", acm_certificate_arn)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if certificate_association_status and not isinstance(certificate_association_status, str):
+            raise TypeError("Expected argument 'certificate_association_status' to be a str")
+        pulumi.set(__self__, "certificate_association_status", certificate_association_status)
         if created_timestamp and not isinstance(created_timestamp, str):
             raise TypeError("Expected argument 'created_timestamp' to be a str")
         pulumi.set(__self__, "created_timestamp", created_timestamp)
@@ -39,9 +45,18 @@ class GetResponderGatewayResult:
         if domain_name and not isinstance(domain_name, str):
             raise TypeError("Expected argument 'domain_name' to be a str")
         pulumi.set(__self__, "domain_name", domain_name)
+        if external_inbound_endpoint and not isinstance(external_inbound_endpoint, str):
+            raise TypeError("Expected argument 'external_inbound_endpoint' to be a str")
+        pulumi.set(__self__, "external_inbound_endpoint", external_inbound_endpoint)
         if gateway_id and not isinstance(gateway_id, str):
             raise TypeError("Expected argument 'gateway_id' to be a str")
         pulumi.set(__self__, "gateway_id", gateway_id)
+        if gateway_type and not isinstance(gateway_type, str):
+            raise TypeError("Expected argument 'gateway_type' to be a str")
+        pulumi.set(__self__, "gateway_type", gateway_type)
+        if listener_config and not isinstance(listener_config, dict):
+            raise TypeError("Expected argument 'listener_config' to be a dict")
+        pulumi.set(__self__, "listener_config", listener_config)
         if managed_endpoint_configuration and not isinstance(managed_endpoint_configuration, dict):
             raise TypeError("Expected argument 'managed_endpoint_configuration' to be a dict")
         pulumi.set(__self__, "managed_endpoint_configuration", managed_endpoint_configuration)
@@ -74,9 +89,19 @@ class GetResponderGatewayResult:
         pulumi.set(__self__, "vpc_id", vpc_id)
 
     @_builtins.property
+    @pulumi.getter(name="acmCertificateArn")
+    def acm_certificate_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "acm_certificate_arn")
+
+    @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="certificateAssociationStatus")
+    def certificate_association_status(self) -> Optional['ResponderGatewayCertificateAssociationStatus']:
+        return pulumi.get(self, "certificate_association_status")
 
     @_builtins.property
     @pulumi.getter(name="createdTimestamp")
@@ -100,9 +125,24 @@ class GetResponderGatewayResult:
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
+    @pulumi.getter(name="externalInboundEndpoint")
+    def external_inbound_endpoint(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_inbound_endpoint")
+
+    @_builtins.property
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "gateway_id")
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayType")
+    def gateway_type(self) -> Optional['ResponderGatewayGatewayType']:
+        return pulumi.get(self, "gateway_type")
+
+    @_builtins.property
+    @pulumi.getter(name="listenerConfig")
+    def listener_config(self) -> Optional['outputs.ResponderGatewayListenerConfig']:
+        return pulumi.get(self, "listener_config")
 
     @_builtins.property
     @pulumi.getter(name="managedEndpointConfiguration")
@@ -185,11 +225,16 @@ class AwaitableGetResponderGatewayResult(GetResponderGatewayResult):
         if False:
             yield self
         return GetResponderGatewayResult(
+            acm_certificate_arn=self.acm_certificate_arn,
             arn=self.arn,
+            certificate_association_status=self.certificate_association_status,
             created_timestamp=self.created_timestamp,
             description=self.description,
             domain_name=self.domain_name,
+            external_inbound_endpoint=self.external_inbound_endpoint,
             gateway_id=self.gateway_id,
+            gateway_type=self.gateway_type,
+            listener_config=self.listener_config,
             managed_endpoint_configuration=self.managed_endpoint_configuration,
             port=self.port,
             protocol=self.protocol,
@@ -213,11 +258,16 @@ def get_responder_gateway(arn: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rtbfabric:getResponderGateway', __args__, opts=opts, typ=GetResponderGatewayResult).value
 
     return AwaitableGetResponderGatewayResult(
+        acm_certificate_arn=pulumi.get(__ret__, 'acm_certificate_arn'),
         arn=pulumi.get(__ret__, 'arn'),
+        certificate_association_status=pulumi.get(__ret__, 'certificate_association_status'),
         created_timestamp=pulumi.get(__ret__, 'created_timestamp'),
         description=pulumi.get(__ret__, 'description'),
         domain_name=pulumi.get(__ret__, 'domain_name'),
+        external_inbound_endpoint=pulumi.get(__ret__, 'external_inbound_endpoint'),
         gateway_id=pulumi.get(__ret__, 'gateway_id'),
+        gateway_type=pulumi.get(__ret__, 'gateway_type'),
+        listener_config=pulumi.get(__ret__, 'listener_config'),
         managed_endpoint_configuration=pulumi.get(__ret__, 'managed_endpoint_configuration'),
         port=pulumi.get(__ret__, 'port'),
         protocol=pulumi.get(__ret__, 'protocol'),
@@ -238,11 +288,16 @@ def get_responder_gateway_output(arn: Optional[pulumi.Input[_builtins.str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rtbfabric:getResponderGateway', __args__, opts=opts, typ=GetResponderGatewayResult)
     return __ret__.apply(lambda __response__: GetResponderGatewayResult(
+        acm_certificate_arn=pulumi.get(__response__, 'acm_certificate_arn'),
         arn=pulumi.get(__response__, 'arn'),
+        certificate_association_status=pulumi.get(__response__, 'certificate_association_status'),
         created_timestamp=pulumi.get(__response__, 'created_timestamp'),
         description=pulumi.get(__response__, 'description'),
         domain_name=pulumi.get(__response__, 'domain_name'),
+        external_inbound_endpoint=pulumi.get(__response__, 'external_inbound_endpoint'),
         gateway_id=pulumi.get(__response__, 'gateway_id'),
+        gateway_type=pulumi.get(__response__, 'gateway_type'),
+        listener_config=pulumi.get(__response__, 'listener_config'),
         managed_endpoint_configuration=pulumi.get(__response__, 'managed_endpoint_configuration'),
         port=pulumi.get(__response__, 'port'),
         protocol=pulumi.get(__response__, 'protocol'),

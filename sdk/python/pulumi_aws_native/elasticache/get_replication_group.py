@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetReplicationGroupResult',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetReplicationGroupResult:
-    def __init__(__self__, auto_minor_version_upgrade=None, automatic_failover_enabled=None, cache_node_type=None, cluster_mode=None, configuration_end_point=None, engine=None, ip_discovery=None, log_delivery_configurations=None, multi_az_enabled=None, num_cache_clusters=None, primary_end_point=None, read_end_point=None, reader_end_point=None, replicas_per_node_group=None, replication_group_description=None, snapshot_retention_limit=None, snapshot_window=None, snapshotting_cluster_id=None, tags=None, transit_encryption_enabled=None, transit_encryption_mode=None, user_group_ids=None):
+    def __init__(__self__, auto_minor_version_upgrade=None, automatic_failover_enabled=None, cache_node_type=None, cluster_mode=None, configuration_end_point=None, durability=None, effective_durability=None, engine=None, ip_discovery=None, log_delivery_configurations=None, multi_az_enabled=None, num_cache_clusters=None, primary_end_point=None, read_end_point=None, reader_end_point=None, replicas_per_node_group=None, replication_group_description=None, snapshot_retention_limit=None, snapshot_window=None, snapshotting_cluster_id=None, tags=None, transit_encryption_enabled=None, transit_encryption_mode=None, user_group_ids=None):
         if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
             raise TypeError("Expected argument 'auto_minor_version_upgrade' to be a bool")
         pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
@@ -41,6 +42,12 @@ class GetReplicationGroupResult:
         if configuration_end_point and not isinstance(configuration_end_point, dict):
             raise TypeError("Expected argument 'configuration_end_point' to be a dict")
         pulumi.set(__self__, "configuration_end_point", configuration_end_point)
+        if durability and not isinstance(durability, str):
+            raise TypeError("Expected argument 'durability' to be a str")
+        pulumi.set(__self__, "durability", durability)
+        if effective_durability and not isinstance(effective_durability, str):
+            raise TypeError("Expected argument 'effective_durability' to be a str")
+        pulumi.set(__self__, "effective_durability", effective_durability)
         if engine and not isinstance(engine, str):
             raise TypeError("Expected argument 'engine' to be a str")
         pulumi.set(__self__, "engine", engine)
@@ -132,6 +139,22 @@ class GetReplicationGroupResult:
         The configuration details of the replication group.
         """
         return pulumi.get(self, "configuration_end_point")
+
+    @_builtins.property
+    @pulumi.getter
+    def durability(self) -> Optional['ReplicationGroupDurability']:
+        """
+        The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+        """
+        return pulumi.get(self, "durability")
+
+    @_builtins.property
+    @pulumi.getter(name="effectiveDurability")
+    def effective_durability(self) -> Optional['ReplicationGroupEffectiveDurability']:
+        """
+        The resolved durability state of the replication group after resolving the default value. This is a read-only property.
+        """
+        return pulumi.get(self, "effective_durability")
 
     @_builtins.property
     @pulumi.getter
@@ -280,6 +303,8 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
             cache_node_type=self.cache_node_type,
             cluster_mode=self.cluster_mode,
             configuration_end_point=self.configuration_end_point,
+            durability=self.durability,
+            effective_durability=self.effective_durability,
             engine=self.engine,
             ip_discovery=self.ip_discovery,
             log_delivery_configurations=self.log_delivery_configurations,
@@ -318,6 +343,8 @@ def get_replication_group(replication_group_id: Optional[_builtins.str] = None,
         cache_node_type=pulumi.get(__ret__, 'cache_node_type'),
         cluster_mode=pulumi.get(__ret__, 'cluster_mode'),
         configuration_end_point=pulumi.get(__ret__, 'configuration_end_point'),
+        durability=pulumi.get(__ret__, 'durability'),
+        effective_durability=pulumi.get(__ret__, 'effective_durability'),
         engine=pulumi.get(__ret__, 'engine'),
         ip_discovery=pulumi.get(__ret__, 'ip_discovery'),
         log_delivery_configurations=pulumi.get(__ret__, 'log_delivery_configurations'),
@@ -353,6 +380,8 @@ def get_replication_group_output(replication_group_id: Optional[pulumi.Input[_bu
         cache_node_type=pulumi.get(__response__, 'cache_node_type'),
         cluster_mode=pulumi.get(__response__, 'cluster_mode'),
         configuration_end_point=pulumi.get(__response__, 'configuration_end_point'),
+        durability=pulumi.get(__response__, 'durability'),
+        effective_durability=pulumi.get(__response__, 'effective_durability'),
         engine=pulumi.get(__response__, 'engine'),
         ip_discovery=pulumi.get(__response__, 'ip_discovery'),
         log_delivery_configurations=pulumi.get(__response__, 'log_delivery_configurations'),

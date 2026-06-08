@@ -66,6 +66,7 @@ export interface GetRouteResult {
      * The ID of a network interface.
      */
     readonly networkInterfaceId?: string;
+    readonly odbNetworkArn?: string;
     /**
      * The ID of a transit gateway.
      */

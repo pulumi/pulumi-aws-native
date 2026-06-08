@@ -16,18 +16,25 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class OAuth2CredentialProviderOauth2ProviderConfigOutput
     {
+        /// <summary>
+        /// The client authentication method used when authenticating with the token endpoint
+        /// </summary>
+        public readonly Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod? ClientAuthenticationMethod;
         public readonly string? ClientId;
         public readonly Outputs.OAuth2CredentialProviderOauth2Discovery? OauthDiscovery;
         public readonly Outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig? OnBehalfOfTokenExchangeConfig;
 
         [OutputConstructor]
         private OAuth2CredentialProviderOauth2ProviderConfigOutput(
+            Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod? clientAuthenticationMethod,
+
             string? clientId,
 
             Outputs.OAuth2CredentialProviderOauth2Discovery? oauthDiscovery,
 
             Outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig? onBehalfOfTokenExchangeConfig)
         {
+            ClientAuthenticationMethod = clientAuthenticationMethod;
             ClientId = clientId;
             OauthDiscovery = oauthDiscovery;
             OnBehalfOfTokenExchangeConfig = onBehalfOfTokenExchangeConfig;

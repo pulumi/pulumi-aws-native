@@ -155,6 +155,17 @@
       "permissions" : [ "chime:DeleteAppInstanceBot", "chime:DescribeAppInstanceBot" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "AppInstanceArn" : {
+            "type" : "string",
+            "minLength" : 5,
+            "maxLength" : 1600,
+            "pattern" : "^arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}$"
+          }
+        },
+        "required" : [ "AppInstanceArn" ]
+      },
       "permissions" : [ "chime:ListAppInstanceBots" ]
     }
   },

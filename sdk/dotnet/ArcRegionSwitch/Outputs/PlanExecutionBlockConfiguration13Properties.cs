@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Outputs
     [OutputType]
     public sealed class PlanExecutionBlockConfiguration13Properties
     {
-        public readonly Outputs.PlanLambdaEventSourceMappingConfiguration LambdaEventSourceMappingConfig;
+        public readonly Outputs.PlanRdsPromoteReadReplicaConfiguration RdsPromoteReadReplicaConfig;
 
         [OutputConstructor]
-        private PlanExecutionBlockConfiguration13Properties(Outputs.PlanLambdaEventSourceMappingConfiguration lambdaEventSourceMappingConfig)
+        private PlanExecutionBlockConfiguration13Properties(Outputs.PlanRdsPromoteReadReplicaConfiguration rdsPromoteReadReplicaConfig)
         {
-            LambdaEventSourceMappingConfig = lambdaEventSourceMappingConfig;
+            RdsPromoteReadReplicaConfig = rdsPromoteReadReplicaConfig;
         }
     }
 }

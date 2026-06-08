@@ -635,6 +635,158 @@ func (o CapacityProviderPermissionsConfigOutput) CapacityProviderOperatorRoleArn
 	return o.ApplyT(func(v CapacityProviderPermissionsConfig) string { return v.CapacityProviderOperatorRoleArn }).(pulumi.StringOutput)
 }
 
+type CapacityProviderPropagateTagsConfig struct {
+	// A list of tags to explicitly propagate to managed resources.
+	ExplicitTags []CapacityProviderTag              `pulumi:"explicitTags"`
+	Mode         *CapacityProviderPropagateTagsMode `pulumi:"mode"`
+}
+
+// CapacityProviderPropagateTagsConfigInput is an input type that accepts CapacityProviderPropagateTagsConfigArgs and CapacityProviderPropagateTagsConfigOutput values.
+// You can construct a concrete instance of `CapacityProviderPropagateTagsConfigInput` via:
+//
+//	CapacityProviderPropagateTagsConfigArgs{...}
+type CapacityProviderPropagateTagsConfigInput interface {
+	pulumi.Input
+
+	ToCapacityProviderPropagateTagsConfigOutput() CapacityProviderPropagateTagsConfigOutput
+	ToCapacityProviderPropagateTagsConfigOutputWithContext(context.Context) CapacityProviderPropagateTagsConfigOutput
+}
+
+type CapacityProviderPropagateTagsConfigArgs struct {
+	// A list of tags to explicitly propagate to managed resources.
+	ExplicitTags CapacityProviderTagArrayInput             `pulumi:"explicitTags"`
+	Mode         CapacityProviderPropagateTagsModePtrInput `pulumi:"mode"`
+}
+
+func (CapacityProviderPropagateTagsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderPropagateTagsConfig)(nil)).Elem()
+}
+
+func (i CapacityProviderPropagateTagsConfigArgs) ToCapacityProviderPropagateTagsConfigOutput() CapacityProviderPropagateTagsConfigOutput {
+	return i.ToCapacityProviderPropagateTagsConfigOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderPropagateTagsConfigArgs) ToCapacityProviderPropagateTagsConfigOutputWithContext(ctx context.Context) CapacityProviderPropagateTagsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderPropagateTagsConfigOutput)
+}
+
+func (i CapacityProviderPropagateTagsConfigArgs) ToCapacityProviderPropagateTagsConfigPtrOutput() CapacityProviderPropagateTagsConfigPtrOutput {
+	return i.ToCapacityProviderPropagateTagsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderPropagateTagsConfigArgs) ToCapacityProviderPropagateTagsConfigPtrOutputWithContext(ctx context.Context) CapacityProviderPropagateTagsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderPropagateTagsConfigOutput).ToCapacityProviderPropagateTagsConfigPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderPropagateTagsConfigPtrInput is an input type that accepts CapacityProviderPropagateTagsConfigArgs, CapacityProviderPropagateTagsConfigPtr and CapacityProviderPropagateTagsConfigPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderPropagateTagsConfigPtrInput` via:
+//
+//	        CapacityProviderPropagateTagsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderPropagateTagsConfigPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderPropagateTagsConfigPtrOutput() CapacityProviderPropagateTagsConfigPtrOutput
+	ToCapacityProviderPropagateTagsConfigPtrOutputWithContext(context.Context) CapacityProviderPropagateTagsConfigPtrOutput
+}
+
+type capacityProviderPropagateTagsConfigPtrType CapacityProviderPropagateTagsConfigArgs
+
+func CapacityProviderPropagateTagsConfigPtr(v *CapacityProviderPropagateTagsConfigArgs) CapacityProviderPropagateTagsConfigPtrInput {
+	return (*capacityProviderPropagateTagsConfigPtrType)(v)
+}
+
+func (*capacityProviderPropagateTagsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderPropagateTagsConfig)(nil)).Elem()
+}
+
+func (i *capacityProviderPropagateTagsConfigPtrType) ToCapacityProviderPropagateTagsConfigPtrOutput() CapacityProviderPropagateTagsConfigPtrOutput {
+	return i.ToCapacityProviderPropagateTagsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderPropagateTagsConfigPtrType) ToCapacityProviderPropagateTagsConfigPtrOutputWithContext(ctx context.Context) CapacityProviderPropagateTagsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderPropagateTagsConfigPtrOutput)
+}
+
+type CapacityProviderPropagateTagsConfigOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderPropagateTagsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderPropagateTagsConfig)(nil)).Elem()
+}
+
+func (o CapacityProviderPropagateTagsConfigOutput) ToCapacityProviderPropagateTagsConfigOutput() CapacityProviderPropagateTagsConfigOutput {
+	return o
+}
+
+func (o CapacityProviderPropagateTagsConfigOutput) ToCapacityProviderPropagateTagsConfigOutputWithContext(ctx context.Context) CapacityProviderPropagateTagsConfigOutput {
+	return o
+}
+
+func (o CapacityProviderPropagateTagsConfigOutput) ToCapacityProviderPropagateTagsConfigPtrOutput() CapacityProviderPropagateTagsConfigPtrOutput {
+	return o.ToCapacityProviderPropagateTagsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderPropagateTagsConfigOutput) ToCapacityProviderPropagateTagsConfigPtrOutputWithContext(ctx context.Context) CapacityProviderPropagateTagsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderPropagateTagsConfig) *CapacityProviderPropagateTagsConfig {
+		return &v
+	}).(CapacityProviderPropagateTagsConfigPtrOutput)
+}
+
+// A list of tags to explicitly propagate to managed resources.
+func (o CapacityProviderPropagateTagsConfigOutput) ExplicitTags() CapacityProviderTagArrayOutput {
+	return o.ApplyT(func(v CapacityProviderPropagateTagsConfig) []CapacityProviderTag { return v.ExplicitTags }).(CapacityProviderTagArrayOutput)
+}
+
+func (o CapacityProviderPropagateTagsConfigOutput) Mode() CapacityProviderPropagateTagsModePtrOutput {
+	return o.ApplyT(func(v CapacityProviderPropagateTagsConfig) *CapacityProviderPropagateTagsMode { return v.Mode }).(CapacityProviderPropagateTagsModePtrOutput)
+}
+
+type CapacityProviderPropagateTagsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderPropagateTagsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderPropagateTagsConfig)(nil)).Elem()
+}
+
+func (o CapacityProviderPropagateTagsConfigPtrOutput) ToCapacityProviderPropagateTagsConfigPtrOutput() CapacityProviderPropagateTagsConfigPtrOutput {
+	return o
+}
+
+func (o CapacityProviderPropagateTagsConfigPtrOutput) ToCapacityProviderPropagateTagsConfigPtrOutputWithContext(ctx context.Context) CapacityProviderPropagateTagsConfigPtrOutput {
+	return o
+}
+
+func (o CapacityProviderPropagateTagsConfigPtrOutput) Elem() CapacityProviderPropagateTagsConfigOutput {
+	return o.ApplyT(func(v *CapacityProviderPropagateTagsConfig) CapacityProviderPropagateTagsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderPropagateTagsConfig
+		return ret
+	}).(CapacityProviderPropagateTagsConfigOutput)
+}
+
+// A list of tags to explicitly propagate to managed resources.
+func (o CapacityProviderPropagateTagsConfigPtrOutput) ExplicitTags() CapacityProviderTagArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderPropagateTagsConfig) []CapacityProviderTag {
+		if v == nil {
+			return nil
+		}
+		return v.ExplicitTags
+	}).(CapacityProviderTagArrayOutput)
+}
+
+func (o CapacityProviderPropagateTagsConfigPtrOutput) Mode() CapacityProviderPropagateTagsModePtrOutput {
+	return o.ApplyT(func(v *CapacityProviderPropagateTagsConfig) *CapacityProviderPropagateTagsMode {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(CapacityProviderPropagateTagsModePtrOutput)
+}
+
 // Configuration that defines how the capacity provider scales compute instances based on demand and policies.
 type CapacityProviderScalingConfig struct {
 	// The maximum number of vCPUs that the capacity provider can provision across all compute instances.
@@ -821,6 +973,107 @@ type CapacityProviderTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag.
 	Value *string `pulumi:"value"`
+}
+
+// CapacityProviderTagInput is an input type that accepts CapacityProviderTagArgs and CapacityProviderTagOutput values.
+// You can construct a concrete instance of `CapacityProviderTagInput` via:
+//
+//	CapacityProviderTagArgs{...}
+type CapacityProviderTagInput interface {
+	pulumi.Input
+
+	ToCapacityProviderTagOutput() CapacityProviderTagOutput
+	ToCapacityProviderTagOutputWithContext(context.Context) CapacityProviderTagOutput
+}
+
+// A key-value pair that provides metadata for the capacity provider.
+type CapacityProviderTagArgs struct {
+	// The key name of the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (CapacityProviderTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderTag)(nil)).Elem()
+}
+
+func (i CapacityProviderTagArgs) ToCapacityProviderTagOutput() CapacityProviderTagOutput {
+	return i.ToCapacityProviderTagOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderTagArgs) ToCapacityProviderTagOutputWithContext(ctx context.Context) CapacityProviderTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTagOutput)
+}
+
+// CapacityProviderTagArrayInput is an input type that accepts CapacityProviderTagArray and CapacityProviderTagArrayOutput values.
+// You can construct a concrete instance of `CapacityProviderTagArrayInput` via:
+//
+//	CapacityProviderTagArray{ CapacityProviderTagArgs{...} }
+type CapacityProviderTagArrayInput interface {
+	pulumi.Input
+
+	ToCapacityProviderTagArrayOutput() CapacityProviderTagArrayOutput
+	ToCapacityProviderTagArrayOutputWithContext(context.Context) CapacityProviderTagArrayOutput
+}
+
+type CapacityProviderTagArray []CapacityProviderTagInput
+
+func (CapacityProviderTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderTag)(nil)).Elem()
+}
+
+func (i CapacityProviderTagArray) ToCapacityProviderTagArrayOutput() CapacityProviderTagArrayOutput {
+	return i.ToCapacityProviderTagArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderTagArray) ToCapacityProviderTagArrayOutputWithContext(ctx context.Context) CapacityProviderTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTagArrayOutput)
+}
+
+// A key-value pair that provides metadata for the capacity provider.
+type CapacityProviderTagOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderTag)(nil)).Elem()
+}
+
+func (o CapacityProviderTagOutput) ToCapacityProviderTagOutput() CapacityProviderTagOutput {
+	return o
+}
+
+func (o CapacityProviderTagOutput) ToCapacityProviderTagOutputWithContext(ctx context.Context) CapacityProviderTagOutput {
+	return o
+}
+
+// The key name of the tag.
+func (o CapacityProviderTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityProviderTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag.
+func (o CapacityProviderTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderTag)(nil)).Elem()
+}
+
+func (o CapacityProviderTagArrayOutput) ToCapacityProviderTagArrayOutput() CapacityProviderTagArrayOutput {
+	return o
+}
+
+func (o CapacityProviderTagArrayOutput) ToCapacityProviderTagArrayOutputWithContext(ctx context.Context) CapacityProviderTagArrayOutput {
+	return o
+}
+
+func (o CapacityProviderTagArrayOutput) Index(i pulumi.IntInput) CapacityProviderTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityProviderTag {
+		return vs[0].([]CapacityProviderTag)[vs[1].(int)]
+	}).(CapacityProviderTagOutput)
 }
 
 // A scaling policy for the capacity provider that automatically adjusts capacity to maintain a target value for a specific metric.
@@ -7614,8 +7867,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsInput)(nil)).Elem(), CapacityProviderInstanceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsPtrInput)(nil)).Elem(), CapacityProviderInstanceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPermissionsConfigInput)(nil)).Elem(), CapacityProviderPermissionsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPropagateTagsConfigInput)(nil)).Elem(), CapacityProviderPropagateTagsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPropagateTagsConfigPtrInput)(nil)).Elem(), CapacityProviderPropagateTagsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderScalingConfigInput)(nil)).Elem(), CapacityProviderScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderScalingConfigPtrInput)(nil)).Elem(), CapacityProviderScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTagInput)(nil)).Elem(), CapacityProviderTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTagArrayInput)(nil)).Elem(), CapacityProviderTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTargetTrackingScalingPolicyInput)(nil)).Elem(), CapacityProviderTargetTrackingScalingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTargetTrackingScalingPolicyArrayInput)(nil)).Elem(), CapacityProviderTargetTrackingScalingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderVpcConfigInput)(nil)).Elem(), CapacityProviderVpcConfigArgs{})
@@ -7711,8 +7968,12 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsOutput{})
 	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderPermissionsConfigOutput{})
+	pulumi.RegisterOutputType(CapacityProviderPropagateTagsConfigOutput{})
+	pulumi.RegisterOutputType(CapacityProviderPropagateTagsConfigPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderScalingConfigOutput{})
 	pulumi.RegisterOutputType(CapacityProviderScalingConfigPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderTagOutput{})
+	pulumi.RegisterOutputType(CapacityProviderTagArrayOutput{})
 	pulumi.RegisterOutputType(CapacityProviderTargetTrackingScalingPolicyOutput{})
 	pulumi.RegisterOutputType(CapacityProviderTargetTrackingScalingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(CapacityProviderVpcConfigOutput{})

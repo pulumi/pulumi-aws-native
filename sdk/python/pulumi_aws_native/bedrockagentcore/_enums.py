@@ -7,6 +7,7 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ApiKeyCredentialProviderApiKeySecretSource',
     'BrowserCustomBrowserEnterprisePolicyType',
     'BrowserCustomBrowserNetworkMode',
     'BrowserCustomBrowserStatus',
@@ -27,6 +28,7 @@ __all__ = [
     'GatewayStatus',
     'GatewayTargetApiKeyCredentialLocation',
     'GatewayTargetCredentialProviderType',
+    'GatewayTargetEndpointIpAddressType',
     'GatewayTargetMcpServerListingMode',
     'GatewayTargetOAuthGrantType',
     'GatewayTargetRestApiMethod',
@@ -54,13 +56,32 @@ __all__ = [
     'MemorySummaryMemoryStrategyType',
     'MemoryUserPreferenceMemoryStrategyStatus',
     'MemoryUserPreferenceMemoryStrategyType',
+    'OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource',
+    'OAuth2CredentialProviderClientSecretSource',
     'OAuth2CredentialProviderCredentialProviderVendor',
+    'OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod',
+    'OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource',
+    'OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource',
+    'OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource',
+    'OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource',
+    'OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource',
+    'OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource',
+    'OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod',
     'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType',
+    'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource',
+    'OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource',
     'OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent',
     'OnlineEvaluationConfigExecutionStatus',
     'OnlineEvaluationConfigFilterOperator',
     'OnlineEvaluationConfigStatus',
+    'PaymentConnectorStatus',
+    'PaymentConnectorType',
+    'PaymentCredentialProviderSecretSourceType',
     'PaymentCredentialProviderVendorType',
+    'PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator',
+    'PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType',
+    'PaymentManagerPaymentsAuthorizerType',
+    'PaymentManagerStatus',
     'PolicyEngineStatus',
     'PolicyStatus',
     'PolicyValidationMode',
@@ -72,6 +93,15 @@ __all__ = [
     'RuntimeNetworkMode',
     'RuntimeProtocolConfiguration',
 ]
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:ApiKeyCredentialProviderApiKeySecretSource")
+class ApiKeyCredentialProviderApiKeySecretSource(_builtins.str, Enum):
+    """
+    The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+    """
+    MANAGED = "MANAGED"
+    EXTERNAL = "EXTERNAL"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:BrowserCustomBrowserEnterprisePolicyType")
@@ -254,6 +284,12 @@ class GatewayTargetCredentialProviderType(_builtins.str, Enum):
     API_KEY = "API_KEY"
     CALLER_IAM_CREDENTIALS = "CALLER_IAM_CREDENTIALS"
     JWT_PASSTHROUGH = "JWT_PASSTHROUGH"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetEndpointIpAddressType")
+class GatewayTargetEndpointIpAddressType(_builtins.str, Enum):
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetMcpServerListingMode")
@@ -516,6 +552,21 @@ class MemoryUserPreferenceMemoryStrategyType(_builtins.str, Enum):
     EPISODIC = "EPISODIC"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource")
+class OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource(_builtins.str, Enum):
+    MANAGED = "MANAGED"
+    EXTERNAL = "EXTERNAL"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderClientSecretSource")
+class OAuth2CredentialProviderClientSecretSource(_builtins.str, Enum):
+    """
+    The source of the client secret
+    """
+    MANAGED = "MANAGED"
+    EXTERNAL = "EXTERNAL"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderCredentialProviderVendor")
 class OAuth2CredentialProviderCredentialProviderVendor(_builtins.str, Enum):
     """
@@ -548,6 +599,65 @@ class OAuth2CredentialProviderCredentialProviderVendor(_builtins.str, Enum):
     COGNITO_OAUTH2 = "CognitoOauth2"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod")
+class OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod(_builtins.str, Enum):
+    """
+    The client authentication method to use when authenticating with the token endpoint
+    """
+    CLIENT_SECRET_BASIC = "CLIENT_SECRET_BASIC"
+    CLIENT_SECRET_POST = "CLIENT_SECRET_POST"
+    AWS_IAM_ID_TOKEN_JWT = "AWS_IAM_ID_TOKEN_JWT"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource")
+class OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource(_builtins.str, Enum):
+    """
+    The source of the client secret
+    """
+    MANAGED = "MANAGED"
+    EXTERNAL = "EXTERNAL"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource")
+class OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource(_builtins.str, Enum):
+    MANAGED = "MANAGED"
+    EXTERNAL = "EXTERNAL"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource")
+class OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource(_builtins.str, Enum):
+    MANAGED = "MANAGED"
+    EXTERNAL = "EXTERNAL"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource")
+class OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource(_builtins.str, Enum):
+    MANAGED = "MANAGED"
+    EXTERNAL = "EXTERNAL"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource")
+class OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource(_builtins.str, Enum):
+    MANAGED = "MANAGED"
+    EXTERNAL = "EXTERNAL"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource")
+class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource(_builtins.str, Enum):
+    MANAGED = "MANAGED"
+    EXTERNAL = "EXTERNAL"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod")
+class OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod(_builtins.str, Enum):
+    """
+    The client authentication method used when authenticating with the token endpoint
+    """
+    CLIENT_SECRET_BASIC = "CLIENT_SECRET_BASIC"
+    CLIENT_SECRET_POST = "CLIENT_SECRET_POST"
+    AWS_IAM_ID_TOKEN_JWT = "AWS_IAM_ID_TOKEN_JWT"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType")
 class OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType(_builtins.str, Enum):
     """
@@ -555,6 +665,18 @@ class OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType(_builtins.s
     """
     TOKEN_EXCHANGE = "TOKEN_EXCHANGE"
     JWT_AUTHORIZATION_GRANT = "JWT_AUTHORIZATION_GRANT"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource")
+class OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource(_builtins.str, Enum):
+    MANAGED = "MANAGED"
+    EXTERNAL = "EXTERNAL"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource")
+class OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource(_builtins.str, Enum):
+    MANAGED = "MANAGED"
+    EXTERNAL = "EXTERNAL"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent")
@@ -598,6 +720,32 @@ class OnlineEvaluationConfigStatus(_builtins.str, Enum):
     DELETING = "DELETING"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentConnectorStatus")
+class PaymentConnectorStatus(_builtins.str, Enum):
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    READY = "READY"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    DELETE_FAILED = "DELETE_FAILED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentConnectorType")
+class PaymentConnectorType(_builtins.str, Enum):
+    COINBASE_CDP = "CoinbaseCDP"
+    STRIPE_PRIVY = "StripePrivy"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentCredentialProviderSecretSourceType")
+class PaymentCredentialProviderSecretSourceType(_builtins.str, Enum):
+    """
+    The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+    """
+    MANAGED = "MANAGED"
+    EXTERNAL = "EXTERNAL"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:PaymentCredentialProviderVendorType")
 class PaymentCredentialProviderVendorType(_builtins.str, Enum):
     """
@@ -605,6 +753,36 @@ class PaymentCredentialProviderVendorType(_builtins.str, Enum):
     """
     COINBASE_CDP = "CoinbaseCDP"
     STRIPE_PRIVY = "StripePrivy"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator")
+class PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator(_builtins.str, Enum):
+    EQUALS = "EQUALS"
+    CONTAINS = "CONTAINS"
+    CONTAINS_ANY = "CONTAINS_ANY"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType")
+class PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType(_builtins.str, Enum):
+    STRING = "STRING"
+    STRING_ARRAY = "STRING_ARRAY"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerPaymentsAuthorizerType")
+class PaymentManagerPaymentsAuthorizerType(_builtins.str, Enum):
+    CUSTOM_JWT = "CUSTOM_JWT"
+    AWS_IAM = "AWS_IAM"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentManagerStatus")
+class PaymentManagerStatus(_builtins.str, Enum):
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    READY = "READY"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    DELETE_FAILED = "DELETE_FAILED"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:PolicyEngineStatus")

@@ -30,7 +30,7 @@ type LookupApiMappingArgs struct {
 }
 
 type LookupApiMappingResult struct {
-	// The identifier of the API.
+	// The API identifier.
 	ApiId *string `pulumi:"apiId"`
 	// The API mapping resource ID.
 	ApiMappingId *string `pulumi:"apiMappingId"`
@@ -74,7 +74,7 @@ func (o LookupApiMappingResultOutput) ToLookupApiMappingResultOutputWithContext(
 	return o
 }
 
-// The identifier of the API.
+// The API identifier.
 func (o LookupApiMappingResultOutput) ApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiMappingResult) *string { return v.ApiId }).(pulumi.StringPtrOutput)
 }

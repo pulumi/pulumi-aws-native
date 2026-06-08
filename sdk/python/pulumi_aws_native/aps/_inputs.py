@@ -892,26 +892,42 @@ class WorkspaceConfigurationArgsDict(TypedDict):
     """
     An array of label set and associated limits
     """
+    out_of_order_time_window_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time window in seconds for accepting out-of-order samples
+    """
     retention_period_in_days: NotRequired[pulumi.Input[_builtins.int]]
     """
     How many days that metrics are retained in the workspace
+    """
+    rule_query_offset_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Duration in seconds to offset rule evaluation queries into the past
     """
 
 @pulumi.input_type
 class WorkspaceConfigurationArgs:
     def __init__(__self__, *,
                  limits_per_label_sets: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgs']]]] = None,
-                 retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 out_of_order_time_window_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 rule_query_offset_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Workspace configuration
 
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgs']]] limits_per_label_sets: An array of label set and associated limits
+        :param pulumi.Input[_builtins.int] out_of_order_time_window_in_seconds: The time window in seconds for accepting out-of-order samples
         :param pulumi.Input[_builtins.int] retention_period_in_days: How many days that metrics are retained in the workspace
+        :param pulumi.Input[_builtins.int] rule_query_offset_in_seconds: Duration in seconds to offset rule evaluation queries into the past
         """
         if limits_per_label_sets is not None:
             pulumi.set(__self__, "limits_per_label_sets", limits_per_label_sets)
+        if out_of_order_time_window_in_seconds is not None:
+            pulumi.set(__self__, "out_of_order_time_window_in_seconds", out_of_order_time_window_in_seconds)
         if retention_period_in_days is not None:
             pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+        if rule_query_offset_in_seconds is not None:
+            pulumi.set(__self__, "rule_query_offset_in_seconds", rule_query_offset_in_seconds)
 
     @_builtins.property
     @pulumi.getter(name="limitsPerLabelSets")
@@ -926,6 +942,18 @@ class WorkspaceConfigurationArgs:
         pulumi.set(self, "limits_per_label_sets", value)
 
     @_builtins.property
+    @pulumi.getter(name="outOfOrderTimeWindowInSeconds")
+    def out_of_order_time_window_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The time window in seconds for accepting out-of-order samples
+        """
+        return pulumi.get(self, "out_of_order_time_window_in_seconds")
+
+    @out_of_order_time_window_in_seconds.setter
+    def out_of_order_time_window_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "out_of_order_time_window_in_seconds", value)
+
+    @_builtins.property
     @pulumi.getter(name="retentionPeriodInDays")
     def retention_period_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -936,6 +964,18 @@ class WorkspaceConfigurationArgs:
     @retention_period_in_days.setter
     def retention_period_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "retention_period_in_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleQueryOffsetInSeconds")
+    def rule_query_offset_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Duration in seconds to offset rule evaluation queries into the past
+        """
+        return pulumi.get(self, "rule_query_offset_in_seconds")
+
+    @rule_query_offset_in_seconds.setter
+    def rule_query_offset_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "rule_query_offset_in_seconds", value)
 
 
 class WorkspaceLabelArgsDict(TypedDict):

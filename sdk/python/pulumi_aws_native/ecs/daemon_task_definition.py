@@ -27,7 +27,9 @@ class DaemonTaskDefinitionArgs:
                  cpu: Optional[pulumi.Input[_builtins.str]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  family: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipc_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  memory: Optional[pulumi.Input[_builtins.str]] = None,
+                 pid_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  task_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionVolumeArgs']]]] = None):
@@ -50,8 +52,12 @@ class DaemonTaskDefinitionArgs:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if family is not None:
             pulumi.set(__self__, "family", family)
+        if ipc_mode is not None:
+            pulumi.set(__self__, "ipc_mode", ipc_mode)
         if memory is not None:
             pulumi.set(__self__, "memory", memory)
+        if pid_mode is not None:
+            pulumi.set(__self__, "pid_mode", pid_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if task_role_arn is not None:
@@ -108,6 +114,15 @@ class DaemonTaskDefinitionArgs:
         pulumi.set(self, "family", value)
 
     @_builtins.property
+    @pulumi.getter(name="ipcMode")
+    def ipc_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "ipc_mode")
+
+    @ipc_mode.setter
+    def ipc_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ipc_mode", value)
+
+    @_builtins.property
     @pulumi.getter
     def memory(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -118,6 +133,15 @@ class DaemonTaskDefinitionArgs:
     @memory.setter
     def memory(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "memory", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pidMode")
+    def pid_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "pid_mode")
+
+    @pid_mode.setter
+    def pid_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pid_mode", value)
 
     @_builtins.property
     @pulumi.getter
@@ -163,7 +187,9 @@ class DaemonTaskDefinition(pulumi.CustomResource):
                  cpu: Optional[pulumi.Input[_builtins.str]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  family: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipc_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  memory: Optional[pulumi.Input[_builtins.str]] = None,
+                 pid_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  task_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict']]]]] = None,
@@ -211,7 +237,9 @@ class DaemonTaskDefinition(pulumi.CustomResource):
                  cpu: Optional[pulumi.Input[_builtins.str]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  family: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipc_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  memory: Optional[pulumi.Input[_builtins.str]] = None,
+                 pid_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  task_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict']]]]] = None,
@@ -228,12 +256,14 @@ class DaemonTaskDefinition(pulumi.CustomResource):
             __props__.__dict__["cpu"] = cpu
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["family"] = family
+            __props__.__dict__["ipc_mode"] = ipc_mode
             __props__.__dict__["memory"] = memory
+            __props__.__dict__["pid_mode"] = pid_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_role_arn"] = task_role_arn
             __props__.__dict__["volumes"] = volumes
             __props__.__dict__["daemon_task_definition_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["containerDefinitions[*]", "cpu", "executionRoleArn", "family", "memory", "taskRoleArn", "volumes[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["containerDefinitions[*]", "cpu", "executionRoleArn", "family", "ipcMode", "memory", "pidMode", "taskRoleArn", "volumes[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DaemonTaskDefinition, __self__).__init__(
             'aws-native:ecs:DaemonTaskDefinition',
@@ -262,7 +292,9 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         __props__.__dict__["daemon_task_definition_arn"] = None
         __props__.__dict__["execution_role_arn"] = None
         __props__.__dict__["family"] = None
+        __props__.__dict__["ipc_mode"] = None
         __props__.__dict__["memory"] = None
+        __props__.__dict__["pid_mode"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["task_role_arn"] = None
         __props__.__dict__["volumes"] = None
@@ -306,12 +338,22 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "family")
 
     @_builtins.property
+    @pulumi.getter(name="ipcMode")
+    def ipc_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "ipc_mode")
+
+    @_builtins.property
     @pulumi.getter
     def memory(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The amount of memory (in MiB) used by the daemon task.
         """
         return pulumi.get(self, "memory")
+
+    @_builtins.property
+    @pulumi.getter(name="pidMode")
+    def pid_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "pid_mode")
 
     @_builtins.property
     @pulumi.getter

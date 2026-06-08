@@ -15,6 +15,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     {
         public readonly string? Instructions;
         public readonly Pulumi.AwsNative.BedrockAgentCore.GatewaySearchType? SearchType;
+        public readonly Outputs.GatewaySessionConfiguration? SessionConfiguration;
+        public readonly Outputs.GatewayStreamingConfiguration? StreamingConfiguration;
         public readonly ImmutableArray<string> SupportedVersions;
 
         [OutputConstructor]
@@ -23,10 +25,16 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             Pulumi.AwsNative.BedrockAgentCore.GatewaySearchType? searchType,
 
+            Outputs.GatewaySessionConfiguration? sessionConfiguration,
+
+            Outputs.GatewayStreamingConfiguration? streamingConfiguration,
+
             ImmutableArray<string> supportedVersions)
         {
             Instructions = instructions;
             SearchType = searchType;
+            SessionConfiguration = sessionConfiguration;
+            StreamingConfiguration = streamingConfiguration;
             SupportedVersions = supportedVersions;
         }
     }

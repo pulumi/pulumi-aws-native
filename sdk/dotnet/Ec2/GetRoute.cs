@@ -118,6 +118,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The ID of a network interface.
         /// </summary>
         public readonly string? NetworkInterfaceId;
+        public readonly string? OdbNetworkArn;
         /// <summary>
         /// The ID of a transit gateway.
         /// </summary>
@@ -151,6 +152,8 @@ namespace Pulumi.AwsNative.Ec2
 
             string? networkInterfaceId,
 
+            string? odbNetworkArn,
+
             string? transitGatewayId,
 
             string? vpcEndpointId,
@@ -166,6 +169,7 @@ namespace Pulumi.AwsNative.Ec2
             LocalGatewayId = localGatewayId;
             NatGatewayId = natGatewayId;
             NetworkInterfaceId = networkInterfaceId;
+            OdbNetworkArn = odbNetworkArn;
             TransitGatewayId = transitGatewayId;
             VpcEndpointId = vpcEndpointId;
             VpcPeeringConnectionId = vpcPeeringConnectionId;

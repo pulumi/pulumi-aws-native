@@ -18,6 +18,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("searchType")]
         public Input<Pulumi.AwsNative.BedrockAgentCore.GatewaySearchType>? SearchType { get; set; }
 
+        [Input("sessionConfiguration")]
+        public Input<Inputs.GatewaySessionConfigurationArgs>? SessionConfiguration { get; set; }
+
+        [Input("streamingConfiguration")]
+        public Input<Inputs.GatewayStreamingConfigurationArgs>? StreamingConfiguration { get; set; }
+
         [Input("supportedVersions")]
         private InputList<string>? _supportedVersions;
         public InputList<string> SupportedVersions

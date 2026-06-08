@@ -238,19 +238,19 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "glue:CreateCatalog", "glue:GetCatalog", "glue:UpdateCatalog", "glue:TagResource", "glue:GetTags", "iam:PassRole", "redshift-serverless:CreateNamespace", "redshift-serverless:GetNamespace", "redshift-serverless:CreateWorkgroup", "redshift-serverless:GetWorkgroup", "redshift-serverless:TagResource", "lakeformation:GetDataLakeSettings", "lakeformation:PutDataLakeSettings", "lakeformation:RegisterResource", "lakeformation:GrantPermissions", "s3:CreateBucket", "s3:DeleteBucket", "s3:PutBucketTagging", "s3:PutBucketPolicy", "s3:PutEncryptionConfiguration", "s3:PutLifecycleConfiguration", "s3:PutBucketVersioning", "s3:GetBucketLocation" ]
+      "permissions" : [ "glue:CreateCatalog", "glue:GetCatalog", "glue:UpdateCatalog", "glue:TagResource", "glue:GetTags", "iam:PassRole", "kms:Decrypt", "kms:Encrypt", "kms:GenerateDataKey", "redshift-serverless:CreateNamespace", "redshift-serverless:GetNamespace", "redshift-serverless:CreateWorkgroup", "redshift-serverless:GetWorkgroup", "redshift-serverless:TagResource", "lakeformation:GetDataLakeSettings", "lakeformation:PutDataLakeSettings", "lakeformation:RegisterResource", "lakeformation:GrantPermissions", "s3:CreateBucket", "s3:DeleteBucket", "s3:PutBucketTagging", "s3:PutBucketPolicy", "s3:PutEncryptionConfiguration", "s3:PutLifecycleConfiguration", "s3:PutBucketVersioning", "s3:GetBucketLocation" ]
     },
     "read" : {
-      "permissions" : [ "glue:GetCatalog", "glue:GetTags" ]
+      "permissions" : [ "glue:GetCatalog", "glue:GetTags", "kms:Decrypt" ]
     },
     "update" : {
-      "permissions" : [ "glue:UpdateCatalog", "glue:GetCatalog", "glue:TagResource", "glue:UntagResource", "glue:GetTags", "iam:PassRole", "redshift-serverless:UpdateNamespace", "redshift-serverless:GetNamespace", "redshift-serverless:UpdateWorkgroup", "redshift-serverless:GetWorkgroup", "redshift-serverless:TagResource", "redshift-serverless:UntagResource", "lakeformation:GetDataLakeSettings", "lakeformation:PutDataLakeSettings" ]
+      "permissions" : [ "glue:UpdateCatalog", "glue:GetCatalog", "glue:TagResource", "glue:UntagResource", "glue:GetTags", "iam:PassRole", "kms:Decrypt", "kms:Encrypt", "kms:GenerateDataKey", "redshift-serverless:UpdateNamespace", "redshift-serverless:GetNamespace", "redshift-serverless:UpdateWorkgroup", "redshift-serverless:GetWorkgroup", "redshift-serverless:TagResource", "redshift-serverless:UntagResource", "lakeformation:GetDataLakeSettings", "lakeformation:PutDataLakeSettings" ]
     },
     "delete" : {
-      "permissions" : [ "glue:DeleteCatalog", "glue:GetCatalog", "redshift-serverless:DeleteNamespace", "redshift-serverless:GetNamespace", "redshift-serverless:DeleteWorkgroup", "redshift-serverless:GetWorkgroup", "lakeformation:DeregisterResource", "lakeformation:RevokePermissions", "s3:DeleteBucket" ]
+      "permissions" : [ "glue:DeleteCatalog", "glue:GetCatalog", "kms:Decrypt", "redshift-serverless:DeleteNamespace", "redshift-serverless:GetNamespace", "redshift-serverless:DeleteWorkgroup", "redshift-serverless:GetWorkgroup", "lakeformation:DeregisterResource", "lakeformation:RevokePermissions", "s3:DeleteBucket" ]
     },
     "list" : {
-      "permissions" : [ "glue:GetCatalogs" ]
+      "permissions" : [ "glue:GetCatalogs", "kms:Decrypt" ]
     }
   }
 }

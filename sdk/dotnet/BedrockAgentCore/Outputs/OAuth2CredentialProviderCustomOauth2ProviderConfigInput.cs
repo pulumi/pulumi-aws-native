@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class OAuth2CredentialProviderCustomOauth2ProviderConfigInput
     {
         /// <summary>
+        /// The client authentication method to use when authenticating with the token endpoint
+        /// </summary>
+        public readonly Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod? ClientAuthenticationMethod;
+        /// <summary>
         /// The client ID for the custom OAuth2 provider
         /// </summary>
         public readonly string? ClientId;
@@ -24,21 +28,35 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         /// The client secret for the custom OAuth2 provider
         /// </summary>
         public readonly string? ClientSecret;
+        public readonly Outputs.OAuth2CredentialProviderSecretReference? ClientSecretConfig;
+        /// <summary>
+        /// The source of the client secret
+        /// </summary>
+        public readonly Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource? ClientSecretSource;
         public readonly Outputs.OAuth2CredentialProviderOauth2Discovery OauthDiscovery;
         public readonly Outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig? OnBehalfOfTokenExchangeConfig;
 
         [OutputConstructor]
         private OAuth2CredentialProviderCustomOauth2ProviderConfigInput(
+            Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod? clientAuthenticationMethod,
+
             string? clientId,
 
             string? clientSecret,
+
+            Outputs.OAuth2CredentialProviderSecretReference? clientSecretConfig,
+
+            Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource? clientSecretSource,
 
             Outputs.OAuth2CredentialProviderOauth2Discovery oauthDiscovery,
 
             Outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig? onBehalfOfTokenExchangeConfig)
         {
+            ClientAuthenticationMethod = clientAuthenticationMethod;
             ClientId = clientId;
             ClientSecret = clientSecret;
+            ClientSecretConfig = clientSecretConfig;
+            ClientSecretSource = clientSecretSource;
             OauthDiscovery = oauthDiscovery;
             OnBehalfOfTokenExchangeConfig = onBehalfOfTokenExchangeConfig;
         }

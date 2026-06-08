@@ -28,10 +28,22 @@ namespace Pulumi.AwsNative.Aps.Inputs
         }
 
         /// <summary>
+        /// The time window in seconds for accepting out-of-order samples
+        /// </summary>
+        [Input("outOfOrderTimeWindowInSeconds")]
+        public Input<int>? OutOfOrderTimeWindowInSeconds { get; set; }
+
+        /// <summary>
         /// How many days that metrics are retained in the workspace
         /// </summary>
         [Input("retentionPeriodInDays")]
         public Input<int>? RetentionPeriodInDays { get; set; }
+
+        /// <summary>
+        /// Duration in seconds to offset rule evaluation queries into the past
+        /// </summary>
+        [Input("ruleQueryOffsetInSeconds")]
+        public Input<int>? RuleQueryOffsetInSeconds { get; set; }
 
         public WorkspaceConfigurationArgs()
         {

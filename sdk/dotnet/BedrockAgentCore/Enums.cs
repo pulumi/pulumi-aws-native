@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.BedrockAgentCore
 {
     /// <summary>
+    /// The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApiKeyCredentialProviderApiKeySecretSource : IEquatable<ApiKeyCredentialProviderApiKeySecretSource>
+    {
+        private readonly string _value;
+
+        private ApiKeyCredentialProviderApiKeySecretSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApiKeyCredentialProviderApiKeySecretSource Managed { get; } = new ApiKeyCredentialProviderApiKeySecretSource("MANAGED");
+        public static ApiKeyCredentialProviderApiKeySecretSource External { get; } = new ApiKeyCredentialProviderApiKeySecretSource("EXTERNAL");
+
+        public static bool operator ==(ApiKeyCredentialProviderApiKeySecretSource left, ApiKeyCredentialProviderApiKeySecretSource right) => left.Equals(right);
+        public static bool operator !=(ApiKeyCredentialProviderApiKeySecretSource left, ApiKeyCredentialProviderApiKeySecretSource right) => !left.Equals(right);
+
+        public static explicit operator string(ApiKeyCredentialProviderApiKeySecretSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApiKeyCredentialProviderApiKeySecretSource other && Equals(other);
+        public bool Equals(ApiKeyCredentialProviderApiKeySecretSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of browser enterprise policy.
     /// </summary>
     [EnumType]
@@ -622,6 +653,34 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GatewayTargetCredentialProviderType other && Equals(other);
         public bool Equals(GatewayTargetCredentialProviderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GatewayTargetEndpointIpAddressType : IEquatable<GatewayTargetEndpointIpAddressType>
+    {
+        private readonly string _value;
+
+        private GatewayTargetEndpointIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayTargetEndpointIpAddressType Ipv4 { get; } = new GatewayTargetEndpointIpAddressType("IPV4");
+        public static GatewayTargetEndpointIpAddressType Ipv6 { get; } = new GatewayTargetEndpointIpAddressType("IPV6");
+
+        public static bool operator ==(GatewayTargetEndpointIpAddressType left, GatewayTargetEndpointIpAddressType right) => left.Equals(right);
+        public static bool operator !=(GatewayTargetEndpointIpAddressType left, GatewayTargetEndpointIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayTargetEndpointIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayTargetEndpointIpAddressType other && Equals(other);
+        public bool Equals(GatewayTargetEndpointIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1483,6 +1542,65 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource : IEquatable<OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource Managed { get; } = new OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource("MANAGED");
+        public static OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource External { get; } = new OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource("EXTERNAL");
+
+        public static bool operator ==(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The source of the client secret
+    /// </summary>
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderClientSecretSource : IEquatable<OAuth2CredentialProviderClientSecretSource>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderClientSecretSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderClientSecretSource Managed { get; } = new OAuth2CredentialProviderClientSecretSource("MANAGED");
+        public static OAuth2CredentialProviderClientSecretSource External { get; } = new OAuth2CredentialProviderClientSecretSource("EXTERNAL");
+
+        public static bool operator ==(OAuth2CredentialProviderClientSecretSource left, OAuth2CredentialProviderClientSecretSource right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderClientSecretSource left, OAuth2CredentialProviderClientSecretSource right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderClientSecretSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderClientSecretSource other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderClientSecretSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The vendor of the OAuth2 credential provider
     /// </summary>
@@ -1538,6 +1656,241 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     /// <summary>
+    /// The client authentication method to use when authenticating with the token endpoint
+    /// </summary>
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod : IEquatable<OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod ClientSecretBasic { get; } = new OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod("CLIENT_SECRET_BASIC");
+        public static OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod ClientSecretPost { get; } = new OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod("CLIENT_SECRET_POST");
+        public static OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod AwsIamIdTokenJwt { get; } = new OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod("AWS_IAM_ID_TOKEN_JWT");
+
+        public static bool operator ==(OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod left, OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod left, OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The source of the client secret
+    /// </summary>
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource : IEquatable<OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource Managed { get; } = new OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource("MANAGED");
+        public static OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource External { get; } = new OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource("EXTERNAL");
+
+        public static bool operator ==(OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource : IEquatable<OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource Managed { get; } = new OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource("MANAGED");
+        public static OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource External { get; } = new OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource("EXTERNAL");
+
+        public static bool operator ==(OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource : IEquatable<OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource Managed { get; } = new OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource("MANAGED");
+        public static OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource External { get; } = new OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource("EXTERNAL");
+
+        public static bool operator ==(OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource : IEquatable<OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource Managed { get; } = new OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource("MANAGED");
+        public static OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource External { get; } = new OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource("EXTERNAL");
+
+        public static bool operator ==(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource : IEquatable<OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource Managed { get; } = new OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource("MANAGED");
+        public static OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource External { get; } = new OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource("EXTERNAL");
+
+        public static bool operator ==(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource : IEquatable<OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource Managed { get; } = new OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource("MANAGED");
+        public static OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource External { get; } = new OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource("EXTERNAL");
+
+        public static bool operator ==(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The client authentication method used when authenticating with the token endpoint
+    /// </summary>
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod : IEquatable<OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod ClientSecretBasic { get; } = new OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod("CLIENT_SECRET_BASIC");
+        public static OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod ClientSecretPost { get; } = new OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod("CLIENT_SECRET_POST");
+        public static OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod AwsIamIdTokenJwt { get; } = new OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod("AWS_IAM_ID_TOKEN_JWT");
+
+        public static bool operator ==(OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod left, OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod left, OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The grant type for on-behalf-of token exchange
     /// </summary>
     [EnumType]
@@ -1561,6 +1914,62 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType other && Equals(other);
         public bool Equals(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource : IEquatable<OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource Managed { get; } = new OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource("MANAGED");
+        public static OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource External { get; } = new OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource("EXTERNAL");
+
+        public static bool operator ==(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource : IEquatable<OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource Managed { get; } = new OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource("MANAGED");
+        public static OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource External { get; } = new OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource("EXTERNAL");
+
+        public static bool operator ==(OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource left, OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1697,6 +2106,98 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct PaymentConnectorStatus : IEquatable<PaymentConnectorStatus>
+    {
+        private readonly string _value;
+
+        private PaymentConnectorStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PaymentConnectorStatus Creating { get; } = new PaymentConnectorStatus("CREATING");
+        public static PaymentConnectorStatus Updating { get; } = new PaymentConnectorStatus("UPDATING");
+        public static PaymentConnectorStatus Deleting { get; } = new PaymentConnectorStatus("DELETING");
+        public static PaymentConnectorStatus Ready { get; } = new PaymentConnectorStatus("READY");
+        public static PaymentConnectorStatus CreateFailed { get; } = new PaymentConnectorStatus("CREATE_FAILED");
+        public static PaymentConnectorStatus UpdateFailed { get; } = new PaymentConnectorStatus("UPDATE_FAILED");
+        public static PaymentConnectorStatus DeleteFailed { get; } = new PaymentConnectorStatus("DELETE_FAILED");
+
+        public static bool operator ==(PaymentConnectorStatus left, PaymentConnectorStatus right) => left.Equals(right);
+        public static bool operator !=(PaymentConnectorStatus left, PaymentConnectorStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PaymentConnectorStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PaymentConnectorStatus other && Equals(other);
+        public bool Equals(PaymentConnectorStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PaymentConnectorType : IEquatable<PaymentConnectorType>
+    {
+        private readonly string _value;
+
+        private PaymentConnectorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PaymentConnectorType CoinbaseCdp { get; } = new PaymentConnectorType("CoinbaseCDP");
+        public static PaymentConnectorType StripePrivy { get; } = new PaymentConnectorType("StripePrivy");
+
+        public static bool operator ==(PaymentConnectorType left, PaymentConnectorType right) => left.Equals(right);
+        public static bool operator !=(PaymentConnectorType left, PaymentConnectorType right) => !left.Equals(right);
+
+        public static explicit operator string(PaymentConnectorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PaymentConnectorType other && Equals(other);
+        public bool Equals(PaymentConnectorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+    /// </summary>
+    [EnumType]
+    public readonly struct PaymentCredentialProviderSecretSourceType : IEquatable<PaymentCredentialProviderSecretSourceType>
+    {
+        private readonly string _value;
+
+        private PaymentCredentialProviderSecretSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PaymentCredentialProviderSecretSourceType Managed { get; } = new PaymentCredentialProviderSecretSourceType("MANAGED");
+        public static PaymentCredentialProviderSecretSourceType External { get; } = new PaymentCredentialProviderSecretSourceType("EXTERNAL");
+
+        public static bool operator ==(PaymentCredentialProviderSecretSourceType left, PaymentCredentialProviderSecretSourceType right) => left.Equals(right);
+        public static bool operator !=(PaymentCredentialProviderSecretSourceType left, PaymentCredentialProviderSecretSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(PaymentCredentialProviderSecretSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PaymentCredentialProviderSecretSourceType other && Equals(other);
+        public bool Equals(PaymentCredentialProviderSecretSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Supported vendor types for payment providers
     /// </summary>
@@ -1721,6 +2222,124 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PaymentCredentialProviderVendorType other && Equals(other);
         public bool Equals(PaymentCredentialProviderVendorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator : IEquatable<PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator>
+    {
+        private readonly string _value;
+
+        private PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator EqualsValue { get; } = new PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator("EQUALS");
+        public static PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator Contains { get; } = new PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator("CONTAINS");
+        public static PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator ContainsAny { get; } = new PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator("CONTAINS_ANY");
+
+        public static bool operator ==(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator left, PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator right) => left.Equals(right);
+        public static bool operator !=(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator left, PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator right) => !left.Equals(right);
+
+        public static explicit operator string(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator other && Equals(other);
+        public bool Equals(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType : IEquatable<PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType>
+    {
+        private readonly string _value;
+
+        private PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType String { get; } = new PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType("STRING");
+        public static PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType StringArray { get; } = new PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType("STRING_ARRAY");
+
+        public static bool operator ==(PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType left, PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType right) => left.Equals(right);
+        public static bool operator !=(PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType left, PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType right) => !left.Equals(right);
+
+        public static explicit operator string(PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType other && Equals(other);
+        public bool Equals(PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PaymentManagerPaymentsAuthorizerType : IEquatable<PaymentManagerPaymentsAuthorizerType>
+    {
+        private readonly string _value;
+
+        private PaymentManagerPaymentsAuthorizerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PaymentManagerPaymentsAuthorizerType CustomJwt { get; } = new PaymentManagerPaymentsAuthorizerType("CUSTOM_JWT");
+        public static PaymentManagerPaymentsAuthorizerType AwsIam { get; } = new PaymentManagerPaymentsAuthorizerType("AWS_IAM");
+
+        public static bool operator ==(PaymentManagerPaymentsAuthorizerType left, PaymentManagerPaymentsAuthorizerType right) => left.Equals(right);
+        public static bool operator !=(PaymentManagerPaymentsAuthorizerType left, PaymentManagerPaymentsAuthorizerType right) => !left.Equals(right);
+
+        public static explicit operator string(PaymentManagerPaymentsAuthorizerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PaymentManagerPaymentsAuthorizerType other && Equals(other);
+        public bool Equals(PaymentManagerPaymentsAuthorizerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PaymentManagerStatus : IEquatable<PaymentManagerStatus>
+    {
+        private readonly string _value;
+
+        private PaymentManagerStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PaymentManagerStatus Creating { get; } = new PaymentManagerStatus("CREATING");
+        public static PaymentManagerStatus Updating { get; } = new PaymentManagerStatus("UPDATING");
+        public static PaymentManagerStatus Deleting { get; } = new PaymentManagerStatus("DELETING");
+        public static PaymentManagerStatus Ready { get; } = new PaymentManagerStatus("READY");
+        public static PaymentManagerStatus CreateFailed { get; } = new PaymentManagerStatus("CREATE_FAILED");
+        public static PaymentManagerStatus UpdateFailed { get; } = new PaymentManagerStatus("UPDATE_FAILED");
+        public static PaymentManagerStatus DeleteFailed { get; } = new PaymentManagerStatus("DELETE_FAILED");
+
+        public static bool operator ==(PaymentManagerStatus left, PaymentManagerStatus right) => left.Equals(right);
+        public static bool operator !=(PaymentManagerStatus left, PaymentManagerStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PaymentManagerStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PaymentManagerStatus other && Equals(other);
+        public bool Equals(PaymentManagerStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

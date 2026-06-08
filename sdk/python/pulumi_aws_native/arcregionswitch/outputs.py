@@ -20,6 +20,8 @@ __all__ = [
     'PlanArcRoutingControlConfiguration',
     'PlanAsg',
     'PlanAssociatedAlarm',
+    'PlanAuroraProvisionedScalingConfiguration',
+    'PlanAuroraServerlessScalingConfiguration',
     'PlanCustomActionLambdaConfiguration',
     'PlanDocumentDbConfiguration',
     'PlanDocumentDbUngraceful',
@@ -37,6 +39,9 @@ __all__ = [
     'PlanExecutionBlockConfiguration11Properties',
     'PlanExecutionBlockConfiguration12Properties',
     'PlanExecutionBlockConfiguration13Properties',
+    'PlanExecutionBlockConfiguration14Properties',
+    'PlanExecutionBlockConfiguration15Properties',
+    'PlanExecutionBlockConfiguration16Properties',
     'PlanExecutionBlockConfiguration1Properties',
     'PlanExecutionBlockConfiguration2Properties',
     'PlanExecutionBlockConfiguration3Properties',
@@ -54,6 +59,8 @@ __all__ = [
     'PlanLambdaEventSourceMappingUngraceful',
     'PlanLambdaUngraceful',
     'PlanLambdas',
+    'PlanNeptuneGlobalDatabaseConfiguration',
+    'PlanNeptuneUngraceful',
     'PlanParallelExecutionBlockConfiguration',
     'PlanRdsCreateCrossRegionReplicaConfiguration',
     'PlanRdsPromoteReadReplicaConfiguration',
@@ -252,6 +259,161 @@ class PlanAssociatedAlarm(dict):
         The external ID (secret key) for the configuration.
         """
         return pulumi.get(self, "external_id")
+
+
+@pulumi.output_type
+class PlanAuroraProvisionedScalingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "globalClusterIdentifier":
+            suggest = "global_cluster_identifier"
+        elif key == "instanceArns":
+            suggest = "instance_arns"
+        elif key == "regionDatabaseClusterArns":
+            suggest = "region_database_cluster_arns"
+        elif key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanAuroraProvisionedScalingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanAuroraProvisionedScalingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanAuroraProvisionedScalingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 global_cluster_identifier: _builtins.str,
+                 instance_arns: Mapping[str, _builtins.str],
+                 region_database_cluster_arns: Mapping[str, _builtins.str],
+                 cross_account_role: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 timeout_minutes: Optional[_builtins.float] = None):
+        pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+        pulumi.set(__self__, "instance_arns", instance_arns)
+        pulumi.set(__self__, "region_database_cluster_arns", region_database_cluster_arns)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="globalClusterIdentifier")
+    def global_cluster_identifier(self) -> _builtins.str:
+        return pulumi.get(self, "global_cluster_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceArns")
+    def instance_arns(self) -> Mapping[str, _builtins.str]:
+        return pulumi.get(self, "instance_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="regionDatabaseClusterArns")
+    def region_database_cluster_arns(self) -> Mapping[str, _builtins.str]:
+        return pulumi.get(self, "region_database_cluster_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "timeout_minutes")
+
+
+@pulumi.output_type
+class PlanAuroraServerlessScalingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "globalClusterIdentifier":
+            suggest = "global_cluster_identifier"
+        elif key == "regionDatabaseClusterArns":
+            suggest = "region_database_cluster_arns"
+        elif key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "targetPercent":
+            suggest = "target_percent"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanAuroraServerlessScalingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanAuroraServerlessScalingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanAuroraServerlessScalingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 global_cluster_identifier: _builtins.str,
+                 region_database_cluster_arns: Mapping[str, _builtins.str],
+                 cross_account_role: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 target_percent: Optional[_builtins.float] = None,
+                 timeout_minutes: Optional[_builtins.float] = None):
+        pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+        pulumi.set(__self__, "region_database_cluster_arns", region_database_cluster_arns)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if target_percent is not None:
+            pulumi.set(__self__, "target_percent", target_percent)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="globalClusterIdentifier")
+    def global_cluster_identifier(self) -> _builtins.str:
+        return pulumi.get(self, "global_cluster_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="regionDatabaseClusterArns")
+    def region_database_cluster_arns(self) -> Mapping[str, _builtins.str]:
+        return pulumi.get(self, "region_database_cluster_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="targetPercent")
+    def target_percent(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "target_percent")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "timeout_minutes")
 
 
 @pulumi.output_type
@@ -886,8 +1048,8 @@ class PlanExecutionBlockConfiguration10Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "documentDbConfig":
-            suggest = "document_db_config"
+        if key == "eksResourceScalingConfig":
+            suggest = "eks_resource_scaling_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration10Properties. Access the value via the '{suggest}' property getter instead.")
@@ -901,13 +1063,13 @@ class PlanExecutionBlockConfiguration10Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 document_db_config: 'outputs.PlanDocumentDbConfiguration'):
-        pulumi.set(__self__, "document_db_config", document_db_config)
+                 eks_resource_scaling_config: 'outputs.PlanEksResourceScalingConfiguration'):
+        pulumi.set(__self__, "eks_resource_scaling_config", eks_resource_scaling_config)
 
     @_builtins.property
-    @pulumi.getter(name="documentDbConfig")
-    def document_db_config(self) -> 'outputs.PlanDocumentDbConfiguration':
-        return pulumi.get(self, "document_db_config")
+    @pulumi.getter(name="eksResourceScalingConfig")
+    def eks_resource_scaling_config(self) -> 'outputs.PlanEksResourceScalingConfiguration':
+        return pulumi.get(self, "eks_resource_scaling_config")
 
 
 @pulumi.output_type
@@ -915,8 +1077,8 @@ class PlanExecutionBlockConfiguration11Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "rdsPromoteReadReplicaConfig":
-            suggest = "rds_promote_read_replica_config"
+        if key == "route53HealthCheckConfig":
+            suggest = "route53_health_check_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration11Properties. Access the value via the '{suggest}' property getter instead.")
@@ -930,13 +1092,13 @@ class PlanExecutionBlockConfiguration11Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 rds_promote_read_replica_config: 'outputs.PlanRdsPromoteReadReplicaConfiguration'):
-        pulumi.set(__self__, "rds_promote_read_replica_config", rds_promote_read_replica_config)
+                 route53_health_check_config: 'outputs.PlanRoute53HealthCheckConfiguration'):
+        pulumi.set(__self__, "route53_health_check_config", route53_health_check_config)
 
     @_builtins.property
-    @pulumi.getter(name="rdsPromoteReadReplicaConfig")
-    def rds_promote_read_replica_config(self) -> 'outputs.PlanRdsPromoteReadReplicaConfiguration':
-        return pulumi.get(self, "rds_promote_read_replica_config")
+    @pulumi.getter(name="route53HealthCheckConfig")
+    def route53_health_check_config(self) -> 'outputs.PlanRoute53HealthCheckConfiguration':
+        return pulumi.get(self, "route53_health_check_config")
 
 
 @pulumi.output_type
@@ -944,8 +1106,8 @@ class PlanExecutionBlockConfiguration12Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "rdsCreateCrossRegionReadReplicaConfig":
-            suggest = "rds_create_cross_region_read_replica_config"
+        if key == "documentDbConfig":
+            suggest = "document_db_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration12Properties. Access the value via the '{suggest}' property getter instead.")
@@ -959,13 +1121,13 @@ class PlanExecutionBlockConfiguration12Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 rds_create_cross_region_read_replica_config: 'outputs.PlanRdsCreateCrossRegionReplicaConfiguration'):
-        pulumi.set(__self__, "rds_create_cross_region_read_replica_config", rds_create_cross_region_read_replica_config)
+                 document_db_config: 'outputs.PlanDocumentDbConfiguration'):
+        pulumi.set(__self__, "document_db_config", document_db_config)
 
     @_builtins.property
-    @pulumi.getter(name="rdsCreateCrossRegionReadReplicaConfig")
-    def rds_create_cross_region_read_replica_config(self) -> 'outputs.PlanRdsCreateCrossRegionReplicaConfiguration':
-        return pulumi.get(self, "rds_create_cross_region_read_replica_config")
+    @pulumi.getter(name="documentDbConfig")
+    def document_db_config(self) -> 'outputs.PlanDocumentDbConfiguration':
+        return pulumi.get(self, "document_db_config")
 
 
 @pulumi.output_type
@@ -973,8 +1135,8 @@ class PlanExecutionBlockConfiguration13Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "lambdaEventSourceMappingConfig":
-            suggest = "lambda_event_source_mapping_config"
+        if key == "rdsPromoteReadReplicaConfig":
+            suggest = "rds_promote_read_replica_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration13Properties. Access the value via the '{suggest}' property getter instead.")
@@ -988,6 +1150,64 @@ class PlanExecutionBlockConfiguration13Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 rds_promote_read_replica_config: 'outputs.PlanRdsPromoteReadReplicaConfiguration'):
+        pulumi.set(__self__, "rds_promote_read_replica_config", rds_promote_read_replica_config)
+
+    @_builtins.property
+    @pulumi.getter(name="rdsPromoteReadReplicaConfig")
+    def rds_promote_read_replica_config(self) -> 'outputs.PlanRdsPromoteReadReplicaConfiguration':
+        return pulumi.get(self, "rds_promote_read_replica_config")
+
+
+@pulumi.output_type
+class PlanExecutionBlockConfiguration14Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rdsCreateCrossRegionReadReplicaConfig":
+            suggest = "rds_create_cross_region_read_replica_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration14Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanExecutionBlockConfiguration14Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanExecutionBlockConfiguration14Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rds_create_cross_region_read_replica_config: 'outputs.PlanRdsCreateCrossRegionReplicaConfiguration'):
+        pulumi.set(__self__, "rds_create_cross_region_read_replica_config", rds_create_cross_region_read_replica_config)
+
+    @_builtins.property
+    @pulumi.getter(name="rdsCreateCrossRegionReadReplicaConfig")
+    def rds_create_cross_region_read_replica_config(self) -> 'outputs.PlanRdsCreateCrossRegionReplicaConfiguration':
+        return pulumi.get(self, "rds_create_cross_region_read_replica_config")
+
+
+@pulumi.output_type
+class PlanExecutionBlockConfiguration15Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaEventSourceMappingConfig":
+            suggest = "lambda_event_source_mapping_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration15Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanExecutionBlockConfiguration15Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanExecutionBlockConfiguration15Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
                  lambda_event_source_mapping_config: 'outputs.PlanLambdaEventSourceMappingConfiguration'):
         pulumi.set(__self__, "lambda_event_source_mapping_config", lambda_event_source_mapping_config)
 
@@ -995,6 +1215,35 @@ class PlanExecutionBlockConfiguration13Properties(dict):
     @pulumi.getter(name="lambdaEventSourceMappingConfig")
     def lambda_event_source_mapping_config(self) -> 'outputs.PlanLambdaEventSourceMappingConfiguration':
         return pulumi.get(self, "lambda_event_source_mapping_config")
+
+
+@pulumi.output_type
+class PlanExecutionBlockConfiguration16Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "neptuneGlobalDatabaseConfig":
+            suggest = "neptune_global_database_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration16Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanExecutionBlockConfiguration16Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanExecutionBlockConfiguration16Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 neptune_global_database_config: 'outputs.PlanNeptuneGlobalDatabaseConfiguration'):
+        pulumi.set(__self__, "neptune_global_database_config", neptune_global_database_config)
+
+    @_builtins.property
+    @pulumi.getter(name="neptuneGlobalDatabaseConfig")
+    def neptune_global_database_config(self) -> 'outputs.PlanNeptuneGlobalDatabaseConfiguration':
+        return pulumi.get(self, "neptune_global_database_config")
 
 
 @pulumi.output_type
@@ -1089,8 +1338,8 @@ class PlanExecutionBlockConfiguration4Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "globalAuroraConfig":
-            suggest = "global_aurora_config"
+        if key == "auroraProvisionedScalingConfig":
+            suggest = "aurora_provisioned_scaling_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration4Properties. Access the value via the '{suggest}' property getter instead.")
@@ -1104,13 +1353,13 @@ class PlanExecutionBlockConfiguration4Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 global_aurora_config: 'outputs.PlanGlobalAuroraConfiguration'):
-        pulumi.set(__self__, "global_aurora_config", global_aurora_config)
+                 aurora_provisioned_scaling_config: 'outputs.PlanAuroraProvisionedScalingConfiguration'):
+        pulumi.set(__self__, "aurora_provisioned_scaling_config", aurora_provisioned_scaling_config)
 
     @_builtins.property
-    @pulumi.getter(name="globalAuroraConfig")
-    def global_aurora_config(self) -> 'outputs.PlanGlobalAuroraConfiguration':
-        return pulumi.get(self, "global_aurora_config")
+    @pulumi.getter(name="auroraProvisionedScalingConfig")
+    def aurora_provisioned_scaling_config(self) -> 'outputs.PlanAuroraProvisionedScalingConfiguration':
+        return pulumi.get(self, "aurora_provisioned_scaling_config")
 
 
 @pulumi.output_type
@@ -1118,8 +1367,8 @@ class PlanExecutionBlockConfiguration5Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "parallelConfig":
-            suggest = "parallel_config"
+        if key == "auroraServerlessScalingConfig":
+            suggest = "aurora_serverless_scaling_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration5Properties. Access the value via the '{suggest}' property getter instead.")
@@ -1133,13 +1382,13 @@ class PlanExecutionBlockConfiguration5Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 parallel_config: 'outputs.PlanParallelExecutionBlockConfiguration'):
-        pulumi.set(__self__, "parallel_config", parallel_config)
+                 aurora_serverless_scaling_config: 'outputs.PlanAuroraServerlessScalingConfiguration'):
+        pulumi.set(__self__, "aurora_serverless_scaling_config", aurora_serverless_scaling_config)
 
     @_builtins.property
-    @pulumi.getter(name="parallelConfig")
-    def parallel_config(self) -> 'outputs.PlanParallelExecutionBlockConfiguration':
-        return pulumi.get(self, "parallel_config")
+    @pulumi.getter(name="auroraServerlessScalingConfig")
+    def aurora_serverless_scaling_config(self) -> 'outputs.PlanAuroraServerlessScalingConfiguration':
+        return pulumi.get(self, "aurora_serverless_scaling_config")
 
 
 @pulumi.output_type
@@ -1147,8 +1396,8 @@ class PlanExecutionBlockConfiguration6Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "regionSwitchPlanConfig":
-            suggest = "region_switch_plan_config"
+        if key == "globalAuroraConfig":
+            suggest = "global_aurora_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration6Properties. Access the value via the '{suggest}' property getter instead.")
@@ -1162,13 +1411,13 @@ class PlanExecutionBlockConfiguration6Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 region_switch_plan_config: 'outputs.PlanRegionSwitchPlanConfiguration'):
-        pulumi.set(__self__, "region_switch_plan_config", region_switch_plan_config)
+                 global_aurora_config: 'outputs.PlanGlobalAuroraConfiguration'):
+        pulumi.set(__self__, "global_aurora_config", global_aurora_config)
 
     @_builtins.property
-    @pulumi.getter(name="regionSwitchPlanConfig")
-    def region_switch_plan_config(self) -> 'outputs.PlanRegionSwitchPlanConfiguration':
-        return pulumi.get(self, "region_switch_plan_config")
+    @pulumi.getter(name="globalAuroraConfig")
+    def global_aurora_config(self) -> 'outputs.PlanGlobalAuroraConfiguration':
+        return pulumi.get(self, "global_aurora_config")
 
 
 @pulumi.output_type
@@ -1176,8 +1425,8 @@ class PlanExecutionBlockConfiguration7Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "ecsCapacityIncreaseConfig":
-            suggest = "ecs_capacity_increase_config"
+        if key == "parallelConfig":
+            suggest = "parallel_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration7Properties. Access the value via the '{suggest}' property getter instead.")
@@ -1191,13 +1440,13 @@ class PlanExecutionBlockConfiguration7Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 ecs_capacity_increase_config: 'outputs.PlanEcsCapacityIncreaseConfiguration'):
-        pulumi.set(__self__, "ecs_capacity_increase_config", ecs_capacity_increase_config)
+                 parallel_config: 'outputs.PlanParallelExecutionBlockConfiguration'):
+        pulumi.set(__self__, "parallel_config", parallel_config)
 
     @_builtins.property
-    @pulumi.getter(name="ecsCapacityIncreaseConfig")
-    def ecs_capacity_increase_config(self) -> 'outputs.PlanEcsCapacityIncreaseConfiguration':
-        return pulumi.get(self, "ecs_capacity_increase_config")
+    @pulumi.getter(name="parallelConfig")
+    def parallel_config(self) -> 'outputs.PlanParallelExecutionBlockConfiguration':
+        return pulumi.get(self, "parallel_config")
 
 
 @pulumi.output_type
@@ -1205,8 +1454,8 @@ class PlanExecutionBlockConfiguration8Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "eksResourceScalingConfig":
-            suggest = "eks_resource_scaling_config"
+        if key == "regionSwitchPlanConfig":
+            suggest = "region_switch_plan_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration8Properties. Access the value via the '{suggest}' property getter instead.")
@@ -1220,13 +1469,13 @@ class PlanExecutionBlockConfiguration8Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 eks_resource_scaling_config: 'outputs.PlanEksResourceScalingConfiguration'):
-        pulumi.set(__self__, "eks_resource_scaling_config", eks_resource_scaling_config)
+                 region_switch_plan_config: 'outputs.PlanRegionSwitchPlanConfiguration'):
+        pulumi.set(__self__, "region_switch_plan_config", region_switch_plan_config)
 
     @_builtins.property
-    @pulumi.getter(name="eksResourceScalingConfig")
-    def eks_resource_scaling_config(self) -> 'outputs.PlanEksResourceScalingConfiguration':
-        return pulumi.get(self, "eks_resource_scaling_config")
+    @pulumi.getter(name="regionSwitchPlanConfig")
+    def region_switch_plan_config(self) -> 'outputs.PlanRegionSwitchPlanConfiguration':
+        return pulumi.get(self, "region_switch_plan_config")
 
 
 @pulumi.output_type
@@ -1234,8 +1483,8 @@ class PlanExecutionBlockConfiguration9Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "route53HealthCheckConfig":
-            suggest = "route53_health_check_config"
+        if key == "ecsCapacityIncreaseConfig":
+            suggest = "ecs_capacity_increase_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration9Properties. Access the value via the '{suggest}' property getter instead.")
@@ -1249,13 +1498,13 @@ class PlanExecutionBlockConfiguration9Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 route53_health_check_config: 'outputs.PlanRoute53HealthCheckConfiguration'):
-        pulumi.set(__self__, "route53_health_check_config", route53_health_check_config)
+                 ecs_capacity_increase_config: 'outputs.PlanEcsCapacityIncreaseConfiguration'):
+        pulumi.set(__self__, "ecs_capacity_increase_config", ecs_capacity_increase_config)
 
     @_builtins.property
-    @pulumi.getter(name="route53HealthCheckConfig")
-    def route53_health_check_config(self) -> 'outputs.PlanRoute53HealthCheckConfiguration':
-        return pulumi.get(self, "route53_health_check_config")
+    @pulumi.getter(name="ecsCapacityIncreaseConfig")
+    def ecs_capacity_increase_config(self) -> 'outputs.PlanEcsCapacityIncreaseConfiguration':
+        return pulumi.get(self, "ecs_capacity_increase_config")
 
 
 @pulumi.output_type
@@ -1554,6 +1803,102 @@ class PlanLambdas(dict):
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "external_id")
+
+
+@pulumi.output_type
+class PlanNeptuneGlobalDatabaseConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "globalClusterIdentifier":
+            suggest = "global_cluster_identifier"
+        elif key == "regionDatabaseClusterArns":
+            suggest = "region_database_cluster_arns"
+        elif key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanNeptuneGlobalDatabaseConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanNeptuneGlobalDatabaseConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanNeptuneGlobalDatabaseConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 behavior: Any,
+                 global_cluster_identifier: _builtins.str,
+                 region_database_cluster_arns: Mapping[str, _builtins.str],
+                 cross_account_role: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 timeout_minutes: Optional[_builtins.float] = None,
+                 ungraceful: Optional['outputs.PlanNeptuneUngraceful'] = None):
+        pulumi.set(__self__, "behavior", behavior)
+        pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+        pulumi.set(__self__, "region_database_cluster_arns", region_database_cluster_arns)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+        if ungraceful is not None:
+            pulumi.set(__self__, "ungraceful", ungraceful)
+
+    @_builtins.property
+    @pulumi.getter
+    def behavior(self) -> Any:
+        return pulumi.get(self, "behavior")
+
+    @_builtins.property
+    @pulumi.getter(name="globalClusterIdentifier")
+    def global_cluster_identifier(self) -> _builtins.str:
+        return pulumi.get(self, "global_cluster_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="regionDatabaseClusterArns")
+    def region_database_cluster_arns(self) -> Mapping[str, _builtins.str]:
+        return pulumi.get(self, "region_database_cluster_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "timeout_minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def ungraceful(self) -> Optional['outputs.PlanNeptuneUngraceful']:
+        return pulumi.get(self, "ungraceful")
+
+
+@pulumi.output_type
+class PlanNeptuneUngraceful(dict):
+    def __init__(__self__, *,
+                 ungraceful: Optional['PlanNeptuneUngracefulBehavior'] = None):
+        if ungraceful is not None:
+            pulumi.set(__self__, "ungraceful", ungraceful)
+
+    @_builtins.property
+    @pulumi.getter
+    def ungraceful(self) -> Optional['PlanNeptuneUngracefulBehavior']:
+        return pulumi.get(self, "ungraceful")
 
 
 @pulumi.output_type
@@ -2041,7 +2386,7 @@ class PlanStep(dict):
                  name: _builtins.str,
                  description: Optional[_builtins.str] = None):
         """
-        :param Union['PlanExecutionBlockConfiguration0Properties', 'PlanExecutionBlockConfiguration1Properties', 'PlanExecutionBlockConfiguration2Properties', 'PlanExecutionBlockConfiguration3Properties', 'PlanExecutionBlockConfiguration4Properties', 'PlanExecutionBlockConfiguration5Properties', 'PlanExecutionBlockConfiguration6Properties', 'PlanExecutionBlockConfiguration7Properties', 'PlanExecutionBlockConfiguration8Properties', 'PlanExecutionBlockConfiguration9Properties', 'PlanExecutionBlockConfiguration10Properties', 'PlanExecutionBlockConfiguration11Properties', 'PlanExecutionBlockConfiguration12Properties', 'PlanExecutionBlockConfiguration13Properties'] execution_block_configuration: The configuration for an execution block in a workflow.
+        :param Union['PlanExecutionBlockConfiguration0Properties', 'PlanExecutionBlockConfiguration1Properties', 'PlanExecutionBlockConfiguration2Properties', 'PlanExecutionBlockConfiguration3Properties', 'PlanExecutionBlockConfiguration4Properties', 'PlanExecutionBlockConfiguration5Properties', 'PlanExecutionBlockConfiguration6Properties', 'PlanExecutionBlockConfiguration7Properties', 'PlanExecutionBlockConfiguration8Properties', 'PlanExecutionBlockConfiguration9Properties', 'PlanExecutionBlockConfiguration10Properties', 'PlanExecutionBlockConfiguration11Properties', 'PlanExecutionBlockConfiguration12Properties', 'PlanExecutionBlockConfiguration13Properties', 'PlanExecutionBlockConfiguration14Properties', 'PlanExecutionBlockConfiguration15Properties', 'PlanExecutionBlockConfiguration16Properties'] execution_block_configuration: The configuration for an execution block in a workflow.
         :param 'PlanExecutionBlockType' execution_block_type: The type of an execution block in a workflow.
         :param _builtins.str name: The name of a step in a workflow.
         :param _builtins.str description: The description of a step in a workflow.

@@ -351,8 +351,9 @@ func (in *environmentLoggingLevelPtr) ToEnvironmentLoggingLevelPtrOutputWithCont
 type EnvironmentWebserverAccessMode string
 
 const (
-	EnvironmentWebserverAccessModePrivateOnly = EnvironmentWebserverAccessMode("PRIVATE_ONLY")
-	EnvironmentWebserverAccessModePublicOnly  = EnvironmentWebserverAccessMode("PUBLIC_ONLY")
+	EnvironmentWebserverAccessModePrivateOnly      = EnvironmentWebserverAccessMode("PRIVATE_ONLY")
+	EnvironmentWebserverAccessModePublicOnly       = EnvironmentWebserverAccessMode("PUBLIC_ONLY")
+	EnvironmentWebserverAccessModePublicAndPrivate = EnvironmentWebserverAccessMode("PUBLIC_AND_PRIVATE")
 )
 
 func (EnvironmentWebserverAccessMode) ElementType() reflect.Type {
@@ -479,6 +480,7 @@ func (o EnvironmentWebserverAccessModePtrOutput) ToStringPtrOutputWithContext(ct
 //
 //	EnvironmentWebserverAccessModePrivateOnly
 //	EnvironmentWebserverAccessModePublicOnly
+//	EnvironmentWebserverAccessModePublicAndPrivate
 type EnvironmentWebserverAccessModeInput interface {
 	pulumi.Input
 

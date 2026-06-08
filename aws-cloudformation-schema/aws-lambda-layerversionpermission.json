@@ -46,7 +46,15 @@
       "permissions" : [ "lambda:GetLayerVersionPolicy", "lambda:RemoveLayerVersionPermission" ]
     },
     "list" : {
-      "permissions" : [ "lambda:GetLayerVersionPolicy" ]
+      "permissions" : [ "lambda:GetLayerVersionPolicy" ],
+      "handlerSchema" : {
+        "properties" : {
+          "LayerVersionArn" : {
+            "$ref" : "resource-schema.json#/properties/LayerVersionArn"
+          }
+        },
+        "required" : [ "LayerVersionArn" ]
+      }
     }
   },
   "propertyTransform" : {

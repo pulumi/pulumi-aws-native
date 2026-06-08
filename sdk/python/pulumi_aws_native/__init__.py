@@ -417,6 +417,8 @@ if typing.TYPE_CHECKING:
     rekognition = __rekognition
     import pulumi_aws_native.resiliencehub as __resiliencehub
     resiliencehub = __resiliencehub
+    import pulumi_aws_native.resiliencehubv2 as __resiliencehubv2
+    resiliencehubv2 = __resiliencehubv2
     import pulumi_aws_native.resourceexplorer2 as __resourceexplorer2
     resourceexplorer2 = __resourceexplorer2
     import pulumi_aws_native.resourcegroups as __resourcegroups
@@ -729,6 +731,7 @@ else:
     refactorspaces = _utilities.lazy_import('pulumi_aws_native.refactorspaces')
     rekognition = _utilities.lazy_import('pulumi_aws_native.rekognition')
     resiliencehub = _utilities.lazy_import('pulumi_aws_native.resiliencehub')
+    resiliencehubv2 = _utilities.lazy_import('pulumi_aws_native.resiliencehubv2')
     resourceexplorer2 = _utilities.lazy_import('pulumi_aws_native.resourceexplorer2')
     resourcegroups = _utilities.lazy_import('pulumi_aws_native.resourcegroups')
     robomaker = _utilities.lazy_import('pulumi_aws_native.robomaker')
@@ -983,7 +986,8 @@ _utilities.register(
    "aws-native:appstream:Entitlement": "Entitlement",
    "aws-native:appstream:ImageBuilder": "ImageBuilder",
    "aws-native:appstream:Stack": "Stack",
-   "aws-native:appstream:StackUserAssociation": "StackUserAssociation"
+   "aws-native:appstream:StackUserAssociation": "StackUserAssociation",
+   "aws-native:appstream:User": "User"
   }
  },
  {
@@ -1181,9 +1185,12 @@ _utilities.register(
    "aws-native:bedrockagentcore:Memory": "Memory",
    "aws-native:bedrockagentcore:OAuth2CredentialProvider": "OAuth2CredentialProvider",
    "aws-native:bedrockagentcore:OnlineEvaluationConfig": "OnlineEvaluationConfig",
+   "aws-native:bedrockagentcore:PaymentConnector": "PaymentConnector",
    "aws-native:bedrockagentcore:PaymentCredentialProvider": "PaymentCredentialProvider",
+   "aws-native:bedrockagentcore:PaymentManager": "PaymentManager",
    "aws-native:bedrockagentcore:Policy": "Policy",
    "aws-native:bedrockagentcore:PolicyEngine": "PolicyEngine",
+   "aws-native:bedrockagentcore:ResourcePolicy": "ResourcePolicy",
    "aws-native:bedrockagentcore:Runtime": "Runtime",
    "aws-native:bedrockagentcore:RuntimeEndpoint": "RuntimeEndpoint",
    "aws-native:bedrockagentcore:WorkloadIdentity": "WorkloadIdentity"
@@ -1364,6 +1371,7 @@ _utilities.register(
    "aws-native:cloudwatch:AlarmMuteRule": "AlarmMuteRule",
    "aws-native:cloudwatch:CompositeAlarm": "CompositeAlarm",
    "aws-native:cloudwatch:Dashboard": "Dashboard",
+   "aws-native:cloudwatch:LogAlarm": "LogAlarm",
    "aws-native:cloudwatch:MetricStream": "MetricStream",
    "aws-native:cloudwatch:OTelEnrichment": "OTelEnrichment"
   }
@@ -3246,6 +3254,18 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "resiliencehubv2",
+  "fqn": "pulumi_aws_native.resiliencehubv2",
+  "classes": {
+   "aws-native:resiliencehubv2:Policy": "Policy",
+   "aws-native:resiliencehubv2:Service": "Service",
+   "aws-native:resiliencehubv2:ServiceFunction": "ServiceFunction",
+   "aws-native:resiliencehubv2:System": "System",
+   "aws-native:resiliencehubv2:UserJourney": "UserJourney"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "resourceexplorer2",
   "fqn": "pulumi_aws_native.resourceexplorer2",
   "classes": {
@@ -3369,6 +3389,7 @@ _utilities.register(
   "classes": {
    "aws-native:rtbfabric:InboundExternalLink": "InboundExternalLink",
    "aws-native:rtbfabric:Link": "Link",
+   "aws-native:rtbfabric:LinkRoutingRule": "LinkRoutingRule",
    "aws-native:rtbfabric:OutboundExternalLink": "OutboundExternalLink",
    "aws-native:rtbfabric:RequesterGateway": "RequesterGateway",
    "aws-native:rtbfabric:ResponderGateway": "ResponderGateway"

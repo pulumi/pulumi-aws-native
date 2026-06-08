@@ -73,9 +73,15 @@ namespace Pulumi.AwsNative.CloudWatch
         [Output("evaluateLowSampleCountPercentile")]
         public Output<string?> EvaluateLowSampleCountPercentile { get; private set; } = null!;
 
+        /// <summary>
+        /// The evaluation criteria for the alarm.
+        /// </summary>
         [Output("evaluationCriteria")]
         public Output<Outputs.AlarmEvaluationCriteria?> EvaluationCriteria { get; private set; } = null!;
 
+        /// <summary>
+        /// The frequency, in seconds, at which the alarm is evaluated.
+        /// </summary>
         [Output("evaluationInterval")]
         public Output<int?> EvaluationInterval { get; private set; } = null!;
 
@@ -286,9 +292,15 @@ namespace Pulumi.AwsNative.CloudWatch
         [Input("evaluateLowSampleCountPercentile")]
         public Input<string>? EvaluateLowSampleCountPercentile { get; set; }
 
+        /// <summary>
+        /// The evaluation criteria for the alarm.
+        /// </summary>
         [Input("evaluationCriteria")]
         public Input<Inputs.AlarmEvaluationCriteriaArgs>? EvaluationCriteria { get; set; }
 
+        /// <summary>
+        /// The frequency, in seconds, at which the alarm is evaluated.
+        /// </summary>
         [Input("evaluationInterval")]
         public Input<int>? EvaluationInterval { get; set; }
 

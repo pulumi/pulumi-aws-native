@@ -27,7 +27,8 @@ class GatewayTargetArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  metadata_configuration: Optional[pulumi.Input['GatewayTargetMetadataConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_endpoint: Optional[pulumi.Input[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgs']]] = None):
         """
         The set of arguments for constructing a GatewayTarget resource.
 
@@ -48,6 +49,8 @@ class GatewayTargetArgs:
             pulumi.set(__self__, "metadata_configuration", metadata_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
 
     @_builtins.property
     @pulumi.getter(name="targetConfiguration")
@@ -118,6 +121,15 @@ class GatewayTargetArgs:
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional[pulumi.Input[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgs']]]:
+        return pulumi.get(self, "private_endpoint")
+
+    @private_endpoint.setter
+    def private_endpoint(self, value: Optional[pulumi.Input[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgs']]]):
+        pulumi.set(self, "private_endpoint", value)
+
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayTarget")
 class GatewayTarget(pulumi.CustomResource):
@@ -130,6 +142,7 @@ class GatewayTarget(pulumi.CustomResource):
                  gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  metadata_configuration: Optional[pulumi.Input[Union['GatewayTargetMetadataConfigurationArgs', 'GatewayTargetMetadataConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_endpoint: Optional[pulumi.Input[Union[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint0PropertiesArgsDict'], Union['GatewayTargetPrivateEndpoint1PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgsDict']]]] = None,
                  target_configuration: Optional[pulumi.Input[Union[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration0PropertiesArgsDict'], Union['GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgsDict']]]] = None,
                  __props__=None):
         """
@@ -174,6 +187,7 @@ class GatewayTarget(pulumi.CustomResource):
                  gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  metadata_configuration: Optional[pulumi.Input[Union['GatewayTargetMetadataConfigurationArgs', 'GatewayTargetMetadataConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_endpoint: Optional[pulumi.Input[Union[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint0PropertiesArgsDict'], Union['GatewayTargetPrivateEndpoint1PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgsDict']]]] = None,
                  target_configuration: Optional[pulumi.Input[Union[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration0PropertiesArgsDict'], Union['GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgsDict']]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -189,6 +203,7 @@ class GatewayTarget(pulumi.CustomResource):
             __props__.__dict__["gateway_identifier"] = gateway_identifier
             __props__.__dict__["metadata_configuration"] = metadata_configuration
             __props__.__dict__["name"] = name
+            __props__.__dict__["private_endpoint"] = private_endpoint
             if target_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'target_configuration'")
             __props__.__dict__["target_configuration"] = target_configuration
@@ -196,6 +211,7 @@ class GatewayTarget(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["gateway_arn"] = None
             __props__.__dict__["last_synchronized_at"] = None
+            __props__.__dict__["private_endpoint_managed_resources"] = None
             __props__.__dict__["protocol_type"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_reasons"] = None
@@ -234,6 +250,8 @@ class GatewayTarget(pulumi.CustomResource):
         __props__.__dict__["last_synchronized_at"] = None
         __props__.__dict__["metadata_configuration"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["private_endpoint"] = None
+        __props__.__dict__["private_endpoint_managed_resources"] = None
         __props__.__dict__["protocol_type"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["status_reasons"] = None
@@ -301,6 +319,16 @@ class GatewayTarget(pulumi.CustomResource):
         The name for the gateway target.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> pulumi.Output[Optional[Any]]:
+        return pulumi.get(self, "private_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointManagedResources")
+    def private_endpoint_managed_resources(self) -> pulumi.Output[Sequence['outputs.GatewayTargetManagedResourceDetails']]:
+        return pulumi.get(self, "private_endpoint_managed_resources")
 
     @_builtins.property
     @pulumi.getter(name="protocolType")

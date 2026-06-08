@@ -13,11 +13,14 @@ __all__ = [
     'LinkDirection',
     'LinkResponderErrorMaskingForHttpCodeAction',
     'LinkResponderErrorMaskingLoggingType',
+    'LinkRoutingRuleRuleStatus',
     'LinkStatus',
     'OutboundExternalLinkLinkStatus',
     'OutboundExternalLinkResponderErrorMaskingForHttpCodeAction',
     'OutboundExternalLinkResponderErrorMaskingLoggingType',
     'RequesterGatewayStatus',
+    'ResponderGatewayCertificateAssociationStatus',
+    'ResponderGatewayGatewayType',
     'ResponderGatewayProtocol',
     'ResponderGatewayStatus',
 ]
@@ -74,6 +77,16 @@ class LinkResponderErrorMaskingLoggingType(_builtins.str, Enum):
     NONE = "NONE"
     METRIC = "METRIC"
     RESPONSE = "RESPONSE"
+
+
+@pulumi.type_token("aws-native:rtbfabric:LinkRoutingRuleRuleStatus")
+class LinkRoutingRuleRuleStatus(_builtins.str, Enum):
+    CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
+    ACTIVE = "ACTIVE"
+    UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
+    DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS"
+    DELETED = "DELETED"
+    FAILED = "FAILED"
 
 
 @pulumi.type_token("aws-native:rtbfabric:LinkStatus")
@@ -136,6 +149,22 @@ class RequesterGatewayStatus(_builtins.str, Enum):
     ISOLATED = "ISOLATED"
     PENDING_ISOLATION = "PENDING_ISOLATION"
     PENDING_RESTORATION = "PENDING_RESTORATION"
+
+
+@pulumi.type_token("aws-native:rtbfabric:ResponderGatewayCertificateAssociationStatus")
+class ResponderGatewayCertificateAssociationStatus(_builtins.str, Enum):
+    PENDING_ASSOCIATION = "PENDING_ASSOCIATION"
+    ASSOCIATED = "ASSOCIATED"
+    PENDING_DISASSOCIATION = "PENDING_DISASSOCIATION"
+    DISASSOCIATED = "DISASSOCIATED"
+    EXPIRED = "EXPIRED"
+    FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:rtbfabric:ResponderGatewayGatewayType")
+class ResponderGatewayGatewayType(_builtins.str, Enum):
+    EXTERNAL = "EXTERNAL"
+    INTERNAL = "INTERNAL"
 
 
 @pulumi.type_token("aws-native:rtbfabric:ResponderGatewayProtocol")

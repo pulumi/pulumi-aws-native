@@ -45,6 +45,16 @@ export const CampaignInstanceLimitsHandling = {
  */
 export type CampaignInstanceLimitsHandling = (typeof CampaignInstanceLimitsHandling)[keyof typeof CampaignInstanceLimitsHandling];
 
+export const CampaignLocalTimeZoneDetectionScope = {
+    PrimaryOnly: "PRIMARY_ONLY",
+    AllAvailable: "ALL_AVAILABLE",
+} as const;
+
+/**
+ * Local TimeZone Detection scope
+ */
+export type CampaignLocalTimeZoneDetectionScope = (typeof CampaignLocalTimeZoneDetectionScope)[keyof typeof CampaignLocalTimeZoneDetectionScope];
+
 export const CampaignLocalTimeZoneDetectionType = {
     ZipCode: "ZIP_CODE",
     AreaCode: "AREA_CODE",

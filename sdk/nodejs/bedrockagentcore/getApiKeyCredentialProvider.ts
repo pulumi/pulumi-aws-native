@@ -30,6 +30,10 @@ export interface GetApiKeyCredentialProviderResult {
      */
     readonly apiKeySecretArn?: outputs.bedrockagentcore.ApiKeyCredentialProviderApiKeySecretArn;
     /**
+     * The JSON key within the secret that contains the API key value
+     */
+    readonly apiKeySecretJsonKey?: string;
+    /**
      * The timestamp when the credential provider was created
      */
     readonly createdTime?: string;

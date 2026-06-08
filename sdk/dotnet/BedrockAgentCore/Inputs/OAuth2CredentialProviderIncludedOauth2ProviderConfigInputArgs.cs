@@ -24,8 +24,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
-        [Input("clientSecret", required: true)]
-        public Input<string> ClientSecret { get; set; } = null!;
+        [Input("clientSecret")]
+        public Input<string>? ClientSecret { get; set; }
+
+        [Input("clientSecretConfig")]
+        public Input<Inputs.OAuth2CredentialProviderSecretReferenceArgs>? ClientSecretConfig { get; set; }
+
+        [Input("clientSecretSource")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource>? ClientSecretSource { get; set; }
 
         /// <summary>
         /// Token issuer of your isolated OAuth2 application tenant

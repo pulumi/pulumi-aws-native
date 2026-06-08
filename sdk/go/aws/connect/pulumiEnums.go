@@ -5525,12 +5525,19 @@ func (in *instanceStorageConfigEncryptionTypePtr) ToInstanceStorageConfigEncrypt
 type InstanceStorageConfigInstanceStorageResourceType string
 
 const (
-	InstanceStorageConfigInstanceStorageResourceTypeChatTranscripts     = InstanceStorageConfigInstanceStorageResourceType("CHAT_TRANSCRIPTS")
-	InstanceStorageConfigInstanceStorageResourceTypeCallRecordings      = InstanceStorageConfigInstanceStorageResourceType("CALL_RECORDINGS")
-	InstanceStorageConfigInstanceStorageResourceTypeScheduledReports    = InstanceStorageConfigInstanceStorageResourceType("SCHEDULED_REPORTS")
-	InstanceStorageConfigInstanceStorageResourceTypeMediaStreams        = InstanceStorageConfigInstanceStorageResourceType("MEDIA_STREAMS")
-	InstanceStorageConfigInstanceStorageResourceTypeContactTraceRecords = InstanceStorageConfigInstanceStorageResourceType("CONTACT_TRACE_RECORDS")
-	InstanceStorageConfigInstanceStorageResourceTypeAgentEvents         = InstanceStorageConfigInstanceStorageResourceType("AGENT_EVENTS")
+	InstanceStorageConfigInstanceStorageResourceTypeChatTranscripts                      = InstanceStorageConfigInstanceStorageResourceType("CHAT_TRANSCRIPTS")
+	InstanceStorageConfigInstanceStorageResourceTypeCallRecordings                       = InstanceStorageConfigInstanceStorageResourceType("CALL_RECORDINGS")
+	InstanceStorageConfigInstanceStorageResourceTypeScheduledReports                     = InstanceStorageConfigInstanceStorageResourceType("SCHEDULED_REPORTS")
+	InstanceStorageConfigInstanceStorageResourceTypeMediaStreams                         = InstanceStorageConfigInstanceStorageResourceType("MEDIA_STREAMS")
+	InstanceStorageConfigInstanceStorageResourceTypeContactTraceRecords                  = InstanceStorageConfigInstanceStorageResourceType("CONTACT_TRACE_RECORDS")
+	InstanceStorageConfigInstanceStorageResourceTypeAgentEvents                          = InstanceStorageConfigInstanceStorageResourceType("AGENT_EVENTS")
+	InstanceStorageConfigInstanceStorageResourceTypeRealTimeContactAnalysisSegments      = InstanceStorageConfigInstanceStorageResourceType("REAL_TIME_CONTACT_ANALYSIS_SEGMENTS")
+	InstanceStorageConfigInstanceStorageResourceTypeAttachments                          = InstanceStorageConfigInstanceStorageResourceType("ATTACHMENTS")
+	InstanceStorageConfigInstanceStorageResourceTypeContactEvaluations                   = InstanceStorageConfigInstanceStorageResourceType("CONTACT_EVALUATIONS")
+	InstanceStorageConfigInstanceStorageResourceTypeScreenRecordings                     = InstanceStorageConfigInstanceStorageResourceType("SCREEN_RECORDINGS")
+	InstanceStorageConfigInstanceStorageResourceTypeRealTimeContactAnalysisChatSegments  = InstanceStorageConfigInstanceStorageResourceType("REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS")
+	InstanceStorageConfigInstanceStorageResourceTypeRealTimeContactAnalysisVoiceSegments = InstanceStorageConfigInstanceStorageResourceType("REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS")
+	InstanceStorageConfigInstanceStorageResourceTypeEmailMessages                        = InstanceStorageConfigInstanceStorageResourceType("EMAIL_MESSAGES")
 )
 
 func (InstanceStorageConfigInstanceStorageResourceType) ElementType() reflect.Type {
@@ -5661,6 +5668,13 @@ func (o InstanceStorageConfigInstanceStorageResourceTypePtrOutput) ToStringPtrOu
 //	InstanceStorageConfigInstanceStorageResourceTypeMediaStreams
 //	InstanceStorageConfigInstanceStorageResourceTypeContactTraceRecords
 //	InstanceStorageConfigInstanceStorageResourceTypeAgentEvents
+//	InstanceStorageConfigInstanceStorageResourceTypeRealTimeContactAnalysisSegments
+//	InstanceStorageConfigInstanceStorageResourceTypeAttachments
+//	InstanceStorageConfigInstanceStorageResourceTypeContactEvaluations
+//	InstanceStorageConfigInstanceStorageResourceTypeScreenRecordings
+//	InstanceStorageConfigInstanceStorageResourceTypeRealTimeContactAnalysisChatSegments
+//	InstanceStorageConfigInstanceStorageResourceTypeRealTimeContactAnalysisVoiceSegments
+//	InstanceStorageConfigInstanceStorageResourceTypeEmailMessages
 type InstanceStorageConfigInstanceStorageResourceTypeInput interface {
 	pulumi.Input
 

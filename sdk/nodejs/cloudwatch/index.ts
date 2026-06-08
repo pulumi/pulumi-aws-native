@@ -45,6 +45,11 @@ export const getDashboard: typeof import("./getDashboard").getDashboard = null a
 export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
 utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
 
+export { GetLogAlarmArgs, GetLogAlarmResult, GetLogAlarmOutputArgs } from "./getLogAlarm";
+export const getLogAlarm: typeof import("./getLogAlarm").getLogAlarm = null as any;
+export const getLogAlarmOutput: typeof import("./getLogAlarm").getLogAlarmOutput = null as any;
+utilities.lazyLoad(exports, ["getLogAlarm","getLogAlarmOutput"], () => require("./getLogAlarm"));
+
 export { GetMetricStreamArgs, GetMetricStreamResult, GetMetricStreamOutputArgs } from "./getMetricStream";
 export const getMetricStream: typeof import("./getMetricStream").getMetricStream = null as any;
 export const getMetricStreamOutput: typeof import("./getMetricStream").getMetricStreamOutput = null as any;
@@ -54,6 +59,11 @@ export { GetOTelEnrichmentArgs, GetOTelEnrichmentResult, GetOTelEnrichmentOutput
 export const getOTelEnrichment: typeof import("./getOTelEnrichment").getOTelEnrichment = null as any;
 export const getOTelEnrichmentOutput: typeof import("./getOTelEnrichment").getOTelEnrichmentOutput = null as any;
 utilities.lazyLoad(exports, ["getOTelEnrichment","getOTelEnrichmentOutput"], () => require("./getOTelEnrichment"));
+
+export { LogAlarmArgs } from "./logAlarm";
+export type LogAlarm = import("./logAlarm").LogAlarm;
+export const LogAlarm: typeof import("./logAlarm").LogAlarm = null as any;
+utilities.lazyLoad(exports, ["LogAlarm"], () => require("./logAlarm"));
 
 export { MetricStreamArgs } from "./metricStream";
 export type MetricStream = import("./metricStream").MetricStream;
@@ -81,6 +91,8 @@ const _module = {
                 return new CompositeAlarm(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
+            case "aws-native:cloudwatch:LogAlarm":
+                return new LogAlarm(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:MetricStream":
                 return new MetricStream(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:OTelEnrichment":

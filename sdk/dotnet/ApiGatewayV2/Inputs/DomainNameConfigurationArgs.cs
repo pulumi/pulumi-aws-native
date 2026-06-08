@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 
     /// <summary>
     /// The ``DomainNameConfiguration`` property type specifies the configuration for an API's domain name.
-    ///   ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
+    ///  ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
     /// </summary>
     public sealed class DomainNameConfigurationArgs : global::Pulumi.ResourceArgs
     {
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// The IP address types that can invoke the domain name. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name.
+        /// The IP address types that can invoke the domain name. Use ``ipv4`` to allow only IPv4 addresses to invoke your domain name, or use ``dualstack`` to allow both IPv4 and IPv6 addresses to invoke your domain name.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }

@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("permissionsConfig")]
         public Output<Outputs.CapacityProviderPermissionsConfig> PermissionsConfig { get; private set; } = null!;
 
+        [Output("propagateTags")]
+        public Output<Outputs.CapacityProviderPropagateTagsConfig?> PropagateTags { get; private set; } = null!;
+
         /// <summary>
         /// The current state of the capacity provider.
         /// </summary>
@@ -142,6 +145,9 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Input("permissionsConfig", required: true)]
         public Input<Inputs.CapacityProviderPermissionsConfigArgs> PermissionsConfig { get; set; } = null!;
+
+        [Input("propagateTags")]
+        public Input<Inputs.CapacityProviderPropagateTagsConfigArgs>? PropagateTags { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

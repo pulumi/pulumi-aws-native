@@ -174,6 +174,172 @@ func (in *accessPolicyTypePtr) ToAccessPolicyTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(AccessPolicyTypePtrOutput)
 }
 
+// The deletion protection state of the collection
+type CollectionDeletionProtection string
+
+const (
+	CollectionDeletionProtectionEnabled  = CollectionDeletionProtection("ENABLED")
+	CollectionDeletionProtectionDisabled = CollectionDeletionProtection("DISABLED")
+)
+
+func (CollectionDeletionProtection) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionDeletionProtection)(nil)).Elem()
+}
+
+func (e CollectionDeletionProtection) ToCollectionDeletionProtectionOutput() CollectionDeletionProtectionOutput {
+	return pulumi.ToOutput(e).(CollectionDeletionProtectionOutput)
+}
+
+func (e CollectionDeletionProtection) ToCollectionDeletionProtectionOutputWithContext(ctx context.Context) CollectionDeletionProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CollectionDeletionProtectionOutput)
+}
+
+func (e CollectionDeletionProtection) ToCollectionDeletionProtectionPtrOutput() CollectionDeletionProtectionPtrOutput {
+	return e.ToCollectionDeletionProtectionPtrOutputWithContext(context.Background())
+}
+
+func (e CollectionDeletionProtection) ToCollectionDeletionProtectionPtrOutputWithContext(ctx context.Context) CollectionDeletionProtectionPtrOutput {
+	return CollectionDeletionProtection(e).ToCollectionDeletionProtectionOutputWithContext(ctx).ToCollectionDeletionProtectionPtrOutputWithContext(ctx)
+}
+
+func (e CollectionDeletionProtection) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollectionDeletionProtection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollectionDeletionProtection) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CollectionDeletionProtection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CollectionDeletionProtectionOutput struct{ *pulumi.OutputState }
+
+func (CollectionDeletionProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionDeletionProtection)(nil)).Elem()
+}
+
+func (o CollectionDeletionProtectionOutput) ToCollectionDeletionProtectionOutput() CollectionDeletionProtectionOutput {
+	return o
+}
+
+func (o CollectionDeletionProtectionOutput) ToCollectionDeletionProtectionOutputWithContext(ctx context.Context) CollectionDeletionProtectionOutput {
+	return o
+}
+
+func (o CollectionDeletionProtectionOutput) ToCollectionDeletionProtectionPtrOutput() CollectionDeletionProtectionPtrOutput {
+	return o.ToCollectionDeletionProtectionPtrOutputWithContext(context.Background())
+}
+
+func (o CollectionDeletionProtectionOutput) ToCollectionDeletionProtectionPtrOutputWithContext(ctx context.Context) CollectionDeletionProtectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollectionDeletionProtection) *CollectionDeletionProtection {
+		return &v
+	}).(CollectionDeletionProtectionPtrOutput)
+}
+
+func (o CollectionDeletionProtectionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CollectionDeletionProtectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollectionDeletionProtection) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CollectionDeletionProtectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollectionDeletionProtectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollectionDeletionProtection) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CollectionDeletionProtectionPtrOutput struct{ *pulumi.OutputState }
+
+func (CollectionDeletionProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectionDeletionProtection)(nil)).Elem()
+}
+
+func (o CollectionDeletionProtectionPtrOutput) ToCollectionDeletionProtectionPtrOutput() CollectionDeletionProtectionPtrOutput {
+	return o
+}
+
+func (o CollectionDeletionProtectionPtrOutput) ToCollectionDeletionProtectionPtrOutputWithContext(ctx context.Context) CollectionDeletionProtectionPtrOutput {
+	return o
+}
+
+func (o CollectionDeletionProtectionPtrOutput) Elem() CollectionDeletionProtectionOutput {
+	return o.ApplyT(func(v *CollectionDeletionProtection) CollectionDeletionProtection {
+		if v != nil {
+			return *v
+		}
+		var ret CollectionDeletionProtection
+		return ret
+	}).(CollectionDeletionProtectionOutput)
+}
+
+func (o CollectionDeletionProtectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollectionDeletionProtectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CollectionDeletionProtection) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CollectionDeletionProtectionInput is an input type that accepts values of the CollectionDeletionProtection enum
+// A concrete instance of `CollectionDeletionProtectionInput` can be one of the following:
+//
+//	CollectionDeletionProtectionEnabled
+//	CollectionDeletionProtectionDisabled
+type CollectionDeletionProtectionInput interface {
+	pulumi.Input
+
+	ToCollectionDeletionProtectionOutput() CollectionDeletionProtectionOutput
+	ToCollectionDeletionProtectionOutputWithContext(context.Context) CollectionDeletionProtectionOutput
+}
+
+var collectionDeletionProtectionPtrType = reflect.TypeOf((**CollectionDeletionProtection)(nil)).Elem()
+
+type CollectionDeletionProtectionPtrInput interface {
+	pulumi.Input
+
+	ToCollectionDeletionProtectionPtrOutput() CollectionDeletionProtectionPtrOutput
+	ToCollectionDeletionProtectionPtrOutputWithContext(context.Context) CollectionDeletionProtectionPtrOutput
+}
+
+type collectionDeletionProtectionPtr string
+
+func CollectionDeletionProtectionPtr(v string) CollectionDeletionProtectionPtrInput {
+	return (*collectionDeletionProtectionPtr)(&v)
+}
+
+func (*collectionDeletionProtectionPtr) ElementType() reflect.Type {
+	return collectionDeletionProtectionPtrType
+}
+
+func (in *collectionDeletionProtectionPtr) ToCollectionDeletionProtectionPtrOutput() CollectionDeletionProtectionPtrOutput {
+	return pulumi.ToOutput(in).(CollectionDeletionProtectionPtrOutput)
+}
+
+func (in *collectionDeletionProtectionPtr) ToCollectionDeletionProtectionPtrOutputWithContext(ctx context.Context) CollectionDeletionProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CollectionDeletionProtectionPtrOutput)
+}
+
 // Indicates whether standby replicas are used for the collection group.
 type CollectionGroupStandbyReplicas string
 
@@ -2017,6 +2183,8 @@ func (in *securityPolicyTypePtr) ToSecurityPolicyTypePtrOutputWithContext(ctx co
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyTypeInput)(nil)).Elem(), AccessPolicyType("data"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyTypePtrInput)(nil)).Elem(), AccessPolicyType("data"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollectionDeletionProtectionInput)(nil)).Elem(), CollectionDeletionProtection("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollectionDeletionProtectionPtrInput)(nil)).Elem(), CollectionDeletionProtection("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionGroupStandbyReplicasInput)(nil)).Elem(), CollectionGroupStandbyReplicas("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionGroupStandbyReplicasPtrInput)(nil)).Elem(), CollectionGroupStandbyReplicas("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionServerlessVectorAccelerationInput)(nil)).Elem(), CollectionServerlessVectorAcceleration("ENABLED"))
@@ -2041,6 +2209,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityPolicyTypePtrInput)(nil)).Elem(), SecurityPolicyType("encryption"))
 	pulumi.RegisterOutputType(AccessPolicyTypeOutput{})
 	pulumi.RegisterOutputType(AccessPolicyTypePtrOutput{})
+	pulumi.RegisterOutputType(CollectionDeletionProtectionOutput{})
+	pulumi.RegisterOutputType(CollectionDeletionProtectionPtrOutput{})
 	pulumi.RegisterOutputType(CollectionGroupStandbyReplicasOutput{})
 	pulumi.RegisterOutputType(CollectionGroupStandbyReplicasPtrOutput{})
 	pulumi.RegisterOutputType(CollectionServerlessVectorAccelerationOutput{})

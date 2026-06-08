@@ -82,6 +82,18 @@ namespace Pulumi.AwsNative.ElastiCache
         public Output<bool?> DataTieringEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+        /// </summary>
+        [Output("durability")]
+        public Output<Pulumi.AwsNative.ElastiCache.ReplicationGroupDurability?> Durability { get; private set; } = null!;
+
+        /// <summary>
+        /// The resolved durability state of the replication group after resolving the default value. This is a read-only property.
+        /// </summary>
+        [Output("effectiveDurability")]
+        public Output<Pulumi.AwsNative.ElastiCache.ReplicationGroupEffectiveDurability> EffectiveDurability { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the cache engine to be used for the clusters in this replication group.
         /// </summary>
         [Output("engine")]
@@ -396,6 +408,12 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         [Input("dataTieringEnabled")]
         public Input<bool>? DataTieringEnabled { get; set; }
+
+        /// <summary>
+        /// The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+        /// </summary>
+        [Input("durability")]
+        public Input<Pulumi.AwsNative.ElastiCache.ReplicationGroupDurability>? Durability { get; set; }
 
         /// <summary>
         /// The name of the cache engine to be used for the clusters in this replication group.

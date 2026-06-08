@@ -34,6 +34,14 @@ export interface GetOAuth2CredentialProviderResult {
      */
     readonly clientSecretArn?: outputs.bedrockagentcore.OAuth2CredentialProviderClientSecretArn;
     /**
+     * The JSON key within the secret that contains the client secret value
+     */
+    readonly clientSecretJsonKey?: string;
+    /**
+     * The source of the client secret
+     */
+    readonly clientSecretSource?: enums.bedrockagentcore.OAuth2CredentialProviderClientSecretSource;
+    /**
      * The timestamp when the credential provider was created
      */
     readonly createdTime?: string;

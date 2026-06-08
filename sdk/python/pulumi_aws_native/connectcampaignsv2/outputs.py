@@ -737,6 +737,8 @@ class CampaignLocalTimeZoneConfig(dict):
             suggest = "default_time_zone"
         elif key == "localTimeZoneDetection":
             suggest = "local_time_zone_detection"
+        elif key == "localTimeZoneDetectionScope":
+            suggest = "local_time_zone_detection_scope"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CampaignLocalTimeZoneConfig. Access the value via the '{suggest}' property getter instead.")
@@ -751,7 +753,8 @@ class CampaignLocalTimeZoneConfig(dict):
 
     def __init__(__self__, *,
                  default_time_zone: Optional[_builtins.str] = None,
-                 local_time_zone_detection: Optional[Sequence['CampaignLocalTimeZoneDetectionType']] = None):
+                 local_time_zone_detection: Optional[Sequence['CampaignLocalTimeZoneDetectionType']] = None,
+                 local_time_zone_detection_scope: Optional['CampaignLocalTimeZoneDetectionScope'] = None):
         """
         Local time zone config
 
@@ -762,6 +765,8 @@ class CampaignLocalTimeZoneConfig(dict):
             pulumi.set(__self__, "default_time_zone", default_time_zone)
         if local_time_zone_detection is not None:
             pulumi.set(__self__, "local_time_zone_detection", local_time_zone_detection)
+        if local_time_zone_detection_scope is not None:
+            pulumi.set(__self__, "local_time_zone_detection_scope", local_time_zone_detection_scope)
 
     @_builtins.property
     @pulumi.getter(name="defaultTimeZone")
@@ -778,6 +783,11 @@ class CampaignLocalTimeZoneConfig(dict):
         Detects methods for the recipient's timezone.
         """
         return pulumi.get(self, "local_time_zone_detection")
+
+    @_builtins.property
+    @pulumi.getter(name="localTimeZoneDetectionScope")
+    def local_time_zone_detection_scope(self) -> Optional['CampaignLocalTimeZoneDetectionScope']:
+        return pulumi.get(self, "local_time_zone_detection_scope")
 
 
 @pulumi.output_type

@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Outputs
     [OutputType]
     public sealed class PlanExecutionBlockConfiguration7Properties
     {
-        public readonly Outputs.PlanEcsCapacityIncreaseConfiguration EcsCapacityIncreaseConfig;
+        public readonly Outputs.PlanParallelExecutionBlockConfiguration ParallelConfig;
 
         [OutputConstructor]
-        private PlanExecutionBlockConfiguration7Properties(Outputs.PlanEcsCapacityIncreaseConfiguration ecsCapacityIncreaseConfig)
+        private PlanExecutionBlockConfiguration7Properties(Outputs.PlanParallelExecutionBlockConfiguration parallelConfig)
         {
-            EcsCapacityIncreaseConfig = ecsCapacityIncreaseConfig;
+            ParallelConfig = parallelConfig;
         }
     }
 }

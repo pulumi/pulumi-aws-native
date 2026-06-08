@@ -9,11 +9,13 @@ import typing
 from ._enums import *
 from .get_inbound_external_link import *
 from .get_link import *
+from .get_link_routing_rule import *
 from .get_outbound_external_link import *
 from .get_requester_gateway import *
 from .get_responder_gateway import *
 from .inbound_external_link import *
 from .link import *
+from .link_routing_rule import *
 from .outbound_external_link import *
 from .requester_gateway import *
 from .responder_gateway import *

@@ -27,9 +27,12 @@ from .get_harness import *
 from .get_memory import *
 from .get_o_auth2_credential_provider import *
 from .get_online_evaluation_config import *
+from .get_payment_connector import *
 from .get_payment_credential_provider import *
+from .get_payment_manager import *
 from .get_policy import *
 from .get_policy_engine import *
+from .get_resource_policy import *
 from .get_runtime import *
 from .get_runtime_endpoint import *
 from .get_workload_identity import *
@@ -37,9 +40,12 @@ from .harness import *
 from .memory import *
 from .o_auth2_credential_provider import *
 from .online_evaluation_config import *
+from .payment_connector import *
 from .payment_credential_provider import *
+from .payment_manager import *
 from .policy import *
 from .policy_engine import *
+from .resource_policy import *
 from .runtime import *
 from .runtime_endpoint import *
 from .workload_identity import *

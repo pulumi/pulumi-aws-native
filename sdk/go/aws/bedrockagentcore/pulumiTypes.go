@@ -73,6 +73,165 @@ func (o ApiKeyCredentialProviderApiKeySecretArnPtrOutput) SecretArn() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// A reference to a customer-provided secret stored in AWS Secrets Manager
+type ApiKeyCredentialProviderSecretReference struct {
+	// The JSON key within the secret that contains the credential value
+	JsonKey string `pulumi:"jsonKey"`
+	// The ID or ARN of the secret in AWS Secrets Manager
+	SecretId string `pulumi:"secretId"`
+}
+
+// ApiKeyCredentialProviderSecretReferenceInput is an input type that accepts ApiKeyCredentialProviderSecretReferenceArgs and ApiKeyCredentialProviderSecretReferenceOutput values.
+// You can construct a concrete instance of `ApiKeyCredentialProviderSecretReferenceInput` via:
+//
+//	ApiKeyCredentialProviderSecretReferenceArgs{...}
+type ApiKeyCredentialProviderSecretReferenceInput interface {
+	pulumi.Input
+
+	ToApiKeyCredentialProviderSecretReferenceOutput() ApiKeyCredentialProviderSecretReferenceOutput
+	ToApiKeyCredentialProviderSecretReferenceOutputWithContext(context.Context) ApiKeyCredentialProviderSecretReferenceOutput
+}
+
+// A reference to a customer-provided secret stored in AWS Secrets Manager
+type ApiKeyCredentialProviderSecretReferenceArgs struct {
+	// The JSON key within the secret that contains the credential value
+	JsonKey pulumi.StringInput `pulumi:"jsonKey"`
+	// The ID or ARN of the secret in AWS Secrets Manager
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+}
+
+func (ApiKeyCredentialProviderSecretReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyCredentialProviderSecretReference)(nil)).Elem()
+}
+
+func (i ApiKeyCredentialProviderSecretReferenceArgs) ToApiKeyCredentialProviderSecretReferenceOutput() ApiKeyCredentialProviderSecretReferenceOutput {
+	return i.ToApiKeyCredentialProviderSecretReferenceOutputWithContext(context.Background())
+}
+
+func (i ApiKeyCredentialProviderSecretReferenceArgs) ToApiKeyCredentialProviderSecretReferenceOutputWithContext(ctx context.Context) ApiKeyCredentialProviderSecretReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyCredentialProviderSecretReferenceOutput)
+}
+
+func (i ApiKeyCredentialProviderSecretReferenceArgs) ToApiKeyCredentialProviderSecretReferencePtrOutput() ApiKeyCredentialProviderSecretReferencePtrOutput {
+	return i.ToApiKeyCredentialProviderSecretReferencePtrOutputWithContext(context.Background())
+}
+
+func (i ApiKeyCredentialProviderSecretReferenceArgs) ToApiKeyCredentialProviderSecretReferencePtrOutputWithContext(ctx context.Context) ApiKeyCredentialProviderSecretReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyCredentialProviderSecretReferenceOutput).ToApiKeyCredentialProviderSecretReferencePtrOutputWithContext(ctx)
+}
+
+// ApiKeyCredentialProviderSecretReferencePtrInput is an input type that accepts ApiKeyCredentialProviderSecretReferenceArgs, ApiKeyCredentialProviderSecretReferencePtr and ApiKeyCredentialProviderSecretReferencePtrOutput values.
+// You can construct a concrete instance of `ApiKeyCredentialProviderSecretReferencePtrInput` via:
+//
+//	        ApiKeyCredentialProviderSecretReferenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiKeyCredentialProviderSecretReferencePtrInput interface {
+	pulumi.Input
+
+	ToApiKeyCredentialProviderSecretReferencePtrOutput() ApiKeyCredentialProviderSecretReferencePtrOutput
+	ToApiKeyCredentialProviderSecretReferencePtrOutputWithContext(context.Context) ApiKeyCredentialProviderSecretReferencePtrOutput
+}
+
+type apiKeyCredentialProviderSecretReferencePtrType ApiKeyCredentialProviderSecretReferenceArgs
+
+func ApiKeyCredentialProviderSecretReferencePtr(v *ApiKeyCredentialProviderSecretReferenceArgs) ApiKeyCredentialProviderSecretReferencePtrInput {
+	return (*apiKeyCredentialProviderSecretReferencePtrType)(v)
+}
+
+func (*apiKeyCredentialProviderSecretReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiKeyCredentialProviderSecretReference)(nil)).Elem()
+}
+
+func (i *apiKeyCredentialProviderSecretReferencePtrType) ToApiKeyCredentialProviderSecretReferencePtrOutput() ApiKeyCredentialProviderSecretReferencePtrOutput {
+	return i.ToApiKeyCredentialProviderSecretReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *apiKeyCredentialProviderSecretReferencePtrType) ToApiKeyCredentialProviderSecretReferencePtrOutputWithContext(ctx context.Context) ApiKeyCredentialProviderSecretReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyCredentialProviderSecretReferencePtrOutput)
+}
+
+// A reference to a customer-provided secret stored in AWS Secrets Manager
+type ApiKeyCredentialProviderSecretReferenceOutput struct{ *pulumi.OutputState }
+
+func (ApiKeyCredentialProviderSecretReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyCredentialProviderSecretReference)(nil)).Elem()
+}
+
+func (o ApiKeyCredentialProviderSecretReferenceOutput) ToApiKeyCredentialProviderSecretReferenceOutput() ApiKeyCredentialProviderSecretReferenceOutput {
+	return o
+}
+
+func (o ApiKeyCredentialProviderSecretReferenceOutput) ToApiKeyCredentialProviderSecretReferenceOutputWithContext(ctx context.Context) ApiKeyCredentialProviderSecretReferenceOutput {
+	return o
+}
+
+func (o ApiKeyCredentialProviderSecretReferenceOutput) ToApiKeyCredentialProviderSecretReferencePtrOutput() ApiKeyCredentialProviderSecretReferencePtrOutput {
+	return o.ToApiKeyCredentialProviderSecretReferencePtrOutputWithContext(context.Background())
+}
+
+func (o ApiKeyCredentialProviderSecretReferenceOutput) ToApiKeyCredentialProviderSecretReferencePtrOutputWithContext(ctx context.Context) ApiKeyCredentialProviderSecretReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiKeyCredentialProviderSecretReference) *ApiKeyCredentialProviderSecretReference {
+		return &v
+	}).(ApiKeyCredentialProviderSecretReferencePtrOutput)
+}
+
+// The JSON key within the secret that contains the credential value
+func (o ApiKeyCredentialProviderSecretReferenceOutput) JsonKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyCredentialProviderSecretReference) string { return v.JsonKey }).(pulumi.StringOutput)
+}
+
+// The ID or ARN of the secret in AWS Secrets Manager
+func (o ApiKeyCredentialProviderSecretReferenceOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyCredentialProviderSecretReference) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+type ApiKeyCredentialProviderSecretReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (ApiKeyCredentialProviderSecretReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiKeyCredentialProviderSecretReference)(nil)).Elem()
+}
+
+func (o ApiKeyCredentialProviderSecretReferencePtrOutput) ToApiKeyCredentialProviderSecretReferencePtrOutput() ApiKeyCredentialProviderSecretReferencePtrOutput {
+	return o
+}
+
+func (o ApiKeyCredentialProviderSecretReferencePtrOutput) ToApiKeyCredentialProviderSecretReferencePtrOutputWithContext(ctx context.Context) ApiKeyCredentialProviderSecretReferencePtrOutput {
+	return o
+}
+
+func (o ApiKeyCredentialProviderSecretReferencePtrOutput) Elem() ApiKeyCredentialProviderSecretReferenceOutput {
+	return o.ApplyT(func(v *ApiKeyCredentialProviderSecretReference) ApiKeyCredentialProviderSecretReference {
+		if v != nil {
+			return *v
+		}
+		var ret ApiKeyCredentialProviderSecretReference
+		return ret
+	}).(ApiKeyCredentialProviderSecretReferenceOutput)
+}
+
+// The JSON key within the secret that contains the credential value
+func (o ApiKeyCredentialProviderSecretReferencePtrOutput) JsonKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiKeyCredentialProviderSecretReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.JsonKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID or ARN of the secret in AWS Secrets Manager
+func (o ApiKeyCredentialProviderSecretReferencePtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiKeyCredentialProviderSecretReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApiKeyCredentialProviderTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -4103,9 +4262,11 @@ func (o GatewayLambdaInterceptorConfigurationOutput) Arn() pulumi.StringOutput {
 }
 
 type GatewayMcpGatewayConfiguration struct {
-	Instructions      *string            `pulumi:"instructions"`
-	SearchType        *GatewaySearchType `pulumi:"searchType"`
-	SupportedVersions []string           `pulumi:"supportedVersions"`
+	Instructions           *string                        `pulumi:"instructions"`
+	SearchType             *GatewaySearchType             `pulumi:"searchType"`
+	SessionConfiguration   *GatewaySessionConfiguration   `pulumi:"sessionConfiguration"`
+	StreamingConfiguration *GatewayStreamingConfiguration `pulumi:"streamingConfiguration"`
+	SupportedVersions      []string                       `pulumi:"supportedVersions"`
 }
 
 // GatewayMcpGatewayConfigurationInput is an input type that accepts GatewayMcpGatewayConfigurationArgs and GatewayMcpGatewayConfigurationOutput values.
@@ -4120,9 +4281,11 @@ type GatewayMcpGatewayConfigurationInput interface {
 }
 
 type GatewayMcpGatewayConfigurationArgs struct {
-	Instructions      pulumi.StringPtrInput     `pulumi:"instructions"`
-	SearchType        GatewaySearchTypePtrInput `pulumi:"searchType"`
-	SupportedVersions pulumi.StringArrayInput   `pulumi:"supportedVersions"`
+	Instructions           pulumi.StringPtrInput                 `pulumi:"instructions"`
+	SearchType             GatewaySearchTypePtrInput             `pulumi:"searchType"`
+	SessionConfiguration   GatewaySessionConfigurationPtrInput   `pulumi:"sessionConfiguration"`
+	StreamingConfiguration GatewayStreamingConfigurationPtrInput `pulumi:"streamingConfiguration"`
+	SupportedVersions      pulumi.StringArrayInput               `pulumi:"supportedVersions"`
 }
 
 func (GatewayMcpGatewayConfigurationArgs) ElementType() reflect.Type {
@@ -4210,6 +4373,14 @@ func (o GatewayMcpGatewayConfigurationOutput) SearchType() GatewaySearchTypePtrO
 	return o.ApplyT(func(v GatewayMcpGatewayConfiguration) *GatewaySearchType { return v.SearchType }).(GatewaySearchTypePtrOutput)
 }
 
+func (o GatewayMcpGatewayConfigurationOutput) SessionConfiguration() GatewaySessionConfigurationPtrOutput {
+	return o.ApplyT(func(v GatewayMcpGatewayConfiguration) *GatewaySessionConfiguration { return v.SessionConfiguration }).(GatewaySessionConfigurationPtrOutput)
+}
+
+func (o GatewayMcpGatewayConfigurationOutput) StreamingConfiguration() GatewayStreamingConfigurationPtrOutput {
+	return o.ApplyT(func(v GatewayMcpGatewayConfiguration) *GatewayStreamingConfiguration { return v.StreamingConfiguration }).(GatewayStreamingConfigurationPtrOutput)
+}
+
 func (o GatewayMcpGatewayConfigurationOutput) SupportedVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GatewayMcpGatewayConfiguration) []string { return v.SupportedVersions }).(pulumi.StringArrayOutput)
 }
@@ -4254,6 +4425,24 @@ func (o GatewayMcpGatewayConfigurationPtrOutput) SearchType() GatewaySearchTypeP
 		}
 		return v.SearchType
 	}).(GatewaySearchTypePtrOutput)
+}
+
+func (o GatewayMcpGatewayConfigurationPtrOutput) SessionConfiguration() GatewaySessionConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayMcpGatewayConfiguration) *GatewaySessionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SessionConfiguration
+	}).(GatewaySessionConfigurationPtrOutput)
+}
+
+func (o GatewayMcpGatewayConfigurationPtrOutput) StreamingConfiguration() GatewayStreamingConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayMcpGatewayConfiguration) *GatewayStreamingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.StreamingConfiguration
+	}).(GatewayStreamingConfigurationPtrOutput)
 }
 
 func (o GatewayMcpGatewayConfigurationPtrOutput) SupportedVersions() pulumi.StringArrayOutput {
@@ -4555,6 +4744,272 @@ func (o GatewayProtocolConfigurationPropertiesPtrOutput) Mcp() GatewayMcpGateway
 		}
 		return &v.Mcp
 	}).(GatewayMcpGatewayConfigurationPtrOutput)
+}
+
+type GatewaySessionConfiguration struct {
+	SessionTimeoutInSeconds *int `pulumi:"sessionTimeoutInSeconds"`
+}
+
+// GatewaySessionConfigurationInput is an input type that accepts GatewaySessionConfigurationArgs and GatewaySessionConfigurationOutput values.
+// You can construct a concrete instance of `GatewaySessionConfigurationInput` via:
+//
+//	GatewaySessionConfigurationArgs{...}
+type GatewaySessionConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewaySessionConfigurationOutput() GatewaySessionConfigurationOutput
+	ToGatewaySessionConfigurationOutputWithContext(context.Context) GatewaySessionConfigurationOutput
+}
+
+type GatewaySessionConfigurationArgs struct {
+	SessionTimeoutInSeconds pulumi.IntPtrInput `pulumi:"sessionTimeoutInSeconds"`
+}
+
+func (GatewaySessionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewaySessionConfiguration)(nil)).Elem()
+}
+
+func (i GatewaySessionConfigurationArgs) ToGatewaySessionConfigurationOutput() GatewaySessionConfigurationOutput {
+	return i.ToGatewaySessionConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewaySessionConfigurationArgs) ToGatewaySessionConfigurationOutputWithContext(ctx context.Context) GatewaySessionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewaySessionConfigurationOutput)
+}
+
+func (i GatewaySessionConfigurationArgs) ToGatewaySessionConfigurationPtrOutput() GatewaySessionConfigurationPtrOutput {
+	return i.ToGatewaySessionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GatewaySessionConfigurationArgs) ToGatewaySessionConfigurationPtrOutputWithContext(ctx context.Context) GatewaySessionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewaySessionConfigurationOutput).ToGatewaySessionConfigurationPtrOutputWithContext(ctx)
+}
+
+// GatewaySessionConfigurationPtrInput is an input type that accepts GatewaySessionConfigurationArgs, GatewaySessionConfigurationPtr and GatewaySessionConfigurationPtrOutput values.
+// You can construct a concrete instance of `GatewaySessionConfigurationPtrInput` via:
+//
+//	        GatewaySessionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewaySessionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGatewaySessionConfigurationPtrOutput() GatewaySessionConfigurationPtrOutput
+	ToGatewaySessionConfigurationPtrOutputWithContext(context.Context) GatewaySessionConfigurationPtrOutput
+}
+
+type gatewaySessionConfigurationPtrType GatewaySessionConfigurationArgs
+
+func GatewaySessionConfigurationPtr(v *GatewaySessionConfigurationArgs) GatewaySessionConfigurationPtrInput {
+	return (*gatewaySessionConfigurationPtrType)(v)
+}
+
+func (*gatewaySessionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewaySessionConfiguration)(nil)).Elem()
+}
+
+func (i *gatewaySessionConfigurationPtrType) ToGatewaySessionConfigurationPtrOutput() GatewaySessionConfigurationPtrOutput {
+	return i.ToGatewaySessionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewaySessionConfigurationPtrType) ToGatewaySessionConfigurationPtrOutputWithContext(ctx context.Context) GatewaySessionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewaySessionConfigurationPtrOutput)
+}
+
+type GatewaySessionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewaySessionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewaySessionConfiguration)(nil)).Elem()
+}
+
+func (o GatewaySessionConfigurationOutput) ToGatewaySessionConfigurationOutput() GatewaySessionConfigurationOutput {
+	return o
+}
+
+func (o GatewaySessionConfigurationOutput) ToGatewaySessionConfigurationOutputWithContext(ctx context.Context) GatewaySessionConfigurationOutput {
+	return o
+}
+
+func (o GatewaySessionConfigurationOutput) ToGatewaySessionConfigurationPtrOutput() GatewaySessionConfigurationPtrOutput {
+	return o.ToGatewaySessionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GatewaySessionConfigurationOutput) ToGatewaySessionConfigurationPtrOutputWithContext(ctx context.Context) GatewaySessionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewaySessionConfiguration) *GatewaySessionConfiguration {
+		return &v
+	}).(GatewaySessionConfigurationPtrOutput)
+}
+
+func (o GatewaySessionConfigurationOutput) SessionTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewaySessionConfiguration) *int { return v.SessionTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type GatewaySessionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewaySessionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewaySessionConfiguration)(nil)).Elem()
+}
+
+func (o GatewaySessionConfigurationPtrOutput) ToGatewaySessionConfigurationPtrOutput() GatewaySessionConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewaySessionConfigurationPtrOutput) ToGatewaySessionConfigurationPtrOutputWithContext(ctx context.Context) GatewaySessionConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewaySessionConfigurationPtrOutput) Elem() GatewaySessionConfigurationOutput {
+	return o.ApplyT(func(v *GatewaySessionConfiguration) GatewaySessionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewaySessionConfiguration
+		return ret
+	}).(GatewaySessionConfigurationOutput)
+}
+
+func (o GatewaySessionConfigurationPtrOutput) SessionTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewaySessionConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SessionTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type GatewayStreamingConfiguration struct {
+	EnableResponseStreaming *bool `pulumi:"enableResponseStreaming"`
+}
+
+// GatewayStreamingConfigurationInput is an input type that accepts GatewayStreamingConfigurationArgs and GatewayStreamingConfigurationOutput values.
+// You can construct a concrete instance of `GatewayStreamingConfigurationInput` via:
+//
+//	GatewayStreamingConfigurationArgs{...}
+type GatewayStreamingConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayStreamingConfigurationOutput() GatewayStreamingConfigurationOutput
+	ToGatewayStreamingConfigurationOutputWithContext(context.Context) GatewayStreamingConfigurationOutput
+}
+
+type GatewayStreamingConfigurationArgs struct {
+	EnableResponseStreaming pulumi.BoolPtrInput `pulumi:"enableResponseStreaming"`
+}
+
+func (GatewayStreamingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayStreamingConfiguration)(nil)).Elem()
+}
+
+func (i GatewayStreamingConfigurationArgs) ToGatewayStreamingConfigurationOutput() GatewayStreamingConfigurationOutput {
+	return i.ToGatewayStreamingConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayStreamingConfigurationArgs) ToGatewayStreamingConfigurationOutputWithContext(ctx context.Context) GatewayStreamingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayStreamingConfigurationOutput)
+}
+
+func (i GatewayStreamingConfigurationArgs) ToGatewayStreamingConfigurationPtrOutput() GatewayStreamingConfigurationPtrOutput {
+	return i.ToGatewayStreamingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayStreamingConfigurationArgs) ToGatewayStreamingConfigurationPtrOutputWithContext(ctx context.Context) GatewayStreamingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayStreamingConfigurationOutput).ToGatewayStreamingConfigurationPtrOutputWithContext(ctx)
+}
+
+// GatewayStreamingConfigurationPtrInput is an input type that accepts GatewayStreamingConfigurationArgs, GatewayStreamingConfigurationPtr and GatewayStreamingConfigurationPtrOutput values.
+// You can construct a concrete instance of `GatewayStreamingConfigurationPtrInput` via:
+//
+//	        GatewayStreamingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayStreamingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGatewayStreamingConfigurationPtrOutput() GatewayStreamingConfigurationPtrOutput
+	ToGatewayStreamingConfigurationPtrOutputWithContext(context.Context) GatewayStreamingConfigurationPtrOutput
+}
+
+type gatewayStreamingConfigurationPtrType GatewayStreamingConfigurationArgs
+
+func GatewayStreamingConfigurationPtr(v *GatewayStreamingConfigurationArgs) GatewayStreamingConfigurationPtrInput {
+	return (*gatewayStreamingConfigurationPtrType)(v)
+}
+
+func (*gatewayStreamingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayStreamingConfiguration)(nil)).Elem()
+}
+
+func (i *gatewayStreamingConfigurationPtrType) ToGatewayStreamingConfigurationPtrOutput() GatewayStreamingConfigurationPtrOutput {
+	return i.ToGatewayStreamingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayStreamingConfigurationPtrType) ToGatewayStreamingConfigurationPtrOutputWithContext(ctx context.Context) GatewayStreamingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayStreamingConfigurationPtrOutput)
+}
+
+type GatewayStreamingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayStreamingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayStreamingConfiguration)(nil)).Elem()
+}
+
+func (o GatewayStreamingConfigurationOutput) ToGatewayStreamingConfigurationOutput() GatewayStreamingConfigurationOutput {
+	return o
+}
+
+func (o GatewayStreamingConfigurationOutput) ToGatewayStreamingConfigurationOutputWithContext(ctx context.Context) GatewayStreamingConfigurationOutput {
+	return o
+}
+
+func (o GatewayStreamingConfigurationOutput) ToGatewayStreamingConfigurationPtrOutput() GatewayStreamingConfigurationPtrOutput {
+	return o.ToGatewayStreamingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayStreamingConfigurationOutput) ToGatewayStreamingConfigurationPtrOutputWithContext(ctx context.Context) GatewayStreamingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayStreamingConfiguration) *GatewayStreamingConfiguration {
+		return &v
+	}).(GatewayStreamingConfigurationPtrOutput)
+}
+
+func (o GatewayStreamingConfigurationOutput) EnableResponseStreaming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GatewayStreamingConfiguration) *bool { return v.EnableResponseStreaming }).(pulumi.BoolPtrOutput)
+}
+
+type GatewayStreamingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayStreamingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayStreamingConfiguration)(nil)).Elem()
+}
+
+func (o GatewayStreamingConfigurationPtrOutput) ToGatewayStreamingConfigurationPtrOutput() GatewayStreamingConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayStreamingConfigurationPtrOutput) ToGatewayStreamingConfigurationPtrOutputWithContext(ctx context.Context) GatewayStreamingConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayStreamingConfigurationPtrOutput) Elem() GatewayStreamingConfigurationOutput {
+	return o.ApplyT(func(v *GatewayStreamingConfiguration) GatewayStreamingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayStreamingConfiguration
+		return ret
+	}).(GatewayStreamingConfigurationOutput)
+}
+
+func (o GatewayStreamingConfigurationPtrOutput) EnableResponseStreaming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GatewayStreamingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableResponseStreaming
+	}).(pulumi.BoolPtrOutput)
 }
 
 type GatewayTargetApiGatewayTargetConfiguration struct {
@@ -6136,6 +6591,253 @@ func (o GatewayTargetIamCredentialProviderPtrOutput) Service() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type GatewayTargetManagedResourceDetails struct {
+	Domain                 *string `pulumi:"domain"`
+	ResourceAssociationArn *string `pulumi:"resourceAssociationArn"`
+	ResourceGatewayArn     *string `pulumi:"resourceGatewayArn"`
+}
+
+type GatewayTargetManagedResourceDetailsOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetManagedResourceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetManagedResourceDetails)(nil)).Elem()
+}
+
+func (o GatewayTargetManagedResourceDetailsOutput) ToGatewayTargetManagedResourceDetailsOutput() GatewayTargetManagedResourceDetailsOutput {
+	return o
+}
+
+func (o GatewayTargetManagedResourceDetailsOutput) ToGatewayTargetManagedResourceDetailsOutputWithContext(ctx context.Context) GatewayTargetManagedResourceDetailsOutput {
+	return o
+}
+
+func (o GatewayTargetManagedResourceDetailsOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayTargetManagedResourceDetails) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetManagedResourceDetailsOutput) ResourceAssociationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayTargetManagedResourceDetails) *string { return v.ResourceAssociationArn }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetManagedResourceDetailsOutput) ResourceGatewayArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayTargetManagedResourceDetails) *string { return v.ResourceGatewayArn }).(pulumi.StringPtrOutput)
+}
+
+type GatewayTargetManagedResourceDetailsArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetManagedResourceDetailsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTargetManagedResourceDetails)(nil)).Elem()
+}
+
+func (o GatewayTargetManagedResourceDetailsArrayOutput) ToGatewayTargetManagedResourceDetailsArrayOutput() GatewayTargetManagedResourceDetailsArrayOutput {
+	return o
+}
+
+func (o GatewayTargetManagedResourceDetailsArrayOutput) ToGatewayTargetManagedResourceDetailsArrayOutputWithContext(ctx context.Context) GatewayTargetManagedResourceDetailsArrayOutput {
+	return o
+}
+
+func (o GatewayTargetManagedResourceDetailsArrayOutput) Index(i pulumi.IntInput) GatewayTargetManagedResourceDetailsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayTargetManagedResourceDetails {
+		return vs[0].([]GatewayTargetManagedResourceDetails)[vs[1].(int)]
+	}).(GatewayTargetManagedResourceDetailsOutput)
+}
+
+type GatewayTargetManagedVpcResource struct {
+	EndpointIpAddressType GatewayTargetEndpointIpAddressType `pulumi:"endpointIpAddressType"`
+	RoutingDomain         *string                            `pulumi:"routingDomain"`
+	SecurityGroupIds      []string                           `pulumi:"securityGroupIds"`
+	SubnetIds             []string                           `pulumi:"subnetIds"`
+	VpcIdentifier         string                             `pulumi:"vpcIdentifier"`
+}
+
+// GatewayTargetManagedVpcResourceInput is an input type that accepts GatewayTargetManagedVpcResourceArgs and GatewayTargetManagedVpcResourceOutput values.
+// You can construct a concrete instance of `GatewayTargetManagedVpcResourceInput` via:
+//
+//	GatewayTargetManagedVpcResourceArgs{...}
+type GatewayTargetManagedVpcResourceInput interface {
+	pulumi.Input
+
+	ToGatewayTargetManagedVpcResourceOutput() GatewayTargetManagedVpcResourceOutput
+	ToGatewayTargetManagedVpcResourceOutputWithContext(context.Context) GatewayTargetManagedVpcResourceOutput
+}
+
+type GatewayTargetManagedVpcResourceArgs struct {
+	EndpointIpAddressType GatewayTargetEndpointIpAddressTypeInput `pulumi:"endpointIpAddressType"`
+	RoutingDomain         pulumi.StringPtrInput                   `pulumi:"routingDomain"`
+	SecurityGroupIds      pulumi.StringArrayInput                 `pulumi:"securityGroupIds"`
+	SubnetIds             pulumi.StringArrayInput                 `pulumi:"subnetIds"`
+	VpcIdentifier         pulumi.StringInput                      `pulumi:"vpcIdentifier"`
+}
+
+func (GatewayTargetManagedVpcResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetManagedVpcResource)(nil)).Elem()
+}
+
+func (i GatewayTargetManagedVpcResourceArgs) ToGatewayTargetManagedVpcResourceOutput() GatewayTargetManagedVpcResourceOutput {
+	return i.ToGatewayTargetManagedVpcResourceOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetManagedVpcResourceArgs) ToGatewayTargetManagedVpcResourceOutputWithContext(ctx context.Context) GatewayTargetManagedVpcResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetManagedVpcResourceOutput)
+}
+
+func (i GatewayTargetManagedVpcResourceArgs) ToGatewayTargetManagedVpcResourcePtrOutput() GatewayTargetManagedVpcResourcePtrOutput {
+	return i.ToGatewayTargetManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetManagedVpcResourceArgs) ToGatewayTargetManagedVpcResourcePtrOutputWithContext(ctx context.Context) GatewayTargetManagedVpcResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetManagedVpcResourceOutput).ToGatewayTargetManagedVpcResourcePtrOutputWithContext(ctx)
+}
+
+// GatewayTargetManagedVpcResourcePtrInput is an input type that accepts GatewayTargetManagedVpcResourceArgs, GatewayTargetManagedVpcResourcePtr and GatewayTargetManagedVpcResourcePtrOutput values.
+// You can construct a concrete instance of `GatewayTargetManagedVpcResourcePtrInput` via:
+//
+//	        GatewayTargetManagedVpcResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTargetManagedVpcResourcePtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetManagedVpcResourcePtrOutput() GatewayTargetManagedVpcResourcePtrOutput
+	ToGatewayTargetManagedVpcResourcePtrOutputWithContext(context.Context) GatewayTargetManagedVpcResourcePtrOutput
+}
+
+type gatewayTargetManagedVpcResourcePtrType GatewayTargetManagedVpcResourceArgs
+
+func GatewayTargetManagedVpcResourcePtr(v *GatewayTargetManagedVpcResourceArgs) GatewayTargetManagedVpcResourcePtrInput {
+	return (*gatewayTargetManagedVpcResourcePtrType)(v)
+}
+
+func (*gatewayTargetManagedVpcResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetManagedVpcResource)(nil)).Elem()
+}
+
+func (i *gatewayTargetManagedVpcResourcePtrType) ToGatewayTargetManagedVpcResourcePtrOutput() GatewayTargetManagedVpcResourcePtrOutput {
+	return i.ToGatewayTargetManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTargetManagedVpcResourcePtrType) ToGatewayTargetManagedVpcResourcePtrOutputWithContext(ctx context.Context) GatewayTargetManagedVpcResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetManagedVpcResourcePtrOutput)
+}
+
+type GatewayTargetManagedVpcResourceOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetManagedVpcResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetManagedVpcResource)(nil)).Elem()
+}
+
+func (o GatewayTargetManagedVpcResourceOutput) ToGatewayTargetManagedVpcResourceOutput() GatewayTargetManagedVpcResourceOutput {
+	return o
+}
+
+func (o GatewayTargetManagedVpcResourceOutput) ToGatewayTargetManagedVpcResourceOutputWithContext(ctx context.Context) GatewayTargetManagedVpcResourceOutput {
+	return o
+}
+
+func (o GatewayTargetManagedVpcResourceOutput) ToGatewayTargetManagedVpcResourcePtrOutput() GatewayTargetManagedVpcResourcePtrOutput {
+	return o.ToGatewayTargetManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetManagedVpcResourceOutput) ToGatewayTargetManagedVpcResourcePtrOutputWithContext(ctx context.Context) GatewayTargetManagedVpcResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetManagedVpcResource) *GatewayTargetManagedVpcResource {
+		return &v
+	}).(GatewayTargetManagedVpcResourcePtrOutput)
+}
+
+func (o GatewayTargetManagedVpcResourceOutput) EndpointIpAddressType() GatewayTargetEndpointIpAddressTypeOutput {
+	return o.ApplyT(func(v GatewayTargetManagedVpcResource) GatewayTargetEndpointIpAddressType {
+		return v.EndpointIpAddressType
+	}).(GatewayTargetEndpointIpAddressTypeOutput)
+}
+
+func (o GatewayTargetManagedVpcResourceOutput) RoutingDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayTargetManagedVpcResource) *string { return v.RoutingDomain }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetManagedVpcResourceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GatewayTargetManagedVpcResource) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayTargetManagedVpcResourceOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GatewayTargetManagedVpcResource) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayTargetManagedVpcResourceOutput) VpcIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetManagedVpcResource) string { return v.VpcIdentifier }).(pulumi.StringOutput)
+}
+
+type GatewayTargetManagedVpcResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetManagedVpcResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetManagedVpcResource)(nil)).Elem()
+}
+
+func (o GatewayTargetManagedVpcResourcePtrOutput) ToGatewayTargetManagedVpcResourcePtrOutput() GatewayTargetManagedVpcResourcePtrOutput {
+	return o
+}
+
+func (o GatewayTargetManagedVpcResourcePtrOutput) ToGatewayTargetManagedVpcResourcePtrOutputWithContext(ctx context.Context) GatewayTargetManagedVpcResourcePtrOutput {
+	return o
+}
+
+func (o GatewayTargetManagedVpcResourcePtrOutput) Elem() GatewayTargetManagedVpcResourceOutput {
+	return o.ApplyT(func(v *GatewayTargetManagedVpcResource) GatewayTargetManagedVpcResource {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetManagedVpcResource
+		return ret
+	}).(GatewayTargetManagedVpcResourceOutput)
+}
+
+func (o GatewayTargetManagedVpcResourcePtrOutput) EndpointIpAddressType() GatewayTargetEndpointIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *GatewayTargetManagedVpcResource) *GatewayTargetEndpointIpAddressType {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointIpAddressType
+	}).(GatewayTargetEndpointIpAddressTypePtrOutput)
+}
+
+func (o GatewayTargetManagedVpcResourcePtrOutput) RoutingDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetManagedVpcResourcePtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GatewayTargetManagedVpcResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayTargetManagedVpcResourcePtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GatewayTargetManagedVpcResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayTargetManagedVpcResourcePtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 type GatewayTargetMcpLambdaTargetConfiguration struct {
 	LambdaArn  string      `pulumi:"lambdaArn"`
 	ToolSchema interface{} `pulumi:"toolSchema"`
@@ -7458,6 +8160,276 @@ func (o GatewayTargetOAuthCredentialProviderPtrOutput) Scopes() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
+type GatewayTargetPrivateEndpoint0Properties struct {
+	SelfManagedLatticeResource GatewayTargetSelfManagedLatticeResourceProperties `pulumi:"selfManagedLatticeResource"`
+}
+
+// GatewayTargetPrivateEndpoint0PropertiesInput is an input type that accepts GatewayTargetPrivateEndpoint0PropertiesArgs and GatewayTargetPrivateEndpoint0PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetPrivateEndpoint0PropertiesInput` via:
+//
+//	GatewayTargetPrivateEndpoint0PropertiesArgs{...}
+type GatewayTargetPrivateEndpoint0PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetPrivateEndpoint0PropertiesOutput() GatewayTargetPrivateEndpoint0PropertiesOutput
+	ToGatewayTargetPrivateEndpoint0PropertiesOutputWithContext(context.Context) GatewayTargetPrivateEndpoint0PropertiesOutput
+}
+
+type GatewayTargetPrivateEndpoint0PropertiesArgs struct {
+	SelfManagedLatticeResource GatewayTargetSelfManagedLatticeResourcePropertiesInput `pulumi:"selfManagedLatticeResource"`
+}
+
+func (GatewayTargetPrivateEndpoint0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetPrivateEndpoint0Properties)(nil)).Elem()
+}
+
+func (i GatewayTargetPrivateEndpoint0PropertiesArgs) ToGatewayTargetPrivateEndpoint0PropertiesOutput() GatewayTargetPrivateEndpoint0PropertiesOutput {
+	return i.ToGatewayTargetPrivateEndpoint0PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetPrivateEndpoint0PropertiesArgs) ToGatewayTargetPrivateEndpoint0PropertiesOutputWithContext(ctx context.Context) GatewayTargetPrivateEndpoint0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetPrivateEndpoint0PropertiesOutput)
+}
+
+func (i GatewayTargetPrivateEndpoint0PropertiesArgs) ToGatewayTargetPrivateEndpoint0PropertiesPtrOutput() GatewayTargetPrivateEndpoint0PropertiesPtrOutput {
+	return i.ToGatewayTargetPrivateEndpoint0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetPrivateEndpoint0PropertiesArgs) ToGatewayTargetPrivateEndpoint0PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetPrivateEndpoint0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetPrivateEndpoint0PropertiesOutput).ToGatewayTargetPrivateEndpoint0PropertiesPtrOutputWithContext(ctx)
+}
+
+// GatewayTargetPrivateEndpoint0PropertiesPtrInput is an input type that accepts GatewayTargetPrivateEndpoint0PropertiesArgs, GatewayTargetPrivateEndpoint0PropertiesPtr and GatewayTargetPrivateEndpoint0PropertiesPtrOutput values.
+// You can construct a concrete instance of `GatewayTargetPrivateEndpoint0PropertiesPtrInput` via:
+//
+//	        GatewayTargetPrivateEndpoint0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTargetPrivateEndpoint0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetPrivateEndpoint0PropertiesPtrOutput() GatewayTargetPrivateEndpoint0PropertiesPtrOutput
+	ToGatewayTargetPrivateEndpoint0PropertiesPtrOutputWithContext(context.Context) GatewayTargetPrivateEndpoint0PropertiesPtrOutput
+}
+
+type gatewayTargetPrivateEndpoint0PropertiesPtrType GatewayTargetPrivateEndpoint0PropertiesArgs
+
+func GatewayTargetPrivateEndpoint0PropertiesPtr(v *GatewayTargetPrivateEndpoint0PropertiesArgs) GatewayTargetPrivateEndpoint0PropertiesPtrInput {
+	return (*gatewayTargetPrivateEndpoint0PropertiesPtrType)(v)
+}
+
+func (*gatewayTargetPrivateEndpoint0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetPrivateEndpoint0Properties)(nil)).Elem()
+}
+
+func (i *gatewayTargetPrivateEndpoint0PropertiesPtrType) ToGatewayTargetPrivateEndpoint0PropertiesPtrOutput() GatewayTargetPrivateEndpoint0PropertiesPtrOutput {
+	return i.ToGatewayTargetPrivateEndpoint0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTargetPrivateEndpoint0PropertiesPtrType) ToGatewayTargetPrivateEndpoint0PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetPrivateEndpoint0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetPrivateEndpoint0PropertiesPtrOutput)
+}
+
+type GatewayTargetPrivateEndpoint0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetPrivateEndpoint0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetPrivateEndpoint0Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetPrivateEndpoint0PropertiesOutput) ToGatewayTargetPrivateEndpoint0PropertiesOutput() GatewayTargetPrivateEndpoint0PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetPrivateEndpoint0PropertiesOutput) ToGatewayTargetPrivateEndpoint0PropertiesOutputWithContext(ctx context.Context) GatewayTargetPrivateEndpoint0PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetPrivateEndpoint0PropertiesOutput) ToGatewayTargetPrivateEndpoint0PropertiesPtrOutput() GatewayTargetPrivateEndpoint0PropertiesPtrOutput {
+	return o.ToGatewayTargetPrivateEndpoint0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetPrivateEndpoint0PropertiesOutput) ToGatewayTargetPrivateEndpoint0PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetPrivateEndpoint0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetPrivateEndpoint0Properties) *GatewayTargetPrivateEndpoint0Properties {
+		return &v
+	}).(GatewayTargetPrivateEndpoint0PropertiesPtrOutput)
+}
+
+func (o GatewayTargetPrivateEndpoint0PropertiesOutput) SelfManagedLatticeResource() GatewayTargetSelfManagedLatticeResourcePropertiesOutput {
+	return o.ApplyT(func(v GatewayTargetPrivateEndpoint0Properties) GatewayTargetSelfManagedLatticeResourceProperties {
+		return v.SelfManagedLatticeResource
+	}).(GatewayTargetSelfManagedLatticeResourcePropertiesOutput)
+}
+
+type GatewayTargetPrivateEndpoint0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetPrivateEndpoint0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetPrivateEndpoint0Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetPrivateEndpoint0PropertiesPtrOutput) ToGatewayTargetPrivateEndpoint0PropertiesPtrOutput() GatewayTargetPrivateEndpoint0PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetPrivateEndpoint0PropertiesPtrOutput) ToGatewayTargetPrivateEndpoint0PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetPrivateEndpoint0PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetPrivateEndpoint0PropertiesPtrOutput) Elem() GatewayTargetPrivateEndpoint0PropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetPrivateEndpoint0Properties) GatewayTargetPrivateEndpoint0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetPrivateEndpoint0Properties
+		return ret
+	}).(GatewayTargetPrivateEndpoint0PropertiesOutput)
+}
+
+func (o GatewayTargetPrivateEndpoint0PropertiesPtrOutput) SelfManagedLatticeResource() GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetPrivateEndpoint0Properties) *GatewayTargetSelfManagedLatticeResourceProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.SelfManagedLatticeResource
+	}).(GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput)
+}
+
+type GatewayTargetPrivateEndpoint1Properties struct {
+	ManagedVpcResource GatewayTargetManagedVpcResource `pulumi:"managedVpcResource"`
+}
+
+// GatewayTargetPrivateEndpoint1PropertiesInput is an input type that accepts GatewayTargetPrivateEndpoint1PropertiesArgs and GatewayTargetPrivateEndpoint1PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetPrivateEndpoint1PropertiesInput` via:
+//
+//	GatewayTargetPrivateEndpoint1PropertiesArgs{...}
+type GatewayTargetPrivateEndpoint1PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetPrivateEndpoint1PropertiesOutput() GatewayTargetPrivateEndpoint1PropertiesOutput
+	ToGatewayTargetPrivateEndpoint1PropertiesOutputWithContext(context.Context) GatewayTargetPrivateEndpoint1PropertiesOutput
+}
+
+type GatewayTargetPrivateEndpoint1PropertiesArgs struct {
+	ManagedVpcResource GatewayTargetManagedVpcResourceInput `pulumi:"managedVpcResource"`
+}
+
+func (GatewayTargetPrivateEndpoint1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetPrivateEndpoint1Properties)(nil)).Elem()
+}
+
+func (i GatewayTargetPrivateEndpoint1PropertiesArgs) ToGatewayTargetPrivateEndpoint1PropertiesOutput() GatewayTargetPrivateEndpoint1PropertiesOutput {
+	return i.ToGatewayTargetPrivateEndpoint1PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetPrivateEndpoint1PropertiesArgs) ToGatewayTargetPrivateEndpoint1PropertiesOutputWithContext(ctx context.Context) GatewayTargetPrivateEndpoint1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetPrivateEndpoint1PropertiesOutput)
+}
+
+func (i GatewayTargetPrivateEndpoint1PropertiesArgs) ToGatewayTargetPrivateEndpoint1PropertiesPtrOutput() GatewayTargetPrivateEndpoint1PropertiesPtrOutput {
+	return i.ToGatewayTargetPrivateEndpoint1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetPrivateEndpoint1PropertiesArgs) ToGatewayTargetPrivateEndpoint1PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetPrivateEndpoint1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetPrivateEndpoint1PropertiesOutput).ToGatewayTargetPrivateEndpoint1PropertiesPtrOutputWithContext(ctx)
+}
+
+// GatewayTargetPrivateEndpoint1PropertiesPtrInput is an input type that accepts GatewayTargetPrivateEndpoint1PropertiesArgs, GatewayTargetPrivateEndpoint1PropertiesPtr and GatewayTargetPrivateEndpoint1PropertiesPtrOutput values.
+// You can construct a concrete instance of `GatewayTargetPrivateEndpoint1PropertiesPtrInput` via:
+//
+//	        GatewayTargetPrivateEndpoint1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTargetPrivateEndpoint1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetPrivateEndpoint1PropertiesPtrOutput() GatewayTargetPrivateEndpoint1PropertiesPtrOutput
+	ToGatewayTargetPrivateEndpoint1PropertiesPtrOutputWithContext(context.Context) GatewayTargetPrivateEndpoint1PropertiesPtrOutput
+}
+
+type gatewayTargetPrivateEndpoint1PropertiesPtrType GatewayTargetPrivateEndpoint1PropertiesArgs
+
+func GatewayTargetPrivateEndpoint1PropertiesPtr(v *GatewayTargetPrivateEndpoint1PropertiesArgs) GatewayTargetPrivateEndpoint1PropertiesPtrInput {
+	return (*gatewayTargetPrivateEndpoint1PropertiesPtrType)(v)
+}
+
+func (*gatewayTargetPrivateEndpoint1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetPrivateEndpoint1Properties)(nil)).Elem()
+}
+
+func (i *gatewayTargetPrivateEndpoint1PropertiesPtrType) ToGatewayTargetPrivateEndpoint1PropertiesPtrOutput() GatewayTargetPrivateEndpoint1PropertiesPtrOutput {
+	return i.ToGatewayTargetPrivateEndpoint1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTargetPrivateEndpoint1PropertiesPtrType) ToGatewayTargetPrivateEndpoint1PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetPrivateEndpoint1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetPrivateEndpoint1PropertiesPtrOutput)
+}
+
+type GatewayTargetPrivateEndpoint1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetPrivateEndpoint1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetPrivateEndpoint1Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetPrivateEndpoint1PropertiesOutput) ToGatewayTargetPrivateEndpoint1PropertiesOutput() GatewayTargetPrivateEndpoint1PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetPrivateEndpoint1PropertiesOutput) ToGatewayTargetPrivateEndpoint1PropertiesOutputWithContext(ctx context.Context) GatewayTargetPrivateEndpoint1PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetPrivateEndpoint1PropertiesOutput) ToGatewayTargetPrivateEndpoint1PropertiesPtrOutput() GatewayTargetPrivateEndpoint1PropertiesPtrOutput {
+	return o.ToGatewayTargetPrivateEndpoint1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetPrivateEndpoint1PropertiesOutput) ToGatewayTargetPrivateEndpoint1PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetPrivateEndpoint1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetPrivateEndpoint1Properties) *GatewayTargetPrivateEndpoint1Properties {
+		return &v
+	}).(GatewayTargetPrivateEndpoint1PropertiesPtrOutput)
+}
+
+func (o GatewayTargetPrivateEndpoint1PropertiesOutput) ManagedVpcResource() GatewayTargetManagedVpcResourceOutput {
+	return o.ApplyT(func(v GatewayTargetPrivateEndpoint1Properties) GatewayTargetManagedVpcResource {
+		return v.ManagedVpcResource
+	}).(GatewayTargetManagedVpcResourceOutput)
+}
+
+type GatewayTargetPrivateEndpoint1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetPrivateEndpoint1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetPrivateEndpoint1Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetPrivateEndpoint1PropertiesPtrOutput) ToGatewayTargetPrivateEndpoint1PropertiesPtrOutput() GatewayTargetPrivateEndpoint1PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetPrivateEndpoint1PropertiesPtrOutput) ToGatewayTargetPrivateEndpoint1PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetPrivateEndpoint1PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetPrivateEndpoint1PropertiesPtrOutput) Elem() GatewayTargetPrivateEndpoint1PropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetPrivateEndpoint1Properties) GatewayTargetPrivateEndpoint1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetPrivateEndpoint1Properties
+		return ret
+	}).(GatewayTargetPrivateEndpoint1PropertiesOutput)
+}
+
+func (o GatewayTargetPrivateEndpoint1PropertiesPtrOutput) ManagedVpcResource() GatewayTargetManagedVpcResourcePtrOutput {
+	return o.ApplyT(func(v *GatewayTargetPrivateEndpoint1Properties) *GatewayTargetManagedVpcResource {
+		if v == nil {
+			return nil
+		}
+		return &v.ManagedVpcResource
+	}).(GatewayTargetManagedVpcResourcePtrOutput)
+}
+
 type GatewayTargetRuntimeTargetConfiguration struct {
 	Arn       string  `pulumi:"arn"`
 	Qualifier *string `pulumi:"qualifier"`
@@ -7939,6 +8911,145 @@ func (o GatewayTargetSchemaDefinitionMapOutput) MapIndex(k pulumi.StringInput) G
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GatewayTargetSchemaDefinition {
 		return vs[0].(map[string]GatewayTargetSchemaDefinition)[vs[1].(string)]
 	}).(GatewayTargetSchemaDefinitionOutput)
+}
+
+type GatewayTargetSelfManagedLatticeResource0Properties struct {
+	ResourceConfigurationIdentifier string `pulumi:"resourceConfigurationIdentifier"`
+}
+
+type GatewayTargetSelfManagedLatticeResourceProperties struct {
+	ResourceConfigurationIdentifier string `pulumi:"resourceConfigurationIdentifier"`
+}
+
+// GatewayTargetSelfManagedLatticeResourcePropertiesInput is an input type that accepts GatewayTargetSelfManagedLatticeResourcePropertiesArgs and GatewayTargetSelfManagedLatticeResourcePropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetSelfManagedLatticeResourcePropertiesInput` via:
+//
+//	GatewayTargetSelfManagedLatticeResourcePropertiesArgs{...}
+type GatewayTargetSelfManagedLatticeResourcePropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetSelfManagedLatticeResourcePropertiesOutput() GatewayTargetSelfManagedLatticeResourcePropertiesOutput
+	ToGatewayTargetSelfManagedLatticeResourcePropertiesOutputWithContext(context.Context) GatewayTargetSelfManagedLatticeResourcePropertiesOutput
+}
+
+type GatewayTargetSelfManagedLatticeResourcePropertiesArgs struct {
+	ResourceConfigurationIdentifier pulumi.StringInput `pulumi:"resourceConfigurationIdentifier"`
+}
+
+func (GatewayTargetSelfManagedLatticeResourcePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetSelfManagedLatticeResourceProperties)(nil)).Elem()
+}
+
+func (i GatewayTargetSelfManagedLatticeResourcePropertiesArgs) ToGatewayTargetSelfManagedLatticeResourcePropertiesOutput() GatewayTargetSelfManagedLatticeResourcePropertiesOutput {
+	return i.ToGatewayTargetSelfManagedLatticeResourcePropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetSelfManagedLatticeResourcePropertiesArgs) ToGatewayTargetSelfManagedLatticeResourcePropertiesOutputWithContext(ctx context.Context) GatewayTargetSelfManagedLatticeResourcePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetSelfManagedLatticeResourcePropertiesOutput)
+}
+
+func (i GatewayTargetSelfManagedLatticeResourcePropertiesArgs) ToGatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput() GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput {
+	return i.ToGatewayTargetSelfManagedLatticeResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetSelfManagedLatticeResourcePropertiesArgs) ToGatewayTargetSelfManagedLatticeResourcePropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetSelfManagedLatticeResourcePropertiesOutput).ToGatewayTargetSelfManagedLatticeResourcePropertiesPtrOutputWithContext(ctx)
+}
+
+// GatewayTargetSelfManagedLatticeResourcePropertiesPtrInput is an input type that accepts GatewayTargetSelfManagedLatticeResourcePropertiesArgs, GatewayTargetSelfManagedLatticeResourcePropertiesPtr and GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput values.
+// You can construct a concrete instance of `GatewayTargetSelfManagedLatticeResourcePropertiesPtrInput` via:
+//
+//	        GatewayTargetSelfManagedLatticeResourcePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTargetSelfManagedLatticeResourcePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput() GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput
+	ToGatewayTargetSelfManagedLatticeResourcePropertiesPtrOutputWithContext(context.Context) GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput
+}
+
+type gatewayTargetSelfManagedLatticeResourcePropertiesPtrType GatewayTargetSelfManagedLatticeResourcePropertiesArgs
+
+func GatewayTargetSelfManagedLatticeResourcePropertiesPtr(v *GatewayTargetSelfManagedLatticeResourcePropertiesArgs) GatewayTargetSelfManagedLatticeResourcePropertiesPtrInput {
+	return (*gatewayTargetSelfManagedLatticeResourcePropertiesPtrType)(v)
+}
+
+func (*gatewayTargetSelfManagedLatticeResourcePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetSelfManagedLatticeResourceProperties)(nil)).Elem()
+}
+
+func (i *gatewayTargetSelfManagedLatticeResourcePropertiesPtrType) ToGatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput() GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput {
+	return i.ToGatewayTargetSelfManagedLatticeResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTargetSelfManagedLatticeResourcePropertiesPtrType) ToGatewayTargetSelfManagedLatticeResourcePropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput)
+}
+
+type GatewayTargetSelfManagedLatticeResourcePropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetSelfManagedLatticeResourcePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetSelfManagedLatticeResourceProperties)(nil)).Elem()
+}
+
+func (o GatewayTargetSelfManagedLatticeResourcePropertiesOutput) ToGatewayTargetSelfManagedLatticeResourcePropertiesOutput() GatewayTargetSelfManagedLatticeResourcePropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetSelfManagedLatticeResourcePropertiesOutput) ToGatewayTargetSelfManagedLatticeResourcePropertiesOutputWithContext(ctx context.Context) GatewayTargetSelfManagedLatticeResourcePropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetSelfManagedLatticeResourcePropertiesOutput) ToGatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput() GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput {
+	return o.ToGatewayTargetSelfManagedLatticeResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetSelfManagedLatticeResourcePropertiesOutput) ToGatewayTargetSelfManagedLatticeResourcePropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetSelfManagedLatticeResourceProperties) *GatewayTargetSelfManagedLatticeResourceProperties {
+		return &v
+	}).(GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput)
+}
+
+func (o GatewayTargetSelfManagedLatticeResourcePropertiesOutput) ResourceConfigurationIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetSelfManagedLatticeResourceProperties) string {
+		return v.ResourceConfigurationIdentifier
+	}).(pulumi.StringOutput)
+}
+
+type GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetSelfManagedLatticeResourceProperties)(nil)).Elem()
+}
+
+func (o GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput) ToGatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput() GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput) ToGatewayTargetSelfManagedLatticeResourcePropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput) Elem() GatewayTargetSelfManagedLatticeResourcePropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetSelfManagedLatticeResourceProperties) GatewayTargetSelfManagedLatticeResourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetSelfManagedLatticeResourceProperties
+		return ret
+	}).(GatewayTargetSelfManagedLatticeResourcePropertiesOutput)
+}
+
+func (o GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetSelfManagedLatticeResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceConfigurationIdentifier
+	}).(pulumi.StringPtrOutput)
 }
 
 type GatewayTargetTargetConfiguration0Properties struct {
@@ -19852,8 +20963,10 @@ func (o MemoryValidationPtrOutput) StringValidation() MemoryStringValidationPtrO
 
 // Input configuration for an Atlassian OAuth2 provider
 type OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput struct {
-	ClientId     string `pulumi:"clientId"`
-	ClientSecret string `pulumi:"clientSecret"`
+	ClientId           string                                                                        `pulumi:"clientId"`
+	ClientSecret       *string                                                                       `pulumi:"clientSecret"`
+	ClientSecretConfig *OAuth2CredentialProviderSecretReference                                      `pulumi:"clientSecretConfig"`
+	ClientSecretSource *OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource `pulumi:"clientSecretSource"`
 }
 
 // OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs and OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput values.
@@ -19869,8 +20982,10 @@ type OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputInput interface {
 
 // Input configuration for an Atlassian OAuth2 provider
 type OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs struct {
-	ClientId     pulumi.StringInput `pulumi:"clientId"`
-	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	ClientId           pulumi.StringInput                                                                   `pulumi:"clientId"`
+	ClientSecret       pulumi.StringPtrInput                                                                `pulumi:"clientSecret"`
+	ClientSecretConfig OAuth2CredentialProviderSecretReferencePtrInput                                      `pulumi:"clientSecretConfig"`
+	ClientSecretSource OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSourcePtrInput `pulumi:"clientSecretSource"`
 }
 
 func (OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
@@ -19955,8 +21070,20 @@ func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput) Client
 	return o.ApplyT(func(v OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput) ClientSecretSource() OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput) *OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource {
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 type OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
@@ -19997,8 +21124,26 @@ func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput) Cli
 		if v == nil {
 			return nil
 		}
-		return &v.ClientSecret
+		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput) ClientSecretSource() OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput) *OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 // Contains information about a secret in AWS Secrets Manager
@@ -20063,12 +21208,17 @@ func (o OAuth2CredentialProviderClientSecretArnPtrOutput) SecretArn() pulumi.Str
 
 // Input configuration for a custom OAuth2 provider
 type OAuth2CredentialProviderCustomOauth2ProviderConfigInput struct {
+	// The client authentication method to use when authenticating with the token endpoint
+	ClientAuthenticationMethod *OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod `pulumi:"clientAuthenticationMethod"`
 	// The client ID for the custom OAuth2 provider
 	ClientId *string `pulumi:"clientId"`
 	// The client secret for the custom OAuth2 provider
-	ClientSecret                  *string                                                `pulumi:"clientSecret"`
-	OauthDiscovery                OAuth2CredentialProviderOauth2Discovery                `pulumi:"oauthDiscovery"`
-	OnBehalfOfTokenExchangeConfig *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig `pulumi:"onBehalfOfTokenExchangeConfig"`
+	ClientSecret       *string                                  `pulumi:"clientSecret"`
+	ClientSecretConfig *OAuth2CredentialProviderSecretReference `pulumi:"clientSecretConfig"`
+	// The source of the client secret
+	ClientSecretSource            *OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource `pulumi:"clientSecretSource"`
+	OauthDiscovery                OAuth2CredentialProviderOauth2Discovery                                    `pulumi:"oauthDiscovery"`
+	OnBehalfOfTokenExchangeConfig *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig                     `pulumi:"onBehalfOfTokenExchangeConfig"`
 }
 
 // OAuth2CredentialProviderCustomOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs and OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput values.
@@ -20084,12 +21234,17 @@ type OAuth2CredentialProviderCustomOauth2ProviderConfigInputInput interface {
 
 // Input configuration for a custom OAuth2 provider
 type OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs struct {
+	// The client authentication method to use when authenticating with the token endpoint
+	ClientAuthenticationMethod OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethodPtrInput `pulumi:"clientAuthenticationMethod"`
 	// The client ID for the custom OAuth2 provider
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// The client secret for the custom OAuth2 provider
-	ClientSecret                  pulumi.StringPtrInput                                         `pulumi:"clientSecret"`
-	OauthDiscovery                OAuth2CredentialProviderOauth2DiscoveryInput                  `pulumi:"oauthDiscovery"`
-	OnBehalfOfTokenExchangeConfig OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrInput `pulumi:"onBehalfOfTokenExchangeConfig"`
+	ClientSecret       pulumi.StringPtrInput                           `pulumi:"clientSecret"`
+	ClientSecretConfig OAuth2CredentialProviderSecretReferencePtrInput `pulumi:"clientSecretConfig"`
+	// The source of the client secret
+	ClientSecretSource            OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSourcePtrInput `pulumi:"clientSecretSource"`
+	OauthDiscovery                OAuth2CredentialProviderOauth2DiscoveryInput                                      `pulumi:"oauthDiscovery"`
+	OnBehalfOfTokenExchangeConfig OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrInput                     `pulumi:"onBehalfOfTokenExchangeConfig"`
 }
 
 func (OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
@@ -20170,6 +21325,13 @@ func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ToOAuth2C
 	}).(OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput)
 }
 
+// The client authentication method to use when authenticating with the token endpoint
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ClientAuthenticationMethod() OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethodPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod {
+		return v.ClientAuthenticationMethod
+	}).(OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethodPtrOutput)
+}
+
 // The client ID for the custom OAuth2 provider
 func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *string { return v.ClientId }).(pulumi.StringPtrOutput)
@@ -20178,6 +21340,19 @@ func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ClientId(
 // The client secret for the custom OAuth2 provider
 func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+// The source of the client secret
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ClientSecretSource() OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource {
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) OauthDiscovery() OAuth2CredentialProviderOauth2DiscoveryOutput {
@@ -20216,6 +21391,16 @@ func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) Elem()
 	}).(OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput)
 }
 
+// The client authentication method to use when authenticating with the token endpoint
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) ClientAuthenticationMethod() OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethodPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod {
+		if v == nil {
+			return nil
+		}
+		return v.ClientAuthenticationMethod
+	}).(OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethodPtrOutput)
+}
+
 // The client ID for the custom OAuth2 provider
 func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *string {
@@ -20234,6 +21419,25 @@ func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) Client
 		}
 		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+// The source of the client secret
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) ClientSecretSource() OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) OauthDiscovery() OAuth2CredentialProviderOauth2DiscoveryPtrOutput {
@@ -20256,8 +21460,10 @@ func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) OnBeha
 
 // Input configuration for a GitHub OAuth2 provider
 type OAuth2CredentialProviderGithubOauth2ProviderConfigInput struct {
-	ClientId     string `pulumi:"clientId"`
-	ClientSecret string `pulumi:"clientSecret"`
+	ClientId           string                                                                     `pulumi:"clientId"`
+	ClientSecret       *string                                                                    `pulumi:"clientSecret"`
+	ClientSecretConfig *OAuth2CredentialProviderSecretReference                                   `pulumi:"clientSecretConfig"`
+	ClientSecretSource *OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource `pulumi:"clientSecretSource"`
 }
 
 // OAuth2CredentialProviderGithubOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs and OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput values.
@@ -20273,8 +21479,10 @@ type OAuth2CredentialProviderGithubOauth2ProviderConfigInputInput interface {
 
 // Input configuration for a GitHub OAuth2 provider
 type OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs struct {
-	ClientId     pulumi.StringInput `pulumi:"clientId"`
-	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	ClientId           pulumi.StringInput                                                                `pulumi:"clientId"`
+	ClientSecret       pulumi.StringPtrInput                                                             `pulumi:"clientSecret"`
+	ClientSecretConfig OAuth2CredentialProviderSecretReferencePtrInput                                   `pulumi:"clientSecretConfig"`
+	ClientSecretSource OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSourcePtrInput `pulumi:"clientSecretSource"`
 }
 
 func (OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
@@ -20359,8 +21567,20 @@ func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput) ClientId(
 	return o.ApplyT(func(v OAuth2CredentialProviderGithubOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v OAuth2CredentialProviderGithubOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderGithubOauth2ProviderConfigInput) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderGithubOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput) ClientSecretSource() OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderGithubOauth2ProviderConfigInput) *OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource {
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 type OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
@@ -20401,14 +21621,34 @@ func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput) Client
 		if v == nil {
 			return nil
 		}
-		return &v.ClientSecret
+		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderGithubOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput) ClientSecretSource() OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderGithubOauth2ProviderConfigInput) *OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 // Input configuration for a Google OAuth2 provider
 type OAuth2CredentialProviderGoogleOauth2ProviderConfigInput struct {
-	ClientId     string `pulumi:"clientId"`
-	ClientSecret string `pulumi:"clientSecret"`
+	ClientId           string                                                                     `pulumi:"clientId"`
+	ClientSecret       *string                                                                    `pulumi:"clientSecret"`
+	ClientSecretConfig *OAuth2CredentialProviderSecretReference                                   `pulumi:"clientSecretConfig"`
+	ClientSecretSource *OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource `pulumi:"clientSecretSource"`
 }
 
 // OAuth2CredentialProviderGoogleOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs and OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput values.
@@ -20424,8 +21664,10 @@ type OAuth2CredentialProviderGoogleOauth2ProviderConfigInputInput interface {
 
 // Input configuration for a Google OAuth2 provider
 type OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs struct {
-	ClientId     pulumi.StringInput `pulumi:"clientId"`
-	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	ClientId           pulumi.StringInput                                                                `pulumi:"clientId"`
+	ClientSecret       pulumi.StringPtrInput                                                             `pulumi:"clientSecret"`
+	ClientSecretConfig OAuth2CredentialProviderSecretReferencePtrInput                                   `pulumi:"clientSecretConfig"`
+	ClientSecretSource OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSourcePtrInput `pulumi:"clientSecretSource"`
 }
 
 func (OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
@@ -20510,8 +21752,20 @@ func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput) ClientId(
 	return o.ApplyT(func(v OAuth2CredentialProviderGoogleOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v OAuth2CredentialProviderGoogleOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderGoogleOauth2ProviderConfigInput) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderGoogleOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput) ClientSecretSource() OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderGoogleOauth2ProviderConfigInput) *OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource {
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 type OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
@@ -20552,16 +21806,36 @@ func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput) Client
 		if v == nil {
 			return nil
 		}
-		return &v.ClientSecret
+		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderGoogleOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput) ClientSecretSource() OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderGoogleOauth2ProviderConfigInput) *OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 // Input configuration for a supported non-custom OAuth2 provider
 type OAuth2CredentialProviderIncludedOauth2ProviderConfigInput struct {
 	// OAuth2 authorization endpoint for your isolated OAuth2 application tenant
-	AuthorizationEndpoint *string `pulumi:"authorizationEndpoint"`
-	ClientId              string  `pulumi:"clientId"`
-	ClientSecret          string  `pulumi:"clientSecret"`
+	AuthorizationEndpoint *string                                                                      `pulumi:"authorizationEndpoint"`
+	ClientId              string                                                                       `pulumi:"clientId"`
+	ClientSecret          *string                                                                      `pulumi:"clientSecret"`
+	ClientSecretConfig    *OAuth2CredentialProviderSecretReference                                     `pulumi:"clientSecretConfig"`
+	ClientSecretSource    *OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource `pulumi:"clientSecretSource"`
 	// Token issuer of your isolated OAuth2 application tenant
 	Issuer *string `pulumi:"issuer"`
 	// OAuth2 token endpoint for your isolated OAuth2 application tenant
@@ -20582,9 +21856,11 @@ type OAuth2CredentialProviderIncludedOauth2ProviderConfigInputInput interface {
 // Input configuration for a supported non-custom OAuth2 provider
 type OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs struct {
 	// OAuth2 authorization endpoint for your isolated OAuth2 application tenant
-	AuthorizationEndpoint pulumi.StringPtrInput `pulumi:"authorizationEndpoint"`
-	ClientId              pulumi.StringInput    `pulumi:"clientId"`
-	ClientSecret          pulumi.StringInput    `pulumi:"clientSecret"`
+	AuthorizationEndpoint pulumi.StringPtrInput                                                               `pulumi:"authorizationEndpoint"`
+	ClientId              pulumi.StringInput                                                                  `pulumi:"clientId"`
+	ClientSecret          pulumi.StringPtrInput                                                               `pulumi:"clientSecret"`
+	ClientSecretConfig    OAuth2CredentialProviderSecretReferencePtrInput                                     `pulumi:"clientSecretConfig"`
+	ClientSecretSource    OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSourcePtrInput `pulumi:"clientSecretSource"`
 	// Token issuer of your isolated OAuth2 application tenant
 	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
 	// OAuth2 token endpoint for your isolated OAuth2 application tenant
@@ -20680,8 +21956,20 @@ func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput) ClientI
 	return o.ApplyT(func(v OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput) ClientSecretSource() OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) *OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource {
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 // Token issuer of your isolated OAuth2 application tenant
@@ -20742,8 +22030,26 @@ func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput) Clie
 		if v == nil {
 			return nil
 		}
-		return &v.ClientSecret
+		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput) ClientSecretSource() OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) *OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 // Token issuer of your isolated OAuth2 application tenant
@@ -20768,8 +22074,10 @@ func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput) Toke
 
 // Input configuration for a LinkedIn OAuth2 provider
 type OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput struct {
-	ClientId     string `pulumi:"clientId"`
-	ClientSecret string `pulumi:"clientSecret"`
+	ClientId           string                                                                       `pulumi:"clientId"`
+	ClientSecret       *string                                                                      `pulumi:"clientSecret"`
+	ClientSecretConfig *OAuth2CredentialProviderSecretReference                                     `pulumi:"clientSecretConfig"`
+	ClientSecretSource *OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource `pulumi:"clientSecretSource"`
 }
 
 // OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs and OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput values.
@@ -20785,8 +22093,10 @@ type OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputInput interface {
 
 // Input configuration for a LinkedIn OAuth2 provider
 type OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs struct {
-	ClientId     pulumi.StringInput `pulumi:"clientId"`
-	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	ClientId           pulumi.StringInput                                                                  `pulumi:"clientId"`
+	ClientSecret       pulumi.StringPtrInput                                                               `pulumi:"clientSecret"`
+	ClientSecretConfig OAuth2CredentialProviderSecretReferencePtrInput                                     `pulumi:"clientSecretConfig"`
+	ClientSecretSource OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSourcePtrInput `pulumi:"clientSecretSource"`
 }
 
 func (OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
@@ -20871,8 +22181,20 @@ func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput) ClientI
 	return o.ApplyT(func(v OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput) ClientSecretSource() OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput) *OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource {
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 type OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
@@ -20913,14 +22235,34 @@ func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput) Clie
 		if v == nil {
 			return nil
 		}
-		return &v.ClientSecret
+		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput) ClientSecretSource() OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput) *OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 // Input configuration for a Microsoft OAuth2 provider
 type OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput struct {
-	ClientId     string `pulumi:"clientId"`
-	ClientSecret string `pulumi:"clientSecret"`
+	ClientId           string                                                                        `pulumi:"clientId"`
+	ClientSecret       *string                                                                       `pulumi:"clientSecret"`
+	ClientSecretConfig *OAuth2CredentialProviderSecretReference                                      `pulumi:"clientSecretConfig"`
+	ClientSecretSource *OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource `pulumi:"clientSecretSource"`
 	// The Microsoft Entra ID tenant ID
 	TenantId *string `pulumi:"tenantId"`
 }
@@ -20938,8 +22280,10 @@ type OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputInput interface {
 
 // Input configuration for a Microsoft OAuth2 provider
 type OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs struct {
-	ClientId     pulumi.StringInput `pulumi:"clientId"`
-	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	ClientId           pulumi.StringInput                                                                   `pulumi:"clientId"`
+	ClientSecret       pulumi.StringPtrInput                                                                `pulumi:"clientSecret"`
+	ClientSecretConfig OAuth2CredentialProviderSecretReferencePtrInput                                      `pulumi:"clientSecretConfig"`
+	ClientSecretSource OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSourcePtrInput `pulumi:"clientSecretSource"`
 	// The Microsoft Entra ID tenant ID
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
@@ -21026,8 +22370,20 @@ func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput) Client
 	return o.ApplyT(func(v OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput) ClientSecretSource() OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput) *OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource {
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 // The Microsoft Entra ID tenant ID
@@ -21073,8 +22429,26 @@ func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput) Cli
 		if v == nil {
 			return nil
 		}
-		return &v.ClientSecret
+		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput) ClientSecretSource() OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput) *OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 // The Microsoft Entra ID tenant ID
@@ -21719,9 +23093,11 @@ func (o OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput) SlackOauth2P
 
 // Output configuration for an OAuth2 provider
 type OAuth2CredentialProviderOauth2ProviderConfigOutput struct {
-	ClientId                      *string                                                `pulumi:"clientId"`
-	OauthDiscovery                *OAuth2CredentialProviderOauth2Discovery               `pulumi:"oauthDiscovery"`
-	OnBehalfOfTokenExchangeConfig *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig `pulumi:"onBehalfOfTokenExchangeConfig"`
+	// The client authentication method used when authenticating with the token endpoint
+	ClientAuthenticationMethod    *OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod `pulumi:"clientAuthenticationMethod"`
+	ClientId                      *string                                                                       `pulumi:"clientId"`
+	OauthDiscovery                *OAuth2CredentialProviderOauth2Discovery                                      `pulumi:"oauthDiscovery"`
+	OnBehalfOfTokenExchangeConfig *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig                        `pulumi:"onBehalfOfTokenExchangeConfig"`
 }
 
 // Output configuration for an OAuth2 provider
@@ -21737,6 +23113,13 @@ func (o OAuth2CredentialProviderOauth2ProviderConfigOutputOutput) ToOAuth2Creden
 
 func (o OAuth2CredentialProviderOauth2ProviderConfigOutputOutput) ToOAuth2CredentialProviderOauth2ProviderConfigOutputOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2ProviderConfigOutputOutput {
 	return o
+}
+
+// The client authentication method used when authenticating with the token endpoint
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputOutput) ClientAuthenticationMethod() OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethodPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigOutput) *OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod {
+		return v.ClientAuthenticationMethod
+	}).(OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethodPtrOutput)
 }
 
 func (o OAuth2CredentialProviderOauth2ProviderConfigOutputOutput) ClientId() pulumi.StringPtrOutput {
@@ -21777,6 +23160,16 @@ func (o OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput) Elem() OAut
 		var ret OAuth2CredentialProviderOauth2ProviderConfigOutput
 		return ret
 	}).(OAuth2CredentialProviderOauth2ProviderConfigOutputOutput)
+}
+
+// The client authentication method used when authenticating with the token endpoint
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput) ClientAuthenticationMethod() OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethodPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigOutput) *OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod {
+		if v == nil {
+			return nil
+		}
+		return v.ClientAuthenticationMethod
+	}).(OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethodPtrOutput)
 }
 
 func (o OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput) ClientId() pulumi.StringPtrOutput {
@@ -21967,8 +23360,10 @@ func (o OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput) TokenExc
 
 // Input configuration for a Salesforce OAuth2 provider
 type OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput struct {
-	ClientId     string `pulumi:"clientId"`
-	ClientSecret string `pulumi:"clientSecret"`
+	ClientId           string                                                                         `pulumi:"clientId"`
+	ClientSecret       *string                                                                        `pulumi:"clientSecret"`
+	ClientSecretConfig *OAuth2CredentialProviderSecretReference                                       `pulumi:"clientSecretConfig"`
+	ClientSecretSource *OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource `pulumi:"clientSecretSource"`
 }
 
 // OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs and OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput values.
@@ -21984,8 +23379,10 @@ type OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputInput interface 
 
 // Input configuration for a Salesforce OAuth2 provider
 type OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs struct {
-	ClientId     pulumi.StringInput `pulumi:"clientId"`
-	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	ClientId           pulumi.StringInput                                                                    `pulumi:"clientId"`
+	ClientSecret       pulumi.StringPtrInput                                                                 `pulumi:"clientSecret"`
+	ClientSecretConfig OAuth2CredentialProviderSecretReferencePtrInput                                       `pulumi:"clientSecretConfig"`
+	ClientSecretSource OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSourcePtrInput `pulumi:"clientSecretSource"`
 }
 
 func (OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
@@ -22070,8 +23467,20 @@ func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput) Clien
 	return o.ApplyT(func(v OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput) ClientSecretSource() OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput) *OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource {
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 type OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
@@ -22112,14 +23521,193 @@ func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput) Cl
 		if v == nil {
 			return nil
 		}
-		return &v.ClientSecret
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput) ClientSecretSource() OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput) *OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSourcePtrOutput)
+}
+
+// A reference to a customer-provided secret stored in AWS Secrets Manager
+type OAuth2CredentialProviderSecretReference struct {
+	// The JSON key within the secret that contains the credential value
+	JsonKey string `pulumi:"jsonKey"`
+	// The ID or ARN of the secret in AWS Secrets Manager
+	SecretId string `pulumi:"secretId"`
+}
+
+// OAuth2CredentialProviderSecretReferenceInput is an input type that accepts OAuth2CredentialProviderSecretReferenceArgs and OAuth2CredentialProviderSecretReferenceOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderSecretReferenceInput` via:
+//
+//	OAuth2CredentialProviderSecretReferenceArgs{...}
+type OAuth2CredentialProviderSecretReferenceInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderSecretReferenceOutput() OAuth2CredentialProviderSecretReferenceOutput
+	ToOAuth2CredentialProviderSecretReferenceOutputWithContext(context.Context) OAuth2CredentialProviderSecretReferenceOutput
+}
+
+// A reference to a customer-provided secret stored in AWS Secrets Manager
+type OAuth2CredentialProviderSecretReferenceArgs struct {
+	// The JSON key within the secret that contains the credential value
+	JsonKey pulumi.StringInput `pulumi:"jsonKey"`
+	// The ID or ARN of the secret in AWS Secrets Manager
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+}
+
+func (OAuth2CredentialProviderSecretReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderSecretReference)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderSecretReferenceArgs) ToOAuth2CredentialProviderSecretReferenceOutput() OAuth2CredentialProviderSecretReferenceOutput {
+	return i.ToOAuth2CredentialProviderSecretReferenceOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderSecretReferenceArgs) ToOAuth2CredentialProviderSecretReferenceOutputWithContext(ctx context.Context) OAuth2CredentialProviderSecretReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderSecretReferenceOutput)
+}
+
+func (i OAuth2CredentialProviderSecretReferenceArgs) ToOAuth2CredentialProviderSecretReferencePtrOutput() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return i.ToOAuth2CredentialProviderSecretReferencePtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderSecretReferenceArgs) ToOAuth2CredentialProviderSecretReferencePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSecretReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderSecretReferenceOutput).ToOAuth2CredentialProviderSecretReferencePtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderSecretReferencePtrInput is an input type that accepts OAuth2CredentialProviderSecretReferenceArgs, OAuth2CredentialProviderSecretReferencePtr and OAuth2CredentialProviderSecretReferencePtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderSecretReferencePtrInput` via:
+//
+//	        OAuth2CredentialProviderSecretReferenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderSecretReferencePtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderSecretReferencePtrOutput() OAuth2CredentialProviderSecretReferencePtrOutput
+	ToOAuth2CredentialProviderSecretReferencePtrOutputWithContext(context.Context) OAuth2CredentialProviderSecretReferencePtrOutput
+}
+
+type oauth2CredentialProviderSecretReferencePtrType OAuth2CredentialProviderSecretReferenceArgs
+
+func OAuth2CredentialProviderSecretReferencePtr(v *OAuth2CredentialProviderSecretReferenceArgs) OAuth2CredentialProviderSecretReferencePtrInput {
+	return (*oauth2CredentialProviderSecretReferencePtrType)(v)
+}
+
+func (*oauth2CredentialProviderSecretReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderSecretReference)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderSecretReferencePtrType) ToOAuth2CredentialProviderSecretReferencePtrOutput() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return i.ToOAuth2CredentialProviderSecretReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderSecretReferencePtrType) ToOAuth2CredentialProviderSecretReferencePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSecretReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+// A reference to a customer-provided secret stored in AWS Secrets Manager
+type OAuth2CredentialProviderSecretReferenceOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderSecretReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderSecretReference)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderSecretReferenceOutput) ToOAuth2CredentialProviderSecretReferenceOutput() OAuth2CredentialProviderSecretReferenceOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderSecretReferenceOutput) ToOAuth2CredentialProviderSecretReferenceOutputWithContext(ctx context.Context) OAuth2CredentialProviderSecretReferenceOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderSecretReferenceOutput) ToOAuth2CredentialProviderSecretReferencePtrOutput() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ToOAuth2CredentialProviderSecretReferencePtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderSecretReferenceOutput) ToOAuth2CredentialProviderSecretReferencePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderSecretReference) *OAuth2CredentialProviderSecretReference {
+		return &v
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+// The JSON key within the secret that contains the credential value
+func (o OAuth2CredentialProviderSecretReferenceOutput) JsonKey() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderSecretReference) string { return v.JsonKey }).(pulumi.StringOutput)
+}
+
+// The ID or ARN of the secret in AWS Secrets Manager
+func (o OAuth2CredentialProviderSecretReferenceOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderSecretReference) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+type OAuth2CredentialProviderSecretReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderSecretReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderSecretReference)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderSecretReferencePtrOutput) ToOAuth2CredentialProviderSecretReferencePtrOutput() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderSecretReferencePtrOutput) ToOAuth2CredentialProviderSecretReferencePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderSecretReferencePtrOutput) Elem() OAuth2CredentialProviderSecretReferenceOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderSecretReference) OAuth2CredentialProviderSecretReference {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderSecretReference
+		return ret
+	}).(OAuth2CredentialProviderSecretReferenceOutput)
+}
+
+// The JSON key within the secret that contains the credential value
+func (o OAuth2CredentialProviderSecretReferencePtrOutput) JsonKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderSecretReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.JsonKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID or ARN of the secret in AWS Secrets Manager
+func (o OAuth2CredentialProviderSecretReferencePtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderSecretReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
 	}).(pulumi.StringPtrOutput)
 }
 
 // Input configuration for a Slack OAuth2 provider
 type OAuth2CredentialProviderSlackOauth2ProviderConfigInput struct {
-	ClientId     string `pulumi:"clientId"`
-	ClientSecret string `pulumi:"clientSecret"`
+	ClientId           string                                                                    `pulumi:"clientId"`
+	ClientSecret       *string                                                                   `pulumi:"clientSecret"`
+	ClientSecretConfig *OAuth2CredentialProviderSecretReference                                  `pulumi:"clientSecretConfig"`
+	ClientSecretSource *OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource `pulumi:"clientSecretSource"`
 }
 
 // OAuth2CredentialProviderSlackOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs and OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput values.
@@ -22135,8 +23723,10 @@ type OAuth2CredentialProviderSlackOauth2ProviderConfigInputInput interface {
 
 // Input configuration for a Slack OAuth2 provider
 type OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs struct {
-	ClientId     pulumi.StringInput `pulumi:"clientId"`
-	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	ClientId           pulumi.StringInput                                                               `pulumi:"clientId"`
+	ClientSecret       pulumi.StringPtrInput                                                            `pulumi:"clientSecret"`
+	ClientSecretConfig OAuth2CredentialProviderSecretReferencePtrInput                                  `pulumi:"clientSecretConfig"`
+	ClientSecretSource OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSourcePtrInput `pulumi:"clientSecretSource"`
 }
 
 func (OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
@@ -22221,8 +23811,20 @@ func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput) ClientId()
 	return o.ApplyT(func(v OAuth2CredentialProviderSlackOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v OAuth2CredentialProviderSlackOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderSlackOauth2ProviderConfigInput) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderSlackOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput) ClientSecretSource() OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderSlackOauth2ProviderConfigInput) *OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource {
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 type OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
@@ -22263,8 +23865,26 @@ func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput) ClientS
 		if v == nil {
 			return nil
 		}
-		return &v.ClientSecret
+		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput) ClientSecretConfig() OAuth2CredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderSlackOauth2ProviderConfigInput) *OAuth2CredentialProviderSecretReference {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretConfig
+	}).(OAuth2CredentialProviderSecretReferencePtrOutput)
+}
+
+func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput) ClientSecretSource() OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSourcePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderSlackOauth2ProviderConfigInput) *OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretSource
+	}).(OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
 type OAuth2CredentialProviderTag struct {
@@ -23388,14 +25008,259 @@ type OnlineEvaluationConfigTag struct {
 	Value string `pulumi:"value"`
 }
 
+type PaymentConnectorCredentialsProviderConfiguration struct {
+	CoinbaseCdp *PaymentConnectorPaymentCredentialProviderConfiguration `pulumi:"coinbaseCdp"`
+	StripePrivy *PaymentConnectorPaymentCredentialProviderConfiguration `pulumi:"stripePrivy"`
+}
+
+// PaymentConnectorCredentialsProviderConfigurationInput is an input type that accepts PaymentConnectorCredentialsProviderConfigurationArgs and PaymentConnectorCredentialsProviderConfigurationOutput values.
+// You can construct a concrete instance of `PaymentConnectorCredentialsProviderConfigurationInput` via:
+//
+//	PaymentConnectorCredentialsProviderConfigurationArgs{...}
+type PaymentConnectorCredentialsProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToPaymentConnectorCredentialsProviderConfigurationOutput() PaymentConnectorCredentialsProviderConfigurationOutput
+	ToPaymentConnectorCredentialsProviderConfigurationOutputWithContext(context.Context) PaymentConnectorCredentialsProviderConfigurationOutput
+}
+
+type PaymentConnectorCredentialsProviderConfigurationArgs struct {
+	CoinbaseCdp PaymentConnectorPaymentCredentialProviderConfigurationPtrInput `pulumi:"coinbaseCdp"`
+	StripePrivy PaymentConnectorPaymentCredentialProviderConfigurationPtrInput `pulumi:"stripePrivy"`
+}
+
+func (PaymentConnectorCredentialsProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentConnectorCredentialsProviderConfiguration)(nil)).Elem()
+}
+
+func (i PaymentConnectorCredentialsProviderConfigurationArgs) ToPaymentConnectorCredentialsProviderConfigurationOutput() PaymentConnectorCredentialsProviderConfigurationOutput {
+	return i.ToPaymentConnectorCredentialsProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i PaymentConnectorCredentialsProviderConfigurationArgs) ToPaymentConnectorCredentialsProviderConfigurationOutputWithContext(ctx context.Context) PaymentConnectorCredentialsProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentConnectorCredentialsProviderConfigurationOutput)
+}
+
+// PaymentConnectorCredentialsProviderConfigurationArrayInput is an input type that accepts PaymentConnectorCredentialsProviderConfigurationArray and PaymentConnectorCredentialsProviderConfigurationArrayOutput values.
+// You can construct a concrete instance of `PaymentConnectorCredentialsProviderConfigurationArrayInput` via:
+//
+//	PaymentConnectorCredentialsProviderConfigurationArray{ PaymentConnectorCredentialsProviderConfigurationArgs{...} }
+type PaymentConnectorCredentialsProviderConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToPaymentConnectorCredentialsProviderConfigurationArrayOutput() PaymentConnectorCredentialsProviderConfigurationArrayOutput
+	ToPaymentConnectorCredentialsProviderConfigurationArrayOutputWithContext(context.Context) PaymentConnectorCredentialsProviderConfigurationArrayOutput
+}
+
+type PaymentConnectorCredentialsProviderConfigurationArray []PaymentConnectorCredentialsProviderConfigurationInput
+
+func (PaymentConnectorCredentialsProviderConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PaymentConnectorCredentialsProviderConfiguration)(nil)).Elem()
+}
+
+func (i PaymentConnectorCredentialsProviderConfigurationArray) ToPaymentConnectorCredentialsProviderConfigurationArrayOutput() PaymentConnectorCredentialsProviderConfigurationArrayOutput {
+	return i.ToPaymentConnectorCredentialsProviderConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i PaymentConnectorCredentialsProviderConfigurationArray) ToPaymentConnectorCredentialsProviderConfigurationArrayOutputWithContext(ctx context.Context) PaymentConnectorCredentialsProviderConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentConnectorCredentialsProviderConfigurationArrayOutput)
+}
+
+type PaymentConnectorCredentialsProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PaymentConnectorCredentialsProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentConnectorCredentialsProviderConfiguration)(nil)).Elem()
+}
+
+func (o PaymentConnectorCredentialsProviderConfigurationOutput) ToPaymentConnectorCredentialsProviderConfigurationOutput() PaymentConnectorCredentialsProviderConfigurationOutput {
+	return o
+}
+
+func (o PaymentConnectorCredentialsProviderConfigurationOutput) ToPaymentConnectorCredentialsProviderConfigurationOutputWithContext(ctx context.Context) PaymentConnectorCredentialsProviderConfigurationOutput {
+	return o
+}
+
+func (o PaymentConnectorCredentialsProviderConfigurationOutput) CoinbaseCdp() PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v PaymentConnectorCredentialsProviderConfiguration) *PaymentConnectorPaymentCredentialProviderConfiguration {
+		return v.CoinbaseCdp
+	}).(PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput)
+}
+
+func (o PaymentConnectorCredentialsProviderConfigurationOutput) StripePrivy() PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v PaymentConnectorCredentialsProviderConfiguration) *PaymentConnectorPaymentCredentialProviderConfiguration {
+		return v.StripePrivy
+	}).(PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput)
+}
+
+type PaymentConnectorCredentialsProviderConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (PaymentConnectorCredentialsProviderConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PaymentConnectorCredentialsProviderConfiguration)(nil)).Elem()
+}
+
+func (o PaymentConnectorCredentialsProviderConfigurationArrayOutput) ToPaymentConnectorCredentialsProviderConfigurationArrayOutput() PaymentConnectorCredentialsProviderConfigurationArrayOutput {
+	return o
+}
+
+func (o PaymentConnectorCredentialsProviderConfigurationArrayOutput) ToPaymentConnectorCredentialsProviderConfigurationArrayOutputWithContext(ctx context.Context) PaymentConnectorCredentialsProviderConfigurationArrayOutput {
+	return o
+}
+
+func (o PaymentConnectorCredentialsProviderConfigurationArrayOutput) Index(i pulumi.IntInput) PaymentConnectorCredentialsProviderConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PaymentConnectorCredentialsProviderConfiguration {
+		return vs[0].([]PaymentConnectorCredentialsProviderConfiguration)[vs[1].(int)]
+	}).(PaymentConnectorCredentialsProviderConfigurationOutput)
+}
+
+type PaymentConnectorPaymentCredentialProviderConfiguration struct {
+	// The ARN of the payment credential provider
+	CredentialProviderArn string `pulumi:"credentialProviderArn"`
+}
+
+// PaymentConnectorPaymentCredentialProviderConfigurationInput is an input type that accepts PaymentConnectorPaymentCredentialProviderConfigurationArgs and PaymentConnectorPaymentCredentialProviderConfigurationOutput values.
+// You can construct a concrete instance of `PaymentConnectorPaymentCredentialProviderConfigurationInput` via:
+//
+//	PaymentConnectorPaymentCredentialProviderConfigurationArgs{...}
+type PaymentConnectorPaymentCredentialProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToPaymentConnectorPaymentCredentialProviderConfigurationOutput() PaymentConnectorPaymentCredentialProviderConfigurationOutput
+	ToPaymentConnectorPaymentCredentialProviderConfigurationOutputWithContext(context.Context) PaymentConnectorPaymentCredentialProviderConfigurationOutput
+}
+
+type PaymentConnectorPaymentCredentialProviderConfigurationArgs struct {
+	// The ARN of the payment credential provider
+	CredentialProviderArn pulumi.StringInput `pulumi:"credentialProviderArn"`
+}
+
+func (PaymentConnectorPaymentCredentialProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentConnectorPaymentCredentialProviderConfiguration)(nil)).Elem()
+}
+
+func (i PaymentConnectorPaymentCredentialProviderConfigurationArgs) ToPaymentConnectorPaymentCredentialProviderConfigurationOutput() PaymentConnectorPaymentCredentialProviderConfigurationOutput {
+	return i.ToPaymentConnectorPaymentCredentialProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i PaymentConnectorPaymentCredentialProviderConfigurationArgs) ToPaymentConnectorPaymentCredentialProviderConfigurationOutputWithContext(ctx context.Context) PaymentConnectorPaymentCredentialProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentConnectorPaymentCredentialProviderConfigurationOutput)
+}
+
+func (i PaymentConnectorPaymentCredentialProviderConfigurationArgs) ToPaymentConnectorPaymentCredentialProviderConfigurationPtrOutput() PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput {
+	return i.ToPaymentConnectorPaymentCredentialProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PaymentConnectorPaymentCredentialProviderConfigurationArgs) ToPaymentConnectorPaymentCredentialProviderConfigurationPtrOutputWithContext(ctx context.Context) PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentConnectorPaymentCredentialProviderConfigurationOutput).ToPaymentConnectorPaymentCredentialProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// PaymentConnectorPaymentCredentialProviderConfigurationPtrInput is an input type that accepts PaymentConnectorPaymentCredentialProviderConfigurationArgs, PaymentConnectorPaymentCredentialProviderConfigurationPtr and PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `PaymentConnectorPaymentCredentialProviderConfigurationPtrInput` via:
+//
+//	        PaymentConnectorPaymentCredentialProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PaymentConnectorPaymentCredentialProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPaymentConnectorPaymentCredentialProviderConfigurationPtrOutput() PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput
+	ToPaymentConnectorPaymentCredentialProviderConfigurationPtrOutputWithContext(context.Context) PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput
+}
+
+type paymentConnectorPaymentCredentialProviderConfigurationPtrType PaymentConnectorPaymentCredentialProviderConfigurationArgs
+
+func PaymentConnectorPaymentCredentialProviderConfigurationPtr(v *PaymentConnectorPaymentCredentialProviderConfigurationArgs) PaymentConnectorPaymentCredentialProviderConfigurationPtrInput {
+	return (*paymentConnectorPaymentCredentialProviderConfigurationPtrType)(v)
+}
+
+func (*paymentConnectorPaymentCredentialProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentConnectorPaymentCredentialProviderConfiguration)(nil)).Elem()
+}
+
+func (i *paymentConnectorPaymentCredentialProviderConfigurationPtrType) ToPaymentConnectorPaymentCredentialProviderConfigurationPtrOutput() PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput {
+	return i.ToPaymentConnectorPaymentCredentialProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *paymentConnectorPaymentCredentialProviderConfigurationPtrType) ToPaymentConnectorPaymentCredentialProviderConfigurationPtrOutputWithContext(ctx context.Context) PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput)
+}
+
+type PaymentConnectorPaymentCredentialProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PaymentConnectorPaymentCredentialProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentConnectorPaymentCredentialProviderConfiguration)(nil)).Elem()
+}
+
+func (o PaymentConnectorPaymentCredentialProviderConfigurationOutput) ToPaymentConnectorPaymentCredentialProviderConfigurationOutput() PaymentConnectorPaymentCredentialProviderConfigurationOutput {
+	return o
+}
+
+func (o PaymentConnectorPaymentCredentialProviderConfigurationOutput) ToPaymentConnectorPaymentCredentialProviderConfigurationOutputWithContext(ctx context.Context) PaymentConnectorPaymentCredentialProviderConfigurationOutput {
+	return o
+}
+
+func (o PaymentConnectorPaymentCredentialProviderConfigurationOutput) ToPaymentConnectorPaymentCredentialProviderConfigurationPtrOutput() PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput {
+	return o.ToPaymentConnectorPaymentCredentialProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PaymentConnectorPaymentCredentialProviderConfigurationOutput) ToPaymentConnectorPaymentCredentialProviderConfigurationPtrOutputWithContext(ctx context.Context) PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PaymentConnectorPaymentCredentialProviderConfiguration) *PaymentConnectorPaymentCredentialProviderConfiguration {
+		return &v
+	}).(PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput)
+}
+
+// The ARN of the payment credential provider
+func (o PaymentConnectorPaymentCredentialProviderConfigurationOutput) CredentialProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v PaymentConnectorPaymentCredentialProviderConfiguration) string { return v.CredentialProviderArn }).(pulumi.StringOutput)
+}
+
+type PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentConnectorPaymentCredentialProviderConfiguration)(nil)).Elem()
+}
+
+func (o PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput) ToPaymentConnectorPaymentCredentialProviderConfigurationPtrOutput() PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput) ToPaymentConnectorPaymentCredentialProviderConfigurationPtrOutputWithContext(ctx context.Context) PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput) Elem() PaymentConnectorPaymentCredentialProviderConfigurationOutput {
+	return o.ApplyT(func(v *PaymentConnectorPaymentCredentialProviderConfiguration) PaymentConnectorPaymentCredentialProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PaymentConnectorPaymentCredentialProviderConfiguration
+		return ret
+	}).(PaymentConnectorPaymentCredentialProviderConfigurationOutput)
+}
+
+// The ARN of the payment credential provider
+func (o PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput) CredentialProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PaymentConnectorPaymentCredentialProviderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Coinbase CDP configuration with API credentials
 type PaymentCredentialProviderCoinbaseCdpConfigurationInput struct {
 	// The Coinbase CDP API key ID
 	ApiKeyId string `pulumi:"apiKeyId"`
 	// The Coinbase CDP API key secret
-	ApiKeySecret string `pulumi:"apiKeySecret"`
+	ApiKeySecret       *string                                    `pulumi:"apiKeySecret"`
+	ApiKeySecretConfig *PaymentCredentialProviderSecretReference  `pulumi:"apiKeySecretConfig"`
+	ApiKeySecretSource *PaymentCredentialProviderSecretSourceType `pulumi:"apiKeySecretSource"`
 	// The Coinbase CDP wallet secret
-	WalletSecret *string `pulumi:"walletSecret"`
+	WalletSecret       *string                                    `pulumi:"walletSecret"`
+	WalletSecretConfig *PaymentCredentialProviderSecretReference  `pulumi:"walletSecretConfig"`
+	WalletSecretSource *PaymentCredentialProviderSecretSourceType `pulumi:"walletSecretSource"`
 }
 
 // PaymentCredentialProviderCoinbaseCdpConfigurationInputInput is an input type that accepts PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs and PaymentCredentialProviderCoinbaseCdpConfigurationInputOutput values.
@@ -23414,9 +25279,13 @@ type PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs struct {
 	// The Coinbase CDP API key ID
 	ApiKeyId pulumi.StringInput `pulumi:"apiKeyId"`
 	// The Coinbase CDP API key secret
-	ApiKeySecret pulumi.StringInput `pulumi:"apiKeySecret"`
+	ApiKeySecret       pulumi.StringPtrInput                             `pulumi:"apiKeySecret"`
+	ApiKeySecretConfig PaymentCredentialProviderSecretReferencePtrInput  `pulumi:"apiKeySecretConfig"`
+	ApiKeySecretSource PaymentCredentialProviderSecretSourceTypePtrInput `pulumi:"apiKeySecretSource"`
 	// The Coinbase CDP wallet secret
-	WalletSecret pulumi.StringPtrInput `pulumi:"walletSecret"`
+	WalletSecret       pulumi.StringPtrInput                             `pulumi:"walletSecret"`
+	WalletSecretConfig PaymentCredentialProviderSecretReferencePtrInput  `pulumi:"walletSecretConfig"`
+	WalletSecretSource PaymentCredentialProviderSecretSourceTypePtrInput `pulumi:"walletSecretSource"`
 }
 
 func (PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs) ElementType() reflect.Type {
@@ -23503,13 +25372,37 @@ func (o PaymentCredentialProviderCoinbaseCdpConfigurationInputOutput) ApiKeyId()
 }
 
 // The Coinbase CDP API key secret
-func (o PaymentCredentialProviderCoinbaseCdpConfigurationInputOutput) ApiKeySecret() pulumi.StringOutput {
-	return o.ApplyT(func(v PaymentCredentialProviderCoinbaseCdpConfigurationInput) string { return v.ApiKeySecret }).(pulumi.StringOutput)
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationInputOutput) ApiKeySecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderCoinbaseCdpConfigurationInput) *string { return v.ApiKeySecret }).(pulumi.StringPtrOutput)
+}
+
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationInputOutput) ApiKeySecretConfig() PaymentCredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderCoinbaseCdpConfigurationInput) *PaymentCredentialProviderSecretReference {
+		return v.ApiKeySecretConfig
+	}).(PaymentCredentialProviderSecretReferencePtrOutput)
+}
+
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationInputOutput) ApiKeySecretSource() PaymentCredentialProviderSecretSourceTypePtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderCoinbaseCdpConfigurationInput) *PaymentCredentialProviderSecretSourceType {
+		return v.ApiKeySecretSource
+	}).(PaymentCredentialProviderSecretSourceTypePtrOutput)
 }
 
 // The Coinbase CDP wallet secret
 func (o PaymentCredentialProviderCoinbaseCdpConfigurationInputOutput) WalletSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PaymentCredentialProviderCoinbaseCdpConfigurationInput) *string { return v.WalletSecret }).(pulumi.StringPtrOutput)
+}
+
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationInputOutput) WalletSecretConfig() PaymentCredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderCoinbaseCdpConfigurationInput) *PaymentCredentialProviderSecretReference {
+		return v.WalletSecretConfig
+	}).(PaymentCredentialProviderSecretReferencePtrOutput)
+}
+
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationInputOutput) WalletSecretSource() PaymentCredentialProviderSecretSourceTypePtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderCoinbaseCdpConfigurationInput) *PaymentCredentialProviderSecretSourceType {
+		return v.WalletSecretSource
+	}).(PaymentCredentialProviderSecretSourceTypePtrOutput)
 }
 
 type PaymentCredentialProviderCoinbaseCdpConfigurationInputPtrOutput struct{ *pulumi.OutputState }
@@ -23552,8 +25445,26 @@ func (o PaymentCredentialProviderCoinbaseCdpConfigurationInputPtrOutput) ApiKeyS
 		if v == nil {
 			return nil
 		}
-		return &v.ApiKeySecret
+		return v.ApiKeySecret
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationInputPtrOutput) ApiKeySecretConfig() PaymentCredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderCoinbaseCdpConfigurationInput) *PaymentCredentialProviderSecretReference {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeySecretConfig
+	}).(PaymentCredentialProviderSecretReferencePtrOutput)
+}
+
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationInputPtrOutput) ApiKeySecretSource() PaymentCredentialProviderSecretSourceTypePtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderCoinbaseCdpConfigurationInput) *PaymentCredentialProviderSecretSourceType {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeySecretSource
+	}).(PaymentCredentialProviderSecretSourceTypePtrOutput)
 }
 
 // The Coinbase CDP wallet secret
@@ -23566,12 +25477,36 @@ func (o PaymentCredentialProviderCoinbaseCdpConfigurationInputPtrOutput) WalletS
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationInputPtrOutput) WalletSecretConfig() PaymentCredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderCoinbaseCdpConfigurationInput) *PaymentCredentialProviderSecretReference {
+		if v == nil {
+			return nil
+		}
+		return v.WalletSecretConfig
+	}).(PaymentCredentialProviderSecretReferencePtrOutput)
+}
+
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationInputPtrOutput) WalletSecretSource() PaymentCredentialProviderSecretSourceTypePtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderCoinbaseCdpConfigurationInput) *PaymentCredentialProviderSecretSourceType {
+		if v == nil {
+			return nil
+		}
+		return v.WalletSecretSource
+	}).(PaymentCredentialProviderSecretSourceTypePtrOutput)
+}
+
 // Coinbase CDP configuration output with secret ARNs
 type PaymentCredentialProviderCoinbaseCdpConfigurationOutput struct {
 	// The Coinbase CDP API key ID
-	ApiKeyId        string                               `pulumi:"apiKeyId"`
-	ApiKeySecretArn PaymentCredentialProviderSecretInfo  `pulumi:"apiKeySecretArn"`
-	WalletSecretArn *PaymentCredentialProviderSecretInfo `pulumi:"walletSecretArn"`
+	ApiKeyId        string                              `pulumi:"apiKeyId"`
+	ApiKeySecretArn PaymentCredentialProviderSecretInfo `pulumi:"apiKeySecretArn"`
+	// The JSON key within the secret that contains the API key secret value
+	ApiKeySecretJsonKey *string                                    `pulumi:"apiKeySecretJsonKey"`
+	ApiKeySecretSource  *PaymentCredentialProviderSecretSourceType `pulumi:"apiKeySecretSource"`
+	WalletSecretArn     *PaymentCredentialProviderSecretInfo       `pulumi:"walletSecretArn"`
+	// The JSON key within the secret that contains the wallet secret value
+	WalletSecretJsonKey *string                                    `pulumi:"walletSecretJsonKey"`
+	WalletSecretSource  *PaymentCredentialProviderSecretSourceType `pulumi:"walletSecretSource"`
 }
 
 // Coinbase CDP configuration output with secret ARNs
@@ -23600,10 +25535,32 @@ func (o PaymentCredentialProviderCoinbaseCdpConfigurationOutputOutput) ApiKeySec
 	}).(PaymentCredentialProviderSecretInfoOutput)
 }
 
+// The JSON key within the secret that contains the API key secret value
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationOutputOutput) ApiKeySecretJsonKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderCoinbaseCdpConfigurationOutput) *string { return v.ApiKeySecretJsonKey }).(pulumi.StringPtrOutput)
+}
+
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationOutputOutput) ApiKeySecretSource() PaymentCredentialProviderSecretSourceTypePtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderCoinbaseCdpConfigurationOutput) *PaymentCredentialProviderSecretSourceType {
+		return v.ApiKeySecretSource
+	}).(PaymentCredentialProviderSecretSourceTypePtrOutput)
+}
+
 func (o PaymentCredentialProviderCoinbaseCdpConfigurationOutputOutput) WalletSecretArn() PaymentCredentialProviderSecretInfoPtrOutput {
 	return o.ApplyT(func(v PaymentCredentialProviderCoinbaseCdpConfigurationOutput) *PaymentCredentialProviderSecretInfo {
 		return v.WalletSecretArn
 	}).(PaymentCredentialProviderSecretInfoPtrOutput)
+}
+
+// The JSON key within the secret that contains the wallet secret value
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationOutputOutput) WalletSecretJsonKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderCoinbaseCdpConfigurationOutput) *string { return v.WalletSecretJsonKey }).(pulumi.StringPtrOutput)
+}
+
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationOutputOutput) WalletSecretSource() PaymentCredentialProviderSecretSourceTypePtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderCoinbaseCdpConfigurationOutput) *PaymentCredentialProviderSecretSourceType {
+		return v.WalletSecretSource
+	}).(PaymentCredentialProviderSecretSourceTypePtrOutput)
 }
 
 type PaymentCredentialProviderCoinbaseCdpConfigurationOutputPtrOutput struct{ *pulumi.OutputState }
@@ -23649,6 +25606,25 @@ func (o PaymentCredentialProviderCoinbaseCdpConfigurationOutputPtrOutput) ApiKey
 	}).(PaymentCredentialProviderSecretInfoPtrOutput)
 }
 
+// The JSON key within the secret that contains the API key secret value
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationOutputPtrOutput) ApiKeySecretJsonKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderCoinbaseCdpConfigurationOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeySecretJsonKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationOutputPtrOutput) ApiKeySecretSource() PaymentCredentialProviderSecretSourceTypePtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderCoinbaseCdpConfigurationOutput) *PaymentCredentialProviderSecretSourceType {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeySecretSource
+	}).(PaymentCredentialProviderSecretSourceTypePtrOutput)
+}
+
 func (o PaymentCredentialProviderCoinbaseCdpConfigurationOutputPtrOutput) WalletSecretArn() PaymentCredentialProviderSecretInfoPtrOutput {
 	return o.ApplyT(func(v *PaymentCredentialProviderCoinbaseCdpConfigurationOutput) *PaymentCredentialProviderSecretInfo {
 		if v == nil {
@@ -23656,6 +25632,25 @@ func (o PaymentCredentialProviderCoinbaseCdpConfigurationOutputPtrOutput) Wallet
 		}
 		return v.WalletSecretArn
 	}).(PaymentCredentialProviderSecretInfoPtrOutput)
+}
+
+// The JSON key within the secret that contains the wallet secret value
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationOutputPtrOutput) WalletSecretJsonKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderCoinbaseCdpConfigurationOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WalletSecretJsonKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PaymentCredentialProviderCoinbaseCdpConfigurationOutputPtrOutput) WalletSecretSource() PaymentCredentialProviderSecretSourceTypePtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderCoinbaseCdpConfigurationOutput) *PaymentCredentialProviderSecretSourceType {
+		if v == nil {
+			return nil
+		}
+		return v.WalletSecretSource
+	}).(PaymentCredentialProviderSecretSourceTypePtrOutput)
 }
 
 // Provider configuration input containing secrets for creation/update
@@ -23948,16 +25943,179 @@ func (o PaymentCredentialProviderSecretInfoPtrOutput) SecretArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// A reference to a customer-provided secret stored in AWS Secrets Manager
+type PaymentCredentialProviderSecretReference struct {
+	// The JSON key within the secret that contains the credential value
+	JsonKey string `pulumi:"jsonKey"`
+	// The ID or ARN of the secret in AWS Secrets Manager
+	SecretId string `pulumi:"secretId"`
+}
+
+// PaymentCredentialProviderSecretReferenceInput is an input type that accepts PaymentCredentialProviderSecretReferenceArgs and PaymentCredentialProviderSecretReferenceOutput values.
+// You can construct a concrete instance of `PaymentCredentialProviderSecretReferenceInput` via:
+//
+//	PaymentCredentialProviderSecretReferenceArgs{...}
+type PaymentCredentialProviderSecretReferenceInput interface {
+	pulumi.Input
+
+	ToPaymentCredentialProviderSecretReferenceOutput() PaymentCredentialProviderSecretReferenceOutput
+	ToPaymentCredentialProviderSecretReferenceOutputWithContext(context.Context) PaymentCredentialProviderSecretReferenceOutput
+}
+
+// A reference to a customer-provided secret stored in AWS Secrets Manager
+type PaymentCredentialProviderSecretReferenceArgs struct {
+	// The JSON key within the secret that contains the credential value
+	JsonKey pulumi.StringInput `pulumi:"jsonKey"`
+	// The ID or ARN of the secret in AWS Secrets Manager
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+}
+
+func (PaymentCredentialProviderSecretReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentCredentialProviderSecretReference)(nil)).Elem()
+}
+
+func (i PaymentCredentialProviderSecretReferenceArgs) ToPaymentCredentialProviderSecretReferenceOutput() PaymentCredentialProviderSecretReferenceOutput {
+	return i.ToPaymentCredentialProviderSecretReferenceOutputWithContext(context.Background())
+}
+
+func (i PaymentCredentialProviderSecretReferenceArgs) ToPaymentCredentialProviderSecretReferenceOutputWithContext(ctx context.Context) PaymentCredentialProviderSecretReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentCredentialProviderSecretReferenceOutput)
+}
+
+func (i PaymentCredentialProviderSecretReferenceArgs) ToPaymentCredentialProviderSecretReferencePtrOutput() PaymentCredentialProviderSecretReferencePtrOutput {
+	return i.ToPaymentCredentialProviderSecretReferencePtrOutputWithContext(context.Background())
+}
+
+func (i PaymentCredentialProviderSecretReferenceArgs) ToPaymentCredentialProviderSecretReferencePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderSecretReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentCredentialProviderSecretReferenceOutput).ToPaymentCredentialProviderSecretReferencePtrOutputWithContext(ctx)
+}
+
+// PaymentCredentialProviderSecretReferencePtrInput is an input type that accepts PaymentCredentialProviderSecretReferenceArgs, PaymentCredentialProviderSecretReferencePtr and PaymentCredentialProviderSecretReferencePtrOutput values.
+// You can construct a concrete instance of `PaymentCredentialProviderSecretReferencePtrInput` via:
+//
+//	        PaymentCredentialProviderSecretReferenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type PaymentCredentialProviderSecretReferencePtrInput interface {
+	pulumi.Input
+
+	ToPaymentCredentialProviderSecretReferencePtrOutput() PaymentCredentialProviderSecretReferencePtrOutput
+	ToPaymentCredentialProviderSecretReferencePtrOutputWithContext(context.Context) PaymentCredentialProviderSecretReferencePtrOutput
+}
+
+type paymentCredentialProviderSecretReferencePtrType PaymentCredentialProviderSecretReferenceArgs
+
+func PaymentCredentialProviderSecretReferencePtr(v *PaymentCredentialProviderSecretReferenceArgs) PaymentCredentialProviderSecretReferencePtrInput {
+	return (*paymentCredentialProviderSecretReferencePtrType)(v)
+}
+
+func (*paymentCredentialProviderSecretReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentCredentialProviderSecretReference)(nil)).Elem()
+}
+
+func (i *paymentCredentialProviderSecretReferencePtrType) ToPaymentCredentialProviderSecretReferencePtrOutput() PaymentCredentialProviderSecretReferencePtrOutput {
+	return i.ToPaymentCredentialProviderSecretReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *paymentCredentialProviderSecretReferencePtrType) ToPaymentCredentialProviderSecretReferencePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderSecretReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentCredentialProviderSecretReferencePtrOutput)
+}
+
+// A reference to a customer-provided secret stored in AWS Secrets Manager
+type PaymentCredentialProviderSecretReferenceOutput struct{ *pulumi.OutputState }
+
+func (PaymentCredentialProviderSecretReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentCredentialProviderSecretReference)(nil)).Elem()
+}
+
+func (o PaymentCredentialProviderSecretReferenceOutput) ToPaymentCredentialProviderSecretReferenceOutput() PaymentCredentialProviderSecretReferenceOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderSecretReferenceOutput) ToPaymentCredentialProviderSecretReferenceOutputWithContext(ctx context.Context) PaymentCredentialProviderSecretReferenceOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderSecretReferenceOutput) ToPaymentCredentialProviderSecretReferencePtrOutput() PaymentCredentialProviderSecretReferencePtrOutput {
+	return o.ToPaymentCredentialProviderSecretReferencePtrOutputWithContext(context.Background())
+}
+
+func (o PaymentCredentialProviderSecretReferenceOutput) ToPaymentCredentialProviderSecretReferencePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderSecretReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PaymentCredentialProviderSecretReference) *PaymentCredentialProviderSecretReference {
+		return &v
+	}).(PaymentCredentialProviderSecretReferencePtrOutput)
+}
+
+// The JSON key within the secret that contains the credential value
+func (o PaymentCredentialProviderSecretReferenceOutput) JsonKey() pulumi.StringOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderSecretReference) string { return v.JsonKey }).(pulumi.StringOutput)
+}
+
+// The ID or ARN of the secret in AWS Secrets Manager
+func (o PaymentCredentialProviderSecretReferenceOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderSecretReference) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+type PaymentCredentialProviderSecretReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (PaymentCredentialProviderSecretReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentCredentialProviderSecretReference)(nil)).Elem()
+}
+
+func (o PaymentCredentialProviderSecretReferencePtrOutput) ToPaymentCredentialProviderSecretReferencePtrOutput() PaymentCredentialProviderSecretReferencePtrOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderSecretReferencePtrOutput) ToPaymentCredentialProviderSecretReferencePtrOutputWithContext(ctx context.Context) PaymentCredentialProviderSecretReferencePtrOutput {
+	return o
+}
+
+func (o PaymentCredentialProviderSecretReferencePtrOutput) Elem() PaymentCredentialProviderSecretReferenceOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderSecretReference) PaymentCredentialProviderSecretReference {
+		if v != nil {
+			return *v
+		}
+		var ret PaymentCredentialProviderSecretReference
+		return ret
+	}).(PaymentCredentialProviderSecretReferenceOutput)
+}
+
+// The JSON key within the secret that contains the credential value
+func (o PaymentCredentialProviderSecretReferencePtrOutput) JsonKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderSecretReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.JsonKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID or ARN of the secret in AWS Secrets Manager
+func (o PaymentCredentialProviderSecretReferencePtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderSecretReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Stripe Privy configuration with credentials
 type PaymentCredentialProviderStripePrivyConfigurationInput struct {
 	// The app ID provided by Privy
 	AppId string `pulumi:"appId"`
 	// The app secret provided by Privy
-	AppSecret string `pulumi:"appSecret"`
+	AppSecret       *string                                    `pulumi:"appSecret"`
+	AppSecretConfig *PaymentCredentialProviderSecretReference  `pulumi:"appSecretConfig"`
+	AppSecretSource *PaymentCredentialProviderSecretSourceType `pulumi:"appSecretSource"`
 	// The authorization ID for the Stripe Privy integration
 	AuthorizationId string `pulumi:"authorizationId"`
 	// The authorization private key for the Stripe Privy integration
-	AuthorizationPrivateKey string `pulumi:"authorizationPrivateKey"`
+	AuthorizationPrivateKey       *string                                    `pulumi:"authorizationPrivateKey"`
+	AuthorizationPrivateKeyConfig *PaymentCredentialProviderSecretReference  `pulumi:"authorizationPrivateKeyConfig"`
+	AuthorizationPrivateKeySource *PaymentCredentialProviderSecretSourceType `pulumi:"authorizationPrivateKeySource"`
 }
 
 // PaymentCredentialProviderStripePrivyConfigurationInputInput is an input type that accepts PaymentCredentialProviderStripePrivyConfigurationInputArgs and PaymentCredentialProviderStripePrivyConfigurationInputOutput values.
@@ -23976,11 +26134,15 @@ type PaymentCredentialProviderStripePrivyConfigurationInputArgs struct {
 	// The app ID provided by Privy
 	AppId pulumi.StringInput `pulumi:"appId"`
 	// The app secret provided by Privy
-	AppSecret pulumi.StringInput `pulumi:"appSecret"`
+	AppSecret       pulumi.StringPtrInput                             `pulumi:"appSecret"`
+	AppSecretConfig PaymentCredentialProviderSecretReferencePtrInput  `pulumi:"appSecretConfig"`
+	AppSecretSource PaymentCredentialProviderSecretSourceTypePtrInput `pulumi:"appSecretSource"`
 	// The authorization ID for the Stripe Privy integration
 	AuthorizationId pulumi.StringInput `pulumi:"authorizationId"`
 	// The authorization private key for the Stripe Privy integration
-	AuthorizationPrivateKey pulumi.StringInput `pulumi:"authorizationPrivateKey"`
+	AuthorizationPrivateKey       pulumi.StringPtrInput                             `pulumi:"authorizationPrivateKey"`
+	AuthorizationPrivateKeyConfig PaymentCredentialProviderSecretReferencePtrInput  `pulumi:"authorizationPrivateKeyConfig"`
+	AuthorizationPrivateKeySource PaymentCredentialProviderSecretSourceTypePtrInput `pulumi:"authorizationPrivateKeySource"`
 }
 
 func (PaymentCredentialProviderStripePrivyConfigurationInputArgs) ElementType() reflect.Type {
@@ -24067,8 +26229,20 @@ func (o PaymentCredentialProviderStripePrivyConfigurationInputOutput) AppId() pu
 }
 
 // The app secret provided by Privy
-func (o PaymentCredentialProviderStripePrivyConfigurationInputOutput) AppSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v PaymentCredentialProviderStripePrivyConfigurationInput) string { return v.AppSecret }).(pulumi.StringOutput)
+func (o PaymentCredentialProviderStripePrivyConfigurationInputOutput) AppSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderStripePrivyConfigurationInput) *string { return v.AppSecret }).(pulumi.StringPtrOutput)
+}
+
+func (o PaymentCredentialProviderStripePrivyConfigurationInputOutput) AppSecretConfig() PaymentCredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderStripePrivyConfigurationInput) *PaymentCredentialProviderSecretReference {
+		return v.AppSecretConfig
+	}).(PaymentCredentialProviderSecretReferencePtrOutput)
+}
+
+func (o PaymentCredentialProviderStripePrivyConfigurationInputOutput) AppSecretSource() PaymentCredentialProviderSecretSourceTypePtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderStripePrivyConfigurationInput) *PaymentCredentialProviderSecretSourceType {
+		return v.AppSecretSource
+	}).(PaymentCredentialProviderSecretSourceTypePtrOutput)
 }
 
 // The authorization ID for the Stripe Privy integration
@@ -24077,10 +26251,22 @@ func (o PaymentCredentialProviderStripePrivyConfigurationInputOutput) Authorizat
 }
 
 // The authorization private key for the Stripe Privy integration
-func (o PaymentCredentialProviderStripePrivyConfigurationInputOutput) AuthorizationPrivateKey() pulumi.StringOutput {
-	return o.ApplyT(func(v PaymentCredentialProviderStripePrivyConfigurationInput) string {
+func (o PaymentCredentialProviderStripePrivyConfigurationInputOutput) AuthorizationPrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderStripePrivyConfigurationInput) *string {
 		return v.AuthorizationPrivateKey
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PaymentCredentialProviderStripePrivyConfigurationInputOutput) AuthorizationPrivateKeyConfig() PaymentCredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderStripePrivyConfigurationInput) *PaymentCredentialProviderSecretReference {
+		return v.AuthorizationPrivateKeyConfig
+	}).(PaymentCredentialProviderSecretReferencePtrOutput)
+}
+
+func (o PaymentCredentialProviderStripePrivyConfigurationInputOutput) AuthorizationPrivateKeySource() PaymentCredentialProviderSecretSourceTypePtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderStripePrivyConfigurationInput) *PaymentCredentialProviderSecretSourceType {
+		return v.AuthorizationPrivateKeySource
+	}).(PaymentCredentialProviderSecretSourceTypePtrOutput)
 }
 
 type PaymentCredentialProviderStripePrivyConfigurationInputPtrOutput struct{ *pulumi.OutputState }
@@ -24123,8 +26309,26 @@ func (o PaymentCredentialProviderStripePrivyConfigurationInputPtrOutput) AppSecr
 		if v == nil {
 			return nil
 		}
-		return &v.AppSecret
+		return v.AppSecret
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o PaymentCredentialProviderStripePrivyConfigurationInputPtrOutput) AppSecretConfig() PaymentCredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderStripePrivyConfigurationInput) *PaymentCredentialProviderSecretReference {
+		if v == nil {
+			return nil
+		}
+		return v.AppSecretConfig
+	}).(PaymentCredentialProviderSecretReferencePtrOutput)
+}
+
+func (o PaymentCredentialProviderStripePrivyConfigurationInputPtrOutput) AppSecretSource() PaymentCredentialProviderSecretSourceTypePtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderStripePrivyConfigurationInput) *PaymentCredentialProviderSecretSourceType {
+		if v == nil {
+			return nil
+		}
+		return v.AppSecretSource
+	}).(PaymentCredentialProviderSecretSourceTypePtrOutput)
 }
 
 // The authorization ID for the Stripe Privy integration
@@ -24143,8 +26347,26 @@ func (o PaymentCredentialProviderStripePrivyConfigurationInputPtrOutput) Authori
 		if v == nil {
 			return nil
 		}
-		return &v.AuthorizationPrivateKey
+		return v.AuthorizationPrivateKey
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o PaymentCredentialProviderStripePrivyConfigurationInputPtrOutput) AuthorizationPrivateKeyConfig() PaymentCredentialProviderSecretReferencePtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderStripePrivyConfigurationInput) *PaymentCredentialProviderSecretReference {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationPrivateKeyConfig
+	}).(PaymentCredentialProviderSecretReferencePtrOutput)
+}
+
+func (o PaymentCredentialProviderStripePrivyConfigurationInputPtrOutput) AuthorizationPrivateKeySource() PaymentCredentialProviderSecretSourceTypePtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderStripePrivyConfigurationInput) *PaymentCredentialProviderSecretSourceType {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationPrivateKeySource
+	}).(PaymentCredentialProviderSecretSourceTypePtrOutput)
 }
 
 // Stripe Privy configuration output with secret ARNs
@@ -24152,9 +26374,15 @@ type PaymentCredentialProviderStripePrivyConfigurationOutput struct {
 	// The app ID provided by Privy
 	AppId        string                              `pulumi:"appId"`
 	AppSecretArn PaymentCredentialProviderSecretInfo `pulumi:"appSecretArn"`
+	// The JSON key within the secret that contains the app secret value
+	AppSecretJsonKey *string                                    `pulumi:"appSecretJsonKey"`
+	AppSecretSource  *PaymentCredentialProviderSecretSourceType `pulumi:"appSecretSource"`
 	// The authorization ID for the Stripe Privy integration
 	AuthorizationId            string                              `pulumi:"authorizationId"`
 	AuthorizationPrivateKeyArn PaymentCredentialProviderSecretInfo `pulumi:"authorizationPrivateKeyArn"`
+	// The JSON key within the secret that contains the authorization private key value
+	AuthorizationPrivateKeyJsonKey *string                                    `pulumi:"authorizationPrivateKeyJsonKey"`
+	AuthorizationPrivateKeySource  *PaymentCredentialProviderSecretSourceType `pulumi:"authorizationPrivateKeySource"`
 }
 
 // Stripe Privy configuration output with secret ARNs
@@ -24183,6 +26411,17 @@ func (o PaymentCredentialProviderStripePrivyConfigurationOutputOutput) AppSecret
 	}).(PaymentCredentialProviderSecretInfoOutput)
 }
 
+// The JSON key within the secret that contains the app secret value
+func (o PaymentCredentialProviderStripePrivyConfigurationOutputOutput) AppSecretJsonKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderStripePrivyConfigurationOutput) *string { return v.AppSecretJsonKey }).(pulumi.StringPtrOutput)
+}
+
+func (o PaymentCredentialProviderStripePrivyConfigurationOutputOutput) AppSecretSource() PaymentCredentialProviderSecretSourceTypePtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderStripePrivyConfigurationOutput) *PaymentCredentialProviderSecretSourceType {
+		return v.AppSecretSource
+	}).(PaymentCredentialProviderSecretSourceTypePtrOutput)
+}
+
 // The authorization ID for the Stripe Privy integration
 func (o PaymentCredentialProviderStripePrivyConfigurationOutputOutput) AuthorizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v PaymentCredentialProviderStripePrivyConfigurationOutput) string { return v.AuthorizationId }).(pulumi.StringOutput)
@@ -24192,6 +26431,19 @@ func (o PaymentCredentialProviderStripePrivyConfigurationOutputOutput) Authoriza
 	return o.ApplyT(func(v PaymentCredentialProviderStripePrivyConfigurationOutput) PaymentCredentialProviderSecretInfo {
 		return v.AuthorizationPrivateKeyArn
 	}).(PaymentCredentialProviderSecretInfoOutput)
+}
+
+// The JSON key within the secret that contains the authorization private key value
+func (o PaymentCredentialProviderStripePrivyConfigurationOutputOutput) AuthorizationPrivateKeyJsonKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderStripePrivyConfigurationOutput) *string {
+		return v.AuthorizationPrivateKeyJsonKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PaymentCredentialProviderStripePrivyConfigurationOutputOutput) AuthorizationPrivateKeySource() PaymentCredentialProviderSecretSourceTypePtrOutput {
+	return o.ApplyT(func(v PaymentCredentialProviderStripePrivyConfigurationOutput) *PaymentCredentialProviderSecretSourceType {
+		return v.AuthorizationPrivateKeySource
+	}).(PaymentCredentialProviderSecretSourceTypePtrOutput)
 }
 
 type PaymentCredentialProviderStripePrivyConfigurationOutputPtrOutput struct{ *pulumi.OutputState }
@@ -24237,6 +26489,25 @@ func (o PaymentCredentialProviderStripePrivyConfigurationOutputPtrOutput) AppSec
 	}).(PaymentCredentialProviderSecretInfoPtrOutput)
 }
 
+// The JSON key within the secret that contains the app secret value
+func (o PaymentCredentialProviderStripePrivyConfigurationOutputPtrOutput) AppSecretJsonKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderStripePrivyConfigurationOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppSecretJsonKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PaymentCredentialProviderStripePrivyConfigurationOutputPtrOutput) AppSecretSource() PaymentCredentialProviderSecretSourceTypePtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderStripePrivyConfigurationOutput) *PaymentCredentialProviderSecretSourceType {
+		if v == nil {
+			return nil
+		}
+		return v.AppSecretSource
+	}).(PaymentCredentialProviderSecretSourceTypePtrOutput)
+}
+
 // The authorization ID for the Stripe Privy integration
 func (o PaymentCredentialProviderStripePrivyConfigurationOutputPtrOutput) AuthorizationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PaymentCredentialProviderStripePrivyConfigurationOutput) *string {
@@ -24256,9 +26527,642 @@ func (o PaymentCredentialProviderStripePrivyConfigurationOutputPtrOutput) Author
 	}).(PaymentCredentialProviderSecretInfoPtrOutput)
 }
 
+// The JSON key within the secret that contains the authorization private key value
+func (o PaymentCredentialProviderStripePrivyConfigurationOutputPtrOutput) AuthorizationPrivateKeyJsonKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderStripePrivyConfigurationOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationPrivateKeyJsonKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PaymentCredentialProviderStripePrivyConfigurationOutputPtrOutput) AuthorizationPrivateKeySource() PaymentCredentialProviderSecretSourceTypePtrOutput {
+	return o.ApplyT(func(v *PaymentCredentialProviderStripePrivyConfigurationOutput) *PaymentCredentialProviderSecretSourceType {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationPrivateKeySource
+	}).(PaymentCredentialProviderSecretSourceTypePtrOutput)
+}
+
 type PaymentCredentialProviderTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
+}
+
+type PaymentManagerAuthorizerConfiguration struct {
+	CustomJwtAuthorizer PaymentManagerCustomJwtAuthorizerConfiguration `pulumi:"customJwtAuthorizer"`
+}
+
+// PaymentManagerAuthorizerConfigurationInput is an input type that accepts PaymentManagerAuthorizerConfigurationArgs and PaymentManagerAuthorizerConfigurationOutput values.
+// You can construct a concrete instance of `PaymentManagerAuthorizerConfigurationInput` via:
+//
+//	PaymentManagerAuthorizerConfigurationArgs{...}
+type PaymentManagerAuthorizerConfigurationInput interface {
+	pulumi.Input
+
+	ToPaymentManagerAuthorizerConfigurationOutput() PaymentManagerAuthorizerConfigurationOutput
+	ToPaymentManagerAuthorizerConfigurationOutputWithContext(context.Context) PaymentManagerAuthorizerConfigurationOutput
+}
+
+type PaymentManagerAuthorizerConfigurationArgs struct {
+	CustomJwtAuthorizer PaymentManagerCustomJwtAuthorizerConfigurationInput `pulumi:"customJwtAuthorizer"`
+}
+
+func (PaymentManagerAuthorizerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (i PaymentManagerAuthorizerConfigurationArgs) ToPaymentManagerAuthorizerConfigurationOutput() PaymentManagerAuthorizerConfigurationOutput {
+	return i.ToPaymentManagerAuthorizerConfigurationOutputWithContext(context.Background())
+}
+
+func (i PaymentManagerAuthorizerConfigurationArgs) ToPaymentManagerAuthorizerConfigurationOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerAuthorizerConfigurationOutput)
+}
+
+func (i PaymentManagerAuthorizerConfigurationArgs) ToPaymentManagerAuthorizerConfigurationPtrOutput() PaymentManagerAuthorizerConfigurationPtrOutput {
+	return i.ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PaymentManagerAuthorizerConfigurationArgs) ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerAuthorizerConfigurationOutput).ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(ctx)
+}
+
+// PaymentManagerAuthorizerConfigurationPtrInput is an input type that accepts PaymentManagerAuthorizerConfigurationArgs, PaymentManagerAuthorizerConfigurationPtr and PaymentManagerAuthorizerConfigurationPtrOutput values.
+// You can construct a concrete instance of `PaymentManagerAuthorizerConfigurationPtrInput` via:
+//
+//	        PaymentManagerAuthorizerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PaymentManagerAuthorizerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPaymentManagerAuthorizerConfigurationPtrOutput() PaymentManagerAuthorizerConfigurationPtrOutput
+	ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(context.Context) PaymentManagerAuthorizerConfigurationPtrOutput
+}
+
+type paymentManagerAuthorizerConfigurationPtrType PaymentManagerAuthorizerConfigurationArgs
+
+func PaymentManagerAuthorizerConfigurationPtr(v *PaymentManagerAuthorizerConfigurationArgs) PaymentManagerAuthorizerConfigurationPtrInput {
+	return (*paymentManagerAuthorizerConfigurationPtrType)(v)
+}
+
+func (*paymentManagerAuthorizerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentManagerAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (i *paymentManagerAuthorizerConfigurationPtrType) ToPaymentManagerAuthorizerConfigurationPtrOutput() PaymentManagerAuthorizerConfigurationPtrOutput {
+	return i.ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *paymentManagerAuthorizerConfigurationPtrType) ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerAuthorizerConfigurationPtrOutput)
+}
+
+type PaymentManagerAuthorizerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PaymentManagerAuthorizerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (o PaymentManagerAuthorizerConfigurationOutput) ToPaymentManagerAuthorizerConfigurationOutput() PaymentManagerAuthorizerConfigurationOutput {
+	return o
+}
+
+func (o PaymentManagerAuthorizerConfigurationOutput) ToPaymentManagerAuthorizerConfigurationOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationOutput {
+	return o
+}
+
+func (o PaymentManagerAuthorizerConfigurationOutput) ToPaymentManagerAuthorizerConfigurationPtrOutput() PaymentManagerAuthorizerConfigurationPtrOutput {
+	return o.ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PaymentManagerAuthorizerConfigurationOutput) ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PaymentManagerAuthorizerConfiguration) *PaymentManagerAuthorizerConfiguration {
+		return &v
+	}).(PaymentManagerAuthorizerConfigurationPtrOutput)
+}
+
+func (o PaymentManagerAuthorizerConfigurationOutput) CustomJwtAuthorizer() PaymentManagerCustomJwtAuthorizerConfigurationOutput {
+	return o.ApplyT(func(v PaymentManagerAuthorizerConfiguration) PaymentManagerCustomJwtAuthorizerConfiguration {
+		return v.CustomJwtAuthorizer
+	}).(PaymentManagerCustomJwtAuthorizerConfigurationOutput)
+}
+
+type PaymentManagerAuthorizerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PaymentManagerAuthorizerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentManagerAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (o PaymentManagerAuthorizerConfigurationPtrOutput) ToPaymentManagerAuthorizerConfigurationPtrOutput() PaymentManagerAuthorizerConfigurationPtrOutput {
+	return o
+}
+
+func (o PaymentManagerAuthorizerConfigurationPtrOutput) ToPaymentManagerAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) PaymentManagerAuthorizerConfigurationPtrOutput {
+	return o
+}
+
+func (o PaymentManagerAuthorizerConfigurationPtrOutput) Elem() PaymentManagerAuthorizerConfigurationOutput {
+	return o.ApplyT(func(v *PaymentManagerAuthorizerConfiguration) PaymentManagerAuthorizerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PaymentManagerAuthorizerConfiguration
+		return ret
+	}).(PaymentManagerAuthorizerConfigurationOutput)
+}
+
+func (o PaymentManagerAuthorizerConfigurationPtrOutput) CustomJwtAuthorizer() PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
+	return o.ApplyT(func(v *PaymentManagerAuthorizerConfiguration) *PaymentManagerCustomJwtAuthorizerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.CustomJwtAuthorizer
+	}).(PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput)
+}
+
+type PaymentManagerAuthorizingClaimMatchValueType struct {
+	ClaimMatchOperator PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator `pulumi:"claimMatchOperator"`
+	ClaimMatchValue    PaymentManagerClaimMatchValueType                              `pulumi:"claimMatchValue"`
+}
+
+// PaymentManagerAuthorizingClaimMatchValueTypeInput is an input type that accepts PaymentManagerAuthorizingClaimMatchValueTypeArgs and PaymentManagerAuthorizingClaimMatchValueTypeOutput values.
+// You can construct a concrete instance of `PaymentManagerAuthorizingClaimMatchValueTypeInput` via:
+//
+//	PaymentManagerAuthorizingClaimMatchValueTypeArgs{...}
+type PaymentManagerAuthorizingClaimMatchValueTypeInput interface {
+	pulumi.Input
+
+	ToPaymentManagerAuthorizingClaimMatchValueTypeOutput() PaymentManagerAuthorizingClaimMatchValueTypeOutput
+	ToPaymentManagerAuthorizingClaimMatchValueTypeOutputWithContext(context.Context) PaymentManagerAuthorizingClaimMatchValueTypeOutput
+}
+
+type PaymentManagerAuthorizingClaimMatchValueTypeArgs struct {
+	ClaimMatchOperator PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorInput `pulumi:"claimMatchOperator"`
+	ClaimMatchValue    PaymentManagerClaimMatchValueTypeInput                              `pulumi:"claimMatchValue"`
+}
+
+func (PaymentManagerAuthorizingClaimMatchValueTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValueType)(nil)).Elem()
+}
+
+func (i PaymentManagerAuthorizingClaimMatchValueTypeArgs) ToPaymentManagerAuthorizingClaimMatchValueTypeOutput() PaymentManagerAuthorizingClaimMatchValueTypeOutput {
+	return i.ToPaymentManagerAuthorizingClaimMatchValueTypeOutputWithContext(context.Background())
+}
+
+func (i PaymentManagerAuthorizingClaimMatchValueTypeArgs) ToPaymentManagerAuthorizingClaimMatchValueTypeOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerAuthorizingClaimMatchValueTypeOutput)
+}
+
+type PaymentManagerAuthorizingClaimMatchValueTypeOutput struct{ *pulumi.OutputState }
+
+func (PaymentManagerAuthorizingClaimMatchValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValueType)(nil)).Elem()
+}
+
+func (o PaymentManagerAuthorizingClaimMatchValueTypeOutput) ToPaymentManagerAuthorizingClaimMatchValueTypeOutput() PaymentManagerAuthorizingClaimMatchValueTypeOutput {
+	return o
+}
+
+func (o PaymentManagerAuthorizingClaimMatchValueTypeOutput) ToPaymentManagerAuthorizingClaimMatchValueTypeOutputWithContext(ctx context.Context) PaymentManagerAuthorizingClaimMatchValueTypeOutput {
+	return o
+}
+
+func (o PaymentManagerAuthorizingClaimMatchValueTypeOutput) ClaimMatchOperator() PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput {
+	return o.ApplyT(func(v PaymentManagerAuthorizingClaimMatchValueType) PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator {
+		return v.ClaimMatchOperator
+	}).(PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput)
+}
+
+func (o PaymentManagerAuthorizingClaimMatchValueTypeOutput) ClaimMatchValue() PaymentManagerClaimMatchValueTypeOutput {
+	return o.ApplyT(func(v PaymentManagerAuthorizingClaimMatchValueType) PaymentManagerClaimMatchValueType {
+		return v.ClaimMatchValue
+	}).(PaymentManagerClaimMatchValueTypeOutput)
+}
+
+type PaymentManagerClaimMatchValueType struct {
+	MatchValueString     *string  `pulumi:"matchValueString"`
+	MatchValueStringList []string `pulumi:"matchValueStringList"`
+}
+
+// PaymentManagerClaimMatchValueTypeInput is an input type that accepts PaymentManagerClaimMatchValueTypeArgs and PaymentManagerClaimMatchValueTypeOutput values.
+// You can construct a concrete instance of `PaymentManagerClaimMatchValueTypeInput` via:
+//
+//	PaymentManagerClaimMatchValueTypeArgs{...}
+type PaymentManagerClaimMatchValueTypeInput interface {
+	pulumi.Input
+
+	ToPaymentManagerClaimMatchValueTypeOutput() PaymentManagerClaimMatchValueTypeOutput
+	ToPaymentManagerClaimMatchValueTypeOutputWithContext(context.Context) PaymentManagerClaimMatchValueTypeOutput
+}
+
+type PaymentManagerClaimMatchValueTypeArgs struct {
+	MatchValueString     pulumi.StringPtrInput   `pulumi:"matchValueString"`
+	MatchValueStringList pulumi.StringArrayInput `pulumi:"matchValueStringList"`
+}
+
+func (PaymentManagerClaimMatchValueTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerClaimMatchValueType)(nil)).Elem()
+}
+
+func (i PaymentManagerClaimMatchValueTypeArgs) ToPaymentManagerClaimMatchValueTypeOutput() PaymentManagerClaimMatchValueTypeOutput {
+	return i.ToPaymentManagerClaimMatchValueTypeOutputWithContext(context.Background())
+}
+
+func (i PaymentManagerClaimMatchValueTypeArgs) ToPaymentManagerClaimMatchValueTypeOutputWithContext(ctx context.Context) PaymentManagerClaimMatchValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerClaimMatchValueTypeOutput)
+}
+
+type PaymentManagerClaimMatchValueTypeOutput struct{ *pulumi.OutputState }
+
+func (PaymentManagerClaimMatchValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerClaimMatchValueType)(nil)).Elem()
+}
+
+func (o PaymentManagerClaimMatchValueTypeOutput) ToPaymentManagerClaimMatchValueTypeOutput() PaymentManagerClaimMatchValueTypeOutput {
+	return o
+}
+
+func (o PaymentManagerClaimMatchValueTypeOutput) ToPaymentManagerClaimMatchValueTypeOutputWithContext(ctx context.Context) PaymentManagerClaimMatchValueTypeOutput {
+	return o
+}
+
+func (o PaymentManagerClaimMatchValueTypeOutput) MatchValueString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PaymentManagerClaimMatchValueType) *string { return v.MatchValueString }).(pulumi.StringPtrOutput)
+}
+
+func (o PaymentManagerClaimMatchValueTypeOutput) MatchValueStringList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PaymentManagerClaimMatchValueType) []string { return v.MatchValueStringList }).(pulumi.StringArrayOutput)
+}
+
+type PaymentManagerCustomClaimValidationType struct {
+	AuthorizingClaimMatchValue PaymentManagerAuthorizingClaimMatchValueType                      `pulumi:"authorizingClaimMatchValue"`
+	InboundTokenClaimName      string                                                            `pulumi:"inboundTokenClaimName"`
+	InboundTokenClaimValueType PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType `pulumi:"inboundTokenClaimValueType"`
+}
+
+// PaymentManagerCustomClaimValidationTypeInput is an input type that accepts PaymentManagerCustomClaimValidationTypeArgs and PaymentManagerCustomClaimValidationTypeOutput values.
+// You can construct a concrete instance of `PaymentManagerCustomClaimValidationTypeInput` via:
+//
+//	PaymentManagerCustomClaimValidationTypeArgs{...}
+type PaymentManagerCustomClaimValidationTypeInput interface {
+	pulumi.Input
+
+	ToPaymentManagerCustomClaimValidationTypeOutput() PaymentManagerCustomClaimValidationTypeOutput
+	ToPaymentManagerCustomClaimValidationTypeOutputWithContext(context.Context) PaymentManagerCustomClaimValidationTypeOutput
+}
+
+type PaymentManagerCustomClaimValidationTypeArgs struct {
+	AuthorizingClaimMatchValue PaymentManagerAuthorizingClaimMatchValueTypeInput                      `pulumi:"authorizingClaimMatchValue"`
+	InboundTokenClaimName      pulumi.StringInput                                                     `pulumi:"inboundTokenClaimName"`
+	InboundTokenClaimValueType PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueTypeInput `pulumi:"inboundTokenClaimValueType"`
+}
+
+func (PaymentManagerCustomClaimValidationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerCustomClaimValidationType)(nil)).Elem()
+}
+
+func (i PaymentManagerCustomClaimValidationTypeArgs) ToPaymentManagerCustomClaimValidationTypeOutput() PaymentManagerCustomClaimValidationTypeOutput {
+	return i.ToPaymentManagerCustomClaimValidationTypeOutputWithContext(context.Background())
+}
+
+func (i PaymentManagerCustomClaimValidationTypeArgs) ToPaymentManagerCustomClaimValidationTypeOutputWithContext(ctx context.Context) PaymentManagerCustomClaimValidationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerCustomClaimValidationTypeOutput)
+}
+
+// PaymentManagerCustomClaimValidationTypeArrayInput is an input type that accepts PaymentManagerCustomClaimValidationTypeArray and PaymentManagerCustomClaimValidationTypeArrayOutput values.
+// You can construct a concrete instance of `PaymentManagerCustomClaimValidationTypeArrayInput` via:
+//
+//	PaymentManagerCustomClaimValidationTypeArray{ PaymentManagerCustomClaimValidationTypeArgs{...} }
+type PaymentManagerCustomClaimValidationTypeArrayInput interface {
+	pulumi.Input
+
+	ToPaymentManagerCustomClaimValidationTypeArrayOutput() PaymentManagerCustomClaimValidationTypeArrayOutput
+	ToPaymentManagerCustomClaimValidationTypeArrayOutputWithContext(context.Context) PaymentManagerCustomClaimValidationTypeArrayOutput
+}
+
+type PaymentManagerCustomClaimValidationTypeArray []PaymentManagerCustomClaimValidationTypeInput
+
+func (PaymentManagerCustomClaimValidationTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PaymentManagerCustomClaimValidationType)(nil)).Elem()
+}
+
+func (i PaymentManagerCustomClaimValidationTypeArray) ToPaymentManagerCustomClaimValidationTypeArrayOutput() PaymentManagerCustomClaimValidationTypeArrayOutput {
+	return i.ToPaymentManagerCustomClaimValidationTypeArrayOutputWithContext(context.Background())
+}
+
+func (i PaymentManagerCustomClaimValidationTypeArray) ToPaymentManagerCustomClaimValidationTypeArrayOutputWithContext(ctx context.Context) PaymentManagerCustomClaimValidationTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerCustomClaimValidationTypeArrayOutput)
+}
+
+type PaymentManagerCustomClaimValidationTypeOutput struct{ *pulumi.OutputState }
+
+func (PaymentManagerCustomClaimValidationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerCustomClaimValidationType)(nil)).Elem()
+}
+
+func (o PaymentManagerCustomClaimValidationTypeOutput) ToPaymentManagerCustomClaimValidationTypeOutput() PaymentManagerCustomClaimValidationTypeOutput {
+	return o
+}
+
+func (o PaymentManagerCustomClaimValidationTypeOutput) ToPaymentManagerCustomClaimValidationTypeOutputWithContext(ctx context.Context) PaymentManagerCustomClaimValidationTypeOutput {
+	return o
+}
+
+func (o PaymentManagerCustomClaimValidationTypeOutput) AuthorizingClaimMatchValue() PaymentManagerAuthorizingClaimMatchValueTypeOutput {
+	return o.ApplyT(func(v PaymentManagerCustomClaimValidationType) PaymentManagerAuthorizingClaimMatchValueType {
+		return v.AuthorizingClaimMatchValue
+	}).(PaymentManagerAuthorizingClaimMatchValueTypeOutput)
+}
+
+func (o PaymentManagerCustomClaimValidationTypeOutput) InboundTokenClaimName() pulumi.StringOutput {
+	return o.ApplyT(func(v PaymentManagerCustomClaimValidationType) string { return v.InboundTokenClaimName }).(pulumi.StringOutput)
+}
+
+func (o PaymentManagerCustomClaimValidationTypeOutput) InboundTokenClaimValueType() PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueTypeOutput {
+	return o.ApplyT(func(v PaymentManagerCustomClaimValidationType) PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType {
+		return v.InboundTokenClaimValueType
+	}).(PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueTypeOutput)
+}
+
+type PaymentManagerCustomClaimValidationTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (PaymentManagerCustomClaimValidationTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PaymentManagerCustomClaimValidationType)(nil)).Elem()
+}
+
+func (o PaymentManagerCustomClaimValidationTypeArrayOutput) ToPaymentManagerCustomClaimValidationTypeArrayOutput() PaymentManagerCustomClaimValidationTypeArrayOutput {
+	return o
+}
+
+func (o PaymentManagerCustomClaimValidationTypeArrayOutput) ToPaymentManagerCustomClaimValidationTypeArrayOutputWithContext(ctx context.Context) PaymentManagerCustomClaimValidationTypeArrayOutput {
+	return o
+}
+
+func (o PaymentManagerCustomClaimValidationTypeArrayOutput) Index(i pulumi.IntInput) PaymentManagerCustomClaimValidationTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PaymentManagerCustomClaimValidationType {
+		return vs[0].([]PaymentManagerCustomClaimValidationType)[vs[1].(int)]
+	}).(PaymentManagerCustomClaimValidationTypeOutput)
+}
+
+type PaymentManagerCustomJwtAuthorizerConfiguration struct {
+	AllowedAudience []string                                  `pulumi:"allowedAudience"`
+	AllowedClients  []string                                  `pulumi:"allowedClients"`
+	AllowedScopes   []string                                  `pulumi:"allowedScopes"`
+	CustomClaims    []PaymentManagerCustomClaimValidationType `pulumi:"customClaims"`
+	DiscoveryUrl    string                                    `pulumi:"discoveryUrl"`
+}
+
+// PaymentManagerCustomJwtAuthorizerConfigurationInput is an input type that accepts PaymentManagerCustomJwtAuthorizerConfigurationArgs and PaymentManagerCustomJwtAuthorizerConfigurationOutput values.
+// You can construct a concrete instance of `PaymentManagerCustomJwtAuthorizerConfigurationInput` via:
+//
+//	PaymentManagerCustomJwtAuthorizerConfigurationArgs{...}
+type PaymentManagerCustomJwtAuthorizerConfigurationInput interface {
+	pulumi.Input
+
+	ToPaymentManagerCustomJwtAuthorizerConfigurationOutput() PaymentManagerCustomJwtAuthorizerConfigurationOutput
+	ToPaymentManagerCustomJwtAuthorizerConfigurationOutputWithContext(context.Context) PaymentManagerCustomJwtAuthorizerConfigurationOutput
+}
+
+type PaymentManagerCustomJwtAuthorizerConfigurationArgs struct {
+	AllowedAudience pulumi.StringArrayInput                           `pulumi:"allowedAudience"`
+	AllowedClients  pulumi.StringArrayInput                           `pulumi:"allowedClients"`
+	AllowedScopes   pulumi.StringArrayInput                           `pulumi:"allowedScopes"`
+	CustomClaims    PaymentManagerCustomClaimValidationTypeArrayInput `pulumi:"customClaims"`
+	DiscoveryUrl    pulumi.StringInput                                `pulumi:"discoveryUrl"`
+}
+
+func (PaymentManagerCustomJwtAuthorizerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerCustomJwtAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (i PaymentManagerCustomJwtAuthorizerConfigurationArgs) ToPaymentManagerCustomJwtAuthorizerConfigurationOutput() PaymentManagerCustomJwtAuthorizerConfigurationOutput {
+	return i.ToPaymentManagerCustomJwtAuthorizerConfigurationOutputWithContext(context.Background())
+}
+
+func (i PaymentManagerCustomJwtAuthorizerConfigurationArgs) ToPaymentManagerCustomJwtAuthorizerConfigurationOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerCustomJwtAuthorizerConfigurationOutput)
+}
+
+func (i PaymentManagerCustomJwtAuthorizerConfigurationArgs) ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutput() PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
+	return i.ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PaymentManagerCustomJwtAuthorizerConfigurationArgs) ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerCustomJwtAuthorizerConfigurationOutput).ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(ctx)
+}
+
+// PaymentManagerCustomJwtAuthorizerConfigurationPtrInput is an input type that accepts PaymentManagerCustomJwtAuthorizerConfigurationArgs, PaymentManagerCustomJwtAuthorizerConfigurationPtr and PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput values.
+// You can construct a concrete instance of `PaymentManagerCustomJwtAuthorizerConfigurationPtrInput` via:
+//
+//	        PaymentManagerCustomJwtAuthorizerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PaymentManagerCustomJwtAuthorizerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutput() PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput
+	ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(context.Context) PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput
+}
+
+type paymentManagerCustomJwtAuthorizerConfigurationPtrType PaymentManagerCustomJwtAuthorizerConfigurationArgs
+
+func PaymentManagerCustomJwtAuthorizerConfigurationPtr(v *PaymentManagerCustomJwtAuthorizerConfigurationArgs) PaymentManagerCustomJwtAuthorizerConfigurationPtrInput {
+	return (*paymentManagerCustomJwtAuthorizerConfigurationPtrType)(v)
+}
+
+func (*paymentManagerCustomJwtAuthorizerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentManagerCustomJwtAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (i *paymentManagerCustomJwtAuthorizerConfigurationPtrType) ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutput() PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
+	return i.ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *paymentManagerCustomJwtAuthorizerConfigurationPtrType) ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput)
+}
+
+type PaymentManagerCustomJwtAuthorizerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PaymentManagerCustomJwtAuthorizerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerCustomJwtAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) ToPaymentManagerCustomJwtAuthorizerConfigurationOutput() PaymentManagerCustomJwtAuthorizerConfigurationOutput {
+	return o
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) ToPaymentManagerCustomJwtAuthorizerConfigurationOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerConfigurationOutput {
+	return o
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutput() PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
+	return o.ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PaymentManagerCustomJwtAuthorizerConfiguration) *PaymentManagerCustomJwtAuthorizerConfiguration {
+		return &v
+	}).(PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput)
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) AllowedAudience() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PaymentManagerCustomJwtAuthorizerConfiguration) []string { return v.AllowedAudience }).(pulumi.StringArrayOutput)
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) AllowedClients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PaymentManagerCustomJwtAuthorizerConfiguration) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PaymentManagerCustomJwtAuthorizerConfiguration) []string { return v.AllowedScopes }).(pulumi.StringArrayOutput)
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) CustomClaims() PaymentManagerCustomClaimValidationTypeArrayOutput {
+	return o.ApplyT(func(v PaymentManagerCustomJwtAuthorizerConfiguration) []PaymentManagerCustomClaimValidationType {
+		return v.CustomClaims
+	}).(PaymentManagerCustomClaimValidationTypeArrayOutput)
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationOutput) DiscoveryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v PaymentManagerCustomJwtAuthorizerConfiguration) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
+}
+
+type PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentManagerCustomJwtAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutput() PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
+	return o
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) ToPaymentManagerCustomJwtAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput {
+	return o
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) Elem() PaymentManagerCustomJwtAuthorizerConfigurationOutput {
+	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizerConfiguration) PaymentManagerCustomJwtAuthorizerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PaymentManagerCustomJwtAuthorizerConfiguration
+		return ret
+	}).(PaymentManagerCustomJwtAuthorizerConfigurationOutput)
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) AllowedAudience() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedAudience
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) AllowedClients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedClients
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) CustomClaims() PaymentManagerCustomClaimValidationTypeArrayOutput {
+	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizerConfiguration) []PaymentManagerCustomClaimValidationType {
+		if v == nil {
+			return nil
+		}
+		return v.CustomClaims
+	}).(PaymentManagerCustomClaimValidationTypeArrayOutput)
+}
+
+func (o PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput) DiscoveryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PaymentManagerCustomJwtAuthorizerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DiscoveryUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type PaymentManagerTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+type PaymentManagerWorkloadIdentityDetails struct {
+	WorkloadIdentityArn string `pulumi:"workloadIdentityArn"`
+}
+
+type PaymentManagerWorkloadIdentityDetailsOutput struct{ *pulumi.OutputState }
+
+func (PaymentManagerWorkloadIdentityDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentManagerWorkloadIdentityDetails)(nil)).Elem()
+}
+
+func (o PaymentManagerWorkloadIdentityDetailsOutput) ToPaymentManagerWorkloadIdentityDetailsOutput() PaymentManagerWorkloadIdentityDetailsOutput {
+	return o
+}
+
+func (o PaymentManagerWorkloadIdentityDetailsOutput) ToPaymentManagerWorkloadIdentityDetailsOutputWithContext(ctx context.Context) PaymentManagerWorkloadIdentityDetailsOutput {
+	return o
+}
+
+func (o PaymentManagerWorkloadIdentityDetailsOutput) WorkloadIdentityArn() pulumi.StringOutput {
+	return o.ApplyT(func(v PaymentManagerWorkloadIdentityDetails) string { return v.WorkloadIdentityArn }).(pulumi.StringOutput)
+}
+
+type PaymentManagerWorkloadIdentityDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (PaymentManagerWorkloadIdentityDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentManagerWorkloadIdentityDetails)(nil)).Elem()
+}
+
+func (o PaymentManagerWorkloadIdentityDetailsPtrOutput) ToPaymentManagerWorkloadIdentityDetailsPtrOutput() PaymentManagerWorkloadIdentityDetailsPtrOutput {
+	return o
+}
+
+func (o PaymentManagerWorkloadIdentityDetailsPtrOutput) ToPaymentManagerWorkloadIdentityDetailsPtrOutputWithContext(ctx context.Context) PaymentManagerWorkloadIdentityDetailsPtrOutput {
+	return o
+}
+
+func (o PaymentManagerWorkloadIdentityDetailsPtrOutput) Elem() PaymentManagerWorkloadIdentityDetailsOutput {
+	return o.ApplyT(func(v *PaymentManagerWorkloadIdentityDetails) PaymentManagerWorkloadIdentityDetails {
+		if v != nil {
+			return *v
+		}
+		var ret PaymentManagerWorkloadIdentityDetails
+		return ret
+	}).(PaymentManagerWorkloadIdentityDetailsOutput)
+}
+
+func (o PaymentManagerWorkloadIdentityDetailsPtrOutput) WorkloadIdentityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PaymentManagerWorkloadIdentityDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkloadIdentityArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // A Cedar policy statement within the AgentCore Policy system.
@@ -26903,6 +29807,8 @@ type WorkloadIdentityTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyCredentialProviderSecretReferenceInput)(nil)).Elem(), ApiKeyCredentialProviderSecretReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyCredentialProviderSecretReferencePtrInput)(nil)).Elem(), ApiKeyCredentialProviderSecretReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserEnterprisePolicyInput)(nil)).Elem(), BrowserCustomBrowserEnterprisePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserEnterprisePolicyArrayInput)(nil)).Elem(), BrowserCustomBrowserEnterprisePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserNetworkConfigurationInput)(nil)).Elem(), BrowserCustomBrowserNetworkConfigurationArgs{})
@@ -26967,6 +29873,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPolicyEngineConfigurationPtrInput)(nil)).Elem(), GatewayPolicyEngineConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayProtocolConfigurationPropertiesInput)(nil)).Elem(), GatewayProtocolConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayProtocolConfigurationPropertiesPtrInput)(nil)).Elem(), GatewayProtocolConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySessionConfigurationInput)(nil)).Elem(), GatewaySessionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySessionConfigurationPtrInput)(nil)).Elem(), GatewaySessionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayStreamingConfigurationInput)(nil)).Elem(), GatewayStreamingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayStreamingConfigurationPtrInput)(nil)).Elem(), GatewayStreamingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiGatewayTargetConfigurationInput)(nil)).Elem(), GatewayTargetApiGatewayTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiGatewayToolConfigurationInput)(nil)).Elem(), GatewayTargetApiGatewayToolConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiGatewayToolFilterInput)(nil)).Elem(), GatewayTargetApiGatewayToolFilterArgs{})
@@ -26988,6 +29898,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetHttpTargetConfigurationPropertiesInput)(nil)).Elem(), GatewayTargetHttpTargetConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetIamCredentialProviderInput)(nil)).Elem(), GatewayTargetIamCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetIamCredentialProviderPtrInput)(nil)).Elem(), GatewayTargetIamCredentialProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetManagedVpcResourceInput)(nil)).Elem(), GatewayTargetManagedVpcResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetManagedVpcResourcePtrInput)(nil)).Elem(), GatewayTargetManagedVpcResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpLambdaTargetConfigurationInput)(nil)).Elem(), GatewayTargetMcpLambdaTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpServerTargetConfigurationInput)(nil)).Elem(), GatewayTargetMcpServerTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration0PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration0PropertiesArgs{})
@@ -27003,12 +29915,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMetadataConfigurationPtrInput)(nil)).Elem(), GatewayTargetMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthCredentialProviderInput)(nil)).Elem(), GatewayTargetOAuthCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthCredentialProviderPtrInput)(nil)).Elem(), GatewayTargetOAuthCredentialProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetPrivateEndpoint0PropertiesInput)(nil)).Elem(), GatewayTargetPrivateEndpoint0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetPrivateEndpoint0PropertiesPtrInput)(nil)).Elem(), GatewayTargetPrivateEndpoint0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetPrivateEndpoint1PropertiesInput)(nil)).Elem(), GatewayTargetPrivateEndpoint1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetPrivateEndpoint1PropertiesPtrInput)(nil)).Elem(), GatewayTargetPrivateEndpoint1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetRuntimeTargetConfigurationInput)(nil)).Elem(), GatewayTargetRuntimeTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetS3ConfigurationInput)(nil)).Elem(), GatewayTargetS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetS3ConfigurationPtrInput)(nil)).Elem(), GatewayTargetS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaDefinitionInput)(nil)).Elem(), GatewayTargetSchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaDefinitionPtrInput)(nil)).Elem(), GatewayTargetSchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaDefinitionMapInput)(nil)).Elem(), GatewayTargetSchemaDefinitionMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSelfManagedLatticeResourcePropertiesInput)(nil)).Elem(), GatewayTargetSelfManagedLatticeResourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSelfManagedLatticeResourcePropertiesPtrInput)(nil)).Elem(), GatewayTargetSelfManagedLatticeResourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetTargetConfiguration0PropertiesInput)(nil)).Elem(), GatewayTargetTargetConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetTargetConfiguration1PropertiesInput)(nil)).Elem(), GatewayTargetTargetConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolDefinitionInput)(nil)).Elem(), GatewayTargetToolDefinitionArgs{})
@@ -27186,6 +30104,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrInput)(nil)).Elem(), OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSecretReferenceInput)(nil)).Elem(), OAuth2CredentialProviderSecretReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSecretReferencePtrInput)(nil)).Elem(), OAuth2CredentialProviderSecretReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSlackOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderTokenExchangeGrantTypeConfigInput)(nil)).Elem(), OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs{})
@@ -27201,12 +30121,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigSamplingConfigInput)(nil)).Elem(), OnlineEvaluationConfigSamplingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigSessionConfigInput)(nil)).Elem(), OnlineEvaluationConfigSessionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigSessionConfigPtrInput)(nil)).Elem(), OnlineEvaluationConfigSessionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentConnectorCredentialsProviderConfigurationInput)(nil)).Elem(), PaymentConnectorCredentialsProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentConnectorCredentialsProviderConfigurationArrayInput)(nil)).Elem(), PaymentConnectorCredentialsProviderConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentConnectorPaymentCredentialProviderConfigurationInput)(nil)).Elem(), PaymentConnectorPaymentCredentialProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentConnectorPaymentCredentialProviderConfigurationPtrInput)(nil)).Elem(), PaymentConnectorPaymentCredentialProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderCoinbaseCdpConfigurationInputInput)(nil)).Elem(), PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderCoinbaseCdpConfigurationInputPtrInput)(nil)).Elem(), PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderPaymentProviderConfigurationInputInput)(nil)).Elem(), PaymentCredentialProviderPaymentProviderConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderPaymentProviderConfigurationInputPtrInput)(nil)).Elem(), PaymentCredentialProviderPaymentProviderConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderSecretReferenceInput)(nil)).Elem(), PaymentCredentialProviderSecretReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderSecretReferencePtrInput)(nil)).Elem(), PaymentCredentialProviderSecretReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderStripePrivyConfigurationInputInput)(nil)).Elem(), PaymentCredentialProviderStripePrivyConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderStripePrivyConfigurationInputPtrInput)(nil)).Elem(), PaymentCredentialProviderStripePrivyConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerAuthorizerConfigurationInput)(nil)).Elem(), PaymentManagerAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerAuthorizerConfigurationPtrInput)(nil)).Elem(), PaymentManagerAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerAuthorizingClaimMatchValueTypeInput)(nil)).Elem(), PaymentManagerAuthorizingClaimMatchValueTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerClaimMatchValueTypeInput)(nil)).Elem(), PaymentManagerClaimMatchValueTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerCustomClaimValidationTypeInput)(nil)).Elem(), PaymentManagerCustomClaimValidationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerCustomClaimValidationTypeArrayInput)(nil)).Elem(), PaymentManagerCustomClaimValidationTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerCustomJwtAuthorizerConfigurationInput)(nil)).Elem(), PaymentManagerCustomJwtAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerCustomJwtAuthorizerConfigurationPtrInput)(nil)).Elem(), PaymentManagerCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCedarPolicyInput)(nil)).Elem(), PolicyCedarPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionInput)(nil)).Elem(), PolicyDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentRuntimeArtifactInput)(nil)).Elem(), RuntimeAgentRuntimeArtifactArgs{})
@@ -27243,6 +30177,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeVpcConfigPtrInput)(nil)).Elem(), RuntimeVpcConfigArgs{})
 	pulumi.RegisterOutputType(ApiKeyCredentialProviderApiKeySecretArnOutput{})
 	pulumi.RegisterOutputType(ApiKeyCredentialProviderApiKeySecretArnPtrOutput{})
+	pulumi.RegisterOutputType(ApiKeyCredentialProviderSecretReferenceOutput{})
+	pulumi.RegisterOutputType(ApiKeyCredentialProviderSecretReferencePtrOutput{})
 	pulumi.RegisterOutputType(BrowserCustomBrowserEnterprisePolicyOutput{})
 	pulumi.RegisterOutputType(BrowserCustomBrowserEnterprisePolicyArrayOutput{})
 	pulumi.RegisterOutputType(BrowserCustomBrowserNetworkConfigurationOutput{})
@@ -27308,6 +30244,10 @@ func init() {
 	pulumi.RegisterOutputType(GatewayPolicyEngineConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayProtocolConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayProtocolConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewaySessionConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewaySessionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayStreamingConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayStreamingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetApiGatewayTargetConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetApiGatewayTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetApiGatewayToolConfigurationOutput{})
@@ -27336,6 +30276,10 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetHttpTargetConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetIamCredentialProviderOutput{})
 	pulumi.RegisterOutputType(GatewayTargetIamCredentialProviderPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetManagedResourceDetailsOutput{})
+	pulumi.RegisterOutputType(GatewayTargetManagedResourceDetailsArrayOutput{})
+	pulumi.RegisterOutputType(GatewayTargetManagedVpcResourceOutput{})
+	pulumi.RegisterOutputType(GatewayTargetManagedVpcResourcePtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpLambdaTargetConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpLambdaTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpServerTargetConfigurationOutput{})
@@ -27360,6 +30304,10 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetOAuth2AuthorizationDataPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuthCredentialProviderOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuthCredentialProviderPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetPrivateEndpoint0PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetPrivateEndpoint0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetPrivateEndpoint1PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetPrivateEndpoint1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetRuntimeTargetConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetRuntimeTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetS3ConfigurationOutput{})
@@ -27367,6 +30315,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetSchemaDefinitionOutput{})
 	pulumi.RegisterOutputType(GatewayTargetSchemaDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetSchemaDefinitionMapOutput{})
+	pulumi.RegisterOutputType(GatewayTargetSelfManagedLatticeResourcePropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetConfiguration1PropertiesOutput{})
@@ -27555,6 +30505,8 @@ func init() {
 	pulumi.RegisterOutputType(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderSecretReferenceOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderSecretReferencePtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput{})
@@ -27578,6 +30530,10 @@ func init() {
 	pulumi.RegisterOutputType(OnlineEvaluationConfigSamplingConfigPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigSessionConfigOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigSessionConfigPtrOutput{})
+	pulumi.RegisterOutputType(PaymentConnectorCredentialsProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(PaymentConnectorCredentialsProviderConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(PaymentConnectorPaymentCredentialProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(PaymentConnectorPaymentCredentialProviderConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PaymentCredentialProviderCoinbaseCdpConfigurationInputOutput{})
 	pulumi.RegisterOutputType(PaymentCredentialProviderCoinbaseCdpConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(PaymentCredentialProviderCoinbaseCdpConfigurationOutputOutput{})
@@ -27588,10 +30544,22 @@ func init() {
 	pulumi.RegisterOutputType(PaymentCredentialProviderPaymentProviderConfigurationOutputPtrOutput{})
 	pulumi.RegisterOutputType(PaymentCredentialProviderSecretInfoOutput{})
 	pulumi.RegisterOutputType(PaymentCredentialProviderSecretInfoPtrOutput{})
+	pulumi.RegisterOutputType(PaymentCredentialProviderSecretReferenceOutput{})
+	pulumi.RegisterOutputType(PaymentCredentialProviderSecretReferencePtrOutput{})
 	pulumi.RegisterOutputType(PaymentCredentialProviderStripePrivyConfigurationInputOutput{})
 	pulumi.RegisterOutputType(PaymentCredentialProviderStripePrivyConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(PaymentCredentialProviderStripePrivyConfigurationOutputOutput{})
 	pulumi.RegisterOutputType(PaymentCredentialProviderStripePrivyConfigurationOutputPtrOutput{})
+	pulumi.RegisterOutputType(PaymentManagerAuthorizerConfigurationOutput{})
+	pulumi.RegisterOutputType(PaymentManagerAuthorizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PaymentManagerAuthorizingClaimMatchValueTypeOutput{})
+	pulumi.RegisterOutputType(PaymentManagerClaimMatchValueTypeOutput{})
+	pulumi.RegisterOutputType(PaymentManagerCustomClaimValidationTypeOutput{})
+	pulumi.RegisterOutputType(PaymentManagerCustomClaimValidationTypeArrayOutput{})
+	pulumi.RegisterOutputType(PaymentManagerCustomJwtAuthorizerConfigurationOutput{})
+	pulumi.RegisterOutputType(PaymentManagerCustomJwtAuthorizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PaymentManagerWorkloadIdentityDetailsOutput{})
+	pulumi.RegisterOutputType(PaymentManagerWorkloadIdentityDetailsPtrOutput{})
 	pulumi.RegisterOutputType(PolicyCedarPolicyOutput{})
 	pulumi.RegisterOutputType(PolicyCedarPolicyPtrOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionOutput{})

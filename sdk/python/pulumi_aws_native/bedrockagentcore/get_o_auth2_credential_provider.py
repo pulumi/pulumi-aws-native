@@ -26,13 +26,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetOAuth2CredentialProviderResult:
-    def __init__(__self__, callback_url=None, client_secret_arn=None, created_time=None, credential_provider_arn=None, last_updated_time=None, oauth2_provider_config_output=None, tags=None):
+    def __init__(__self__, callback_url=None, client_secret_arn=None, client_secret_json_key=None, client_secret_source=None, created_time=None, credential_provider_arn=None, last_updated_time=None, oauth2_provider_config_output=None, tags=None):
         if callback_url and not isinstance(callback_url, str):
             raise TypeError("Expected argument 'callback_url' to be a str")
         pulumi.set(__self__, "callback_url", callback_url)
         if client_secret_arn and not isinstance(client_secret_arn, dict):
             raise TypeError("Expected argument 'client_secret_arn' to be a dict")
         pulumi.set(__self__, "client_secret_arn", client_secret_arn)
+        if client_secret_json_key and not isinstance(client_secret_json_key, str):
+            raise TypeError("Expected argument 'client_secret_json_key' to be a str")
+        pulumi.set(__self__, "client_secret_json_key", client_secret_json_key)
+        if client_secret_source and not isinstance(client_secret_source, str):
+            raise TypeError("Expected argument 'client_secret_source' to be a str")
+        pulumi.set(__self__, "client_secret_source", client_secret_source)
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -64,6 +70,22 @@ class GetOAuth2CredentialProviderResult:
         The ARN of the client secret in AWS Secrets Manager
         """
         return pulumi.get(self, "client_secret_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretJsonKey")
+    def client_secret_json_key(self) -> Optional[_builtins.str]:
+        """
+        The JSON key within the secret that contains the client secret value
+        """
+        return pulumi.get(self, "client_secret_json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional['OAuth2CredentialProviderClientSecretSource']:
+        """
+        The source of the client secret
+        """
+        return pulumi.get(self, "client_secret_source")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
@@ -114,6 +136,8 @@ class AwaitableGetOAuth2CredentialProviderResult(GetOAuth2CredentialProviderResu
         return GetOAuth2CredentialProviderResult(
             callback_url=self.callback_url,
             client_secret_arn=self.client_secret_arn,
+            client_secret_json_key=self.client_secret_json_key,
+            client_secret_source=self.client_secret_source,
             created_time=self.created_time,
             credential_provider_arn=self.credential_provider_arn,
             last_updated_time=self.last_updated_time,
@@ -137,6 +161,8 @@ def get_o_auth2_credential_provider(credential_provider_arn: Optional[_builtins.
     return AwaitableGetOAuth2CredentialProviderResult(
         callback_url=pulumi.get(__ret__, 'callback_url'),
         client_secret_arn=pulumi.get(__ret__, 'client_secret_arn'),
+        client_secret_json_key=pulumi.get(__ret__, 'client_secret_json_key'),
+        client_secret_source=pulumi.get(__ret__, 'client_secret_source'),
         created_time=pulumi.get(__ret__, 'created_time'),
         credential_provider_arn=pulumi.get(__ret__, 'credential_provider_arn'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
@@ -157,6 +183,8 @@ def get_o_auth2_credential_provider_output(credential_provider_arn: Optional[pul
     return __ret__.apply(lambda __response__: GetOAuth2CredentialProviderResult(
         callback_url=pulumi.get(__response__, 'callback_url'),
         client_secret_arn=pulumi.get(__response__, 'client_secret_arn'),
+        client_secret_json_key=pulumi.get(__response__, 'client_secret_json_key'),
+        client_secret_source=pulumi.get(__response__, 'client_secret_source'),
         created_time=pulumi.get(__response__, 'created_time'),
         credential_provider_arn=pulumi.get(__response__, 'credential_provider_arn'),
         last_updated_time=pulumi.get(__response__, 'last_updated_time'),

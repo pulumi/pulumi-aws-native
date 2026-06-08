@@ -23,7 +23,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         /// <summary>
         /// The app secret provided by Privy
         /// </summary>
-        public readonly string AppSecret;
+        public readonly string? AppSecret;
+        public readonly Outputs.PaymentCredentialProviderSecretReference? AppSecretConfig;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType? AppSecretSource;
         /// <summary>
         /// The authorization ID for the Stripe Privy integration
         /// </summary>
@@ -31,22 +33,36 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         /// <summary>
         /// The authorization private key for the Stripe Privy integration
         /// </summary>
-        public readonly string AuthorizationPrivateKey;
+        public readonly string? AuthorizationPrivateKey;
+        public readonly Outputs.PaymentCredentialProviderSecretReference? AuthorizationPrivateKeyConfig;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType? AuthorizationPrivateKeySource;
 
         [OutputConstructor]
         private PaymentCredentialProviderStripePrivyConfigurationInput(
             string appId,
 
-            string appSecret,
+            string? appSecret,
+
+            Outputs.PaymentCredentialProviderSecretReference? appSecretConfig,
+
+            Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType? appSecretSource,
 
             string authorizationId,
 
-            string authorizationPrivateKey)
+            string? authorizationPrivateKey,
+
+            Outputs.PaymentCredentialProviderSecretReference? authorizationPrivateKeyConfig,
+
+            Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType? authorizationPrivateKeySource)
         {
             AppId = appId;
             AppSecret = appSecret;
+            AppSecretConfig = appSecretConfig;
+            AppSecretSource = appSecretSource;
             AuthorizationId = authorizationId;
             AuthorizationPrivateKey = authorizationPrivateKey;
+            AuthorizationPrivateKeyConfig = authorizationPrivateKeyConfig;
+            AuthorizationPrivateKeySource = authorizationPrivateKeySource;
         }
     }
 }

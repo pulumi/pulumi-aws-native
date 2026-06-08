@@ -28,7 +28,7 @@ export interface GetApiMappingArgs {
 
 export interface GetApiMappingResult {
     /**
-     * The identifier of the API.
+     * The API identifier.
      */
     readonly apiId?: string;
     /**

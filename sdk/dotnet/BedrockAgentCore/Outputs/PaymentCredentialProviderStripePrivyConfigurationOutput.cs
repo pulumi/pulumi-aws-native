@@ -22,10 +22,20 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         public readonly string AppId;
         public readonly Outputs.PaymentCredentialProviderSecretInfo AppSecretArn;
         /// <summary>
+        /// The JSON key within the secret that contains the app secret value
+        /// </summary>
+        public readonly string? AppSecretJsonKey;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType? AppSecretSource;
+        /// <summary>
         /// The authorization ID for the Stripe Privy integration
         /// </summary>
         public readonly string AuthorizationId;
         public readonly Outputs.PaymentCredentialProviderSecretInfo AuthorizationPrivateKeyArn;
+        /// <summary>
+        /// The JSON key within the secret that contains the authorization private key value
+        /// </summary>
+        public readonly string? AuthorizationPrivateKeyJsonKey;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType? AuthorizationPrivateKeySource;
 
         [OutputConstructor]
         private PaymentCredentialProviderStripePrivyConfigurationOutput(
@@ -33,14 +43,26 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             Outputs.PaymentCredentialProviderSecretInfo appSecretArn,
 
+            string? appSecretJsonKey,
+
+            Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType? appSecretSource,
+
             string authorizationId,
 
-            Outputs.PaymentCredentialProviderSecretInfo authorizationPrivateKeyArn)
+            Outputs.PaymentCredentialProviderSecretInfo authorizationPrivateKeyArn,
+
+            string? authorizationPrivateKeyJsonKey,
+
+            Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderSecretSourceType? authorizationPrivateKeySource)
         {
             AppId = appId;
             AppSecretArn = appSecretArn;
+            AppSecretJsonKey = appSecretJsonKey;
+            AppSecretSource = appSecretSource;
             AuthorizationId = authorizationId;
             AuthorizationPrivateKeyArn = authorizationPrivateKeyArn;
+            AuthorizationPrivateKeyJsonKey = authorizationPrivateKeyJsonKey;
+            AuthorizationPrivateKeySource = authorizationPrivateKeySource;
         }
     }
 }

@@ -26,7 +26,7 @@ class ApiMappingArgs:
         """
         The set of arguments for constructing a ApiMapping resource.
 
-        :param pulumi.Input[_builtins.str] api_id: The identifier of the API.
+        :param pulumi.Input[_builtins.str] api_id: The API identifier.
         :param pulumi.Input[_builtins.str] domain_name: The domain name.
         :param pulumi.Input[_builtins.str] stage: The API stage.
         :param pulumi.Input[_builtins.str] api_mapping_key: The API mapping key.
@@ -41,7 +41,7 @@ class ApiMappingArgs:
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The identifier of the API.
+        The API identifier.
         """
         return pulumi.get(self, "api_id")
 
@@ -103,7 +103,7 @@ class ApiMapping(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_id: The identifier of the API.
+        :param pulumi.Input[_builtins.str] api_id: The API identifier.
         :param pulumi.Input[_builtins.str] api_mapping_key: The API mapping key.
         :param pulumi.Input[_builtins.str] domain_name: The domain name.
         :param pulumi.Input[_builtins.str] stage: The API stage.
@@ -192,7 +192,7 @@ class ApiMapping(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The identifier of the API.
+        The API identifier.
         """
         return pulumi.get(self, "api_id")
 

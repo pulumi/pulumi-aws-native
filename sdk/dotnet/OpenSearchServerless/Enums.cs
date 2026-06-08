@@ -38,6 +38,37 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     }
 
     /// <summary>
+    /// The deletion protection state of the collection
+    /// </summary>
+    [EnumType]
+    public readonly struct CollectionDeletionProtection : IEquatable<CollectionDeletionProtection>
+    {
+        private readonly string _value;
+
+        private CollectionDeletionProtection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CollectionDeletionProtection Enabled { get; } = new CollectionDeletionProtection("ENABLED");
+        public static CollectionDeletionProtection Disabled { get; } = new CollectionDeletionProtection("DISABLED");
+
+        public static bool operator ==(CollectionDeletionProtection left, CollectionDeletionProtection right) => left.Equals(right);
+        public static bool operator !=(CollectionDeletionProtection left, CollectionDeletionProtection right) => !left.Equals(right);
+
+        public static explicit operator string(CollectionDeletionProtection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CollectionDeletionProtection other && Equals(other);
+        public bool Equals(CollectionDeletionProtection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether standby replicas are used for the collection group.
     /// </summary>
     [EnumType]

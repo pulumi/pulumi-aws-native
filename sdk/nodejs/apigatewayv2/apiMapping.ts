@@ -35,7 +35,7 @@ export class ApiMapping extends pulumi.CustomResource {
     }
 
     /**
-     * The identifier of the API.
+     * The API identifier.
      */
     declare public readonly apiId: pulumi.Output<string>;
     /**
@@ -99,7 +99,7 @@ export class ApiMapping extends pulumi.CustomResource {
  */
 export interface ApiMappingArgs {
     /**
-     * The identifier of the API.
+     * The API identifier.
      */
     apiId: pulumi.Input<string>;
     /**

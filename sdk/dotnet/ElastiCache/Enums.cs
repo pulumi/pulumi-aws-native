@@ -39,6 +39,71 @@ namespace Pulumi.AwsNative.ElastiCache
     }
 
     /// <summary>
+    /// The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationGroupDurability : IEquatable<ReplicationGroupDurability>
+    {
+        private readonly string _value;
+
+        private ReplicationGroupDurability(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationGroupDurability Default { get; } = new ReplicationGroupDurability("default");
+        public static ReplicationGroupDurability Async { get; } = new ReplicationGroupDurability("async");
+        public static ReplicationGroupDurability Sync { get; } = new ReplicationGroupDurability("sync");
+        public static ReplicationGroupDurability Disabled { get; } = new ReplicationGroupDurability("disabled");
+
+        public static bool operator ==(ReplicationGroupDurability left, ReplicationGroupDurability right) => left.Equals(right);
+        public static bool operator !=(ReplicationGroupDurability left, ReplicationGroupDurability right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationGroupDurability value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationGroupDurability other && Equals(other);
+        public bool Equals(ReplicationGroupDurability other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The resolved durability state of the replication group after resolving the default value. This is a read-only property.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationGroupEffectiveDurability : IEquatable<ReplicationGroupEffectiveDurability>
+    {
+        private readonly string _value;
+
+        private ReplicationGroupEffectiveDurability(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationGroupEffectiveDurability Async { get; } = new ReplicationGroupEffectiveDurability("async");
+        public static ReplicationGroupEffectiveDurability Sync { get; } = new ReplicationGroupEffectiveDurability("sync");
+        public static ReplicationGroupEffectiveDurability Disabled { get; } = new ReplicationGroupEffectiveDurability("disabled");
+
+        public static bool operator ==(ReplicationGroupEffectiveDurability left, ReplicationGroupEffectiveDurability right) => left.Equals(right);
+        public static bool operator !=(ReplicationGroupEffectiveDurability left, ReplicationGroupEffectiveDurability right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationGroupEffectiveDurability value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationGroupEffectiveDurability other && Equals(other);
+        public bool Equals(ReplicationGroupEffectiveDurability other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The unit of cached data capacity of the Serverless Cache.
     /// </summary>
     [EnumType]

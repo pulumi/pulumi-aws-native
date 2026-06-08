@@ -14,6 +14,7 @@ __all__ = [
     'PlanGlobalAuroraUngracefulBehavior',
     'PlanLambdaEventSourceMappingConfigurationAction',
     'PlanLambdaEventSourceMappingUngracefulBehavior',
+    'PlanNeptuneUngracefulBehavior',
     'PlanRecoveryApproach',
     'PlanRegionToRunIn',
     'PlanRoutingControlStateChange',
@@ -43,6 +44,8 @@ class PlanExecutionBlockType(_builtins.str, Enum):
     ARC_REGION_SWITCH_PLAN = "ARCRegionSwitchPlan"
     ARC_ROUTING_CONTROL = "ARCRoutingControl"
     AURORA_GLOBAL_DATABASE = "AuroraGlobalDatabase"
+    AURORA_PROVISIONED_SCALING = "AuroraProvisionedScaling"
+    AURORA_SERVERLESS_SCALING = "AuroraServerlessScaling"
     CUSTOM_ACTION_LAMBDA = "CustomActionLambda"
     DOCUMENT_DB = "DocumentDb"
     EC2_AUTO_SCALING = "EC2AutoScaling"
@@ -50,6 +53,7 @@ class PlanExecutionBlockType(_builtins.str, Enum):
     EKS_RESOURCE_SCALING = "EKSResourceScaling"
     LAMBDA_EVENT_SOURCE_MAPPING = "LambdaEventSourceMapping"
     MANUAL_APPROVAL = "ManualApproval"
+    NEPTUNE_GLOBAL_DATABASE = "NeptuneGlobalDatabase"
     PARALLEL = "Parallel"
     RDS_CREATE_CROSS_REGION_REPLICA = "RdsCreateCrossRegionReplica"
     RDS_PROMOTE_READ_REPLICA = "RdsPromoteReadReplica"
@@ -70,6 +74,11 @@ class PlanLambdaEventSourceMappingConfigurationAction(_builtins.str, Enum):
 @pulumi.type_token("aws-native:arcregionswitch:PlanLambdaEventSourceMappingUngracefulBehavior")
 class PlanLambdaEventSourceMappingUngracefulBehavior(_builtins.str, Enum):
     SKIP = "skip"
+
+
+@pulumi.type_token("aws-native:arcregionswitch:PlanNeptuneUngracefulBehavior")
+class PlanNeptuneUngracefulBehavior(_builtins.str, Enum):
+    FAILOVER = "failover"
 
 
 @pulumi.type_token("aws-native:arcregionswitch:PlanRecoveryApproach")

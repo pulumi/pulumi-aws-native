@@ -23,7 +23,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRouteResult:
-    def __init__(__self__, carrier_gateway_id=None, cidr_block=None, core_network_arn=None, egress_only_internet_gateway_id=None, gateway_id=None, instance_id=None, local_gateway_id=None, nat_gateway_id=None, network_interface_id=None, transit_gateway_id=None, vpc_endpoint_id=None, vpc_peering_connection_id=None):
+    def __init__(__self__, carrier_gateway_id=None, cidr_block=None, core_network_arn=None, egress_only_internet_gateway_id=None, gateway_id=None, instance_id=None, local_gateway_id=None, nat_gateway_id=None, network_interface_id=None, odb_network_arn=None, transit_gateway_id=None, vpc_endpoint_id=None, vpc_peering_connection_id=None):
         if carrier_gateway_id and not isinstance(carrier_gateway_id, str):
             raise TypeError("Expected argument 'carrier_gateway_id' to be a str")
         pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
@@ -51,6 +51,9 @@ class GetRouteResult:
         if network_interface_id and not isinstance(network_interface_id, str):
             raise TypeError("Expected argument 'network_interface_id' to be a str")
         pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if odb_network_arn and not isinstance(odb_network_arn, str):
+            raise TypeError("Expected argument 'odb_network_arn' to be a str")
+        pulumi.set(__self__, "odb_network_arn", odb_network_arn)
         if transit_gateway_id and not isinstance(transit_gateway_id, str):
             raise TypeError("Expected argument 'transit_gateway_id' to be a str")
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
@@ -135,6 +138,11 @@ class GetRouteResult:
         return pulumi.get(self, "network_interface_id")
 
     @_builtins.property
+    @pulumi.getter(name="odbNetworkArn")
+    def odb_network_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "odb_network_arn")
+
+    @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[_builtins.str]:
         """
@@ -174,6 +182,7 @@ class AwaitableGetRouteResult(GetRouteResult):
             local_gateway_id=self.local_gateway_id,
             nat_gateway_id=self.nat_gateway_id,
             network_interface_id=self.network_interface_id,
+            odb_network_arn=self.odb_network_arn,
             transit_gateway_id=self.transit_gateway_id,
             vpc_endpoint_id=self.vpc_endpoint_id,
             vpc_peering_connection_id=self.vpc_peering_connection_id)
@@ -207,6 +216,7 @@ def get_route(cidr_block: Optional[_builtins.str] = None,
         local_gateway_id=pulumi.get(__ret__, 'local_gateway_id'),
         nat_gateway_id=pulumi.get(__ret__, 'nat_gateway_id'),
         network_interface_id=pulumi.get(__ret__, 'network_interface_id'),
+        odb_network_arn=pulumi.get(__ret__, 'odb_network_arn'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         vpc_endpoint_id=pulumi.get(__ret__, 'vpc_endpoint_id'),
         vpc_peering_connection_id=pulumi.get(__ret__, 'vpc_peering_connection_id'))
@@ -237,6 +247,7 @@ def get_route_output(cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
         local_gateway_id=pulumi.get(__response__, 'local_gateway_id'),
         nat_gateway_id=pulumi.get(__response__, 'nat_gateway_id'),
         network_interface_id=pulumi.get(__response__, 'network_interface_id'),
+        odb_network_arn=pulumi.get(__response__, 'odb_network_arn'),
         transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id'),
         vpc_endpoint_id=pulumi.get(__response__, 'vpc_endpoint_id'),
         vpc_peering_connection_id=pulumi.get(__response__, 'vpc_peering_connection_id')))

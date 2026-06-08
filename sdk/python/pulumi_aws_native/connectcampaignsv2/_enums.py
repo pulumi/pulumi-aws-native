@@ -11,6 +11,7 @@ __all__ = [
     'CampaignCommunicationLimitTimeUnit',
     'CampaignDayOfWeek',
     'CampaignInstanceLimitsHandling',
+    'CampaignLocalTimeZoneDetectionScope',
     'CampaignLocalTimeZoneDetectionType',
     'CampaignType',
 ]
@@ -53,6 +54,15 @@ class CampaignInstanceLimitsHandling(_builtins.str, Enum):
     """
     OPT_IN = "OPT_IN"
     OPT_OUT = "OPT_OUT"
+
+
+@pulumi.type_token("aws-native:connectcampaignsv2:CampaignLocalTimeZoneDetectionScope")
+class CampaignLocalTimeZoneDetectionScope(_builtins.str, Enum):
+    """
+    Local TimeZone Detection scope
+    """
+    PRIMARY_ONLY = "PRIMARY_ONLY"
+    ALL_AVAILABLE = "ALL_AVAILABLE"
 
 
 @pulumi.type_token("aws-native:connectcampaignsv2:CampaignLocalTimeZoneDetectionType")

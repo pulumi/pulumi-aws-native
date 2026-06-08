@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Outputs
     [OutputType]
     public sealed class PlanExecutionBlockConfiguration10Properties
     {
-        public readonly Outputs.PlanDocumentDbConfiguration DocumentDbConfig;
+        public readonly Outputs.PlanEksResourceScalingConfiguration EksResourceScalingConfig;
 
         [OutputConstructor]
-        private PlanExecutionBlockConfiguration10Properties(Outputs.PlanDocumentDbConfiguration documentDbConfig)
+        private PlanExecutionBlockConfiguration10Properties(Outputs.PlanEksResourceScalingConfiguration eksResourceScalingConfig)
         {
-            DocumentDbConfig = documentDbConfig;
+            EksResourceScalingConfig = eksResourceScalingConfig;
         }
     }
 }

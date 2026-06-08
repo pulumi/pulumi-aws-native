@@ -167,11 +167,17 @@ class GetAlarmResult:
     @_builtins.property
     @pulumi.getter(name="evaluationCriteria")
     def evaluation_criteria(self) -> Optional['outputs.AlarmEvaluationCriteria']:
+        """
+        The evaluation criteria for the alarm.
+        """
         return pulumi.get(self, "evaluation_criteria")
 
     @_builtins.property
     @pulumi.getter(name="evaluationInterval")
     def evaluation_interval(self) -> Optional[_builtins.int]:
+        """
+        The frequency, in seconds, at which the alarm is evaluated.
+        """
         return pulumi.get(self, "evaluation_interval")
 
     @_builtins.property

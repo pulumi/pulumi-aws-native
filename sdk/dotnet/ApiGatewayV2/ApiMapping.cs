@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public partial class ApiMapping : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The identifier of the API.
+        /// The API identifier.
         /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public sealed class ApiMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identifier of the API.
+        /// The API identifier.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;

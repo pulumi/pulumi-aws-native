@@ -15,8 +15,14 @@ namespace Pulumi.AwsNative.RtbFabric
     [AwsNativeResourceType("aws-native:rtbfabric:ResponderGateway")]
     public partial class ResponderGateway : global::Pulumi.CustomResource
     {
+        [Output("acmCertificateArn")]
+        public Output<string?> AcmCertificateArn { get; private set; } = null!;
+
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        [Output("certificateAssociationStatus")]
+        public Output<Pulumi.AwsNative.RtbFabric.ResponderGatewayCertificateAssociationStatus> CertificateAssociationStatus { get; private set; } = null!;
 
         [Output("createdTimestamp")]
         public Output<string> CreatedTimestamp { get; private set; } = null!;
@@ -33,8 +39,17 @@ namespace Pulumi.AwsNative.RtbFabric
         [Output("domainName")]
         public Output<string?> DomainName { get; private set; } = null!;
 
+        [Output("externalInboundEndpoint")]
+        public Output<string> ExternalInboundEndpoint { get; private set; } = null!;
+
         [Output("gatewayId")]
         public Output<string> GatewayId { get; private set; } = null!;
+
+        [Output("gatewayType")]
+        public Output<Pulumi.AwsNative.RtbFabric.ResponderGatewayGatewayType?> GatewayType { get; private set; } = null!;
+
+        [Output("listenerConfig")]
+        public Output<Outputs.ResponderGatewayListenerConfig?> ListenerConfig { get; private set; } = null!;
 
         /// <summary>
         /// The configuration for the managed endpoint.
@@ -135,6 +150,9 @@ namespace Pulumi.AwsNative.RtbFabric
 
     public sealed class ResponderGatewayArgs : global::Pulumi.ResourceArgs
     {
+        [Input("acmCertificateArn")]
+        public Input<string>? AcmCertificateArn { get; set; }
+
         /// <summary>
         /// An optional description for the responder gateway.
         /// </summary>
@@ -146,6 +164,12 @@ namespace Pulumi.AwsNative.RtbFabric
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
+
+        [Input("gatewayType")]
+        public Input<Pulumi.AwsNative.RtbFabric.ResponderGatewayGatewayType>? GatewayType { get; set; }
+
+        [Input("listenerConfig")]
+        public Input<Inputs.ResponderGatewayListenerConfigArgs>? ListenerConfig { get; set; }
 
         /// <summary>
         /// The configuration for the managed endpoint.

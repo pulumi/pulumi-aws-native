@@ -54,10 +54,12 @@ export class DaemonTaskDefinition extends pulumi.CustomResource {
      * The name of a family that this daemon task definition is registered to.
      */
     declare public readonly family: pulumi.Output<string | undefined>;
+    declare public readonly ipcMode: pulumi.Output<string | undefined>;
     /**
      * The amount of memory (in MiB) used by the daemon task.
      */
     declare public readonly memory: pulumi.Output<string | undefined>;
+    declare public readonly pidMode: pulumi.Output<string | undefined>;
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
@@ -83,7 +85,9 @@ export class DaemonTaskDefinition extends pulumi.CustomResource {
             resourceInputs["cpu"] = args?.cpu;
             resourceInputs["executionRoleArn"] = args?.executionRoleArn;
             resourceInputs["family"] = args?.family;
+            resourceInputs["ipcMode"] = args?.ipcMode;
             resourceInputs["memory"] = args?.memory;
+            resourceInputs["pidMode"] = args?.pidMode;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["taskRoleArn"] = args?.taskRoleArn;
             resourceInputs["volumes"] = args?.volumes;
@@ -94,13 +98,15 @@ export class DaemonTaskDefinition extends pulumi.CustomResource {
             resourceInputs["daemonTaskDefinitionArn"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;
             resourceInputs["family"] = undefined /*out*/;
+            resourceInputs["ipcMode"] = undefined /*out*/;
             resourceInputs["memory"] = undefined /*out*/;
+            resourceInputs["pidMode"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["taskRoleArn"] = undefined /*out*/;
             resourceInputs["volumes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["containerDefinitions[*]", "cpu", "executionRoleArn", "family", "memory", "taskRoleArn", "volumes[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["containerDefinitions[*]", "cpu", "executionRoleArn", "family", "ipcMode", "memory", "pidMode", "taskRoleArn", "volumes[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DaemonTaskDefinition.__pulumiType, name, resourceInputs, opts);
     }
@@ -126,10 +132,12 @@ export interface DaemonTaskDefinitionArgs {
      * The name of a family that this daemon task definition is registered to.
      */
     family?: pulumi.Input<string>;
+    ipcMode?: pulumi.Input<string>;
     /**
      * The amount of memory (in MiB) used by the daemon task.
      */
     memory?: pulumi.Input<string>;
+    pidMode?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.

@@ -7,6 +7,13 @@
     "tagProperty" : "/properties/Tags",
     "cloudFormationSystemTags" : false
   },
+  "typeName" : "AWS::SageMaker::Cluster",
+  "readOnlyProperties" : [ "/properties/ClusterArn", "/properties/CreationTime", "/properties/ClusterStatus", "/properties/FailureMessage", "/properties/InstanceGroups/*/CurrentCount", "/properties/RestrictedInstanceGroups/*/CurrentCount" ],
+  "description" : "Resource Type definition for AWS::SageMaker::Cluster",
+  "createOnlyProperties" : [ "/properties/ClusterName", "/properties/VpcConfig", "/properties/Orchestrator/Eks" ],
+  "primaryIdentifier" : [ "/properties/ClusterArn" ],
+  "required" : [ ],
+  "conditionalCreateOnlyProperties" : [ "/properties/InstanceGroups/*/CustomMetadata", "/properties/RestrictedInstanceGroups/*/CustomMetadata" ],
   "handlers" : {
     "read" : {
       "permissions" : [ "sagemaker:DescribeCluster", "sagemaker:ListTags" ]
@@ -27,13 +34,8 @@
       "timeoutInMinutes" : 720
     }
   },
-  "typeName" : "AWS::SageMaker::Cluster",
-  "readOnlyProperties" : [ "/properties/ClusterArn", "/properties/CreationTime", "/properties/ClusterStatus", "/properties/FailureMessage", "/properties/InstanceGroups/*/CurrentCount", "/properties/RestrictedInstanceGroups/*/CurrentCount" ],
-  "description" : "Resource Type definition for AWS::SageMaker::Cluster",
   "additionalIdentifiers" : [ [ "/properties/ClusterName" ] ],
-  "createOnlyProperties" : [ "/properties/ClusterName", "/properties/VpcConfig", "/properties/Orchestrator/Eks", "/properties/InstanceGroups/*/OverrideVpcConfig", "/properties/InstanceGroups/*/ExecutionRole", "/properties/InstanceGroups/*/InstanceGroupName", "/properties/InstanceGroups/*/InstanceType", "/properties/InstanceGroups/*/ThreadsPerCore", "/properties/RestrictedInstanceGroups/*/OverrideVpcConfig", "/properties/RestrictedInstanceGroups/*/ExecutionRole", "/properties/RestrictedInstanceGroups/*/InstanceGroupName", "/properties/RestrictedInstanceGroups/*/InstanceType", "/properties/RestrictedInstanceGroups/*/ThreadsPerCore" ],
   "additionalProperties" : false,
-  "primaryIdentifier" : [ "/properties/ClusterArn" ],
   "definitions" : {
     "ClusterOrchestratorEksConfig" : {
       "description" : "Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,",
@@ -451,6 +453,19 @@
         }
       }
     },
+    "ClusterNetworkInterface" : {
+      "description" : "Specifies the network interface configuration for the instance group.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "InterfaceType" : {
+          "description" : "The type of network interface.",
+          "type" : "string",
+          "enum" : [ "efa", "efa-only" ]
+        }
+      },
+      "required" : [ "InterfaceType" ]
+    },
     "ClusterLifeCycleConfig" : {
       "description" : "The lifecycle configuration for a SageMaker HyperPod cluster. When omitted, the instance group uses Bootstrap mode. When provided with SourceS3Uri and OnCreate, uses Customer Managed mode. When provided with SourceS3Uri and OnInitComplete, uses Extended mode.",
       "additionalProperties" : false,
@@ -537,6 +552,9 @@
         "KubernetesConfig" : {
           "$ref" : "#/definitions/ClusterKubernetesConfig"
         },
+        "NetworkInterface" : {
+          "$ref" : "#/definitions/ClusterNetworkInterface"
+        },
         "LifeCycleConfig" : {
           "$ref" : "#/definitions/ClusterLifeCycleConfig"
         },
@@ -575,6 +593,9 @@
         "ScheduledUpdateConfig" : {
           "$ref" : "#/definitions/ScheduledUpdateConfig"
         },
+        "InstanceRequirements" : {
+          "$ref" : "#/definitions/InstanceRequirements"
+        },
         "InstanceType" : {
           "$ref" : "#/definitions/InstanceType"
         },
@@ -587,7 +608,7 @@
           "minimum" : 0
         }
       },
-      "required" : [ "ExecutionRole", "InstanceCount", "InstanceGroupName", "InstanceType" ]
+      "required" : [ "ExecutionRole", "InstanceCount", "InstanceGroupName" ]
     },
     "ClusterAutoScalingConfig" : {
       "description" : "Configuration for cluster auto-scaling",
@@ -634,6 +655,24 @@
       "items" : {
         "$ref" : "#/definitions/ClusterInstanceStorageConfig"
       }
+    },
+    "InstanceRequirements" : {
+      "description" : "The instance requirements for the instance group. Specifies a list of instance types that can be used.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "InstanceTypes" : {
+          "minItems" : 1,
+          "maxItems" : 20,
+          "description" : "A list of instance types that can be used for this instance group.",
+          "insertionOrder" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/InstanceType"
+          }
+        }
+      },
+      "required" : [ "InstanceTypes" ]
     },
     "Tag" : {
       "description" : "A key-value pair to associate with a resource.",
@@ -714,7 +753,6 @@
       "required" : [ "SizeInGiB", "PerUnitStorageThroughput" ]
     }
   },
-  "required" : [ ],
   "properties" : {
     "ClusterArn" : {
       "pattern" : "^arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:cluster/[a-z0-9]{12}$",

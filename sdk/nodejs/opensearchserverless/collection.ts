@@ -101,6 +101,7 @@ export class Collection extends pulumi.CustomResource {
      * The OpenSearch Dashboards endpoint for the collection.
      */
     declare public /*out*/ readonly dashboardEndpoint: pulumi.Output<string>;
+    declare public readonly deletionProtection: pulumi.Output<enums.opensearchserverless.CollectionDeletionProtection | undefined>;
     /**
      * The description of the collection
      */
@@ -147,6 +148,7 @@ export class Collection extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["collectionGroupName"] = args?.collectionGroupName;
+            resourceInputs["deletionProtection"] = args?.deletionProtection;
             resourceInputs["description"] = args?.description;
             resourceInputs["encryptionConfig"] = args?.encryptionConfig;
             resourceInputs["name"] = args?.name;
@@ -166,6 +168,7 @@ export class Collection extends pulumi.CustomResource {
             resourceInputs["collectionEndpoint"] = undefined /*out*/;
             resourceInputs["collectionGroupName"] = undefined /*out*/;
             resourceInputs["dashboardEndpoint"] = undefined /*out*/;
+            resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["encryptionConfig"] = undefined /*out*/;
             resourceInputs["fipsEndpoints"] = undefined /*out*/;
@@ -191,6 +194,7 @@ export interface CollectionArgs {
      * The name of the collection group to associate with the collection.
      */
     collectionGroupName?: pulumi.Input<string>;
+    deletionProtection?: pulumi.Input<enums.opensearchserverless.CollectionDeletionProtection>;
     /**
      * The description of the collection
      */

@@ -69,6 +69,37 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
+    /// The mode for tag propagation.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityProviderPropagateTagsMode : IEquatable<CapacityProviderPropagateTagsMode>
+    {
+        private readonly string _value;
+
+        private CapacityProviderPropagateTagsMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderPropagateTagsMode None { get; } = new CapacityProviderPropagateTagsMode("None");
+        public static CapacityProviderPropagateTagsMode Explicit { get; } = new CapacityProviderPropagateTagsMode("Explicit");
+
+        public static bool operator ==(CapacityProviderPropagateTagsMode left, CapacityProviderPropagateTagsMode right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderPropagateTagsMode left, CapacityProviderPropagateTagsMode right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderPropagateTagsMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderPropagateTagsMode other && Equals(other);
+        public bool Equals(CapacityProviderPropagateTagsMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The scaling mode for the capacity provider.
     /// </summary>
     [EnumType]

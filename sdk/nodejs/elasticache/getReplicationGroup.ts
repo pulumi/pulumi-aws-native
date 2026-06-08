@@ -46,6 +46,14 @@ export interface GetReplicationGroupResult {
      */
     readonly configurationEndPoint?: outputs.elasticache.ReplicationGroupEndpoint;
     /**
+     * The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+     */
+    readonly durability?: enums.elasticache.ReplicationGroupDurability;
+    /**
+     * The resolved durability state of the replication group after resolving the default value. This is a read-only property.
+     */
+    readonly effectiveDurability?: enums.elasticache.ReplicationGroupEffectiveDurability;
+    /**
      * The name of the cache engine to be used for the clusters in this replication group.
      */
     readonly engine?: string;

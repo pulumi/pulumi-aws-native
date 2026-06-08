@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Outputs
     [OutputType]
     public sealed class PlanExecutionBlockConfiguration11Properties
     {
-        public readonly Outputs.PlanRdsPromoteReadReplicaConfiguration RdsPromoteReadReplicaConfig;
+        public readonly Outputs.PlanRoute53HealthCheckConfiguration Route53HealthCheckConfig;
 
         [OutputConstructor]
-        private PlanExecutionBlockConfiguration11Properties(Outputs.PlanRdsPromoteReadReplicaConfiguration rdsPromoteReadReplicaConfig)
+        private PlanExecutionBlockConfiguration11Properties(Outputs.PlanRoute53HealthCheckConfiguration route53HealthCheckConfig)
         {
-            RdsPromoteReadReplicaConfig = rdsPromoteReadReplicaConfig;
+            Route53HealthCheckConfig = route53HealthCheckConfig;
         }
     }
 }

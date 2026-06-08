@@ -161,6 +161,8 @@ class OAuth2CredentialProvider(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["callback_url"] = None
             __props__.__dict__["client_secret_arn"] = None
+            __props__.__dict__["client_secret_json_key"] = None
+            __props__.__dict__["client_secret_source"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["credential_provider_arn"] = None
             __props__.__dict__["last_updated_time"] = None
@@ -191,6 +193,8 @@ class OAuth2CredentialProvider(pulumi.CustomResource):
 
         __props__.__dict__["callback_url"] = None
         __props__.__dict__["client_secret_arn"] = None
+        __props__.__dict__["client_secret_json_key"] = None
+        __props__.__dict__["client_secret_source"] = None
         __props__.__dict__["created_time"] = None
         __props__.__dict__["credential_provider_arn"] = None
         __props__.__dict__["credential_provider_vendor"] = None
@@ -216,6 +220,22 @@ class OAuth2CredentialProvider(pulumi.CustomResource):
         The ARN of the client secret in AWS Secrets Manager
         """
         return pulumi.get(self, "client_secret_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretJsonKey")
+    def client_secret_json_key(self) -> pulumi.Output[_builtins.str]:
+        """
+        The JSON key within the secret that contains the client secret value
+        """
+        return pulumi.get(self, "client_secret_json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> pulumi.Output['OAuth2CredentialProviderClientSecretSource']:
+        """
+        The source of the client secret
+        """
+        return pulumi.get(self, "client_secret_source")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")

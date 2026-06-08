@@ -61,6 +61,8 @@ export class GatewayTarget extends pulumi.CustomResource {
      * The name for the gateway target.
      */
     declare public readonly name: pulumi.Output<string>;
+    declare public readonly privateEndpoint: pulumi.Output<outputs.bedrockagentcore.GatewayTargetPrivateEndpoint0Properties | outputs.bedrockagentcore.GatewayTargetPrivateEndpoint1Properties | undefined>;
+    declare public /*out*/ readonly privateEndpointManagedResources: pulumi.Output<outputs.bedrockagentcore.GatewayTargetManagedResourceDetails[]>;
     declare public /*out*/ readonly protocolType: pulumi.Output<enums.bedrockagentcore.GatewayTargetTargetProtocolType>;
     /**
      * The status for the gateway target.
@@ -102,11 +104,13 @@ export class GatewayTarget extends pulumi.CustomResource {
             resourceInputs["gatewayIdentifier"] = args?.gatewayIdentifier;
             resourceInputs["metadataConfiguration"] = args?.metadataConfiguration;
             resourceInputs["name"] = args?.name;
+            resourceInputs["privateEndpoint"] = args?.privateEndpoint;
             resourceInputs["targetConfiguration"] = args?.targetConfiguration;
             resourceInputs["authorizationData"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["gatewayArn"] = undefined /*out*/;
             resourceInputs["lastSynchronizedAt"] = undefined /*out*/;
+            resourceInputs["privateEndpointManagedResources"] = undefined /*out*/;
             resourceInputs["protocolType"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusReasons"] = undefined /*out*/;
@@ -122,6 +126,8 @@ export class GatewayTarget extends pulumi.CustomResource {
             resourceInputs["lastSynchronizedAt"] = undefined /*out*/;
             resourceInputs["metadataConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpoint"] = undefined /*out*/;
+            resourceInputs["privateEndpointManagedResources"] = undefined /*out*/;
             resourceInputs["protocolType"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusReasons"] = undefined /*out*/;
@@ -157,6 +163,7 @@ export interface GatewayTargetArgs {
      * The name for the gateway target.
      */
     name?: pulumi.Input<string>;
+    privateEndpoint?: pulumi.Input<inputs.bedrockagentcore.GatewayTargetPrivateEndpoint0PropertiesArgs | inputs.bedrockagentcore.GatewayTargetPrivateEndpoint1PropertiesArgs>;
     /**
      * The target configuration for the Smithy model target.
      */

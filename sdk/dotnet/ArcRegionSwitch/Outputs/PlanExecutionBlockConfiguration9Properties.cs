@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Outputs
     [OutputType]
     public sealed class PlanExecutionBlockConfiguration9Properties
     {
-        public readonly Outputs.PlanRoute53HealthCheckConfiguration Route53HealthCheckConfig;
+        public readonly Outputs.PlanEcsCapacityIncreaseConfiguration EcsCapacityIncreaseConfig;
 
         [OutputConstructor]
-        private PlanExecutionBlockConfiguration9Properties(Outputs.PlanRoute53HealthCheckConfiguration route53HealthCheckConfig)
+        private PlanExecutionBlockConfiguration9Properties(Outputs.PlanEcsCapacityIncreaseConfiguration ecsCapacityIncreaseConfig)
         {
-            Route53HealthCheckConfig = route53HealthCheckConfig;
+            EcsCapacityIncreaseConfig = ecsCapacityIncreaseConfig;
         }
     }
 }

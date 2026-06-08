@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Inputs
 
     public sealed class PlanExecutionBlockConfiguration8PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("eksResourceScalingConfig", required: true)]
-        public Input<Inputs.PlanEksResourceScalingConfigurationArgs> EksResourceScalingConfig { get; set; } = null!;
+        [Input("regionSwitchPlanConfig", required: true)]
+        public Input<Inputs.PlanRegionSwitchPlanConfigurationArgs> RegionSwitchPlanConfig { get; set; } = null!;
 
         public PlanExecutionBlockConfiguration8PropertiesArgs()
         {

@@ -725,6 +725,172 @@ func (in *campaignInstanceLimitsHandlingPtr) ToCampaignInstanceLimitsHandlingPtr
 	return pulumi.ToOutputWithContext(ctx, in).(CampaignInstanceLimitsHandlingPtrOutput)
 }
 
+// Local TimeZone Detection scope
+type CampaignLocalTimeZoneDetectionScope string
+
+const (
+	CampaignLocalTimeZoneDetectionScopePrimaryOnly  = CampaignLocalTimeZoneDetectionScope("PRIMARY_ONLY")
+	CampaignLocalTimeZoneDetectionScopeAllAvailable = CampaignLocalTimeZoneDetectionScope("ALL_AVAILABLE")
+)
+
+func (CampaignLocalTimeZoneDetectionScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignLocalTimeZoneDetectionScope)(nil)).Elem()
+}
+
+func (e CampaignLocalTimeZoneDetectionScope) ToCampaignLocalTimeZoneDetectionScopeOutput() CampaignLocalTimeZoneDetectionScopeOutput {
+	return pulumi.ToOutput(e).(CampaignLocalTimeZoneDetectionScopeOutput)
+}
+
+func (e CampaignLocalTimeZoneDetectionScope) ToCampaignLocalTimeZoneDetectionScopeOutputWithContext(ctx context.Context) CampaignLocalTimeZoneDetectionScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CampaignLocalTimeZoneDetectionScopeOutput)
+}
+
+func (e CampaignLocalTimeZoneDetectionScope) ToCampaignLocalTimeZoneDetectionScopePtrOutput() CampaignLocalTimeZoneDetectionScopePtrOutput {
+	return e.ToCampaignLocalTimeZoneDetectionScopePtrOutputWithContext(context.Background())
+}
+
+func (e CampaignLocalTimeZoneDetectionScope) ToCampaignLocalTimeZoneDetectionScopePtrOutputWithContext(ctx context.Context) CampaignLocalTimeZoneDetectionScopePtrOutput {
+	return CampaignLocalTimeZoneDetectionScope(e).ToCampaignLocalTimeZoneDetectionScopeOutputWithContext(ctx).ToCampaignLocalTimeZoneDetectionScopePtrOutputWithContext(ctx)
+}
+
+func (e CampaignLocalTimeZoneDetectionScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CampaignLocalTimeZoneDetectionScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CampaignLocalTimeZoneDetectionScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CampaignLocalTimeZoneDetectionScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CampaignLocalTimeZoneDetectionScopeOutput struct{ *pulumi.OutputState }
+
+func (CampaignLocalTimeZoneDetectionScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignLocalTimeZoneDetectionScope)(nil)).Elem()
+}
+
+func (o CampaignLocalTimeZoneDetectionScopeOutput) ToCampaignLocalTimeZoneDetectionScopeOutput() CampaignLocalTimeZoneDetectionScopeOutput {
+	return o
+}
+
+func (o CampaignLocalTimeZoneDetectionScopeOutput) ToCampaignLocalTimeZoneDetectionScopeOutputWithContext(ctx context.Context) CampaignLocalTimeZoneDetectionScopeOutput {
+	return o
+}
+
+func (o CampaignLocalTimeZoneDetectionScopeOutput) ToCampaignLocalTimeZoneDetectionScopePtrOutput() CampaignLocalTimeZoneDetectionScopePtrOutput {
+	return o.ToCampaignLocalTimeZoneDetectionScopePtrOutputWithContext(context.Background())
+}
+
+func (o CampaignLocalTimeZoneDetectionScopeOutput) ToCampaignLocalTimeZoneDetectionScopePtrOutputWithContext(ctx context.Context) CampaignLocalTimeZoneDetectionScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignLocalTimeZoneDetectionScope) *CampaignLocalTimeZoneDetectionScope {
+		return &v
+	}).(CampaignLocalTimeZoneDetectionScopePtrOutput)
+}
+
+func (o CampaignLocalTimeZoneDetectionScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CampaignLocalTimeZoneDetectionScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CampaignLocalTimeZoneDetectionScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CampaignLocalTimeZoneDetectionScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignLocalTimeZoneDetectionScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CampaignLocalTimeZoneDetectionScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CampaignLocalTimeZoneDetectionScopePtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignLocalTimeZoneDetectionScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignLocalTimeZoneDetectionScope)(nil)).Elem()
+}
+
+func (o CampaignLocalTimeZoneDetectionScopePtrOutput) ToCampaignLocalTimeZoneDetectionScopePtrOutput() CampaignLocalTimeZoneDetectionScopePtrOutput {
+	return o
+}
+
+func (o CampaignLocalTimeZoneDetectionScopePtrOutput) ToCampaignLocalTimeZoneDetectionScopePtrOutputWithContext(ctx context.Context) CampaignLocalTimeZoneDetectionScopePtrOutput {
+	return o
+}
+
+func (o CampaignLocalTimeZoneDetectionScopePtrOutput) Elem() CampaignLocalTimeZoneDetectionScopeOutput {
+	return o.ApplyT(func(v *CampaignLocalTimeZoneDetectionScope) CampaignLocalTimeZoneDetectionScope {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignLocalTimeZoneDetectionScope
+		return ret
+	}).(CampaignLocalTimeZoneDetectionScopeOutput)
+}
+
+func (o CampaignLocalTimeZoneDetectionScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignLocalTimeZoneDetectionScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CampaignLocalTimeZoneDetectionScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CampaignLocalTimeZoneDetectionScopeInput is an input type that accepts values of the CampaignLocalTimeZoneDetectionScope enum
+// A concrete instance of `CampaignLocalTimeZoneDetectionScopeInput` can be one of the following:
+//
+//	CampaignLocalTimeZoneDetectionScopePrimaryOnly
+//	CampaignLocalTimeZoneDetectionScopeAllAvailable
+type CampaignLocalTimeZoneDetectionScopeInput interface {
+	pulumi.Input
+
+	ToCampaignLocalTimeZoneDetectionScopeOutput() CampaignLocalTimeZoneDetectionScopeOutput
+	ToCampaignLocalTimeZoneDetectionScopeOutputWithContext(context.Context) CampaignLocalTimeZoneDetectionScopeOutput
+}
+
+var campaignLocalTimeZoneDetectionScopePtrType = reflect.TypeOf((**CampaignLocalTimeZoneDetectionScope)(nil)).Elem()
+
+type CampaignLocalTimeZoneDetectionScopePtrInput interface {
+	pulumi.Input
+
+	ToCampaignLocalTimeZoneDetectionScopePtrOutput() CampaignLocalTimeZoneDetectionScopePtrOutput
+	ToCampaignLocalTimeZoneDetectionScopePtrOutputWithContext(context.Context) CampaignLocalTimeZoneDetectionScopePtrOutput
+}
+
+type campaignLocalTimeZoneDetectionScopePtr string
+
+func CampaignLocalTimeZoneDetectionScopePtr(v string) CampaignLocalTimeZoneDetectionScopePtrInput {
+	return (*campaignLocalTimeZoneDetectionScopePtr)(&v)
+}
+
+func (*campaignLocalTimeZoneDetectionScopePtr) ElementType() reflect.Type {
+	return campaignLocalTimeZoneDetectionScopePtrType
+}
+
+func (in *campaignLocalTimeZoneDetectionScopePtr) ToCampaignLocalTimeZoneDetectionScopePtrOutput() CampaignLocalTimeZoneDetectionScopePtrOutput {
+	return pulumi.ToOutput(in).(CampaignLocalTimeZoneDetectionScopePtrOutput)
+}
+
+func (in *campaignLocalTimeZoneDetectionScopePtr) ToCampaignLocalTimeZoneDetectionScopePtrOutputWithContext(ctx context.Context) CampaignLocalTimeZoneDetectionScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CampaignLocalTimeZoneDetectionScopePtrOutput)
+}
+
 // Local TimeZone Detection method
 type CampaignLocalTimeZoneDetectionType string
 
@@ -1112,6 +1278,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignDayOfWeekPtrInput)(nil)).Elem(), CampaignDayOfWeek("MONDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignInstanceLimitsHandlingInput)(nil)).Elem(), CampaignInstanceLimitsHandling("OPT_IN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignInstanceLimitsHandlingPtrInput)(nil)).Elem(), CampaignInstanceLimitsHandling("OPT_IN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignLocalTimeZoneDetectionScopeInput)(nil)).Elem(), CampaignLocalTimeZoneDetectionScope("PRIMARY_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignLocalTimeZoneDetectionScopePtrInput)(nil)).Elem(), CampaignLocalTimeZoneDetectionScope("PRIMARY_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignLocalTimeZoneDetectionTypeInput)(nil)).Elem(), CampaignLocalTimeZoneDetectionType("ZIP_CODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignLocalTimeZoneDetectionTypePtrInput)(nil)).Elem(), CampaignLocalTimeZoneDetectionType("ZIP_CODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignLocalTimeZoneDetectionTypeArrayInput)(nil)).Elem(), CampaignLocalTimeZoneDetectionTypeArray{})
@@ -1126,6 +1294,8 @@ func init() {
 	pulumi.RegisterOutputType(CampaignDayOfWeekPtrOutput{})
 	pulumi.RegisterOutputType(CampaignInstanceLimitsHandlingOutput{})
 	pulumi.RegisterOutputType(CampaignInstanceLimitsHandlingPtrOutput{})
+	pulumi.RegisterOutputType(CampaignLocalTimeZoneDetectionScopeOutput{})
+	pulumi.RegisterOutputType(CampaignLocalTimeZoneDetectionScopePtrOutput{})
 	pulumi.RegisterOutputType(CampaignLocalTimeZoneDetectionTypeOutput{})
 	pulumi.RegisterOutputType(CampaignLocalTimeZoneDetectionTypePtrOutput{})
 	pulumi.RegisterOutputType(CampaignLocalTimeZoneDetectionTypeArrayOutput{})

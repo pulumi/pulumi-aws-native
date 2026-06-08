@@ -226,6 +226,16 @@ export const ClusterKubernetesTaintEffect = {
  */
 export type ClusterKubernetesTaintEffect = (typeof ClusterKubernetesTaintEffect)[keyof typeof ClusterKubernetesTaintEffect];
 
+export const ClusterNetworkInterfaceInterfaceType = {
+    Efa: "efa",
+    EfaOnly: "efa-only",
+} as const;
+
+/**
+ * The type of network interface.
+ */
+export type ClusterNetworkInterfaceInterfaceType = (typeof ClusterNetworkInterfaceInterfaceType)[keyof typeof ClusterNetworkInterfaceInterfaceType];
+
 export const ClusterNodeProvisioningMode = {
     Continuous: "Continuous",
 } as const;

@@ -88,6 +88,10 @@ namespace Pulumi.AwsNative.PaymentCryptography
         /// The state of key that is being created or deleted.
         /// </summary>
         public readonly Pulumi.AwsNative.PaymentCryptography.KeyState? KeyState;
+        /// <summary>
+        /// The resource-based policy attached to the key, in JSON format.
+        /// </summary>
+        public readonly string? Policy;
         public readonly ImmutableDictionary<string, Outputs.KeyReplicationStatusType>? ReplicationStatus;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
@@ -109,6 +113,8 @@ namespace Pulumi.AwsNative.PaymentCryptography
 
             Pulumi.AwsNative.PaymentCryptography.KeyState? keyState,
 
+            string? policy,
+
             ImmutableDictionary<string, Outputs.KeyReplicationStatusType>? replicationStatus,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
@@ -121,6 +127,7 @@ namespace Pulumi.AwsNative.PaymentCryptography
             KeyIdentifier = keyIdentifier;
             KeyOrigin = keyOrigin;
             KeyState = keyState;
+            Policy = policy;
             ReplicationStatus = replicationStatus;
             Tags = tags;
         }

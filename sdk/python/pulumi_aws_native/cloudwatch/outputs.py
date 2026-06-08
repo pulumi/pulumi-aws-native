@@ -23,6 +23,8 @@ __all__ = [
     'AlarmMetricDataQuery',
     'AlarmMetricStat',
     'AlarmPromQlCriteria',
+    'LogAlarmScheduleConfiguration',
+    'LogAlarmScheduledQueryConfiguration',
     'MetricStreamFilter',
     'MetricStreamStatisticsConfiguration',
     'MetricStreamStatisticsMetric',
@@ -67,6 +69,9 @@ class AlarmDimension(dict):
 
 @pulumi.output_type
 class AlarmEvaluationCriteria(dict):
+    """
+    The evaluation criteria for an alarm. This is a union type that currently supports ``PromQLCriteria``.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -86,12 +91,20 @@ class AlarmEvaluationCriteria(dict):
 
     def __init__(__self__, *,
                  prom_ql_criteria: Optional['outputs.AlarmPromQlCriteria'] = None):
+        """
+        The evaluation criteria for an alarm. This is a union type that currently supports ``PromQLCriteria``.
+
+        :param 'AlarmPromQlCriteria' prom_ql_criteria: The PromQL criteria for the alarm evaluation.
+        """
         if prom_ql_criteria is not None:
             pulumi.set(__self__, "prom_ql_criteria", prom_ql_criteria)
 
     @_builtins.property
     @pulumi.getter(name="promQlCriteria")
     def prom_ql_criteria(self) -> Optional['outputs.AlarmPromQlCriteria']:
+        """
+        The PromQL criteria for the alarm evaluation.
+        """
         return pulumi.get(self, "prom_ql_criteria")
 
 
@@ -357,6 +370,9 @@ class AlarmMetricStat(dict):
 
 @pulumi.output_type
 class AlarmPromQlCriteria(dict):
+    """
+    Contains the configuration that determines how a PromQL alarm evaluates its contributors, including the query to run and the durations that define when contributors transition between states.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -381,9 +397,11 @@ class AlarmPromQlCriteria(dict):
                  query: Optional[_builtins.str] = None,
                  recovery_period: Optional[_builtins.int] = None):
         """
-        :param _builtins.int pending_period: The pending period for the alarm.
-        :param _builtins.str query: The PromQL query string.
-        :param _builtins.int recovery_period: The recovery period for the alarm.
+        Contains the configuration that determines how a PromQL alarm evaluates its contributors, including the query to run and the durations that define when contributors transition between states.
+
+        :param _builtins.int pending_period: The duration, in seconds, that a contributor must be continuously breaching before it transitions to the ``ALARM`` state.
+        :param _builtins.str query: The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.
+        :param _builtins.int recovery_period: The duration, in seconds, that a contributor must continuously not be breaching before it transitions back to the ``OK`` state.
         """
         if pending_period is not None:
             pulumi.set(__self__, "pending_period", pending_period)
@@ -396,7 +414,7 @@ class AlarmPromQlCriteria(dict):
     @pulumi.getter(name="pendingPeriod")
     def pending_period(self) -> Optional[_builtins.int]:
         """
-        The pending period for the alarm.
+        The duration, in seconds, that a contributor must be continuously breaching before it transitions to the ``ALARM`` state.
         """
         return pulumi.get(self, "pending_period")
 
@@ -404,7 +422,7 @@ class AlarmPromQlCriteria(dict):
     @pulumi.getter
     def query(self) -> Optional[_builtins.str]:
         """
-        The PromQL query string.
+        The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.
         """
         return pulumi.get(self, "query")
 
@@ -412,9 +430,182 @@ class AlarmPromQlCriteria(dict):
     @pulumi.getter(name="recoveryPeriod")
     def recovery_period(self) -> Optional[_builtins.int]:
         """
-        The recovery period for the alarm.
+        The duration, in seconds, that a contributor must continuously not be breaching before it transitions back to the ``OK`` state.
         """
         return pulumi.get(self, "recovery_period")
+
+
+@pulumi.output_type
+class LogAlarmScheduleConfiguration(dict):
+    """
+    The schedule configuration for the scheduled query.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduleExpression":
+            suggest = "schedule_expression"
+        elif key == "endTimeOffset":
+            suggest = "end_time_offset"
+        elif key == "startTimeOffset":
+            suggest = "start_time_offset"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogAlarmScheduleConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogAlarmScheduleConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogAlarmScheduleConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schedule_expression: _builtins.str,
+                 end_time_offset: Optional[_builtins.int] = None,
+                 start_time_offset: Optional[_builtins.int] = None):
+        """
+        The schedule configuration for the scheduled query.
+
+        :param _builtins.str schedule_expression: The expression that defines when the scheduled query runs, e.g. rate(1 minute).
+        :param _builtins.int end_time_offset: The number of seconds into the past to end the query window.
+        :param _builtins.int start_time_offset: The number of seconds into the past to start the query window.
+        """
+        pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if end_time_offset is not None:
+            pulumi.set(__self__, "end_time_offset", end_time_offset)
+        if start_time_offset is not None:
+            pulumi.set(__self__, "start_time_offset", start_time_offset)
+
+    @_builtins.property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> _builtins.str:
+        """
+        The expression that defines when the scheduled query runs, e.g. rate(1 minute).
+        """
+        return pulumi.get(self, "schedule_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="endTimeOffset")
+    def end_time_offset(self) -> Optional[_builtins.int]:
+        """
+        The number of seconds into the past to end the query window.
+        """
+        return pulumi.get(self, "end_time_offset")
+
+    @_builtins.property
+    @pulumi.getter(name="startTimeOffset")
+    def start_time_offset(self) -> Optional[_builtins.int]:
+        """
+        The number of seconds into the past to start the query window.
+        """
+        return pulumi.get(self, "start_time_offset")
+
+
+@pulumi.output_type
+class LogAlarmScheduledQueryConfiguration(dict):
+    """
+    The scheduled query configuration for the log alarm.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aggregationExpression":
+            suggest = "aggregation_expression"
+        elif key == "logGroupIdentifiers":
+            suggest = "log_group_identifiers"
+        elif key == "queryLanguage":
+            suggest = "query_language"
+        elif key == "queryString":
+            suggest = "query_string"
+        elif key == "scheduleConfiguration":
+            suggest = "schedule_configuration"
+        elif key == "scheduledQueryRoleArn":
+            suggest = "scheduled_query_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogAlarmScheduledQueryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogAlarmScheduledQueryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogAlarmScheduledQueryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aggregation_expression: _builtins.str,
+                 log_group_identifiers: Sequence[_builtins.str],
+                 query_language: _builtins.str,
+                 query_string: _builtins.str,
+                 schedule_configuration: 'outputs.LogAlarmScheduleConfiguration',
+                 scheduled_query_role_arn: _builtins.str):
+        """
+        The scheduled query configuration for the log alarm.
+
+        :param _builtins.str aggregation_expression: The aggregation expression for the scheduled query, e.g. count(*) or avg(latency) by host.
+        :param Sequence[_builtins.str] log_group_identifiers: The log groups to query.
+        :param _builtins.str query_language: The query language to use for the scheduled query (CWLI or SQL).
+        :param _builtins.str query_string: The query string to execute against the specified log groups.
+        :param 'LogAlarmScheduleConfiguration' schedule_configuration: The schedule configuration.
+        :param _builtins.str scheduled_query_role_arn: The ARN of the IAM role that grants permissions to execute the scheduled query.
+        """
+        pulumi.set(__self__, "aggregation_expression", aggregation_expression)
+        pulumi.set(__self__, "log_group_identifiers", log_group_identifiers)
+        pulumi.set(__self__, "query_language", query_language)
+        pulumi.set(__self__, "query_string", query_string)
+        pulumi.set(__self__, "schedule_configuration", schedule_configuration)
+        pulumi.set(__self__, "scheduled_query_role_arn", scheduled_query_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="aggregationExpression")
+    def aggregation_expression(self) -> _builtins.str:
+        """
+        The aggregation expression for the scheduled query, e.g. count(*) or avg(latency) by host.
+        """
+        return pulumi.get(self, "aggregation_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupIdentifiers")
+    def log_group_identifiers(self) -> Sequence[_builtins.str]:
+        """
+        The log groups to query.
+        """
+        return pulumi.get(self, "log_group_identifiers")
+
+    @_builtins.property
+    @pulumi.getter(name="queryLanguage")
+    def query_language(self) -> _builtins.str:
+        """
+        The query language to use for the scheduled query (CWLI or SQL).
+        """
+        return pulumi.get(self, "query_language")
+
+    @_builtins.property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> _builtins.str:
+        """
+        The query string to execute against the specified log groups.
+        """
+        return pulumi.get(self, "query_string")
+
+    @_builtins.property
+    @pulumi.getter(name="scheduleConfiguration")
+    def schedule_configuration(self) -> 'outputs.LogAlarmScheduleConfiguration':
+        """
+        The schedule configuration.
+        """
+        return pulumi.get(self, "schedule_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="scheduledQueryRoleArn")
+    def scheduled_query_role_arn(self) -> _builtins.str:
+        """
+        The ARN of the IAM role that grants permissions to execute the scheduled query.
+        """
+        return pulumi.get(self, "scheduled_query_role_arn")
 
 
 @pulumi.output_type

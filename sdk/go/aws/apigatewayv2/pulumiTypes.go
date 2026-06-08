@@ -614,7 +614,7 @@ type DomainNameConfiguration struct {
 	CertificateName *string `pulumi:"certificateName"`
 	// The endpoint type.
 	EndpointType *string `pulumi:"endpointType"`
-	// The IP address types that can invoke the domain name. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name.
+	// The IP address types that can invoke the domain name. Use ``ipv4`` to allow only IPv4 addresses to invoke your domain name, or use ``dualstack`` to allow both IPv4 and IPv6 addresses to invoke your domain name.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
 	OwnershipVerificationCertificateArn *string `pulumi:"ownershipVerificationCertificateArn"`
@@ -643,7 +643,7 @@ type DomainNameConfigurationArgs struct {
 	CertificateName pulumi.StringPtrInput `pulumi:"certificateName"`
 	// The endpoint type.
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	// The IP address types that can invoke the domain name. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name.
+	// The IP address types that can invoke the domain name. Use ``ipv4`` to allow only IPv4 addresses to invoke your domain name, or use ``dualstack`` to allow both IPv4 and IPv6 addresses to invoke your domain name.
 	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	// The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
 	OwnershipVerificationCertificateArn pulumi.StringPtrInput `pulumi:"ownershipVerificationCertificateArn"`
@@ -720,7 +720,7 @@ func (o DomainNameConfigurationOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameConfiguration) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
-// The IP address types that can invoke the domain name. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name.
+// The IP address types that can invoke the domain name. Use “ipv4“ to allow only IPv4 addresses to invoke your domain name, or use “dualstack“ to allow both IPv4 and IPv6 addresses to invoke your domain name.
 func (o DomainNameConfigurationOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameConfiguration) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
@@ -1448,6 +1448,7 @@ func (o RouteResponseParameterConstraintsMapOutput) MapIndex(k pulumi.StringInpu
 	}).(RouteResponseParameterConstraintsOutput)
 }
 
+// Represents a routing rule action. The only supported action is “invokeApi“.
 type RoutingRuleAction struct {
 	// Represents an InvokeApi action.
 	InvokeApi RoutingRuleActionInvokeApi `pulumi:"invokeApi"`
@@ -1464,6 +1465,7 @@ type RoutingRuleActionInput interface {
 	ToRoutingRuleActionOutputWithContext(context.Context) RoutingRuleActionOutput
 }
 
+// Represents a routing rule action. The only supported action is “invokeApi“.
 type RoutingRuleActionArgs struct {
 	// Represents an InvokeApi action.
 	InvokeApi RoutingRuleActionInvokeApiInput `pulumi:"invokeApi"`
@@ -1506,6 +1508,7 @@ func (i RoutingRuleActionArray) ToRoutingRuleActionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleActionArrayOutput)
 }
 
+// Represents a routing rule action. The only supported action is “invokeApi“.
 type RoutingRuleActionOutput struct{ *pulumi.OutputState }
 
 func (RoutingRuleActionOutput) ElementType() reflect.Type {
@@ -1545,6 +1548,7 @@ func (o RoutingRuleActionArrayOutput) Index(i pulumi.IntInput) RoutingRuleAction
 	}).(RoutingRuleActionOutput)
 }
 
+// Represents an InvokeApi action.
 type RoutingRuleActionInvokeApi struct {
 	// The API identifier of the target API.
 	ApiId string `pulumi:"apiId"`
@@ -1565,6 +1569,7 @@ type RoutingRuleActionInvokeApiInput interface {
 	ToRoutingRuleActionInvokeApiOutputWithContext(context.Context) RoutingRuleActionInvokeApiOutput
 }
 
+// Represents an InvokeApi action.
 type RoutingRuleActionInvokeApiArgs struct {
 	// The API identifier of the target API.
 	ApiId pulumi.StringInput `pulumi:"apiId"`
@@ -1586,6 +1591,7 @@ func (i RoutingRuleActionInvokeApiArgs) ToRoutingRuleActionInvokeApiOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleActionInvokeApiOutput)
 }
 
+// Represents an InvokeApi action.
 type RoutingRuleActionInvokeApiOutput struct{ *pulumi.OutputState }
 
 func (RoutingRuleActionInvokeApiOutput) ElementType() reflect.Type {
@@ -1615,6 +1621,7 @@ func (o RoutingRuleActionInvokeApiOutput) StripBasePath() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RoutingRuleActionInvokeApi) *bool { return v.StripBasePath }).(pulumi.BoolPtrOutput)
 }
 
+// Represents a condition. Conditions can contain up to two “matchHeaders“ conditions and one “matchBasePaths“ conditions. API Gateway evaluates header conditions and base path conditions together. You can only use AND between header and base path conditions.
 type RoutingRuleCondition struct {
 	// The base path to be matched.
 	MatchBasePaths *RoutingRuleMatchBasePaths `pulumi:"matchBasePaths"`
@@ -1633,6 +1640,7 @@ type RoutingRuleConditionInput interface {
 	ToRoutingRuleConditionOutputWithContext(context.Context) RoutingRuleConditionOutput
 }
 
+// Represents a condition. Conditions can contain up to two “matchHeaders“ conditions and one “matchBasePaths“ conditions. API Gateway evaluates header conditions and base path conditions together. You can only use AND between header and base path conditions.
 type RoutingRuleConditionArgs struct {
 	// The base path to be matched.
 	MatchBasePaths RoutingRuleMatchBasePathsPtrInput `pulumi:"matchBasePaths"`
@@ -1677,6 +1685,7 @@ func (i RoutingRuleConditionArray) ToRoutingRuleConditionArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleConditionArrayOutput)
 }
 
+// Represents a condition. Conditions can contain up to two “matchHeaders“ conditions and one “matchBasePaths“ conditions. API Gateway evaluates header conditions and base path conditions together. You can only use AND between header and base path conditions.
 type RoutingRuleConditionOutput struct{ *pulumi.OutputState }
 
 func (RoutingRuleConditionOutput) ElementType() reflect.Type {
@@ -1721,6 +1730,7 @@ func (o RoutingRuleConditionArrayOutput) Index(i pulumi.IntInput) RoutingRuleCon
 	}).(RoutingRuleConditionOutput)
 }
 
+// Represents a “MatchBasePaths“ condition.
 type RoutingRuleMatchBasePaths struct {
 	// The string of the case sensitive base path to be matched.
 	AnyOf []string `pulumi:"anyOf"`
@@ -1737,6 +1747,7 @@ type RoutingRuleMatchBasePathsInput interface {
 	ToRoutingRuleMatchBasePathsOutputWithContext(context.Context) RoutingRuleMatchBasePathsOutput
 }
 
+// Represents a “MatchBasePaths“ condition.
 type RoutingRuleMatchBasePathsArgs struct {
 	// The string of the case sensitive base path to be matched.
 	AnyOf pulumi.StringArrayInput `pulumi:"anyOf"`
@@ -1795,6 +1806,7 @@ func (i *routingRuleMatchBasePathsPtrType) ToRoutingRuleMatchBasePathsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleMatchBasePathsPtrOutput)
 }
 
+// Represents a “MatchBasePaths“ condition.
 type RoutingRuleMatchBasePathsOutput struct{ *pulumi.OutputState }
 
 func (RoutingRuleMatchBasePathsOutput) ElementType() reflect.Type {
@@ -1858,10 +1870,11 @@ func (o RoutingRuleMatchBasePathsPtrOutput) AnyOf() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Represents a “MatchHeaderValue“.
 type RoutingRuleMatchHeaderValue struct {
-	// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~.` .
+	// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are ``a-z``, ``A-Z``, ``0-9``, and the following special characters: ``*?-!#$%&'.^_`|~.``.
 	Header string `pulumi:"header"`
-	// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~`. Wildcard matching is supported for header glob values but must be for`*prefix-match`,`suffix-match*`, or`*infix*-match` .
+	// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are ``a-z``, ``A-Z``, ``0-9``, and the following special characters: ``*?-!#$%&'.^_`|~``. Wildcard matching is supported for header glob values but must be for ``*prefix-match``, ``suffix-match*``, or ``*infix*-match``.
 	ValueGlob string `pulumi:"valueGlob"`
 }
 
@@ -1876,10 +1889,11 @@ type RoutingRuleMatchHeaderValueInput interface {
 	ToRoutingRuleMatchHeaderValueOutputWithContext(context.Context) RoutingRuleMatchHeaderValueOutput
 }
 
+// Represents a “MatchHeaderValue“.
 type RoutingRuleMatchHeaderValueArgs struct {
-	// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~.` .
+	// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are ``a-z``, ``A-Z``, ``0-9``, and the following special characters: ``*?-!#$%&'.^_`|~.``.
 	Header pulumi.StringInput `pulumi:"header"`
-	// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~`. Wildcard matching is supported for header glob values but must be for`*prefix-match`,`suffix-match*`, or`*infix*-match` .
+	// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are ``a-z``, ``A-Z``, ``0-9``, and the following special characters: ``*?-!#$%&'.^_`|~``. Wildcard matching is supported for header glob values but must be for ``*prefix-match``, ``suffix-match*``, or ``*infix*-match``.
 	ValueGlob pulumi.StringInput `pulumi:"valueGlob"`
 }
 
@@ -1920,6 +1934,7 @@ func (i RoutingRuleMatchHeaderValueArray) ToRoutingRuleMatchHeaderValueArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleMatchHeaderValueArrayOutput)
 }
 
+// Represents a “MatchHeaderValue“.
 type RoutingRuleMatchHeaderValueOutput struct{ *pulumi.OutputState }
 
 func (RoutingRuleMatchHeaderValueOutput) ElementType() reflect.Type {
@@ -1934,12 +1949,12 @@ func (o RoutingRuleMatchHeaderValueOutput) ToRoutingRuleMatchHeaderValueOutputWi
 	return o
 }
 
-// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~.` .
+// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are “a-z“, “A-Z“, “0-9“, and the following special characters: “*?-!#$%&'.^_`|~.“.
 func (o RoutingRuleMatchHeaderValueOutput) Header() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingRuleMatchHeaderValue) string { return v.Header }).(pulumi.StringOutput)
 }
 
-// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~`. Wildcard matching is supported for header glob values but must be for`*prefix-match`,`suffix-match*`, or`*infix*-match` .
+// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are “a-z“, “A-Z“, “0-9“, and the following special characters: “*?-!#$%&'.^_`|~“. Wildcard matching is supported for header glob values but must be for “*prefix-match“, “suffix-match*“, or “*infix*-match“.
 func (o RoutingRuleMatchHeaderValueOutput) ValueGlob() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingRuleMatchHeaderValue) string { return v.ValueGlob }).(pulumi.StringOutput)
 }
@@ -1964,6 +1979,7 @@ func (o RoutingRuleMatchHeaderValueArrayOutput) Index(i pulumi.IntInput) Routing
 	}).(RoutingRuleMatchHeaderValueOutput)
 }
 
+// Represents a “MatchHeaders“ condition.
 type RoutingRuleMatchHeaders struct {
 	// The header name and header value glob to be matched. The matchHeaders condition is matched if any of the header name and header value globs are matched.
 	AnyOf []RoutingRuleMatchHeaderValue `pulumi:"anyOf"`
@@ -1980,6 +1996,7 @@ type RoutingRuleMatchHeadersInput interface {
 	ToRoutingRuleMatchHeadersOutputWithContext(context.Context) RoutingRuleMatchHeadersOutput
 }
 
+// Represents a “MatchHeaders“ condition.
 type RoutingRuleMatchHeadersArgs struct {
 	// The header name and header value glob to be matched. The matchHeaders condition is matched if any of the header name and header value globs are matched.
 	AnyOf RoutingRuleMatchHeaderValueArrayInput `pulumi:"anyOf"`
@@ -2038,6 +2055,7 @@ func (i *routingRuleMatchHeadersPtrType) ToRoutingRuleMatchHeadersPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleMatchHeadersPtrOutput)
 }
 
+// Represents a “MatchHeaders“ condition.
 type RoutingRuleMatchHeadersOutput struct{ *pulumi.OutputState }
 
 func (RoutingRuleMatchHeadersOutput) ElementType() reflect.Type {

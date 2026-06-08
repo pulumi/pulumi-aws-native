@@ -25,6 +25,7 @@ export type EnvironmentLoggingLevel = (typeof EnvironmentLoggingLevel)[keyof typ
 export const EnvironmentWebserverAccessMode = {
     PrivateOnly: "PRIVATE_ONLY",
     PublicOnly: "PUBLIC_ONLY",
+    PublicAndPrivate: "PUBLIC_AND_PRIVATE",
 } as const;
 
 /**

@@ -48,6 +48,8 @@ __all__ = [
     'ClusterElasticLoadBalancingArgsDict',
     'ClusterEncryptionConfigArgs',
     'ClusterEncryptionConfigArgsDict',
+    'ClusterEtcdPlacementArgs',
+    'ClusterEtcdPlacementArgsDict',
     'ClusterKubernetesNetworkConfigArgs',
     'ClusterKubernetesNetworkConfigArgsDict',
     'ClusterLoggingEnabledTypesArgs',
@@ -759,36 +761,56 @@ class ClusterComputeConfigArgs:
 
 class ClusterControlPlanePlacementArgsDict(TypedDict):
     """
-    Specify the placement group of the control plane machines for your cluster.
+    The placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
     """
     group_name: NotRequired[pulumi.Input[_builtins.str]]
     """
-    Specify the placement group name of the control place machines for your cluster.
+    The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+    """
+    spread_level: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional parameter to specify the placement group spread level for control plane instances. If not provided, EKS will deploy control plane instances without a placement group.
     """
 
 @pulumi.input_type
 class ClusterControlPlanePlacementArgs:
     def __init__(__self__, *,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 spread_level: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Specify the placement group of the control plane machines for your cluster.
+        The placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
 
-        :param pulumi.Input[_builtins.str] group_name: Specify the placement group name of the control place machines for your cluster.
+        :param pulumi.Input[_builtins.str] group_name: The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+        :param pulumi.Input[_builtins.str] spread_level: Optional parameter to specify the placement group spread level for control plane instances. If not provided, EKS will deploy control plane instances without a placement group.
         """
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
+        if spread_level is not None:
+            pulumi.set(__self__, "spread_level", spread_level)
 
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specify the placement group name of the control place machines for your cluster.
+        The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
         """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
     def group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spreadLevel")
+    def spread_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Optional parameter to specify the placement group spread level for control plane instances. If not provided, EKS will deploy control plane instances without a placement group.
+        """
+        return pulumi.get(self, "spread_level")
+
+    @spread_level.setter
+    def spread_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "spread_level", value)
 
 
 class ClusterControlPlaneScalingConfigArgsDict(TypedDict):
@@ -911,6 +933,40 @@ class ClusterEncryptionConfigArgs:
     @resources.setter
     def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resources", value)
+
+
+class ClusterEtcdPlacementArgsDict(TypedDict):
+    """
+    The placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+    """
+    spread_level: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional parameter to specify the placement group spread level for etcd instances. If not provided, EKS will deploy etcd instances without a placement group.
+    """
+
+@pulumi.input_type
+class ClusterEtcdPlacementArgs:
+    def __init__(__self__, *,
+                 spread_level: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+
+        :param pulumi.Input[_builtins.str] spread_level: Optional parameter to specify the placement group spread level for etcd instances. If not provided, EKS will deploy etcd instances without a placement group.
+        """
+        if spread_level is not None:
+            pulumi.set(__self__, "spread_level", spread_level)
+
+    @_builtins.property
+    @pulumi.getter(name="spreadLevel")
+    def spread_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Optional parameter to specify the placement group spread level for etcd instances. If not provided, EKS will deploy etcd instances without a placement group.
+        """
+        return pulumi.get(self, "spread_level")
+
+    @spread_level.setter
+    def spread_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "spread_level", value)
 
 
 class ClusterKubernetesNetworkConfigArgsDict(TypedDict):
@@ -1087,15 +1143,23 @@ class ClusterOutpostConfigArgsDict(TypedDict):
     """
     control_plane_instance_type: pulumi.Input[_builtins.str]
     """
-    Specify the Instance type of the machines that should be used to create your cluster.
+    The EC2 instance type for the Kubernetes control plane instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all control plane instances and cannot be changed after cluster creation.
     """
     outpost_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+    The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. Only a single Outpost ARN is supported.
     """
     control_plane_placement: NotRequired[pulumi.Input['ClusterControlPlanePlacementArgsDict']]
     """
-    Specify the placement group of the control plane machines for your cluster.
+    An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
+    """
+    etcd_instance_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all etcd instances and cannot be changed after cluster creation.
+    """
+    etcd_placement: NotRequired[pulumi.Input['ClusterEtcdPlacementArgsDict']]
+    """
+    An object representing the placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
     """
 
 @pulumi.input_type
@@ -1103,24 +1167,32 @@ class ClusterOutpostConfigArgs:
     def __init__(__self__, *,
                  control_plane_instance_type: pulumi.Input[_builtins.str],
                  outpost_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 control_plane_placement: Optional[pulumi.Input['ClusterControlPlanePlacementArgs']] = None):
+                 control_plane_placement: Optional[pulumi.Input['ClusterControlPlanePlacementArgs']] = None,
+                 etcd_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 etcd_placement: Optional[pulumi.Input['ClusterEtcdPlacementArgs']] = None):
         """
         An object representing the Outpost configuration to use for AWS EKS outpost cluster.
 
-        :param pulumi.Input[_builtins.str] control_plane_instance_type: Specify the Instance type of the machines that should be used to create your cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] outpost_arns: Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
-        :param pulumi.Input['ClusterControlPlanePlacementArgs'] control_plane_placement: Specify the placement group of the control plane machines for your cluster.
+        :param pulumi.Input[_builtins.str] control_plane_instance_type: The EC2 instance type for the Kubernetes control plane instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all control plane instances and cannot be changed after cluster creation.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] outpost_arns: The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. Only a single Outpost ARN is supported.
+        :param pulumi.Input['ClusterControlPlanePlacementArgs'] control_plane_placement: An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
+        :param pulumi.Input[_builtins.str] etcd_instance_type: The EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all etcd instances and cannot be changed after cluster creation.
+        :param pulumi.Input['ClusterEtcdPlacementArgs'] etcd_placement: An object representing the placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
         """
         pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
         pulumi.set(__self__, "outpost_arns", outpost_arns)
         if control_plane_placement is not None:
             pulumi.set(__self__, "control_plane_placement", control_plane_placement)
+        if etcd_instance_type is not None:
+            pulumi.set(__self__, "etcd_instance_type", etcd_instance_type)
+        if etcd_placement is not None:
+            pulumi.set(__self__, "etcd_placement", etcd_placement)
 
     @_builtins.property
     @pulumi.getter(name="controlPlaneInstanceType")
     def control_plane_instance_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Specify the Instance type of the machines that should be used to create your cluster.
+        The EC2 instance type for the Kubernetes control plane instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all control plane instances and cannot be changed after cluster creation.
         """
         return pulumi.get(self, "control_plane_instance_type")
 
@@ -1132,7 +1204,7 @@ class ClusterOutpostConfigArgs:
     @pulumi.getter(name="outpostArns")
     def outpost_arns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+        The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. Only a single Outpost ARN is supported.
         """
         return pulumi.get(self, "outpost_arns")
 
@@ -1144,13 +1216,37 @@ class ClusterOutpostConfigArgs:
     @pulumi.getter(name="controlPlanePlacement")
     def control_plane_placement(self) -> Optional[pulumi.Input['ClusterControlPlanePlacementArgs']]:
         """
-        Specify the placement group of the control plane machines for your cluster.
+        An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
         """
         return pulumi.get(self, "control_plane_placement")
 
     @control_plane_placement.setter
     def control_plane_placement(self, value: Optional[pulumi.Input['ClusterControlPlanePlacementArgs']]):
         pulumi.set(self, "control_plane_placement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="etcdInstanceType")
+    def etcd_instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all etcd instances and cannot be changed after cluster creation.
+        """
+        return pulumi.get(self, "etcd_instance_type")
+
+    @etcd_instance_type.setter
+    def etcd_instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "etcd_instance_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="etcdPlacement")
+    def etcd_placement(self) -> Optional[pulumi.Input['ClusterEtcdPlacementArgs']]:
+        """
+        An object representing the placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+        """
+        return pulumi.get(self, "etcd_placement")
+
+    @etcd_placement.setter
+    def etcd_placement(self, value: Optional[pulumi.Input['ClusterEtcdPlacementArgs']]):
+        pulumi.set(self, "etcd_placement", value)
 
 
 class ClusterProviderArgsDict(TypedDict):

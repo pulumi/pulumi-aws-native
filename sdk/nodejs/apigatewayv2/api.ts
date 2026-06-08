@@ -88,9 +88,8 @@ export class Api extends pulumi.CustomResource {
      */
     declare public readonly failOnWarnings: pulumi.Output<boolean | undefined>;
     /**
-     * The IP address types that can invoke the API. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API.
-     *
-     * Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
+     * The IP address types that can invoke the API. Use ``ipv4`` to allow only IPv4 addresses to invoke your API, or use ``dualstack`` to allow both IPv4 and IPv6 addresses to invoke your API.
+     *  Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
      */
     declare public readonly ipAddressType: pulumi.Output<string | undefined>;
     /**
@@ -229,9 +228,8 @@ export interface ApiArgs {
      */
     failOnWarnings?: pulumi.Input<boolean>;
     /**
-     * The IP address types that can invoke the API. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API.
-     *
-     * Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
+     * The IP address types that can invoke the API. Use ``ipv4`` to allow only IPv4 addresses to invoke your API, or use ``dualstack`` to allow both IPv4 and IPv6 addresses to invoke your API.
+     *  Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
      */
     ipAddressType?: pulumi.Input<string>;
     /**

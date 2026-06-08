@@ -2196,12 +2196,14 @@ type ClusterInstanceGroup struct {
 	// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
 	InstanceCount          int                            `pulumi:"instanceCount"`
 	InstanceGroupName      string                         `pulumi:"instanceGroupName"`
+	InstanceRequirements   *ClusterInstanceRequirements   `pulumi:"instanceRequirements"`
 	InstanceStorageConfigs []ClusterInstanceStorageConfig `pulumi:"instanceStorageConfigs"`
-	InstanceType           string                         `pulumi:"instanceType"`
+	InstanceType           *string                        `pulumi:"instanceType"`
 	KubernetesConfig       *ClusterKubernetesConfig       `pulumi:"kubernetesConfig"`
 	LifeCycleConfig        *ClusterLifeCycleConfig        `pulumi:"lifeCycleConfig"`
 	// The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
 	MinInstanceCount        *int                          `pulumi:"minInstanceCount"`
+	NetworkInterface        *ClusterNetworkInterface      `pulumi:"networkInterface"`
 	OnStartDeepHealthChecks []ClusterDeepHealthCheckType  `pulumi:"onStartDeepHealthChecks"`
 	OverrideVpcConfig       *ClusterVpcConfig             `pulumi:"overrideVpcConfig"`
 	ScheduledUpdateConfig   *ClusterScheduledUpdateConfig `pulumi:"scheduledUpdateConfig"`
@@ -2233,12 +2235,14 @@ type ClusterInstanceGroupArgs struct {
 	// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
 	InstanceCount          pulumi.IntInput                        `pulumi:"instanceCount"`
 	InstanceGroupName      pulumi.StringInput                     `pulumi:"instanceGroupName"`
+	InstanceRequirements   ClusterInstanceRequirementsPtrInput    `pulumi:"instanceRequirements"`
 	InstanceStorageConfigs ClusterInstanceStorageConfigArrayInput `pulumi:"instanceStorageConfigs"`
-	InstanceType           pulumi.StringInput                     `pulumi:"instanceType"`
+	InstanceType           pulumi.StringPtrInput                  `pulumi:"instanceType"`
 	KubernetesConfig       ClusterKubernetesConfigPtrInput        `pulumi:"kubernetesConfig"`
 	LifeCycleConfig        ClusterLifeCycleConfigPtrInput         `pulumi:"lifeCycleConfig"`
 	// The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
 	MinInstanceCount        pulumi.IntPtrInput                   `pulumi:"minInstanceCount"`
+	NetworkInterface        ClusterNetworkInterfacePtrInput      `pulumi:"networkInterface"`
 	OnStartDeepHealthChecks ClusterDeepHealthCheckTypeArrayInput `pulumi:"onStartDeepHealthChecks"`
 	OverrideVpcConfig       ClusterVpcConfigPtrInput             `pulumi:"overrideVpcConfig"`
 	ScheduledUpdateConfig   ClusterScheduledUpdateConfigPtrInput `pulumi:"scheduledUpdateConfig"`
@@ -2327,12 +2331,16 @@ func (o ClusterInstanceGroupOutput) InstanceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) string { return v.InstanceGroupName }).(pulumi.StringOutput)
 }
 
+func (o ClusterInstanceGroupOutput) InstanceRequirements() ClusterInstanceRequirementsPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) *ClusterInstanceRequirements { return v.InstanceRequirements }).(ClusterInstanceRequirementsPtrOutput)
+}
+
 func (o ClusterInstanceGroupOutput) InstanceStorageConfigs() ClusterInstanceStorageConfigArrayOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) []ClusterInstanceStorageConfig { return v.InstanceStorageConfigs }).(ClusterInstanceStorageConfigArrayOutput)
 }
 
-func (o ClusterInstanceGroupOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterInstanceGroup) string { return v.InstanceType }).(pulumi.StringOutput)
+func (o ClusterInstanceGroupOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterInstanceGroupOutput) KubernetesConfig() ClusterKubernetesConfigPtrOutput {
@@ -2346,6 +2354,10 @@ func (o ClusterInstanceGroupOutput) LifeCycleConfig() ClusterLifeCycleConfigPtrO
 // The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
 func (o ClusterInstanceGroupOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterInstanceGroupOutput) NetworkInterface() ClusterNetworkInterfacePtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) *ClusterNetworkInterface { return v.NetworkInterface }).(ClusterNetworkInterfacePtrOutput)
 }
 
 func (o ClusterInstanceGroupOutput) OnStartDeepHealthChecks() ClusterDeepHealthCheckTypeArrayOutput {
@@ -2392,6 +2404,146 @@ func (o ClusterInstanceGroupArrayOutput) Index(i pulumi.IntInput) ClusterInstanc
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterInstanceGroup {
 		return vs[0].([]ClusterInstanceGroup)[vs[1].(int)]
 	}).(ClusterInstanceGroupOutput)
+}
+
+// The instance requirements for the instance group. Specifies a list of instance types that can be used.
+type ClusterInstanceRequirements struct {
+	// A list of instance types that can be used for this instance group.
+	InstanceTypes []string `pulumi:"instanceTypes"`
+}
+
+// ClusterInstanceRequirementsInput is an input type that accepts ClusterInstanceRequirementsArgs and ClusterInstanceRequirementsOutput values.
+// You can construct a concrete instance of `ClusterInstanceRequirementsInput` via:
+//
+//	ClusterInstanceRequirementsArgs{...}
+type ClusterInstanceRequirementsInput interface {
+	pulumi.Input
+
+	ToClusterInstanceRequirementsOutput() ClusterInstanceRequirementsOutput
+	ToClusterInstanceRequirementsOutputWithContext(context.Context) ClusterInstanceRequirementsOutput
+}
+
+// The instance requirements for the instance group. Specifies a list of instance types that can be used.
+type ClusterInstanceRequirementsArgs struct {
+	// A list of instance types that can be used for this instance group.
+	InstanceTypes pulumi.StringArrayInput `pulumi:"instanceTypes"`
+}
+
+func (ClusterInstanceRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceRequirements)(nil)).Elem()
+}
+
+func (i ClusterInstanceRequirementsArgs) ToClusterInstanceRequirementsOutput() ClusterInstanceRequirementsOutput {
+	return i.ToClusterInstanceRequirementsOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceRequirementsArgs) ToClusterInstanceRequirementsOutputWithContext(ctx context.Context) ClusterInstanceRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceRequirementsOutput)
+}
+
+func (i ClusterInstanceRequirementsArgs) ToClusterInstanceRequirementsPtrOutput() ClusterInstanceRequirementsPtrOutput {
+	return i.ToClusterInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceRequirementsArgs) ToClusterInstanceRequirementsPtrOutputWithContext(ctx context.Context) ClusterInstanceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceRequirementsOutput).ToClusterInstanceRequirementsPtrOutputWithContext(ctx)
+}
+
+// ClusterInstanceRequirementsPtrInput is an input type that accepts ClusterInstanceRequirementsArgs, ClusterInstanceRequirementsPtr and ClusterInstanceRequirementsPtrOutput values.
+// You can construct a concrete instance of `ClusterInstanceRequirementsPtrInput` via:
+//
+//	        ClusterInstanceRequirementsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterInstanceRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToClusterInstanceRequirementsPtrOutput() ClusterInstanceRequirementsPtrOutput
+	ToClusterInstanceRequirementsPtrOutputWithContext(context.Context) ClusterInstanceRequirementsPtrOutput
+}
+
+type clusterInstanceRequirementsPtrType ClusterInstanceRequirementsArgs
+
+func ClusterInstanceRequirementsPtr(v *ClusterInstanceRequirementsArgs) ClusterInstanceRequirementsPtrInput {
+	return (*clusterInstanceRequirementsPtrType)(v)
+}
+
+func (*clusterInstanceRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInstanceRequirements)(nil)).Elem()
+}
+
+func (i *clusterInstanceRequirementsPtrType) ToClusterInstanceRequirementsPtrOutput() ClusterInstanceRequirementsPtrOutput {
+	return i.ToClusterInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterInstanceRequirementsPtrType) ToClusterInstanceRequirementsPtrOutputWithContext(ctx context.Context) ClusterInstanceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceRequirementsPtrOutput)
+}
+
+// The instance requirements for the instance group. Specifies a list of instance types that can be used.
+type ClusterInstanceRequirementsOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceRequirements)(nil)).Elem()
+}
+
+func (o ClusterInstanceRequirementsOutput) ToClusterInstanceRequirementsOutput() ClusterInstanceRequirementsOutput {
+	return o
+}
+
+func (o ClusterInstanceRequirementsOutput) ToClusterInstanceRequirementsOutputWithContext(ctx context.Context) ClusterInstanceRequirementsOutput {
+	return o
+}
+
+func (o ClusterInstanceRequirementsOutput) ToClusterInstanceRequirementsPtrOutput() ClusterInstanceRequirementsPtrOutput {
+	return o.ToClusterInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterInstanceRequirementsOutput) ToClusterInstanceRequirementsPtrOutputWithContext(ctx context.Context) ClusterInstanceRequirementsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterInstanceRequirements) *ClusterInstanceRequirements {
+		return &v
+	}).(ClusterInstanceRequirementsPtrOutput)
+}
+
+// A list of instance types that can be used for this instance group.
+func (o ClusterInstanceRequirementsOutput) InstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterInstanceRequirements) []string { return v.InstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+type ClusterInstanceRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInstanceRequirements)(nil)).Elem()
+}
+
+func (o ClusterInstanceRequirementsPtrOutput) ToClusterInstanceRequirementsPtrOutput() ClusterInstanceRequirementsPtrOutput {
+	return o
+}
+
+func (o ClusterInstanceRequirementsPtrOutput) ToClusterInstanceRequirementsPtrOutputWithContext(ctx context.Context) ClusterInstanceRequirementsPtrOutput {
+	return o
+}
+
+func (o ClusterInstanceRequirementsPtrOutput) Elem() ClusterInstanceRequirementsOutput {
+	return o.ApplyT(func(v *ClusterInstanceRequirements) ClusterInstanceRequirements {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterInstanceRequirements
+		return ret
+	}).(ClusterInstanceRequirementsOutput)
+}
+
+// A list of instance types that can be used for this instance group.
+func (o ClusterInstanceRequirementsPtrOutput) InstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 // Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
@@ -2930,6 +3082,146 @@ func (o ClusterLifeCycleConfigPtrOutput) SourceS3Uri() pulumi.StringPtrOutput {
 		}
 		return v.SourceS3Uri
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the network interface configuration for the instance group.
+type ClusterNetworkInterface struct {
+	// The type of network interface.
+	InterfaceType ClusterNetworkInterfaceInterfaceType `pulumi:"interfaceType"`
+}
+
+// ClusterNetworkInterfaceInput is an input type that accepts ClusterNetworkInterfaceArgs and ClusterNetworkInterfaceOutput values.
+// You can construct a concrete instance of `ClusterNetworkInterfaceInput` via:
+//
+//	ClusterNetworkInterfaceArgs{...}
+type ClusterNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToClusterNetworkInterfaceOutput() ClusterNetworkInterfaceOutput
+	ToClusterNetworkInterfaceOutputWithContext(context.Context) ClusterNetworkInterfaceOutput
+}
+
+// Specifies the network interface configuration for the instance group.
+type ClusterNetworkInterfaceArgs struct {
+	// The type of network interface.
+	InterfaceType ClusterNetworkInterfaceInterfaceTypeInput `pulumi:"interfaceType"`
+}
+
+func (ClusterNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNetworkInterface)(nil)).Elem()
+}
+
+func (i ClusterNetworkInterfaceArgs) ToClusterNetworkInterfaceOutput() ClusterNetworkInterfaceOutput {
+	return i.ToClusterNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i ClusterNetworkInterfaceArgs) ToClusterNetworkInterfaceOutputWithContext(ctx context.Context) ClusterNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkInterfaceOutput)
+}
+
+func (i ClusterNetworkInterfaceArgs) ToClusterNetworkInterfacePtrOutput() ClusterNetworkInterfacePtrOutput {
+	return i.ToClusterNetworkInterfacePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterNetworkInterfaceArgs) ToClusterNetworkInterfacePtrOutputWithContext(ctx context.Context) ClusterNetworkInterfacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkInterfaceOutput).ToClusterNetworkInterfacePtrOutputWithContext(ctx)
+}
+
+// ClusterNetworkInterfacePtrInput is an input type that accepts ClusterNetworkInterfaceArgs, ClusterNetworkInterfacePtr and ClusterNetworkInterfacePtrOutput values.
+// You can construct a concrete instance of `ClusterNetworkInterfacePtrInput` via:
+//
+//	        ClusterNetworkInterfaceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterNetworkInterfacePtrInput interface {
+	pulumi.Input
+
+	ToClusterNetworkInterfacePtrOutput() ClusterNetworkInterfacePtrOutput
+	ToClusterNetworkInterfacePtrOutputWithContext(context.Context) ClusterNetworkInterfacePtrOutput
+}
+
+type clusterNetworkInterfacePtrType ClusterNetworkInterfaceArgs
+
+func ClusterNetworkInterfacePtr(v *ClusterNetworkInterfaceArgs) ClusterNetworkInterfacePtrInput {
+	return (*clusterNetworkInterfacePtrType)(v)
+}
+
+func (*clusterNetworkInterfacePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterNetworkInterface)(nil)).Elem()
+}
+
+func (i *clusterNetworkInterfacePtrType) ToClusterNetworkInterfacePtrOutput() ClusterNetworkInterfacePtrOutput {
+	return i.ToClusterNetworkInterfacePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterNetworkInterfacePtrType) ToClusterNetworkInterfacePtrOutputWithContext(ctx context.Context) ClusterNetworkInterfacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkInterfacePtrOutput)
+}
+
+// Specifies the network interface configuration for the instance group.
+type ClusterNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (ClusterNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNetworkInterface)(nil)).Elem()
+}
+
+func (o ClusterNetworkInterfaceOutput) ToClusterNetworkInterfaceOutput() ClusterNetworkInterfaceOutput {
+	return o
+}
+
+func (o ClusterNetworkInterfaceOutput) ToClusterNetworkInterfaceOutputWithContext(ctx context.Context) ClusterNetworkInterfaceOutput {
+	return o
+}
+
+func (o ClusterNetworkInterfaceOutput) ToClusterNetworkInterfacePtrOutput() ClusterNetworkInterfacePtrOutput {
+	return o.ToClusterNetworkInterfacePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNetworkInterfaceOutput) ToClusterNetworkInterfacePtrOutputWithContext(ctx context.Context) ClusterNetworkInterfacePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNetworkInterface) *ClusterNetworkInterface {
+		return &v
+	}).(ClusterNetworkInterfacePtrOutput)
+}
+
+// The type of network interface.
+func (o ClusterNetworkInterfaceOutput) InterfaceType() ClusterNetworkInterfaceInterfaceTypeOutput {
+	return o.ApplyT(func(v ClusterNetworkInterface) ClusterNetworkInterfaceInterfaceType { return v.InterfaceType }).(ClusterNetworkInterfaceInterfaceTypeOutput)
+}
+
+type ClusterNetworkInterfacePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterNetworkInterfacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterNetworkInterface)(nil)).Elem()
+}
+
+func (o ClusterNetworkInterfacePtrOutput) ToClusterNetworkInterfacePtrOutput() ClusterNetworkInterfacePtrOutput {
+	return o
+}
+
+func (o ClusterNetworkInterfacePtrOutput) ToClusterNetworkInterfacePtrOutputWithContext(ctx context.Context) ClusterNetworkInterfacePtrOutput {
+	return o
+}
+
+func (o ClusterNetworkInterfacePtrOutput) Elem() ClusterNetworkInterfaceOutput {
+	return o.ApplyT(func(v *ClusterNetworkInterface) ClusterNetworkInterface {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterNetworkInterface
+		return ret
+	}).(ClusterNetworkInterfaceOutput)
+}
+
+// The type of network interface.
+func (o ClusterNetworkInterfacePtrOutput) InterfaceType() ClusterNetworkInterfaceInterfaceTypePtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkInterface) *ClusterNetworkInterfaceInterfaceType {
+		if v == nil {
+			return nil
+		}
+		return &v.InterfaceType
+	}).(ClusterNetworkInterfaceInterfaceTypePtrOutput)
 }
 
 // Options for OnDemand capacity
@@ -50458,6 +50750,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFSxLustreConfigPtrInput)(nil)).Elem(), ClusterFSxLustreConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupInput)(nil)).Elem(), ClusterInstanceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupArrayInput)(nil)).Elem(), ClusterInstanceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceRequirementsInput)(nil)).Elem(), ClusterInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceRequirementsPtrInput)(nil)).Elem(), ClusterInstanceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceStorageConfigInput)(nil)).Elem(), ClusterInstanceStorageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceStorageConfigArrayInput)(nil)).Elem(), ClusterInstanceStorageConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesConfigInput)(nil)).Elem(), ClusterKubernetesConfigArgs{})
@@ -50466,6 +50760,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesTaintArrayInput)(nil)).Elem(), ClusterKubernetesTaintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLifeCycleConfigInput)(nil)).Elem(), ClusterLifeCycleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLifeCycleConfigPtrInput)(nil)).Elem(), ClusterLifeCycleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkInterfaceInput)(nil)).Elem(), ClusterNetworkInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkInterfacePtrInput)(nil)).Elem(), ClusterNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOnDemandOptionsInput)(nil)).Elem(), ClusterOnDemandOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOnDemandOptionsPtrInput)(nil)).Elem(), ClusterOnDemandOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorInput)(nil)).Elem(), ClusterOrchestratorArgs{})
@@ -51058,6 +51354,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterFSxLustreConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceGroupOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceGroupArrayOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceRequirementsOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceStorageConfigOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceStorageConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesConfigOutput{})
@@ -51066,6 +51364,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterKubernetesTaintArrayOutput{})
 	pulumi.RegisterOutputType(ClusterLifeCycleConfigOutput{})
 	pulumi.RegisterOutputType(ClusterLifeCycleConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(ClusterNetworkInterfacePtrOutput{})
 	pulumi.RegisterOutputType(ClusterOnDemandOptionsOutput{})
 	pulumi.RegisterOutputType(ClusterOnDemandOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOrchestratorOutput{})

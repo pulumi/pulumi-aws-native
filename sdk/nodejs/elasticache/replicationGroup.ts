@@ -82,6 +82,14 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     declare public readonly dataTieringEnabled: pulumi.Output<boolean | undefined>;
     /**
+     * The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+     */
+    declare public readonly durability: pulumi.Output<enums.elasticache.ReplicationGroupDurability | undefined>;
+    /**
+     * The resolved durability state of the replication group after resolving the default value. This is a read-only property.
+     */
+    declare public /*out*/ readonly effectiveDurability: pulumi.Output<enums.elasticache.ReplicationGroupEffectiveDurability>;
+    /**
      * The name of the cache engine to be used for the clusters in this replication group.
      */
     declare public readonly engine: pulumi.Output<string | undefined>;
@@ -233,6 +241,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["cacheSubnetGroupName"] = args?.cacheSubnetGroupName;
             resourceInputs["clusterMode"] = args?.clusterMode;
             resourceInputs["dataTieringEnabled"] = args?.dataTieringEnabled;
+            resourceInputs["durability"] = args?.durability;
             resourceInputs["engine"] = args?.engine;
             resourceInputs["engineVersion"] = args?.engineVersion;
             resourceInputs["globalReplicationGroupId"] = args?.globalReplicationGroupId;
@@ -263,6 +272,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["transitEncryptionMode"] = args?.transitEncryptionMode;
             resourceInputs["userGroupIds"] = args?.userGroupIds;
             resourceInputs["configurationEndPoint"] = undefined /*out*/;
+            resourceInputs["effectiveDurability"] = undefined /*out*/;
             resourceInputs["primaryEndPoint"] = undefined /*out*/;
             resourceInputs["readEndPoint"] = undefined /*out*/;
             resourceInputs["readerEndPoint"] = undefined /*out*/;
@@ -278,6 +288,8 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["clusterMode"] = undefined /*out*/;
             resourceInputs["configurationEndPoint"] = undefined /*out*/;
             resourceInputs["dataTieringEnabled"] = undefined /*out*/;
+            resourceInputs["durability"] = undefined /*out*/;
+            resourceInputs["effectiveDurability"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
             resourceInputs["globalReplicationGroupId"] = undefined /*out*/;
@@ -362,6 +374,10 @@ export interface ReplicationGroupArgs {
      * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes.
      */
     dataTieringEnabled?: pulumi.Input<boolean>;
+    /**
+     * The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+     */
+    durability?: pulumi.Input<enums.elasticache.ReplicationGroupDurability>;
     /**
      * The name of the cache engine to be used for the clusters in this replication group.
      */

@@ -60,6 +60,8 @@ class AlarmArgs:
                 If you omit this parameter, CW uses the same value here that you set for ``EvaluationPeriods``, and the alarm goes to alarm state if that many consecutive periods are breaching.
         :param pulumi.Input[Sequence[pulumi.Input['AlarmDimensionArgs']]] dimensions: The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify ``Dimensions``. Instead, you use ``Metrics``.
         :param pulumi.Input[_builtins.str] evaluate_low_sample_count_percentile: Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+        :param pulumi.Input['AlarmEvaluationCriteriaArgs'] evaluation_criteria: The evaluation criteria for the alarm.
+        :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
                 For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
@@ -237,6 +239,9 @@ class AlarmArgs:
     @_builtins.property
     @pulumi.getter(name="evaluationCriteria")
     def evaluation_criteria(self) -> Optional[pulumi.Input['AlarmEvaluationCriteriaArgs']]:
+        """
+        The evaluation criteria for the alarm.
+        """
         return pulumi.get(self, "evaluation_criteria")
 
     @evaluation_criteria.setter
@@ -246,6 +251,9 @@ class AlarmArgs:
     @_builtins.property
     @pulumi.getter(name="evaluationInterval")
     def evaluation_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The frequency, in seconds, at which the alarm is evaluated.
+        """
         return pulumi.get(self, "evaluation_interval")
 
     @evaluation_interval.setter
@@ -482,6 +490,8 @@ class Alarm(pulumi.CustomResource):
                 If you omit this parameter, CW uses the same value here that you set for ``EvaluationPeriods``, and the alarm goes to alarm state if that many consecutive periods are breaching.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlarmDimensionArgs', 'AlarmDimensionArgsDict']]]] dimensions: The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify ``Dimensions``. Instead, you use ``Metrics``.
         :param pulumi.Input[_builtins.str] evaluate_low_sample_count_percentile: Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+        :param pulumi.Input[Union['AlarmEvaluationCriteriaArgs', 'AlarmEvaluationCriteriaArgsDict']] evaluation_criteria: The evaluation criteria for the alarm.
+        :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
                 For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
@@ -722,11 +732,17 @@ class Alarm(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="evaluationCriteria")
     def evaluation_criteria(self) -> pulumi.Output[Optional['outputs.AlarmEvaluationCriteria']]:
+        """
+        The evaluation criteria for the alarm.
+        """
         return pulumi.get(self, "evaluation_criteria")
 
     @_builtins.property
     @pulumi.getter(name="evaluationInterval")
     def evaluation_interval(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The frequency, in seconds, at which the alarm is evaluated.
+        """
         return pulumi.get(self, "evaluation_interval")
 
     @_builtins.property

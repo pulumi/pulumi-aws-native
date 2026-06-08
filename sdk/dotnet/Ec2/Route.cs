@@ -90,6 +90,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("networkInterfaceId")]
         public Output<string?> NetworkInterfaceId { get; private set; } = null!;
 
+        [Output("odbNetworkArn")]
+        public Output<string?> OdbNetworkArn { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the route table for the route.
         /// </summary>
@@ -232,6 +235,9 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
+
+        [Input("odbNetworkArn")]
+        public Input<string>? OdbNetworkArn { get; set; }
 
         /// <summary>
         /// The ID of the route table for the route.

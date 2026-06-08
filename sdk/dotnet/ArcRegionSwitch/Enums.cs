@@ -103,6 +103,8 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         public static PlanExecutionBlockType ArcRegionSwitchPlan { get; } = new PlanExecutionBlockType("ARCRegionSwitchPlan");
         public static PlanExecutionBlockType ArcRoutingControl { get; } = new PlanExecutionBlockType("ARCRoutingControl");
         public static PlanExecutionBlockType AuroraGlobalDatabase { get; } = new PlanExecutionBlockType("AuroraGlobalDatabase");
+        public static PlanExecutionBlockType AuroraProvisionedScaling { get; } = new PlanExecutionBlockType("AuroraProvisionedScaling");
+        public static PlanExecutionBlockType AuroraServerlessScaling { get; } = new PlanExecutionBlockType("AuroraServerlessScaling");
         public static PlanExecutionBlockType CustomActionLambda { get; } = new PlanExecutionBlockType("CustomActionLambda");
         public static PlanExecutionBlockType DocumentDb { get; } = new PlanExecutionBlockType("DocumentDb");
         public static PlanExecutionBlockType Ec2AutoScaling { get; } = new PlanExecutionBlockType("EC2AutoScaling");
@@ -110,6 +112,7 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         public static PlanExecutionBlockType EksResourceScaling { get; } = new PlanExecutionBlockType("EKSResourceScaling");
         public static PlanExecutionBlockType LambdaEventSourceMapping { get; } = new PlanExecutionBlockType("LambdaEventSourceMapping");
         public static PlanExecutionBlockType ManualApproval { get; } = new PlanExecutionBlockType("ManualApproval");
+        public static PlanExecutionBlockType NeptuneGlobalDatabase { get; } = new PlanExecutionBlockType("NeptuneGlobalDatabase");
         public static PlanExecutionBlockType Parallel { get; } = new PlanExecutionBlockType("Parallel");
         public static PlanExecutionBlockType RdsCreateCrossRegionReplica { get; } = new PlanExecutionBlockType("RdsCreateCrossRegionReplica");
         public static PlanExecutionBlockType RdsPromoteReadReplica { get; } = new PlanExecutionBlockType("RdsPromoteReadReplica");
@@ -205,6 +208,33 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PlanLambdaEventSourceMappingUngracefulBehavior other && Equals(other);
         public bool Equals(PlanLambdaEventSourceMappingUngracefulBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PlanNeptuneUngracefulBehavior : IEquatable<PlanNeptuneUngracefulBehavior>
+    {
+        private readonly string _value;
+
+        private PlanNeptuneUngracefulBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlanNeptuneUngracefulBehavior Failover { get; } = new PlanNeptuneUngracefulBehavior("failover");
+
+        public static bool operator ==(PlanNeptuneUngracefulBehavior left, PlanNeptuneUngracefulBehavior right) => left.Equals(right);
+        public static bool operator !=(PlanNeptuneUngracefulBehavior left, PlanNeptuneUngracefulBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(PlanNeptuneUngracefulBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlanNeptuneUngracefulBehavior other && Equals(other);
+        public bool Equals(PlanNeptuneUngracefulBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

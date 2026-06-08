@@ -26,6 +26,8 @@ export const PlanExecutionBlockType = {
     ArcRegionSwitchPlan: "ARCRegionSwitchPlan",
     ArcRoutingControl: "ARCRoutingControl",
     AuroraGlobalDatabase: "AuroraGlobalDatabase",
+    AuroraProvisionedScaling: "AuroraProvisionedScaling",
+    AuroraServerlessScaling: "AuroraServerlessScaling",
     CustomActionLambda: "CustomActionLambda",
     DocumentDb: "DocumentDb",
     Ec2AutoScaling: "EC2AutoScaling",
@@ -33,6 +35,7 @@ export const PlanExecutionBlockType = {
     EksResourceScaling: "EKSResourceScaling",
     LambdaEventSourceMapping: "LambdaEventSourceMapping",
     ManualApproval: "ManualApproval",
+    NeptuneGlobalDatabase: "NeptuneGlobalDatabase",
     Parallel: "Parallel",
     RdsCreateCrossRegionReplica: "RdsCreateCrossRegionReplica",
     RdsPromoteReadReplica: "RdsPromoteReadReplica",
@@ -59,6 +62,12 @@ export const PlanLambdaEventSourceMappingUngracefulBehavior = {
 } as const;
 
 export type PlanLambdaEventSourceMappingUngracefulBehavior = (typeof PlanLambdaEventSourceMappingUngracefulBehavior)[keyof typeof PlanLambdaEventSourceMappingUngracefulBehavior];
+
+export const PlanNeptuneUngracefulBehavior = {
+    Failover: "failover",
+} as const;
+
+export type PlanNeptuneUngracefulBehavior = (typeof PlanNeptuneUngracefulBehavior)[keyof typeof PlanNeptuneUngracefulBehavior];
 
 export const PlanRecoveryApproach = {
     ActiveActive: "activeActive",

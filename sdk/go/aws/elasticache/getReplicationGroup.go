@@ -39,6 +39,10 @@ type LookupReplicationGroupResult struct {
 	ClusterMode *string `pulumi:"clusterMode"`
 	// The configuration details of the replication group.
 	ConfigurationEndPoint *ReplicationGroupEndpoint `pulumi:"configurationEndPoint"`
+	// The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+	Durability *ReplicationGroupDurability `pulumi:"durability"`
+	// The resolved durability state of the replication group after resolving the default value. This is a read-only property.
+	EffectiveDurability *ReplicationGroupEffectiveDurability `pulumi:"effectiveDurability"`
 	// The name of the cache engine to be used for the clusters in this replication group.
 	Engine *string `pulumi:"engine"`
 	// The network type you choose when creating a replication group, either ipv4 | ipv6. IPv6 is supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the Nitro system.
@@ -131,6 +135,18 @@ func (o LookupReplicationGroupResultOutput) ClusterMode() pulumi.StringPtrOutput
 // The configuration details of the replication group.
 func (o LookupReplicationGroupResultOutput) ConfigurationEndPoint() ReplicationGroupEndpointPtrOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) *ReplicationGroupEndpoint { return v.ConfigurationEndPoint }).(ReplicationGroupEndpointPtrOutput)
+}
+
+// The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+func (o LookupReplicationGroupResultOutput) Durability() ReplicationGroupDurabilityPtrOutput {
+	return o.ApplyT(func(v LookupReplicationGroupResult) *ReplicationGroupDurability { return v.Durability }).(ReplicationGroupDurabilityPtrOutput)
+}
+
+// The resolved durability state of the replication group after resolving the default value. This is a read-only property.
+func (o LookupReplicationGroupResultOutput) EffectiveDurability() ReplicationGroupEffectiveDurabilityPtrOutput {
+	return o.ApplyT(func(v LookupReplicationGroupResult) *ReplicationGroupEffectiveDurability {
+		return v.EffectiveDurability
+	}).(ReplicationGroupEffectiveDurabilityPtrOutput)
 }
 
 // The name of the cache engine to be used for the clusters in this replication group.

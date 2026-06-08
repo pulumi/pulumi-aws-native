@@ -52,6 +52,7 @@ type LookupRouteResult struct {
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// The ID of a network interface.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	OdbNetworkArn      *string `pulumi:"odbNetworkArn"`
 	// The ID of a transit gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
@@ -139,6 +140,10 @@ func (o LookupRouteResultOutput) NatGatewayId() pulumi.StringPtrOutput {
 // The ID of a network interface.
 func (o LookupRouteResultOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupRouteResultOutput) OdbNetworkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteResult) *string { return v.OdbNetworkArn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a transit gateway.

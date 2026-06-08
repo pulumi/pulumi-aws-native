@@ -26,7 +26,8 @@ type CapacityProvider struct {
 	// The ARN of the KMS key used to encrypt the capacity provider's resources.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The permissions configuration for the capacity provider.
-	PermissionsConfig CapacityProviderPermissionsConfigOutput `pulumi:"permissionsConfig"`
+	PermissionsConfig CapacityProviderPermissionsConfigOutput      `pulumi:"permissionsConfig"`
+	PropagateTags     CapacityProviderPropagateTagsConfigPtrOutput `pulumi:"propagateTags"`
 	// The current state of the capacity provider.
 	State CapacityProviderStateEnumOutput `pulumi:"state"`
 	// A key-value pair that provides metadata for the capacity provider.
@@ -97,7 +98,8 @@ type capacityProviderArgs struct {
 	// The ARN of the KMS key used to encrypt the capacity provider's resources.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The permissions configuration for the capacity provider.
-	PermissionsConfig CapacityProviderPermissionsConfig `pulumi:"permissionsConfig"`
+	PermissionsConfig CapacityProviderPermissionsConfig    `pulumi:"permissionsConfig"`
+	PropagateTags     *CapacityProviderPropagateTagsConfig `pulumi:"propagateTags"`
 	// A key-value pair that provides metadata for the capacity provider.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The VPC configuration for the capacity provider.
@@ -115,6 +117,7 @@ type CapacityProviderArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// The permissions configuration for the capacity provider.
 	PermissionsConfig CapacityProviderPermissionsConfigInput
+	PropagateTags     CapacityProviderPropagateTagsConfigPtrInput
 	// A key-value pair that provides metadata for the capacity provider.
 	Tags aws.TagArrayInput
 	// The VPC configuration for the capacity provider.
@@ -186,6 +189,10 @@ func (o CapacityProviderOutput) KmsKeyArn() pulumi.StringPtrOutput {
 // The permissions configuration for the capacity provider.
 func (o CapacityProviderOutput) PermissionsConfig() CapacityProviderPermissionsConfigOutput {
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderPermissionsConfigOutput { return v.PermissionsConfig }).(CapacityProviderPermissionsConfigOutput)
+}
+
+func (o CapacityProviderOutput) PropagateTags() CapacityProviderPropagateTagsConfigPtrOutput {
+	return o.ApplyT(func(v *CapacityProvider) CapacityProviderPropagateTagsConfigPtrOutput { return v.PropagateTags }).(CapacityProviderPropagateTagsConfigPtrOutput)
 }
 
 // The current state of the capacity provider.

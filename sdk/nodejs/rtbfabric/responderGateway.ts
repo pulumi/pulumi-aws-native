@@ -37,7 +37,9 @@ export class ResponderGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResponderGateway.__pulumiType;
     }
 
+    declare public readonly acmCertificateArn: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateAssociationStatus: pulumi.Output<enums.rtbfabric.ResponderGatewayCertificateAssociationStatus>;
     declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
     /**
      * An optional description for the responder gateway.
@@ -47,7 +49,10 @@ export class ResponderGateway extends pulumi.CustomResource {
      * The domain name for the responder gateway.
      */
     declare public readonly domainName: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly externalInboundEndpoint: pulumi.Output<string>;
     declare public /*out*/ readonly gatewayId: pulumi.Output<string>;
+    declare public readonly gatewayType: pulumi.Output<enums.rtbfabric.ResponderGatewayGatewayType | undefined>;
+    declare public readonly listenerConfig: pulumi.Output<outputs.rtbfabric.ResponderGatewayListenerConfig | undefined>;
     /**
      * The configuration for the managed endpoint.
      */
@@ -109,8 +114,11 @@ export class ResponderGateway extends pulumi.CustomResource {
             if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
+            resourceInputs["acmCertificateArn"] = args?.acmCertificateArn;
             resourceInputs["description"] = args?.description;
             resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["gatewayType"] = args?.gatewayType;
+            resourceInputs["listenerConfig"] = args?.listenerConfig;
             resourceInputs["managedEndpointConfiguration"] = args?.managedEndpointConfiguration;
             resourceInputs["port"] = args?.port;
             resourceInputs["protocol"] = args?.protocol;
@@ -120,16 +128,23 @@ export class ResponderGateway extends pulumi.CustomResource {
             resourceInputs["trustStoreConfiguration"] = args?.trustStoreConfiguration;
             resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["certificateAssociationStatus"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
+            resourceInputs["externalInboundEndpoint"] = undefined /*out*/;
             resourceInputs["gatewayId"] = undefined /*out*/;
             resourceInputs["responderGatewayStatus"] = undefined /*out*/;
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         } else {
+            resourceInputs["acmCertificateArn"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["certificateAssociationStatus"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["externalInboundEndpoint"] = undefined /*out*/;
             resourceInputs["gatewayId"] = undefined /*out*/;
+            resourceInputs["gatewayType"] = undefined /*out*/;
+            resourceInputs["listenerConfig"] = undefined /*out*/;
             resourceInputs["managedEndpointConfiguration"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
@@ -150,6 +165,7 @@ export class ResponderGateway extends pulumi.CustomResource {
  * The set of arguments for constructing a ResponderGateway resource.
  */
 export interface ResponderGatewayArgs {
+    acmCertificateArn?: pulumi.Input<string>;
     /**
      * An optional description for the responder gateway.
      */
@@ -158,6 +174,8 @@ export interface ResponderGatewayArgs {
      * The domain name for the responder gateway.
      */
     domainName?: pulumi.Input<string>;
+    gatewayType?: pulumi.Input<enums.rtbfabric.ResponderGatewayGatewayType>;
+    listenerConfig?: pulumi.Input<inputs.rtbfabric.ResponderGatewayListenerConfigArgs>;
     /**
      * The configuration for the managed endpoint.
      */

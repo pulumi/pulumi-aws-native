@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGatewayTargetResult:
-    def __init__(__self__, authorization_data=None, created_at=None, credential_provider_configurations=None, description=None, gateway_arn=None, last_synchronized_at=None, metadata_configuration=None, name=None, protocol_type=None, status=None, status_reasons=None, target_configuration=None, target_id=None, updated_at=None):
+    def __init__(__self__, authorization_data=None, created_at=None, credential_provider_configurations=None, description=None, gateway_arn=None, last_synchronized_at=None, metadata_configuration=None, name=None, private_endpoint=None, private_endpoint_managed_resources=None, protocol_type=None, status=None, status_reasons=None, target_configuration=None, target_id=None, updated_at=None):
         if authorization_data and not isinstance(authorization_data, dict):
             raise TypeError("Expected argument 'authorization_data' to be a dict")
         pulumi.set(__self__, "authorization_data", authorization_data)
@@ -50,6 +50,12 @@ class GetGatewayTargetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_endpoint and not isinstance(private_endpoint, dict):
+            raise TypeError("Expected argument 'private_endpoint' to be a dict")
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_endpoint_managed_resources and not isinstance(private_endpoint_managed_resources, list):
+            raise TypeError("Expected argument 'private_endpoint_managed_resources' to be a list")
+        pulumi.set(__self__, "private_endpoint_managed_resources", private_endpoint_managed_resources)
         if protocol_type and not isinstance(protocol_type, str):
             raise TypeError("Expected argument 'protocol_type' to be a str")
         pulumi.set(__self__, "protocol_type", protocol_type)
@@ -122,6 +128,16 @@ class GetGatewayTargetResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional[Any]:
+        return pulumi.get(self, "private_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointManagedResources")
+    def private_endpoint_managed_resources(self) -> Optional[Sequence['outputs.GatewayTargetManagedResourceDetails']]:
+        return pulumi.get(self, "private_endpoint_managed_resources")
+
+    @_builtins.property
     @pulumi.getter(name="protocolType")
     def protocol_type(self) -> Optional['GatewayTargetTargetProtocolType']:
         return pulumi.get(self, "protocol_type")
@@ -181,6 +197,8 @@ class AwaitableGetGatewayTargetResult(GetGatewayTargetResult):
             last_synchronized_at=self.last_synchronized_at,
             metadata_configuration=self.metadata_configuration,
             name=self.name,
+            private_endpoint=self.private_endpoint,
+            private_endpoint_managed_resources=self.private_endpoint_managed_resources,
             protocol_type=self.protocol_type,
             status=self.status,
             status_reasons=self.status_reasons,
@@ -214,6 +232,8 @@ def get_gateway_target(gateway_identifier: Optional[_builtins.str] = None,
         last_synchronized_at=pulumi.get(__ret__, 'last_synchronized_at'),
         metadata_configuration=pulumi.get(__ret__, 'metadata_configuration'),
         name=pulumi.get(__ret__, 'name'),
+        private_endpoint=pulumi.get(__ret__, 'private_endpoint'),
+        private_endpoint_managed_resources=pulumi.get(__ret__, 'private_endpoint_managed_resources'),
         protocol_type=pulumi.get(__ret__, 'protocol_type'),
         status=pulumi.get(__ret__, 'status'),
         status_reasons=pulumi.get(__ret__, 'status_reasons'),
@@ -244,6 +264,8 @@ def get_gateway_target_output(gateway_identifier: Optional[pulumi.Input[_builtin
         last_synchronized_at=pulumi.get(__response__, 'last_synchronized_at'),
         metadata_configuration=pulumi.get(__response__, 'metadata_configuration'),
         name=pulumi.get(__response__, 'name'),
+        private_endpoint=pulumi.get(__response__, 'private_endpoint'),
+        private_endpoint_managed_resources=pulumi.get(__response__, 'private_endpoint_managed_resources'),
         protocol_type=pulumi.get(__response__, 'protocol_type'),
         status=pulumi.get(__response__, 'status'),
         status_reasons=pulumi.get(__response__, 'status_reasons'),

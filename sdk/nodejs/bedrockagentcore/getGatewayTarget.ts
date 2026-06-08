@@ -50,6 +50,8 @@ export interface GetGatewayTargetResult {
      * The name for the gateway target.
      */
     readonly name?: string;
+    readonly privateEndpoint?: outputs.bedrockagentcore.GatewayTargetPrivateEndpoint0Properties | outputs.bedrockagentcore.GatewayTargetPrivateEndpoint1Properties;
+    readonly privateEndpointManagedResources?: outputs.bedrockagentcore.GatewayTargetManagedResourceDetails[];
     readonly protocolType?: enums.bedrockagentcore.GatewayTargetTargetProtocolType;
     /**
      * The status for the gateway target.

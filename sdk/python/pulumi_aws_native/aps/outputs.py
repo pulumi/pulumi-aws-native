@@ -847,8 +847,12 @@ class WorkspaceConfiguration(dict):
         suggest = None
         if key == "limitsPerLabelSets":
             suggest = "limits_per_label_sets"
+        elif key == "outOfOrderTimeWindowInSeconds":
+            suggest = "out_of_order_time_window_in_seconds"
         elif key == "retentionPeriodInDays":
             suggest = "retention_period_in_days"
+        elif key == "ruleQueryOffsetInSeconds":
+            suggest = "rule_query_offset_in_seconds"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WorkspaceConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -863,17 +867,25 @@ class WorkspaceConfiguration(dict):
 
     def __init__(__self__, *,
                  limits_per_label_sets: Optional[Sequence['outputs.WorkspaceLimitsPerLabelSet']] = None,
-                 retention_period_in_days: Optional[_builtins.int] = None):
+                 out_of_order_time_window_in_seconds: Optional[_builtins.int] = None,
+                 retention_period_in_days: Optional[_builtins.int] = None,
+                 rule_query_offset_in_seconds: Optional[_builtins.int] = None):
         """
         Workspace configuration
 
         :param Sequence['WorkspaceLimitsPerLabelSet'] limits_per_label_sets: An array of label set and associated limits
+        :param _builtins.int out_of_order_time_window_in_seconds: The time window in seconds for accepting out-of-order samples
         :param _builtins.int retention_period_in_days: How many days that metrics are retained in the workspace
+        :param _builtins.int rule_query_offset_in_seconds: Duration in seconds to offset rule evaluation queries into the past
         """
         if limits_per_label_sets is not None:
             pulumi.set(__self__, "limits_per_label_sets", limits_per_label_sets)
+        if out_of_order_time_window_in_seconds is not None:
+            pulumi.set(__self__, "out_of_order_time_window_in_seconds", out_of_order_time_window_in_seconds)
         if retention_period_in_days is not None:
             pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+        if rule_query_offset_in_seconds is not None:
+            pulumi.set(__self__, "rule_query_offset_in_seconds", rule_query_offset_in_seconds)
 
     @_builtins.property
     @pulumi.getter(name="limitsPerLabelSets")
@@ -884,12 +896,28 @@ class WorkspaceConfiguration(dict):
         return pulumi.get(self, "limits_per_label_sets")
 
     @_builtins.property
+    @pulumi.getter(name="outOfOrderTimeWindowInSeconds")
+    def out_of_order_time_window_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        The time window in seconds for accepting out-of-order samples
+        """
+        return pulumi.get(self, "out_of_order_time_window_in_seconds")
+
+    @_builtins.property
     @pulumi.getter(name="retentionPeriodInDays")
     def retention_period_in_days(self) -> Optional[_builtins.int]:
         """
         How many days that metrics are retained in the workspace
         """
         return pulumi.get(self, "retention_period_in_days")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleQueryOffsetInSeconds")
+    def rule_query_offset_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Duration in seconds to offset rule evaluation queries into the past
+        """
+        return pulumi.get(self, "rule_query_offset_in_seconds")
 
 
 @pulumi.output_type

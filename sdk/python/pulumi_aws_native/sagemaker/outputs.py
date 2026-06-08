@@ -33,10 +33,12 @@ __all__ = [
     'ClusterEnvironmentConfig',
     'ClusterFSxLustreConfig',
     'ClusterInstanceGroup',
+    'ClusterInstanceRequirements',
     'ClusterInstanceStorageConfig',
     'ClusterKubernetesConfig',
     'ClusterKubernetesTaint',
     'ClusterLifeCycleConfig',
+    'ClusterNetworkInterface',
     'ClusterOnDemandOptions',
     'ClusterOrchestrator',
     'ClusterRestrictedInstanceGroup',
@@ -1107,22 +1109,26 @@ class ClusterInstanceGroup(dict):
             suggest = "instance_count"
         elif key == "instanceGroupName":
             suggest = "instance_group_name"
-        elif key == "instanceType":
-            suggest = "instance_type"
         elif key == "capacityRequirements":
             suggest = "capacity_requirements"
         elif key == "currentCount":
             suggest = "current_count"
         elif key == "imageId":
             suggest = "image_id"
+        elif key == "instanceRequirements":
+            suggest = "instance_requirements"
         elif key == "instanceStorageConfigs":
             suggest = "instance_storage_configs"
+        elif key == "instanceType":
+            suggest = "instance_type"
         elif key == "kubernetesConfig":
             suggest = "kubernetes_config"
         elif key == "lifeCycleConfig":
             suggest = "life_cycle_config"
         elif key == "minInstanceCount":
             suggest = "min_instance_count"
+        elif key == "networkInterface":
+            suggest = "network_interface"
         elif key == "onStartDeepHealthChecks":
             suggest = "on_start_deep_health_checks"
         elif key == "overrideVpcConfig":
@@ -1151,14 +1157,16 @@ class ClusterInstanceGroup(dict):
                  execution_role: _builtins.str,
                  instance_count: _builtins.int,
                  instance_group_name: _builtins.str,
-                 instance_type: _builtins.str,
                  capacity_requirements: Optional['outputs.ClusterCapacityRequirements'] = None,
                  current_count: Optional[_builtins.int] = None,
                  image_id: Optional[_builtins.str] = None,
+                 instance_requirements: Optional['outputs.ClusterInstanceRequirements'] = None,
                  instance_storage_configs: Optional[Sequence['outputs.ClusterInstanceStorageConfig']] = None,
+                 instance_type: Optional[_builtins.str] = None,
                  kubernetes_config: Optional['outputs.ClusterKubernetesConfig'] = None,
                  life_cycle_config: Optional['outputs.ClusterLifeCycleConfig'] = None,
                  min_instance_count: Optional[_builtins.int] = None,
+                 network_interface: Optional['outputs.ClusterNetworkInterface'] = None,
                  on_start_deep_health_checks: Optional[Sequence['ClusterDeepHealthCheckType']] = None,
                  override_vpc_config: Optional['outputs.ClusterVpcConfig'] = None,
                  scheduled_update_config: Optional['outputs.ClusterScheduledUpdateConfig'] = None,
@@ -1177,21 +1185,26 @@ class ClusterInstanceGroup(dict):
         pulumi.set(__self__, "execution_role", execution_role)
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_group_name", instance_group_name)
-        pulumi.set(__self__, "instance_type", instance_type)
         if capacity_requirements is not None:
             pulumi.set(__self__, "capacity_requirements", capacity_requirements)
         if current_count is not None:
             pulumi.set(__self__, "current_count", current_count)
         if image_id is not None:
             pulumi.set(__self__, "image_id", image_id)
+        if instance_requirements is not None:
+            pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_storage_configs is not None:
             pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
         if kubernetes_config is not None:
             pulumi.set(__self__, "kubernetes_config", kubernetes_config)
         if life_cycle_config is not None:
             pulumi.set(__self__, "life_cycle_config", life_cycle_config)
         if min_instance_count is not None:
             pulumi.set(__self__, "min_instance_count", min_instance_count)
+        if network_interface is not None:
+            pulumi.set(__self__, "network_interface", network_interface)
         if on_start_deep_health_checks is not None:
             pulumi.set(__self__, "on_start_deep_health_checks", on_start_deep_health_checks)
         if override_vpc_config is not None:
@@ -1224,11 +1237,6 @@ class ClusterInstanceGroup(dict):
         return pulumi.get(self, "instance_group_name")
 
     @_builtins.property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> _builtins.str:
-        return pulumi.get(self, "instance_type")
-
-    @_builtins.property
     @pulumi.getter(name="capacityRequirements")
     def capacity_requirements(self) -> Optional['outputs.ClusterCapacityRequirements']:
         return pulumi.get(self, "capacity_requirements")
@@ -1247,9 +1255,19 @@ class ClusterInstanceGroup(dict):
         return pulumi.get(self, "image_id")
 
     @_builtins.property
+    @pulumi.getter(name="instanceRequirements")
+    def instance_requirements(self) -> Optional['outputs.ClusterInstanceRequirements']:
+        return pulumi.get(self, "instance_requirements")
+
+    @_builtins.property
     @pulumi.getter(name="instanceStorageConfigs")
     def instance_storage_configs(self) -> Optional[Sequence['outputs.ClusterInstanceStorageConfig']]:
         return pulumi.get(self, "instance_storage_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "instance_type")
 
     @_builtins.property
     @pulumi.getter(name="kubernetesConfig")
@@ -1268,6 +1286,11 @@ class ClusterInstanceGroup(dict):
         The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
         """
         return pulumi.get(self, "min_instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterface")
+    def network_interface(self) -> Optional['outputs.ClusterNetworkInterface']:
+        return pulumi.get(self, "network_interface")
 
     @_builtins.property
     @pulumi.getter(name="onStartDeepHealthChecks")
@@ -1304,6 +1327,46 @@ class ClusterInstanceGroup(dict):
         The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
         """
         return pulumi.get(self, "training_plan_arn")
+
+
+@pulumi.output_type
+class ClusterInstanceRequirements(dict):
+    """
+    The instance requirements for the instance group. Specifies a list of instance types that can be used.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceTypes":
+            suggest = "instance_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterInstanceRequirements. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterInstanceRequirements.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterInstanceRequirements.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_types: Sequence[_builtins.str]):
+        """
+        The instance requirements for the instance group. Specifies a list of instance types that can be used.
+
+        :param Sequence[_builtins.str] instance_types: A list of instance types that can be used for this instance group.
+        """
+        pulumi.set(__self__, "instance_types", instance_types)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceTypes")
+    def instance_types(self) -> Sequence[_builtins.str]:
+        """
+        A list of instance types that can be used for this instance group.
+        """
+        return pulumi.get(self, "instance_types")
 
 
 @pulumi.output_type
@@ -1458,6 +1521,46 @@ class ClusterLifeCycleConfig(dict):
         An Amazon S3 bucket path where your lifecycle scripts are stored.
         """
         return pulumi.get(self, "source_s3_uri")
+
+
+@pulumi.output_type
+class ClusterNetworkInterface(dict):
+    """
+    Specifies the network interface configuration for the instance group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "interfaceType":
+            suggest = "interface_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterNetworkInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterNetworkInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterNetworkInterface.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interface_type: 'ClusterNetworkInterfaceInterfaceType'):
+        """
+        Specifies the network interface configuration for the instance group.
+
+        :param 'ClusterNetworkInterfaceInterfaceType' interface_type: The type of network interface.
+        """
+        pulumi.set(__self__, "interface_type", interface_type)
+
+    @_builtins.property
+    @pulumi.getter(name="interfaceType")
+    def interface_type(self) -> 'ClusterNetworkInterfaceInterfaceType':
+        """
+        The type of network interface.
+        """
+        return pulumi.get(self, "interface_type")
 
 
 @pulumi.output_type

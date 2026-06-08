@@ -48,6 +48,8 @@ __all__ = [
     'ClusterFSxLustreConfigArgsDict',
     'ClusterInstanceGroupArgs',
     'ClusterInstanceGroupArgsDict',
+    'ClusterInstanceRequirementsArgs',
+    'ClusterInstanceRequirementsArgsDict',
     'ClusterInstanceStorageConfigArgs',
     'ClusterInstanceStorageConfigArgsDict',
     'ClusterKubernetesConfigArgs',
@@ -56,6 +58,8 @@ __all__ = [
     'ClusterKubernetesTaintArgsDict',
     'ClusterLifeCycleConfigArgs',
     'ClusterLifeCycleConfigArgsDict',
+    'ClusterNetworkInterfaceArgs',
+    'ClusterNetworkInterfaceArgsDict',
     'ClusterOnDemandOptionsArgs',
     'ClusterOnDemandOptionsArgsDict',
     'ClusterOrchestratorArgs',
@@ -1446,20 +1450,22 @@ class ClusterInstanceGroupArgsDict(TypedDict):
     The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
     """
     instance_group_name: pulumi.Input[_builtins.str]
-    instance_type: pulumi.Input[_builtins.str]
     capacity_requirements: NotRequired[pulumi.Input['ClusterCapacityRequirementsArgsDict']]
     current_count: NotRequired[pulumi.Input[_builtins.int]]
     """
     The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
     """
     image_id: NotRequired[pulumi.Input[_builtins.str]]
+    instance_requirements: NotRequired[pulumi.Input['ClusterInstanceRequirementsArgsDict']]
     instance_storage_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgsDict']]]]
+    instance_type: NotRequired[pulumi.Input[_builtins.str]]
     kubernetes_config: NotRequired[pulumi.Input['ClusterKubernetesConfigArgsDict']]
     life_cycle_config: NotRequired[pulumi.Input['ClusterLifeCycleConfigArgsDict']]
     min_instance_count: NotRequired[pulumi.Input[_builtins.int]]
     """
     The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
     """
+    network_interface: NotRequired[pulumi.Input['ClusterNetworkInterfaceArgsDict']]
     on_start_deep_health_checks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]]
     override_vpc_config: NotRequired[pulumi.Input['ClusterVpcConfigArgsDict']]
     scheduled_update_config: NotRequired[pulumi.Input['ClusterScheduledUpdateConfigArgsDict']]
@@ -1479,14 +1485,16 @@ class ClusterInstanceGroupArgs:
                  execution_role: pulumi.Input[_builtins.str],
                  instance_count: pulumi.Input[_builtins.int],
                  instance_group_name: pulumi.Input[_builtins.str],
-                 instance_type: pulumi.Input[_builtins.str],
                  capacity_requirements: Optional[pulumi.Input['ClusterCapacityRequirementsArgs']] = None,
                  current_count: Optional[pulumi.Input[_builtins.int]] = None,
                  image_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 instance_requirements: Optional[pulumi.Input['ClusterInstanceRequirementsArgs']] = None,
                  instance_storage_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgs']]]] = None,
+                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
                  kubernetes_config: Optional[pulumi.Input['ClusterKubernetesConfigArgs']] = None,
                  life_cycle_config: Optional[pulumi.Input['ClusterLifeCycleConfigArgs']] = None,
                  min_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 network_interface: Optional[pulumi.Input['ClusterNetworkInterfaceArgs']] = None,
                  on_start_deep_health_checks: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]] = None,
                  override_vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None,
                  scheduled_update_config: Optional[pulumi.Input['ClusterScheduledUpdateConfigArgs']] = None,
@@ -1505,21 +1513,26 @@ class ClusterInstanceGroupArgs:
         pulumi.set(__self__, "execution_role", execution_role)
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_group_name", instance_group_name)
-        pulumi.set(__self__, "instance_type", instance_type)
         if capacity_requirements is not None:
             pulumi.set(__self__, "capacity_requirements", capacity_requirements)
         if current_count is not None:
             pulumi.set(__self__, "current_count", current_count)
         if image_id is not None:
             pulumi.set(__self__, "image_id", image_id)
+        if instance_requirements is not None:
+            pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_storage_configs is not None:
             pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
         if kubernetes_config is not None:
             pulumi.set(__self__, "kubernetes_config", kubernetes_config)
         if life_cycle_config is not None:
             pulumi.set(__self__, "life_cycle_config", life_cycle_config)
         if min_instance_count is not None:
             pulumi.set(__self__, "min_instance_count", min_instance_count)
+        if network_interface is not None:
+            pulumi.set(__self__, "network_interface", network_interface)
         if on_start_deep_health_checks is not None:
             pulumi.set(__self__, "on_start_deep_health_checks", on_start_deep_health_checks)
         if override_vpc_config is not None:
@@ -1564,15 +1577,6 @@ class ClusterInstanceGroupArgs:
         pulumi.set(self, "instance_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "instance_type")
-
-    @instance_type.setter
-    def instance_type(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "instance_type", value)
-
-    @_builtins.property
     @pulumi.getter(name="capacityRequirements")
     def capacity_requirements(self) -> Optional[pulumi.Input['ClusterCapacityRequirementsArgs']]:
         return pulumi.get(self, "capacity_requirements")
@@ -1603,6 +1607,15 @@ class ClusterInstanceGroupArgs:
         pulumi.set(self, "image_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="instanceRequirements")
+    def instance_requirements(self) -> Optional[pulumi.Input['ClusterInstanceRequirementsArgs']]:
+        return pulumi.get(self, "instance_requirements")
+
+    @instance_requirements.setter
+    def instance_requirements(self, value: Optional[pulumi.Input['ClusterInstanceRequirementsArgs']]):
+        pulumi.set(self, "instance_requirements", value)
+
+    @_builtins.property
     @pulumi.getter(name="instanceStorageConfigs")
     def instance_storage_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgs']]]]:
         return pulumi.get(self, "instance_storage_configs")
@@ -1610,6 +1623,15 @@ class ClusterInstanceGroupArgs:
     @instance_storage_configs.setter
     def instance_storage_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgs']]]]):
         pulumi.set(self, "instance_storage_configs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "instance_type", value)
 
     @_builtins.property
     @pulumi.getter(name="kubernetesConfig")
@@ -1640,6 +1662,15 @@ class ClusterInstanceGroupArgs:
     @min_instance_count.setter
     def min_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "min_instance_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterface")
+    def network_interface(self) -> Optional[pulumi.Input['ClusterNetworkInterfaceArgs']]:
+        return pulumi.get(self, "network_interface")
+
+    @network_interface.setter
+    def network_interface(self, value: Optional[pulumi.Input['ClusterNetworkInterfaceArgs']]):
+        pulumi.set(self, "network_interface", value)
 
     @_builtins.property
     @pulumi.getter(name="onStartDeepHealthChecks")
@@ -1700,6 +1731,39 @@ class ClusterInstanceGroupArgs:
     @training_plan_arn.setter
     def training_plan_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "training_plan_arn", value)
+
+
+class ClusterInstanceRequirementsArgsDict(TypedDict):
+    """
+    The instance requirements for the instance group. Specifies a list of instance types that can be used.
+    """
+    instance_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of instance types that can be used for this instance group.
+    """
+
+@pulumi.input_type
+class ClusterInstanceRequirementsArgs:
+    def __init__(__self__, *,
+                 instance_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        The instance requirements for the instance group. Specifies a list of instance types that can be used.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_types: A list of instance types that can be used for this instance group.
+        """
+        pulumi.set(__self__, "instance_types", instance_types)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceTypes")
+    def instance_types(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of instance types that can be used for this instance group.
+        """
+        return pulumi.get(self, "instance_types")
+
+    @instance_types.setter
+    def instance_types(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "instance_types", value)
 
 
 class ClusterInstanceStorageConfigArgsDict(TypedDict):
@@ -1900,6 +1964,39 @@ class ClusterLifeCycleConfigArgs:
     @source_s3_uri.setter
     def source_s3_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "source_s3_uri", value)
+
+
+class ClusterNetworkInterfaceArgsDict(TypedDict):
+    """
+    Specifies the network interface configuration for the instance group.
+    """
+    interface_type: pulumi.Input['ClusterNetworkInterfaceInterfaceType']
+    """
+    The type of network interface.
+    """
+
+@pulumi.input_type
+class ClusterNetworkInterfaceArgs:
+    def __init__(__self__, *,
+                 interface_type: pulumi.Input['ClusterNetworkInterfaceInterfaceType']):
+        """
+        Specifies the network interface configuration for the instance group.
+
+        :param pulumi.Input['ClusterNetworkInterfaceInterfaceType'] interface_type: The type of network interface.
+        """
+        pulumi.set(__self__, "interface_type", interface_type)
+
+    @_builtins.property
+    @pulumi.getter(name="interfaceType")
+    def interface_type(self) -> pulumi.Input['ClusterNetworkInterfaceInterfaceType']:
+        """
+        The type of network interface.
+        """
+        return pulumi.get(self, "interface_type")
+
+    @interface_type.setter
+    def interface_type(self, value: pulumi.Input['ClusterNetworkInterfaceInterfaceType']):
+        pulumi.set(self, "interface_type", value)
 
 
 class ClusterOnDemandOptionsArgsDict(TypedDict):

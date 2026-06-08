@@ -31,6 +31,7 @@ class CustomDbEngineVersionStatus(_builtins.str, Enum):
     AVAILABLE = "available"
     INACTIVE = "inactive"
     INACTIVE_EXCEPT_RESTORE = "inactive-except-restore"
+    PENDING_VALIDATION = "pending-validation"
 
 
 @pulumi.type_token("aws-native:rds:DbInstanceProcessorFeatureName")

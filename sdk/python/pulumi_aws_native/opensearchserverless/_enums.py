@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'AccessPolicyType',
+    'CollectionDeletionProtection',
     'CollectionGroupStandbyReplicas',
     'CollectionServerlessVectorAcceleration',
     'CollectionStandbyReplicas',
@@ -28,6 +29,15 @@ class AccessPolicyType(_builtins.str, Enum):
     The possible types for the access policy
     """
     DATA = "data"
+
+
+@pulumi.type_token("aws-native:opensearchserverless:CollectionDeletionProtection")
+class CollectionDeletionProtection(_builtins.str, Enum):
+    """
+    The deletion protection state of the collection
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:opensearchserverless:CollectionGroupStandbyReplicas")

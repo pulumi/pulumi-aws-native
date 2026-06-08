@@ -1104,6 +1104,13 @@ namespace Pulumi.AwsNative.Connect
         public static InstanceStorageConfigInstanceStorageResourceType MediaStreams { get; } = new InstanceStorageConfigInstanceStorageResourceType("MEDIA_STREAMS");
         public static InstanceStorageConfigInstanceStorageResourceType ContactTraceRecords { get; } = new InstanceStorageConfigInstanceStorageResourceType("CONTACT_TRACE_RECORDS");
         public static InstanceStorageConfigInstanceStorageResourceType AgentEvents { get; } = new InstanceStorageConfigInstanceStorageResourceType("AGENT_EVENTS");
+        public static InstanceStorageConfigInstanceStorageResourceType RealTimeContactAnalysisSegments { get; } = new InstanceStorageConfigInstanceStorageResourceType("REAL_TIME_CONTACT_ANALYSIS_SEGMENTS");
+        public static InstanceStorageConfigInstanceStorageResourceType Attachments { get; } = new InstanceStorageConfigInstanceStorageResourceType("ATTACHMENTS");
+        public static InstanceStorageConfigInstanceStorageResourceType ContactEvaluations { get; } = new InstanceStorageConfigInstanceStorageResourceType("CONTACT_EVALUATIONS");
+        public static InstanceStorageConfigInstanceStorageResourceType ScreenRecordings { get; } = new InstanceStorageConfigInstanceStorageResourceType("SCREEN_RECORDINGS");
+        public static InstanceStorageConfigInstanceStorageResourceType RealTimeContactAnalysisChatSegments { get; } = new InstanceStorageConfigInstanceStorageResourceType("REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS");
+        public static InstanceStorageConfigInstanceStorageResourceType RealTimeContactAnalysisVoiceSegments { get; } = new InstanceStorageConfigInstanceStorageResourceType("REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS");
+        public static InstanceStorageConfigInstanceStorageResourceType EmailMessages { get; } = new InstanceStorageConfigInstanceStorageResourceType("EMAIL_MESSAGES");
 
         public static bool operator ==(InstanceStorageConfigInstanceStorageResourceType left, InstanceStorageConfigInstanceStorageResourceType right) => left.Equals(right);
         public static bool operator !=(InstanceStorageConfigInstanceStorageResourceType left, InstanceStorageConfigInstanceStorageResourceType right) => !left.Equals(right);

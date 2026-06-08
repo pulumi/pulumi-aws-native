@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApiKeyCredentialProviderSecretReferenceArgs',
+    'ApiKeyCredentialProviderSecretReferenceArgsDict',
     'BrowserCustomBrowserEnterprisePolicyArgs',
     'BrowserCustomBrowserEnterprisePolicyArgsDict',
     'BrowserCustomBrowserNetworkConfigurationArgs',
@@ -88,6 +90,10 @@ __all__ = [
     'GatewayPolicyEngineConfigurationArgsDict',
     'GatewayProtocolConfigurationPropertiesArgs',
     'GatewayProtocolConfigurationPropertiesArgsDict',
+    'GatewaySessionConfigurationArgs',
+    'GatewaySessionConfigurationArgsDict',
+    'GatewayStreamingConfigurationArgs',
+    'GatewayStreamingConfigurationArgsDict',
     'GatewayTargetApiGatewayTargetConfigurationArgs',
     'GatewayTargetApiGatewayTargetConfigurationArgsDict',
     'GatewayTargetApiGatewayToolConfigurationArgs',
@@ -114,6 +120,8 @@ __all__ = [
     'GatewayTargetHttpTargetConfigurationPropertiesArgsDict',
     'GatewayTargetIamCredentialProviderArgs',
     'GatewayTargetIamCredentialProviderArgsDict',
+    'GatewayTargetManagedVpcResourceArgs',
+    'GatewayTargetManagedVpcResourceArgsDict',
     'GatewayTargetMcpLambdaTargetConfigurationArgs',
     'GatewayTargetMcpLambdaTargetConfigurationArgsDict',
     'GatewayTargetMcpServerTargetConfigurationArgs',
@@ -136,12 +144,18 @@ __all__ = [
     'GatewayTargetMetadataConfigurationArgsDict',
     'GatewayTargetOAuthCredentialProviderArgs',
     'GatewayTargetOAuthCredentialProviderArgsDict',
+    'GatewayTargetPrivateEndpoint0PropertiesArgs',
+    'GatewayTargetPrivateEndpoint0PropertiesArgsDict',
+    'GatewayTargetPrivateEndpoint1PropertiesArgs',
+    'GatewayTargetPrivateEndpoint1PropertiesArgsDict',
     'GatewayTargetRuntimeTargetConfigurationArgs',
     'GatewayTargetRuntimeTargetConfigurationArgsDict',
     'GatewayTargetS3ConfigurationArgs',
     'GatewayTargetS3ConfigurationArgsDict',
     'GatewayTargetSchemaDefinitionArgs',
     'GatewayTargetSchemaDefinitionArgsDict',
+    'GatewayTargetSelfManagedLatticeResourcePropertiesArgs',
+    'GatewayTargetSelfManagedLatticeResourcePropertiesArgsDict',
     'GatewayTargetTargetConfiguration0PropertiesArgs',
     'GatewayTargetTargetConfiguration0PropertiesArgsDict',
     'GatewayTargetTargetConfiguration1PropertiesArgs',
@@ -328,6 +342,8 @@ __all__ = [
     'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgsDict',
     'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs',
     'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgsDict',
+    'OAuth2CredentialProviderSecretReferenceArgs',
+    'OAuth2CredentialProviderSecretReferenceArgsDict',
     'OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs',
     'OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgsDict',
     'OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs',
@@ -348,12 +364,28 @@ __all__ = [
     'OnlineEvaluationConfigSamplingConfigArgsDict',
     'OnlineEvaluationConfigSessionConfigArgs',
     'OnlineEvaluationConfigSessionConfigArgsDict',
+    'PaymentConnectorCredentialsProviderConfigurationArgs',
+    'PaymentConnectorCredentialsProviderConfigurationArgsDict',
+    'PaymentConnectorPaymentCredentialProviderConfigurationArgs',
+    'PaymentConnectorPaymentCredentialProviderConfigurationArgsDict',
     'PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs',
     'PaymentCredentialProviderCoinbaseCdpConfigurationInputArgsDict',
     'PaymentCredentialProviderPaymentProviderConfigurationInputArgs',
     'PaymentCredentialProviderPaymentProviderConfigurationInputArgsDict',
+    'PaymentCredentialProviderSecretReferenceArgs',
+    'PaymentCredentialProviderSecretReferenceArgsDict',
     'PaymentCredentialProviderStripePrivyConfigurationInputArgs',
     'PaymentCredentialProviderStripePrivyConfigurationInputArgsDict',
+    'PaymentManagerAuthorizerConfigurationArgs',
+    'PaymentManagerAuthorizerConfigurationArgsDict',
+    'PaymentManagerAuthorizingClaimMatchValueTypeArgs',
+    'PaymentManagerAuthorizingClaimMatchValueTypeArgsDict',
+    'PaymentManagerClaimMatchValueTypeArgs',
+    'PaymentManagerClaimMatchValueTypeArgsDict',
+    'PaymentManagerCustomClaimValidationTypeArgs',
+    'PaymentManagerCustomClaimValidationTypeArgsDict',
+    'PaymentManagerCustomJwtAuthorizerConfigurationArgs',
+    'PaymentManagerCustomJwtAuthorizerConfigurationArgsDict',
     'PolicyCedarPolicyArgs',
     'PolicyCedarPolicyArgsDict',
     'PolicyDefinitionArgs',
@@ -395,6 +427,58 @@ __all__ = [
     'RuntimeVpcConfigArgs',
     'RuntimeVpcConfigArgsDict',
 ]
+
+class ApiKeyCredentialProviderSecretReferenceArgsDict(TypedDict):
+    """
+    A reference to a customer-provided secret stored in AWS Secrets Manager
+    """
+    json_key: pulumi.Input[_builtins.str]
+    """
+    The JSON key within the secret that contains the credential value
+    """
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    The ID or ARN of the secret in AWS Secrets Manager
+    """
+
+@pulumi.input_type
+class ApiKeyCredentialProviderSecretReferenceArgs:
+    def __init__(__self__, *,
+                 json_key: pulumi.Input[_builtins.str],
+                 secret_id: pulumi.Input[_builtins.str]):
+        """
+        A reference to a customer-provided secret stored in AWS Secrets Manager
+
+        :param pulumi.Input[_builtins.str] json_key: The JSON key within the secret that contains the credential value
+        :param pulumi.Input[_builtins.str] secret_id: The ID or ARN of the secret in AWS Secrets Manager
+        """
+        pulumi.set(__self__, "json_key", json_key)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonKey")
+    def json_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The JSON key within the secret that contains the credential value
+        """
+        return pulumi.get(self, "json_key")
+
+    @json_key.setter
+    def json_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "json_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID or ARN of the secret in AWS Secrets Manager
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
 
 class BrowserCustomBrowserEnterprisePolicyArgsDict(TypedDict):
     """
@@ -1769,6 +1853,8 @@ class GatewayLambdaInterceptorConfigurationArgs:
 class GatewayMcpGatewayConfigurationArgsDict(TypedDict):
     instructions: NotRequired[pulumi.Input[_builtins.str]]
     search_type: NotRequired[pulumi.Input['GatewaySearchType']]
+    session_configuration: NotRequired[pulumi.Input['GatewaySessionConfigurationArgsDict']]
+    streaming_configuration: NotRequired[pulumi.Input['GatewayStreamingConfigurationArgsDict']]
     supported_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
@@ -1776,11 +1862,17 @@ class GatewayMcpGatewayConfigurationArgs:
     def __init__(__self__, *,
                  instructions: Optional[pulumi.Input[_builtins.str]] = None,
                  search_type: Optional[pulumi.Input['GatewaySearchType']] = None,
+                 session_configuration: Optional[pulumi.Input['GatewaySessionConfigurationArgs']] = None,
+                 streaming_configuration: Optional[pulumi.Input['GatewayStreamingConfigurationArgs']] = None,
                  supported_versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if instructions is not None:
             pulumi.set(__self__, "instructions", instructions)
         if search_type is not None:
             pulumi.set(__self__, "search_type", search_type)
+        if session_configuration is not None:
+            pulumi.set(__self__, "session_configuration", session_configuration)
+        if streaming_configuration is not None:
+            pulumi.set(__self__, "streaming_configuration", streaming_configuration)
         if supported_versions is not None:
             pulumi.set(__self__, "supported_versions", supported_versions)
 
@@ -1801,6 +1893,24 @@ class GatewayMcpGatewayConfigurationArgs:
     @search_type.setter
     def search_type(self, value: Optional[pulumi.Input['GatewaySearchType']]):
         pulumi.set(self, "search_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionConfiguration")
+    def session_configuration(self) -> Optional[pulumi.Input['GatewaySessionConfigurationArgs']]:
+        return pulumi.get(self, "session_configuration")
+
+    @session_configuration.setter
+    def session_configuration(self, value: Optional[pulumi.Input['GatewaySessionConfigurationArgs']]):
+        pulumi.set(self, "session_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="streamingConfiguration")
+    def streaming_configuration(self) -> Optional[pulumi.Input['GatewayStreamingConfigurationArgs']]:
+        return pulumi.get(self, "streaming_configuration")
+
+    @streaming_configuration.setter
+    def streaming_configuration(self, value: Optional[pulumi.Input['GatewayStreamingConfigurationArgs']]):
+        pulumi.set(self, "streaming_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedVersions")
@@ -1874,6 +1984,46 @@ class GatewayProtocolConfigurationPropertiesArgs:
     @mcp.setter
     def mcp(self, value: pulumi.Input['GatewayMcpGatewayConfigurationArgs']):
         pulumi.set(self, "mcp", value)
+
+
+class GatewaySessionConfigurationArgsDict(TypedDict):
+    session_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+
+@pulumi.input_type
+class GatewaySessionConfigurationArgs:
+    def __init__(__self__, *,
+                 session_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+        if session_timeout_in_seconds is not None:
+            pulumi.set(__self__, "session_timeout_in_seconds", session_timeout_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionTimeoutInSeconds")
+    def session_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "session_timeout_in_seconds")
+
+    @session_timeout_in_seconds.setter
+    def session_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "session_timeout_in_seconds", value)
+
+
+class GatewayStreamingConfigurationArgsDict(TypedDict):
+    enable_response_streaming: NotRequired[pulumi.Input[_builtins.bool]]
+
+@pulumi.input_type
+class GatewayStreamingConfigurationArgs:
+    def __init__(__self__, *,
+                 enable_response_streaming: Optional[pulumi.Input[_builtins.bool]] = None):
+        if enable_response_streaming is not None:
+            pulumi.set(__self__, "enable_response_streaming", enable_response_streaming)
+
+    @_builtins.property
+    @pulumi.getter(name="enableResponseStreaming")
+    def enable_response_streaming(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "enable_response_streaming")
+
+    @enable_response_streaming.setter
+    def enable_response_streaming(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_response_streaming", value)
 
 
 class GatewayTargetApiGatewayTargetConfigurationArgsDict(TypedDict):
@@ -2290,6 +2440,75 @@ class GatewayTargetIamCredentialProviderArgs:
         pulumi.set(self, "region", value)
 
 
+class GatewayTargetManagedVpcResourceArgsDict(TypedDict):
+    endpoint_ip_address_type: pulumi.Input['GatewayTargetEndpointIpAddressType']
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    vpc_identifier: pulumi.Input[_builtins.str]
+    routing_domain: NotRequired[pulumi.Input[_builtins.str]]
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+
+@pulumi.input_type
+class GatewayTargetManagedVpcResourceArgs:
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: pulumi.Input['GatewayTargetEndpointIpAddressType'],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 vpc_identifier: pulumi.Input[_builtins.str],
+                 routing_domain: Optional[pulumi.Input[_builtins.str]] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> pulumi.Input['GatewayTargetEndpointIpAddressType']:
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @endpoint_ip_address_type.setter
+    def endpoint_ip_address_type(self, value: pulumi.Input['GatewayTargetEndpointIpAddressType']):
+        pulumi.set(self, "endpoint_ip_address_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "vpc_identifier")
+
+    @vpc_identifier.setter
+    def vpc_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vpc_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "routing_domain")
+
+    @routing_domain.setter
+    def routing_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "routing_domain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+
 class GatewayTargetMcpLambdaTargetConfigurationArgsDict(TypedDict):
     lambda_arn: pulumi.Input[_builtins.str]
     tool_schema: pulumi.Input[Union['GatewayTargetToolSchema0PropertiesArgsDict', 'GatewayTargetToolSchema1PropertiesArgsDict']]
@@ -2624,6 +2843,44 @@ class GatewayTargetOAuthCredentialProviderArgs:
         pulumi.set(self, "grant_type", value)
 
 
+class GatewayTargetPrivateEndpoint0PropertiesArgsDict(TypedDict):
+    self_managed_lattice_resource: pulumi.Input['GatewayTargetSelfManagedLatticeResourcePropertiesArgsDict']
+
+@pulumi.input_type
+class GatewayTargetPrivateEndpoint0PropertiesArgs:
+    def __init__(__self__, *,
+                 self_managed_lattice_resource: pulumi.Input['GatewayTargetSelfManagedLatticeResourcePropertiesArgs']):
+        pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> pulumi.Input['GatewayTargetSelfManagedLatticeResourcePropertiesArgs']:
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+    @self_managed_lattice_resource.setter
+    def self_managed_lattice_resource(self, value: pulumi.Input['GatewayTargetSelfManagedLatticeResourcePropertiesArgs']):
+        pulumi.set(self, "self_managed_lattice_resource", value)
+
+
+class GatewayTargetPrivateEndpoint1PropertiesArgsDict(TypedDict):
+    managed_vpc_resource: pulumi.Input['GatewayTargetManagedVpcResourceArgsDict']
+
+@pulumi.input_type
+class GatewayTargetPrivateEndpoint1PropertiesArgs:
+    def __init__(__self__, *,
+                 managed_vpc_resource: pulumi.Input['GatewayTargetManagedVpcResourceArgs']):
+        pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> pulumi.Input['GatewayTargetManagedVpcResourceArgs']:
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @managed_vpc_resource.setter
+    def managed_vpc_resource(self, value: pulumi.Input['GatewayTargetManagedVpcResourceArgs']):
+        pulumi.set(self, "managed_vpc_resource", value)
+
+
 class GatewayTargetRuntimeTargetConfigurationArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
     qualifier: NotRequired[pulumi.Input[_builtins.str]]
@@ -2758,6 +3015,25 @@ class GatewayTargetSchemaDefinitionArgs:
     @required.setter
     def required(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "required", value)
+
+
+class GatewayTargetSelfManagedLatticeResourcePropertiesArgsDict(TypedDict):
+    resource_configuration_identifier: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class GatewayTargetSelfManagedLatticeResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 resource_configuration_identifier: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "resource_configuration_identifier")
+
+    @resource_configuration_identifier.setter
+    def resource_configuration_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_configuration_identifier", value)
 
 
 class GatewayTargetTargetConfiguration0PropertiesArgsDict(TypedDict):
@@ -6464,18 +6740,27 @@ class OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgsDict(TypedDi
     Input configuration for an Atlassian OAuth2 provider
     """
     client_id: pulumi.Input[_builtins.str]
-    client_secret: pulumi.Input[_builtins.str]
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret_config: NotRequired[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgsDict']]
+    client_secret_source: NotRequired[pulumi.Input['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource']]
 
 @pulumi.input_type
 class OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
-                 client_secret: pulumi.Input[_builtins.str]):
+                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_config: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']] = None,
+                 client_secret_source: Optional[pulumi.Input['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource']] = None):
         """
         Input configuration for an Atlassian OAuth2 provider
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -6488,12 +6773,30 @@ class OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> pulumi.Input[_builtins.str]:
+    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: pulumi.Input[_builtins.str]):
+    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]:
+        return pulumi.get(self, "client_secret_config")
+
+    @client_secret_config.setter
+    def client_secret_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "client_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[pulumi.Input['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource']]:
+        return pulumi.get(self, "client_secret_source")
+
+    @client_secret_source.setter
+    def client_secret_source(self, value: Optional[pulumi.Input['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource']]):
+        pulumi.set(self, "client_secret_source", value)
 
 
 class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgsDict(TypedDict):
@@ -6501,6 +6804,10 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgsDict(TypedDict)
     Input configuration for a custom OAuth2 provider
     """
     oauth_discovery: pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgsDict']
+    client_authentication_method: NotRequired[pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod']]
+    """
+    The client authentication method to use when authenticating with the token endpoint
+    """
     client_id: NotRequired[pulumi.Input[_builtins.str]]
     """
     The client ID for the custom OAuth2 provider
@@ -6509,26 +6816,42 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgsDict(TypedDict)
     """
     The client secret for the custom OAuth2 provider
     """
+    client_secret_config: NotRequired[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgsDict']]
+    client_secret_source: NotRequired[pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource']]
+    """
+    The source of the client secret
+    """
     on_behalf_of_token_exchange_config: NotRequired[pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgsDict']]
 
 @pulumi.input_type
 class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs:
     def __init__(__self__, *,
                  oauth_discovery: pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgs'],
+                 client_authentication_method: Optional[pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod']] = None,
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_config: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']] = None,
+                 client_secret_source: Optional[pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource']] = None,
                  on_behalf_of_token_exchange_config: Optional[pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs']] = None):
         """
         Input configuration for a custom OAuth2 provider
 
+        :param pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod'] client_authentication_method: The client authentication method to use when authenticating with the token endpoint
         :param pulumi.Input[_builtins.str] client_id: The client ID for the custom OAuth2 provider
         :param pulumi.Input[_builtins.str] client_secret: The client secret for the custom OAuth2 provider
+        :param pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource'] client_secret_source: The source of the client secret
         """
         pulumi.set(__self__, "oauth_discovery", oauth_discovery)
+        if client_authentication_method is not None:
+            pulumi.set(__self__, "client_authentication_method", client_authentication_method)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
         if on_behalf_of_token_exchange_config is not None:
             pulumi.set(__self__, "on_behalf_of_token_exchange_config", on_behalf_of_token_exchange_config)
 
@@ -6540,6 +6863,18 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs:
     @oauth_discovery.setter
     def oauth_discovery(self, value: pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgs']):
         pulumi.set(self, "oauth_discovery", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientAuthenticationMethod")
+    def client_authentication_method(self) -> Optional[pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod']]:
+        """
+        The client authentication method to use when authenticating with the token endpoint
+        """
+        return pulumi.get(self, "client_authentication_method")
+
+    @client_authentication_method.setter
+    def client_authentication_method(self, value: Optional[pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod']]):
+        pulumi.set(self, "client_authentication_method", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -6566,6 +6901,27 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs:
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]:
+        return pulumi.get(self, "client_secret_config")
+
+    @client_secret_config.setter
+    def client_secret_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "client_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource']]:
+        """
+        The source of the client secret
+        """
+        return pulumi.get(self, "client_secret_source")
+
+    @client_secret_source.setter
+    def client_secret_source(self, value: Optional[pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource']]):
+        pulumi.set(self, "client_secret_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="onBehalfOfTokenExchangeConfig")
     def on_behalf_of_token_exchange_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs']]:
         return pulumi.get(self, "on_behalf_of_token_exchange_config")
@@ -6580,18 +6936,27 @@ class OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgsDict(TypedDict)
     Input configuration for a GitHub OAuth2 provider
     """
     client_id: pulumi.Input[_builtins.str]
-    client_secret: pulumi.Input[_builtins.str]
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret_config: NotRequired[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgsDict']]
+    client_secret_source: NotRequired[pulumi.Input['OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource']]
 
 @pulumi.input_type
 class OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
-                 client_secret: pulumi.Input[_builtins.str]):
+                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_config: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']] = None,
+                 client_secret_source: Optional[pulumi.Input['OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource']] = None):
         """
         Input configuration for a GitHub OAuth2 provider
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -6604,12 +6969,30 @@ class OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> pulumi.Input[_builtins.str]:
+    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: pulumi.Input[_builtins.str]):
+    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]:
+        return pulumi.get(self, "client_secret_config")
+
+    @client_secret_config.setter
+    def client_secret_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "client_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[pulumi.Input['OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource']]:
+        return pulumi.get(self, "client_secret_source")
+
+    @client_secret_source.setter
+    def client_secret_source(self, value: Optional[pulumi.Input['OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource']]):
+        pulumi.set(self, "client_secret_source", value)
 
 
 class OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgsDict(TypedDict):
@@ -6617,18 +7000,27 @@ class OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgsDict(TypedDict)
     Input configuration for a Google OAuth2 provider
     """
     client_id: pulumi.Input[_builtins.str]
-    client_secret: pulumi.Input[_builtins.str]
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret_config: NotRequired[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgsDict']]
+    client_secret_source: NotRequired[pulumi.Input['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource']]
 
 @pulumi.input_type
 class OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
-                 client_secret: pulumi.Input[_builtins.str]):
+                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_config: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']] = None,
+                 client_secret_source: Optional[pulumi.Input['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource']] = None):
         """
         Input configuration for a Google OAuth2 provider
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -6641,12 +7033,30 @@ class OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> pulumi.Input[_builtins.str]:
+    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: pulumi.Input[_builtins.str]):
+    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]:
+        return pulumi.get(self, "client_secret_config")
+
+    @client_secret_config.setter
+    def client_secret_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "client_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[pulumi.Input['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource']]:
+        return pulumi.get(self, "client_secret_source")
+
+    @client_secret_source.setter
+    def client_secret_source(self, value: Optional[pulumi.Input['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource']]):
+        pulumi.set(self, "client_secret_source", value)
 
 
 class OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgsDict(TypedDict):
@@ -6654,11 +7064,13 @@ class OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgsDict(TypedDic
     Input configuration for a supported non-custom OAuth2 provider
     """
     client_id: pulumi.Input[_builtins.str]
-    client_secret: pulumi.Input[_builtins.str]
     authorization_endpoint: NotRequired[pulumi.Input[_builtins.str]]
     """
     OAuth2 authorization endpoint for your isolated OAuth2 application tenant
     """
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret_config: NotRequired[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgsDict']]
+    client_secret_source: NotRequired[pulumi.Input['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource']]
     issuer: NotRequired[pulumi.Input[_builtins.str]]
     """
     Token issuer of your isolated OAuth2 application tenant
@@ -6672,8 +7084,10 @@ class OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgsDict(TypedDic
 class OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
-                 client_secret: pulumi.Input[_builtins.str],
                  authorization_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_config: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']] = None,
+                 client_secret_source: Optional[pulumi.Input['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource']] = None,
                  issuer: Optional[pulumi.Input[_builtins.str]] = None,
                  token_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -6684,9 +7098,14 @@ class OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs:
         :param pulumi.Input[_builtins.str] token_endpoint: OAuth2 token endpoint for your isolated OAuth2 application tenant
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
         if authorization_endpoint is not None:
             pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
         if issuer is not None:
             pulumi.set(__self__, "issuer", issuer)
         if token_endpoint is not None:
@@ -6702,15 +7121,6 @@ class OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs:
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "client_secret")
-
-    @client_secret.setter
-    def client_secret(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "client_secret", value)
-
-    @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -6721,6 +7131,33 @@ class OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs:
     @authorization_endpoint.setter
     def authorization_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "authorization_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]:
+        return pulumi.get(self, "client_secret_config")
+
+    @client_secret_config.setter
+    def client_secret_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "client_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[pulumi.Input['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource']]:
+        return pulumi.get(self, "client_secret_source")
+
+    @client_secret_source.setter
+    def client_secret_source(self, value: Optional[pulumi.Input['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource']]):
+        pulumi.set(self, "client_secret_source", value)
 
     @_builtins.property
     @pulumi.getter
@@ -6752,18 +7189,27 @@ class OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgsDict(TypedDic
     Input configuration for a LinkedIn OAuth2 provider
     """
     client_id: pulumi.Input[_builtins.str]
-    client_secret: pulumi.Input[_builtins.str]
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret_config: NotRequired[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgsDict']]
+    client_secret_source: NotRequired[pulumi.Input['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource']]
 
 @pulumi.input_type
 class OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
-                 client_secret: pulumi.Input[_builtins.str]):
+                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_config: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']] = None,
+                 client_secret_source: Optional[pulumi.Input['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource']] = None):
         """
         Input configuration for a LinkedIn OAuth2 provider
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -6776,12 +7222,30 @@ class OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> pulumi.Input[_builtins.str]:
+    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: pulumi.Input[_builtins.str]):
+    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]:
+        return pulumi.get(self, "client_secret_config")
+
+    @client_secret_config.setter
+    def client_secret_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "client_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[pulumi.Input['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource']]:
+        return pulumi.get(self, "client_secret_source")
+
+    @client_secret_source.setter
+    def client_secret_source(self, value: Optional[pulumi.Input['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource']]):
+        pulumi.set(self, "client_secret_source", value)
 
 
 class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgsDict(TypedDict):
@@ -6789,7 +7253,9 @@ class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgsDict(TypedDi
     Input configuration for a Microsoft OAuth2 provider
     """
     client_id: pulumi.Input[_builtins.str]
-    client_secret: pulumi.Input[_builtins.str]
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret_config: NotRequired[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgsDict']]
+    client_secret_source: NotRequired[pulumi.Input['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource']]
     tenant_id: NotRequired[pulumi.Input[_builtins.str]]
     """
     The Microsoft Entra ID tenant ID
@@ -6799,7 +7265,9 @@ class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgsDict(TypedDi
 class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
-                 client_secret: pulumi.Input[_builtins.str],
+                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_config: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']] = None,
+                 client_secret_source: Optional[pulumi.Input['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource']] = None,
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input configuration for a Microsoft OAuth2 provider
@@ -6807,7 +7275,12 @@ class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs:
         :param pulumi.Input[_builtins.str] tenant_id: The Microsoft Entra ID tenant ID
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
 
@@ -6822,12 +7295,30 @@ class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> pulumi.Input[_builtins.str]:
+    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: pulumi.Input[_builtins.str]):
+    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]:
+        return pulumi.get(self, "client_secret_config")
+
+    @client_secret_config.setter
+    def client_secret_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "client_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[pulumi.Input['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource']]:
+        return pulumi.get(self, "client_secret_source")
+
+    @client_secret_source.setter
+    def client_secret_source(self, value: Optional[pulumi.Input['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource']]):
+        pulumi.set(self, "client_secret_source", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
@@ -7161,18 +7652,27 @@ class OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgsDict(TypedD
     Input configuration for a Salesforce OAuth2 provider
     """
     client_id: pulumi.Input[_builtins.str]
-    client_secret: pulumi.Input[_builtins.str]
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret_config: NotRequired[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgsDict']]
+    client_secret_source: NotRequired[pulumi.Input['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource']]
 
 @pulumi.input_type
 class OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
-                 client_secret: pulumi.Input[_builtins.str]):
+                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_config: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']] = None,
+                 client_secret_source: Optional[pulumi.Input['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource']] = None):
         """
         Input configuration for a Salesforce OAuth2 provider
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -7185,12 +7685,82 @@ class OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> pulumi.Input[_builtins.str]:
+    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: pulumi.Input[_builtins.str]):
+    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]:
+        return pulumi.get(self, "client_secret_config")
+
+    @client_secret_config.setter
+    def client_secret_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "client_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[pulumi.Input['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource']]:
+        return pulumi.get(self, "client_secret_source")
+
+    @client_secret_source.setter
+    def client_secret_source(self, value: Optional[pulumi.Input['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource']]):
+        pulumi.set(self, "client_secret_source", value)
+
+
+class OAuth2CredentialProviderSecretReferenceArgsDict(TypedDict):
+    """
+    A reference to a customer-provided secret stored in AWS Secrets Manager
+    """
+    json_key: pulumi.Input[_builtins.str]
+    """
+    The JSON key within the secret that contains the credential value
+    """
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    The ID or ARN of the secret in AWS Secrets Manager
+    """
+
+@pulumi.input_type
+class OAuth2CredentialProviderSecretReferenceArgs:
+    def __init__(__self__, *,
+                 json_key: pulumi.Input[_builtins.str],
+                 secret_id: pulumi.Input[_builtins.str]):
+        """
+        A reference to a customer-provided secret stored in AWS Secrets Manager
+
+        :param pulumi.Input[_builtins.str] json_key: The JSON key within the secret that contains the credential value
+        :param pulumi.Input[_builtins.str] secret_id: The ID or ARN of the secret in AWS Secrets Manager
+        """
+        pulumi.set(__self__, "json_key", json_key)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonKey")
+    def json_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The JSON key within the secret that contains the credential value
+        """
+        return pulumi.get(self, "json_key")
+
+    @json_key.setter
+    def json_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "json_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID or ARN of the secret in AWS Secrets Manager
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
 
 
 class OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgsDict(TypedDict):
@@ -7198,18 +7768,27 @@ class OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgsDict(TypedDict):
     Input configuration for a Slack OAuth2 provider
     """
     client_id: pulumi.Input[_builtins.str]
-    client_secret: pulumi.Input[_builtins.str]
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret_config: NotRequired[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgsDict']]
+    client_secret_source: NotRequired[pulumi.Input['OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource']]
 
 @pulumi.input_type
 class OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
-                 client_secret: pulumi.Input[_builtins.str]):
+                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_config: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']] = None,
+                 client_secret_source: Optional[pulumi.Input['OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource']] = None):
         """
         Input configuration for a Slack OAuth2 provider
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -7222,12 +7801,30 @@ class OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> pulumi.Input[_builtins.str]:
+    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: pulumi.Input[_builtins.str]):
+    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]:
+        return pulumi.get(self, "client_secret_config")
+
+    @client_secret_config.setter
+    def client_secret_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "client_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[pulumi.Input['OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource']]:
+        return pulumi.get(self, "client_secret_source")
+
+    @client_secret_source.setter
+    def client_secret_source(self, value: Optional[pulumi.Input['OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource']]):
+        pulumi.set(self, "client_secret_source", value)
 
 
 class OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgsDict(TypedDict):
@@ -7656,6 +8253,67 @@ class OnlineEvaluationConfigSessionConfigArgs:
         pulumi.set(self, "session_timeout_minutes", value)
 
 
+class PaymentConnectorCredentialsProviderConfigurationArgsDict(TypedDict):
+    coinbase_cdp: NotRequired[pulumi.Input['PaymentConnectorPaymentCredentialProviderConfigurationArgsDict']]
+    stripe_privy: NotRequired[pulumi.Input['PaymentConnectorPaymentCredentialProviderConfigurationArgsDict']]
+
+@pulumi.input_type
+class PaymentConnectorCredentialsProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 coinbase_cdp: Optional[pulumi.Input['PaymentConnectorPaymentCredentialProviderConfigurationArgs']] = None,
+                 stripe_privy: Optional[pulumi.Input['PaymentConnectorPaymentCredentialProviderConfigurationArgs']] = None):
+        if coinbase_cdp is not None:
+            pulumi.set(__self__, "coinbase_cdp", coinbase_cdp)
+        if stripe_privy is not None:
+            pulumi.set(__self__, "stripe_privy", stripe_privy)
+
+    @_builtins.property
+    @pulumi.getter(name="coinbaseCdp")
+    def coinbase_cdp(self) -> Optional[pulumi.Input['PaymentConnectorPaymentCredentialProviderConfigurationArgs']]:
+        return pulumi.get(self, "coinbase_cdp")
+
+    @coinbase_cdp.setter
+    def coinbase_cdp(self, value: Optional[pulumi.Input['PaymentConnectorPaymentCredentialProviderConfigurationArgs']]):
+        pulumi.set(self, "coinbase_cdp", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stripePrivy")
+    def stripe_privy(self) -> Optional[pulumi.Input['PaymentConnectorPaymentCredentialProviderConfigurationArgs']]:
+        return pulumi.get(self, "stripe_privy")
+
+    @stripe_privy.setter
+    def stripe_privy(self, value: Optional[pulumi.Input['PaymentConnectorPaymentCredentialProviderConfigurationArgs']]):
+        pulumi.set(self, "stripe_privy", value)
+
+
+class PaymentConnectorPaymentCredentialProviderConfigurationArgsDict(TypedDict):
+    credential_provider_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the payment credential provider
+    """
+
+@pulumi.input_type
+class PaymentConnectorPaymentCredentialProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 credential_provider_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] credential_provider_arn: The ARN of the payment credential provider
+        """
+        pulumi.set(__self__, "credential_provider_arn", credential_provider_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialProviderArn")
+    def credential_provider_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the payment credential provider
+        """
+        return pulumi.get(self, "credential_provider_arn")
+
+    @credential_provider_arn.setter
+    def credential_provider_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "credential_provider_arn", value)
+
+
 class PaymentCredentialProviderCoinbaseCdpConfigurationInputArgsDict(TypedDict):
     """
     Coinbase CDP configuration with API credentials
@@ -7664,21 +8322,29 @@ class PaymentCredentialProviderCoinbaseCdpConfigurationInputArgsDict(TypedDict):
     """
     The Coinbase CDP API key ID
     """
-    api_key_secret: pulumi.Input[_builtins.str]
+    api_key_secret: NotRequired[pulumi.Input[_builtins.str]]
     """
     The Coinbase CDP API key secret
     """
+    api_key_secret_config: NotRequired[pulumi.Input['PaymentCredentialProviderSecretReferenceArgsDict']]
+    api_key_secret_source: NotRequired[pulumi.Input['PaymentCredentialProviderSecretSourceType']]
     wallet_secret: NotRequired[pulumi.Input[_builtins.str]]
     """
     The Coinbase CDP wallet secret
     """
+    wallet_secret_config: NotRequired[pulumi.Input['PaymentCredentialProviderSecretReferenceArgsDict']]
+    wallet_secret_source: NotRequired[pulumi.Input['PaymentCredentialProviderSecretSourceType']]
 
 @pulumi.input_type
 class PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs:
     def __init__(__self__, *,
                  api_key_id: pulumi.Input[_builtins.str],
-                 api_key_secret: pulumi.Input[_builtins.str],
-                 wallet_secret: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_key_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key_secret_config: Optional[pulumi.Input['PaymentCredentialProviderSecretReferenceArgs']] = None,
+                 api_key_secret_source: Optional[pulumi.Input['PaymentCredentialProviderSecretSourceType']] = None,
+                 wallet_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 wallet_secret_config: Optional[pulumi.Input['PaymentCredentialProviderSecretReferenceArgs']] = None,
+                 wallet_secret_source: Optional[pulumi.Input['PaymentCredentialProviderSecretSourceType']] = None):
         """
         Coinbase CDP configuration with API credentials
 
@@ -7687,9 +8353,18 @@ class PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs:
         :param pulumi.Input[_builtins.str] wallet_secret: The Coinbase CDP wallet secret
         """
         pulumi.set(__self__, "api_key_id", api_key_id)
-        pulumi.set(__self__, "api_key_secret", api_key_secret)
+        if api_key_secret is not None:
+            pulumi.set(__self__, "api_key_secret", api_key_secret)
+        if api_key_secret_config is not None:
+            pulumi.set(__self__, "api_key_secret_config", api_key_secret_config)
+        if api_key_secret_source is not None:
+            pulumi.set(__self__, "api_key_secret_source", api_key_secret_source)
         if wallet_secret is not None:
             pulumi.set(__self__, "wallet_secret", wallet_secret)
+        if wallet_secret_config is not None:
+            pulumi.set(__self__, "wallet_secret_config", wallet_secret_config)
+        if wallet_secret_source is not None:
+            pulumi.set(__self__, "wallet_secret_source", wallet_secret_source)
 
     @_builtins.property
     @pulumi.getter(name="apiKeyId")
@@ -7705,15 +8380,33 @@ class PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiKeySecret")
-    def api_key_secret(self) -> pulumi.Input[_builtins.str]:
+    def api_key_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Coinbase CDP API key secret
         """
         return pulumi.get(self, "api_key_secret")
 
     @api_key_secret.setter
-    def api_key_secret(self, value: pulumi.Input[_builtins.str]):
+    def api_key_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "api_key_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeySecretConfig")
+    def api_key_secret_config(self) -> Optional[pulumi.Input['PaymentCredentialProviderSecretReferenceArgs']]:
+        return pulumi.get(self, "api_key_secret_config")
+
+    @api_key_secret_config.setter
+    def api_key_secret_config(self, value: Optional[pulumi.Input['PaymentCredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "api_key_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeySecretSource")
+    def api_key_secret_source(self) -> Optional[pulumi.Input['PaymentCredentialProviderSecretSourceType']]:
+        return pulumi.get(self, "api_key_secret_source")
+
+    @api_key_secret_source.setter
+    def api_key_secret_source(self, value: Optional[pulumi.Input['PaymentCredentialProviderSecretSourceType']]):
+        pulumi.set(self, "api_key_secret_source", value)
 
     @_builtins.property
     @pulumi.getter(name="walletSecret")
@@ -7726,6 +8419,24 @@ class PaymentCredentialProviderCoinbaseCdpConfigurationInputArgs:
     @wallet_secret.setter
     def wallet_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "wallet_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="walletSecretConfig")
+    def wallet_secret_config(self) -> Optional[pulumi.Input['PaymentCredentialProviderSecretReferenceArgs']]:
+        return pulumi.get(self, "wallet_secret_config")
+
+    @wallet_secret_config.setter
+    def wallet_secret_config(self, value: Optional[pulumi.Input['PaymentCredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "wallet_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="walletSecretSource")
+    def wallet_secret_source(self) -> Optional[pulumi.Input['PaymentCredentialProviderSecretSourceType']]:
+        return pulumi.get(self, "wallet_secret_source")
+
+    @wallet_secret_source.setter
+    def wallet_secret_source(self, value: Optional[pulumi.Input['PaymentCredentialProviderSecretSourceType']]):
+        pulumi.set(self, "wallet_secret_source", value)
 
 
 class PaymentCredentialProviderPaymentProviderConfigurationInputArgsDict(TypedDict):
@@ -7767,6 +8478,58 @@ class PaymentCredentialProviderPaymentProviderConfigurationInputArgs:
         pulumi.set(self, "stripe_privy_configuration", value)
 
 
+class PaymentCredentialProviderSecretReferenceArgsDict(TypedDict):
+    """
+    A reference to a customer-provided secret stored in AWS Secrets Manager
+    """
+    json_key: pulumi.Input[_builtins.str]
+    """
+    The JSON key within the secret that contains the credential value
+    """
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    The ID or ARN of the secret in AWS Secrets Manager
+    """
+
+@pulumi.input_type
+class PaymentCredentialProviderSecretReferenceArgs:
+    def __init__(__self__, *,
+                 json_key: pulumi.Input[_builtins.str],
+                 secret_id: pulumi.Input[_builtins.str]):
+        """
+        A reference to a customer-provided secret stored in AWS Secrets Manager
+
+        :param pulumi.Input[_builtins.str] json_key: The JSON key within the secret that contains the credential value
+        :param pulumi.Input[_builtins.str] secret_id: The ID or ARN of the secret in AWS Secrets Manager
+        """
+        pulumi.set(__self__, "json_key", json_key)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonKey")
+    def json_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The JSON key within the secret that contains the credential value
+        """
+        return pulumi.get(self, "json_key")
+
+    @json_key.setter
+    def json_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "json_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID or ARN of the secret in AWS Secrets Manager
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+
 class PaymentCredentialProviderStripePrivyConfigurationInputArgsDict(TypedDict):
     """
     Stripe Privy configuration with credentials
@@ -7775,38 +8538,56 @@ class PaymentCredentialProviderStripePrivyConfigurationInputArgsDict(TypedDict):
     """
     The app ID provided by Privy
     """
-    app_secret: pulumi.Input[_builtins.str]
-    """
-    The app secret provided by Privy
-    """
     authorization_id: pulumi.Input[_builtins.str]
     """
     The authorization ID for the Stripe Privy integration
     """
-    authorization_private_key: pulumi.Input[_builtins.str]
+    app_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The app secret provided by Privy
+    """
+    app_secret_config: NotRequired[pulumi.Input['PaymentCredentialProviderSecretReferenceArgsDict']]
+    app_secret_source: NotRequired[pulumi.Input['PaymentCredentialProviderSecretSourceType']]
+    authorization_private_key: NotRequired[pulumi.Input[_builtins.str]]
     """
     The authorization private key for the Stripe Privy integration
     """
+    authorization_private_key_config: NotRequired[pulumi.Input['PaymentCredentialProviderSecretReferenceArgsDict']]
+    authorization_private_key_source: NotRequired[pulumi.Input['PaymentCredentialProviderSecretSourceType']]
 
 @pulumi.input_type
 class PaymentCredentialProviderStripePrivyConfigurationInputArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[_builtins.str],
-                 app_secret: pulumi.Input[_builtins.str],
                  authorization_id: pulumi.Input[_builtins.str],
-                 authorization_private_key: pulumi.Input[_builtins.str]):
+                 app_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_secret_config: Optional[pulumi.Input['PaymentCredentialProviderSecretReferenceArgs']] = None,
+                 app_secret_source: Optional[pulumi.Input['PaymentCredentialProviderSecretSourceType']] = None,
+                 authorization_private_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 authorization_private_key_config: Optional[pulumi.Input['PaymentCredentialProviderSecretReferenceArgs']] = None,
+                 authorization_private_key_source: Optional[pulumi.Input['PaymentCredentialProviderSecretSourceType']] = None):
         """
         Stripe Privy configuration with credentials
 
         :param pulumi.Input[_builtins.str] app_id: The app ID provided by Privy
-        :param pulumi.Input[_builtins.str] app_secret: The app secret provided by Privy
         :param pulumi.Input[_builtins.str] authorization_id: The authorization ID for the Stripe Privy integration
+        :param pulumi.Input[_builtins.str] app_secret: The app secret provided by Privy
         :param pulumi.Input[_builtins.str] authorization_private_key: The authorization private key for the Stripe Privy integration
         """
         pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "app_secret", app_secret)
         pulumi.set(__self__, "authorization_id", authorization_id)
-        pulumi.set(__self__, "authorization_private_key", authorization_private_key)
+        if app_secret is not None:
+            pulumi.set(__self__, "app_secret", app_secret)
+        if app_secret_config is not None:
+            pulumi.set(__self__, "app_secret_config", app_secret_config)
+        if app_secret_source is not None:
+            pulumi.set(__self__, "app_secret_source", app_secret_source)
+        if authorization_private_key is not None:
+            pulumi.set(__self__, "authorization_private_key", authorization_private_key)
+        if authorization_private_key_config is not None:
+            pulumi.set(__self__, "authorization_private_key_config", authorization_private_key_config)
+        if authorization_private_key_source is not None:
+            pulumi.set(__self__, "authorization_private_key_source", authorization_private_key_source)
 
     @_builtins.property
     @pulumi.getter(name="appId")
@@ -7821,18 +8602,6 @@ class PaymentCredentialProviderStripePrivyConfigurationInputArgs:
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="appSecret")
-    def app_secret(self) -> pulumi.Input[_builtins.str]:
-        """
-        The app secret provided by Privy
-        """
-        return pulumi.get(self, "app_secret")
-
-    @app_secret.setter
-    def app_secret(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "app_secret", value)
-
-    @_builtins.property
     @pulumi.getter(name="authorizationId")
     def authorization_id(self) -> pulumi.Input[_builtins.str]:
         """
@@ -7845,16 +8614,261 @@ class PaymentCredentialProviderStripePrivyConfigurationInputArgs:
         pulumi.set(self, "authorization_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="appSecret")
+    def app_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The app secret provided by Privy
+        """
+        return pulumi.get(self, "app_secret")
+
+    @app_secret.setter
+    def app_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "app_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="appSecretConfig")
+    def app_secret_config(self) -> Optional[pulumi.Input['PaymentCredentialProviderSecretReferenceArgs']]:
+        return pulumi.get(self, "app_secret_config")
+
+    @app_secret_config.setter
+    def app_secret_config(self, value: Optional[pulumi.Input['PaymentCredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "app_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="appSecretSource")
+    def app_secret_source(self) -> Optional[pulumi.Input['PaymentCredentialProviderSecretSourceType']]:
+        return pulumi.get(self, "app_secret_source")
+
+    @app_secret_source.setter
+    def app_secret_source(self, value: Optional[pulumi.Input['PaymentCredentialProviderSecretSourceType']]):
+        pulumi.set(self, "app_secret_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="authorizationPrivateKey")
-    def authorization_private_key(self) -> pulumi.Input[_builtins.str]:
+    def authorization_private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The authorization private key for the Stripe Privy integration
         """
         return pulumi.get(self, "authorization_private_key")
 
     @authorization_private_key.setter
-    def authorization_private_key(self, value: pulumi.Input[_builtins.str]):
+    def authorization_private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "authorization_private_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationPrivateKeyConfig")
+    def authorization_private_key_config(self) -> Optional[pulumi.Input['PaymentCredentialProviderSecretReferenceArgs']]:
+        return pulumi.get(self, "authorization_private_key_config")
+
+    @authorization_private_key_config.setter
+    def authorization_private_key_config(self, value: Optional[pulumi.Input['PaymentCredentialProviderSecretReferenceArgs']]):
+        pulumi.set(self, "authorization_private_key_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationPrivateKeySource")
+    def authorization_private_key_source(self) -> Optional[pulumi.Input['PaymentCredentialProviderSecretSourceType']]:
+        return pulumi.get(self, "authorization_private_key_source")
+
+    @authorization_private_key_source.setter
+    def authorization_private_key_source(self, value: Optional[pulumi.Input['PaymentCredentialProviderSecretSourceType']]):
+        pulumi.set(self, "authorization_private_key_source", value)
+
+
+class PaymentManagerAuthorizerConfigurationArgsDict(TypedDict):
+    custom_jwt_authorizer: pulumi.Input['PaymentManagerCustomJwtAuthorizerConfigurationArgsDict']
+
+@pulumi.input_type
+class PaymentManagerAuthorizerConfigurationArgs:
+    def __init__(__self__, *,
+                 custom_jwt_authorizer: pulumi.Input['PaymentManagerCustomJwtAuthorizerConfigurationArgs']):
+        pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
+
+    @_builtins.property
+    @pulumi.getter(name="customJwtAuthorizer")
+    def custom_jwt_authorizer(self) -> pulumi.Input['PaymentManagerCustomJwtAuthorizerConfigurationArgs']:
+        return pulumi.get(self, "custom_jwt_authorizer")
+
+    @custom_jwt_authorizer.setter
+    def custom_jwt_authorizer(self, value: pulumi.Input['PaymentManagerCustomJwtAuthorizerConfigurationArgs']):
+        pulumi.set(self, "custom_jwt_authorizer", value)
+
+
+class PaymentManagerAuthorizingClaimMatchValueTypeArgsDict(TypedDict):
+    claim_match_operator: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator']
+    claim_match_value: pulumi.Input['PaymentManagerClaimMatchValueTypeArgsDict']
+
+@pulumi.input_type
+class PaymentManagerAuthorizingClaimMatchValueTypeArgs:
+    def __init__(__self__, *,
+                 claim_match_operator: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator'],
+                 claim_match_value: pulumi.Input['PaymentManagerClaimMatchValueTypeArgs']):
+        pulumi.set(__self__, "claim_match_operator", claim_match_operator)
+        pulumi.set(__self__, "claim_match_value", claim_match_value)
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchOperator")
+    def claim_match_operator(self) -> pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator']:
+        return pulumi.get(self, "claim_match_operator")
+
+    @claim_match_operator.setter
+    def claim_match_operator(self, value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator']):
+        pulumi.set(self, "claim_match_operator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchValue")
+    def claim_match_value(self) -> pulumi.Input['PaymentManagerClaimMatchValueTypeArgs']:
+        return pulumi.get(self, "claim_match_value")
+
+    @claim_match_value.setter
+    def claim_match_value(self, value: pulumi.Input['PaymentManagerClaimMatchValueTypeArgs']):
+        pulumi.set(self, "claim_match_value", value)
+
+
+class PaymentManagerClaimMatchValueTypeArgsDict(TypedDict):
+    match_value_string: NotRequired[pulumi.Input[_builtins.str]]
+    match_value_string_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+
+@pulumi.input_type
+class PaymentManagerClaimMatchValueTypeArgs:
+    def __init__(__self__, *,
+                 match_value_string: Optional[pulumi.Input[_builtins.str]] = None,
+                 match_value_string_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        if match_value_string is not None:
+            pulumi.set(__self__, "match_value_string", match_value_string)
+        if match_value_string_list is not None:
+            pulumi.set(__self__, "match_value_string_list", match_value_string_list)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueString")
+    def match_value_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "match_value_string")
+
+    @match_value_string.setter
+    def match_value_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "match_value_string", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueStringList")
+    def match_value_string_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "match_value_string_list")
+
+    @match_value_string_list.setter
+    def match_value_string_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "match_value_string_list", value)
+
+
+class PaymentManagerCustomClaimValidationTypeArgsDict(TypedDict):
+    authorizing_claim_match_value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeArgsDict']
+    inbound_token_claim_name: pulumi.Input[_builtins.str]
+    inbound_token_claim_value_type: pulumi.Input['PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType']
+
+@pulumi.input_type
+class PaymentManagerCustomClaimValidationTypeArgs:
+    def __init__(__self__, *,
+                 authorizing_claim_match_value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeArgs'],
+                 inbound_token_claim_name: pulumi.Input[_builtins.str],
+                 inbound_token_claim_value_type: pulumi.Input['PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType']):
+        pulumi.set(__self__, "authorizing_claim_match_value", authorizing_claim_match_value)
+        pulumi.set(__self__, "inbound_token_claim_name", inbound_token_claim_name)
+        pulumi.set(__self__, "inbound_token_claim_value_type", inbound_token_claim_value_type)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizingClaimMatchValue")
+    def authorizing_claim_match_value(self) -> pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeArgs']:
+        return pulumi.get(self, "authorizing_claim_match_value")
+
+    @authorizing_claim_match_value.setter
+    def authorizing_claim_match_value(self, value: pulumi.Input['PaymentManagerAuthorizingClaimMatchValueTypeArgs']):
+        pulumi.set(self, "authorizing_claim_match_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimName")
+    def inbound_token_claim_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "inbound_token_claim_name")
+
+    @inbound_token_claim_name.setter
+    def inbound_token_claim_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "inbound_token_claim_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimValueType")
+    def inbound_token_claim_value_type(self) -> pulumi.Input['PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType']:
+        return pulumi.get(self, "inbound_token_claim_value_type")
+
+    @inbound_token_claim_value_type.setter
+    def inbound_token_claim_value_type(self, value: pulumi.Input['PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType']):
+        pulumi.set(self, "inbound_token_claim_value_type", value)
+
+
+class PaymentManagerCustomJwtAuthorizerConfigurationArgsDict(TypedDict):
+    discovery_url: pulumi.Input[_builtins.str]
+    allowed_audience: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_clients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    custom_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['PaymentManagerCustomClaimValidationTypeArgsDict']]]]
+
+@pulumi.input_type
+class PaymentManagerCustomJwtAuthorizerConfigurationArgs:
+    def __init__(__self__, *,
+                 discovery_url: pulumi.Input[_builtins.str],
+                 allowed_audience: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_clients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_claims: Optional[pulumi.Input[Sequence[pulumi.Input['PaymentManagerCustomClaimValidationTypeArgs']]]] = None):
+        pulumi.set(__self__, "discovery_url", discovery_url)
+        if allowed_audience is not None:
+            pulumi.set(__self__, "allowed_audience", allowed_audience)
+        if allowed_clients is not None:
+            pulumi.set(__self__, "allowed_clients", allowed_clients)
+        if allowed_scopes is not None:
+            pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if custom_claims is not None:
+            pulumi.set(__self__, "custom_claims", custom_claims)
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "discovery_url")
+
+    @discovery_url.setter
+    def discovery_url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "discovery_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAudience")
+    def allowed_audience(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_audience")
+
+    @allowed_audience.setter
+    def allowed_audience(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_audience", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedClients")
+    def allowed_clients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_clients")
+
+    @allowed_clients.setter
+    def allowed_clients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_clients", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedScopes")
+    def allowed_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_scopes")
+
+    @allowed_scopes.setter
+    def allowed_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_scopes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customClaims")
+    def custom_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PaymentManagerCustomClaimValidationTypeArgs']]]]:
+        return pulumi.get(self, "custom_claims")
+
+    @custom_claims.setter
+    def custom_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PaymentManagerCustomClaimValidationTypeArgs']]]]):
+        pulumi.set(self, "custom_claims", value)
 
 
 class PolicyCedarPolicyArgsDict(TypedDict):

@@ -21,7 +21,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         /// </summary>
         public readonly string? AuthorizationEndpoint;
         public readonly string ClientId;
-        public readonly string ClientSecret;
+        public readonly string? ClientSecret;
+        public readonly Outputs.OAuth2CredentialProviderSecretReference? ClientSecretConfig;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource? ClientSecretSource;
         /// <summary>
         /// Token issuer of your isolated OAuth2 application tenant
         /// </summary>
@@ -37,7 +39,11 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             string clientId,
 
-            string clientSecret,
+            string? clientSecret,
+
+            Outputs.OAuth2CredentialProviderSecretReference? clientSecretConfig,
+
+            Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource? clientSecretSource,
 
             string? issuer,
 
@@ -46,6 +52,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
             AuthorizationEndpoint = authorizationEndpoint;
             ClientId = clientId;
             ClientSecret = clientSecret;
+            ClientSecretConfig = clientSecretConfig;
+            ClientSecretSource = clientSecretSource;
             Issuer = issuer;
             TokenEndpoint = tokenEndpoint;
         }

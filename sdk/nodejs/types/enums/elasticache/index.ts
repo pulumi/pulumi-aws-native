@@ -12,6 +12,29 @@ export const GlobalReplicationGroupMemberRole = {
  */
 export type GlobalReplicationGroupMemberRole = (typeof GlobalReplicationGroupMemberRole)[keyof typeof GlobalReplicationGroupMemberRole];
 
+export const ReplicationGroupDurability = {
+    Default: "default",
+    Async: "async",
+    Sync: "sync",
+    Disabled: "disabled",
+} as const;
+
+/**
+ * The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+ */
+export type ReplicationGroupDurability = (typeof ReplicationGroupDurability)[keyof typeof ReplicationGroupDurability];
+
+export const ReplicationGroupEffectiveDurability = {
+    Async: "async",
+    Sync: "sync",
+    Disabled: "disabled",
+} as const;
+
+/**
+ * The resolved durability state of the replication group after resolving the default value. This is a read-only property.
+ */
+export type ReplicationGroupEffectiveDurability = (typeof ReplicationGroupEffectiveDurability)[keyof typeof ReplicationGroupEffectiveDurability];
+
 export const ServerlessCacheDataStorageUnit = {
     Gb: "GB",
 } as const;

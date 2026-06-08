@@ -39,6 +39,10 @@ type ReplicationGroup struct {
 	ConfigurationEndPoint ReplicationGroupEndpointOutput `pulumi:"configurationEndPoint"`
 	// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes.
 	DataTieringEnabled pulumi.BoolPtrOutput `pulumi:"dataTieringEnabled"`
+	// The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+	Durability ReplicationGroupDurabilityPtrOutput `pulumi:"durability"`
+	// The resolved durability state of the replication group after resolving the default value. This is a read-only property.
+	EffectiveDurability ReplicationGroupEffectiveDurabilityOutput `pulumi:"effectiveDurability"`
 	// The name of the cache engine to be used for the clusters in this replication group.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The version number of the cache engine to be used for the clusters in this replication group. To view the supported cache engine versions, use the DescribeCacheEngineVersions operation.
@@ -183,6 +187,8 @@ type replicationGroupArgs struct {
 	ClusterMode *string `pulumi:"clusterMode"`
 	// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes.
 	DataTieringEnabled *bool `pulumi:"dataTieringEnabled"`
+	// The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+	Durability *ReplicationGroupDurability `pulumi:"durability"`
 	// The name of the cache engine to be used for the clusters in this replication group.
 	Engine *string `pulumi:"engine"`
 	// The version number of the cache engine to be used for the clusters in this replication group. To view the supported cache engine versions, use the DescribeCacheEngineVersions operation.
@@ -267,6 +273,8 @@ type ReplicationGroupArgs struct {
 	ClusterMode pulumi.StringPtrInput
 	// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes.
 	DataTieringEnabled pulumi.BoolPtrInput
+	// The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+	Durability ReplicationGroupDurabilityPtrInput
 	// The name of the cache engine to be used for the clusters in this replication group.
 	Engine pulumi.StringPtrInput
 	// The version number of the cache engine to be used for the clusters in this replication group. To view the supported cache engine versions, use the DescribeCacheEngineVersions operation.
@@ -419,6 +427,16 @@ func (o ReplicationGroupOutput) ConfigurationEndPoint() ReplicationGroupEndpoint
 // Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes.
 func (o ReplicationGroupOutput) DataTieringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.DataTieringEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+func (o ReplicationGroupOutput) Durability() ReplicationGroupDurabilityPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) ReplicationGroupDurabilityPtrOutput { return v.Durability }).(ReplicationGroupDurabilityPtrOutput)
+}
+
+// The resolved durability state of the replication group after resolving the default value. This is a read-only property.
+func (o ReplicationGroupOutput) EffectiveDurability() ReplicationGroupEffectiveDurabilityOutput {
+	return o.ApplyT(func(v *ReplicationGroup) ReplicationGroupEffectiveDurabilityOutput { return v.EffectiveDurability }).(ReplicationGroupEffectiveDurabilityOutput)
 }
 
 // The name of the cache engine to be used for the clusters in this replication group.

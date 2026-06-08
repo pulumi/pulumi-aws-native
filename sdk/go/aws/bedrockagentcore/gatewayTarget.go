@@ -29,8 +29,10 @@ type GatewayTarget struct {
 	LastSynchronizedAt    pulumi.StringOutput                         `pulumi:"lastSynchronizedAt"`
 	MetadataConfiguration GatewayTargetMetadataConfigurationPtrOutput `pulumi:"metadataConfiguration"`
 	// The name for the gateway target.
-	Name         pulumi.StringOutput                   `pulumi:"name"`
-	ProtocolType GatewayTargetTargetProtocolTypeOutput `pulumi:"protocolType"`
+	Name                            pulumi.StringOutput                            `pulumi:"name"`
+	PrivateEndpoint                 pulumi.AnyOutput                               `pulumi:"privateEndpoint"`
+	PrivateEndpointManagedResources GatewayTargetManagedResourceDetailsArrayOutput `pulumi:"privateEndpointManagedResources"`
+	ProtocolType                    GatewayTargetTargetProtocolTypeOutput          `pulumi:"protocolType"`
 	// The status for the gateway target.
 	Status GatewayTargetTargetStatusOutput `pulumi:"status"`
 	// The status reasons for the gateway target.
@@ -98,7 +100,8 @@ type gatewayTargetArgs struct {
 	GatewayIdentifier     *string                             `pulumi:"gatewayIdentifier"`
 	MetadataConfiguration *GatewayTargetMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// The name for the gateway target.
-	Name *string `pulumi:"name"`
+	Name            *string     `pulumi:"name"`
+	PrivateEndpoint interface{} `pulumi:"privateEndpoint"`
 	// The target configuration for the Smithy model target.
 	TargetConfiguration interface{} `pulumi:"targetConfiguration"`
 }
@@ -113,7 +116,8 @@ type GatewayTargetArgs struct {
 	GatewayIdentifier     pulumi.StringPtrInput
 	MetadataConfiguration GatewayTargetMetadataConfigurationPtrInput
 	// The name for the gateway target.
-	Name pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	PrivateEndpoint pulumi.Input
 	// The target configuration for the Smithy model target.
 	TargetConfiguration pulumi.Input
 }
@@ -196,6 +200,16 @@ func (o GatewayTargetOutput) MetadataConfiguration() GatewayTargetMetadataConfig
 // The name for the gateway target.
 func (o GatewayTargetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetOutput) PrivateEndpoint() pulumi.AnyOutput {
+	return o.ApplyT(func(v *GatewayTarget) pulumi.AnyOutput { return v.PrivateEndpoint }).(pulumi.AnyOutput)
+}
+
+func (o GatewayTargetOutput) PrivateEndpointManagedResources() GatewayTargetManagedResourceDetailsArrayOutput {
+	return o.ApplyT(func(v *GatewayTarget) GatewayTargetManagedResourceDetailsArrayOutput {
+		return v.PrivateEndpointManagedResources
+	}).(GatewayTargetManagedResourceDetailsArrayOutput)
 }
 
 func (o GatewayTargetOutput) ProtocolType() GatewayTargetTargetProtocolTypeOutput {

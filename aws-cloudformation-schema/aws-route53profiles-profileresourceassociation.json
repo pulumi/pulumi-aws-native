@@ -61,7 +61,7 @@
       "permissions" : [ "route53profiles:ListProfileResourceAssociations" ]
     },
     "update" : {
-      "permissions" : [ "route53profiles:UpdateProfileResourceAssociation" ]
+      "permissions" : [ "route53profiles:UpdateProfileResourceAssociation", "route53profiles:GetProfileResourceAssociation" ]
     }
   }
 }

@@ -16,7 +16,7 @@ import (
 type ApiMapping struct {
 	pulumi.CustomResourceState
 
-	// The identifier of the API.
+	// The API identifier.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// The API mapping resource ID.
 	ApiMappingId pulumi.StringOutput `pulumi:"apiMappingId"`
@@ -81,7 +81,7 @@ func (ApiMappingState) ElementType() reflect.Type {
 }
 
 type apiMappingArgs struct {
-	// The identifier of the API.
+	// The API identifier.
 	ApiId string `pulumi:"apiId"`
 	// The API mapping key.
 	ApiMappingKey *string `pulumi:"apiMappingKey"`
@@ -93,7 +93,7 @@ type apiMappingArgs struct {
 
 // The set of arguments for constructing a ApiMapping resource.
 type ApiMappingArgs struct {
-	// The identifier of the API.
+	// The API identifier.
 	ApiId pulumi.StringInput
 	// The API mapping key.
 	ApiMappingKey pulumi.StringPtrInput
@@ -140,7 +140,7 @@ func (o ApiMappingOutput) ToApiMappingOutputWithContext(ctx context.Context) Api
 	return o
 }
 
-// The identifier of the API.
+// The API identifier.
 func (o ApiMappingOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiMapping) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }

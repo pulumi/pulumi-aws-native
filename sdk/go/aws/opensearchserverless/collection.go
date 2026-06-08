@@ -103,7 +103,8 @@ type Collection struct {
 	// The name of the collection group to associate with the collection.
 	CollectionGroupName pulumi.StringPtrOutput `pulumi:"collectionGroupName"`
 	// The OpenSearch Dashboards endpoint for the collection.
-	DashboardEndpoint pulumi.StringOutput `pulumi:"dashboardEndpoint"`
+	DashboardEndpoint  pulumi.StringOutput                   `pulumi:"dashboardEndpoint"`
+	DeletionProtection CollectionDeletionProtectionPtrOutput `pulumi:"deletionProtection"`
 	// The description of the collection
 	Description      pulumi.StringPtrOutput              `pulumi:"description"`
 	EncryptionConfig CollectionEncryptionConfigPtrOutput `pulumi:"encryptionConfig"`
@@ -177,7 +178,8 @@ func (CollectionState) ElementType() reflect.Type {
 
 type collectionArgs struct {
 	// The name of the collection group to associate with the collection.
-	CollectionGroupName *string `pulumi:"collectionGroupName"`
+	CollectionGroupName *string                       `pulumi:"collectionGroupName"`
+	DeletionProtection  *CollectionDeletionProtection `pulumi:"deletionProtection"`
 	// The description of the collection
 	Description      *string                     `pulumi:"description"`
 	EncryptionConfig *CollectionEncryptionConfig `pulumi:"encryptionConfig"`
@@ -202,6 +204,7 @@ type collectionArgs struct {
 type CollectionArgs struct {
 	// The name of the collection group to associate with the collection.
 	CollectionGroupName pulumi.StringPtrInput
+	DeletionProtection  CollectionDeletionProtectionPtrInput
 	// The description of the collection
 	Description      pulumi.StringPtrInput
 	EncryptionConfig CollectionEncryptionConfigPtrInput
@@ -282,6 +285,10 @@ func (o CollectionOutput) CollectionGroupName() pulumi.StringPtrOutput {
 // The OpenSearch Dashboards endpoint for the collection.
 func (o CollectionOutput) DashboardEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.DashboardEndpoint }).(pulumi.StringOutput)
+}
+
+func (o CollectionOutput) DeletionProtection() CollectionDeletionProtectionPtrOutput {
+	return o.ApplyT(func(v *Collection) CollectionDeletionProtectionPtrOutput { return v.DeletionProtection }).(CollectionDeletionProtectionPtrOutput)
 }
 
 // The description of the collection

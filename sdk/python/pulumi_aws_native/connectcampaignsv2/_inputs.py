@@ -813,12 +813,14 @@ class CampaignLocalTimeZoneConfigArgsDict(TypedDict):
     """
     Detects methods for the recipient's timezone.
     """
+    local_time_zone_detection_scope: NotRequired[pulumi.Input['CampaignLocalTimeZoneDetectionScope']]
 
 @pulumi.input_type
 class CampaignLocalTimeZoneConfigArgs:
     def __init__(__self__, *,
                  default_time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_time_zone_detection: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignLocalTimeZoneDetectionType']]]] = None):
+                 local_time_zone_detection: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignLocalTimeZoneDetectionType']]]] = None,
+                 local_time_zone_detection_scope: Optional[pulumi.Input['CampaignLocalTimeZoneDetectionScope']] = None):
         """
         Local time zone config
 
@@ -829,6 +831,8 @@ class CampaignLocalTimeZoneConfigArgs:
             pulumi.set(__self__, "default_time_zone", default_time_zone)
         if local_time_zone_detection is not None:
             pulumi.set(__self__, "local_time_zone_detection", local_time_zone_detection)
+        if local_time_zone_detection_scope is not None:
+            pulumi.set(__self__, "local_time_zone_detection_scope", local_time_zone_detection_scope)
 
     @_builtins.property
     @pulumi.getter(name="defaultTimeZone")
@@ -853,6 +857,15 @@ class CampaignLocalTimeZoneConfigArgs:
     @local_time_zone_detection.setter
     def local_time_zone_detection(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignLocalTimeZoneDetectionType']]]]):
         pulumi.set(self, "local_time_zone_detection", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localTimeZoneDetectionScope")
+    def local_time_zone_detection_scope(self) -> Optional[pulumi.Input['CampaignLocalTimeZoneDetectionScope']]:
+        return pulumi.get(self, "local_time_zone_detection_scope")
+
+    @local_time_zone_detection_scope.setter
+    def local_time_zone_detection_scope(self, value: Optional[pulumi.Input['CampaignLocalTimeZoneDetectionScope']]):
+        pulumi.set(self, "local_time_zone_detection_scope", value)
 
 
 class CampaignOpenHoursArgsDict(TypedDict):

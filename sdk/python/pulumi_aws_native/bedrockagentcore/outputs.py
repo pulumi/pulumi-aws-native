@@ -18,6 +18,7 @@ from ._enums import *
 
 __all__ = [
     'ApiKeyCredentialProviderApiKeySecretArn',
+    'ApiKeyCredentialProviderSecretReference',
     'BrowserCustomBrowserEnterprisePolicy',
     'BrowserCustomBrowserNetworkConfiguration',
     'BrowserCustomBrowserSigning',
@@ -54,6 +55,8 @@ __all__ = [
     'GatewayMcpGatewayConfiguration',
     'GatewayPolicyEngineConfiguration',
     'GatewayProtocolConfigurationProperties',
+    'GatewaySessionConfiguration',
+    'GatewayStreamingConfiguration',
     'GatewayTargetApiGatewayTargetConfiguration',
     'GatewayTargetApiGatewayToolConfiguration',
     'GatewayTargetApiGatewayToolFilter',
@@ -68,6 +71,8 @@ __all__ = [
     'GatewayTargetCredentialProviderConfiguration',
     'GatewayTargetHttpTargetConfigurationProperties',
     'GatewayTargetIamCredentialProvider',
+    'GatewayTargetManagedResourceDetails',
+    'GatewayTargetManagedVpcResource',
     'GatewayTargetMcpLambdaTargetConfiguration',
     'GatewayTargetMcpServerTargetConfiguration',
     'GatewayTargetMcpTargetConfiguration0Properties',
@@ -80,9 +85,12 @@ __all__ = [
     'GatewayTargetMetadataConfiguration',
     'GatewayTargetOAuth2AuthorizationData',
     'GatewayTargetOAuthCredentialProvider',
+    'GatewayTargetPrivateEndpoint0Properties',
+    'GatewayTargetPrivateEndpoint1Properties',
     'GatewayTargetRuntimeTargetConfiguration',
     'GatewayTargetS3Configuration',
     'GatewayTargetSchemaDefinition',
+    'GatewayTargetSelfManagedLatticeResourceProperties',
     'GatewayTargetTargetConfiguration0Properties',
     'GatewayTargetTargetConfiguration1Properties',
     'GatewayTargetToolDefinition',
@@ -179,6 +187,7 @@ __all__ = [
     'OAuth2CredentialProviderOauth2ProviderConfigOutput',
     'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig',
     'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput',
+    'OAuth2CredentialProviderSecretReference',
     'OAuth2CredentialProviderSlackOauth2ProviderConfigInput',
     'OAuth2CredentialProviderTokenExchangeGrantTypeConfig',
     'OnlineEvaluationConfigCloudWatchLogsInputConfig',
@@ -191,13 +200,22 @@ __all__ = [
     'OnlineEvaluationConfigRule',
     'OnlineEvaluationConfigSamplingConfig',
     'OnlineEvaluationConfigSessionConfig',
+    'PaymentConnectorCredentialsProviderConfiguration',
+    'PaymentConnectorPaymentCredentialProviderConfiguration',
     'PaymentCredentialProviderCoinbaseCdpConfigurationInput',
     'PaymentCredentialProviderCoinbaseCdpConfigurationOutput',
     'PaymentCredentialProviderPaymentProviderConfigurationInput',
     'PaymentCredentialProviderPaymentProviderConfigurationOutput',
     'PaymentCredentialProviderSecretInfo',
+    'PaymentCredentialProviderSecretReference',
     'PaymentCredentialProviderStripePrivyConfigurationInput',
     'PaymentCredentialProviderStripePrivyConfigurationOutput',
+    'PaymentManagerAuthorizerConfiguration',
+    'PaymentManagerAuthorizingClaimMatchValueType',
+    'PaymentManagerClaimMatchValueType',
+    'PaymentManagerCustomClaimValidationType',
+    'PaymentManagerCustomJwtAuthorizerConfiguration',
+    'PaymentManagerWorkloadIdentityDetails',
     'PolicyCedarPolicy',
     'PolicyDefinition',
     'RuntimeAgentRuntimeArtifact',
@@ -259,6 +277,59 @@ class ApiKeyCredentialProviderApiKeySecretArn(dict):
         The ARN of the secret in AWS Secrets Manager
         """
         return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class ApiKeyCredentialProviderSecretReference(dict):
+    """
+    A reference to a customer-provided secret stored in AWS Secrets Manager
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonKey":
+            suggest = "json_key"
+        elif key == "secretId":
+            suggest = "secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiKeyCredentialProviderSecretReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiKeyCredentialProviderSecretReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiKeyCredentialProviderSecretReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 json_key: _builtins.str,
+                 secret_id: _builtins.str):
+        """
+        A reference to a customer-provided secret stored in AWS Secrets Manager
+
+        :param _builtins.str json_key: The JSON key within the secret that contains the credential value
+        :param _builtins.str secret_id: The ID or ARN of the secret in AWS Secrets Manager
+        """
+        pulumi.set(__self__, "json_key", json_key)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonKey")
+    def json_key(self) -> _builtins.str:
+        """
+        The JSON key within the secret that contains the credential value
+        """
+        return pulumi.get(self, "json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        The ID or ARN of the secret in AWS Secrets Manager
+        """
+        return pulumi.get(self, "secret_id")
 
 
 @pulumi.output_type
@@ -1643,6 +1714,10 @@ class GatewayMcpGatewayConfiguration(dict):
         suggest = None
         if key == "searchType":
             suggest = "search_type"
+        elif key == "sessionConfiguration":
+            suggest = "session_configuration"
+        elif key == "streamingConfiguration":
+            suggest = "streaming_configuration"
         elif key == "supportedVersions":
             suggest = "supported_versions"
 
@@ -1660,11 +1735,17 @@ class GatewayMcpGatewayConfiguration(dict):
     def __init__(__self__, *,
                  instructions: Optional[_builtins.str] = None,
                  search_type: Optional['GatewaySearchType'] = None,
+                 session_configuration: Optional['outputs.GatewaySessionConfiguration'] = None,
+                 streaming_configuration: Optional['outputs.GatewayStreamingConfiguration'] = None,
                  supported_versions: Optional[Sequence[_builtins.str]] = None):
         if instructions is not None:
             pulumi.set(__self__, "instructions", instructions)
         if search_type is not None:
             pulumi.set(__self__, "search_type", search_type)
+        if session_configuration is not None:
+            pulumi.set(__self__, "session_configuration", session_configuration)
+        if streaming_configuration is not None:
+            pulumi.set(__self__, "streaming_configuration", streaming_configuration)
         if supported_versions is not None:
             pulumi.set(__self__, "supported_versions", supported_versions)
 
@@ -1677,6 +1758,16 @@ class GatewayMcpGatewayConfiguration(dict):
     @pulumi.getter(name="searchType")
     def search_type(self) -> Optional['GatewaySearchType']:
         return pulumi.get(self, "search_type")
+
+    @_builtins.property
+    @pulumi.getter(name="sessionConfiguration")
+    def session_configuration(self) -> Optional['outputs.GatewaySessionConfiguration']:
+        return pulumi.get(self, "session_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="streamingConfiguration")
+    def streaming_configuration(self) -> Optional['outputs.GatewayStreamingConfiguration']:
+        return pulumi.get(self, "streaming_configuration")
 
     @_builtins.property
     @pulumi.getter(name="supportedVersions")
@@ -1724,6 +1815,66 @@ class GatewayProtocolConfigurationProperties(dict):
     @pulumi.getter
     def mcp(self) -> 'outputs.GatewayMcpGatewayConfiguration':
         return pulumi.get(self, "mcp")
+
+
+@pulumi.output_type
+class GatewaySessionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sessionTimeoutInSeconds":
+            suggest = "session_timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewaySessionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewaySessionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewaySessionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 session_timeout_in_seconds: Optional[_builtins.int] = None):
+        if session_timeout_in_seconds is not None:
+            pulumi.set(__self__, "session_timeout_in_seconds", session_timeout_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionTimeoutInSeconds")
+    def session_timeout_in_seconds(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "session_timeout_in_seconds")
+
+
+@pulumi.output_type
+class GatewayStreamingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableResponseStreaming":
+            suggest = "enable_response_streaming"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayStreamingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayStreamingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayStreamingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_response_streaming: Optional[_builtins.bool] = None):
+        if enable_response_streaming is not None:
+            pulumi.set(__self__, "enable_response_streaming", enable_response_streaming)
+
+    @_builtins.property
+    @pulumi.getter(name="enableResponseStreaming")
+    def enable_response_streaming(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enable_response_streaming")
 
 
 @pulumi.output_type
@@ -2178,6 +2329,121 @@ class GatewayTargetIamCredentialProvider(dict):
 
 
 @pulumi.output_type
+class GatewayTargetManagedResourceDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceAssociationArn":
+            suggest = "resource_association_arn"
+        elif key == "resourceGatewayArn":
+            suggest = "resource_gateway_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetManagedResourceDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetManagedResourceDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetManagedResourceDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: Optional[_builtins.str] = None,
+                 resource_association_arn: Optional[_builtins.str] = None,
+                 resource_gateway_arn: Optional[_builtins.str] = None):
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if resource_association_arn is not None:
+            pulumi.set(__self__, "resource_association_arn", resource_association_arn)
+        if resource_gateway_arn is not None:
+            pulumi.set(__self__, "resource_gateway_arn", resource_gateway_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceAssociationArn")
+    def resource_association_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "resource_association_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceGatewayArn")
+    def resource_gateway_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "resource_gateway_arn")
+
+
+@pulumi.output_type
+class GatewayTargetManagedVpcResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointIpAddressType":
+            suggest = "endpoint_ip_address_type"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "routingDomain":
+            suggest = "routing_domain"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetManagedVpcResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetManagedVpcResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetManagedVpcResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: 'GatewayTargetEndpointIpAddressType',
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_identifier: _builtins.str,
+                 routing_domain: Optional[_builtins.str] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None):
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> 'GatewayTargetEndpointIpAddressType':
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        return pulumi.get(self, "vpc_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "security_group_ids")
+
+
+@pulumi.output_type
 class GatewayTargetMcpLambdaTargetConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2610,6 +2876,64 @@ class GatewayTargetOAuthCredentialProvider(dict):
 
 
 @pulumi.output_type
+class GatewayTargetPrivateEndpoint0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "selfManagedLatticeResource":
+            suggest = "self_managed_lattice_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetPrivateEndpoint0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetPrivateEndpoint0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetPrivateEndpoint0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 self_managed_lattice_resource: 'outputs.GatewayTargetSelfManagedLatticeResourceProperties'):
+        pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> 'outputs.GatewayTargetSelfManagedLatticeResourceProperties':
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+
+@pulumi.output_type
+class GatewayTargetPrivateEndpoint1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedVpcResource":
+            suggest = "managed_vpc_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetPrivateEndpoint1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetPrivateEndpoint1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetPrivateEndpoint1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_vpc_resource: 'outputs.GatewayTargetManagedVpcResource'):
+        pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> 'outputs.GatewayTargetManagedVpcResource':
+        return pulumi.get(self, "managed_vpc_resource")
+
+
+@pulumi.output_type
 class GatewayTargetRuntimeTargetConfiguration(dict):
     def __init__(__self__, *,
                  arn: _builtins.str,
@@ -2709,6 +3033,35 @@ class GatewayTargetSchemaDefinition(dict):
     @pulumi.getter
     def required(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "required")
+
+
+@pulumi.output_type
+class GatewayTargetSelfManagedLatticeResourceProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationIdentifier":
+            suggest = "resource_configuration_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetSelfManagedLatticeResourceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetSelfManagedLatticeResourceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetSelfManagedLatticeResourceProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_identifier: _builtins.str):
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> _builtins.str:
+        return pulumi.get(self, "resource_configuration_identifier")
 
 
 @pulumi.output_type
@@ -6344,6 +6697,10 @@ class OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput(dict):
             suggest = "client_id"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
@@ -6358,12 +6715,19 @@ class OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput(dict):
 
     def __init__(__self__, *,
                  client_id: _builtins.str,
-                 client_secret: _builtins.str):
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.OAuth2CredentialProviderSecretReference'] = None,
+                 client_secret_source: Optional['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource'] = None):
         """
         Input configuration for an Atlassian OAuth2 provider
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -6372,8 +6736,18 @@ class OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput(dict):
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> _builtins.str:
+    def client_secret(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.OAuth2CredentialProviderSecretReference']:
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputClientSecretSource']:
+        return pulumi.get(self, "client_secret_source")
 
 
 @pulumi.output_type
@@ -6426,10 +6800,16 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
         suggest = None
         if key == "oauthDiscovery":
             suggest = "oauth_discovery"
+        elif key == "clientAuthenticationMethod":
+            suggest = "client_authentication_method"
         elif key == "clientId":
             suggest = "client_id"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
         elif key == "onBehalfOfTokenExchangeConfig":
             suggest = "on_behalf_of_token_exchange_config"
 
@@ -6446,20 +6826,31 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
 
     def __init__(__self__, *,
                  oauth_discovery: 'outputs.OAuth2CredentialProviderOauth2Discovery',
+                 client_authentication_method: Optional['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod'] = None,
                  client_id: Optional[_builtins.str] = None,
                  client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.OAuth2CredentialProviderSecretReference'] = None,
+                 client_secret_source: Optional['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource'] = None,
                  on_behalf_of_token_exchange_config: Optional['outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig'] = None):
         """
         Input configuration for a custom OAuth2 provider
 
+        :param 'OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod' client_authentication_method: The client authentication method to use when authenticating with the token endpoint
         :param _builtins.str client_id: The client ID for the custom OAuth2 provider
         :param _builtins.str client_secret: The client secret for the custom OAuth2 provider
+        :param 'OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource' client_secret_source: The source of the client secret
         """
         pulumi.set(__self__, "oauth_discovery", oauth_discovery)
+        if client_authentication_method is not None:
+            pulumi.set(__self__, "client_authentication_method", client_authentication_method)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
         if on_behalf_of_token_exchange_config is not None:
             pulumi.set(__self__, "on_behalf_of_token_exchange_config", on_behalf_of_token_exchange_config)
 
@@ -6467,6 +6858,14 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
     @pulumi.getter(name="oauthDiscovery")
     def oauth_discovery(self) -> 'outputs.OAuth2CredentialProviderOauth2Discovery':
         return pulumi.get(self, "oauth_discovery")
+
+    @_builtins.property
+    @pulumi.getter(name="clientAuthenticationMethod")
+    def client_authentication_method(self) -> Optional['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod']:
+        """
+        The client authentication method to use when authenticating with the token endpoint
+        """
+        return pulumi.get(self, "client_authentication_method")
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -6483,6 +6882,19 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
         The client secret for the custom OAuth2 provider
         """
         return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.OAuth2CredentialProviderSecretReference']:
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource']:
+        """
+        The source of the client secret
+        """
+        return pulumi.get(self, "client_secret_source")
 
     @_builtins.property
     @pulumi.getter(name="onBehalfOfTokenExchangeConfig")
@@ -6502,6 +6914,10 @@ class OAuth2CredentialProviderGithubOauth2ProviderConfigInput(dict):
             suggest = "client_id"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderGithubOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
@@ -6516,12 +6932,19 @@ class OAuth2CredentialProviderGithubOauth2ProviderConfigInput(dict):
 
     def __init__(__self__, *,
                  client_id: _builtins.str,
-                 client_secret: _builtins.str):
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.OAuth2CredentialProviderSecretReference'] = None,
+                 client_secret_source: Optional['OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource'] = None):
         """
         Input configuration for a GitHub OAuth2 provider
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -6530,8 +6953,18 @@ class OAuth2CredentialProviderGithubOauth2ProviderConfigInput(dict):
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> _builtins.str:
+    def client_secret(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.OAuth2CredentialProviderSecretReference']:
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional['OAuth2CredentialProviderGithubOauth2ProviderConfigInputClientSecretSource']:
+        return pulumi.get(self, "client_secret_source")
 
 
 @pulumi.output_type
@@ -6546,6 +6979,10 @@ class OAuth2CredentialProviderGoogleOauth2ProviderConfigInput(dict):
             suggest = "client_id"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderGoogleOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
@@ -6560,12 +6997,19 @@ class OAuth2CredentialProviderGoogleOauth2ProviderConfigInput(dict):
 
     def __init__(__self__, *,
                  client_id: _builtins.str,
-                 client_secret: _builtins.str):
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.OAuth2CredentialProviderSecretReference'] = None,
+                 client_secret_source: Optional['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource'] = None):
         """
         Input configuration for a Google OAuth2 provider
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -6574,8 +7018,18 @@ class OAuth2CredentialProviderGoogleOauth2ProviderConfigInput(dict):
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> _builtins.str:
+    def client_secret(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.OAuth2CredentialProviderSecretReference']:
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource']:
+        return pulumi.get(self, "client_secret_source")
 
 
 @pulumi.output_type
@@ -6588,10 +7042,14 @@ class OAuth2CredentialProviderIncludedOauth2ProviderConfigInput(dict):
         suggest = None
         if key == "clientId":
             suggest = "client_id"
-        elif key == "clientSecret":
-            suggest = "client_secret"
         elif key == "authorizationEndpoint":
             suggest = "authorization_endpoint"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
         elif key == "tokenEndpoint":
             suggest = "token_endpoint"
 
@@ -6608,8 +7066,10 @@ class OAuth2CredentialProviderIncludedOauth2ProviderConfigInput(dict):
 
     def __init__(__self__, *,
                  client_id: _builtins.str,
-                 client_secret: _builtins.str,
                  authorization_endpoint: Optional[_builtins.str] = None,
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.OAuth2CredentialProviderSecretReference'] = None,
+                 client_secret_source: Optional['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource'] = None,
                  issuer: Optional[_builtins.str] = None,
                  token_endpoint: Optional[_builtins.str] = None):
         """
@@ -6620,9 +7080,14 @@ class OAuth2CredentialProviderIncludedOauth2ProviderConfigInput(dict):
         :param _builtins.str token_endpoint: OAuth2 token endpoint for your isolated OAuth2 application tenant
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
         if authorization_endpoint is not None:
             pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
         if issuer is not None:
             pulumi.set(__self__, "issuer", issuer)
         if token_endpoint is not None:
@@ -6634,17 +7099,27 @@ class OAuth2CredentialProviderIncludedOauth2ProviderConfigInput(dict):
         return pulumi.get(self, "client_id")
 
     @_builtins.property
-    @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> _builtins.str:
-        return pulumi.get(self, "client_secret")
-
-    @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> Optional[_builtins.str]:
         """
         OAuth2 authorization endpoint for your isolated OAuth2 application tenant
         """
         return pulumi.get(self, "authorization_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.OAuth2CredentialProviderSecretReference']:
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource']:
+        return pulumi.get(self, "client_secret_source")
 
     @_builtins.property
     @pulumi.getter
@@ -6675,6 +7150,10 @@ class OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput(dict):
             suggest = "client_id"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
@@ -6689,12 +7168,19 @@ class OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput(dict):
 
     def __init__(__self__, *,
                  client_id: _builtins.str,
-                 client_secret: _builtins.str):
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.OAuth2CredentialProviderSecretReference'] = None,
+                 client_secret_source: Optional['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource'] = None):
         """
         Input configuration for a LinkedIn OAuth2 provider
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -6703,8 +7189,18 @@ class OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput(dict):
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> _builtins.str:
+    def client_secret(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.OAuth2CredentialProviderSecretReference']:
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource']:
+        return pulumi.get(self, "client_secret_source")
 
 
 @pulumi.output_type
@@ -6719,6 +7215,10 @@ class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput(dict):
             suggest = "client_id"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
         elif key == "tenantId":
             suggest = "tenant_id"
 
@@ -6735,7 +7235,9 @@ class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput(dict):
 
     def __init__(__self__, *,
                  client_id: _builtins.str,
-                 client_secret: _builtins.str,
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.OAuth2CredentialProviderSecretReference'] = None,
+                 client_secret_source: Optional['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource'] = None,
                  tenant_id: Optional[_builtins.str] = None):
         """
         Input configuration for a Microsoft OAuth2 provider
@@ -6743,7 +7245,12 @@ class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput(dict):
         :param _builtins.str tenant_id: The Microsoft Entra ID tenant ID
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
 
@@ -6754,8 +7261,18 @@ class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput(dict):
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> _builtins.str:
+    def client_secret(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.OAuth2CredentialProviderSecretReference']:
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource']:
+        return pulumi.get(self, "client_secret_source")
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
@@ -7019,7 +7536,9 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clientId":
+        if key == "clientAuthenticationMethod":
+            suggest = "client_authentication_method"
+        elif key == "clientId":
             suggest = "client_id"
         elif key == "oauthDiscovery":
             suggest = "oauth_discovery"
@@ -7038,18 +7557,31 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 client_authentication_method: Optional['OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod'] = None,
                  client_id: Optional[_builtins.str] = None,
                  oauth_discovery: Optional['outputs.OAuth2CredentialProviderOauth2Discovery'] = None,
                  on_behalf_of_token_exchange_config: Optional['outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig'] = None):
         """
         Output configuration for an OAuth2 provider
+
+        :param 'OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod' client_authentication_method: The client authentication method used when authenticating with the token endpoint
         """
+        if client_authentication_method is not None:
+            pulumi.set(__self__, "client_authentication_method", client_authentication_method)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if oauth_discovery is not None:
             pulumi.set(__self__, "oauth_discovery", oauth_discovery)
         if on_behalf_of_token_exchange_config is not None:
             pulumi.set(__self__, "on_behalf_of_token_exchange_config", on_behalf_of_token_exchange_config)
+
+    @_builtins.property
+    @pulumi.getter(name="clientAuthenticationMethod")
+    def client_authentication_method(self) -> Optional['OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod']:
+        """
+        The client authentication method used when authenticating with the token endpoint
+        """
+        return pulumi.get(self, "client_authentication_method")
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -7129,6 +7661,10 @@ class OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput(dict):
             suggest = "client_id"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
@@ -7143,12 +7679,19 @@ class OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput(dict):
 
     def __init__(__self__, *,
                  client_id: _builtins.str,
-                 client_secret: _builtins.str):
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.OAuth2CredentialProviderSecretReference'] = None,
+                 client_secret_source: Optional['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource'] = None):
         """
         Input configuration for a Salesforce OAuth2 provider
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -7157,8 +7700,71 @@ class OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput(dict):
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> _builtins.str:
+    def client_secret(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.OAuth2CredentialProviderSecretReference']:
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource']:
+        return pulumi.get(self, "client_secret_source")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderSecretReference(dict):
+    """
+    A reference to a customer-provided secret stored in AWS Secrets Manager
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonKey":
+            suggest = "json_key"
+        elif key == "secretId":
+            suggest = "secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderSecretReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderSecretReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderSecretReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 json_key: _builtins.str,
+                 secret_id: _builtins.str):
+        """
+        A reference to a customer-provided secret stored in AWS Secrets Manager
+
+        :param _builtins.str json_key: The JSON key within the secret that contains the credential value
+        :param _builtins.str secret_id: The ID or ARN of the secret in AWS Secrets Manager
+        """
+        pulumi.set(__self__, "json_key", json_key)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonKey")
+    def json_key(self) -> _builtins.str:
+        """
+        The JSON key within the secret that contains the credential value
+        """
+        return pulumi.get(self, "json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        The ID or ARN of the secret in AWS Secrets Manager
+        """
+        return pulumi.get(self, "secret_id")
 
 
 @pulumi.output_type
@@ -7173,6 +7779,10 @@ class OAuth2CredentialProviderSlackOauth2ProviderConfigInput(dict):
             suggest = "client_id"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderSlackOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
@@ -7187,12 +7797,19 @@ class OAuth2CredentialProviderSlackOauth2ProviderConfigInput(dict):
 
     def __init__(__self__, *,
                  client_id: _builtins.str,
-                 client_secret: _builtins.str):
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.OAuth2CredentialProviderSecretReference'] = None,
+                 client_secret_source: Optional['OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource'] = None):
         """
         Input configuration for a Slack OAuth2 provider
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -7201,8 +7818,18 @@ class OAuth2CredentialProviderSlackOauth2ProviderConfigInput(dict):
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> _builtins.str:
+    def client_secret(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.OAuth2CredentialProviderSecretReference']:
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional['OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource']:
+        return pulumi.get(self, "client_secret_source")
 
 
 @pulumi.output_type
@@ -7713,6 +8340,81 @@ class OnlineEvaluationConfigSessionConfig(dict):
 
 
 @pulumi.output_type
+class PaymentConnectorCredentialsProviderConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "coinbaseCdp":
+            suggest = "coinbase_cdp"
+        elif key == "stripePrivy":
+            suggest = "stripe_privy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentConnectorCredentialsProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentConnectorCredentialsProviderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentConnectorCredentialsProviderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 coinbase_cdp: Optional['outputs.PaymentConnectorPaymentCredentialProviderConfiguration'] = None,
+                 stripe_privy: Optional['outputs.PaymentConnectorPaymentCredentialProviderConfiguration'] = None):
+        if coinbase_cdp is not None:
+            pulumi.set(__self__, "coinbase_cdp", coinbase_cdp)
+        if stripe_privy is not None:
+            pulumi.set(__self__, "stripe_privy", stripe_privy)
+
+    @_builtins.property
+    @pulumi.getter(name="coinbaseCdp")
+    def coinbase_cdp(self) -> Optional['outputs.PaymentConnectorPaymentCredentialProviderConfiguration']:
+        return pulumi.get(self, "coinbase_cdp")
+
+    @_builtins.property
+    @pulumi.getter(name="stripePrivy")
+    def stripe_privy(self) -> Optional['outputs.PaymentConnectorPaymentCredentialProviderConfiguration']:
+        return pulumi.get(self, "stripe_privy")
+
+
+@pulumi.output_type
+class PaymentConnectorPaymentCredentialProviderConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "credentialProviderArn":
+            suggest = "credential_provider_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentConnectorPaymentCredentialProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentConnectorPaymentCredentialProviderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentConnectorPaymentCredentialProviderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 credential_provider_arn: _builtins.str):
+        """
+        :param _builtins.str credential_provider_arn: The ARN of the payment credential provider
+        """
+        pulumi.set(__self__, "credential_provider_arn", credential_provider_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialProviderArn")
+    def credential_provider_arn(self) -> _builtins.str:
+        """
+        The ARN of the payment credential provider
+        """
+        return pulumi.get(self, "credential_provider_arn")
+
+
+@pulumi.output_type
 class PaymentCredentialProviderCoinbaseCdpConfigurationInput(dict):
     """
     Coinbase CDP configuration with API credentials
@@ -7724,8 +8426,16 @@ class PaymentCredentialProviderCoinbaseCdpConfigurationInput(dict):
             suggest = "api_key_id"
         elif key == "apiKeySecret":
             suggest = "api_key_secret"
+        elif key == "apiKeySecretConfig":
+            suggest = "api_key_secret_config"
+        elif key == "apiKeySecretSource":
+            suggest = "api_key_secret_source"
         elif key == "walletSecret":
             suggest = "wallet_secret"
+        elif key == "walletSecretConfig":
+            suggest = "wallet_secret_config"
+        elif key == "walletSecretSource":
+            suggest = "wallet_secret_source"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderCoinbaseCdpConfigurationInput. Access the value via the '{suggest}' property getter instead.")
@@ -7740,8 +8450,12 @@ class PaymentCredentialProviderCoinbaseCdpConfigurationInput(dict):
 
     def __init__(__self__, *,
                  api_key_id: _builtins.str,
-                 api_key_secret: _builtins.str,
-                 wallet_secret: Optional[_builtins.str] = None):
+                 api_key_secret: Optional[_builtins.str] = None,
+                 api_key_secret_config: Optional['outputs.PaymentCredentialProviderSecretReference'] = None,
+                 api_key_secret_source: Optional['PaymentCredentialProviderSecretSourceType'] = None,
+                 wallet_secret: Optional[_builtins.str] = None,
+                 wallet_secret_config: Optional['outputs.PaymentCredentialProviderSecretReference'] = None,
+                 wallet_secret_source: Optional['PaymentCredentialProviderSecretSourceType'] = None):
         """
         Coinbase CDP configuration with API credentials
 
@@ -7750,9 +8464,18 @@ class PaymentCredentialProviderCoinbaseCdpConfigurationInput(dict):
         :param _builtins.str wallet_secret: The Coinbase CDP wallet secret
         """
         pulumi.set(__self__, "api_key_id", api_key_id)
-        pulumi.set(__self__, "api_key_secret", api_key_secret)
+        if api_key_secret is not None:
+            pulumi.set(__self__, "api_key_secret", api_key_secret)
+        if api_key_secret_config is not None:
+            pulumi.set(__self__, "api_key_secret_config", api_key_secret_config)
+        if api_key_secret_source is not None:
+            pulumi.set(__self__, "api_key_secret_source", api_key_secret_source)
         if wallet_secret is not None:
             pulumi.set(__self__, "wallet_secret", wallet_secret)
+        if wallet_secret_config is not None:
+            pulumi.set(__self__, "wallet_secret_config", wallet_secret_config)
+        if wallet_secret_source is not None:
+            pulumi.set(__self__, "wallet_secret_source", wallet_secret_source)
 
     @_builtins.property
     @pulumi.getter(name="apiKeyId")
@@ -7764,11 +8487,21 @@ class PaymentCredentialProviderCoinbaseCdpConfigurationInput(dict):
 
     @_builtins.property
     @pulumi.getter(name="apiKeySecret")
-    def api_key_secret(self) -> _builtins.str:
+    def api_key_secret(self) -> Optional[_builtins.str]:
         """
         The Coinbase CDP API key secret
         """
         return pulumi.get(self, "api_key_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeySecretConfig")
+    def api_key_secret_config(self) -> Optional['outputs.PaymentCredentialProviderSecretReference']:
+        return pulumi.get(self, "api_key_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeySecretSource")
+    def api_key_secret_source(self) -> Optional['PaymentCredentialProviderSecretSourceType']:
+        return pulumi.get(self, "api_key_secret_source")
 
     @_builtins.property
     @pulumi.getter(name="walletSecret")
@@ -7777,6 +8510,16 @@ class PaymentCredentialProviderCoinbaseCdpConfigurationInput(dict):
         The Coinbase CDP wallet secret
         """
         return pulumi.get(self, "wallet_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="walletSecretConfig")
+    def wallet_secret_config(self) -> Optional['outputs.PaymentCredentialProviderSecretReference']:
+        return pulumi.get(self, "wallet_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="walletSecretSource")
+    def wallet_secret_source(self) -> Optional['PaymentCredentialProviderSecretSourceType']:
+        return pulumi.get(self, "wallet_secret_source")
 
 
 @pulumi.output_type
@@ -7791,8 +8534,16 @@ class PaymentCredentialProviderCoinbaseCdpConfigurationOutput(dict):
             suggest = "api_key_id"
         elif key == "apiKeySecretArn":
             suggest = "api_key_secret_arn"
+        elif key == "apiKeySecretJsonKey":
+            suggest = "api_key_secret_json_key"
+        elif key == "apiKeySecretSource":
+            suggest = "api_key_secret_source"
         elif key == "walletSecretArn":
             suggest = "wallet_secret_arn"
+        elif key == "walletSecretJsonKey":
+            suggest = "wallet_secret_json_key"
+        elif key == "walletSecretSource":
+            suggest = "wallet_secret_source"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderCoinbaseCdpConfigurationOutput. Access the value via the '{suggest}' property getter instead.")
@@ -7808,16 +8559,30 @@ class PaymentCredentialProviderCoinbaseCdpConfigurationOutput(dict):
     def __init__(__self__, *,
                  api_key_id: _builtins.str,
                  api_key_secret_arn: 'outputs.PaymentCredentialProviderSecretInfo',
-                 wallet_secret_arn: Optional['outputs.PaymentCredentialProviderSecretInfo'] = None):
+                 api_key_secret_json_key: Optional[_builtins.str] = None,
+                 api_key_secret_source: Optional['PaymentCredentialProviderSecretSourceType'] = None,
+                 wallet_secret_arn: Optional['outputs.PaymentCredentialProviderSecretInfo'] = None,
+                 wallet_secret_json_key: Optional[_builtins.str] = None,
+                 wallet_secret_source: Optional['PaymentCredentialProviderSecretSourceType'] = None):
         """
         Coinbase CDP configuration output with secret ARNs
 
         :param _builtins.str api_key_id: The Coinbase CDP API key ID
+        :param _builtins.str api_key_secret_json_key: The JSON key within the secret that contains the API key secret value
+        :param _builtins.str wallet_secret_json_key: The JSON key within the secret that contains the wallet secret value
         """
         pulumi.set(__self__, "api_key_id", api_key_id)
         pulumi.set(__self__, "api_key_secret_arn", api_key_secret_arn)
+        if api_key_secret_json_key is not None:
+            pulumi.set(__self__, "api_key_secret_json_key", api_key_secret_json_key)
+        if api_key_secret_source is not None:
+            pulumi.set(__self__, "api_key_secret_source", api_key_secret_source)
         if wallet_secret_arn is not None:
             pulumi.set(__self__, "wallet_secret_arn", wallet_secret_arn)
+        if wallet_secret_json_key is not None:
+            pulumi.set(__self__, "wallet_secret_json_key", wallet_secret_json_key)
+        if wallet_secret_source is not None:
+            pulumi.set(__self__, "wallet_secret_source", wallet_secret_source)
 
     @_builtins.property
     @pulumi.getter(name="apiKeyId")
@@ -7833,9 +8598,35 @@ class PaymentCredentialProviderCoinbaseCdpConfigurationOutput(dict):
         return pulumi.get(self, "api_key_secret_arn")
 
     @_builtins.property
+    @pulumi.getter(name="apiKeySecretJsonKey")
+    def api_key_secret_json_key(self) -> Optional[_builtins.str]:
+        """
+        The JSON key within the secret that contains the API key secret value
+        """
+        return pulumi.get(self, "api_key_secret_json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeySecretSource")
+    def api_key_secret_source(self) -> Optional['PaymentCredentialProviderSecretSourceType']:
+        return pulumi.get(self, "api_key_secret_source")
+
+    @_builtins.property
     @pulumi.getter(name="walletSecretArn")
     def wallet_secret_arn(self) -> Optional['outputs.PaymentCredentialProviderSecretInfo']:
         return pulumi.get(self, "wallet_secret_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="walletSecretJsonKey")
+    def wallet_secret_json_key(self) -> Optional[_builtins.str]:
+        """
+        The JSON key within the secret that contains the wallet secret value
+        """
+        return pulumi.get(self, "wallet_secret_json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="walletSecretSource")
+    def wallet_secret_source(self) -> Optional['PaymentCredentialProviderSecretSourceType']:
+        return pulumi.get(self, "wallet_secret_source")
 
 
 @pulumi.output_type
@@ -7971,6 +8762,59 @@ class PaymentCredentialProviderSecretInfo(dict):
 
 
 @pulumi.output_type
+class PaymentCredentialProviderSecretReference(dict):
+    """
+    A reference to a customer-provided secret stored in AWS Secrets Manager
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonKey":
+            suggest = "json_key"
+        elif key == "secretId":
+            suggest = "secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderSecretReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentCredentialProviderSecretReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentCredentialProviderSecretReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 json_key: _builtins.str,
+                 secret_id: _builtins.str):
+        """
+        A reference to a customer-provided secret stored in AWS Secrets Manager
+
+        :param _builtins.str json_key: The JSON key within the secret that contains the credential value
+        :param _builtins.str secret_id: The ID or ARN of the secret in AWS Secrets Manager
+        """
+        pulumi.set(__self__, "json_key", json_key)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonKey")
+    def json_key(self) -> _builtins.str:
+        """
+        The JSON key within the secret that contains the credential value
+        """
+        return pulumi.get(self, "json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        The ID or ARN of the secret in AWS Secrets Manager
+        """
+        return pulumi.get(self, "secret_id")
+
+
+@pulumi.output_type
 class PaymentCredentialProviderStripePrivyConfigurationInput(dict):
     """
     Stripe Privy configuration with credentials
@@ -7980,12 +8824,20 @@ class PaymentCredentialProviderStripePrivyConfigurationInput(dict):
         suggest = None
         if key == "appId":
             suggest = "app_id"
-        elif key == "appSecret":
-            suggest = "app_secret"
         elif key == "authorizationId":
             suggest = "authorization_id"
+        elif key == "appSecret":
+            suggest = "app_secret"
+        elif key == "appSecretConfig":
+            suggest = "app_secret_config"
+        elif key == "appSecretSource":
+            suggest = "app_secret_source"
         elif key == "authorizationPrivateKey":
             suggest = "authorization_private_key"
+        elif key == "authorizationPrivateKeyConfig":
+            suggest = "authorization_private_key_config"
+        elif key == "authorizationPrivateKeySource":
+            suggest = "authorization_private_key_source"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderStripePrivyConfigurationInput. Access the value via the '{suggest}' property getter instead.")
@@ -8000,21 +8852,35 @@ class PaymentCredentialProviderStripePrivyConfigurationInput(dict):
 
     def __init__(__self__, *,
                  app_id: _builtins.str,
-                 app_secret: _builtins.str,
                  authorization_id: _builtins.str,
-                 authorization_private_key: _builtins.str):
+                 app_secret: Optional[_builtins.str] = None,
+                 app_secret_config: Optional['outputs.PaymentCredentialProviderSecretReference'] = None,
+                 app_secret_source: Optional['PaymentCredentialProviderSecretSourceType'] = None,
+                 authorization_private_key: Optional[_builtins.str] = None,
+                 authorization_private_key_config: Optional['outputs.PaymentCredentialProviderSecretReference'] = None,
+                 authorization_private_key_source: Optional['PaymentCredentialProviderSecretSourceType'] = None):
         """
         Stripe Privy configuration with credentials
 
         :param _builtins.str app_id: The app ID provided by Privy
-        :param _builtins.str app_secret: The app secret provided by Privy
         :param _builtins.str authorization_id: The authorization ID for the Stripe Privy integration
+        :param _builtins.str app_secret: The app secret provided by Privy
         :param _builtins.str authorization_private_key: The authorization private key for the Stripe Privy integration
         """
         pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "app_secret", app_secret)
         pulumi.set(__self__, "authorization_id", authorization_id)
-        pulumi.set(__self__, "authorization_private_key", authorization_private_key)
+        if app_secret is not None:
+            pulumi.set(__self__, "app_secret", app_secret)
+        if app_secret_config is not None:
+            pulumi.set(__self__, "app_secret_config", app_secret_config)
+        if app_secret_source is not None:
+            pulumi.set(__self__, "app_secret_source", app_secret_source)
+        if authorization_private_key is not None:
+            pulumi.set(__self__, "authorization_private_key", authorization_private_key)
+        if authorization_private_key_config is not None:
+            pulumi.set(__self__, "authorization_private_key_config", authorization_private_key_config)
+        if authorization_private_key_source is not None:
+            pulumi.set(__self__, "authorization_private_key_source", authorization_private_key_source)
 
     @_builtins.property
     @pulumi.getter(name="appId")
@@ -8025,14 +8891,6 @@ class PaymentCredentialProviderStripePrivyConfigurationInput(dict):
         return pulumi.get(self, "app_id")
 
     @_builtins.property
-    @pulumi.getter(name="appSecret")
-    def app_secret(self) -> _builtins.str:
-        """
-        The app secret provided by Privy
-        """
-        return pulumi.get(self, "app_secret")
-
-    @_builtins.property
     @pulumi.getter(name="authorizationId")
     def authorization_id(self) -> _builtins.str:
         """
@@ -8041,12 +8899,40 @@ class PaymentCredentialProviderStripePrivyConfigurationInput(dict):
         return pulumi.get(self, "authorization_id")
 
     @_builtins.property
+    @pulumi.getter(name="appSecret")
+    def app_secret(self) -> Optional[_builtins.str]:
+        """
+        The app secret provided by Privy
+        """
+        return pulumi.get(self, "app_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="appSecretConfig")
+    def app_secret_config(self) -> Optional['outputs.PaymentCredentialProviderSecretReference']:
+        return pulumi.get(self, "app_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="appSecretSource")
+    def app_secret_source(self) -> Optional['PaymentCredentialProviderSecretSourceType']:
+        return pulumi.get(self, "app_secret_source")
+
+    @_builtins.property
     @pulumi.getter(name="authorizationPrivateKey")
-    def authorization_private_key(self) -> _builtins.str:
+    def authorization_private_key(self) -> Optional[_builtins.str]:
         """
         The authorization private key for the Stripe Privy integration
         """
         return pulumi.get(self, "authorization_private_key")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationPrivateKeyConfig")
+    def authorization_private_key_config(self) -> Optional['outputs.PaymentCredentialProviderSecretReference']:
+        return pulumi.get(self, "authorization_private_key_config")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationPrivateKeySource")
+    def authorization_private_key_source(self) -> Optional['PaymentCredentialProviderSecretSourceType']:
+        return pulumi.get(self, "authorization_private_key_source")
 
 
 @pulumi.output_type
@@ -8065,6 +8951,14 @@ class PaymentCredentialProviderStripePrivyConfigurationOutput(dict):
             suggest = "authorization_id"
         elif key == "authorizationPrivateKeyArn":
             suggest = "authorization_private_key_arn"
+        elif key == "appSecretJsonKey":
+            suggest = "app_secret_json_key"
+        elif key == "appSecretSource":
+            suggest = "app_secret_source"
+        elif key == "authorizationPrivateKeyJsonKey":
+            suggest = "authorization_private_key_json_key"
+        elif key == "authorizationPrivateKeySource":
+            suggest = "authorization_private_key_source"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PaymentCredentialProviderStripePrivyConfigurationOutput. Access the value via the '{suggest}' property getter instead.")
@@ -8081,17 +8975,31 @@ class PaymentCredentialProviderStripePrivyConfigurationOutput(dict):
                  app_id: _builtins.str,
                  app_secret_arn: 'outputs.PaymentCredentialProviderSecretInfo',
                  authorization_id: _builtins.str,
-                 authorization_private_key_arn: 'outputs.PaymentCredentialProviderSecretInfo'):
+                 authorization_private_key_arn: 'outputs.PaymentCredentialProviderSecretInfo',
+                 app_secret_json_key: Optional[_builtins.str] = None,
+                 app_secret_source: Optional['PaymentCredentialProviderSecretSourceType'] = None,
+                 authorization_private_key_json_key: Optional[_builtins.str] = None,
+                 authorization_private_key_source: Optional['PaymentCredentialProviderSecretSourceType'] = None):
         """
         Stripe Privy configuration output with secret ARNs
 
         :param _builtins.str app_id: The app ID provided by Privy
         :param _builtins.str authorization_id: The authorization ID for the Stripe Privy integration
+        :param _builtins.str app_secret_json_key: The JSON key within the secret that contains the app secret value
+        :param _builtins.str authorization_private_key_json_key: The JSON key within the secret that contains the authorization private key value
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret_arn", app_secret_arn)
         pulumi.set(__self__, "authorization_id", authorization_id)
         pulumi.set(__self__, "authorization_private_key_arn", authorization_private_key_arn)
+        if app_secret_json_key is not None:
+            pulumi.set(__self__, "app_secret_json_key", app_secret_json_key)
+        if app_secret_source is not None:
+            pulumi.set(__self__, "app_secret_source", app_secret_source)
+        if authorization_private_key_json_key is not None:
+            pulumi.set(__self__, "authorization_private_key_json_key", authorization_private_key_json_key)
+        if authorization_private_key_source is not None:
+            pulumi.set(__self__, "authorization_private_key_source", authorization_private_key_source)
 
     @_builtins.property
     @pulumi.getter(name="appId")
@@ -8118,6 +9026,284 @@ class PaymentCredentialProviderStripePrivyConfigurationOutput(dict):
     @pulumi.getter(name="authorizationPrivateKeyArn")
     def authorization_private_key_arn(self) -> 'outputs.PaymentCredentialProviderSecretInfo':
         return pulumi.get(self, "authorization_private_key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="appSecretJsonKey")
+    def app_secret_json_key(self) -> Optional[_builtins.str]:
+        """
+        The JSON key within the secret that contains the app secret value
+        """
+        return pulumi.get(self, "app_secret_json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="appSecretSource")
+    def app_secret_source(self) -> Optional['PaymentCredentialProviderSecretSourceType']:
+        return pulumi.get(self, "app_secret_source")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationPrivateKeyJsonKey")
+    def authorization_private_key_json_key(self) -> Optional[_builtins.str]:
+        """
+        The JSON key within the secret that contains the authorization private key value
+        """
+        return pulumi.get(self, "authorization_private_key_json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationPrivateKeySource")
+    def authorization_private_key_source(self) -> Optional['PaymentCredentialProviderSecretSourceType']:
+        return pulumi.get(self, "authorization_private_key_source")
+
+
+@pulumi.output_type
+class PaymentManagerAuthorizerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customJwtAuthorizer":
+            suggest = "custom_jwt_authorizer"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentManagerAuthorizerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentManagerAuthorizerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentManagerAuthorizerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_jwt_authorizer: 'outputs.PaymentManagerCustomJwtAuthorizerConfiguration'):
+        pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
+
+    @_builtins.property
+    @pulumi.getter(name="customJwtAuthorizer")
+    def custom_jwt_authorizer(self) -> 'outputs.PaymentManagerCustomJwtAuthorizerConfiguration':
+        return pulumi.get(self, "custom_jwt_authorizer")
+
+
+@pulumi.output_type
+class PaymentManagerAuthorizingClaimMatchValueType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "claimMatchOperator":
+            suggest = "claim_match_operator"
+        elif key == "claimMatchValue":
+            suggest = "claim_match_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentManagerAuthorizingClaimMatchValueType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentManagerAuthorizingClaimMatchValueType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentManagerAuthorizingClaimMatchValueType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 claim_match_operator: 'PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator',
+                 claim_match_value: 'outputs.PaymentManagerClaimMatchValueType'):
+        pulumi.set(__self__, "claim_match_operator", claim_match_operator)
+        pulumi.set(__self__, "claim_match_value", claim_match_value)
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchOperator")
+    def claim_match_operator(self) -> 'PaymentManagerAuthorizingClaimMatchValueTypeClaimMatchOperator':
+        return pulumi.get(self, "claim_match_operator")
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchValue")
+    def claim_match_value(self) -> 'outputs.PaymentManagerClaimMatchValueType':
+        return pulumi.get(self, "claim_match_value")
+
+
+@pulumi.output_type
+class PaymentManagerClaimMatchValueType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValueString":
+            suggest = "match_value_string"
+        elif key == "matchValueStringList":
+            suggest = "match_value_string_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentManagerClaimMatchValueType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentManagerClaimMatchValueType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentManagerClaimMatchValueType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_value_string: Optional[_builtins.str] = None,
+                 match_value_string_list: Optional[Sequence[_builtins.str]] = None):
+        if match_value_string is not None:
+            pulumi.set(__self__, "match_value_string", match_value_string)
+        if match_value_string_list is not None:
+            pulumi.set(__self__, "match_value_string_list", match_value_string_list)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueString")
+    def match_value_string(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "match_value_string")
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueStringList")
+    def match_value_string_list(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "match_value_string_list")
+
+
+@pulumi.output_type
+class PaymentManagerCustomClaimValidationType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizingClaimMatchValue":
+            suggest = "authorizing_claim_match_value"
+        elif key == "inboundTokenClaimName":
+            suggest = "inbound_token_claim_name"
+        elif key == "inboundTokenClaimValueType":
+            suggest = "inbound_token_claim_value_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentManagerCustomClaimValidationType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentManagerCustomClaimValidationType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentManagerCustomClaimValidationType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorizing_claim_match_value: 'outputs.PaymentManagerAuthorizingClaimMatchValueType',
+                 inbound_token_claim_name: _builtins.str,
+                 inbound_token_claim_value_type: 'PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType'):
+        pulumi.set(__self__, "authorizing_claim_match_value", authorizing_claim_match_value)
+        pulumi.set(__self__, "inbound_token_claim_name", inbound_token_claim_name)
+        pulumi.set(__self__, "inbound_token_claim_value_type", inbound_token_claim_value_type)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizingClaimMatchValue")
+    def authorizing_claim_match_value(self) -> 'outputs.PaymentManagerAuthorizingClaimMatchValueType':
+        return pulumi.get(self, "authorizing_claim_match_value")
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimName")
+    def inbound_token_claim_name(self) -> _builtins.str:
+        return pulumi.get(self, "inbound_token_claim_name")
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimValueType")
+    def inbound_token_claim_value_type(self) -> 'PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType':
+        return pulumi.get(self, "inbound_token_claim_value_type")
+
+
+@pulumi.output_type
+class PaymentManagerCustomJwtAuthorizerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "discoveryUrl":
+            suggest = "discovery_url"
+        elif key == "allowedAudience":
+            suggest = "allowed_audience"
+        elif key == "allowedClients":
+            suggest = "allowed_clients"
+        elif key == "allowedScopes":
+            suggest = "allowed_scopes"
+        elif key == "customClaims":
+            suggest = "custom_claims"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentManagerCustomJwtAuthorizerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentManagerCustomJwtAuthorizerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentManagerCustomJwtAuthorizerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 discovery_url: _builtins.str,
+                 allowed_audience: Optional[Sequence[_builtins.str]] = None,
+                 allowed_clients: Optional[Sequence[_builtins.str]] = None,
+                 allowed_scopes: Optional[Sequence[_builtins.str]] = None,
+                 custom_claims: Optional[Sequence['outputs.PaymentManagerCustomClaimValidationType']] = None):
+        pulumi.set(__self__, "discovery_url", discovery_url)
+        if allowed_audience is not None:
+            pulumi.set(__self__, "allowed_audience", allowed_audience)
+        if allowed_clients is not None:
+            pulumi.set(__self__, "allowed_clients", allowed_clients)
+        if allowed_scopes is not None:
+            pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if custom_claims is not None:
+            pulumi.set(__self__, "custom_claims", custom_claims)
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> _builtins.str:
+        return pulumi.get(self, "discovery_url")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAudience")
+    def allowed_audience(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_audience")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedClients")
+    def allowed_clients(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_clients")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedScopes")
+    def allowed_scopes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_scopes")
+
+    @_builtins.property
+    @pulumi.getter(name="customClaims")
+    def custom_claims(self) -> Optional[Sequence['outputs.PaymentManagerCustomClaimValidationType']]:
+        return pulumi.get(self, "custom_claims")
+
+
+@pulumi.output_type
+class PaymentManagerWorkloadIdentityDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workloadIdentityArn":
+            suggest = "workload_identity_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaymentManagerWorkloadIdentityDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaymentManagerWorkloadIdentityDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaymentManagerWorkloadIdentityDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 workload_identity_arn: _builtins.str):
+        pulumi.set(__self__, "workload_identity_arn", workload_identity_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityArn")
+    def workload_identity_arn(self) -> _builtins.str:
+        return pulumi.get(self, "workload_identity_arn")
 
 
 @pulumi.output_type

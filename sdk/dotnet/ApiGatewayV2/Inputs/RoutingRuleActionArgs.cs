@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 {
 
+    /// <summary>
+    /// Represents a routing rule action. The only supported action is ``invokeApi``.
+    /// </summary>
     public sealed class RoutingRuleActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

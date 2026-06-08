@@ -57,7 +57,9 @@ namespace Pulumi.AwsNative.RtbFabric
     [OutputType]
     public sealed class GetResponderGatewayResult
     {
+        public readonly string? AcmCertificateArn;
         public readonly string? Arn;
+        public readonly Pulumi.AwsNative.RtbFabric.ResponderGatewayCertificateAssociationStatus? CertificateAssociationStatus;
         public readonly string? CreatedTimestamp;
         /// <summary>
         /// An optional description for the responder gateway.
@@ -67,7 +69,10 @@ namespace Pulumi.AwsNative.RtbFabric
         /// The domain name for the responder gateway.
         /// </summary>
         public readonly string? DomainName;
+        public readonly string? ExternalInboundEndpoint;
         public readonly string? GatewayId;
+        public readonly Pulumi.AwsNative.RtbFabric.ResponderGatewayGatewayType? GatewayType;
+        public readonly Outputs.ResponderGatewayListenerConfig? ListenerConfig;
         /// <summary>
         /// The configuration for the managed endpoint.
         /// </summary>
@@ -105,7 +110,11 @@ namespace Pulumi.AwsNative.RtbFabric
 
         [OutputConstructor]
         private GetResponderGatewayResult(
+            string? acmCertificateArn,
+
             string? arn,
+
+            Pulumi.AwsNative.RtbFabric.ResponderGatewayCertificateAssociationStatus? certificateAssociationStatus,
 
             string? createdTimestamp,
 
@@ -113,7 +122,13 @@ namespace Pulumi.AwsNative.RtbFabric
 
             string? domainName,
 
+            string? externalInboundEndpoint,
+
             string? gatewayId,
+
+            Pulumi.AwsNative.RtbFabric.ResponderGatewayGatewayType? gatewayType,
+
+            Outputs.ResponderGatewayListenerConfig? listenerConfig,
 
             Outputs.ResponderGatewayManagedEndpointConfiguration? managedEndpointConfiguration,
 
@@ -135,11 +150,16 @@ namespace Pulumi.AwsNative.RtbFabric
 
             string? vpcId)
         {
+            AcmCertificateArn = acmCertificateArn;
             Arn = arn;
+            CertificateAssociationStatus = certificateAssociationStatus;
             CreatedTimestamp = createdTimestamp;
             Description = description;
             DomainName = domainName;
+            ExternalInboundEndpoint = externalInboundEndpoint;
             GatewayId = gatewayId;
+            GatewayType = gatewayType;
+            ListenerConfig = listenerConfig;
             ManagedEndpointConfiguration = managedEndpointConfiguration;
             Port = port;
             Protocol = protocol;

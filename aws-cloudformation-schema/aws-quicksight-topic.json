@@ -906,13 +906,13 @@
   "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/TopicId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "quicksight:CreateTopic", "quicksight:PassDataSet", "quicksight:DescribeTopicRefresh", "quicksight:TagResource" ]
+      "permissions" : [ "quicksight:CreateTopic", "quicksight:PassDataSet", "quicksight:DescribeTopicRefresh", "quicksight:CreateFolderMembership", "quicksight:ListFoldersForResource", "quicksight:TagResource" ]
     },
     "read" : {
       "permissions" : [ "quicksight:DescribeTopic", "quicksight:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "quicksight:UpdateTopic", "quicksight:PassDataSet", "quicksight:DescribeTopicRefresh" ]
+      "permissions" : [ "quicksight:UpdateTopic", "quicksight:PassDataSet", "quicksight:DescribeTopicRefresh", "quicksight:CreateFolderMembership", "quicksight:DeleteFolderMembership", "quicksight:ListFoldersForResource" ]
     },
     "delete" : {
       "permissions" : [ "quicksight:DeleteTopic" ]

@@ -40,6 +40,10 @@ __all__ = [
     'LinkModuleParametersArgsDict',
     'LinkResponderErrorMaskingForHttpCodeArgs',
     'LinkResponderErrorMaskingForHttpCodeArgsDict',
+    'LinkRoutingRuleQueryStringKeyValuePairArgs',
+    'LinkRoutingRuleQueryStringKeyValuePairArgsDict',
+    'LinkRoutingRuleRuleConditionArgs',
+    'LinkRoutingRuleRuleConditionArgsDict',
     'OutboundExternalLinkLinkAttributesArgs',
     'OutboundExternalLinkLinkAttributesArgsDict',
     'OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs',
@@ -50,6 +54,8 @@ __all__ = [
     'OutboundExternalLinkLinkLogSettingsArgsDict',
     'OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs',
     'OutboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict',
+    'ResponderGatewayListenerConfigArgs',
+    'ResponderGatewayListenerConfigArgsDict',
     'ResponderGatewayManagedEndpointConfigurationArgs',
     'ResponderGatewayManagedEndpointConfigurationArgsDict',
     'ResponderGatewayTrustStoreConfigurationArgs',
@@ -500,6 +506,187 @@ class LinkResponderErrorMaskingForHttpCodeArgs:
         pulumi.set(self, "response_logging_percentage", value)
 
 
+class LinkRoutingRuleQueryStringKeyValuePairArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Query string key — RFC 3986 unreserved characters.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Query string value — RFC 3986 unreserved characters.
+    """
+
+@pulumi.input_type
+class LinkRoutingRuleQueryStringKeyValuePairArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] key: Query string key — RFC 3986 unreserved characters.
+        :param pulumi.Input[_builtins.str] value: Query string value — RFC 3986 unreserved characters.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Query string key — RFC 3986 unreserved characters.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Query string value — RFC 3986 unreserved characters.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class LinkRoutingRuleRuleConditionArgsDict(TypedDict):
+    """
+    Conditions for a routing rule. All non-null fields must match (AND logic). At least one field must be set. HostHeader and HostHeaderWildcard are mutually exclusive. PathPrefix and PathExact are mutually exclusive.
+    """
+    host_header: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Exact host match — RFC 3986 unreserved characters. Mutually exclusive with HostHeaderWildcard.
+    """
+    host_header_wildcard: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Wildcard host pattern (e.g., *.example.com) — RFC 3986 unreserved characters plus *. Mutually exclusive with HostHeader.
+    """
+    path_exact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Exact path match — must start with /. Mutually exclusive with PathPrefix.
+    """
+    path_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path prefix matching — strict starts-with, must start with /. Mutually exclusive with PathExact.
+    """
+    query_string_equals: NotRequired[pulumi.Input['LinkRoutingRuleQueryStringKeyValuePairArgsDict']]
+    """
+    Query string key=value pair match (single pair).
+    """
+    query_string_exists: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Query string key presence check (any value accepted).
+    """
+
+@pulumi.input_type
+class LinkRoutingRuleRuleConditionArgs:
+    def __init__(__self__, *,
+                 host_header: Optional[pulumi.Input[_builtins.str]] = None,
+                 host_header_wildcard: Optional[pulumi.Input[_builtins.str]] = None,
+                 path_exact: Optional[pulumi.Input[_builtins.str]] = None,
+                 path_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 query_string_equals: Optional[pulumi.Input['LinkRoutingRuleQueryStringKeyValuePairArgs']] = None,
+                 query_string_exists: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Conditions for a routing rule. All non-null fields must match (AND logic). At least one field must be set. HostHeader and HostHeaderWildcard are mutually exclusive. PathPrefix and PathExact are mutually exclusive.
+
+        :param pulumi.Input[_builtins.str] host_header: Exact host match — RFC 3986 unreserved characters. Mutually exclusive with HostHeaderWildcard.
+        :param pulumi.Input[_builtins.str] host_header_wildcard: Wildcard host pattern (e.g., *.example.com) — RFC 3986 unreserved characters plus *. Mutually exclusive with HostHeader.
+        :param pulumi.Input[_builtins.str] path_exact: Exact path match — must start with /. Mutually exclusive with PathPrefix.
+        :param pulumi.Input[_builtins.str] path_prefix: Path prefix matching — strict starts-with, must start with /. Mutually exclusive with PathExact.
+        :param pulumi.Input['LinkRoutingRuleQueryStringKeyValuePairArgs'] query_string_equals: Query string key=value pair match (single pair).
+        :param pulumi.Input[_builtins.str] query_string_exists: Query string key presence check (any value accepted).
+        """
+        if host_header is not None:
+            pulumi.set(__self__, "host_header", host_header)
+        if host_header_wildcard is not None:
+            pulumi.set(__self__, "host_header_wildcard", host_header_wildcard)
+        if path_exact is not None:
+            pulumi.set(__self__, "path_exact", path_exact)
+        if path_prefix is not None:
+            pulumi.set(__self__, "path_prefix", path_prefix)
+        if query_string_equals is not None:
+            pulumi.set(__self__, "query_string_equals", query_string_equals)
+        if query_string_exists is not None:
+            pulumi.set(__self__, "query_string_exists", query_string_exists)
+
+    @_builtins.property
+    @pulumi.getter(name="hostHeader")
+    def host_header(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Exact host match — RFC 3986 unreserved characters. Mutually exclusive with HostHeaderWildcard.
+        """
+        return pulumi.get(self, "host_header")
+
+    @host_header.setter
+    def host_header(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "host_header", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hostHeaderWildcard")
+    def host_header_wildcard(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Wildcard host pattern (e.g., *.example.com) — RFC 3986 unreserved characters plus *. Mutually exclusive with HostHeader.
+        """
+        return pulumi.get(self, "host_header_wildcard")
+
+    @host_header_wildcard.setter
+    def host_header_wildcard(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "host_header_wildcard", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pathExact")
+    def path_exact(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Exact path match — must start with /. Mutually exclusive with PathPrefix.
+        """
+        return pulumi.get(self, "path_exact")
+
+    @path_exact.setter
+    def path_exact(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "path_exact", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pathPrefix")
+    def path_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Path prefix matching — strict starts-with, must start with /. Mutually exclusive with PathExact.
+        """
+        return pulumi.get(self, "path_prefix")
+
+    @path_prefix.setter
+    def path_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "path_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryStringEquals")
+    def query_string_equals(self) -> Optional[pulumi.Input['LinkRoutingRuleQueryStringKeyValuePairArgs']]:
+        """
+        Query string key=value pair match (single pair).
+        """
+        return pulumi.get(self, "query_string_equals")
+
+    @query_string_equals.setter
+    def query_string_equals(self, value: Optional[pulumi.Input['LinkRoutingRuleQueryStringKeyValuePairArgs']]):
+        pulumi.set(self, "query_string_equals", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryStringExists")
+    def query_string_exists(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Query string key presence check (any value accepted).
+        """
+        return pulumi.get(self, "query_string_exists")
+
+    @query_string_exists.setter
+    def query_string_exists(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "query_string_exists", value)
+
+
 class OutboundExternalLinkLinkAttributesArgsDict(TypedDict):
     customer_provided_id: NotRequired[pulumi.Input[_builtins.str]]
     responder_error_masking: NotRequired[pulumi.Input[Sequence[pulumi.Input['OutboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict']]]]
@@ -656,6 +843,25 @@ class OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs:
     @response_logging_percentage.setter
     def response_logging_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "response_logging_percentage", value)
+
+
+class ResponderGatewayListenerConfigArgsDict(TypedDict):
+    protocols: pulumi.Input[Sequence[pulumi.Input['ResponderGatewayProtocol']]]
+
+@pulumi.input_type
+class ResponderGatewayListenerConfigArgs:
+    def __init__(__self__, *,
+                 protocols: pulumi.Input[Sequence[pulumi.Input['ResponderGatewayProtocol']]]):
+        pulumi.set(__self__, "protocols", protocols)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocols(self) -> pulumi.Input[Sequence[pulumi.Input['ResponderGatewayProtocol']]]:
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: pulumi.Input[Sequence[pulumi.Input['ResponderGatewayProtocol']]]):
+        pulumi.set(self, "protocols", value)
 
 
 class ResponderGatewayManagedEndpointConfigurationArgsDict(TypedDict):

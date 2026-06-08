@@ -1346,6 +1346,356 @@ func (o LinkResponderErrorMaskingForHttpCodeArrayOutput) Index(i pulumi.IntInput
 	}).(LinkResponderErrorMaskingForHttpCodeOutput)
 }
 
+type LinkRoutingRuleQueryStringKeyValuePair struct {
+	// Query string key — RFC 3986 unreserved characters.
+	Key string `pulumi:"key"`
+	// Query string value — RFC 3986 unreserved characters.
+	Value string `pulumi:"value"`
+}
+
+// LinkRoutingRuleQueryStringKeyValuePairInput is an input type that accepts LinkRoutingRuleQueryStringKeyValuePairArgs and LinkRoutingRuleQueryStringKeyValuePairOutput values.
+// You can construct a concrete instance of `LinkRoutingRuleQueryStringKeyValuePairInput` via:
+//
+//	LinkRoutingRuleQueryStringKeyValuePairArgs{...}
+type LinkRoutingRuleQueryStringKeyValuePairInput interface {
+	pulumi.Input
+
+	ToLinkRoutingRuleQueryStringKeyValuePairOutput() LinkRoutingRuleQueryStringKeyValuePairOutput
+	ToLinkRoutingRuleQueryStringKeyValuePairOutputWithContext(context.Context) LinkRoutingRuleQueryStringKeyValuePairOutput
+}
+
+type LinkRoutingRuleQueryStringKeyValuePairArgs struct {
+	// Query string key — RFC 3986 unreserved characters.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Query string value — RFC 3986 unreserved characters.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LinkRoutingRuleQueryStringKeyValuePairArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkRoutingRuleQueryStringKeyValuePair)(nil)).Elem()
+}
+
+func (i LinkRoutingRuleQueryStringKeyValuePairArgs) ToLinkRoutingRuleQueryStringKeyValuePairOutput() LinkRoutingRuleQueryStringKeyValuePairOutput {
+	return i.ToLinkRoutingRuleQueryStringKeyValuePairOutputWithContext(context.Background())
+}
+
+func (i LinkRoutingRuleQueryStringKeyValuePairArgs) ToLinkRoutingRuleQueryStringKeyValuePairOutputWithContext(ctx context.Context) LinkRoutingRuleQueryStringKeyValuePairOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkRoutingRuleQueryStringKeyValuePairOutput)
+}
+
+func (i LinkRoutingRuleQueryStringKeyValuePairArgs) ToLinkRoutingRuleQueryStringKeyValuePairPtrOutput() LinkRoutingRuleQueryStringKeyValuePairPtrOutput {
+	return i.ToLinkRoutingRuleQueryStringKeyValuePairPtrOutputWithContext(context.Background())
+}
+
+func (i LinkRoutingRuleQueryStringKeyValuePairArgs) ToLinkRoutingRuleQueryStringKeyValuePairPtrOutputWithContext(ctx context.Context) LinkRoutingRuleQueryStringKeyValuePairPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkRoutingRuleQueryStringKeyValuePairOutput).ToLinkRoutingRuleQueryStringKeyValuePairPtrOutputWithContext(ctx)
+}
+
+// LinkRoutingRuleQueryStringKeyValuePairPtrInput is an input type that accepts LinkRoutingRuleQueryStringKeyValuePairArgs, LinkRoutingRuleQueryStringKeyValuePairPtr and LinkRoutingRuleQueryStringKeyValuePairPtrOutput values.
+// You can construct a concrete instance of `LinkRoutingRuleQueryStringKeyValuePairPtrInput` via:
+//
+//	        LinkRoutingRuleQueryStringKeyValuePairArgs{...}
+//
+//	or:
+//
+//	        nil
+type LinkRoutingRuleQueryStringKeyValuePairPtrInput interface {
+	pulumi.Input
+
+	ToLinkRoutingRuleQueryStringKeyValuePairPtrOutput() LinkRoutingRuleQueryStringKeyValuePairPtrOutput
+	ToLinkRoutingRuleQueryStringKeyValuePairPtrOutputWithContext(context.Context) LinkRoutingRuleQueryStringKeyValuePairPtrOutput
+}
+
+type linkRoutingRuleQueryStringKeyValuePairPtrType LinkRoutingRuleQueryStringKeyValuePairArgs
+
+func LinkRoutingRuleQueryStringKeyValuePairPtr(v *LinkRoutingRuleQueryStringKeyValuePairArgs) LinkRoutingRuleQueryStringKeyValuePairPtrInput {
+	return (*linkRoutingRuleQueryStringKeyValuePairPtrType)(v)
+}
+
+func (*linkRoutingRuleQueryStringKeyValuePairPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkRoutingRuleQueryStringKeyValuePair)(nil)).Elem()
+}
+
+func (i *linkRoutingRuleQueryStringKeyValuePairPtrType) ToLinkRoutingRuleQueryStringKeyValuePairPtrOutput() LinkRoutingRuleQueryStringKeyValuePairPtrOutput {
+	return i.ToLinkRoutingRuleQueryStringKeyValuePairPtrOutputWithContext(context.Background())
+}
+
+func (i *linkRoutingRuleQueryStringKeyValuePairPtrType) ToLinkRoutingRuleQueryStringKeyValuePairPtrOutputWithContext(ctx context.Context) LinkRoutingRuleQueryStringKeyValuePairPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkRoutingRuleQueryStringKeyValuePairPtrOutput)
+}
+
+type LinkRoutingRuleQueryStringKeyValuePairOutput struct{ *pulumi.OutputState }
+
+func (LinkRoutingRuleQueryStringKeyValuePairOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkRoutingRuleQueryStringKeyValuePair)(nil)).Elem()
+}
+
+func (o LinkRoutingRuleQueryStringKeyValuePairOutput) ToLinkRoutingRuleQueryStringKeyValuePairOutput() LinkRoutingRuleQueryStringKeyValuePairOutput {
+	return o
+}
+
+func (o LinkRoutingRuleQueryStringKeyValuePairOutput) ToLinkRoutingRuleQueryStringKeyValuePairOutputWithContext(ctx context.Context) LinkRoutingRuleQueryStringKeyValuePairOutput {
+	return o
+}
+
+func (o LinkRoutingRuleQueryStringKeyValuePairOutput) ToLinkRoutingRuleQueryStringKeyValuePairPtrOutput() LinkRoutingRuleQueryStringKeyValuePairPtrOutput {
+	return o.ToLinkRoutingRuleQueryStringKeyValuePairPtrOutputWithContext(context.Background())
+}
+
+func (o LinkRoutingRuleQueryStringKeyValuePairOutput) ToLinkRoutingRuleQueryStringKeyValuePairPtrOutputWithContext(ctx context.Context) LinkRoutingRuleQueryStringKeyValuePairPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkRoutingRuleQueryStringKeyValuePair) *LinkRoutingRuleQueryStringKeyValuePair {
+		return &v
+	}).(LinkRoutingRuleQueryStringKeyValuePairPtrOutput)
+}
+
+// Query string key — RFC 3986 unreserved characters.
+func (o LinkRoutingRuleQueryStringKeyValuePairOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkRoutingRuleQueryStringKeyValuePair) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Query string value — RFC 3986 unreserved characters.
+func (o LinkRoutingRuleQueryStringKeyValuePairOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkRoutingRuleQueryStringKeyValuePair) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LinkRoutingRuleQueryStringKeyValuePairPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkRoutingRuleQueryStringKeyValuePairPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkRoutingRuleQueryStringKeyValuePair)(nil)).Elem()
+}
+
+func (o LinkRoutingRuleQueryStringKeyValuePairPtrOutput) ToLinkRoutingRuleQueryStringKeyValuePairPtrOutput() LinkRoutingRuleQueryStringKeyValuePairPtrOutput {
+	return o
+}
+
+func (o LinkRoutingRuleQueryStringKeyValuePairPtrOutput) ToLinkRoutingRuleQueryStringKeyValuePairPtrOutputWithContext(ctx context.Context) LinkRoutingRuleQueryStringKeyValuePairPtrOutput {
+	return o
+}
+
+func (o LinkRoutingRuleQueryStringKeyValuePairPtrOutput) Elem() LinkRoutingRuleQueryStringKeyValuePairOutput {
+	return o.ApplyT(func(v *LinkRoutingRuleQueryStringKeyValuePair) LinkRoutingRuleQueryStringKeyValuePair {
+		if v != nil {
+			return *v
+		}
+		var ret LinkRoutingRuleQueryStringKeyValuePair
+		return ret
+	}).(LinkRoutingRuleQueryStringKeyValuePairOutput)
+}
+
+// Query string key — RFC 3986 unreserved characters.
+func (o LinkRoutingRuleQueryStringKeyValuePairPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkRoutingRuleQueryStringKeyValuePair) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Query string value — RFC 3986 unreserved characters.
+func (o LinkRoutingRuleQueryStringKeyValuePairPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkRoutingRuleQueryStringKeyValuePair) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+// Conditions for a routing rule. All non-null fields must match (AND logic). At least one field must be set. HostHeader and HostHeaderWildcard are mutually exclusive. PathPrefix and PathExact are mutually exclusive.
+type LinkRoutingRuleRuleCondition struct {
+	// Exact host match — RFC 3986 unreserved characters. Mutually exclusive with HostHeaderWildcard.
+	HostHeader *string `pulumi:"hostHeader"`
+	// Wildcard host pattern (e.g., *.example.com) — RFC 3986 unreserved characters plus *. Mutually exclusive with HostHeader.
+	HostHeaderWildcard *string `pulumi:"hostHeaderWildcard"`
+	// Exact path match — must start with /. Mutually exclusive with PathPrefix.
+	PathExact *string `pulumi:"pathExact"`
+	// Path prefix matching — strict starts-with, must start with /. Mutually exclusive with PathExact.
+	PathPrefix *string `pulumi:"pathPrefix"`
+	// Query string key=value pair match (single pair).
+	QueryStringEquals *LinkRoutingRuleQueryStringKeyValuePair `pulumi:"queryStringEquals"`
+	// Query string key presence check (any value accepted).
+	QueryStringExists *string `pulumi:"queryStringExists"`
+}
+
+// LinkRoutingRuleRuleConditionInput is an input type that accepts LinkRoutingRuleRuleConditionArgs and LinkRoutingRuleRuleConditionOutput values.
+// You can construct a concrete instance of `LinkRoutingRuleRuleConditionInput` via:
+//
+//	LinkRoutingRuleRuleConditionArgs{...}
+type LinkRoutingRuleRuleConditionInput interface {
+	pulumi.Input
+
+	ToLinkRoutingRuleRuleConditionOutput() LinkRoutingRuleRuleConditionOutput
+	ToLinkRoutingRuleRuleConditionOutputWithContext(context.Context) LinkRoutingRuleRuleConditionOutput
+}
+
+// Conditions for a routing rule. All non-null fields must match (AND logic). At least one field must be set. HostHeader and HostHeaderWildcard are mutually exclusive. PathPrefix and PathExact are mutually exclusive.
+type LinkRoutingRuleRuleConditionArgs struct {
+	// Exact host match — RFC 3986 unreserved characters. Mutually exclusive with HostHeaderWildcard.
+	HostHeader pulumi.StringPtrInput `pulumi:"hostHeader"`
+	// Wildcard host pattern (e.g., *.example.com) — RFC 3986 unreserved characters plus *. Mutually exclusive with HostHeader.
+	HostHeaderWildcard pulumi.StringPtrInput `pulumi:"hostHeaderWildcard"`
+	// Exact path match — must start with /. Mutually exclusive with PathPrefix.
+	PathExact pulumi.StringPtrInput `pulumi:"pathExact"`
+	// Path prefix matching — strict starts-with, must start with /. Mutually exclusive with PathExact.
+	PathPrefix pulumi.StringPtrInput `pulumi:"pathPrefix"`
+	// Query string key=value pair match (single pair).
+	QueryStringEquals LinkRoutingRuleQueryStringKeyValuePairPtrInput `pulumi:"queryStringEquals"`
+	// Query string key presence check (any value accepted).
+	QueryStringExists pulumi.StringPtrInput `pulumi:"queryStringExists"`
+}
+
+func (LinkRoutingRuleRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkRoutingRuleRuleCondition)(nil)).Elem()
+}
+
+func (i LinkRoutingRuleRuleConditionArgs) ToLinkRoutingRuleRuleConditionOutput() LinkRoutingRuleRuleConditionOutput {
+	return i.ToLinkRoutingRuleRuleConditionOutputWithContext(context.Background())
+}
+
+func (i LinkRoutingRuleRuleConditionArgs) ToLinkRoutingRuleRuleConditionOutputWithContext(ctx context.Context) LinkRoutingRuleRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkRoutingRuleRuleConditionOutput)
+}
+
+// Conditions for a routing rule. All non-null fields must match (AND logic). At least one field must be set. HostHeader and HostHeaderWildcard are mutually exclusive. PathPrefix and PathExact are mutually exclusive.
+type LinkRoutingRuleRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (LinkRoutingRuleRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkRoutingRuleRuleCondition)(nil)).Elem()
+}
+
+func (o LinkRoutingRuleRuleConditionOutput) ToLinkRoutingRuleRuleConditionOutput() LinkRoutingRuleRuleConditionOutput {
+	return o
+}
+
+func (o LinkRoutingRuleRuleConditionOutput) ToLinkRoutingRuleRuleConditionOutputWithContext(ctx context.Context) LinkRoutingRuleRuleConditionOutput {
+	return o
+}
+
+// Exact host match — RFC 3986 unreserved characters. Mutually exclusive with HostHeaderWildcard.
+func (o LinkRoutingRuleRuleConditionOutput) HostHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkRoutingRuleRuleCondition) *string { return v.HostHeader }).(pulumi.StringPtrOutput)
+}
+
+// Wildcard host pattern (e.g., *.example.com) — RFC 3986 unreserved characters plus *. Mutually exclusive with HostHeader.
+func (o LinkRoutingRuleRuleConditionOutput) HostHeaderWildcard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkRoutingRuleRuleCondition) *string { return v.HostHeaderWildcard }).(pulumi.StringPtrOutput)
+}
+
+// Exact path match — must start with /. Mutually exclusive with PathPrefix.
+func (o LinkRoutingRuleRuleConditionOutput) PathExact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkRoutingRuleRuleCondition) *string { return v.PathExact }).(pulumi.StringPtrOutput)
+}
+
+// Path prefix matching — strict starts-with, must start with /. Mutually exclusive with PathExact.
+func (o LinkRoutingRuleRuleConditionOutput) PathPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkRoutingRuleRuleCondition) *string { return v.PathPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Query string key=value pair match (single pair).
+func (o LinkRoutingRuleRuleConditionOutput) QueryStringEquals() LinkRoutingRuleQueryStringKeyValuePairPtrOutput {
+	return o.ApplyT(func(v LinkRoutingRuleRuleCondition) *LinkRoutingRuleQueryStringKeyValuePair {
+		return v.QueryStringEquals
+	}).(LinkRoutingRuleQueryStringKeyValuePairPtrOutput)
+}
+
+// Query string key presence check (any value accepted).
+func (o LinkRoutingRuleRuleConditionOutput) QueryStringExists() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkRoutingRuleRuleCondition) *string { return v.QueryStringExists }).(pulumi.StringPtrOutput)
+}
+
+type LinkRoutingRuleRuleConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkRoutingRuleRuleConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkRoutingRuleRuleCondition)(nil)).Elem()
+}
+
+func (o LinkRoutingRuleRuleConditionPtrOutput) ToLinkRoutingRuleRuleConditionPtrOutput() LinkRoutingRuleRuleConditionPtrOutput {
+	return o
+}
+
+func (o LinkRoutingRuleRuleConditionPtrOutput) ToLinkRoutingRuleRuleConditionPtrOutputWithContext(ctx context.Context) LinkRoutingRuleRuleConditionPtrOutput {
+	return o
+}
+
+func (o LinkRoutingRuleRuleConditionPtrOutput) Elem() LinkRoutingRuleRuleConditionOutput {
+	return o.ApplyT(func(v *LinkRoutingRuleRuleCondition) LinkRoutingRuleRuleCondition {
+		if v != nil {
+			return *v
+		}
+		var ret LinkRoutingRuleRuleCondition
+		return ret
+	}).(LinkRoutingRuleRuleConditionOutput)
+}
+
+// Exact host match — RFC 3986 unreserved characters. Mutually exclusive with HostHeaderWildcard.
+func (o LinkRoutingRuleRuleConditionPtrOutput) HostHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkRoutingRuleRuleCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostHeader
+	}).(pulumi.StringPtrOutput)
+}
+
+// Wildcard host pattern (e.g., *.example.com) — RFC 3986 unreserved characters plus *. Mutually exclusive with HostHeader.
+func (o LinkRoutingRuleRuleConditionPtrOutput) HostHeaderWildcard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkRoutingRuleRuleCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostHeaderWildcard
+	}).(pulumi.StringPtrOutput)
+}
+
+// Exact path match — must start with /. Mutually exclusive with PathPrefix.
+func (o LinkRoutingRuleRuleConditionPtrOutput) PathExact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkRoutingRuleRuleCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PathExact
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path prefix matching — strict starts-with, must start with /. Mutually exclusive with PathExact.
+func (o LinkRoutingRuleRuleConditionPtrOutput) PathPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkRoutingRuleRuleCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PathPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Query string key=value pair match (single pair).
+func (o LinkRoutingRuleRuleConditionPtrOutput) QueryStringEquals() LinkRoutingRuleQueryStringKeyValuePairPtrOutput {
+	return o.ApplyT(func(v *LinkRoutingRuleRuleCondition) *LinkRoutingRuleQueryStringKeyValuePair {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStringEquals
+	}).(LinkRoutingRuleQueryStringKeyValuePairPtrOutput)
+}
+
+// Query string key presence check (any value accepted).
+func (o LinkRoutingRuleRuleConditionPtrOutput) QueryStringExists() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkRoutingRuleRuleCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStringExists
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LinkRoutingRuleTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type LinkTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1907,6 +2257,139 @@ type RequesterGatewayTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type ResponderGatewayListenerConfig struct {
+	Protocols []ResponderGatewayProtocol `pulumi:"protocols"`
+}
+
+// ResponderGatewayListenerConfigInput is an input type that accepts ResponderGatewayListenerConfigArgs and ResponderGatewayListenerConfigOutput values.
+// You can construct a concrete instance of `ResponderGatewayListenerConfigInput` via:
+//
+//	ResponderGatewayListenerConfigArgs{...}
+type ResponderGatewayListenerConfigInput interface {
+	pulumi.Input
+
+	ToResponderGatewayListenerConfigOutput() ResponderGatewayListenerConfigOutput
+	ToResponderGatewayListenerConfigOutputWithContext(context.Context) ResponderGatewayListenerConfigOutput
+}
+
+type ResponderGatewayListenerConfigArgs struct {
+	Protocols ResponderGatewayProtocolArrayInput `pulumi:"protocols"`
+}
+
+func (ResponderGatewayListenerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponderGatewayListenerConfig)(nil)).Elem()
+}
+
+func (i ResponderGatewayListenerConfigArgs) ToResponderGatewayListenerConfigOutput() ResponderGatewayListenerConfigOutput {
+	return i.ToResponderGatewayListenerConfigOutputWithContext(context.Background())
+}
+
+func (i ResponderGatewayListenerConfigArgs) ToResponderGatewayListenerConfigOutputWithContext(ctx context.Context) ResponderGatewayListenerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponderGatewayListenerConfigOutput)
+}
+
+func (i ResponderGatewayListenerConfigArgs) ToResponderGatewayListenerConfigPtrOutput() ResponderGatewayListenerConfigPtrOutput {
+	return i.ToResponderGatewayListenerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ResponderGatewayListenerConfigArgs) ToResponderGatewayListenerConfigPtrOutputWithContext(ctx context.Context) ResponderGatewayListenerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponderGatewayListenerConfigOutput).ToResponderGatewayListenerConfigPtrOutputWithContext(ctx)
+}
+
+// ResponderGatewayListenerConfigPtrInput is an input type that accepts ResponderGatewayListenerConfigArgs, ResponderGatewayListenerConfigPtr and ResponderGatewayListenerConfigPtrOutput values.
+// You can construct a concrete instance of `ResponderGatewayListenerConfigPtrInput` via:
+//
+//	        ResponderGatewayListenerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResponderGatewayListenerConfigPtrInput interface {
+	pulumi.Input
+
+	ToResponderGatewayListenerConfigPtrOutput() ResponderGatewayListenerConfigPtrOutput
+	ToResponderGatewayListenerConfigPtrOutputWithContext(context.Context) ResponderGatewayListenerConfigPtrOutput
+}
+
+type responderGatewayListenerConfigPtrType ResponderGatewayListenerConfigArgs
+
+func ResponderGatewayListenerConfigPtr(v *ResponderGatewayListenerConfigArgs) ResponderGatewayListenerConfigPtrInput {
+	return (*responderGatewayListenerConfigPtrType)(v)
+}
+
+func (*responderGatewayListenerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponderGatewayListenerConfig)(nil)).Elem()
+}
+
+func (i *responderGatewayListenerConfigPtrType) ToResponderGatewayListenerConfigPtrOutput() ResponderGatewayListenerConfigPtrOutput {
+	return i.ToResponderGatewayListenerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *responderGatewayListenerConfigPtrType) ToResponderGatewayListenerConfigPtrOutputWithContext(ctx context.Context) ResponderGatewayListenerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponderGatewayListenerConfigPtrOutput)
+}
+
+type ResponderGatewayListenerConfigOutput struct{ *pulumi.OutputState }
+
+func (ResponderGatewayListenerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponderGatewayListenerConfig)(nil)).Elem()
+}
+
+func (o ResponderGatewayListenerConfigOutput) ToResponderGatewayListenerConfigOutput() ResponderGatewayListenerConfigOutput {
+	return o
+}
+
+func (o ResponderGatewayListenerConfigOutput) ToResponderGatewayListenerConfigOutputWithContext(ctx context.Context) ResponderGatewayListenerConfigOutput {
+	return o
+}
+
+func (o ResponderGatewayListenerConfigOutput) ToResponderGatewayListenerConfigPtrOutput() ResponderGatewayListenerConfigPtrOutput {
+	return o.ToResponderGatewayListenerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ResponderGatewayListenerConfigOutput) ToResponderGatewayListenerConfigPtrOutputWithContext(ctx context.Context) ResponderGatewayListenerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponderGatewayListenerConfig) *ResponderGatewayListenerConfig {
+		return &v
+	}).(ResponderGatewayListenerConfigPtrOutput)
+}
+
+func (o ResponderGatewayListenerConfigOutput) Protocols() ResponderGatewayProtocolArrayOutput {
+	return o.ApplyT(func(v ResponderGatewayListenerConfig) []ResponderGatewayProtocol { return v.Protocols }).(ResponderGatewayProtocolArrayOutput)
+}
+
+type ResponderGatewayListenerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ResponderGatewayListenerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponderGatewayListenerConfig)(nil)).Elem()
+}
+
+func (o ResponderGatewayListenerConfigPtrOutput) ToResponderGatewayListenerConfigPtrOutput() ResponderGatewayListenerConfigPtrOutput {
+	return o
+}
+
+func (o ResponderGatewayListenerConfigPtrOutput) ToResponderGatewayListenerConfigPtrOutputWithContext(ctx context.Context) ResponderGatewayListenerConfigPtrOutput {
+	return o
+}
+
+func (o ResponderGatewayListenerConfigPtrOutput) Elem() ResponderGatewayListenerConfigOutput {
+	return o.ApplyT(func(v *ResponderGatewayListenerConfig) ResponderGatewayListenerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ResponderGatewayListenerConfig
+		return ret
+	}).(ResponderGatewayListenerConfigOutput)
+}
+
+func (o ResponderGatewayListenerConfigPtrOutput) Protocols() ResponderGatewayProtocolArrayOutput {
+	return o.ApplyT(func(v *ResponderGatewayListenerConfig) []ResponderGatewayProtocol {
+		if v == nil {
+			return nil
+		}
+		return v.Protocols
+	}).(ResponderGatewayProtocolArrayOutput)
+}
+
 type ResponderGatewayManagedEndpointConfiguration struct {
 }
 
@@ -2189,6 +2672,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkModuleParametersPtrInput)(nil)).Elem(), LinkModuleParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkResponderErrorMaskingForHttpCodeInput)(nil)).Elem(), LinkResponderErrorMaskingForHttpCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkResponderErrorMaskingForHttpCodeArrayInput)(nil)).Elem(), LinkResponderErrorMaskingForHttpCodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkRoutingRuleQueryStringKeyValuePairInput)(nil)).Elem(), LinkRoutingRuleQueryStringKeyValuePairArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkRoutingRuleQueryStringKeyValuePairPtrInput)(nil)).Elem(), LinkRoutingRuleQueryStringKeyValuePairArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkRoutingRuleRuleConditionInput)(nil)).Elem(), LinkRoutingRuleRuleConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkLinkAttributesInput)(nil)).Elem(), OutboundExternalLinkLinkAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkLinkAttributesPtrInput)(nil)).Elem(), OutboundExternalLinkLinkAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkLinkLogSettingsInput)(nil)).Elem(), OutboundExternalLinkLinkLogSettingsArgs{})
@@ -2196,6 +2682,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput)(nil)).Elem(), OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingForHttpCodeInput)(nil)).Elem(), OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayInput)(nil)).Elem(), OutboundExternalLinkResponderErrorMaskingForHttpCodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayListenerConfigInput)(nil)).Elem(), ResponderGatewayListenerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayListenerConfigPtrInput)(nil)).Elem(), ResponderGatewayListenerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayManagedEndpointConfigurationInput)(nil)).Elem(), ResponderGatewayManagedEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayManagedEndpointConfigurationPtrInput)(nil)).Elem(), ResponderGatewayManagedEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayTrustStoreConfigurationInput)(nil)).Elem(), ResponderGatewayTrustStoreConfigurationArgs{})
@@ -2224,6 +2712,10 @@ func init() {
 	pulumi.RegisterOutputType(LinkModuleParametersPtrOutput{})
 	pulumi.RegisterOutputType(LinkResponderErrorMaskingForHttpCodeOutput{})
 	pulumi.RegisterOutputType(LinkResponderErrorMaskingForHttpCodeArrayOutput{})
+	pulumi.RegisterOutputType(LinkRoutingRuleQueryStringKeyValuePairOutput{})
+	pulumi.RegisterOutputType(LinkRoutingRuleQueryStringKeyValuePairPtrOutput{})
+	pulumi.RegisterOutputType(LinkRoutingRuleRuleConditionOutput{})
+	pulumi.RegisterOutputType(LinkRoutingRuleRuleConditionPtrOutput{})
 	pulumi.RegisterOutputType(OutboundExternalLinkLinkAttributesOutput{})
 	pulumi.RegisterOutputType(OutboundExternalLinkLinkAttributesPtrOutput{})
 	pulumi.RegisterOutputType(OutboundExternalLinkLinkLogSettingsOutput{})
@@ -2234,6 +2726,8 @@ func init() {
 	pulumi.RegisterOutputType(OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput{})
 	pulumi.RegisterOutputType(OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput{})
+	pulumi.RegisterOutputType(ResponderGatewayListenerConfigOutput{})
+	pulumi.RegisterOutputType(ResponderGatewayListenerConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayManagedEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayManagedEndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayTrustStoreConfigurationOutput{})

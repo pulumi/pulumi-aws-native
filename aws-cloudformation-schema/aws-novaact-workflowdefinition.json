@@ -68,7 +68,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "nova-act:CreateWorkflowDefinition", "nova-act:GetWorkflowDefinition", "iam:CreateServiceLinkedRole", "s3:ListBucket" ]
+      "permissions" : [ "nova-act:CreateWorkflowDefinition", "nova-act:GetWorkflowDefinition", "iam:CreateServiceLinkedRole", "s3:ListBucket", "s3:GetBucketLocation", "s3:GetBucketAcl", "s3:PutObject" ]
     },
     "read" : {
       "permissions" : [ "nova-act:GetWorkflowDefinition" ]

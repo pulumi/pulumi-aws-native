@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &InboundExternalLink{}
 	case "aws-native:rtbfabric:Link":
 		r = &Link{}
+	case "aws-native:rtbfabric:LinkRoutingRule":
+		r = &LinkRoutingRule{}
 	case "aws-native:rtbfabric:OutboundExternalLink":
 		r = &OutboundExternalLink{}
 	case "aws-native:rtbfabric:RequesterGateway":

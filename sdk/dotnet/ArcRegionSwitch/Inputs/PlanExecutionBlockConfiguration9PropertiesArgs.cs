@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Inputs
 
     public sealed class PlanExecutionBlockConfiguration9PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("route53HealthCheckConfig", required: true)]
-        public Input<Inputs.PlanRoute53HealthCheckConfigurationArgs> Route53HealthCheckConfig { get; set; } = null!;
+        [Input("ecsCapacityIncreaseConfig", required: true)]
+        public Input<Inputs.PlanEcsCapacityIncreaseConfigurationArgs> EcsCapacityIncreaseConfig { get; set; } = null!;
 
         public PlanExecutionBlockConfiguration9PropertiesArgs()
         {

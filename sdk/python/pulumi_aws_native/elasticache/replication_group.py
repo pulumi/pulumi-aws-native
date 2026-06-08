@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ReplicationGroupArgs', 'ReplicationGroup']
@@ -34,6 +35,7 @@ class ReplicationGroupArgs:
                  cache_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  cluster_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  data_tiering_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 durability: Optional[pulumi.Input['ReplicationGroupDurability']] = None,
                  engine: Optional[pulumi.Input[_builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -76,6 +78,7 @@ class ReplicationGroupArgs:
         :param pulumi.Input[_builtins.str] cache_subnet_group_name: The name of the cache subnet group to be used for the replication group.
         :param pulumi.Input[_builtins.str] cluster_mode: Enabled or Disabled. To modify cluster mode from Disabled to Enabled, you must first set the cluster mode to Compatible. Compatible mode allows your Redis OSS clients to connect using both cluster mode enabled and cluster mode disabled. After you migrate all Redis OSS clients to use cluster mode enabled, you can then complete cluster mode configuration and set the cluster mode to Enabled. For more information, see Modify cluster mode.
         :param pulumi.Input[_builtins.bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes.
+        :param pulumi.Input['ReplicationGroupDurability'] durability: The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
         :param pulumi.Input[_builtins.str] engine: The name of the cache engine to be used for the clusters in this replication group.
         :param pulumi.Input[_builtins.str] engine_version: The version number of the cache engine to be used for the clusters in this replication group. To view the supported cache engine versions, use the DescribeCacheEngineVersions operation.
         :param pulumi.Input[_builtins.str] global_replication_group_id: The name of the Global datastore
@@ -128,6 +131,8 @@ class ReplicationGroupArgs:
             pulumi.set(__self__, "cluster_mode", cluster_mode)
         if data_tiering_enabled is not None:
             pulumi.set(__self__, "data_tiering_enabled", data_tiering_enabled)
+        if durability is not None:
+            pulumi.set(__self__, "durability", durability)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
@@ -316,6 +321,18 @@ class ReplicationGroupArgs:
     @data_tiering_enabled.setter
     def data_tiering_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "data_tiering_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def durability(self) -> Optional[pulumi.Input['ReplicationGroupDurability']]:
+        """
+        The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+        """
+        return pulumi.get(self, "durability")
+
+    @durability.setter
+    def durability(self, value: Optional[pulumi.Input['ReplicationGroupDurability']]):
+        pulumi.set(self, "durability", value)
 
     @_builtins.property
     @pulumi.getter
@@ -672,6 +689,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  cache_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  cluster_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  data_tiering_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 durability: Optional[pulumi.Input['ReplicationGroupDurability']] = None,
                  engine: Optional[pulumi.Input[_builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -718,6 +736,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cache_subnet_group_name: The name of the cache subnet group to be used for the replication group.
         :param pulumi.Input[_builtins.str] cluster_mode: Enabled or Disabled. To modify cluster mode from Disabled to Enabled, you must first set the cluster mode to Compatible. Compatible mode allows your Redis OSS clients to connect using both cluster mode enabled and cluster mode disabled. After you migrate all Redis OSS clients to use cluster mode enabled, you can then complete cluster mode configuration and set the cluster mode to Enabled. For more information, see Modify cluster mode.
         :param pulumi.Input[_builtins.bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes.
+        :param pulumi.Input['ReplicationGroupDurability'] durability: The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
         :param pulumi.Input[_builtins.str] engine: The name of the cache engine to be used for the clusters in this replication group.
         :param pulumi.Input[_builtins.str] engine_version: The version number of the cache engine to be used for the clusters in this replication group. To view the supported cache engine versions, use the DescribeCacheEngineVersions operation.
         :param pulumi.Input[_builtins.str] global_replication_group_id: The name of the Global datastore
@@ -785,6 +804,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  cache_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  cluster_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  data_tiering_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 durability: Optional[pulumi.Input['ReplicationGroupDurability']] = None,
                  engine: Optional[pulumi.Input[_builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -833,6 +853,7 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["cache_subnet_group_name"] = cache_subnet_group_name
             __props__.__dict__["cluster_mode"] = cluster_mode
             __props__.__dict__["data_tiering_enabled"] = data_tiering_enabled
+            __props__.__dict__["durability"] = durability
             __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["global_replication_group_id"] = global_replication_group_id
@@ -865,6 +886,7 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["transit_encryption_mode"] = transit_encryption_mode
             __props__.__dict__["user_group_ids"] = user_group_ids
             __props__.__dict__["configuration_end_point"] = None
+            __props__.__dict__["effective_durability"] = None
             __props__.__dict__["primary_end_point"] = None
             __props__.__dict__["read_end_point"] = None
             __props__.__dict__["reader_end_point"] = None
@@ -903,6 +925,8 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["cluster_mode"] = None
         __props__.__dict__["configuration_end_point"] = None
         __props__.__dict__["data_tiering_enabled"] = None
+        __props__.__dict__["durability"] = None
+        __props__.__dict__["effective_durability"] = None
         __props__.__dict__["engine"] = None
         __props__.__dict__["engine_version"] = None
         __props__.__dict__["global_replication_group_id"] = None
@@ -1024,6 +1048,22 @@ class ReplicationGroup(pulumi.CustomResource):
         Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes.
         """
         return pulumi.get(self, "data_tiering_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def durability(self) -> pulumi.Output[Optional['ReplicationGroupDurability']]:
+        """
+        The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+        """
+        return pulumi.get(self, "durability")
+
+    @_builtins.property
+    @pulumi.getter(name="effectiveDurability")
+    def effective_durability(self) -> pulumi.Output['ReplicationGroupEffectiveDurability']:
+        """
+        The resolved durability state of the replication group after resolving the default value. This is a read-only property.
+        """
+        return pulumi.get(self, "effective_durability")
 
     @_builtins.property
     @pulumi.getter

@@ -8,6 +8,8 @@ from enum import Enum
 
 __all__ = [
     'GlobalReplicationGroupMemberRole',
+    'ReplicationGroupDurability',
+    'ReplicationGroupEffectiveDurability',
     'ServerlessCacheDataStorageUnit',
     'ServerlessCacheNetworkType',
     'UserAuthenticationModePropertiesType',
@@ -23,6 +25,27 @@ class GlobalReplicationGroupMemberRole(_builtins.str, Enum):
     """
     PRIMARY = "PRIMARY"
     SECONDARY = "SECONDARY"
+
+
+@pulumi.type_token("aws-native:elasticache:ReplicationGroupDurability")
+class ReplicationGroupDurability(_builtins.str, Enum):
+    """
+    The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+    """
+    DEFAULT = "default"
+    ASYNC_ = "async"
+    SYNC = "sync"
+    DISABLED = "disabled"
+
+
+@pulumi.type_token("aws-native:elasticache:ReplicationGroupEffectiveDurability")
+class ReplicationGroupEffectiveDurability(_builtins.str, Enum):
+    """
+    The resolved durability state of the replication group after resolving the default value. This is a read-only property.
+    """
+    ASYNC_ = "async"
+    SYNC = "sync"
+    DISABLED = "disabled"
 
 
 @pulumi.type_token("aws-native:elasticache:ServerlessCacheDataStorageUnit")

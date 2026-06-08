@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Outputs
     [OutputType]
     public sealed class PlanExecutionBlockConfiguration5Properties
     {
-        public readonly Outputs.PlanParallelExecutionBlockConfiguration ParallelConfig;
+        public readonly Outputs.PlanAuroraServerlessScalingConfiguration AuroraServerlessScalingConfig;
 
         [OutputConstructor]
-        private PlanExecutionBlockConfiguration5Properties(Outputs.PlanParallelExecutionBlockConfiguration parallelConfig)
+        private PlanExecutionBlockConfiguration5Properties(Outputs.PlanAuroraServerlessScalingConfiguration auroraServerlessScalingConfig)
         {
-            ParallelConfig = parallelConfig;
+            AuroraServerlessScalingConfig = auroraServerlessScalingConfig;
         }
     }
 }
