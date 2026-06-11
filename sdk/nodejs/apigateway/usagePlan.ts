@@ -106,25 +106,25 @@ export interface UsagePlanArgs {
     /**
      * The associated API stages of a usage plan.
      */
-    apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStageArgs>[]>;
+    apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStageArgs>[] | undefined>;
     /**
      * The description of a usage plan.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The target maximum number of permitted requests per a given unit time interval.
      */
-    quota?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettingsArgs>;
+    quota?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettingsArgs | undefined>;
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A map containing method level throttling information for API stage in a usage plan.
      */
-    throttle?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettingsArgs>;
+    throttle?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettingsArgs | undefined>;
     /**
      * The name of a usage plan.
      */
-    usagePlanName?: pulumi.Input<string>;
+    usagePlanName?: pulumi.Input<string | undefined>;
 }

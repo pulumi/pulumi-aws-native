@@ -150,7 +150,7 @@ export interface PartnershipArgs {
     /**
      * Contains the details for an Outbound EDI capability.
      */
-    capabilityOptions?: pulumi.Input<inputs.b2bi.PartnershipCapabilityOptionsArgs>;
+    capabilityOptions?: pulumi.Input<inputs.b2bi.PartnershipCapabilityOptionsArgs | undefined>;
     /**
      * Specifies the email address associated with this trading partner.
      */
@@ -158,11 +158,11 @@ export interface PartnershipArgs {
     /**
      * Returns the name of the partnership.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the phone number associated with the partnership.
      */
-    phone?: pulumi.Input<string>;
+    phone?: pulumi.Input<string | undefined>;
     /**
      * Returns the unique, system-generated identifier for the profile connected to this partnership.
      */
@@ -170,5 +170,5 @@ export interface PartnershipArgs {
     /**
      * A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

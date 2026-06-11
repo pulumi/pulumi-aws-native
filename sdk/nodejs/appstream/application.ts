@@ -174,15 +174,15 @@ export interface ApplicationArgs {
     /**
      * A list of attributes to delete from an application.
      */
-    attributesToDelete?: pulumi.Input<pulumi.Input<string>[]>;
+    attributesToDelete?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description of the application.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the application. This name is visible to users in the application catalog.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The icon S3 location of the application.
      */
@@ -196,7 +196,7 @@ export interface ApplicationArgs {
     /**
      * The launch parameters of the application.
      */
-    launchParameters?: pulumi.Input<string>;
+    launchParameters?: pulumi.Input<string | undefined>;
     /**
      * The launch path of the application.
      */
@@ -206,7 +206,7 @@ export interface ApplicationArgs {
      *
      * *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The platforms the application supports.
      *
@@ -216,9 +216,9 @@ export interface ApplicationArgs {
     /**
      * The tags of the application.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.appstream.ApplicationTag0PropertiesArgs | inputs.appstream.ApplicationTag1PropertiesArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.appstream.ApplicationTag0PropertiesArgs | inputs.appstream.ApplicationTag1PropertiesArgs>[] | undefined>;
     /**
      * The working directory of the application.
      */
-    workingDirectory?: pulumi.Input<string>;
+    workingDirectory?: pulumi.Input<string | undefined>;
 }

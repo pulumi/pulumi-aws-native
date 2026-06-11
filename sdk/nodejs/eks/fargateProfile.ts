@@ -120,7 +120,7 @@ export interface FargateProfileArgs {
     /**
      * Name of FargateProfile
      */
-    fargateProfileName?: pulumi.Input<string>;
+    fargateProfileName?: pulumi.Input<string | undefined>;
     /**
      * The IAM policy arn for pods
      */
@@ -132,9 +132,9 @@ export interface FargateProfileArgs {
     /**
      * The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
      */
-    subnets?: pulumi.Input<pulumi.Input<string>[]>;
+    subnets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

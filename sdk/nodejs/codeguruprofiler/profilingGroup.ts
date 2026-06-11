@@ -101,21 +101,21 @@ export interface ProfilingGroupArgs {
     /**
      * The agent permissions attached to this profiling group.
      */
-    agentPermissions?: pulumi.Input<inputs.codeguruprofiler.AgentPermissionsPropertiesArgs>;
+    agentPermissions?: pulumi.Input<inputs.codeguruprofiler.AgentPermissionsPropertiesArgs | undefined>;
     /**
      * Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
      */
-    anomalyDetectionNotificationConfiguration?: pulumi.Input<pulumi.Input<inputs.codeguruprofiler.ProfilingGroupChannelArgs>[]>;
+    anomalyDetectionNotificationConfiguration?: pulumi.Input<pulumi.Input<inputs.codeguruprofiler.ProfilingGroupChannelArgs>[] | undefined>;
     /**
      * The compute platform of the profiling group.
      */
-    computePlatform?: pulumi.Input<enums.codeguruprofiler.ProfilingGroupComputePlatform>;
+    computePlatform?: pulumi.Input<enums.codeguruprofiler.ProfilingGroupComputePlatform | undefined>;
     /**
      * The name of the profiling group.
      */
-    profilingGroupName?: pulumi.Input<string>;
+    profilingGroupName?: pulumi.Input<string | undefined>;
     /**
      * The tags associated with a profiling group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -155,7 +155,7 @@ export interface SchemaArgs {
     /**
      * A description of the schema.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the schema registry.
      */
@@ -163,11 +163,11 @@ export interface SchemaArgs {
     /**
      * The name of the schema.
      */
-    schemaName?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string | undefined>;
     /**
      * Tags associated with the resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
      */

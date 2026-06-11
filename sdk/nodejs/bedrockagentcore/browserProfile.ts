@@ -98,10 +98,10 @@ export class BrowserProfile extends pulumi.CustomResource {
  * The set of arguments for constructing a BrowserProfile resource.
  */
 export interface BrowserProfileArgs {
-    description?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of tag keys and values.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

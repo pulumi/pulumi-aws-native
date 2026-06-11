@@ -144,13 +144,13 @@ export interface OAuth2CredentialProviderArgs {
     /**
      * The name of the OAuth2 credential provider
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The configuration settings for the OAuth2 provider
      */
-    oauth2ProviderConfigInput?: pulumi.Input<inputs.bedrockagentcore.OAuth2CredentialProviderOauth2ProviderConfigInputArgs>;
+    oauth2ProviderConfigInput?: pulumi.Input<inputs.bedrockagentcore.OAuth2CredentialProviderOauth2ProviderConfigInputArgs | undefined>;
     /**
      * Tags to assign to the OAuth2 credential provider
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

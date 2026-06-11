@@ -101,7 +101,7 @@ export interface UserPoolRiskConfigurationAttachmentArgs {
     /**
      * The settings for automated responses and notification templates for adaptive authentication with threat protection.
      */
-    accountTakeoverRiskConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs>;
+    accountTakeoverRiskConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs | undefined>;
     /**
      * The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
      */
@@ -109,11 +109,11 @@ export interface UserPoolRiskConfigurationAttachmentArgs {
     /**
      * Settings for compromised-credentials actions and authentication types with threat protection in full-function `ENFORCED` mode.
      */
-    compromisedCredentialsRiskConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs>;
+    compromisedCredentialsRiskConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs | undefined>;
     /**
      * Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
      */
-    riskExceptionConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs>;
+    riskExceptionConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs | undefined>;
     /**
      * The ID of the user pool that has the risk configuration applied.
      */

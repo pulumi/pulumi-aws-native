@@ -179,7 +179,7 @@ export interface FleetArgs {
      *
      * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the fleet summary to update.
      *
@@ -195,7 +195,7 @@ export interface FleetArgs {
      *
      * To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
      */
-    hostConfiguration?: pulumi.Input<inputs.deadline.FleetHostConfigurationArgs>;
+    hostConfiguration?: pulumi.Input<inputs.deadline.FleetHostConfigurationArgs | undefined>;
     /**
      * The maximum number of workers specified in the fleet.
      */
@@ -203,7 +203,7 @@ export interface FleetArgs {
     /**
      * The minimum number of workers in the fleet.
      */
-    minWorkerCount?: pulumi.Input<number>;
+    minWorkerCount?: pulumi.Input<number | undefined>;
     /**
      * The IAM role that workers in the fleet use when processing jobs.
      */
@@ -211,5 +211,5 @@ export interface FleetArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

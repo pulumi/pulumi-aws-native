@@ -146,39 +146,39 @@ export interface ApplicationArgs {
     /**
      * If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
      */
-    attachMissingPermission?: pulumi.Input<boolean>;
+    attachMissingPermission?: pulumi.Input<boolean | undefined>;
     /**
      * If set to true, application will be configured with recommended monitoring configuration.
      */
-    autoConfigurationEnabled?: pulumi.Input<boolean>;
+    autoConfigurationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The monitoring settings of the components.
      */
-    componentMonitoringSettings?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationComponentMonitoringSettingArgs>[]>;
+    componentMonitoringSettings?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationComponentMonitoringSettingArgs>[] | undefined>;
     /**
      * The custom grouped components.
      */
-    customComponents?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationCustomComponentArgs>[]>;
+    customComponents?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationCustomComponentArgs>[] | undefined>;
     /**
      * Indicates whether Application Insights can listen to CloudWatch events for the application resources.
      */
-    cweMonitorEnabled?: pulumi.Input<boolean>;
+    cweMonitorEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The grouping type of the application
      */
-    groupingType?: pulumi.Input<enums.applicationinsights.ApplicationGroupingType>;
+    groupingType?: pulumi.Input<enums.applicationinsights.ApplicationGroupingType | undefined>;
     /**
      * The log pattern sets.
      */
-    logPatternSets?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationLogPatternSetArgs>[]>;
+    logPatternSets?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationLogPatternSetArgs>[] | undefined>;
     /**
      * When set to true, creates opsItems for any problems detected on an application.
      */
-    opsCenterEnabled?: pulumi.Input<boolean>;
+    opsCenterEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The SNS topic provided to Application Insights that is associated to the created opsItem.
      */
-    opsItemSnsTopicArn?: pulumi.Input<string>;
+    opsItemSnsTopicArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -186,9 +186,9 @@ export interface ApplicationArgs {
     /**
      * Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.
      */
-    snsNotificationArn?: pulumi.Input<string>;
+    snsNotificationArn?: pulumi.Input<string | undefined>;
     /**
      * The tags of Application Insights application.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

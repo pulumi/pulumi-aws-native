@@ -106,5 +106,5 @@ export interface LinkRoutingRuleArgs {
     gatewayId: pulumi.Input<string>;
     linkId: pulumi.Input<string>;
     priority: pulumi.Input<number>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

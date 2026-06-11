@@ -164,19 +164,19 @@ export interface ChannelArgs {
     /**
      * The name of the channel.
      */
-    channelName?: pulumi.Input<string>;
+    channelName?: pulumi.Input<string | undefined>;
     /**
      * Where channel data is stored.
      */
-    channelStorage?: pulumi.Input<inputs.iotanalytics.ChannelStorageArgs>;
+    channelStorage?: pulumi.Input<inputs.iotanalytics.ChannelStorageArgs | undefined>;
     /**
      * How long, in days, message data is kept for the channel.
      */
-    retentionPeriod?: pulumi.Input<inputs.iotanalytics.ChannelRetentionPeriodArgs>;
+    retentionPeriod?: pulumi.Input<inputs.iotanalytics.ChannelRetentionPeriodArgs | undefined>;
     /**
      * Metadata which can be used to manage the channel.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

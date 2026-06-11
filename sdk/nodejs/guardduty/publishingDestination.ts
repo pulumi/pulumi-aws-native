@@ -128,5 +128,5 @@ export interface PublishingDestinationArgs {
     /**
      * Describes a tag.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

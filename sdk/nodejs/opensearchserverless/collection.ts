@@ -193,13 +193,13 @@ export interface CollectionArgs {
     /**
      * The name of the collection group to associate with the collection.
      */
-    collectionGroupName?: pulumi.Input<string>;
-    deletionProtection?: pulumi.Input<enums.opensearchserverless.CollectionDeletionProtection>;
+    collectionGroupName?: pulumi.Input<string | undefined>;
+    deletionProtection?: pulumi.Input<enums.opensearchserverless.CollectionDeletionProtection | undefined>;
     /**
      * The description of the collection
      */
-    description?: pulumi.Input<string>;
-    encryptionConfig?: pulumi.Input<inputs.opensearchserverless.CollectionEncryptionConfigArgs>;
+    description?: pulumi.Input<string | undefined>;
+    encryptionConfig?: pulumi.Input<inputs.opensearchserverless.CollectionEncryptionConfigArgs | undefined>;
     /**
      * The name of the collection.
      *
@@ -209,18 +209,18 @@ export interface CollectionArgs {
      * Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
      * Contains between 3 and 64 characters
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
      */
-    standbyReplicas?: pulumi.Input<enums.opensearchserverless.CollectionStandbyReplicas>;
+    standbyReplicas?: pulumi.Input<enums.opensearchserverless.CollectionStandbyReplicas | undefined>;
     /**
      * List of tags to be added to the resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
     /**
      * The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
      */
-    type?: pulumi.Input<enums.opensearchserverless.CollectionType>;
-    vectorOptions?: pulumi.Input<inputs.opensearchserverless.CollectionVectorOptionsArgs>;
+    type?: pulumi.Input<enums.opensearchserverless.CollectionType | undefined>;
+    vectorOptions?: pulumi.Input<inputs.opensearchserverless.CollectionVectorOptionsArgs | undefined>;
 }

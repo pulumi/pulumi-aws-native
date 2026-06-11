@@ -80,13 +80,13 @@ export interface ModuleDefaultVersionArgs {
     /**
      * The Amazon Resource Name (ARN) of the module version to set as the default version.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name of a module existing in the registry.
      */
-    moduleName?: pulumi.Input<string>;
+    moduleName?: pulumi.Input<string | undefined>;
     /**
      * The ID of an existing version of the named module to set as the default.
      */
-    versionId?: pulumi.Input<string>;
+    versionId?: pulumi.Input<string | undefined>;
 }

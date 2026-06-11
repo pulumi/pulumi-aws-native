@@ -166,59 +166,59 @@ export interface TransitGatewayArgs {
     /**
      * A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
      */
-    amazonSideAsn?: pulumi.Input<number>;
+    amazonSideAsn?: pulumi.Input<number | undefined>;
     /**
      * The ID of the default association route table.
      */
-    associationDefaultRouteTableId?: pulumi.Input<string>;
+    associationDefaultRouteTableId?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable automatic acceptance of attachment requests. Disabled by default.
      */
-    autoAcceptSharedAttachments?: pulumi.Input<string>;
+    autoAcceptSharedAttachments?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
      */
-    defaultRouteTableAssociation?: pulumi.Input<string>;
+    defaultRouteTableAssociation?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
      */
-    defaultRouteTablePropagation?: pulumi.Input<string>;
+    defaultRouteTablePropagation?: pulumi.Input<string | undefined>;
     /**
      * The description of the transit gateway.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable DNS support. Enabled by default.
      */
-    dnsSupport?: pulumi.Input<string>;
+    dnsSupport?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable encryption support. Disabled by default.
      */
-    encryptionSupport?: pulumi.Input<enums.ec2.TransitGatewayEncryptionSupport>;
+    encryptionSupport?: pulumi.Input<enums.ec2.TransitGatewayEncryptionSupport | undefined>;
     /**
      * Indicates whether multicast is enabled on the transit gateway
      */
-    multicastSupport?: pulumi.Input<string>;
+    multicastSupport?: pulumi.Input<string | undefined>;
     /**
      * The ID of the default propagation route table.
      */
-    propagationDefaultRouteTableId?: pulumi.Input<string>;
+    propagationDefaultRouteTableId?: pulumi.Input<string | undefined>;
     /**
      * Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
      *
      * For important information about this feature, see [Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw) in the *AWS Transit Gateway Guide* .
      */
-    securityGroupReferencingSupport?: pulumi.Input<string>;
+    securityGroupReferencingSupport?: pulumi.Input<string | undefined>;
     /**
      * The tags for the transit gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The transit gateway CIDR blocks.
      */
-    transitGatewayCidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    transitGatewayCidrBlocks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
      */
-    vpnEcmpSupport?: pulumi.Input<string>;
+    vpnEcmpSupport?: pulumi.Input<string | undefined>;
 }

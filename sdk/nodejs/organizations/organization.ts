@@ -105,5 +105,5 @@ export interface OrganizationArgs {
     /**
      * Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
      */
-    featureSet?: pulumi.Input<enums.organizations.OrganizationFeatureSet>;
+    featureSet?: pulumi.Input<enums.organizations.OrganizationFeatureSet | undefined>;
 }

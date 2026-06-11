@@ -135,41 +135,41 @@ export interface InstanceProfileArgs {
     /**
      * The property describes an availability zone of the instance profile.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * The optional description of the instance profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The property describes an identifier for the instance profile. It is used for describing/deleting/modifying. Can be name/arn
      */
-    instanceProfileIdentifier?: pulumi.Input<string>;
+    instanceProfileIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The property describes a name for the instance profile.
      */
-    instanceProfileName?: pulumi.Input<string>;
+    instanceProfileName?: pulumi.Input<string | undefined>;
     /**
      * The property describes kms key arn for the instance profile.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The property describes a network type for the instance profile.
      */
-    networkType?: pulumi.Input<enums.dms.InstanceProfileNetworkType>;
+    networkType?: pulumi.Input<enums.dms.InstanceProfileNetworkType | undefined>;
     /**
      * The property describes the publicly accessible of the instance profile
      */
-    publiclyAccessible?: pulumi.Input<boolean>;
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * The property describes a subnet group identifier for the instance profile.
      */
-    subnetGroupIdentifier?: pulumi.Input<string>;
+    subnetGroupIdentifier?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The property describes vps security groups for the instance profile.
      */
-    vpcSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

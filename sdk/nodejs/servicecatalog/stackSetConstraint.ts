@@ -146,7 +146,7 @@ export interface StackSetConstraintArgs {
     /**
      * The language code.
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * One or more AWS accounts that will have access to the provisioned product.
      */

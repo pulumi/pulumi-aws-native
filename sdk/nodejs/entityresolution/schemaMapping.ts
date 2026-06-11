@@ -107,7 +107,7 @@ export interface SchemaMappingArgs {
     /**
      * The description of the SchemaMapping
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The SchemaMapping attributes input
      */
@@ -119,5 +119,5 @@ export interface SchemaMappingArgs {
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

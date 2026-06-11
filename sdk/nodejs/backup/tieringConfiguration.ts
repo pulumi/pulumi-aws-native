@@ -91,6 +91,6 @@ export class TieringConfiguration extends pulumi.CustomResource {
 export interface TieringConfigurationArgs {
     backupVaultName: pulumi.Input<string>;
     resourceSelection: pulumi.Input<pulumi.Input<inputs.backup.TieringConfigurationResourceSelectionArgs>[]>;
-    tieringConfigurationName?: pulumi.Input<string>;
-    tieringConfigurationTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tieringConfigurationName?: pulumi.Input<string | undefined>;
+    tieringConfigurationTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

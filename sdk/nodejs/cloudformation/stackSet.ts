@@ -164,39 +164,39 @@ export interface StackSetArgs {
     /**
      * The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
      */
-    administrationRoleArn?: pulumi.Input<string>;
+    administrationRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
      */
-    autoDeployment?: pulumi.Input<inputs.cloudformation.StackSetAutoDeploymentArgs>;
+    autoDeployment?: pulumi.Input<inputs.cloudformation.StackSetAutoDeploymentArgs | undefined>;
     /**
      * Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
      */
-    callAs?: pulumi.Input<enums.cloudformation.StackSetCallAs>;
+    callAs?: pulumi.Input<enums.cloudformation.StackSetCallAs | undefined>;
     /**
      * In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
      */
-    capabilities?: pulumi.Input<pulumi.Input<enums.cloudformation.StackSetCapability>[]>;
+    capabilities?: pulumi.Input<pulumi.Input<enums.cloudformation.StackSetCapability>[] | undefined>;
     /**
      * A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
      */
-    executionRoleName?: pulumi.Input<string>;
+    executionRoleName?: pulumi.Input<string | undefined>;
     /**
      * Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
      */
-    managedExecution?: pulumi.Input<inputs.cloudformation.ManagedExecutionPropertiesArgs>;
+    managedExecution?: pulumi.Input<inputs.cloudformation.ManagedExecutionPropertiesArgs | undefined>;
     /**
      * The user-specified preferences for how CloudFormation performs a StackSet operation.
      */
-    operationPreferences?: pulumi.Input<inputs.cloudformation.StackSetOperationPreferencesArgs>;
+    operationPreferences?: pulumi.Input<inputs.cloudformation.StackSetOperationPreferencesArgs | undefined>;
     /**
      * The input parameters for the stack set template.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.cloudformation.StackSetParameterArgs>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.cloudformation.StackSetParameterArgs>[] | undefined>;
     /**
      * Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
      */
@@ -204,21 +204,21 @@ export interface StackSetArgs {
     /**
      * A group of stack instances with parameters in some specific accounts and regions.
      */
-    stackInstancesGroup?: pulumi.Input<pulumi.Input<inputs.cloudformation.StackSetStackInstancesArgs>[]>;
+    stackInstancesGroup?: pulumi.Input<pulumi.Input<inputs.cloudformation.StackSetStackInstancesArgs>[] | undefined>;
     /**
      * The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
      */
-    stackSetName?: pulumi.Input<string>;
+    stackSetName?: pulumi.Input<string | undefined>;
     /**
      * The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
      */
-    templateBody?: pulumi.Input<string>;
+    templateBody?: pulumi.Input<string | undefined>;
     /**
      * Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
      */
-    templateUrl?: pulumi.Input<string>;
+    templateUrl?: pulumi.Input<string | undefined>;
 }

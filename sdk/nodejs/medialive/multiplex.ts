@@ -135,7 +135,7 @@ export interface MultiplexArgs {
     /**
      * A list of the multiplex output destinations.
      */
-    destinations?: pulumi.Input<pulumi.Input<inputs.medialive.MultiplexOutputDestinationArgs>[]>;
+    destinations?: pulumi.Input<pulumi.Input<inputs.medialive.MultiplexOutputDestinationArgs>[] | undefined>;
     /**
      * Configuration for a multiplex event.
      */
@@ -143,9 +143,9 @@ export interface MultiplexArgs {
     /**
      * Name of multiplex.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A collection of key-value pairs.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

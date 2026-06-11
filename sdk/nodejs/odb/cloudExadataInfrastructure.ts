@@ -257,45 +257,45 @@ export interface CloudExadataInfrastructureArgs {
     /**
      * The name of the Availability Zone (AZ) where the Exadata infrastructure is located.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * The AZ ID of the AZ where the Exadata infrastructure is located.
      */
-    availabilityZoneId?: pulumi.Input<string>;
+    availabilityZoneId?: pulumi.Input<string | undefined>;
     /**
      * The number of database servers for the Exadata infrastructure.
      */
-    computeCount?: pulumi.Input<number>;
+    computeCount?: pulumi.Input<number | undefined>;
     /**
      * The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure.
      */
-    customerContactsToSendToOci?: pulumi.Input<pulumi.Input<inputs.odb.CloudExadataInfrastructureCustomerContactArgs>[]>;
+    customerContactsToSendToOci?: pulumi.Input<pulumi.Input<inputs.odb.CloudExadataInfrastructureCustomerContactArgs>[] | undefined>;
     /**
      * The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
      */
-    databaseServerType?: pulumi.Input<string>;
+    databaseServerType?: pulumi.Input<string | undefined>;
     /**
      * The user-friendly name for the Exadata infrastructure.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
      */
-    maintenanceWindow?: pulumi.Input<inputs.odb.CloudExadataInfrastructureMaintenanceWindowArgs>;
+    maintenanceWindow?: pulumi.Input<inputs.odb.CloudExadataInfrastructureMaintenanceWindowArgs | undefined>;
     /**
      * The model name of the Exadata infrastructure.
      */
-    shape?: pulumi.Input<string>;
+    shape?: pulumi.Input<string | undefined>;
     /**
      * The number of storage servers that are activated for the Exadata infrastructure.
      */
-    storageCount?: pulumi.Input<number>;
+    storageCount?: pulumi.Input<number | undefined>;
     /**
      * The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
      */
-    storageServerType?: pulumi.Input<string>;
+    storageServerType?: pulumi.Input<string | undefined>;
     /**
      * Tags to assign to the Exadata Infrastructure.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

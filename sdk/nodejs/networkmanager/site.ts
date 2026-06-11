@@ -116,7 +116,7 @@ export interface SiteArgs {
     /**
      * The description of the site.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the global network.
      */
@@ -124,9 +124,9 @@ export interface SiteArgs {
     /**
      * The location of the site.
      */
-    location?: pulumi.Input<inputs.networkmanager.SiteLocationArgs>;
+    location?: pulumi.Input<inputs.networkmanager.SiteLocationArgs | undefined>;
     /**
      * The tags for the site.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

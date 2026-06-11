@@ -116,11 +116,11 @@ export interface VersionArgs {
     /**
      * Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
      */
-    codeSha256?: pulumi.Input<string>;
+    codeSha256?: pulumi.Input<string | undefined>;
     /**
      * A description for the version to override the description in the function configuration. Updates are not supported for this property.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Lambda function.
      */
@@ -128,13 +128,13 @@ export interface VersionArgs {
     /**
      * The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
      */
-    functionScalingConfig?: pulumi.Input<inputs.lambda.VersionFunctionScalingConfigArgs>;
+    functionScalingConfig?: pulumi.Input<inputs.lambda.VersionFunctionScalingConfigArgs | undefined>;
     /**
      * Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
      */
-    provisionedConcurrencyConfig?: pulumi.Input<inputs.lambda.VersionProvisionedConcurrencyConfigurationArgs>;
+    provisionedConcurrencyConfig?: pulumi.Input<inputs.lambda.VersionProvisionedConcurrencyConfigurationArgs | undefined>;
     /**
      * Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
      */
-    runtimePolicy?: pulumi.Input<inputs.lambda.VersionRuntimePolicyArgs>;
+    runtimePolicy?: pulumi.Input<inputs.lambda.VersionRuntimePolicyArgs | undefined>;
 }

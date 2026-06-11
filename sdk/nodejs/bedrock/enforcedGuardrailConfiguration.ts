@@ -137,6 +137,6 @@ export interface EnforcedGuardrailConfigurationArgs {
      * Numerical guardrail version (not DRAFT)
      */
     guardrailVersion: pulumi.Input<string>;
-    modelEnforcement?: pulumi.Input<inputs.bedrock.EnforcedGuardrailConfigurationModelEnforcementArgs>;
-    selectiveContentGuarding?: pulumi.Input<inputs.bedrock.EnforcedGuardrailConfigurationSelectiveContentGuardingArgs>;
+    modelEnforcement?: pulumi.Input<inputs.bedrock.EnforcedGuardrailConfigurationModelEnforcementArgs | undefined>;
+    selectiveContentGuarding?: pulumi.Input<inputs.bedrock.EnforcedGuardrailConfigurationSelectiveContentGuardingArgs | undefined>;
 }

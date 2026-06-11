@@ -111,7 +111,7 @@ export interface ServiceEnvironmentArgs {
     /**
      * The name of the service environment.
      */
-    serviceEnvironmentName?: pulumi.Input<string>;
+    serviceEnvironmentName?: pulumi.Input<string | undefined>;
     /**
      * The type of service environment. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING` .
      */
@@ -119,9 +119,9 @@ export interface ServiceEnvironmentArgs {
     /**
      * The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

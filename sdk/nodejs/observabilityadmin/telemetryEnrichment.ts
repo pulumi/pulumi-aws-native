@@ -68,5 +68,5 @@ export class TelemetryEnrichment extends pulumi.CustomResource {
  * The set of arguments for constructing a TelemetryEnrichment resource.
  */
 export interface TelemetryEnrichmentArgs {
-    scope?: pulumi.Input<enums.observabilityadmin.TelemetryEnrichmentScope>;
+    scope?: pulumi.Input<enums.observabilityadmin.TelemetryEnrichmentScope | undefined>;
 }

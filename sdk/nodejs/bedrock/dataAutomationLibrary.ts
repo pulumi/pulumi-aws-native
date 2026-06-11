@@ -104,17 +104,17 @@ export class DataAutomationLibrary extends pulumi.CustomResource {
  * The set of arguments for constructing a DataAutomationLibrary resource.
  */
 export interface DataAutomationLibraryArgs {
-    encryptionConfiguration?: pulumi.Input<inputs.bedrock.DataAutomationLibraryEncryptionConfigurationArgs>;
+    encryptionConfiguration?: pulumi.Input<inputs.bedrock.DataAutomationLibraryEncryptionConfigurationArgs | undefined>;
     /**
      * Description of the DataAutomationLibrary
      */
-    libraryDescription?: pulumi.Input<string>;
+    libraryDescription?: pulumi.Input<string | undefined>;
     /**
      * Name of the DataAutomationLibrary
      */
-    libraryName?: pulumi.Input<string>;
+    libraryName?: pulumi.Input<string | undefined>;
     /**
      * List of tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

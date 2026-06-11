@@ -28,5 +28,5 @@ export function getAzsOutput(args?: GetAzsOutputArgs, opts?: pulumi.InvokeOutput
 }
 
 export interface GetAzsOutputArgs {
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

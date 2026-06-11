@@ -92,11 +92,11 @@ export interface ApplicationArgs {
     /**
      * Identifier of a KMS key. Can be a key ID, key ARN, alias name, or alias ARN.
      */
-    defaultKmsKeyId?: pulumi.Input<string>;
-    idCConfiguration?: pulumi.Input<inputs.securityagent.ApplicationIdCConfigurationArgs>;
-    roleArn?: pulumi.Input<string>;
+    defaultKmsKeyId?: pulumi.Input<string | undefined>;
+    idCConfiguration?: pulumi.Input<inputs.securityagent.ApplicationIdCConfigurationArgs | undefined>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Tags for the application
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

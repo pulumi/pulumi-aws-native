@@ -99,21 +99,21 @@ export interface PlaybackRestrictionPolicyArgs {
     /**
      * A list of country codes that control geoblocking restriction. Allowed values are the officially assigned ISO 3166-1 alpha-2 codes. Default: All countries (an empty array).
      */
-    allowedCountries?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedCountries?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of origin sites that control CORS restriction. Allowed values are the same as valid values of the Origin header defined at https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin
      */
-    allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedOrigins?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether channel playback is constrained by origin site.
      */
-    enableStrictOriginEnforcement?: pulumi.Input<boolean>;
+    enableStrictOriginEnforcement?: pulumi.Input<boolean | undefined>;
     /**
      * Playback-restriction-policy name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

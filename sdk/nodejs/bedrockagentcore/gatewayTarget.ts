@@ -149,21 +149,21 @@ export interface GatewayTargetArgs {
     /**
      * The OAuth credential provider configuration.
      */
-    credentialProviderConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayTargetCredentialProviderConfigurationArgs>[]>;
+    credentialProviderConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayTargetCredentialProviderConfigurationArgs>[] | undefined>;
     /**
      * The description for the gateway target.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The gateway ID for the gateway target.
      */
-    gatewayIdentifier?: pulumi.Input<string>;
-    metadataConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewayTargetMetadataConfigurationArgs>;
+    gatewayIdentifier?: pulumi.Input<string | undefined>;
+    metadataConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewayTargetMetadataConfigurationArgs | undefined>;
     /**
      * The name for the gateway target.
      */
-    name?: pulumi.Input<string>;
-    privateEndpoint?: pulumi.Input<inputs.bedrockagentcore.GatewayTargetPrivateEndpoint0PropertiesArgs | inputs.bedrockagentcore.GatewayTargetPrivateEndpoint1PropertiesArgs>;
+    name?: pulumi.Input<string | undefined>;
+    privateEndpoint?: pulumi.Input<inputs.bedrockagentcore.GatewayTargetPrivateEndpoint0PropertiesArgs | inputs.bedrockagentcore.GatewayTargetPrivateEndpoint1PropertiesArgs | undefined>;
     /**
      * The target configuration for the Smithy model target.
      */

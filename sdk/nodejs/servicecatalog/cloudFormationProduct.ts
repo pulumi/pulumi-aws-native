@@ -175,19 +175,19 @@ export interface CloudFormationProductArgs {
      * - `jp` - Japanese
      * - `zh` - Chinese
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * The description of the product.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The distributor of the product.
      */
-    distributor?: pulumi.Input<string>;
+    distributor?: pulumi.Input<string | undefined>;
     /**
      * The name of the product.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The owner of the product.
      */
@@ -195,37 +195,37 @@ export interface CloudFormationProductArgs {
     /**
      * The type of product.
      */
-    productType?: pulumi.Input<string>;
+    productType?: pulumi.Input<string | undefined>;
     /**
      * The configuration of the provisioning artifact (also known as a version).
      */
-    provisioningArtifactParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.CloudFormationProductProvisioningArtifactPropertiesArgs>[]>;
+    provisioningArtifactParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.CloudFormationProductProvisioningArtifactPropertiesArgs>[] | undefined>;
     /**
      * This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
      *
      * If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
      */
-    replaceProvisioningArtifacts?: pulumi.Input<boolean>;
+    replaceProvisioningArtifacts?: pulumi.Input<boolean | undefined>;
     /**
      * A top level `ProductViewDetail` response containing details about the product’s connection. AWS Service Catalog returns this field for the `CreateProduct` , `UpdateProduct` , `DescribeProductAsAdmin` , and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
      */
-    sourceConnection?: pulumi.Input<inputs.servicecatalog.CloudFormationProductSourceConnectionArgs>;
+    sourceConnection?: pulumi.Input<inputs.servicecatalog.CloudFormationProductSourceConnectionArgs | undefined>;
     /**
      * The support information about the product.
      */
-    supportDescription?: pulumi.Input<string>;
+    supportDescription?: pulumi.Input<string | undefined>;
     /**
      * The contact email for product support.
      */
-    supportEmail?: pulumi.Input<string>;
+    supportEmail?: pulumi.Input<string | undefined>;
     /**
      * The contact URL for product support.
      *
      * `^https?:\/\//` / is the pattern used to validate SupportUrl.
      */
-    supportUrl?: pulumi.Input<string>;
+    supportUrl?: pulumi.Input<string | undefined>;
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

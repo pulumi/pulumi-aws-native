@@ -114,13 +114,13 @@ export interface SigningProfileArgs {
     /**
      * A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
      */
-    profileName?: pulumi.Input<string>;
+    profileName?: pulumi.Input<string | undefined>;
     /**
      * Signature validity period of the profile.
      */
-    signatureValidityPeriod?: pulumi.Input<inputs.signer.SigningProfileSignatureValidityPeriodArgs>;
+    signatureValidityPeriod?: pulumi.Input<inputs.signer.SigningProfileSignatureValidityPeriodArgs | undefined>;
     /**
      * A list of tags associated with the signing profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -110,7 +110,7 @@ export interface PrivateConnectionArgs {
     /**
      * Certificate for the Private Connection.
      */
-    certificate?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string | undefined>;
     /**
      * The connection configuration for the Private Connection.
      */
@@ -118,9 +118,9 @@ export interface PrivateConnectionArgs {
     /**
      * Unique name for this Private Connection within the account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -111,7 +111,7 @@ export interface ProfileArgs {
     /**
      * List of the certificate IDs associated with this profile to be used for encryption and signing of AS2 messages.
      */
-    certificateIds?: pulumi.Input<pulumi.Input<string>[]>;
+    certificateIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Enum specifying whether the profile is local or associated with a trading partner.
      */
@@ -119,5 +119,5 @@ export interface ProfileArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

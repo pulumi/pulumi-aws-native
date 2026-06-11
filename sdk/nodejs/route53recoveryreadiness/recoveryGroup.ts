@@ -89,13 +89,13 @@ export interface RecoveryGroupArgs {
     /**
      * A list of the cell Amazon Resource Names (ARNs) in the recovery group.
      */
-    cells?: pulumi.Input<pulumi.Input<string>[]>;
+    cells?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the recovery group to create.
      */
-    recoveryGroupName?: pulumi.Input<string>;
+    recoveryGroupName?: pulumi.Input<string | undefined>;
     /**
      * A collection of tags associated with a resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

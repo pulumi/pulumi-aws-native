@@ -132,27 +132,27 @@ export interface IdNamespaceArgs {
     /**
      * The description of the ID namespace.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
      */
-    idMappingWorkflowProperties?: pulumi.Input<pulumi.Input<inputs.entityresolution.IdNamespaceIdMappingWorkflowPropertiesArgs>[]>;
+    idMappingWorkflowProperties?: pulumi.Input<pulumi.Input<inputs.entityresolution.IdNamespaceIdMappingWorkflowPropertiesArgs>[] | undefined>;
     /**
      * The name of the ID namespace.
      */
-    idNamespaceName?: pulumi.Input<string>;
+    idNamespaceName?: pulumi.Input<string | undefined>;
     /**
      * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
      */
-    inputSourceConfig?: pulumi.Input<pulumi.Input<inputs.entityresolution.IdNamespaceInputSourceArgs>[]>;
+    inputSourceConfig?: pulumi.Input<pulumi.Input<inputs.entityresolution.IdNamespaceInputSourceArgs>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
      *

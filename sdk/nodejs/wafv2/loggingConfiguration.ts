@@ -105,11 +105,11 @@ export interface LoggingConfigurationArgs {
     /**
      * Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
      */
-    loggingFilter?: pulumi.Input<inputs.wafv2.LoggingFilterPropertiesArgs>;
+    loggingFilter?: pulumi.Input<inputs.wafv2.LoggingFilterPropertiesArgs | undefined>;
     /**
      * The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
      */
-    redactedFields?: pulumi.Input<pulumi.Input<inputs.wafv2.LoggingConfigurationFieldToMatchArgs>[]>;
+    redactedFields?: pulumi.Input<pulumi.Input<inputs.wafv2.LoggingConfigurationFieldToMatchArgs>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
      */

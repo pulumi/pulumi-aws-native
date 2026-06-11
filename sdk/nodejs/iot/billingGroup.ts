@@ -95,13 +95,13 @@ export interface BillingGroupArgs {
     /**
      * The name of the billing group.
      */
-    billingGroupName?: pulumi.Input<string>;
+    billingGroupName?: pulumi.Input<string | undefined>;
     /**
      * The properties of the billing group.
      */
-    billingGroupProperties?: pulumi.Input<inputs.iot.BillingGroupPropertiesPropertiesArgs>;
+    billingGroupProperties?: pulumi.Input<inputs.iot.BillingGroupPropertiesPropertiesArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

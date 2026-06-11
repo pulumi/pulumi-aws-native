@@ -101,21 +101,21 @@ export interface ContactChannelArgs {
     /**
      * The details that SSM Incident Manager uses when trying to engage the contact channel.
      */
-    channelAddress?: pulumi.Input<string>;
+    channelAddress?: pulumi.Input<string | undefined>;
     /**
      * The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
      */
-    channelName?: pulumi.Input<string>;
+    channelName?: pulumi.Input<string | undefined>;
     /**
      * Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
      */
-    channelType?: pulumi.Input<enums.ssmcontacts.ContactChannelChannelType>;
+    channelType?: pulumi.Input<enums.ssmcontacts.ContactChannelChannelType | undefined>;
     /**
      * ARN of the contact resource
      */
-    contactId?: pulumi.Input<string>;
+    contactId?: pulumi.Input<string | undefined>;
     /**
      * If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
      */
-    deferActivation?: pulumi.Input<boolean>;
+    deferActivation?: pulumi.Input<boolean | undefined>;
 }

@@ -129,7 +129,7 @@ export interface ApplicationArgs {
     /**
      * The description information for the Identity Center (SSO) Application
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the instance of IAM Identity Center under which the operation will run
      */
@@ -137,17 +137,17 @@ export interface ApplicationArgs {
     /**
      * The name you want to assign to this Identity Center (SSO) Application
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A structure that describes the options for the portal associated with an application
      */
-    portalOptions?: pulumi.Input<inputs.sso.ApplicationPortalOptionsConfigurationArgs>;
+    portalOptions?: pulumi.Input<inputs.sso.ApplicationPortalOptionsConfigurationArgs | undefined>;
     /**
      * Specifies whether the application is enabled or disabled
      */
-    status?: pulumi.Input<enums.sso.ApplicationStatus>;
+    status?: pulumi.Input<enums.sso.ApplicationStatus | undefined>;
     /**
      * Specifies tags to be attached to the application
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

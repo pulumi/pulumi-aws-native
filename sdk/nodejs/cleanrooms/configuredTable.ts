@@ -156,19 +156,19 @@ export interface ConfiguredTableArgs {
     /**
      * The analysis rule that was created for the configured table.
      */
-    analysisRules?: pulumi.Input<pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRuleArgs>[]>;
+    analysisRules?: pulumi.Input<pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRuleArgs>[] | undefined>;
     /**
      * A description for the configured table.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A name for the configured table.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The selected analysis methods for the configured table.
      */
-    selectedAnalysisMethods?: pulumi.Input<pulumi.Input<enums.cleanrooms.ConfiguredTableSelectedAnalysisMethod>[]>;
+    selectedAnalysisMethods?: pulumi.Input<pulumi.Input<enums.cleanrooms.ConfiguredTableSelectedAnalysisMethod>[] | undefined>;
     /**
      * The table that this configured table represents.
      */
@@ -176,5 +176,5 @@ export interface ConfiguredTableArgs {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

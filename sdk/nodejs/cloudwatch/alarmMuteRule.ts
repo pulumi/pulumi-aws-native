@@ -134,19 +134,19 @@ export interface AlarmMuteRuleArgs {
     /**
      * The description of the AlarmMuteRule
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The date, with the same timezone offset as "ScheduleTimezone" after which the alarm mute rule will be expired.
      */
-    expireDate?: pulumi.Input<string>;
+    expireDate?: pulumi.Input<string | undefined>;
     /**
      * Targets to be muted
      */
-    muteTargets?: pulumi.Input<inputs.cloudwatch.MuteTargetsPropertiesArgs>;
+    muteTargets?: pulumi.Input<inputs.cloudwatch.MuteTargetsPropertiesArgs | undefined>;
     /**
      * The name of the AlarmMuteRule
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The rule for the mute
      */
@@ -154,9 +154,9 @@ export interface AlarmMuteRuleArgs {
     /**
      * The date, with the same timezone offset as "ScheduleTimezone", after which the alarm mute rule will become active.
      */
-    startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -180,15 +180,15 @@ export interface AnalysisTemplateArgs {
     /**
      * The member who can query can provide this placeholder for a literal data value in an analysis template
      */
-    analysisParameters?: pulumi.Input<pulumi.Input<inputs.cleanrooms.AnalysisTemplateAnalysisParameterArgs>[]>;
+    analysisParameters?: pulumi.Input<pulumi.Input<inputs.cleanrooms.AnalysisTemplateAnalysisParameterArgs>[] | undefined>;
     /**
      * The description of the analysis template.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED` , error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
      */
-    errorMessageConfiguration?: pulumi.Input<inputs.cleanrooms.AnalysisTemplateErrorMessageConfigurationArgs>;
+    errorMessageConfiguration?: pulumi.Input<inputs.cleanrooms.AnalysisTemplateErrorMessageConfigurationArgs | undefined>;
     /**
      * The format of the analysis template.
      */
@@ -200,11 +200,11 @@ export interface AnalysisTemplateArgs {
     /**
      * The name of the analysis template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The entire schema object.
      */
-    schema?: pulumi.Input<inputs.cleanrooms.AnalysisTemplateAnalysisSchemaArgs>;
+    schema?: pulumi.Input<inputs.cleanrooms.AnalysisTemplateAnalysisSchemaArgs | undefined>;
     /**
      * The source of the analysis template.
      */
@@ -212,13 +212,13 @@ export interface AnalysisTemplateArgs {
     /**
      * The source metadata for the analysis template.
      */
-    sourceMetadata?: pulumi.Input<inputs.cleanrooms.AnalysisTemplateAnalysisSourceMetadataPropertiesArgs>;
+    sourceMetadata?: pulumi.Input<inputs.cleanrooms.AnalysisTemplateAnalysisSourceMetadataPropertiesArgs | undefined>;
     /**
      * The parameters used to generate synthetic data for this analysis template.
      */
-    syntheticDataParameters?: pulumi.Input<inputs.cleanrooms.AnalysisTemplateSyntheticDataParametersPropertiesArgs>;
+    syntheticDataParameters?: pulumi.Input<inputs.cleanrooms.AnalysisTemplateSyntheticDataParametersPropertiesArgs | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

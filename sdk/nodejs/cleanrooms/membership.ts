@@ -156,22 +156,22 @@ export interface MembershipArgs {
     /**
      * The default job result configuration for the membership.
      */
-    defaultJobResultConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipProtectedJobResultConfigurationArgs>;
+    defaultJobResultConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipProtectedJobResultConfigurationArgs | undefined>;
     /**
      * The default protected query result configuration as specified by the member who can receive results.
      */
-    defaultResultConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipProtectedQueryResultConfigurationArgs>;
-    isMetricsEnabled?: pulumi.Input<boolean>;
+    defaultResultConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipProtectedQueryResultConfigurationArgs | undefined>;
+    isMetricsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An indicator as to whether job logging has been enabled or disabled for the collaboration.
      *
      * When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
      */
-    jobLogStatus?: pulumi.Input<enums.cleanrooms.MembershipJobLogStatus>;
+    jobLogStatus?: pulumi.Input<enums.cleanrooms.MembershipJobLogStatus | undefined>;
     /**
      * The payment responsibilities accepted by the collaboration member.
      */
-    paymentConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipPaymentConfigurationArgs>;
+    paymentConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipPaymentConfigurationArgs | undefined>;
     /**
      * An indicator as to whether query logging has been enabled or disabled for the membership.
      *
@@ -181,5 +181,5 @@ export interface MembershipArgs {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

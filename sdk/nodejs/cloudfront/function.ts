@@ -126,7 +126,7 @@ export interface FunctionArgs {
     /**
      * A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
      */
-    autoPublish?: pulumi.Input<boolean>;
+    autoPublish?: pulumi.Input<boolean | undefined>;
     /**
      * The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide*.
      */
@@ -138,13 +138,13 @@ export interface FunctionArgs {
     /**
      * Contains metadata about a CloudFront function.
      */
-    functionMetadata?: pulumi.Input<inputs.cloudfront.FunctionMetadataArgs>;
+    functionMetadata?: pulumi.Input<inputs.cloudfront.FunctionMetadataArgs | undefined>;
     /**
      * A name to identify the function.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A complex type that contains zero or more ``Tag`` elements.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

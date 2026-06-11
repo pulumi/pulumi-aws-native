@@ -151,7 +151,7 @@ export interface EndpointAccessArgs {
     /**
      * The AWS account ID of the owner of the cluster.
      */
-    resourceOwner?: pulumi.Input<string>;
+    resourceOwner?: pulumi.Input<string | undefined>;
     /**
      * The subnet group name where Amazon Redshift chooses to deploy the endpoint.
      */

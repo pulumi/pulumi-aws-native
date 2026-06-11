@@ -185,27 +185,27 @@ export interface LaunchConfigurationArgs {
     /**
      * For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
      */
-    associatePublicIpAddress?: pulumi.Input<boolean>;
+    associatePublicIpAddress?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
      */
-    blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.autoscaling.LaunchConfigurationBlockDeviceMappingArgs>[]>;
+    blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.autoscaling.LaunchConfigurationBlockDeviceMappingArgs>[] | undefined>;
     /**
      * The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
      */
-    classicLinkVpcId?: pulumi.Input<string>;
+    classicLinkVpcId?: pulumi.Input<string | undefined>;
     /**
      * The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
      */
-    classicLinkVpcSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    classicLinkVpcSecurityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
      */
-    ebsOptimized?: pulumi.Input<boolean>;
+    ebsOptimized?: pulumi.Input<boolean | undefined>;
     /**
      * Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
      */
-    iamInstanceProfile?: pulumi.Input<string>;
+    iamInstanceProfile?: pulumi.Input<string | undefined>;
     /**
      * Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration.
      */
@@ -213,11 +213,11 @@ export interface LaunchConfigurationArgs {
     /**
      * The ID of the Amazon EC2 instance you want to use to create the launch configuration.
      */
-    instanceId?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string | undefined>;
     /**
      * Controls whether instances in this group are launched with detailed (true) or basic (false) monitoring.
      */
-    instanceMonitoring?: pulumi.Input<boolean>;
+    instanceMonitoring?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the instance type of the EC2 instance.
      */
@@ -225,37 +225,37 @@ export interface LaunchConfigurationArgs {
     /**
      * Provides the ID of the kernel associated with the EC2 AMI.
      */
-    kernelId?: pulumi.Input<string>;
+    kernelId?: pulumi.Input<string | undefined>;
     /**
      * Provides the name of the EC2 key pair.
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the launch configuration. This name must be unique per Region per account.
      */
-    launchConfigurationName?: pulumi.Input<string>;
+    launchConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The metadata options for the instances.
      */
-    metadataOptions?: pulumi.Input<inputs.autoscaling.LaunchConfigurationMetadataOptionsArgs>;
+    metadataOptions?: pulumi.Input<inputs.autoscaling.LaunchConfigurationMetadataOptionsArgs | undefined>;
     /**
      * The tenancy of the instance, either default or dedicated.
      */
-    placementTenancy?: pulumi.Input<string>;
+    placementTenancy?: pulumi.Input<string | undefined>;
     /**
      * The ID of the RAM disk to select.
      */
-    ramDiskId?: pulumi.Input<string>;
+    ramDiskId?: pulumi.Input<string | undefined>;
     /**
      * A list that contains the security groups to assign to the instances in the Auto Scaling group.
      */
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request.
      */
-    spotPrice?: pulumi.Input<string>;
+    spotPrice?: pulumi.Input<string | undefined>;
     /**
      * The Base64-encoded user data to make available to the launched EC2 instances.
      */
-    userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string | undefined>;
 }

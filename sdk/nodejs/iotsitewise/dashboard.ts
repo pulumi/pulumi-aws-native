@@ -121,13 +121,13 @@ export interface DashboardArgs {
     /**
      * A friendly name for the dashboard.
      */
-    dashboardName?: pulumi.Input<string>;
+    dashboardName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project in which to create the dashboard.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the dashboard.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

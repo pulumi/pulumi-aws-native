@@ -103,11 +103,11 @@ export interface UserPoolResourceServerArgs {
     /**
      * A friendly name for the resource server.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
      */
-    scopes?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolResourceServerResourceServerScopeTypeArgs>[]>;
+    scopes?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolResourceServerResourceServerScopeTypeArgs>[] | undefined>;
     /**
      * The ID of the user pool where you want to create a resource server.
      */

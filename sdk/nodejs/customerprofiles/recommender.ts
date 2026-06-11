@@ -122,13 +122,13 @@ export class Recommender extends pulumi.CustomResource {
  * The set of arguments for constructing a Recommender resource.
  */
 export interface RecommenderArgs {
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     domainName: pulumi.Input<string>;
-    recommenderConfig?: pulumi.Input<inputs.customerprofiles.RecommenderConfigArgs>;
-    recommenderName?: pulumi.Input<string>;
+    recommenderConfig?: pulumi.Input<inputs.customerprofiles.RecommenderConfigArgs | undefined>;
+    recommenderName?: pulumi.Input<string | undefined>;
     recommenderRecipeName: pulumi.Input<string>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

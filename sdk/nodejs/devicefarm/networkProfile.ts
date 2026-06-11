@@ -148,27 +148,27 @@ export interface NetworkProfileArgs {
     /**
      * The description of the network profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The data throughput rate in bits per second, as an integer from 0 to 104857600.
      */
-    downlinkBandwidthBits?: pulumi.Input<number>;
+    downlinkBandwidthBits?: pulumi.Input<number | undefined>;
     /**
      * Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
      */
-    downlinkDelayMs?: pulumi.Input<number>;
+    downlinkDelayMs?: pulumi.Input<number | undefined>;
     /**
      * Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
      */
-    downlinkJitterMs?: pulumi.Input<number>;
+    downlinkJitterMs?: pulumi.Input<number | undefined>;
     /**
      * Proportion of received packets that fail to arrive from 0 to 100 percent.
      */
-    downlinkLossPercent?: pulumi.Input<number>;
+    downlinkLossPercent?: pulumi.Input<number | undefined>;
     /**
      * The name of the network profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the specified project.
      */
@@ -178,21 +178,21 @@ export interface NetworkProfileArgs {
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The data throughput rate in bits per second, as an integer from 0 to 104857600.
      */
-    uplinkBandwidthBits?: pulumi.Input<number>;
+    uplinkBandwidthBits?: pulumi.Input<number | undefined>;
     /**
      * Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
      */
-    uplinkDelayMs?: pulumi.Input<number>;
+    uplinkDelayMs?: pulumi.Input<number | undefined>;
     /**
      * Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
      */
-    uplinkJitterMs?: pulumi.Input<number>;
+    uplinkJitterMs?: pulumi.Input<number | undefined>;
     /**
      * Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
      */
-    uplinkLossPercent?: pulumi.Input<number>;
+    uplinkLossPercent?: pulumi.Input<number | undefined>;
 }

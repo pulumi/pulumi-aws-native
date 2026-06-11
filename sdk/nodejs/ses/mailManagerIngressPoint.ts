@@ -149,15 +149,15 @@ export interface MailManagerIngressPointArgs {
     /**
      * The configuration of the ingress endpoint resource.
      */
-    ingressPointConfiguration?: pulumi.Input<inputs.ses.MailManagerIngressPointIngressPointConfiguration0PropertiesArgs | inputs.ses.MailManagerIngressPointIngressPointConfiguration1PropertiesArgs | inputs.ses.MailManagerIngressPointIngressPointConfiguration2PropertiesArgs>;
+    ingressPointConfiguration?: pulumi.Input<inputs.ses.MailManagerIngressPointIngressPointConfiguration0PropertiesArgs | inputs.ses.MailManagerIngressPointIngressPointConfiguration1PropertiesArgs | inputs.ses.MailManagerIngressPointIngressPointConfiguration2PropertiesArgs | undefined>;
     /**
      * A user friendly name for an ingress endpoint resource.
      */
-    ingressPointName?: pulumi.Input<string>;
+    ingressPointName?: pulumi.Input<string | undefined>;
     /**
      * The network type (IPv4-only, Dual-Stack, PrivateLink) of the ingress endpoint resource.
      */
-    networkConfiguration?: pulumi.Input<inputs.ses.MailManagerIngressPointNetworkConfiguration0PropertiesArgs | inputs.ses.MailManagerIngressPointNetworkConfiguration1PropertiesArgs>;
+    networkConfiguration?: pulumi.Input<inputs.ses.MailManagerIngressPointNetworkConfiguration0PropertiesArgs | inputs.ses.MailManagerIngressPointNetworkConfiguration1PropertiesArgs | undefined>;
     /**
      * The identifier of an existing rule set that you attach to an ingress endpoint resource.
      */
@@ -165,12 +165,12 @@ export interface MailManagerIngressPointArgs {
     /**
      * The update status of an ingress endpoint.
      */
-    statusToUpdate?: pulumi.Input<enums.ses.MailManagerIngressPointIngressPointStatusToUpdate>;
+    statusToUpdate?: pulumi.Input<enums.ses.MailManagerIngressPointIngressPointStatusToUpdate | undefined>;
     /**
      * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    tlsPolicy?: pulumi.Input<enums.ses.MailManagerIngressPointTlsPolicy>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    tlsPolicy?: pulumi.Input<enums.ses.MailManagerIngressPointTlsPolicy | undefined>;
     /**
      * The identifier of an existing traffic policy that you attach to an ingress endpoint resource.
      */

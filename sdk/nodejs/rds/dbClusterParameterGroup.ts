@@ -135,7 +135,7 @@ export interface DbClusterParameterGroupArgs {
      *   
      *   This value is stored as a lowercase string.
      */
-    dbClusterParameterGroupName?: pulumi.Input<string>;
+    dbClusterParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * The description for the DB cluster parameter group.
      */
@@ -171,5 +171,5 @@ export interface DbClusterParameterGroupArgs {
     /**
      * Tags to assign to the DB cluster parameter group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

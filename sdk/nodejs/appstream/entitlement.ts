@@ -124,11 +124,11 @@ export interface EntitlementArgs {
     /**
      * The description of the entitlement.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the entitlement.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the stack.
      */

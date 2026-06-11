@@ -159,25 +159,25 @@ export interface ProjectArgs {
     /**
      * The description of the project.
      */
-    projectDescription?: pulumi.Input<string>;
+    projectDescription?: pulumi.Input<string | undefined>;
     /**
      * The name of the project.
      */
-    projectName?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string | undefined>;
     /**
      * Provisioned ServiceCatalog  Details
      */
-    serviceCatalogProvisionedProductDetails?: pulumi.Input<inputs.sagemaker.ServiceCatalogProvisionedProductDetailsPropertiesArgs>;
+    serviceCatalogProvisionedProductDetails?: pulumi.Input<inputs.sagemaker.ServiceCatalogProvisionedProductDetailsPropertiesArgs | undefined>;
     /**
      * Input ServiceCatalog Provisioning Details
      */
-    serviceCatalogProvisioningDetails?: pulumi.Input<inputs.sagemaker.ServiceCatalogProvisioningDetailsPropertiesArgs>;
+    serviceCatalogProvisioningDetails?: pulumi.Input<inputs.sagemaker.ServiceCatalogProvisioningDetailsPropertiesArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
     /**
      * An array of template providers associated with the project.
      */
-    templateProviderDetails?: pulumi.Input<pulumi.Input<inputs.sagemaker.ProjectTemplateProviderDetailArgs>[]>;
+    templateProviderDetails?: pulumi.Input<pulumi.Input<inputs.sagemaker.ProjectTemplateProviderDetailArgs>[] | undefined>;
 }

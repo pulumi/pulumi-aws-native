@@ -102,7 +102,7 @@ export interface VolumeAssociationArgs {
     /**
      * Mode to use when disassociating the volume
      */
-    disassociateMode?: pulumi.Input<enums.workspacesinstances.VolumeAssociationDisassociateMode>;
+    disassociateMode?: pulumi.Input<enums.workspacesinstances.VolumeAssociationDisassociateMode | undefined>;
     /**
      * ID of the volume to attach to the workspace instance
      */

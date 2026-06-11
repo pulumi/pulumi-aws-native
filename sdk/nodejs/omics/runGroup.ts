@@ -114,25 +114,25 @@ export interface RunGroupArgs {
     /**
      * The group's maximum CPU count setting.
      */
-    maxCpus?: pulumi.Input<number>;
+    maxCpus?: pulumi.Input<number | undefined>;
     /**
      * The group's maximum duration setting in minutes.
      */
-    maxDuration?: pulumi.Input<number>;
+    maxDuration?: pulumi.Input<number | undefined>;
     /**
      * The maximum GPUs that can be used by a run group.
      */
-    maxGpus?: pulumi.Input<number>;
+    maxGpus?: pulumi.Input<number | undefined>;
     /**
      * The group's maximum concurrent run setting.
      */
-    maxRuns?: pulumi.Input<number>;
+    maxRuns?: pulumi.Input<number | undefined>;
     /**
      * The group's name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Tags for the group.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

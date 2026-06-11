@@ -123,19 +123,19 @@ export interface GrantArgs {
     /**
      * Allowed operations for the grant.
      */
-    allowedOperations?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedOperations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name for the created Grant.
      */
-    grantName?: pulumi.Input<string>;
+    grantName?: pulumi.Input<string | undefined>;
     /**
      * Home region for the created grant.
      */
-    homeRegion?: pulumi.Input<string>;
+    homeRegion?: pulumi.Input<string | undefined>;
     /**
      * License Arn for the grant.
      */
-    licenseArn?: pulumi.Input<string>;
+    licenseArn?: pulumi.Input<string | undefined>;
     /**
      * The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):
      *
@@ -145,13 +145,13 @@ export interface GrantArgs {
      *
      * - An organization, which will include all accounts across your organization.
      */
-    principals?: pulumi.Input<pulumi.Input<string>[]>;
+    principals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Granted license status.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to attach.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

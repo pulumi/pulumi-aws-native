@@ -163,7 +163,7 @@ export interface HoursOfOperationArgs {
     /**
      * List of child hours of operations.
      */
-    childHoursOfOperations?: pulumi.Input<pulumi.Input<inputs.connect.HoursOfOperationsIdentifierArgs>[]>;
+    childHoursOfOperations?: pulumi.Input<pulumi.Input<inputs.connect.HoursOfOperationsIdentifierArgs>[] | undefined>;
     /**
      * Configuration information for the hours of operation: day, start time, and end time.
      */
@@ -171,11 +171,11 @@ export interface HoursOfOperationArgs {
     /**
      * The description of the hours of operation.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * One or more hours of operation overrides assigned to an hour of operation.
      */
-    hoursOfOperationOverrides?: pulumi.Input<pulumi.Input<inputs.connect.HoursOfOperationOverrideArgs>[]>;
+    hoursOfOperationOverrides?: pulumi.Input<pulumi.Input<inputs.connect.HoursOfOperationOverrideArgs>[] | undefined>;
     /**
      * The identifier of the Amazon Connect instance.
      */
@@ -183,15 +183,15 @@ export interface HoursOfOperationArgs {
     /**
      * The name of the hours of operation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of parent hours of operations.
      */
-    parentHoursOfOperations?: pulumi.Input<pulumi.Input<inputs.connect.HoursOfOperationsIdentifierArgs>[]>;
+    parentHoursOfOperations?: pulumi.Input<pulumi.Input<inputs.connect.HoursOfOperationsIdentifierArgs>[] | undefined>;
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The time zone of the hours of operation.
      */

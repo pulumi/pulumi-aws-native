@@ -140,20 +140,20 @@ export interface PolicyStoreArgs {
      *
      * The default state is `DISABLED` .
      */
-    deletionProtection?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreDeletionProtectionArgs>;
+    deletionProtection?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreDeletionProtectionArgs | undefined>;
     /**
      * Descriptive text that you can provide to help with identification of the current policy store.
      */
-    description?: pulumi.Input<string>;
-    encryptionSettings?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreEncryptionSettingsArgs>;
+    description?: pulumi.Input<string | undefined>;
+    encryptionSettings?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreEncryptionSettingsArgs | undefined>;
     /**
      * Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
      */
-    schema?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreSchemaDefinitionArgs>;
+    schema?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreSchemaDefinitionArgs | undefined>;
     /**
      * The tags to add to the policy store
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Specifies the validation setting for this policy store.
      *

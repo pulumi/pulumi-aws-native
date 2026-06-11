@@ -128,7 +128,7 @@ export interface PublicVirtualInterfaceArgs {
     /**
      * The Amazon Resource Name (ARN) of the role to allocate the public virtual interface. Needs directconnect:AllocatePublicVirtualInterface permissions and tag permissions if applicable.
      */
-    allocatePublicVirtualInterfaceRoleArn?: pulumi.Input<string>;
+    allocatePublicVirtualInterfaceRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The BGP peers configured on this virtual interface.
      */
@@ -140,15 +140,15 @@ export interface PublicVirtualInterfaceArgs {
     /**
      * The routes to be advertised to the AWS network in this region.
      */
-    routeFilterPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    routeFilterPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The tags associated with the public virtual interface.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
      */
-    virtualInterfaceName?: pulumi.Input<string>;
+    virtualInterfaceName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VLAN.
      */

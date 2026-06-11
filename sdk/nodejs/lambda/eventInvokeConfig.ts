@@ -117,7 +117,7 @@ export interface EventInvokeConfigArgs {
      *
      * > S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.
      */
-    destinationConfig?: pulumi.Input<inputs.lambda.EventInvokeConfigDestinationConfigArgs>;
+    destinationConfig?: pulumi.Input<inputs.lambda.EventInvokeConfigDestinationConfigArgs | undefined>;
     /**
      * The name of the Lambda function.
      */
@@ -125,11 +125,11 @@ export interface EventInvokeConfigArgs {
     /**
      * The maximum age of a request that Lambda sends to a function for processing.
      */
-    maximumEventAgeInSeconds?: pulumi.Input<number>;
+    maximumEventAgeInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of times to retry when the function returns an error.
      */
-    maximumRetryAttempts?: pulumi.Input<number>;
+    maximumRetryAttempts?: pulumi.Input<number | undefined>;
     /**
      * The identifier of a version or alias.
      */

@@ -170,7 +170,7 @@ export interface OrganizationalUnitArgs {
     /**
      * The friendly name of this OU.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier (ID) of the parent root or OU that you want to create the new OU in.
      */
@@ -178,5 +178,5 @@ export interface OrganizationalUnitArgs {
     /**
      * A list of tags that you want to attach to the newly created OU.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

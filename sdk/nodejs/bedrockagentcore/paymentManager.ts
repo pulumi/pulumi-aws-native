@@ -128,16 +128,16 @@ export class PaymentManager extends pulumi.CustomResource {
  * The set of arguments for constructing a PaymentManager resource.
  */
 export interface PaymentManagerArgs {
-    authorizerConfiguration?: pulumi.Input<inputs.bedrockagentcore.PaymentManagerAuthorizerConfigurationArgs>;
+    authorizerConfiguration?: pulumi.Input<inputs.bedrockagentcore.PaymentManagerAuthorizerConfigurationArgs | undefined>;
     authorizerType: pulumi.Input<enums.bedrockagentcore.PaymentManagerPaymentsAuthorizerType>;
     /**
      * A description of the payment manager
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the payment manager
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the IAM role for the payment manager
      */
@@ -145,5 +145,5 @@ export interface PaymentManagerArgs {
     /**
      * Tags to assign to the payment manager
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

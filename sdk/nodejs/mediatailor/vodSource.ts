@@ -109,9 +109,9 @@ export interface VodSourceArgs {
     /**
      * The tags to assign to the VOD source.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the VOD source.
      */
-    vodSourceName?: pulumi.Input<string>;
+    vodSourceName?: pulumi.Input<string | undefined>;
 }

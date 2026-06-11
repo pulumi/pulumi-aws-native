@@ -93,9 +93,9 @@ export interface DeploymentArgs {
     /**
      * The description for the deployment resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of an existing stage to associate with the deployment.
      */
-    stageName?: pulumi.Input<string>;
+    stageName?: pulumi.Input<string | undefined>;
 }

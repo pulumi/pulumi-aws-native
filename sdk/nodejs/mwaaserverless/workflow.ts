@@ -114,12 +114,12 @@ export class Workflow extends pulumi.CustomResource {
  */
 export interface WorkflowArgs {
     definitionS3Location: pulumi.Input<inputs.mwaaserverless.WorkflowS3LocationArgs>;
-    description?: pulumi.Input<string>;
-    encryptionConfiguration?: pulumi.Input<inputs.mwaaserverless.WorkflowEncryptionConfigurationArgs>;
-    loggingConfiguration?: pulumi.Input<inputs.mwaaserverless.WorkflowLoggingConfigurationArgs>;
-    name?: pulumi.Input<string>;
-    networkConfiguration?: pulumi.Input<inputs.mwaaserverless.WorkflowNetworkConfigurationArgs>;
+    description?: pulumi.Input<string | undefined>;
+    encryptionConfiguration?: pulumi.Input<inputs.mwaaserverless.WorkflowEncryptionConfigurationArgs | undefined>;
+    loggingConfiguration?: pulumi.Input<inputs.mwaaserverless.WorkflowLoggingConfigurationArgs | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    networkConfiguration?: pulumi.Input<inputs.mwaaserverless.WorkflowNetworkConfigurationArgs | undefined>;
     roleArn: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    triggerMode?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    triggerMode?: pulumi.Input<string | undefined>;
 }

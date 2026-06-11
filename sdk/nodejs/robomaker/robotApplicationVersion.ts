@@ -93,5 +93,5 @@ export interface RobotApplicationVersionArgs {
     /**
      * The revision ID of robot application.
      */
-    currentRevisionId?: pulumi.Input<string>;
+    currentRevisionId?: pulumi.Input<string | undefined>;
 }

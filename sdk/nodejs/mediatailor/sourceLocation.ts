@@ -110,11 +110,11 @@ export interface SourceLocationArgs {
     /**
      * The access configuration for the source location.
      */
-    accessConfiguration?: pulumi.Input<inputs.mediatailor.SourceLocationAccessConfigurationArgs>;
+    accessConfiguration?: pulumi.Input<inputs.mediatailor.SourceLocationAccessConfigurationArgs | undefined>;
     /**
      * The default segment delivery configuration.
      */
-    defaultSegmentDeliveryConfiguration?: pulumi.Input<inputs.mediatailor.SourceLocationDefaultSegmentDeliveryConfigurationArgs>;
+    defaultSegmentDeliveryConfiguration?: pulumi.Input<inputs.mediatailor.SourceLocationDefaultSegmentDeliveryConfigurationArgs | undefined>;
     /**
      * The HTTP configuration for the source location.
      */
@@ -122,13 +122,13 @@ export interface SourceLocationArgs {
     /**
      * <p>A list of the segment delivery configurations associated with this resource.</p>
      */
-    segmentDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.mediatailor.SourceLocationSegmentDeliveryConfigurationArgs>[]>;
+    segmentDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.mediatailor.SourceLocationSegmentDeliveryConfigurationArgs>[] | undefined>;
     /**
      * The name of the source location.
      */
-    sourceLocationName?: pulumi.Input<string>;
+    sourceLocationName?: pulumi.Input<string | undefined>;
     /**
      * The tags to assign to the source location.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

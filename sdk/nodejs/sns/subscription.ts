@@ -150,21 +150,21 @@ export interface SubscriptionArgs {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
      */
-    deliveryPolicy?: any;
+    deliveryPolicy?: any | undefined;
     /**
      * The subscription's endpoint. The endpoint value depends on the protocol that you specify. 
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * The filter policy JSON assigned to the subscription. Enables the subscriber to filter out unwanted messages.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
      */
-    filterPolicy?: any;
+    filterPolicy?: any | undefined;
     /**
      * This attribute lets you choose the filtering scope by using one of the following string value types: MessageAttributes (default) and MessageBody.
      */
-    filterPolicyScope?: pulumi.Input<string>;
+    filterPolicyScope?: pulumi.Input<string | undefined>;
     /**
      * The subscription's protocol.
      */
@@ -172,27 +172,27 @@ export interface SubscriptionArgs {
     /**
      * When set to true, enables raw message delivery. Raw messages don't contain any JSON formatting and can be sent to Amazon SQS and HTTP/S endpoints.
      */
-    rawMessageDelivery?: pulumi.Input<boolean>;
+    rawMessageDelivery?: pulumi.Input<boolean | undefined>;
     /**
      * When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors are held in the dead-letter queue for further analysis or reprocessing.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
      */
-    redrivePolicy?: any;
+    redrivePolicy?: any | undefined;
     /**
      * For cross-region subscriptions, the region in which the topic resides.If no region is specified, AWS CloudFormation uses the region of the caller as the default.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether Amazon SNS resends the notification to the subscription when a message's attribute changes.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
      */
-    replayPolicy?: any;
+    replayPolicy?: any | undefined;
     /**
      * This property applies only to Amazon Data Firehose delivery stream subscriptions.
      */
-    subscriptionRoleArn?: pulumi.Input<string>;
+    subscriptionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the topic to subscribe to.
      */

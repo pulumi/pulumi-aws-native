@@ -149,23 +149,23 @@ export interface VerifiedAccessTrustProviderArgs {
     /**
      * A description for the Amazon Web Services Verified Access trust provider.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The options for device-identity trust provider.
      */
-    deviceOptions?: pulumi.Input<inputs.ec2.VerifiedAccessTrustProviderDeviceOptionsArgs>;
+    deviceOptions?: pulumi.Input<inputs.ec2.VerifiedAccessTrustProviderDeviceOptionsArgs | undefined>;
     /**
      * The type of device-based trust provider. Possible values: jamf|crowdstrike
      */
-    deviceTrustProviderType?: pulumi.Input<string>;
+    deviceTrustProviderType?: pulumi.Input<string | undefined>;
     /**
      * The OpenID Connect (OIDC) options.
      */
-    nativeApplicationOidcOptions?: pulumi.Input<inputs.ec2.VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs>;
+    nativeApplicationOidcOptions?: pulumi.Input<inputs.ec2.VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs | undefined>;
     /**
      * The options for an OpenID Connect-compatible user-identity trust provider.
      */
-    oidcOptions?: pulumi.Input<inputs.ec2.VerifiedAccessTrustProviderOidcOptionsArgs>;
+    oidcOptions?: pulumi.Input<inputs.ec2.VerifiedAccessTrustProviderOidcOptionsArgs | undefined>;
     /**
      * The identifier to be used when working with policy rules.
      */
@@ -173,11 +173,11 @@ export interface VerifiedAccessTrustProviderArgs {
     /**
      * The configuration options for customer provided KMS encryption.
      */
-    sseSpecification?: pulumi.Input<inputs.ec2.SseSpecificationPropertiesArgs>;
+    sseSpecification?: pulumi.Input<inputs.ec2.SseSpecificationPropertiesArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Type of trust provider. Possible values: user|device
      */
@@ -185,5 +185,5 @@ export interface VerifiedAccessTrustProviderArgs {
     /**
      * The type of device-based trust provider. Possible values: oidc|iam-identity-center
      */
-    userTrustProviderType?: pulumi.Input<string>;
+    userTrustProviderType?: pulumi.Input<string | undefined>;
 }

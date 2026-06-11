@@ -201,15 +201,15 @@ export interface SubscriptionTargetArgs {
     /**
      * The manage access role that is used to create the subscription target.
      */
-    manageAccessRole?: pulumi.Input<string>;
+    manageAccessRole?: pulumi.Input<string | undefined>;
     /**
      * The name of the subscription target.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The provider of the subscription target.
      */
-    provider?: pulumi.Input<string>;
+    provider?: pulumi.Input<string | undefined>;
     /**
      * The configuration of the subscription target.
      */
