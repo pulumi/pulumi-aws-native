@@ -22,23 +22,23 @@ __all__ = ['AssociationArgs', 'Association']
 @pulumi.input_type
 class AssociationArgs:
     def __init__(__self__, *,
-                 apply_only_at_cron_interval: Optional[pulumi.Input[_builtins.bool]] = None,
-                 association_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 automation_target_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 calendar_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 compliance_severity: Optional[pulumi.Input['AssociationComplianceSeverity']] = None,
-                 document_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_concurrency: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_errors: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_location: Optional[pulumi.Input['AssociationInstanceAssociationOutputLocationArgs']] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 schedule_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_offset: Optional[pulumi.Input[_builtins.int]] = None,
-                 sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None,
-                 wait_for_success_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 apply_only_at_cron_interval: pulumi.Input[Optional[_builtins.bool]] = None,
+                 association_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 automation_target_parameter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 calendar_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 compliance_severity: pulumi.Input[Optional['AssociationComplianceSeverity']] = None,
+                 document_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_concurrency: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_errors: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_location: pulumi.Input[Optional['AssociationInstanceAssociationOutputLocationArgs']] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_offset: pulumi.Input[Optional[_builtins.int]] = None,
+                 sync_compliance: pulumi.Input[Optional['AssociationSyncCompliance']] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None,
+                 wait_for_success_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Association resource.
 
@@ -107,91 +107,91 @@ class AssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyOnlyAtCronInterval")
-    def apply_only_at_cron_interval(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_only_at_cron_interval(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
         """
         return pulumi.get(self, "apply_only_at_cron_interval")
 
     @apply_only_at_cron_interval.setter
-    def apply_only_at_cron_interval(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_only_at_cron_interval(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_only_at_cron_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="associationName")
-    def association_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def association_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the association.
         """
         return pulumi.get(self, "association_name")
 
     @association_name.setter
-    def association_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def association_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "association_name", value)
 
     @_builtins.property
     @pulumi.getter(name="automationTargetParameterName")
-    def automation_target_parameter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def automation_target_parameter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
         """
         return pulumi.get(self, "automation_target_parameter_name")
 
     @automation_target_parameter_name.setter
-    def automation_target_parameter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def automation_target_parameter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "automation_target_parameter_name", value)
 
     @_builtins.property
     @pulumi.getter(name="calendarNames")
-    def calendar_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def calendar_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
         """
         return pulumi.get(self, "calendar_names")
 
     @calendar_names.setter
-    def calendar_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def calendar_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "calendar_names", value)
 
     @_builtins.property
     @pulumi.getter(name="complianceSeverity")
-    def compliance_severity(self) -> Optional[pulumi.Input['AssociationComplianceSeverity']]:
+    def compliance_severity(self) -> pulumi.Input[Optional['AssociationComplianceSeverity']]:
         """
         The severity level that is assigned to the association.
         """
         return pulumi.get(self, "compliance_severity")
 
     @compliance_severity.setter
-    def compliance_severity(self, value: Optional[pulumi.Input['AssociationComplianceSeverity']]):
+    def compliance_severity(self, value: pulumi.Input[Optional['AssociationComplianceSeverity']]):
         pulumi.set(self, "compliance_severity", value)
 
     @_builtins.property
     @pulumi.getter(name="documentVersion")
-    def document_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the SSM document to associate with the target.
         """
         return pulumi.get(self, "document_version")
 
     @document_version.setter
-    def document_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_version", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the instance that the SSM document is associated with.
         """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
-    def instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrency")
-    def max_concurrency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_concurrency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
 
@@ -200,12 +200,12 @@ class AssociationArgs:
         return pulumi.get(self, "max_concurrency")
 
     @max_concurrency.setter
-    def max_concurrency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_concurrency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_concurrency", value)
 
     @_builtins.property
     @pulumi.getter(name="maxErrors")
-    def max_errors(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_errors(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 managed nodes and set `MaxError` to 10%, then the system stops sending the request when the sixth error is received.
 
@@ -214,72 +214,72 @@ class AssociationArgs:
         return pulumi.get(self, "max_errors")
 
     @max_errors.setter
-    def max_errors(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_errors(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_errors", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SSM document.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputLocation")
-    def output_location(self) -> Optional[pulumi.Input['AssociationInstanceAssociationOutputLocationArgs']]:
+    def output_location(self) -> pulumi.Input[Optional['AssociationInstanceAssociationOutputLocationArgs']]:
         """
         An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
         """
         return pulumi.get(self, "output_location")
 
     @output_location.setter
-    def output_location(self, value: Optional[pulumi.Input['AssociationInstanceAssociationOutputLocationArgs']]):
+    def output_location(self, value: pulumi.Input[Optional['AssociationInstanceAssociationOutputLocationArgs']]):
         pulumi.set(self, "output_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
         """
         Parameter values that the SSM document uses at runtime.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
-    def schedule_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schedule_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A Cron or Rate expression that specifies when the association is applied to the target.
         """
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter
-    def schedule_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schedule_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schedule_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleOffset")
-    def schedule_offset(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def schedule_offset(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of days to wait after the scheduled day to run an association.
         """
         return pulumi.get(self, "schedule_offset")
 
     @schedule_offset.setter
-    def schedule_offset(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def schedule_offset(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "schedule_offset", value)
 
     @_builtins.property
     @pulumi.getter(name="syncCompliance")
-    def sync_compliance(self) -> Optional[pulumi.Input['AssociationSyncCompliance']]:
+    def sync_compliance(self) -> pulumi.Input[Optional['AssociationSyncCompliance']]:
         """
         The mode for generating association compliance. You can specify `AUTO` or `MANUAL` . In `AUTO` mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is `COMPLIANT` . If the association execution doesn't run successfully, the association is `NON-COMPLIANT` .
 
@@ -290,24 +290,24 @@ class AssociationArgs:
         return pulumi.get(self, "sync_compliance")
 
     @sync_compliance.setter
-    def sync_compliance(self, value: Optional[pulumi.Input['AssociationSyncCompliance']]):
+    def sync_compliance(self, value: pulumi.Input[Optional['AssociationSyncCompliance']]):
         pulumi.set(self, "sync_compliance", value)
 
     @_builtins.property
     @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]]:
+    def targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssociationTargetArgs']]]]:
         """
         The targets that the SSM document sends commands to.
         """
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]]):
+    def targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationTargetArgs']]]]):
         pulumi.set(self, "targets", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForSuccessTimeoutSeconds")
-    def wait_for_success_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def wait_for_success_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution. If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
 
@@ -316,7 +316,7 @@ class AssociationArgs:
         return pulumi.get(self, "wait_for_success_timeout_seconds")
 
     @wait_for_success_timeout_seconds.setter
-    def wait_for_success_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def wait_for_success_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "wait_for_success_timeout_seconds", value)
 
 
@@ -326,23 +326,23 @@ class Association(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_only_at_cron_interval: Optional[pulumi.Input[_builtins.bool]] = None,
-                 association_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 automation_target_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 calendar_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 compliance_severity: Optional[pulumi.Input['AssociationComplianceSeverity']] = None,
-                 document_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_concurrency: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_errors: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_location: Optional[pulumi.Input[Union['AssociationInstanceAssociationOutputLocationArgs', 'AssociationInstanceAssociationOutputLocationArgsDict']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 schedule_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_offset: Optional[pulumi.Input[_builtins.int]] = None,
-                 sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict']]]]] = None,
-                 wait_for_success_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 apply_only_at_cron_interval: pulumi.Input[Optional[_builtins.bool]] = None,
+                 association_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 automation_target_parameter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 calendar_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 compliance_severity: pulumi.Input[Optional['AssociationComplianceSeverity']] = None,
+                 document_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_concurrency: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_errors: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_location: pulumi.Input[Optional[Union['AssociationInstanceAssociationOutputLocationArgs', 'AssociationInstanceAssociationOutputLocationArgsDict']]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_offset: pulumi.Input[Optional[_builtins.int]] = None,
+                 sync_compliance: pulumi.Input[Optional['AssociationSyncCompliance']] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict']]]]] = None,
+                 wait_for_success_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
@@ -607,23 +607,23 @@ class Association(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_only_at_cron_interval: Optional[pulumi.Input[_builtins.bool]] = None,
-                 association_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 automation_target_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 calendar_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 compliance_severity: Optional[pulumi.Input['AssociationComplianceSeverity']] = None,
-                 document_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_concurrency: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_errors: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_location: Optional[pulumi.Input[Union['AssociationInstanceAssociationOutputLocationArgs', 'AssociationInstanceAssociationOutputLocationArgsDict']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 schedule_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_offset: Optional[pulumi.Input[_builtins.int]] = None,
-                 sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict']]]]] = None,
-                 wait_for_success_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 apply_only_at_cron_interval: pulumi.Input[Optional[_builtins.bool]] = None,
+                 association_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 automation_target_parameter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 calendar_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 compliance_severity: pulumi.Input[Optional['AssociationComplianceSeverity']] = None,
+                 document_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_concurrency: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_errors: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_location: pulumi.Input[Optional[Union['AssociationInstanceAssociationOutputLocationArgs', 'AssociationInstanceAssociationOutputLocationArgsDict']]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_offset: pulumi.Input[Optional[_builtins.int]] = None,
+                 sync_compliance: pulumi.Input[Optional['AssociationSyncCompliance']] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict']]]]] = None,
+                 wait_for_success_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

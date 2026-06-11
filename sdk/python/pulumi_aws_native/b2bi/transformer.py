@@ -25,16 +25,16 @@ __all__ = ['TransformerArgs', 'Transformer']
 class TransformerArgs:
     def __init__(__self__, *,
                  status: pulumi.Input['TransformerStatus'],
-                 edi_type: Optional[pulumi.Input['TransformerEdiTypePropertiesArgs']] = None,
-                 file_format: Optional[pulumi.Input['TransformerFileFormat']] = None,
-                 input_conversion: Optional[pulumi.Input['TransformerInputConversionArgs']] = None,
-                 mapping: Optional[pulumi.Input['TransformerMappingArgs']] = None,
-                 mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_conversion: Optional[pulumi.Input['TransformerOutputConversionArgs']] = None,
-                 sample_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_documents: Optional[pulumi.Input['TransformerSampleDocumentsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 edi_type: pulumi.Input[Optional['TransformerEdiTypePropertiesArgs']] = None,
+                 file_format: pulumi.Input[Optional['TransformerFileFormat']] = None,
+                 input_conversion: pulumi.Input[Optional['TransformerInputConversionArgs']] = None,
+                 mapping: pulumi.Input[Optional['TransformerMappingArgs']] = None,
+                 mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_conversion: pulumi.Input[Optional['TransformerOutputConversionArgs']] = None,
+                 sample_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_documents: pulumi.Input[Optional['TransformerSampleDocumentsArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Transformer resource.
 
@@ -84,116 +84,116 @@ class TransformerArgs:
 
     @_builtins.property
     @pulumi.getter(name="ediType")
-    def edi_type(self) -> Optional[pulumi.Input['TransformerEdiTypePropertiesArgs']]:
+    def edi_type(self) -> pulumi.Input[Optional['TransformerEdiTypePropertiesArgs']]:
         return pulumi.get(self, "edi_type")
 
     @edi_type.setter
-    def edi_type(self, value: Optional[pulumi.Input['TransformerEdiTypePropertiesArgs']]):
+    def edi_type(self, value: pulumi.Input[Optional['TransformerEdiTypePropertiesArgs']]):
         pulumi.set(self, "edi_type", value)
 
     @_builtins.property
     @pulumi.getter(name="fileFormat")
-    def file_format(self) -> Optional[pulumi.Input['TransformerFileFormat']]:
+    def file_format(self) -> pulumi.Input[Optional['TransformerFileFormat']]:
         return pulumi.get(self, "file_format")
 
     @file_format.setter
-    def file_format(self, value: Optional[pulumi.Input['TransformerFileFormat']]):
+    def file_format(self, value: pulumi.Input[Optional['TransformerFileFormat']]):
         pulumi.set(self, "file_format", value)
 
     @_builtins.property
     @pulumi.getter(name="inputConversion")
-    def input_conversion(self) -> Optional[pulumi.Input['TransformerInputConversionArgs']]:
+    def input_conversion(self) -> pulumi.Input[Optional['TransformerInputConversionArgs']]:
         """
         Returns a structure that contains the format options for the transformation.
         """
         return pulumi.get(self, "input_conversion")
 
     @input_conversion.setter
-    def input_conversion(self, value: Optional[pulumi.Input['TransformerInputConversionArgs']]):
+    def input_conversion(self, value: pulumi.Input[Optional['TransformerInputConversionArgs']]):
         pulumi.set(self, "input_conversion", value)
 
     @_builtins.property
     @pulumi.getter
-    def mapping(self) -> Optional[pulumi.Input['TransformerMappingArgs']]:
+    def mapping(self) -> pulumi.Input[Optional['TransformerMappingArgs']]:
         """
         Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
         """
         return pulumi.get(self, "mapping")
 
     @mapping.setter
-    def mapping(self, value: Optional[pulumi.Input['TransformerMappingArgs']]):
+    def mapping(self, value: pulumi.Input[Optional['TransformerMappingArgs']]):
         pulumi.set(self, "mapping", value)
 
     @_builtins.property
     @pulumi.getter(name="mappingTemplate")
-    def mapping_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mapping_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
         """
         return pulumi.get(self, "mapping_template")
 
     @mapping_template.setter
-    def mapping_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mapping_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mapping_template", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Returns the descriptive name for the transformer.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputConversion")
-    def output_conversion(self) -> Optional[pulumi.Input['TransformerOutputConversionArgs']]:
+    def output_conversion(self) -> pulumi.Input[Optional['TransformerOutputConversionArgs']]:
         """
         Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
         """
         return pulumi.get(self, "output_conversion")
 
     @output_conversion.setter
-    def output_conversion(self, value: Optional[pulumi.Input['TransformerOutputConversionArgs']]):
+    def output_conversion(self, value: pulumi.Input[Optional['TransformerOutputConversionArgs']]):
         pulumi.set(self, "output_conversion", value)
 
     @_builtins.property
     @pulumi.getter(name="sampleDocument")
-    def sample_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sample_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
         """
         return pulumi.get(self, "sample_document")
 
     @sample_document.setter
-    def sample_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sample_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sample_document", value)
 
     @_builtins.property
     @pulumi.getter(name="sampleDocuments")
-    def sample_documents(self) -> Optional[pulumi.Input['TransformerSampleDocumentsArgs']]:
+    def sample_documents(self) -> pulumi.Input[Optional['TransformerSampleDocumentsArgs']]:
         """
         Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
         """
         return pulumi.get(self, "sample_documents")
 
     @sample_documents.setter
-    def sample_documents(self, value: Optional[pulumi.Input['TransformerSampleDocumentsArgs']]):
+    def sample_documents(self, value: pulumi.Input[Optional['TransformerSampleDocumentsArgs']]):
         pulumi.set(self, "sample_documents", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -203,17 +203,17 @@ class Transformer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 edi_type: Optional[pulumi.Input[Union['TransformerEdiTypePropertiesArgs', 'TransformerEdiTypePropertiesArgsDict']]] = None,
-                 file_format: Optional[pulumi.Input['TransformerFileFormat']] = None,
-                 input_conversion: Optional[pulumi.Input[Union['TransformerInputConversionArgs', 'TransformerInputConversionArgsDict']]] = None,
-                 mapping: Optional[pulumi.Input[Union['TransformerMappingArgs', 'TransformerMappingArgsDict']]] = None,
-                 mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_conversion: Optional[pulumi.Input[Union['TransformerOutputConversionArgs', 'TransformerOutputConversionArgsDict']]] = None,
-                 sample_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_documents: Optional[pulumi.Input[Union['TransformerSampleDocumentsArgs', 'TransformerSampleDocumentsArgsDict']]] = None,
-                 status: Optional[pulumi.Input['TransformerStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 edi_type: pulumi.Input[Optional[Union['TransformerEdiTypePropertiesArgs', 'TransformerEdiTypePropertiesArgsDict']]] = None,
+                 file_format: pulumi.Input[Optional['TransformerFileFormat']] = None,
+                 input_conversion: pulumi.Input[Optional[Union['TransformerInputConversionArgs', 'TransformerInputConversionArgsDict']]] = None,
+                 mapping: pulumi.Input[Optional[Union['TransformerMappingArgs', 'TransformerMappingArgsDict']]] = None,
+                 mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_conversion: pulumi.Input[Optional[Union['TransformerOutputConversionArgs', 'TransformerOutputConversionArgsDict']]] = None,
+                 sample_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_documents: pulumi.Input[Optional[Union['TransformerSampleDocumentsArgs', 'TransformerSampleDocumentsArgsDict']]] = None,
+                 status: pulumi.Input[Optional['TransformerStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::B2BI::Transformer Resource Type
@@ -256,17 +256,17 @@ class Transformer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 edi_type: Optional[pulumi.Input[Union['TransformerEdiTypePropertiesArgs', 'TransformerEdiTypePropertiesArgsDict']]] = None,
-                 file_format: Optional[pulumi.Input['TransformerFileFormat']] = None,
-                 input_conversion: Optional[pulumi.Input[Union['TransformerInputConversionArgs', 'TransformerInputConversionArgsDict']]] = None,
-                 mapping: Optional[pulumi.Input[Union['TransformerMappingArgs', 'TransformerMappingArgsDict']]] = None,
-                 mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_conversion: Optional[pulumi.Input[Union['TransformerOutputConversionArgs', 'TransformerOutputConversionArgsDict']]] = None,
-                 sample_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_documents: Optional[pulumi.Input[Union['TransformerSampleDocumentsArgs', 'TransformerSampleDocumentsArgsDict']]] = None,
-                 status: Optional[pulumi.Input['TransformerStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 edi_type: pulumi.Input[Optional[Union['TransformerEdiTypePropertiesArgs', 'TransformerEdiTypePropertiesArgsDict']]] = None,
+                 file_format: pulumi.Input[Optional['TransformerFileFormat']] = None,
+                 input_conversion: pulumi.Input[Optional[Union['TransformerInputConversionArgs', 'TransformerInputConversionArgsDict']]] = None,
+                 mapping: pulumi.Input[Optional[Union['TransformerMappingArgs', 'TransformerMappingArgsDict']]] = None,
+                 mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_conversion: pulumi.Input[Optional[Union['TransformerOutputConversionArgs', 'TransformerOutputConversionArgsDict']]] = None,
+                 sample_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_documents: pulumi.Input[Optional[Union['TransformerSampleDocumentsArgs', 'TransformerSampleDocumentsArgsDict']]] = None,
+                 status: pulumi.Input[Optional['TransformerStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

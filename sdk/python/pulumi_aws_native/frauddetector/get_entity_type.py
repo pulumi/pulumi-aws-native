@@ -114,7 +114,7 @@ def get_entity_type(arn: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_entity_type_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_entity_type_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntityTypeResult]:
     """
     An entity type for fraud detector.

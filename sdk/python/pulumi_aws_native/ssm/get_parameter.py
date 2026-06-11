@@ -108,7 +108,7 @@ def get_parameter(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-def get_parameter_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_parameter_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParameterResult]:
     """
     The ``AWS::SSM::Parameter`` resource creates an SSM parameter in SYSlong Parameter Store.

@@ -61,8 +61,8 @@ class NotificationChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 sns_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 sns_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
@@ -98,8 +98,8 @@ class NotificationChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 sns_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 sns_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

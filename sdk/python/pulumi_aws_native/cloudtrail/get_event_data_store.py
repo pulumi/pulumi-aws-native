@@ -311,7 +311,7 @@ def get_event_data_store(event_data_store_arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         termination_protection_enabled=pulumi.get(__ret__, 'termination_protection_enabled'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
-def get_event_data_store_output(event_data_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_data_store_output(event_data_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventDataStoreResult]:
     """
     A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.

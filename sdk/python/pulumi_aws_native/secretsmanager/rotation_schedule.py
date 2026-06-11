@@ -22,12 +22,12 @@ __all__ = ['RotationScheduleArgs', 'RotationSchedule']
 class RotationScheduleArgs:
     def __init__(__self__, *,
                  secret_id: pulumi.Input[_builtins.str],
-                 external_secret_rotation_metadata: Optional[pulumi.Input[Sequence[pulumi.Input['RotationScheduleExternalSecretRotationMetadataItemArgs']]]] = None,
-                 external_secret_rotation_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosted_rotation_lambda: Optional[pulumi.Input['RotationScheduleHostedRotationLambdaArgs']] = None,
-                 rotate_immediately_on_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rotation_lambda_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_rules: Optional[pulumi.Input['RotationScheduleRotationRulesArgs']] = None):
+                 external_secret_rotation_metadata: pulumi.Input[Optional[Sequence[pulumi.Input['RotationScheduleExternalSecretRotationMetadataItemArgs']]]] = None,
+                 external_secret_rotation_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosted_rotation_lambda: pulumi.Input[Optional['RotationScheduleHostedRotationLambdaArgs']] = None,
+                 rotate_immediately_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rotation_lambda_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_rules: pulumi.Input[Optional['RotationScheduleRotationRulesArgs']] = None):
         """
         The set of arguments for constructing a RotationSchedule resource.
 
@@ -67,74 +67,74 @@ class RotationScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="externalSecretRotationMetadata")
-    def external_secret_rotation_metadata(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RotationScheduleExternalSecretRotationMetadataItemArgs']]]]:
+    def external_secret_rotation_metadata(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RotationScheduleExternalSecretRotationMetadataItemArgs']]]]:
         """
         The list of metadata needed to successfully rotate a managed external secret.
         """
         return pulumi.get(self, "external_secret_rotation_metadata")
 
     @external_secret_rotation_metadata.setter
-    def external_secret_rotation_metadata(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RotationScheduleExternalSecretRotationMetadataItemArgs']]]]):
+    def external_secret_rotation_metadata(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RotationScheduleExternalSecretRotationMetadataItemArgs']]]]):
         pulumi.set(self, "external_secret_rotation_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="externalSecretRotationRoleArn")
-    def external_secret_rotation_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_secret_rotation_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
         """
         return pulumi.get(self, "external_secret_rotation_role_arn")
 
     @external_secret_rotation_role_arn.setter
-    def external_secret_rotation_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_secret_rotation_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_secret_rotation_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="hostedRotationLambda")
-    def hosted_rotation_lambda(self) -> Optional[pulumi.Input['RotationScheduleHostedRotationLambdaArgs']]:
+    def hosted_rotation_lambda(self) -> pulumi.Input[Optional['RotationScheduleHostedRotationLambdaArgs']]:
         """
         Creates a new Lambda rotation function based on one of the Secrets Manager rotation function templates. To use a rotation function that already exists, specify RotationLambdaARN instead.
         """
         return pulumi.get(self, "hosted_rotation_lambda")
 
     @hosted_rotation_lambda.setter
-    def hosted_rotation_lambda(self, value: Optional[pulumi.Input['RotationScheduleHostedRotationLambdaArgs']]):
+    def hosted_rotation_lambda(self, value: pulumi.Input[Optional['RotationScheduleHostedRotationLambdaArgs']]):
         pulumi.set(self, "hosted_rotation_lambda", value)
 
     @_builtins.property
     @pulumi.getter(name="rotateImmediatelyOnUpdate")
-    def rotate_immediately_on_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rotate_immediately_on_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
         """
         return pulumi.get(self, "rotate_immediately_on_update")
 
     @rotate_immediately_on_update.setter
-    def rotate_immediately_on_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rotate_immediately_on_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rotate_immediately_on_update", value)
 
     @_builtins.property
     @pulumi.getter(name="rotationLambdaArn")
-    def rotation_lambda_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rotation_lambda_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an existing Lambda rotation function. To specify a rotation function that is also defined in this template, use the Ref function.
         """
         return pulumi.get(self, "rotation_lambda_arn")
 
     @rotation_lambda_arn.setter
-    def rotation_lambda_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rotation_lambda_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rotation_lambda_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="rotationRules")
-    def rotation_rules(self) -> Optional[pulumi.Input['RotationScheduleRotationRulesArgs']]:
+    def rotation_rules(self) -> pulumi.Input[Optional['RotationScheduleRotationRulesArgs']]:
         """
         A structure that defines the rotation configuration for this secret.
         """
         return pulumi.get(self, "rotation_rules")
 
     @rotation_rules.setter
-    def rotation_rules(self, value: Optional[pulumi.Input['RotationScheduleRotationRulesArgs']]):
+    def rotation_rules(self, value: pulumi.Input[Optional['RotationScheduleRotationRulesArgs']]):
         pulumi.set(self, "rotation_rules", value)
 
 
@@ -144,13 +144,13 @@ class RotationSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 external_secret_rotation_metadata: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RotationScheduleExternalSecretRotationMetadataItemArgs', 'RotationScheduleExternalSecretRotationMetadataItemArgsDict']]]]] = None,
-                 external_secret_rotation_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosted_rotation_lambda: Optional[pulumi.Input[Union['RotationScheduleHostedRotationLambdaArgs', 'RotationScheduleHostedRotationLambdaArgsDict']]] = None,
-                 rotate_immediately_on_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rotation_lambda_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_rules: Optional[pulumi.Input[Union['RotationScheduleRotationRulesArgs', 'RotationScheduleRotationRulesArgsDict']]] = None,
-                 secret_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_secret_rotation_metadata: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RotationScheduleExternalSecretRotationMetadataItemArgs', 'RotationScheduleExternalSecretRotationMetadataItemArgsDict']]]]] = None,
+                 external_secret_rotation_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosted_rotation_lambda: pulumi.Input[Optional[Union['RotationScheduleHostedRotationLambdaArgs', 'RotationScheduleHostedRotationLambdaArgsDict']]] = None,
+                 rotate_immediately_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rotation_lambda_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_rules: pulumi.Input[Optional[Union['RotationScheduleRotationRulesArgs', 'RotationScheduleRotationRulesArgsDict']]] = None,
+                 secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SecretsManager::RotationSchedule
@@ -191,13 +191,13 @@ class RotationSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 external_secret_rotation_metadata: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RotationScheduleExternalSecretRotationMetadataItemArgs', 'RotationScheduleExternalSecretRotationMetadataItemArgsDict']]]]] = None,
-                 external_secret_rotation_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosted_rotation_lambda: Optional[pulumi.Input[Union['RotationScheduleHostedRotationLambdaArgs', 'RotationScheduleHostedRotationLambdaArgsDict']]] = None,
-                 rotate_immediately_on_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rotation_lambda_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_rules: Optional[pulumi.Input[Union['RotationScheduleRotationRulesArgs', 'RotationScheduleRotationRulesArgsDict']]] = None,
-                 secret_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_secret_rotation_metadata: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RotationScheduleExternalSecretRotationMetadataItemArgs', 'RotationScheduleExternalSecretRotationMetadataItemArgsDict']]]]] = None,
+                 external_secret_rotation_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosted_rotation_lambda: pulumi.Input[Optional[Union['RotationScheduleHostedRotationLambdaArgs', 'RotationScheduleHostedRotationLambdaArgsDict']]] = None,
+                 rotate_immediately_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rotation_lambda_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_rules: pulumi.Input[Optional[Union['RotationScheduleRotationRulesArgs', 'RotationScheduleRotationRulesArgsDict']]] = None,
+                 secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

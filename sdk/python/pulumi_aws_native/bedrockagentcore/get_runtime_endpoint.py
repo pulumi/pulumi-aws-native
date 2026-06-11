@@ -205,7 +205,7 @@ def get_runtime_endpoint(agent_runtime_endpoint_arn: Optional[_builtins.str] = N
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         target_version=pulumi.get(__ret__, 'target_version'))
-def get_runtime_endpoint_output(agent_runtime_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_runtime_endpoint_output(agent_runtime_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuntimeEndpointResult]:
     """
     Resource definition for AWS::BedrockAgentCore::RuntimeEndpoint

@@ -25,16 +25,16 @@ __all__ = ['StateMachineArgs', 'StateMachine']
 class StateMachineArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
-                 definition: Optional[pulumi.Input['StateMachineDefinitionArgs']] = None,
-                 definition_s3_location: Optional[pulumi.Input['StateMachineS3LocationArgs']] = None,
-                 definition_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition_substitutions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]] = None,
-                 encryption_configuration: Optional[pulumi.Input['StateMachineEncryptionConfigurationArgs']] = None,
-                 logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']] = None,
-                 state_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_machine_type: Optional[pulumi.Input['StateMachineType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 tracing_configuration: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']] = None):
+                 definition: pulumi.Input[Optional['StateMachineDefinitionArgs']] = None,
+                 definition_s3_location: pulumi.Input[Optional['StateMachineS3LocationArgs']] = None,
+                 definition_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition_substitutions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]] = None,
+                 encryption_configuration: pulumi.Input[Optional['StateMachineEncryptionConfigurationArgs']] = None,
+                 logging_configuration: pulumi.Input[Optional['StateMachineLoggingConfigurationArgs']] = None,
+                 state_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_machine_type: pulumi.Input[Optional['StateMachineType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tracing_configuration: pulumi.Input[Optional['StateMachineTracingConfigurationArgs']] = None):
         """
         The set of arguments for constructing a StateMachine resource.
 
@@ -102,43 +102,43 @@ class StateMachineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input['StateMachineDefinitionArgs']]:
+    def definition(self) -> pulumi.Input[Optional['StateMachineDefinitionArgs']]:
         """
         The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
         """
         return pulumi.get(self, "definition")
 
     @definition.setter
-    def definition(self, value: Optional[pulumi.Input['StateMachineDefinitionArgs']]):
+    def definition(self, value: pulumi.Input[Optional['StateMachineDefinitionArgs']]):
         pulumi.set(self, "definition", value)
 
     @_builtins.property
     @pulumi.getter(name="definitionS3Location")
-    def definition_s3_location(self) -> Optional[pulumi.Input['StateMachineS3LocationArgs']]:
+    def definition_s3_location(self) -> pulumi.Input[Optional['StateMachineS3LocationArgs']]:
         """
         The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
         """
         return pulumi.get(self, "definition_s3_location")
 
     @definition_s3_location.setter
-    def definition_s3_location(self, value: Optional[pulumi.Input['StateMachineS3LocationArgs']]):
+    def definition_s3_location(self, value: pulumi.Input[Optional['StateMachineS3LocationArgs']]):
         pulumi.set(self, "definition_s3_location", value)
 
     @_builtins.property
     @pulumi.getter(name="definitionString")
-    def definition_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def definition_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
         """
         return pulumi.get(self, "definition_string")
 
     @definition_string.setter
-    def definition_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def definition_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "definition_string", value)
 
     @_builtins.property
     @pulumi.getter(name="definitionSubstitutions")
-    def definition_substitutions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]]:
+    def definition_substitutions(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]]:
         """
         A map (string to string) that specifies the mappings for placeholder variables in the state machine definition. This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.
 
@@ -147,24 +147,24 @@ class StateMachineArgs:
         return pulumi.get(self, "definition_substitutions")
 
     @definition_substitutions.setter
-    def definition_substitutions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]]):
+    def definition_substitutions(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]]):
         pulumi.set(self, "definition_substitutions", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['StateMachineEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> pulumi.Input[Optional['StateMachineEncryptionConfigurationArgs']]:
         """
         Encryption configuration for the state machine.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['StateMachineEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: pulumi.Input[Optional['StateMachineEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
-    def logging_configuration(self) -> Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']]:
+    def logging_configuration(self) -> pulumi.Input[Optional['StateMachineLoggingConfigurationArgs']]:
         """
         Defines what execution history events are logged and where they are logged.
 
@@ -173,12 +173,12 @@ class StateMachineArgs:
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
-    def logging_configuration(self, value: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']]):
+    def logging_configuration(self, value: pulumi.Input[Optional['StateMachineLoggingConfigurationArgs']]):
         pulumi.set(self, "logging_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="stateMachineName")
-    def state_machine_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state_machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the state machine.
 
@@ -195,24 +195,24 @@ class StateMachineArgs:
         return pulumi.get(self, "state_machine_name")
 
     @state_machine_name.setter
-    def state_machine_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state_machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state_machine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="stateMachineType")
-    def state_machine_type(self) -> Optional[pulumi.Input['StateMachineType']]:
+    def state_machine_type(self) -> pulumi.Input[Optional['StateMachineType']]:
         """
         Determines whether a `STANDARD` or `EXPRESS` state machine is created. The default is `STANDARD` . You cannot update the `type` of a state machine once it has been created. For more information on `STANDARD` and `EXPRESS` workflows, see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
         """
         return pulumi.get(self, "state_machine_type")
 
     @state_machine_type.setter
-    def state_machine_type(self, value: Optional[pulumi.Input['StateMachineType']]):
+    def state_machine_type(self, value: pulumi.Input[Optional['StateMachineType']]):
         pulumi.set(self, "state_machine_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The list of tags to add to a resource.
 
@@ -221,19 +221,19 @@ class StateMachineArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tracingConfiguration")
-    def tracing_configuration(self) -> Optional[pulumi.Input['StateMachineTracingConfigurationArgs']]:
+    def tracing_configuration(self) -> pulumi.Input[Optional['StateMachineTracingConfigurationArgs']]:
         """
         Selects whether or not the state machine's AWS X-Ray tracing is enabled.
         """
         return pulumi.get(self, "tracing_configuration")
 
     @tracing_configuration.setter
-    def tracing_configuration(self, value: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']]):
+    def tracing_configuration(self, value: pulumi.Input[Optional['StateMachineTracingConfigurationArgs']]):
         pulumi.set(self, "tracing_configuration", value)
 
 
@@ -243,17 +243,17 @@ class StateMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Union['StateMachineDefinitionArgs', 'StateMachineDefinitionArgsDict']]] = None,
-                 definition_s3_location: Optional[pulumi.Input[Union['StateMachineS3LocationArgs', 'StateMachineS3LocationArgsDict']]] = None,
-                 definition_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition_substitutions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']]] = None,
-                 logging_configuration: Optional[pulumi.Input[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_machine_type: Optional[pulumi.Input['StateMachineType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tracing_configuration: Optional[pulumi.Input[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['StateMachineDefinitionArgs', 'StateMachineDefinitionArgsDict']]] = None,
+                 definition_s3_location: pulumi.Input[Optional[Union['StateMachineS3LocationArgs', 'StateMachineS3LocationArgsDict']]] = None,
+                 definition_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition_substitutions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_machine_type: pulumi.Input[Optional['StateMachineType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tracing_configuration: pulumi.Input[Optional[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for StateMachine
@@ -506,17 +506,17 @@ class StateMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Union['StateMachineDefinitionArgs', 'StateMachineDefinitionArgsDict']]] = None,
-                 definition_s3_location: Optional[pulumi.Input[Union['StateMachineS3LocationArgs', 'StateMachineS3LocationArgsDict']]] = None,
-                 definition_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition_substitutions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']]] = None,
-                 logging_configuration: Optional[pulumi.Input[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_machine_type: Optional[pulumi.Input['StateMachineType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tracing_configuration: Optional[pulumi.Input[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['StateMachineDefinitionArgs', 'StateMachineDefinitionArgsDict']]] = None,
+                 definition_s3_location: pulumi.Input[Optional[Union['StateMachineS3LocationArgs', 'StateMachineS3LocationArgsDict']]] = None,
+                 definition_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition_substitutions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['StateMachineEncryptionConfigurationArgs', 'StateMachineEncryptionConfigurationArgsDict']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['StateMachineLoggingConfigurationArgs', 'StateMachineLoggingConfigurationArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_machine_type: pulumi.Input[Optional['StateMachineType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tracing_configuration: pulumi.Input[Optional[Union['StateMachineTracingConfigurationArgs', 'StateMachineTracingConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

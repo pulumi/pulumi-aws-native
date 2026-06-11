@@ -24,14 +24,14 @@ __all__ = ['FolderArgs', 'Folder']
 @pulumi.input_type
 class FolderArgs:
     def __init__(__self__, *,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_type: Optional[pulumi.Input['FolderType']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_folder_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FolderResourcePermissionArgs']]]] = None,
-                 sharing_model: Optional[pulumi.Input['FolderSharingModel']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_type: pulumi.Input[Optional['FolderType']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_folder_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input['FolderResourcePermissionArgs']]]] = None,
+                 sharing_model: pulumi.Input[Optional['FolderSharingModel']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Folder resource.
 
@@ -65,67 +65,67 @@ class FolderArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID for the AWS account where you want to create the folder.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="folderId")
-    def folder_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def folder_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the folder.
         """
         return pulumi.get(self, "folder_id")
 
     @folder_id.setter
-    def folder_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def folder_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "folder_id", value)
 
     @_builtins.property
     @pulumi.getter(name="folderType")
-    def folder_type(self) -> Optional[pulumi.Input['FolderType']]:
+    def folder_type(self) -> pulumi.Input[Optional['FolderType']]:
         """
         The type of folder it is.
         """
         return pulumi.get(self, "folder_type")
 
     @folder_type.setter
-    def folder_type(self, value: Optional[pulumi.Input['FolderType']]):
+    def folder_type(self, value: pulumi.Input[Optional['FolderType']]):
         pulumi.set(self, "folder_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A display name for the folder.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentFolderArn")
-    def parent_folder_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_folder_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the folder.
         """
         return pulumi.get(self, "parent_folder_arn")
 
     @parent_folder_arn.setter
-    def parent_folder_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_folder_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_folder_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FolderResourcePermissionArgs']]]]:
+    def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FolderResourcePermissionArgs']]]]:
         """
         A structure that describes the principals and the resource-level permissions of a folder.
 
@@ -134,31 +134,31 @@ class FolderArgs:
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FolderResourcePermissionArgs']]]]):
+    def permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FolderResourcePermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="sharingModel")
-    def sharing_model(self) -> Optional[pulumi.Input['FolderSharingModel']]:
+    def sharing_model(self) -> pulumi.Input[Optional['FolderSharingModel']]:
         """
         The sharing scope of the folder.
         """
         return pulumi.get(self, "sharing_model")
 
     @sharing_model.setter
-    def sharing_model(self, value: Optional[pulumi.Input['FolderSharingModel']]):
+    def sharing_model(self, value: pulumi.Input[Optional['FolderSharingModel']]):
         pulumi.set(self, "sharing_model", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags for the folders that you want to apply overrides to.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -168,14 +168,14 @@ class Folder(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_type: Optional[pulumi.Input['FolderType']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_folder_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FolderResourcePermissionArgs', 'FolderResourcePermissionArgsDict']]]]] = None,
-                 sharing_model: Optional[pulumi.Input['FolderSharingModel']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_type: pulumi.Input[Optional['FolderType']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_folder_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FolderResourcePermissionArgs', 'FolderResourcePermissionArgsDict']]]]] = None,
+                 sharing_model: pulumi.Input[Optional['FolderSharingModel']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::Folder Resource Type.
@@ -219,14 +219,14 @@ class Folder(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_type: Optional[pulumi.Input['FolderType']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_folder_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FolderResourcePermissionArgs', 'FolderResourcePermissionArgsDict']]]]] = None,
-                 sharing_model: Optional[pulumi.Input['FolderSharingModel']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_type: pulumi.Input[Optional['FolderType']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_folder_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FolderResourcePermissionArgs', 'FolderResourcePermissionArgsDict']]]]] = None,
+                 sharing_model: pulumi.Input[Optional['FolderSharingModel']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

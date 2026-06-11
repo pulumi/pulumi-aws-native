@@ -76,9 +76,9 @@ class ApplicationEntitlementAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 entitlement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 entitlement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppStream::ApplicationEntitlementAssociation
@@ -115,9 +115,9 @@ class ApplicationEntitlementAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 entitlement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 entitlement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

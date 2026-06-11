@@ -180,7 +180,7 @@ def get_connector_v2(connector_arn: Optional[_builtins.str] = None,
         message=pulumi.get(__ret__, 'message'),
         provider=pulumi.get(__ret__, 'provider'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_connector_v2_output(connector_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connector_v2_output(connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorV2Result]:
     """
     Resource schema for AWS::SecurityHub::ConnectorV2

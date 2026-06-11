@@ -144,7 +144,7 @@ def get_event_bus(name: Optional[_builtins.str] = None,
         log_config=pulumi.get(__ret__, 'log_config'),
         policy=pulumi.get(__ret__, 'policy'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_event_bus_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_bus_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventBusResult]:
     """
     Resource type definition for AWS::Events::EventBus

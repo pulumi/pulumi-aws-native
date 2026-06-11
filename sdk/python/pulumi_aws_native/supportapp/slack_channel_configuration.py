@@ -24,10 +24,10 @@ class SlackChannelConfigurationArgs:
                  channel_role_arn: pulumi.Input[_builtins.str],
                  notify_on_case_severity: pulumi.Input['SlackChannelConfigurationNotifyOnCaseSeverity'],
                  team_id: pulumi.Input[_builtins.str],
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_on_add_correspondence_to_case: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_on_create_or_reopen_case: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_on_resolve_case: Optional[pulumi.Input[_builtins.bool]] = None):
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_on_add_correspondence_to_case: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_on_create_or_reopen_case: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_on_resolve_case: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SlackChannelConfiguration resource.
 
@@ -103,50 +103,50 @@ class SlackChannelConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="channelName")
-    def channel_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The channel name in Slack.
         """
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
-    def channel_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel_name", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyOnAddCorrespondenceToCase")
-    def notify_on_add_correspondence_to_case(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_on_add_correspondence_to_case(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to notify when a correspondence is added to a case.
         """
         return pulumi.get(self, "notify_on_add_correspondence_to_case")
 
     @notify_on_add_correspondence_to_case.setter
-    def notify_on_add_correspondence_to_case(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_on_add_correspondence_to_case(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_on_add_correspondence_to_case", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyOnCreateOrReopenCase")
-    def notify_on_create_or_reopen_case(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_on_create_or_reopen_case(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to notify when a case is created or reopened.
         """
         return pulumi.get(self, "notify_on_create_or_reopen_case")
 
     @notify_on_create_or_reopen_case.setter
-    def notify_on_create_or_reopen_case(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_on_create_or_reopen_case(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_on_create_or_reopen_case", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyOnResolveCase")
-    def notify_on_resolve_case(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_on_resolve_case(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to notify when a case is resolved.
         """
         return pulumi.get(self, "notify_on_resolve_case")
 
     @notify_on_resolve_case.setter
-    def notify_on_resolve_case(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_on_resolve_case(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_on_resolve_case", value)
 
 
@@ -156,14 +156,14 @@ class SlackChannelConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_on_add_correspondence_to_case: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_on_case_severity: Optional[pulumi.Input['SlackChannelConfigurationNotifyOnCaseSeverity']] = None,
-                 notify_on_create_or_reopen_case: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_on_resolve_case: Optional[pulumi.Input[_builtins.bool]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_on_add_correspondence_to_case: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_on_case_severity: pulumi.Input[Optional['SlackChannelConfigurationNotifyOnCaseSeverity']] = None,
+                 notify_on_create_or_reopen_case: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_on_resolve_case: pulumi.Input[Optional[_builtins.bool]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An AWS Support App resource that creates, updates, lists and deletes Slack channel configurations.
@@ -325,14 +325,14 @@ class SlackChannelConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_on_add_correspondence_to_case: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_on_case_severity: Optional[pulumi.Input['SlackChannelConfigurationNotifyOnCaseSeverity']] = None,
-                 notify_on_create_or_reopen_case: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_on_resolve_case: Optional[pulumi.Input[_builtins.bool]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_on_add_correspondence_to_case: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_on_case_severity: pulumi.Input[Optional['SlackChannelConfigurationNotifyOnCaseSeverity']] = None,
+                 notify_on_create_or_reopen_case: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_on_resolve_case: pulumi.Input[Optional[_builtins.bool]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

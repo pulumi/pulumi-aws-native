@@ -24,11 +24,11 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
-                 cluster_type: Optional[pulumi.Input['ClusterType']] = None,
-                 instance_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_settings: Optional[pulumi.Input['ClusterNetworkSettingsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 cluster_type: pulumi.Input[Optional['ClusterType']] = None,
+                 instance_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_settings: pulumi.Input[Optional['ClusterNetworkSettingsArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
@@ -49,56 +49,56 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterType")
-    def cluster_type(self) -> Optional[pulumi.Input['ClusterType']]:
+    def cluster_type(self) -> pulumi.Input[Optional['ClusterType']]:
         return pulumi.get(self, "cluster_type")
 
     @cluster_type.setter
-    def cluster_type(self, value: Optional[pulumi.Input['ClusterType']]):
+    def cluster_type(self, value: pulumi.Input[Optional['ClusterType']]):
         pulumi.set(self, "cluster_type", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceRoleArn")
-    def instance_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role your nodes will use.
         """
         return pulumi.get(self, "instance_role_arn")
 
     @instance_role_arn.setter
-    def instance_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user-specified name of the Cluster to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSettings")
-    def network_settings(self) -> Optional[pulumi.Input['ClusterNetworkSettingsArgs']]:
+    def network_settings(self) -> pulumi.Input[Optional['ClusterNetworkSettingsArgs']]:
         return pulumi.get(self, "network_settings")
 
     @network_settings.setter
-    def network_settings(self, value: Optional[pulumi.Input['ClusterNetworkSettingsArgs']]):
+    def network_settings(self, value: pulumi.Input[Optional['ClusterNetworkSettingsArgs']]):
         pulumi.set(self, "network_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A collection of key-value pairs.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -108,11 +108,11 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_type: Optional[pulumi.Input['ClusterType']] = None,
-                 instance_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_settings: Optional[pulumi.Input[Union['ClusterNetworkSettingsArgs', 'ClusterNetworkSettingsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 cluster_type: pulumi.Input[Optional['ClusterType']] = None,
+                 instance_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_settings: pulumi.Input[Optional[Union['ClusterNetworkSettingsArgs', 'ClusterNetworkSettingsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::MediaLive::Cluster Resource Type
@@ -149,11 +149,11 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_type: Optional[pulumi.Input['ClusterType']] = None,
-                 instance_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_settings: Optional[pulumi.Input[Union['ClusterNetworkSettingsArgs', 'ClusterNetworkSettingsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 cluster_type: pulumi.Input[Optional['ClusterType']] = None,
+                 instance_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_settings: pulumi.Input[Optional[Union['ClusterNetworkSettingsArgs', 'ClusterNetworkSettingsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

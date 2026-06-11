@@ -116,7 +116,7 @@ def get_mitigation_action(action_name: Optional[_builtins.str] = None,
         mitigation_action_id=pulumi.get(__ret__, 'mitigation_action_id'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_mitigation_action_output(action_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_mitigation_action_output(action_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMitigationActionResult]:
     """
     Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.

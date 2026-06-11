@@ -64,8 +64,8 @@ def get_documentation_version(documentation_version: Optional[_builtins.str] = N
 
     return AwaitableGetDocumentationVersionResult(
         description=pulumi.get(__ret__, 'description'))
-def get_documentation_version_output(documentation_version: Optional[pulumi.Input[_builtins.str]] = None,
-                                     rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_documentation_version_output(documentation_version: pulumi.Input[Optional[_builtins.str]] = None,
+                                     rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDocumentationVersionResult]:
     """
     The ``AWS::ApiGateway::DocumentationVersion`` resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.

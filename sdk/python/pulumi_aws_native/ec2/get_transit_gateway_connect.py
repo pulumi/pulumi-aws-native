@@ -114,7 +114,7 @@ def get_transit_gateway_connect(transit_gateway_attachment_id: Optional[_builtin
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
-def get_transit_gateway_connect_output(transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_transit_gateway_connect_output(transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayConnectResult]:
     """
     The AWS::EC2::TransitGatewayConnect type

@@ -168,8 +168,8 @@ def get_scene(scene_id: Optional[_builtins.str] = None,
         scene_metadata=pulumi.get(__ret__, 'scene_metadata'),
         tags=pulumi.get(__ret__, 'tags'),
         update_date_time=pulumi.get(__ret__, 'update_date_time'))
-def get_scene_output(scene_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scene_output(scene_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSceneResult]:
     """
     Resource schema for AWS::IoTTwinMaker::Scene

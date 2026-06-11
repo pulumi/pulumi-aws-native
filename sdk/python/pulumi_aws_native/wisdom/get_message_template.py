@@ -193,7 +193,7 @@ def get_message_template(message_template_arn: Optional[_builtins.str] = None,
         message_template_id=pulumi.get(__ret__, 'message_template_id'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_message_template_output(message_template_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_message_template_output(message_template_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMessageTemplateResult]:
     """
     Definition of AWS::Wisdom::MessageTemplate Resource Type

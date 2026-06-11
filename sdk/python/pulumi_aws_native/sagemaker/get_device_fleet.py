@@ -102,7 +102,7 @@ def get_device_fleet(device_fleet_name: Optional[_builtins.str] = None,
         output_config=pulumi.get(__ret__, 'output_config'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_device_fleet_output(device_fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_device_fleet_output(device_fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceFleetResult]:
     """
     Resource schema for AWS::SageMaker::DeviceFleet

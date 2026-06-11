@@ -89,7 +89,7 @@ def get_topic_policy(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         policy_document=pulumi.get(__ret__, 'policy_document'),
         topics=pulumi.get(__ret__, 'topics'))
-def get_topic_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_topic_policy_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicPolicyResult]:
     """
     The ``AWS::SNS::TopicPolicy`` resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.

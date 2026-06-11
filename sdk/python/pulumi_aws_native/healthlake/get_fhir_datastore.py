@@ -128,7 +128,7 @@ def get_fhir_datastore(datastore_id: Optional[_builtins.str] = None,
         datastore_id=pulumi.get(__ret__, 'datastore_id'),
         datastore_status=pulumi.get(__ret__, 'datastore_status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_fhir_datastore_output(datastore_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_fhir_datastore_output(datastore_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFhirDatastoreResult]:
     """
     HealthLake FHIR Datastore

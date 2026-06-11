@@ -95,8 +95,8 @@ def get_policy(policy_id: Optional[_builtins.str] = None,
         definition=pulumi.get(__ret__, 'definition'),
         policy_id=pulumi.get(__ret__, 'policy_id'),
         policy_type=pulumi.get(__ret__, 'policy_type'))
-def get_policy_output(policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                      policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_output(policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                      policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Definition of AWS::VerifiedPermissions::Policy Resource Type

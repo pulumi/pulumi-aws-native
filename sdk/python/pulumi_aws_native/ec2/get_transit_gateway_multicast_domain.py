@@ -128,7 +128,7 @@ def get_transit_gateway_multicast_domain(transit_gateway_multicast_domain_id: Op
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_multicast_domain_arn=pulumi.get(__ret__, 'transit_gateway_multicast_domain_arn'),
         transit_gateway_multicast_domain_id=pulumi.get(__ret__, 'transit_gateway_multicast_domain_id'))
-def get_transit_gateway_multicast_domain_output(transit_gateway_multicast_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_transit_gateway_multicast_domain_output(transit_gateway_multicast_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayMulticastDomainResult]:
     """
     The AWS::EC2::TransitGatewayMulticastDomain type

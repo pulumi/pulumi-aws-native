@@ -29,7 +29,7 @@ class DbClusterDbClusterRoleArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
     """
-    feature_name: NotRequired[pulumi.Input[_builtins.str]]
+    feature_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon Neptune API Reference.
     """
@@ -38,7 +38,7 @@ class DbClusterDbClusterRoleArgsDict(TypedDict):
 class DbClusterDbClusterRoleArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
-                 feature_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 feature_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
 
@@ -63,14 +63,14 @@ class DbClusterDbClusterRoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="featureName")
-    def feature_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def feature_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon Neptune API Reference.
         """
         return pulumi.get(self, "feature_name")
 
     @feature_name.setter
-    def feature_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def feature_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "feature_name", value)
 
 

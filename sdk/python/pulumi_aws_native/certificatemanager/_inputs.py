@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 class AccountExpiryEventsConfigurationArgsDict(TypedDict):
-    days_before_expiry: NotRequired[pulumi.Input[_builtins.int]]
+    days_before_expiry: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     This option specifies the number of days prior to certificate expiration when ACM starts generating `EventBridge` events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.
     """
@@ -28,7 +28,7 @@ class AccountExpiryEventsConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AccountExpiryEventsConfigurationArgs:
     def __init__(__self__, *,
-                 days_before_expiry: Optional[pulumi.Input[_builtins.int]] = None):
+                 days_before_expiry: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] days_before_expiry: This option specifies the number of days prior to certificate expiration when ACM starts generating `EventBridge` events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.
         """
@@ -37,14 +37,14 @@ class AccountExpiryEventsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="daysBeforeExpiry")
-    def days_before_expiry(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def days_before_expiry(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This option specifies the number of days prior to certificate expiration when ACM starts generating `EventBridge` events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.
         """
         return pulumi.get(self, "days_before_expiry")
 
     @days_before_expiry.setter
-    def days_before_expiry(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def days_before_expiry(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "days_before_expiry", value)
 
 

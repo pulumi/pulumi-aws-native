@@ -22,8 +22,8 @@ __all__ = ['InstanceAccessControlAttributeConfigurationArgs', 'InstanceAccessCon
 class InstanceAccessControlAttributeConfigurationArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[_builtins.str],
-                 access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]] = None,
-                 instance_access_control_attribute_configuration: Optional[pulumi.Input['InstanceAccessControlAttributeConfigurationPropertiesArgs']] = None):
+                 access_control_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]] = None,
+                 instance_access_control_attribute_configuration: pulumi.Input[Optional['InstanceAccessControlAttributeConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a InstanceAccessControlAttributeConfiguration resource.
 
@@ -51,26 +51,26 @@ class InstanceAccessControlAttributeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessControlAttributes")
-    def access_control_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]]:
+    def access_control_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]]:
         """
         Lists the attributes that are configured for ABAC in the specified  instance.
         """
         return pulumi.get(self, "access_control_attributes")
 
     @access_control_attributes.setter
-    def access_control_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]]):
+    def access_control_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]]):
         pulumi.set(self, "access_control_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceAccessControlAttributeConfiguration")
-    def instance_access_control_attribute_configuration(self) -> Optional[pulumi.Input['InstanceAccessControlAttributeConfigurationPropertiesArgs']]:
+    def instance_access_control_attribute_configuration(self) -> pulumi.Input[Optional['InstanceAccessControlAttributeConfigurationPropertiesArgs']]:
         """
         The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
         """
         return pulumi.get(self, "instance_access_control_attribute_configuration")
 
     @instance_access_control_attribute_configuration.setter
-    def instance_access_control_attribute_configuration(self, value: Optional[pulumi.Input['InstanceAccessControlAttributeConfigurationPropertiesArgs']]):
+    def instance_access_control_attribute_configuration(self, value: pulumi.Input[Optional['InstanceAccessControlAttributeConfigurationPropertiesArgs']]):
         pulumi.set(self, "instance_access_control_attribute_configuration", value)
 
 
@@ -80,9 +80,9 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs', 'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict']]]]] = None,
-                 instance_access_control_attribute_configuration: Optional[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationPropertiesArgs', 'InstanceAccessControlAttributeConfigurationPropertiesArgsDict']]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_control_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs', 'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict']]]]] = None,
+                 instance_access_control_attribute_configuration: pulumi.Input[Optional[Union['InstanceAccessControlAttributeConfigurationPropertiesArgs', 'InstanceAccessControlAttributeConfigurationPropertiesArgsDict']]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
@@ -187,9 +187,9 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs', 'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict']]]]] = None,
-                 instance_access_control_attribute_configuration: Optional[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationPropertiesArgs', 'InstanceAccessControlAttributeConfigurationPropertiesArgsDict']]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_control_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs', 'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict']]]]] = None,
+                 instance_access_control_attribute_configuration: pulumi.Input[Optional[Union['InstanceAccessControlAttributeConfigurationPropertiesArgs', 'InstanceAccessControlAttributeConfigurationPropertiesArgsDict']]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

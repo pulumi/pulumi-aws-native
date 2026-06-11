@@ -21,9 +21,9 @@ __all__ = ['DedicatedIpPoolArgs', 'DedicatedIpPool']
 @pulumi.input_type
 class DedicatedIpPoolArgs:
     def __init__(__self__, *,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DedicatedIpPool resource.
 
@@ -40,38 +40,38 @@ class DedicatedIpPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="poolName")
-    def pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the dedicated IP pool.
         """
         return pulumi.get(self, "pool_name")
 
     @pool_name.setter
-    def pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingMode")
-    def scaling_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scaling_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
         """
         return pulumi.get(self, "scaling_mode")
 
     @scaling_mode.setter
-    def scaling_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scaling_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scaling_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags (keys and values) associated with the dedicated IP pool.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -81,9 +81,9 @@ class DedicatedIpPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SES::DedicatedIpPool
@@ -120,9 +120,9 @@ class DedicatedIpPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

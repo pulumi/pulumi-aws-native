@@ -24,11 +24,11 @@ __all__ = ['VerifiedAccessGroupArgs', 'VerifiedAccessGroup']
 class VerifiedAccessGroupArgs:
     def __init__(__self__, *,
                  verified_access_instance_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sse_specification: Optional[pulumi.Input['VerifiedAccessGroupSseSpecificationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sse_specification: pulumi.Input[Optional['VerifiedAccessGroupSseSpecificationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VerifiedAccessGroup resource.
 
@@ -65,62 +65,62 @@ class VerifiedAccessGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the AWS Verified Access group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Verified Access policy document.
         """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_document", value)
 
     @_builtins.property
     @pulumi.getter(name="policyEnabled")
-    def policy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The status of the Verified Access policy.
         """
         return pulumi.get(self, "policy_enabled")
 
     @policy_enabled.setter
-    def policy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def policy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "policy_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> Optional[pulumi.Input['VerifiedAccessGroupSseSpecificationArgs']]:
+    def sse_specification(self) -> pulumi.Input[Optional['VerifiedAccessGroupSseSpecificationArgs']]:
         """
         The configuration options for customer provided KMS encryption.
         """
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
-    def sse_specification(self, value: Optional[pulumi.Input['VerifiedAccessGroupSseSpecificationArgs']]):
+    def sse_specification(self, value: pulumi.Input[Optional['VerifiedAccessGroupSseSpecificationArgs']]):
         pulumi.set(self, "sse_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -130,12 +130,12 @@ class VerifiedAccessGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sse_specification: Optional[pulumi.Input[Union['VerifiedAccessGroupSseSpecificationArgs', 'VerifiedAccessGroupSseSpecificationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 verified_access_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['VerifiedAccessGroupSseSpecificationArgs', 'VerifiedAccessGroupSseSpecificationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 verified_access_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AWS::EC2::VerifiedAccessGroup resource creates an AWS EC2 Verified Access Group.
@@ -175,12 +175,12 @@ class VerifiedAccessGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sse_specification: Optional[pulumi.Input[Union['VerifiedAccessGroupSseSpecificationArgs', 'VerifiedAccessGroupSseSpecificationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 verified_access_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['VerifiedAccessGroupSseSpecificationArgs', 'VerifiedAccessGroupSseSpecificationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 verified_access_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

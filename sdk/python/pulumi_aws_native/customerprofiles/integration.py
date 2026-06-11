@@ -25,13 +25,13 @@ __all__ = ['IntegrationArgs', 'Integration']
 class IntegrationArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[_builtins.str],
-                 event_trigger_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 flow_definition: Optional[pulumi.Input['IntegrationFlowDefinitionArgs']] = None,
-                 object_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]]] = None,
-                 scope: Optional[pulumi.Input['IntegrationScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_trigger_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 flow_definition: pulumi.Input[Optional['IntegrationFlowDefinitionArgs']] = None,
+                 object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_type_names: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]]] = None,
+                 scope: pulumi.Input[Optional['IntegrationScope']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Integration resource.
 
@@ -74,86 +74,86 @@ class IntegrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventTriggerNames")
-    def event_trigger_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def event_trigger_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of unique names for active event triggers associated with the integration.
         """
         return pulumi.get(self, "event_trigger_names")
 
     @event_trigger_names.setter
-    def event_trigger_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def event_trigger_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "event_trigger_names", value)
 
     @_builtins.property
     @pulumi.getter(name="flowDefinition")
-    def flow_definition(self) -> Optional[pulumi.Input['IntegrationFlowDefinitionArgs']]:
+    def flow_definition(self) -> pulumi.Input[Optional['IntegrationFlowDefinitionArgs']]:
         """
         The configuration that controls how Customer Profiles retrieves data from the source.
         """
         return pulumi.get(self, "flow_definition")
 
     @flow_definition.setter
-    def flow_definition(self, value: Optional[pulumi.Input['IntegrationFlowDefinitionArgs']]):
+    def flow_definition(self, value: pulumi.Input[Optional['IntegrationFlowDefinitionArgs']]):
         pulumi.set(self, "flow_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="objectTypeName")
-    def object_type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ObjectType defined for the 3rd party data in Profile Service
         """
         return pulumi.get(self, "object_type_name")
 
     @object_type_name.setter
-    def object_type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_type_name", value)
 
     @_builtins.property
     @pulumi.getter(name="objectTypeNames")
-    def object_type_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]]]:
+    def object_type_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]]]:
         """
         The mapping between 3rd party event types and ObjectType names
         """
         return pulumi.get(self, "object_type_names")
 
     @object_type_names.setter
-    def object_type_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]]]):
+    def object_type_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]]]):
         pulumi.set(self, "object_type_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['IntegrationScope']]:
+    def scope(self) -> pulumi.Input[Optional['IntegrationScope']]:
         """
         Scope of the integration, such as 'PROFILE' or 'DOMAIN'
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['IntegrationScope']]):
+    def scope(self, value: pulumi.Input[Optional['IntegrationScope']]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags (keys and values) associated with the integration
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the S3 bucket or any other type of data source.
         """
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
@@ -163,14 +163,14 @@ class Integration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_trigger_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 flow_definition: Optional[pulumi.Input[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict']]] = None,
-                 object_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input['IntegrationScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_trigger_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 flow_definition: pulumi.Input[Optional[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict']]] = None,
+                 object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_type_names: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional['IntegrationScope']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The resource schema for creating an Amazon Connect Customer Profiles Integration.
@@ -212,14 +212,14 @@ class Integration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_trigger_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 flow_definition: Optional[pulumi.Input[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict']]] = None,
-                 object_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input['IntegrationScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_trigger_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 flow_definition: pulumi.Input[Optional[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict']]] = None,
+                 object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_type_names: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional['IntegrationScope']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

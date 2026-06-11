@@ -26,9 +26,9 @@ class LocalGatewayVirtualInterfaceArgs:
                  outpost_lag_id: pulumi.Input[_builtins.str],
                  peer_address: pulumi.Input[_builtins.str],
                  vlan: pulumi.Input[_builtins.int],
-                 peer_bgp_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 peer_bgp_asn_extended: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 peer_bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 peer_bgp_asn_extended: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocalGatewayVirtualInterface resource.
 
@@ -115,38 +115,38 @@ class LocalGatewayVirtualInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="peerBgpAsn")
-    def peer_bgp_asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def peer_bgp_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The peer BGP ASN.
         """
         return pulumi.get(self, "peer_bgp_asn")
 
     @peer_bgp_asn.setter
-    def peer_bgp_asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def peer_bgp_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "peer_bgp_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="peerBgpAsnExtended")
-    def peer_bgp_asn_extended(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def peer_bgp_asn_extended(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The extended 32-bit ASN of the BGP peer for use with larger ASN values.
         """
         return pulumi.get(self, "peer_bgp_asn_extended")
 
     @peer_bgp_asn_extended.setter
-    def peer_bgp_asn_extended(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def peer_bgp_asn_extended(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "peer_bgp_asn_extended", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -156,14 +156,14 @@ class LocalGatewayVirtualInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 local_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_virtual_interface_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 outpost_lag_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_bgp_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 peer_bgp_asn_extended: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.int]] = None,
+                 local_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_virtual_interface_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 outpost_lag_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 peer_bgp_asn_extended: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Resource Type definition for Local Gateway Virtual Interface which describes a virtual interface for AWS Outposts local gateways.
@@ -205,14 +205,14 @@ class LocalGatewayVirtualInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 local_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_virtual_interface_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 outpost_lag_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_bgp_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 peer_bgp_asn_extended: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.int]] = None,
+                 local_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_virtual_interface_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 outpost_lag_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 peer_bgp_asn_extended: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

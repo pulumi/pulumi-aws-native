@@ -23,11 +23,11 @@ class CustomerGatewayArgs:
     def __init__(__self__, *,
                  ip_address: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 bgp_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 bgp_asn_extended: Optional[pulumi.Input[_builtins.float]] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 bgp_asn_extended: pulumi.Input[Optional[_builtins.float]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomerGateway resource.
 
@@ -81,7 +81,7 @@ class CustomerGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="bgpAsn")
-    def bgp_asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def bgp_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
          Default: 65000
@@ -90,12 +90,12 @@ class CustomerGatewayArgs:
         return pulumi.get(self, "bgp_asn")
 
     @bgp_asn.setter
-    def bgp_asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def bgp_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bgp_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpAsnExtended")
-    def bgp_asn_extended(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def bgp_asn_extended(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
          Valid values: ``2,147,483,648`` to ``4,294,967,295``
@@ -103,43 +103,43 @@ class CustomerGatewayArgs:
         return pulumi.get(self, "bgp_asn_extended")
 
     @bgp_asn_extended.setter
-    def bgp_asn_extended(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def bgp_asn_extended(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "bgp_asn_extended", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the customer gateway certificate.
         """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceName")
-    def device_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of customer gateway device.
         """
         return pulumi.get(self, "device_name")
 
     @device_name.setter
-    def device_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tags for the customer gateway.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -149,13 +149,13 @@ class CustomerGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 bgp_asn_extended: Optional[pulumi.Input[_builtins.float]] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 bgp_asn_extended: pulumi.Input[Optional[_builtins.float]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Specifies a customer gateway.
@@ -199,13 +199,13 @@ class CustomerGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 bgp_asn_extended: Optional[pulumi.Input[_builtins.float]] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 bgp_asn_extended: pulumi.Input[Optional[_builtins.float]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -26,13 +26,13 @@ class FuotaTaskArgs:
                  firmware_update_image: pulumi.Input[_builtins.str],
                  firmware_update_role: pulumi.Input[_builtins.str],
                  lo_ra_wan: pulumi.Input['FuotaTaskLoRaWanArgs'],
-                 associate_multicast_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 associate_wireless_device: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disassociate_multicast_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 disassociate_wireless_device: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 associate_multicast_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 associate_wireless_device: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disassociate_multicast_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 disassociate_wireless_device: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FuotaTask resource.
 
@@ -103,86 +103,86 @@ class FuotaTaskArgs:
 
     @_builtins.property
     @pulumi.getter(name="associateMulticastGroup")
-    def associate_multicast_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def associate_multicast_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Multicast group to associate. Only for update request.
         """
         return pulumi.get(self, "associate_multicast_group")
 
     @associate_multicast_group.setter
-    def associate_multicast_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def associate_multicast_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "associate_multicast_group", value)
 
     @_builtins.property
     @pulumi.getter(name="associateWirelessDevice")
-    def associate_wireless_device(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def associate_wireless_device(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Wireless device to associate. Only for update request.
         """
         return pulumi.get(self, "associate_wireless_device")
 
     @associate_wireless_device.setter
-    def associate_wireless_device(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def associate_wireless_device(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "associate_wireless_device", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         FUOTA task description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disassociateMulticastGroup")
-    def disassociate_multicast_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disassociate_multicast_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Multicast group to disassociate. Only for update request.
         """
         return pulumi.get(self, "disassociate_multicast_group")
 
     @disassociate_multicast_group.setter
-    def disassociate_multicast_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disassociate_multicast_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disassociate_multicast_group", value)
 
     @_builtins.property
     @pulumi.getter(name="disassociateWirelessDevice")
-    def disassociate_wireless_device(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disassociate_wireless_device(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Wireless device to disassociate. Only for update request.
         """
         return pulumi.get(self, "disassociate_wireless_device")
 
     @disassociate_wireless_device.setter
-    def disassociate_wireless_device(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disassociate_wireless_device(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disassociate_wireless_device", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of FUOTA task
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the FUOTA task.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -192,16 +192,16 @@ class FuotaTask(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associate_multicast_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 associate_wireless_device: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disassociate_multicast_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 disassociate_wireless_device: Optional[pulumi.Input[_builtins.str]] = None,
-                 firmware_update_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 firmware_update_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 lo_ra_wan: Optional[pulumi.Input[Union['FuotaTaskLoRaWanArgs', 'FuotaTaskLoRaWanArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 associate_multicast_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 associate_wireless_device: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disassociate_multicast_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 disassociate_wireless_device: pulumi.Input[Optional[_builtins.str]] = None,
+                 firmware_update_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 firmware_update_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 lo_ra_wan: pulumi.Input[Optional[Union['FuotaTaskLoRaWanArgs', 'FuotaTaskLoRaWanArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Create and manage FUOTA tasks.
@@ -245,16 +245,16 @@ class FuotaTask(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associate_multicast_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 associate_wireless_device: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disassociate_multicast_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 disassociate_wireless_device: Optional[pulumi.Input[_builtins.str]] = None,
-                 firmware_update_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 firmware_update_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 lo_ra_wan: Optional[pulumi.Input[Union['FuotaTaskLoRaWanArgs', 'FuotaTaskLoRaWanArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 associate_multicast_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 associate_wireless_device: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disassociate_multicast_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 disassociate_wireless_device: pulumi.Input[Optional[_builtins.str]] = None,
+                 firmware_update_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 firmware_update_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 lo_ra_wan: pulumi.Input[Optional[Union['FuotaTaskLoRaWanArgs', 'FuotaTaskLoRaWanArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

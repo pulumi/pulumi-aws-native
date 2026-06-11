@@ -26,33 +26,33 @@ class ClusterArgs:
     def __init__(__self__, *,
                  acl_name: pulumi.Input[_builtins.str],
                  node_type: pulumi.Input[_builtins.str],
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cluster_endpoint: Optional[pulumi.Input['ClusterEndpointArgs']] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_tiering: Optional[pulumi.Input['ClusterDataTieringStatus']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_discovery: Optional[pulumi.Input['ClusterSupportedIpDiscoveryTypes']] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_type: Optional[pulumi.Input['ClusterSupportedNetworkTypes']] = None,
-                 num_replicas_per_shard: Optional[pulumi.Input[_builtins.int]] = None,
-                 num_shards: Optional[pulumi.Input[_builtins.int]] = None,
-                 parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_retention_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cluster_endpoint: pulumi.Input[Optional['ClusterEndpointArgs']] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_tiering: pulumi.Input[Optional['ClusterDataTieringStatus']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_discovery: pulumi.Input[Optional['ClusterSupportedIpDiscoveryTypes']] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional['ClusterSupportedNetworkTypes']] = None,
+                 num_replicas_per_shard: pulumi.Input[Optional[_builtins.int]] = None,
+                 num_shards: pulumi.Input[Optional[_builtins.int]] = None,
+                 parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
@@ -173,7 +173,7 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
-    def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_minor_version_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag that enables automatic minor version upgrade when set to true.
 
@@ -182,312 +182,312 @@ class ClusterArgs:
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @auto_minor_version_upgrade.setter
-    def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_minor_version_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_minor_version_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterEndpoint")
-    def cluster_endpoint(self) -> Optional[pulumi.Input['ClusterEndpointArgs']]:
+    def cluster_endpoint(self) -> pulumi.Input[Optional['ClusterEndpointArgs']]:
         """
         The cluster endpoint.
         """
         return pulumi.get(self, "cluster_endpoint")
 
     @cluster_endpoint.setter
-    def cluster_endpoint(self, value: Optional[pulumi.Input['ClusterEndpointArgs']]):
+    def cluster_endpoint(self, value: pulumi.Input[Optional['ClusterEndpointArgs']]):
         pulumi.set(self, "cluster_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cluster. This value must be unique as it also serves as the cluster identifier.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataTiering")
-    def data_tiering(self) -> Optional[pulumi.Input['ClusterDataTieringStatus']]:
+    def data_tiering(self) -> pulumi.Input[Optional['ClusterDataTieringStatus']]:
         """
         Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.
         """
         return pulumi.get(self, "data_tiering")
 
     @data_tiering.setter
-    def data_tiering(self, value: Optional[pulumi.Input['ClusterDataTieringStatus']]):
+    def data_tiering(self, value: pulumi.Input[Optional['ClusterDataTieringStatus']]):
         pulumi.set(self, "data_tiering", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description of the cluster.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The engine type used by the cluster.
         """
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Redis engine version used by the cluster.
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="finalSnapshotName")
-    def final_snapshot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def final_snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
         """
         return pulumi.get(self, "final_snapshot_name")
 
     @final_snapshot_name.setter
-    def final_snapshot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def final_snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "final_snapshot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ipDiscovery")
-    def ip_discovery(self) -> Optional[pulumi.Input['ClusterSupportedIpDiscoveryTypes']]:
+    def ip_discovery(self) -> pulumi.Input[Optional['ClusterSupportedIpDiscoveryTypes']]:
         """
         For clusters wth dual stack NetworkType, IpDiscovery controls the Ip protocol (ipv4 or ipv6) returned by the engine commands such as `cluster info` and `cluster nodes` which are used by clients to connect to the nodes in the cluster.
         """
         return pulumi.get(self, "ip_discovery")
 
     @ip_discovery.setter
-    def ip_discovery(self, value: Optional[pulumi.Input['ClusterSupportedIpDiscoveryTypes']]):
+    def ip_discovery(self, value: pulumi.Input[Optional['ClusterSupportedIpDiscoveryTypes']]):
         pulumi.set(self, "ip_discovery", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the KMS key used to encrypt the cluster.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="multiRegionClusterName")
-    def multi_region_cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def multi_region_cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Global Datastore, it is generated by MemoryDB adding a prefix to MultiRegionClusterNameSuffix.
         """
         return pulumi.get(self, "multi_region_cluster_name")
 
     @multi_region_cluster_name.setter
-    def multi_region_cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def multi_region_cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "multi_region_cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkType")
-    def network_type(self) -> Optional[pulumi.Input['ClusterSupportedNetworkTypes']]:
+    def network_type(self) -> pulumi.Input[Optional['ClusterSupportedNetworkTypes']]:
         """
         Must be either ipv4 | ipv6 | dual_stack.
         """
         return pulumi.get(self, "network_type")
 
     @network_type.setter
-    def network_type(self, value: Optional[pulumi.Input['ClusterSupportedNetworkTypes']]):
+    def network_type(self, value: pulumi.Input[Optional['ClusterSupportedNetworkTypes']]):
         pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="numReplicasPerShard")
-    def num_replicas_per_shard(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def num_replicas_per_shard(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of replicas to apply to each shard. The limit is 5.
         """
         return pulumi.get(self, "num_replicas_per_shard")
 
     @num_replicas_per_shard.setter
-    def num_replicas_per_shard(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def num_replicas_per_shard(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "num_replicas_per_shard", value)
 
     @_builtins.property
     @pulumi.getter(name="numShards")
-    def num_shards(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def num_shards(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of shards the cluster will contain.
         """
         return pulumi.get(self, "num_shards")
 
     @num_shards.setter
-    def num_shards(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def num_shards(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "num_shards", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterGroupName")
-    def parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the parameter group associated with the cluster.
         """
         return pulumi.get(self, "parameter_group_name")
 
     @parameter_group_name.setter
-    def parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameter_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port number on which each member of the cluster accepts connections.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more Amazon VPC security groups associated with this cluster.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotArns")
-    def snapshot_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def snapshot_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Amazon Resource Names (ARN) that uniquely identify the RDB snapshot files stored in Amazon S3. The snapshot files are used to populate the new cluster. The Amazon S3 object name in the ARN cannot contain any commas.
         """
         return pulumi.get(self, "snapshot_arns")
 
     @snapshot_arns.setter
-    def snapshot_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def snapshot_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "snapshot_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotName")
-    def snapshot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a snapshot from which to restore data into the new cluster. The snapshot status changes to restoring while the new cluster is being created.
         """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
-    def snapshot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotRetentionLimit")
-    def snapshot_retention_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def snapshot_retention_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days for which MemoryDB retains automatic snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted.
         """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @snapshot_retention_limit.setter
-    def snapshot_retention_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def snapshot_retention_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "snapshot_retention_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotWindow")
-    def snapshot_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your cluster.
         """
         return pulumi.get(self, "snapshot_window")
 
     @snapshot_window.setter
-    def snapshot_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_window", value)
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
         """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
-    def sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sns_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="snsTopicStatus")
-    def sns_topic_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sns_topic_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the Amazon SNS notification topic. Notifications are sent only if the status is enabled.
         """
         return pulumi.get(self, "sns_topic_status")
 
     @sns_topic_status.setter
-    def sns_topic_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sns_topic_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sns_topic_status", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetGroupName")
-    def subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the subnet group to be used for the cluster.
         """
         return pulumi.get(self, "subnet_group_name")
 
     @subnet_group_name.setter
-    def subnet_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsEnabled")
-    def tls_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tls_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag that enables in-transit encryption when set to true.
 
@@ -496,7 +496,7 @@ class ClusterArgs:
         return pulumi.get(self, "tls_enabled")
 
     @tls_enabled.setter
-    def tls_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tls_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tls_enabled", value)
 
 
@@ -506,35 +506,35 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acl_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cluster_endpoint: Optional[pulumi.Input[Union['ClusterEndpointArgs', 'ClusterEndpointArgsDict']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_tiering: Optional[pulumi.Input['ClusterDataTieringStatus']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_discovery: Optional[pulumi.Input['ClusterSupportedIpDiscoveryTypes']] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_type: Optional[pulumi.Input['ClusterSupportedNetworkTypes']] = None,
-                 node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_replicas_per_shard: Optional[pulumi.Input[_builtins.int]] = None,
-                 num_shards: Optional[pulumi.Input[_builtins.int]] = None,
-                 parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_retention_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 acl_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cluster_endpoint: pulumi.Input[Optional[Union['ClusterEndpointArgs', 'ClusterEndpointArgsDict']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_tiering: pulumi.Input[Optional['ClusterDataTieringStatus']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_discovery: pulumi.Input[Optional['ClusterSupportedIpDiscoveryTypes']] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional['ClusterSupportedNetworkTypes']] = None,
+                 node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_replicas_per_shard: pulumi.Input[Optional[_builtins.int]] = None,
+                 num_shards: pulumi.Input[Optional[_builtins.int]] = None,
+                 parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
@@ -601,35 +601,35 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acl_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cluster_endpoint: Optional[pulumi.Input[Union['ClusterEndpointArgs', 'ClusterEndpointArgsDict']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_tiering: Optional[pulumi.Input['ClusterDataTieringStatus']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_discovery: Optional[pulumi.Input['ClusterSupportedIpDiscoveryTypes']] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_type: Optional[pulumi.Input['ClusterSupportedNetworkTypes']] = None,
-                 node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_replicas_per_shard: Optional[pulumi.Input[_builtins.int]] = None,
-                 num_shards: Optional[pulumi.Input[_builtins.int]] = None,
-                 parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_retention_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 acl_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cluster_endpoint: pulumi.Input[Optional[Union['ClusterEndpointArgs', 'ClusterEndpointArgsDict']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_tiering: pulumi.Input[Optional['ClusterDataTieringStatus']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_discovery: pulumi.Input[Optional['ClusterSupportedIpDiscoveryTypes']] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional['ClusterSupportedNetworkTypes']] = None,
+                 node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_replicas_per_shard: pulumi.Input[Optional[_builtins.int]] = None,
+                 num_shards: pulumi.Input[Optional[_builtins.int]] = None,
+                 parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

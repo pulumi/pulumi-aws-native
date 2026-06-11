@@ -331,23 +331,23 @@ class ConfigurationManagerConfigurationDefinitionArgsDict(TypedDict):
     """
     The type of the Quick Setup configuration.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the configuration definition.
     """
-    local_deployment_administration_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    local_deployment_administration_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the IAM role used to administrate local configuration deployments.
 
     > Although this element is listed as "Required: No", a value can be omitted only for organizational deployments of types other than `AWSQuickSetupType-PatchPolicy` . A value must be provided when you are running an organizational deployment for a patch policy or running any type of deployment for a single account.
     """
-    local_deployment_execution_role_name: NotRequired[pulumi.Input[_builtins.str]]
+    local_deployment_execution_role_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the IAM role used to deploy local configurations.
 
     > Although this element is listed as "Required: No", a value can be omitted only for organizational deployments of types other than `AWSQuickSetupType-PatchPolicy` . A value must be provided when you are running an organizational deployment for a patch policy or running any type of deployment for a single account.
     """
-    type_version: NotRequired[pulumi.Input[_builtins.str]]
+    type_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the Quick Setup type used.
     """
@@ -357,10 +357,10 @@ class ConfigurationManagerConfigurationDefinitionArgs:
     def __init__(__self__, *,
                  parameters: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  type: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_deployment_administration_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_deployment_execution_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_deployment_administration_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_deployment_execution_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: The parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. The following lists outline the parameters for each configuration type.
                
@@ -1014,19 +1014,19 @@ class ConfigurationManagerConfigurationDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the configuration definition.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="localDeploymentAdministrationRoleArn")
-    def local_deployment_administration_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_deployment_administration_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role used to administrate local configuration deployments.
 
@@ -1035,12 +1035,12 @@ class ConfigurationManagerConfigurationDefinitionArgs:
         return pulumi.get(self, "local_deployment_administration_role_arn")
 
     @local_deployment_administration_role_arn.setter
-    def local_deployment_administration_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_deployment_administration_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_deployment_administration_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="localDeploymentExecutionRoleName")
-    def local_deployment_execution_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_deployment_execution_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the IAM role used to deploy local configurations.
 
@@ -1049,19 +1049,19 @@ class ConfigurationManagerConfigurationDefinitionArgs:
         return pulumi.get(self, "local_deployment_execution_role_name")
 
     @local_deployment_execution_role_name.setter
-    def local_deployment_execution_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_deployment_execution_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_deployment_execution_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="typeVersion")
-    def type_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the Quick Setup type used.
         """
         return pulumi.get(self, "type_version")
 
     @type_version.setter
-    def type_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_version", value)
 
 

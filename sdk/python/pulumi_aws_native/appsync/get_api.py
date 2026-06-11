@@ -141,7 +141,7 @@ def get_api(api_arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         owner_contact=pulumi.get(__ret__, 'owner_contact'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_api_output(api_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_output(api_arn: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiResult]:
     """
     Resource schema for AppSync Api

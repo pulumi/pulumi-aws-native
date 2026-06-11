@@ -127,7 +127,7 @@ def get_configuration(name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         uuid=pulumi.get(__ret__, 'uuid'))
-def get_configuration_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationResult]:
     """
     Resource schema for AWS::Omics::Configuration

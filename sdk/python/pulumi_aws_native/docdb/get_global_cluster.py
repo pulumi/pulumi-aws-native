@@ -101,7 +101,7 @@ def get_global_cluster(global_cluster_identifier: Optional[_builtins.str] = None
         global_cluster_arn=pulumi.get(__ret__, 'global_cluster_arn'),
         global_cluster_resource_id=pulumi.get(__ret__, 'global_cluster_resource_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_global_cluster_output(global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_global_cluster_output(global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalClusterResult]:
     """
     The AWS::DocDB::GlobalCluster resource represents an Amazon DocumentDB Global Cluster.

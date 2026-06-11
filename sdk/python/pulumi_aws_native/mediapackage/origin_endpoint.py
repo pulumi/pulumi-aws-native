@@ -26,18 +26,18 @@ class OriginEndpointArgs:
     def __init__(__self__, *,
                  aws_id: pulumi.Input[_builtins.str],
                  channel_id: pulumi.Input[_builtins.str],
-                 authorization: Optional[pulumi.Input['OriginEndpointAuthorizationArgs']] = None,
-                 cmaf_package: Optional[pulumi.Input['OriginEndpointCmafPackageArgs']] = None,
-                 dash_package: Optional[pulumi.Input['OriginEndpointDashPackageArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 hls_package: Optional[pulumi.Input['OriginEndpointHlsPackageArgs']] = None,
-                 manifest_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mss_package: Optional[pulumi.Input['OriginEndpointMssPackageArgs']] = None,
-                 origination: Optional[pulumi.Input['OriginEndpointOrigination']] = None,
-                 startover_window_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 time_delay_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 authorization: pulumi.Input[Optional['OriginEndpointAuthorizationArgs']] = None,
+                 cmaf_package: pulumi.Input[Optional['OriginEndpointCmafPackageArgs']] = None,
+                 dash_package: pulumi.Input[Optional['OriginEndpointDashPackageArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 hls_package: pulumi.Input[Optional['OriginEndpointHlsPackageArgs']] = None,
+                 manifest_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mss_package: pulumi.Input[Optional['OriginEndpointMssPackageArgs']] = None,
+                 origination: pulumi.Input[Optional['OriginEndpointOrigination']] = None,
+                 startover_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 time_delay_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 whitelist: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OriginEndpoint resource.
 
@@ -109,146 +109,146 @@ class OriginEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input['OriginEndpointAuthorizationArgs']]:
+    def authorization(self) -> pulumi.Input[Optional['OriginEndpointAuthorizationArgs']]:
         """
         Parameters for CDN authorization.
         """
         return pulumi.get(self, "authorization")
 
     @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input['OriginEndpointAuthorizationArgs']]):
+    def authorization(self, value: pulumi.Input[Optional['OriginEndpointAuthorizationArgs']]):
         pulumi.set(self, "authorization", value)
 
     @_builtins.property
     @pulumi.getter(name="cmafPackage")
-    def cmaf_package(self) -> Optional[pulumi.Input['OriginEndpointCmafPackageArgs']]:
+    def cmaf_package(self) -> pulumi.Input[Optional['OriginEndpointCmafPackageArgs']]:
         """
         Parameters for Common Media Application Format (CMAF) packaging.
         """
         return pulumi.get(self, "cmaf_package")
 
     @cmaf_package.setter
-    def cmaf_package(self, value: Optional[pulumi.Input['OriginEndpointCmafPackageArgs']]):
+    def cmaf_package(self, value: pulumi.Input[Optional['OriginEndpointCmafPackageArgs']]):
         pulumi.set(self, "cmaf_package", value)
 
     @_builtins.property
     @pulumi.getter(name="dashPackage")
-    def dash_package(self) -> Optional[pulumi.Input['OriginEndpointDashPackageArgs']]:
+    def dash_package(self) -> pulumi.Input[Optional['OriginEndpointDashPackageArgs']]:
         """
         Parameters for DASH packaging.
         """
         return pulumi.get(self, "dash_package")
 
     @dash_package.setter
-    def dash_package(self, value: Optional[pulumi.Input['OriginEndpointDashPackageArgs']]):
+    def dash_package(self, value: pulumi.Input[Optional['OriginEndpointDashPackageArgs']]):
         pulumi.set(self, "dash_package", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A short text description of the OriginEndpoint.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="hlsPackage")
-    def hls_package(self) -> Optional[pulumi.Input['OriginEndpointHlsPackageArgs']]:
+    def hls_package(self) -> pulumi.Input[Optional['OriginEndpointHlsPackageArgs']]:
         """
         Parameters for Apple HLS packaging.
         """
         return pulumi.get(self, "hls_package")
 
     @hls_package.setter
-    def hls_package(self, value: Optional[pulumi.Input['OriginEndpointHlsPackageArgs']]):
+    def hls_package(self, value: pulumi.Input[Optional['OriginEndpointHlsPackageArgs']]):
         pulumi.set(self, "hls_package", value)
 
     @_builtins.property
     @pulumi.getter(name="manifestName")
-    def manifest_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manifest_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A short string appended to the end of the OriginEndpoint URL.
         """
         return pulumi.get(self, "manifest_name")
 
     @manifest_name.setter
-    def manifest_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manifest_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manifest_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mssPackage")
-    def mss_package(self) -> Optional[pulumi.Input['OriginEndpointMssPackageArgs']]:
+    def mss_package(self) -> pulumi.Input[Optional['OriginEndpointMssPackageArgs']]:
         """
         Parameters for Microsoft Smooth Streaming packaging.
         """
         return pulumi.get(self, "mss_package")
 
     @mss_package.setter
-    def mss_package(self, value: Optional[pulumi.Input['OriginEndpointMssPackageArgs']]):
+    def mss_package(self, value: pulumi.Input[Optional['OriginEndpointMssPackageArgs']]):
         pulumi.set(self, "mss_package", value)
 
     @_builtins.property
     @pulumi.getter
-    def origination(self) -> Optional[pulumi.Input['OriginEndpointOrigination']]:
+    def origination(self) -> pulumi.Input[Optional['OriginEndpointOrigination']]:
         """
         Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
         """
         return pulumi.get(self, "origination")
 
     @origination.setter
-    def origination(self, value: Optional[pulumi.Input['OriginEndpointOrigination']]):
+    def origination(self, value: pulumi.Input[Optional['OriginEndpointOrigination']]):
         pulumi.set(self, "origination", value)
 
     @_builtins.property
     @pulumi.getter(name="startoverWindowSeconds")
-    def startover_window_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def startover_window_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
         """
         return pulumi.get(self, "startover_window_seconds")
 
     @startover_window_seconds.setter
-    def startover_window_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def startover_window_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "startover_window_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="timeDelaySeconds")
-    def time_delay_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_delay_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
         """
         return pulumi.get(self, "time_delay_seconds")
 
     @time_delay_seconds.setter
-    def time_delay_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_delay_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_delay_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def whitelist(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def whitelist(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
         """
         return pulumi.get(self, "whitelist")
 
     @whitelist.setter
-    def whitelist(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def whitelist(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "whitelist", value)
 
 
@@ -258,20 +258,20 @@ class OriginEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization: Optional[pulumi.Input[Union['OriginEndpointAuthorizationArgs', 'OriginEndpointAuthorizationArgsDict']]] = None,
-                 aws_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cmaf_package: Optional[pulumi.Input[Union['OriginEndpointCmafPackageArgs', 'OriginEndpointCmafPackageArgsDict']]] = None,
-                 dash_package: Optional[pulumi.Input[Union['OriginEndpointDashPackageArgs', 'OriginEndpointDashPackageArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 hls_package: Optional[pulumi.Input[Union['OriginEndpointHlsPackageArgs', 'OriginEndpointHlsPackageArgsDict']]] = None,
-                 manifest_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mss_package: Optional[pulumi.Input[Union['OriginEndpointMssPackageArgs', 'OriginEndpointMssPackageArgsDict']]] = None,
-                 origination: Optional[pulumi.Input['OriginEndpointOrigination']] = None,
-                 startover_window_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 time_delay_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authorization: pulumi.Input[Optional[Union['OriginEndpointAuthorizationArgs', 'OriginEndpointAuthorizationArgsDict']]] = None,
+                 aws_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cmaf_package: pulumi.Input[Optional[Union['OriginEndpointCmafPackageArgs', 'OriginEndpointCmafPackageArgsDict']]] = None,
+                 dash_package: pulumi.Input[Optional[Union['OriginEndpointDashPackageArgs', 'OriginEndpointDashPackageArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 hls_package: pulumi.Input[Optional[Union['OriginEndpointHlsPackageArgs', 'OriginEndpointHlsPackageArgsDict']]] = None,
+                 manifest_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mss_package: pulumi.Input[Optional[Union['OriginEndpointMssPackageArgs', 'OriginEndpointMssPackageArgsDict']]] = None,
+                 origination: pulumi.Input[Optional['OriginEndpointOrigination']] = None,
+                 startover_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 time_delay_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 whitelist: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaPackage::OriginEndpoint
@@ -319,20 +319,20 @@ class OriginEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization: Optional[pulumi.Input[Union['OriginEndpointAuthorizationArgs', 'OriginEndpointAuthorizationArgsDict']]] = None,
-                 aws_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cmaf_package: Optional[pulumi.Input[Union['OriginEndpointCmafPackageArgs', 'OriginEndpointCmafPackageArgsDict']]] = None,
-                 dash_package: Optional[pulumi.Input[Union['OriginEndpointDashPackageArgs', 'OriginEndpointDashPackageArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 hls_package: Optional[pulumi.Input[Union['OriginEndpointHlsPackageArgs', 'OriginEndpointHlsPackageArgsDict']]] = None,
-                 manifest_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mss_package: Optional[pulumi.Input[Union['OriginEndpointMssPackageArgs', 'OriginEndpointMssPackageArgsDict']]] = None,
-                 origination: Optional[pulumi.Input['OriginEndpointOrigination']] = None,
-                 startover_window_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 time_delay_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authorization: pulumi.Input[Optional[Union['OriginEndpointAuthorizationArgs', 'OriginEndpointAuthorizationArgsDict']]] = None,
+                 aws_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cmaf_package: pulumi.Input[Optional[Union['OriginEndpointCmafPackageArgs', 'OriginEndpointCmafPackageArgsDict']]] = None,
+                 dash_package: pulumi.Input[Optional[Union['OriginEndpointDashPackageArgs', 'OriginEndpointDashPackageArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 hls_package: pulumi.Input[Optional[Union['OriginEndpointHlsPackageArgs', 'OriginEndpointHlsPackageArgsDict']]] = None,
+                 manifest_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mss_package: pulumi.Input[Optional[Union['OriginEndpointMssPackageArgs', 'OriginEndpointMssPackageArgsDict']]] = None,
+                 origination: pulumi.Input[Optional['OriginEndpointOrigination']] = None,
+                 startover_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 time_delay_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 whitelist: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

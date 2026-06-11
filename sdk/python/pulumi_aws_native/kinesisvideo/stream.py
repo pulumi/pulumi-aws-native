@@ -24,13 +24,13 @@ __all__ = ['StreamArgs', 'Stream']
 @pulumi.input_type
 class StreamArgs:
     def __init__(__self__, *,
-                 data_retention_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 media_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_storage_configuration: Optional[pulumi.Input['StreamStorageConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 data_retention_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 media_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_storage_configuration: pulumi.Input[Optional['StreamStorageConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Stream resource.
 
@@ -59,86 +59,86 @@ class StreamArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataRetentionInHours")
-    def data_retention_in_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def data_retention_in_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of hours till which Kinesis Video will retain the data in the stream
         """
         return pulumi.get(self, "data_retention_in_hours")
 
     @data_retention_in_hours.setter
-    def data_retention_in_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def data_retention_in_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_retention_in_hours", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceName")
-    def device_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the device that is writing to the stream.
         """
         return pulumi.get(self, "device_name")
 
     @device_name.setter
-    def device_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_name", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS KMS key ID that Kinesis Video Streams uses to encrypt stream data.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="mediaType")
-    def media_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def media_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The media type of the stream. Consumers of the stream can use this information when processing the stream.
         """
         return pulumi.get(self, "media_type")
 
     @media_type.setter
-    def media_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def media_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "media_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Kinesis Video stream.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="streamStorageConfiguration")
-    def stream_storage_configuration(self) -> Optional[pulumi.Input['StreamStorageConfigurationArgs']]:
+    def stream_storage_configuration(self) -> pulumi.Input[Optional['StreamStorageConfigurationArgs']]:
         """
         Configuration for the storage tier of the Kinesis Video Stream.
         """
         return pulumi.get(self, "stream_storage_configuration")
 
     @stream_storage_configuration.setter
-    def stream_storage_configuration(self, value: Optional[pulumi.Input['StreamStorageConfigurationArgs']]):
+    def stream_storage_configuration(self, value: pulumi.Input[Optional['StreamStorageConfigurationArgs']]):
         pulumi.set(self, "stream_storage_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs associated with the Kinesis Video Stream.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -148,13 +148,13 @@ class Stream(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_retention_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 media_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_storage_configuration: Optional[pulumi.Input[Union['StreamStorageConfigurationArgs', 'StreamStorageConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 data_retention_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 media_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_storage_configuration: pulumi.Input[Optional[Union['StreamStorageConfigurationArgs', 'StreamStorageConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type Definition for AWS::KinesisVideo::Stream
@@ -195,13 +195,13 @@ class Stream(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_retention_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 media_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_storage_configuration: Optional[pulumi.Input[Union['StreamStorageConfigurationArgs', 'StreamStorageConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 data_retention_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 media_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_storage_configuration: pulumi.Input[Optional[Union['StreamStorageConfigurationArgs', 'StreamStorageConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -117,7 +117,7 @@ def get_model_package_group(model_package_group_arn: Optional[_builtins.str] = N
         model_package_group_policy=pulumi.get(__ret__, 'model_package_group_policy'),
         model_package_group_status=pulumi.get(__ret__, 'model_package_group_status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_model_package_group_output(model_package_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_model_package_group_output(model_package_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelPackageGroupResult]:
     """
     Resource Type definition for AWS::SageMaker::ModelPackageGroup

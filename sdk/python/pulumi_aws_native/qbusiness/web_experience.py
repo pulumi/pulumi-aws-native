@@ -25,16 +25,16 @@ __all__ = ['WebExperienceArgs', 'WebExperience']
 class WebExperienceArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[_builtins.str],
-                 browser_extension_configuration: Optional[pulumi.Input['WebExperienceBrowserExtensionConfigurationArgs']] = None,
-                 customization_configuration: Optional[pulumi.Input['WebExperienceCustomizationConfigurationArgs']] = None,
-                 identity_provider_configuration: Optional[pulumi.Input[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgs']]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_prompts_control_mode: Optional[pulumi.Input['WebExperienceSamplePromptsControlMode']] = None,
-                 subtitle: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 welcome_message: Optional[pulumi.Input[_builtins.str]] = None):
+                 browser_extension_configuration: pulumi.Input[Optional['WebExperienceBrowserExtensionConfigurationArgs']] = None,
+                 customization_configuration: pulumi.Input[Optional['WebExperienceCustomizationConfigurationArgs']] = None,
+                 identity_provider_configuration: pulumi.Input[Optional[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgs']]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_prompts_control_mode: pulumi.Input[Optional['WebExperienceSamplePromptsControlMode']] = None,
+                 subtitle: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 welcome_message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebExperience resource.
 
@@ -90,43 +90,43 @@ class WebExperienceArgs:
 
     @_builtins.property
     @pulumi.getter(name="browserExtensionConfiguration")
-    def browser_extension_configuration(self) -> Optional[pulumi.Input['WebExperienceBrowserExtensionConfigurationArgs']]:
+    def browser_extension_configuration(self) -> pulumi.Input[Optional['WebExperienceBrowserExtensionConfigurationArgs']]:
         """
         The container for browser extension configuration for an Amazon Q Business web experience.
         """
         return pulumi.get(self, "browser_extension_configuration")
 
     @browser_extension_configuration.setter
-    def browser_extension_configuration(self, value: Optional[pulumi.Input['WebExperienceBrowserExtensionConfigurationArgs']]):
+    def browser_extension_configuration(self, value: pulumi.Input[Optional['WebExperienceBrowserExtensionConfigurationArgs']]):
         pulumi.set(self, "browser_extension_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="customizationConfiguration")
-    def customization_configuration(self) -> Optional[pulumi.Input['WebExperienceCustomizationConfigurationArgs']]:
+    def customization_configuration(self) -> pulumi.Input[Optional['WebExperienceCustomizationConfigurationArgs']]:
         """
         Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
         """
         return pulumi.get(self, "customization_configuration")
 
     @customization_configuration.setter
-    def customization_configuration(self, value: Optional[pulumi.Input['WebExperienceCustomizationConfigurationArgs']]):
+    def customization_configuration(self, value: pulumi.Input[Optional['WebExperienceCustomizationConfigurationArgs']]):
         pulumi.set(self, "customization_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProviderConfiguration")
-    def identity_provider_configuration(self) -> Optional[pulumi.Input[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgs']]]:
+    def identity_provider_configuration(self) -> pulumi.Input[Optional[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgs']]]:
         """
         Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
         """
         return pulumi.get(self, "identity_provider_configuration")
 
     @identity_provider_configuration.setter
-    def identity_provider_configuration(self, value: Optional[pulumi.Input[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgs']]]):
+    def identity_provider_configuration(self, value: pulumi.Input[Optional[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgs']]]):
         pulumi.set(self, "identity_provider_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def origins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
 
@@ -135,12 +135,12 @@ class WebExperienceArgs:
         return pulumi.get(self, "origins")
 
     @origins.setter
-    def origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def origins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "origins", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the service role attached to your web experience.
 
@@ -149,67 +149,67 @@ class WebExperienceArgs:
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="samplePromptsControlMode")
-    def sample_prompts_control_mode(self) -> Optional[pulumi.Input['WebExperienceSamplePromptsControlMode']]:
+    def sample_prompts_control_mode(self) -> pulumi.Input[Optional['WebExperienceSamplePromptsControlMode']]:
         """
         Determines whether sample prompts are enabled in the web experience for an end user.
         """
         return pulumi.get(self, "sample_prompts_control_mode")
 
     @sample_prompts_control_mode.setter
-    def sample_prompts_control_mode(self, value: Optional[pulumi.Input['WebExperienceSamplePromptsControlMode']]):
+    def sample_prompts_control_mode(self, value: pulumi.Input[Optional['WebExperienceSamplePromptsControlMode']]):
         pulumi.set(self, "sample_prompts_control_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def subtitle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subtitle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A subtitle to personalize your Amazon Q Business web experience.
         """
         return pulumi.get(self, "subtitle")
 
     @subtitle.setter
-    def subtitle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subtitle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subtitle", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title for your Amazon Q Business web experience.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter(name="welcomeMessage")
-    def welcome_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def welcome_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message in an Amazon Q Business web experience.
         """
         return pulumi.get(self, "welcome_message")
 
     @welcome_message.setter
-    def welcome_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def welcome_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "welcome_message", value)
 
 
@@ -219,17 +219,17 @@ class WebExperience(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 browser_extension_configuration: Optional[pulumi.Input[Union['WebExperienceBrowserExtensionConfigurationArgs', 'WebExperienceBrowserExtensionConfigurationArgsDict']]] = None,
-                 customization_configuration: Optional[pulumi.Input[Union['WebExperienceCustomizationConfigurationArgs', 'WebExperienceCustomizationConfigurationArgsDict']]] = None,
-                 identity_provider_configuration: Optional[pulumi.Input[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict']]]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_prompts_control_mode: Optional[pulumi.Input['WebExperienceSamplePromptsControlMode']] = None,
-                 subtitle: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 welcome_message: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 browser_extension_configuration: pulumi.Input[Optional[Union['WebExperienceBrowserExtensionConfigurationArgs', 'WebExperienceBrowserExtensionConfigurationArgsDict']]] = None,
+                 customization_configuration: pulumi.Input[Optional[Union['WebExperienceCustomizationConfigurationArgs', 'WebExperienceCustomizationConfigurationArgsDict']]] = None,
+                 identity_provider_configuration: pulumi.Input[Optional[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict']]]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_prompts_control_mode: pulumi.Input[Optional['WebExperienceSamplePromptsControlMode']] = None,
+                 subtitle: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 welcome_message: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::QBusiness::WebExperience Resource Type
@@ -278,17 +278,17 @@ class WebExperience(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 browser_extension_configuration: Optional[pulumi.Input[Union['WebExperienceBrowserExtensionConfigurationArgs', 'WebExperienceBrowserExtensionConfigurationArgsDict']]] = None,
-                 customization_configuration: Optional[pulumi.Input[Union['WebExperienceCustomizationConfigurationArgs', 'WebExperienceCustomizationConfigurationArgsDict']]] = None,
-                 identity_provider_configuration: Optional[pulumi.Input[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict']]]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_prompts_control_mode: Optional[pulumi.Input['WebExperienceSamplePromptsControlMode']] = None,
-                 subtitle: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 welcome_message: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 browser_extension_configuration: pulumi.Input[Optional[Union['WebExperienceBrowserExtensionConfigurationArgs', 'WebExperienceBrowserExtensionConfigurationArgsDict']]] = None,
+                 customization_configuration: pulumi.Input[Optional[Union['WebExperienceCustomizationConfigurationArgs', 'WebExperienceCustomizationConfigurationArgsDict']]] = None,
+                 identity_provider_configuration: pulumi.Input[Optional[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict']]]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_prompts_control_mode: pulumi.Input[Optional['WebExperienceSamplePromptsControlMode']] = None,
+                 subtitle: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 welcome_message: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -66,8 +66,8 @@ def get_bridge_output_resource(bridge_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetBridgeOutputResourceResult(
         network_output=pulumi.get(__ret__, 'network_output'))
-def get_bridge_output_resource_output(bridge_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                      name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bridge_output_resource_output(bridge_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                      name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBridgeOutputResourceResult]:
     """
     Resource schema for AWS::MediaConnect::BridgeOutput

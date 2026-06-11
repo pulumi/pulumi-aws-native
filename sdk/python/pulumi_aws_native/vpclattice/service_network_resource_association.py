@@ -21,10 +21,10 @@ __all__ = ['ServiceNetworkResourceAssociationArgs', 'ServiceNetworkResourceAssoc
 @pulumi.input_type
 class ServiceNetworkResourceAssociationArgs:
     def __init__(__self__, *,
-                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 private_dns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
 
@@ -44,50 +44,50 @@ class ServiceNetworkResourceAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateDnsEnabled")
-    def private_dns_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def private_dns_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if private DNS is enabled for the service network resource association.
         """
         return pulumi.get(self, "private_dns_enabled")
 
     @private_dns_enabled.setter
-    def private_dns_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def private_dns_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "private_dns_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationId")
-    def resource_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the resource configuration associated with the service network.
         """
         return pulumi.get(self, "resource_configuration_id")
 
     @resource_configuration_id.setter
-    def resource_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceNetworkId")
-    def service_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the service network associated with the resource configuration.
         """
         return pulumi.get(self, "service_network_id")
 
     @service_network_id.setter
-    def service_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_network_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A key-value pair to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -97,10 +97,10 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 private_dns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         VpcLattice ServiceNetworkResourceAssociation CFN resource
@@ -138,10 +138,10 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 private_dns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

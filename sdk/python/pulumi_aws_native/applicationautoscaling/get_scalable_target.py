@@ -167,9 +167,9 @@ def get_scalable_target(resource_id: Optional[_builtins.str] = None,
         min_capacity=pulumi.get(__ret__, 'min_capacity'),
         scheduled_actions=pulumi.get(__ret__, 'scheduled_actions'),
         suspended_state=pulumi.get(__ret__, 'suspended_state'))
-def get_scalable_target_output(resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               scalable_dimension: Optional[pulumi.Input[_builtins.str]] = None,
-                               service_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scalable_target_output(resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
+                               service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScalableTargetResult]:
     """
     The ``AWS::ApplicationAutoScaling::ScalableTarget`` resource specifies a resource that Application Auto Scaling can scale, such as an AWS::DynamoDB::Table or AWS::ECS::Service resource.

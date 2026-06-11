@@ -30,11 +30,11 @@ class AuthenticationModePropertiesArgsDict(TypedDict):
 
     `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
     """
-    passwords: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    passwords: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Passwords used for this user account. You can create up to two passwords for each user.
     """
-    type: NotRequired[pulumi.Input['UserAuthenticationModePropertiesType']]
+    type: NotRequired[pulumi.Input[Optional['UserAuthenticationModePropertiesType']]]
     """
     Type of authentication strategy for this user.
     """
@@ -42,8 +42,8 @@ class AuthenticationModePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class AuthenticationModePropertiesArgs:
     def __init__(__self__, *,
-                 passwords: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input['UserAuthenticationModePropertiesType']] = None):
+                 passwords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional['UserAuthenticationModePropertiesType']] = None):
         """
         Denotes whether the user requires a password to authenticate.
 
@@ -61,35 +61,35 @@ class AuthenticationModePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def passwords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def passwords(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Passwords used for this user account. You can create up to two passwords for each user.
         """
         return pulumi.get(self, "passwords")
 
     @passwords.setter
-    def passwords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def passwords(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "passwords", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['UserAuthenticationModePropertiesType']]:
+    def type(self) -> pulumi.Input[Optional['UserAuthenticationModePropertiesType']]:
         """
         Type of authentication strategy for this user.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['UserAuthenticationModePropertiesType']]):
+    def type(self, value: pulumi.Input[Optional['UserAuthenticationModePropertiesType']]):
         pulumi.set(self, "type", value)
 
 
 class ClusterEndpointArgsDict(TypedDict):
-    address: NotRequired[pulumi.Input[_builtins.str]]
+    address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The DNS address of the primary read-write node.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port number that the engine is listening on. 
     """
@@ -97,8 +97,8 @@ class ClusterEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterEndpointArgs:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] address: The DNS address of the primary read-write node.
         :param pulumi.Input[_builtins.int] port: The port number that the engine is listening on. 
@@ -110,26 +110,26 @@ class ClusterEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS address of the primary read-write node.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port number that the engine is listening on. 
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
 

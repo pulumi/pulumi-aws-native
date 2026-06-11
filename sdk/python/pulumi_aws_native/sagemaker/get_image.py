@@ -134,7 +134,7 @@ def get_image(image_arn: Optional[_builtins.str] = None,
         image_display_name=pulumi.get(__ret__, 'image_display_name'),
         image_role_arn=pulumi.get(__ret__, 'image_role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_image_output(image_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_image_output(image_arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
     Resource Type definition for AWS::SageMaker::Image

@@ -153,7 +153,7 @@ def get_code_security_integration(arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'),
         type=pulumi.get(__ret__, 'type'))
-def get_code_security_integration_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_code_security_integration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodeSecurityIntegrationResult]:
     """
     Inspector CodeSecurityIntegration resource schema

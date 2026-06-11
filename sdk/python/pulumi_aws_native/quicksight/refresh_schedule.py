@@ -22,9 +22,9 @@ __all__ = ['RefreshScheduleArgs', 'RefreshSchedule']
 @pulumi.input_type
 class RefreshScheduleArgs:
     def __init__(__self__, *,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input['RefreshScheduleMapArgs']] = None):
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional['RefreshScheduleMapArgs']] = None):
         """
         The set of arguments for constructing a RefreshSchedule resource.
 
@@ -41,38 +41,38 @@ class RefreshScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account ID of the account that you are creating a schedule in.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the dataset that you are creating a refresh schedule for.
         """
         return pulumi.get(self, "data_set_id")
 
     @data_set_id.setter
-    def data_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_set_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['RefreshScheduleMapArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['RefreshScheduleMapArgs']]:
         """
         The refresh schedule of a dataset.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['RefreshScheduleMapArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['RefreshScheduleMapArgs']]):
         pulumi.set(self, "schedule", value)
 
 
@@ -82,9 +82,9 @@ class RefreshSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['RefreshScheduleMapArgs', 'RefreshScheduleMapArgsDict']]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['RefreshScheduleMapArgs', 'RefreshScheduleMapArgsDict']]] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::RefreshSchedule Resource Type.
@@ -121,9 +121,9 @@ class RefreshSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['RefreshScheduleMapArgs', 'RefreshScheduleMapArgsDict']]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['RefreshScheduleMapArgs', 'RefreshScheduleMapArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

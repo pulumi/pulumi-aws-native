@@ -26,11 +26,11 @@ class PackageGroupArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[_builtins.str],
                  pattern: pulumi.Input[_builtins.str],
-                 contact_info: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_configuration: Optional[pulumi.Input['PackageGroupOriginConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 contact_info: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_configuration: pulumi.Input[Optional['PackageGroupOriginConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PackageGroup resource.
 
@@ -81,62 +81,62 @@ class PackageGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="contactInfo")
-    def contact_info(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def contact_info(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The contact info of the package group.
         """
         return pulumi.get(self, "contact_info")
 
     @contact_info.setter
-    def contact_info(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def contact_info(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "contact_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The text description of the package group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="domainOwner")
-    def domain_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The 12-digit account ID of the AWS account that owns the domain.
         """
         return pulumi.get(self, "domain_owner")
 
     @domain_owner.setter
-    def domain_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="originConfiguration")
-    def origin_configuration(self) -> Optional[pulumi.Input['PackageGroupOriginConfigurationArgs']]:
+    def origin_configuration(self) -> pulumi.Input[Optional['PackageGroupOriginConfigurationArgs']]:
         """
         The package origin configuration of the package group.
         """
         return pulumi.get(self, "origin_configuration")
 
     @origin_configuration.setter
-    def origin_configuration(self, value: Optional[pulumi.Input['PackageGroupOriginConfigurationArgs']]):
+    def origin_configuration(self, value: pulumi.Input[Optional['PackageGroupOriginConfigurationArgs']]):
         pulumi.set(self, "origin_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to the package group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -146,13 +146,13 @@ class PackageGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_info: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_configuration: Optional[pulumi.Input[Union['PackageGroupOriginConfigurationArgs', 'PackageGroupOriginConfigurationArgsDict']]] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 contact_info: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_configuration: pulumi.Input[Optional[Union['PackageGroupOriginConfigurationArgs', 'PackageGroupOriginConfigurationArgsDict']]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The resource schema to create a CodeArtifact package group.
@@ -193,13 +193,13 @@ class PackageGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_info: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_configuration: Optional[pulumi.Input[Union['PackageGroupOriginConfigurationArgs', 'PackageGroupOriginConfigurationArgsDict']]] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 contact_info: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_configuration: pulumi.Input[Optional[Union['PackageGroupOriginConfigurationArgs', 'PackageGroupOriginConfigurationArgsDict']]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

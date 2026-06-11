@@ -167,8 +167,8 @@ def get_table(keyspace_name: Optional[_builtins.str] = None,
         regular_columns=pulumi.get(__ret__, 'regular_columns'),
         tags=pulumi.get(__ret__, 'tags'),
         warm_throughput=pulumi.get(__ret__, 'warm_throughput'))
-def get_table_output(keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     table_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_table_output(keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     table_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """
     Resource schema for AWS::Cassandra::Table

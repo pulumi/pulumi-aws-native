@@ -64,8 +64,8 @@ def get_primary_task_set(cluster: Optional[_builtins.str] = None,
 
     return AwaitableGetPrimaryTaskSetResult(
         task_set_id=pulumi.get(__ret__, 'task_set_id'))
-def get_primary_task_set_output(cluster: Optional[pulumi.Input[_builtins.str]] = None,
-                                service: Optional[pulumi.Input[_builtins.str]] = None,
+def get_primary_task_set_output(cluster: pulumi.Input[Optional[_builtins.str]] = None,
+                                service: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrimaryTaskSetResult]:
     """
     A pseudo-resource that manages which of your ECS task sets is primary.

@@ -196,7 +196,7 @@ def get_service_level_objective(arn: Optional[_builtins.str] = None,
         request_based_sli=pulumi.get(__ret__, 'request_based_sli'),
         sli=pulumi.get(__ret__, 'sli'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_service_level_objective_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_level_objective_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceLevelObjectiveResult]:
     """
     Resource Type definition for AWS::ApplicationSignals::ServiceLevelObjective

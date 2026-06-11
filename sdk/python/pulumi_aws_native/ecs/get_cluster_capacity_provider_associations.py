@@ -76,7 +76,7 @@ def get_cluster_capacity_provider_associations(cluster: Optional[_builtins.str] 
     return AwaitableGetClusterCapacityProviderAssociationsResult(
         capacity_providers=pulumi.get(__ret__, 'capacity_providers'),
         default_capacity_provider_strategy=pulumi.get(__ret__, 'default_capacity_provider_strategy'))
-def get_cluster_capacity_provider_associations_output(cluster: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_capacity_provider_associations_output(cluster: pulumi.Input[Optional[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterCapacityProviderAssociationsResult]:
     """
     Associate a set of ECS Capacity Providers with a specified ECS Cluster

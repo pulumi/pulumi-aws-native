@@ -147,7 +147,7 @@ def get_environment(environment_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tier=pulumi.get(__ret__, 'tier'),
         version_label=pulumi.get(__ret__, 'version_label'))
-def get_environment_output(environment_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Resource Type definition for AWS::ElasticBeanstalk::Environment

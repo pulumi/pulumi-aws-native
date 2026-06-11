@@ -26,14 +26,14 @@ class AppBlockBuilderArgs:
                  instance_type: pulumi.Input[_builtins.str],
                  platform: pulumi.Input[_builtins.str],
                  vpc_config: pulumi.Input['AppBlockBuilderVpcConfigArgs'],
-                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['AppBlockBuilderAccessEndpointArgs']]]] = None,
-                 app_block_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_default_internet_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['AppBlockBuilderAccessEndpointArgs']]]] = None,
+                 app_block_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AppBlockBuilder resource.
 
@@ -113,19 +113,19 @@ class AppBlockBuilderArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessEndpoints")
-    def access_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppBlockBuilderAccessEndpointArgs']]]]:
+    def access_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppBlockBuilderAccessEndpointArgs']]]]:
         """
         The access endpoints of the app block builder.
         """
         return pulumi.get(self, "access_endpoints")
 
     @access_endpoints.setter
-    def access_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppBlockBuilderAccessEndpointArgs']]]]):
+    def access_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppBlockBuilderAccessEndpointArgs']]]]):
         pulumi.set(self, "access_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="appBlockArns")
-    def app_block_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def app_block_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The ARN of the app block.
 
@@ -134,79 +134,79 @@ class AppBlockBuilderArgs:
         return pulumi.get(self, "app_block_arns")
 
     @app_block_arns.setter
-    def app_block_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def app_block_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "app_block_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the app block builder.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the app block builder.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDefaultInternetAccess")
-    def enable_default_internet_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_default_internet_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether default internet access is enabled for the app block builder.
         """
         return pulumi.get(self, "enable_default_internet_access")
 
     @enable_default_internet_access.setter
-    def enable_default_internet_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_default_internet_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_default_internet_access", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role that is applied to the app block builder.
         """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
-    def iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the app block builder.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags of the app block builder.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -216,17 +216,17 @@ class AppBlockBuilder(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppBlockBuilderAccessEndpointArgs', 'AppBlockBuilderAccessEndpointArgsDict']]]]] = None,
-                 app_block_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_default_internet_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['AppBlockBuilderVpcConfigArgs', 'AppBlockBuilderVpcConfigArgsDict']]] = None,
+                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppBlockBuilderAccessEndpointArgs', 'AppBlockBuilderAccessEndpointArgsDict']]]]] = None,
+                 app_block_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['AppBlockBuilderVpcConfigArgs', 'AppBlockBuilderVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppStream::AppBlockBuilder.
@@ -275,17 +275,17 @@ class AppBlockBuilder(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppBlockBuilderAccessEndpointArgs', 'AppBlockBuilderAccessEndpointArgsDict']]]]] = None,
-                 app_block_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_default_internet_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['AppBlockBuilderVpcConfigArgs', 'AppBlockBuilderVpcConfigArgsDict']]] = None,
+                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppBlockBuilderAccessEndpointArgs', 'AppBlockBuilderAccessEndpointArgsDict']]]]] = None,
+                 app_block_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['AppBlockBuilderVpcConfigArgs', 'AppBlockBuilderVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

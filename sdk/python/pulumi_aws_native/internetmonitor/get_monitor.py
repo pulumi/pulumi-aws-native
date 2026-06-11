@@ -221,7 +221,7 @@ def get_monitor(monitor_name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         traffic_percentage_to_monitor=pulumi.get(__ret__, 'traffic_percentage_to_monitor'))
-def get_monitor_output(monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_monitor_output(monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorResult]:
     """
     Represents a monitor, which defines the monitoring boundaries for measurements that Internet Monitor publishes information about for an application

@@ -114,7 +114,7 @@ def get_security_config(id: Optional[_builtins.str] = None,
         iam_identity_center_options=pulumi.get(__ret__, 'iam_identity_center_options'),
         id=pulumi.get(__ret__, 'id'),
         saml_options=pulumi.get(__ret__, 'saml_options'))
-def get_security_config_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_config_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityConfigResult]:
     """
     Amazon OpenSearchServerless security config resource

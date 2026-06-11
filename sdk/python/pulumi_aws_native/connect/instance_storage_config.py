@@ -25,10 +25,10 @@ class InstanceStorageConfigArgs:
                  instance_arn: pulumi.Input[_builtins.str],
                  resource_type: pulumi.Input['InstanceStorageConfigInstanceStorageResourceType'],
                  storage_type: pulumi.Input['InstanceStorageConfigStorageType'],
-                 kinesis_firehose_config: Optional[pulumi.Input['InstanceStorageConfigKinesisFirehoseConfigArgs']] = None,
-                 kinesis_stream_config: Optional[pulumi.Input['InstanceStorageConfigKinesisStreamConfigArgs']] = None,
-                 kinesis_video_stream_config: Optional[pulumi.Input['InstanceStorageConfigKinesisVideoStreamConfigArgs']] = None,
-                 s3_config: Optional[pulumi.Input['InstanceStorageConfigS3ConfigArgs']] = None):
+                 kinesis_firehose_config: pulumi.Input[Optional['InstanceStorageConfigKinesisFirehoseConfigArgs']] = None,
+                 kinesis_stream_config: pulumi.Input[Optional['InstanceStorageConfigKinesisStreamConfigArgs']] = None,
+                 kinesis_video_stream_config: pulumi.Input[Optional['InstanceStorageConfigKinesisVideoStreamConfigArgs']] = None,
+                 s3_config: pulumi.Input[Optional['InstanceStorageConfigS3ConfigArgs']] = None):
         """
         The set of arguments for constructing a InstanceStorageConfig resource.
 
@@ -90,50 +90,50 @@ class InstanceStorageConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="kinesisFirehoseConfig")
-    def kinesis_firehose_config(self) -> Optional[pulumi.Input['InstanceStorageConfigKinesisFirehoseConfigArgs']]:
+    def kinesis_firehose_config(self) -> pulumi.Input[Optional['InstanceStorageConfigKinesisFirehoseConfigArgs']]:
         """
         The configuration of the Kinesis Firehose delivery stream.
         """
         return pulumi.get(self, "kinesis_firehose_config")
 
     @kinesis_firehose_config.setter
-    def kinesis_firehose_config(self, value: Optional[pulumi.Input['InstanceStorageConfigKinesisFirehoseConfigArgs']]):
+    def kinesis_firehose_config(self, value: pulumi.Input[Optional['InstanceStorageConfigKinesisFirehoseConfigArgs']]):
         pulumi.set(self, "kinesis_firehose_config", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisStreamConfig")
-    def kinesis_stream_config(self) -> Optional[pulumi.Input['InstanceStorageConfigKinesisStreamConfigArgs']]:
+    def kinesis_stream_config(self) -> pulumi.Input[Optional['InstanceStorageConfigKinesisStreamConfigArgs']]:
         """
         The configuration of the Kinesis data stream.
         """
         return pulumi.get(self, "kinesis_stream_config")
 
     @kinesis_stream_config.setter
-    def kinesis_stream_config(self, value: Optional[pulumi.Input['InstanceStorageConfigKinesisStreamConfigArgs']]):
+    def kinesis_stream_config(self, value: pulumi.Input[Optional['InstanceStorageConfigKinesisStreamConfigArgs']]):
         pulumi.set(self, "kinesis_stream_config", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisVideoStreamConfig")
-    def kinesis_video_stream_config(self) -> Optional[pulumi.Input['InstanceStorageConfigKinesisVideoStreamConfigArgs']]:
+    def kinesis_video_stream_config(self) -> pulumi.Input[Optional['InstanceStorageConfigKinesisVideoStreamConfigArgs']]:
         """
         The configuration of the Kinesis video stream.
         """
         return pulumi.get(self, "kinesis_video_stream_config")
 
     @kinesis_video_stream_config.setter
-    def kinesis_video_stream_config(self, value: Optional[pulumi.Input['InstanceStorageConfigKinesisVideoStreamConfigArgs']]):
+    def kinesis_video_stream_config(self, value: pulumi.Input[Optional['InstanceStorageConfigKinesisVideoStreamConfigArgs']]):
         pulumi.set(self, "kinesis_video_stream_config", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Config")
-    def s3_config(self) -> Optional[pulumi.Input['InstanceStorageConfigS3ConfigArgs']]:
+    def s3_config(self) -> pulumi.Input[Optional['InstanceStorageConfigS3ConfigArgs']]:
         """
         The S3 bucket configuration.
         """
         return pulumi.get(self, "s3_config")
 
     @s3_config.setter
-    def s3_config(self, value: Optional[pulumi.Input['InstanceStorageConfigS3ConfigArgs']]):
+    def s3_config(self, value: pulumi.Input[Optional['InstanceStorageConfigS3ConfigArgs']]):
         pulumi.set(self, "s3_config", value)
 
 
@@ -143,13 +143,13 @@ class InstanceStorageConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kinesis_firehose_config: Optional[pulumi.Input[Union['InstanceStorageConfigKinesisFirehoseConfigArgs', 'InstanceStorageConfigKinesisFirehoseConfigArgsDict']]] = None,
-                 kinesis_stream_config: Optional[pulumi.Input[Union['InstanceStorageConfigKinesisStreamConfigArgs', 'InstanceStorageConfigKinesisStreamConfigArgsDict']]] = None,
-                 kinesis_video_stream_config: Optional[pulumi.Input[Union['InstanceStorageConfigKinesisVideoStreamConfigArgs', 'InstanceStorageConfigKinesisVideoStreamConfigArgsDict']]] = None,
-                 resource_type: Optional[pulumi.Input['InstanceStorageConfigInstanceStorageResourceType']] = None,
-                 s3_config: Optional[pulumi.Input[Union['InstanceStorageConfigS3ConfigArgs', 'InstanceStorageConfigS3ConfigArgsDict']]] = None,
-                 storage_type: Optional[pulumi.Input['InstanceStorageConfigStorageType']] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kinesis_firehose_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisFirehoseConfigArgs', 'InstanceStorageConfigKinesisFirehoseConfigArgsDict']]] = None,
+                 kinesis_stream_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisStreamConfigArgs', 'InstanceStorageConfigKinesisStreamConfigArgsDict']]] = None,
+                 kinesis_video_stream_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisVideoStreamConfigArgs', 'InstanceStorageConfigKinesisVideoStreamConfigArgsDict']]] = None,
+                 resource_type: pulumi.Input[Optional['InstanceStorageConfigInstanceStorageResourceType']] = None,
+                 s3_config: pulumi.Input[Optional[Union['InstanceStorageConfigS3ConfigArgs', 'InstanceStorageConfigS3ConfigArgsDict']]] = None,
+                 storage_type: pulumi.Input[Optional['InstanceStorageConfigStorageType']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::InstanceStorageConfig
@@ -190,13 +190,13 @@ class InstanceStorageConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kinesis_firehose_config: Optional[pulumi.Input[Union['InstanceStorageConfigKinesisFirehoseConfigArgs', 'InstanceStorageConfigKinesisFirehoseConfigArgsDict']]] = None,
-                 kinesis_stream_config: Optional[pulumi.Input[Union['InstanceStorageConfigKinesisStreamConfigArgs', 'InstanceStorageConfigKinesisStreamConfigArgsDict']]] = None,
-                 kinesis_video_stream_config: Optional[pulumi.Input[Union['InstanceStorageConfigKinesisVideoStreamConfigArgs', 'InstanceStorageConfigKinesisVideoStreamConfigArgsDict']]] = None,
-                 resource_type: Optional[pulumi.Input['InstanceStorageConfigInstanceStorageResourceType']] = None,
-                 s3_config: Optional[pulumi.Input[Union['InstanceStorageConfigS3ConfigArgs', 'InstanceStorageConfigS3ConfigArgsDict']]] = None,
-                 storage_type: Optional[pulumi.Input['InstanceStorageConfigStorageType']] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kinesis_firehose_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisFirehoseConfigArgs', 'InstanceStorageConfigKinesisFirehoseConfigArgsDict']]] = None,
+                 kinesis_stream_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisStreamConfigArgs', 'InstanceStorageConfigKinesisStreamConfigArgsDict']]] = None,
+                 kinesis_video_stream_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisVideoStreamConfigArgs', 'InstanceStorageConfigKinesisVideoStreamConfigArgsDict']]] = None,
+                 resource_type: pulumi.Input[Optional['InstanceStorageConfigInstanceStorageResourceType']] = None,
+                 s3_config: pulumi.Input[Optional[Union['InstanceStorageConfigS3ConfigArgs', 'InstanceStorageConfigS3ConfigArgsDict']]] = None,
+                 storage_type: pulumi.Input[Optional['InstanceStorageConfigStorageType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

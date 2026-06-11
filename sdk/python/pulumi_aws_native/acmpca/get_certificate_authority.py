@@ -88,7 +88,7 @@ def get_certificate_authority(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         certificate_signing_request=pulumi.get(__ret__, 'certificate_signing_request'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_certificate_authority_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_certificate_authority_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateAuthorityResult]:
     """
     Private certificate authority.

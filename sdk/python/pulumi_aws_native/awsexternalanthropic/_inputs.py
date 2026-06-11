@@ -23,15 +23,15 @@ class WorkspaceDataResidencyArgsDict(TypedDict):
     """
     Data residency configuration for the workspace. WorkspaceGeo is immutable after creation.
     """
-    allowed_inference_geos: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_inference_geos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Permitted inference geo values. Omit to allow all geos (the service default of 'unrestricted'); otherwise list specific geos.
     """
-    default_inference_geo: NotRequired[pulumi.Input[_builtins.str]]
+    default_inference_geo: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Default inference geo applied when requests omit the parameter. Defaults to 'global' if omitted. Must be a member of AllowedInferenceGeos unless AllowedInferenceGeos is omitted.
     """
-    workspace_geo: NotRequired[pulumi.Input[_builtins.str]]
+    workspace_geo: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Geographic region for workspace data storage. Immutable after creation. Defaults to 'us' if omitted.
     """
@@ -39,9 +39,9 @@ class WorkspaceDataResidencyArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceDataResidencyArgs:
     def __init__(__self__, *,
-                 allowed_inference_geos: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_inference_geo: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_geo: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_inference_geos: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_inference_geo: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_geo: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Data residency configuration for the workspace. WorkspaceGeo is immutable after creation.
 
@@ -58,38 +58,38 @@ class WorkspaceDataResidencyArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedInferenceGeos")
-    def allowed_inference_geos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_inference_geos(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Permitted inference geo values. Omit to allow all geos (the service default of 'unrestricted'); otherwise list specific geos.
         """
         return pulumi.get(self, "allowed_inference_geos")
 
     @allowed_inference_geos.setter
-    def allowed_inference_geos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_inference_geos(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_inference_geos", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultInferenceGeo")
-    def default_inference_geo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_inference_geo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default inference geo applied when requests omit the parameter. Defaults to 'global' if omitted. Must be a member of AllowedInferenceGeos unless AllowedInferenceGeos is omitted.
         """
         return pulumi.get(self, "default_inference_geo")
 
     @default_inference_geo.setter
-    def default_inference_geo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_inference_geo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_inference_geo", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceGeo")
-    def workspace_geo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_geo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Geographic region for workspace data storage. Immutable after creation. Defaults to 'us' if omitted.
         """
         return pulumi.get(self, "workspace_geo")
 
     @workspace_geo.setter
-    def workspace_geo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_geo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_geo", value)
 
 

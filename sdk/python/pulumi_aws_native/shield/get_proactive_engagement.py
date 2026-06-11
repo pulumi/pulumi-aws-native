@@ -91,7 +91,7 @@ def get_proactive_engagement(account_id: Optional[_builtins.str] = None,
         account_id=pulumi.get(__ret__, 'account_id'),
         emergency_contact_list=pulumi.get(__ret__, 'emergency_contact_list'),
         proactive_engagement_status=pulumi.get(__ret__, 'proactive_engagement_status'))
-def get_proactive_engagement_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_proactive_engagement_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProactiveEngagementResult]:
     """
     Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.

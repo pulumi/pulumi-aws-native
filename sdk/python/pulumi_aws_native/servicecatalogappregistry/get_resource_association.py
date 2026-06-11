@@ -81,9 +81,9 @@ def get_resource_association(application_arn: Optional[_builtins.str] = None,
     return AwaitableGetResourceAssociationResult(
         application_arn=pulumi.get(__ret__, 'application_arn'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'))
-def get_resource_association_output(application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_type: Optional[pulumi.Input['ResourceAssociationResourceType']] = None,
+def get_resource_association_output(application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_type: pulumi.Input[Optional['ResourceAssociationResourceType']] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceAssociationResult]:
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation

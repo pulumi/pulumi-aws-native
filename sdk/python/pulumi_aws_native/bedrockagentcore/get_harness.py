@@ -324,7 +324,7 @@ def get_harness(arn: Optional[_builtins.str] = None,
         tools=pulumi.get(__ret__, 'tools'),
         truncation=pulumi.get(__ret__, 'truncation'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_harness_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_harness_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHarnessResult]:
     """
     Definition of AWS::BedrockAgentCore::Harness resource type - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.

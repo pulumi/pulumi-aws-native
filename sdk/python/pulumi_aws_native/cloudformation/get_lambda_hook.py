@@ -154,7 +154,7 @@ def get_lambda_hook(hook_arn: Optional[_builtins.str] = None,
         stack_filters=pulumi.get(__ret__, 'stack_filters'),
         target_filters=pulumi.get(__ret__, 'target_filters'),
         target_operations=pulumi.get(__ret__, 'target_operations'))
-def get_lambda_hook_output(hook_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_lambda_hook_output(hook_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLambdaHookResult]:
     """
     This is a CloudFormation resource for the first-party AWS::Hooks::LambdaHook.

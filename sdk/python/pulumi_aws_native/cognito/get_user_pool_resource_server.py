@@ -80,8 +80,8 @@ def get_user_pool_resource_server(identifier: Optional[_builtins.str] = None,
     return AwaitableGetUserPoolResourceServerResult(
         name=pulumi.get(__ret__, 'name'),
         scopes=pulumi.get(__ret__, 'scopes'))
-def get_user_pool_resource_server_output(identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                                         user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_pool_resource_server_output(identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                                         user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolResourceServerResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolResourceServer

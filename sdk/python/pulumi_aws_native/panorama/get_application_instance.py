@@ -167,7 +167,7 @@ def get_application_instance(application_instance_id: Optional[_builtins.str] = 
         status=pulumi.get(__ret__, 'status'),
         status_description=pulumi.get(__ret__, 'status_description'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_application_instance_output(application_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_instance_output(application_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationInstanceResult]:
     """
     Creates an application instance and deploys it to a device.

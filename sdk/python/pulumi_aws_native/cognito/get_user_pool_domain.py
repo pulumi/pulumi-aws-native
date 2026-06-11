@@ -80,8 +80,8 @@ def get_user_pool_domain(domain: Optional[_builtins.str] = None,
     return AwaitableGetUserPoolDomainResult(
         cloud_front_distribution=pulumi.get(__ret__, 'cloud_front_distribution'),
         custom_domain_config=pulumi.get(__ret__, 'custom_domain_config'))
-def get_user_pool_domain_output(domain: Optional[pulumi.Input[_builtins.str]] = None,
-                                user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_pool_domain_output(domain: pulumi.Input[Optional[_builtins.str]] = None,
+                                user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolDomainResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolDomain

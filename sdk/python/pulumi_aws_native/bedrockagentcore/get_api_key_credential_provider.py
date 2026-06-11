@@ -128,7 +128,7 @@ def get_api_key_credential_provider(credential_provider_arn: Optional[_builtins.
         credential_provider_arn=pulumi.get(__ret__, 'credential_provider_arn'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_api_key_credential_provider_output(credential_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_key_credential_provider_output(credential_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiKeyCredentialProviderResult]:
     """
     Resource Type definition for AWS::BedrockAgentCore::ApiKeyCredentialProvider

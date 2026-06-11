@@ -127,7 +127,7 @@ def get_system(system_arn: Optional[_builtins.str] = None,
         system_id=pulumi.get(__ret__, 'system_id'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_system_output(system_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_system_output(system_arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemResult]:
     """
     Creates a system that represents a logical grouping of services.

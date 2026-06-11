@@ -25,10 +25,10 @@ __all__ = ['GatewayArgs', 'Gateway']
 class GatewayArgs:
     def __init__(__self__, *,
                  gateway_platform: pulumi.Input['GatewayPlatformArgs'],
-                 gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]]] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 gateway_capability_summaries: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Gateway resource.
 
@@ -62,50 +62,50 @@ class GatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="gatewayCapabilitySummaries")
-    def gateway_capability_summaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]]]:
+    def gateway_capability_summaries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]]]:
         """
         A list of gateway capability summaries that each contain a namespace and status.
         """
         return pulumi.get(self, "gateway_capability_summaries")
 
     @gateway_capability_summaries.setter
-    def gateway_capability_summaries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]]]):
+    def gateway_capability_summaries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]]]):
         pulumi.set(self, "gateway_capability_summaries", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayName")
-    def gateway_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique, friendly name for the gateway.
         """
         return pulumi.get(self, "gateway_name")
 
     @gateway_name.setter
-    def gateway_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayVersion")
-    def gateway_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the gateway you want to create.
         """
         return pulumi.get(self, "gateway_version")
 
     @gateway_version.setter
-    def gateway_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the gateway.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -115,11 +115,11 @@ class Gateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayCapabilitySummaryArgs', 'GatewayCapabilitySummaryArgsDict']]]]] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_platform: Optional[pulumi.Input[Union['GatewayPlatformArgs', 'GatewayPlatformArgsDict']]] = None,
-                 gateway_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 gateway_capability_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayCapabilitySummaryArgs', 'GatewayCapabilitySummaryArgsDict']]]]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_platform: pulumi.Input[Optional[Union['GatewayPlatformArgs', 'GatewayPlatformArgsDict']]] = None,
+                 gateway_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::IoTSiteWise::Gateway
@@ -158,11 +158,11 @@ class Gateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayCapabilitySummaryArgs', 'GatewayCapabilitySummaryArgsDict']]]]] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_platform: Optional[pulumi.Input[Union['GatewayPlatformArgs', 'GatewayPlatformArgsDict']]] = None,
-                 gateway_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 gateway_capability_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayCapabilitySummaryArgs', 'GatewayCapabilitySummaryArgsDict']]]]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_platform: pulumi.Input[Optional[Union['GatewayPlatformArgs', 'GatewayPlatformArgsDict']]] = None,
+                 gateway_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

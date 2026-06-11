@@ -135,7 +135,7 @@ def get_express_gateway_service(service_arn: Optional[_builtins.str] = None,
         service_arn=pulumi.get(__ret__, 'service_arn'),
         status=pulumi.get(__ret__, 'status'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_express_gateway_service_output(service_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_express_gateway_service_output(service_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressGatewayServiceResult]:
     """
     Resource Type definition for AWS::ECS::ExpressGatewayService

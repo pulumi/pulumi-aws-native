@@ -24,8 +24,8 @@ class TermsArgs:
                  links: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  terms_source: pulumi.Input['TermsSourceType'],
                  user_pool_id: pulumi.Input[_builtins.str],
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 terms_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 terms_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Terms resource.
 
@@ -99,26 +99,26 @@ class TermsArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the app client that the terms documents are assigned to.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="termsName")
-    def terms_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def terms_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type and friendly name of the terms documents.
         """
         return pulumi.get(self, "terms_name")
 
     @terms_name.setter
-    def terms_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def terms_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "terms_name", value)
 
 
@@ -128,12 +128,12 @@ class Terms(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforcement: Optional[pulumi.Input['TermsEnforcementType']] = None,
-                 links: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 terms_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 terms_source: Optional[pulumi.Input['TermsSourceType']] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforcement: pulumi.Input[Optional['TermsEnforcementType']] = None,
+                 links: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 terms_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 terms_source: pulumi.Input[Optional['TermsSourceType']] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Cognito::Terms
@@ -175,12 +175,12 @@ class Terms(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforcement: Optional[pulumi.Input['TermsEnforcementType']] = None,
-                 links: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 terms_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 terms_source: Optional[pulumi.Input['TermsSourceType']] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforcement: pulumi.Input[Optional['TermsEnforcementType']] = None,
+                 links: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 terms_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 terms_source: pulumi.Input[Optional['TermsSourceType']] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

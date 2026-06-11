@@ -118,7 +118,7 @@ def get_group(group_arn: Optional[_builtins.str] = None,
         group_name=pulumi.get(__ret__, 'group_name'),
         insights_configuration=pulumi.get(__ret__, 'insights_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_group_output(group_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_group_output(group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     This schema provides construct and validation rules for AWS-XRay Group resource parameters.

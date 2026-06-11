@@ -28,9 +28,9 @@ class SubscriberArgs:
                  data_lake_arn: pulumi.Input[_builtins.str],
                  sources: pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]],
                  subscriber_identity: pulumi.Input['SubscriberIdentityPropertiesArgs'],
-                 subscriber_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 subscriber_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Subscriber resource.
 
@@ -107,38 +107,38 @@ class SubscriberArgs:
 
     @_builtins.property
     @pulumi.getter(name="subscriberDescription")
-    def subscriber_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscriber_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for your subscriber account in Security Lake.
         """
         return pulumi.get(self, "subscriber_description")
 
     @subscriber_description.setter
-    def subscriber_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscriber_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscriber_description", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriberName")
-    def subscriber_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscriber_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of your Security Lake subscriber account.
         """
         return pulumi.get(self, "subscriber_name")
 
     @subscriber_name.setter
-    def subscriber_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscriber_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscriber_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of objects, one for each tag to associate with the subscriber. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -148,13 +148,13 @@ class Subscriber(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_types: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberAccessTypesItem']]]] = None,
-                 data_lake_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
-                 subscriber_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_identity: Optional[pulumi.Input[Union['SubscriberIdentityPropertiesArgs', 'SubscriberIdentityPropertiesArgsDict']]] = None,
-                 subscriber_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 access_types: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberAccessTypesItem']]]] = None,
+                 data_lake_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
+                 subscriber_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_identity: pulumi.Input[Optional[Union['SubscriberIdentityPropertiesArgs', 'SubscriberIdentityPropertiesArgsDict']]] = None,
+                 subscriber_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SecurityLake::Subscriber
@@ -197,13 +197,13 @@ class Subscriber(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_types: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberAccessTypesItem']]]] = None,
-                 data_lake_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
-                 subscriber_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_identity: Optional[pulumi.Input[Union['SubscriberIdentityPropertiesArgs', 'SubscriberIdentityPropertiesArgsDict']]] = None,
-                 subscriber_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 access_types: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberAccessTypesItem']]]] = None,
+                 data_lake_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
+                 subscriber_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_identity: pulumi.Input[Optional[Union['SubscriberIdentityPropertiesArgs', 'SubscriberIdentityPropertiesArgsDict']]] = None,
+                 subscriber_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

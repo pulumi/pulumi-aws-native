@@ -118,7 +118,7 @@ def get_protection(protection_arn: Optional[_builtins.str] = None,
         protection_arn=pulumi.get(__ret__, 'protection_arn'),
         protection_id=pulumi.get(__ret__, 'protection_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_protection_output(protection_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_protection_output(protection_arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProtectionResult]:
     """
     Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, AWS Global Accelerator standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by association with protected Amazon EC2 Elastic IP addresses.

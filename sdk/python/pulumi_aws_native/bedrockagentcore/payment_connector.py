@@ -25,8 +25,8 @@ class PaymentConnectorArgs:
                  connector_type: pulumi.Input['PaymentConnectorType'],
                  credential_provider_configurations: pulumi.Input[Sequence[pulumi.Input['PaymentConnectorCredentialsProviderConfigurationArgs']]],
                  payment_manager_id: pulumi.Input[_builtins.str],
-                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PaymentConnector resource.
 
@@ -78,26 +78,26 @@ class PaymentConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectorName")
-    def connector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the payment connector
         """
         return pulumi.get(self, "connector_name")
 
     @connector_name.setter
-    def connector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the payment connector
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -107,11 +107,11 @@ class PaymentConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_type: Optional[pulumi.Input['PaymentConnectorType']] = None,
-                 credential_provider_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PaymentConnectorCredentialsProviderConfigurationArgs', 'PaymentConnectorCredentialsProviderConfigurationArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 payment_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_type: pulumi.Input[Optional['PaymentConnectorType']] = None,
+                 credential_provider_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PaymentConnectorCredentialsProviderConfigurationArgs', 'PaymentConnectorCredentialsProviderConfigurationArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 payment_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::PaymentConnector
@@ -149,11 +149,11 @@ class PaymentConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_type: Optional[pulumi.Input['PaymentConnectorType']] = None,
-                 credential_provider_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PaymentConnectorCredentialsProviderConfigurationArgs', 'PaymentConnectorCredentialsProviderConfigurationArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 payment_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_type: pulumi.Input[Optional['PaymentConnectorType']] = None,
+                 credential_provider_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PaymentConnectorCredentialsProviderConfigurationArgs', 'PaymentConnectorCredentialsProviderConfigurationArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 payment_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

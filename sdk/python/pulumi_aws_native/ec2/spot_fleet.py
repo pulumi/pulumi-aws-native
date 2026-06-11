@@ -25,7 +25,7 @@ __all__ = ['SpotFleetArgs', 'SpotFleet']
 class SpotFleetArgs:
     def __init__(__self__, *,
                  spot_fleet_request_config_data: pulumi.Input['SpotFleetRequestConfigDataArgs'],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SpotFleet resource.
 
@@ -50,14 +50,14 @@ class SpotFleetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to specify in SpotFleetRequestConfigData
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -67,8 +67,8 @@ class SpotFleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 spot_fleet_request_config_data: Optional[pulumi.Input[Union['SpotFleetRequestConfigDataArgs', 'SpotFleetRequestConfigDataArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 spot_fleet_request_config_data: pulumi.Input[Optional[Union['SpotFleetRequestConfigDataArgs', 'SpotFleetRequestConfigDataArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::SpotFleet
@@ -104,8 +104,8 @@ class SpotFleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 spot_fleet_request_config_data: Optional[pulumi.Input[Union['SpotFleetRequestConfigDataArgs', 'SpotFleetRequestConfigDataArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 spot_fleet_request_config_data: pulumi.Input[Optional[Union['SpotFleetRequestConfigDataArgs', 'SpotFleetRequestConfigDataArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

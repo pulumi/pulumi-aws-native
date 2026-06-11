@@ -20,8 +20,8 @@ __all__ = ['SessionArgs', 'Session']
 @pulumi.input_type
 class SessionArgs:
     def __init__(__self__, *,
-                 finding_publishing_frequency: Optional[pulumi.Input['SessionFindingPublishingFrequency']] = None,
-                 status: Optional[pulumi.Input['SessionStatus']] = None):
+                 finding_publishing_frequency: pulumi.Input[Optional['SessionFindingPublishingFrequency']] = None,
+                 status: pulumi.Input[Optional['SessionStatus']] = None):
         """
         The set of arguments for constructing a Session resource.
 
@@ -35,26 +35,26 @@ class SessionArgs:
 
     @_builtins.property
     @pulumi.getter(name="findingPublishingFrequency")
-    def finding_publishing_frequency(self) -> Optional[pulumi.Input['SessionFindingPublishingFrequency']]:
+    def finding_publishing_frequency(self) -> pulumi.Input[Optional['SessionFindingPublishingFrequency']]:
         """
         A enumeration value that specifies how frequently finding updates are published.
         """
         return pulumi.get(self, "finding_publishing_frequency")
 
     @finding_publishing_frequency.setter
-    def finding_publishing_frequency(self, value: Optional[pulumi.Input['SessionFindingPublishingFrequency']]):
+    def finding_publishing_frequency(self, value: pulumi.Input[Optional['SessionFindingPublishingFrequency']]):
         pulumi.set(self, "finding_publishing_frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['SessionStatus']]:
+    def status(self) -> pulumi.Input[Optional['SessionStatus']]:
         """
         A enumeration value that specifies the status of the Macie Session.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['SessionStatus']]):
+    def status(self, value: pulumi.Input[Optional['SessionStatus']]):
         pulumi.set(self, "status", value)
 
 
@@ -64,8 +64,8 @@ class Session(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 finding_publishing_frequency: Optional[pulumi.Input['SessionFindingPublishingFrequency']] = None,
-                 status: Optional[pulumi.Input['SessionStatus']] = None,
+                 finding_publishing_frequency: pulumi.Input[Optional['SessionFindingPublishingFrequency']] = None,
+                 status: pulumi.Input[Optional['SessionStatus']] = None,
                  __props__=None):
         """
         The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
@@ -101,8 +101,8 @@ class Session(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 finding_publishing_frequency: Optional[pulumi.Input['SessionFindingPublishingFrequency']] = None,
-                 status: Optional[pulumi.Input['SessionStatus']] = None,
+                 finding_publishing_frequency: pulumi.Input[Optional['SessionFindingPublishingFrequency']] = None,
+                 status: pulumi.Input[Optional['SessionStatus']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

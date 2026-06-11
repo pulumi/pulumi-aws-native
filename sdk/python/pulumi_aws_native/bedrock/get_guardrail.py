@@ -323,7 +323,7 @@ def get_guardrail(guardrail_arn: Optional[_builtins.str] = None,
         updated_at=pulumi.get(__ret__, 'updated_at'),
         version=pulumi.get(__ret__, 'version'),
         word_policy_config=pulumi.get(__ret__, 'word_policy_config'))
-def get_guardrail_output(guardrail_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_guardrail_output(guardrail_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuardrailResult]:
     """
     Definition of AWS::Bedrock::Guardrail Resource Type

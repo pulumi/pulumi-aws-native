@@ -30,15 +30,15 @@ class DevicePoolRuleArgsDict(TypedDict):
     """
     Represents a condition for a device pool.
     """
-    attribute: NotRequired[pulumi.Input['DevicePoolRuleAttribute']]
+    attribute: NotRequired[pulumi.Input[Optional['DevicePoolRuleAttribute']]]
     """
     The rule's stringified attribute.
     """
-    operator: NotRequired[pulumi.Input['DevicePoolRuleOperator']]
+    operator: NotRequired[pulumi.Input[Optional['DevicePoolRuleOperator']]]
     """
     Specifies how Device Farm compares the rule's attribute to the value.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The rule's value.
     """
@@ -46,9 +46,9 @@ class DevicePoolRuleArgsDict(TypedDict):
 @pulumi.input_type
 class DevicePoolRuleArgs:
     def __init__(__self__, *,
-                 attribute: Optional[pulumi.Input['DevicePoolRuleAttribute']] = None,
-                 operator: Optional[pulumi.Input['DevicePoolRuleOperator']] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 attribute: pulumi.Input[Optional['DevicePoolRuleAttribute']] = None,
+                 operator: pulumi.Input[Optional['DevicePoolRuleOperator']] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents a condition for a device pool.
 
@@ -65,38 +65,38 @@ class DevicePoolRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attribute(self) -> Optional[pulumi.Input['DevicePoolRuleAttribute']]:
+    def attribute(self) -> pulumi.Input[Optional['DevicePoolRuleAttribute']]:
         """
         The rule's stringified attribute.
         """
         return pulumi.get(self, "attribute")
 
     @attribute.setter
-    def attribute(self, value: Optional[pulumi.Input['DevicePoolRuleAttribute']]):
+    def attribute(self, value: pulumi.Input[Optional['DevicePoolRuleAttribute']]):
         pulumi.set(self, "attribute", value)
 
     @_builtins.property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input['DevicePoolRuleOperator']]:
+    def operator(self) -> pulumi.Input[Optional['DevicePoolRuleOperator']]:
         """
         Specifies how Device Farm compares the rule's attribute to the value.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: Optional[pulumi.Input['DevicePoolRuleOperator']]):
+    def operator(self, value: pulumi.Input[Optional['DevicePoolRuleOperator']]):
         pulumi.set(self, "operator", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The rule's value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 

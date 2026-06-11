@@ -20,9 +20,9 @@ __all__ = ['RequestValidatorArgs', 'RequestValidator']
 class RequestValidatorArgs:
     def __init__(__self__, *,
                  rest_api_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate_request_body: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validate_request_parameters: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate_request_body: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validate_request_parameters: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RequestValidator resource.
 
@@ -53,38 +53,38 @@ class RequestValidatorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of this RequestValidator
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="validateRequestBody")
-    def validate_request_body(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate_request_body(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
         """
         return pulumi.get(self, "validate_request_body")
 
     @validate_request_body.setter
-    def validate_request_body(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate_request_body(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate_request_body", value)
 
     @_builtins.property
     @pulumi.getter(name="validateRequestParameters")
-    def validate_request_parameters(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate_request_parameters(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
         """
         return pulumi.get(self, "validate_request_parameters")
 
     @validate_request_parameters.setter
-    def validate_request_parameters(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate_request_parameters(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate_request_parameters", value)
 
 
@@ -94,10 +94,10 @@ class RequestValidator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate_request_body: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validate_request_parameters: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate_request_body: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validate_request_parameters: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
@@ -135,10 +135,10 @@ class RequestValidator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate_request_body: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validate_request_parameters: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate_request_body: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validate_request_parameters: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

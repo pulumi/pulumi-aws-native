@@ -77,8 +77,8 @@ def get_principal_permissions(principal_identifier: Optional[_builtins.str] = No
     return AwaitableGetPrincipalPermissionsResult(
         principal_identifier=pulumi.get(__ret__, 'principal_identifier'),
         resource_identifier=pulumi.get(__ret__, 'resource_identifier'))
-def get_principal_permissions_output(principal_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_principal_permissions_output(principal_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrincipalPermissionsResult]:
     """
     The ``AWS::LakeFormation::PrincipalPermissions`` resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a ``PrincipalPermissions`` resource, the permissions are granted via the LFlong``GrantPermissions`` API operation. When you delete a ``PrincipalPermissions`` resource, the permissions on principal-resource pair are revoked via the LFlong``RevokePermissions`` API operation.

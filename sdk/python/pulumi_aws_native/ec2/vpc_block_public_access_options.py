@@ -47,7 +47,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 internet_gateway_block_mode: Optional[pulumi.Input['VpcBlockPublicAccessOptionsInternetGatewayBlockMode']] = None,
+                 internet_gateway_block_mode: pulumi.Input[Optional['VpcBlockPublicAccessOptionsInternetGatewayBlockMode']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::VPCBlockPublicAccessOptions
@@ -82,7 +82,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 internet_gateway_block_mode: Optional[pulumi.Input['VpcBlockPublicAccessOptionsInternetGatewayBlockMode']] = None,
+                 internet_gateway_block_mode: pulumi.Input[Optional['VpcBlockPublicAccessOptionsInternetGatewayBlockMode']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

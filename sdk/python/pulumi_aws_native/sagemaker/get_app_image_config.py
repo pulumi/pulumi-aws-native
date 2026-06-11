@@ -115,7 +115,7 @@ def get_app_image_config(app_image_config_name: Optional[_builtins.str] = None,
         jupyter_lab_app_image_config=pulumi.get(__ret__, 'jupyter_lab_app_image_config'),
         kernel_gateway_image_config=pulumi.get(__ret__, 'kernel_gateway_image_config'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_app_image_config_output(app_image_config_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_image_config_output(app_image_config_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppImageConfigResult]:
     """
     Resource Type definition for AWS::SageMaker::AppImageConfig

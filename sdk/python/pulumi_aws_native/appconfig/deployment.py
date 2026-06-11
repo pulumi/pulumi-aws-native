@@ -29,10 +29,10 @@ class DeploymentArgs:
                  configuration_version: pulumi.Input[_builtins.str],
                  deployment_strategy_id: pulumi.Input[_builtins.str],
                  environment_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_extension_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentDynamicExtensionParametersArgs']]]] = None,
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_extension_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentDynamicExtensionParametersArgs']]]] = None,
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
 
@@ -122,50 +122,50 @@ class DeploymentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the deployment.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicExtensionParameters")
-    def dynamic_extension_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentDynamicExtensionParametersArgs']]]]:
+    def dynamic_extension_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentDynamicExtensionParametersArgs']]]]:
         """
         A map of dynamic extension parameter names to values to pass to associated extensions with `PRE_START_DEPLOYMENT` actions.
         """
         return pulumi.get(self, "dynamic_extension_parameters")
 
     @dynamic_extension_parameters.setter
-    def dynamic_extension_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentDynamicExtensionParametersArgs']]]]):
+    def dynamic_extension_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentDynamicExtensionParametersArgs']]]]):
         pulumi.set(self, "dynamic_extension_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
-    def kms_key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
         """
         return pulumi.get(self, "kms_key_identifier")
 
     @kms_key_identifier.setter
-    def kms_key_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -175,15 +175,15 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_extension_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentDynamicExtensionParametersArgs', 'DeploymentDynamicExtensionParametersArgsDict']]]]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_extension_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentDynamicExtensionParametersArgs', 'DeploymentDynamicExtensionParametersArgsDict']]]]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppConfig::Deployment
@@ -226,15 +226,15 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_extension_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentDynamicExtensionParametersArgs', 'DeploymentDynamicExtensionParametersArgsDict']]]]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_extension_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentDynamicExtensionParametersArgs', 'DeploymentDynamicExtensionParametersArgsDict']]]]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

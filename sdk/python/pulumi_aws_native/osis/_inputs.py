@@ -20,16 +20,16 @@ __all__ = [
     'PipelineBufferOptionsArgsDict',
     'PipelineEncryptionAtRestOptionsArgs',
     'PipelineEncryptionAtRestOptionsArgsDict',
-    'PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs',
-    'PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgsDict',
     'PipelineLogPublishingOptionsArgs',
     'PipelineLogPublishingOptionsArgsDict',
+    'PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs',
+    'PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgsDict',
     'PipelineResourcePolicyArgs',
     'PipelineResourcePolicyArgsDict',
-    'PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs',
-    'PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgsDict',
     'PipelineVpcOptionsArgs',
     'PipelineVpcOptionsArgsDict',
+    'PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs',
+    'PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgsDict',
 ]
 
 class PipelineBufferOptionsArgsDict(TypedDict):
@@ -98,6 +98,60 @@ class PipelineEncryptionAtRestOptionsArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
+class PipelineLogPublishingOptionsArgsDict(TypedDict):
+    """
+    Key-value pairs to configure log publishing.
+    """
+    cloud_watch_log_destination: NotRequired[pulumi.Input[Optional['PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgsDict']]]
+    """
+    The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
+    """
+    is_logging_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether logs should be published.
+    """
+
+@pulumi.input_type
+class PipelineLogPublishingOptionsArgs:
+    def __init__(__self__, *,
+                 cloud_watch_log_destination: pulumi.Input[Optional['PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs']] = None,
+                 is_logging_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Key-value pairs to configure log publishing.
+
+        :param pulumi.Input['PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs'] cloud_watch_log_destination: The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
+        :param pulumi.Input[_builtins.bool] is_logging_enabled: Whether logs should be published.
+        """
+        if cloud_watch_log_destination is not None:
+            pulumi.set(__self__, "cloud_watch_log_destination", cloud_watch_log_destination)
+        if is_logging_enabled is not None:
+            pulumi.set(__self__, "is_logging_enabled", is_logging_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogDestination")
+    def cloud_watch_log_destination(self) -> pulumi.Input[Optional['PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs']]:
+        """
+        The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
+        """
+        return pulumi.get(self, "cloud_watch_log_destination")
+
+    @cloud_watch_log_destination.setter
+    def cloud_watch_log_destination(self, value: pulumi.Input[Optional['PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs']]):
+        pulumi.set(self, "cloud_watch_log_destination", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isLoggingEnabled")
+    def is_logging_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether logs should be published.
+        """
+        return pulumi.get(self, "is_logging_enabled")
+
+    @is_logging_enabled.setter
+    def is_logging_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_logging_enabled", value)
+
+
 class PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgsDict(TypedDict):
     """
     The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
@@ -123,60 +177,6 @@ class PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs:
         pulumi.set(self, "log_group", value)
 
 
-class PipelineLogPublishingOptionsArgsDict(TypedDict):
-    """
-    Key-value pairs to configure log publishing.
-    """
-    cloud_watch_log_destination: NotRequired[pulumi.Input['PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgsDict']]
-    """
-    The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
-    """
-    is_logging_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether logs should be published.
-    """
-
-@pulumi.input_type
-class PipelineLogPublishingOptionsArgs:
-    def __init__(__self__, *,
-                 cloud_watch_log_destination: Optional[pulumi.Input['PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs']] = None,
-                 is_logging_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        Key-value pairs to configure log publishing.
-
-        :param pulumi.Input['PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs'] cloud_watch_log_destination: The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
-        :param pulumi.Input[_builtins.bool] is_logging_enabled: Whether logs should be published.
-        """
-        if cloud_watch_log_destination is not None:
-            pulumi.set(__self__, "cloud_watch_log_destination", cloud_watch_log_destination)
-        if is_logging_enabled is not None:
-            pulumi.set(__self__, "is_logging_enabled", is_logging_enabled)
-
-    @_builtins.property
-    @pulumi.getter(name="cloudWatchLogDestination")
-    def cloud_watch_log_destination(self) -> Optional[pulumi.Input['PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs']]:
-        """
-        The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
-        """
-        return pulumi.get(self, "cloud_watch_log_destination")
-
-    @cloud_watch_log_destination.setter
-    def cloud_watch_log_destination(self, value: Optional[pulumi.Input['PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs']]):
-        pulumi.set(self, "cloud_watch_log_destination", value)
-
-    @_builtins.property
-    @pulumi.getter(name="isLoggingEnabled")
-    def is_logging_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether logs should be published.
-        """
-        return pulumi.get(self, "is_logging_enabled")
-
-    @is_logging_enabled.setter
-    def is_logging_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "is_logging_enabled", value)
-
-
 class PipelineResourcePolicyArgsDict(TypedDict):
     policy: Any
 
@@ -194,6 +194,99 @@ class PipelineResourcePolicyArgs:
     @policy.setter
     def policy(self, value: Any):
         pulumi.set(self, "policy", value)
+
+
+class PipelineVpcOptionsArgsDict(TypedDict):
+    """
+    Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of subnet IDs associated with the VPC endpoint.
+    """
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of security groups associated with the VPC endpoint.
+    """
+    vpc_attachment_options: NotRequired[pulumi.Input[Optional['PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgsDict']]]
+    """
+    Options for attaching a VPC to the pipeline.
+    """
+    vpc_endpoint_management: NotRequired[pulumi.Input[Optional['PipelineVpcOptionsVpcEndpointManagement']]]
+    """
+    Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
+    """
+
+@pulumi.input_type
+class PipelineVpcOptionsArgs:
+    def __init__(__self__, *,
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_attachment_options: pulumi.Input[Optional['PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs']] = None,
+                 vpc_endpoint_management: pulumi.Input[Optional['PipelineVpcOptionsVpcEndpointManagement']] = None):
+        """
+        Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs associated with the VPC endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security groups associated with the VPC endpoint.
+        :param pulumi.Input['PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs'] vpc_attachment_options: Options for attaching a VPC to the pipeline.
+        :param pulumi.Input['PipelineVpcOptionsVpcEndpointManagement'] vpc_endpoint_management: Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
+        """
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if vpc_attachment_options is not None:
+            pulumi.set(__self__, "vpc_attachment_options", vpc_attachment_options)
+        if vpc_endpoint_management is not None:
+            pulumi.set(__self__, "vpc_endpoint_management", vpc_endpoint_management)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of subnet IDs associated with the VPC endpoint.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of security groups associated with the VPC endpoint.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcAttachmentOptions")
+    def vpc_attachment_options(self) -> pulumi.Input[Optional['PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs']]:
+        """
+        Options for attaching a VPC to the pipeline.
+        """
+        return pulumi.get(self, "vpc_attachment_options")
+
+    @vpc_attachment_options.setter
+    def vpc_attachment_options(self, value: pulumi.Input[Optional['PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs']]):
+        pulumi.set(self, "vpc_attachment_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEndpointManagement")
+    def vpc_endpoint_management(self) -> pulumi.Input[Optional['PipelineVpcOptionsVpcEndpointManagement']]:
+        """
+        Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
+        """
+        return pulumi.get(self, "vpc_endpoint_management")
+
+    @vpc_endpoint_management.setter
+    def vpc_endpoint_management(self, value: pulumi.Input[Optional['PipelineVpcOptionsVpcEndpointManagement']]):
+        pulumi.set(self, "vpc_endpoint_management", value)
 
 
 class PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgsDict(TypedDict):
@@ -246,98 +339,5 @@ class PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs:
     @cidr_block.setter
     def cidr_block(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "cidr_block", value)
-
-
-class PipelineVpcOptionsArgsDict(TypedDict):
-    """
-    Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.
-    """
-    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    """
-    A list of subnet IDs associated with the VPC endpoint.
-    """
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    A list of security groups associated with the VPC endpoint.
-    """
-    vpc_attachment_options: NotRequired[pulumi.Input['PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgsDict']]
-    """
-    Options for attaching a VPC to the pipeline.
-    """
-    vpc_endpoint_management: NotRequired[pulumi.Input['PipelineVpcOptionsVpcEndpointManagement']]
-    """
-    Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
-    """
-
-@pulumi.input_type
-class PipelineVpcOptionsArgs:
-    def __init__(__self__, *,
-                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_attachment_options: Optional[pulumi.Input['PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs']] = None,
-                 vpc_endpoint_management: Optional[pulumi.Input['PipelineVpcOptionsVpcEndpointManagement']] = None):
-        """
-        Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.
-
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs associated with the VPC endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security groups associated with the VPC endpoint.
-        :param pulumi.Input['PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs'] vpc_attachment_options: Options for attaching a VPC to the pipeline.
-        :param pulumi.Input['PipelineVpcOptionsVpcEndpointManagement'] vpc_endpoint_management: Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
-        """
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
-        if vpc_attachment_options is not None:
-            pulumi.set(__self__, "vpc_attachment_options", vpc_attachment_options)
-        if vpc_endpoint_management is not None:
-            pulumi.set(__self__, "vpc_endpoint_management", vpc_endpoint_management)
-
-    @_builtins.property
-    @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        A list of subnet IDs associated with the VPC endpoint.
-        """
-        return pulumi.get(self, "subnet_ids")
-
-    @subnet_ids.setter
-    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(self, "subnet_ids", value)
-
-    @_builtins.property
-    @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of security groups associated with the VPC endpoint.
-        """
-        return pulumi.get(self, "security_group_ids")
-
-    @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "security_group_ids", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vpcAttachmentOptions")
-    def vpc_attachment_options(self) -> Optional[pulumi.Input['PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs']]:
-        """
-        Options for attaching a VPC to the pipeline.
-        """
-        return pulumi.get(self, "vpc_attachment_options")
-
-    @vpc_attachment_options.setter
-    def vpc_attachment_options(self, value: Optional[pulumi.Input['PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs']]):
-        pulumi.set(self, "vpc_attachment_options", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vpcEndpointManagement")
-    def vpc_endpoint_management(self) -> Optional[pulumi.Input['PipelineVpcOptionsVpcEndpointManagement']]:
-        """
-        Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
-        """
-        return pulumi.get(self, "vpc_endpoint_management")
-
-    @vpc_endpoint_management.setter
-    def vpc_endpoint_management(self, value: Optional[pulumi.Input['PipelineVpcOptionsVpcEndpointManagement']]):
-        pulumi.set(self, "vpc_endpoint_management", value)
 
 

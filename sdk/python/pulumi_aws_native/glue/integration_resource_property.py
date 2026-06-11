@@ -24,9 +24,9 @@ __all__ = ['IntegrationResourcePropertyArgs', 'IntegrationResourceProperty']
 class IntegrationResourcePropertyArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[_builtins.str],
-                 source_processing_properties: Optional[pulumi.Input['SourceProcessingPropertiesPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 target_processing_properties: Optional[pulumi.Input['TargetProcessingPropertiesPropertiesArgs']] = None):
+                 source_processing_properties: pulumi.Input[Optional['SourceProcessingPropertiesPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 target_processing_properties: pulumi.Input[Optional['TargetProcessingPropertiesPropertiesArgs']] = None):
         """
         The set of arguments for constructing a IntegrationResourceProperty resource.
 
@@ -57,38 +57,38 @@ class IntegrationResourcePropertyArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceProcessingProperties")
-    def source_processing_properties(self) -> Optional[pulumi.Input['SourceProcessingPropertiesPropertiesArgs']]:
+    def source_processing_properties(self) -> pulumi.Input[Optional['SourceProcessingPropertiesPropertiesArgs']]:
         """
         The resource properties associated with the integration source.
         """
         return pulumi.get(self, "source_processing_properties")
 
     @source_processing_properties.setter
-    def source_processing_properties(self, value: Optional[pulumi.Input['SourceProcessingPropertiesPropertiesArgs']]):
+    def source_processing_properties(self, value: pulumi.Input[Optional['SourceProcessingPropertiesPropertiesArgs']]):
         pulumi.set(self, "source_processing_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetProcessingProperties")
-    def target_processing_properties(self) -> Optional[pulumi.Input['TargetProcessingPropertiesPropertiesArgs']]:
+    def target_processing_properties(self) -> pulumi.Input[Optional['TargetProcessingPropertiesPropertiesArgs']]:
         """
         The resource properties associated with the integration target.
         """
         return pulumi.get(self, "target_processing_properties")
 
     @target_processing_properties.setter
-    def target_processing_properties(self, value: Optional[pulumi.Input['TargetProcessingPropertiesPropertiesArgs']]):
+    def target_processing_properties(self, value: pulumi.Input[Optional['TargetProcessingPropertiesPropertiesArgs']]):
         pulumi.set(self, "target_processing_properties", value)
 
 
@@ -98,10 +98,10 @@ class IntegrationResourceProperty(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_processing_properties: Optional[pulumi.Input[Union['SourceProcessingPropertiesPropertiesArgs', 'SourceProcessingPropertiesPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_processing_properties: Optional[pulumi.Input[Union['TargetProcessingPropertiesPropertiesArgs', 'TargetProcessingPropertiesPropertiesArgsDict']]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_processing_properties: pulumi.Input[Optional[Union['SourceProcessingPropertiesPropertiesArgs', 'SourceProcessingPropertiesPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_processing_properties: pulumi.Input[Optional[Union['TargetProcessingPropertiesPropertiesArgs', 'TargetProcessingPropertiesPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Glue::IntegrationResourceProperty
@@ -139,10 +139,10 @@ class IntegrationResourceProperty(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_processing_properties: Optional[pulumi.Input[Union['SourceProcessingPropertiesPropertiesArgs', 'SourceProcessingPropertiesPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_processing_properties: Optional[pulumi.Input[Union['TargetProcessingPropertiesPropertiesArgs', 'TargetProcessingPropertiesPropertiesArgsDict']]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_processing_properties: pulumi.Input[Optional[Union['SourceProcessingPropertiesPropertiesArgs', 'SourceProcessingPropertiesPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_processing_properties: pulumi.Input[Optional[Union['TargetProcessingPropertiesPropertiesArgs', 'TargetProcessingPropertiesPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -229,7 +229,7 @@ def get_cluster(arn: Optional[_builtins.str] = None,
         rebalancing=pulumi.get(__ret__, 'rebalancing'),
         storage_mode=pulumi.get(__ret__, 'storage_mode'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_cluster_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Resource Type definition for AWS::MSK::Cluster

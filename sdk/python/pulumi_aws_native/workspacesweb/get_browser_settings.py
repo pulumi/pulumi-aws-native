@@ -116,7 +116,7 @@ def get_browser_settings(browser_settings_arn: Optional[_builtins.str] = None,
         browser_settings_arn=pulumi.get(__ret__, 'browser_settings_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         web_content_filtering_policy=pulumi.get(__ret__, 'web_content_filtering_policy'))
-def get_browser_settings_output(browser_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_browser_settings_output(browser_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrowserSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::BrowserSettings Resource Type

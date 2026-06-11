@@ -25,45 +25,45 @@ __all__ = ['ReplicationGroupArgs', 'ReplicationGroup']
 class ReplicationGroupArgs:
     def __init__(__self__, *,
                  replication_group_description: pulumi.Input[_builtins.str],
-                 at_rest_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_failover_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_tiering_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 durability: Optional[pulumi.Input['ReplicationGroupDurability']] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_discovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationRequestArgs']]]] = None,
-                 multi_az_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_group_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupNodeGroupConfigurationArgs']]]] = None,
-                 notification_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_cache_clusters: Optional[pulumi.Input[_builtins.int]] = None,
-                 num_node_groups: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 preferred_cache_cluster_azs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replicas_per_node_group: Optional[pulumi.Input[_builtins.int]] = None,
-                 replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_retention_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshotting_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 transit_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 transit_encryption_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 at_rest_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_security_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_tiering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 durability: pulumi.Input[Optional['ReplicationGroupDurability']] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationRequestArgs']]]] = None,
+                 multi_az_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_group_configuration: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationGroupNodeGroupConfigurationArgs']]]] = None,
+                 notification_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_cache_clusters: pulumi.Input[Optional[_builtins.int]] = None,
+                 num_node_groups: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 preferred_cache_cluster_azs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replicas_per_node_group: pulumi.Input[Optional[_builtins.int]] = None,
+                 replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshotting_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 transit_encryption_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReplicationGroup resource.
 
@@ -204,331 +204,331 @@ class ReplicationGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="atRestEncryptionEnabled")
-    def at_rest_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def at_rest_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag that enables encryption at rest when set to true.AtRestEncryptionEnabled after the replication group is created. To enable encryption at rest on a replication group you must set AtRestEncryptionEnabled to true when you create the replication group.
         """
         return pulumi.get(self, "at_rest_encryption_enabled")
 
     @at_rest_encryption_enabled.setter
-    def at_rest_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def at_rest_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "at_rest_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="authToken")
-    def auth_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reserved parameter. The password used to access a password protected server.AuthToken can be specified only on replication groups where TransitEncryptionEnabled is true. For more information.
         """
         return pulumi.get(self, "auth_token")
 
     @auth_token.setter
-    def auth_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_token", value)
 
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
-    def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_minor_version_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This parameter is currently disabled.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @auto_minor_version_upgrade.setter
-    def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_minor_version_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_minor_version_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticFailoverEnabled")
-    def automatic_failover_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic_failover_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails. AutomaticFailoverEnabled must be enabled for Redis (cluster mode enabled) replication groups.
         """
         return pulumi.get(self, "automatic_failover_enabled")
 
     @automatic_failover_enabled.setter
-    def automatic_failover_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic_failover_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic_failover_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheNodeType")
-    def cache_node_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_node_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The compute and memory capacity of the nodes in the node group (shard).
         """
         return pulumi.get(self, "cache_node_type")
 
     @cache_node_type.setter
-    def cache_node_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_node_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_node_type", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheParameterGroupName")
-    def cache_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
         """
         return pulumi.get(self, "cache_parameter_group_name")
 
     @cache_parameter_group_name.setter
-    def cache_parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_parameter_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheSecurityGroupNames")
-    def cache_security_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cache_security_group_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of cache security group names to associate with this replication group.
         """
         return pulumi.get(self, "cache_security_group_names")
 
     @cache_security_group_names.setter
-    def cache_security_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cache_security_group_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cache_security_group_names", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheSubnetGroupName")
-    def cache_subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_subnet_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cache subnet group to be used for the replication group.
         """
         return pulumi.get(self, "cache_subnet_group_name")
 
     @cache_subnet_group_name.setter
-    def cache_subnet_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_subnet_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_subnet_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterMode")
-    def cluster_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enabled or Disabled. To modify cluster mode from Disabled to Enabled, you must first set the cluster mode to Compatible. Compatible mode allows your Redis OSS clients to connect using both cluster mode enabled and cluster mode disabled. After you migrate all Redis OSS clients to use cluster mode enabled, you can then complete cluster mode configuration and set the cluster mode to Enabled. For more information, see Modify cluster mode.
         """
         return pulumi.get(self, "cluster_mode")
 
     @cluster_mode.setter
-    def cluster_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="dataTieringEnabled")
-    def data_tiering_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_tiering_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes.
         """
         return pulumi.get(self, "data_tiering_enabled")
 
     @data_tiering_enabled.setter
-    def data_tiering_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_tiering_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_tiering_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def durability(self) -> Optional[pulumi.Input['ReplicationGroupDurability']]:
+    def durability(self) -> pulumi.Input[Optional['ReplicationGroupDurability']]:
         """
         The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
         """
         return pulumi.get(self, "durability")
 
     @durability.setter
-    def durability(self, value: Optional[pulumi.Input['ReplicationGroupDurability']]):
+    def durability(self, value: pulumi.Input[Optional['ReplicationGroupDurability']]):
         pulumi.set(self, "durability", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cache engine to be used for the clusters in this replication group.
         """
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version number of the cache engine to be used for the clusters in this replication group. To view the supported cache engine versions, use the DescribeCacheEngineVersions operation.
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="globalReplicationGroupId")
-    def global_replication_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_replication_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Global datastore
         """
         return pulumi.get(self, "global_replication_group_id")
 
     @global_replication_group_id.setter
-    def global_replication_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_replication_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_replication_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipDiscovery")
-    def ip_discovery(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_discovery(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network type you choose when creating a replication group, either ipv4 | ipv6. IPv6 is supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the Nitro system.
         """
         return pulumi.get(self, "ip_discovery")
 
     @ip_discovery.setter
-    def ip_discovery(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_discovery(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_discovery", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the KMS key used to encrypt the disk on the cluster.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="logDeliveryConfigurations")
-    def log_delivery_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationRequestArgs']]]]:
+    def log_delivery_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationRequestArgs']]]]:
         """
         Specifies the destination, format and type of the logs.
         """
         return pulumi.get(self, "log_delivery_configurations")
 
     @log_delivery_configurations.setter
-    def log_delivery_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationRequestArgs']]]]):
+    def log_delivery_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationRequestArgs']]]]):
         pulumi.set(self, "log_delivery_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="multiAzEnabled")
-    def multi_az_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_az_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more information, see Minimizing Downtime: Multi-AZ.
         """
         return pulumi.get(self, "multi_az_enabled")
 
     @multi_az_enabled.setter
-    def multi_az_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_az_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_az_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="networkType")
-    def network_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Must be either ipv4 | ipv6 | dual_stack. IPv6 is supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the Nitro system
         """
         return pulumi.get(self, "network_type")
 
     @network_type.setter
-    def network_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeGroupConfiguration")
-    def node_group_configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupNodeGroupConfigurationArgs']]]]:
+    def node_group_configuration(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationGroupNodeGroupConfigurationArgs']]]]:
         """
         NodeGroupConfiguration is a property of the AWS::ElastiCache::ReplicationGroup resource that configures an Amazon ElastiCache (ElastiCache) Redis cluster node group.
         """
         return pulumi.get(self, "node_group_configuration")
 
     @node_group_configuration.setter
-    def node_group_configuration(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupNodeGroupConfigurationArgs']]]]):
+    def node_group_configuration(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationGroupNodeGroupConfigurationArgs']]]]):
         pulumi.set(self, "node_group_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationTopicArn")
-    def notification_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
         """
         return pulumi.get(self, "notification_topic_arn")
 
     @notification_topic_arn.setter
-    def notification_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="numCacheClusters")
-    def num_cache_clusters(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def num_cache_clusters(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of clusters this replication group initially has.This parameter is not used if there is more than one node group (shard). You should use ReplicasPerNodeGroup instead.
         """
         return pulumi.get(self, "num_cache_clusters")
 
     @num_cache_clusters.setter
-    def num_cache_clusters(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def num_cache_clusters(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "num_cache_clusters", value)
 
     @_builtins.property
     @pulumi.getter(name="numNodeGroups")
-    def num_node_groups(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def num_node_groups(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An optional parameter that specifies the number of node groups (shards) for this Redis (cluster mode enabled) replication group. For Redis (cluster mode disabled) either omit this parameter or set it to 1.
         """
         return pulumi.get(self, "num_node_groups")
 
     @num_node_groups.setter
-    def num_node_groups(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def num_node_groups(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "num_node_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port number on which each member of the replication group accepts connections.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredCacheClusterAzs")
-    def preferred_cache_cluster_azs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def preferred_cache_cluster_azs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of EC2 Availability Zones in which the replication group's clusters are created. The order of the Availability Zones in the list is the order in which clusters are allocated. The primary cluster is created in the first AZ in the list. This parameter is not used if there is more than one node group (shard). You should use NodeGroupConfiguration instead.
         """
         return pulumi.get(self, "preferred_cache_cluster_azs")
 
     @preferred_cache_cluster_azs.setter
-    def preferred_cache_cluster_azs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def preferred_cache_cluster_azs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "preferred_cache_cluster_azs", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
-    def preferred_maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryClusterId")
-    def primary_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the cluster that serves as the primary for this replication group. This cluster must already exist and have a status of available.
         """
         return pulumi.get(self, "primary_cluster_id")
 
     @primary_cluster_id.setter
-    def primary_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="replicasPerNodeGroup")
-    def replicas_per_node_group(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replicas_per_node_group(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
 
@@ -537,139 +537,139 @@ class ReplicationGroupArgs:
         return pulumi.get(self, "replicas_per_node_group")
 
     @replicas_per_node_group.setter
-    def replicas_per_node_group(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replicas_per_node_group(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replicas_per_node_group", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationGroupId")
-    def replication_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The replication group identifier. This parameter is stored as a lowercase string.
         """
         return pulumi.get(self, "replication_group_id")
 
     @replication_group_id.setter
-    def replication_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more Amazon VPC security groups associated with this replication group.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotArns")
-    def snapshot_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def snapshot_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Amazon Resource Names (ARN) that uniquely identify the Redis RDB snapshot files stored in Amazon S3.
         """
         return pulumi.get(self, "snapshot_arns")
 
     @snapshot_arns.setter
-    def snapshot_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def snapshot_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "snapshot_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotName")
-    def snapshot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a snapshot from which to restore data into the new replication group. The snapshot status changes to restoring while the new replication group is being created.
         """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
-    def snapshot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotRetentionLimit")
-    def snapshot_retention_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def snapshot_retention_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days for which ElastiCache retains automatic snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted.
         """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @snapshot_retention_limit.setter
-    def snapshot_retention_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def snapshot_retention_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "snapshot_retention_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotWindow")
-    def snapshot_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
         """
         return pulumi.get(self, "snapshot_window")
 
     @snapshot_window.setter
-    def snapshot_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_window", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshottingClusterId")
-    def snapshotting_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshotting_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cluster ID that is used as the daily snapshot source for the replication group. This parameter cannot be set for Redis (cluster mode enabled) replication groups.
         """
         return pulumi.get(self, "snapshotting_cluster_id")
 
     @snapshotting_cluster_id.setter
-    def snapshotting_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshotting_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshotting_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of cost allocation tags to be added to this resource. Tags are comma-separated key,value pairs (e.g. Key=myKey, Value=myKeyValue. You can include multiple tags as shown following: Key=myKey, Value=myKeyValue Key=mySecondKey, Value=mySecondKeyValue.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="transitEncryptionEnabled")
-    def transit_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def transit_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag that enables in-transit encryption when set to true.
         """
         return pulumi.get(self, "transit_encryption_enabled")
 
     @transit_encryption_enabled.setter
-    def transit_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def transit_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "transit_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="transitEncryptionMode")
-    def transit_encryption_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_encryption_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A setting that allows you to migrate your clients to use in-transit encryption, with no downtime. When setting TransitEncryptionEnabled to true, you can set your TransitEncryptionMode to preferred in the same request, to allow both encrypted and unencrypted connections at the same time. Once you migrate all your Redis OSS clients to use encrypted connections you can modify the value to required to allow encrypted connections only. Setting TransitEncryptionMode to required is a two-step process that requires you to first set the TransitEncryptionMode to preferred, after that you can set TransitEncryptionMode to required. This process will not trigger the replacement of the replication group.
         """
         return pulumi.get(self, "transit_encryption_mode")
 
     @transit_encryption_mode.setter
-    def transit_encryption_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_encryption_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_encryption_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="userGroupIds")
-    def user_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The ID of user group to associate with the replication group.
         """
         return pulumi.get(self, "user_group_ids")
 
     @user_group_ids.setter
-    def user_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_group_ids", value)
 
 
@@ -679,46 +679,46 @@ class ReplicationGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 at_rest_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_failover_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_tiering_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 durability: Optional[pulumi.Input['ReplicationGroupDurability']] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_discovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationRequestArgs', 'ReplicationGroupLogDeliveryConfigurationRequestArgsDict']]]]] = None,
-                 multi_az_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_group_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupNodeGroupConfigurationArgs', 'ReplicationGroupNodeGroupConfigurationArgsDict']]]]] = None,
-                 notification_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_cache_clusters: Optional[pulumi.Input[_builtins.int]] = None,
-                 num_node_groups: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 preferred_cache_cluster_azs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replicas_per_node_group: Optional[pulumi.Input[_builtins.int]] = None,
-                 replication_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_retention_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshotting_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transit_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 transit_encryption_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 at_rest_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_security_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_tiering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 durability: pulumi.Input[Optional['ReplicationGroupDurability']] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationRequestArgs', 'ReplicationGroupLogDeliveryConfigurationRequestArgsDict']]]]] = None,
+                 multi_az_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_group_configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationGroupNodeGroupConfigurationArgs', 'ReplicationGroupNodeGroupConfigurationArgsDict']]]]] = None,
+                 notification_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_cache_clusters: pulumi.Input[Optional[_builtins.int]] = None,
+                 num_node_groups: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 preferred_cache_cluster_azs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replicas_per_node_group: pulumi.Input[Optional[_builtins.int]] = None,
+                 replication_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshotting_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 transit_encryption_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::ElastiCache::ReplicationGroup
@@ -794,46 +794,46 @@ class ReplicationGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 at_rest_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_failover_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_tiering_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 durability: Optional[pulumi.Input['ReplicationGroupDurability']] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_discovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationRequestArgs', 'ReplicationGroupLogDeliveryConfigurationRequestArgsDict']]]]] = None,
-                 multi_az_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_group_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupNodeGroupConfigurationArgs', 'ReplicationGroupNodeGroupConfigurationArgsDict']]]]] = None,
-                 notification_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_cache_clusters: Optional[pulumi.Input[_builtins.int]] = None,
-                 num_node_groups: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 preferred_cache_cluster_azs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replicas_per_node_group: Optional[pulumi.Input[_builtins.int]] = None,
-                 replication_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_retention_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshotting_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transit_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 transit_encryption_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 at_rest_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_security_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_tiering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 durability: pulumi.Input[Optional['ReplicationGroupDurability']] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationRequestArgs', 'ReplicationGroupLogDeliveryConfigurationRequestArgsDict']]]]] = None,
+                 multi_az_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_group_configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationGroupNodeGroupConfigurationArgs', 'ReplicationGroupNodeGroupConfigurationArgsDict']]]]] = None,
+                 notification_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_cache_clusters: pulumi.Input[Optional[_builtins.int]] = None,
+                 num_node_groups: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 preferred_cache_cluster_azs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replicas_per_node_group: pulumi.Input[Optional[_builtins.int]] = None,
+                 replication_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshotting_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 transit_encryption_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

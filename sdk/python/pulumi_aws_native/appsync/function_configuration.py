@@ -23,18 +23,18 @@ class FunctionConfigurationArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[_builtins.str],
                  data_source_name: pulumi.Input[_builtins.str],
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 code_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_mapping_template_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_mapping_template_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime: Optional[pulumi.Input['FunctionConfigurationAppSyncRuntimeArgs']] = None,
-                 sync_config: Optional[pulumi.Input['FunctionConfigurationSyncConfigArgs']] = None):
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 code_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_mapping_template_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_mapping_template_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime: pulumi.Input[Optional['FunctionConfigurationAppSyncRuntimeArgs']] = None,
+                 sync_config: pulumi.Input[Optional['FunctionConfigurationSyncConfigArgs']] = None):
         """
         The set of arguments for constructing a FunctionConfiguration resource.
 
@@ -106,146 +106,146 @@ class FunctionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resolver code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter(name="codeS3Location")
-    def code_s3_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def code_s3_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 endpoint (where the code is located??).
         """
         return pulumi.get(self, "code_s3_location")
 
     @code_s3_location.setter
-    def code_s3_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def code_s3_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "code_s3_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The function description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="functionVersion")
-    def function_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the request mapping template. Currently, only the 2018-05-29 version of the template is supported.
         """
         return pulumi.get(self, "function_version")
 
     @function_version.setter
-    def function_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_version", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBatchSize")
-    def max_batch_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_batch_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
         """
         return pulumi.get(self, "max_batch_size")
 
     @max_batch_size.setter
-    def max_batch_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_batch_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_batch_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the function.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMappingTemplate")
-    def request_mapping_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_mapping_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         """
         return pulumi.get(self, "request_mapping_template")
 
     @request_mapping_template.setter
-    def request_mapping_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_mapping_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_mapping_template", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMappingTemplateS3Location")
-    def request_mapping_template_s3_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_mapping_template_s3_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Describes a Sync configuration for a resolver. Contains information on which Conflict Detection, as well as Resolution strategy, should be performed when the resolver is invoked.
         """
         return pulumi.get(self, "request_mapping_template_s3_location")
 
     @request_mapping_template_s3_location.setter
-    def request_mapping_template_s3_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_mapping_template_s3_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_mapping_template_s3_location", value)
 
     @_builtins.property
     @pulumi.getter(name="responseMappingTemplate")
-    def response_mapping_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_mapping_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Function response mapping template.
         """
         return pulumi.get(self, "response_mapping_template")
 
     @response_mapping_template.setter
-    def response_mapping_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_mapping_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_mapping_template", value)
 
     @_builtins.property
     @pulumi.getter(name="responseMappingTemplateS3Location")
-    def response_mapping_template_s3_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_mapping_template_s3_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of a response mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
         """
         return pulumi.get(self, "response_mapping_template_s3_location")
 
     @response_mapping_template_s3_location.setter
-    def response_mapping_template_s3_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_mapping_template_s3_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_mapping_template_s3_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def runtime(self) -> Optional[pulumi.Input['FunctionConfigurationAppSyncRuntimeArgs']]:
+    def runtime(self) -> pulumi.Input[Optional['FunctionConfigurationAppSyncRuntimeArgs']]:
         """
         Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
         """
         return pulumi.get(self, "runtime")
 
     @runtime.setter
-    def runtime(self, value: Optional[pulumi.Input['FunctionConfigurationAppSyncRuntimeArgs']]):
+    def runtime(self, value: pulumi.Input[Optional['FunctionConfigurationAppSyncRuntimeArgs']]):
         pulumi.set(self, "runtime", value)
 
     @_builtins.property
     @pulumi.getter(name="syncConfig")
-    def sync_config(self) -> Optional[pulumi.Input['FunctionConfigurationSyncConfigArgs']]:
+    def sync_config(self) -> pulumi.Input[Optional['FunctionConfigurationSyncConfigArgs']]:
         """
         Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
         """
         return pulumi.get(self, "sync_config")
 
     @sync_config.setter
-    def sync_config(self, value: Optional[pulumi.Input['FunctionConfigurationSyncConfigArgs']]):
+    def sync_config(self, value: pulumi.Input[Optional['FunctionConfigurationSyncConfigArgs']]):
         pulumi.set(self, "sync_config", value)
 
 
@@ -255,20 +255,20 @@ class FunctionConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 code_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_mapping_template_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_mapping_template_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime: Optional[pulumi.Input[Union['FunctionConfigurationAppSyncRuntimeArgs', 'FunctionConfigurationAppSyncRuntimeArgsDict']]] = None,
-                 sync_config: Optional[pulumi.Input[Union['FunctionConfigurationSyncConfigArgs', 'FunctionConfigurationSyncConfigArgsDict']]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 code_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_mapping_template_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_mapping_template_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime: pulumi.Input[Optional[Union['FunctionConfigurationAppSyncRuntimeArgs', 'FunctionConfigurationAppSyncRuntimeArgsDict']]] = None,
+                 sync_config: pulumi.Input[Optional[Union['FunctionConfigurationSyncConfigArgs', 'FunctionConfigurationSyncConfigArgsDict']]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -368,20 +368,20 @@ class FunctionConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 code_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_mapping_template_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_mapping_template_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime: Optional[pulumi.Input[Union['FunctionConfigurationAppSyncRuntimeArgs', 'FunctionConfigurationAppSyncRuntimeArgsDict']]] = None,
-                 sync_config: Optional[pulumi.Input[Union['FunctionConfigurationSyncConfigArgs', 'FunctionConfigurationSyncConfigArgsDict']]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 code_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_mapping_template_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_mapping_template_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime: pulumi.Input[Optional[Union['FunctionConfigurationAppSyncRuntimeArgs', 'FunctionConfigurationAppSyncRuntimeArgsDict']]] = None,
+                 sync_config: pulumi.Input[Optional[Union['FunctionConfigurationSyncConfigArgs', 'FunctionConfigurationSyncConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

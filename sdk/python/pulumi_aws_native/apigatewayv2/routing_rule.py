@@ -93,10 +93,10 @@ class RoutingRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict']]]]] = None,
-                 domain_name_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict']]]]] = None,
+                 domain_name_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Represents a routing rule. When the incoming request to a domain name matches the conditions for a rule, API Gateway invokes a stage of a target API. Supported only for REST APIs.
@@ -134,10 +134,10 @@ class RoutingRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict']]]]] = None,
-                 domain_name_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict']]]]] = None,
+                 domain_name_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -23,18 +23,18 @@ __all__ = ['MigrationProjectArgs', 'MigrationProject']
 @pulumi.input_type
 class MigrationProjectArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_project_creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_conversion_application_attributes: Optional[pulumi.Input['SchemaConversionApplicationAttributesPropertiesArgs']] = None,
-                 source_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 target_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]]] = None,
-                 transformation_rules: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_project_creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_conversion_application_attributes: pulumi.Input[Optional['SchemaConversionApplicationAttributesPropertiesArgs']] = None,
+                 source_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 target_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]]] = None,
+                 transformation_rules: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MigrationProject resource.
 
@@ -78,146 +78,146 @@ class MigrationProjectArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The optional description of the migration project.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceProfileArn")
-    def instance_profile_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_profile_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property describes an instance profile arn for the migration project. For read
         """
         return pulumi.get(self, "instance_profile_arn")
 
     @instance_profile_arn.setter
-    def instance_profile_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_profile_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_profile_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceProfileIdentifier")
-    def instance_profile_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_profile_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property describes an instance profile identifier for the migration project. For create
         """
         return pulumi.get(self, "instance_profile_identifier")
 
     @instance_profile_identifier.setter
-    def instance_profile_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_profile_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_profile_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceProfileName")
-    def instance_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property describes an instance profile name for the migration project. For read
         """
         return pulumi.get(self, "instance_profile_name")
 
     @instance_profile_name.setter
-    def instance_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationProjectCreationTime")
-    def migration_project_creation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migration_project_creation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property describes a creating time of the migration project.
         """
         return pulumi.get(self, "migration_project_creation_time")
 
     @migration_project_creation_time.setter
-    def migration_project_creation_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migration_project_creation_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migration_project_creation_time", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationProjectIdentifier")
-    def migration_project_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migration_project_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
         """
         return pulumi.get(self, "migration_project_identifier")
 
     @migration_project_identifier.setter
-    def migration_project_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migration_project_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migration_project_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationProjectName")
-    def migration_project_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migration_project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property describes a name to identify the migration project.
         """
         return pulumi.get(self, "migration_project_name")
 
     @migration_project_name.setter
-    def migration_project_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migration_project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migration_project_name", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaConversionApplicationAttributes")
-    def schema_conversion_application_attributes(self) -> Optional[pulumi.Input['SchemaConversionApplicationAttributesPropertiesArgs']]:
+    def schema_conversion_application_attributes(self) -> pulumi.Input[Optional['SchemaConversionApplicationAttributesPropertiesArgs']]:
         """
         The property describes schema conversion application attributes for the migration project.
         """
         return pulumi.get(self, "schema_conversion_application_attributes")
 
     @schema_conversion_application_attributes.setter
-    def schema_conversion_application_attributes(self, value: Optional[pulumi.Input['SchemaConversionApplicationAttributesPropertiesArgs']]):
+    def schema_conversion_application_attributes(self, value: pulumi.Input[Optional['SchemaConversionApplicationAttributesPropertiesArgs']]):
         pulumi.set(self, "schema_conversion_application_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDataProviderDescriptors")
-    def source_data_provider_descriptors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]]]:
+    def source_data_provider_descriptors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]]]:
         """
         The property describes source data provider descriptors for the migration project.
         """
         return pulumi.get(self, "source_data_provider_descriptors")
 
     @source_data_provider_descriptors.setter
-    def source_data_provider_descriptors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]]]):
+    def source_data_provider_descriptors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]]]):
         pulumi.set(self, "source_data_provider_descriptors", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDataProviderDescriptors")
-    def target_data_provider_descriptors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]]]:
+    def target_data_provider_descriptors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]]]:
         """
         The property describes target data provider descriptors for the migration project.
         """
         return pulumi.get(self, "target_data_provider_descriptors")
 
     @target_data_provider_descriptors.setter
-    def target_data_provider_descriptors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]]]):
+    def target_data_provider_descriptors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MigrationProjectDataProviderDescriptorArgs']]]]):
         pulumi.set(self, "target_data_provider_descriptors", value)
 
     @_builtins.property
     @pulumi.getter(name="transformationRules")
-    def transformation_rules(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transformation_rules(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The property describes transformation rules for the migration project.
         """
         return pulumi.get(self, "transformation_rules")
 
     @transformation_rules.setter
-    def transformation_rules(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transformation_rules(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transformation_rules", value)
 
 
@@ -227,18 +227,18 @@ class MigrationProject(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_project_creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_conversion_application_attributes: Optional[pulumi.Input[Union['SchemaConversionApplicationAttributesPropertiesArgs', 'SchemaConversionApplicationAttributesPropertiesArgsDict']]] = None,
-                 source_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectDataProviderDescriptorArgs', 'MigrationProjectDataProviderDescriptorArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectDataProviderDescriptorArgs', 'MigrationProjectDataProviderDescriptorArgsDict']]]]] = None,
-                 transformation_rules: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_project_creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_conversion_application_attributes: pulumi.Input[Optional[Union['SchemaConversionApplicationAttributesPropertiesArgs', 'SchemaConversionApplicationAttributesPropertiesArgsDict']]] = None,
+                 source_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectDataProviderDescriptorArgs', 'MigrationProjectDataProviderDescriptorArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectDataProviderDescriptorArgs', 'MigrationProjectDataProviderDescriptorArgsDict']]]]] = None,
+                 transformation_rules: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DMS::MigrationProject
@@ -284,18 +284,18 @@ class MigrationProject(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_project_creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_conversion_application_attributes: Optional[pulumi.Input[Union['SchemaConversionApplicationAttributesPropertiesArgs', 'SchemaConversionApplicationAttributesPropertiesArgsDict']]] = None,
-                 source_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectDataProviderDescriptorArgs', 'MigrationProjectDataProviderDescriptorArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_data_provider_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MigrationProjectDataProviderDescriptorArgs', 'MigrationProjectDataProviderDescriptorArgsDict']]]]] = None,
-                 transformation_rules: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_project_creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_conversion_application_attributes: pulumi.Input[Optional[Union['SchemaConversionApplicationAttributesPropertiesArgs', 'SchemaConversionApplicationAttributesPropertiesArgsDict']]] = None,
+                 source_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectDataProviderDescriptorArgs', 'MigrationProjectDataProviderDescriptorArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_data_provider_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MigrationProjectDataProviderDescriptorArgs', 'MigrationProjectDataProviderDescriptorArgsDict']]]]] = None,
+                 transformation_rules: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -94,10 +94,10 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_rights: Optional[pulumi.Input[Union['TemplateGroupAccessControlEntryAccessRightsArgs', 'TemplateGroupAccessControlEntryAccessRightsArgsDict']]] = None,
-                 group_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_security_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_rights: pulumi.Input[Optional[Union['TemplateGroupAccessControlEntryAccessRightsArgs', 'TemplateGroupAccessControlEntryAccessRightsArgsDict']]] = None,
+                 group_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_security_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::PCAConnectorAD::TemplateGroupAccessControlEntry Resource Type
@@ -135,10 +135,10 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_rights: Optional[pulumi.Input[Union['TemplateGroupAccessControlEntryAccessRightsArgs', 'TemplateGroupAccessControlEntryAccessRightsArgsDict']]] = None,
-                 group_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_security_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_rights: pulumi.Input[Optional[Union['TemplateGroupAccessControlEntryAccessRightsArgs', 'TemplateGroupAccessControlEntryAccessRightsArgsDict']]] = None,
+                 group_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_security_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

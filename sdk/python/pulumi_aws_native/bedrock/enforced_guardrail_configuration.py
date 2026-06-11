@@ -24,8 +24,8 @@ class EnforcedGuardrailConfigurationArgs:
     def __init__(__self__, *,
                  guardrail_identifier: pulumi.Input[_builtins.str],
                  guardrail_version: pulumi.Input[_builtins.str],
-                 model_enforcement: Optional[pulumi.Input['EnforcedGuardrailConfigurationModelEnforcementArgs']] = None,
-                 selective_content_guarding: Optional[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingArgs']] = None):
+                 model_enforcement: pulumi.Input[Optional['EnforcedGuardrailConfigurationModelEnforcementArgs']] = None,
+                 selective_content_guarding: pulumi.Input[Optional['EnforcedGuardrailConfigurationSelectiveContentGuardingArgs']] = None):
         """
         The set of arguments for constructing a EnforcedGuardrailConfiguration resource.
 
@@ -65,20 +65,20 @@ class EnforcedGuardrailConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="modelEnforcement")
-    def model_enforcement(self) -> Optional[pulumi.Input['EnforcedGuardrailConfigurationModelEnforcementArgs']]:
+    def model_enforcement(self) -> pulumi.Input[Optional['EnforcedGuardrailConfigurationModelEnforcementArgs']]:
         return pulumi.get(self, "model_enforcement")
 
     @model_enforcement.setter
-    def model_enforcement(self, value: Optional[pulumi.Input['EnforcedGuardrailConfigurationModelEnforcementArgs']]):
+    def model_enforcement(self, value: pulumi.Input[Optional['EnforcedGuardrailConfigurationModelEnforcementArgs']]):
         pulumi.set(self, "model_enforcement", value)
 
     @_builtins.property
     @pulumi.getter(name="selectiveContentGuarding")
-    def selective_content_guarding(self) -> Optional[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingArgs']]:
+    def selective_content_guarding(self) -> pulumi.Input[Optional['EnforcedGuardrailConfigurationSelectiveContentGuardingArgs']]:
         return pulumi.get(self, "selective_content_guarding")
 
     @selective_content_guarding.setter
-    def selective_content_guarding(self, value: Optional[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingArgs']]):
+    def selective_content_guarding(self, value: pulumi.Input[Optional['EnforcedGuardrailConfigurationSelectiveContentGuardingArgs']]):
         pulumi.set(self, "selective_content_guarding", value)
 
 
@@ -88,10 +88,10 @@ class EnforcedGuardrailConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 guardrail_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 guardrail_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_enforcement: Optional[pulumi.Input[Union['EnforcedGuardrailConfigurationModelEnforcementArgs', 'EnforcedGuardrailConfigurationModelEnforcementArgsDict']]] = None,
-                 selective_content_guarding: Optional[pulumi.Input[Union['EnforcedGuardrailConfigurationSelectiveContentGuardingArgs', 'EnforcedGuardrailConfigurationSelectiveContentGuardingArgsDict']]] = None,
+                 guardrail_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 guardrail_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_enforcement: pulumi.Input[Optional[Union['EnforcedGuardrailConfigurationModelEnforcementArgs', 'EnforcedGuardrailConfigurationModelEnforcementArgsDict']]] = None,
+                 selective_content_guarding: pulumi.Input[Optional[Union['EnforcedGuardrailConfigurationSelectiveContentGuardingArgs', 'EnforcedGuardrailConfigurationSelectiveContentGuardingArgsDict']]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::EnforcedGuardrailConfiguration Resource Type
@@ -127,10 +127,10 @@ class EnforcedGuardrailConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 guardrail_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 guardrail_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_enforcement: Optional[pulumi.Input[Union['EnforcedGuardrailConfigurationModelEnforcementArgs', 'EnforcedGuardrailConfigurationModelEnforcementArgsDict']]] = None,
-                 selective_content_guarding: Optional[pulumi.Input[Union['EnforcedGuardrailConfigurationSelectiveContentGuardingArgs', 'EnforcedGuardrailConfigurationSelectiveContentGuardingArgsDict']]] = None,
+                 guardrail_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 guardrail_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_enforcement: pulumi.Input[Optional[Union['EnforcedGuardrailConfigurationModelEnforcementArgs', 'EnforcedGuardrailConfigurationModelEnforcementArgsDict']]] = None,
+                 selective_content_guarding: pulumi.Input[Optional[Union['EnforcedGuardrailConfigurationSelectiveContentGuardingArgs', 'EnforcedGuardrailConfigurationSelectiveContentGuardingArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

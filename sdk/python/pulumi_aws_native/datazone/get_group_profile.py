@@ -117,8 +117,8 @@ def get_group_profile(domain_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         role_principal_id=pulumi.get(__ret__, 'role_principal_id'),
         status=pulumi.get(__ret__, 'status'))
-def get_group_profile_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                             id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_group_profile_output(domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                             id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupProfileResult]:
     """
     Group profiles represent groups of Amazon DataZone users. Groups can be manually created, or mapped to Active Directory groups of enterprise customers. In Amazon DataZone, groups serve two purposes. First, a group can map to a team of users in the organizational chart, and thus reduce the administrative work of a Amazon DataZone project owner when there are new employees joining or leaving a team. Second, corporate administrators use Active Directory groups to manage and update user statuses and so Amazon DataZone domain administrators can use these group memberships to implement Amazon DataZone domain policies.

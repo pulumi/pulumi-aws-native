@@ -102,7 +102,7 @@ def get_application(arn: Optional[_builtins.str] = None,
         application_type=pulumi.get(__ret__, 'application_type'),
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_application_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Resource schema for AWS::SystemsManagerSAP::Application

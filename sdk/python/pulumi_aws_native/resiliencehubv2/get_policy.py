@@ -169,7 +169,7 @@ def get_policy(policy_arn: Optional[_builtins.str] = None,
         policy_arn=pulumi.get(__ret__, 'policy_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_policy_output(policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_output(policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Creates a resilience policy that defines availability and disaster recovery requirements.

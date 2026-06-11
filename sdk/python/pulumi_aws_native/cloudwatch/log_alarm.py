@@ -28,16 +28,16 @@ class LogAlarmArgs:
                  query_results_to_evaluate: pulumi.Input[_builtins.int],
                  scheduled_query_configuration: pulumi.Input['LogAlarmScheduledQueryConfigurationArgs'],
                  threshold: pulumi.Input[_builtins.float],
-                 action_log_line_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 action_log_line_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 actions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 alarm_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 treat_missing_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_log_line_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 action_log_line_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 alarm_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 alarm_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ok_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogAlarm resource.
 
@@ -145,122 +145,122 @@ class LogAlarmArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionLogLineCount")
-    def action_log_line_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def action_log_line_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of log lines to include in alarm notifications. Valid values are 0 to 50.
         """
         return pulumi.get(self, "action_log_line_count")
 
     @action_log_line_count.setter
-    def action_log_line_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def action_log_line_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "action_log_line_count", value)
 
     @_builtins.property
     @pulumi.getter(name="actionLogLineRoleArn")
-    def action_log_line_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_log_line_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role that grants CloudWatch permissions to fetch log lines for alarm notifications. Required when ActionLogLineCount is greater than 0.
         """
         return pulumi.get(self, "action_log_line_role_arn")
 
     @action_log_line_role_arn.setter
-    def action_log_line_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_log_line_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_log_line_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
-    def actions_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def actions_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         """
         return pulumi.get(self, "actions_enabled")
 
     @actions_enabled.setter
-    def actions_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def actions_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "actions_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="alarmActions")
-    def alarm_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def alarm_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of actions to execute when this alarm transitions into an ALARM state from any other state.
         """
         return pulumi.get(self, "alarm_actions")
 
     @alarm_actions.setter
-    def alarm_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def alarm_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "alarm_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="alarmDescription")
-    def alarm_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alarm_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the log alarm.
         """
         return pulumi.get(self, "alarm_description")
 
     @alarm_description.setter
-    def alarm_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alarm_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alarm_description", value)
 
     @_builtins.property
     @pulumi.getter(name="alarmName")
-    def alarm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alarm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the log alarm.
         """
         return pulumi.get(self, "alarm_name")
 
     @alarm_name.setter
-    def alarm_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alarm_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alarm_name", value)
 
     @_builtins.property
     @pulumi.getter(name="insufficientDataActions")
-    def insufficient_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def insufficient_data_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
         """
         return pulumi.get(self, "insufficient_data_actions")
 
     @insufficient_data_actions.setter
-    def insufficient_data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def insufficient_data_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "insufficient_data_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="okActions")
-    def ok_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ok_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The actions to execute when this alarm transitions to the OK state from any other state.
         """
         return pulumi.get(self, "ok_actions")
 
     @ok_actions.setter
-    def ok_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ok_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ok_actions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs to associate with the log alarm.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="treatMissingData")
-    def treat_missing_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def treat_missing_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
         """
         return pulumi.get(self, "treat_missing_data")
 
     @treat_missing_data.setter
-    def treat_missing_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def treat_missing_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "treat_missing_data", value)
 
 
@@ -270,21 +270,21 @@ class LogAlarm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_log_line_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 action_log_line_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 actions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 alarm_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 comparison_operator: Optional[pulumi.Input[_builtins.str]] = None,
-                 insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 query_results_to_alarm: Optional[pulumi.Input[_builtins.int]] = None,
-                 query_results_to_evaluate: Optional[pulumi.Input[_builtins.int]] = None,
-                 scheduled_query_configuration: Optional[pulumi.Input[Union['LogAlarmScheduledQueryConfigurationArgs', 'LogAlarmScheduledQueryConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 treat_missing_data: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_log_line_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 action_log_line_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 alarm_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 alarm_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 comparison_operator: pulumi.Input[Optional[_builtins.str]] = None,
+                 insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ok_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 query_results_to_alarm: pulumi.Input[Optional[_builtins.int]] = None,
+                 query_results_to_evaluate: pulumi.Input[Optional[_builtins.int]] = None,
+                 scheduled_query_configuration: pulumi.Input[Optional[Union['LogAlarmScheduledQueryConfigurationArgs', 'LogAlarmScheduledQueryConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudWatch::LogAlarm. A LogAlarm evaluates scheduled query results from CloudWatch Logs and triggers actions when thresholds are breached.
@@ -333,21 +333,21 @@ class LogAlarm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_log_line_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 action_log_line_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 actions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 alarm_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 comparison_operator: Optional[pulumi.Input[_builtins.str]] = None,
-                 insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 query_results_to_alarm: Optional[pulumi.Input[_builtins.int]] = None,
-                 query_results_to_evaluate: Optional[pulumi.Input[_builtins.int]] = None,
-                 scheduled_query_configuration: Optional[pulumi.Input[Union['LogAlarmScheduledQueryConfigurationArgs', 'LogAlarmScheduledQueryConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 treat_missing_data: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_log_line_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 action_log_line_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 alarm_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 alarm_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 comparison_operator: pulumi.Input[Optional[_builtins.str]] = None,
+                 insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ok_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 query_results_to_alarm: pulumi.Input[Optional[_builtins.int]] = None,
+                 query_results_to_evaluate: pulumi.Input[Optional[_builtins.int]] = None,
+                 scheduled_query_configuration: pulumi.Input[Optional[Union['LogAlarmScheduledQueryConfigurationArgs', 'LogAlarmScheduledQueryConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

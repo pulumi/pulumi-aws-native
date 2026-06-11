@@ -102,7 +102,7 @@ def get_vpc_ingress_connection(vpc_ingress_connection_arn: Optional[_builtins.st
         ingress_vpc_configuration=pulumi.get(__ret__, 'ingress_vpc_configuration'),
         status=pulumi.get(__ret__, 'status'),
         vpc_ingress_connection_arn=pulumi.get(__ret__, 'vpc_ingress_connection_arn'))
-def get_vpc_ingress_connection_output(vpc_ingress_connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_ingress_connection_output(vpc_ingress_connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIngressConnectionResult]:
     """
     The AWS::AppRunner::VpcIngressConnection resource is an App Runner resource that specifies an App Runner VpcIngressConnection.

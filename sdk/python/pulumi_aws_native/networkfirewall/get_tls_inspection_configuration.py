@@ -116,7 +116,7 @@ def get_tls_inspection_configuration(tls_inspection_configuration_arn: Optional[
         tls_inspection_configuration=pulumi.get(__ret__, 'tls_inspection_configuration'),
         tls_inspection_configuration_arn=pulumi.get(__ret__, 'tls_inspection_configuration_arn'),
         tls_inspection_configuration_id=pulumi.get(__ret__, 'tls_inspection_configuration_id'))
-def get_tls_inspection_configuration_output(tls_inspection_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tls_inspection_configuration_output(tls_inspection_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTlsInspectionConfigurationResult]:
     """
     Resource type definition for AWS::NetworkFirewall::TLSInspectionConfiguration

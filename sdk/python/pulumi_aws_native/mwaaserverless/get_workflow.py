@@ -177,7 +177,7 @@ def get_workflow(workflow_arn: Optional[_builtins.str] = None,
         workflow_arn=pulumi.get(__ret__, 'workflow_arn'),
         workflow_status=pulumi.get(__ret__, 'workflow_status'),
         workflow_version=pulumi.get(__ret__, 'workflow_version'))
-def get_workflow_output(workflow_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workflow_output(workflow_arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowResult]:
     """
     Resource Type definition for AWS::MWAAServerless::Workflow resource

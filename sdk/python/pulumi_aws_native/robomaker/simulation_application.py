@@ -24,12 +24,12 @@ class SimulationApplicationArgs:
     def __init__(__self__, *,
                  robot_software_suite: pulumi.Input['SimulationApplicationRobotSoftwareSuiteArgs'],
                  simulation_software_suite: pulumi.Input['SimulationApplicationSimulationSoftwareSuiteArgs'],
-                 current_revision_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rendering_engine: Optional[pulumi.Input['SimulationApplicationRenderingEngineArgs']] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['SimulationApplicationSourceConfigArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 current_revision_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rendering_engine: pulumi.Input[Optional['SimulationApplicationRenderingEngineArgs']] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input['SimulationApplicationSourceConfigArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SimulationApplication resource.
 
@@ -83,74 +83,74 @@ class SimulationApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="currentRevisionId")
-    def current_revision_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def current_revision_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current revision id.
         """
         return pulumi.get(self, "current_revision_id")
 
     @current_revision_id.setter
-    def current_revision_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def current_revision_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "current_revision_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the Docker image for the robot application.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the simulation application.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="renderingEngine")
-    def rendering_engine(self) -> Optional[pulumi.Input['SimulationApplicationRenderingEngineArgs']]:
+    def rendering_engine(self) -> pulumi.Input[Optional['SimulationApplicationRenderingEngineArgs']]:
         """
         The rendering engine for the simulation application.
         """
         return pulumi.get(self, "rendering_engine")
 
     @rendering_engine.setter
-    def rendering_engine(self, value: Optional[pulumi.Input['SimulationApplicationRenderingEngineArgs']]):
+    def rendering_engine(self, value: pulumi.Input[Optional['SimulationApplicationRenderingEngineArgs']]):
         pulumi.set(self, "rendering_engine", value)
 
     @_builtins.property
     @pulumi.getter
-    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SimulationApplicationSourceConfigArgs']]]]:
+    def sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SimulationApplicationSourceConfigArgs']]]]:
         """
         The sources of the simulation application.
         """
         return pulumi.get(self, "sources")
 
     @sources.setter
-    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SimulationApplicationSourceConfigArgs']]]]):
+    def sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SimulationApplicationSourceConfigArgs']]]]):
         pulumi.set(self, "sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map that contains tag keys and tag values that are attached to the simulation application.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -160,14 +160,14 @@ class SimulationApplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 current_revision_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rendering_engine: Optional[pulumi.Input[Union['SimulationApplicationRenderingEngineArgs', 'SimulationApplicationRenderingEngineArgsDict']]] = None,
-                 robot_software_suite: Optional[pulumi.Input[Union['SimulationApplicationRobotSoftwareSuiteArgs', 'SimulationApplicationRobotSoftwareSuiteArgsDict']]] = None,
-                 simulation_software_suite: Optional[pulumi.Input[Union['SimulationApplicationSimulationSoftwareSuiteArgs', 'SimulationApplicationSimulationSoftwareSuiteArgsDict']]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SimulationApplicationSourceConfigArgs', 'SimulationApplicationSourceConfigArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 current_revision_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rendering_engine: pulumi.Input[Optional[Union['SimulationApplicationRenderingEngineArgs', 'SimulationApplicationRenderingEngineArgsDict']]] = None,
+                 robot_software_suite: pulumi.Input[Optional[Union['SimulationApplicationRobotSoftwareSuiteArgs', 'SimulationApplicationRobotSoftwareSuiteArgsDict']]] = None,
+                 simulation_software_suite: pulumi.Input[Optional[Union['SimulationApplicationSimulationSoftwareSuiteArgs', 'SimulationApplicationSimulationSoftwareSuiteArgsDict']]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SimulationApplicationSourceConfigArgs', 'SimulationApplicationSourceConfigArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         This schema is for testing purpose only.
@@ -385,14 +385,14 @@ class SimulationApplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 current_revision_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rendering_engine: Optional[pulumi.Input[Union['SimulationApplicationRenderingEngineArgs', 'SimulationApplicationRenderingEngineArgsDict']]] = None,
-                 robot_software_suite: Optional[pulumi.Input[Union['SimulationApplicationRobotSoftwareSuiteArgs', 'SimulationApplicationRobotSoftwareSuiteArgsDict']]] = None,
-                 simulation_software_suite: Optional[pulumi.Input[Union['SimulationApplicationSimulationSoftwareSuiteArgs', 'SimulationApplicationSimulationSoftwareSuiteArgsDict']]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SimulationApplicationSourceConfigArgs', 'SimulationApplicationSourceConfigArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 current_revision_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rendering_engine: pulumi.Input[Optional[Union['SimulationApplicationRenderingEngineArgs', 'SimulationApplicationRenderingEngineArgsDict']]] = None,
+                 robot_software_suite: pulumi.Input[Optional[Union['SimulationApplicationRobotSoftwareSuiteArgs', 'SimulationApplicationRobotSoftwareSuiteArgsDict']]] = None,
+                 simulation_software_suite: pulumi.Input[Optional[Union['SimulationApplicationSimulationSoftwareSuiteArgs', 'SimulationApplicationSimulationSoftwareSuiteArgsDict']]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SimulationApplicationSourceConfigArgs', 'SimulationApplicationSourceConfigArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -88,7 +88,7 @@ def get_workflow(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         latest_version=pulumi.get(__ret__, 'latest_version'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_workflow_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workflow_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowResult]:
     """
     Resource schema for AWS::ImageBuilder::Workflow

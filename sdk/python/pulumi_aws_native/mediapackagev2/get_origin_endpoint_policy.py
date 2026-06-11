@@ -83,9 +83,9 @@ def get_origin_endpoint_policy(channel_group_name: Optional[_builtins.str] = Non
     return AwaitableGetOriginEndpointPolicyResult(
         cdn_auth_configuration=pulumi.get(__ret__, 'cdn_auth_configuration'),
         policy=pulumi.get(__ret__, 'policy'))
-def get_origin_endpoint_policy_output(channel_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      origin_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_origin_endpoint_policy_output(channel_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      origin_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginEndpointPolicyResult]:
     """
     <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>

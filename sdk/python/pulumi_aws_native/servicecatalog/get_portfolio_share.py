@@ -64,8 +64,8 @@ def get_portfolio_share(account_id: Optional[_builtins.str] = None,
 
     return AwaitableGetPortfolioShareResult(
         share_tag_options=pulumi.get(__ret__, 'share_tag_options'))
-def get_portfolio_share_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_portfolio_share_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPortfolioShareResult]:
     """
     Resource Type definition for AWS::ServiceCatalog::PortfolioShare

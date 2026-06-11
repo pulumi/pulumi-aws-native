@@ -171,7 +171,7 @@ def get_service(arn: Optional[_builtins.str] = None,
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_service_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).

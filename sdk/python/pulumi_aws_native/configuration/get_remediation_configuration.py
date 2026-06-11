@@ -176,7 +176,7 @@ def get_remediation_configuration(config_rule_name: Optional[_builtins.str] = No
         target_id=pulumi.get(__ret__, 'target_id'),
         target_type=pulumi.get(__ret__, 'target_type'),
         target_version=pulumi.get(__ret__, 'target_version'))
-def get_remediation_configuration_output(config_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_remediation_configuration_output(config_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemediationConfigurationResult]:
     """
     Resource Type definition for AWS::Config::RemediationConfiguration

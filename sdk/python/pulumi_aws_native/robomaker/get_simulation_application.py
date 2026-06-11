@@ -128,7 +128,7 @@ def get_simulation_application(arn: Optional[_builtins.str] = None,
         robot_software_suite=pulumi.get(__ret__, 'robot_software_suite'),
         simulation_software_suite=pulumi.get(__ret__, 'simulation_software_suite'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_simulation_application_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_simulation_application_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSimulationApplicationResult]:
     """
     This schema is for testing purpose only.

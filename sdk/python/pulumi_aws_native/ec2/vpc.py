@@ -21,13 +21,13 @@ __all__ = ['VpcArgs', 'Vpc']
 @pulumi.input_type
 class VpcArgs:
     def __init__(__self__, *,
-                 cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_dns_hostnames: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_dns_support: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_tenancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_dns_hostnames: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_dns_support: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Vpc resource.
 
@@ -63,7 +63,7 @@ class VpcArgs:
 
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 network range for the VPC, in CIDR notation. For example, ``10.0.0.0/16``. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``.
          You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
@@ -71,12 +71,12 @@ class VpcArgs:
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
-    def cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDnsHostnames")
-    def enable_dns_hostnames(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_dns_hostnames(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
          You can only enable DNS hostnames if you've enabled DNS support.
@@ -84,24 +84,24 @@ class VpcArgs:
         return pulumi.get(self, "enable_dns_hostnames")
 
     @enable_dns_hostnames.setter
-    def enable_dns_hostnames(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_dns_hostnames(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_dns_hostnames", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDnsSupport")
-    def enable_dns_support(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_dns_support(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
         """
         return pulumi.get(self, "enable_dns_support")
 
     @enable_dns_support.setter
-    def enable_dns_support(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_dns_support(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_dns_support", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceTenancy")
-    def instance_tenancy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_tenancy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The allowed tenancy of instances launched into the VPC.
           +  ``default``: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
@@ -112,12 +112,12 @@ class VpcArgs:
         return pulumi.get(self, "instance_tenancy")
 
     @instance_tenancy.setter
-    def instance_tenancy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_tenancy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_tenancy", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4IpamPoolId")
-    def ipv4_ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv4_ipam_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
          You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
@@ -125,31 +125,31 @@ class VpcArgs:
         return pulumi.get(self, "ipv4_ipam_pool_id")
 
     @ipv4_ipam_pool_id.setter
-    def ipv4_ipam_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv4_ipam_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv4_ipam_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4NetmaskLength")
-    def ipv4_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv4_netmask_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
         """
         return pulumi.get(self, "ipv4_netmask_length")
 
     @ipv4_netmask_length.setter
-    def ipv4_netmask_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv4_netmask_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv4_netmask_length", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the VPC.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -159,13 +159,13 @@ class Vpc(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_dns_hostnames: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_dns_support: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_tenancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_dns_hostnames: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_dns_support: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Specifies a virtual private cloud (VPC).
@@ -217,13 +217,13 @@ class Vpc(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_dns_hostnames: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_dns_support: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_tenancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_dns_hostnames: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_dns_support: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

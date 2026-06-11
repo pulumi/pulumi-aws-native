@@ -96,7 +96,7 @@ def get_account_audit_configuration(account_id: Optional[_builtins.str] = None,
         audit_check_configurations=pulumi.get(__ret__, 'audit_check_configurations'),
         audit_notification_target_configurations=pulumi.get(__ret__, 'audit_notification_target_configurations'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
-def get_account_audit_configuration_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_account_audit_configuration_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountAuditConfigurationResult]:
     """
     Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.

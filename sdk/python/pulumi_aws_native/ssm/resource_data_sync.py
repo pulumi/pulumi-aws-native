@@ -21,15 +21,15 @@ __all__ = ['ResourceDataSyncArgs', 'ResourceDataSync']
 @pulumi.input_type
 class ResourceDataSyncArgs:
     def __init__(__self__, *,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_destination: Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']] = None,
-                 sync_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_source: Optional[pulumi.Input['ResourceDataSyncSyncSourceArgs']] = None,
-                 sync_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_destination: pulumi.Input[Optional['ResourceDataSyncS3DestinationArgs']] = None,
+                 sync_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_source: pulumi.Input[Optional['ResourceDataSyncSyncSourceArgs']] = None,
+                 sync_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceDataSync resource.
 
@@ -64,110 +64,110 @@ class ResourceDataSyncArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the S3 bucket where the aggregated data is stored.
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An Amazon S3 prefix for the bucket.
         """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
-    def bucket_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketRegion")
-    def bucket_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Region with the S3 bucket targeted by the resource data sync.
         """
         return pulumi.get(self, "bucket_region")
 
     @bucket_region.setter
-    def bucket_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_region", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 . You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same AWS Region as the destination Amazon S3 bucket.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Destination")
-    def s3_destination(self) -> Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']]:
+    def s3_destination(self) -> pulumi.Input[Optional['ResourceDataSyncS3DestinationArgs']]:
         """
         Configuration information for the target S3 bucket.
         """
         return pulumi.get(self, "s3_destination")
 
     @s3_destination.setter
-    def s3_destination(self, value: Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']]):
+    def s3_destination(self, value: pulumi.Input[Optional['ResourceDataSyncS3DestinationArgs']]):
         pulumi.set(self, "s3_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="syncFormat")
-    def sync_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sync_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A supported sync format. The following format is currently supported: JsonSerDe
         """
         return pulumi.get(self, "sync_format")
 
     @sync_format.setter
-    def sync_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sync_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sync_format", value)
 
     @_builtins.property
     @pulumi.getter(name="syncName")
-    def sync_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sync_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the resource data sync.
         """
         return pulumi.get(self, "sync_name")
 
     @sync_name.setter
-    def sync_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sync_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sync_name", value)
 
     @_builtins.property
     @pulumi.getter(name="syncSource")
-    def sync_source(self) -> Optional[pulumi.Input['ResourceDataSyncSyncSourceArgs']]:
+    def sync_source(self) -> pulumi.Input[Optional['ResourceDataSyncSyncSourceArgs']]:
         """
         Information about the source where the data was synchronized.
         """
         return pulumi.get(self, "sync_source")
 
     @sync_source.setter
-    def sync_source(self, value: Optional[pulumi.Input['ResourceDataSyncSyncSourceArgs']]):
+    def sync_source(self, value: pulumi.Input[Optional['ResourceDataSyncSyncSourceArgs']]):
         pulumi.set(self, "sync_source", value)
 
     @_builtins.property
     @pulumi.getter(name="syncType")
-    def sync_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sync_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of resource data sync. If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
         """
         return pulumi.get(self, "sync_type")
 
     @sync_type.setter
-    def sync_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sync_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sync_type", value)
 
 
@@ -177,15 +177,15 @@ class ResourceDataSync(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_destination: Optional[pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None,
-                 sync_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_source: Optional[pulumi.Input[Union['ResourceDataSyncSyncSourceArgs', 'ResourceDataSyncSyncSourceArgsDict']]] = None,
-                 sync_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_destination: pulumi.Input[Optional[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None,
+                 sync_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_source: pulumi.Input[Optional[Union['ResourceDataSyncSyncSourceArgs', 'ResourceDataSyncSyncSourceArgsDict']]] = None,
+                 sync_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SSM::ResourceDataSync
@@ -540,15 +540,15 @@ class ResourceDataSync(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_destination: Optional[pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None,
-                 sync_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_source: Optional[pulumi.Input[Union['ResourceDataSyncSyncSourceArgs', 'ResourceDataSyncSyncSourceArgsDict']]] = None,
-                 sync_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_destination: pulumi.Input[Optional[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None,
+                 sync_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_source: pulumi.Input[Optional[Union['ResourceDataSyncSyncSourceArgs', 'ResourceDataSyncSyncSourceArgsDict']]] = None,
+                 sync_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
