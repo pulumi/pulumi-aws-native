@@ -34,6 +34,10 @@ export interface GetStackResult {
      */
     readonly applicationSettings?: outputs.appstream.StackApplicationSettings;
     /**
+     * The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
+     */
+    readonly contentRedirection?: outputs.appstream.StackContentRedirection;
+    /**
      * The description to display.
      */
     readonly description?: string;

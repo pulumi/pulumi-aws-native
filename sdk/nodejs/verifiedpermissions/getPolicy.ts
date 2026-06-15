@@ -34,6 +34,7 @@ export interface GetPolicyResult {
      * Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
      */
     readonly definition?: outputs.verifiedpermissions.PolicyDefinition0Properties | outputs.verifiedpermissions.PolicyDefinition1Properties;
+    readonly name?: string;
     /**
      * The unique ID of the new or updated policy.
      */

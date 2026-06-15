@@ -110,6 +110,11 @@ export const getInferenceExperiment: typeof import("./getInferenceExperiment").g
 export const getInferenceExperimentOutput: typeof import("./getInferenceExperiment").getInferenceExperimentOutput = null as any;
 utilities.lazyLoad(exports, ["getInferenceExperiment","getInferenceExperimentOutput"], () => require("./getInferenceExperiment"));
 
+export { GetMlflowAppArgs, GetMlflowAppResult, GetMlflowAppOutputArgs } from "./getMlflowApp";
+export const getMlflowApp: typeof import("./getMlflowApp").getMlflowApp = null as any;
+export const getMlflowAppOutput: typeof import("./getMlflowApp").getMlflowAppOutput = null as any;
+utilities.lazyLoad(exports, ["getMlflowApp","getMlflowAppOutput"], () => require("./getMlflowApp"));
+
 export { GetMlflowTrackingServerArgs, GetMlflowTrackingServerResult, GetMlflowTrackingServerOutputArgs } from "./getMlflowTrackingServer";
 export const getMlflowTrackingServer: typeof import("./getMlflowTrackingServer").getMlflowTrackingServer = null as any;
 export const getMlflowTrackingServerOutput: typeof import("./getMlflowTrackingServer").getMlflowTrackingServerOutput = null as any;
@@ -209,6 +214,11 @@ export { InferenceExperimentArgs } from "./inferenceExperiment";
 export type InferenceExperiment = import("./inferenceExperiment").InferenceExperiment;
 export const InferenceExperiment: typeof import("./inferenceExperiment").InferenceExperiment = null as any;
 utilities.lazyLoad(exports, ["InferenceExperiment"], () => require("./inferenceExperiment"));
+
+export { MlflowAppArgs } from "./mlflowApp";
+export type MlflowApp = import("./mlflowApp").MlflowApp;
+export const MlflowApp: typeof import("./mlflowApp").MlflowApp = null as any;
+utilities.lazyLoad(exports, ["MlflowApp"], () => require("./mlflowApp"));
 
 export { MlflowTrackingServerArgs } from "./mlflowTrackingServer";
 export type MlflowTrackingServer = import("./mlflowTrackingServer").MlflowTrackingServer;
@@ -324,6 +334,8 @@ const _module = {
                 return new InferenceComponent(name, <any>undefined, { urn })
             case "aws-native:sagemaker:InferenceExperiment":
                 return new InferenceExperiment(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:MlflowApp":
+                return new MlflowApp(name, <any>undefined, { urn })
             case "aws-native:sagemaker:MlflowTrackingServer":
                 return new MlflowTrackingServer(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Model":

@@ -74,6 +74,10 @@ export interface GetDbClusterResult {
      */
     readonly iamAuthEnabled?: boolean;
     /**
+     * The network type of the DB cluster.
+     */
+    readonly networkType?: enums.neptune.DbClusterNetworkType;
+    /**
      * The port number on which the DB cluster accepts connections. For example: `8182`.
      */
     readonly port?: string;

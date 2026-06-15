@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancing.Outputs
 {
 
+    /// <summary>
+    /// Information about a policy for application-controlled session stickiness.
+    /// </summary>
     [OutputType]
     public sealed class LoadBalancerAppCookieStickinessPolicy
     {

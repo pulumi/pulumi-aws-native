@@ -158,6 +158,7 @@
   "createOnlyProperties" : [ "/properties/AttachPoint", "/properties/EnvironmentId", "/properties/ActivationKey", "/properties/RemoteAccount" ],
   "readOnlyProperties" : [ "/properties/ConnectionId", "/properties/Arn", "/properties/Provider", "/properties/Type", "/properties/State", "/properties/SharedId", "/properties/OwnerAccount", "/properties/BillingTier" ],
   "writeOnlyProperties" : [ "/properties/RemoteOwnerAccount", "/properties/RemoteAccount" ],
+  "deprecatedProperties" : [ "/properties/RemoteOwnerAccount" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "additionalIdentifiers" : [ [ "/properties/ConnectionId" ] ],
   "tagging" : {

@@ -37,7 +37,7 @@ export class TelemetryEnrichment extends pulumi.CustomResource {
         return obj['__pulumiType'] === TelemetryEnrichment.__pulumiType;
     }
 
-    declare public readonly scope: pulumi.Output<enums.observabilityadmin.TelemetryEnrichmentScope | undefined>;
+    declare public readonly scope: pulumi.Output<enums.observabilityadmin.TelemetryEnrichmentScope>;
     declare public /*out*/ readonly status: pulumi.Output<enums.observabilityadmin.TelemetryEnrichmentStatus>;
 
     /**
@@ -47,10 +47,13 @@ export class TelemetryEnrichment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TelemetryEnrichmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TelemetryEnrichmentArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.scope === undefined && !opts.urn) {
+                throw new Error("Missing required property 'scope'");
+            }
             resourceInputs["scope"] = args?.scope;
             resourceInputs["status"] = undefined /*out*/;
         } else {
@@ -68,5 +71,5 @@ export class TelemetryEnrichment extends pulumi.CustomResource {
  * The set of arguments for constructing a TelemetryEnrichment resource.
  */
 export interface TelemetryEnrichmentArgs {
-    scope?: pulumi.Input<enums.observabilityadmin.TelemetryEnrichmentScope>;
+    scope: pulumi.Input<enums.observabilityadmin.TelemetryEnrichmentScope>;
 }

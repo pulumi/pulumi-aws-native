@@ -37,6 +37,12 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
+        /// </summary>
+        [Output("generation")]
+        public Output<Pulumi.AwsNative.OpenSearchServerless.CollectionGroupGeneration?> Generation { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the collection group.
         /// </summary>
         [Output("name")]
@@ -79,6 +85,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "generation",
                     "name",
                     "standbyReplicas",
                 },
@@ -112,6 +119,12 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
+        /// </summary>
+        [Input("generation")]
+        public Input<Pulumi.AwsNative.OpenSearchServerless.CollectionGroupGeneration>? Generation { get; set; }
 
         /// <summary>
         /// The name of the collection group.

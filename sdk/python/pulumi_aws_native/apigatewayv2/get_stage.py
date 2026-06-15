@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetStageResult:
-    def __init__(__self__, access_log_settings=None, auto_deploy=None, client_certificate_id=None, default_route_settings=None, deployment_id=None, description=None, id=None, route_settings=None, stage_variables=None, tags=None):
+    def __init__(__self__, access_log_settings=None, auto_deploy=None, client_certificate_id=None, default_route_settings=None, deployment_id=None, description=None, route_settings=None, stage_variables=None, tags=None):
         if access_log_settings and not isinstance(access_log_settings, dict):
             raise TypeError("Expected argument 'access_log_settings' to be a dict")
         pulumi.set(__self__, "access_log_settings", access_log_settings)
@@ -43,9 +43,6 @@ class GetStageResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if route_settings and not isinstance(route_settings, dict):
             raise TypeError("Expected argument 'route_settings' to be a dict")
         pulumi.set(__self__, "route_settings", route_settings)
@@ -68,7 +65,7 @@ class GetStageResult:
     @pulumi.getter(name="autoDeploy")
     def auto_deploy(self) -> Optional[_builtins.bool]:
         """
-        Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
+        Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
         """
         return pulumi.get(self, "auto_deploy")
 
@@ -76,7 +73,7 @@ class GetStageResult:
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> Optional[_builtins.str]:
         """
-        The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
+        The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "client_certificate_id")
 
@@ -92,7 +89,7 @@ class GetStageResult:
     @pulumi.getter(name="deploymentId")
     def deployment_id(self) -> Optional[_builtins.str]:
         """
-        The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
+        The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
         """
         return pulumi.get(self, "deployment_id")
 
@@ -103,14 +100,6 @@ class GetStageResult:
         The description for the API stage.
         """
         return pulumi.get(self, "description")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
-        """
-        The identifier.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="routeSettings")
@@ -126,7 +115,7 @@ class GetStageResult:
     @pulumi.getter(name="stageVariables")
     def stage_variables(self) -> Optional[Any]:
         """
-        A map that defines the stage variables for a `Stage` . Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+        A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
         """
@@ -155,22 +144,24 @@ class AwaitableGetStageResult(GetStageResult):
             default_route_settings=self.default_route_settings,
             deployment_id=self.deployment_id,
             description=self.description,
-            id=self.id,
             route_settings=self.route_settings,
             stage_variables=self.stage_variables,
             tags=self.tags)
 
 
-def get_stage(id: Optional[_builtins.str] = None,
+def get_stage(api_id: Optional[_builtins.str] = None,
+              stage_name: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStageResult:
     """
     Resource Type definition for AWS::ApiGatewayV2::Stage
 
 
-    :param _builtins.str id: The identifier.
+    :param _builtins.str api_id: The API identifier.
+    :param _builtins.str stage_name: The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['apiId'] = api_id
+    __args__['stageName'] = stage_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getStage', __args__, opts=opts, typ=GetStageResult).value
 
@@ -181,20 +172,22 @@ def get_stage(id: Optional[_builtins.str] = None,
         default_route_settings=pulumi.get(__ret__, 'default_route_settings'),
         deployment_id=pulumi.get(__ret__, 'deployment_id'),
         description=pulumi.get(__ret__, 'description'),
-        id=pulumi.get(__ret__, 'id'),
         route_settings=pulumi.get(__ret__, 'route_settings'),
         stage_variables=pulumi.get(__ret__, 'stage_variables'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_stage_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_stage_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
+                     stage_name: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStageResult]:
     """
     Resource Type definition for AWS::ApiGatewayV2::Stage
 
 
-    :param _builtins.str id: The identifier.
+    :param _builtins.str api_id: The API identifier.
+    :param _builtins.str stage_name: The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['apiId'] = api_id
+    __args__['stageName'] = stage_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getStage', __args__, opts=opts, typ=GetStageResult)
     return __ret__.apply(lambda __response__: GetStageResult(
@@ -204,7 +197,6 @@ def get_stage_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         default_route_settings=pulumi.get(__response__, 'default_route_settings'),
         deployment_id=pulumi.get(__response__, 'deployment_id'),
         description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
         route_settings=pulumi.get(__response__, 'route_settings'),
         stage_variables=pulumi.get(__response__, 'stage_variables'),
         tags=pulumi.get(__response__, 'tags')))

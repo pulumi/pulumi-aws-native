@@ -24,6 +24,8 @@ type CollectionGroup struct {
 	CapacityLimits CollectionGroupCapacityLimitsPtrOutput `pulumi:"capacityLimits"`
 	// The description of the collection group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
+	Generation CollectionGroupGenerationPtrOutput `pulumi:"generation"`
 	// The name of the collection group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates whether standby replicas are used for the collection group.
@@ -43,6 +45,7 @@ func NewCollectionGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StandbyReplicas'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"generation",
 		"name",
 		"standbyReplicas",
 	})
@@ -83,6 +86,8 @@ type collectionGroupArgs struct {
 	CapacityLimits *CollectionGroupCapacityLimits `pulumi:"capacityLimits"`
 	// The description of the collection group.
 	Description *string `pulumi:"description"`
+	// The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
+	Generation *CollectionGroupGeneration `pulumi:"generation"`
 	// The name of the collection group.
 	Name *string `pulumi:"name"`
 	// Indicates whether standby replicas are used for the collection group.
@@ -96,6 +101,8 @@ type CollectionGroupArgs struct {
 	CapacityLimits CollectionGroupCapacityLimitsPtrInput
 	// The description of the collection group.
 	Description pulumi.StringPtrInput
+	// The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
+	Generation CollectionGroupGenerationPtrInput
 	// The name of the collection group.
 	Name pulumi.StringPtrInput
 	// Indicates whether standby replicas are used for the collection group.
@@ -158,6 +165,11 @@ func (o CollectionGroupOutput) CapacityLimits() CollectionGroupCapacityLimitsPtr
 // The description of the collection group.
 func (o CollectionGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectionGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
+func (o CollectionGroupOutput) Generation() CollectionGroupGenerationPtrOutput {
+	return o.ApplyT(func(v *CollectionGroup) CollectionGroupGenerationPtrOutput { return v.Generation }).(CollectionGroupGenerationPtrOutput)
 }
 
 // The name of the collection group.

@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     public sealed class GetOnlineEvaluationConfigResult
     {
         /// <summary>
+        /// The configuration for clustering analysis of evaluation results.
+        /// </summary>
+        public readonly Outputs.OnlineEvaluationConfigClusteringConfig? ClusteringConfig;
+        /// <summary>
         /// The timestamp when the online evaluation configuration was created.
         /// </summary>
         public readonly string? CreatedAt;
@@ -87,6 +91,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The execution status indicating whether the online evaluation is currently running.
         /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.OnlineEvaluationConfigExecutionStatus? ExecutionStatus;
+        /// <summary>
+        /// The list of insights to enable for failure analysis.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OnlineEvaluationConfigInsight> Insights;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the online evaluation configuration.
         /// </summary>
@@ -118,6 +126,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         [OutputConstructor]
         private GetOnlineEvaluationConfigResult(
+            Outputs.OnlineEvaluationConfigClusteringConfig? clusteringConfig,
+
             string? createdAt,
 
             Outputs.OnlineEvaluationConfigDataSourceConfig? dataSourceConfig,
@@ -129,6 +139,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             ImmutableArray<Outputs.OnlineEvaluationConfigEvaluatorReference> evaluators,
 
             Pulumi.AwsNative.BedrockAgentCore.OnlineEvaluationConfigExecutionStatus? executionStatus,
+
+            ImmutableArray<Outputs.OnlineEvaluationConfigInsight> insights,
 
             string? onlineEvaluationConfigArn,
 
@@ -144,12 +156,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? updatedAt)
         {
+            ClusteringConfig = clusteringConfig;
             CreatedAt = createdAt;
             DataSourceConfig = dataSourceConfig;
             Description = description;
             EvaluationExecutionRoleArn = evaluationExecutionRoleArn;
             Evaluators = evaluators;
             ExecutionStatus = executionStatus;
+            Insights = insights;
             OnlineEvaluationConfigArn = onlineEvaluationConfigArn;
             OnlineEvaluationConfigId = onlineEvaluationConfigId;
             OutputConfig = outputConfig;

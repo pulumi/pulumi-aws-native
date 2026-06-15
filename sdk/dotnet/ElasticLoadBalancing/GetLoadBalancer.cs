@@ -33,8 +33,11 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
 
     public sealed class GetLoadBalancerArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the load balancer. This name must be unique within your set of load balancers for the region.
+        /// </summary>
+        [Input("loadBalancerName", required: true)]
+        public string LoadBalancerName { get; set; } = null!;
 
         public GetLoadBalancerArgs()
         {
@@ -44,8 +47,11 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
 
     public sealed class GetLoadBalancerInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the load balancer. This name must be unique within your set of load balancers for the region.
+        /// </summary>
+        [Input("loadBalancerName", required: true)]
+        public Input<string> LoadBalancerName { get; set; } = null!;
 
         public GetLoadBalancerInvokeArgs()
         {
@@ -66,13 +72,11 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancerAppCookieStickinessPolicy> AppCookieStickinessPolicy;
         /// <summary>
-        /// The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify `Subnets` instead.
-        /// 
-        /// Update requires replacement if you did not previously specify an Availability Zone or if you are removing all Availability Zones. Otherwise, update requires no interruption.
+        /// The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify Subnets instead.
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
-        /// The name of the Route 53 hosted zone that is associated with the load balancer. Internal-facing load balancers don't use this value, use `DNSName` instead.
+        /// The name of the Route 53 hosted zone that is associated with the load balancer. Internal-facing load balancers.
         /// </summary>
         public readonly string? CanonicalHostedZoneName;
         /// <summary>
@@ -81,33 +85,24 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         public readonly string? CanonicalHostedZoneNameId;
         /// <summary>
         /// If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
-        /// 
-        /// For more information, see [Configure connection draining](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html) in the *User Guide for Classic Load Balancers* .
         /// </summary>
         public readonly Outputs.LoadBalancerConnectionDrainingPolicy? ConnectionDrainingPolicy;
         /// <summary>
         /// If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
-        /// 
-        /// By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see [Configure idle connection timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html) in the *User Guide for Classic Load Balancers* .
         /// </summary>
         public readonly Outputs.LoadBalancerConnectionSettings? ConnectionSettings;
         /// <summary>
         /// If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
-        /// 
-        /// For more information, see [Configure cross-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html) in the *User Guide for Classic Load Balancers* .
         /// </summary>
         public readonly bool? CrossZone;
         /// <summary>
-        /// The DNS name for the load balancer.
+        /// The DNS name for the load balancer
         /// </summary>
         public readonly string? DnsName;
         /// <summary>
         /// The health check settings to use when evaluating the health of your EC2 instances.
-        /// 
-        /// Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
         /// </summary>
         public readonly Outputs.LoadBalancerHealthCheck? HealthCheck;
-        public readonly string? Id;
         /// <summary>
         /// The IDs of the instances for the load balancer.
         /// </summary>
@@ -117,9 +112,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancerLbCookieStickinessPolicy> LbCookieStickinessPolicy;
         /// <summary>
-        /// The listeners for the load balancer. You can specify at most one listener per port.
-        /// 
-        /// If you update the properties for a listener, AWS CloudFormation deletes the existing listener and creates a new one with the specified properties. While the new listener is being created, clients cannot connect to the load balancer.
+        /// The Listeners for the load balancer. You can specify at most one listener per port.
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancerListeners> Listeners;
         /// <summary>
@@ -130,12 +123,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         /// The security groups for the load balancer. Valid only for load balancers in a VPC.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
-        public readonly string? SourceSecurityGroupGroupName;
-        public readonly string? SourceSecurityGroupOwnerAlias;
+        public readonly Outputs.LoadBalancerSourceSecurityGroup? SourceSecurityGroup;
         /// <summary>
         /// The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
-        /// 
-        /// Update requires replacement if you did not previously specify a subnet or if you are removing all subnets. Otherwise, update requires no interruption. To update to a different subnet in the current Availability Zone, you must first update to a subnet in a different Availability Zone, then update to the new subnet in the original Availability Zone.
         /// </summary>
         public readonly ImmutableArray<string> Subnets;
         /// <summary>
@@ -165,8 +155,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
 
             Outputs.LoadBalancerHealthCheck? healthCheck,
 
-            string? id,
-
             ImmutableArray<string> instances,
 
             ImmutableArray<Outputs.LoadBalancerLbCookieStickinessPolicy> lbCookieStickinessPolicy,
@@ -177,9 +165,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
 
             ImmutableArray<string> securityGroups,
 
-            string? sourceSecurityGroupGroupName,
-
-            string? sourceSecurityGroupOwnerAlias,
+            Outputs.LoadBalancerSourceSecurityGroup? sourceSecurityGroup,
 
             ImmutableArray<string> subnets,
 
@@ -195,14 +181,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
             CrossZone = crossZone;
             DnsName = dnsName;
             HealthCheck = healthCheck;
-            Id = id;
             Instances = instances;
             LbCookieStickinessPolicy = lbCookieStickinessPolicy;
             Listeners = listeners;
             Policies = policies;
             SecurityGroups = securityGroups;
-            SourceSecurityGroupGroupName = sourceSecurityGroupGroupName;
-            SourceSecurityGroupOwnerAlias = sourceSecurityGroupOwnerAlias;
+            SourceSecurityGroup = sourceSecurityGroup;
             Subnets = subnets;
             Tags = tags;
         }

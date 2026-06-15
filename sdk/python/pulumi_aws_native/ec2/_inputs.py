@@ -100,6 +100,8 @@ __all__ = [
     'Ec2FleetVCpuCountRangeRequestArgsDict',
     'EnclaveOptionsPropertiesArgs',
     'EnclaveOptionsPropertiesArgsDict',
+    'FlowLogTagFieldSpecificationArgs',
+    'FlowLogTagFieldSpecificationArgsDict',
     'HibernationOptionsPropertiesArgs',
     'HibernationOptionsPropertiesArgsDict',
     'InstanceAssociationParameterArgs',
@@ -4693,6 +4695,37 @@ class EnclaveOptionsPropertiesArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+
+class FlowLogTagFieldSpecificationArgsDict(TypedDict):
+    resource_type: pulumi.Input[_builtins.str]
+    tag_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+
+@pulumi.input_type
+class FlowLogTagFieldSpecificationArgs:
+    def __init__(__self__, *,
+                 resource_type: pulumi.Input[_builtins.str],
+                 tag_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "tag_keys", tag_keys)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagKeys")
+    def tag_keys(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "tag_keys")
+
+    @tag_keys.setter
+    def tag_keys(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "tag_keys", value)
 
 
 class HibernationOptionsPropertiesArgsDict(TypedDict):

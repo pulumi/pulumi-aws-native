@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
     public partial class TelemetryEnrichment : global::Pulumi.CustomResource
     {
         [Output("scope")]
-        public Output<Pulumi.AwsNative.ObservabilityAdmin.TelemetryEnrichmentScope?> Scope { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ObservabilityAdmin.TelemetryEnrichmentScope> Scope { get; private set; } = null!;
 
         [Output("status")]
         public Output<Pulumi.AwsNative.ObservabilityAdmin.TelemetryEnrichmentStatus> Status { get; private set; } = null!;
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public TelemetryEnrichment(string name, TelemetryEnrichmentArgs? args = null, CustomResourceOptions? options = null)
+        public TelemetryEnrichment(string name, TelemetryEnrichmentArgs args, CustomResourceOptions? options = null)
             : base("aws-native:observabilityadmin:TelemetryEnrichment", name, args ?? new TelemetryEnrichmentArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -70,8 +70,8 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
 
     public sealed class TelemetryEnrichmentArgs : global::Pulumi.ResourceArgs
     {
-        [Input("scope")]
-        public Input<Pulumi.AwsNative.ObservabilityAdmin.TelemetryEnrichmentScope>? Scope { get; set; }
+        [Input("scope", required: true)]
+        public Input<Pulumi.AwsNative.ObservabilityAdmin.TelemetryEnrichmentScope> Scope { get; set; } = null!;
 
         public TelemetryEnrichmentArgs()
         {

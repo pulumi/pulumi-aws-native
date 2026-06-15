@@ -38,6 +38,10 @@ export class OnlineEvaluationConfig extends pulumi.CustomResource {
     }
 
     /**
+     * The configuration for clustering analysis of evaluation results.
+     */
+    declare public readonly clusteringConfig: pulumi.Output<outputs.bedrockagentcore.OnlineEvaluationConfigClusteringConfig | undefined>;
+    /**
      * The timestamp when the online evaluation configuration was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
@@ -56,11 +60,15 @@ export class OnlineEvaluationConfig extends pulumi.CustomResource {
     /**
      * The list of evaluators to apply during online evaluation.
      */
-    declare public readonly evaluators: pulumi.Output<outputs.bedrockagentcore.OnlineEvaluationConfigEvaluatorReference[]>;
+    declare public readonly evaluators: pulumi.Output<outputs.bedrockagentcore.OnlineEvaluationConfigEvaluatorReference[] | undefined>;
     /**
      * The execution status indicating whether the online evaluation is currently running.
      */
     declare public readonly executionStatus: pulumi.Output<enums.bedrockagentcore.OnlineEvaluationConfigExecutionStatus | undefined>;
+    /**
+     * The list of insights to enable for failure analysis.
+     */
+    declare public readonly insights: pulumi.Output<outputs.bedrockagentcore.OnlineEvaluationConfigInsight[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the online evaluation configuration.
      */
@@ -111,17 +119,16 @@ export class OnlineEvaluationConfig extends pulumi.CustomResource {
             if (args?.evaluationExecutionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'evaluationExecutionRoleArn'");
             }
-            if (args?.evaluators === undefined && !opts.urn) {
-                throw new Error("Missing required property 'evaluators'");
-            }
             if (args?.rule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rule'");
             }
+            resourceInputs["clusteringConfig"] = args?.clusteringConfig;
             resourceInputs["dataSourceConfig"] = args?.dataSourceConfig;
             resourceInputs["description"] = args?.description;
             resourceInputs["evaluationExecutionRoleArn"] = args?.evaluationExecutionRoleArn;
             resourceInputs["evaluators"] = args?.evaluators;
             resourceInputs["executionStatus"] = args?.executionStatus;
+            resourceInputs["insights"] = args?.insights;
             resourceInputs["onlineEvaluationConfigName"] = args?.onlineEvaluationConfigName;
             resourceInputs["rule"] = args?.rule;
             resourceInputs["tags"] = args?.tags;
@@ -132,12 +139,14 @@ export class OnlineEvaluationConfig extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
+            resourceInputs["clusteringConfig"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["dataSourceConfig"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["evaluationExecutionRoleArn"] = undefined /*out*/;
             resourceInputs["evaluators"] = undefined /*out*/;
             resourceInputs["executionStatus"] = undefined /*out*/;
+            resourceInputs["insights"] = undefined /*out*/;
             resourceInputs["onlineEvaluationConfigArn"] = undefined /*out*/;
             resourceInputs["onlineEvaluationConfigId"] = undefined /*out*/;
             resourceInputs["onlineEvaluationConfigName"] = undefined /*out*/;
@@ -159,6 +168,10 @@ export class OnlineEvaluationConfig extends pulumi.CustomResource {
  */
 export interface OnlineEvaluationConfigArgs {
     /**
+     * The configuration for clustering analysis of evaluation results.
+     */
+    clusteringConfig?: pulumi.Input<inputs.bedrockagentcore.OnlineEvaluationConfigClusteringConfigArgs>;
+    /**
      * The data source configuration that specifies CloudWatch log groups and service names to monitor.
      */
     dataSourceConfig: pulumi.Input<inputs.bedrockagentcore.OnlineEvaluationConfigDataSourceConfigArgs>;
@@ -173,11 +186,15 @@ export interface OnlineEvaluationConfigArgs {
     /**
      * The list of evaluators to apply during online evaluation.
      */
-    evaluators: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.OnlineEvaluationConfigEvaluatorReferenceArgs>[]>;
+    evaluators?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.OnlineEvaluationConfigEvaluatorReferenceArgs>[]>;
     /**
      * The execution status indicating whether the online evaluation is currently running.
      */
     executionStatus?: pulumi.Input<enums.bedrockagentcore.OnlineEvaluationConfigExecutionStatus>;
+    /**
+     * The list of insights to enable for failure analysis.
+     */
+    insights?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.OnlineEvaluationConfigInsightArgs>[]>;
     /**
      * The name of the online evaluation configuration. Must be unique within your account.
      */

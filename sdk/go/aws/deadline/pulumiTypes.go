@@ -1990,6 +1990,199 @@ func (o FleetMemoryMiBRangePtrOutput) Min() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type FleetPersistentVolumeConfiguration struct {
+	Iops             *int   `pulumi:"iops"`
+	LastUsedTtlHours *int   `pulumi:"lastUsedTtlHours"`
+	MountPath        string `pulumi:"mountPath"`
+	SizeGiB          *int   `pulumi:"sizeGiB"`
+	ThroughputMiB    *int   `pulumi:"throughputMiB"`
+}
+
+// FleetPersistentVolumeConfigurationInput is an input type that accepts FleetPersistentVolumeConfigurationArgs and FleetPersistentVolumeConfigurationOutput values.
+// You can construct a concrete instance of `FleetPersistentVolumeConfigurationInput` via:
+//
+//	FleetPersistentVolumeConfigurationArgs{...}
+type FleetPersistentVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToFleetPersistentVolumeConfigurationOutput() FleetPersistentVolumeConfigurationOutput
+	ToFleetPersistentVolumeConfigurationOutputWithContext(context.Context) FleetPersistentVolumeConfigurationOutput
+}
+
+type FleetPersistentVolumeConfigurationArgs struct {
+	Iops             pulumi.IntPtrInput `pulumi:"iops"`
+	LastUsedTtlHours pulumi.IntPtrInput `pulumi:"lastUsedTtlHours"`
+	MountPath        pulumi.StringInput `pulumi:"mountPath"`
+	SizeGiB          pulumi.IntPtrInput `pulumi:"sizeGiB"`
+	ThroughputMiB    pulumi.IntPtrInput `pulumi:"throughputMiB"`
+}
+
+func (FleetPersistentVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetPersistentVolumeConfiguration)(nil)).Elem()
+}
+
+func (i FleetPersistentVolumeConfigurationArgs) ToFleetPersistentVolumeConfigurationOutput() FleetPersistentVolumeConfigurationOutput {
+	return i.ToFleetPersistentVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i FleetPersistentVolumeConfigurationArgs) ToFleetPersistentVolumeConfigurationOutputWithContext(ctx context.Context) FleetPersistentVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetPersistentVolumeConfigurationOutput)
+}
+
+func (i FleetPersistentVolumeConfigurationArgs) ToFleetPersistentVolumeConfigurationPtrOutput() FleetPersistentVolumeConfigurationPtrOutput {
+	return i.ToFleetPersistentVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FleetPersistentVolumeConfigurationArgs) ToFleetPersistentVolumeConfigurationPtrOutputWithContext(ctx context.Context) FleetPersistentVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetPersistentVolumeConfigurationOutput).ToFleetPersistentVolumeConfigurationPtrOutputWithContext(ctx)
+}
+
+// FleetPersistentVolumeConfigurationPtrInput is an input type that accepts FleetPersistentVolumeConfigurationArgs, FleetPersistentVolumeConfigurationPtr and FleetPersistentVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `FleetPersistentVolumeConfigurationPtrInput` via:
+//
+//	        FleetPersistentVolumeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetPersistentVolumeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFleetPersistentVolumeConfigurationPtrOutput() FleetPersistentVolumeConfigurationPtrOutput
+	ToFleetPersistentVolumeConfigurationPtrOutputWithContext(context.Context) FleetPersistentVolumeConfigurationPtrOutput
+}
+
+type fleetPersistentVolumeConfigurationPtrType FleetPersistentVolumeConfigurationArgs
+
+func FleetPersistentVolumeConfigurationPtr(v *FleetPersistentVolumeConfigurationArgs) FleetPersistentVolumeConfigurationPtrInput {
+	return (*fleetPersistentVolumeConfigurationPtrType)(v)
+}
+
+func (*fleetPersistentVolumeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetPersistentVolumeConfiguration)(nil)).Elem()
+}
+
+func (i *fleetPersistentVolumeConfigurationPtrType) ToFleetPersistentVolumeConfigurationPtrOutput() FleetPersistentVolumeConfigurationPtrOutput {
+	return i.ToFleetPersistentVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetPersistentVolumeConfigurationPtrType) ToFleetPersistentVolumeConfigurationPtrOutputWithContext(ctx context.Context) FleetPersistentVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetPersistentVolumeConfigurationPtrOutput)
+}
+
+type FleetPersistentVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FleetPersistentVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetPersistentVolumeConfiguration)(nil)).Elem()
+}
+
+func (o FleetPersistentVolumeConfigurationOutput) ToFleetPersistentVolumeConfigurationOutput() FleetPersistentVolumeConfigurationOutput {
+	return o
+}
+
+func (o FleetPersistentVolumeConfigurationOutput) ToFleetPersistentVolumeConfigurationOutputWithContext(ctx context.Context) FleetPersistentVolumeConfigurationOutput {
+	return o
+}
+
+func (o FleetPersistentVolumeConfigurationOutput) ToFleetPersistentVolumeConfigurationPtrOutput() FleetPersistentVolumeConfigurationPtrOutput {
+	return o.ToFleetPersistentVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FleetPersistentVolumeConfigurationOutput) ToFleetPersistentVolumeConfigurationPtrOutputWithContext(ctx context.Context) FleetPersistentVolumeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetPersistentVolumeConfiguration) *FleetPersistentVolumeConfiguration {
+		return &v
+	}).(FleetPersistentVolumeConfigurationPtrOutput)
+}
+
+func (o FleetPersistentVolumeConfigurationOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetPersistentVolumeConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+func (o FleetPersistentVolumeConfigurationOutput) LastUsedTtlHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetPersistentVolumeConfiguration) *int { return v.LastUsedTtlHours }).(pulumi.IntPtrOutput)
+}
+
+func (o FleetPersistentVolumeConfigurationOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetPersistentVolumeConfiguration) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+func (o FleetPersistentVolumeConfigurationOutput) SizeGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetPersistentVolumeConfiguration) *int { return v.SizeGiB }).(pulumi.IntPtrOutput)
+}
+
+func (o FleetPersistentVolumeConfigurationOutput) ThroughputMiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetPersistentVolumeConfiguration) *int { return v.ThroughputMiB }).(pulumi.IntPtrOutput)
+}
+
+type FleetPersistentVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetPersistentVolumeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetPersistentVolumeConfiguration)(nil)).Elem()
+}
+
+func (o FleetPersistentVolumeConfigurationPtrOutput) ToFleetPersistentVolumeConfigurationPtrOutput() FleetPersistentVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetPersistentVolumeConfigurationPtrOutput) ToFleetPersistentVolumeConfigurationPtrOutputWithContext(ctx context.Context) FleetPersistentVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetPersistentVolumeConfigurationPtrOutput) Elem() FleetPersistentVolumeConfigurationOutput {
+	return o.ApplyT(func(v *FleetPersistentVolumeConfiguration) FleetPersistentVolumeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FleetPersistentVolumeConfiguration
+		return ret
+	}).(FleetPersistentVolumeConfigurationOutput)
+}
+
+func (o FleetPersistentVolumeConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetPersistentVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FleetPersistentVolumeConfigurationPtrOutput) LastUsedTtlHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetPersistentVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LastUsedTtlHours
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FleetPersistentVolumeConfigurationPtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetPersistentVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MountPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FleetPersistentVolumeConfigurationPtrOutput) SizeGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetPersistentVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SizeGiB
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FleetPersistentVolumeConfigurationPtrOutput) ThroughputMiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetPersistentVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThroughputMiB
+	}).(pulumi.IntPtrOutput)
+}
+
 type FleetServiceManagedEc2AutoScalingConfiguration struct {
 	ScaleOutWorkersPerMinute  *int `pulumi:"scaleOutWorkersPerMinute"`
 	StandbyWorkerCount        *int `pulumi:"standbyWorkerCount"`
@@ -2154,11 +2347,12 @@ func (o FleetServiceManagedEc2AutoScalingConfigurationPtrOutput) WorkerIdleDurat
 }
 
 type FleetServiceManagedEc2FleetConfiguration struct {
-	AutoScalingConfiguration *FleetServiceManagedEc2AutoScalingConfiguration `pulumi:"autoScalingConfiguration"`
-	InstanceCapabilities     FleetServiceManagedEc2InstanceCapabilities      `pulumi:"instanceCapabilities"`
-	InstanceMarketOptions    FleetServiceManagedEc2InstanceMarketOptions     `pulumi:"instanceMarketOptions"`
-	StorageProfileId         *string                                         `pulumi:"storageProfileId"`
-	VpcConfiguration         *FleetVpcConfiguration                          `pulumi:"vpcConfiguration"`
+	AutoScalingConfiguration      *FleetServiceManagedEc2AutoScalingConfiguration `pulumi:"autoScalingConfiguration"`
+	InstanceCapabilities          FleetServiceManagedEc2InstanceCapabilities      `pulumi:"instanceCapabilities"`
+	InstanceMarketOptions         FleetServiceManagedEc2InstanceMarketOptions     `pulumi:"instanceMarketOptions"`
+	PersistentVolumeConfiguration *FleetPersistentVolumeConfiguration             `pulumi:"persistentVolumeConfiguration"`
+	StorageProfileId              *string                                         `pulumi:"storageProfileId"`
+	VpcConfiguration              *FleetVpcConfiguration                          `pulumi:"vpcConfiguration"`
 }
 
 // FleetServiceManagedEc2FleetConfigurationInput is an input type that accepts FleetServiceManagedEc2FleetConfigurationArgs and FleetServiceManagedEc2FleetConfigurationOutput values.
@@ -2173,11 +2367,12 @@ type FleetServiceManagedEc2FleetConfigurationInput interface {
 }
 
 type FleetServiceManagedEc2FleetConfigurationArgs struct {
-	AutoScalingConfiguration FleetServiceManagedEc2AutoScalingConfigurationPtrInput `pulumi:"autoScalingConfiguration"`
-	InstanceCapabilities     FleetServiceManagedEc2InstanceCapabilitiesInput        `pulumi:"instanceCapabilities"`
-	InstanceMarketOptions    FleetServiceManagedEc2InstanceMarketOptionsInput       `pulumi:"instanceMarketOptions"`
-	StorageProfileId         pulumi.StringPtrInput                                  `pulumi:"storageProfileId"`
-	VpcConfiguration         FleetVpcConfigurationPtrInput                          `pulumi:"vpcConfiguration"`
+	AutoScalingConfiguration      FleetServiceManagedEc2AutoScalingConfigurationPtrInput `pulumi:"autoScalingConfiguration"`
+	InstanceCapabilities          FleetServiceManagedEc2InstanceCapabilitiesInput        `pulumi:"instanceCapabilities"`
+	InstanceMarketOptions         FleetServiceManagedEc2InstanceMarketOptionsInput       `pulumi:"instanceMarketOptions"`
+	PersistentVolumeConfiguration FleetPersistentVolumeConfigurationPtrInput             `pulumi:"persistentVolumeConfiguration"`
+	StorageProfileId              pulumi.StringPtrInput                                  `pulumi:"storageProfileId"`
+	VpcConfiguration              FleetVpcConfigurationPtrInput                          `pulumi:"vpcConfiguration"`
 }
 
 func (FleetServiceManagedEc2FleetConfigurationArgs) ElementType() reflect.Type {
@@ -2222,6 +2417,12 @@ func (o FleetServiceManagedEc2FleetConfigurationOutput) InstanceMarketOptions() 
 	return o.ApplyT(func(v FleetServiceManagedEc2FleetConfiguration) FleetServiceManagedEc2InstanceMarketOptions {
 		return v.InstanceMarketOptions
 	}).(FleetServiceManagedEc2InstanceMarketOptionsOutput)
+}
+
+func (o FleetServiceManagedEc2FleetConfigurationOutput) PersistentVolumeConfiguration() FleetPersistentVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v FleetServiceManagedEc2FleetConfiguration) *FleetPersistentVolumeConfiguration {
+		return v.PersistentVolumeConfiguration
+	}).(FleetPersistentVolumeConfigurationPtrOutput)
 }
 
 func (o FleetServiceManagedEc2FleetConfigurationOutput) StorageProfileId() pulumi.StringPtrOutput {
@@ -2281,6 +2482,15 @@ func (o FleetServiceManagedEc2FleetConfigurationPtrOutput) InstanceMarketOptions
 		}
 		return &v.InstanceMarketOptions
 	}).(FleetServiceManagedEc2InstanceMarketOptionsPtrOutput)
+}
+
+func (o FleetServiceManagedEc2FleetConfigurationPtrOutput) PersistentVolumeConfiguration() FleetPersistentVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FleetServiceManagedEc2FleetConfiguration) *FleetPersistentVolumeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PersistentVolumeConfiguration
+	}).(FleetPersistentVolumeConfigurationPtrOutput)
 }
 
 func (o FleetServiceManagedEc2FleetConfigurationPtrOutput) StorageProfileId() pulumi.StringPtrOutput {
@@ -3770,6 +3980,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetHostConfigurationInput)(nil)).Elem(), FleetHostConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetHostConfigurationPtrInput)(nil)).Elem(), FleetHostConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetMemoryMiBRangeInput)(nil)).Elem(), FleetMemoryMiBRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetPersistentVolumeConfigurationInput)(nil)).Elem(), FleetPersistentVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetPersistentVolumeConfigurationPtrInput)(nil)).Elem(), FleetPersistentVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedEc2AutoScalingConfigurationInput)(nil)).Elem(), FleetServiceManagedEc2AutoScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedEc2AutoScalingConfigurationPtrInput)(nil)).Elem(), FleetServiceManagedEc2AutoScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedEc2FleetConfigurationInput)(nil)).Elem(), FleetServiceManagedEc2FleetConfigurationArgs{})
@@ -3820,6 +4032,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetHostConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetMemoryMiBRangeOutput{})
 	pulumi.RegisterOutputType(FleetMemoryMiBRangePtrOutput{})
+	pulumi.RegisterOutputType(FleetPersistentVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(FleetPersistentVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetServiceManagedEc2AutoScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(FleetServiceManagedEc2AutoScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetServiceManagedEc2FleetConfigurationOutput{})

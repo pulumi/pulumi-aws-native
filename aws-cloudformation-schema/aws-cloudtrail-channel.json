@@ -109,7 +109,7 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : true,
+    "cloudFormationSystemTags" : false,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "CloudTrail:AddTags", "CloudTrail:RemoveTags", "CloudTrail:ListTags" ]
   },

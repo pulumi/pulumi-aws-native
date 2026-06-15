@@ -37,6 +37,7 @@ __all__ = [
     'FlowOutputEncryptionKeyType',
     'FlowOutputFlowTransitEncryptionKeyType',
     'FlowOutputMediaStreamOutputConfigurationEncodingName',
+    'FlowOutputNdiOutputTimecodeSource',
     'FlowOutputOutputStatus',
     'FlowOutputProtocol',
     'FlowOutputRouterIntegrationState',
@@ -370,6 +371,15 @@ class FlowOutputMediaStreamOutputConfigurationEncodingName(_builtins.str, Enum):
     RAW = "raw"
     SMPTE291 = "smpte291"
     PCM = "pcm"
+
+
+@pulumi.type_token("aws-native:mediaconnect:FlowOutputNdiOutputTimecodeSource")
+class FlowOutputNdiOutputTimecodeSource(_builtins.str, Enum):
+    """
+    The timecode source for the NDI output.
+    """
+    EMBEDDED_TIMECODE = "EMBEDDED_TIMECODE"
+    UTC_SYSTEM_TIME = "UTC_SYSTEM_TIME"
 
 
 @pulumi.type_token("aws-native:mediaconnect:FlowOutputOutputStatus")

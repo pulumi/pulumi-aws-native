@@ -515,8 +515,6 @@ class LogAlarmScheduledQueryConfiguration(dict):
             suggest = "aggregation_expression"
         elif key == "logGroupIdentifiers":
             suggest = "log_group_identifiers"
-        elif key == "queryLanguage":
-            suggest = "query_language"
         elif key == "queryString":
             suggest = "query_string"
         elif key == "scheduleConfiguration":
@@ -538,7 +536,6 @@ class LogAlarmScheduledQueryConfiguration(dict):
     def __init__(__self__, *,
                  aggregation_expression: _builtins.str,
                  log_group_identifiers: Sequence[_builtins.str],
-                 query_language: _builtins.str,
                  query_string: _builtins.str,
                  schedule_configuration: 'outputs.LogAlarmScheduleConfiguration',
                  scheduled_query_role_arn: _builtins.str):
@@ -547,14 +544,12 @@ class LogAlarmScheduledQueryConfiguration(dict):
 
         :param _builtins.str aggregation_expression: The aggregation expression for the scheduled query, e.g. count(*) or avg(latency) by host.
         :param Sequence[_builtins.str] log_group_identifiers: The log groups to query.
-        :param _builtins.str query_language: The query language to use for the scheduled query (CWLI or SQL).
         :param _builtins.str query_string: The query string to execute against the specified log groups.
         :param 'LogAlarmScheduleConfiguration' schedule_configuration: The schedule configuration.
         :param _builtins.str scheduled_query_role_arn: The ARN of the IAM role that grants permissions to execute the scheduled query.
         """
         pulumi.set(__self__, "aggregation_expression", aggregation_expression)
         pulumi.set(__self__, "log_group_identifiers", log_group_identifiers)
-        pulumi.set(__self__, "query_language", query_language)
         pulumi.set(__self__, "query_string", query_string)
         pulumi.set(__self__, "schedule_configuration", schedule_configuration)
         pulumi.set(__self__, "scheduled_query_role_arn", scheduled_query_role_arn)
@@ -574,14 +569,6 @@ class LogAlarmScheduledQueryConfiguration(dict):
         The log groups to query.
         """
         return pulumi.get(self, "log_group_identifiers")
-
-    @_builtins.property
-    @pulumi.getter(name="queryLanguage")
-    def query_language(self) -> _builtins.str:
-        """
-        The query language to use for the scheduled query (CWLI or SQL).
-        """
-        return pulumi.get(self, "query_language")
 
     @_builtins.property
     @pulumi.getter(name="queryString")

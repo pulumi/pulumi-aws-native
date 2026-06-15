@@ -26,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetOnlineEvaluationConfigResult:
-    def __init__(__self__, created_at=None, data_source_config=None, description=None, evaluation_execution_role_arn=None, evaluators=None, execution_status=None, online_evaluation_config_arn=None, online_evaluation_config_id=None, output_config=None, rule=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, clustering_config=None, created_at=None, data_source_config=None, description=None, evaluation_execution_role_arn=None, evaluators=None, execution_status=None, insights=None, online_evaluation_config_arn=None, online_evaluation_config_id=None, output_config=None, rule=None, status=None, tags=None, updated_at=None):
+        if clustering_config and not isinstance(clustering_config, dict):
+            raise TypeError("Expected argument 'clustering_config' to be a dict")
+        pulumi.set(__self__, "clustering_config", clustering_config)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -45,6 +48,9 @@ class GetOnlineEvaluationConfigResult:
         if execution_status and not isinstance(execution_status, str):
             raise TypeError("Expected argument 'execution_status' to be a str")
         pulumi.set(__self__, "execution_status", execution_status)
+        if insights and not isinstance(insights, list):
+            raise TypeError("Expected argument 'insights' to be a list")
+        pulumi.set(__self__, "insights", insights)
         if online_evaluation_config_arn and not isinstance(online_evaluation_config_arn, str):
             raise TypeError("Expected argument 'online_evaluation_config_arn' to be a str")
         pulumi.set(__self__, "online_evaluation_config_arn", online_evaluation_config_arn)
@@ -66,6 +72,14 @@ class GetOnlineEvaluationConfigResult:
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
+
+    @_builtins.property
+    @pulumi.getter(name="clusteringConfig")
+    def clustering_config(self) -> Optional['outputs.OnlineEvaluationConfigClusteringConfig']:
+        """
+        The configuration for clustering analysis of evaluation results.
+        """
+        return pulumi.get(self, "clustering_config")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -114,6 +128,14 @@ class GetOnlineEvaluationConfigResult:
         The execution status indicating whether the online evaluation is currently running.
         """
         return pulumi.get(self, "execution_status")
+
+    @_builtins.property
+    @pulumi.getter
+    def insights(self) -> Optional[Sequence['outputs.OnlineEvaluationConfigInsight']]:
+        """
+        The list of insights to enable for failure analysis.
+        """
+        return pulumi.get(self, "insights")
 
     @_builtins.property
     @pulumi.getter(name="onlineEvaluationConfigArn")
@@ -178,12 +200,14 @@ class AwaitableGetOnlineEvaluationConfigResult(GetOnlineEvaluationConfigResult):
         if False:
             yield self
         return GetOnlineEvaluationConfigResult(
+            clustering_config=self.clustering_config,
             created_at=self.created_at,
             data_source_config=self.data_source_config,
             description=self.description,
             evaluation_execution_role_arn=self.evaluation_execution_role_arn,
             evaluators=self.evaluators,
             execution_status=self.execution_status,
+            insights=self.insights,
             online_evaluation_config_arn=self.online_evaluation_config_arn,
             online_evaluation_config_id=self.online_evaluation_config_id,
             output_config=self.output_config,
@@ -207,12 +231,14 @@ def get_online_evaluation_config(online_evaluation_config_arn: Optional[_builtin
     __ret__ = pulumi.runtime.invoke('aws-native:bedrockagentcore:getOnlineEvaluationConfig', __args__, opts=opts, typ=GetOnlineEvaluationConfigResult).value
 
     return AwaitableGetOnlineEvaluationConfigResult(
+        clustering_config=pulumi.get(__ret__, 'clustering_config'),
         created_at=pulumi.get(__ret__, 'created_at'),
         data_source_config=pulumi.get(__ret__, 'data_source_config'),
         description=pulumi.get(__ret__, 'description'),
         evaluation_execution_role_arn=pulumi.get(__ret__, 'evaluation_execution_role_arn'),
         evaluators=pulumi.get(__ret__, 'evaluators'),
         execution_status=pulumi.get(__ret__, 'execution_status'),
+        insights=pulumi.get(__ret__, 'insights'),
         online_evaluation_config_arn=pulumi.get(__ret__, 'online_evaluation_config_arn'),
         online_evaluation_config_id=pulumi.get(__ret__, 'online_evaluation_config_id'),
         output_config=pulumi.get(__ret__, 'output_config'),
@@ -233,12 +259,14 @@ def get_online_evaluation_config_output(online_evaluation_config_arn: Optional[p
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrockagentcore:getOnlineEvaluationConfig', __args__, opts=opts, typ=GetOnlineEvaluationConfigResult)
     return __ret__.apply(lambda __response__: GetOnlineEvaluationConfigResult(
+        clustering_config=pulumi.get(__response__, 'clustering_config'),
         created_at=pulumi.get(__response__, 'created_at'),
         data_source_config=pulumi.get(__response__, 'data_source_config'),
         description=pulumi.get(__response__, 'description'),
         evaluation_execution_role_arn=pulumi.get(__response__, 'evaluation_execution_role_arn'),
         evaluators=pulumi.get(__response__, 'evaluators'),
         execution_status=pulumi.get(__response__, 'execution_status'),
+        insights=pulumi.get(__response__, 'insights'),
         online_evaluation_config_arn=pulumi.get(__response__, 'online_evaluation_config_arn'),
         online_evaluation_config_id=pulumi.get(__response__, 'online_evaluation_config_id'),
         output_config=pulumi.get(__response__, 'output_config'),

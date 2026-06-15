@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetPolicyResult:
-    def __init__(__self__, definition=None, policy_id=None, policy_type=None):
+    def __init__(__self__, definition=None, name=None, policy_id=None, policy_type=None):
         if definition and not isinstance(definition, dict):
             raise TypeError("Expected argument 'definition' to be a dict")
         pulumi.set(__self__, "definition", definition)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
         if policy_id and not isinstance(policy_id, str):
             raise TypeError("Expected argument 'policy_id' to be a str")
         pulumi.set(__self__, "policy_id", policy_id)
@@ -43,6 +46,11 @@ class GetPolicyResult:
         Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
         """
         return pulumi.get(self, "definition")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="policyId")
@@ -71,6 +79,7 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             yield self
         return GetPolicyResult(
             definition=self.definition,
+            name=self.name,
             policy_id=self.policy_id,
             policy_type=self.policy_type)
 
@@ -93,6 +102,7 @@ def get_policy(policy_id: Optional[_builtins.str] = None,
 
     return AwaitableGetPolicyResult(
         definition=pulumi.get(__ret__, 'definition'),
+        name=pulumi.get(__ret__, 'name'),
         policy_id=pulumi.get(__ret__, 'policy_id'),
         policy_type=pulumi.get(__ret__, 'policy_type'))
 def get_policy_output(policy_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -112,5 +122,6 @@ def get_policy_output(policy_id: Optional[pulumi.Input[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:verifiedpermissions:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
     return __ret__.apply(lambda __response__: GetPolicyResult(
         definition=pulumi.get(__response__, 'definition'),
+        name=pulumi.get(__response__, 'name'),
         policy_id=pulumi.get(__response__, 'policy_id'),
         policy_type=pulumi.get(__response__, 'policy_type')))

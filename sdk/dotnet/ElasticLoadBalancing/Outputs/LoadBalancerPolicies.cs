@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing.Outputs
         /// <summary>
         /// The policy attributes.
         /// </summary>
-        public readonly ImmutableArray<object> Attributes;
+        public readonly ImmutableArray<Outputs.LoadBalancerPolicyItem> Attributes;
         /// <summary>
         /// The instance ports for the policy. Required only for some policy types.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing.Outputs
 
         [OutputConstructor]
         private LoadBalancerPolicies(
-            ImmutableArray<object> attributes,
+            ImmutableArray<Outputs.LoadBalancerPolicyItem> attributes,
 
             ImmutableArray<string> instancePorts,
 

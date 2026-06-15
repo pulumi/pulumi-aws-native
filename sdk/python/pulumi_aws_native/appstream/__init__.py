@@ -23,6 +23,7 @@ from .get_stack import *
 from .get_user import *
 from .image_builder import *
 from .stack import *
+from .stack_fleet_association import *
 from .stack_user_association import *
 from .user import *
 from ._inputs import *

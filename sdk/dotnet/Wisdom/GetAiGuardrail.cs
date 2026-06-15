@@ -107,6 +107,7 @@ namespace Pulumi.AwsNative.Wisdom
         /// Description of the guardrail or its version
         /// </summary>
         public readonly string? Description;
+        public readonly double? ModifiedTimeSeconds;
         /// <summary>
         /// Contains details about PII entities and regular expressions to configure for the AI Guardrail.
         /// </summary>
@@ -138,6 +139,8 @@ namespace Pulumi.AwsNative.Wisdom
 
             string? description,
 
+            double? modifiedTimeSeconds,
+
             Outputs.AiGuardrailAiGuardrailSensitiveInformationPolicyConfig? sensitiveInformationPolicyConfig,
 
             Outputs.AiGuardrailAiGuardrailTopicPolicyConfig? topicPolicyConfig,
@@ -152,6 +155,7 @@ namespace Pulumi.AwsNative.Wisdom
             ContentPolicyConfig = contentPolicyConfig;
             ContextualGroundingPolicyConfig = contextualGroundingPolicyConfig;
             Description = description;
+            ModifiedTimeSeconds = modifiedTimeSeconds;
             SensitiveInformationPolicyConfig = sensitiveInformationPolicyConfig;
             TopicPolicyConfig = topicPolicyConfig;
             WordPolicyConfig = wordPolicyConfig;

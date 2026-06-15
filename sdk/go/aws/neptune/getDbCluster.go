@@ -55,6 +55,8 @@ type LookupDbClusterResult struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 	IamAuthEnabled *bool `pulumi:"iamAuthEnabled"`
+	// The network type of the DB cluster.
+	NetworkType *DbClusterNetworkType `pulumi:"networkType"`
 	// The port number on which the DB cluster accepts connections. For example: `8182`.
 	Port *string `pulumi:"port"`
 	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
@@ -160,6 +162,11 @@ func (o LookupDbClusterResultOutput) EngineVersion() pulumi.StringPtrOutput {
 // True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 func (o LookupDbClusterResultOutput) IamAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *bool { return v.IamAuthEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The network type of the DB cluster.
+func (o LookupDbClusterResultOutput) NetworkType() DbClusterNetworkTypePtrOutput {
+	return o.ApplyT(func(v LookupDbClusterResult) *DbClusterNetworkType { return v.NetworkType }).(DbClusterNetworkTypePtrOutput)
 }
 
 // The port number on which the DB cluster accepts connections. For example: `8182`.

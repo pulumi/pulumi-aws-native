@@ -4983,6 +4983,172 @@ func (in *flowOutputMediaStreamOutputConfigurationEncodingNamePtr) ToFlowOutputM
 	return pulumi.ToOutputWithContext(ctx, in).(FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput)
 }
 
+// The timecode source for the NDI output.
+type FlowOutputNdiOutputTimecodeSource string
+
+const (
+	FlowOutputNdiOutputTimecodeSourceEmbeddedTimecode = FlowOutputNdiOutputTimecodeSource("EMBEDDED_TIMECODE")
+	FlowOutputNdiOutputTimecodeSourceUtcSystemTime    = FlowOutputNdiOutputTimecodeSource("UTC_SYSTEM_TIME")
+)
+
+func (FlowOutputNdiOutputTimecodeSource) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputNdiOutputTimecodeSource)(nil)).Elem()
+}
+
+func (e FlowOutputNdiOutputTimecodeSource) ToFlowOutputNdiOutputTimecodeSourceOutput() FlowOutputNdiOutputTimecodeSourceOutput {
+	return pulumi.ToOutput(e).(FlowOutputNdiOutputTimecodeSourceOutput)
+}
+
+func (e FlowOutputNdiOutputTimecodeSource) ToFlowOutputNdiOutputTimecodeSourceOutputWithContext(ctx context.Context) FlowOutputNdiOutputTimecodeSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowOutputNdiOutputTimecodeSourceOutput)
+}
+
+func (e FlowOutputNdiOutputTimecodeSource) ToFlowOutputNdiOutputTimecodeSourcePtrOutput() FlowOutputNdiOutputTimecodeSourcePtrOutput {
+	return e.ToFlowOutputNdiOutputTimecodeSourcePtrOutputWithContext(context.Background())
+}
+
+func (e FlowOutputNdiOutputTimecodeSource) ToFlowOutputNdiOutputTimecodeSourcePtrOutputWithContext(ctx context.Context) FlowOutputNdiOutputTimecodeSourcePtrOutput {
+	return FlowOutputNdiOutputTimecodeSource(e).ToFlowOutputNdiOutputTimecodeSourceOutputWithContext(ctx).ToFlowOutputNdiOutputTimecodeSourcePtrOutputWithContext(ctx)
+}
+
+func (e FlowOutputNdiOutputTimecodeSource) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowOutputNdiOutputTimecodeSource) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowOutputNdiOutputTimecodeSource) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowOutputNdiOutputTimecodeSource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowOutputNdiOutputTimecodeSourceOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputNdiOutputTimecodeSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputNdiOutputTimecodeSource)(nil)).Elem()
+}
+
+func (o FlowOutputNdiOutputTimecodeSourceOutput) ToFlowOutputNdiOutputTimecodeSourceOutput() FlowOutputNdiOutputTimecodeSourceOutput {
+	return o
+}
+
+func (o FlowOutputNdiOutputTimecodeSourceOutput) ToFlowOutputNdiOutputTimecodeSourceOutputWithContext(ctx context.Context) FlowOutputNdiOutputTimecodeSourceOutput {
+	return o
+}
+
+func (o FlowOutputNdiOutputTimecodeSourceOutput) ToFlowOutputNdiOutputTimecodeSourcePtrOutput() FlowOutputNdiOutputTimecodeSourcePtrOutput {
+	return o.ToFlowOutputNdiOutputTimecodeSourcePtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputNdiOutputTimecodeSourceOutput) ToFlowOutputNdiOutputTimecodeSourcePtrOutputWithContext(ctx context.Context) FlowOutputNdiOutputTimecodeSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowOutputNdiOutputTimecodeSource) *FlowOutputNdiOutputTimecodeSource {
+		return &v
+	}).(FlowOutputNdiOutputTimecodeSourcePtrOutput)
+}
+
+func (o FlowOutputNdiOutputTimecodeSourceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowOutputNdiOutputTimecodeSourceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowOutputNdiOutputTimecodeSource) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowOutputNdiOutputTimecodeSourceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputNdiOutputTimecodeSourceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowOutputNdiOutputTimecodeSource) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowOutputNdiOutputTimecodeSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputNdiOutputTimecodeSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowOutputNdiOutputTimecodeSource)(nil)).Elem()
+}
+
+func (o FlowOutputNdiOutputTimecodeSourcePtrOutput) ToFlowOutputNdiOutputTimecodeSourcePtrOutput() FlowOutputNdiOutputTimecodeSourcePtrOutput {
+	return o
+}
+
+func (o FlowOutputNdiOutputTimecodeSourcePtrOutput) ToFlowOutputNdiOutputTimecodeSourcePtrOutputWithContext(ctx context.Context) FlowOutputNdiOutputTimecodeSourcePtrOutput {
+	return o
+}
+
+func (o FlowOutputNdiOutputTimecodeSourcePtrOutput) Elem() FlowOutputNdiOutputTimecodeSourceOutput {
+	return o.ApplyT(func(v *FlowOutputNdiOutputTimecodeSource) FlowOutputNdiOutputTimecodeSource {
+		if v != nil {
+			return *v
+		}
+		var ret FlowOutputNdiOutputTimecodeSource
+		return ret
+	}).(FlowOutputNdiOutputTimecodeSourceOutput)
+}
+
+func (o FlowOutputNdiOutputTimecodeSourcePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputNdiOutputTimecodeSourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowOutputNdiOutputTimecodeSource) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowOutputNdiOutputTimecodeSourceInput is an input type that accepts values of the FlowOutputNdiOutputTimecodeSource enum
+// A concrete instance of `FlowOutputNdiOutputTimecodeSourceInput` can be one of the following:
+//
+//	FlowOutputNdiOutputTimecodeSourceEmbeddedTimecode
+//	FlowOutputNdiOutputTimecodeSourceUtcSystemTime
+type FlowOutputNdiOutputTimecodeSourceInput interface {
+	pulumi.Input
+
+	ToFlowOutputNdiOutputTimecodeSourceOutput() FlowOutputNdiOutputTimecodeSourceOutput
+	ToFlowOutputNdiOutputTimecodeSourceOutputWithContext(context.Context) FlowOutputNdiOutputTimecodeSourceOutput
+}
+
+var flowOutputNdiOutputTimecodeSourcePtrType = reflect.TypeOf((**FlowOutputNdiOutputTimecodeSource)(nil)).Elem()
+
+type FlowOutputNdiOutputTimecodeSourcePtrInput interface {
+	pulumi.Input
+
+	ToFlowOutputNdiOutputTimecodeSourcePtrOutput() FlowOutputNdiOutputTimecodeSourcePtrOutput
+	ToFlowOutputNdiOutputTimecodeSourcePtrOutputWithContext(context.Context) FlowOutputNdiOutputTimecodeSourcePtrOutput
+}
+
+type flowOutputNdiOutputTimecodeSourcePtr string
+
+func FlowOutputNdiOutputTimecodeSourcePtr(v string) FlowOutputNdiOutputTimecodeSourcePtrInput {
+	return (*flowOutputNdiOutputTimecodeSourcePtr)(&v)
+}
+
+func (*flowOutputNdiOutputTimecodeSourcePtr) ElementType() reflect.Type {
+	return flowOutputNdiOutputTimecodeSourcePtrType
+}
+
+func (in *flowOutputNdiOutputTimecodeSourcePtr) ToFlowOutputNdiOutputTimecodeSourcePtrOutput() FlowOutputNdiOutputTimecodeSourcePtrOutput {
+	return pulumi.ToOutput(in).(FlowOutputNdiOutputTimecodeSourcePtrOutput)
+}
+
+func (in *flowOutputNdiOutputTimecodeSourcePtr) ToFlowOutputNdiOutputTimecodeSourcePtrOutputWithContext(ctx context.Context) FlowOutputNdiOutputTimecodeSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowOutputNdiOutputTimecodeSourcePtrOutput)
+}
+
 // An indication of whether the output should transmit data or not.
 type FlowOutputOutputStatus string
 
@@ -11166,6 +11332,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputFlowTransitEncryptionKeyTypePtrInput)(nil)).Elem(), FlowOutputFlowTransitEncryptionKeyType("SECRETS_MANAGER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputMediaStreamOutputConfigurationEncodingNameInput)(nil)).Elem(), FlowOutputMediaStreamOutputConfigurationEncodingName("jxsv"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputMediaStreamOutputConfigurationEncodingNamePtrInput)(nil)).Elem(), FlowOutputMediaStreamOutputConfigurationEncodingName("jxsv"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputNdiOutputTimecodeSourceInput)(nil)).Elem(), FlowOutputNdiOutputTimecodeSource("EMBEDDED_TIMECODE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputNdiOutputTimecodeSourcePtrInput)(nil)).Elem(), FlowOutputNdiOutputTimecodeSource("EMBEDDED_TIMECODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputOutputStatusInput)(nil)).Elem(), FlowOutputOutputStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputOutputStatusPtrInput)(nil)).Elem(), FlowOutputOutputStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputProtocolInput)(nil)).Elem(), FlowOutputProtocol("zixi-push"))
@@ -11288,6 +11456,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowOutputFlowTransitEncryptionKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputMediaStreamOutputConfigurationEncodingNameOutput{})
 	pulumi.RegisterOutputType(FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput{})
+	pulumi.RegisterOutputType(FlowOutputNdiOutputTimecodeSourceOutput{})
+	pulumi.RegisterOutputType(FlowOutputNdiOutputTimecodeSourcePtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputOutputStatusOutput{})
 	pulumi.RegisterOutputType(FlowOutputOutputStatusPtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputProtocolOutput{})

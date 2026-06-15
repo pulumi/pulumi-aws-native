@@ -69,6 +69,37 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     }
 
     /// <summary>
+    /// The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
+    /// </summary>
+    [EnumType]
+    public readonly struct CollectionGroupGeneration : IEquatable<CollectionGroupGeneration>
+    {
+        private readonly string _value;
+
+        private CollectionGroupGeneration(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CollectionGroupGeneration Classic { get; } = new CollectionGroupGeneration("CLASSIC");
+        public static CollectionGroupGeneration Nextgen { get; } = new CollectionGroupGeneration("NEXTGEN");
+
+        public static bool operator ==(CollectionGroupGeneration left, CollectionGroupGeneration right) => left.Equals(right);
+        public static bool operator !=(CollectionGroupGeneration left, CollectionGroupGeneration right) => !left.Equals(right);
+
+        public static explicit operator string(CollectionGroupGeneration value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CollectionGroupGeneration other && Equals(other);
+        public bool Equals(CollectionGroupGeneration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether standby replicas are used for the collection group.
     /// </summary>
     [EnumType]

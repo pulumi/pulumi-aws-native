@@ -291,7 +291,7 @@
     },
     "AIGuardrailArn" : {
       "type" : "string",
-      "pattern" : "^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}){0,2}$"
+      "pattern" : "^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}){0,2}(:[A-Z0-9_$]+){0,1}$"
     },
     "AIGuardrailId" : {
       "type" : "string",
@@ -336,12 +336,15 @@
     "ContextualGroundingPolicyConfig" : {
       "$ref" : "#/definitions/AIGuardrailContextualGroundingPolicyConfig"
     },
+    "ModifiedTimeSeconds" : {
+      "type" : "number"
+    },
     "Tags" : {
       "$ref" : "#/definitions/Tags"
     }
   },
   "required" : [ "AssistantId", "BlockedInputMessaging", "BlockedOutputsMessaging" ],
-  "readOnlyProperties" : [ "/properties/AIGuardrailArn", "/properties/AIGuardrailId", "/properties/AssistantArn" ],
+  "readOnlyProperties" : [ "/properties/AIGuardrailArn", "/properties/AIGuardrailId", "/properties/AssistantArn", "/properties/ModifiedTimeSeconds" ],
   "createOnlyProperties" : [ "/properties/AssistantId", "/properties/Name", "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/AIGuardrailId", "/properties/AssistantId" ],
   "additionalIdentifiers" : [ [ "/properties/AIGuardrailArn", "/properties/AssistantArn" ] ],

@@ -33,6 +33,7 @@ class FlowOutputArgs:
                  media_stream_output_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowOutputMediaStreamOutputConfigurationArgs']]]] = None,
                  min_latency: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ndi_output_timecode_source: Optional[pulumi.Input['FlowOutputNdiOutputTimecodeSource']] = None,
                  ndi_program_name: Optional[pulumi.Input[_builtins.str]] = None,
                  ndi_speed_hq_quality: Optional[pulumi.Input[_builtins.int]] = None,
                  output_status: Optional[pulumi.Input['FlowOutputOutputStatus']] = None,
@@ -57,6 +58,7 @@ class FlowOutputArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FlowOutputMediaStreamOutputConfigurationArgs']]] media_stream_output_configurations: The definition for each media stream that is associated with the output.
         :param pulumi.Input[_builtins.int] min_latency: The minimum latency in milliseconds.
         :param pulumi.Input[_builtins.str] name: The name of the output. This value must be unique within the current flow.
+        :param pulumi.Input['FlowOutputNdiOutputTimecodeSource'] ndi_output_timecode_source: The timecode source for the NDI output.
         :param pulumi.Input[_builtins.str] ndi_program_name: A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
         :param pulumi.Input[_builtins.int] ndi_speed_hq_quality: A quality setting for the NDI Speed HQ encoder.
         :param pulumi.Input['FlowOutputOutputStatus'] output_status: An indication of whether the output should transmit data or not.
@@ -86,6 +88,8 @@ class FlowOutputArgs:
             pulumi.set(__self__, "min_latency", min_latency)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if ndi_output_timecode_source is not None:
+            pulumi.set(__self__, "ndi_output_timecode_source", ndi_output_timecode_source)
         if ndi_program_name is not None:
             pulumi.set(__self__, "ndi_program_name", ndi_program_name)
         if ndi_speed_hq_quality is not None:
@@ -218,6 +222,18 @@ class FlowOutputArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ndiOutputTimecodeSource")
+    def ndi_output_timecode_source(self) -> Optional[pulumi.Input['FlowOutputNdiOutputTimecodeSource']]:
+        """
+        The timecode source for the NDI output.
+        """
+        return pulumi.get(self, "ndi_output_timecode_source")
+
+    @ndi_output_timecode_source.setter
+    def ndi_output_timecode_source(self, value: Optional[pulumi.Input['FlowOutputNdiOutputTimecodeSource']]):
+        pulumi.set(self, "ndi_output_timecode_source", value)
 
     @_builtins.property
     @pulumi.getter(name="ndiProgramName")
@@ -376,6 +392,7 @@ class FlowOutput(pulumi.CustomResource):
                  media_stream_output_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowOutputMediaStreamOutputConfigurationArgs', 'FlowOutputMediaStreamOutputConfigurationArgsDict']]]]] = None,
                  min_latency: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ndi_output_timecode_source: Optional[pulumi.Input['FlowOutputNdiOutputTimecodeSource']] = None,
                  ndi_program_name: Optional[pulumi.Input[_builtins.str]] = None,
                  ndi_speed_hq_quality: Optional[pulumi.Input[_builtins.int]] = None,
                  output_status: Optional[pulumi.Input['FlowOutputOutputStatus']] = None,
@@ -404,6 +421,7 @@ class FlowOutput(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['FlowOutputMediaStreamOutputConfigurationArgs', 'FlowOutputMediaStreamOutputConfigurationArgsDict']]]] media_stream_output_configurations: The definition for each media stream that is associated with the output.
         :param pulumi.Input[_builtins.int] min_latency: The minimum latency in milliseconds.
         :param pulumi.Input[_builtins.str] name: The name of the output. This value must be unique within the current flow.
+        :param pulumi.Input['FlowOutputNdiOutputTimecodeSource'] ndi_output_timecode_source: The timecode source for the NDI output.
         :param pulumi.Input[_builtins.str] ndi_program_name: A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
         :param pulumi.Input[_builtins.int] ndi_speed_hq_quality: A quality setting for the NDI Speed HQ encoder.
         :param pulumi.Input['FlowOutputOutputStatus'] output_status: An indication of whether the output should transmit data or not.
@@ -450,6 +468,7 @@ class FlowOutput(pulumi.CustomResource):
                  media_stream_output_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowOutputMediaStreamOutputConfigurationArgs', 'FlowOutputMediaStreamOutputConfigurationArgsDict']]]]] = None,
                  min_latency: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ndi_output_timecode_source: Optional[pulumi.Input['FlowOutputNdiOutputTimecodeSource']] = None,
                  ndi_program_name: Optional[pulumi.Input[_builtins.str]] = None,
                  ndi_speed_hq_quality: Optional[pulumi.Input[_builtins.int]] = None,
                  output_status: Optional[pulumi.Input['FlowOutputOutputStatus']] = None,
@@ -482,6 +501,7 @@ class FlowOutput(pulumi.CustomResource):
             __props__.__dict__["media_stream_output_configurations"] = media_stream_output_configurations
             __props__.__dict__["min_latency"] = min_latency
             __props__.__dict__["name"] = name
+            __props__.__dict__["ndi_output_timecode_source"] = ndi_output_timecode_source
             __props__.__dict__["ndi_program_name"] = ndi_program_name
             __props__.__dict__["ndi_speed_hq_quality"] = ndi_speed_hq_quality
             __props__.__dict__["output_status"] = output_status
@@ -528,6 +548,7 @@ class FlowOutput(pulumi.CustomResource):
         __props__.__dict__["media_stream_output_configurations"] = None
         __props__.__dict__["min_latency"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["ndi_output_timecode_source"] = None
         __props__.__dict__["ndi_program_name"] = None
         __props__.__dict__["ndi_speed_hq_quality"] = None
         __props__.__dict__["output_arn"] = None
@@ -614,6 +635,14 @@ class FlowOutput(pulumi.CustomResource):
         The name of the output. This value must be unique within the current flow.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="ndiOutputTimecodeSource")
+    def ndi_output_timecode_source(self) -> pulumi.Output[Optional['FlowOutputNdiOutputTimecodeSource']]:
+        """
+        The timecode source for the NDI output.
+        """
+        return pulumi.get(self, "ndi_output_timecode_source")
 
     @_builtins.property
     @pulumi.getter(name="ndiProgramName")

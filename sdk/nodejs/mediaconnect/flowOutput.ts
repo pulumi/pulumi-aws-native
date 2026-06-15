@@ -74,6 +74,10 @@ export class FlowOutput extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string | undefined>;
     /**
+     * The timecode source for the NDI output.
+     */
+    declare public readonly ndiOutputTimecodeSource: pulumi.Output<enums.mediaconnect.FlowOutputNdiOutputTimecodeSource | undefined>;
+    /**
      * A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
      */
     declare public readonly ndiProgramName: pulumi.Output<string | undefined>;
@@ -146,6 +150,7 @@ export class FlowOutput extends pulumi.CustomResource {
             resourceInputs["mediaStreamOutputConfigurations"] = args?.mediaStreamOutputConfigurations;
             resourceInputs["minLatency"] = args?.minLatency;
             resourceInputs["name"] = args?.name;
+            resourceInputs["ndiOutputTimecodeSource"] = args?.ndiOutputTimecodeSource;
             resourceInputs["ndiProgramName"] = args?.ndiProgramName;
             resourceInputs["ndiSpeedHqQuality"] = args?.ndiSpeedHqQuality;
             resourceInputs["outputStatus"] = args?.outputStatus;
@@ -169,6 +174,7 @@ export class FlowOutput extends pulumi.CustomResource {
             resourceInputs["mediaStreamOutputConfigurations"] = undefined /*out*/;
             resourceInputs["minLatency"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ndiOutputTimecodeSource"] = undefined /*out*/;
             resourceInputs["ndiProgramName"] = undefined /*out*/;
             resourceInputs["ndiSpeedHqQuality"] = undefined /*out*/;
             resourceInputs["outputArn"] = undefined /*out*/;
@@ -230,6 +236,10 @@ export interface FlowOutputArgs {
      * The name of the output. This value must be unique within the current flow.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The timecode source for the NDI output.
+     */
+    ndiOutputTimecodeSource?: pulumi.Input<enums.mediaconnect.FlowOutputNdiOutputTimecodeSource>;
     /**
      * A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
      */

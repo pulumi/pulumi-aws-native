@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("mcpToolSchema")]
         public InputUnion<Inputs.GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs, Inputs.GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs>? McpToolSchema { get; set; }
 
+        [Input("resourcePriority")]
+        public Input<int>? ResourcePriority { get; set; }
+
         public GatewayTargetMcpServerTargetConfigurationArgs()
         {
         }

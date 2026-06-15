@@ -103,7 +103,8 @@ type Policy struct {
 	pulumi.CustomResourceState
 
 	// Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
-	Definition pulumi.AnyOutput `pulumi:"definition"`
+	Definition pulumi.AnyOutput       `pulumi:"definition"`
+	Name       pulumi.StringPtrOutput `pulumi:"name"`
 	// The unique ID of the new or updated policy.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
@@ -167,6 +168,7 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	// Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
 	Definition interface{} `pulumi:"definition"`
+	Name       *string     `pulumi:"name"`
 	// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
 	PolicyStoreId string `pulumi:"policyStoreId"`
 }
@@ -175,6 +177,7 @@ type policyArgs struct {
 type PolicyArgs struct {
 	// Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
 	Definition pulumi.Input
+	Name       pulumi.StringPtrInput
 	// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
 	PolicyStoreId pulumi.StringInput
 }
@@ -219,6 +222,10 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 // Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
 func (o PolicyOutput) Definition() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Policy) pulumi.AnyOutput { return v.Definition }).(pulumi.AnyOutput)
+}
+
+func (o PolicyOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The unique ID of the new or updated policy.

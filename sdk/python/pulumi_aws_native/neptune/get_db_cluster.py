@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetDbClusterResult',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbClusterResult:
-    def __init__(__self__, associated_roles=None, backup_retention_period=None, cluster_resource_id=None, copy_tags_to_snapshot=None, db_cluster_parameter_group_name=None, db_port=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, engine_version=None, iam_auth_enabled=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, serverless_scaling_configuration=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, associated_roles=None, backup_retention_period=None, cluster_resource_id=None, copy_tags_to_snapshot=None, db_cluster_parameter_group_name=None, db_port=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, engine_version=None, iam_auth_enabled=None, network_type=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, serverless_scaling_configuration=None, tags=None, vpc_security_group_ids=None):
         if associated_roles and not isinstance(associated_roles, list):
             raise TypeError("Expected argument 'associated_roles' to be a list")
         pulumi.set(__self__, "associated_roles", associated_roles)
@@ -59,6 +60,9 @@ class GetDbClusterResult:
         if iam_auth_enabled and not isinstance(iam_auth_enabled, bool):
             raise TypeError("Expected argument 'iam_auth_enabled' to be a bool")
         pulumi.set(__self__, "iam_auth_enabled", iam_auth_enabled)
+        if network_type and not isinstance(network_type, str):
+            raise TypeError("Expected argument 'network_type' to be a str")
+        pulumi.set(__self__, "network_type", network_type)
         if port and not isinstance(port, str):
             raise TypeError("Expected argument 'port' to be a str")
         pulumi.set(__self__, "port", port)
@@ -174,6 +178,14 @@ class GetDbClusterResult:
         return pulumi.get(self, "iam_auth_enabled")
 
     @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional['DbClusterNetworkType']:
+        """
+        The network type of the DB cluster.
+        """
+        return pulumi.get(self, "network_type")
+
+    @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[_builtins.str]:
         """
@@ -247,6 +259,7 @@ class AwaitableGetDbClusterResult(GetDbClusterResult):
             endpoint=self.endpoint,
             engine_version=self.engine_version,
             iam_auth_enabled=self.iam_auth_enabled,
+            network_type=self.network_type,
             port=self.port,
             preferred_backup_window=self.preferred_backup_window,
             preferred_maintenance_window=self.preferred_maintenance_window,
@@ -281,6 +294,7 @@ def get_db_cluster(db_cluster_identifier: Optional[_builtins.str] = None,
         endpoint=pulumi.get(__ret__, 'endpoint'),
         engine_version=pulumi.get(__ret__, 'engine_version'),
         iam_auth_enabled=pulumi.get(__ret__, 'iam_auth_enabled'),
+        network_type=pulumi.get(__ret__, 'network_type'),
         port=pulumi.get(__ret__, 'port'),
         preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
@@ -312,6 +326,7 @@ def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[_builtins
         endpoint=pulumi.get(__response__, 'endpoint'),
         engine_version=pulumi.get(__response__, 'engine_version'),
         iam_auth_enabled=pulumi.get(__response__, 'iam_auth_enabled'),
+        network_type=pulumi.get(__response__, 'network_type'),
         port=pulumi.get(__response__, 'port'),
         preferred_backup_window=pulumi.get(__response__, 'preferred_backup_window'),
         preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),

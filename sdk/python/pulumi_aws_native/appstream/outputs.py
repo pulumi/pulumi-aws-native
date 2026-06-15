@@ -34,8 +34,10 @@ __all__ = [
     'ImageBuilderVpcConfig',
     'StackAccessEndpoint',
     'StackApplicationSettings',
+    'StackContentRedirection',
     'StackStorageConnector',
     'StackStreamingExperienceSettings',
+    'StackUrlRedirectionConfig',
     'StackUserSetting',
 ]
 
@@ -856,6 +858,47 @@ class StackApplicationSettings(dict):
 
 
 @pulumi.output_type
+class StackContentRedirection(dict):
+    """
+    The content redirection settings for the stack.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostToClient":
+            suggest = "host_to_client"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackContentRedirection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackContentRedirection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackContentRedirection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host_to_client: Optional['outputs.StackUrlRedirectionConfig'] = None):
+        """
+        The content redirection settings for the stack.
+
+        :param 'StackUrlRedirectionConfig' host_to_client: The URL redirection configuration from the streaming session host to the client.
+        """
+        if host_to_client is not None:
+            pulumi.set(__self__, "host_to_client", host_to_client)
+
+    @_builtins.property
+    @pulumi.getter(name="hostToClient")
+    def host_to_client(self) -> Optional['outputs.StackUrlRedirectionConfig']:
+        """
+        The URL redirection configuration from the streaming session host to the client.
+        """
+        return pulumi.get(self, "host_to_client")
+
+
+@pulumi.output_type
 class StackStorageConnector(dict):
     """
     A connector that enables persistent storage for users.
@@ -960,6 +1003,72 @@ class StackStreamingExperienceSettings(dict):
         The preferred protocol that you want to use while streaming your application.
         """
         return pulumi.get(self, "preferred_protocol")
+
+
+@pulumi.output_type
+class StackUrlRedirectionConfig(dict):
+    """
+    The configuration for URL redirection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedUrls":
+            suggest = "allowed_urls"
+        elif key == "deniedUrls":
+            suggest = "denied_urls"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackUrlRedirectionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackUrlRedirectionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackUrlRedirectionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 allowed_urls: Optional[Sequence[_builtins.str]] = None,
+                 denied_urls: Optional[Sequence[_builtins.str]] = None):
+        """
+        The configuration for URL redirection.
+
+        :param _builtins.bool enabled: Specifies whether URL redirection is enabled or disabled.
+        :param Sequence[_builtins.str] allowed_urls: The URLs that are allowed for redirection.
+        :param Sequence[_builtins.str] denied_urls: The URLs that are denied for redirection.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if allowed_urls is not None:
+            pulumi.set(__self__, "allowed_urls", allowed_urls)
+        if denied_urls is not None:
+            pulumi.set(__self__, "denied_urls", denied_urls)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Specifies whether URL redirection is enabled or disabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedUrls")
+    def allowed_urls(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The URLs that are allowed for redirection.
+        """
+        return pulumi.get(self, "allowed_urls")
+
+    @_builtins.property
+    @pulumi.getter(name="deniedUrls")
+    def denied_urls(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The URLs that are denied for redirection.
+        """
+        return pulumi.get(self, "denied_urls")
 
 
 @pulumi.output_type

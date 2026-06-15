@@ -39,6 +39,8 @@ type FlowLog struct {
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
 	ResourceType FlowLogResourceTypeOutput `pulumi:"resourceType"`
+	// The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
+	TagFieldSpecifications FlowLogTagFieldSpecificationArrayOutput `pulumi:"tagFieldSpecifications"`
 	// The tags to apply to the flow logs.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
@@ -69,6 +71,7 @@ func NewFlowLog(ctx *pulumi.Context,
 		"maxAggregationInterval",
 		"resourceId",
 		"resourceType",
+		"tagFieldSpecifications[*]",
 		"trafficType",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -125,6 +128,8 @@ type flowLogArgs struct {
 	ResourceId string `pulumi:"resourceId"`
 	// The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
 	ResourceType FlowLogResourceType `pulumi:"resourceType"`
+	// The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
+	TagFieldSpecifications []FlowLogTagFieldSpecification `pulumi:"tagFieldSpecifications"`
 	// The tags to apply to the flow logs.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
@@ -153,6 +158,8 @@ type FlowLogArgs struct {
 	ResourceId pulumi.StringInput
 	// The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
 	ResourceType FlowLogResourceTypeInput
+	// The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
+	TagFieldSpecifications FlowLogTagFieldSpecificationArrayInput
 	// The tags to apply to the flow logs.
 	Tags aws.TagArrayInput
 	// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
@@ -249,6 +256,11 @@ func (o FlowLogOutput) ResourceId() pulumi.StringOutput {
 // The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
 func (o FlowLogOutput) ResourceType() FlowLogResourceTypeOutput {
 	return o.ApplyT(func(v *FlowLog) FlowLogResourceTypeOutput { return v.ResourceType }).(FlowLogResourceTypeOutput)
+}
+
+// The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
+func (o FlowLogOutput) TagFieldSpecifications() FlowLogTagFieldSpecificationArrayOutput {
+	return o.ApplyT(func(v *FlowLog) FlowLogTagFieldSpecificationArrayOutput { return v.TagFieldSpecifications }).(FlowLogTagFieldSpecificationArrayOutput)
 }
 
 // The tags to apply to the flow logs.

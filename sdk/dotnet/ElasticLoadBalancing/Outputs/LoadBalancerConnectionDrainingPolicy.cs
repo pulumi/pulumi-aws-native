@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancing.Outputs
 {
 
+    /// <summary>
+    /// If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
+    /// </summary>
     [OutputType]
     public sealed class LoadBalancerConnectionDrainingPolicy
     {

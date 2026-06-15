@@ -31,6 +31,7 @@ export interface GetPolicyTemplateResult {
      * The description to attach to the new or updated policy template.
      */
     readonly description?: string;
+    readonly name?: string;
     /**
      * The unique identifier of the new or modified policy template.
      */

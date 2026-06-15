@@ -123,7 +123,7 @@
       "permissions" : [ "cur:DescribeReportDefinitions", "cur:ModifyReportDefinition", "cur:ListTagsForResource", "cur:TagResource", "cur:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "cur:DeleteReportDefinition" ]
+      "permissions" : [ "cur:DescribeReportDefinitions", "cur:DeleteReportDefinition" ]
     },
     "list" : {
       "permissions" : [ "cur:DescribeReportDefinitions" ]
@@ -133,7 +133,7 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
+    "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "cur:ListTagsForResource", "cur:TagResource", "cur:UntagResource" ]
   }

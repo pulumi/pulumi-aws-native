@@ -31,6 +31,9 @@ __all__ = [
     'CodeInterpreterCustomCertificateLocation',
     'CodeInterpreterCustomCodeInterpreterNetworkConfiguration',
     'CodeInterpreterCustomVpcConfig',
+    'ConfigurationBundleComponentConfiguration',
+    'ConfigurationBundleVersionCreatedBySource',
+    'ConfigurationBundleVersionLineageMetadata',
     'DatasetDataSourceType',
     'DatasetInlineExamplesSource',
     'DatasetS3Source',
@@ -192,10 +195,12 @@ __all__ = [
     'OAuth2CredentialProviderTokenExchangeGrantTypeConfig',
     'OnlineEvaluationConfigCloudWatchLogsInputConfig',
     'OnlineEvaluationConfigCloudWatchOutputConfig',
+    'OnlineEvaluationConfigClusteringConfig',
     'OnlineEvaluationConfigDataSourceConfig',
     'OnlineEvaluationConfigEvaluatorReference',
     'OnlineEvaluationConfigFilter',
     'OnlineEvaluationConfigFilterValue',
+    'OnlineEvaluationConfigInsight',
     'OnlineEvaluationConfigOutputConfig',
     'OnlineEvaluationConfigRule',
     'OnlineEvaluationConfigSamplingConfig',
@@ -805,6 +810,143 @@ class CodeInterpreterCustomVpcConfig(dict):
     @pulumi.getter
     def subnets(self) -> Sequence[_builtins.str]:
         return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class ConfigurationBundleComponentConfiguration(dict):
+    """
+    The configuration for a component within a configuration bundle.
+    """
+    def __init__(__self__, *,
+                 configuration: Any):
+        """
+        The configuration for a component within a configuration bundle.
+
+        :param Any configuration: The configuration values as a flexible JSON document.
+        """
+        pulumi.set(__self__, "configuration", configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def configuration(self) -> Any:
+        """
+        The configuration values as a flexible JSON document.
+        """
+        return pulumi.get(self, "configuration")
+
+
+@pulumi.output_type
+class ConfigurationBundleVersionCreatedBySource(dict):
+    """
+    The source that created a configuration bundle version.
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 arn: Optional[_builtins.str] = None):
+        """
+        The source that created a configuration bundle version.
+
+        :param _builtins.str name: The name of the source (for example, user, optimization-job, or system).
+        :param _builtins.str arn: The Amazon Resource Name (ARN) of the source, if applicable.
+        """
+        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the source (for example, user, optimization-job, or system).
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the source, if applicable.
+        """
+        return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class ConfigurationBundleVersionLineageMetadata(dict):
+    """
+    The version lineage metadata that tracks parent versions and creation source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "branchName":
+            suggest = "branch_name"
+        elif key == "commitMessage":
+            suggest = "commit_message"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "parentVersionIds":
+            suggest = "parent_version_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationBundleVersionLineageMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationBundleVersionLineageMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationBundleVersionLineageMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branch_name: Optional[_builtins.str] = None,
+                 commit_message: Optional[_builtins.str] = None,
+                 created_by: Optional['outputs.ConfigurationBundleVersionCreatedBySource'] = None,
+                 parent_version_ids: Optional[Sequence[_builtins.str]] = None):
+        """
+        The version lineage metadata that tracks parent versions and creation source.
+
+        :param _builtins.str branch_name: The branch name for this version.
+        :param _builtins.str commit_message: A commit message describing the changes in this version.
+        :param Sequence[_builtins.str] parent_version_ids: A list of parent version identifiers.
+        """
+        if branch_name is not None:
+            pulumi.set(__self__, "branch_name", branch_name)
+        if commit_message is not None:
+            pulumi.set(__self__, "commit_message", commit_message)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if parent_version_ids is not None:
+            pulumi.set(__self__, "parent_version_ids", parent_version_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="branchName")
+    def branch_name(self) -> Optional[_builtins.str]:
+        """
+        The branch name for this version.
+        """
+        return pulumi.get(self, "branch_name")
+
+    @_builtins.property
+    @pulumi.getter(name="commitMessage")
+    def commit_message(self) -> Optional[_builtins.str]:
+        """
+        A commit message describing the changes in this version.
+        """
+        return pulumi.get(self, "commit_message")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional['outputs.ConfigurationBundleVersionCreatedBySource']:
+        return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="parentVersionIds")
+    def parent_version_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of parent version identifiers.
+        """
+        return pulumi.get(self, "parent_version_ids")
 
 
 @pulumi.output_type
@@ -2490,6 +2632,8 @@ class GatewayTargetMcpServerTargetConfiguration(dict):
             suggest = "listing_mode"
         elif key == "mcpToolSchema":
             suggest = "mcp_tool_schema"
+        elif key == "resourcePriority":
+            suggest = "resource_priority"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GatewayTargetMcpServerTargetConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -2505,12 +2649,15 @@ class GatewayTargetMcpServerTargetConfiguration(dict):
     def __init__(__self__, *,
                  endpoint: _builtins.str,
                  listing_mode: Optional['GatewayTargetMcpServerListingMode'] = None,
-                 mcp_tool_schema: Optional[Any] = None):
+                 mcp_tool_schema: Optional[Any] = None,
+                 resource_priority: Optional[_builtins.int] = None):
         pulumi.set(__self__, "endpoint", endpoint)
         if listing_mode is not None:
             pulumi.set(__self__, "listing_mode", listing_mode)
         if mcp_tool_schema is not None:
             pulumi.set(__self__, "mcp_tool_schema", mcp_tool_schema)
+        if resource_priority is not None:
+            pulumi.set(__self__, "resource_priority", resource_priority)
 
     @_builtins.property
     @pulumi.getter
@@ -2526,6 +2673,11 @@ class GatewayTargetMcpServerTargetConfiguration(dict):
     @pulumi.getter(name="mcpToolSchema")
     def mcp_tool_schema(self) -> Optional[Any]:
         return pulumi.get(self, "mcp_tool_schema")
+
+    @_builtins.property
+    @pulumi.getter(name="resourcePriority")
+    def resource_priority(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "resource_priority")
 
 
 @pulumi.output_type
@@ -7981,6 +8133,29 @@ class OnlineEvaluationConfigCloudWatchOutputConfig(dict):
 
 
 @pulumi.output_type
+class OnlineEvaluationConfigClusteringConfig(dict):
+    """
+    The configuration for clustering analysis of evaluation results.
+    """
+    def __init__(__self__, *,
+                 frequencies: Sequence['OnlineEvaluationConfigClusteringFrequency']):
+        """
+        The configuration for clustering analysis of evaluation results.
+
+        :param Sequence['OnlineEvaluationConfigClusteringFrequency'] frequencies: The list of frequencies at which clustering reports are generated.
+        """
+        pulumi.set(__self__, "frequencies", frequencies)
+
+    @_builtins.property
+    @pulumi.getter
+    def frequencies(self) -> Sequence['OnlineEvaluationConfigClusteringFrequency']:
+        """
+        The list of frequencies at which clustering reports are generated.
+        """
+        return pulumi.get(self, "frequencies")
+
+
+@pulumi.output_type
 class OnlineEvaluationConfigDataSourceConfig(dict):
     """
     The configuration that specifies where to read agent traces for online evaluation.
@@ -8163,6 +8338,46 @@ class OnlineEvaluationConfigFilterValue(dict):
         The string value for text-based filtering.
         """
         return pulumi.get(self, "string_value")
+
+
+@pulumi.output_type
+class OnlineEvaluationConfigInsight(dict):
+    """
+    An insight configuration for failure analysis.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "insightId":
+            suggest = "insight_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnlineEvaluationConfigInsight. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnlineEvaluationConfigInsight.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnlineEvaluationConfigInsight.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 insight_id: _builtins.str):
+        """
+        An insight configuration for failure analysis.
+
+        :param _builtins.str insight_id: The unique identifier of the insight.
+        """
+        pulumi.set(__self__, "insight_id", insight_id)
+
+    @_builtins.property
+    @pulumi.getter(name="insightId")
+    def insight_id(self) -> _builtins.str:
+        """
+        The unique identifier of the insight.
+        """
+        return pulumi.get(self, "insight_id")
 
 
 @pulumi.output_type

@@ -82,6 +82,10 @@ export class FlowLog extends pulumi.CustomResource {
      */
     declare public readonly resourceType: pulumi.Output<enums.ec2.FlowLogResourceType>;
     /**
+     * The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
+     */
+    declare public readonly tagFieldSpecifications: pulumi.Output<outputs.ec2.FlowLogTagFieldSpecification[] | undefined>;
+    /**
      * The tags to apply to the flow logs.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -117,6 +121,7 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["maxAggregationInterval"] = args?.maxAggregationInterval;
             resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["tagFieldSpecifications"] = args?.tagFieldSpecifications;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["trafficType"] = args?.trafficType;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -132,11 +137,12 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["maxAggregationInterval"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["tagFieldSpecifications"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["trafficType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["deliverCrossAccountRole", "deliverLogsPermissionArn", "destinationOptions", "logDestination", "logDestinationType", "logFormat", "logGroupName", "maxAggregationInterval", "resourceId", "resourceType", "trafficType"] };
+        const replaceOnChanges = { replaceOnChanges: ["deliverCrossAccountRole", "deliverLogsPermissionArn", "destinationOptions", "logDestination", "logDestinationType", "logFormat", "logGroupName", "maxAggregationInterval", "resourceId", "resourceType", "tagFieldSpecifications[*]", "trafficType"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FlowLog.__pulumiType, name, resourceInputs, opts);
     }
@@ -186,6 +192,10 @@ export interface FlowLogArgs {
      * The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
      */
     resourceType: pulumi.Input<enums.ec2.FlowLogResourceType>;
+    /**
+     * The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
+     */
+    tagFieldSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.FlowLogTagFieldSpecificationArgs>[]>;
     /**
      * The tags to apply to the flow logs.
      */

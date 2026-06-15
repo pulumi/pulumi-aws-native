@@ -103,6 +103,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         [Output("definition")]
         public Output<Union<Outputs.PolicyDefinition0Properties, Outputs.PolicyDefinition1Properties>> Definition { get; private set; } = null!;
 
+        [Output("name")]
+        public Output<string?> Name { get; private set; } = null!;
+
         /// <summary>
         /// The unique ID of the new or updated policy.
         /// </summary>
@@ -178,6 +181,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// </summary>
         [Input("definition", required: true)]
         public InputUnion<Inputs.PolicyDefinition0PropertiesArgs, Inputs.PolicyDefinition1PropertiesArgs> Definition { get; set; } = null!;
+
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.

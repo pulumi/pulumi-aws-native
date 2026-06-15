@@ -45,7 +45,8 @@ type LookupAiGuardrailResult struct {
 	// The policy configuration details for the AI Guardrail's contextual grounding policy.
 	ContextualGroundingPolicyConfig *AiGuardrailAiGuardrailContextualGroundingPolicyConfig `pulumi:"contextualGroundingPolicyConfig"`
 	// Description of the guardrail or its version
-	Description *string `pulumi:"description"`
+	Description         *string  `pulumi:"description"`
+	ModifiedTimeSeconds *float64 `pulumi:"modifiedTimeSeconds"`
 	// Contains details about PII entities and regular expressions to configure for the AI Guardrail.
 	SensitiveInformationPolicyConfig *AiGuardrailAiGuardrailSensitiveInformationPolicyConfig `pulumi:"sensitiveInformationPolicyConfig"`
 	// Contains details about topics that the AI Guardrail should identify and deny.
@@ -130,6 +131,10 @@ func (o LookupAiGuardrailResultOutput) ContextualGroundingPolicyConfig() AiGuard
 // Description of the guardrail or its version
 func (o LookupAiGuardrailResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiGuardrailResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAiGuardrailResultOutput) ModifiedTimeSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupAiGuardrailResult) *float64 { return v.ModifiedTimeSeconds }).(pulumi.Float64PtrOutput)
 }
 
 // Contains details about PII entities and regular expressions to configure for the AI Guardrail.

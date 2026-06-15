@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DbClusterArgs', 'DbCluster']
@@ -35,8 +36,10 @@ class DbClusterArgs:
                  deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  iam_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_type: Optional[pulumi.Input['DbClusterNetworkType']] = None,
                  preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_to_time: Optional[pulumi.Input[_builtins.str]] = None,
@@ -67,8 +70,10 @@ class DbClusterArgs:
         :param pulumi.Input[_builtins.bool] deletion_protection: Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enable_cloudwatch_logs_exports: Specifies a list of log types that are enabled for export to CloudWatch Logs.
         :param pulumi.Input[_builtins.str] engine_version: Indicates the database engine version.
+        :param pulumi.Input[_builtins.str] global_cluster_identifier: The ID of the Neptune global database to which this new DB cluster should be added.
         :param pulumi.Input[_builtins.bool] iam_auth_enabled: True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
         :param pulumi.Input[_builtins.str] kms_key_id: The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
+        :param pulumi.Input['DbClusterNetworkType'] network_type: The network type of the DB cluster.
         :param pulumi.Input[_builtins.str] preferred_backup_window: Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         :param pulumi.Input[_builtins.str] restore_to_time: Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
@@ -133,10 +138,14 @@ class DbClusterArgs:
             pulumi.set(__self__, "enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
+        if global_cluster_identifier is not None:
+            pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
         if iam_auth_enabled is not None:
             pulumi.set(__self__, "iam_auth_enabled", iam_auth_enabled)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if preferred_backup_window is not None:
             pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
@@ -309,6 +318,18 @@ class DbClusterArgs:
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
+    @pulumi.getter(name="globalClusterIdentifier")
+    def global_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the Neptune global database to which this new DB cluster should be added.
+        """
+        return pulumi.get(self, "global_cluster_identifier")
+
+    @global_cluster_identifier.setter
+    def global_cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "global_cluster_identifier", value)
+
+    @_builtins.property
     @pulumi.getter(name="iamAuthEnabled")
     def iam_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -331,6 +352,18 @@ class DbClusterArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input['DbClusterNetworkType']]:
+        """
+        The network type of the DB cluster.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input['DbClusterNetworkType']]):
+        pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
@@ -511,8 +544,10 @@ class DbCluster(pulumi.CustomResource):
                  deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  iam_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_type: Optional[pulumi.Input['DbClusterNetworkType']] = None,
                  preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_to_time: Optional[pulumi.Input[_builtins.str]] = None,
@@ -547,8 +582,10 @@ class DbCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] deletion_protection: Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enable_cloudwatch_logs_exports: Specifies a list of log types that are enabled for export to CloudWatch Logs.
         :param pulumi.Input[_builtins.str] engine_version: Indicates the database engine version.
+        :param pulumi.Input[_builtins.str] global_cluster_identifier: The ID of the Neptune global database to which this new DB cluster should be added.
         :param pulumi.Input[_builtins.bool] iam_auth_enabled: True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
         :param pulumi.Input[_builtins.str] kms_key_id: The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
+        :param pulumi.Input['DbClusterNetworkType'] network_type: The network type of the DB cluster.
         :param pulumi.Input[_builtins.str] preferred_backup_window: Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         :param pulumi.Input[_builtins.str] restore_to_time: Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
@@ -626,8 +663,10 @@ class DbCluster(pulumi.CustomResource):
                  deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  iam_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_type: Optional[pulumi.Input['DbClusterNetworkType']] = None,
                  preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_to_time: Optional[pulumi.Input[_builtins.str]] = None,
@@ -660,8 +699,10 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
             __props__.__dict__["engine_version"] = engine_version
+            __props__.__dict__["global_cluster_identifier"] = global_cluster_identifier
             __props__.__dict__["iam_auth_enabled"] = iam_auth_enabled
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["restore_to_time"] = restore_to_time
@@ -677,7 +718,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["port"] = None
             __props__.__dict__["read_endpoint"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZones[*]", "dbClusterIdentifier", "dbSubnetGroupName", "kmsKeyId", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "storageEncrypted", "useLatestRestorableTime"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZones[*]", "dbClusterIdentifier", "dbSubnetGroupName", "globalClusterIdentifier", "kmsKeyId", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "storageEncrypted", "useLatestRestorableTime"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbCluster, __self__).__init__(
             'aws-native:neptune:DbCluster',
@@ -715,8 +756,10 @@ class DbCluster(pulumi.CustomResource):
         __props__.__dict__["enable_cloudwatch_logs_exports"] = None
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["engine_version"] = None
+        __props__.__dict__["global_cluster_identifier"] = None
         __props__.__dict__["iam_auth_enabled"] = None
         __props__.__dict__["kms_key_id"] = None
+        __props__.__dict__["network_type"] = None
         __props__.__dict__["port"] = None
         __props__.__dict__["preferred_backup_window"] = None
         __props__.__dict__["preferred_maintenance_window"] = None
@@ -849,6 +892,14 @@ class DbCluster(pulumi.CustomResource):
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
+    @pulumi.getter(name="globalClusterIdentifier")
+    def global_cluster_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ID of the Neptune global database to which this new DB cluster should be added.
+        """
+        return pulumi.get(self, "global_cluster_identifier")
+
+    @_builtins.property
     @pulumi.getter(name="iamAuthEnabled")
     def iam_auth_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
@@ -863,6 +914,14 @@ class DbCluster(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
         """
         return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[Optional['DbClusterNetworkType']]:
+        """
+        The network type of the DB cluster.
+        """
+        return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter

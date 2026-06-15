@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLoadBalancerResult:
-    def __init__(__self__, access_logging_policy=None, app_cookie_stickiness_policy=None, availability_zones=None, canonical_hosted_zone_name=None, canonical_hosted_zone_name_id=None, connection_draining_policy=None, connection_settings=None, cross_zone=None, dns_name=None, health_check=None, id=None, instances=None, lb_cookie_stickiness_policy=None, listeners=None, policies=None, security_groups=None, source_security_group_group_name=None, source_security_group_owner_alias=None, subnets=None, tags=None):
+    def __init__(__self__, access_logging_policy=None, app_cookie_stickiness_policy=None, availability_zones=None, canonical_hosted_zone_name=None, canonical_hosted_zone_name_id=None, connection_draining_policy=None, connection_settings=None, cross_zone=None, dns_name=None, health_check=None, instances=None, lb_cookie_stickiness_policy=None, listeners=None, policies=None, security_groups=None, source_security_group=None, subnets=None, tags=None):
         if access_logging_policy and not isinstance(access_logging_policy, dict):
             raise TypeError("Expected argument 'access_logging_policy' to be a dict")
         pulumi.set(__self__, "access_logging_policy", access_logging_policy)
@@ -56,9 +56,6 @@ class GetLoadBalancerResult:
         if health_check and not isinstance(health_check, dict):
             raise TypeError("Expected argument 'health_check' to be a dict")
         pulumi.set(__self__, "health_check", health_check)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if instances and not isinstance(instances, list):
             raise TypeError("Expected argument 'instances' to be a list")
         pulumi.set(__self__, "instances", instances)
@@ -74,12 +71,9 @@ class GetLoadBalancerResult:
         if security_groups and not isinstance(security_groups, list):
             raise TypeError("Expected argument 'security_groups' to be a list")
         pulumi.set(__self__, "security_groups", security_groups)
-        if source_security_group_group_name and not isinstance(source_security_group_group_name, str):
-            raise TypeError("Expected argument 'source_security_group_group_name' to be a str")
-        pulumi.set(__self__, "source_security_group_group_name", source_security_group_group_name)
-        if source_security_group_owner_alias and not isinstance(source_security_group_owner_alias, str):
-            raise TypeError("Expected argument 'source_security_group_owner_alias' to be a str")
-        pulumi.set(__self__, "source_security_group_owner_alias", source_security_group_owner_alias)
+        if source_security_group and not isinstance(source_security_group, dict):
+            raise TypeError("Expected argument 'source_security_group' to be a dict")
+        pulumi.set(__self__, "source_security_group", source_security_group)
         if subnets and not isinstance(subnets, list):
             raise TypeError("Expected argument 'subnets' to be a list")
         pulumi.set(__self__, "subnets", subnets)
@@ -107,9 +101,7 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify `Subnets` instead.
-
-        Update requires replacement if you did not previously specify an Availability Zone or if you are removing all Availability Zones. Otherwise, update requires no interruption.
+        The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify Subnets instead.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -117,7 +109,7 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="canonicalHostedZoneName")
     def canonical_hosted_zone_name(self) -> Optional[_builtins.str]:
         """
-        The name of the Route 53 hosted zone that is associated with the load balancer. Internal-facing load balancers don't use this value, use `DNSName` instead.
+        The name of the Route 53 hosted zone that is associated with the load balancer. Internal-facing load balancers.
         """
         return pulumi.get(self, "canonical_hosted_zone_name")
 
@@ -134,8 +126,6 @@ class GetLoadBalancerResult:
     def connection_draining_policy(self) -> Optional['outputs.LoadBalancerConnectionDrainingPolicy']:
         """
         If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
-
-        For more information, see [Configure connection draining](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html) in the *User Guide for Classic Load Balancers* .
         """
         return pulumi.get(self, "connection_draining_policy")
 
@@ -144,8 +134,6 @@ class GetLoadBalancerResult:
     def connection_settings(self) -> Optional['outputs.LoadBalancerConnectionSettings']:
         """
         If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
-
-        By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see [Configure idle connection timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html) in the *User Guide for Classic Load Balancers* .
         """
         return pulumi.get(self, "connection_settings")
 
@@ -154,8 +142,6 @@ class GetLoadBalancerResult:
     def cross_zone(self) -> Optional[_builtins.bool]:
         """
         If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
-
-        For more information, see [Configure cross-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html) in the *User Guide for Classic Load Balancers* .
         """
         return pulumi.get(self, "cross_zone")
 
@@ -163,7 +149,7 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[_builtins.str]:
         """
-        The DNS name for the load balancer.
+        The DNS name for the load balancer
         """
         return pulumi.get(self, "dns_name")
 
@@ -172,15 +158,8 @@ class GetLoadBalancerResult:
     def health_check(self) -> Optional['outputs.LoadBalancerHealthCheck']:
         """
         The health check settings to use when evaluating the health of your EC2 instances.
-
-        Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
         """
         return pulumi.get(self, "health_check")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -202,9 +181,7 @@ class GetLoadBalancerResult:
     @pulumi.getter
     def listeners(self) -> Optional[Sequence['outputs.LoadBalancerListeners']]:
         """
-        The listeners for the load balancer. You can specify at most one listener per port.
-
-        If you update the properties for a listener, AWS CloudFormation deletes the existing listener and creates a new one with the specified properties. While the new listener is being created, clients cannot connect to the load balancer.
+        The Listeners for the load balancer. You can specify at most one listener per port.
         """
         return pulumi.get(self, "listeners")
 
@@ -225,22 +202,15 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "security_groups")
 
     @_builtins.property
-    @pulumi.getter(name="sourceSecurityGroupGroupName")
-    def source_security_group_group_name(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "source_security_group_group_name")
-
-    @_builtins.property
-    @pulumi.getter(name="sourceSecurityGroupOwnerAlias")
-    def source_security_group_owner_alias(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "source_security_group_owner_alias")
+    @pulumi.getter(name="sourceSecurityGroup")
+    def source_security_group(self) -> Optional['outputs.LoadBalancerSourceSecurityGroup']:
+        return pulumi.get(self, "source_security_group")
 
     @_builtins.property
     @pulumi.getter
     def subnets(self) -> Optional[Sequence[_builtins.str]]:
         """
         The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
-
-        Update requires replacement if you did not previously specify a subnet or if you are removing all subnets. Otherwise, update requires no interruption. To update to a different subnet in the current Availability Zone, you must first update to a subnet in a different Availability Zone, then update to the new subnet in the original Availability Zone.
         """
         return pulumi.get(self, "subnets")
 
@@ -269,25 +239,26 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             cross_zone=self.cross_zone,
             dns_name=self.dns_name,
             health_check=self.health_check,
-            id=self.id,
             instances=self.instances,
             lb_cookie_stickiness_policy=self.lb_cookie_stickiness_policy,
             listeners=self.listeners,
             policies=self.policies,
             security_groups=self.security_groups,
-            source_security_group_group_name=self.source_security_group_group_name,
-            source_security_group_owner_alias=self.source_security_group_owner_alias,
+            source_security_group=self.source_security_group,
             subnets=self.subnets,
             tags=self.tags)
 
 
-def get_load_balancer(id: Optional[_builtins.str] = None,
+def get_load_balancer(load_balancer_name: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
     """
     Resource Type definition for AWS::ElasticLoadBalancing::LoadBalancer
+
+
+    :param _builtins.str load_balancer_name: The name of the load balancer. This name must be unique within your set of load balancers for the region.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['loadBalancerName'] = load_balancer_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:elasticloadbalancing:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult).value
 
@@ -302,23 +273,24 @@ def get_load_balancer(id: Optional[_builtins.str] = None,
         cross_zone=pulumi.get(__ret__, 'cross_zone'),
         dns_name=pulumi.get(__ret__, 'dns_name'),
         health_check=pulumi.get(__ret__, 'health_check'),
-        id=pulumi.get(__ret__, 'id'),
         instances=pulumi.get(__ret__, 'instances'),
         lb_cookie_stickiness_policy=pulumi.get(__ret__, 'lb_cookie_stickiness_policy'),
         listeners=pulumi.get(__ret__, 'listeners'),
         policies=pulumi.get(__ret__, 'policies'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
-        source_security_group_group_name=pulumi.get(__ret__, 'source_security_group_group_name'),
-        source_security_group_owner_alias=pulumi.get(__ret__, 'source_security_group_owner_alias'),
+        source_security_group=pulumi.get(__ret__, 'source_security_group'),
         subnets=pulumi.get(__ret__, 'subnets'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_load_balancer_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     Resource Type definition for AWS::ElasticLoadBalancing::LoadBalancer
+
+
+    :param _builtins.str load_balancer_name: The name of the load balancer. This name must be unique within your set of load balancers for the region.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['loadBalancerName'] = load_balancer_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:elasticloadbalancing:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
     return __ret__.apply(lambda __response__: GetLoadBalancerResult(
@@ -332,13 +304,11 @@ def get_load_balancer_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         cross_zone=pulumi.get(__response__, 'cross_zone'),
         dns_name=pulumi.get(__response__, 'dns_name'),
         health_check=pulumi.get(__response__, 'health_check'),
-        id=pulumi.get(__response__, 'id'),
         instances=pulumi.get(__response__, 'instances'),
         lb_cookie_stickiness_policy=pulumi.get(__response__, 'lb_cookie_stickiness_policy'),
         listeners=pulumi.get(__response__, 'listeners'),
         policies=pulumi.get(__response__, 'policies'),
         security_groups=pulumi.get(__response__, 'security_groups'),
-        source_security_group_group_name=pulumi.get(__response__, 'source_security_group_group_name'),
-        source_security_group_owner_alias=pulumi.get(__response__, 'source_security_group_owner_alias'),
+        source_security_group=pulumi.get(__response__, 'source_security_group'),
         subnets=pulumi.get(__response__, 'subnets'),
         tags=pulumi.get(__response__, 'tags')))

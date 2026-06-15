@@ -34,12 +34,6 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         }
 
         /// <summary>
-        /// The query language to use for the scheduled query (CWLI or SQL).
-        /// </summary>
-        [Input("queryLanguage", required: true)]
-        public Input<string> QueryLanguage { get; set; } = null!;
-
-        /// <summary>
         /// The query string to execute against the specified log groups.
         /// </summary>
         [Input("queryString", required: true)]

@@ -302,6 +302,7 @@ class AiGuardrail(pulumi.CustomResource):
             __props__.__dict__["ai_guardrail_arn"] = None
             __props__.__dict__["ai_guardrail_id"] = None
             __props__.__dict__["assistant_arn"] = None
+            __props__.__dict__["modified_time_seconds"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["assistantId", "name", "tags.*"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AiGuardrail, __self__).__init__(
@@ -335,6 +336,7 @@ class AiGuardrail(pulumi.CustomResource):
         __props__.__dict__["content_policy_config"] = None
         __props__.__dict__["contextual_grounding_policy_config"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["modified_time_seconds"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["sensitive_information_policy_config"] = None
         __props__.__dict__["tags"] = None
@@ -413,6 +415,11 @@ class AiGuardrail(pulumi.CustomResource):
         Description of the guardrail or its version
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="modifiedTimeSeconds")
+    def modified_time_seconds(self) -> pulumi.Output[_builtins.float]:
+        return pulumi.get(self, "modified_time_seconds")
 
     @_builtins.property
     @pulumi.getter

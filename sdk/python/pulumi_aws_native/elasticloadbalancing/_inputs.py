@@ -31,9 +31,14 @@ __all__ = [
     'LoadBalancerListenersArgsDict',
     'LoadBalancerPoliciesArgs',
     'LoadBalancerPoliciesArgsDict',
+    'LoadBalancerPolicyItemArgs',
+    'LoadBalancerPolicyItemArgsDict',
 ]
 
 class LoadBalancerAccessLoggingPolicyArgsDict(TypedDict):
+    """
+    Information about where and how access logs are stored for the load balancer.
+    """
     enabled: pulumi.Input[_builtins.bool]
     """
     Specifies whether access logs are enabled for the load balancer.
@@ -50,7 +55,7 @@ class LoadBalancerAccessLoggingPolicyArgsDict(TypedDict):
     """
     s3_bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod` . If the prefix is not provided, the log is placed at the root level of the bucket.
+    The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod`. If the prefix is not provided, the log is placed at the root level of the bucket.
     """
 
 @pulumi.input_type
@@ -61,12 +66,14 @@ class LoadBalancerAccessLoggingPolicyArgs:
                  emit_interval: Optional[pulumi.Input[_builtins.int]] = None,
                  s3_bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        Information about where and how access logs are stored for the load balancer.
+
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether access logs are enabled for the load balancer.
         :param pulumi.Input[_builtins.str] s3_bucket_name: The name of the Amazon S3 bucket where the access logs are stored.
         :param pulumi.Input[_builtins.int] emit_interval: The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.
                
                Default: 60 minutes
-        :param pulumi.Input[_builtins.str] s3_bucket_prefix: The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod` . If the prefix is not provided, the log is placed at the root level of the bucket.
+        :param pulumi.Input[_builtins.str] s3_bucket_prefix: The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod`. If the prefix is not provided, the log is placed at the root level of the bucket.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
@@ -117,7 +124,7 @@ class LoadBalancerAccessLoggingPolicyArgs:
     @pulumi.getter(name="s3BucketPrefix")
     def s3_bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod` . If the prefix is not provided, the log is placed at the root level of the bucket.
+        The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod`. If the prefix is not provided, the log is placed at the root level of the bucket.
         """
         return pulumi.get(self, "s3_bucket_prefix")
 
@@ -127,6 +134,9 @@ class LoadBalancerAccessLoggingPolicyArgs:
 
 
 class LoadBalancerAppCookieStickinessPolicyArgsDict(TypedDict):
+    """
+    Information about a policy for application-controlled session stickiness.
+    """
     cookie_name: pulumi.Input[_builtins.str]
     """
     The name of the application cookie used for stickiness.
@@ -142,6 +152,8 @@ class LoadBalancerAppCookieStickinessPolicyArgs:
                  cookie_name: pulumi.Input[_builtins.str],
                  policy_name: pulumi.Input[_builtins.str]):
         """
+        Information about a policy for application-controlled session stickiness.
+
         :param pulumi.Input[_builtins.str] cookie_name: The name of the application cookie used for stickiness.
         :param pulumi.Input[_builtins.str] policy_name: The mnemonic name for the policy being created. The name must be unique within a set of policies for this load balancer.
         """
@@ -174,6 +186,9 @@ class LoadBalancerAppCookieStickinessPolicyArgs:
 
 
 class LoadBalancerConnectionDrainingPolicyArgsDict(TypedDict):
+    """
+    If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
+    """
     enabled: pulumi.Input[_builtins.bool]
     """
     Specifies whether connection draining is enabled for the load balancer.
@@ -189,6 +204,8 @@ class LoadBalancerConnectionDrainingPolicyArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
+        If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
+
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether connection draining is enabled for the load balancer.
         :param pulumi.Input[_builtins.int] timeout: The maximum time, in seconds, to keep the existing connections open before deregistering the instances.
         """
@@ -222,6 +239,9 @@ class LoadBalancerConnectionDrainingPolicyArgs:
 
 
 class LoadBalancerConnectionSettingsArgsDict(TypedDict):
+    """
+    If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
+    """
     idle_timeout: pulumi.Input[_builtins.int]
     """
     The time, in seconds, that the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.
@@ -232,6 +252,8 @@ class LoadBalancerConnectionSettingsArgs:
     def __init__(__self__, *,
                  idle_timeout: pulumi.Input[_builtins.int]):
         """
+        If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
+
         :param pulumi.Input[_builtins.int] idle_timeout: The time, in seconds, that the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.
         """
         pulumi.set(__self__, "idle_timeout", idle_timeout)
@@ -250,6 +272,11 @@ class LoadBalancerConnectionSettingsArgs:
 
 
 class LoadBalancerHealthCheckArgsDict(TypedDict):
+    """
+    The health check settings to use when evaluating the health of your EC2 instances.
+
+    Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
+    """
     healthy_threshold: pulumi.Input[_builtins.str]
     """
     The number of consecutive health checks successes required before moving the instance to the `Healthy` state.
@@ -260,15 +287,7 @@ class LoadBalancerHealthCheckArgsDict(TypedDict):
     """
     target: pulumi.Input[_builtins.str]
     """
-    The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.
-
-    TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
-
-    SSL is also specified as SSL: port pair, for example, SSL:5000.
-
-    For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy.
-
-    The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
+    The instance being checked.
     """
     timeout: pulumi.Input[_builtins.str]
     """
@@ -290,17 +309,13 @@ class LoadBalancerHealthCheckArgs:
                  timeout: pulumi.Input[_builtins.str],
                  unhealthy_threshold: pulumi.Input[_builtins.str]):
         """
+        The health check settings to use when evaluating the health of your EC2 instances.
+
+        Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
+
         :param pulumi.Input[_builtins.str] healthy_threshold: The number of consecutive health checks successes required before moving the instance to the `Healthy` state.
         :param pulumi.Input[_builtins.str] interval: The approximate interval, in seconds, between health checks of an individual instance.
-        :param pulumi.Input[_builtins.str] target: The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.
-               
-               TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
-               
-               SSL is also specified as SSL: port pair, for example, SSL:5000.
-               
-               For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy.
-               
-               The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
+        :param pulumi.Input[_builtins.str] target: The instance being checked.
         :param pulumi.Input[_builtins.str] timeout: The amount of time, in seconds, during which no response means a failed health check.
                
                This value must be less than the `Interval` value.
@@ -340,15 +355,7 @@ class LoadBalancerHealthCheckArgs:
     @pulumi.getter
     def target(self) -> pulumi.Input[_builtins.str]:
         """
-        The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.
-
-        TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
-
-        SSL is also specified as SSL: port pair, for example, SSL:5000.
-
-        For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy.
-
-        The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
+        The instance being checked.
         """
         return pulumi.get(self, "target")
 
@@ -384,6 +391,9 @@ class LoadBalancerHealthCheckArgs:
 
 
 class LoadBalancerLbCookieStickinessPolicyArgsDict(TypedDict):
+    """
+    Information about a policy for duration-based session stickiness.
+    """
     cookie_expiration_period: NotRequired[pulumi.Input[_builtins.str]]
     """
     The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.
@@ -399,6 +409,8 @@ class LoadBalancerLbCookieStickinessPolicyArgs:
                  cookie_expiration_period: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        Information about a policy for duration-based session stickiness.
+
         :param pulumi.Input[_builtins.str] cookie_expiration_period: The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.
         :param pulumi.Input[_builtins.str] policy_name: The name of the policy. This name must be unique within the set of policies for this load balancer.
         """
@@ -577,7 +589,7 @@ class LoadBalancerListenersArgs:
 
 
 class LoadBalancerPoliciesArgsDict(TypedDict):
-    attributes: pulumi.Input[Sequence[Any]]
+    attributes: pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyItemArgsDict']]]
     """
     The policy attributes.
     """
@@ -601,13 +613,13 @@ class LoadBalancerPoliciesArgsDict(TypedDict):
 @pulumi.input_type
 class LoadBalancerPoliciesArgs:
     def __init__(__self__, *,
-                 attributes: pulumi.Input[Sequence[Any]],
+                 attributes: pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyItemArgs']]],
                  policy_name: pulumi.Input[_builtins.str],
                  policy_type: pulumi.Input[_builtins.str],
                  instance_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  load_balancer_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[Sequence[Any]] attributes: The policy attributes.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyItemArgs']]] attributes: The policy attributes.
         :param pulumi.Input[_builtins.str] policy_name: The name of the policy.
         :param pulumi.Input[_builtins.str] policy_type: The name of the policy type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_ports: The instance ports for the policy. Required only for some policy types.
@@ -623,14 +635,14 @@ class LoadBalancerPoliciesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> pulumi.Input[Sequence[Any]]:
+    def attributes(self) -> pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyItemArgs']]]:
         """
         The policy attributes.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: pulumi.Input[Sequence[Any]]):
+    def attributes(self, value: pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyItemArgs']]]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
@@ -680,5 +692,38 @@ class LoadBalancerPoliciesArgs:
     @load_balancer_ports.setter
     def load_balancer_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "load_balancer_ports", value)
+
+
+class LoadBalancerPolicyItemArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class LoadBalancerPolicyItemArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
 
 

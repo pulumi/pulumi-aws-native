@@ -42,6 +42,10 @@ __all__ = [
     'CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict',
     'CodeInterpreterCustomVpcConfigArgs',
     'CodeInterpreterCustomVpcConfigArgsDict',
+    'ConfigurationBundleComponentConfigurationArgs',
+    'ConfigurationBundleComponentConfigurationArgsDict',
+    'ConfigurationBundleVersionCreatedBySourceArgs',
+    'ConfigurationBundleVersionCreatedBySourceArgsDict',
     'DatasetDataSourceTypeArgs',
     'DatasetDataSourceTypeArgsDict',
     'DatasetInlineExamplesSourceArgs',
@@ -350,6 +354,8 @@ __all__ = [
     'OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgsDict',
     'OnlineEvaluationConfigCloudWatchLogsInputConfigArgs',
     'OnlineEvaluationConfigCloudWatchLogsInputConfigArgsDict',
+    'OnlineEvaluationConfigClusteringConfigArgs',
+    'OnlineEvaluationConfigClusteringConfigArgsDict',
     'OnlineEvaluationConfigDataSourceConfigArgs',
     'OnlineEvaluationConfigDataSourceConfigArgsDict',
     'OnlineEvaluationConfigEvaluatorReferenceArgs',
@@ -358,6 +364,8 @@ __all__ = [
     'OnlineEvaluationConfigFilterValueArgsDict',
     'OnlineEvaluationConfigFilterArgs',
     'OnlineEvaluationConfigFilterArgsDict',
+    'OnlineEvaluationConfigInsightArgs',
+    'OnlineEvaluationConfigInsightArgsDict',
     'OnlineEvaluationConfigRuleArgs',
     'OnlineEvaluationConfigRuleArgsDict',
     'OnlineEvaluationConfigSamplingConfigArgs',
@@ -945,6 +953,92 @@ class CodeInterpreterCustomVpcConfigArgs:
     @subnets.setter
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "subnets", value)
+
+
+class ConfigurationBundleComponentConfigurationArgsDict(TypedDict):
+    """
+    The configuration for a component within a configuration bundle.
+    """
+    configuration: Any
+    """
+    The configuration values as a flexible JSON document.
+    """
+
+@pulumi.input_type
+class ConfigurationBundleComponentConfigurationArgs:
+    def __init__(__self__, *,
+                 configuration: Any):
+        """
+        The configuration for a component within a configuration bundle.
+
+        :param Any configuration: The configuration values as a flexible JSON document.
+        """
+        pulumi.set(__self__, "configuration", configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def configuration(self) -> Any:
+        """
+        The configuration values as a flexible JSON document.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Any):
+        pulumi.set(self, "configuration", value)
+
+
+class ConfigurationBundleVersionCreatedBySourceArgsDict(TypedDict):
+    """
+    The source that created a configuration bundle version.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the source (for example, user, optimization-job, or system).
+    """
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the source, if applicable.
+    """
+
+@pulumi.input_type
+class ConfigurationBundleVersionCreatedBySourceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The source that created a configuration bundle version.
+
+        :param pulumi.Input[_builtins.str] name: The name of the source (for example, user, optimization-job, or system).
+        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the source, if applicable.
+        """
+        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the source (for example, user, optimization-job, or system).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the source, if applicable.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "arn", value)
 
 
 class DatasetDataSourceTypeArgsDict(TypedDict):
@@ -2544,18 +2638,22 @@ class GatewayTargetMcpServerTargetConfigurationArgsDict(TypedDict):
     endpoint: pulumi.Input[_builtins.str]
     listing_mode: NotRequired[pulumi.Input['GatewayTargetMcpServerListingMode']]
     mcp_tool_schema: NotRequired[pulumi.Input[Union['GatewayTargetMcpToolSchemaConfiguration0PropertiesArgsDict', 'GatewayTargetMcpToolSchemaConfiguration1PropertiesArgsDict']]]
+    resource_priority: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class GatewayTargetMcpServerTargetConfigurationArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[_builtins.str],
                  listing_mode: Optional[pulumi.Input['GatewayTargetMcpServerListingMode']] = None,
-                 mcp_tool_schema: Optional[pulumi.Input[Union['GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs', 'GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs']]] = None):
+                 mcp_tool_schema: Optional[pulumi.Input[Union['GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs', 'GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs']]] = None,
+                 resource_priority: Optional[pulumi.Input[_builtins.int]] = None):
         pulumi.set(__self__, "endpoint", endpoint)
         if listing_mode is not None:
             pulumi.set(__self__, "listing_mode", listing_mode)
         if mcp_tool_schema is not None:
             pulumi.set(__self__, "mcp_tool_schema", mcp_tool_schema)
+        if resource_priority is not None:
+            pulumi.set(__self__, "resource_priority", resource_priority)
 
     @_builtins.property
     @pulumi.getter
@@ -2583,6 +2681,15 @@ class GatewayTargetMcpServerTargetConfigurationArgs:
     @mcp_tool_schema.setter
     def mcp_tool_schema(self, value: Optional[pulumi.Input[Union['GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs', 'GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs']]]):
         pulumi.set(self, "mcp_tool_schema", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourcePriority")
+    def resource_priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "resource_priority")
+
+    @resource_priority.setter
+    def resource_priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "resource_priority", value)
 
 
 class GatewayTargetMcpTargetConfiguration0PropertiesArgsDict(TypedDict):
@@ -7932,6 +8039,39 @@ class OnlineEvaluationConfigCloudWatchLogsInputConfigArgs:
         pulumi.set(self, "service_names", value)
 
 
+class OnlineEvaluationConfigClusteringConfigArgsDict(TypedDict):
+    """
+    The configuration for clustering analysis of evaluation results.
+    """
+    frequencies: pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigClusteringFrequency']]]
+    """
+    The list of frequencies at which clustering reports are generated.
+    """
+
+@pulumi.input_type
+class OnlineEvaluationConfigClusteringConfigArgs:
+    def __init__(__self__, *,
+                 frequencies: pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigClusteringFrequency']]]):
+        """
+        The configuration for clustering analysis of evaluation results.
+
+        :param pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigClusteringFrequency']]] frequencies: The list of frequencies at which clustering reports are generated.
+        """
+        pulumi.set(__self__, "frequencies", frequencies)
+
+    @_builtins.property
+    @pulumi.getter
+    def frequencies(self) -> pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigClusteringFrequency']]]:
+        """
+        The list of frequencies at which clustering reports are generated.
+        """
+        return pulumi.get(self, "frequencies")
+
+    @frequencies.setter
+    def frequencies(self, value: pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigClusteringFrequency']]]):
+        pulumi.set(self, "frequencies", value)
+
+
 class OnlineEvaluationConfigDataSourceConfigArgsDict(TypedDict):
     """
     The configuration that specifies where to read agent traces for online evaluation.
@@ -8126,6 +8266,39 @@ class OnlineEvaluationConfigFilterArgs:
     @value.setter
     def value(self, value: pulumi.Input['OnlineEvaluationConfigFilterValueArgs']):
         pulumi.set(self, "value", value)
+
+
+class OnlineEvaluationConfigInsightArgsDict(TypedDict):
+    """
+    An insight configuration for failure analysis.
+    """
+    insight_id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier of the insight.
+    """
+
+@pulumi.input_type
+class OnlineEvaluationConfigInsightArgs:
+    def __init__(__self__, *,
+                 insight_id: pulumi.Input[_builtins.str]):
+        """
+        An insight configuration for failure analysis.
+
+        :param pulumi.Input[_builtins.str] insight_id: The unique identifier of the insight.
+        """
+        pulumi.set(__self__, "insight_id", insight_id)
+
+    @_builtins.property
+    @pulumi.getter(name="insightId")
+    def insight_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique identifier of the insight.
+        """
+        return pulumi.get(self, "insight_id")
+
+    @insight_id.setter
+    def insight_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "insight_id", value)
 
 
 class OnlineEvaluationConfigRuleArgsDict(TypedDict):

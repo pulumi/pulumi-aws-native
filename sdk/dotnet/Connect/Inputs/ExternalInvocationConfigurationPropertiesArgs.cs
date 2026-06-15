@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.Connect.Inputs
         /// <summary>
         /// Enable external invocation.
         /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
 
         public ExternalInvocationConfigurationPropertiesArgs()
         {

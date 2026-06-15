@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Deadline.Inputs
         [Input("instanceMarketOptions", required: true)]
         public Input<Inputs.FleetServiceManagedEc2InstanceMarketOptionsArgs> InstanceMarketOptions { get; set; } = null!;
 
+        [Input("persistentVolumeConfiguration")]
+        public Input<Inputs.FleetPersistentVolumeConfigurationArgs>? PersistentVolumeConfiguration { get; set; }
+
         [Input("storageProfileId")]
         public Input<string>? StorageProfileId { get; set; }
 

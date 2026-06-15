@@ -1532,6 +1532,381 @@ func (o CodeInterpreterCustomVpcConfigPtrOutput) Subnets() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
+// The configuration for a component within a configuration bundle.
+type ConfigurationBundleComponentConfiguration struct {
+	// The configuration values as a flexible JSON document.
+	Configuration interface{} `pulumi:"configuration"`
+}
+
+// ConfigurationBundleComponentConfigurationInput is an input type that accepts ConfigurationBundleComponentConfigurationArgs and ConfigurationBundleComponentConfigurationOutput values.
+// You can construct a concrete instance of `ConfigurationBundleComponentConfigurationInput` via:
+//
+//	ConfigurationBundleComponentConfigurationArgs{...}
+type ConfigurationBundleComponentConfigurationInput interface {
+	pulumi.Input
+
+	ToConfigurationBundleComponentConfigurationOutput() ConfigurationBundleComponentConfigurationOutput
+	ToConfigurationBundleComponentConfigurationOutputWithContext(context.Context) ConfigurationBundleComponentConfigurationOutput
+}
+
+// The configuration for a component within a configuration bundle.
+type ConfigurationBundleComponentConfigurationArgs struct {
+	// The configuration values as a flexible JSON document.
+	Configuration pulumi.Input `pulumi:"configuration"`
+}
+
+func (ConfigurationBundleComponentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationBundleComponentConfiguration)(nil)).Elem()
+}
+
+func (i ConfigurationBundleComponentConfigurationArgs) ToConfigurationBundleComponentConfigurationOutput() ConfigurationBundleComponentConfigurationOutput {
+	return i.ToConfigurationBundleComponentConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConfigurationBundleComponentConfigurationArgs) ToConfigurationBundleComponentConfigurationOutputWithContext(ctx context.Context) ConfigurationBundleComponentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBundleComponentConfigurationOutput)
+}
+
+// ConfigurationBundleComponentConfigurationMapInput is an input type that accepts ConfigurationBundleComponentConfigurationMap and ConfigurationBundleComponentConfigurationMapOutput values.
+// You can construct a concrete instance of `ConfigurationBundleComponentConfigurationMapInput` via:
+//
+//	ConfigurationBundleComponentConfigurationMap{ "key": ConfigurationBundleComponentConfigurationArgs{...} }
+type ConfigurationBundleComponentConfigurationMapInput interface {
+	pulumi.Input
+
+	ToConfigurationBundleComponentConfigurationMapOutput() ConfigurationBundleComponentConfigurationMapOutput
+	ToConfigurationBundleComponentConfigurationMapOutputWithContext(context.Context) ConfigurationBundleComponentConfigurationMapOutput
+}
+
+type ConfigurationBundleComponentConfigurationMap map[string]ConfigurationBundleComponentConfigurationInput
+
+func (ConfigurationBundleComponentConfigurationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConfigurationBundleComponentConfiguration)(nil)).Elem()
+}
+
+func (i ConfigurationBundleComponentConfigurationMap) ToConfigurationBundleComponentConfigurationMapOutput() ConfigurationBundleComponentConfigurationMapOutput {
+	return i.ToConfigurationBundleComponentConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i ConfigurationBundleComponentConfigurationMap) ToConfigurationBundleComponentConfigurationMapOutputWithContext(ctx context.Context) ConfigurationBundleComponentConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBundleComponentConfigurationMapOutput)
+}
+
+// The configuration for a component within a configuration bundle.
+type ConfigurationBundleComponentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationBundleComponentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationBundleComponentConfiguration)(nil)).Elem()
+}
+
+func (o ConfigurationBundleComponentConfigurationOutput) ToConfigurationBundleComponentConfigurationOutput() ConfigurationBundleComponentConfigurationOutput {
+	return o
+}
+
+func (o ConfigurationBundleComponentConfigurationOutput) ToConfigurationBundleComponentConfigurationOutputWithContext(ctx context.Context) ConfigurationBundleComponentConfigurationOutput {
+	return o
+}
+
+// The configuration values as a flexible JSON document.
+func (o ConfigurationBundleComponentConfigurationOutput) Configuration() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConfigurationBundleComponentConfiguration) interface{} { return v.Configuration }).(pulumi.AnyOutput)
+}
+
+type ConfigurationBundleComponentConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationBundleComponentConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConfigurationBundleComponentConfiguration)(nil)).Elem()
+}
+
+func (o ConfigurationBundleComponentConfigurationMapOutput) ToConfigurationBundleComponentConfigurationMapOutput() ConfigurationBundleComponentConfigurationMapOutput {
+	return o
+}
+
+func (o ConfigurationBundleComponentConfigurationMapOutput) ToConfigurationBundleComponentConfigurationMapOutputWithContext(ctx context.Context) ConfigurationBundleComponentConfigurationMapOutput {
+	return o
+}
+
+func (o ConfigurationBundleComponentConfigurationMapOutput) MapIndex(k pulumi.StringInput) ConfigurationBundleComponentConfigurationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConfigurationBundleComponentConfiguration {
+		return vs[0].(map[string]ConfigurationBundleComponentConfiguration)[vs[1].(string)]
+	}).(ConfigurationBundleComponentConfigurationOutput)
+}
+
+// A tag consisting of a key-value pair.
+type ConfigurationBundleTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// The source that created a configuration bundle version.
+type ConfigurationBundleVersionCreatedBySource struct {
+	// The Amazon Resource Name (ARN) of the source, if applicable.
+	Arn *string `pulumi:"arn"`
+	// The name of the source (for example, user, optimization-job, or system).
+	Name string `pulumi:"name"`
+}
+
+// ConfigurationBundleVersionCreatedBySourceInput is an input type that accepts ConfigurationBundleVersionCreatedBySourceArgs and ConfigurationBundleVersionCreatedBySourceOutput values.
+// You can construct a concrete instance of `ConfigurationBundleVersionCreatedBySourceInput` via:
+//
+//	ConfigurationBundleVersionCreatedBySourceArgs{...}
+type ConfigurationBundleVersionCreatedBySourceInput interface {
+	pulumi.Input
+
+	ToConfigurationBundleVersionCreatedBySourceOutput() ConfigurationBundleVersionCreatedBySourceOutput
+	ToConfigurationBundleVersionCreatedBySourceOutputWithContext(context.Context) ConfigurationBundleVersionCreatedBySourceOutput
+}
+
+// The source that created a configuration bundle version.
+type ConfigurationBundleVersionCreatedBySourceArgs struct {
+	// The Amazon Resource Name (ARN) of the source, if applicable.
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// The name of the source (for example, user, optimization-job, or system).
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ConfigurationBundleVersionCreatedBySourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationBundleVersionCreatedBySource)(nil)).Elem()
+}
+
+func (i ConfigurationBundleVersionCreatedBySourceArgs) ToConfigurationBundleVersionCreatedBySourceOutput() ConfigurationBundleVersionCreatedBySourceOutput {
+	return i.ToConfigurationBundleVersionCreatedBySourceOutputWithContext(context.Background())
+}
+
+func (i ConfigurationBundleVersionCreatedBySourceArgs) ToConfigurationBundleVersionCreatedBySourceOutputWithContext(ctx context.Context) ConfigurationBundleVersionCreatedBySourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBundleVersionCreatedBySourceOutput)
+}
+
+func (i ConfigurationBundleVersionCreatedBySourceArgs) ToConfigurationBundleVersionCreatedBySourcePtrOutput() ConfigurationBundleVersionCreatedBySourcePtrOutput {
+	return i.ToConfigurationBundleVersionCreatedBySourcePtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationBundleVersionCreatedBySourceArgs) ToConfigurationBundleVersionCreatedBySourcePtrOutputWithContext(ctx context.Context) ConfigurationBundleVersionCreatedBySourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBundleVersionCreatedBySourceOutput).ToConfigurationBundleVersionCreatedBySourcePtrOutputWithContext(ctx)
+}
+
+// ConfigurationBundleVersionCreatedBySourcePtrInput is an input type that accepts ConfigurationBundleVersionCreatedBySourceArgs, ConfigurationBundleVersionCreatedBySourcePtr and ConfigurationBundleVersionCreatedBySourcePtrOutput values.
+// You can construct a concrete instance of `ConfigurationBundleVersionCreatedBySourcePtrInput` via:
+//
+//	        ConfigurationBundleVersionCreatedBySourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationBundleVersionCreatedBySourcePtrInput interface {
+	pulumi.Input
+
+	ToConfigurationBundleVersionCreatedBySourcePtrOutput() ConfigurationBundleVersionCreatedBySourcePtrOutput
+	ToConfigurationBundleVersionCreatedBySourcePtrOutputWithContext(context.Context) ConfigurationBundleVersionCreatedBySourcePtrOutput
+}
+
+type configurationBundleVersionCreatedBySourcePtrType ConfigurationBundleVersionCreatedBySourceArgs
+
+func ConfigurationBundleVersionCreatedBySourcePtr(v *ConfigurationBundleVersionCreatedBySourceArgs) ConfigurationBundleVersionCreatedBySourcePtrInput {
+	return (*configurationBundleVersionCreatedBySourcePtrType)(v)
+}
+
+func (*configurationBundleVersionCreatedBySourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationBundleVersionCreatedBySource)(nil)).Elem()
+}
+
+func (i *configurationBundleVersionCreatedBySourcePtrType) ToConfigurationBundleVersionCreatedBySourcePtrOutput() ConfigurationBundleVersionCreatedBySourcePtrOutput {
+	return i.ToConfigurationBundleVersionCreatedBySourcePtrOutputWithContext(context.Background())
+}
+
+func (i *configurationBundleVersionCreatedBySourcePtrType) ToConfigurationBundleVersionCreatedBySourcePtrOutputWithContext(ctx context.Context) ConfigurationBundleVersionCreatedBySourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBundleVersionCreatedBySourcePtrOutput)
+}
+
+// The source that created a configuration bundle version.
+type ConfigurationBundleVersionCreatedBySourceOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationBundleVersionCreatedBySourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationBundleVersionCreatedBySource)(nil)).Elem()
+}
+
+func (o ConfigurationBundleVersionCreatedBySourceOutput) ToConfigurationBundleVersionCreatedBySourceOutput() ConfigurationBundleVersionCreatedBySourceOutput {
+	return o
+}
+
+func (o ConfigurationBundleVersionCreatedBySourceOutput) ToConfigurationBundleVersionCreatedBySourceOutputWithContext(ctx context.Context) ConfigurationBundleVersionCreatedBySourceOutput {
+	return o
+}
+
+func (o ConfigurationBundleVersionCreatedBySourceOutput) ToConfigurationBundleVersionCreatedBySourcePtrOutput() ConfigurationBundleVersionCreatedBySourcePtrOutput {
+	return o.ToConfigurationBundleVersionCreatedBySourcePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationBundleVersionCreatedBySourceOutput) ToConfigurationBundleVersionCreatedBySourcePtrOutputWithContext(ctx context.Context) ConfigurationBundleVersionCreatedBySourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationBundleVersionCreatedBySource) *ConfigurationBundleVersionCreatedBySource {
+		return &v
+	}).(ConfigurationBundleVersionCreatedBySourcePtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the source, if applicable.
+func (o ConfigurationBundleVersionCreatedBySourceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationBundleVersionCreatedBySource) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the source (for example, user, optimization-job, or system).
+func (o ConfigurationBundleVersionCreatedBySourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationBundleVersionCreatedBySource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ConfigurationBundleVersionCreatedBySourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationBundleVersionCreatedBySourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationBundleVersionCreatedBySource)(nil)).Elem()
+}
+
+func (o ConfigurationBundleVersionCreatedBySourcePtrOutput) ToConfigurationBundleVersionCreatedBySourcePtrOutput() ConfigurationBundleVersionCreatedBySourcePtrOutput {
+	return o
+}
+
+func (o ConfigurationBundleVersionCreatedBySourcePtrOutput) ToConfigurationBundleVersionCreatedBySourcePtrOutputWithContext(ctx context.Context) ConfigurationBundleVersionCreatedBySourcePtrOutput {
+	return o
+}
+
+func (o ConfigurationBundleVersionCreatedBySourcePtrOutput) Elem() ConfigurationBundleVersionCreatedBySourceOutput {
+	return o.ApplyT(func(v *ConfigurationBundleVersionCreatedBySource) ConfigurationBundleVersionCreatedBySource {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationBundleVersionCreatedBySource
+		return ret
+	}).(ConfigurationBundleVersionCreatedBySourceOutput)
+}
+
+// The Amazon Resource Name (ARN) of the source, if applicable.
+func (o ConfigurationBundleVersionCreatedBySourcePtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationBundleVersionCreatedBySource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the source (for example, user, optimization-job, or system).
+func (o ConfigurationBundleVersionCreatedBySourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationBundleVersionCreatedBySource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version lineage metadata that tracks parent versions and creation source.
+type ConfigurationBundleVersionLineageMetadata struct {
+	// The branch name for this version.
+	BranchName *string `pulumi:"branchName"`
+	// A commit message describing the changes in this version.
+	CommitMessage *string                                    `pulumi:"commitMessage"`
+	CreatedBy     *ConfigurationBundleVersionCreatedBySource `pulumi:"createdBy"`
+	// A list of parent version identifiers.
+	ParentVersionIds []string `pulumi:"parentVersionIds"`
+}
+
+// The version lineage metadata that tracks parent versions and creation source.
+type ConfigurationBundleVersionLineageMetadataOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationBundleVersionLineageMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationBundleVersionLineageMetadata)(nil)).Elem()
+}
+
+func (o ConfigurationBundleVersionLineageMetadataOutput) ToConfigurationBundleVersionLineageMetadataOutput() ConfigurationBundleVersionLineageMetadataOutput {
+	return o
+}
+
+func (o ConfigurationBundleVersionLineageMetadataOutput) ToConfigurationBundleVersionLineageMetadataOutputWithContext(ctx context.Context) ConfigurationBundleVersionLineageMetadataOutput {
+	return o
+}
+
+// The branch name for this version.
+func (o ConfigurationBundleVersionLineageMetadataOutput) BranchName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationBundleVersionLineageMetadata) *string { return v.BranchName }).(pulumi.StringPtrOutput)
+}
+
+// A commit message describing the changes in this version.
+func (o ConfigurationBundleVersionLineageMetadataOutput) CommitMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationBundleVersionLineageMetadata) *string { return v.CommitMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationBundleVersionLineageMetadataOutput) CreatedBy() ConfigurationBundleVersionCreatedBySourcePtrOutput {
+	return o.ApplyT(func(v ConfigurationBundleVersionLineageMetadata) *ConfigurationBundleVersionCreatedBySource {
+		return v.CreatedBy
+	}).(ConfigurationBundleVersionCreatedBySourcePtrOutput)
+}
+
+// A list of parent version identifiers.
+func (o ConfigurationBundleVersionLineageMetadataOutput) ParentVersionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationBundleVersionLineageMetadata) []string { return v.ParentVersionIds }).(pulumi.StringArrayOutput)
+}
+
+type ConfigurationBundleVersionLineageMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationBundleVersionLineageMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationBundleVersionLineageMetadata)(nil)).Elem()
+}
+
+func (o ConfigurationBundleVersionLineageMetadataPtrOutput) ToConfigurationBundleVersionLineageMetadataPtrOutput() ConfigurationBundleVersionLineageMetadataPtrOutput {
+	return o
+}
+
+func (o ConfigurationBundleVersionLineageMetadataPtrOutput) ToConfigurationBundleVersionLineageMetadataPtrOutputWithContext(ctx context.Context) ConfigurationBundleVersionLineageMetadataPtrOutput {
+	return o
+}
+
+func (o ConfigurationBundleVersionLineageMetadataPtrOutput) Elem() ConfigurationBundleVersionLineageMetadataOutput {
+	return o.ApplyT(func(v *ConfigurationBundleVersionLineageMetadata) ConfigurationBundleVersionLineageMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationBundleVersionLineageMetadata
+		return ret
+	}).(ConfigurationBundleVersionLineageMetadataOutput)
+}
+
+// The branch name for this version.
+func (o ConfigurationBundleVersionLineageMetadataPtrOutput) BranchName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationBundleVersionLineageMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BranchName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A commit message describing the changes in this version.
+func (o ConfigurationBundleVersionLineageMetadataPtrOutput) CommitMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationBundleVersionLineageMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CommitMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationBundleVersionLineageMetadataPtrOutput) CreatedBy() ConfigurationBundleVersionCreatedBySourcePtrOutput {
+	return o.ApplyT(func(v *ConfigurationBundleVersionLineageMetadata) *ConfigurationBundleVersionCreatedBySource {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(ConfigurationBundleVersionCreatedBySourcePtrOutput)
+}
+
+// A list of parent version identifiers.
+func (o ConfigurationBundleVersionLineageMetadataPtrOutput) ParentVersionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationBundleVersionLineageMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ParentVersionIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
 type DatasetDataSourceType struct {
 	InlineExamples *DatasetInlineExamplesSource `pulumi:"inlineExamples"`
@@ -6936,9 +7311,10 @@ func (o GatewayTargetMcpLambdaTargetConfigurationPtrOutput) ToolSchema() pulumi.
 }
 
 type GatewayTargetMcpServerTargetConfiguration struct {
-	Endpoint      string                             `pulumi:"endpoint"`
-	ListingMode   *GatewayTargetMcpServerListingMode `pulumi:"listingMode"`
-	McpToolSchema interface{}                        `pulumi:"mcpToolSchema"`
+	Endpoint         string                             `pulumi:"endpoint"`
+	ListingMode      *GatewayTargetMcpServerListingMode `pulumi:"listingMode"`
+	McpToolSchema    interface{}                        `pulumi:"mcpToolSchema"`
+	ResourcePriority *int                               `pulumi:"resourcePriority"`
 }
 
 // GatewayTargetMcpServerTargetConfigurationInput is an input type that accepts GatewayTargetMcpServerTargetConfigurationArgs and GatewayTargetMcpServerTargetConfigurationOutput values.
@@ -6953,9 +7329,10 @@ type GatewayTargetMcpServerTargetConfigurationInput interface {
 }
 
 type GatewayTargetMcpServerTargetConfigurationArgs struct {
-	Endpoint      pulumi.StringInput                        `pulumi:"endpoint"`
-	ListingMode   GatewayTargetMcpServerListingModePtrInput `pulumi:"listingMode"`
-	McpToolSchema pulumi.Input                              `pulumi:"mcpToolSchema"`
+	Endpoint         pulumi.StringInput                        `pulumi:"endpoint"`
+	ListingMode      GatewayTargetMcpServerListingModePtrInput `pulumi:"listingMode"`
+	McpToolSchema    pulumi.Input                              `pulumi:"mcpToolSchema"`
+	ResourcePriority pulumi.IntPtrInput                        `pulumi:"resourcePriority"`
 }
 
 func (GatewayTargetMcpServerTargetConfigurationArgs) ElementType() reflect.Type {
@@ -6996,6 +7373,10 @@ func (o GatewayTargetMcpServerTargetConfigurationOutput) ListingMode() GatewayTa
 
 func (o GatewayTargetMcpServerTargetConfigurationOutput) McpToolSchema() pulumi.AnyOutput {
 	return o.ApplyT(func(v GatewayTargetMcpServerTargetConfiguration) interface{} { return v.McpToolSchema }).(pulumi.AnyOutput)
+}
+
+func (o GatewayTargetMcpServerTargetConfigurationOutput) ResourcePriority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayTargetMcpServerTargetConfiguration) *int { return v.ResourcePriority }).(pulumi.IntPtrOutput)
 }
 
 type GatewayTargetMcpServerTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -7047,6 +7428,15 @@ func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) McpToolSchema() pulu
 		}
 		return v.McpToolSchema
 	}).(pulumi.AnyOutput)
+}
+
+func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) ResourcePriority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpServerTargetConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ResourcePriority
+	}).(pulumi.IntPtrOutput)
 }
 
 type GatewayTargetMcpTargetConfiguration0Properties struct {
@@ -24221,6 +24611,148 @@ func (o OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput) LogGroupName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration for clustering analysis of evaluation results.
+type OnlineEvaluationConfigClusteringConfig struct {
+	// The list of frequencies at which clustering reports are generated.
+	Frequencies []OnlineEvaluationConfigClusteringFrequency `pulumi:"frequencies"`
+}
+
+// OnlineEvaluationConfigClusteringConfigInput is an input type that accepts OnlineEvaluationConfigClusteringConfigArgs and OnlineEvaluationConfigClusteringConfigOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigClusteringConfigInput` via:
+//
+//	OnlineEvaluationConfigClusteringConfigArgs{...}
+type OnlineEvaluationConfigClusteringConfigInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigClusteringConfigOutput() OnlineEvaluationConfigClusteringConfigOutput
+	ToOnlineEvaluationConfigClusteringConfigOutputWithContext(context.Context) OnlineEvaluationConfigClusteringConfigOutput
+}
+
+// The configuration for clustering analysis of evaluation results.
+type OnlineEvaluationConfigClusteringConfigArgs struct {
+	// The list of frequencies at which clustering reports are generated.
+	Frequencies OnlineEvaluationConfigClusteringFrequencyArrayInput `pulumi:"frequencies"`
+}
+
+func (OnlineEvaluationConfigClusteringConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigClusteringConfig)(nil)).Elem()
+}
+
+func (i OnlineEvaluationConfigClusteringConfigArgs) ToOnlineEvaluationConfigClusteringConfigOutput() OnlineEvaluationConfigClusteringConfigOutput {
+	return i.ToOnlineEvaluationConfigClusteringConfigOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigClusteringConfigArgs) ToOnlineEvaluationConfigClusteringConfigOutputWithContext(ctx context.Context) OnlineEvaluationConfigClusteringConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigClusteringConfigOutput)
+}
+
+func (i OnlineEvaluationConfigClusteringConfigArgs) ToOnlineEvaluationConfigClusteringConfigPtrOutput() OnlineEvaluationConfigClusteringConfigPtrOutput {
+	return i.ToOnlineEvaluationConfigClusteringConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigClusteringConfigArgs) ToOnlineEvaluationConfigClusteringConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigClusteringConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigClusteringConfigOutput).ToOnlineEvaluationConfigClusteringConfigPtrOutputWithContext(ctx)
+}
+
+// OnlineEvaluationConfigClusteringConfigPtrInput is an input type that accepts OnlineEvaluationConfigClusteringConfigArgs, OnlineEvaluationConfigClusteringConfigPtr and OnlineEvaluationConfigClusteringConfigPtrOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigClusteringConfigPtrInput` via:
+//
+//	        OnlineEvaluationConfigClusteringConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type OnlineEvaluationConfigClusteringConfigPtrInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigClusteringConfigPtrOutput() OnlineEvaluationConfigClusteringConfigPtrOutput
+	ToOnlineEvaluationConfigClusteringConfigPtrOutputWithContext(context.Context) OnlineEvaluationConfigClusteringConfigPtrOutput
+}
+
+type onlineEvaluationConfigClusteringConfigPtrType OnlineEvaluationConfigClusteringConfigArgs
+
+func OnlineEvaluationConfigClusteringConfigPtr(v *OnlineEvaluationConfigClusteringConfigArgs) OnlineEvaluationConfigClusteringConfigPtrInput {
+	return (*onlineEvaluationConfigClusteringConfigPtrType)(v)
+}
+
+func (*onlineEvaluationConfigClusteringConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigClusteringConfig)(nil)).Elem()
+}
+
+func (i *onlineEvaluationConfigClusteringConfigPtrType) ToOnlineEvaluationConfigClusteringConfigPtrOutput() OnlineEvaluationConfigClusteringConfigPtrOutput {
+	return i.ToOnlineEvaluationConfigClusteringConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *onlineEvaluationConfigClusteringConfigPtrType) ToOnlineEvaluationConfigClusteringConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigClusteringConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigClusteringConfigPtrOutput)
+}
+
+// The configuration for clustering analysis of evaluation results.
+type OnlineEvaluationConfigClusteringConfigOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigClusteringConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigClusteringConfig)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigClusteringConfigOutput) ToOnlineEvaluationConfigClusteringConfigOutput() OnlineEvaluationConfigClusteringConfigOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigClusteringConfigOutput) ToOnlineEvaluationConfigClusteringConfigOutputWithContext(ctx context.Context) OnlineEvaluationConfigClusteringConfigOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigClusteringConfigOutput) ToOnlineEvaluationConfigClusteringConfigPtrOutput() OnlineEvaluationConfigClusteringConfigPtrOutput {
+	return o.ToOnlineEvaluationConfigClusteringConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigClusteringConfigOutput) ToOnlineEvaluationConfigClusteringConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigClusteringConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnlineEvaluationConfigClusteringConfig) *OnlineEvaluationConfigClusteringConfig {
+		return &v
+	}).(OnlineEvaluationConfigClusteringConfigPtrOutput)
+}
+
+// The list of frequencies at which clustering reports are generated.
+func (o OnlineEvaluationConfigClusteringConfigOutput) Frequencies() OnlineEvaluationConfigClusteringFrequencyArrayOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigClusteringConfig) []OnlineEvaluationConfigClusteringFrequency {
+		return v.Frequencies
+	}).(OnlineEvaluationConfigClusteringFrequencyArrayOutput)
+}
+
+type OnlineEvaluationConfigClusteringConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigClusteringConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigClusteringConfig)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigClusteringConfigPtrOutput) ToOnlineEvaluationConfigClusteringConfigPtrOutput() OnlineEvaluationConfigClusteringConfigPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigClusteringConfigPtrOutput) ToOnlineEvaluationConfigClusteringConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigClusteringConfigPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigClusteringConfigPtrOutput) Elem() OnlineEvaluationConfigClusteringConfigOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigClusteringConfig) OnlineEvaluationConfigClusteringConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OnlineEvaluationConfigClusteringConfig
+		return ret
+	}).(OnlineEvaluationConfigClusteringConfigOutput)
+}
+
+// The list of frequencies at which clustering reports are generated.
+func (o OnlineEvaluationConfigClusteringConfigPtrOutput) Frequencies() OnlineEvaluationConfigClusteringFrequencyArrayOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigClusteringConfig) []OnlineEvaluationConfigClusteringFrequency {
+		if v == nil {
+			return nil
+		}
+		return v.Frequencies
+	}).(OnlineEvaluationConfigClusteringFrequencyArrayOutput)
+}
+
 // The configuration that specifies where to read agent traces for online evaluation.
 type OnlineEvaluationConfigDataSourceConfig struct {
 	CloudWatchLogs OnlineEvaluationConfigCloudWatchLogsInputConfig `pulumi:"cloudWatchLogs"`
@@ -24594,6 +25126,106 @@ func (o OnlineEvaluationConfigFilterValueOutput) DoubleValue() pulumi.Float64Ptr
 // The string value for text-based filtering.
 func (o OnlineEvaluationConfigFilterValueOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OnlineEvaluationConfigFilterValue) *string { return v.StringValue }).(pulumi.StringPtrOutput)
+}
+
+// An insight configuration for failure analysis.
+type OnlineEvaluationConfigInsight struct {
+	// The unique identifier of the insight.
+	InsightId string `pulumi:"insightId"`
+}
+
+// OnlineEvaluationConfigInsightInput is an input type that accepts OnlineEvaluationConfigInsightArgs and OnlineEvaluationConfigInsightOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigInsightInput` via:
+//
+//	OnlineEvaluationConfigInsightArgs{...}
+type OnlineEvaluationConfigInsightInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigInsightOutput() OnlineEvaluationConfigInsightOutput
+	ToOnlineEvaluationConfigInsightOutputWithContext(context.Context) OnlineEvaluationConfigInsightOutput
+}
+
+// An insight configuration for failure analysis.
+type OnlineEvaluationConfigInsightArgs struct {
+	// The unique identifier of the insight.
+	InsightId pulumi.StringInput `pulumi:"insightId"`
+}
+
+func (OnlineEvaluationConfigInsightArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigInsight)(nil)).Elem()
+}
+
+func (i OnlineEvaluationConfigInsightArgs) ToOnlineEvaluationConfigInsightOutput() OnlineEvaluationConfigInsightOutput {
+	return i.ToOnlineEvaluationConfigInsightOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigInsightArgs) ToOnlineEvaluationConfigInsightOutputWithContext(ctx context.Context) OnlineEvaluationConfigInsightOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigInsightOutput)
+}
+
+// OnlineEvaluationConfigInsightArrayInput is an input type that accepts OnlineEvaluationConfigInsightArray and OnlineEvaluationConfigInsightArrayOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigInsightArrayInput` via:
+//
+//	OnlineEvaluationConfigInsightArray{ OnlineEvaluationConfigInsightArgs{...} }
+type OnlineEvaluationConfigInsightArrayInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigInsightArrayOutput() OnlineEvaluationConfigInsightArrayOutput
+	ToOnlineEvaluationConfigInsightArrayOutputWithContext(context.Context) OnlineEvaluationConfigInsightArrayOutput
+}
+
+type OnlineEvaluationConfigInsightArray []OnlineEvaluationConfigInsightInput
+
+func (OnlineEvaluationConfigInsightArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OnlineEvaluationConfigInsight)(nil)).Elem()
+}
+
+func (i OnlineEvaluationConfigInsightArray) ToOnlineEvaluationConfigInsightArrayOutput() OnlineEvaluationConfigInsightArrayOutput {
+	return i.ToOnlineEvaluationConfigInsightArrayOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigInsightArray) ToOnlineEvaluationConfigInsightArrayOutputWithContext(ctx context.Context) OnlineEvaluationConfigInsightArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigInsightArrayOutput)
+}
+
+// An insight configuration for failure analysis.
+type OnlineEvaluationConfigInsightOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigInsightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigInsight)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigInsightOutput) ToOnlineEvaluationConfigInsightOutput() OnlineEvaluationConfigInsightOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigInsightOutput) ToOnlineEvaluationConfigInsightOutputWithContext(ctx context.Context) OnlineEvaluationConfigInsightOutput {
+	return o
+}
+
+// The unique identifier of the insight.
+func (o OnlineEvaluationConfigInsightOutput) InsightId() pulumi.StringOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigInsight) string { return v.InsightId }).(pulumi.StringOutput)
+}
+
+type OnlineEvaluationConfigInsightArrayOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigInsightArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OnlineEvaluationConfigInsight)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigInsightArrayOutput) ToOnlineEvaluationConfigInsightArrayOutput() OnlineEvaluationConfigInsightArrayOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigInsightArrayOutput) ToOnlineEvaluationConfigInsightArrayOutputWithContext(ctx context.Context) OnlineEvaluationConfigInsightArrayOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigInsightArrayOutput) Index(i pulumi.IntInput) OnlineEvaluationConfigInsightOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OnlineEvaluationConfigInsight {
+		return vs[0].([]OnlineEvaluationConfigInsight)[vs[1].(int)]
+	}).(OnlineEvaluationConfigInsightOutput)
 }
 
 // The configuration that specifies where evaluation results should be written.
@@ -29829,6 +30461,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCodeInterpreterNetworkConfigurationInput)(nil)).Elem(), CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomVpcConfigInput)(nil)).Elem(), CodeInterpreterCustomVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomVpcConfigPtrInput)(nil)).Elem(), CodeInterpreterCustomVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationBundleComponentConfigurationInput)(nil)).Elem(), ConfigurationBundleComponentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationBundleComponentConfigurationMapInput)(nil)).Elem(), ConfigurationBundleComponentConfigurationMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationBundleVersionCreatedBySourceInput)(nil)).Elem(), ConfigurationBundleVersionCreatedBySourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationBundleVersionCreatedBySourcePtrInput)(nil)).Elem(), ConfigurationBundleVersionCreatedBySourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDataSourceTypeInput)(nil)).Elem(), DatasetDataSourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDataSourceTypePtrInput)(nil)).Elem(), DatasetDataSourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetInlineExamplesSourceInput)(nil)).Elem(), DatasetInlineExamplesSourceArgs{})
@@ -30111,12 +30747,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderTokenExchangeGrantTypeConfigInput)(nil)).Elem(), OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrInput)(nil)).Elem(), OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigCloudWatchLogsInputConfigInput)(nil)).Elem(), OnlineEvaluationConfigCloudWatchLogsInputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigClusteringConfigInput)(nil)).Elem(), OnlineEvaluationConfigClusteringConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigClusteringConfigPtrInput)(nil)).Elem(), OnlineEvaluationConfigClusteringConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigDataSourceConfigInput)(nil)).Elem(), OnlineEvaluationConfigDataSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigEvaluatorReferenceInput)(nil)).Elem(), OnlineEvaluationConfigEvaluatorReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigEvaluatorReferenceArrayInput)(nil)).Elem(), OnlineEvaluationConfigEvaluatorReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterInput)(nil)).Elem(), OnlineEvaluationConfigFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterArrayInput)(nil)).Elem(), OnlineEvaluationConfigFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterValueInput)(nil)).Elem(), OnlineEvaluationConfigFilterValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigInsightInput)(nil)).Elem(), OnlineEvaluationConfigInsightArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigInsightArrayInput)(nil)).Elem(), OnlineEvaluationConfigInsightArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigRuleInput)(nil)).Elem(), OnlineEvaluationConfigRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigSamplingConfigInput)(nil)).Elem(), OnlineEvaluationConfigSamplingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigSessionConfigInput)(nil)).Elem(), OnlineEvaluationConfigSessionConfigArgs{})
@@ -30199,6 +30839,12 @@ func init() {
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomVpcConfigOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationBundleComponentConfigurationOutput{})
+	pulumi.RegisterOutputType(ConfigurationBundleComponentConfigurationMapOutput{})
+	pulumi.RegisterOutputType(ConfigurationBundleVersionCreatedBySourceOutput{})
+	pulumi.RegisterOutputType(ConfigurationBundleVersionCreatedBySourcePtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationBundleVersionLineageMetadataOutput{})
+	pulumi.RegisterOutputType(ConfigurationBundleVersionLineageMetadataPtrOutput{})
 	pulumi.RegisterOutputType(DatasetDataSourceTypeOutput{})
 	pulumi.RegisterOutputType(DatasetDataSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(DatasetInlineExamplesSourceOutput{})
@@ -30515,6 +31161,8 @@ func init() {
 	pulumi.RegisterOutputType(OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigCloudWatchOutputConfigOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigClusteringConfigOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigClusteringConfigPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigDataSourceConfigOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigDataSourceConfigPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigEvaluatorReferenceOutput{})
@@ -30522,6 +31170,8 @@ func init() {
 	pulumi.RegisterOutputType(OnlineEvaluationConfigFilterOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigFilterArrayOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigFilterValueOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigInsightOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigInsightArrayOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigOutputConfigOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigRuleOutput{})

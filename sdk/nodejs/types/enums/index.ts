@@ -130,6 +130,7 @@ import * as memorydb from "./memorydb";
 import * as msk from "./msk";
 import * as mwaa from "./mwaa";
 import * as mwaaserverless from "./mwaaserverless";
+import * as neptune from "./neptune";
 import * as neptunegraph from "./neptunegraph";
 import * as networkfirewall from "./networkfirewall";
 import * as oam from "./oam";
@@ -337,6 +338,7 @@ export {
     msk,
     mwaa,
     mwaaserverless,
+    neptune,
     neptunegraph,
     networkfirewall,
     oam,

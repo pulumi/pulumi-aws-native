@@ -51,6 +51,10 @@ export class CollectionGroup extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
+     * The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
+     */
+    declare public readonly generation: pulumi.Output<enums.opensearchserverless.CollectionGroupGeneration | undefined>;
+    /**
      * The name of the collection group.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -79,6 +83,7 @@ export class CollectionGroup extends pulumi.CustomResource {
             }
             resourceInputs["capacityLimits"] = args?.capacityLimits;
             resourceInputs["description"] = args?.description;
+            resourceInputs["generation"] = args?.generation;
             resourceInputs["name"] = args?.name;
             resourceInputs["standbyReplicas"] = args?.standbyReplicas;
             resourceInputs["tags"] = args?.tags;
@@ -89,12 +94,13 @@ export class CollectionGroup extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["capacityLimits"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["generation"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["standbyReplicas"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name", "standbyReplicas"] };
+        const replaceOnChanges = { replaceOnChanges: ["generation", "name", "standbyReplicas"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CollectionGroup.__pulumiType, name, resourceInputs, opts);
     }
@@ -109,6 +115,10 @@ export interface CollectionGroupArgs {
      * The description of the collection group.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
+     */
+    generation?: pulumi.Input<enums.opensearchserverless.CollectionGroupGeneration>;
     /**
      * The name of the collection group.
      */

@@ -57,6 +57,8 @@ __all__ = [
     'InferenceExperimentModelInfrastructureConfigInfrastructureType',
     'InferenceExperimentStatus',
     'InferenceExperimentType',
+    'MlflowAppModelRegistrationMode',
+    'MlflowAppStatus',
     'MlflowTrackingServerTrackingServerSize',
     'ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType',
     'ModelBiasJobDefinitionBatchTransformInputS3InputMode',
@@ -960,6 +962,31 @@ class InferenceExperimentType(_builtins.str, Enum):
     The type of the inference experiment that you want to run.
     """
     SHADOW_MODE = "ShadowMode"
+
+
+@pulumi.type_token("aws-native:sagemaker:MlflowAppModelRegistrationMode")
+class MlflowAppModelRegistrationMode(_builtins.str, Enum):
+    """
+    Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry.
+    """
+    AUTO_MODEL_REGISTRATION_ENABLED = "AutoModelRegistrationEnabled"
+    AUTO_MODEL_REGISTRATION_DISABLED = "AutoModelRegistrationDisabled"
+
+
+@pulumi.type_token("aws-native:sagemaker:MlflowAppStatus")
+class MlflowAppStatus(_builtins.str, Enum):
+    """
+    The status of the MLflow App.
+    """
+    CREATING = "Creating"
+    CREATED = "Created"
+    CREATE_FAILED = "CreateFailed"
+    UPDATING = "Updating"
+    UPDATED = "Updated"
+    UPDATE_FAILED = "UpdateFailed"
+    DELETING = "Deleting"
+    DELETE_FAILED = "DeleteFailed"
+    DELETED = "Deleted"
 
 
 @pulumi.type_token("aws-native:sagemaker:MlflowTrackingServerTrackingServerSize")

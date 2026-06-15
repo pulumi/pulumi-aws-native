@@ -1924,6 +1924,75 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry.
+    /// </summary>
+    [EnumType]
+    public readonly struct MlflowAppModelRegistrationMode : IEquatable<MlflowAppModelRegistrationMode>
+    {
+        private readonly string _value;
+
+        private MlflowAppModelRegistrationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MlflowAppModelRegistrationMode AutoModelRegistrationEnabled { get; } = new MlflowAppModelRegistrationMode("AutoModelRegistrationEnabled");
+        public static MlflowAppModelRegistrationMode AutoModelRegistrationDisabled { get; } = new MlflowAppModelRegistrationMode("AutoModelRegistrationDisabled");
+
+        public static bool operator ==(MlflowAppModelRegistrationMode left, MlflowAppModelRegistrationMode right) => left.Equals(right);
+        public static bool operator !=(MlflowAppModelRegistrationMode left, MlflowAppModelRegistrationMode right) => !left.Equals(right);
+
+        public static explicit operator string(MlflowAppModelRegistrationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MlflowAppModelRegistrationMode other && Equals(other);
+        public bool Equals(MlflowAppModelRegistrationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the MLflow App.
+    /// </summary>
+    [EnumType]
+    public readonly struct MlflowAppStatus : IEquatable<MlflowAppStatus>
+    {
+        private readonly string _value;
+
+        private MlflowAppStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MlflowAppStatus Creating { get; } = new MlflowAppStatus("Creating");
+        public static MlflowAppStatus Created { get; } = new MlflowAppStatus("Created");
+        public static MlflowAppStatus CreateFailed { get; } = new MlflowAppStatus("CreateFailed");
+        public static MlflowAppStatus Updating { get; } = new MlflowAppStatus("Updating");
+        public static MlflowAppStatus Updated { get; } = new MlflowAppStatus("Updated");
+        public static MlflowAppStatus UpdateFailed { get; } = new MlflowAppStatus("UpdateFailed");
+        public static MlflowAppStatus Deleting { get; } = new MlflowAppStatus("Deleting");
+        public static MlflowAppStatus DeleteFailed { get; } = new MlflowAppStatus("DeleteFailed");
+        public static MlflowAppStatus Deleted { get; } = new MlflowAppStatus("Deleted");
+
+        public static bool operator ==(MlflowAppStatus left, MlflowAppStatus right) => left.Equals(right);
+        public static bool operator !=(MlflowAppStatus left, MlflowAppStatus right) => !left.Equals(right);
+
+        public static explicit operator string(MlflowAppStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MlflowAppStatus other && Equals(other);
+        public bool Equals(MlflowAppStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The size of the MLFlow Tracking Server.
     /// </summary>
     [EnumType]

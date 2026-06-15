@@ -25,10 +25,6 @@ namespace Pulumi.AwsNative.CloudWatch.Outputs
         /// </summary>
         public readonly ImmutableArray<string> LogGroupIdentifiers;
         /// <summary>
-        /// The query language to use for the scheduled query (CWLI or SQL).
-        /// </summary>
-        public readonly string QueryLanguage;
-        /// <summary>
         /// The query string to execute against the specified log groups.
         /// </summary>
         public readonly string QueryString;
@@ -47,8 +43,6 @@ namespace Pulumi.AwsNative.CloudWatch.Outputs
 
             ImmutableArray<string> logGroupIdentifiers,
 
-            string queryLanguage,
-
             string queryString,
 
             Outputs.LogAlarmScheduleConfiguration scheduleConfiguration,
@@ -57,7 +51,6 @@ namespace Pulumi.AwsNative.CloudWatch.Outputs
         {
             AggregationExpression = aggregationExpression;
             LogGroupIdentifiers = logGroupIdentifiers;
-            QueryLanguage = queryLanguage;
             QueryString = queryString;
             ScheduleConfiguration = scheduleConfiguration;
             ScheduledQueryRoleArn = scheduledQueryRoleArn;

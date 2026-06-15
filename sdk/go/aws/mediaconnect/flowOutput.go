@@ -35,6 +35,8 @@ type FlowOutputResource struct {
 	MinLatency pulumi.IntPtrOutput `pulumi:"minLatency"`
 	// The name of the output. This value must be unique within the current flow.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The timecode source for the NDI output.
+	NdiOutputTimecodeSource FlowOutputNdiOutputTimecodeSourcePtrOutput `pulumi:"ndiOutputTimecodeSource"`
 	// A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
 	NdiProgramName pulumi.StringPtrOutput `pulumi:"ndiProgramName"`
 	// A quality setting for the NDI Speed HQ encoder.
@@ -128,6 +130,8 @@ type flowOutputResourceArgs struct {
 	MinLatency *int `pulumi:"minLatency"`
 	// The name of the output. This value must be unique within the current flow.
 	Name *string `pulumi:"name"`
+	// The timecode source for the NDI output.
+	NdiOutputTimecodeSource *FlowOutputNdiOutputTimecodeSource `pulumi:"ndiOutputTimecodeSource"`
 	// A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
 	NdiProgramName *string `pulumi:"ndiProgramName"`
 	// A quality setting for the NDI Speed HQ encoder.
@@ -173,6 +177,8 @@ type FlowOutputResourceArgs struct {
 	MinLatency pulumi.IntPtrInput
 	// The name of the output. This value must be unique within the current flow.
 	Name pulumi.StringPtrInput
+	// The timecode source for the NDI output.
+	NdiOutputTimecodeSource FlowOutputNdiOutputTimecodeSourcePtrInput
 	// A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
 	NdiProgramName pulumi.StringPtrInput
 	// A quality setting for the NDI Speed HQ encoder.
@@ -280,6 +286,13 @@ func (o FlowOutputResourceOutput) MinLatency() pulumi.IntPtrOutput {
 // The name of the output. This value must be unique within the current flow.
 func (o FlowOutputResourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowOutputResource) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The timecode source for the NDI output.
+func (o FlowOutputResourceOutput) NdiOutputTimecodeSource() FlowOutputNdiOutputTimecodeSourcePtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) FlowOutputNdiOutputTimecodeSourcePtrOutput {
+		return v.NdiOutputTimecodeSource
+	}).(FlowOutputNdiOutputTimecodeSourcePtrOutput)
 }
 
 // A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.

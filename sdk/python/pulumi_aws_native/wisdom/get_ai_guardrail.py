@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAiGuardrailResult:
-    def __init__(__self__, ai_guardrail_arn=None, ai_guardrail_id=None, assistant_arn=None, blocked_input_messaging=None, blocked_outputs_messaging=None, content_policy_config=None, contextual_grounding_policy_config=None, description=None, sensitive_information_policy_config=None, topic_policy_config=None, word_policy_config=None):
+    def __init__(__self__, ai_guardrail_arn=None, ai_guardrail_id=None, assistant_arn=None, blocked_input_messaging=None, blocked_outputs_messaging=None, content_policy_config=None, contextual_grounding_policy_config=None, description=None, modified_time_seconds=None, sensitive_information_policy_config=None, topic_policy_config=None, word_policy_config=None):
         if ai_guardrail_arn and not isinstance(ai_guardrail_arn, str):
             raise TypeError("Expected argument 'ai_guardrail_arn' to be a str")
         pulumi.set(__self__, "ai_guardrail_arn", ai_guardrail_arn)
@@ -50,6 +50,9 @@ class GetAiGuardrailResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if modified_time_seconds and not isinstance(modified_time_seconds, float):
+            raise TypeError("Expected argument 'modified_time_seconds' to be a float")
+        pulumi.set(__self__, "modified_time_seconds", modified_time_seconds)
         if sensitive_information_policy_config and not isinstance(sensitive_information_policy_config, dict):
             raise TypeError("Expected argument 'sensitive_information_policy_config' to be a dict")
         pulumi.set(__self__, "sensitive_information_policy_config", sensitive_information_policy_config)
@@ -125,6 +128,11 @@ class GetAiGuardrailResult:
         return pulumi.get(self, "description")
 
     @_builtins.property
+    @pulumi.getter(name="modifiedTimeSeconds")
+    def modified_time_seconds(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "modified_time_seconds")
+
+    @_builtins.property
     @pulumi.getter(name="sensitiveInformationPolicyConfig")
     def sensitive_information_policy_config(self) -> Optional['outputs.AiGuardrailAiGuardrailSensitiveInformationPolicyConfig']:
         """
@@ -163,6 +171,7 @@ class AwaitableGetAiGuardrailResult(GetAiGuardrailResult):
             content_policy_config=self.content_policy_config,
             contextual_grounding_policy_config=self.contextual_grounding_policy_config,
             description=self.description,
+            modified_time_seconds=self.modified_time_seconds,
             sensitive_information_policy_config=self.sensitive_information_policy_config,
             topic_policy_config=self.topic_policy_config,
             word_policy_config=self.word_policy_config)
@@ -193,6 +202,7 @@ def get_ai_guardrail(ai_guardrail_id: Optional[_builtins.str] = None,
         content_policy_config=pulumi.get(__ret__, 'content_policy_config'),
         contextual_grounding_policy_config=pulumi.get(__ret__, 'contextual_grounding_policy_config'),
         description=pulumi.get(__ret__, 'description'),
+        modified_time_seconds=pulumi.get(__ret__, 'modified_time_seconds'),
         sensitive_information_policy_config=pulumi.get(__ret__, 'sensitive_information_policy_config'),
         topic_policy_config=pulumi.get(__ret__, 'topic_policy_config'),
         word_policy_config=pulumi.get(__ret__, 'word_policy_config'))
@@ -220,6 +230,7 @@ def get_ai_guardrail_output(ai_guardrail_id: Optional[pulumi.Input[_builtins.str
         content_policy_config=pulumi.get(__response__, 'content_policy_config'),
         contextual_grounding_policy_config=pulumi.get(__response__, 'contextual_grounding_policy_config'),
         description=pulumi.get(__response__, 'description'),
+        modified_time_seconds=pulumi.get(__response__, 'modified_time_seconds'),
         sensitive_information_policy_config=pulumi.get(__response__, 'sensitive_information_policy_config'),
         topic_policy_config=pulumi.get(__response__, 'topic_policy_config'),
         word_policy_config=pulumi.get(__response__, 'word_policy_config')))

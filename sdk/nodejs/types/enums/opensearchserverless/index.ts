@@ -21,6 +21,16 @@ export const CollectionDeletionProtection = {
  */
 export type CollectionDeletionProtection = (typeof CollectionDeletionProtection)[keyof typeof CollectionDeletionProtection];
 
+export const CollectionGroupGeneration = {
+    Classic: "CLASSIC",
+    Nextgen: "NEXTGEN",
+} as const;
+
+/**
+ * The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
+ */
+export type CollectionGroupGeneration = (typeof CollectionGroupGeneration)[keyof typeof CollectionGroupGeneration];
+
 export const CollectionGroupStandbyReplicas = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

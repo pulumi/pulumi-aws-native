@@ -58,6 +58,7 @@ export class PolicyTemplate extends pulumi.CustomResource {
      * The description to attach to the new or updated policy template.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of the policy store that contains the template.
      */
@@ -89,11 +90,13 @@ export class PolicyTemplate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'statement'");
             }
             resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
             resourceInputs["policyStoreId"] = args?.policyStoreId;
             resourceInputs["statement"] = args?.statement;
             resourceInputs["policyTemplateId"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyStoreId"] = undefined /*out*/;
             resourceInputs["policyTemplateId"] = undefined /*out*/;
             resourceInputs["statement"] = undefined /*out*/;
@@ -113,6 +116,7 @@ export interface PolicyTemplateArgs {
      * The description to attach to the new or updated policy template.
      */
     description?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The unique identifier of the policy store that contains the template.
      */

@@ -28,19 +28,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public Output<string> ApiId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
+        /// Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
         /// </summary>
         [Output("autoDeploy")]
         public Output<bool?> AutoDeploy { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier.
-        /// </summary>
-        [Output("awsId")]
-        public Output<string> AwsId { get; private set; } = null!;
-
-        /// <summary>
-        /// The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
+        /// The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
         /// </summary>
         [Output("clientCertificateId")]
         public Output<string?> ClientCertificateId { get; private set; } = null!;
@@ -52,7 +46,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public Output<Outputs.StageRouteSettings?> DefaultRouteSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
+        /// The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
         /// </summary>
         [Output("deploymentId")]
         public Output<string?> DeploymentId { get; private set; } = null!;
@@ -72,13 +66,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public Output<object?> RouteSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
+        /// The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
         /// </summary>
         [Output("stageName")]
         public Output<string> StageName { get; private set; } = null!;
 
         /// <summary>
-        /// A map that defines the stage variables for a `Stage` . Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.
+        /// A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
         /// </summary>
@@ -156,13 +150,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
+        /// Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
         /// </summary>
         [Input("autoDeploy")]
         public Input<bool>? AutoDeploy { get; set; }
 
         /// <summary>
-        /// The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
+        /// The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
         /// </summary>
         [Input("clientCertificateId")]
         public Input<string>? ClientCertificateId { get; set; }
@@ -174,7 +168,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public Input<Inputs.StageRouteSettingsArgs>? DefaultRouteSettings { get; set; }
 
         /// <summary>
-        /// The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
+        /// The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
         /// </summary>
         [Input("deploymentId")]
         public Input<string>? DeploymentId { get; set; }
@@ -194,13 +188,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public Input<object>? RouteSettings { get; set; }
 
         /// <summary>
-        /// The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
+        /// The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
 
         /// <summary>
-        /// A map that defines the stage variables for a `Stage` . Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.
+        /// A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
         /// </summary>
