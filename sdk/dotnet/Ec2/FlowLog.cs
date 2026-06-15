@@ -82,6 +82,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<Pulumi.AwsNative.Ec2.FlowLogResourceType> ResourceType { get; private set; } = null!;
 
         /// <summary>
+        /// The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
+        /// </summary>
+        [Output("tagFieldSpecifications")]
+        public Output<ImmutableArray<Outputs.FlowLogTagFieldSpecification>> TagFieldSpecifications { get; private set; } = null!;
+
+        /// <summary>
         /// The tags to apply to the flow logs.
         /// </summary>
         [Output("tags")]
@@ -128,6 +134,7 @@ namespace Pulumi.AwsNative.Ec2
                     "maxAggregationInterval",
                     "resourceId",
                     "resourceType",
+                    "tagFieldSpecifications[*]",
                     "trafficType",
                 },
             };
@@ -211,6 +218,18 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("resourceType", required: true)]
         public Input<Pulumi.AwsNative.Ec2.FlowLogResourceType> ResourceType { get; set; } = null!;
+
+        [Input("tagFieldSpecifications")]
+        private InputList<Inputs.FlowLogTagFieldSpecificationArgs>? _tagFieldSpecifications;
+
+        /// <summary>
+        /// The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
+        /// </summary>
+        public InputList<Inputs.FlowLogTagFieldSpecificationArgs> TagFieldSpecifications
+        {
+            get => _tagFieldSpecifications ?? (_tagFieldSpecifications = new InputList<Inputs.FlowLogTagFieldSpecificationArgs>());
+            set => _tagFieldSpecifications = value;
+        }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

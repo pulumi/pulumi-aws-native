@@ -104,6 +104,12 @@ namespace Pulumi.AwsNative.Neptune
         public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Neptune global database to which this new DB cluster should be added.
+        /// </summary>
+        [Output("globalClusterIdentifier")]
+        public Output<string?> GlobalClusterIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
         /// </summary>
         [Output("iamAuthEnabled")]
@@ -114,6 +120,12 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// The network type of the DB cluster.
+        /// </summary>
+        [Output("networkType")]
+        public Output<Pulumi.AwsNative.Neptune.DbClusterNetworkType?> NetworkType { get; private set; } = null!;
 
         /// <summary>
         /// The port number on which the DB cluster accepts connections. For example: `8182`.
@@ -249,6 +261,7 @@ namespace Pulumi.AwsNative.Neptune
                     "availabilityZones[*]",
                     "dbClusterIdentifier",
                     "dbSubnetGroupName",
+                    "globalClusterIdentifier",
                     "kmsKeyId",
                     "restoreToTime",
                     "restoreType",
@@ -374,6 +387,12 @@ namespace Pulumi.AwsNative.Neptune
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
+        /// The ID of the Neptune global database to which this new DB cluster should be added.
+        /// </summary>
+        [Input("globalClusterIdentifier")]
+        public Input<string>? GlobalClusterIdentifier { get; set; }
+
+        /// <summary>
         /// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
         /// </summary>
         [Input("iamAuthEnabled")]
@@ -384,6 +403,12 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// The network type of the DB cluster.
+        /// </summary>
+        [Input("networkType")]
+        public Input<Pulumi.AwsNative.Neptune.DbClusterNetworkType>? NetworkType { get; set; }
 
         /// <summary>
         /// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.

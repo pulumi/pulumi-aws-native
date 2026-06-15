@@ -1,7 +1,5 @@
-AWS::ApiGatewayV2::Stage
 AWS::DAX::SubnetGroup
 AWS::DataSync::StorageSystem
-AWS::ElasticLoadBalancing::LoadBalancer
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::IoTFleetHub::Application

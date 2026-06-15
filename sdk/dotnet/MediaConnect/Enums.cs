@@ -959,6 +959,37 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     /// <summary>
+    /// The timecode source for the NDI output.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowOutputNdiOutputTimecodeSource : IEquatable<FlowOutputNdiOutputTimecodeSource>
+    {
+        private readonly string _value;
+
+        private FlowOutputNdiOutputTimecodeSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowOutputNdiOutputTimecodeSource EmbeddedTimecode { get; } = new FlowOutputNdiOutputTimecodeSource("EMBEDDED_TIMECODE");
+        public static FlowOutputNdiOutputTimecodeSource UtcSystemTime { get; } = new FlowOutputNdiOutputTimecodeSource("UTC_SYSTEM_TIME");
+
+        public static bool operator ==(FlowOutputNdiOutputTimecodeSource left, FlowOutputNdiOutputTimecodeSource right) => left.Equals(right);
+        public static bool operator !=(FlowOutputNdiOutputTimecodeSource left, FlowOutputNdiOutputTimecodeSource right) => !left.Equals(right);
+
+        public static explicit operator string(FlowOutputNdiOutputTimecodeSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowOutputNdiOutputTimecodeSource other && Equals(other);
+        public bool Equals(FlowOutputNdiOutputTimecodeSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// An indication of whether the output should transmit data or not.
     /// </summary>
     [EnumType]

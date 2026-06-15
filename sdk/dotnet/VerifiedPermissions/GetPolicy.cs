@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
         /// </summary>
         public readonly Union<Outputs.PolicyDefinition0Properties, Outputs.PolicyDefinition1Properties>? Definition;
+        public readonly string? Name;
         /// <summary>
         /// The unique ID of the new or updated policy.
         /// </summary>
@@ -95,11 +96,14 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         private GetPolicyResult(
             Union<Outputs.PolicyDefinition0Properties, Outputs.PolicyDefinition1Properties>? definition,
 
+            string? name,
+
             string? policyId,
 
             Pulumi.AwsNative.VerifiedPermissions.PolicyType? policyType)
         {
             Definition = definition;
+            Name = name;
             PolicyId = policyId;
             PolicyType = policyType;
         }

@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.AppStream
         public Output<ImmutableArray<string>> AttributesToDelete { get; private set; } = null!;
 
         /// <summary>
+        /// The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
+        /// </summary>
+        [Output("contentRedirection")]
+        public Output<Outputs.StackContentRedirection?> ContentRedirection { get; private set; } = null!;
+
+        /// <summary>
         /// This parameter has been deprecated. Deletes the storage connectors currently enabled for the stack.
         /// </summary>
         [Output("deleteStorageConnectors")]
@@ -177,6 +183,12 @@ namespace Pulumi.AwsNative.AppStream
             get => _attributesToDelete ?? (_attributesToDelete = new InputList<string>());
             set => _attributesToDelete = value;
         }
+
+        /// <summary>
+        /// The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
+        /// </summary>
+        [Input("contentRedirection")]
+        public Input<Inputs.StackContentRedirectionArgs>? ContentRedirection { get; set; }
 
         /// <summary>
         /// This parameter has been deprecated. Deletes the storage connectors currently enabled for the stack.

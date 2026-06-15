@@ -50,6 +50,10 @@ export class Stack extends pulumi.CustomResource {
      */
     declare public readonly attributesToDelete: pulumi.Output<string[] | undefined>;
     /**
+     * The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
+     */
+    declare public readonly contentRedirection: pulumi.Output<outputs.appstream.StackContentRedirection | undefined>;
+    /**
      * This parameter has been deprecated. Deletes the storage connectors currently enabled for the stack.
      */
     declare public readonly deleteStorageConnectors: pulumi.Output<boolean | undefined>;
@@ -108,6 +112,7 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["accessEndpoints"] = args?.accessEndpoints;
             resourceInputs["applicationSettings"] = args?.applicationSettings;
             resourceInputs["attributesToDelete"] = args?.attributesToDelete;
+            resourceInputs["contentRedirection"] = args?.contentRedirection;
             resourceInputs["deleteStorageConnectors"] = args?.deleteStorageConnectors;
             resourceInputs["description"] = args?.description;
             resourceInputs["displayName"] = args?.displayName;
@@ -123,6 +128,7 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["accessEndpoints"] = undefined /*out*/;
             resourceInputs["applicationSettings"] = undefined /*out*/;
             resourceInputs["attributesToDelete"] = undefined /*out*/;
+            resourceInputs["contentRedirection"] = undefined /*out*/;
             resourceInputs["deleteStorageConnectors"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
@@ -158,6 +164,10 @@ export interface StackArgs {
      * The stack attributes to delete.
      */
     attributesToDelete?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
+     */
+    contentRedirection?: pulumi.Input<inputs.appstream.StackContentRedirectionArgs>;
     /**
      * This parameter has been deprecated. Deletes the storage connectors currently enabled for the stack.
      */

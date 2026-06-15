@@ -32,6 +32,7 @@ type LookupPolicyTemplateArgs struct {
 type LookupPolicyTemplateResult struct {
 	// The description to attach to the new or updated policy template.
 	Description *string `pulumi:"description"`
+	Name        *string `pulumi:"name"`
 	// The unique identifier of the new or modified policy template.
 	PolicyTemplateId *string `pulumi:"policyTemplateId"`
 	// Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
@@ -75,6 +76,10 @@ func (o LookupPolicyTemplateResultOutput) ToLookupPolicyTemplateResultOutputWith
 // The description to attach to the new or updated policy template.
 func (o LookupPolicyTemplateResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyTemplateResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPolicyTemplateResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyTemplateResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The unique identifier of the new or modified policy template.

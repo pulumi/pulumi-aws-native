@@ -25,6 +25,11 @@ export type CodeInterpreterCustom = import("./codeInterpreterCustom").CodeInterp
 export const CodeInterpreterCustom: typeof import("./codeInterpreterCustom").CodeInterpreterCustom = null as any;
 utilities.lazyLoad(exports, ["CodeInterpreterCustom"], () => require("./codeInterpreterCustom"));
 
+export { ConfigurationBundleArgs } from "./configurationBundle";
+export type ConfigurationBundle = import("./configurationBundle").ConfigurationBundle;
+export const ConfigurationBundle: typeof import("./configurationBundle").ConfigurationBundle = null as any;
+utilities.lazyLoad(exports, ["ConfigurationBundle"], () => require("./configurationBundle"));
+
 export { DatasetArgs } from "./dataset";
 export type Dataset = import("./dataset").Dataset;
 export const Dataset: typeof import("./dataset").Dataset = null as any;
@@ -64,6 +69,11 @@ export { GetCodeInterpreterCustomArgs, GetCodeInterpreterCustomResult, GetCodeIn
 export const getCodeInterpreterCustom: typeof import("./getCodeInterpreterCustom").getCodeInterpreterCustom = null as any;
 export const getCodeInterpreterCustomOutput: typeof import("./getCodeInterpreterCustom").getCodeInterpreterCustomOutput = null as any;
 utilities.lazyLoad(exports, ["getCodeInterpreterCustom","getCodeInterpreterCustomOutput"], () => require("./getCodeInterpreterCustom"));
+
+export { GetConfigurationBundleArgs, GetConfigurationBundleResult, GetConfigurationBundleOutputArgs } from "./getConfigurationBundle";
+export const getConfigurationBundle: typeof import("./getConfigurationBundle").getConfigurationBundle = null as any;
+export const getConfigurationBundleOutput: typeof import("./getConfigurationBundle").getConfigurationBundleOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigurationBundle","getConfigurationBundleOutput"], () => require("./getConfigurationBundle"));
 
 export { GetDatasetArgs, GetDatasetResult, GetDatasetOutputArgs } from "./getDataset";
 export const getDataset: typeof import("./getDataset").getDataset = null as any;
@@ -231,6 +241,8 @@ const _module = {
                 return new BrowserProfile(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:CodeInterpreterCustom":
                 return new CodeInterpreterCustom(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:ConfigurationBundle":
+                return new ConfigurationBundle(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Dataset":
                 return new Dataset(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Evaluator":

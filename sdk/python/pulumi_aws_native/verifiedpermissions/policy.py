@@ -23,7 +23,8 @@ __all__ = ['PolicyArgs', 'Policy']
 class PolicyArgs:
     def __init__(__self__, *,
                  definition: pulumi.Input[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition1PropertiesArgs']],
-                 policy_store_id: pulumi.Input[_builtins.str]):
+                 policy_store_id: pulumi.Input[_builtins.str],
+                 name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Policy resource.
 
@@ -32,6 +33,8 @@ class PolicyArgs:
         """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "policy_store_id", policy_store_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
@@ -57,6 +60,15 @@ class PolicyArgs:
     def policy_store_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "policy_store_id", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
 
 @pulumi.type_token("aws-native:verifiedpermissions:Policy")
 class Policy(pulumi.CustomResource):
@@ -65,6 +77,7 @@ class Policy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[Union[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition0PropertiesArgsDict'], Union['PolicyDefinition1PropertiesArgs', 'PolicyDefinition1PropertiesArgsDict']]]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -210,6 +223,7 @@ class Policy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[Union[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition0PropertiesArgsDict'], Union['PolicyDefinition1PropertiesArgs', 'PolicyDefinition1PropertiesArgsDict']]]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -223,6 +237,7 @@ class Policy(pulumi.CustomResource):
             if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
             __props__.__dict__["definition"] = definition
+            __props__.__dict__["name"] = name
             if policy_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_store_id'")
             __props__.__dict__["policy_store_id"] = policy_store_id
@@ -253,6 +268,7 @@ class Policy(pulumi.CustomResource):
         __props__ = PolicyArgs.__new__(PolicyArgs)
 
         __props__.__dict__["definition"] = None
+        __props__.__dict__["name"] = None
         __props__.__dict__["policy_id"] = None
         __props__.__dict__["policy_store_id"] = None
         __props__.__dict__["policy_type"] = None
@@ -265,6 +281,11 @@ class Policy(pulumi.CustomResource):
         Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
         """
         return pulumi.get(self, "definition")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="policyId")

@@ -660,6 +660,17 @@ export const OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenConte
  */
 export type OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent = (typeof OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent)[keyof typeof OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent];
 
+export const OnlineEvaluationConfigClusteringFrequency = {
+    Daily: "DAILY",
+    Weekly: "WEEKLY",
+    Monthly: "MONTHLY",
+} as const;
+
+/**
+ * The frequency at which clustering reports are generated.
+ */
+export type OnlineEvaluationConfigClusteringFrequency = (typeof OnlineEvaluationConfigClusteringFrequency)[keyof typeof OnlineEvaluationConfigClusteringFrequency];
+
 export const OnlineEvaluationConfigExecutionStatus = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

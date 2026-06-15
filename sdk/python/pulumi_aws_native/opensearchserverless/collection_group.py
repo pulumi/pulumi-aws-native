@@ -27,6 +27,7 @@ class CollectionGroupArgs:
                  standby_replicas: pulumi.Input['CollectionGroupStandbyReplicas'],
                  capacity_limits: Optional[pulumi.Input['CollectionGroupCapacityLimitsArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 generation: Optional[pulumi.Input['CollectionGroupGeneration']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -34,6 +35,7 @@ class CollectionGroupArgs:
 
         :param pulumi.Input['CollectionGroupStandbyReplicas'] standby_replicas: Indicates whether standby replicas are used for the collection group.
         :param pulumi.Input[_builtins.str] description: The description of the collection group.
+        :param pulumi.Input['CollectionGroupGeneration'] generation: The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
         :param pulumi.Input[_builtins.str] name: The name of the collection group.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -42,6 +44,8 @@ class CollectionGroupArgs:
             pulumi.set(__self__, "capacity_limits", capacity_limits)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if generation is not None:
+            pulumi.set(__self__, "generation", generation)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -82,6 +86,18 @@ class CollectionGroupArgs:
 
     @_builtins.property
     @pulumi.getter
+    def generation(self) -> Optional[pulumi.Input['CollectionGroupGeneration']]:
+        """
+        The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
+        """
+        return pulumi.get(self, "generation")
+
+    @generation.setter
+    def generation(self, value: Optional[pulumi.Input['CollectionGroupGeneration']]):
+        pulumi.set(self, "generation", value)
+
+    @_builtins.property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the collection group.
@@ -113,6 +129,7 @@ class CollectionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_limits: Optional[pulumi.Input[Union['CollectionGroupCapacityLimitsArgs', 'CollectionGroupCapacityLimitsArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 generation: Optional[pulumi.Input['CollectionGroupGeneration']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  standby_replicas: Optional[pulumi.Input['CollectionGroupStandbyReplicas']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -124,6 +141,7 @@ class CollectionGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the collection group.
+        :param pulumi.Input['CollectionGroupGeneration'] generation: The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
         :param pulumi.Input[_builtins.str] name: The name of the collection group.
         :param pulumi.Input['CollectionGroupStandbyReplicas'] standby_replicas: Indicates whether standby replicas are used for the collection group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
@@ -155,6 +173,7 @@ class CollectionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_limits: Optional[pulumi.Input[Union['CollectionGroupCapacityLimitsArgs', 'CollectionGroupCapacityLimitsArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 generation: Optional[pulumi.Input['CollectionGroupGeneration']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  standby_replicas: Optional[pulumi.Input['CollectionGroupStandbyReplicas']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -169,6 +188,7 @@ class CollectionGroup(pulumi.CustomResource):
 
             __props__.__dict__["capacity_limits"] = capacity_limits
             __props__.__dict__["description"] = description
+            __props__.__dict__["generation"] = generation
             __props__.__dict__["name"] = name
             if standby_replicas is None and not opts.urn:
                 raise TypeError("Missing required property 'standby_replicas'")
@@ -176,7 +196,7 @@ class CollectionGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "standbyReplicas"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["generation", "name", "standbyReplicas"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CollectionGroup, __self__).__init__(
             'aws-native:opensearchserverless:CollectionGroup',
@@ -204,6 +224,7 @@ class CollectionGroup(pulumi.CustomResource):
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["capacity_limits"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["generation"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["standby_replicas"] = None
         __props__.__dict__["tags"] = None
@@ -237,6 +258,14 @@ class CollectionGroup(pulumi.CustomResource):
         The description of the collection group.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def generation(self) -> pulumi.Output[Optional['CollectionGroupGeneration']]:
+        """
+        The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
+        """
+        return pulumi.get(self, "generation")
 
     @_builtins.property
     @pulumi.getter

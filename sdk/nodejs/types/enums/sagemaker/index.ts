@@ -868,6 +868,33 @@ export const InferenceExperimentType = {
  */
 export type InferenceExperimentType = (typeof InferenceExperimentType)[keyof typeof InferenceExperimentType];
 
+export const MlflowAppModelRegistrationMode = {
+    AutoModelRegistrationEnabled: "AutoModelRegistrationEnabled",
+    AutoModelRegistrationDisabled: "AutoModelRegistrationDisabled",
+} as const;
+
+/**
+ * Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry.
+ */
+export type MlflowAppModelRegistrationMode = (typeof MlflowAppModelRegistrationMode)[keyof typeof MlflowAppModelRegistrationMode];
+
+export const MlflowAppStatus = {
+    Creating: "Creating",
+    Created: "Created",
+    CreateFailed: "CreateFailed",
+    Updating: "Updating",
+    Updated: "Updated",
+    UpdateFailed: "UpdateFailed",
+    Deleting: "Deleting",
+    DeleteFailed: "DeleteFailed",
+    Deleted: "Deleted",
+} as const;
+
+/**
+ * The status of the MLflow App.
+ */
+export type MlflowAppStatus = (typeof MlflowAppStatus)[keyof typeof MlflowAppStatus];
+
 export const MlflowTrackingServerTrackingServerSize = {
     Small: "Small",
     Medium: "Medium",

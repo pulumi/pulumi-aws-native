@@ -97,6 +97,7 @@ export class Policy extends pulumi.CustomResource {
      * Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
      */
     declare public readonly definition: pulumi.Output<outputs.verifiedpermissions.PolicyDefinition0Properties | outputs.verifiedpermissions.PolicyDefinition1Properties>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The unique ID of the new or updated policy.
      */
@@ -131,11 +132,13 @@ export class Policy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'policyStoreId'");
             }
             resourceInputs["definition"] = args?.definition;
+            resourceInputs["name"] = args?.name;
             resourceInputs["policyStoreId"] = args?.policyStoreId;
             resourceInputs["policyId"] = undefined /*out*/;
             resourceInputs["policyType"] = undefined /*out*/;
         } else {
             resourceInputs["definition"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyId"] = undefined /*out*/;
             resourceInputs["policyStoreId"] = undefined /*out*/;
             resourceInputs["policyType"] = undefined /*out*/;
@@ -155,6 +158,7 @@ export interface PolicyArgs {
      * Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
      */
     definition: pulumi.Input<inputs.verifiedpermissions.PolicyDefinition0PropertiesArgs | inputs.verifiedpermissions.PolicyDefinition1PropertiesArgs>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
      */

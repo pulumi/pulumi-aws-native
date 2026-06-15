@@ -70,6 +70,12 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The timecode source for the NDI output.
+        /// </summary>
+        [Output("ndiOutputTimecodeSource")]
+        public Output<Pulumi.AwsNative.MediaConnect.FlowOutputNdiOutputTimecodeSource?> NdiOutputTimecodeSource { get; private set; } = null!;
+
+        /// <summary>
         /// A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
         /// </summary>
         [Output("ndiProgramName")]
@@ -259,6 +265,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The timecode source for the NDI output.
+        /// </summary>
+        [Input("ndiOutputTimecodeSource")]
+        public Input<Pulumi.AwsNative.MediaConnect.FlowOutputNdiOutputTimecodeSource>? NdiOutputTimecodeSource { get; set; }
 
         /// <summary>
         /// A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.

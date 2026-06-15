@@ -37,16 +37,16 @@ class StageArgs:
 
         :param pulumi.Input[_builtins.str] api_id: The API identifier.
         :param pulumi.Input['StageAccessLogSettingsArgs'] access_log_settings: Settings for logging access in this stage.
-        :param pulumi.Input[_builtins.bool] auto_deploy: Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
-        :param pulumi.Input[_builtins.str] client_certificate_id: The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
+        :param pulumi.Input[_builtins.bool] auto_deploy: Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
+        :param pulumi.Input[_builtins.str] client_certificate_id: The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
         :param pulumi.Input['StageRouteSettingsArgs'] default_route_settings: The default route settings for the stage.
-        :param pulumi.Input[_builtins.str] deployment_id: The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
+        :param pulumi.Input[_builtins.str] deployment_id: The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
         :param pulumi.Input[_builtins.str] description: The description for the API stage.
         :param Any route_settings: Route settings for the stage.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
-        :param pulumi.Input[_builtins.str] stage_name: The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
-        :param Any stage_variables: A map that defines the stage variables for a `Stage` . Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+        :param pulumi.Input[_builtins.str] stage_name: The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
+        :param Any stage_variables: A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
         :param Any tags: The collection of tags. Each tag element is associated with a given resource.
@@ -103,7 +103,7 @@ class StageArgs:
     @pulumi.getter(name="autoDeploy")
     def auto_deploy(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
+        Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
         """
         return pulumi.get(self, "auto_deploy")
 
@@ -115,7 +115,7 @@ class StageArgs:
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
+        The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "client_certificate_id")
 
@@ -139,7 +139,7 @@ class StageArgs:
     @pulumi.getter(name="deploymentId")
     def deployment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
+        The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
         """
         return pulumi.get(self, "deployment_id")
 
@@ -177,7 +177,7 @@ class StageArgs:
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
+        The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
         """
         return pulumi.get(self, "stage_name")
 
@@ -189,7 +189,7 @@ class StageArgs:
     @pulumi.getter(name="stageVariables")
     def stage_variables(self) -> Optional[Any]:
         """
-        A map that defines the stage variables for a `Stage` . Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+        A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
         """
@@ -240,16 +240,16 @@ class Stage(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']] access_log_settings: Settings for logging access in this stage.
         :param pulumi.Input[_builtins.str] api_id: The API identifier.
-        :param pulumi.Input[_builtins.bool] auto_deploy: Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
-        :param pulumi.Input[_builtins.str] client_certificate_id: The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
+        :param pulumi.Input[_builtins.bool] auto_deploy: Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
+        :param pulumi.Input[_builtins.str] client_certificate_id: The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
         :param pulumi.Input[Union['StageRouteSettingsArgs', 'StageRouteSettingsArgsDict']] default_route_settings: The default route settings for the stage.
-        :param pulumi.Input[_builtins.str] deployment_id: The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
+        :param pulumi.Input[_builtins.str] deployment_id: The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
         :param pulumi.Input[_builtins.str] description: The description for the API stage.
         :param Any route_settings: Route settings for the stage.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
-        :param pulumi.Input[_builtins.str] stage_name: The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
-        :param Any stage_variables: A map that defines the stage variables for a `Stage` . Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+        :param pulumi.Input[_builtins.str] stage_name: The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
+        :param Any stage_variables: A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
         :param Any tags: The collection of tags. Each tag element is associated with a given resource.
@@ -314,7 +314,6 @@ class Stage(pulumi.CustomResource):
             __props__.__dict__["stage_name"] = stage_name
             __props__.__dict__["stage_variables"] = stage_variables
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["apiId", "stageName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Stage, __self__).__init__(
@@ -342,7 +341,6 @@ class Stage(pulumi.CustomResource):
         __props__.__dict__["access_log_settings"] = None
         __props__.__dict__["api_id"] = None
         __props__.__dict__["auto_deploy"] = None
-        __props__.__dict__["aws_id"] = None
         __props__.__dict__["client_certificate_id"] = None
         __props__.__dict__["default_route_settings"] = None
         __props__.__dict__["deployment_id"] = None
@@ -373,23 +371,15 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="autoDeploy")
     def auto_deploy(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
+        Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
         """
         return pulumi.get(self, "auto_deploy")
-
-    @_builtins.property
-    @pulumi.getter(name="awsId")
-    def aws_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier.
-        """
-        return pulumi.get(self, "aws_id")
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
+        The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "client_certificate_id")
 
@@ -405,7 +395,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="deploymentId")
     def deployment_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
+        The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
         """
         return pulumi.get(self, "deployment_id")
 
@@ -431,7 +421,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
+        The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
         """
         return pulumi.get(self, "stage_name")
 
@@ -439,7 +429,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="stageVariables")
     def stage_variables(self) -> pulumi.Output[Optional[Any]]:
         """
-        A map that defines the stage variables for a `Stage` . Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+        A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
         """

@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     public partial class OnlineEvaluationConfig : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The configuration for clustering analysis of evaluation results.
+        /// </summary>
+        [Output("clusteringConfig")]
+        public Output<Outputs.OnlineEvaluationConfigClusteringConfig?> ClusteringConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The timestamp when the online evaluation configuration was created.
         /// </summary>
         [Output("createdAt")]
@@ -50,6 +56,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Output("executionStatus")]
         public Output<Pulumi.AwsNative.BedrockAgentCore.OnlineEvaluationConfigExecutionStatus?> ExecutionStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of insights to enable for failure analysis.
+        /// </summary>
+        [Output("insights")]
+        public Output<ImmutableArray<Outputs.OnlineEvaluationConfigInsight>> Insights { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the online evaluation configuration.
@@ -149,6 +161,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     public sealed class OnlineEvaluationConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The configuration for clustering analysis of evaluation results.
+        /// </summary>
+        [Input("clusteringConfig")]
+        public Input<Inputs.OnlineEvaluationConfigClusteringConfigArgs>? ClusteringConfig { get; set; }
+
+        /// <summary>
         /// The data source configuration that specifies CloudWatch log groups and service names to monitor.
         /// </summary>
         [Input("dataSourceConfig", required: true)]
@@ -166,7 +184,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Input("evaluationExecutionRoleArn", required: true)]
         public Input<string> EvaluationExecutionRoleArn { get; set; } = null!;
 
-        [Input("evaluators", required: true)]
+        [Input("evaluators")]
         private InputList<Inputs.OnlineEvaluationConfigEvaluatorReferenceArgs>? _evaluators;
 
         /// <summary>
@@ -183,6 +201,18 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("executionStatus")]
         public Input<Pulumi.AwsNative.BedrockAgentCore.OnlineEvaluationConfigExecutionStatus>? ExecutionStatus { get; set; }
+
+        [Input("insights")]
+        private InputList<Inputs.OnlineEvaluationConfigInsightArgs>? _insights;
+
+        /// <summary>
+        /// The list of insights to enable for failure analysis.
+        /// </summary>
+        public InputList<Inputs.OnlineEvaluationConfigInsightArgs> Insights
+        {
+            get => _insights ?? (_insights = new InputList<Inputs.OnlineEvaluationConfigInsightArgs>());
+            set => _insights = value;
+        }
 
         /// <summary>
         /// The name of the online evaluation configuration. Must be unique within your account.

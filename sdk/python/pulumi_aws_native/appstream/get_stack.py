@@ -25,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetStackResult:
-    def __init__(__self__, access_endpoints=None, application_settings=None, description=None, display_name=None, embed_host_domains=None, feedback_url=None, redirect_url=None, storage_connectors=None, streaming_experience_settings=None, tags=None, user_settings=None):
+    def __init__(__self__, access_endpoints=None, application_settings=None, content_redirection=None, description=None, display_name=None, embed_host_domains=None, feedback_url=None, redirect_url=None, storage_connectors=None, streaming_experience_settings=None, tags=None, user_settings=None):
         if access_endpoints and not isinstance(access_endpoints, list):
             raise TypeError("Expected argument 'access_endpoints' to be a list")
         pulumi.set(__self__, "access_endpoints", access_endpoints)
         if application_settings and not isinstance(application_settings, dict):
             raise TypeError("Expected argument 'application_settings' to be a dict")
         pulumi.set(__self__, "application_settings", application_settings)
+        if content_redirection and not isinstance(content_redirection, dict):
+            raise TypeError("Expected argument 'content_redirection' to be a dict")
+        pulumi.set(__self__, "content_redirection", content_redirection)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -75,6 +78,14 @@ class GetStackResult:
         The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
         """
         return pulumi.get(self, "application_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="contentRedirection")
+    def content_redirection(self) -> Optional['outputs.StackContentRedirection']:
+        """
+        The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
+        """
+        return pulumi.get(self, "content_redirection")
 
     @_builtins.property
     @pulumi.getter
@@ -157,6 +168,7 @@ class AwaitableGetStackResult(GetStackResult):
         return GetStackResult(
             access_endpoints=self.access_endpoints,
             application_settings=self.application_settings,
+            content_redirection=self.content_redirection,
             description=self.description,
             display_name=self.display_name,
             embed_host_domains=self.embed_host_domains,
@@ -184,6 +196,7 @@ def get_stack(name: Optional[_builtins.str] = None,
     return AwaitableGetStackResult(
         access_endpoints=pulumi.get(__ret__, 'access_endpoints'),
         application_settings=pulumi.get(__ret__, 'application_settings'),
+        content_redirection=pulumi.get(__ret__, 'content_redirection'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         embed_host_domains=pulumi.get(__ret__, 'embed_host_domains'),
@@ -208,6 +221,7 @@ def get_stack_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetStackResult(
         access_endpoints=pulumi.get(__response__, 'access_endpoints'),
         application_settings=pulumi.get(__response__, 'application_settings'),
+        content_redirection=pulumi.get(__response__, 'content_redirection'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         embed_host_domains=pulumi.get(__response__, 'embed_host_domains'),

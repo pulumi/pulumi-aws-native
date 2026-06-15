@@ -20,20 +20,19 @@ __all__ = ['TelemetryEnrichmentArgs', 'TelemetryEnrichment']
 @pulumi.input_type
 class TelemetryEnrichmentArgs:
     def __init__(__self__, *,
-                 scope: Optional[pulumi.Input['TelemetryEnrichmentScope']] = None):
+                 scope: pulumi.Input['TelemetryEnrichmentScope']):
         """
         The set of arguments for constructing a TelemetryEnrichment resource.
         """
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "scope", scope)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['TelemetryEnrichmentScope']]:
+    def scope(self) -> pulumi.Input['TelemetryEnrichmentScope']:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['TelemetryEnrichmentScope']]):
+    def scope(self, value: pulumi.Input['TelemetryEnrichmentScope']):
         pulumi.set(self, "scope", value)
 
 
@@ -56,7 +55,7 @@ class TelemetryEnrichment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[TelemetryEnrichmentArgs] = None,
+                 args: TelemetryEnrichmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::ObservabilityAdmin::TelemetryEnrichment cloudformation resource enables the resource tags for telemetry feature in CloudWatch to enrich infrastructure metrics with AWS resource tags. For more details: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/resource-tags-for-telemetry.html
@@ -87,6 +86,8 @@ class TelemetryEnrichment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TelemetryEnrichmentArgs.__new__(TelemetryEnrichmentArgs)
 
+            if scope is None and not opts.urn:
+                raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["status"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["scope"])
@@ -119,7 +120,7 @@ class TelemetryEnrichment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> pulumi.Output[Optional['TelemetryEnrichmentScope']]:
+    def scope(self) -> pulumi.Output['TelemetryEnrichmentScope']:
         return pulumi.get(self, "scope")
 
     @_builtins.property

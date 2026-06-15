@@ -26,6 +26,10 @@ export interface GetOnlineEvaluationConfigArgs {
 
 export interface GetOnlineEvaluationConfigResult {
     /**
+     * The configuration for clustering analysis of evaluation results.
+     */
+    readonly clusteringConfig?: outputs.bedrockagentcore.OnlineEvaluationConfigClusteringConfig;
+    /**
      * The timestamp when the online evaluation configuration was created.
      */
     readonly createdAt?: string;
@@ -49,6 +53,10 @@ export interface GetOnlineEvaluationConfigResult {
      * The execution status indicating whether the online evaluation is currently running.
      */
     readonly executionStatus?: enums.bedrockagentcore.OnlineEvaluationConfigExecutionStatus;
+    /**
+     * The list of insights to enable for failure analysis.
+     */
+    readonly insights?: outputs.bedrockagentcore.OnlineEvaluationConfigInsight[];
     /**
      * The Amazon Resource Name (ARN) of the online evaluation configuration.
      */

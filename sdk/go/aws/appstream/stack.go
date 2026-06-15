@@ -22,6 +22,8 @@ type Stack struct {
 	ApplicationSettings StackApplicationSettingsPtrOutput `pulumi:"applicationSettings"`
 	// The stack attributes to delete.
 	AttributesToDelete pulumi.StringArrayOutput `pulumi:"attributesToDelete"`
+	// The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
+	ContentRedirection StackContentRedirectionPtrOutput `pulumi:"contentRedirection"`
 	// This parameter has been deprecated. Deletes the storage connectors currently enabled for the stack.
 	DeleteStorageConnectors pulumi.BoolPtrOutput `pulumi:"deleteStorageConnectors"`
 	// The description to display.
@@ -96,6 +98,8 @@ type stackArgs struct {
 	ApplicationSettings *StackApplicationSettings `pulumi:"applicationSettings"`
 	// The stack attributes to delete.
 	AttributesToDelete []string `pulumi:"attributesToDelete"`
+	// The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
+	ContentRedirection *StackContentRedirection `pulumi:"contentRedirection"`
 	// This parameter has been deprecated. Deletes the storage connectors currently enabled for the stack.
 	DeleteStorageConnectors *bool `pulumi:"deleteStorageConnectors"`
 	// The description to display.
@@ -128,6 +132,8 @@ type StackArgs struct {
 	ApplicationSettings StackApplicationSettingsPtrInput
 	// The stack attributes to delete.
 	AttributesToDelete pulumi.StringArrayInput
+	// The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
+	ContentRedirection StackContentRedirectionPtrInput
 	// This parameter has been deprecated. Deletes the storage connectors currently enabled for the stack.
 	DeleteStorageConnectors pulumi.BoolPtrInput
 	// The description to display.
@@ -202,6 +208,11 @@ func (o StackOutput) ApplicationSettings() StackApplicationSettingsPtrOutput {
 // The stack attributes to delete.
 func (o StackOutput) AttributesToDelete() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringArrayOutput { return v.AttributesToDelete }).(pulumi.StringArrayOutput)
+}
+
+// The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
+func (o StackOutput) ContentRedirection() StackContentRedirectionPtrOutput {
+	return o.ApplyT(func(v *Stack) StackContentRedirectionPtrOutput { return v.ContentRedirection }).(StackContentRedirectionPtrOutput)
 }
 
 // This parameter has been deprecated. Deletes the storage connectors currently enabled for the stack.

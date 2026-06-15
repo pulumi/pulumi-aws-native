@@ -340,6 +340,172 @@ func (in *collectionDeletionProtectionPtr) ToCollectionDeletionProtectionPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(CollectionDeletionProtectionPtrOutput)
 }
 
+// The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
+type CollectionGroupGeneration string
+
+const (
+	CollectionGroupGenerationClassic = CollectionGroupGeneration("CLASSIC")
+	CollectionGroupGenerationNextgen = CollectionGroupGeneration("NEXTGEN")
+)
+
+func (CollectionGroupGeneration) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionGroupGeneration)(nil)).Elem()
+}
+
+func (e CollectionGroupGeneration) ToCollectionGroupGenerationOutput() CollectionGroupGenerationOutput {
+	return pulumi.ToOutput(e).(CollectionGroupGenerationOutput)
+}
+
+func (e CollectionGroupGeneration) ToCollectionGroupGenerationOutputWithContext(ctx context.Context) CollectionGroupGenerationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CollectionGroupGenerationOutput)
+}
+
+func (e CollectionGroupGeneration) ToCollectionGroupGenerationPtrOutput() CollectionGroupGenerationPtrOutput {
+	return e.ToCollectionGroupGenerationPtrOutputWithContext(context.Background())
+}
+
+func (e CollectionGroupGeneration) ToCollectionGroupGenerationPtrOutputWithContext(ctx context.Context) CollectionGroupGenerationPtrOutput {
+	return CollectionGroupGeneration(e).ToCollectionGroupGenerationOutputWithContext(ctx).ToCollectionGroupGenerationPtrOutputWithContext(ctx)
+}
+
+func (e CollectionGroupGeneration) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollectionGroupGeneration) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollectionGroupGeneration) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CollectionGroupGeneration) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CollectionGroupGenerationOutput struct{ *pulumi.OutputState }
+
+func (CollectionGroupGenerationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionGroupGeneration)(nil)).Elem()
+}
+
+func (o CollectionGroupGenerationOutput) ToCollectionGroupGenerationOutput() CollectionGroupGenerationOutput {
+	return o
+}
+
+func (o CollectionGroupGenerationOutput) ToCollectionGroupGenerationOutputWithContext(ctx context.Context) CollectionGroupGenerationOutput {
+	return o
+}
+
+func (o CollectionGroupGenerationOutput) ToCollectionGroupGenerationPtrOutput() CollectionGroupGenerationPtrOutput {
+	return o.ToCollectionGroupGenerationPtrOutputWithContext(context.Background())
+}
+
+func (o CollectionGroupGenerationOutput) ToCollectionGroupGenerationPtrOutputWithContext(ctx context.Context) CollectionGroupGenerationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollectionGroupGeneration) *CollectionGroupGeneration {
+		return &v
+	}).(CollectionGroupGenerationPtrOutput)
+}
+
+func (o CollectionGroupGenerationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CollectionGroupGenerationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollectionGroupGeneration) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CollectionGroupGenerationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollectionGroupGenerationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollectionGroupGeneration) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CollectionGroupGenerationPtrOutput struct{ *pulumi.OutputState }
+
+func (CollectionGroupGenerationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectionGroupGeneration)(nil)).Elem()
+}
+
+func (o CollectionGroupGenerationPtrOutput) ToCollectionGroupGenerationPtrOutput() CollectionGroupGenerationPtrOutput {
+	return o
+}
+
+func (o CollectionGroupGenerationPtrOutput) ToCollectionGroupGenerationPtrOutputWithContext(ctx context.Context) CollectionGroupGenerationPtrOutput {
+	return o
+}
+
+func (o CollectionGroupGenerationPtrOutput) Elem() CollectionGroupGenerationOutput {
+	return o.ApplyT(func(v *CollectionGroupGeneration) CollectionGroupGeneration {
+		if v != nil {
+			return *v
+		}
+		var ret CollectionGroupGeneration
+		return ret
+	}).(CollectionGroupGenerationOutput)
+}
+
+func (o CollectionGroupGenerationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollectionGroupGenerationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CollectionGroupGeneration) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CollectionGroupGenerationInput is an input type that accepts values of the CollectionGroupGeneration enum
+// A concrete instance of `CollectionGroupGenerationInput` can be one of the following:
+//
+//	CollectionGroupGenerationClassic
+//	CollectionGroupGenerationNextgen
+type CollectionGroupGenerationInput interface {
+	pulumi.Input
+
+	ToCollectionGroupGenerationOutput() CollectionGroupGenerationOutput
+	ToCollectionGroupGenerationOutputWithContext(context.Context) CollectionGroupGenerationOutput
+}
+
+var collectionGroupGenerationPtrType = reflect.TypeOf((**CollectionGroupGeneration)(nil)).Elem()
+
+type CollectionGroupGenerationPtrInput interface {
+	pulumi.Input
+
+	ToCollectionGroupGenerationPtrOutput() CollectionGroupGenerationPtrOutput
+	ToCollectionGroupGenerationPtrOutputWithContext(context.Context) CollectionGroupGenerationPtrOutput
+}
+
+type collectionGroupGenerationPtr string
+
+func CollectionGroupGenerationPtr(v string) CollectionGroupGenerationPtrInput {
+	return (*collectionGroupGenerationPtr)(&v)
+}
+
+func (*collectionGroupGenerationPtr) ElementType() reflect.Type {
+	return collectionGroupGenerationPtrType
+}
+
+func (in *collectionGroupGenerationPtr) ToCollectionGroupGenerationPtrOutput() CollectionGroupGenerationPtrOutput {
+	return pulumi.ToOutput(in).(CollectionGroupGenerationPtrOutput)
+}
+
+func (in *collectionGroupGenerationPtr) ToCollectionGroupGenerationPtrOutputWithContext(ctx context.Context) CollectionGroupGenerationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CollectionGroupGenerationPtrOutput)
+}
+
 // Indicates whether standby replicas are used for the collection group.
 type CollectionGroupStandbyReplicas string
 
@@ -2185,6 +2351,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyTypePtrInput)(nil)).Elem(), AccessPolicyType("data"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionDeletionProtectionInput)(nil)).Elem(), CollectionDeletionProtection("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionDeletionProtectionPtrInput)(nil)).Elem(), CollectionDeletionProtection("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollectionGroupGenerationInput)(nil)).Elem(), CollectionGroupGeneration("CLASSIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollectionGroupGenerationPtrInput)(nil)).Elem(), CollectionGroupGeneration("CLASSIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionGroupStandbyReplicasInput)(nil)).Elem(), CollectionGroupStandbyReplicas("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionGroupStandbyReplicasPtrInput)(nil)).Elem(), CollectionGroupStandbyReplicas("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionServerlessVectorAccelerationInput)(nil)).Elem(), CollectionServerlessVectorAcceleration("ENABLED"))
@@ -2211,6 +2379,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(CollectionDeletionProtectionOutput{})
 	pulumi.RegisterOutputType(CollectionDeletionProtectionPtrOutput{})
+	pulumi.RegisterOutputType(CollectionGroupGenerationOutput{})
+	pulumi.RegisterOutputType(CollectionGroupGenerationPtrOutput{})
 	pulumi.RegisterOutputType(CollectionGroupStandbyReplicasOutput{})
 	pulumi.RegisterOutputType(CollectionGroupStandbyReplicasPtrOutput{})
 	pulumi.RegisterOutputType(CollectionServerlessVectorAccelerationOutput{})

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -15,17 +16,20 @@ import (
 type TelemetryEnrichment struct {
 	pulumi.CustomResourceState
 
-	Scope  TelemetryEnrichmentScopePtrOutput `pulumi:"scope"`
-	Status TelemetryEnrichmentStatusOutput   `pulumi:"status"`
+	Scope  TelemetryEnrichmentScopeOutput  `pulumi:"scope"`
+	Status TelemetryEnrichmentStatusOutput `pulumi:"status"`
 }
 
 // NewTelemetryEnrichment registers a new resource with the given unique name, arguments, and options.
 func NewTelemetryEnrichment(ctx *pulumi.Context,
 	name string, args *TelemetryEnrichmentArgs, opts ...pulumi.ResourceOption) (*TelemetryEnrichment, error) {
 	if args == nil {
-		args = &TelemetryEnrichmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
+	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"scope",
 	})
@@ -63,12 +67,12 @@ func (TelemetryEnrichmentState) ElementType() reflect.Type {
 }
 
 type telemetryEnrichmentArgs struct {
-	Scope *TelemetryEnrichmentScope `pulumi:"scope"`
+	Scope TelemetryEnrichmentScope `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a TelemetryEnrichment resource.
 type TelemetryEnrichmentArgs struct {
-	Scope TelemetryEnrichmentScopePtrInput
+	Scope TelemetryEnrichmentScopeInput
 }
 
 func (TelemetryEnrichmentArgs) ElementType() reflect.Type {
@@ -108,8 +112,8 @@ func (o TelemetryEnrichmentOutput) ToTelemetryEnrichmentOutputWithContext(ctx co
 	return o
 }
 
-func (o TelemetryEnrichmentOutput) Scope() TelemetryEnrichmentScopePtrOutput {
-	return o.ApplyT(func(v *TelemetryEnrichment) TelemetryEnrichmentScopePtrOutput { return v.Scope }).(TelemetryEnrichmentScopePtrOutput)
+func (o TelemetryEnrichmentOutput) Scope() TelemetryEnrichmentScopeOutput {
+	return o.ApplyT(func(v *TelemetryEnrichment) TelemetryEnrichmentScopeOutput { return v.Scope }).(TelemetryEnrichmentScopeOutput)
 }
 
 func (o TelemetryEnrichmentOutput) Status() TelemetryEnrichmentStatusOutput {

@@ -15,6 +15,23 @@
         }
       },
       "required" : [ "Value", "Key" ]
+    },
+    "TagFieldSpecification" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ResourceType" : {
+          "type" : "string"
+        },
+        "TagKeys" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "ResourceType", "TagKeys" ]
     }
   },
   "properties" : {
@@ -89,10 +106,18 @@
         }
       },
       "required" : [ "FileFormat", "HiveCompatiblePartitions", "PerHourPartition" ]
+    },
+    "TagFieldSpecifications" : {
+      "description" : "The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.",
+      "type" : "array",
+      "uniqueItems" : true,
+      "items" : {
+        "$ref" : "#/definitions/TagFieldSpecification"
+      }
     }
   },
   "required" : [ "ResourceType", "ResourceId" ],
-  "createOnlyProperties" : [ "/properties/DeliverCrossAccountRole", "/properties/DeliverLogsPermissionArn", "/properties/LogGroupName", "/properties/LogDestination", "/properties/ResourceId", "/properties/TrafficType", "/properties/LogDestinationType", "/properties/ResourceType", "/properties/LogFormat", "/properties/MaxAggregationInterval", "/properties/DestinationOptions" ],
+  "createOnlyProperties" : [ "/properties/DeliverCrossAccountRole", "/properties/DeliverLogsPermissionArn", "/properties/LogGroupName", "/properties/LogDestination", "/properties/ResourceId", "/properties/TrafficType", "/properties/LogDestinationType", "/properties/ResourceType", "/properties/LogFormat", "/properties/MaxAggregationInterval", "/properties/DestinationOptions", "/properties/TagFieldSpecifications" ],
   "readOnlyProperties" : [ "/properties/Id" ],
   "tagging" : {
     "taggable" : true,
@@ -105,7 +130,7 @@
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:CreateFlowLogs", "ec2:DescribeFlowLogs", "ec2:CreateTags", "iam:PassRole", "logs:CreateLogDelivery", "s3:GetBucketPolicy", "s3:PutBucketPolicy" ]
+      "permissions" : [ "autoscaling:DescribeTags", "ec2:CreateFlowLogs", "ec2:DescribeFlowLogs", "ec2:DescribeTags", "ec2:CreateTags", "iam:CreateServiceLinkedRole", "iam:PassRole", "logs:CreateLogDelivery", "s3:GetBucketPolicy", "s3:PutBucketPolicy" ]
     },
     "read" : {
       "permissions" : [ "ec2:DescribeFlowLogs" ]

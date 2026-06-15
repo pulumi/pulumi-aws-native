@@ -17,6 +17,8 @@ import (
 type OnlineEvaluationConfig struct {
 	pulumi.CustomResourceState
 
+	// The configuration for clustering analysis of evaluation results.
+	ClusteringConfig OnlineEvaluationConfigClusteringConfigPtrOutput `pulumi:"clusteringConfig"`
 	// The timestamp when the online evaluation configuration was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The data source configuration that specifies CloudWatch log groups and service names to monitor.
@@ -29,6 +31,8 @@ type OnlineEvaluationConfig struct {
 	Evaluators OnlineEvaluationConfigEvaluatorReferenceArrayOutput `pulumi:"evaluators"`
 	// The execution status indicating whether the online evaluation is currently running.
 	ExecutionStatus OnlineEvaluationConfigExecutionStatusPtrOutput `pulumi:"executionStatus"`
+	// The list of insights to enable for failure analysis.
+	Insights OnlineEvaluationConfigInsightArrayOutput `pulumi:"insights"`
 	// The Amazon Resource Name (ARN) of the online evaluation configuration.
 	OnlineEvaluationConfigArn pulumi.StringOutput `pulumi:"onlineEvaluationConfigArn"`
 	// The unique identifier of the online evaluation configuration.
@@ -59,9 +63,6 @@ func NewOnlineEvaluationConfig(ctx *pulumi.Context,
 	}
 	if args.EvaluationExecutionRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'EvaluationExecutionRoleArn'")
-	}
-	if args.Evaluators == nil {
-		return nil, errors.New("invalid value for required argument 'Evaluators'")
 	}
 	if args.Rule == nil {
 		return nil, errors.New("invalid value for required argument 'Rule'")
@@ -103,6 +104,8 @@ func (OnlineEvaluationConfigState) ElementType() reflect.Type {
 }
 
 type onlineEvaluationConfigArgs struct {
+	// The configuration for clustering analysis of evaluation results.
+	ClusteringConfig *OnlineEvaluationConfigClusteringConfig `pulumi:"clusteringConfig"`
 	// The data source configuration that specifies CloudWatch log groups and service names to monitor.
 	DataSourceConfig OnlineEvaluationConfigDataSourceConfig `pulumi:"dataSourceConfig"`
 	// The description of the online evaluation configuration.
@@ -113,6 +116,8 @@ type onlineEvaluationConfigArgs struct {
 	Evaluators []OnlineEvaluationConfigEvaluatorReference `pulumi:"evaluators"`
 	// The execution status indicating whether the online evaluation is currently running.
 	ExecutionStatus *OnlineEvaluationConfigExecutionStatus `pulumi:"executionStatus"`
+	// The list of insights to enable for failure analysis.
+	Insights []OnlineEvaluationConfigInsight `pulumi:"insights"`
 	// The name of the online evaluation configuration. Must be unique within your account.
 	OnlineEvaluationConfigName *string `pulumi:"onlineEvaluationConfigName"`
 	// The evaluation rule that defines sampling configuration, filters, and session detection settings.
@@ -123,6 +128,8 @@ type onlineEvaluationConfigArgs struct {
 
 // The set of arguments for constructing a OnlineEvaluationConfig resource.
 type OnlineEvaluationConfigArgs struct {
+	// The configuration for clustering analysis of evaluation results.
+	ClusteringConfig OnlineEvaluationConfigClusteringConfigPtrInput
 	// The data source configuration that specifies CloudWatch log groups and service names to monitor.
 	DataSourceConfig OnlineEvaluationConfigDataSourceConfigInput
 	// The description of the online evaluation configuration.
@@ -133,6 +140,8 @@ type OnlineEvaluationConfigArgs struct {
 	Evaluators OnlineEvaluationConfigEvaluatorReferenceArrayInput
 	// The execution status indicating whether the online evaluation is currently running.
 	ExecutionStatus OnlineEvaluationConfigExecutionStatusPtrInput
+	// The list of insights to enable for failure analysis.
+	Insights OnlineEvaluationConfigInsightArrayInput
 	// The name of the online evaluation configuration. Must be unique within your account.
 	OnlineEvaluationConfigName pulumi.StringPtrInput
 	// The evaluation rule that defines sampling configuration, filters, and session detection settings.
@@ -178,6 +187,13 @@ func (o OnlineEvaluationConfigOutput) ToOnlineEvaluationConfigOutputWithContext(
 	return o
 }
 
+// The configuration for clustering analysis of evaluation results.
+func (o OnlineEvaluationConfigOutput) ClusteringConfig() OnlineEvaluationConfigClusteringConfigPtrOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfig) OnlineEvaluationConfigClusteringConfigPtrOutput {
+		return v.ClusteringConfig
+	}).(OnlineEvaluationConfigClusteringConfigPtrOutput)
+}
+
 // The timestamp when the online evaluation configuration was created.
 func (o OnlineEvaluationConfigOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *OnlineEvaluationConfig) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
@@ -212,6 +228,11 @@ func (o OnlineEvaluationConfigOutput) ExecutionStatus() OnlineEvaluationConfigEx
 	return o.ApplyT(func(v *OnlineEvaluationConfig) OnlineEvaluationConfigExecutionStatusPtrOutput {
 		return v.ExecutionStatus
 	}).(OnlineEvaluationConfigExecutionStatusPtrOutput)
+}
+
+// The list of insights to enable for failure analysis.
+func (o OnlineEvaluationConfigOutput) Insights() OnlineEvaluationConfigInsightArrayOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfig) OnlineEvaluationConfigInsightArrayOutput { return v.Insights }).(OnlineEvaluationConfigInsightArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the online evaluation configuration.

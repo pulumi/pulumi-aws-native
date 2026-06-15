@@ -90,6 +90,11 @@ export type Stack = import("./stack").Stack;
 export const Stack: typeof import("./stack").Stack = null as any;
 utilities.lazyLoad(exports, ["Stack"], () => require("./stack"));
 
+export { StackFleetAssociationArgs } from "./stackFleetAssociation";
+export type StackFleetAssociation = import("./stackFleetAssociation").StackFleetAssociation;
+export const StackFleetAssociation: typeof import("./stackFleetAssociation").StackFleetAssociation = null as any;
+utilities.lazyLoad(exports, ["StackFleetAssociation"], () => require("./stackFleetAssociation"));
+
 export { StackUserAssociationArgs } from "./stackUserAssociation";
 export type StackUserAssociation = import("./stackUserAssociation").StackUserAssociation;
 export const StackUserAssociation: typeof import("./stackUserAssociation").StackUserAssociation = null as any;
@@ -123,6 +128,8 @@ const _module = {
                 return new ImageBuilder(name, <any>undefined, { urn })
             case "aws-native:appstream:Stack":
                 return new Stack(name, <any>undefined, { urn })
+            case "aws-native:appstream:StackFleetAssociation":
+                return new StackFleetAssociation(name, <any>undefined, { urn })
             case "aws-native:appstream:StackUserAssociation":
                 return new StackUserAssociation(name, <any>undefined, { urn })
             case "aws-native:appstream:User":

@@ -46,14 +46,11 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     declare public readonly appCookieStickinessPolicy: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerAppCookieStickinessPolicy[] | undefined>;
     /**
-     * The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify `Subnets` instead.
-     *
-     * Update requires replacement if you did not previously specify an Availability Zone or if you are removing all Availability Zones. Otherwise, update requires no interruption.
+     * The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify Subnets instead.
      */
     declare public readonly availabilityZones: pulumi.Output<string[] | undefined>;
-    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
-     * The name of the Route 53 hosted zone that is associated with the load balancer. Internal-facing load balancers don't use this value, use `DNSName` instead.
+     * The name of the Route 53 hosted zone that is associated with the load balancer. Internal-facing load balancers.
      */
     declare public /*out*/ readonly canonicalHostedZoneName: pulumi.Output<string>;
     /**
@@ -62,30 +59,22 @@ export class LoadBalancer extends pulumi.CustomResource {
     declare public /*out*/ readonly canonicalHostedZoneNameId: pulumi.Output<string>;
     /**
      * If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
-     *
-     * For more information, see [Configure connection draining](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html) in the *User Guide for Classic Load Balancers* .
      */
     declare public readonly connectionDrainingPolicy: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerConnectionDrainingPolicy | undefined>;
     /**
      * If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
-     *
-     * By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see [Configure idle connection timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html) in the *User Guide for Classic Load Balancers* .
      */
     declare public readonly connectionSettings: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerConnectionSettings | undefined>;
     /**
      * If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
-     *
-     * For more information, see [Configure cross-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html) in the *User Guide for Classic Load Balancers* .
      */
     declare public readonly crossZone: pulumi.Output<boolean | undefined>;
     /**
-     * The DNS name for the load balancer.
+     * The DNS name for the load balancer
      */
     declare public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
      * The health check settings to use when evaluating the health of your EC2 instances.
-     *
-     * Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
      */
     declare public readonly healthCheck: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerHealthCheck | undefined>;
     /**
@@ -97,15 +86,11 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     declare public readonly lbCookieStickinessPolicy: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerLbCookieStickinessPolicy[] | undefined>;
     /**
-     * The listeners for the load balancer. You can specify at most one listener per port.
-     *
-     * If you update the properties for a listener, AWS CloudFormation deletes the existing listener and creates a new one with the specified properties. While the new listener is being created, clients cannot connect to the load balancer.
+     * The Listeners for the load balancer. You can specify at most one listener per port.
      */
     declare public readonly listeners: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerListeners[]>;
     /**
      * The name of the load balancer. This name must be unique within your set of load balancers for the region.
-     *
-     * If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) . If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
      */
     declare public readonly loadBalancerName: pulumi.Output<string | undefined>;
     /**
@@ -114,22 +99,15 @@ export class LoadBalancer extends pulumi.CustomResource {
     declare public readonly policies: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerPolicies[] | undefined>;
     /**
      * The type of load balancer. Valid only for load balancers in a VPC.
-     *
-     * If `Scheme` is `internet-facing` , the load balancer has a public DNS name that resolves to a public IP address.
-     *
-     * If `Scheme` is `internal` , the load balancer has a public DNS name that resolves to a private IP address.
      */
     declare public readonly scheme: pulumi.Output<string | undefined>;
     /**
      * The security groups for the load balancer. Valid only for load balancers in a VPC.
      */
     declare public readonly securityGroups: pulumi.Output<string[] | undefined>;
-    declare public readonly sourceSecurityGroupGroupName: pulumi.Output<string | undefined>;
-    declare public readonly sourceSecurityGroupOwnerAlias: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly sourceSecurityGroup: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerSourceSecurityGroup>;
     /**
      * The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
-     *
-     * Update requires replacement if you did not previously specify a subnet or if you are removing all subnets. Otherwise, update requires no interruption. To update to a different subnet in the current Availability Zone, you must first update to a subnet in a different Availability Zone, then update to the new subnet in the original Availability Zone.
      */
     declare public readonly subnets: pulumi.Output<string[] | undefined>;
     /**
@@ -165,19 +143,16 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["policies"] = args?.policies;
             resourceInputs["scheme"] = args?.scheme;
             resourceInputs["securityGroups"] = args?.securityGroups;
-            resourceInputs["sourceSecurityGroupGroupName"] = args?.sourceSecurityGroupGroupName;
-            resourceInputs["sourceSecurityGroupOwnerAlias"] = args?.sourceSecurityGroupOwnerAlias;
             resourceInputs["subnets"] = args?.subnets;
             resourceInputs["tags"] = args?.tags;
-            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["canonicalHostedZoneName"] = undefined /*out*/;
             resourceInputs["canonicalHostedZoneNameId"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["sourceSecurityGroup"] = undefined /*out*/;
         } else {
             resourceInputs["accessLoggingPolicy"] = undefined /*out*/;
             resourceInputs["appCookieStickinessPolicy"] = undefined /*out*/;
             resourceInputs["availabilityZones"] = undefined /*out*/;
-            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["canonicalHostedZoneName"] = undefined /*out*/;
             resourceInputs["canonicalHostedZoneNameId"] = undefined /*out*/;
             resourceInputs["connectionDrainingPolicy"] = undefined /*out*/;
@@ -192,8 +167,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["policies"] = undefined /*out*/;
             resourceInputs["scheme"] = undefined /*out*/;
             resourceInputs["securityGroups"] = undefined /*out*/;
-            resourceInputs["sourceSecurityGroupGroupName"] = undefined /*out*/;
-            resourceInputs["sourceSecurityGroupOwnerAlias"] = undefined /*out*/;
+            resourceInputs["sourceSecurityGroup"] = undefined /*out*/;
             resourceInputs["subnets"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -217,33 +191,23 @@ export interface LoadBalancerArgs {
      */
     appCookieStickinessPolicy?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancing.LoadBalancerAppCookieStickinessPolicyArgs>[]>;
     /**
-     * The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify `Subnets` instead.
-     *
-     * Update requires replacement if you did not previously specify an Availability Zone or if you are removing all Availability Zones. Otherwise, update requires no interruption.
+     * The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify Subnets instead.
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
-     *
-     * For more information, see [Configure connection draining](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html) in the *User Guide for Classic Load Balancers* .
      */
     connectionDrainingPolicy?: pulumi.Input<inputs.elasticloadbalancing.LoadBalancerConnectionDrainingPolicyArgs>;
     /**
      * If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
-     *
-     * By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see [Configure idle connection timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html) in the *User Guide for Classic Load Balancers* .
      */
     connectionSettings?: pulumi.Input<inputs.elasticloadbalancing.LoadBalancerConnectionSettingsArgs>;
     /**
      * If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
-     *
-     * For more information, see [Configure cross-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html) in the *User Guide for Classic Load Balancers* .
      */
     crossZone?: pulumi.Input<boolean>;
     /**
      * The health check settings to use when evaluating the health of your EC2 instances.
-     *
-     * Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
      */
     healthCheck?: pulumi.Input<inputs.elasticloadbalancing.LoadBalancerHealthCheckArgs>;
     /**
@@ -255,15 +219,11 @@ export interface LoadBalancerArgs {
      */
     lbCookieStickinessPolicy?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancing.LoadBalancerLbCookieStickinessPolicyArgs>[]>;
     /**
-     * The listeners for the load balancer. You can specify at most one listener per port.
-     *
-     * If you update the properties for a listener, AWS CloudFormation deletes the existing listener and creates a new one with the specified properties. While the new listener is being created, clients cannot connect to the load balancer.
+     * The Listeners for the load balancer. You can specify at most one listener per port.
      */
     listeners: pulumi.Input<pulumi.Input<inputs.elasticloadbalancing.LoadBalancerListenersArgs>[]>;
     /**
      * The name of the load balancer. This name must be unique within your set of load balancers for the region.
-     *
-     * If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) . If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
      */
     loadBalancerName?: pulumi.Input<string>;
     /**
@@ -272,22 +232,14 @@ export interface LoadBalancerArgs {
     policies?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancing.LoadBalancerPoliciesArgs>[]>;
     /**
      * The type of load balancer. Valid only for load balancers in a VPC.
-     *
-     * If `Scheme` is `internet-facing` , the load balancer has a public DNS name that resolves to a public IP address.
-     *
-     * If `Scheme` is `internal` , the load balancer has a public DNS name that resolves to a private IP address.
      */
     scheme?: pulumi.Input<string>;
     /**
      * The security groups for the load balancer. Valid only for load balancers in a VPC.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
-    sourceSecurityGroupGroupName?: pulumi.Input<string>;
-    sourceSecurityGroupOwnerAlias?: pulumi.Input<string>;
     /**
      * The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
-     *
-     * Update requires replacement if you did not previously specify a subnet or if you are removing all subnets. Otherwise, update requires no interruption. To update to a different subnet in the current Availability Zone, you must first update to a subnet in a different Availability Zone, then update to the new subnet in the original Availability Zone.
      */
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**

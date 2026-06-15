@@ -62,6 +62,7 @@ export interface GetAiGuardrailResult {
      * Description of the guardrail or its version
      */
     readonly description?: string;
+    readonly modifiedTimeSeconds?: number;
     /**
      * Contains details about PII entities and regular expressions to configure for the AI Guardrail.
      */

@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'AccessPolicyType',
     'CollectionDeletionProtection',
+    'CollectionGroupGeneration',
     'CollectionGroupStandbyReplicas',
     'CollectionServerlessVectorAcceleration',
     'CollectionStandbyReplicas',
@@ -38,6 +39,15 @@ class CollectionDeletionProtection(_builtins.str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:opensearchserverless:CollectionGroupGeneration")
+class CollectionGroupGeneration(_builtins.str, Enum):
+    """
+    The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
+    """
+    CLASSIC = "CLASSIC"
+    NEXTGEN = "NEXTGEN"
 
 
 @pulumi.type_token("aws-native:opensearchserverless:CollectionGroupStandbyReplicas")

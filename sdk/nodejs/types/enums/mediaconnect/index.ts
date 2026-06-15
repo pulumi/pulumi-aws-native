@@ -323,6 +323,16 @@ export const FlowOutputMediaStreamOutputConfigurationEncodingName = {
  */
 export type FlowOutputMediaStreamOutputConfigurationEncodingName = (typeof FlowOutputMediaStreamOutputConfigurationEncodingName)[keyof typeof FlowOutputMediaStreamOutputConfigurationEncodingName];
 
+export const FlowOutputNdiOutputTimecodeSource = {
+    EmbeddedTimecode: "EMBEDDED_TIMECODE",
+    UtcSystemTime: "UTC_SYSTEM_TIME",
+} as const;
+
+/**
+ * The timecode source for the NDI output.
+ */
+export type FlowOutputNdiOutputTimecodeSource = (typeof FlowOutputNdiOutputTimecodeSource)[keyof typeof FlowOutputNdiOutputTimecodeSource];
+
 export const FlowOutputOutputStatus = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.AppStream
         /// </summary>
         public readonly Outputs.StackApplicationSettings? ApplicationSettings;
         /// <summary>
+        /// The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
+        /// </summary>
+        public readonly Outputs.StackContentRedirection? ContentRedirection;
+        /// <summary>
         /// The description to display.
         /// </summary>
         public readonly string? Description;
@@ -114,6 +118,8 @@ namespace Pulumi.AwsNative.AppStream
 
             Outputs.StackApplicationSettings? applicationSettings,
 
+            Outputs.StackContentRedirection? contentRedirection,
+
             string? description,
 
             string? displayName,
@@ -134,6 +140,7 @@ namespace Pulumi.AwsNative.AppStream
         {
             AccessEndpoints = accessEndpoints;
             ApplicationSettings = applicationSettings;
+            ContentRedirection = contentRedirection;
             Description = description;
             DisplayName = displayName;
             EmbedHostDomains = embedHostDomains;

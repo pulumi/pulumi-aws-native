@@ -71,6 +71,7 @@ __all__ = [
     'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource',
     'OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource',
     'OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent',
+    'OnlineEvaluationConfigClusteringFrequency',
     'OnlineEvaluationConfigExecutionStatus',
     'OnlineEvaluationConfigFilterOperator',
     'OnlineEvaluationConfigStatus',
@@ -687,6 +688,16 @@ class OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent(_bui
     NONE = "NONE"
     M2M = "M2M"
     AWS_IAM_ID_TOKEN_JWT = "AWS_IAM_ID_TOKEN_JWT"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OnlineEvaluationConfigClusteringFrequency")
+class OnlineEvaluationConfigClusteringFrequency(_builtins.str, Enum):
+    """
+    The frequency at which clustering reports are generated.
+    """
+    DAILY = "DAILY"
+    WEEKLY = "WEEKLY"
+    MONTHLY = "MONTHLY"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:OnlineEvaluationConfigExecutionStatus")

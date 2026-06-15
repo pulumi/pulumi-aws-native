@@ -21,7 +21,8 @@ class PolicyTemplateArgs:
     def __init__(__self__, *,
                  policy_store_id: pulumi.Input[_builtins.str],
                  statement: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyTemplate resource.
 
@@ -33,6 +34,8 @@ class PolicyTemplateArgs:
         pulumi.set(__self__, "statement", statement)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="policyStoreId")
@@ -70,6 +73,15 @@ class PolicyTemplateArgs:
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
 
 @pulumi.type_token("aws-native:verifiedpermissions:PolicyTemplate")
 class PolicyTemplate(pulumi.CustomResource):
@@ -78,6 +90,7 @@ class PolicyTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
                  statement: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -155,6 +168,7 @@ class PolicyTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
                  statement: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -167,6 +181,7 @@ class PolicyTemplate(pulumi.CustomResource):
             __props__ = PolicyTemplateArgs.__new__(PolicyTemplateArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
             if policy_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_store_id'")
             __props__.__dict__["policy_store_id"] = policy_store_id
@@ -199,6 +214,7 @@ class PolicyTemplate(pulumi.CustomResource):
         __props__ = PolicyTemplateArgs.__new__(PolicyTemplateArgs)
 
         __props__.__dict__["description"] = None
+        __props__.__dict__["name"] = None
         __props__.__dict__["policy_store_id"] = None
         __props__.__dict__["policy_template_id"] = None
         __props__.__dict__["statement"] = None
@@ -211,6 +227,11 @@ class PolicyTemplate(pulumi.CustomResource):
         The description to attach to the new or updated policy template.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="policyStoreId")

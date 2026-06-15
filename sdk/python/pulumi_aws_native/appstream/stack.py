@@ -26,6 +26,7 @@ class StackArgs:
                  access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]]] = None,
                  application_settings: Optional[pulumi.Input['StackApplicationSettingsArgs']] = None,
                  attributes_to_delete: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 content_redirection: Optional[pulumi.Input['StackContentRedirectionArgs']] = None,
                  delete_storage_connectors: Optional[pulumi.Input[_builtins.bool]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -43,6 +44,7 @@ class StackArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]] access_endpoints: The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
         :param pulumi.Input['StackApplicationSettingsArgs'] application_settings: The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attributes_to_delete: The stack attributes to delete.
+        :param pulumi.Input['StackContentRedirectionArgs'] content_redirection: The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
         :param pulumi.Input[_builtins.bool] delete_storage_connectors: This parameter has been deprecated. Deletes the storage connectors currently enabled for the stack.
         :param pulumi.Input[_builtins.str] description: The description to display.
         :param pulumi.Input[_builtins.str] display_name: The stack name to display.
@@ -61,6 +63,8 @@ class StackArgs:
             pulumi.set(__self__, "application_settings", application_settings)
         if attributes_to_delete is not None:
             pulumi.set(__self__, "attributes_to_delete", attributes_to_delete)
+        if content_redirection is not None:
+            pulumi.set(__self__, "content_redirection", content_redirection)
         if delete_storage_connectors is not None:
             pulumi.set(__self__, "delete_storage_connectors", delete_storage_connectors)
         if description is not None:
@@ -119,6 +123,18 @@ class StackArgs:
     @attributes_to_delete.setter
     def attributes_to_delete(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attributes_to_delete", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentRedirection")
+    def content_redirection(self) -> Optional[pulumi.Input['StackContentRedirectionArgs']]:
+        """
+        The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
+        """
+        return pulumi.get(self, "content_redirection")
+
+    @content_redirection.setter
+    def content_redirection(self, value: Optional[pulumi.Input['StackContentRedirectionArgs']]):
+        pulumi.set(self, "content_redirection", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteStorageConnectors")
@@ -262,6 +278,7 @@ class Stack(pulumi.CustomResource):
                  access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict']]]]] = None,
                  application_settings: Optional[pulumi.Input[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict']]] = None,
                  attributes_to_delete: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 content_redirection: Optional[pulumi.Input[Union['StackContentRedirectionArgs', 'StackContentRedirectionArgsDict']]] = None,
                  delete_storage_connectors: Optional[pulumi.Input[_builtins.bool]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -283,6 +300,7 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict']]]] access_endpoints: The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
         :param pulumi.Input[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict']] application_settings: The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attributes_to_delete: The stack attributes to delete.
+        :param pulumi.Input[Union['StackContentRedirectionArgs', 'StackContentRedirectionArgsDict']] content_redirection: The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
         :param pulumi.Input[_builtins.bool] delete_storage_connectors: This parameter has been deprecated. Deletes the storage connectors currently enabled for the stack.
         :param pulumi.Input[_builtins.str] description: The description to display.
         :param pulumi.Input[_builtins.str] display_name: The stack name to display.
@@ -323,6 +341,7 @@ class Stack(pulumi.CustomResource):
                  access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict']]]]] = None,
                  application_settings: Optional[pulumi.Input[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict']]] = None,
                  attributes_to_delete: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 content_redirection: Optional[pulumi.Input[Union['StackContentRedirectionArgs', 'StackContentRedirectionArgsDict']]] = None,
                  delete_storage_connectors: Optional[pulumi.Input[_builtins.bool]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -346,6 +365,7 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["access_endpoints"] = access_endpoints
             __props__.__dict__["application_settings"] = application_settings
             __props__.__dict__["attributes_to_delete"] = attributes_to_delete
+            __props__.__dict__["content_redirection"] = content_redirection
             __props__.__dict__["delete_storage_connectors"] = delete_storage_connectors
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
@@ -384,6 +404,7 @@ class Stack(pulumi.CustomResource):
         __props__.__dict__["access_endpoints"] = None
         __props__.__dict__["application_settings"] = None
         __props__.__dict__["attributes_to_delete"] = None
+        __props__.__dict__["content_redirection"] = None
         __props__.__dict__["delete_storage_connectors"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
@@ -420,6 +441,14 @@ class Stack(pulumi.CustomResource):
         The stack attributes to delete.
         """
         return pulumi.get(self, "attributes_to_delete")
+
+    @_builtins.property
+    @pulumi.getter(name="contentRedirection")
+    def content_redirection(self) -> pulumi.Output[Optional['outputs.StackContentRedirection']]:
+        """
+        The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
+        """
+        return pulumi.get(self, "content_redirection")
 
     @_builtins.property
     @pulumi.getter(name="deleteStorageConnectors")

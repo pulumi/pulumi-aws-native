@@ -73,6 +73,7 @@ export class AiGuardrail extends pulumi.CustomResource {
      * Description of the guardrail or its version
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly modifiedTimeSeconds: pulumi.Output<number>;
     /**
      * The name of the AI Guardrail.
      */
@@ -128,6 +129,7 @@ export class AiGuardrail extends pulumi.CustomResource {
             resourceInputs["aiGuardrailArn"] = undefined /*out*/;
             resourceInputs["aiGuardrailId"] = undefined /*out*/;
             resourceInputs["assistantArn"] = undefined /*out*/;
+            resourceInputs["modifiedTimeSeconds"] = undefined /*out*/;
         } else {
             resourceInputs["aiGuardrailArn"] = undefined /*out*/;
             resourceInputs["aiGuardrailId"] = undefined /*out*/;
@@ -138,6 +140,7 @@ export class AiGuardrail extends pulumi.CustomResource {
             resourceInputs["contentPolicyConfig"] = undefined /*out*/;
             resourceInputs["contextualGroundingPolicyConfig"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["modifiedTimeSeconds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sensitiveInformationPolicyConfig"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

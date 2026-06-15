@@ -2009,6 +2009,38 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The frequency at which clustering reports are generated.
+    /// </summary>
+    [EnumType]
+    public readonly struct OnlineEvaluationConfigClusteringFrequency : IEquatable<OnlineEvaluationConfigClusteringFrequency>
+    {
+        private readonly string _value;
+
+        private OnlineEvaluationConfigClusteringFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OnlineEvaluationConfigClusteringFrequency Daily { get; } = new OnlineEvaluationConfigClusteringFrequency("DAILY");
+        public static OnlineEvaluationConfigClusteringFrequency Weekly { get; } = new OnlineEvaluationConfigClusteringFrequency("WEEKLY");
+        public static OnlineEvaluationConfigClusteringFrequency Monthly { get; } = new OnlineEvaluationConfigClusteringFrequency("MONTHLY");
+
+        public static bool operator ==(OnlineEvaluationConfigClusteringFrequency left, OnlineEvaluationConfigClusteringFrequency right) => left.Equals(right);
+        public static bool operator !=(OnlineEvaluationConfigClusteringFrequency left, OnlineEvaluationConfigClusteringFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(OnlineEvaluationConfigClusteringFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OnlineEvaluationConfigClusteringFrequency other && Equals(other);
+        public bool Equals(OnlineEvaluationConfigClusteringFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct OnlineEvaluationConfigExecutionStatus : IEquatable<OnlineEvaluationConfigExecutionStatus>
     {

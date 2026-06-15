@@ -34,6 +34,7 @@ class FlowLogArgs:
                  log_format: Optional[pulumi.Input[_builtins.str]] = None,
                  log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  max_aggregation_interval: Optional[pulumi.Input[_builtins.int]] = None,
+                 tag_field_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  traffic_type: Optional[pulumi.Input['FlowLogTrafficType']] = None):
         """
@@ -49,6 +50,7 @@ class FlowLogArgs:
         :param pulumi.Input[_builtins.str] log_format: The fields to include in the flow log record, in the order in which they should appear.
         :param pulumi.Input[_builtins.str] log_group_name: The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
         :param pulumi.Input[_builtins.int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).
+        :param pulumi.Input[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]] tag_field_specifications: The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to apply to the flow logs.
         :param pulumi.Input['FlowLogTrafficType'] traffic_type: The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         """
@@ -70,6 +72,8 @@ class FlowLogArgs:
             pulumi.set(__self__, "log_group_name", log_group_name)
         if max_aggregation_interval is not None:
             pulumi.set(__self__, "max_aggregation_interval", max_aggregation_interval)
+        if tag_field_specifications is not None:
+            pulumi.set(__self__, "tag_field_specifications", tag_field_specifications)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if traffic_type is not None:
@@ -196,6 +200,18 @@ class FlowLogArgs:
         pulumi.set(self, "max_aggregation_interval", value)
 
     @_builtins.property
+    @pulumi.getter(name="tagFieldSpecifications")
+    def tag_field_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]]]:
+        """
+        The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
+        """
+        return pulumi.get(self, "tag_field_specifications")
+
+    @tag_field_specifications.setter
+    def tag_field_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]]]):
+        pulumi.set(self, "tag_field_specifications", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -236,6 +252,7 @@ class FlowLog(pulumi.CustomResource):
                  max_aggregation_interval: Optional[pulumi.Input[_builtins.int]] = None,
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_type: Optional[pulumi.Input['FlowLogResourceType']] = None,
+                 tag_field_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  traffic_type: Optional[pulumi.Input['FlowLogTrafficType']] = None,
                  __props__=None):
@@ -255,6 +272,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).
         :param pulumi.Input[_builtins.str] resource_id: The ID of the subnet, network interface, or VPC for which you want to create a flow log.
         :param pulumi.Input['FlowLogResourceType'] resource_type: The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]] tag_field_specifications: The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to apply to the flow logs.
         :param pulumi.Input['FlowLogTrafficType'] traffic_type: The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         """
@@ -293,6 +311,7 @@ class FlowLog(pulumi.CustomResource):
                  max_aggregation_interval: Optional[pulumi.Input[_builtins.int]] = None,
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_type: Optional[pulumi.Input['FlowLogResourceType']] = None,
+                 tag_field_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  traffic_type: Optional[pulumi.Input['FlowLogTrafficType']] = None,
                  __props__=None):
@@ -318,10 +337,11 @@ class FlowLog(pulumi.CustomResource):
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
+            __props__.__dict__["tag_field_specifications"] = tag_field_specifications
             __props__.__dict__["tags"] = tags
             __props__.__dict__["traffic_type"] = traffic_type
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["deliverCrossAccountRole", "deliverLogsPermissionArn", "destinationOptions", "logDestination", "logDestinationType", "logFormat", "logGroupName", "maxAggregationInterval", "resourceId", "resourceType", "trafficType"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["deliverCrossAccountRole", "deliverLogsPermissionArn", "destinationOptions", "logDestination", "logDestinationType", "logFormat", "logGroupName", "maxAggregationInterval", "resourceId", "resourceType", "tagFieldSpecifications[*]", "trafficType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FlowLog, __self__).__init__(
             'aws-native:ec2:FlowLog',
@@ -356,6 +376,7 @@ class FlowLog(pulumi.CustomResource):
         __props__.__dict__["max_aggregation_interval"] = None
         __props__.__dict__["resource_id"] = None
         __props__.__dict__["resource_type"] = None
+        __props__.__dict__["tag_field_specifications"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["traffic_type"] = None
         return FlowLog(resource_name, opts=opts, __props__=__props__)
@@ -447,6 +468,14 @@ class FlowLog(pulumi.CustomResource):
         The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
         """
         return pulumi.get(self, "resource_type")
+
+    @_builtins.property
+    @pulumi.getter(name="tagFieldSpecifications")
+    def tag_field_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.FlowLogTagFieldSpecification']]]:
+        """
+        The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
+        """
+        return pulumi.get(self, "tag_field_specifications")
 
     @_builtins.property
     @pulumi.getter

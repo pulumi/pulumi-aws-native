@@ -112,6 +112,10 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         public readonly bool? IamAuthEnabled;
         /// <summary>
+        /// The network type of the DB cluster.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Neptune.DbClusterNetworkType? NetworkType;
+        /// <summary>
         /// The port number on which the DB cluster accepts connections. For example: `8182`.
         /// </summary>
         public readonly string? Port;
@@ -164,6 +168,8 @@ namespace Pulumi.AwsNative.Neptune
 
             bool? iamAuthEnabled,
 
+            Pulumi.AwsNative.Neptune.DbClusterNetworkType? networkType,
+
             string? port,
 
             string? preferredBackupWindow,
@@ -189,6 +195,7 @@ namespace Pulumi.AwsNative.Neptune
             Endpoint = endpoint;
             EngineVersion = engineVersion;
             IamAuthEnabled = iamAuthEnabled;
+            NetworkType = networkType;
             Port = port;
             PreferredBackupWindow = preferredBackupWindow;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;

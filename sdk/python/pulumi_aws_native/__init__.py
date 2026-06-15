@@ -986,6 +986,7 @@ _utilities.register(
    "aws-native:appstream:Entitlement": "Entitlement",
    "aws-native:appstream:ImageBuilder": "ImageBuilder",
    "aws-native:appstream:Stack": "Stack",
+   "aws-native:appstream:StackFleetAssociation": "StackFleetAssociation",
    "aws-native:appstream:StackUserAssociation": "StackUserAssociation",
    "aws-native:appstream:User": "User"
   }
@@ -1177,6 +1178,7 @@ _utilities.register(
    "aws-native:bedrockagentcore:BrowserCustom": "BrowserCustom",
    "aws-native:bedrockagentcore:BrowserProfile": "BrowserProfile",
    "aws-native:bedrockagentcore:CodeInterpreterCustom": "CodeInterpreterCustom",
+   "aws-native:bedrockagentcore:ConfigurationBundle": "ConfigurationBundle",
    "aws-native:bedrockagentcore:Dataset": "Dataset",
    "aws-native:bedrockagentcore:Evaluator": "Evaluator",
    "aws-native:bedrockagentcore:Gateway": "Gateway",
@@ -3501,6 +3503,7 @@ _utilities.register(
    "aws-native:sagemaker:ImageVersion": "ImageVersion",
    "aws-native:sagemaker:InferenceComponent": "InferenceComponent",
    "aws-native:sagemaker:InferenceExperiment": "InferenceExperiment",
+   "aws-native:sagemaker:MlflowApp": "MlflowApp",
    "aws-native:sagemaker:MlflowTrackingServer": "MlflowTrackingServer",
    "aws-native:sagemaker:Model": "Model",
    "aws-native:sagemaker:ModelBiasJobDefinition": "ModelBiasJobDefinition",

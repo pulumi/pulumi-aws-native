@@ -8922,6 +8922,270 @@ func (in *inferenceExperimentTypePtr) ToInferenceExperimentTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(InferenceExperimentTypePtrOutput)
 }
 
+// Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry.
+type MlflowAppModelRegistrationMode string
+
+const (
+	MlflowAppModelRegistrationModeAutoModelRegistrationEnabled  = MlflowAppModelRegistrationMode("AutoModelRegistrationEnabled")
+	MlflowAppModelRegistrationModeAutoModelRegistrationDisabled = MlflowAppModelRegistrationMode("AutoModelRegistrationDisabled")
+)
+
+func (MlflowAppModelRegistrationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlflowAppModelRegistrationMode)(nil)).Elem()
+}
+
+func (e MlflowAppModelRegistrationMode) ToMlflowAppModelRegistrationModeOutput() MlflowAppModelRegistrationModeOutput {
+	return pulumi.ToOutput(e).(MlflowAppModelRegistrationModeOutput)
+}
+
+func (e MlflowAppModelRegistrationMode) ToMlflowAppModelRegistrationModeOutputWithContext(ctx context.Context) MlflowAppModelRegistrationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MlflowAppModelRegistrationModeOutput)
+}
+
+func (e MlflowAppModelRegistrationMode) ToMlflowAppModelRegistrationModePtrOutput() MlflowAppModelRegistrationModePtrOutput {
+	return e.ToMlflowAppModelRegistrationModePtrOutputWithContext(context.Background())
+}
+
+func (e MlflowAppModelRegistrationMode) ToMlflowAppModelRegistrationModePtrOutputWithContext(ctx context.Context) MlflowAppModelRegistrationModePtrOutput {
+	return MlflowAppModelRegistrationMode(e).ToMlflowAppModelRegistrationModeOutputWithContext(ctx).ToMlflowAppModelRegistrationModePtrOutputWithContext(ctx)
+}
+
+func (e MlflowAppModelRegistrationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MlflowAppModelRegistrationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MlflowAppModelRegistrationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MlflowAppModelRegistrationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MlflowAppModelRegistrationModeOutput struct{ *pulumi.OutputState }
+
+func (MlflowAppModelRegistrationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlflowAppModelRegistrationMode)(nil)).Elem()
+}
+
+func (o MlflowAppModelRegistrationModeOutput) ToMlflowAppModelRegistrationModeOutput() MlflowAppModelRegistrationModeOutput {
+	return o
+}
+
+func (o MlflowAppModelRegistrationModeOutput) ToMlflowAppModelRegistrationModeOutputWithContext(ctx context.Context) MlflowAppModelRegistrationModeOutput {
+	return o
+}
+
+func (o MlflowAppModelRegistrationModeOutput) ToMlflowAppModelRegistrationModePtrOutput() MlflowAppModelRegistrationModePtrOutput {
+	return o.ToMlflowAppModelRegistrationModePtrOutputWithContext(context.Background())
+}
+
+func (o MlflowAppModelRegistrationModeOutput) ToMlflowAppModelRegistrationModePtrOutputWithContext(ctx context.Context) MlflowAppModelRegistrationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MlflowAppModelRegistrationMode) *MlflowAppModelRegistrationMode {
+		return &v
+	}).(MlflowAppModelRegistrationModePtrOutput)
+}
+
+func (o MlflowAppModelRegistrationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MlflowAppModelRegistrationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MlflowAppModelRegistrationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MlflowAppModelRegistrationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MlflowAppModelRegistrationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MlflowAppModelRegistrationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MlflowAppModelRegistrationModePtrOutput struct{ *pulumi.OutputState }
+
+func (MlflowAppModelRegistrationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlflowAppModelRegistrationMode)(nil)).Elem()
+}
+
+func (o MlflowAppModelRegistrationModePtrOutput) ToMlflowAppModelRegistrationModePtrOutput() MlflowAppModelRegistrationModePtrOutput {
+	return o
+}
+
+func (o MlflowAppModelRegistrationModePtrOutput) ToMlflowAppModelRegistrationModePtrOutputWithContext(ctx context.Context) MlflowAppModelRegistrationModePtrOutput {
+	return o
+}
+
+func (o MlflowAppModelRegistrationModePtrOutput) Elem() MlflowAppModelRegistrationModeOutput {
+	return o.ApplyT(func(v *MlflowAppModelRegistrationMode) MlflowAppModelRegistrationMode {
+		if v != nil {
+			return *v
+		}
+		var ret MlflowAppModelRegistrationMode
+		return ret
+	}).(MlflowAppModelRegistrationModeOutput)
+}
+
+func (o MlflowAppModelRegistrationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MlflowAppModelRegistrationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MlflowAppModelRegistrationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MlflowAppModelRegistrationModeInput is an input type that accepts values of the MlflowAppModelRegistrationMode enum
+// A concrete instance of `MlflowAppModelRegistrationModeInput` can be one of the following:
+//
+//	MlflowAppModelRegistrationModeAutoModelRegistrationEnabled
+//	MlflowAppModelRegistrationModeAutoModelRegistrationDisabled
+type MlflowAppModelRegistrationModeInput interface {
+	pulumi.Input
+
+	ToMlflowAppModelRegistrationModeOutput() MlflowAppModelRegistrationModeOutput
+	ToMlflowAppModelRegistrationModeOutputWithContext(context.Context) MlflowAppModelRegistrationModeOutput
+}
+
+var mlflowAppModelRegistrationModePtrType = reflect.TypeOf((**MlflowAppModelRegistrationMode)(nil)).Elem()
+
+type MlflowAppModelRegistrationModePtrInput interface {
+	pulumi.Input
+
+	ToMlflowAppModelRegistrationModePtrOutput() MlflowAppModelRegistrationModePtrOutput
+	ToMlflowAppModelRegistrationModePtrOutputWithContext(context.Context) MlflowAppModelRegistrationModePtrOutput
+}
+
+type mlflowAppModelRegistrationModePtr string
+
+func MlflowAppModelRegistrationModePtr(v string) MlflowAppModelRegistrationModePtrInput {
+	return (*mlflowAppModelRegistrationModePtr)(&v)
+}
+
+func (*mlflowAppModelRegistrationModePtr) ElementType() reflect.Type {
+	return mlflowAppModelRegistrationModePtrType
+}
+
+func (in *mlflowAppModelRegistrationModePtr) ToMlflowAppModelRegistrationModePtrOutput() MlflowAppModelRegistrationModePtrOutput {
+	return pulumi.ToOutput(in).(MlflowAppModelRegistrationModePtrOutput)
+}
+
+func (in *mlflowAppModelRegistrationModePtr) ToMlflowAppModelRegistrationModePtrOutputWithContext(ctx context.Context) MlflowAppModelRegistrationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MlflowAppModelRegistrationModePtrOutput)
+}
+
+// The status of the MLflow App.
+type MlflowAppStatus string
+
+const (
+	MlflowAppStatusCreating     = MlflowAppStatus("Creating")
+	MlflowAppStatusCreated      = MlflowAppStatus("Created")
+	MlflowAppStatusCreateFailed = MlflowAppStatus("CreateFailed")
+	MlflowAppStatusUpdating     = MlflowAppStatus("Updating")
+	MlflowAppStatusUpdated      = MlflowAppStatus("Updated")
+	MlflowAppStatusUpdateFailed = MlflowAppStatus("UpdateFailed")
+	MlflowAppStatusDeleting     = MlflowAppStatus("Deleting")
+	MlflowAppStatusDeleteFailed = MlflowAppStatus("DeleteFailed")
+	MlflowAppStatusDeleted      = MlflowAppStatus("Deleted")
+)
+
+type MlflowAppStatusOutput struct{ *pulumi.OutputState }
+
+func (MlflowAppStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlflowAppStatus)(nil)).Elem()
+}
+
+func (o MlflowAppStatusOutput) ToMlflowAppStatusOutput() MlflowAppStatusOutput {
+	return o
+}
+
+func (o MlflowAppStatusOutput) ToMlflowAppStatusOutputWithContext(ctx context.Context) MlflowAppStatusOutput {
+	return o
+}
+
+func (o MlflowAppStatusOutput) ToMlflowAppStatusPtrOutput() MlflowAppStatusPtrOutput {
+	return o.ToMlflowAppStatusPtrOutputWithContext(context.Background())
+}
+
+func (o MlflowAppStatusOutput) ToMlflowAppStatusPtrOutputWithContext(ctx context.Context) MlflowAppStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MlflowAppStatus) *MlflowAppStatus {
+		return &v
+	}).(MlflowAppStatusPtrOutput)
+}
+
+func (o MlflowAppStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MlflowAppStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MlflowAppStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MlflowAppStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MlflowAppStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MlflowAppStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MlflowAppStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (MlflowAppStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlflowAppStatus)(nil)).Elem()
+}
+
+func (o MlflowAppStatusPtrOutput) ToMlflowAppStatusPtrOutput() MlflowAppStatusPtrOutput {
+	return o
+}
+
+func (o MlflowAppStatusPtrOutput) ToMlflowAppStatusPtrOutputWithContext(ctx context.Context) MlflowAppStatusPtrOutput {
+	return o
+}
+
+func (o MlflowAppStatusPtrOutput) Elem() MlflowAppStatusOutput {
+	return o.ApplyT(func(v *MlflowAppStatus) MlflowAppStatus {
+		if v != nil {
+			return *v
+		}
+		var ret MlflowAppStatus
+		return ret
+	}).(MlflowAppStatusOutput)
+}
+
+func (o MlflowAppStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MlflowAppStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MlflowAppStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The size of the MLFlow Tracking Server.
 type MlflowTrackingServerTrackingServerSize string
 
@@ -24065,6 +24329,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrInput)(nil)).Elem(), InferenceExperimentModelInfrastructureConfigInfrastructureType("RealTimeInference"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentTypeInput)(nil)).Elem(), InferenceExperimentType("ShadowMode"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentTypePtrInput)(nil)).Elem(), InferenceExperimentType("ShadowMode"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MlflowAppModelRegistrationModeInput)(nil)).Elem(), MlflowAppModelRegistrationMode("AutoModelRegistrationEnabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MlflowAppModelRegistrationModePtrInput)(nil)).Elem(), MlflowAppModelRegistrationMode("AutoModelRegistrationEnabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MlflowTrackingServerTrackingServerSizeInput)(nil)).Elem(), MlflowTrackingServerTrackingServerSize("Small"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MlflowTrackingServerTrackingServerSizePtrInput)(nil)).Elem(), MlflowTrackingServerTrackingServerSize("Small"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
@@ -24334,6 +24600,10 @@ func init() {
 	pulumi.RegisterOutputType(InferenceExperimentStatusPtrOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentTypeOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentTypePtrOutput{})
+	pulumi.RegisterOutputType(MlflowAppModelRegistrationModeOutput{})
+	pulumi.RegisterOutputType(MlflowAppModelRegistrationModePtrOutput{})
+	pulumi.RegisterOutputType(MlflowAppStatusOutput{})
+	pulumi.RegisterOutputType(MlflowAppStatusPtrOutput{})
 	pulumi.RegisterOutputType(MlflowTrackingServerTrackingServerSizeOutput{})
 	pulumi.RegisterOutputType(MlflowTrackingServerTrackingServerSizePtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput{})

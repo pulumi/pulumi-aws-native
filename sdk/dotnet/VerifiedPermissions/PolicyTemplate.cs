@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("name")]
+        public Output<string?> Name { get; private set; } = null!;
+
         /// <summary>
         /// The unique identifier of the policy store that contains the template.
         /// </summary>
@@ -123,6 +126,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The unique identifier of the policy store that contains the template.

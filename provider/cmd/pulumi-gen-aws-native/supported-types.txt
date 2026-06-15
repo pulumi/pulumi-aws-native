@@ -84,6 +84,7 @@ AWS::AppStream::DirectoryConfig
 AWS::AppStream::Entitlement
 AWS::AppStream::ImageBuilder
 AWS::AppStream::Stack
+AWS::AppStream::StackFleetAssociation
 AWS::AppStream::StackUserAssociation
 AWS::AppStream::User
 AWS::AppSync::Api
@@ -160,6 +161,7 @@ AWS::BedrockAgentCore::ApiKeyCredentialProvider
 AWS::BedrockAgentCore::BrowserCustom
 AWS::BedrockAgentCore::BrowserProfile
 AWS::BedrockAgentCore::CodeInterpreterCustom
+AWS::BedrockAgentCore::ConfigurationBundle
 AWS::BedrockAgentCore::Dataset
 AWS::BedrockAgentCore::Evaluator
 AWS::BedrockAgentCore::Gateway
@@ -1239,6 +1241,7 @@ AWS::SageMaker::Image
 AWS::SageMaker::ImageVersion
 AWS::SageMaker::InferenceComponent
 AWS::SageMaker::InferenceExperiment
+AWS::SageMaker::MlflowApp
 AWS::SageMaker::MlflowTrackingServer
 AWS::SageMaker::Model
 AWS::SageMaker::ModelBiasJobDefinition

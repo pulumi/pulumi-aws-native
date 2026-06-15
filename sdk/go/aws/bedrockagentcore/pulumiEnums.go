@@ -9975,6 +9975,219 @@ func (in *oauth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentP
 	return pulumi.ToOutputWithContext(ctx, in).(OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentPtrOutput)
 }
 
+// The frequency at which clustering reports are generated.
+type OnlineEvaluationConfigClusteringFrequency string
+
+const (
+	OnlineEvaluationConfigClusteringFrequencyDaily   = OnlineEvaluationConfigClusteringFrequency("DAILY")
+	OnlineEvaluationConfigClusteringFrequencyWeekly  = OnlineEvaluationConfigClusteringFrequency("WEEKLY")
+	OnlineEvaluationConfigClusteringFrequencyMonthly = OnlineEvaluationConfigClusteringFrequency("MONTHLY")
+)
+
+func (OnlineEvaluationConfigClusteringFrequency) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigClusteringFrequency)(nil)).Elem()
+}
+
+func (e OnlineEvaluationConfigClusteringFrequency) ToOnlineEvaluationConfigClusteringFrequencyOutput() OnlineEvaluationConfigClusteringFrequencyOutput {
+	return pulumi.ToOutput(e).(OnlineEvaluationConfigClusteringFrequencyOutput)
+}
+
+func (e OnlineEvaluationConfigClusteringFrequency) ToOnlineEvaluationConfigClusteringFrequencyOutputWithContext(ctx context.Context) OnlineEvaluationConfigClusteringFrequencyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OnlineEvaluationConfigClusteringFrequencyOutput)
+}
+
+func (e OnlineEvaluationConfigClusteringFrequency) ToOnlineEvaluationConfigClusteringFrequencyPtrOutput() OnlineEvaluationConfigClusteringFrequencyPtrOutput {
+	return e.ToOnlineEvaluationConfigClusteringFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (e OnlineEvaluationConfigClusteringFrequency) ToOnlineEvaluationConfigClusteringFrequencyPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigClusteringFrequencyPtrOutput {
+	return OnlineEvaluationConfigClusteringFrequency(e).ToOnlineEvaluationConfigClusteringFrequencyOutputWithContext(ctx).ToOnlineEvaluationConfigClusteringFrequencyPtrOutputWithContext(ctx)
+}
+
+func (e OnlineEvaluationConfigClusteringFrequency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OnlineEvaluationConfigClusteringFrequency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OnlineEvaluationConfigClusteringFrequency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OnlineEvaluationConfigClusteringFrequency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OnlineEvaluationConfigClusteringFrequencyOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigClusteringFrequencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigClusteringFrequency)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigClusteringFrequencyOutput) ToOnlineEvaluationConfigClusteringFrequencyOutput() OnlineEvaluationConfigClusteringFrequencyOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigClusteringFrequencyOutput) ToOnlineEvaluationConfigClusteringFrequencyOutputWithContext(ctx context.Context) OnlineEvaluationConfigClusteringFrequencyOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigClusteringFrequencyOutput) ToOnlineEvaluationConfigClusteringFrequencyPtrOutput() OnlineEvaluationConfigClusteringFrequencyPtrOutput {
+	return o.ToOnlineEvaluationConfigClusteringFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigClusteringFrequencyOutput) ToOnlineEvaluationConfigClusteringFrequencyPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigClusteringFrequencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnlineEvaluationConfigClusteringFrequency) *OnlineEvaluationConfigClusteringFrequency {
+		return &v
+	}).(OnlineEvaluationConfigClusteringFrequencyPtrOutput)
+}
+
+func (o OnlineEvaluationConfigClusteringFrequencyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigClusteringFrequencyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OnlineEvaluationConfigClusteringFrequency) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OnlineEvaluationConfigClusteringFrequencyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigClusteringFrequencyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OnlineEvaluationConfigClusteringFrequency) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OnlineEvaluationConfigClusteringFrequencyPtrOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigClusteringFrequencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigClusteringFrequency)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigClusteringFrequencyPtrOutput) ToOnlineEvaluationConfigClusteringFrequencyPtrOutput() OnlineEvaluationConfigClusteringFrequencyPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigClusteringFrequencyPtrOutput) ToOnlineEvaluationConfigClusteringFrequencyPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigClusteringFrequencyPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigClusteringFrequencyPtrOutput) Elem() OnlineEvaluationConfigClusteringFrequencyOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigClusteringFrequency) OnlineEvaluationConfigClusteringFrequency {
+		if v != nil {
+			return *v
+		}
+		var ret OnlineEvaluationConfigClusteringFrequency
+		return ret
+	}).(OnlineEvaluationConfigClusteringFrequencyOutput)
+}
+
+func (o OnlineEvaluationConfigClusteringFrequencyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigClusteringFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OnlineEvaluationConfigClusteringFrequency) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OnlineEvaluationConfigClusteringFrequencyInput is an input type that accepts values of the OnlineEvaluationConfigClusteringFrequency enum
+// A concrete instance of `OnlineEvaluationConfigClusteringFrequencyInput` can be one of the following:
+//
+//	OnlineEvaluationConfigClusteringFrequencyDaily
+//	OnlineEvaluationConfigClusteringFrequencyWeekly
+//	OnlineEvaluationConfigClusteringFrequencyMonthly
+type OnlineEvaluationConfigClusteringFrequencyInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigClusteringFrequencyOutput() OnlineEvaluationConfigClusteringFrequencyOutput
+	ToOnlineEvaluationConfigClusteringFrequencyOutputWithContext(context.Context) OnlineEvaluationConfigClusteringFrequencyOutput
+}
+
+var onlineEvaluationConfigClusteringFrequencyPtrType = reflect.TypeOf((**OnlineEvaluationConfigClusteringFrequency)(nil)).Elem()
+
+type OnlineEvaluationConfigClusteringFrequencyPtrInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigClusteringFrequencyPtrOutput() OnlineEvaluationConfigClusteringFrequencyPtrOutput
+	ToOnlineEvaluationConfigClusteringFrequencyPtrOutputWithContext(context.Context) OnlineEvaluationConfigClusteringFrequencyPtrOutput
+}
+
+type onlineEvaluationConfigClusteringFrequencyPtr string
+
+func OnlineEvaluationConfigClusteringFrequencyPtr(v string) OnlineEvaluationConfigClusteringFrequencyPtrInput {
+	return (*onlineEvaluationConfigClusteringFrequencyPtr)(&v)
+}
+
+func (*onlineEvaluationConfigClusteringFrequencyPtr) ElementType() reflect.Type {
+	return onlineEvaluationConfigClusteringFrequencyPtrType
+}
+
+func (in *onlineEvaluationConfigClusteringFrequencyPtr) ToOnlineEvaluationConfigClusteringFrequencyPtrOutput() OnlineEvaluationConfigClusteringFrequencyPtrOutput {
+	return pulumi.ToOutput(in).(OnlineEvaluationConfigClusteringFrequencyPtrOutput)
+}
+
+func (in *onlineEvaluationConfigClusteringFrequencyPtr) ToOnlineEvaluationConfigClusteringFrequencyPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigClusteringFrequencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OnlineEvaluationConfigClusteringFrequencyPtrOutput)
+}
+
+// OnlineEvaluationConfigClusteringFrequencyArrayInput is an input type that accepts OnlineEvaluationConfigClusteringFrequencyArray and OnlineEvaluationConfigClusteringFrequencyArrayOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigClusteringFrequencyArrayInput` via:
+//
+//	OnlineEvaluationConfigClusteringFrequencyArray{ OnlineEvaluationConfigClusteringFrequencyArgs{...} }
+type OnlineEvaluationConfigClusteringFrequencyArrayInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigClusteringFrequencyArrayOutput() OnlineEvaluationConfigClusteringFrequencyArrayOutput
+	ToOnlineEvaluationConfigClusteringFrequencyArrayOutputWithContext(context.Context) OnlineEvaluationConfigClusteringFrequencyArrayOutput
+}
+
+type OnlineEvaluationConfigClusteringFrequencyArray []OnlineEvaluationConfigClusteringFrequency
+
+func (OnlineEvaluationConfigClusteringFrequencyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OnlineEvaluationConfigClusteringFrequency)(nil)).Elem()
+}
+
+func (i OnlineEvaluationConfigClusteringFrequencyArray) ToOnlineEvaluationConfigClusteringFrequencyArrayOutput() OnlineEvaluationConfigClusteringFrequencyArrayOutput {
+	return i.ToOnlineEvaluationConfigClusteringFrequencyArrayOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigClusteringFrequencyArray) ToOnlineEvaluationConfigClusteringFrequencyArrayOutputWithContext(ctx context.Context) OnlineEvaluationConfigClusteringFrequencyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigClusteringFrequencyArrayOutput)
+}
+
+type OnlineEvaluationConfigClusteringFrequencyArrayOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigClusteringFrequencyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OnlineEvaluationConfigClusteringFrequency)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigClusteringFrequencyArrayOutput) ToOnlineEvaluationConfigClusteringFrequencyArrayOutput() OnlineEvaluationConfigClusteringFrequencyArrayOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigClusteringFrequencyArrayOutput) ToOnlineEvaluationConfigClusteringFrequencyArrayOutputWithContext(ctx context.Context) OnlineEvaluationConfigClusteringFrequencyArrayOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigClusteringFrequencyArrayOutput) Index(i pulumi.IntInput) OnlineEvaluationConfigClusteringFrequencyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OnlineEvaluationConfigClusteringFrequency {
+		return vs[0].([]OnlineEvaluationConfigClusteringFrequency)[vs[1].(int)]
+	}).(OnlineEvaluationConfigClusteringFrequencyOutput)
+}
+
 type OnlineEvaluationConfigExecutionStatus string
 
 const (
@@ -13090,6 +13303,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSourcePtrInput)(nil)).Elem(), OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource("MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentInput)(nil)).Elem(), OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentPtrInput)(nil)).Elem(), OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigClusteringFrequencyInput)(nil)).Elem(), OnlineEvaluationConfigClusteringFrequency("DAILY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigClusteringFrequencyPtrInput)(nil)).Elem(), OnlineEvaluationConfigClusteringFrequency("DAILY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigClusteringFrequencyArrayInput)(nil)).Elem(), OnlineEvaluationConfigClusteringFrequencyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigExecutionStatusInput)(nil)).Elem(), OnlineEvaluationConfigExecutionStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigExecutionStatusPtrInput)(nil)).Elem(), OnlineEvaluationConfigExecutionStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterOperatorInput)(nil)).Elem(), OnlineEvaluationConfigFilterOperator("Equals"))
@@ -13248,6 +13464,9 @@ func init() {
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSourcePtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentPtrOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigClusteringFrequencyOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigClusteringFrequencyPtrOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigClusteringFrequencyArrayOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigExecutionStatusOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigExecutionStatusPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigFilterOperatorOutput{})

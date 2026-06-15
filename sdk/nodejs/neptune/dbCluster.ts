@@ -98,6 +98,10 @@ export class DbCluster extends pulumi.CustomResource {
      */
     declare public readonly engineVersion: pulumi.Output<string | undefined>;
     /**
+     * The ID of the Neptune global database to which this new DB cluster should be added.
+     */
+    declare public readonly globalClusterIdentifier: pulumi.Output<string | undefined>;
+    /**
      * True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
      */
     declare public readonly iamAuthEnabled: pulumi.Output<boolean | undefined>;
@@ -105,6 +109,10 @@ export class DbCluster extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
      */
     declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    /**
+     * The network type of the DB cluster.
+     */
+    declare public readonly networkType: pulumi.Output<enums.neptune.DbClusterNetworkType | undefined>;
     /**
      * The port number on which the DB cluster accepts connections. For example: `8182`.
      */
@@ -209,8 +217,10 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["deletionProtection"] = args?.deletionProtection;
             resourceInputs["enableCloudwatchLogsExports"] = args?.enableCloudwatchLogsExports;
             resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["globalClusterIdentifier"] = args?.globalClusterIdentifier;
             resourceInputs["iamAuthEnabled"] = args?.iamAuthEnabled;
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["networkType"] = args?.networkType;
             resourceInputs["preferredBackupWindow"] = args?.preferredBackupWindow;
             resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
             resourceInputs["restoreToTime"] = args?.restoreToTime;
@@ -241,8 +251,10 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["enableCloudwatchLogsExports"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["globalClusterIdentifier"] = undefined /*out*/;
             resourceInputs["iamAuthEnabled"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["networkType"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["preferredBackupWindow"] = undefined /*out*/;
             resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;
@@ -258,7 +270,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["availabilityZones[*]", "dbClusterIdentifier", "dbSubnetGroupName", "kmsKeyId", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "storageEncrypted", "useLatestRestorableTime"] };
+        const replaceOnChanges = { replaceOnChanges: ["availabilityZones[*]", "dbClusterIdentifier", "dbSubnetGroupName", "globalClusterIdentifier", "kmsKeyId", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "storageEncrypted", "useLatestRestorableTime"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbCluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -321,6 +333,10 @@ export interface DbClusterArgs {
      */
     engineVersion?: pulumi.Input<string>;
     /**
+     * The ID of the Neptune global database to which this new DB cluster should be added.
+     */
+    globalClusterIdentifier?: pulumi.Input<string>;
+    /**
      * True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
      */
     iamAuthEnabled?: pulumi.Input<boolean>;
@@ -328,6 +344,10 @@ export interface DbClusterArgs {
      * The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The network type of the DB cluster.
+     */
+    networkType?: pulumi.Input<enums.neptune.DbClusterNetworkType>;
     /**
      * Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
      */

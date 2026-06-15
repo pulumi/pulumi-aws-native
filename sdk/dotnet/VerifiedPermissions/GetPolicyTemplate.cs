@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// The description to attach to the new or updated policy template.
         /// </summary>
         public readonly string? Description;
+        public readonly string? Name;
         /// <summary>
         /// The unique identifier of the new or modified policy template.
         /// </summary>
@@ -92,11 +93,14 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         private GetPolicyTemplateResult(
             string? description,
 
+            string? name,
+
             string? policyTemplateId,
 
             string? statement)
         {
             Description = description;
+            Name = name;
             PolicyTemplateId = policyTemplateId;
             Statement = statement;
         }

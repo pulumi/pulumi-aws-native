@@ -66,6 +66,9 @@ export const getEventSubscriptionOutput: typeof import("./getEventSubscription")
 utilities.lazyLoad(exports, ["getEventSubscription","getEventSubscriptionOutput"], () => require("./getEventSubscription"));
 
 
+// Export enums:
+export * from "../types/enums/neptune";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

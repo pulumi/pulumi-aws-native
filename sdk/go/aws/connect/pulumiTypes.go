@@ -6150,7 +6150,7 @@ func (o EvaluationFormTextQuestionPropertiesPtrOutput) Automation() EvaluationFo
 // Defines the external invocation configuration of the flow module resource
 type ExternalInvocationConfigurationProperties struct {
 	// Enable external invocation.
-	Enabled bool `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
 }
 
 // ExternalInvocationConfigurationPropertiesInput is an input type that accepts ExternalInvocationConfigurationPropertiesArgs and ExternalInvocationConfigurationPropertiesOutput values.
@@ -6167,7 +6167,7 @@ type ExternalInvocationConfigurationPropertiesInput interface {
 // Defines the external invocation configuration of the flow module resource
 type ExternalInvocationConfigurationPropertiesArgs struct {
 	// Enable external invocation.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
 func (ExternalInvocationConfigurationPropertiesArgs) ElementType() reflect.Type {
@@ -6249,8 +6249,8 @@ func (o ExternalInvocationConfigurationPropertiesOutput) ToExternalInvocationCon
 }
 
 // Enable external invocation.
-func (o ExternalInvocationConfigurationPropertiesOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v ExternalInvocationConfigurationProperties) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o ExternalInvocationConfigurationPropertiesOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExternalInvocationConfigurationProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 type ExternalInvocationConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -6283,7 +6283,7 @@ func (o ExternalInvocationConfigurationPropertiesPtrOutput) Enabled() pulumi.Boo
 		if v == nil {
 			return nil
 		}
-		return &v.Enabled
+		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 

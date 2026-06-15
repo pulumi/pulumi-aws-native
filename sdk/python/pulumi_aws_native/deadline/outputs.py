@@ -32,6 +32,7 @@ __all__ = [
     'FleetEc2EbsVolume',
     'FleetHostConfiguration',
     'FleetMemoryMiBRange',
+    'FleetPersistentVolumeConfiguration',
     'FleetServiceManagedEc2AutoScalingConfiguration',
     'FleetServiceManagedEc2FleetConfiguration',
     'FleetServiceManagedEc2InstanceCapabilities',
@@ -641,6 +642,73 @@ class FleetMemoryMiBRange(dict):
 
 
 @pulumi.output_type
+class FleetPersistentVolumeConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPath":
+            suggest = "mount_path"
+        elif key == "lastUsedTtlHours":
+            suggest = "last_used_ttl_hours"
+        elif key == "sizeGiB":
+            suggest = "size_gi_b"
+        elif key == "throughputMiB":
+            suggest = "throughput_mi_b"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetPersistentVolumeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetPersistentVolumeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetPersistentVolumeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mount_path: _builtins.str,
+                 iops: Optional[_builtins.int] = None,
+                 last_used_ttl_hours: Optional[_builtins.int] = None,
+                 size_gi_b: Optional[_builtins.int] = None,
+                 throughput_mi_b: Optional[_builtins.int] = None):
+        pulumi.set(__self__, "mount_path", mount_path)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if last_used_ttl_hours is not None:
+            pulumi.set(__self__, "last_used_ttl_hours", last_used_ttl_hours)
+        if size_gi_b is not None:
+            pulumi.set(__self__, "size_gi_b", size_gi_b)
+        if throughput_mi_b is not None:
+            pulumi.set(__self__, "throughput_mi_b", throughput_mi_b)
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> _builtins.str:
+        return pulumi.get(self, "mount_path")
+
+    @_builtins.property
+    @pulumi.getter
+    def iops(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "iops")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUsedTtlHours")
+    def last_used_ttl_hours(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "last_used_ttl_hours")
+
+    @_builtins.property
+    @pulumi.getter(name="sizeGiB")
+    def size_gi_b(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "size_gi_b")
+
+    @_builtins.property
+    @pulumi.getter(name="throughputMiB")
+    def throughput_mi_b(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "throughput_mi_b")
+
+
+@pulumi.output_type
 class FleetServiceManagedEc2AutoScalingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -701,6 +769,8 @@ class FleetServiceManagedEc2FleetConfiguration(dict):
             suggest = "instance_market_options"
         elif key == "autoScalingConfiguration":
             suggest = "auto_scaling_configuration"
+        elif key == "persistentVolumeConfiguration":
+            suggest = "persistent_volume_configuration"
         elif key == "storageProfileId":
             suggest = "storage_profile_id"
         elif key == "vpcConfiguration":
@@ -721,12 +791,15 @@ class FleetServiceManagedEc2FleetConfiguration(dict):
                  instance_capabilities: 'outputs.FleetServiceManagedEc2InstanceCapabilities',
                  instance_market_options: 'outputs.FleetServiceManagedEc2InstanceMarketOptions',
                  auto_scaling_configuration: Optional['outputs.FleetServiceManagedEc2AutoScalingConfiguration'] = None,
+                 persistent_volume_configuration: Optional['outputs.FleetPersistentVolumeConfiguration'] = None,
                  storage_profile_id: Optional[_builtins.str] = None,
                  vpc_configuration: Optional['outputs.FleetVpcConfiguration'] = None):
         pulumi.set(__self__, "instance_capabilities", instance_capabilities)
         pulumi.set(__self__, "instance_market_options", instance_market_options)
         if auto_scaling_configuration is not None:
             pulumi.set(__self__, "auto_scaling_configuration", auto_scaling_configuration)
+        if persistent_volume_configuration is not None:
+            pulumi.set(__self__, "persistent_volume_configuration", persistent_volume_configuration)
         if storage_profile_id is not None:
             pulumi.set(__self__, "storage_profile_id", storage_profile_id)
         if vpc_configuration is not None:
@@ -746,6 +819,11 @@ class FleetServiceManagedEc2FleetConfiguration(dict):
     @pulumi.getter(name="autoScalingConfiguration")
     def auto_scaling_configuration(self) -> Optional['outputs.FleetServiceManagedEc2AutoScalingConfiguration']:
         return pulumi.get(self, "auto_scaling_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="persistentVolumeConfiguration")
+    def persistent_volume_configuration(self) -> Optional['outputs.FleetPersistentVolumeConfiguration']:
+        return pulumi.get(self, "persistent_volume_configuration")
 
     @_builtins.property
     @pulumi.getter(name="storageProfileId")

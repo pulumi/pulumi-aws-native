@@ -1128,6 +1128,19 @@
       }
     }
   },
+  "aws-native:appstream:StackFleetAssociation": {
+    "cfTypeName": "AWS::AppStream::StackFleetAssociation",
+    "properties": {
+      "fleetName": {
+        "type": "string",
+        "description": "The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource."
+      },
+      "stackName": {
+        "type": "string",
+        "description": "The name of the stack. To associate a fleet with a stack, you must specify a dependency on the stack resource."
+      }
+    }
+  },
   "aws-native:appstream:StackUserAssociation": {
     "cfTypeName": "AWS::AppStream::StackUserAssociation",
     "properties": {
@@ -5032,6 +5045,13 @@
       "resourceType": {
         "$ref": "#/types/aws-native:ec2:FlowLogResourceType",
         "description": "The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property."
+      },
+      "tagFieldSpecifications": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ec2:FlowLogTagFieldSpecification"
+        },
+        "description": "The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment."
       },
       "tags": {
         "type": "array",
@@ -11898,6 +11918,10 @@
         "type": "string",
         "description": "Indicates the database engine version."
       },
+      "globalClusterIdentifier": {
+        "type": "string",
+        "description": "The ID of the Neptune global database to which this new DB cluster should be added."
+      },
       "iamAuthEnabled": {
         "type": "boolean",
         "description": "True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false."
@@ -11905,6 +11929,10 @@
       "kmsKeyId": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true."
+      },
+      "networkType": {
+        "$ref": "#/types/aws-native:neptune:DbClusterNetworkType",
+        "description": "The network type of the DB cluster."
       },
       "preferredBackupWindow": {
         "type": "string",
@@ -17378,26 +17406,6 @@
       }
     }
   },
-  "aws-native:verifiedpermissions:Policy": {
-    "cfTypeName": "AWS::VerifiedPermissions::Policy",
-    "properties": {
-      "definition": {
-        "oneOf": [
-          {
-            "$ref": "#/types/aws-native:verifiedpermissions:PolicyDefinition0Properties"
-          },
-          {
-            "$ref": "#/types/aws-native:verifiedpermissions:PolicyDefinition1Properties"
-          }
-        ],
-        "description": "Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element."
-      },
-      "policyStoreId": {
-        "type": "string",
-        "description": "Specifies the `PolicyStoreId` of the policy store you want to store the policy in."
-      }
-    }
-  },
   "aws-native:verifiedpermissions:PolicyStore": {
     "cfTypeName": "AWS::VerifiedPermissions::PolicyStore",
     "properties": {
@@ -17426,23 +17434,6 @@
       "validationSettings": {
         "$ref": "#/types/aws-native:verifiedpermissions:PolicyStoreValidationSettings",
         "description": "Specifies the validation setting for this policy store.\n\nCurrently, the only valid and required value is `Mode` .\n\n\u003e We recommend that you turn on `STRICT` mode only after you define a schema. If a schema doesn't exist, then `STRICT` mode causes any policy to fail validation, and Verified Permissions rejects the policy. You can turn off validation by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) . Then, when you have a schema defined, use [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) again to turn validation back on."
-      }
-    }
-  },
-  "aws-native:verifiedpermissions:PolicyTemplate": {
-    "cfTypeName": "AWS::VerifiedPermissions::PolicyTemplate",
-    "properties": {
-      "description": {
-        "type": "string",
-        "description": "The description to attach to the new or updated policy template."
-      },
-      "policyStoreId": {
-        "type": "string",
-        "description": "The unique identifier of the policy store that contains the template."
-      },
-      "statement": {
-        "type": "string",
-        "description": "Specifies the content that you want to use for the new policy template, written in the Cedar policy language."
       }
     }
   },

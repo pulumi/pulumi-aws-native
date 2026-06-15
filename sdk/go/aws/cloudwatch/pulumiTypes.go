@@ -1185,8 +1185,6 @@ type LogAlarmScheduledQueryConfiguration struct {
 	AggregationExpression string `pulumi:"aggregationExpression"`
 	// The log groups to query.
 	LogGroupIdentifiers []string `pulumi:"logGroupIdentifiers"`
-	// The query language to use for the scheduled query (CWLI or SQL).
-	QueryLanguage string `pulumi:"queryLanguage"`
 	// The query string to execute against the specified log groups.
 	QueryString string `pulumi:"queryString"`
 	// The schedule configuration.
@@ -1212,8 +1210,6 @@ type LogAlarmScheduledQueryConfigurationArgs struct {
 	AggregationExpression pulumi.StringInput `pulumi:"aggregationExpression"`
 	// The log groups to query.
 	LogGroupIdentifiers pulumi.StringArrayInput `pulumi:"logGroupIdentifiers"`
-	// The query language to use for the scheduled query (CWLI or SQL).
-	QueryLanguage pulumi.StringInput `pulumi:"queryLanguage"`
 	// The query string to execute against the specified log groups.
 	QueryString pulumi.StringInput `pulumi:"queryString"`
 	// The schedule configuration.
@@ -1257,11 +1253,6 @@ func (o LogAlarmScheduledQueryConfigurationOutput) AggregationExpression() pulum
 // The log groups to query.
 func (o LogAlarmScheduledQueryConfigurationOutput) LogGroupIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogAlarmScheduledQueryConfiguration) []string { return v.LogGroupIdentifiers }).(pulumi.StringArrayOutput)
-}
-
-// The query language to use for the scheduled query (CWLI or SQL).
-func (o LogAlarmScheduledQueryConfigurationOutput) QueryLanguage() pulumi.StringOutput {
-	return o.ApplyT(func(v LogAlarmScheduledQueryConfiguration) string { return v.QueryLanguage }).(pulumi.StringOutput)
 }
 
 // The query string to execute against the specified log groups.
@@ -1323,16 +1314,6 @@ func (o LogAlarmScheduledQueryConfigurationPtrOutput) LogGroupIdentifiers() pulu
 		}
 		return v.LogGroupIdentifiers
 	}).(pulumi.StringArrayOutput)
-}
-
-// The query language to use for the scheduled query (CWLI or SQL).
-func (o LogAlarmScheduledQueryConfigurationPtrOutput) QueryLanguage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogAlarmScheduledQueryConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.QueryLanguage
-	}).(pulumi.StringPtrOutput)
 }
 
 // The query string to execute against the specified log groups.

@@ -11,6 +11,7 @@ from .api_key_credential_provider import *
 from .browser_custom import *
 from .browser_profile import *
 from .code_interpreter_custom import *
+from .configuration_bundle import *
 from .dataset import *
 from .evaluator import *
 from .gateway import *
@@ -19,6 +20,7 @@ from .get_api_key_credential_provider import *
 from .get_browser_custom import *
 from .get_browser_profile import *
 from .get_code_interpreter_custom import *
+from .get_configuration_bundle import *
 from .get_dataset import *
 from .get_evaluator import *
 from .get_gateway import *

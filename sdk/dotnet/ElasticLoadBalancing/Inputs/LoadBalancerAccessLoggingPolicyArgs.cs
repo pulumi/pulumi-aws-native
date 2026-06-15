@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
 {
 
+    /// <summary>
+    /// Information about where and how access logs are stored for the load balancer.
+    /// </summary>
     public sealed class LoadBalancerAccessLoggingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -33,7 +36,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
         public Input<string> S3BucketName { get; set; } = null!;
 
         /// <summary>
-        /// The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod` . If the prefix is not provided, the log is placed at the root level of the bucket.
+        /// The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod`. If the prefix is not provided, the log is placed at the root level of the bucket.
         /// </summary>
         [Input("s3BucketPrefix")]
         public Input<string>? S3BucketPrefix { get; set; }

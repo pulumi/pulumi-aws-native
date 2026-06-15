@@ -2137,6 +2137,146 @@ func (o StackApplicationSettingsPtrOutput) SettingsGroup() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The content redirection settings for the stack.
+type StackContentRedirection struct {
+	// The URL redirection configuration from the streaming session host to the client.
+	HostToClient *StackUrlRedirectionConfig `pulumi:"hostToClient"`
+}
+
+// StackContentRedirectionInput is an input type that accepts StackContentRedirectionArgs and StackContentRedirectionOutput values.
+// You can construct a concrete instance of `StackContentRedirectionInput` via:
+//
+//	StackContentRedirectionArgs{...}
+type StackContentRedirectionInput interface {
+	pulumi.Input
+
+	ToStackContentRedirectionOutput() StackContentRedirectionOutput
+	ToStackContentRedirectionOutputWithContext(context.Context) StackContentRedirectionOutput
+}
+
+// The content redirection settings for the stack.
+type StackContentRedirectionArgs struct {
+	// The URL redirection configuration from the streaming session host to the client.
+	HostToClient StackUrlRedirectionConfigPtrInput `pulumi:"hostToClient"`
+}
+
+func (StackContentRedirectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackContentRedirection)(nil)).Elem()
+}
+
+func (i StackContentRedirectionArgs) ToStackContentRedirectionOutput() StackContentRedirectionOutput {
+	return i.ToStackContentRedirectionOutputWithContext(context.Background())
+}
+
+func (i StackContentRedirectionArgs) ToStackContentRedirectionOutputWithContext(ctx context.Context) StackContentRedirectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackContentRedirectionOutput)
+}
+
+func (i StackContentRedirectionArgs) ToStackContentRedirectionPtrOutput() StackContentRedirectionPtrOutput {
+	return i.ToStackContentRedirectionPtrOutputWithContext(context.Background())
+}
+
+func (i StackContentRedirectionArgs) ToStackContentRedirectionPtrOutputWithContext(ctx context.Context) StackContentRedirectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackContentRedirectionOutput).ToStackContentRedirectionPtrOutputWithContext(ctx)
+}
+
+// StackContentRedirectionPtrInput is an input type that accepts StackContentRedirectionArgs, StackContentRedirectionPtr and StackContentRedirectionPtrOutput values.
+// You can construct a concrete instance of `StackContentRedirectionPtrInput` via:
+//
+//	        StackContentRedirectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type StackContentRedirectionPtrInput interface {
+	pulumi.Input
+
+	ToStackContentRedirectionPtrOutput() StackContentRedirectionPtrOutput
+	ToStackContentRedirectionPtrOutputWithContext(context.Context) StackContentRedirectionPtrOutput
+}
+
+type stackContentRedirectionPtrType StackContentRedirectionArgs
+
+func StackContentRedirectionPtr(v *StackContentRedirectionArgs) StackContentRedirectionPtrInput {
+	return (*stackContentRedirectionPtrType)(v)
+}
+
+func (*stackContentRedirectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackContentRedirection)(nil)).Elem()
+}
+
+func (i *stackContentRedirectionPtrType) ToStackContentRedirectionPtrOutput() StackContentRedirectionPtrOutput {
+	return i.ToStackContentRedirectionPtrOutputWithContext(context.Background())
+}
+
+func (i *stackContentRedirectionPtrType) ToStackContentRedirectionPtrOutputWithContext(ctx context.Context) StackContentRedirectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackContentRedirectionPtrOutput)
+}
+
+// The content redirection settings for the stack.
+type StackContentRedirectionOutput struct{ *pulumi.OutputState }
+
+func (StackContentRedirectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackContentRedirection)(nil)).Elem()
+}
+
+func (o StackContentRedirectionOutput) ToStackContentRedirectionOutput() StackContentRedirectionOutput {
+	return o
+}
+
+func (o StackContentRedirectionOutput) ToStackContentRedirectionOutputWithContext(ctx context.Context) StackContentRedirectionOutput {
+	return o
+}
+
+func (o StackContentRedirectionOutput) ToStackContentRedirectionPtrOutput() StackContentRedirectionPtrOutput {
+	return o.ToStackContentRedirectionPtrOutputWithContext(context.Background())
+}
+
+func (o StackContentRedirectionOutput) ToStackContentRedirectionPtrOutputWithContext(ctx context.Context) StackContentRedirectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackContentRedirection) *StackContentRedirection {
+		return &v
+	}).(StackContentRedirectionPtrOutput)
+}
+
+// The URL redirection configuration from the streaming session host to the client.
+func (o StackContentRedirectionOutput) HostToClient() StackUrlRedirectionConfigPtrOutput {
+	return o.ApplyT(func(v StackContentRedirection) *StackUrlRedirectionConfig { return v.HostToClient }).(StackUrlRedirectionConfigPtrOutput)
+}
+
+type StackContentRedirectionPtrOutput struct{ *pulumi.OutputState }
+
+func (StackContentRedirectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackContentRedirection)(nil)).Elem()
+}
+
+func (o StackContentRedirectionPtrOutput) ToStackContentRedirectionPtrOutput() StackContentRedirectionPtrOutput {
+	return o
+}
+
+func (o StackContentRedirectionPtrOutput) ToStackContentRedirectionPtrOutputWithContext(ctx context.Context) StackContentRedirectionPtrOutput {
+	return o
+}
+
+func (o StackContentRedirectionPtrOutput) Elem() StackContentRedirectionOutput {
+	return o.ApplyT(func(v *StackContentRedirection) StackContentRedirection {
+		if v != nil {
+			return *v
+		}
+		var ret StackContentRedirection
+		return ret
+	}).(StackContentRedirectionOutput)
+}
+
+// The URL redirection configuration from the streaming session host to the client.
+func (o StackContentRedirectionPtrOutput) HostToClient() StackUrlRedirectionConfigPtrOutput {
+	return o.ApplyT(func(v *StackContentRedirection) *StackUrlRedirectionConfig {
+		if v == nil {
+			return nil
+		}
+		return v.HostToClient
+	}).(StackUrlRedirectionConfigPtrOutput)
+}
+
 // A connector that enables persistent storage for users.
 type StackStorageConnector struct {
 	// The type of storage connector.
@@ -2403,6 +2543,184 @@ type StackTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The configuration for URL redirection.
+type StackUrlRedirectionConfig struct {
+	// The URLs that are allowed for redirection.
+	AllowedUrls []string `pulumi:"allowedUrls"`
+	// The URLs that are denied for redirection.
+	DeniedUrls []string `pulumi:"deniedUrls"`
+	// Specifies whether URL redirection is enabled or disabled.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// StackUrlRedirectionConfigInput is an input type that accepts StackUrlRedirectionConfigArgs and StackUrlRedirectionConfigOutput values.
+// You can construct a concrete instance of `StackUrlRedirectionConfigInput` via:
+//
+//	StackUrlRedirectionConfigArgs{...}
+type StackUrlRedirectionConfigInput interface {
+	pulumi.Input
+
+	ToStackUrlRedirectionConfigOutput() StackUrlRedirectionConfigOutput
+	ToStackUrlRedirectionConfigOutputWithContext(context.Context) StackUrlRedirectionConfigOutput
+}
+
+// The configuration for URL redirection.
+type StackUrlRedirectionConfigArgs struct {
+	// The URLs that are allowed for redirection.
+	AllowedUrls pulumi.StringArrayInput `pulumi:"allowedUrls"`
+	// The URLs that are denied for redirection.
+	DeniedUrls pulumi.StringArrayInput `pulumi:"deniedUrls"`
+	// Specifies whether URL redirection is enabled or disabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (StackUrlRedirectionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackUrlRedirectionConfig)(nil)).Elem()
+}
+
+func (i StackUrlRedirectionConfigArgs) ToStackUrlRedirectionConfigOutput() StackUrlRedirectionConfigOutput {
+	return i.ToStackUrlRedirectionConfigOutputWithContext(context.Background())
+}
+
+func (i StackUrlRedirectionConfigArgs) ToStackUrlRedirectionConfigOutputWithContext(ctx context.Context) StackUrlRedirectionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackUrlRedirectionConfigOutput)
+}
+
+func (i StackUrlRedirectionConfigArgs) ToStackUrlRedirectionConfigPtrOutput() StackUrlRedirectionConfigPtrOutput {
+	return i.ToStackUrlRedirectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i StackUrlRedirectionConfigArgs) ToStackUrlRedirectionConfigPtrOutputWithContext(ctx context.Context) StackUrlRedirectionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackUrlRedirectionConfigOutput).ToStackUrlRedirectionConfigPtrOutputWithContext(ctx)
+}
+
+// StackUrlRedirectionConfigPtrInput is an input type that accepts StackUrlRedirectionConfigArgs, StackUrlRedirectionConfigPtr and StackUrlRedirectionConfigPtrOutput values.
+// You can construct a concrete instance of `StackUrlRedirectionConfigPtrInput` via:
+//
+//	        StackUrlRedirectionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type StackUrlRedirectionConfigPtrInput interface {
+	pulumi.Input
+
+	ToStackUrlRedirectionConfigPtrOutput() StackUrlRedirectionConfigPtrOutput
+	ToStackUrlRedirectionConfigPtrOutputWithContext(context.Context) StackUrlRedirectionConfigPtrOutput
+}
+
+type stackUrlRedirectionConfigPtrType StackUrlRedirectionConfigArgs
+
+func StackUrlRedirectionConfigPtr(v *StackUrlRedirectionConfigArgs) StackUrlRedirectionConfigPtrInput {
+	return (*stackUrlRedirectionConfigPtrType)(v)
+}
+
+func (*stackUrlRedirectionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackUrlRedirectionConfig)(nil)).Elem()
+}
+
+func (i *stackUrlRedirectionConfigPtrType) ToStackUrlRedirectionConfigPtrOutput() StackUrlRedirectionConfigPtrOutput {
+	return i.ToStackUrlRedirectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *stackUrlRedirectionConfigPtrType) ToStackUrlRedirectionConfigPtrOutputWithContext(ctx context.Context) StackUrlRedirectionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackUrlRedirectionConfigPtrOutput)
+}
+
+// The configuration for URL redirection.
+type StackUrlRedirectionConfigOutput struct{ *pulumi.OutputState }
+
+func (StackUrlRedirectionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackUrlRedirectionConfig)(nil)).Elem()
+}
+
+func (o StackUrlRedirectionConfigOutput) ToStackUrlRedirectionConfigOutput() StackUrlRedirectionConfigOutput {
+	return o
+}
+
+func (o StackUrlRedirectionConfigOutput) ToStackUrlRedirectionConfigOutputWithContext(ctx context.Context) StackUrlRedirectionConfigOutput {
+	return o
+}
+
+func (o StackUrlRedirectionConfigOutput) ToStackUrlRedirectionConfigPtrOutput() StackUrlRedirectionConfigPtrOutput {
+	return o.ToStackUrlRedirectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o StackUrlRedirectionConfigOutput) ToStackUrlRedirectionConfigPtrOutputWithContext(ctx context.Context) StackUrlRedirectionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackUrlRedirectionConfig) *StackUrlRedirectionConfig {
+		return &v
+	}).(StackUrlRedirectionConfigPtrOutput)
+}
+
+// The URLs that are allowed for redirection.
+func (o StackUrlRedirectionConfigOutput) AllowedUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackUrlRedirectionConfig) []string { return v.AllowedUrls }).(pulumi.StringArrayOutput)
+}
+
+// The URLs that are denied for redirection.
+func (o StackUrlRedirectionConfigOutput) DeniedUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackUrlRedirectionConfig) []string { return v.DeniedUrls }).(pulumi.StringArrayOutput)
+}
+
+// Specifies whether URL redirection is enabled or disabled.
+func (o StackUrlRedirectionConfigOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v StackUrlRedirectionConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type StackUrlRedirectionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (StackUrlRedirectionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackUrlRedirectionConfig)(nil)).Elem()
+}
+
+func (o StackUrlRedirectionConfigPtrOutput) ToStackUrlRedirectionConfigPtrOutput() StackUrlRedirectionConfigPtrOutput {
+	return o
+}
+
+func (o StackUrlRedirectionConfigPtrOutput) ToStackUrlRedirectionConfigPtrOutputWithContext(ctx context.Context) StackUrlRedirectionConfigPtrOutput {
+	return o
+}
+
+func (o StackUrlRedirectionConfigPtrOutput) Elem() StackUrlRedirectionConfigOutput {
+	return o.ApplyT(func(v *StackUrlRedirectionConfig) StackUrlRedirectionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret StackUrlRedirectionConfig
+		return ret
+	}).(StackUrlRedirectionConfigOutput)
+}
+
+// The URLs that are allowed for redirection.
+func (o StackUrlRedirectionConfigPtrOutput) AllowedUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackUrlRedirectionConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// The URLs that are denied for redirection.
+func (o StackUrlRedirectionConfigPtrOutput) DeniedUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackUrlRedirectionConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DeniedUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies whether URL redirection is enabled or disabled.
+func (o StackUrlRedirectionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StackUrlRedirectionConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Specifies an action and whether the action is enabled or disabled for users during their streaming sessions.
 type StackUserSetting struct {
 	// The action that is enabled or disabled.
@@ -2551,10 +2869,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackAccessEndpointArrayInput)(nil)).Elem(), StackAccessEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackApplicationSettingsInput)(nil)).Elem(), StackApplicationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackApplicationSettingsPtrInput)(nil)).Elem(), StackApplicationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackContentRedirectionInput)(nil)).Elem(), StackContentRedirectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackContentRedirectionPtrInput)(nil)).Elem(), StackContentRedirectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackStorageConnectorInput)(nil)).Elem(), StackStorageConnectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackStorageConnectorArrayInput)(nil)).Elem(), StackStorageConnectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackStreamingExperienceSettingsInput)(nil)).Elem(), StackStreamingExperienceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackStreamingExperienceSettingsPtrInput)(nil)).Elem(), StackStreamingExperienceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackUrlRedirectionConfigInput)(nil)).Elem(), StackUrlRedirectionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackUrlRedirectionConfigPtrInput)(nil)).Elem(), StackUrlRedirectionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingInput)(nil)).Elem(), StackUserSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingArrayInput)(nil)).Elem(), StackUserSettingArray{})
 	pulumi.RegisterOutputType(AppBlockBuilderAccessEndpointOutput{})
@@ -2589,10 +2911,14 @@ func init() {
 	pulumi.RegisterOutputType(StackAccessEndpointArrayOutput{})
 	pulumi.RegisterOutputType(StackApplicationSettingsOutput{})
 	pulumi.RegisterOutputType(StackApplicationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(StackContentRedirectionOutput{})
+	pulumi.RegisterOutputType(StackContentRedirectionPtrOutput{})
 	pulumi.RegisterOutputType(StackStorageConnectorOutput{})
 	pulumi.RegisterOutputType(StackStorageConnectorArrayOutput{})
 	pulumi.RegisterOutputType(StackStreamingExperienceSettingsOutput{})
 	pulumi.RegisterOutputType(StackStreamingExperienceSettingsPtrOutput{})
+	pulumi.RegisterOutputType(StackUrlRedirectionConfigOutput{})
+	pulumi.RegisterOutputType(StackUrlRedirectionConfigPtrOutput{})
 	pulumi.RegisterOutputType(StackUserSettingOutput{})
 	pulumi.RegisterOutputType(StackUserSettingArrayOutput{})
 }

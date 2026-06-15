@@ -8362,6 +8362,106 @@ type FlowLogTag struct {
 	Value string `pulumi:"value"`
 }
 
+type FlowLogTagFieldSpecification struct {
+	ResourceType string   `pulumi:"resourceType"`
+	TagKeys      []string `pulumi:"tagKeys"`
+}
+
+// FlowLogTagFieldSpecificationInput is an input type that accepts FlowLogTagFieldSpecificationArgs and FlowLogTagFieldSpecificationOutput values.
+// You can construct a concrete instance of `FlowLogTagFieldSpecificationInput` via:
+//
+//	FlowLogTagFieldSpecificationArgs{...}
+type FlowLogTagFieldSpecificationInput interface {
+	pulumi.Input
+
+	ToFlowLogTagFieldSpecificationOutput() FlowLogTagFieldSpecificationOutput
+	ToFlowLogTagFieldSpecificationOutputWithContext(context.Context) FlowLogTagFieldSpecificationOutput
+}
+
+type FlowLogTagFieldSpecificationArgs struct {
+	ResourceType pulumi.StringInput      `pulumi:"resourceType"`
+	TagKeys      pulumi.StringArrayInput `pulumi:"tagKeys"`
+}
+
+func (FlowLogTagFieldSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLogTagFieldSpecification)(nil)).Elem()
+}
+
+func (i FlowLogTagFieldSpecificationArgs) ToFlowLogTagFieldSpecificationOutput() FlowLogTagFieldSpecificationOutput {
+	return i.ToFlowLogTagFieldSpecificationOutputWithContext(context.Background())
+}
+
+func (i FlowLogTagFieldSpecificationArgs) ToFlowLogTagFieldSpecificationOutputWithContext(ctx context.Context) FlowLogTagFieldSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLogTagFieldSpecificationOutput)
+}
+
+// FlowLogTagFieldSpecificationArrayInput is an input type that accepts FlowLogTagFieldSpecificationArray and FlowLogTagFieldSpecificationArrayOutput values.
+// You can construct a concrete instance of `FlowLogTagFieldSpecificationArrayInput` via:
+//
+//	FlowLogTagFieldSpecificationArray{ FlowLogTagFieldSpecificationArgs{...} }
+type FlowLogTagFieldSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToFlowLogTagFieldSpecificationArrayOutput() FlowLogTagFieldSpecificationArrayOutput
+	ToFlowLogTagFieldSpecificationArrayOutputWithContext(context.Context) FlowLogTagFieldSpecificationArrayOutput
+}
+
+type FlowLogTagFieldSpecificationArray []FlowLogTagFieldSpecificationInput
+
+func (FlowLogTagFieldSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowLogTagFieldSpecification)(nil)).Elem()
+}
+
+func (i FlowLogTagFieldSpecificationArray) ToFlowLogTagFieldSpecificationArrayOutput() FlowLogTagFieldSpecificationArrayOutput {
+	return i.ToFlowLogTagFieldSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i FlowLogTagFieldSpecificationArray) ToFlowLogTagFieldSpecificationArrayOutputWithContext(ctx context.Context) FlowLogTagFieldSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLogTagFieldSpecificationArrayOutput)
+}
+
+type FlowLogTagFieldSpecificationOutput struct{ *pulumi.OutputState }
+
+func (FlowLogTagFieldSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLogTagFieldSpecification)(nil)).Elem()
+}
+
+func (o FlowLogTagFieldSpecificationOutput) ToFlowLogTagFieldSpecificationOutput() FlowLogTagFieldSpecificationOutput {
+	return o
+}
+
+func (o FlowLogTagFieldSpecificationOutput) ToFlowLogTagFieldSpecificationOutputWithContext(ctx context.Context) FlowLogTagFieldSpecificationOutput {
+	return o
+}
+
+func (o FlowLogTagFieldSpecificationOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowLogTagFieldSpecification) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+func (o FlowLogTagFieldSpecificationOutput) TagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FlowLogTagFieldSpecification) []string { return v.TagKeys }).(pulumi.StringArrayOutput)
+}
+
+type FlowLogTagFieldSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowLogTagFieldSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowLogTagFieldSpecification)(nil)).Elem()
+}
+
+func (o FlowLogTagFieldSpecificationArrayOutput) ToFlowLogTagFieldSpecificationArrayOutput() FlowLogTagFieldSpecificationArrayOutput {
+	return o
+}
+
+func (o FlowLogTagFieldSpecificationArrayOutput) ToFlowLogTagFieldSpecificationArrayOutputWithContext(ctx context.Context) FlowLogTagFieldSpecificationArrayOutput {
+	return o
+}
+
+func (o FlowLogTagFieldSpecificationArrayOutput) Index(i pulumi.IntInput) FlowLogTagFieldSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowLogTagFieldSpecification {
+		return vs[0].([]FlowLogTagFieldSpecification)[vs[1].(int)]
+	}).(FlowLogTagFieldSpecificationOutput)
+}
+
 // Indicates whether an instance is enabled for hibernation.
 type HibernationOptionsProperties struct {
 	// If you set this parameter to true, your instance is enabled for hibernation.
@@ -39269,6 +39369,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetVCpuCountRangeRequestPtrInput)(nil)).Elem(), Ec2FleetVCpuCountRangeRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnclaveOptionsPropertiesInput)(nil)).Elem(), EnclaveOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnclaveOptionsPropertiesPtrInput)(nil)).Elem(), EnclaveOptionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTagFieldSpecificationInput)(nil)).Elem(), FlowLogTagFieldSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTagFieldSpecificationArrayInput)(nil)).Elem(), FlowLogTagFieldSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HibernationOptionsPropertiesInput)(nil)).Elem(), HibernationOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HibernationOptionsPropertiesPtrInput)(nil)).Elem(), HibernationOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAssociationParameterInput)(nil)).Elem(), InstanceAssociationParameterArgs{})
@@ -39672,6 +39774,8 @@ func init() {
 	pulumi.RegisterOutputType(Ec2FleetVCpuCountRangeRequestPtrOutput{})
 	pulumi.RegisterOutputType(EnclaveOptionsPropertiesOutput{})
 	pulumi.RegisterOutputType(EnclaveOptionsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowLogTagFieldSpecificationOutput{})
+	pulumi.RegisterOutputType(FlowLogTagFieldSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(HibernationOptionsPropertiesOutput{})
 	pulumi.RegisterOutputType(HibernationOptionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(InstanceAssociationParameterOutput{})

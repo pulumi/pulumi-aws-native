@@ -33,7 +33,8 @@ type AiGuardrail struct {
 	// The policy configuration details for the AI Guardrail's contextual grounding policy.
 	ContextualGroundingPolicyConfig AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput `pulumi:"contextualGroundingPolicyConfig"`
 	// Description of the guardrail or its version
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description         pulumi.StringPtrOutput `pulumi:"description"`
+	ModifiedTimeSeconds pulumi.Float64Output   `pulumi:"modifiedTimeSeconds"`
 	// The name of the AI Guardrail.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Contains details about PII entities and regular expressions to configure for the AI Guardrail.
@@ -233,6 +234,10 @@ func (o AiGuardrailOutput) ContextualGroundingPolicyConfig() AiGuardrailAiGuardr
 // Description of the guardrail or its version
 func (o AiGuardrailOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AiGuardrail) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AiGuardrailOutput) ModifiedTimeSeconds() pulumi.Float64Output {
+	return o.ApplyT(func(v *AiGuardrail) pulumi.Float64Output { return v.ModifiedTimeSeconds }).(pulumi.Float64Output)
 }
 
 // The name of the AI Guardrail.

@@ -21,60 +21,38 @@ type LoadBalancer struct {
 	AccessLoggingPolicy LoadBalancerAccessLoggingPolicyPtrOutput `pulumi:"accessLoggingPolicy"`
 	// Information about a policy for application-controlled session stickiness.
 	AppCookieStickinessPolicy LoadBalancerAppCookieStickinessPolicyArrayOutput `pulumi:"appCookieStickinessPolicy"`
-	// The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify `Subnets` instead.
-	//
-	// Update requires replacement if you did not previously specify an Availability Zone or if you are removing all Availability Zones. Otherwise, update requires no interruption.
+	// The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify Subnets instead.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
-	AwsId             pulumi.StringOutput      `pulumi:"awsId"`
-	// The name of the Route 53 hosted zone that is associated with the load balancer. Internal-facing load balancers don't use this value, use `DNSName` instead.
+	// The name of the Route 53 hosted zone that is associated with the load balancer. Internal-facing load balancers.
 	CanonicalHostedZoneName pulumi.StringOutput `pulumi:"canonicalHostedZoneName"`
 	// The ID of the Route 53 hosted zone name that is associated with the load balancer.
 	CanonicalHostedZoneNameId pulumi.StringOutput `pulumi:"canonicalHostedZoneNameId"`
 	// If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
-	//
-	// For more information, see [Configure connection draining](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html) in the *User Guide for Classic Load Balancers* .
 	ConnectionDrainingPolicy LoadBalancerConnectionDrainingPolicyPtrOutput `pulumi:"connectionDrainingPolicy"`
 	// If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
-	//
-	// By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see [Configure idle connection timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html) in the *User Guide for Classic Load Balancers* .
 	ConnectionSettings LoadBalancerConnectionSettingsPtrOutput `pulumi:"connectionSettings"`
 	// If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
-	//
-	// For more information, see [Configure cross-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html) in the *User Guide for Classic Load Balancers* .
 	CrossZone pulumi.BoolPtrOutput `pulumi:"crossZone"`
-	// The DNS name for the load balancer.
+	// The DNS name for the load balancer
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// The health check settings to use when evaluating the health of your EC2 instances.
-	//
-	// Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
 	HealthCheck LoadBalancerHealthCheckPtrOutput `pulumi:"healthCheck"`
 	// The IDs of the instances for the load balancer.
 	Instances pulumi.StringArrayOutput `pulumi:"instances"`
 	// Information about a policy for duration-based session stickiness.
 	LbCookieStickinessPolicy LoadBalancerLbCookieStickinessPolicyArrayOutput `pulumi:"lbCookieStickinessPolicy"`
-	// The listeners for the load balancer. You can specify at most one listener per port.
-	//
-	// If you update the properties for a listener, AWS CloudFormation deletes the existing listener and creates a new one with the specified properties. While the new listener is being created, clients cannot connect to the load balancer.
+	// The Listeners for the load balancer. You can specify at most one listener per port.
 	Listeners LoadBalancerListenersArrayOutput `pulumi:"listeners"`
 	// The name of the load balancer. This name must be unique within your set of load balancers for the region.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) . If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
 	LoadBalancerName pulumi.StringPtrOutput `pulumi:"loadBalancerName"`
 	// The policies defined for your Classic Load Balancer. Specify only back-end server policies.
 	Policies LoadBalancerPoliciesArrayOutput `pulumi:"policies"`
 	// The type of load balancer. Valid only for load balancers in a VPC.
-	//
-	// If `Scheme` is `internet-facing` , the load balancer has a public DNS name that resolves to a public IP address.
-	//
-	// If `Scheme` is `internal` , the load balancer has a public DNS name that resolves to a private IP address.
 	Scheme pulumi.StringPtrOutput `pulumi:"scheme"`
 	// The security groups for the load balancer. Valid only for load balancers in a VPC.
-	SecurityGroups                pulumi.StringArrayOutput `pulumi:"securityGroups"`
-	SourceSecurityGroupGroupName  pulumi.StringPtrOutput   `pulumi:"sourceSecurityGroupGroupName"`
-	SourceSecurityGroupOwnerAlias pulumi.StringPtrOutput   `pulumi:"sourceSecurityGroupOwnerAlias"`
+	SecurityGroups      pulumi.StringArrayOutput              `pulumi:"securityGroups"`
+	SourceSecurityGroup LoadBalancerSourceSecurityGroupOutput `pulumi:"sourceSecurityGroup"`
 	// The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
-	//
-	// Update requires replacement if you did not previously specify a subnet or if you are removing all subnets. Otherwise, update requires no interruption. To update to a different subnet in the current Availability Zone, you must first update to a subnet in a different Availability Zone, then update to the new subnet in the original Availability Zone.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	// The tags associated with a load balancer.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -132,53 +110,31 @@ type loadBalancerArgs struct {
 	AccessLoggingPolicy *LoadBalancerAccessLoggingPolicy `pulumi:"accessLoggingPolicy"`
 	// Information about a policy for application-controlled session stickiness.
 	AppCookieStickinessPolicy []LoadBalancerAppCookieStickinessPolicy `pulumi:"appCookieStickinessPolicy"`
-	// The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify `Subnets` instead.
-	//
-	// Update requires replacement if you did not previously specify an Availability Zone or if you are removing all Availability Zones. Otherwise, update requires no interruption.
+	// The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify Subnets instead.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
-	//
-	// For more information, see [Configure connection draining](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html) in the *User Guide for Classic Load Balancers* .
 	ConnectionDrainingPolicy *LoadBalancerConnectionDrainingPolicy `pulumi:"connectionDrainingPolicy"`
 	// If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
-	//
-	// By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see [Configure idle connection timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html) in the *User Guide for Classic Load Balancers* .
 	ConnectionSettings *LoadBalancerConnectionSettings `pulumi:"connectionSettings"`
 	// If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
-	//
-	// For more information, see [Configure cross-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html) in the *User Guide for Classic Load Balancers* .
 	CrossZone *bool `pulumi:"crossZone"`
 	// The health check settings to use when evaluating the health of your EC2 instances.
-	//
-	// Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
 	HealthCheck *LoadBalancerHealthCheck `pulumi:"healthCheck"`
 	// The IDs of the instances for the load balancer.
 	Instances []string `pulumi:"instances"`
 	// Information about a policy for duration-based session stickiness.
 	LbCookieStickinessPolicy []LoadBalancerLbCookieStickinessPolicy `pulumi:"lbCookieStickinessPolicy"`
-	// The listeners for the load balancer. You can specify at most one listener per port.
-	//
-	// If you update the properties for a listener, AWS CloudFormation deletes the existing listener and creates a new one with the specified properties. While the new listener is being created, clients cannot connect to the load balancer.
+	// The Listeners for the load balancer. You can specify at most one listener per port.
 	Listeners []LoadBalancerListeners `pulumi:"listeners"`
 	// The name of the load balancer. This name must be unique within your set of load balancers for the region.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) . If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
 	LoadBalancerName *string `pulumi:"loadBalancerName"`
 	// The policies defined for your Classic Load Balancer. Specify only back-end server policies.
 	Policies []LoadBalancerPolicies `pulumi:"policies"`
 	// The type of load balancer. Valid only for load balancers in a VPC.
-	//
-	// If `Scheme` is `internet-facing` , the load balancer has a public DNS name that resolves to a public IP address.
-	//
-	// If `Scheme` is `internal` , the load balancer has a public DNS name that resolves to a private IP address.
 	Scheme *string `pulumi:"scheme"`
 	// The security groups for the load balancer. Valid only for load balancers in a VPC.
-	SecurityGroups                []string `pulumi:"securityGroups"`
-	SourceSecurityGroupGroupName  *string  `pulumi:"sourceSecurityGroupGroupName"`
-	SourceSecurityGroupOwnerAlias *string  `pulumi:"sourceSecurityGroupOwnerAlias"`
+	SecurityGroups []string `pulumi:"securityGroups"`
 	// The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
-	//
-	// Update requires replacement if you did not previously specify a subnet or if you are removing all subnets. Otherwise, update requires no interruption. To update to a different subnet in the current Availability Zone, you must first update to a subnet in a different Availability Zone, then update to the new subnet in the original Availability Zone.
 	Subnets []string `pulumi:"subnets"`
 	// The tags associated with a load balancer.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -190,53 +146,31 @@ type LoadBalancerArgs struct {
 	AccessLoggingPolicy LoadBalancerAccessLoggingPolicyPtrInput
 	// Information about a policy for application-controlled session stickiness.
 	AppCookieStickinessPolicy LoadBalancerAppCookieStickinessPolicyArrayInput
-	// The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify `Subnets` instead.
-	//
-	// Update requires replacement if you did not previously specify an Availability Zone or if you are removing all Availability Zones. Otherwise, update requires no interruption.
+	// The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify Subnets instead.
 	AvailabilityZones pulumi.StringArrayInput
 	// If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
-	//
-	// For more information, see [Configure connection draining](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html) in the *User Guide for Classic Load Balancers* .
 	ConnectionDrainingPolicy LoadBalancerConnectionDrainingPolicyPtrInput
 	// If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
-	//
-	// By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see [Configure idle connection timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html) in the *User Guide for Classic Load Balancers* .
 	ConnectionSettings LoadBalancerConnectionSettingsPtrInput
 	// If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
-	//
-	// For more information, see [Configure cross-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html) in the *User Guide for Classic Load Balancers* .
 	CrossZone pulumi.BoolPtrInput
 	// The health check settings to use when evaluating the health of your EC2 instances.
-	//
-	// Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
 	HealthCheck LoadBalancerHealthCheckPtrInput
 	// The IDs of the instances for the load balancer.
 	Instances pulumi.StringArrayInput
 	// Information about a policy for duration-based session stickiness.
 	LbCookieStickinessPolicy LoadBalancerLbCookieStickinessPolicyArrayInput
-	// The listeners for the load balancer. You can specify at most one listener per port.
-	//
-	// If you update the properties for a listener, AWS CloudFormation deletes the existing listener and creates a new one with the specified properties. While the new listener is being created, clients cannot connect to the load balancer.
+	// The Listeners for the load balancer. You can specify at most one listener per port.
 	Listeners LoadBalancerListenersArrayInput
 	// The name of the load balancer. This name must be unique within your set of load balancers for the region.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) . If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
 	LoadBalancerName pulumi.StringPtrInput
 	// The policies defined for your Classic Load Balancer. Specify only back-end server policies.
 	Policies LoadBalancerPoliciesArrayInput
 	// The type of load balancer. Valid only for load balancers in a VPC.
-	//
-	// If `Scheme` is `internet-facing` , the load balancer has a public DNS name that resolves to a public IP address.
-	//
-	// If `Scheme` is `internal` , the load balancer has a public DNS name that resolves to a private IP address.
 	Scheme pulumi.StringPtrInput
 	// The security groups for the load balancer. Valid only for load balancers in a VPC.
-	SecurityGroups                pulumi.StringArrayInput
-	SourceSecurityGroupGroupName  pulumi.StringPtrInput
-	SourceSecurityGroupOwnerAlias pulumi.StringPtrInput
+	SecurityGroups pulumi.StringArrayInput
 	// The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
-	//
-	// Update requires replacement if you did not previously specify a subnet or if you are removing all subnets. Otherwise, update requires no interruption. To update to a different subnet in the current Availability Zone, you must first update to a subnet in a different Availability Zone, then update to the new subnet in the original Availability Zone.
 	Subnets pulumi.StringArrayInput
 	// The tags associated with a load balancer.
 	Tags aws.TagArrayInput
@@ -291,18 +225,12 @@ func (o LoadBalancerOutput) AppCookieStickinessPolicy() LoadBalancerAppCookieSti
 	}).(LoadBalancerAppCookieStickinessPolicyArrayOutput)
 }
 
-// The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify `Subnets` instead.
-//
-// Update requires replacement if you did not previously specify an Availability Zone or if you are removing all Availability Zones. Otherwise, update requires no interruption.
+// The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify Subnets instead.
 func (o LoadBalancerOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-func (o LoadBalancerOutput) AwsId() pulumi.StringOutput {
-	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
-}
-
-// The name of the Route 53 hosted zone that is associated with the load balancer. Internal-facing load balancers don't use this value, use `DNSName` instead.
+// The name of the Route 53 hosted zone that is associated with the load balancer. Internal-facing load balancers.
 func (o LoadBalancerOutput) CanonicalHostedZoneName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.CanonicalHostedZoneName }).(pulumi.StringOutput)
 }
@@ -313,34 +241,26 @@ func (o LoadBalancerOutput) CanonicalHostedZoneNameId() pulumi.StringOutput {
 }
 
 // If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
-//
-// For more information, see [Configure connection draining](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html) in the *User Guide for Classic Load Balancers* .
 func (o LoadBalancerOutput) ConnectionDrainingPolicy() LoadBalancerConnectionDrainingPolicyPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerConnectionDrainingPolicyPtrOutput { return v.ConnectionDrainingPolicy }).(LoadBalancerConnectionDrainingPolicyPtrOutput)
 }
 
 // If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
-//
-// By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see [Configure idle connection timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html) in the *User Guide for Classic Load Balancers* .
 func (o LoadBalancerOutput) ConnectionSettings() LoadBalancerConnectionSettingsPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerConnectionSettingsPtrOutput { return v.ConnectionSettings }).(LoadBalancerConnectionSettingsPtrOutput)
 }
 
 // If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
-//
-// For more information, see [Configure cross-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html) in the *User Guide for Classic Load Balancers* .
 func (o LoadBalancerOutput) CrossZone() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.CrossZone }).(pulumi.BoolPtrOutput)
 }
 
-// The DNS name for the load balancer.
+// The DNS name for the load balancer
 func (o LoadBalancerOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
 // The health check settings to use when evaluating the health of your EC2 instances.
-//
-// Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
 func (o LoadBalancerOutput) HealthCheck() LoadBalancerHealthCheckPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerHealthCheckPtrOutput { return v.HealthCheck }).(LoadBalancerHealthCheckPtrOutput)
 }
@@ -357,16 +277,12 @@ func (o LoadBalancerOutput) LbCookieStickinessPolicy() LoadBalancerLbCookieStick
 	}).(LoadBalancerLbCookieStickinessPolicyArrayOutput)
 }
 
-// The listeners for the load balancer. You can specify at most one listener per port.
-//
-// If you update the properties for a listener, AWS CloudFormation deletes the existing listener and creates a new one with the specified properties. While the new listener is being created, clients cannot connect to the load balancer.
+// The Listeners for the load balancer. You can specify at most one listener per port.
 func (o LoadBalancerOutput) Listeners() LoadBalancerListenersArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerListenersArrayOutput { return v.Listeners }).(LoadBalancerListenersArrayOutput)
 }
 
 // The name of the load balancer. This name must be unique within your set of load balancers for the region.
-//
-// If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) . If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
 func (o LoadBalancerOutput) LoadBalancerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.LoadBalancerName }).(pulumi.StringPtrOutput)
 }
@@ -377,10 +293,6 @@ func (o LoadBalancerOutput) Policies() LoadBalancerPoliciesArrayOutput {
 }
 
 // The type of load balancer. Valid only for load balancers in a VPC.
-//
-// If `Scheme` is `internet-facing` , the load balancer has a public DNS name that resolves to a public IP address.
-//
-// If `Scheme` is `internal` , the load balancer has a public DNS name that resolves to a private IP address.
 func (o LoadBalancerOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.Scheme }).(pulumi.StringPtrOutput)
 }
@@ -390,17 +302,11 @@ func (o LoadBalancerOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-func (o LoadBalancerOutput) SourceSecurityGroupGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.SourceSecurityGroupGroupName }).(pulumi.StringPtrOutput)
-}
-
-func (o LoadBalancerOutput) SourceSecurityGroupOwnerAlias() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.SourceSecurityGroupOwnerAlias }).(pulumi.StringPtrOutput)
+func (o LoadBalancerOutput) SourceSecurityGroup() LoadBalancerSourceSecurityGroupOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerSourceSecurityGroupOutput { return v.SourceSecurityGroup }).(LoadBalancerSourceSecurityGroupOutput)
 }
 
 // The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
-//
-// Update requires replacement if you did not previously specify a subnet or if you are removing all subnets. Otherwise, update requires no interruption. To update to a different subnet in the current Availability Zone, you must first update to a subnet in a different Availability Zone, then update to the new subnet in the original Availability Zone.
 func (o LoadBalancerOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.Subnets }).(pulumi.StringArrayOutput)
 }

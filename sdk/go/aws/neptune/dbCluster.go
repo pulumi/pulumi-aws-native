@@ -48,10 +48,14 @@ type DbCluster struct {
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// Indicates the database engine version.
 	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
+	// The ID of the Neptune global database to which this new DB cluster should be added.
+	GlobalClusterIdentifier pulumi.StringPtrOutput `pulumi:"globalClusterIdentifier"`
 	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 	IamAuthEnabled pulumi.BoolPtrOutput `pulumi:"iamAuthEnabled"`
 	// The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// The network type of the DB cluster.
+	NetworkType DbClusterNetworkTypePtrOutput `pulumi:"networkType"`
 	// The port number on which the DB cluster accepts connections. For example: `8182`.
 	Port pulumi.StringOutput `pulumi:"port"`
 	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
@@ -119,6 +123,7 @@ func NewDbCluster(ctx *pulumi.Context,
 		"availabilityZones[*]",
 		"dbClusterIdentifier",
 		"dbSubnetGroupName",
+		"globalClusterIdentifier",
 		"kmsKeyId",
 		"restoreToTime",
 		"restoreType",
@@ -189,10 +194,14 @@ type dbClusterArgs struct {
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// Indicates the database engine version.
 	EngineVersion *string `pulumi:"engineVersion"`
+	// The ID of the Neptune global database to which this new DB cluster should be added.
+	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
 	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 	IamAuthEnabled *bool `pulumi:"iamAuthEnabled"`
 	// The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The network type of the DB cluster.
+	NetworkType *DbClusterNetworkType `pulumi:"networkType"`
 	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
@@ -275,10 +284,14 @@ type DbClusterArgs struct {
 	EnableCloudwatchLogsExports pulumi.StringArrayInput
 	// Indicates the database engine version.
 	EngineVersion pulumi.StringPtrInput
+	// The ID of the Neptune global database to which this new DB cluster should be added.
+	GlobalClusterIdentifier pulumi.StringPtrInput
 	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 	IamAuthEnabled pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
 	KmsKeyId pulumi.StringPtrInput
+	// The network type of the DB cluster.
+	NetworkType DbClusterNetworkTypePtrInput
 	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
 	PreferredBackupWindow pulumi.StringPtrInput
 	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
@@ -442,6 +455,11 @@ func (o DbClusterOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Neptune global database to which this new DB cluster should be added.
+func (o DbClusterOutput) GlobalClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.GlobalClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
 // True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 func (o DbClusterOutput) IamAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.BoolPtrOutput { return v.IamAuthEnabled }).(pulumi.BoolPtrOutput)
@@ -450,6 +468,11 @@ func (o DbClusterOutput) IamAuthEnabled() pulumi.BoolPtrOutput {
 // The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
 func (o DbClusterOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The network type of the DB cluster.
+func (o DbClusterOutput) NetworkType() DbClusterNetworkTypePtrOutput {
+	return o.ApplyT(func(v *DbCluster) DbClusterNetworkTypePtrOutput { return v.NetworkType }).(DbClusterNetworkTypePtrOutput)
 }
 
 // The port number on which the DB cluster accepts connections. For example: `8182`.

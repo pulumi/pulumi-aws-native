@@ -95,8 +95,7 @@
         "Enabled" : {
           "$ref" : "#/definitions/Enabled"
         }
-      },
-      "required" : [ "Enabled" ]
+      }
     }
   },
   "required" : [ "InstanceArn", "Name", "Content" ],

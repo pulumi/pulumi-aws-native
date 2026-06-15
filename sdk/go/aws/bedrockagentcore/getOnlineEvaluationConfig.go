@@ -29,6 +29,8 @@ type LookupOnlineEvaluationConfigArgs struct {
 }
 
 type LookupOnlineEvaluationConfigResult struct {
+	// The configuration for clustering analysis of evaluation results.
+	ClusteringConfig *OnlineEvaluationConfigClusteringConfig `pulumi:"clusteringConfig"`
 	// The timestamp when the online evaluation configuration was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The data source configuration that specifies CloudWatch log groups and service names to monitor.
@@ -41,6 +43,8 @@ type LookupOnlineEvaluationConfigResult struct {
 	Evaluators []OnlineEvaluationConfigEvaluatorReference `pulumi:"evaluators"`
 	// The execution status indicating whether the online evaluation is currently running.
 	ExecutionStatus *OnlineEvaluationConfigExecutionStatus `pulumi:"executionStatus"`
+	// The list of insights to enable for failure analysis.
+	Insights []OnlineEvaluationConfigInsight `pulumi:"insights"`
 	// The Amazon Resource Name (ARN) of the online evaluation configuration.
 	OnlineEvaluationConfigArn *string `pulumi:"onlineEvaluationConfigArn"`
 	// The unique identifier of the online evaluation configuration.
@@ -89,6 +93,13 @@ func (o LookupOnlineEvaluationConfigResultOutput) ToLookupOnlineEvaluationConfig
 	return o
 }
 
+// The configuration for clustering analysis of evaluation results.
+func (o LookupOnlineEvaluationConfigResultOutput) ClusteringConfig() OnlineEvaluationConfigClusteringConfigPtrOutput {
+	return o.ApplyT(func(v LookupOnlineEvaluationConfigResult) *OnlineEvaluationConfigClusteringConfig {
+		return v.ClusteringConfig
+	}).(OnlineEvaluationConfigClusteringConfigPtrOutput)
+}
+
 // The timestamp when the online evaluation configuration was created.
 func (o LookupOnlineEvaluationConfigResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOnlineEvaluationConfigResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
@@ -123,6 +134,11 @@ func (o LookupOnlineEvaluationConfigResultOutput) ExecutionStatus() OnlineEvalua
 	return o.ApplyT(func(v LookupOnlineEvaluationConfigResult) *OnlineEvaluationConfigExecutionStatus {
 		return v.ExecutionStatus
 	}).(OnlineEvaluationConfigExecutionStatusPtrOutput)
+}
+
+// The list of insights to enable for failure analysis.
+func (o LookupOnlineEvaluationConfigResultOutput) Insights() OnlineEvaluationConfigInsightArrayOutput {
+	return o.ApplyT(func(v LookupOnlineEvaluationConfigResult) []OnlineEvaluationConfigInsight { return v.Insights }).(OnlineEvaluationConfigInsightArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the online evaluation configuration.

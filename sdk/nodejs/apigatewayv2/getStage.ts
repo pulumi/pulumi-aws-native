@@ -13,15 +13,20 @@ import * as utilities from "../utilities";
 export function getStage(args: GetStageArgs, opts?: pulumi.InvokeOptions): Promise<GetStageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getStage", {
-        "id": args.id,
+        "apiId": args.apiId,
+        "stageName": args.stageName,
     }, opts);
 }
 
 export interface GetStageArgs {
     /**
-     * The identifier.
+     * The API identifier.
      */
-    id: string;
+    apiId: string;
+    /**
+     * The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
+     */
+    stageName: string;
 }
 
 export interface GetStageResult {
@@ -30,11 +35,11 @@ export interface GetStageResult {
      */
     readonly accessLogSettings?: outputs.apigatewayv2.StageAccessLogSettings;
     /**
-     * Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
+     * Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
      */
     readonly autoDeploy?: boolean;
     /**
-     * The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
+     * The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
      */
     readonly clientCertificateId?: string;
     /**
@@ -42,7 +47,7 @@ export interface GetStageResult {
      */
     readonly defaultRouteSettings?: outputs.apigatewayv2.StageRouteSettings;
     /**
-     * The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
+     * The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
      */
     readonly deploymentId?: string;
     /**
@@ -50,17 +55,13 @@ export interface GetStageResult {
      */
     readonly description?: string;
     /**
-     * The identifier.
-     */
-    readonly id?: string;
-    /**
      * Route settings for the stage.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
      */
     readonly routeSettings?: any;
     /**
-     * A map that defines the stage variables for a `Stage` . Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+     * A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
      */
@@ -78,13 +79,18 @@ export interface GetStageResult {
 export function getStageOutput(args: GetStageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apigatewayv2:getStage", {
-        "id": args.id,
+        "apiId": args.apiId,
+        "stageName": args.stageName,
     }, opts);
 }
 
 export interface GetStageOutputArgs {
     /**
-     * The identifier.
+     * The API identifier.
      */
-    id: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
+    /**
+     * The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
+     */
+    stageName: pulumi.Input<string>;
 }
