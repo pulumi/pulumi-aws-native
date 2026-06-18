@@ -339,7 +339,7 @@ jobs:
       env:
         SLACK_WEBHOOK_URL: ${{ steps.esc-secrets.outputs.SLACK_WEBHOOK_URL }}
   publish:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     needs: test
     name: publish
     permissions:
@@ -376,6 +376,15 @@ jobs:
       uses: ./.github/actions/setup-tools
       with:
         github_token: ${{ steps.app-auth.outputs.token }}
+    - name: Clear GitHub Actions Ubuntu runner disk space
+      uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
+      with:
+        tool-cache: false
+        dotnet: false
+        android: true
+        haskell: true
+        swap-storage: true
+        large-packages: false
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@e7f100cf4c008499ea8adda475de1042d6975c7b # v6.2.0
       with:
