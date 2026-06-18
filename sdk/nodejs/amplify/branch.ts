@@ -192,37 +192,37 @@ export interface BranchArgs {
      *
      * This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
      */
-    backend?: pulumi.Input<inputs.amplify.BranchBackendArgs>;
+    backend?: pulumi.Input<inputs.amplify.BranchBackendArgs | undefined>;
     /**
      * The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
      */
-    basicAuthConfig?: pulumi.Input<inputs.amplify.BranchBasicAuthConfigArgs>;
+    basicAuthConfig?: pulumi.Input<inputs.amplify.BranchBasicAuthConfigArgs | undefined>;
     /**
      * The name for the branch.
      */
-    branchName?: pulumi.Input<string>;
+    branchName?: pulumi.Input<string | undefined>;
     /**
      * The build specification (build spec) for the branch.
      */
-    buildSpec?: pulumi.Input<string>;
+    buildSpec?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
      */
-    computeRoleArn?: pulumi.Input<string>;
+    computeRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The description for the branch that is part of an Amplify app.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Enables auto building for the branch.
      */
-    enableAutoBuild?: pulumi.Input<boolean>;
+    enableAutoBuild?: pulumi.Input<boolean | undefined>;
     /**
      * Enables performance mode for the branch.
      *
      * Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
      */
-    enablePerformanceMode?: pulumi.Input<boolean>;
+    enablePerformanceMode?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether Amplify Hosting creates a preview for each pull request that is made for this branch. If this property is enabled, Amplify deploys your app to a unique preview URL after each pull request is opened. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
      *
@@ -230,21 +230,21 @@ export interface BranchArgs {
      *
      * For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
      */
-    enablePullRequestPreview?: pulumi.Input<boolean>;
+    enablePullRequestPreview?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether the skew protection feature is enabled for the branch.
      *
      * Deployment skew protection is available to Amplify applications to eliminate version skew issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see [Skew protection for Amplify deployments](https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html) in the *Amplify User Guide* .
      */
-    enableSkewProtection?: pulumi.Input<boolean>;
+    enableSkewProtection?: pulumi.Input<boolean | undefined>;
     /**
      * The environment variables for the branch.
      */
-    environmentVariables?: pulumi.Input<pulumi.Input<inputs.amplify.BranchEnvironmentVariableArgs>[]>;
+    environmentVariables?: pulumi.Input<pulumi.Input<inputs.amplify.BranchEnvironmentVariableArgs>[] | undefined>;
     /**
      * The framework for the branch.
      */
-    framework?: pulumi.Input<string>;
+    framework?: pulumi.Input<string | undefined>;
     /**
      * If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.
      *
@@ -254,13 +254,13 @@ export interface BranchArgs {
      *
      * For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
      */
-    pullRequestEnvironmentName?: pulumi.Input<string>;
+    pullRequestEnvironmentName?: pulumi.Input<string | undefined>;
     /**
      * Describes the current stage for the branch.
      */
-    stage?: pulumi.Input<enums.amplify.BranchStage>;
+    stage?: pulumi.Input<enums.amplify.BranchStage | undefined>;
     /**
      * The tag for the branch.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

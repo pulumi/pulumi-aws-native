@@ -140,11 +140,11 @@ export interface WorkspaceArgs {
     /**
      * The resource ARNs associated with the workspace
      */
-    associations?: pulumi.Input<pulumi.Input<string>[]>;
+    associations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description of the workspace
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Amazon Connect instance.
      */
@@ -152,29 +152,29 @@ export interface WorkspaceArgs {
     /**
      * The media items for the workspace
      */
-    media?: pulumi.Input<pulumi.Input<inputs.connect.WorkspaceMediaItemArgs>[]>;
+    media?: pulumi.Input<pulumi.Input<inputs.connect.WorkspaceMediaItemArgs>[] | undefined>;
     /**
      * The name of the workspace.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The pages associated with the workspace
      */
-    pages?: pulumi.Input<pulumi.Input<inputs.connect.WorkspacePageArgs>[]>;
+    pages?: pulumi.Input<pulumi.Input<inputs.connect.WorkspacePageArgs>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The theme configuration for the workspace
      */
-    theme?: pulumi.Input<inputs.connect.WorkspaceThemeArgs>;
+    theme?: pulumi.Input<inputs.connect.WorkspaceThemeArgs | undefined>;
     /**
      * The title of the workspace
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * The visibility of the workspace. Will always be set to ASSIGNED oninitial creation.
      */
-    visibility?: pulumi.Input<enums.connect.WorkspaceVisibility>;
+    visibility?: pulumi.Input<enums.connect.WorkspaceVisibility | undefined>;
 }

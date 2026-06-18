@@ -167,7 +167,7 @@ export interface ApplicationInstanceArgs {
     /**
      * The ID of an application instance to replace with the new instance.
      */
-    applicationInstanceIdToReplace?: pulumi.Input<string>;
+    applicationInstanceIdToReplace?: pulumi.Input<string | undefined>;
     /**
      * The device's ID.
      */
@@ -175,11 +175,11 @@ export interface ApplicationInstanceArgs {
     /**
      * A description for the application instance.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Setting overrides for the application manifest.
      */
-    manifestOverridesPayload?: pulumi.Input<inputs.panorama.ApplicationInstanceManifestOverridesPayloadArgs>;
+    manifestOverridesPayload?: pulumi.Input<inputs.panorama.ApplicationInstanceManifestOverridesPayloadArgs | undefined>;
     /**
      * The application's manifest document.
      */
@@ -187,13 +187,13 @@ export interface ApplicationInstanceArgs {
     /**
      * A name for the application instance.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARN of a runtime role for the application instance.
      */
-    runtimeRoleArn?: pulumi.Input<string>;
+    runtimeRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Tags for the application instance.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

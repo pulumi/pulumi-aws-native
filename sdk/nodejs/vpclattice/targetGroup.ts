@@ -130,21 +130,21 @@ export interface TargetGroupArgs {
     /**
      * The target group configuration.
      */
-    config?: pulumi.Input<inputs.vpclattice.TargetGroupConfigArgs>;
+    config?: pulumi.Input<inputs.vpclattice.TargetGroupConfigArgs | undefined>;
     /**
      * The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      *
      * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags for the target group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Describes a target.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.vpclattice.TargetGroupTargetArgs>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.vpclattice.TargetGroupTargetArgs>[] | undefined>;
     /**
      * The type of target group.
      */

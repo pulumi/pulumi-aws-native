@@ -89,13 +89,13 @@ export interface ReadinessCheckArgs {
     /**
      * Name of the ReadinessCheck to create.
      */
-    readinessCheckName?: pulumi.Input<string>;
+    readinessCheckName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource set to check.
      */
-    resourceSetName?: pulumi.Input<string>;
+    resourceSetName?: pulumi.Input<string | undefined>;
     /**
      * A collection of tags associated with a resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

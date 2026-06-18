@@ -147,7 +147,7 @@ export interface ApplicationArgs {
     /**
      * The application configuration. Cannot be used when IsService is true.
      */
-    applicationConfig?: pulumi.Input<inputs.appintegrations.ApplicationConfigArgs>;
+    applicationConfig?: pulumi.Input<inputs.appintegrations.ApplicationConfigArgs | undefined>;
     /**
      * Application source config
      */
@@ -155,27 +155,27 @@ export interface ApplicationArgs {
     /**
      * The type of application
      */
-    applicationType?: pulumi.Input<enums.appintegrations.ApplicationType>;
+    applicationType?: pulumi.Input<enums.appintegrations.ApplicationType | undefined>;
     /**
      * The application description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The iframe configuration
      */
-    iframeConfig?: pulumi.Input<inputs.appintegrations.ApplicationIframeConfigArgs>;
+    iframeConfig?: pulumi.Input<inputs.appintegrations.ApplicationIframeConfigArgs | undefined>;
     /**
      * The initialization timeout in milliseconds. Required when IsService is true.
      */
-    initializationTimeout?: pulumi.Input<number>;
+    initializationTimeout?: pulumi.Input<number | undefined>;
     /**
      * Indicates if the application is a service
      */
-    isService?: pulumi.Input<boolean>;
+    isService?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The namespace of the application.
      */
@@ -183,9 +183,9 @@ export interface ApplicationArgs {
     /**
      * The configuration of events or requests that the application has access to.
      */
-    permissions?: pulumi.Input<pulumi.Input<string>[]>;
+    permissions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The tags (keys and values) associated with the application.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

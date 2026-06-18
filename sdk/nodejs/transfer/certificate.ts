@@ -161,7 +161,7 @@ export interface CertificateArgs {
     /**
      * Specifies the active date for the certificate.
      */
-    activeDate?: pulumi.Input<string>;
+    activeDate?: pulumi.Input<string | undefined>;
     /**
      * Specifies the certificate body to be imported.
      */
@@ -169,23 +169,23 @@ export interface CertificateArgs {
     /**
      * Specifies the certificate chain to be imported.
      */
-    certificateChain?: pulumi.Input<string>;
+    certificateChain?: pulumi.Input<string | undefined>;
     /**
      * A textual description for the certificate.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the inactive date for the certificate.
      */
-    inactiveDate?: pulumi.Input<string>;
+    inactiveDate?: pulumi.Input<string | undefined>;
     /**
      * Specifies the private key for the certificate.
      */
-    privateKey?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Specifies the usage type for the certificate.
      */

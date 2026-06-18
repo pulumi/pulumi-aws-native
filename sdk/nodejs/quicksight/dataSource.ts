@@ -185,44 +185,44 @@ export interface DataSourceArgs {
      *             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
      *             are automatically allowed.</p>
      */
-    alternateDataSourceParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceParametersArgs>[]>;
+    alternateDataSourceParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceParametersArgs>[] | undefined>;
     /**
      * The AWS account ID.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * The credentials Amazon Quick Sight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
      */
-    credentials?: pulumi.Input<inputs.quicksight.DataSourceCredentialsArgs>;
+    credentials?: pulumi.Input<inputs.quicksight.DataSourceCredentialsArgs | undefined>;
     /**
      * An ID for the data source. This ID is unique per AWS Region for each AWS account.
      */
-    dataSourceId?: pulumi.Input<string>;
+    dataSourceId?: pulumi.Input<string | undefined>;
     /**
      * The parameters that Amazon Quick Sight uses to connect to your underlying source.
      */
-    dataSourceParameters?: pulumi.Input<inputs.quicksight.DataSourceParametersArgs>;
+    dataSourceParameters?: pulumi.Input<inputs.quicksight.DataSourceParametersArgs | undefined>;
     /**
      * Error information from the last update or the creation of the data source.
      */
-    errorInfo?: pulumi.Input<inputs.quicksight.DataSourceErrorInfoArgs>;
-    folderArns?: pulumi.Input<pulumi.Input<string>[]>;
+    errorInfo?: pulumi.Input<inputs.quicksight.DataSourceErrorInfoArgs | undefined>;
+    folderArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A display name for the data source.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of resource permissions on the data source.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceResourcePermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceResourcePermissionArgs>[] | undefined>;
     /**
      * Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
      */
-    sslProperties?: pulumi.Input<inputs.quicksight.DataSourceSslPropertiesArgs>;
+    sslProperties?: pulumi.Input<inputs.quicksight.DataSourceSslPropertiesArgs | undefined>;
     /**
      * Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of the data source. To return a list of all data sources, use `ListDataSources` .
      *
@@ -232,5 +232,5 @@ export interface DataSourceArgs {
     /**
      * Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
      */
-    vpcConnectionProperties?: pulumi.Input<inputs.quicksight.DataSourceVpcConnectionPropertiesArgs>;
+    vpcConnectionProperties?: pulumi.Input<inputs.quicksight.DataSourceVpcConnectionPropertiesArgs | undefined>;
 }

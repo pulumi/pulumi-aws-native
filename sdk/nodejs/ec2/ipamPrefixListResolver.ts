@@ -114,17 +114,17 @@ export interface IpamPrefixListResolverArgs {
      * The address family of the address space in this Prefix List Resolver. Either IPv4 or IPv6.
      */
     addressFamily: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Id of the IPAM this Prefix List Resolver is a part of.
      */
-    ipamId?: pulumi.Input<string>;
+    ipamId?: pulumi.Input<string | undefined>;
     /**
      * Rules define the business logic for selecting CIDRs from IPAM.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.ec2.IpamPrefixListResolverRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.ec2.IpamPrefixListResolverRuleArgs>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

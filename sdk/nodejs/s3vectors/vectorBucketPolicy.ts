@@ -90,9 +90,9 @@ export interface VectorBucketPolicyArgs {
     /**
      * The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
      */
-    vectorBucketArn?: pulumi.Input<string>;
+    vectorBucketArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the S3 vector bucket to which the policy applies.
      */
-    vectorBucketName?: pulumi.Input<string>;
+    vectorBucketName?: pulumi.Input<string | undefined>;
 }

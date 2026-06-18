@@ -723,11 +723,11 @@ export interface AutomationRuleArgs {
     /**
      * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
      */
-    isTerminal?: pulumi.Input<boolean>;
+    isTerminal?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the rule.
      */
-    ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
     /**
      * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
      */
@@ -735,9 +735,9 @@ export interface AutomationRuleArgs {
     /**
      * Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
      */
-    ruleStatus?: pulumi.Input<enums.securityhub.AutomationRuleRuleStatus>;
+    ruleStatus?: pulumi.Input<enums.securityhub.AutomationRuleRuleStatus | undefined>;
     /**
      * User-defined tags associated with an automation rule.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -98,11 +98,11 @@ export interface DirectConnectGatewayAssociationArgs {
     /**
      * The Amazon Resource Name (ARN) of the role to accept the Direct Connect Gateway association proposal. Needs directconnect:AcceptDirectConnectGatewayAssociationProposal permissions.
      */
-    acceptDirectConnectGatewayAssociationProposalRoleArn?: pulumi.Input<string>;
+    acceptDirectConnectGatewayAssociationProposalRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon VPC prefixes to advertise to the Direct Connect gateway. This parameter is required when you create an association to a transit gateway.
      */
-    allowedPrefixesToDirectConnectGateway?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedPrefixesToDirectConnectGateway?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID or ARN of the virtual private gateway or transit gateway.
      */

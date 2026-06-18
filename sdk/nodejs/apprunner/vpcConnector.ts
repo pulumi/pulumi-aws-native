@@ -104,7 +104,7 @@ export interface VpcConnectorArgs {
     /**
      * A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
      */
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
      */
@@ -112,9 +112,9 @@ export interface VpcConnectorArgs {
     /**
      * A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
     /**
      * A name for the VPC connector. If you don't specify a name, AWS CloudFormation generates a name for your VPC connector.
      */
-    vpcConnectorName?: pulumi.Input<string>;
+    vpcConnectorName?: pulumi.Input<string | undefined>;
 }

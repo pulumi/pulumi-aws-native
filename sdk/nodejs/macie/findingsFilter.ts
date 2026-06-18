@@ -114,11 +114,11 @@ export interface FindingsFilterArgs {
     /**
      * Findings filter action.
      */
-    action?: pulumi.Input<enums.macie.FindingsFilterFindingFilterAction>;
+    action?: pulumi.Input<enums.macie.FindingsFilterFindingFilterAction | undefined>;
     /**
      * Findings filter description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Findings filter criteria.
      */
@@ -126,13 +126,13 @@ export interface FindingsFilterArgs {
     /**
      * Findings filter name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Findings filter position.
      */
-    position?: pulumi.Input<number>;
+    position?: pulumi.Input<number | undefined>;
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

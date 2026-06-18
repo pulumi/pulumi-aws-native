@@ -81,5 +81,5 @@ export interface LogStreamArgs {
     /**
      * The name of the log stream. The name must be unique wihtin the log group.
      */
-    logStreamName?: pulumi.Input<string>;
+    logStreamName?: pulumi.Input<string | undefined>;
 }

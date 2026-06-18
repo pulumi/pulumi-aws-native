@@ -61,7 +61,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["accessKey"] = args?.accessKey ? pulumi.secret(args.accessKey) : undefined;
             resourceInputs["allowedAccountIds"] = pulumi.output(args?.allowedAccountIds).apply(JSON.stringify);
             resourceInputs["assumeRole"] = pulumi.output(args?.assumeRole).apply(JSON.stringify);
-            resourceInputs["autoNaming"] = pulumi.output(args ? (args.autoNaming ? pulumi.output(args.autoNaming).apply(inputs.providerAutoNamingArgsProvideDefaults) : undefined) : undefined).apply(JSON.stringify);
+            resourceInputs["autoNaming"] = pulumi.output(args ? pulumi.output(args.autoNaming).apply(v => v === undefined ? undefined : inputs.providerAutoNamingArgsProvideDefaults(v)) : undefined).apply(JSON.stringify);
             resourceInputs["defaultTags"] = pulumi.output(args?.defaultTags).apply(JSON.stringify);
             resourceInputs["endpoints"] = pulumi.output(args?.endpoints).apply(JSON.stringify);
             resourceInputs["forbiddenAccountIds"] = pulumi.output(args?.forbiddenAccountIds).apply(JSON.stringify);
@@ -93,47 +93,47 @@ export interface ProviderArgs {
     /**
      * The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
      */
-    accessKey?: pulumi.Input<string>;
+    accessKey?: pulumi.Input<string | undefined>;
     /**
      * List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
      */
-    allowedAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedAccountIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration for retrieving temporary credentials from the STS service.
      */
-    assumeRole?: pulumi.Input<inputs.ProviderAssumeRoleArgs>;
+    assumeRole?: pulumi.Input<inputs.ProviderAssumeRoleArgs | undefined>;
     /**
      * The configuration for automatically naming resources.
      */
-    autoNaming?: pulumi.Input<inputs.ProviderAutoNamingArgs>;
+    autoNaming?: pulumi.Input<inputs.ProviderAutoNamingArgs | undefined>;
     /**
      * Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
      */
-    defaultTags?: pulumi.Input<inputs.ProviderDefaultTagsArgs>;
+    defaultTags?: pulumi.Input<inputs.ProviderDefaultTagsArgs | undefined>;
     /**
      * Configuration block for customizing service endpoints.
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.ProviderEndpointArgs>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.ProviderEndpointArgs>[] | undefined>;
     /**
      * List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.
      */
-    forbiddenAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
+    forbiddenAccountIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
      */
-    ignoreTags?: pulumi.Input<inputs.ProviderIgnoreTagsArgs>;
+    ignoreTags?: pulumi.Input<inputs.ProviderIgnoreTagsArgs | undefined>;
     /**
      * Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`.
      */
-    insecure?: pulumi.Input<boolean>;
+    insecure?: pulumi.Input<boolean | undefined>;
     /**
      * The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
      */
-    maxRetries?: pulumi.Input<number>;
+    maxRetries?: pulumi.Input<number | undefined>;
     /**
      * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
      */
-    profile?: pulumi.Input<string>;
+    profile?: pulumi.Input<string | undefined>;
     /**
      * The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
      */
@@ -141,41 +141,41 @@ export interface ProviderArgs {
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
      */
-    s3UsePathStyle?: pulumi.Input<boolean>;
+    s3UsePathStyle?: pulumi.Input<boolean | undefined>;
     /**
      * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
      */
-    secretKey?: pulumi.Input<string>;
+    secretKey?: pulumi.Input<string | undefined>;
     /**
      * The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.
      */
-    sharedCredentialsFile?: pulumi.Input<string>;
+    sharedCredentialsFile?: pulumi.Input<string | undefined>;
     /**
      * Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
      */
-    skipCredentialsValidation?: pulumi.Input<boolean>;
+    skipCredentialsValidation?: pulumi.Input<boolean | undefined>;
     /**
      * Skip getting the supported EC2 platforms. Used by users that don't have `ec2:DescribeAccountAttributes` permissions.
      */
-    skipGetEc2Platforms?: pulumi.Input<boolean>;
+    skipGetEc2Platforms?: pulumi.Input<boolean | undefined>;
     /**
      * Skip the AWS Metadata API check. Useful for AWS API implementations that do not have a metadata API endpoint. Setting to true prevents Pulumi from authenticating via the Metadata API. You may need to use other authentication methods like static credentials, configuration variables, or environment variables.
      */
-    skipMetadataApiCheck?: pulumi.Input<boolean>;
+    skipMetadataApiCheck?: pulumi.Input<boolean | undefined>;
     /**
      * Skip static validation of region name. Used by users of alternative AWS-like APIs or users with access to regions that are not public.
      */
-    skipRegionValidation?: pulumi.Input<boolean>;
+    skipRegionValidation?: pulumi.Input<boolean | undefined>;
     /**
      * Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
      */
-    skipRequestingAccountId?: pulumi.Input<boolean>;
+    skipRequestingAccountId?: pulumi.Input<boolean | undefined>;
     /**
      * Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
 }

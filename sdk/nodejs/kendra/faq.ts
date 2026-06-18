@@ -136,11 +136,11 @@ export interface FaqArgs {
     /**
      * FAQ description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * FAQ file format
      */
-    fileFormat?: pulumi.Input<enums.kendra.FaqFileFormat>;
+    fileFormat?: pulumi.Input<enums.kendra.FaqFileFormat | undefined>;
     /**
      * Index ID
      */
@@ -148,11 +148,11 @@ export interface FaqArgs {
     /**
      * The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
      */
-    languageCode?: pulumi.Input<string>;
+    languageCode?: pulumi.Input<string | undefined>;
     /**
      * FAQ name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * FAQ role ARN
      */
@@ -164,5 +164,5 @@ export interface FaqArgs {
     /**
      * Tags for labeling the FAQ
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -165,7 +165,7 @@ export interface OriginEndpointArgs {
     /**
      * Parameters for CDN authorization.
      */
-    authorization?: pulumi.Input<inputs.mediapackage.OriginEndpointAuthorizationArgs>;
+    authorization?: pulumi.Input<inputs.mediapackage.OriginEndpointAuthorizationArgs | undefined>;
     /**
      * The ID of the OriginEndpoint.
      */
@@ -177,45 +177,45 @@ export interface OriginEndpointArgs {
     /**
      * Parameters for Common Media Application Format (CMAF) packaging.
      */
-    cmafPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointCmafPackageArgs>;
+    cmafPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointCmafPackageArgs | undefined>;
     /**
      * Parameters for DASH packaging.
      */
-    dashPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointDashPackageArgs>;
+    dashPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointDashPackageArgs | undefined>;
     /**
      * A short text description of the OriginEndpoint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Parameters for Apple HLS packaging.
      */
-    hlsPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointHlsPackageArgs>;
+    hlsPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointHlsPackageArgs | undefined>;
     /**
      * A short string appended to the end of the OriginEndpoint URL.
      */
-    manifestName?: pulumi.Input<string>;
+    manifestName?: pulumi.Input<string | undefined>;
     /**
      * Parameters for Microsoft Smooth Streaming packaging.
      */
-    mssPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointMssPackageArgs>;
+    mssPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointMssPackageArgs | undefined>;
     /**
      * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
      */
-    origination?: pulumi.Input<enums.mediapackage.OriginEndpointOrigination>;
+    origination?: pulumi.Input<enums.mediapackage.OriginEndpointOrigination | undefined>;
     /**
      * Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
      */
-    startoverWindowSeconds?: pulumi.Input<number>;
+    startoverWindowSeconds?: pulumi.Input<number | undefined>;
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
      */
-    timeDelaySeconds?: pulumi.Input<number>;
+    timeDelaySeconds?: pulumi.Input<number | undefined>;
     /**
      * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
      */
-    whitelist?: pulumi.Input<pulumi.Input<string>[]>;
+    whitelist?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -103,7 +103,7 @@ export interface ResourceSetArgs {
     /**
      * The name of the resource set to create.
      */
-    resourceSetName?: pulumi.Input<string>;
+    resourceSetName?: pulumi.Input<string | undefined>;
     /**
      * The resource type of the resources in the resource set. Enter one of the following values for resource type: 
      *
@@ -117,5 +117,5 @@ export interface ResourceSetArgs {
     /**
      * A tag to associate with the parameters for a resource set.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

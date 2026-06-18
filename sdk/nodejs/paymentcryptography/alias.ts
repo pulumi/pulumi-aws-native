@@ -78,9 +78,9 @@ export interface AliasArgs {
      *
      * > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
      */
-    aliasName?: pulumi.Input<string>;
+    aliasName?: pulumi.Input<string | undefined>;
     /**
      * The `KeyARN` of the key associated with the alias.
      */
-    keyArn?: pulumi.Input<string>;
+    keyArn?: pulumi.Input<string | undefined>;
 }

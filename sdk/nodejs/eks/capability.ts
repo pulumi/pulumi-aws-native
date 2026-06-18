@@ -149,7 +149,7 @@ export interface CapabilityArgs {
     /**
      * A unique name for the capability. The name must be unique within your cluster and can contain alphanumeric characters, hyphens, and underscores.
      */
-    capabilityName?: pulumi.Input<string>;
+    capabilityName?: pulumi.Input<string | undefined>;
     /**
      * The name of the EKS cluster where you want to create the capability.
      */
@@ -157,7 +157,7 @@ export interface CapabilityArgs {
     /**
      * The configuration settings for the capability. The structure of this object varies depending on the capability type. For Argo CD capabilities, you can configure IAM Identity Center integration, RBAC role mappings, and network access settings.
      */
-    configuration?: pulumi.Input<inputs.eks.CapabilityConfigurationArgs>;
+    configuration?: pulumi.Input<inputs.eks.CapabilityConfigurationArgs | undefined>;
     /**
      * Specifies how Kubernetes resources managed by the capability should be handled when the capability is deleted. Currently, the only supported value is RETAIN which retains all Kubernetes resources managed by the capability when the capability is deleted.
      */
@@ -169,7 +169,7 @@ export interface CapabilityArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of capability to create. Valid values are: ACK (AWS Controllers for Kubernetes, which lets you manage AWS resources directly from Kubernetes), ARGOCD (Argo CD for GitOps-based continuous delivery), or KRO (Kube Resource Orchestrator for composing and managing custom Kubernetes resources).
      */

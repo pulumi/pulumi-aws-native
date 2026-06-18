@@ -117,7 +117,7 @@ export interface DomainNameArgs {
     /**
      * The decription for your domain name.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The domain name.
      */
@@ -125,5 +125,5 @@ export interface DomainNameArgs {
     /**
      * A set of tags (key-value pairs) for this domain name.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

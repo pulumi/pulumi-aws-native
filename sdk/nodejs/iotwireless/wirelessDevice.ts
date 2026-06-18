@@ -141,7 +141,7 @@ export interface WirelessDeviceArgs {
     /**
      * Wireless device description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Wireless device destination name
      */
@@ -149,27 +149,27 @@ export interface WirelessDeviceArgs {
     /**
      * The date and time when the most recent uplink was received.
      */
-    lastUplinkReceivedAt?: pulumi.Input<string>;
+    lastUplinkReceivedAt?: pulumi.Input<string | undefined>;
     /**
      * The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
      */
-    loRaWan?: pulumi.Input<inputs.iotwireless.WirelessDeviceLoRaWanDeviceArgs>;
+    loRaWan?: pulumi.Input<inputs.iotwireless.WirelessDeviceLoRaWanDeviceArgs | undefined>;
     /**
      * Wireless device name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
      */
-    positioning?: pulumi.Input<enums.iotwireless.WirelessDevicePositioning>;
+    positioning?: pulumi.Input<enums.iotwireless.WirelessDevicePositioning | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Thing arn. Passed into update to associate Thing with Wireless device.
      */
-    thingArn?: pulumi.Input<string>;
+    thingArn?: pulumi.Input<string | undefined>;
     /**
      * Wireless device type, currently only Sidewalk and LoRa
      */

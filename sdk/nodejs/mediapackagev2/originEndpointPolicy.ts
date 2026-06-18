@@ -109,7 +109,7 @@ export interface OriginEndpointPolicyArgs {
     /**
      * The settings to enable CDN authorization headers in MediaPackage.
      */
-    cdnAuthConfiguration?: pulumi.Input<inputs.mediapackagev2.OriginEndpointPolicyCdnAuthConfigurationArgs>;
+    cdnAuthConfiguration?: pulumi.Input<inputs.mediapackagev2.OriginEndpointPolicyCdnAuthConfigurationArgs | undefined>;
     /**
      * The name of the channel group associated with the origin endpoint policy.
      */

@@ -223,24 +223,24 @@ export interface VolumeArgs {
     /**
      * Indicates whether the volume is auto-enabled for I/O operations. By default, EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
      */
-    autoEnableIo?: pulumi.Input<boolean>;
+    autoEnableIo?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
      *  Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
      *  If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Availability Zone in which to create the volume. For example, ``use1-az1``.
      *  Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
      *  If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
      */
-    availabilityZoneId?: pulumi.Input<string>;
+    availabilityZoneId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new, from a snapshot, or from an existing volume), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
      *  If you are creating a volume copy, omit this parameter. The volume is automatically encrypted with the same KMS key as the source volume. You can't copy unencrypted volumes.
      */
-    encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean | undefined>;
     /**
      * The number of I/O operations per second (IOPS) to provision for the volume. Required for ``io1`` and ``io2`` volumes. Optional for ``gp3`` volumes. Omit for all other volume types. 
      *  Valid ranges:
@@ -250,7 +250,7 @@ export interface VolumeArgs {
      *   
      *   [Instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html) can support up to 256,000 IOPS. Other instances can support up to 32,000 IOPS.
      */
-    iops?: pulumi.Input<number>;
+    iops?: pulumi.Input<number | undefined>;
     /**
      * The identifier of the kms-key-long to use for Amazon EBS encryption. If ``KmsKeyId`` is specified, the encrypted state must be ``true``.
      *  If you omit this property and your account is enabled for encryption by default, or *Encrypted* is set to ``true``, then the volume is encrypted using the default key specified for your account. If your account does not have a default key, then the volume is encrypted using the aws-managed-key.
@@ -262,17 +262,17 @@ export interface VolumeArgs {
      *   
      *  If you are creating a volume copy, omit this parameter. The volume is automatically encrypted with the same KMS key as the source volume. You can't copy unencrypted volumes.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether Amazon EBS Multi-Attach is enabled.
      *  CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
      */
-    multiAttachEnabled?: pulumi.Input<boolean>;
+    multiAttachEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Outpost on which to create the volume.
      *  If you intend to use a volume with an instance running on an outpost, then you must create the volume on the same outpost as the instance. You can't use a volume created in an AWS Region with an instance on an AWS outpost, or the other way around.
      */
-    outpostArn?: pulumi.Input<string>;
+    outpostArn?: pulumi.Input<string | undefined>;
     /**
      * The size of the volume, in GiBs.
      *   +  Required for new empty volumes.
@@ -286,26 +286,26 @@ export interface VolumeArgs {
      *   +  st1 and sc1: ``125 - 16,384`` GiB
      *   +  standard: ``1 - 1024`` GiB
      */
-    size?: pulumi.Input<number>;
+    size?: pulumi.Input<number | undefined>;
     /**
      * The snapshot from which to create the volume. Only specify to create a volume from a snapshot. To create a new empty volume, omit this parameter and specify a value for ``Size`` instead. To create a volume copy, omit this parameter and specify ``SourceVolumeId`` instead.
      */
-    snapshotId?: pulumi.Input<string>;
+    snapshotId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source EBS volume to copy. When specified, the volume is created as an exact copy of the specified volume. Only specify to create a volume copy. To create a new empty volume or to create a volume from a snapshot, omit this parameter,
      */
-    sourceVolumeId?: pulumi.Input<string>;
+    sourceVolumeId?: pulumi.Input<string | undefined>;
     /**
      * The tags to apply to the volume during creation.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The throughput to provision for a volume, with a maximum of 2,000 MiB/s.
      *  This parameter is valid only for ``gp3`` volumes. The default value is 125.
      *  Valid Range: Minimum value of 125. Maximum value of 2000.
      *  The maximum ratio of throughput to IOPS is 0.25 MiB/s per IOPS. For example, a volume with 3,000 IOPS can have a maximum throughput of 750 MiB/s (3,000 x 0.25).
      */
-    throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number | undefined>;
     /**
      * Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization*. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
      *  This parameter is supported only for volumes created from snapshots. Omit this parameter if:
@@ -316,7 +316,7 @@ export interface VolumeArgs {
      *  For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide*.
      *  Valid range: 100 - 300 MiB/s
      */
-    volumeInitializationRate?: pulumi.Input<number>;
+    volumeInitializationRate?: pulumi.Input<number | undefined>;
     /**
      * The volume type. This parameter can be one of the following values:
      *   +  General Purpose SSD: ``gp2`` | ``gp3``
@@ -329,5 +329,5 @@ export interface VolumeArgs {
      *   For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
      *  Default: ``gp2``
      */
-    volumeType?: pulumi.Input<string>;
+    volumeType?: pulumi.Input<string | undefined>;
 }

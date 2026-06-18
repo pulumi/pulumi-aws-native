@@ -173,49 +173,49 @@ export interface DomainConfigurationArgs {
     /**
      * An enumerated string that speciﬁes the application-layer protocol.
      */
-    applicationProtocol?: pulumi.Input<enums.iot.DomainConfigurationApplicationProtocol>;
+    applicationProtocol?: pulumi.Input<enums.iot.DomainConfigurationApplicationProtocol | undefined>;
     /**
      * An enumerated string that speciﬁes the authentication type.
      */
-    authenticationType?: pulumi.Input<enums.iot.DomainConfigurationAuthenticationType>;
+    authenticationType?: pulumi.Input<enums.iot.DomainConfigurationAuthenticationType | undefined>;
     /**
      * An object that specifies the authorization service for a domain.
      */
-    authorizerConfig?: pulumi.Input<inputs.iot.DomainConfigurationAuthorizerConfigArgs>;
+    authorizerConfig?: pulumi.Input<inputs.iot.DomainConfigurationAuthorizerConfigArgs | undefined>;
     /**
      * An object that speciﬁes the client certificate conﬁguration for a domain.
      */
-    clientCertificateConfig?: pulumi.Input<inputs.iot.DomainConfigurationClientCertificateConfigArgs>;
+    clientCertificateConfig?: pulumi.Input<inputs.iot.DomainConfigurationClientCertificateConfigArgs | undefined>;
     /**
      * The name of the domain configuration. This value must be unique to a region.
      */
-    domainConfigurationName?: pulumi.Input<string>;
+    domainConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The status to which the domain configuration should be updated.
      *
      * Valid values: `ENABLED` | `DISABLED`
      */
-    domainConfigurationStatus?: pulumi.Input<enums.iot.DomainConfigurationStatus>;
+    domainConfigurationStatus?: pulumi.Input<enums.iot.DomainConfigurationStatus | undefined>;
     /**
      * The name of the domain.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
      */
-    serverCertificateArns?: pulumi.Input<pulumi.Input<string>[]>;
+    serverCertificateArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The server certificate configuration.
      *
      * For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
      */
-    serverCertificateConfig?: pulumi.Input<inputs.iot.DomainConfigurationServerCertificateConfigArgs>;
+    serverCertificateConfig?: pulumi.Input<inputs.iot.DomainConfigurationServerCertificateConfigArgs | undefined>;
     /**
      * The type of service delivered by the endpoint.
      *
      * > AWS IoT Core currently supports only the `DATA` service type.
      */
-    serviceType?: pulumi.Input<enums.iot.DomainConfigurationServiceType>;
+    serviceType?: pulumi.Input<enums.iot.DomainConfigurationServiceType | undefined>;
     /**
      * Metadata which can be used to manage the domain configuration.
      *
@@ -225,13 +225,13 @@ export interface DomainConfigurationArgs {
      * > 
      * > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * An object that specifies the TLS configuration for a domain.
      */
-    tlsConfig?: pulumi.Input<inputs.iot.DomainConfigurationTlsConfigArgs>;
+    tlsConfig?: pulumi.Input<inputs.iot.DomainConfigurationTlsConfigArgs | undefined>;
     /**
      * The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS -managed domains.
      */
-    validationCertificateArn?: pulumi.Input<string>;
+    validationCertificateArn?: pulumi.Input<string | undefined>;
 }

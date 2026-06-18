@@ -122,15 +122,15 @@ export interface TransitGatewayVpcAttachmentArgs {
     /**
      * The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.
      */
-    addSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    addSubnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The options for the transit gateway vpc attachment.
      */
-    options?: pulumi.Input<inputs.ec2.OptionsPropertiesArgs>;
+    options?: pulumi.Input<inputs.ec2.OptionsPropertiesArgs | undefined>;
     /**
      * The IDs of one or more subnets to remove.
      */
-    removeSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    removeSubnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The IDs of the subnets.
      */
@@ -138,7 +138,7 @@ export interface TransitGatewayVpcAttachmentArgs {
     /**
      * The tags for the VPC attachment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the transit gateway.
      */

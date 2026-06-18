@@ -101,13 +101,13 @@ export interface ClusterArgs {
     /**
      * Name of a Cluster. You can use any non-white space character in the name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
      */
-    networkType?: pulumi.Input<enums.route53recoverycontrol.ClusterNetworkType>;
+    networkType?: pulumi.Input<enums.route53recoverycontrol.ClusterNetworkType | undefined>;
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

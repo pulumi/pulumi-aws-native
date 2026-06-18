@@ -103,8 +103,8 @@ export class Studio extends pulumi.CustomResource {
 export interface StudioArgs {
     adminRoleArn: pulumi.Input<string>;
     displayName: pulumi.Input<string>;
-    studioEncryptionConfiguration?: pulumi.Input<inputs.nimblestudio.StudioEncryptionConfigurationArgs>;
-    studioName?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    studioEncryptionConfiguration?: pulumi.Input<inputs.nimblestudio.StudioEncryptionConfigurationArgs | undefined>;
+    studioName?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     userRoleArn: pulumi.Input<string>;
 }

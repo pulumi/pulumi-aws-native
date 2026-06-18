@@ -112,8 +112,8 @@ export interface EnabledBaselineArgs {
     /**
      * Shows the parameters that are applied when enabling this `Baseline` .
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.controltower.EnabledBaselineParameterArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.controltower.EnabledBaselineParameterArgs>[] | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The target on which to enable the `Baseline` .
      */

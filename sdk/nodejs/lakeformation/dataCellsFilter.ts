@@ -116,11 +116,11 @@ export interface DataCellsFilterArgs {
     /**
      * A list of columns to be included in this Data Cells Filter.
      */
-    columnNames?: pulumi.Input<pulumi.Input<string>[]>;
+    columnNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required
      */
-    columnWildcard?: pulumi.Input<inputs.lakeformation.DataCellsFilterColumnWildcardArgs>;
+    columnWildcard?: pulumi.Input<inputs.lakeformation.DataCellsFilterColumnWildcardArgs | undefined>;
     /**
      * The name of the Database that the Table resides in.
      */
@@ -128,11 +128,11 @@ export interface DataCellsFilterArgs {
     /**
      * The desired name of the Data Cells Filter.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required
      */
-    rowFilter?: pulumi.Input<inputs.lakeformation.DataCellsFilterRowFilterArgs>;
+    rowFilter?: pulumi.Input<inputs.lakeformation.DataCellsFilterRowFilterArgs | undefined>;
     /**
      * The Catalog Id of the Table on which to create a Data Cells Filter.
      */

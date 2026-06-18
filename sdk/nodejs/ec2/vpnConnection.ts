@@ -205,65 +205,65 @@ export interface VpnConnectionArgs {
      * Indicate whether to enable acceleration for the VPN connection.
      *  Default: ``false``
      */
-    enableAcceleration?: pulumi.Input<boolean>;
+    enableAcceleration?: pulumi.Input<boolean | undefined>;
     /**
      * The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
      *  Default: ``0.0.0.0/0``
      */
-    localIpv4NetworkCidr?: pulumi.Input<string>;
+    localIpv4NetworkCidr?: pulumi.Input<string | undefined>;
     /**
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      *  Default: ``::/0``
      */
-    localIpv6NetworkCidr?: pulumi.Input<string>;
+    localIpv6NetworkCidr?: pulumi.Input<string | undefined>;
     /**
      * The type of IP address assigned to the outside interface of the customer gateway device.
      *  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
      *  Default: ``PublicIpv4``
      */
-    outsideIpAddressType?: pulumi.Input<string>;
+    outsideIpAddressType?: pulumi.Input<string | undefined>;
     /**
      * Describes the storage location for an instance store-backed AMI.
      */
-    preSharedKeyStorage?: pulumi.Input<enums.ec2.VpnConnectionPreSharedKeyStorage>;
+    preSharedKeyStorage?: pulumi.Input<enums.ec2.VpnConnectionPreSharedKeyStorage | undefined>;
     /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      *  Default: ``0.0.0.0/0``
      */
-    remoteIpv4NetworkCidr?: pulumi.Input<string>;
+    remoteIpv4NetworkCidr?: pulumi.Input<string | undefined>;
     /**
      * The IPv6 CIDR on the AWS side of the VPN connection.
      *  Default: ``::/0``
      */
-    remoteIpv6NetworkCidr?: pulumi.Input<string>;
+    remoteIpv6NetworkCidr?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
      *  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
      */
-    staticRoutesOnly?: pulumi.Input<boolean>;
+    staticRoutesOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Any tags assigned to the VPN connection.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the transit gateway associated with the VPN connection.
      *  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
      */
-    transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The transit gateway attachment ID to use for the VPN tunnel.
      *  Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
      */
-    transportTransitGatewayAttachmentId?: pulumi.Input<string>;
+    transportTransitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
      * The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``.
      */
-    tunnelBandwidth?: pulumi.Input<enums.ec2.VpnConnectionTunnelBandwidth>;
+    tunnelBandwidth?: pulumi.Input<enums.ec2.VpnConnectionTunnelBandwidth | undefined>;
     /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
      *  Default: ``ipv4``
      */
-    tunnelInsideIpVersion?: pulumi.Input<string>;
+    tunnelInsideIpVersion?: pulumi.Input<string | undefined>;
     /**
      * The type of VPN connection.
      */
@@ -271,14 +271,14 @@ export interface VpnConnectionArgs {
     /**
      * The ID of the VPN concentrator to associate with the VPN connection.
      */
-    vpnConcentratorId?: pulumi.Input<string>;
+    vpnConcentratorId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the virtual private gateway at the AWS side of the VPN connection.
      *  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
      */
-    vpnGatewayId?: pulumi.Input<string>;
+    vpnGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The tunnel options for the VPN connection.
      */
-    vpnTunnelOptionsSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.VpnConnectionVpnTunnelOptionsSpecificationArgs>[]>;
+    vpnTunnelOptionsSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.VpnConnectionVpnTunnelOptionsSpecificationArgs>[] | undefined>;
 }

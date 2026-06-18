@@ -283,37 +283,37 @@ export interface ResourceDataSyncArgs {
     /**
      * The name of the S3 bucket where the aggregated data is stored.
      */
-    bucketName?: pulumi.Input<string>;
+    bucketName?: pulumi.Input<string | undefined>;
     /**
      * An Amazon S3 prefix for the bucket.
      */
-    bucketPrefix?: pulumi.Input<string>;
+    bucketPrefix?: pulumi.Input<string | undefined>;
     /**
      * The AWS Region with the S3 bucket targeted by the resource data sync.
      */
-    bucketRegion?: pulumi.Input<string>;
+    bucketRegion?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 . You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same AWS Region as the destination Amazon S3 bucket.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Configuration information for the target S3 bucket.
      */
-    s3Destination?: pulumi.Input<inputs.ssm.ResourceDataSyncS3DestinationArgs>;
+    s3Destination?: pulumi.Input<inputs.ssm.ResourceDataSyncS3DestinationArgs | undefined>;
     /**
      * A supported sync format. The following format is currently supported: JsonSerDe
      */
-    syncFormat?: pulumi.Input<string>;
+    syncFormat?: pulumi.Input<string | undefined>;
     /**
      * A name for the resource data sync.
      */
-    syncName?: pulumi.Input<string>;
+    syncName?: pulumi.Input<string | undefined>;
     /**
      * Information about the source where the data was synchronized.
      */
-    syncSource?: pulumi.Input<inputs.ssm.ResourceDataSyncSyncSourceArgs>;
+    syncSource?: pulumi.Input<inputs.ssm.ResourceDataSyncSyncSourceArgs | undefined>;
     /**
      * The type of resource data sync. If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
      */
-    syncType?: pulumi.Input<string>;
+    syncType?: pulumi.Input<string | undefined>;
 }

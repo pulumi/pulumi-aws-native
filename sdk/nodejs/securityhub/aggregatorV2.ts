@@ -107,5 +107,5 @@ export interface AggregatorV2Args {
     /**
      * A list of key-value pairs to be applied to the AggregatorV2.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

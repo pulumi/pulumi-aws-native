@@ -218,19 +218,19 @@ export interface DataSourceArgs {
     /**
      * The metadata forms that are to be attached to the assets that this data source works with.
      */
-    assetFormsInput?: pulumi.Input<pulumi.Input<inputs.datazone.DataSourceFormInputArgs>[]>;
+    assetFormsInput?: pulumi.Input<pulumi.Input<inputs.datazone.DataSourceFormInputArgs>[] | undefined>;
     /**
      * Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
      */
-    configuration?: pulumi.Input<inputs.datazone.DataSourceConfigurationInput0PropertiesArgs | inputs.datazone.DataSourceConfigurationInput1PropertiesArgs | inputs.datazone.DataSourceConfigurationInput2PropertiesArgs>;
+    configuration?: pulumi.Input<inputs.datazone.DataSourceConfigurationInput0PropertiesArgs | inputs.datazone.DataSourceConfigurationInput1PropertiesArgs | inputs.datazone.DataSourceConfigurationInput2PropertiesArgs | undefined>;
     /**
      * The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
      */
-    connectionIdentifier?: pulumi.Input<string>;
+    connectionIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The description of the data source.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Amazon DataZone domain where the data source is created.
      */
@@ -238,15 +238,15 @@ export interface DataSourceArgs {
     /**
      * Specifies whether the data source is enabled.
      */
-    enableSetting?: pulumi.Input<enums.datazone.DataSourceEnableSetting>;
+    enableSetting?: pulumi.Input<enums.datazone.DataSourceEnableSetting | undefined>;
     /**
      * The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
      */
-    environmentIdentifier?: pulumi.Input<string>;
+    environmentIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The name of the data source.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Amazon DataZone project in which you want to add the data source.
      */
@@ -254,15 +254,15 @@ export interface DataSourceArgs {
     /**
      * Specifies whether the assets that this data source creates in the inventory are to be also automatically published to the catalog.
      */
-    publishOnImport?: pulumi.Input<boolean>;
+    publishOnImport?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether the business name generation is to be enabled for this data source.
      */
-    recommendation?: pulumi.Input<inputs.datazone.DataSourceRecommendationConfigurationArgs>;
+    recommendation?: pulumi.Input<inputs.datazone.DataSourceRecommendationConfigurationArgs | undefined>;
     /**
      * The schedule of the data source runs.
      */
-    schedule?: pulumi.Input<inputs.datazone.DataSourceScheduleConfigurationArgs>;
+    schedule?: pulumi.Input<inputs.datazone.DataSourceScheduleConfigurationArgs | undefined>;
     /**
      * The type of the data source.
      */

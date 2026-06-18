@@ -134,11 +134,11 @@ export interface AddonArgs {
     /**
      * Name of Addon
      */
-    addonName?: pulumi.Input<string>;
+    addonName?: pulumi.Input<string | undefined>;
     /**
      * Version of Addon
      */
-    addonVersion?: pulumi.Input<string>;
+    addonVersion?: pulumi.Input<string | undefined>;
     /**
      * Name of Cluster
      */
@@ -146,29 +146,29 @@ export interface AddonArgs {
     /**
      * The configuration values to use with the add-on
      */
-    configurationValues?: pulumi.Input<string>;
+    configurationValues?: pulumi.Input<string | undefined>;
     /**
      * The custom namespace configuration to use with the add-on
      */
-    namespaceConfig?: pulumi.Input<inputs.eks.NamespaceConfigPropertiesArgs>;
+    namespaceConfig?: pulumi.Input<inputs.eks.NamespaceConfigPropertiesArgs | undefined>;
     /**
      * An array of pod identities to apply to this add-on.
      */
-    podIdentityAssociations?: pulumi.Input<pulumi.Input<inputs.eks.AddonPodIdentityAssociationArgs>[]>;
+    podIdentityAssociations?: pulumi.Input<pulumi.Input<inputs.eks.AddonPodIdentityAssociationArgs>[] | undefined>;
     /**
      * PreserveOnDelete parameter value
      */
-    preserveOnDelete?: pulumi.Input<boolean>;
+    preserveOnDelete?: pulumi.Input<boolean | undefined>;
     /**
      * Resolve parameter value conflicts
      */
-    resolveConflicts?: pulumi.Input<enums.eks.AddonResolveConflicts>;
+    resolveConflicts?: pulumi.Input<enums.eks.AddonResolveConflicts | undefined>;
     /**
      * IAM role to bind to the add-on's service account
      */
-    serviceAccountRoleArn?: pulumi.Input<string>;
+    serviceAccountRoleArn?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

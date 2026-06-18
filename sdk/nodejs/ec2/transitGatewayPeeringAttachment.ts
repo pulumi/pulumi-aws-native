@@ -143,7 +143,7 @@ export interface TransitGatewayPeeringAttachmentArgs {
     /**
      * The tags for the transit gateway peering attachment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the transit gateway.
      */

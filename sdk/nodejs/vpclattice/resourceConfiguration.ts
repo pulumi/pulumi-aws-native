@@ -167,35 +167,35 @@ export interface ResourceConfigurationArgs {
     /**
      * Specifies whether the resource configuration can be associated with a sharable service network.
      */
-    allowAssociationToSharableServiceNetwork?: pulumi.Input<boolean>;
+    allowAssociationToSharableServiceNetwork?: pulumi.Input<boolean | undefined>;
     /**
      * The custom domain name.
      */
-    customDomainName?: pulumi.Input<string>;
+    customDomainName?: pulumi.Input<string | undefined>;
     /**
      * The domain verification ID.
      */
-    domainVerificationId?: pulumi.Input<string>;
+    domainVerificationId?: pulumi.Input<string | undefined>;
     /**
      * (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
      */
-    groupDomain?: pulumi.Input<string>;
+    groupDomain?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
      */
-    portRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    portRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (SINGLE, GROUP) The protocol accepted by the resource configuration.
      */
-    protocolType?: pulumi.Input<enums.vpclattice.ResourceConfigurationProtocolType>;
+    protocolType?: pulumi.Input<enums.vpclattice.ResourceConfigurationProtocolType | undefined>;
     /**
      * The auth type for the resource configuration.
      */
-    resourceConfigurationAuthType?: pulumi.Input<enums.vpclattice.ResourceConfigurationAuthType>;
+    resourceConfigurationAuthType?: pulumi.Input<enums.vpclattice.ResourceConfigurationAuthType | undefined>;
     /**
      * Identifies the resource configuration in one of the following ways:
      *
@@ -203,11 +203,11 @@ export interface ResourceConfigurationArgs {
      * - *Domain name* - Any domain name that is publicly resolvable.
      * - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
      */
-    resourceConfigurationDefinition?: pulumi.Input<inputs.vpclattice.ResourceConfigurationDefinition0PropertiesArgs | inputs.vpclattice.ResourceConfigurationDefinition1PropertiesArgs | inputs.vpclattice.ResourceConfigurationDefinition2PropertiesArgs>;
+    resourceConfigurationDefinition?: pulumi.Input<inputs.vpclattice.ResourceConfigurationDefinition0PropertiesArgs | inputs.vpclattice.ResourceConfigurationDefinition1PropertiesArgs | inputs.vpclattice.ResourceConfigurationDefinition2PropertiesArgs | undefined>;
     /**
      * The ID of the group resource configuration.
      */
-    resourceConfigurationGroupId?: pulumi.Input<string>;
+    resourceConfigurationGroupId?: pulumi.Input<string | undefined>;
     /**
      * The type of resource configuration. A resource configuration can be one of the following types:
      *
@@ -220,9 +220,9 @@ export interface ResourceConfigurationArgs {
     /**
      * The ID of the resource gateway.
      */
-    resourceGatewayId?: pulumi.Input<string>;
+    resourceGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The tags for the resource configuration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

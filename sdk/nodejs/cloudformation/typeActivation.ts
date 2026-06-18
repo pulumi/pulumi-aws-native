@@ -133,43 +133,43 @@ export interface TypeActivationArgs {
     /**
      * Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
      */
-    autoUpdate?: pulumi.Input<boolean>;
+    autoUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies logging configuration information for a type.
      */
-    loggingConfig?: pulumi.Input<inputs.cloudformation.TypeActivationLoggingConfigArgs>;
+    loggingConfig?: pulumi.Input<inputs.cloudformation.TypeActivationLoggingConfigArgs | undefined>;
     /**
      * The Major Version of the type you want to enable
      */
-    majorVersion?: pulumi.Input<string>;
+    majorVersion?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Number (ARN) assigned to the public extension upon publication
      */
-    publicTypeArn?: pulumi.Input<string>;
+    publicTypeArn?: pulumi.Input<string | undefined>;
     /**
      * The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
      */
-    publisherId?: pulumi.Input<string>;
+    publisherId?: pulumi.Input<string | undefined>;
     /**
      * The kind of extension
      */
-    type?: pulumi.Input<enums.cloudformation.TypeActivationType>;
+    type?: pulumi.Input<enums.cloudformation.TypeActivationType | undefined>;
     /**
      * The name of the type being registered.
      *
      * We recommend that type names adhere to the following pattern: company_or_organization::service::type.
      */
-    typeName?: pulumi.Input<string>;
+    typeName?: pulumi.Input<string | undefined>;
     /**
      * An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
      */
-    typeNameAlias?: pulumi.Input<string>;
+    typeNameAlias?: pulumi.Input<string | undefined>;
     /**
      * Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
      */
-    versionBump?: pulumi.Input<enums.cloudformation.TypeActivationVersionBump>;
+    versionBump?: pulumi.Input<enums.cloudformation.TypeActivationVersionBump | undefined>;
 }

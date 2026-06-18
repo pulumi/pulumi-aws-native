@@ -120,9 +120,9 @@ export interface TemplateArgs {
     /**
      * The tags (keys and values) associated with the email template.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The content of the email, composed of a subject line and either an HTML part or a text-only part.
      */
-    template?: pulumi.Input<inputs.ses.TemplateArgs>;
+    template?: pulumi.Input<inputs.ses.TemplateArgs | undefined>;
 }

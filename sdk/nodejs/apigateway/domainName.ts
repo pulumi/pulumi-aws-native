@@ -203,41 +203,41 @@ export interface DomainNameArgs {
     /**
      * The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
      */
-    certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string | undefined>;
     /**
      * The custom domain name as an API host name, for example, `my-api.example.com` .
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The endpoint access mode for your DomainName.
      */
-    endpointAccessMode?: pulumi.Input<string>;
+    endpointAccessMode?: pulumi.Input<string | undefined>;
     /**
      * The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
      */
-    endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfigurationArgs>;
+    endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfigurationArgs | undefined>;
     /**
      * The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
      */
-    mutualTlsAuthentication?: pulumi.Input<inputs.apigateway.DomainNameMutualTlsAuthenticationArgs>;
+    mutualTlsAuthentication?: pulumi.Input<inputs.apigateway.DomainNameMutualTlsAuthenticationArgs | undefined>;
     /**
      * The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
      */
-    ownershipVerificationCertificateArn?: pulumi.Input<string>;
+    ownershipVerificationCertificateArn?: pulumi.Input<string | undefined>;
     /**
      * The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
      */
-    regionalCertificateArn?: pulumi.Input<string>;
+    regionalCertificateArn?: pulumi.Input<string | undefined>;
     /**
      * The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
      */
-    routingMode?: pulumi.Input<enums.apigateway.DomainNameRoutingMode>;
+    routingMode?: pulumi.Input<enums.apigateway.DomainNameRoutingMode | undefined>;
     /**
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName.
      */
-    securityPolicy?: pulumi.Input<string>;
+    securityPolicy?: pulumi.Input<string | undefined>;
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

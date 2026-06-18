@@ -155,7 +155,7 @@ export interface ActivityArgs {
      *
      * To update your activity to include customer managed keys, set a new activity name within your CloudFormation template.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.stepfunctions.ActivityEncryptionConfigurationArgs>;
+    encryptionConfiguration?: pulumi.Input<inputs.stepfunctions.ActivityEncryptionConfigurationArgs | undefined>;
     /**
      * The name of the activity.
      *
@@ -171,11 +171,11 @@ export interface ActivityArgs {
      *
      * To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The list of tags to add to a resource.
      *
      * Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

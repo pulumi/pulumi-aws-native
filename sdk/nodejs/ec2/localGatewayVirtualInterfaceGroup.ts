@@ -122,11 +122,11 @@ export interface LocalGatewayVirtualInterfaceGroupArgs {
     /**
      * The Autonomous System Number(ASN) for the local Border Gateway Protocol (BGP)
      */
-    localBgpAsn?: pulumi.Input<number>;
+    localBgpAsn?: pulumi.Input<number | undefined>;
     /**
      * The extended 32-bit ASN for the local BGP configuration
      */
-    localBgpAsnExtended?: pulumi.Input<number>;
+    localBgpAsnExtended?: pulumi.Input<number | undefined>;
     /**
      * The ID of the local gateway
      */
@@ -134,5 +134,5 @@ export interface LocalGatewayVirtualInterfaceGroupArgs {
     /**
      * The tags assigned to the virtual interface group
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

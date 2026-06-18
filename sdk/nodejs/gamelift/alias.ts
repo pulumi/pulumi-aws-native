@@ -136,11 +136,11 @@ export interface AliasArgs {
     /**
      * A human-readable description of the alias.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A descriptive label that is associated with an alias. Alias names do not need to be unique.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
      */
@@ -148,5 +148,5 @@ export interface AliasArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

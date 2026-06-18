@@ -186,51 +186,51 @@ export interface MatchmakingConfigurationArgs {
     /**
      * The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
      */
-    acceptanceTimeoutSeconds?: pulumi.Input<number>;
+    acceptanceTimeoutSeconds?: pulumi.Input<number | undefined>;
     /**
      * The number of player slots in a match to keep open for future players.
      */
-    additionalPlayerCount?: pulumi.Input<number>;
+    additionalPlayerCount?: pulumi.Input<number | undefined>;
     /**
      * The method used to backfill game sessions created with this matchmaking configuration.
      */
-    backfillMode?: pulumi.Input<enums.gamelift.MatchmakingConfigurationBackfillMode>;
+    backfillMode?: pulumi.Input<enums.gamelift.MatchmakingConfigurationBackfillMode | undefined>;
     /**
      * A time stamp indicating when this data object was created.
      */
-    creationTime?: pulumi.Input<string>;
+    creationTime?: pulumi.Input<string | undefined>;
     /**
      * Information to attach to all events related to the matchmaking configuration.
      */
-    customEventData?: pulumi.Input<string>;
+    customEventData?: pulumi.Input<string | undefined>;
     /**
      * A descriptive label that is associated with matchmaking configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
      */
-    flexMatchMode?: pulumi.Input<enums.gamelift.MatchmakingConfigurationFlexMatchMode>;
+    flexMatchMode?: pulumi.Input<enums.gamelift.MatchmakingConfigurationFlexMatchMode | undefined>;
     /**
      * A set of custom properties for a game session, formatted as key:value pairs.
      */
-    gameProperties?: pulumi.Input<pulumi.Input<inputs.gamelift.MatchmakingConfigurationGamePropertyArgs>[]>;
+    gameProperties?: pulumi.Input<pulumi.Input<inputs.gamelift.MatchmakingConfigurationGamePropertyArgs>[] | undefined>;
     /**
      * A set of custom game session properties, formatted as a single string value.
      */
-    gameSessionData?: pulumi.Input<string>;
+    gameSessionData?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
      */
-    gameSessionQueueArns?: pulumi.Input<pulumi.Input<string>[]>;
+    gameSessionQueueArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A unique identifier for the matchmaking configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An SNS topic ARN that is set up to receive matchmaking notifications.
      */
-    notificationTarget?: pulumi.Input<string>;
+    notificationTarget?: pulumi.Input<string | undefined>;
     /**
      * The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
      */
@@ -238,7 +238,7 @@ export interface MatchmakingConfigurationArgs {
     /**
      * The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
      */
-    ruleSetArn?: pulumi.Input<string>;
+    ruleSetArn?: pulumi.Input<string | undefined>;
     /**
      * A unique identifier for the matchmaking rule set to use with this configuration.
      */
@@ -246,5 +246,5 @@ export interface MatchmakingConfigurationArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

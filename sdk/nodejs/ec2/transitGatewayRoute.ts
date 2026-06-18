@@ -92,7 +92,7 @@ export interface TransitGatewayRouteArgs {
     /**
      * Indicates whether to drop traffic that matches this route.
      */
-    blackhole?: pulumi.Input<boolean>;
+    blackhole?: pulumi.Input<boolean | undefined>;
     /**
      * The CIDR range used for destination matches. Routing decisions are based on the most specific match.
      */
@@ -100,7 +100,7 @@ export interface TransitGatewayRouteArgs {
     /**
      * The ID of transit gateway attachment.
      */
-    transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
      * The ID of transit gateway route table.
      */

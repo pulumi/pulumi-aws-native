@@ -113,7 +113,7 @@ export interface DestinationArgs {
     /**
      * Destination description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Destination expression
      */
@@ -125,13 +125,13 @@ export interface DestinationArgs {
     /**
      * Unique name of destination
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * AWS role ARN that grants access
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the destination.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

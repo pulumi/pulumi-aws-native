@@ -117,17 +117,17 @@ export interface ArchiveArgs {
     /**
      * The name for the archive to create.
      */
-    archiveName?: pulumi.Input<string>;
+    archiveName?: pulumi.Input<string | undefined>;
     /**
      * A description for the archive.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An event pattern to use to filter events sent to the archive.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
      */
-    eventPattern?: any;
+    eventPattern?: any | undefined;
     /**
      * The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      *
@@ -139,11 +139,11 @@ export interface ArchiveArgs {
      * > 
      * > For more information, see [Encrypting archives](https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html) in the *Amazon EventBridge User Guide* .
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
      */
-    retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number | undefined>;
     /**
      * The ARN of the event bus that sends events to the archive.
      */

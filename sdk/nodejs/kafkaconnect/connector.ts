@@ -187,11 +187,11 @@ export interface ConnectorArgs {
     /**
      * A summary description of the connector.
      */
-    connectorDescription?: pulumi.Input<string>;
+    connectorDescription?: pulumi.Input<string | undefined>;
     /**
      * The name of the connector.
      */
-    connectorName?: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string | undefined>;
     /**
      * The details of the Apache Kafka cluster to which the connector is connected.
      */
@@ -211,11 +211,11 @@ export interface ConnectorArgs {
     /**
      * The settings for delivering connector logs to Amazon CloudWatch Logs.
      */
-    logDelivery?: pulumi.Input<inputs.kafkaconnect.ConnectorLogDeliveryArgs>;
+    logDelivery?: pulumi.Input<inputs.kafkaconnect.ConnectorLogDeliveryArgs | undefined>;
     /**
      * The network type of the Connector.
      */
-    networkType?: pulumi.Input<enums.kafkaconnect.ConnectorNetworkType>;
+    networkType?: pulumi.Input<enums.kafkaconnect.ConnectorNetworkType | undefined>;
     /**
      * List of plugins to use with the connector.
      */
@@ -227,9 +227,9 @@ export interface ConnectorArgs {
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The worker configurations that are in use with the connector.
      */
-    workerConfiguration?: pulumi.Input<inputs.kafkaconnect.ConnectorWorkerConfigurationArgs>;
+    workerConfiguration?: pulumi.Input<inputs.kafkaconnect.ConnectorWorkerConfigurationArgs | undefined>;
 }

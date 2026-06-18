@@ -205,7 +205,7 @@ export interface ConnectAttachmentArgs {
     /**
      * The name of the network function group attachment.
      */
-    networkFunctionGroupName?: pulumi.Input<string>;
+    networkFunctionGroupName?: pulumi.Input<string | undefined>;
     /**
      * Protocol options for connect attachment
      */
@@ -213,19 +213,19 @@ export interface ConnectAttachmentArgs {
     /**
      * The attachment to move from one network function group to another.
      */
-    proposedNetworkFunctionGroupChange?: pulumi.Input<inputs.networkmanager.ConnectAttachmentProposedNetworkFunctionGroupChangeArgs>;
+    proposedNetworkFunctionGroupChange?: pulumi.Input<inputs.networkmanager.ConnectAttachmentProposedNetworkFunctionGroupChangeArgs | undefined>;
     /**
      * The attachment to move from one segment to another.
      */
-    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.ConnectAttachmentProposedSegmentChangeArgs>;
+    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.ConnectAttachmentProposedSegmentChangeArgs | undefined>;
     /**
      * Routing policy label
      */
-    routingPolicyLabel?: pulumi.Input<string>;
+    routingPolicyLabel?: pulumi.Input<string | undefined>;
     /**
      * Tags for the attachment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Id of transport attachment
      */

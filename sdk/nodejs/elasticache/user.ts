@@ -136,7 +136,7 @@ export interface UserArgs {
     /**
      * Access permissions string used for this user account.
      */
-    accessString?: pulumi.Input<string>;
+    accessString?: pulumi.Input<string | undefined>;
     /**
      * Specifies the authentication mode to use. Below is an example of the possible JSON values:
      *
@@ -145,7 +145,7 @@ export interface UserArgs {
      * }
      * ```
      */
-    authenticationMode?: pulumi.Input<inputs.elasticache.AuthenticationModePropertiesArgs>;
+    authenticationMode?: pulumi.Input<inputs.elasticache.AuthenticationModePropertiesArgs | undefined>;
     /**
      * The target cache engine for the user.
      */
@@ -153,15 +153,15 @@ export interface UserArgs {
     /**
      * Indicates a password is not required for this user account.
      */
-    noPasswordRequired?: pulumi.Input<boolean>;
+    noPasswordRequired?: pulumi.Input<boolean | undefined>;
     /**
      * Passwords used for this user account. You can create up to two passwords for each user.
      */
-    passwords?: pulumi.Input<pulumi.Input<string>[]>;
+    passwords?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this user.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the user.
      */
@@ -169,5 +169,5 @@ export interface UserArgs {
     /**
      * The username of the user.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }

@@ -107,13 +107,13 @@ export interface NetworkInsightsAccessScopeArgs {
     /**
      * The paths to exclude.
      */
-    excludePaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequestArgs>[]>;
+    excludePaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequestArgs>[] | undefined>;
     /**
      * The paths to match.
      */
-    matchPaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequestArgs>[]>;
+    matchPaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequestArgs>[] | undefined>;
     /**
      * The tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -124,7 +124,7 @@ export interface AssociationArgs {
     /**
      * Set of linked association IDs for parent-child relationships
      */
-    linkedAssociationIds?: pulumi.Input<pulumi.Input<string>[]>;
+    linkedAssociationIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The identifier for the associated service
      */

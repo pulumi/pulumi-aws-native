@@ -162,11 +162,11 @@ export interface FirewallRuleGroupAssociationArgs {
     /**
      * MutationProtectionStatus
      */
-    mutationProtection?: pulumi.Input<enums.route53resolver.FirewallRuleGroupAssociationMutationProtection>;
+    mutationProtection?: pulumi.Input<enums.route53resolver.FirewallRuleGroupAssociationMutationProtection | undefined>;
     /**
      * FirewallRuleGroupAssociationName
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Priority
      */
@@ -174,7 +174,7 @@ export interface FirewallRuleGroupAssociationArgs {
     /**
      * Tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * VpcId
      */

@@ -158,19 +158,19 @@ export interface TransitGatewayMeteringPolicyEntryArgs {
     /**
      * The list of IP addresses of the instances receiving traffic from the transit gateway
      */
-    destinationCidrBlock?: pulumi.Input<string>;
+    destinationCidrBlock?: pulumi.Input<string | undefined>;
     /**
      * The list of ports on destination instances receiving traffic from the transit gateway
      */
-    destinationPortRange?: pulumi.Input<string>;
+    destinationPortRange?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source attachment through which traffic leaves a transit gateway
      */
-    destinationTransitGatewayAttachmentId?: pulumi.Input<string>;
+    destinationTransitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
      * The type of the attachment through which traffic leaves a transit gateway
      */
-    destinationTransitGatewayAttachmentType?: pulumi.Input<enums.ec2.TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType>;
+    destinationTransitGatewayAttachmentType?: pulumi.Input<enums.ec2.TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType | undefined>;
     /**
      * The resource owner information responsible for paying default billable charges for the traffic flow
      */
@@ -182,23 +182,23 @@ export interface TransitGatewayMeteringPolicyEntryArgs {
     /**
      * The protocol of the traffic
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * The list of IP addresses of the instances sending traffic to the transit gateway for which the metering policy entry is applicable
      */
-    sourceCidrBlock?: pulumi.Input<string>;
+    sourceCidrBlock?: pulumi.Input<string | undefined>;
     /**
      * The list of ports on source instances sending traffic to the transit gateway
      */
-    sourcePortRange?: pulumi.Input<string>;
+    sourcePortRange?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source attachment through which traffic enters a transit gateway
      */
-    sourceTransitGatewayAttachmentId?: pulumi.Input<string>;
+    sourceTransitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
      * The type of the attachment through which traffic enters a  transit gateway
      */
-    sourceTransitGatewayAttachmentType?: pulumi.Input<enums.ec2.TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType>;
+    sourceTransitGatewayAttachmentType?: pulumi.Input<enums.ec2.TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType | undefined>;
     /**
      * The ID of the transit gateway metering policy for which the entry is being created
      */

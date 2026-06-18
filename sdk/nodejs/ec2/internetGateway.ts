@@ -89,5 +89,5 @@ export interface InternetGatewayArgs {
     /**
      * Any tags to assign to the internet gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

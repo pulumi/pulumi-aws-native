@@ -119,32 +119,32 @@ export interface DaemonTaskDefinitionArgs {
     /**
      * A list of container definitions in JSON format that describe the containers that make up the daemon task.
      */
-    containerDefinitions?: pulumi.Input<pulumi.Input<inputs.ecs.DaemonTaskDefinitionDaemonContainerDefinitionArgs>[]>;
+    containerDefinitions?: pulumi.Input<pulumi.Input<inputs.ecs.DaemonTaskDefinitionDaemonContainerDefinitionArgs>[] | undefined>;
     /**
      * The number of CPU units used by the daemon task.
      */
-    cpu?: pulumi.Input<string>;
+    cpu?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The name of a family that this daemon task definition is registered to.
      */
-    family?: pulumi.Input<string>;
-    ipcMode?: pulumi.Input<string>;
+    family?: pulumi.Input<string | undefined>;
+    ipcMode?: pulumi.Input<string | undefined>;
     /**
      * The amount of memory (in MiB) used by the daemon task.
      */
-    memory?: pulumi.Input<string>;
-    pidMode?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    memory?: pulumi.Input<string | undefined>;
+    pidMode?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
      */
-    taskRoleArn?: pulumi.Input<string>;
+    taskRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The list of data volume definitions for the daemon task.
      */
-    volumes?: pulumi.Input<pulumi.Input<inputs.ecs.DaemonTaskDefinitionVolumeArgs>[]>;
+    volumes?: pulumi.Input<pulumi.Input<inputs.ecs.DaemonTaskDefinitionVolumeArgs>[] | undefined>;
 }

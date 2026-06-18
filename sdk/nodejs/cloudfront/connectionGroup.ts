@@ -143,21 +143,21 @@ export interface ConnectionGroupArgs {
     /**
      * The ID of the Anycast static IP list.
      */
-    anycastIpListId?: pulumi.Input<string>;
+    anycastIpListId?: pulumi.Input<string | undefined>;
     /**
      * Whether the connection group is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * IPv6 is enabled for the connection group.
      */
-    ipv6Enabled?: pulumi.Input<boolean>;
+    ipv6Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the connection group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A complex type that contains zero or more ``Tag`` elements.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

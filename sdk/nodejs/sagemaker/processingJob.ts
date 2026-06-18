@@ -210,27 +210,27 @@ export interface ProcessingJobArgs {
     /**
      * Sets the environment variables in the Docker container.
      */
-    environment?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environment?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the [CreateProcessingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html) API.
      */
-    experimentConfig?: pulumi.Input<inputs.sagemaker.ProcessingJobExperimentConfigArgs>;
+    experimentConfig?: pulumi.Input<inputs.sagemaker.ProcessingJobExperimentConfigArgs | undefined>;
     /**
      * Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
      */
-    networkConfig?: pulumi.Input<inputs.sagemaker.ProcessingJobNetworkConfigArgs>;
+    networkConfig?: pulumi.Input<inputs.sagemaker.ProcessingJobNetworkConfigArgs | undefined>;
     /**
      * An array of inputs configuring the data to download into the processing container.
      */
-    processingInputs?: pulumi.Input<pulumi.Input<inputs.sagemaker.ProcessingJobProcessingInputsObjectArgs>[]>;
+    processingInputs?: pulumi.Input<pulumi.Input<inputs.sagemaker.ProcessingJobProcessingInputsObjectArgs>[] | undefined>;
     /**
      * The name of the processing job. The name must be unique within an AWS Region in the AWS account.
      */
-    processingJobName?: pulumi.Input<string>;
+    processingJobName?: pulumi.Input<string | undefined>;
     /**
      * Contains information about the output location for the compiled model and the target device that the model runs on. `TargetDevice` and `TargetPlatform` are mutually exclusive, so you need to choose one between the two to specify your target device or platform. If you cannot find your device you want to use from the `TargetDevice` list, use `TargetPlatform` to describe the platform of your edge device and `CompilerOptions` if there are specific settings that are required or recommended to use for particular TargetPlatform.
      */
-    processingOutputConfig?: pulumi.Input<inputs.sagemaker.ProcessingJobProcessingOutputConfigArgs>;
+    processingOutputConfig?: pulumi.Input<inputs.sagemaker.ProcessingJobProcessingOutputConfigArgs | undefined>;
     /**
      * Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.
      */
@@ -242,9 +242,9 @@ export interface ProcessingJobArgs {
     /**
      * Configures conditions under which the processing job should be stopped, such as how long the processing job has been running. After the condition is met, the processing job is stopped.
      */
-    stoppingCondition?: pulumi.Input<inputs.sagemaker.ProcessingJobStoppingConditionArgs>;
+    stoppingCondition?: pulumi.Input<inputs.sagemaker.ProcessingJobStoppingConditionArgs | undefined>;
     /**
      * (Optional) An array of key-value pairs. For more information, see Using Cost Allocation Tags(https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL) in the AWS Billing and Cost Management User Guide.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

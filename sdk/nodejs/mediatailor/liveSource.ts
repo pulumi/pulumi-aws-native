@@ -105,7 +105,7 @@ export interface LiveSourceArgs {
     /**
      * The name that's used to refer to a live source.
      */
-    liveSourceName?: pulumi.Input<string>;
+    liveSourceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the source location.
      */
@@ -113,5 +113,5 @@ export interface LiveSourceArgs {
     /**
      * The tags to assign to the live source.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

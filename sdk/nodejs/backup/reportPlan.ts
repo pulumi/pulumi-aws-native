@@ -111,15 +111,15 @@ export interface ReportPlanArgs {
     /**
      * An optional description of the report plan with a maximum of 1,024 characters.
      */
-    reportPlanDescription?: pulumi.Input<string>;
+    reportPlanDescription?: pulumi.Input<string | undefined>;
     /**
      * The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
      */
-    reportPlanName?: pulumi.Input<string>;
+    reportPlanName?: pulumi.Input<string | undefined>;
     /**
      * Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
      */
-    reportPlanTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    reportPlanTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Identifies the report template for the report. Reports are built using a report template.
      */

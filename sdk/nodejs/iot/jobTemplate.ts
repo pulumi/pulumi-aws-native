@@ -157,7 +157,7 @@ export interface JobTemplateArgs {
     /**
      * The criteria that determine when and how a job abort takes place.
      */
-    abortConfig?: pulumi.Input<inputs.iot.AbortConfigPropertiesArgs>;
+    abortConfig?: pulumi.Input<inputs.iot.AbortConfigPropertiesArgs | undefined>;
     /**
      * A description of the Job Template.
      */
@@ -167,27 +167,27 @@ export interface JobTemplateArgs {
      *
      * *Note:* Up to 25 package version ARNS are allowed.
      */
-    destinationPackageVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    destinationPackageVersions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The job document. Required if you don't specify a value for documentSource.
      */
-    document?: pulumi.Input<string>;
+    document?: pulumi.Input<string | undefined>;
     /**
      * An S3 link to the job document to use in the template. Required if you don't specify a value for document.
      */
-    documentSource?: pulumi.Input<string>;
+    documentSource?: pulumi.Input<string | undefined>;
     /**
      * Optional for copying a JobTemplate from a pre-existing Job configuration.
      */
-    jobArn?: pulumi.Input<string>;
+    jobArn?: pulumi.Input<string | undefined>;
     /**
      * Allows you to create the criteria to retry a job.
      */
-    jobExecutionsRetryConfig?: pulumi.Input<inputs.iot.JobExecutionsRetryConfigPropertiesArgs>;
+    jobExecutionsRetryConfig?: pulumi.Input<inputs.iot.JobExecutionsRetryConfigPropertiesArgs | undefined>;
     /**
      * Allows you to create a staged rollout of a job.
      */
-    jobExecutionsRolloutConfig?: pulumi.Input<inputs.iot.JobExecutionsRolloutConfigPropertiesArgs>;
+    jobExecutionsRolloutConfig?: pulumi.Input<inputs.iot.JobExecutionsRolloutConfigPropertiesArgs | undefined>;
     /**
      * A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
      */
@@ -195,17 +195,17 @@ export interface JobTemplateArgs {
     /**
      * An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
      */
-    maintenanceWindows?: pulumi.Input<pulumi.Input<inputs.iot.JobTemplateMaintenanceWindowArgs>[]>;
+    maintenanceWindows?: pulumi.Input<pulumi.Input<inputs.iot.JobTemplateMaintenanceWindowArgs>[] | undefined>;
     /**
      * Configuration for pre-signed S3 URLs.
      */
-    presignedUrlConfig?: pulumi.Input<inputs.iot.PresignedUrlConfigPropertiesArgs>;
+    presignedUrlConfig?: pulumi.Input<inputs.iot.PresignedUrlConfigPropertiesArgs | undefined>;
     /**
      * Metadata that can be used to manage the JobTemplate.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
     /**
      * Specifies the amount of time each device has to finish its execution of the job.
      */
-    timeoutConfig?: pulumi.Input<inputs.iot.TimeoutConfigPropertiesArgs>;
+    timeoutConfig?: pulumi.Input<inputs.iot.TimeoutConfigPropertiesArgs | undefined>;
 }

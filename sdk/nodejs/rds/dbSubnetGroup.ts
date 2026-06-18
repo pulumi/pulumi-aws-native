@@ -112,7 +112,7 @@ export interface DbSubnetGroupArgs {
      *   
      *  Example: ``mydbsubnetgroup``
      */
-    dbSubnetGroupName?: pulumi.Input<string>;
+    dbSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
      * The EC2 Subnet IDs for the DB subnet group.
      */
@@ -120,5 +120,5 @@ export interface DbSubnetGroupArgs {
     /**
      * Tags to assign to the DB subnet group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

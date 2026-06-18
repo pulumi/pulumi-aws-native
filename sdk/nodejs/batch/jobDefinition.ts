@@ -171,61 +171,61 @@ export interface JobDefinitionArgs {
     /**
      * Contains a list of consumable resources required by the job.
      */
-    consumableResourceProperties?: pulumi.Input<inputs.batch.JobDefinitionConsumableResourcePropertiesArgs>;
+    consumableResourceProperties?: pulumi.Input<inputs.batch.JobDefinitionConsumableResourcePropertiesArgs | undefined>;
     /**
      * An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
      */
-    containerProperties?: pulumi.Input<inputs.batch.JobDefinitionContainerPropertiesArgs>;
+    containerProperties?: pulumi.Input<inputs.batch.JobDefinitionContainerPropertiesArgs | undefined>;
     /**
      * An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
      */
-    ecsProperties?: pulumi.Input<inputs.batch.JobDefinitionEcsPropertiesArgs>;
+    ecsProperties?: pulumi.Input<inputs.batch.JobDefinitionEcsPropertiesArgs | undefined>;
     /**
      * An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
      */
-    eksProperties?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesArgs>;
+    eksProperties?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesArgs | undefined>;
     /**
      * The name of the job definition.
      */
-    jobDefinitionName?: pulumi.Input<string>;
+    jobDefinitionName?: pulumi.Input<string | undefined>;
     /**
      * An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
      *
      * > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
      */
-    nodeProperties?: pulumi.Input<inputs.batch.JobDefinitionNodePropertiesArgs>;
+    nodeProperties?: pulumi.Input<inputs.batch.JobDefinitionNodePropertiesArgs | undefined>;
     /**
      * Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
      */
-    platformCapabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    platformCapabilities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
      */
-    propagateTags?: pulumi.Input<boolean>;
+    propagateTags?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the resource retention policy settings for the job definition.
      */
-    resourceRetentionPolicy?: pulumi.Input<inputs.batch.JobDefinitionResourceRetentionPolicyArgs>;
+    resourceRetentionPolicy?: pulumi.Input<inputs.batch.JobDefinitionResourceRetentionPolicyArgs | undefined>;
     /**
      * The retry strategy to use for failed jobs that are submitted with this job definition.
      */
-    retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategyArgs>;
+    retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategyArgs | undefined>;
     /**
      * The scheduling priority of the job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
      */
-    schedulingPriority?: pulumi.Input<number>;
+    schedulingPriority?: pulumi.Input<number | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
      */
-    timeout?: pulumi.Input<inputs.batch.JobDefinitionJobTimeoutArgs>;
+    timeout?: pulumi.Input<inputs.batch.JobDefinitionJobTimeoutArgs | undefined>;
     /**
      * The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
      *

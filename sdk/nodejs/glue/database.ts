@@ -97,5 +97,5 @@ export interface DatabaseArgs {
     /**
      * The name of the database. For hive compatibility, this is folded to lowercase when it is store.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
 }

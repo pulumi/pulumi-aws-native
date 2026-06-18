@@ -129,15 +129,15 @@ export interface CapabilityArgs {
     /**
      * Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
      */
-    instructionsDocuments?: pulumi.Input<pulumi.Input<inputs.b2bi.CapabilityS3LocationArgs>[]>;
+    instructionsDocuments?: pulumi.Input<pulumi.Input<inputs.b2bi.CapabilityS3LocationArgs>[] | undefined>;
     /**
      * The display name of the capability.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Returns the type of the capability. Currently, only `edi` is supported.
      */

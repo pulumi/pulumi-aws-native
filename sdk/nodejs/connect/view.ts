@@ -132,7 +132,7 @@ export interface ViewArgs {
     /**
      * The description of the view.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the instance.
      */
@@ -140,11 +140,11 @@ export interface ViewArgs {
     /**
      * The name of the view.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The template of the view as JSON.
      *

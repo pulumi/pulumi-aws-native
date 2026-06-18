@@ -139,29 +139,29 @@ export interface ApplicationArgs {
     /**
      * This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
      */
-    componentsInfo?: pulumi.Input<pulumi.Input<inputs.systemsmanagersap.ApplicationComponentInfoArgs>[]>;
+    componentsInfo?: pulumi.Input<pulumi.Input<inputs.systemsmanagersap.ApplicationComponentInfoArgs>[] | undefined>;
     /**
      * The credentials of the SAP application.
      */
-    credentials?: pulumi.Input<pulumi.Input<inputs.systemsmanagersap.ApplicationCredentialArgs>[]>;
+    credentials?: pulumi.Input<pulumi.Input<inputs.systemsmanagersap.ApplicationCredentialArgs>[] | undefined>;
     /**
      * The ARN of the SAP HANA database
      */
-    databaseArn?: pulumi.Input<string>;
+    databaseArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon EC2 instances on which your SAP application is running.
      */
-    instances?: pulumi.Input<pulumi.Input<string>[]>;
+    instances?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The SAP instance number of the application.
      */
-    sapInstanceNumber?: pulumi.Input<string>;
+    sapInstanceNumber?: pulumi.Input<string | undefined>;
     /**
      * The System ID of the application.
      */
-    sid?: pulumi.Input<string>;
+    sid?: pulumi.Input<string | undefined>;
     /**
      * The tags of a SystemsManagerSAP application.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

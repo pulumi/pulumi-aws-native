@@ -120,7 +120,7 @@ export interface DimensionArgs {
     /**
      * A unique identifier for the dimension.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the value or list of values for the dimension.
      */
@@ -128,7 +128,7 @@ export interface DimensionArgs {
     /**
      * Metadata that can be used to manage the dimension.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Specifies the type of the dimension.
      */

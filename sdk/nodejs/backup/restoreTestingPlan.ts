@@ -119,7 +119,7 @@ export interface RestoreTestingPlanArgs {
     /**
      * The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
      */
-    restoreTestingPlanName?: pulumi.Input<string>;
+    restoreTestingPlanName?: pulumi.Input<string | undefined>;
     /**
      * A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
      */
@@ -127,15 +127,15 @@ export interface RestoreTestingPlanArgs {
     /**
      * Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
      */
-    scheduleExpressionTimezone?: pulumi.Input<string>;
+    scheduleExpressionTimezone?: pulumi.Input<string | undefined>;
     /**
      * Defaults to 24 hours.
      *
      * A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
      */
-    startWindowHours?: pulumi.Input<number>;
+    startWindowHours?: pulumi.Input<number | undefined>;
     /**
      * Optional tags to include. A tag is a key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters,numbers, spaces, and the following characters: `+ - = . _ : /.`
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

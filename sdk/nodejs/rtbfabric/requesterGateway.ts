@@ -126,7 +126,7 @@ export interface RequesterGatewayArgs {
     /**
      * An optional description for the requester gateway.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique identifiers of the security groups.
      */
@@ -138,7 +138,7 @@ export interface RequesterGatewayArgs {
     /**
      * A map of the key-value pairs of the tag or tags to assign to the resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The unique identifier of the Virtual Private Cloud (VPC).
      */

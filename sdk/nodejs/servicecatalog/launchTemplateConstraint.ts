@@ -107,11 +107,11 @@ export interface LaunchTemplateConstraintArgs {
     /**
      * The language code.
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * The description of the constraint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The portfolio identifier.
      */

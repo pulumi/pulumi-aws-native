@@ -143,17 +143,17 @@ export interface SourceApiAssociationArgs {
     /**
      * Description of the SourceApiAssociation.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the Merged GraphQLApi to associate. It could be either GraphQLApi ApiId or ARN
      */
-    mergedApiIdentifier?: pulumi.Input<string>;
+    mergedApiIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Customized configuration for SourceApiAssociation.
      */
-    sourceApiAssociationConfig?: pulumi.Input<inputs.appsync.SourceApiAssociationConfigArgs>;
+    sourceApiAssociationConfig?: pulumi.Input<inputs.appsync.SourceApiAssociationConfigArgs | undefined>;
     /**
      * Identifier of the Source GraphQLApi to associate. It could be either GraphQLApi ApiId or ARN
      */
-    sourceApiIdentifier?: pulumi.Input<string>;
+    sourceApiIdentifier?: pulumi.Input<string | undefined>;
 }

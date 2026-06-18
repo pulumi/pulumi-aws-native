@@ -99,7 +99,7 @@ export interface StackUserAssociationArgs {
     /**
      * Specifies whether a welcome email is sent to a user after the user is created in the user pool.
      */
-    sendEmailNotification?: pulumi.Input<boolean>;
+    sendEmailNotification?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the stack that is associated with the user.
      */

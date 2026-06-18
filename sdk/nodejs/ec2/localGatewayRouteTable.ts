@@ -120,9 +120,9 @@ export interface LocalGatewayRouteTableArgs {
     /**
      * The mode of the local gateway route table.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The tags for the local gateway route table.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

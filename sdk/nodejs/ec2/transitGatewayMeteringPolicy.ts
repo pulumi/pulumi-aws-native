@@ -104,11 +104,11 @@ export interface TransitGatewayMeteringPolicyArgs {
     /**
      * Middle box attachment Ids
      */
-    middleboxAttachmentIds?: pulumi.Input<pulumi.Input<string>[]>;
+    middleboxAttachmentIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The tags assigned to the transit gateway metering policy.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The Id of transit gateway
      */

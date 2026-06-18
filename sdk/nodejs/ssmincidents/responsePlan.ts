@@ -122,19 +122,19 @@ export interface ResponsePlanArgs {
     /**
      * The list of actions.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ResponsePlanActionArgs>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ResponsePlanActionArgs>[] | undefined>;
     /**
      * The  chat channel used for collaboration during an incident.
      */
-    chatChannel?: pulumi.Input<inputs.ssmincidents.ResponsePlanChatChannelArgs>;
+    chatChannel?: pulumi.Input<inputs.ssmincidents.ResponsePlanChatChannelArgs | undefined>;
     /**
      * The display name of the response plan.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The list of engagements to use.
      */
-    engagements?: pulumi.Input<pulumi.Input<string>[]>;
+    engagements?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Details used to create an incident when using this response plan.
      */
@@ -142,13 +142,13 @@ export interface ResponsePlanArgs {
     /**
      * The list of integrations.
      */
-    integrations?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ResponsePlanIntegrationArgs>[]>;
+    integrations?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ResponsePlanIntegrationArgs>[] | undefined>;
     /**
      * The name of the response plan.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags to apply to the response plan.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -115,8 +115,8 @@ export interface ContactArgs {
     /**
      * The stages that an escalation plan or engagement plan engages contacts and contact methods in.
      */
-    plan?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.ContactStageArgs>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    plan?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.ContactStageArgs>[] | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
      */

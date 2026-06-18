@@ -81,5 +81,5 @@ export interface BatchScramSecretArgs {
     /**
      * List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
      */
-    secretArnList?: pulumi.Input<pulumi.Input<string>[]>;
+    secretArnList?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

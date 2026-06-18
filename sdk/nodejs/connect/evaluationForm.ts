@@ -151,12 +151,12 @@ export interface EvaluationFormArgs {
     /**
      * The automatic evaluation configuration of an evaluation form.
      */
-    autoEvaluationConfiguration?: pulumi.Input<inputs.connect.EvaluationFormAutoEvaluationConfigurationArgs>;
+    autoEvaluationConfiguration?: pulumi.Input<inputs.connect.EvaluationFormAutoEvaluationConfigurationArgs | undefined>;
     /**
      * The description of the evaluation form.
      *  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Amazon Connect instance.
      */
@@ -170,15 +170,15 @@ export interface EvaluationFormArgs {
     /**
      * Configuration for language settings of this evaluation form.
      */
-    languageConfiguration?: pulumi.Input<inputs.connect.EvaluationFormLanguageConfigurationArgs>;
+    languageConfiguration?: pulumi.Input<inputs.connect.EvaluationFormLanguageConfigurationArgs | undefined>;
     /**
      * Configuration for evaluation review settings of this evaluation form.
      */
-    reviewConfiguration?: pulumi.Input<inputs.connect.EvaluationFormEvaluationReviewConfigurationArgs>;
+    reviewConfiguration?: pulumi.Input<inputs.connect.EvaluationFormEvaluationReviewConfigurationArgs | undefined>;
     /**
      * A scoring strategy of the evaluation form.
      */
-    scoringStrategy?: pulumi.Input<inputs.connect.EvaluationFormScoringStrategyArgs>;
+    scoringStrategy?: pulumi.Input<inputs.connect.EvaluationFormScoringStrategyArgs | undefined>;
     /**
      * The status of the evaluation form.
      *  *Allowed values*: ``DRAFT`` | ``ACTIVE``
@@ -187,11 +187,11 @@ export interface EvaluationFormArgs {
     /**
      * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Configuration that specifies the target for this evaluation form.
      */
-    targetConfiguration?: pulumi.Input<inputs.connect.EvaluationFormTargetConfigurationArgs>;
+    targetConfiguration?: pulumi.Input<inputs.connect.EvaluationFormTargetConfigurationArgs | undefined>;
     /**
      * A title of the evaluation form.
      */

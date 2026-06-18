@@ -140,32 +140,32 @@ export interface SimpleAdArgs {
     /**
      * The name of the configuration set.
      */
-    createAlias?: pulumi.Input<boolean>;
+    createAlias?: pulumi.Input<boolean | undefined>;
     /**
      * Description for the directory.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable single sign-on for a Simple Active Directory in AWS.
      */
-    enableSso?: pulumi.Input<boolean>;
+    enableSso?: pulumi.Input<boolean | undefined>;
     /**
      * The fully qualified domain name for the AWS Managed Simple AD directory.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password for the default administrative user named Admin.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The NetBIOS name for your domain.
      */
-    shortName?: pulumi.Input<string>;
+    shortName?: pulumi.Input<string | undefined>;
     /**
      * The size of the directory.
      */
     size: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * VPC settings of the Simple AD directory server in AWS.
      */

@@ -157,21 +157,21 @@ export interface ConnectionArgs {
      *
      * You must include only authorization parameters for the `AuthorizationType` you specify.
      */
-    authParameters?: pulumi.Input<inputs.events.ConnectionAuthParametersArgs>;
+    authParameters?: pulumi.Input<inputs.events.ConnectionAuthParametersArgs | undefined>;
     /**
      * The type of authorization to use for the connection.
      *
      * > OAUTH tokens are refreshed when a 401 or 407 response is returned.
      */
-    authorizationType?: pulumi.Input<enums.events.ConnectionAuthorizationType>;
+    authorizationType?: pulumi.Input<enums.events.ConnectionAuthorizationType | undefined>;
     /**
      * Description of the connection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The private resource the HTTP request will be sent to.
      */
-    invocationConnectivityParameters?: pulumi.Input<inputs.events.InvocationConnectivityParametersPropertiesArgs>;
+    invocationConnectivityParameters?: pulumi.Input<inputs.events.InvocationConnectivityParametersPropertiesArgs | undefined>;
     /**
      * The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      *
@@ -179,9 +179,9 @@ export interface ConnectionArgs {
      *
      * For more information, see [Identify and view keys](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html) in the *AWS Key Management Service Developer Guide* .
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Name of the connection.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

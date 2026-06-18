@@ -155,35 +155,35 @@ export interface FlowLogArgs {
     /**
      * The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
      */
-    deliverCrossAccountRole?: pulumi.Input<string>;
+    deliverCrossAccountRole?: pulumi.Input<string | undefined>;
     /**
      * The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
      */
-    deliverLogsPermissionArn?: pulumi.Input<string>;
+    deliverLogsPermissionArn?: pulumi.Input<string | undefined>;
     /**
      * The destination options.
      */
-    destinationOptions?: pulumi.Input<inputs.ec2.DestinationOptionsPropertiesArgs>;
+    destinationOptions?: pulumi.Input<inputs.ec2.DestinationOptionsPropertiesArgs | undefined>;
     /**
      * Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType.
      */
-    logDestination?: pulumi.Input<string>;
+    logDestination?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
      */
-    logDestinationType?: pulumi.Input<enums.ec2.FlowLogLogDestinationType>;
+    logDestinationType?: pulumi.Input<enums.ec2.FlowLogLogDestinationType | undefined>;
     /**
      * The fields to include in the flow log record, in the order in which they should appear.
      */
-    logFormat?: pulumi.Input<string>;
+    logFormat?: pulumi.Input<string | undefined>;
     /**
      * The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
      */
-    logGroupName?: pulumi.Input<string>;
+    logGroupName?: pulumi.Input<string | undefined>;
     /**
      * The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).
      */
-    maxAggregationInterval?: pulumi.Input<number>;
+    maxAggregationInterval?: pulumi.Input<number | undefined>;
     /**
      * The ID of the subnet, network interface, or VPC for which you want to create a flow log.
      */
@@ -195,13 +195,13 @@ export interface FlowLogArgs {
     /**
      * The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
      */
-    tagFieldSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.FlowLogTagFieldSpecificationArgs>[]>;
+    tagFieldSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.FlowLogTagFieldSpecificationArgs>[] | undefined>;
     /**
      * The tags to apply to the flow logs.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
      */
-    trafficType?: pulumi.Input<enums.ec2.FlowLogTrafficType>;
+    trafficType?: pulumi.Input<enums.ec2.FlowLogTrafficType | undefined>;
 }

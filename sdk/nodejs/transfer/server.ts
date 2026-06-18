@@ -479,15 +479,15 @@ export interface ServerArgs {
      *
      * > The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP address specified and information about the issuer.
      */
-    certificate?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string | undefined>;
     /**
      * Specifies the domain of the storage system that is used for file transfers. There are two domains available: Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS). The default value is S3.
      */
-    domain?: pulumi.Input<enums.transfer.ServerDomain>;
+    domain?: pulumi.Input<enums.transfer.ServerDomain | undefined>;
     /**
      * The virtual private cloud (VPC) endpoint settings that are configured for your server. When you host your endpoint within your VPC, you can make your endpoint accessible only to resources within your VPC, or you can attach Elastic IP addresses and make your endpoint accessible to clients over the internet. Your VPC's default security groups are automatically assigned to your endpoint.
      */
-    endpointDetails?: pulumi.Input<inputs.transfer.ServerEndpointDetailsArgs>;
+    endpointDetails?: pulumi.Input<inputs.transfer.ServerEndpointDetailsArgs | undefined>;
     /**
      * The type of endpoint that you want your server to use. You can choose to make your server's endpoint publicly accessible (PUBLIC) or host it inside your VPC. With an endpoint that is hosted in a VPC, you can restrict access to your server and resources only within your VPC or choose to make it internet facing by attaching Elastic IP addresses directly to it.
      *
@@ -497,11 +497,11 @@ export interface ServerArgs {
      * > 
      * > It is recommended that you use `VPC` as the `EndpointType` . With this endpoint type, you have the option to directly associate up to three Elastic IPv4 addresses (BYO IP included) with your server's endpoint and use VPC security groups to restrict traffic by the client's public IP address. This is not possible with `EndpointType` set to `VPC_ENDPOINT` .
      */
-    endpointType?: pulumi.Input<enums.transfer.ServerEndpointType>;
+    endpointType?: pulumi.Input<enums.transfer.ServerEndpointType | undefined>;
     /**
      * Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` , `AWS _LAMBDA` or `API_GATEWAY` . Accepts an array containing all of the information required to use a directory in `AWS_DIRECTORY_SERVICE` or invoke a customer-supplied authentication API, including the API Gateway URL. Cannot be specified when `IdentityProviderType` is set to `SERVICE_MANAGED` .
      */
-    identityProviderDetails?: pulumi.Input<inputs.transfer.ServerIdentityProviderDetailsArgs>;
+    identityProviderDetails?: pulumi.Input<inputs.transfer.ServerIdentityProviderDetailsArgs | undefined>;
     /**
      * The mode of authentication for a server. The default value is `SERVICE_MANAGED` , which allows you to store and access user credentials within the AWS Transfer Family service.
      *
@@ -511,7 +511,7 @@ export interface ServerArgs {
      *
      * Use the `AWS_LAMBDA` value to directly use an AWS Lambda function as your identity provider. If you choose this value, you must specify the ARN for the Lambda function in the `Function` parameter for the `IdentityProviderDetails` data type.
      */
-    identityProviderType?: pulumi.Input<enums.transfer.ServerIdentityProviderType>;
+    identityProviderType?: pulumi.Input<enums.transfer.ServerIdentityProviderType | undefined>;
     /**
      * Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .
      *
@@ -520,23 +520,23 @@ export interface ServerArgs {
      * > - It cannot be changed while the server is online. You must stop the server before modifying this parameter.
      * > - It cannot be updated to `DUALSTACK` if the server has `AddressAllocationIds` specified. > When using `DUALSTACK` as the `IpAddressType` , you cannot set the `AddressAllocationIds` parameter for the [EndpointDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_EndpointDetails.html) for the server.
      */
-    ipAddressType?: pulumi.Input<enums.transfer.ServerIpAddressType>;
+    ipAddressType?: pulumi.Input<enums.transfer.ServerIpAddressType | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
      */
-    loggingRole?: pulumi.Input<string>;
+    loggingRole?: pulumi.Input<string | undefined>;
     /**
      * Specifies a string to display when users connect to a server. This string is displayed after the user authenticates.
      *
      * > The SFTP protocol does not support post-authentication display banners.
      */
-    postAuthenticationLoginBanner?: pulumi.Input<string>;
+    postAuthenticationLoginBanner?: pulumi.Input<string | undefined>;
     /**
      * Specifies a string to display when users connect to a server. This string is displayed before the user authenticates. For example, the following banner displays details about using the system:
      *
      * `This system is for the use of authorized users only. Individuals using this computer system without authority, or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by system personnel.`
      */
-    preAuthenticationLoginBanner?: pulumi.Input<string>;
+    preAuthenticationLoginBanner?: pulumi.Input<string | undefined>;
     /**
      * The protocol settings that are configured for your server.
      *
@@ -549,7 +549,7 @@ export interface ServerArgs {
      *
      * *Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`
      */
-    protocolDetails?: pulumi.Input<inputs.transfer.ServerProtocolDetailsArgs>;
+    protocolDetails?: pulumi.Input<inputs.transfer.ServerProtocolDetailsArgs | undefined>;
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. The available protocols are:
      *
@@ -568,7 +568,7 @@ export interface ServerArgs {
      *
      * *Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`
      */
-    protocols?: pulumi.Input<pulumi.Input<enums.transfer.ServerProtocol>[]>;
+    protocols?: pulumi.Input<pulumi.Input<enums.transfer.ServerProtocol>[] | undefined>;
     /**
      * Specifies whether or not performance for your Amazon S3 directories is optimized.
      *
@@ -577,11 +577,11 @@ export interface ServerArgs {
      *
      * By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
      */
-    s3StorageOptions?: pulumi.Input<inputs.transfer.ServerS3StorageOptionsArgs>;
+    s3StorageOptions?: pulumi.Input<inputs.transfer.ServerS3StorageOptionsArgs | undefined>;
     /**
      * Specifies the name of the security policy for the server.
      */
-    securityPolicyName?: pulumi.Input<string>;
+    securityPolicyName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the log groups to which your server logs are sent.
      *
@@ -595,15 +595,15 @@ export interface ServerArgs {
      *
      * `update-server --server-id s-1234567890abcdef0 --structured-log-destinations`
      */
-    structuredLogDestinations?: pulumi.Input<pulumi.Input<string>[]>;
+    structuredLogDestinations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value pairs that can be used to group and search for servers.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.
      *
      * In addition to a workflow to execute when a file is uploaded completely, `WorkflowDetails` can also contain a workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when the session disconnects.
      */
-    workflowDetails?: pulumi.Input<inputs.transfer.ServerWorkflowDetailsArgs>;
+    workflowDetails?: pulumi.Input<inputs.transfer.ServerWorkflowDetailsArgs | undefined>;
 }

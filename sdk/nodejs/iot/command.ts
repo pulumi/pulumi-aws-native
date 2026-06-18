@@ -162,53 +162,53 @@ export interface CommandArgs {
     /**
      * The date and time when the command was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * A flag indicating whether the command is deprecated.
      */
-    deprecated?: pulumi.Input<boolean>;
+    deprecated?: pulumi.Input<boolean | undefined>;
     /**
      * The description of the command.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name for the command.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The date and time when the command was last updated.
      */
-    lastUpdatedAt?: pulumi.Input<string>;
+    lastUpdatedAt?: pulumi.Input<string | undefined>;
     /**
      * The list of mandatory parameters for the command.
      */
-    mandatoryParameters?: pulumi.Input<pulumi.Input<inputs.iot.CommandParameterArgs>[]>;
+    mandatoryParameters?: pulumi.Input<pulumi.Input<inputs.iot.CommandParameterArgs>[] | undefined>;
     /**
      * The namespace to which the command belongs.
      */
-    namespace?: pulumi.Input<enums.iot.CommandNamespace>;
+    namespace?: pulumi.Input<enums.iot.CommandNamespace | undefined>;
     /**
      * The payload associated with the command.
      */
-    payload?: pulumi.Input<inputs.iot.CommandPayloadArgs>;
+    payload?: pulumi.Input<inputs.iot.CommandPayloadArgs | undefined>;
     /**
      * The payload template associated with the command.
      */
-    payloadTemplate?: pulumi.Input<string>;
+    payloadTemplate?: pulumi.Input<string | undefined>;
     /**
      * A flag indicating whether the command is pending deletion.
      */
-    pendingDeletion?: pulumi.Input<boolean>;
+    pendingDeletion?: pulumi.Input<boolean | undefined>;
     /**
      * The command preprocessor configuration.
      */
-    preprocessor?: pulumi.Input<inputs.iot.CommandPreprocessorArgs>;
+    preprocessor?: pulumi.Input<inputs.iot.CommandPreprocessorArgs | undefined>;
     /**
      * The customer role associated with the command.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * The tags to be associated with the command.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

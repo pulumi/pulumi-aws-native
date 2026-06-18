@@ -118,11 +118,11 @@ export interface SchemaArgs {
     /**
      * The domain of a Domain dataset group.
      */
-    domain?: pulumi.Input<enums.personalize.SchemaDomain>;
+    domain?: pulumi.Input<enums.personalize.SchemaDomain | undefined>;
     /**
      * Name for the schema.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A schema in Avro JSON format.
      */

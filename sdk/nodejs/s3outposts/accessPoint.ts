@@ -107,13 +107,13 @@ export interface AccessPointArgs {
     /**
      * A name for the AccessPoint.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The access point policy associated with this access point.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
      */
-    policy?: any;
+    policy?: any | undefined;
     /**
      * Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
      */

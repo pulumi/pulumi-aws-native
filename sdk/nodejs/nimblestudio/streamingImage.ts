@@ -104,11 +104,11 @@ export class StreamingImage extends pulumi.CustomResource {
  * The set of arguments for constructing a StreamingImage resource.
  */
 export interface StreamingImageArgs {
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     ec2ImageId: pulumi.Input<string>;
-    encryptionConfigurationKeyArn?: pulumi.Input<string>;
-    encryptionConfigurationKeyType?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    encryptionConfigurationKeyArn?: pulumi.Input<string | undefined>;
+    encryptionConfigurationKeyType?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
     studioId: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -150,7 +150,7 @@ export interface OptionGroupArgs {
     /**
      * A list of all available options for an option group.
      */
-    optionConfigurations?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOptionConfigurationArgs>[]>;
+    optionConfigurations?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOptionConfigurationArgs>[] | undefined>;
     /**
      * The description of the option group.
      */
@@ -166,9 +166,9 @@ export interface OptionGroupArgs {
      *  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
      *   This value is stored as a lowercase string.
      */
-    optionGroupName?: pulumi.Input<string>;
+    optionGroupName?: pulumi.Input<string | undefined>;
     /**
      * Tags to assign to the option group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -200,17 +200,17 @@ export interface DirectConnectGatewayAttachmentArgs {
     /**
      * The attachment to move from one network function group to another.
      */
-    proposedNetworkFunctionGroupChange?: pulumi.Input<inputs.networkmanager.DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs>;
+    proposedNetworkFunctionGroupChange?: pulumi.Input<inputs.networkmanager.DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs | undefined>;
     /**
      * The attachment to move from one segment to another.
      */
-    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.DirectConnectGatewayAttachmentProposedSegmentChangeArgs>;
+    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.DirectConnectGatewayAttachmentProposedSegmentChangeArgs | undefined>;
     /**
      * Routing policy label
      */
-    routingPolicyLabel?: pulumi.Input<string>;
+    routingPolicyLabel?: pulumi.Input<string | undefined>;
     /**
      * Tags for the attachment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -138,13 +138,13 @@ export interface HostedConfigurationVersionArgs {
     /**
      * A description of the hosted configuration version.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
      */
-    latestVersionNumber?: pulumi.Input<number>;
+    latestVersionNumber?: pulumi.Input<number | undefined>;
     /**
      * A user-defined label for an AWS AppConfig hosted configuration version.
      */
-    versionLabel?: pulumi.Input<string>;
+    versionLabel?: pulumi.Input<string | undefined>;
 }
