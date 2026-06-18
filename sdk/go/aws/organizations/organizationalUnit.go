@@ -35,7 +35,7 @@ import (
 //			organizationRootId := cfg.Require("organizationRootId")
 //			_, err := organizations.NewOrganizationalUnit(ctx, "testTemplateOU", &organizations.OrganizationalUnitArgs{
 //				Name:     pulumi.String("TestTemplateOU"),
-//				ParentId: pulumi.String(pulumi.String(organizationRootId)),
+//				ParentId: pulumi.String(organizationRootId),
 //			})
 //			if err != nil {
 //				return err
@@ -64,7 +64,7 @@ import (
 //			organizationRootId := cfg.Require("organizationRootId")
 //			_, err := organizations.NewOrganizationalUnit(ctx, "testTemplateOU", &organizations.OrganizationalUnitArgs{
 //				Name:     pulumi.String("TestTemplateOU"),
-//				ParentId: pulumi.String(pulumi.String(organizationRootId)),
+//				ParentId: pulumi.String(organizationRootId),
 //			})
 //			if err != nil {
 //				return err
@@ -93,7 +93,7 @@ import (
 //			organizationRootId := cfg.Require("organizationRootId")
 //			parentOU, err := organizations.NewOrganizationalUnit(ctx, "parentOU", &organizations.OrganizationalUnitArgs{
 //				Name:     pulumi.String("ParentOU"),
-//				ParentId: pulumi.String(pulumi.String(organizationRootId)),
+//				ParentId: pulumi.String(organizationRootId),
 //			})
 //			if err != nil {
 //				return err
@@ -129,7 +129,7 @@ import (
 //			organizationRootId := cfg.Require("organizationRootId")
 //			parentOU, err := organizations.NewOrganizationalUnit(ctx, "parentOU", &organizations.OrganizationalUnitArgs{
 //				Name:     pulumi.String("ParentOU"),
-//				ParentId: pulumi.String(pulumi.String(organizationRootId)),
+//				ParentId: pulumi.String(organizationRootId),
 //			})
 //			if err != nil {
 //				return err

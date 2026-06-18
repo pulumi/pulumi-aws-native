@@ -38,14 +38,14 @@ import (
 //			certificateArn := cfg.Require("certificateArn")
 //			_type := cfg.Require("type")
 //			myDomainName, err := apigateway.NewDomainName(ctx, "myDomainName", &apigateway.DomainNameArgs{
-//				CertificateArn: pulumi.String(pulumi.String(certificateArn)),
-//				DomainName:     pulumi.String(pulumi.String(cfnDomainName)),
+//				CertificateArn: pulumi.String(certificateArn),
+//				DomainName:     pulumi.String(cfnDomainName),
 //				EndpointConfiguration: &apigateway.DomainNameEndpointConfigurationArgs{
 //					Types: pulumi.StringArray{
-//						pulumi.String(pulumi.String(_type)),
+//						pulumi.String(_type),
 //					},
 //				},
-//				RegionalCertificateArn: pulumi.String(pulumi.String(certificateArn)),
+//				RegionalCertificateArn: pulumi.String(certificateArn),
 //			})
 //			if err != nil {
 //				return err
@@ -76,14 +76,14 @@ import (
 //			certificateArn := cfg.Require("certificateArn")
 //			_type := cfg.Require("type")
 //			myDomainName, err := apigateway.NewDomainName(ctx, "myDomainName", &apigateway.DomainNameArgs{
-//				CertificateArn: pulumi.String(pulumi.String(certificateArn)),
-//				DomainName:     pulumi.String(pulumi.String(cfnDomainName)),
+//				CertificateArn: pulumi.String(certificateArn),
+//				DomainName:     pulumi.String(cfnDomainName),
 //				EndpointConfiguration: &apigateway.DomainNameEndpointConfigurationArgs{
 //					Types: pulumi.StringArray{
-//						pulumi.String(pulumi.String(_type)),
+//						pulumi.String(_type),
 //					},
 //				},
-//				RegionalCertificateArn: pulumi.String(pulumi.String(certificateArn)),
+//				RegionalCertificateArn: pulumi.String(certificateArn),
 //			})
 //			if err != nil {
 //				return err

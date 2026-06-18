@@ -39,13 +39,13 @@ import (
 //			requestMappingTemplateS3LocationInput := cfg.Require("requestMappingTemplateS3LocationInput")
 //			responseMappingTemplateS3LocationInput := cfg.Require("responseMappingTemplateS3LocationInput")
 //			_, err := appsync.NewFunctionConfiguration(ctx, "functionConfiguration", &appsync.FunctionConfigurationArgs{
-//				ApiId:                             pulumi.String(pulumi.String(graphQlApiId)),
-//				Name:                              pulumi.String(pulumi.String(name)),
-//				Description:                       pulumi.String(pulumi.String(description)),
-//				FunctionVersion:                   pulumi.String(pulumi.String(functionVersion)),
-//				DataSourceName:                    pulumi.String(pulumi.String(dataSourceName)),
-//				RequestMappingTemplateS3Location:  pulumi.String(pulumi.String(requestMappingTemplateS3LocationInput)),
-//				ResponseMappingTemplateS3Location: pulumi.String(pulumi.String(responseMappingTemplateS3LocationInput)),
+//				ApiId:                             pulumi.String(graphQlApiId),
+//				Name:                              pulumi.String(name),
+//				Description:                       pulumi.String(description),
+//				FunctionVersion:                   pulumi.String(functionVersion),
+//				DataSourceName:                    pulumi.String(dataSourceName),
+//				RequestMappingTemplateS3Location:  pulumi.String(requestMappingTemplateS3LocationInput),
+//				ResponseMappingTemplateS3Location: pulumi.String(responseMappingTemplateS3LocationInput),
 //			})
 //			if err != nil {
 //				return err

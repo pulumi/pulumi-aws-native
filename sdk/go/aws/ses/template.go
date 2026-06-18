@@ -37,10 +37,10 @@ import (
 //			htmlPart := cfg.Require("htmlPart")
 //			_, err := ses.NewTemplate(ctx, "template", &ses.TemplateArgs{
 //				Template: &ses.TemplateTypeArgs{
-//					TemplateName: pulumi.String(pulumi.String(templateName)),
-//					SubjectPart:  pulumi.String(pulumi.String(subjectPart)),
-//					TextPart:     pulumi.String(pulumi.String(textPart)),
-//					HtmlPart:     pulumi.String(pulumi.String(htmlPart)),
+//					TemplateName: pulumi.String(templateName),
+//					SubjectPart:  pulumi.String(subjectPart),
+//					TextPart:     pulumi.String(textPart),
+//					HtmlPart:     pulumi.String(htmlPart),
 //				},
 //			})
 //			if err != nil {
@@ -73,10 +73,10 @@ import (
 //			htmlPart := cfg.Require("htmlPart")
 //			_, err := ses.NewTemplate(ctx, "template", &ses.TemplateArgs{
 //				Template: &ses.TemplateTypeArgs{
-//					TemplateName: pulumi.String(pulumi.String(templateName)),
-//					SubjectPart:  pulumi.String(pulumi.String(subjectPart)),
-//					TextPart:     pulumi.String(pulumi.String(textPart)),
-//					HtmlPart:     pulumi.String(pulumi.String(htmlPart)),
+//					TemplateName: pulumi.String(templateName),
+//					SubjectPart:  pulumi.String(subjectPart),
+//					TextPart:     pulumi.String(textPart),
+//					HtmlPart:     pulumi.String(htmlPart),
 //				},
 //			})
 //			if err != nil {

@@ -36,14 +36,14 @@ import (
 //			clientIds := cfg.Require("clientIds")
 //			principalEntityType := cfg.Require("principalEntityType")
 //			identitySource, err := verifiedpermissions.NewIdentitySource(ctx, "identitySource", &verifiedpermissions.IdentitySourceArgs{
-//				PolicyStoreId: pulumi.String(pulumi.String(policyStoreId)),
+//				PolicyStoreId: pulumi.String(policyStoreId),
 //				Configuration: &verifiedpermissions.IdentitySourceConfiguration0PropertiesArgs{
 //					CognitoUserPoolConfiguration: &verifiedpermissions.IdentitySourceCognitoUserPoolConfigurationArgs{
-//						UserPoolArn: pulumi.String(pulumi.String(userPoolArn)),
+//						UserPoolArn: pulumi.String(userPoolArn),
 //						ClientIds:   clientIds,
 //					},
 //				},
-//				PrincipalEntityType: pulumi.String(pulumi.String(principalEntityType)),
+//				PrincipalEntityType: pulumi.String(principalEntityType),
 //			})
 //			if err != nil {
 //				return err
