@@ -21,7 +21,7 @@ __all__ = ['FindingAggregatorArgs', 'FindingAggregator']
 class FindingAggregatorArgs:
     def __init__(__self__, *,
                  region_linking_mode: pulumi.Input['FindingAggregatorRegionLinkingMode'],
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FindingAggregator resource.
 
@@ -57,7 +57,7 @@ class FindingAggregatorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         If ``RegionLinkingMode`` is ``ALL_REGIONS_EXCEPT_SPECIFIED``, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.
          If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region.
@@ -65,7 +65,7 @@ class FindingAggregatorArgs:
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regions", value)
 
 
@@ -75,8 +75,8 @@ class FindingAggregator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region_linking_mode: Optional[pulumi.Input['FindingAggregatorRegionLinkingMode']] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region_linking_mode: pulumi.Input[Optional['FindingAggregatorRegionLinkingMode']] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The ``AWS::SecurityHub::FindingAggregator`` resource enables cross-Region aggregation. When cross-Region aggregation is enabled, you can aggregate findings, finding updates, insights, control compliance statuses, and security scores from one or more linked Regions to a single aggregation Region. You can then view and manage all of this data from the aggregation Region. For more details about cross-Region aggregation, see [Cross-Region aggregation](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html) in the *User Guide*
@@ -122,8 +122,8 @@ class FindingAggregator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region_linking_mode: Optional[pulumi.Input['FindingAggregatorRegionLinkingMode']] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region_linking_mode: pulumi.Input[Optional['FindingAggregatorRegionLinkingMode']] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

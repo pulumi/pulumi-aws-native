@@ -27,13 +27,13 @@ class OnlineEvaluationConfigArgs:
                  data_source_config: pulumi.Input['OnlineEvaluationConfigDataSourceConfigArgs'],
                  evaluation_execution_role_arn: pulumi.Input[_builtins.str],
                  rule: pulumi.Input['OnlineEvaluationConfigRuleArgs'],
-                 clustering_config: Optional[pulumi.Input['OnlineEvaluationConfigClusteringConfigArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluators: Optional[pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigEvaluatorReferenceArgs']]]] = None,
-                 execution_status: Optional[pulumi.Input['OnlineEvaluationConfigExecutionStatus']] = None,
-                 insights: Optional[pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigInsightArgs']]]] = None,
-                 online_evaluation_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 clustering_config: pulumi.Input[Optional['OnlineEvaluationConfigClusteringConfigArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluators: pulumi.Input[Optional[Sequence[pulumi.Input['OnlineEvaluationConfigEvaluatorReferenceArgs']]]] = None,
+                 execution_status: pulumi.Input[Optional['OnlineEvaluationConfigExecutionStatus']] = None,
+                 insights: pulumi.Input[Optional[Sequence[pulumi.Input['OnlineEvaluationConfigInsightArgs']]]] = None,
+                 online_evaluation_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OnlineEvaluationConfig resource.
 
@@ -104,86 +104,86 @@ class OnlineEvaluationConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusteringConfig")
-    def clustering_config(self) -> Optional[pulumi.Input['OnlineEvaluationConfigClusteringConfigArgs']]:
+    def clustering_config(self) -> pulumi.Input[Optional['OnlineEvaluationConfigClusteringConfigArgs']]:
         """
         The configuration for clustering analysis of evaluation results.
         """
         return pulumi.get(self, "clustering_config")
 
     @clustering_config.setter
-    def clustering_config(self, value: Optional[pulumi.Input['OnlineEvaluationConfigClusteringConfigArgs']]):
+    def clustering_config(self, value: pulumi.Input[Optional['OnlineEvaluationConfigClusteringConfigArgs']]):
         pulumi.set(self, "clustering_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the online evaluation configuration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def evaluators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigEvaluatorReferenceArgs']]]]:
+    def evaluators(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OnlineEvaluationConfigEvaluatorReferenceArgs']]]]:
         """
         The list of evaluators to apply during online evaluation.
         """
         return pulumi.get(self, "evaluators")
 
     @evaluators.setter
-    def evaluators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigEvaluatorReferenceArgs']]]]):
+    def evaluators(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OnlineEvaluationConfigEvaluatorReferenceArgs']]]]):
         pulumi.set(self, "evaluators", value)
 
     @_builtins.property
     @pulumi.getter(name="executionStatus")
-    def execution_status(self) -> Optional[pulumi.Input['OnlineEvaluationConfigExecutionStatus']]:
+    def execution_status(self) -> pulumi.Input[Optional['OnlineEvaluationConfigExecutionStatus']]:
         """
         The execution status indicating whether the online evaluation is currently running.
         """
         return pulumi.get(self, "execution_status")
 
     @execution_status.setter
-    def execution_status(self, value: Optional[pulumi.Input['OnlineEvaluationConfigExecutionStatus']]):
+    def execution_status(self, value: pulumi.Input[Optional['OnlineEvaluationConfigExecutionStatus']]):
         pulumi.set(self, "execution_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def insights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigInsightArgs']]]]:
+    def insights(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OnlineEvaluationConfigInsightArgs']]]]:
         """
         The list of insights to enable for failure analysis.
         """
         return pulumi.get(self, "insights")
 
     @insights.setter
-    def insights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigInsightArgs']]]]):
+    def insights(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OnlineEvaluationConfigInsightArgs']]]]):
         pulumi.set(self, "insights", value)
 
     @_builtins.property
     @pulumi.getter(name="onlineEvaluationConfigName")
-    def online_evaluation_config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def online_evaluation_config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the online evaluation configuration. Must be unique within your account.
         """
         return pulumi.get(self, "online_evaluation_config_name")
 
     @online_evaluation_config_name.setter
-    def online_evaluation_config_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def online_evaluation_config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "online_evaluation_config_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags to assign to the online evaluation configuration.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -193,16 +193,16 @@ class OnlineEvaluationConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 clustering_config: Optional[pulumi.Input[Union['OnlineEvaluationConfigClusteringConfigArgs', 'OnlineEvaluationConfigClusteringConfigArgsDict']]] = None,
-                 data_source_config: Optional[pulumi.Input[Union['OnlineEvaluationConfigDataSourceConfigArgs', 'OnlineEvaluationConfigDataSourceConfigArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OnlineEvaluationConfigEvaluatorReferenceArgs', 'OnlineEvaluationConfigEvaluatorReferenceArgsDict']]]]] = None,
-                 execution_status: Optional[pulumi.Input['OnlineEvaluationConfigExecutionStatus']] = None,
-                 insights: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OnlineEvaluationConfigInsightArgs', 'OnlineEvaluationConfigInsightArgsDict']]]]] = None,
-                 online_evaluation_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule: Optional[pulumi.Input[Union['OnlineEvaluationConfigRuleArgs', 'OnlineEvaluationConfigRuleArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 clustering_config: pulumi.Input[Optional[Union['OnlineEvaluationConfigClusteringConfigArgs', 'OnlineEvaluationConfigClusteringConfigArgsDict']]] = None,
+                 data_source_config: pulumi.Input[Optional[Union['OnlineEvaluationConfigDataSourceConfigArgs', 'OnlineEvaluationConfigDataSourceConfigArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnlineEvaluationConfigEvaluatorReferenceArgs', 'OnlineEvaluationConfigEvaluatorReferenceArgsDict']]]]] = None,
+                 execution_status: pulumi.Input[Optional['OnlineEvaluationConfigExecutionStatus']] = None,
+                 insights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnlineEvaluationConfigInsightArgs', 'OnlineEvaluationConfigInsightArgsDict']]]]] = None,
+                 online_evaluation_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule: pulumi.Input[Optional[Union['OnlineEvaluationConfigRuleArgs', 'OnlineEvaluationConfigRuleArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::OnlineEvaluationConfig - Creates an online evaluation configuration for continuous monitoring of agent performance.
@@ -246,16 +246,16 @@ class OnlineEvaluationConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 clustering_config: Optional[pulumi.Input[Union['OnlineEvaluationConfigClusteringConfigArgs', 'OnlineEvaluationConfigClusteringConfigArgsDict']]] = None,
-                 data_source_config: Optional[pulumi.Input[Union['OnlineEvaluationConfigDataSourceConfigArgs', 'OnlineEvaluationConfigDataSourceConfigArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OnlineEvaluationConfigEvaluatorReferenceArgs', 'OnlineEvaluationConfigEvaluatorReferenceArgsDict']]]]] = None,
-                 execution_status: Optional[pulumi.Input['OnlineEvaluationConfigExecutionStatus']] = None,
-                 insights: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OnlineEvaluationConfigInsightArgs', 'OnlineEvaluationConfigInsightArgsDict']]]]] = None,
-                 online_evaluation_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule: Optional[pulumi.Input[Union['OnlineEvaluationConfigRuleArgs', 'OnlineEvaluationConfigRuleArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 clustering_config: pulumi.Input[Optional[Union['OnlineEvaluationConfigClusteringConfigArgs', 'OnlineEvaluationConfigClusteringConfigArgsDict']]] = None,
+                 data_source_config: pulumi.Input[Optional[Union['OnlineEvaluationConfigDataSourceConfigArgs', 'OnlineEvaluationConfigDataSourceConfigArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluators: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnlineEvaluationConfigEvaluatorReferenceArgs', 'OnlineEvaluationConfigEvaluatorReferenceArgsDict']]]]] = None,
+                 execution_status: pulumi.Input[Optional['OnlineEvaluationConfigExecutionStatus']] = None,
+                 insights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnlineEvaluationConfigInsightArgs', 'OnlineEvaluationConfigInsightArgsDict']]]]] = None,
+                 online_evaluation_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule: pulumi.Input[Optional[Union['OnlineEvaluationConfigRuleArgs', 'OnlineEvaluationConfigRuleArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

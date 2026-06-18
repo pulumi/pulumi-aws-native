@@ -32,13 +32,13 @@ class ServiceDnsConfigArgsDict(TypedDict):
 
     > The record type of a service can't be updated directly and can only be changed by deleting the service and recreating it with a new `DnsConfig` .
     """
-    namespace_id: NotRequired[pulumi.Input[_builtins.str]]
+    namespace_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     *Use NamespaceId in [Service](https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html) instead.*
 
     The ID of the namespace to use for DNS configuration.
     """
-    routing_policy: NotRequired[pulumi.Input[_builtins.str]]
+    routing_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The routing policy that you want to apply to all Route 53 DNS records that AWS Cloud Map creates when you register an instance and specify this service.
 
@@ -66,8 +66,8 @@ class ServiceDnsConfigArgsDict(TypedDict):
 class ServiceDnsConfigArgs:
     def __init__(__self__, *,
                  dns_records: pulumi.Input[Sequence[pulumi.Input['ServiceDnsRecordArgs']]],
-                 namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ServiceDnsRecordArgs']]] dns_records: An array that contains one `DnsRecord` object for each Route 53 DNS record that you want AWS Cloud Map to create when you register an instance.
                
@@ -118,7 +118,7 @@ class ServiceDnsConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="namespaceId")
-    def namespace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Use NamespaceId in [Service](https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html) instead.*
 
@@ -127,12 +127,12 @@ class ServiceDnsConfigArgs:
         return pulumi.get(self, "namespace_id")
 
     @namespace_id.setter
-    def namespace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="routingPolicy")
-    def routing_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The routing policy that you want to apply to all Route 53 DNS records that AWS Cloud Map creates when you register an instance and specify this service.
 
@@ -158,7 +158,7 @@ class ServiceDnsConfigArgs:
         return pulumi.get(self, "routing_policy")
 
     @routing_policy.setter
-    def routing_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_policy", value)
 
 
@@ -351,11 +351,11 @@ class ServiceHealthCheckConfigArgsDict(TypedDict):
 
     For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
     """
-    failure_threshold: NotRequired[pulumi.Input[_builtins.float]]
+    failure_threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or the other way around. For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
     """
-    resource_path: NotRequired[pulumi.Input[_builtins.str]]
+    resource_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path that you want Route 53 to request when performing health checks. The path can be any value that your endpoint returns an HTTP status code of a 2xx or 3xx format for when the endpoint is healthy. An example file is `/docs/route53-health-check.html` . Route 53 automatically adds the DNS name for the service. If you don't specify a value for `ResourcePath` , the default value is `/` .
 
@@ -366,8 +366,8 @@ class ServiceHealthCheckConfigArgsDict(TypedDict):
 class ServiceHealthCheckConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 failure_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 resource_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 failure_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 resource_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
                
@@ -423,19 +423,19 @@ class ServiceHealthCheckConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def failure_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or the other way around. For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
         """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
-    def failure_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def failure_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "failure_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcePath")
-    def resource_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path that you want Route 53 to request when performing health checks. The path can be any value that your endpoint returns an HTTP status code of a 2xx or 3xx format for when the endpoint is healthy. An example file is `/docs/route53-health-check.html` . Route 53 automatically adds the DNS name for the service. If you don't specify a value for `ResourcePath` , the default value is `/` .
 
@@ -444,12 +444,12 @@ class ServiceHealthCheckConfigArgs:
         return pulumi.get(self, "resource_path")
 
     @resource_path.setter
-    def resource_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_path", value)
 
 
 class ServiceHealthCheckCustomConfigArgsDict(TypedDict):
-    failure_threshold: NotRequired[pulumi.Input[_builtins.float]]
+    failure_threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     > This parameter is no longer supported and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an `UpdateInstanceCustomHealthStatus` request before changing the status of the service instance. 
 
@@ -461,7 +461,7 @@ class ServiceHealthCheckCustomConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceHealthCheckCustomConfigArgs:
     def __init__(__self__, *,
-                 failure_threshold: Optional[pulumi.Input[_builtins.float]] = None):
+                 failure_threshold: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.float] failure_threshold: > This parameter is no longer supported and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an `UpdateInstanceCustomHealthStatus` request before changing the status of the service instance. 
                
@@ -474,7 +474,7 @@ class ServiceHealthCheckCustomConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def failure_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         > This parameter is no longer supported and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an `UpdateInstanceCustomHealthStatus` request before changing the status of the service instance. 
 
@@ -485,7 +485,7 @@ class ServiceHealthCheckCustomConfigArgs:
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
-    def failure_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def failure_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "failure_threshold", value)
 
 

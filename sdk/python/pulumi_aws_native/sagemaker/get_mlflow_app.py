@@ -180,7 +180,7 @@ def get_mlflow_app(arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         weekly_maintenance_window_start=pulumi.get(__ret__, 'weekly_maintenance_window_start'))
-def get_mlflow_app_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_mlflow_app_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMlflowAppResult]:
     """
     Resource type definition for AWS::SageMaker::MlflowApp

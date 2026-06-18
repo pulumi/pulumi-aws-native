@@ -193,7 +193,7 @@ def get_api(api_id: Optional[_builtins.str] = None,
         route_selection_expression=pulumi.get(__ret__, 'route_selection_expression'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-def get_api_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiResult]:
     """
     The ``AWS::ApiGatewayV2::Api`` resource creates an API. WebSocket APIs and HTTP APIs are supported. For more information about WebSocket APIs, see [About WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide*. For more information about HTTP APIs, see [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) in the *API Gateway Developer Guide.*

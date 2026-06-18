@@ -87,7 +87,7 @@ def get_vpc_endpoint_connection_notification(vpc_endpoint_connection_notificatio
         connection_events=pulumi.get(__ret__, 'connection_events'),
         connection_notification_arn=pulumi.get(__ret__, 'connection_notification_arn'),
         vpc_endpoint_connection_notification_id=pulumi.get(__ret__, 'vpc_endpoint_connection_notification_id'))
-def get_vpc_endpoint_connection_notification_output(vpc_endpoint_connection_notification_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_endpoint_connection_notification_output(vpc_endpoint_connection_notification_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointConnectionNotificationResult]:
     """
     Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification

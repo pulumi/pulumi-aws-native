@@ -154,7 +154,7 @@ def get_dataset(dataset_arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_dataset_output(dataset_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dataset_output(dataset_arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetResult]:
     """
     Definition of AWS::BedrockAgentCore::Dataset Resource Type

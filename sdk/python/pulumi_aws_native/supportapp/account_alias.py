@@ -46,7 +46,7 @@ class AccountAlias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_alias: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_alias: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.
@@ -81,7 +81,7 @@ class AccountAlias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_alias: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_alias: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

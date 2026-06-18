@@ -23,7 +23,7 @@ class BotVersionArgs:
     def __init__(__self__, *,
                  bot_id: pulumi.Input[_builtins.str],
                  bot_version_locale_specification: pulumi.Input[Sequence[pulumi.Input['BotVersionLocaleSpecificationArgs']]],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BotVersion resource.
 
@@ -62,14 +62,14 @@ class BotVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the version.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -79,9 +79,9 @@ class BotVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_version_locale_specification: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotVersionLocaleSpecificationArgs', 'BotVersionLocaleSpecificationArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bot_version_locale_specification: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BotVersionLocaleSpecificationArgs', 'BotVersionLocaleSpecificationArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for bot versions, a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
@@ -118,9 +118,9 @@ class BotVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_version_locale_specification: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotVersionLocaleSpecificationArgs', 'BotVersionLocaleSpecificationArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bot_version_locale_specification: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BotVersionLocaleSpecificationArgs', 'BotVersionLocaleSpecificationArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

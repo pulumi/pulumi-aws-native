@@ -88,7 +88,7 @@ def get_mail_manager_address_list(address_list_id: Optional[_builtins.str] = Non
         address_list_arn=pulumi.get(__ret__, 'address_list_arn'),
         address_list_id=pulumi.get(__ret__, 'address_list_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_mail_manager_address_list_output(address_list_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_mail_manager_address_list_output(address_list_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMailManagerAddressListResult]:
     """
     Definition of AWS::SES::MailManagerAddressList Resource Type

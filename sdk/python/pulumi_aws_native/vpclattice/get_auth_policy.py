@@ -77,7 +77,7 @@ def get_auth_policy(resource_identifier: Optional[_builtins.str] = None,
     return AwaitableGetAuthPolicyResult(
         policy=pulumi.get(__ret__, 'policy'),
         state=pulumi.get(__ret__, 'state'))
-def get_auth_policy_output(resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_auth_policy_output(resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthPolicyResult]:
     """
     Creates or updates the auth policy.

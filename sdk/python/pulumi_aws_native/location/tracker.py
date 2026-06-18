@@ -22,15 +22,15 @@ __all__ = ['TrackerArgs', 'Tracker']
 @pulumi.input_type
 class TrackerArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_bridge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_enable_geospatial_queries: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 position_filtering: Optional[pulumi.Input['TrackerPositionFiltering']] = None,
-                 pricing_plan: Optional[pulumi.Input['TrackerPricingPlan']] = None,
-                 pricing_plan_data_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 tracker_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_bridge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_enable_geospatial_queries: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 position_filtering: pulumi.Input[Optional['TrackerPositionFiltering']] = None,
+                 pricing_plan: pulumi.Input[Optional['TrackerPricingPlan']] = None,
+                 pricing_plan_data_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tracker_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Tracker resource.
 
@@ -76,49 +76,49 @@ class TrackerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description for the tracker resource.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="eventBridgeEnabled")
-    def event_bridge_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def event_bridge_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "event_bridge_enabled")
 
     @event_bridge_enabled.setter
-    def event_bridge_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def event_bridge_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "event_bridge_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyEnableGeospatialQueries")
-    def kms_key_enable_geospatial_queries(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kms_key_enable_geospatial_queries(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "kms_key_enable_geospatial_queries")
 
     @kms_key_enable_geospatial_queries.setter
-    def kms_key_enable_geospatial_queries(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kms_key_enable_geospatial_queries(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kms_key_enable_geospatial_queries", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="positionFiltering")
-    def position_filtering(self) -> Optional[pulumi.Input['TrackerPositionFiltering']]:
+    def position_filtering(self) -> pulumi.Input[Optional['TrackerPositionFiltering']]:
         """
         Specifies the position filtering for the tracker resource.
 
@@ -133,45 +133,45 @@ class TrackerArgs:
         return pulumi.get(self, "position_filtering")
 
     @position_filtering.setter
-    def position_filtering(self, value: Optional[pulumi.Input['TrackerPositionFiltering']]):
+    def position_filtering(self, value: pulumi.Input[Optional['TrackerPositionFiltering']]):
         pulumi.set(self, "position_filtering", value)
 
     @_builtins.property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> Optional[pulumi.Input['TrackerPricingPlan']]:
+    def pricing_plan(self) -> pulumi.Input[Optional['TrackerPricingPlan']]:
         return pulumi.get(self, "pricing_plan")
 
     @pricing_plan.setter
-    def pricing_plan(self, value: Optional[pulumi.Input['TrackerPricingPlan']]):
+    def pricing_plan(self, value: pulumi.Input[Optional['TrackerPricingPlan']]):
         pulumi.set(self, "pricing_plan", value)
 
     @_builtins.property
     @pulumi.getter(name="pricingPlanDataSource")
-    def pricing_plan_data_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pricing_plan_data_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
         """
         return pulumi.get(self, "pricing_plan_data_source")
 
     @pricing_plan_data_source.setter
-    def pricing_plan_data_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pricing_plan_data_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pricing_plan_data_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trackerName")
-    def tracker_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tracker_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the tracker resource.
 
@@ -184,7 +184,7 @@ class TrackerArgs:
         return pulumi.get(self, "tracker_name")
 
     @tracker_name.setter
-    def tracker_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tracker_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tracker_name", value)
 
 
@@ -194,15 +194,15 @@ class Tracker(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_bridge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_enable_geospatial_queries: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 position_filtering: Optional[pulumi.Input['TrackerPositionFiltering']] = None,
-                 pricing_plan: Optional[pulumi.Input['TrackerPricingPlan']] = None,
-                 pricing_plan_data_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tracker_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_bridge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_enable_geospatial_queries: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 position_filtering: pulumi.Input[Optional['TrackerPositionFiltering']] = None,
+                 pricing_plan: pulumi.Input[Optional['TrackerPricingPlan']] = None,
+                 pricing_plan_data_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tracker_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::Location::Tracker Resource Type
@@ -256,15 +256,15 @@ class Tracker(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_bridge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_enable_geospatial_queries: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 position_filtering: Optional[pulumi.Input['TrackerPositionFiltering']] = None,
-                 pricing_plan: Optional[pulumi.Input['TrackerPricingPlan']] = None,
-                 pricing_plan_data_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tracker_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_bridge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_enable_geospatial_queries: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 position_filtering: pulumi.Input[Optional['TrackerPositionFiltering']] = None,
+                 pricing_plan: pulumi.Input[Optional['TrackerPricingPlan']] = None,
+                 pricing_plan_data_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tracker_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

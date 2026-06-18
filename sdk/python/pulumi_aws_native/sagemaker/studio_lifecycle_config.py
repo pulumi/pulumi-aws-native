@@ -24,8 +24,8 @@ class StudioLifecycleConfigArgs:
     def __init__(__self__, *,
                  studio_lifecycle_config_app_type: pulumi.Input['StudioLifecycleConfigAppType'],
                  studio_lifecycle_config_content: pulumi.Input[_builtins.str],
-                 studio_lifecycle_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 studio_lifecycle_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a StudioLifecycleConfig resource.
 
@@ -67,26 +67,26 @@ class StudioLifecycleConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="studioLifecycleConfigName")
-    def studio_lifecycle_config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def studio_lifecycle_config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Amazon SageMaker Studio Lifecycle Configuration.
         """
         return pulumi.get(self, "studio_lifecycle_config_name")
 
     @studio_lifecycle_config_name.setter
-    def studio_lifecycle_config_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def studio_lifecycle_config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "studio_lifecycle_config_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -96,10 +96,10 @@ class StudioLifecycleConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 studio_lifecycle_config_app_type: Optional[pulumi.Input['StudioLifecycleConfigAppType']] = None,
-                 studio_lifecycle_config_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 studio_lifecycle_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 studio_lifecycle_config_app_type: pulumi.Input[Optional['StudioLifecycleConfigAppType']] = None,
+                 studio_lifecycle_config_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 studio_lifecycle_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::StudioLifecycleConfig
@@ -137,10 +137,10 @@ class StudioLifecycleConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 studio_lifecycle_config_app_type: Optional[pulumi.Input['StudioLifecycleConfigAppType']] = None,
-                 studio_lifecycle_config_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 studio_lifecycle_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 studio_lifecycle_config_app_type: pulumi.Input[Optional['StudioLifecycleConfigAppType']] = None,
+                 studio_lifecycle_config_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 studio_lifecycle_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

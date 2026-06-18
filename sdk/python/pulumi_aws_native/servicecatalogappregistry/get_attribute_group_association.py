@@ -77,8 +77,8 @@ def get_attribute_group_association(application_arn: Optional[_builtins.str] = N
     return AwaitableGetAttributeGroupAssociationResult(
         application_arn=pulumi.get(__ret__, 'application_arn'),
         attribute_group_arn=pulumi.get(__ret__, 'attribute_group_arn'))
-def get_attribute_group_association_output(application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                           attribute_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_attribute_group_association_output(application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                           attribute_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttributeGroupAssociationResult]:
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.

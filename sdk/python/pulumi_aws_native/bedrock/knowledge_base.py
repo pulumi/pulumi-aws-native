@@ -24,10 +24,10 @@ class KnowledgeBaseArgs:
     def __init__(__self__, *,
                  knowledge_base_configuration: pulumi.Input['KnowledgeBaseConfigurationArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_configuration: Optional[pulumi.Input['KnowledgeBaseStorageConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_configuration: pulumi.Input[Optional['KnowledgeBaseStorageConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KnowledgeBase resource.
 
@@ -78,43 +78,43 @@ class KnowledgeBaseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the Resource.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the knowledge base.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageConfiguration")
-    def storage_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseStorageConfigurationArgs']]:
+    def storage_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseStorageConfigurationArgs']]:
         """
         Contains details about the storage configuration of the knowledge base.
         """
         return pulumi.get(self, "storage_configuration")
 
     @storage_configuration.setter
-    def storage_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseStorageConfigurationArgs']]):
+    def storage_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseStorageConfigurationArgs']]):
         pulumi.set(self, "storage_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
 
@@ -124,7 +124,7 @@ class KnowledgeBaseArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -134,12 +134,12 @@ class KnowledgeBase(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_configuration: Optional[pulumi.Input[Union['KnowledgeBaseConfigurationArgs', 'KnowledgeBaseConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_configuration: Optional[pulumi.Input[Union['KnowledgeBaseStorageConfigurationArgs', 'KnowledgeBaseStorageConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_configuration: pulumi.Input[Optional[Union['KnowledgeBaseConfigurationArgs', 'KnowledgeBaseConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_configuration: pulumi.Input[Optional[Union['KnowledgeBaseStorageConfigurationArgs', 'KnowledgeBaseStorageConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::KnowledgeBase Resource Type
@@ -182,12 +182,12 @@ class KnowledgeBase(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_configuration: Optional[pulumi.Input[Union['KnowledgeBaseConfigurationArgs', 'KnowledgeBaseConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_configuration: Optional[pulumi.Input[Union['KnowledgeBaseStorageConfigurationArgs', 'KnowledgeBaseStorageConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_configuration: pulumi.Input[Optional[Union['KnowledgeBaseConfigurationArgs', 'KnowledgeBaseConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_configuration: pulumi.Input[Optional[Union['KnowledgeBaseStorageConfigurationArgs', 'KnowledgeBaseStorageConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

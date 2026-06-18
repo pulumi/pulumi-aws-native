@@ -131,7 +131,7 @@ def get_access_point(name: Optional[_builtins.str] = None,
         public_access_block_configuration=pulumi.get(__ret__, 'public_access_block_configuration'),
         scope=pulumi.get(__ret__, 'scope'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_access_point_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_point_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
     The AWS::S3Express::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.

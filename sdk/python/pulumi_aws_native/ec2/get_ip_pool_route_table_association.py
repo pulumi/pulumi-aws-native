@@ -61,7 +61,7 @@ def get_ip_pool_route_table_association(association_id: Optional[_builtins.str] 
 
     return AwaitableGetIpPoolRouteTableAssociationResult(
         association_id=pulumi.get(__ret__, 'association_id'))
-def get_ip_pool_route_table_association_output(association_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ip_pool_route_table_association_output(association_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpPoolRouteTableAssociationResult]:
     """
     Resource Type definition for AWS::EC2::IpPoolRouteTableAssociation

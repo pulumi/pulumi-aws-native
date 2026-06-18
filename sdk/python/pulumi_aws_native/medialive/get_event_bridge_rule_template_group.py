@@ -120,7 +120,7 @@ def get_event_bridge_rule_template_group(identifier: Optional[_builtins.str] = N
         id=pulumi.get(__ret__, 'id'),
         identifier=pulumi.get(__ret__, 'identifier'),
         modified_at=pulumi.get(__ret__, 'modified_at'))
-def get_event_bridge_rule_template_group_output(identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_bridge_rule_template_group_output(identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventBridgeRuleTemplateGroupResult]:
     """
     Definition of AWS::MediaLive::EventBridgeRuleTemplateGroup Resource Type

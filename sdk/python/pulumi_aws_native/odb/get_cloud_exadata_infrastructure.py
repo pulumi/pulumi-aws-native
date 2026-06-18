@@ -350,7 +350,7 @@ def get_cloud_exadata_infrastructure(cloud_exadata_infrastructure_arn: Optional[
         storage_server_version=pulumi.get(__ret__, 'storage_server_version'),
         tags=pulumi.get(__ret__, 'tags'),
         total_storage_size_in_gbs=pulumi.get(__ret__, 'total_storage_size_in_gbs'))
-def get_cloud_exadata_infrastructure_output(cloud_exadata_infrastructure_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cloud_exadata_infrastructure_output(cloud_exadata_infrastructure_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudExadataInfrastructureResult]:
     """
     The AWS::ODB::CloudExadataInfrastructure resource creates an Exadata Infrastructure

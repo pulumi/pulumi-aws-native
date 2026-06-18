@@ -25,11 +25,11 @@ class TrafficMirrorSessionArgs:
                  session_number: pulumi.Input[_builtins.int],
                  traffic_mirror_filter_id: pulumi.Input[_builtins.str],
                  traffic_mirror_target_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 packet_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 packet_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a TrafficMirrorSession resource.
 
@@ -108,62 +108,62 @@ class TrafficMirrorSessionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Traffic Mirror session.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the account that owns the Traffic Mirror session.
         """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
-    def owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="packetLength")
-    def packet_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def packet_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of bytes in each packet to mirror.
         """
         return pulumi.get(self, "packet_length")
 
     @packet_length.setter
-    def packet_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def packet_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "packet_length", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags assigned to the Traffic Mirror session.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The VXLAN ID for the Traffic Mirror session.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -173,15 +173,15 @@ class TrafficMirrorSession(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 packet_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 session_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 traffic_mirror_filter_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_mirror_target_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 packet_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 session_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 traffic_mirror_filter_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_mirror_target_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Resource schema for AWS::EC2::TrafficMirrorSession
@@ -224,15 +224,15 @@ class TrafficMirrorSession(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 packet_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 session_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 traffic_mirror_filter_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_mirror_target_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 packet_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 session_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 traffic_mirror_filter_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_mirror_target_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -116,7 +116,7 @@ def get_backup_vault(backup_vault_name: Optional[_builtins.str] = None,
         backup_vault_tags=pulumi.get(__ret__, 'backup_vault_tags'),
         lock_configuration=pulumi.get(__ret__, 'lock_configuration'),
         notifications=pulumi.get(__ret__, 'notifications'))
-def get_backup_vault_output(backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_backup_vault_output(backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupVaultResult]:
     """
     Resource Type definition for AWS::Backup::BackupVault

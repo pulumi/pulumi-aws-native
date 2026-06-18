@@ -89,7 +89,7 @@ def get_snapshot(snapshot_name: Optional[_builtins.str] = None,
         owner_account=pulumi.get(__ret__, 'owner_account'),
         retention_period=pulumi.get(__ret__, 'retention_period'),
         snapshot=pulumi.get(__ret__, 'snapshot'))
-def get_snapshot_output(snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_snapshot_output(snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Resource Type definition for AWS::RedshiftServerless::Snapshot Resource Type.

@@ -155,7 +155,7 @@ def get_game_server_group(game_server_group_arn: Optional[_builtins.str] = None,
         instance_definitions=pulumi.get(__ret__, 'instance_definitions'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_game_server_group_output(game_server_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_game_server_group_output(game_server_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGameServerGroupResult]:
     """
     The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.

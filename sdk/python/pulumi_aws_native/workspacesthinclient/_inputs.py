@@ -27,27 +27,27 @@ class EnvironmentMaintenanceWindowArgsDict(TypedDict):
     """
     The type of maintenance window.
     """
-    apply_time_of: NotRequired[pulumi.Input['EnvironmentMaintenanceWindowApplyTimeOf']]
+    apply_time_of: NotRequired[pulumi.Input[Optional['EnvironmentMaintenanceWindowApplyTimeOf']]]
     """
     The desired time zone maintenance window.
     """
-    days_of_the_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentDayOfWeek']]]]
+    days_of_the_week: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentDayOfWeek']]]]]
     """
     The date of maintenance window.
     """
-    end_time_hour: NotRequired[pulumi.Input[_builtins.int]]
+    end_time_hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The hour end time of maintenance window.
     """
-    end_time_minute: NotRequired[pulumi.Input[_builtins.int]]
+    end_time_minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minute end time of maintenance window.
     """
-    start_time_hour: NotRequired[pulumi.Input[_builtins.int]]
+    start_time_hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The hour start time of maintenance window.
     """
-    start_time_minute: NotRequired[pulumi.Input[_builtins.int]]
+    start_time_minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minute start time of maintenance window.
     """
@@ -56,12 +56,12 @@ class EnvironmentMaintenanceWindowArgsDict(TypedDict):
 class EnvironmentMaintenanceWindowArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['EnvironmentMaintenanceWindowType'],
-                 apply_time_of: Optional[pulumi.Input['EnvironmentMaintenanceWindowApplyTimeOf']] = None,
-                 days_of_the_week: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDayOfWeek']]]] = None,
-                 end_time_hour: Optional[pulumi.Input[_builtins.int]] = None,
-                 end_time_minute: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_time_hour: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_time_minute: Optional[pulumi.Input[_builtins.int]] = None):
+                 apply_time_of: pulumi.Input[Optional['EnvironmentMaintenanceWindowApplyTimeOf']] = None,
+                 days_of_the_week: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentDayOfWeek']]]] = None,
+                 end_time_hour: pulumi.Input[Optional[_builtins.int]] = None,
+                 end_time_minute: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_time_hour: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_time_minute: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input['EnvironmentMaintenanceWindowType'] type: The type of maintenance window.
         :param pulumi.Input['EnvironmentMaintenanceWindowApplyTimeOf'] apply_time_of: The desired time zone maintenance window.
@@ -99,74 +99,74 @@ class EnvironmentMaintenanceWindowArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyTimeOf")
-    def apply_time_of(self) -> Optional[pulumi.Input['EnvironmentMaintenanceWindowApplyTimeOf']]:
+    def apply_time_of(self) -> pulumi.Input[Optional['EnvironmentMaintenanceWindowApplyTimeOf']]:
         """
         The desired time zone maintenance window.
         """
         return pulumi.get(self, "apply_time_of")
 
     @apply_time_of.setter
-    def apply_time_of(self, value: Optional[pulumi.Input['EnvironmentMaintenanceWindowApplyTimeOf']]):
+    def apply_time_of(self, value: pulumi.Input[Optional['EnvironmentMaintenanceWindowApplyTimeOf']]):
         pulumi.set(self, "apply_time_of", value)
 
     @_builtins.property
     @pulumi.getter(name="daysOfTheWeek")
-    def days_of_the_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDayOfWeek']]]]:
+    def days_of_the_week(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentDayOfWeek']]]]:
         """
         The date of maintenance window.
         """
         return pulumi.get(self, "days_of_the_week")
 
     @days_of_the_week.setter
-    def days_of_the_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDayOfWeek']]]]):
+    def days_of_the_week(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentDayOfWeek']]]]):
         pulumi.set(self, "days_of_the_week", value)
 
     @_builtins.property
     @pulumi.getter(name="endTimeHour")
-    def end_time_hour(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def end_time_hour(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The hour end time of maintenance window.
         """
         return pulumi.get(self, "end_time_hour")
 
     @end_time_hour.setter
-    def end_time_hour(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def end_time_hour(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "end_time_hour", value)
 
     @_builtins.property
     @pulumi.getter(name="endTimeMinute")
-    def end_time_minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def end_time_minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minute end time of maintenance window.
         """
         return pulumi.get(self, "end_time_minute")
 
     @end_time_minute.setter
-    def end_time_minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def end_time_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "end_time_minute", value)
 
     @_builtins.property
     @pulumi.getter(name="startTimeHour")
-    def start_time_hour(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_time_hour(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The hour start time of maintenance window.
         """
         return pulumi.get(self, "start_time_hour")
 
     @start_time_hour.setter
-    def start_time_hour(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_time_hour(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_time_hour", value)
 
     @_builtins.property
     @pulumi.getter(name="startTimeMinute")
-    def start_time_minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_time_minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minute start time of maintenance window.
         """
         return pulumi.get(self, "start_time_minute")
 
     @start_time_minute.setter
-    def start_time_minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_time_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_time_minute", value)
 
 

@@ -23,12 +23,12 @@ __all__ = ['GatewayTargetArgs', 'GatewayTarget']
 class GatewayTargetArgs:
     def __init__(__self__, *,
                  target_configuration: pulumi.Input[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgs']],
-                 credential_provider_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_configuration: Optional[pulumi.Input['GatewayTargetMetadataConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint: Optional[pulumi.Input[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgs']]] = None):
+                 credential_provider_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_configuration: pulumi.Input[Optional['GatewayTargetMetadataConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint: pulumi.Input[Optional[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgs']]] = None):
         """
         The set of arguments for constructing a GatewayTarget resource.
 
@@ -66,68 +66,68 @@ class GatewayTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="credentialProviderConfigurations")
-    def credential_provider_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]]]:
+    def credential_provider_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]]]:
         """
         The OAuth credential provider configuration.
         """
         return pulumi.get(self, "credential_provider_configurations")
 
     @credential_provider_configurations.setter
-    def credential_provider_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]]]):
+    def credential_provider_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]]]):
         pulumi.set(self, "credential_provider_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the gateway target.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayIdentifier")
-    def gateway_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The gateway ID for the gateway target.
         """
         return pulumi.get(self, "gateway_identifier")
 
     @gateway_identifier.setter
-    def gateway_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataConfiguration")
-    def metadata_configuration(self) -> Optional[pulumi.Input['GatewayTargetMetadataConfigurationArgs']]:
+    def metadata_configuration(self) -> pulumi.Input[Optional['GatewayTargetMetadataConfigurationArgs']]:
         return pulumi.get(self, "metadata_configuration")
 
     @metadata_configuration.setter
-    def metadata_configuration(self, value: Optional[pulumi.Input['GatewayTargetMetadataConfigurationArgs']]):
+    def metadata_configuration(self, value: pulumi.Input[Optional['GatewayTargetMetadataConfigurationArgs']]):
         pulumi.set(self, "metadata_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the gateway target.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional[pulumi.Input[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgs']]]:
+    def private_endpoint(self) -> pulumi.Input[Optional[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgs']]]:
         return pulumi.get(self, "private_endpoint")
 
     @private_endpoint.setter
-    def private_endpoint(self, value: Optional[pulumi.Input[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgs']]]):
+    def private_endpoint(self, value: pulumi.Input[Optional[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgs']]]):
         pulumi.set(self, "private_endpoint", value)
 
 
@@ -137,13 +137,13 @@ class GatewayTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_provider_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayTargetCredentialProviderConfigurationArgs', 'GatewayTargetCredentialProviderConfigurationArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_configuration: Optional[pulumi.Input[Union['GatewayTargetMetadataConfigurationArgs', 'GatewayTargetMetadataConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint: Optional[pulumi.Input[Union[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint0PropertiesArgsDict'], Union['GatewayTargetPrivateEndpoint1PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgsDict']]]] = None,
-                 target_configuration: Optional[pulumi.Input[Union[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration0PropertiesArgsDict'], Union['GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgsDict']]]] = None,
+                 credential_provider_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayTargetCredentialProviderConfigurationArgs', 'GatewayTargetCredentialProviderConfigurationArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_configuration: pulumi.Input[Optional[Union['GatewayTargetMetadataConfigurationArgs', 'GatewayTargetMetadataConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint: pulumi.Input[Optional[Union[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint0PropertiesArgsDict'], Union['GatewayTargetPrivateEndpoint1PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgsDict']]]] = None,
+                 target_configuration: pulumi.Input[Optional[Union[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration0PropertiesArgsDict'], Union['GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgsDict']]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
@@ -182,13 +182,13 @@ class GatewayTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_provider_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayTargetCredentialProviderConfigurationArgs', 'GatewayTargetCredentialProviderConfigurationArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_configuration: Optional[pulumi.Input[Union['GatewayTargetMetadataConfigurationArgs', 'GatewayTargetMetadataConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint: Optional[pulumi.Input[Union[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint0PropertiesArgsDict'], Union['GatewayTargetPrivateEndpoint1PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgsDict']]]] = None,
-                 target_configuration: Optional[pulumi.Input[Union[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration0PropertiesArgsDict'], Union['GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgsDict']]]] = None,
+                 credential_provider_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayTargetCredentialProviderConfigurationArgs', 'GatewayTargetCredentialProviderConfigurationArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_configuration: pulumi.Input[Optional[Union['GatewayTargetMetadataConfigurationArgs', 'GatewayTargetMetadataConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint: pulumi.Input[Optional[Union[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint0PropertiesArgsDict'], Union['GatewayTargetPrivateEndpoint1PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgsDict']]]] = None,
+                 target_configuration: pulumi.Input[Optional[Union[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration0PropertiesArgsDict'], Union['GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgsDict']]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

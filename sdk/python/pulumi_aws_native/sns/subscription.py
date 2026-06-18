@@ -22,14 +22,14 @@ class SubscriptionArgs:
                  protocol: pulumi.Input[_builtins.str],
                  topic_arn: pulumi.Input[_builtins.str],
                  delivery_policy: Optional[Any] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  filter_policy: Optional[Any] = None,
-                 filter_policy_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 raw_message_delivery: Optional[pulumi.Input[_builtins.bool]] = None,
+                 filter_policy_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 raw_message_delivery: pulumi.Input[Optional[_builtins.bool]] = None,
                  redrive_policy: Optional[Any] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  replay_policy: Optional[Any] = None,
-                 subscription_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 subscription_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Subscription resource.
 
@@ -114,14 +114,14 @@ class SubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscription's endpoint. The endpoint value depends on the protocol that you specify. 
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
@@ -140,26 +140,26 @@ class SubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="filterPolicyScope")
-    def filter_policy_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_policy_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This attribute lets you choose the filtering scope by using one of the following string value types: MessageAttributes (default) and MessageBody.
         """
         return pulumi.get(self, "filter_policy_scope")
 
     @filter_policy_scope.setter
-    def filter_policy_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_policy_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_policy_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="rawMessageDelivery")
-    def raw_message_delivery(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def raw_message_delivery(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true, enables raw message delivery. Raw messages don't contain any JSON formatting and can be sent to Amazon SQS and HTTP/S endpoints.
         """
         return pulumi.get(self, "raw_message_delivery")
 
     @raw_message_delivery.setter
-    def raw_message_delivery(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def raw_message_delivery(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "raw_message_delivery", value)
 
     @_builtins.property
@@ -178,14 +178,14 @@ class SubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For cross-region subscriptions, the region in which the topic resides.If no region is specified, AWS CloudFormation uses the region of the caller as the default.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
@@ -204,14 +204,14 @@ class SubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="subscriptionRoleArn")
-    def subscription_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This property applies only to Amazon Data Firehose delivery stream subscriptions.
         """
         return pulumi.get(self, "subscription_role_arn")
 
     @subscription_role_arn.setter
-    def subscription_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_role_arn", value)
 
 
@@ -222,16 +222,16 @@ class Subscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_policy: Optional[Any] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  filter_policy: Optional[Any] = None,
-                 filter_policy_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 raw_message_delivery: Optional[pulumi.Input[_builtins.bool]] = None,
+                 filter_policy_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 raw_message_delivery: pulumi.Input[Optional[_builtins.bool]] = None,
                  redrive_policy: Optional[Any] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  replay_policy: Optional[Any] = None,
-                 subscription_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 subscription_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SNS::Subscription
@@ -285,16 +285,16 @@ class Subscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_policy: Optional[Any] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  filter_policy: Optional[Any] = None,
-                 filter_policy_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 raw_message_delivery: Optional[pulumi.Input[_builtins.bool]] = None,
+                 filter_policy_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 raw_message_delivery: pulumi.Input[Optional[_builtins.bool]] = None,
                  redrive_policy: Optional[Any] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  replay_policy: Optional[Any] = None,
-                 subscription_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 subscription_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

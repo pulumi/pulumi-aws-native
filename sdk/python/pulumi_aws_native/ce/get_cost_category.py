@@ -141,7 +141,7 @@ def get_cost_category(arn: Optional[_builtins.str] = None,
         rules=pulumi.get(__ret__, 'rules'),
         split_charge_rules=pulumi.get(__ret__, 'split_charge_rules'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_cost_category_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cost_category_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCostCategoryResult]:
     """
     Resource Type definition for AWS::CE::CostCategory. Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.

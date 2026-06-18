@@ -131,7 +131,7 @@ def get_vpce_configuration(arn: Optional[_builtins.str] = None,
         vpce_configuration_description=pulumi.get(__ret__, 'vpce_configuration_description'),
         vpce_configuration_name=pulumi.get(__ret__, 'vpce_configuration_name'),
         vpce_service_name=pulumi.get(__ret__, 'vpce_service_name'))
-def get_vpce_configuration_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpce_configuration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpceConfigurationResult]:
     """
     Resource Type definition for a Device Farm VPCE Configuration

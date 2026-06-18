@@ -21,9 +21,9 @@ __all__ = ['ApplicationArgs', 'Application']
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_lifecycle_config: Optional[pulumi.Input['ApplicationResourceLifecycleConfigArgs']] = None):
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_lifecycle_config: pulumi.Input[Optional['ApplicationResourceLifecycleConfigArgs']] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -40,38 +40,38 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationName")
-    def application_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
         """
         return pulumi.get(self, "application_name")
 
     @application_name.setter
-    def application_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Your description of the application.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceLifecycleConfig")
-    def resource_lifecycle_config(self) -> Optional[pulumi.Input['ApplicationResourceLifecycleConfigArgs']]:
+    def resource_lifecycle_config(self) -> pulumi.Input[Optional['ApplicationResourceLifecycleConfigArgs']]:
         """
         Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
         """
         return pulumi.get(self, "resource_lifecycle_config")
 
     @resource_lifecycle_config.setter
-    def resource_lifecycle_config(self, value: Optional[pulumi.Input['ApplicationResourceLifecycleConfigArgs']]):
+    def resource_lifecycle_config(self, value: pulumi.Input[Optional['ApplicationResourceLifecycleConfigArgs']]):
         pulumi.set(self, "resource_lifecycle_config", value)
 
 
@@ -81,9 +81,9 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_lifecycle_config: Optional[pulumi.Input[Union['ApplicationResourceLifecycleConfigArgs', 'ApplicationResourceLifecycleConfigArgsDict']]] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_lifecycle_config: pulumi.Input[Optional[Union['ApplicationResourceLifecycleConfigArgs', 'ApplicationResourceLifecycleConfigArgsDict']]] = None,
                  __props__=None):
         """
         The AWS::ElasticBeanstalk::Application resource specifies an Elastic Beanstalk application.
@@ -120,9 +120,9 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_lifecycle_config: Optional[pulumi.Input[Union['ApplicationResourceLifecycleConfigArgs', 'ApplicationResourceLifecycleConfigArgsDict']]] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_lifecycle_config: pulumi.Input[Optional[Union['ApplicationResourceLifecycleConfigArgs', 'ApplicationResourceLifecycleConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

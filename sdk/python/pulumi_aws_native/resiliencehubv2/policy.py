@@ -24,14 +24,14 @@ __all__ = ['PolicyArgs', 'Policy']
 @pulumi.input_type
 class PolicyArgs:
     def __init__(__self__, *,
-                 availability_slo: Optional[pulumi.Input['PolicyAvailabilitySloArgs']] = None,
-                 data_recovery: Optional[pulumi.Input['PolicyDataRecoveryTargetsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_az: Optional[pulumi.Input['PolicyMultiAzTargetsArgs']] = None,
-                 multi_region: Optional[pulumi.Input['PolicyMultiRegionTargetsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 availability_slo: pulumi.Input[Optional['PolicyAvailabilitySloArgs']] = None,
+                 data_recovery: pulumi.Input[Optional['PolicyDataRecoveryTargetsArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_az: pulumi.Input[Optional['PolicyMultiAzTargetsArgs']] = None,
+                 multi_region: pulumi.Input[Optional['PolicyMultiRegionTargetsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Policy resource.
 
@@ -59,86 +59,86 @@ class PolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilitySlo")
-    def availability_slo(self) -> Optional[pulumi.Input['PolicyAvailabilitySloArgs']]:
+    def availability_slo(self) -> pulumi.Input[Optional['PolicyAvailabilitySloArgs']]:
         return pulumi.get(self, "availability_slo")
 
     @availability_slo.setter
-    def availability_slo(self, value: Optional[pulumi.Input['PolicyAvailabilitySloArgs']]):
+    def availability_slo(self, value: pulumi.Input[Optional['PolicyAvailabilitySloArgs']]):
         pulumi.set(self, "availability_slo", value)
 
     @_builtins.property
     @pulumi.getter(name="dataRecovery")
-    def data_recovery(self) -> Optional[pulumi.Input['PolicyDataRecoveryTargetsArgs']]:
+    def data_recovery(self) -> pulumi.Input[Optional['PolicyDataRecoveryTargetsArgs']]:
         return pulumi.get(self, "data_recovery")
 
     @data_recovery.setter
-    def data_recovery(self, value: Optional[pulumi.Input['PolicyDataRecoveryTargetsArgs']]):
+    def data_recovery(self, value: pulumi.Input[Optional['PolicyDataRecoveryTargetsArgs']]):
         pulumi.set(self, "data_recovery", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the policy.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The KMS key ID for encrypting policy data.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="multiAz")
-    def multi_az(self) -> Optional[pulumi.Input['PolicyMultiAzTargetsArgs']]:
+    def multi_az(self) -> pulumi.Input[Optional['PolicyMultiAzTargetsArgs']]:
         return pulumi.get(self, "multi_az")
 
     @multi_az.setter
-    def multi_az(self, value: Optional[pulumi.Input['PolicyMultiAzTargetsArgs']]):
+    def multi_az(self, value: pulumi.Input[Optional['PolicyMultiAzTargetsArgs']]):
         pulumi.set(self, "multi_az", value)
 
     @_builtins.property
     @pulumi.getter(name="multiRegion")
-    def multi_region(self) -> Optional[pulumi.Input['PolicyMultiRegionTargetsArgs']]:
+    def multi_region(self) -> pulumi.Input[Optional['PolicyMultiRegionTargetsArgs']]:
         return pulumi.get(self, "multi_region")
 
     @multi_region.setter
-    def multi_region(self, value: Optional[pulumi.Input['PolicyMultiRegionTargetsArgs']]):
+    def multi_region(self, value: pulumi.Input[Optional['PolicyMultiRegionTargetsArgs']]):
         pulumi.set(self, "multi_region", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags assigned to the policy.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -148,14 +148,14 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_slo: Optional[pulumi.Input[Union['PolicyAvailabilitySloArgs', 'PolicyAvailabilitySloArgsDict']]] = None,
-                 data_recovery: Optional[pulumi.Input[Union['PolicyDataRecoveryTargetsArgs', 'PolicyDataRecoveryTargetsArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_az: Optional[pulumi.Input[Union['PolicyMultiAzTargetsArgs', 'PolicyMultiAzTargetsArgsDict']]] = None,
-                 multi_region: Optional[pulumi.Input[Union['PolicyMultiRegionTargetsArgs', 'PolicyMultiRegionTargetsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 availability_slo: pulumi.Input[Optional[Union['PolicyAvailabilitySloArgs', 'PolicyAvailabilitySloArgsDict']]] = None,
+                 data_recovery: pulumi.Input[Optional[Union['PolicyDataRecoveryTargetsArgs', 'PolicyDataRecoveryTargetsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_az: pulumi.Input[Optional[Union['PolicyMultiAzTargetsArgs', 'PolicyMultiAzTargetsArgsDict']]] = None,
+                 multi_region: pulumi.Input[Optional[Union['PolicyMultiRegionTargetsArgs', 'PolicyMultiRegionTargetsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Creates a resilience policy that defines availability and disaster recovery requirements.
@@ -193,14 +193,14 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_slo: Optional[pulumi.Input[Union['PolicyAvailabilitySloArgs', 'PolicyAvailabilitySloArgsDict']]] = None,
-                 data_recovery: Optional[pulumi.Input[Union['PolicyDataRecoveryTargetsArgs', 'PolicyDataRecoveryTargetsArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_az: Optional[pulumi.Input[Union['PolicyMultiAzTargetsArgs', 'PolicyMultiAzTargetsArgsDict']]] = None,
-                 multi_region: Optional[pulumi.Input[Union['PolicyMultiRegionTargetsArgs', 'PolicyMultiRegionTargetsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 availability_slo: pulumi.Input[Optional[Union['PolicyAvailabilitySloArgs', 'PolicyAvailabilitySloArgsDict']]] = None,
+                 data_recovery: pulumi.Input[Optional[Union['PolicyDataRecoveryTargetsArgs', 'PolicyDataRecoveryTargetsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_az: pulumi.Input[Optional[Union['PolicyMultiAzTargetsArgs', 'PolicyMultiAzTargetsArgsDict']]] = None,
+                 multi_region: pulumi.Input[Optional[Union['PolicyMultiRegionTargetsArgs', 'PolicyMultiRegionTargetsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

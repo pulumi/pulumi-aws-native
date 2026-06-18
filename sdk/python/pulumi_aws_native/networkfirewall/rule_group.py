@@ -26,11 +26,11 @@ class RuleGroupInitArgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[_builtins.int],
                  type: pulumi.Input['RuleGroupTypeEnum'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_group: Optional[pulumi.Input['RuleGroupArgs']] = None,
-                 rule_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 summary_configuration: Optional[pulumi.Input['SummaryConfigurationPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_group: pulumi.Input[Optional['RuleGroupArgs']] = None,
+                 rule_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 summary_configuration: pulumi.Input[Optional['SummaryConfigurationPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RuleGroup resource.
 
@@ -88,43 +88,43 @@ class RuleGroupInitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the rule group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleGroup")
-    def rule_group(self) -> Optional[pulumi.Input['RuleGroupArgs']]:
+    def rule_group(self) -> pulumi.Input[Optional['RuleGroupArgs']]:
         """
         An object that defines the rule group rules.
         """
         return pulumi.get(self, "rule_group")
 
     @rule_group.setter
-    def rule_group(self, value: Optional[pulumi.Input['RuleGroupArgs']]):
+    def rule_group(self, value: pulumi.Input[Optional['RuleGroupArgs']]):
         pulumi.set(self, "rule_group", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleGroupName")
-    def rule_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The descriptive name of the rule group. You can't change the name of a rule group after you create it.
         """
         return pulumi.get(self, "rule_group_name")
 
     @rule_group_name.setter
-    def rule_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="summaryConfiguration")
-    def summary_configuration(self) -> Optional[pulumi.Input['SummaryConfigurationPropertiesArgs']]:
+    def summary_configuration(self) -> pulumi.Input[Optional['SummaryConfigurationPropertiesArgs']]:
         """
         A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
 
@@ -134,12 +134,12 @@ class RuleGroupInitArgs:
         return pulumi.get(self, "summary_configuration")
 
     @summary_configuration.setter
-    def summary_configuration(self, value: Optional[pulumi.Input['SummaryConfigurationPropertiesArgs']]):
+    def summary_configuration(self, value: pulumi.Input[Optional['SummaryConfigurationPropertiesArgs']]):
         pulumi.set(self, "summary_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
 
@@ -148,7 +148,7 @@ class RuleGroupInitArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -158,13 +158,13 @@ class RuleGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_group: Optional[pulumi.Input[Union['RuleGroupArgs', 'RuleGroupArgsDict']]] = None,
-                 rule_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 summary_configuration: Optional[pulumi.Input[Union['SummaryConfigurationPropertiesArgs', 'SummaryConfigurationPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['RuleGroupTypeEnum']] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_group: pulumi.Input[Optional[Union['RuleGroupArgs', 'RuleGroupArgsDict']]] = None,
+                 rule_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 summary_configuration: pulumi.Input[Optional[Union['SummaryConfigurationPropertiesArgs', 'SummaryConfigurationPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['RuleGroupTypeEnum']] = None,
                  __props__=None):
         """
         Resource type definition for AWS::NetworkFirewall::RuleGroup
@@ -211,13 +211,13 @@ class RuleGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_group: Optional[pulumi.Input[Union['RuleGroupArgs', 'RuleGroupArgsDict']]] = None,
-                 rule_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 summary_configuration: Optional[pulumi.Input[Union['SummaryConfigurationPropertiesArgs', 'SummaryConfigurationPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['RuleGroupTypeEnum']] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_group: pulumi.Input[Optional[Union['RuleGroupArgs', 'RuleGroupArgsDict']]] = None,
+                 rule_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 summary_configuration: pulumi.Input[Optional[Union['SummaryConfigurationPropertiesArgs', 'SummaryConfigurationPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['RuleGroupTypeEnum']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

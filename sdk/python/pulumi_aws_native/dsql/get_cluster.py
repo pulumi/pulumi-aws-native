@@ -219,7 +219,7 @@ def get_cluster(identifier: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_endpoint=pulumi.get(__ret__, 'vpc_endpoint'),
         vpc_endpoint_service_name=pulumi.get(__ret__, 'vpc_endpoint_service_name'))
-def get_cluster_output(identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_output(identifier: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Resource Type definition for AWS::DSQL::Cluster

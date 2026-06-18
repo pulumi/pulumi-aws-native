@@ -27,20 +27,20 @@ class MatchmakingConfigurationArgs:
                  acceptance_required: pulumi.Input[_builtins.bool],
                  request_timeout_seconds: pulumi.Input[_builtins.int],
                  rule_set_name: pulumi.Input[_builtins.str],
-                 acceptance_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 additional_player_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 backfill_mode: Optional[pulumi.Input['MatchmakingConfigurationBackfillMode']] = None,
-                 creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_event_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 flex_match_mode: Optional[pulumi.Input['MatchmakingConfigurationFlexMatchMode']] = None,
-                 game_properties: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationGamePropertyArgs']]]] = None,
-                 game_session_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 game_session_queue_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_target: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_set_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 acceptance_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 additional_player_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 backfill_mode: pulumi.Input[Optional['MatchmakingConfigurationBackfillMode']] = None,
+                 creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_event_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 flex_match_mode: pulumi.Input[Optional['MatchmakingConfigurationFlexMatchMode']] = None,
+                 game_properties: pulumi.Input[Optional[Sequence[pulumi.Input['MatchmakingConfigurationGamePropertyArgs']]]] = None,
+                 game_session_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 game_session_queue_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_target: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MatchmakingConfiguration resource.
 
@@ -132,170 +132,170 @@ class MatchmakingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptanceTimeoutSeconds")
-    def acceptance_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def acceptance_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
         """
         return pulumi.get(self, "acceptance_timeout_seconds")
 
     @acceptance_timeout_seconds.setter
-    def acceptance_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def acceptance_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "acceptance_timeout_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalPlayerCount")
-    def additional_player_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def additional_player_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of player slots in a match to keep open for future players.
         """
         return pulumi.get(self, "additional_player_count")
 
     @additional_player_count.setter
-    def additional_player_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def additional_player_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "additional_player_count", value)
 
     @_builtins.property
     @pulumi.getter(name="backfillMode")
-    def backfill_mode(self) -> Optional[pulumi.Input['MatchmakingConfigurationBackfillMode']]:
+    def backfill_mode(self) -> pulumi.Input[Optional['MatchmakingConfigurationBackfillMode']]:
         """
         The method used to backfill game sessions created with this matchmaking configuration.
         """
         return pulumi.get(self, "backfill_mode")
 
     @backfill_mode.setter
-    def backfill_mode(self, value: Optional[pulumi.Input['MatchmakingConfigurationBackfillMode']]):
+    def backfill_mode(self, value: pulumi.Input[Optional['MatchmakingConfigurationBackfillMode']]):
         pulumi.set(self, "backfill_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def creation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A time stamp indicating when this data object was created.
         """
         return pulumi.get(self, "creation_time")
 
     @creation_time.setter
-    def creation_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def creation_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "creation_time", value)
 
     @_builtins.property
     @pulumi.getter(name="customEventData")
-    def custom_event_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_event_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Information to attach to all events related to the matchmaking configuration.
         """
         return pulumi.get(self, "custom_event_data")
 
     @custom_event_data.setter
-    def custom_event_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_event_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_event_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A descriptive label that is associated with matchmaking configuration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="flexMatchMode")
-    def flex_match_mode(self) -> Optional[pulumi.Input['MatchmakingConfigurationFlexMatchMode']]:
+    def flex_match_mode(self) -> pulumi.Input[Optional['MatchmakingConfigurationFlexMatchMode']]:
         """
         Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
         """
         return pulumi.get(self, "flex_match_mode")
 
     @flex_match_mode.setter
-    def flex_match_mode(self, value: Optional[pulumi.Input['MatchmakingConfigurationFlexMatchMode']]):
+    def flex_match_mode(self, value: pulumi.Input[Optional['MatchmakingConfigurationFlexMatchMode']]):
         pulumi.set(self, "flex_match_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="gameProperties")
-    def game_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationGamePropertyArgs']]]]:
+    def game_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MatchmakingConfigurationGamePropertyArgs']]]]:
         """
         A set of custom properties for a game session, formatted as key:value pairs.
         """
         return pulumi.get(self, "game_properties")
 
     @game_properties.setter
-    def game_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationGamePropertyArgs']]]]):
+    def game_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MatchmakingConfigurationGamePropertyArgs']]]]):
         pulumi.set(self, "game_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="gameSessionData")
-    def game_session_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def game_session_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A set of custom game session properties, formatted as a single string value.
         """
         return pulumi.get(self, "game_session_data")
 
     @game_session_data.setter
-    def game_session_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def game_session_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "game_session_data", value)
 
     @_builtins.property
     @pulumi.getter(name="gameSessionQueueArns")
-    def game_session_queue_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def game_session_queue_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
         """
         return pulumi.get(self, "game_session_queue_arns")
 
     @game_session_queue_arns.setter
-    def game_session_queue_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def game_session_queue_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "game_session_queue_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier for the matchmaking configuration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationTarget")
-    def notification_target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An SNS topic ARN that is set up to receive matchmaking notifications.
         """
         return pulumi.get(self, "notification_target")
 
     @notification_target.setter
-    def notification_target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_target", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleSetArn")
-    def rule_set_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_set_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
         """
         return pulumi.get(self, "rule_set_arn")
 
     @rule_set_arn.setter
-    def rule_set_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_set_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_set_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -305,23 +305,23 @@ class MatchmakingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acceptance_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 acceptance_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 additional_player_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 backfill_mode: Optional[pulumi.Input['MatchmakingConfigurationBackfillMode']] = None,
-                 creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_event_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 flex_match_mode: Optional[pulumi.Input['MatchmakingConfigurationFlexMatchMode']] = None,
-                 game_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchmakingConfigurationGamePropertyArgs', 'MatchmakingConfigurationGamePropertyArgsDict']]]]] = None,
-                 game_session_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 game_session_queue_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_target: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 rule_set_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 acceptance_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 acceptance_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 additional_player_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 backfill_mode: pulumi.Input[Optional['MatchmakingConfigurationBackfillMode']] = None,
+                 creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_event_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 flex_match_mode: pulumi.Input[Optional['MatchmakingConfigurationFlexMatchMode']] = None,
+                 game_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchmakingConfigurationGamePropertyArgs', 'MatchmakingConfigurationGamePropertyArgsDict']]]]] = None,
+                 game_session_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 game_session_queue_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_target: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 rule_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.
@@ -372,23 +372,23 @@ class MatchmakingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acceptance_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 acceptance_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 additional_player_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 backfill_mode: Optional[pulumi.Input['MatchmakingConfigurationBackfillMode']] = None,
-                 creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_event_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 flex_match_mode: Optional[pulumi.Input['MatchmakingConfigurationFlexMatchMode']] = None,
-                 game_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchmakingConfigurationGamePropertyArgs', 'MatchmakingConfigurationGamePropertyArgsDict']]]]] = None,
-                 game_session_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 game_session_queue_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_target: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 rule_set_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 acceptance_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 acceptance_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 additional_player_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 backfill_mode: pulumi.Input[Optional['MatchmakingConfigurationBackfillMode']] = None,
+                 creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_event_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 flex_match_mode: pulumi.Input[Optional['MatchmakingConfigurationFlexMatchMode']] = None,
+                 game_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchmakingConfigurationGamePropertyArgs', 'MatchmakingConfigurationGamePropertyArgsDict']]]]] = None,
+                 game_session_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 game_session_queue_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_target: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 rule_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -20,10 +20,10 @@ __all__ = [
     'AppMonitorConfigurationArgsDict',
     'AppMonitorCustomEventsArgs',
     'AppMonitorCustomEventsArgsDict',
-    'AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs',
-    'AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgsDict',
     'AppMonitorDeobfuscationConfigurationArgs',
     'AppMonitorDeobfuscationConfigurationArgsDict',
+    'AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs',
+    'AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgsDict',
     'AppMonitorMetricDefinitionArgs',
     'AppMonitorMetricDefinitionArgsDict',
     'AppMonitorMetricDestinationArgs',
@@ -36,43 +36,43 @@ class AppMonitorConfigurationArgsDict(TypedDict):
     """
     AppMonitor configuration
     """
-    allow_cookies: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_cookies: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If you set this to true, the RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
     """
-    enable_x_ray: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_x_ray: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If you set this to true, RUM enables xray tracing for the user sessions that RUM samples. RUM adds an xray trace header to allowed HTTP requests. It also records an xray segment for allowed HTTP requests. You can see traces and segments from these user sessions in the xray console and the CW ServiceLens console.
     """
-    excluded_pages: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excluded_pages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of URLs in your website or application to exclude from RUM data collection. You can't include both ExcludedPages and IncludedPages in the same operation.
     """
-    favorite_pages: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    favorite_pages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of pages in the RUM console that are to be displayed with a favorite icon.
     """
-    guest_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    guest_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the guest IAM role that is attached to the identity pool that is used to authorize the sending of data to RUM.
     """
-    identity_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    identity_pool_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the identity pool that is used to authorize the sending of data to RUM.
     """
-    included_pages: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    included_pages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     If this app monitor is to collect data from only certain pages in your application, this structure lists those pages. You can't include both ExcludedPages and IncludedPages in the same operation.
     """
-    metric_destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDestinationArgsDict']]]]
+    metric_destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppMonitorMetricDestinationArgsDict']]]]]
     """
     An array of structures which define the destinations and the metrics that you want to send.
     """
-    session_sample_rate: NotRequired[pulumi.Input[_builtins.float]]
+    session_sample_rate: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used.
     """
-    telemetries: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppMonitorTelemetry']]]]
+    telemetries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppMonitorTelemetry']]]]]
     """
     An array that lists the types of telemetry data that this app monitor is to collect.
     """
@@ -80,16 +80,16 @@ class AppMonitorConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AppMonitorConfigurationArgs:
     def __init__(__self__, *,
-                 allow_cookies: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_x_ray: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excluded_pages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 favorite_pages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 guest_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 included_pages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 metric_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDestinationArgs']]]] = None,
-                 session_sample_rate: Optional[pulumi.Input[_builtins.float]] = None,
-                 telemetries: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorTelemetry']]]] = None):
+                 allow_cookies: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_x_ray: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excluded_pages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 favorite_pages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 guest_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 included_pages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metric_destinations: pulumi.Input[Optional[Sequence[pulumi.Input['AppMonitorMetricDestinationArgs']]]] = None,
+                 session_sample_rate: pulumi.Input[Optional[_builtins.float]] = None,
+                 telemetries: pulumi.Input[Optional[Sequence[pulumi.Input['AppMonitorTelemetry']]]] = None):
         """
         AppMonitor configuration
 
@@ -127,122 +127,122 @@ class AppMonitorConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowCookies")
-    def allow_cookies(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_cookies(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If you set this to true, the RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
         """
         return pulumi.get(self, "allow_cookies")
 
     @allow_cookies.setter
-    def allow_cookies(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_cookies(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_cookies", value)
 
     @_builtins.property
     @pulumi.getter(name="enableXRay")
-    def enable_x_ray(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_x_ray(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If you set this to true, RUM enables xray tracing for the user sessions that RUM samples. RUM adds an xray trace header to allowed HTTP requests. It also records an xray segment for allowed HTTP requests. You can see traces and segments from these user sessions in the xray console and the CW ServiceLens console.
         """
         return pulumi.get(self, "enable_x_ray")
 
     @enable_x_ray.setter
-    def enable_x_ray(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_x_ray(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_x_ray", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedPages")
-    def excluded_pages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_pages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of URLs in your website or application to exclude from RUM data collection. You can't include both ExcludedPages and IncludedPages in the same operation.
         """
         return pulumi.get(self, "excluded_pages")
 
     @excluded_pages.setter
-    def excluded_pages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_pages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_pages", value)
 
     @_builtins.property
     @pulumi.getter(name="favoritePages")
-    def favorite_pages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def favorite_pages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of pages in the RUM console that are to be displayed with a favorite icon.
         """
         return pulumi.get(self, "favorite_pages")
 
     @favorite_pages.setter
-    def favorite_pages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def favorite_pages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "favorite_pages", value)
 
     @_builtins.property
     @pulumi.getter(name="guestRoleArn")
-    def guest_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guest_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the guest IAM role that is attached to the identity pool that is used to authorize the sending of data to RUM.
         """
         return pulumi.get(self, "guest_role_arn")
 
     @guest_role_arn.setter
-    def guest_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guest_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guest_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="identityPoolId")
-    def identity_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the identity pool that is used to authorize the sending of data to RUM.
         """
         return pulumi.get(self, "identity_pool_id")
 
     @identity_pool_id.setter
-    def identity_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="includedPages")
-    def included_pages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def included_pages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         If this app monitor is to collect data from only certain pages in your application, this structure lists those pages. You can't include both ExcludedPages and IncludedPages in the same operation.
         """
         return pulumi.get(self, "included_pages")
 
     @included_pages.setter
-    def included_pages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def included_pages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "included_pages", value)
 
     @_builtins.property
     @pulumi.getter(name="metricDestinations")
-    def metric_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDestinationArgs']]]]:
+    def metric_destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppMonitorMetricDestinationArgs']]]]:
         """
         An array of structures which define the destinations and the metrics that you want to send.
         """
         return pulumi.get(self, "metric_destinations")
 
     @metric_destinations.setter
-    def metric_destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDestinationArgs']]]]):
+    def metric_destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppMonitorMetricDestinationArgs']]]]):
         pulumi.set(self, "metric_destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionSampleRate")
-    def session_sample_rate(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def session_sample_rate(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used.
         """
         return pulumi.get(self, "session_sample_rate")
 
     @session_sample_rate.setter
-    def session_sample_rate(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def session_sample_rate(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "session_sample_rate", value)
 
     @_builtins.property
     @pulumi.getter
-    def telemetries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorTelemetry']]]]:
+    def telemetries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppMonitorTelemetry']]]]:
         """
         An array that lists the types of telemetry data that this app monitor is to collect.
         """
         return pulumi.get(self, "telemetries")
 
     @telemetries.setter
-    def telemetries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorTelemetry']]]]):
+    def telemetries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppMonitorTelemetry']]]]):
         pulumi.set(self, "telemetries", value)
 
 
@@ -250,7 +250,7 @@ class AppMonitorCustomEventsArgsDict(TypedDict):
     """
     AppMonitor custom events configuration
     """
-    status: NotRequired[pulumi.Input['AppMonitorCustomEventsStatus']]
+    status: NotRequired[pulumi.Input[Optional['AppMonitorCustomEventsStatus']]]
     """
     Indicates whether AppMonitor accepts custom events.
     """
@@ -258,7 +258,7 @@ class AppMonitorCustomEventsArgsDict(TypedDict):
 @pulumi.input_type
 class AppMonitorCustomEventsArgs:
     def __init__(__self__, *,
-                 status: Optional[pulumi.Input['AppMonitorCustomEventsStatus']] = None):
+                 status: pulumi.Input[Optional['AppMonitorCustomEventsStatus']] = None):
         """
         AppMonitor custom events configuration
 
@@ -269,15 +269,49 @@ class AppMonitorCustomEventsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['AppMonitorCustomEventsStatus']]:
+    def status(self) -> pulumi.Input[Optional['AppMonitorCustomEventsStatus']]:
         """
         Indicates whether AppMonitor accepts custom events.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['AppMonitorCustomEventsStatus']]):
+    def status(self, value: pulumi.Input[Optional['AppMonitorCustomEventsStatus']]):
         pulumi.set(self, "status", value)
+
+
+class AppMonitorDeobfuscationConfigurationArgsDict(TypedDict):
+    """
+    A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+    """
+    java_script_source_maps: NotRequired[pulumi.Input[Optional['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgsDict']]]
+    """
+    A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+    """
+
+@pulumi.input_type
+class AppMonitorDeobfuscationConfigurationArgs:
+    def __init__(__self__, *,
+                 java_script_source_maps: pulumi.Input[Optional['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs']] = None):
+        """
+        A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+
+        :param pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs'] java_script_source_maps: A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+        """
+        if java_script_source_maps is not None:
+            pulumi.set(__self__, "java_script_source_maps", java_script_source_maps)
+
+    @_builtins.property
+    @pulumi.getter(name="javaScriptSourceMaps")
+    def java_script_source_maps(self) -> pulumi.Input[Optional['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs']]:
+        """
+        A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+        """
+        return pulumi.get(self, "java_script_source_maps")
+
+    @java_script_source_maps.setter
+    def java_script_source_maps(self, value: pulumi.Input[Optional['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs']]):
+        pulumi.set(self, "java_script_source_maps", value)
 
 
 class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgsDict(TypedDict):
@@ -288,7 +322,7 @@ class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgsDict
     """
     Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be DISABLED
     """
-    s3_uri: NotRequired[pulumi.Input[_builtins.str]]
+    s3_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The S3Uri of the bucket or folder that stores the source map files. It is required if status is ENABLED.
     """
@@ -297,7 +331,7 @@ class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgsDict
 class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs:
     def __init__(__self__, *,
                  status: pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus'],
-                 s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 s3_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
 
@@ -322,49 +356,15 @@ class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3Uri")
-    def s3_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3Uri of the bucket or folder that stores the source map files. It is required if status is ENABLED.
         """
         return pulumi.get(self, "s3_uri")
 
     @s3_uri.setter
-    def s3_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_uri", value)
-
-
-class AppMonitorDeobfuscationConfigurationArgsDict(TypedDict):
-    """
-    A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
-    """
-    java_script_source_maps: NotRequired[pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgsDict']]
-    """
-    A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
-    """
-
-@pulumi.input_type
-class AppMonitorDeobfuscationConfigurationArgs:
-    def __init__(__self__, *,
-                 java_script_source_maps: Optional[pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs']] = None):
-        """
-        A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
-
-        :param pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs'] java_script_source_maps: A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
-        """
-        if java_script_source_maps is not None:
-            pulumi.set(__self__, "java_script_source_maps", java_script_source_maps)
-
-    @_builtins.property
-    @pulumi.getter(name="javaScriptSourceMaps")
-    def java_script_source_maps(self) -> Optional[pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs']]:
-        """
-        A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
-        """
-        return pulumi.get(self, "java_script_source_maps")
-
-    @java_script_source_maps.setter
-    def java_script_source_maps(self, value: Optional[pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs']]):
-        pulumi.set(self, "java_script_source_maps", value)
 
 
 class AppMonitorMetricDefinitionArgsDict(TypedDict):
@@ -443,7 +443,7 @@ class AppMonitorMetricDefinitionArgsDict(TypedDict):
 
     LogEventPayloadSize
     """
-    dimension_keys: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    dimension_keys: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Use this field only if you are sending the metric to CloudWatch.
 
@@ -463,7 +463,7 @@ class AppMonitorMetricDefinitionArgsDict(TypedDict):
 
     All dimensions listed in this field must also be included in EventPattern.
     """
-    event_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    event_pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.
 
@@ -479,15 +479,15 @@ class AppMonitorMetricDefinitionArgsDict(TypedDict):
 
     If the metrics destination' is CloudWatch and the event also matches a value in DimensionKeys, then the metric is published with the specified dimensions.
     """
-    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The namespace used by CloudWatch Metrics for the metric that is defined in this structure
     """
-    unit_label: NotRequired[pulumi.Input[_builtins.str]]
+    unit_label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.
     """
-    value_key: NotRequired[pulumi.Input[_builtins.str]]
+    value_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The field within the event object that the metric value is sourced from.
 
@@ -500,11 +500,11 @@ class AppMonitorMetricDefinitionArgsDict(TypedDict):
 class AppMonitorMetricDefinitionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 dimension_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 event_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 unit_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 dimension_keys: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 event_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A single metric definition
 
@@ -709,7 +709,7 @@ class AppMonitorMetricDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="dimensionKeys")
-    def dimension_keys(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def dimension_keys(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Use this field only if you are sending the metric to CloudWatch.
 
@@ -732,12 +732,12 @@ class AppMonitorMetricDefinitionArgs:
         return pulumi.get(self, "dimension_keys")
 
     @dimension_keys.setter
-    def dimension_keys(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def dimension_keys(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dimension_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="eventPattern")
-    def event_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.
 
@@ -756,36 +756,36 @@ class AppMonitorMetricDefinitionArgs:
         return pulumi.get(self, "event_pattern")
 
     @event_pattern.setter
-    def event_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_pattern", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The namespace used by CloudWatch Metrics for the metric that is defined in this structure
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="unitLabel")
-    def unit_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.
         """
         return pulumi.get(self, "unit_label")
 
     @unit_label.setter
-    def unit_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit_label", value)
 
     @_builtins.property
     @pulumi.getter(name="valueKey")
-    def value_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The field within the event object that the metric value is sourced from.
 
@@ -796,7 +796,7 @@ class AppMonitorMetricDefinitionArgs:
         return pulumi.get(self, "value_key")
 
     @value_key.setter
-    def value_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_key", value)
 
 
@@ -808,19 +808,19 @@ class AppMonitorMetricDestinationArgsDict(TypedDict):
     """
     Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. Note: Evidently has been discontinued and is no longer supported - requests with Evidently will be rejected.
     """
-    destination_arn: NotRequired[pulumi.Input[_builtins.str]]
+    destination_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
 
     This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
     """
-    iam_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    iam_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
 
     This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
     """
-    metric_definitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgsDict']]]]
+    metric_definitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgsDict']]]]]
     """
     An array of structures which define the metrics that you want to send.
     """
@@ -829,9 +829,9 @@ class AppMonitorMetricDestinationArgsDict(TypedDict):
 class AppMonitorMetricDestinationArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input['AppMonitorMetricDestinationDestination'],
-                 destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgs']]]] = None):
+                 destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_definitions: pulumi.Input[Optional[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgs']]]] = None):
         """
         An structure which defines the destination and the metrics that you want to send.
 
@@ -866,7 +866,7 @@ class AppMonitorMetricDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationArn")
-    def destination_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
 
@@ -875,12 +875,12 @@ class AppMonitorMetricDestinationArgs:
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
-    def destination_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
 
@@ -889,19 +889,19 @@ class AppMonitorMetricDestinationArgs:
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
-    def iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="metricDefinitions")
-    def metric_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgs']]]]:
+    def metric_definitions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgs']]]]:
         """
         An array of structures which define the metrics that you want to send.
         """
         return pulumi.get(self, "metric_definitions")
 
     @metric_definitions.setter
-    def metric_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgs']]]]):
+    def metric_definitions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgs']]]]):
         pulumi.set(self, "metric_definitions", value)
 
 
@@ -913,7 +913,7 @@ class AppMonitorResourcePolicyArgsDict(TypedDict):
     """
     The JSON to use as the resource policy. The document can be up to 4 KB in size. 
     """
-    policy_revision_id: NotRequired[pulumi.Input[_builtins.str]]
+    policy_revision_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. 
 
@@ -924,7 +924,7 @@ class AppMonitorResourcePolicyArgsDict(TypedDict):
 class AppMonitorResourcePolicyArgs:
     def __init__(__self__, *,
                  policy_document: pulumi.Input[_builtins.str],
-                 policy_revision_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 policy_revision_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A structure that defines resource policy attached to your app monitor.
 
@@ -951,7 +951,7 @@ class AppMonitorResourcePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyRevisionId")
-    def policy_revision_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_revision_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. 
 
@@ -960,7 +960,7 @@ class AppMonitorResourcePolicyArgs:
         return pulumi.get(self, "policy_revision_id")
 
     @policy_revision_id.setter
-    def policy_revision_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_revision_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_revision_id", value)
 
 

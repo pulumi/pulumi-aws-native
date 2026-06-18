@@ -29,14 +29,14 @@ class ResponderGatewayArgs:
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  vpc_id: pulumi.Input[_builtins.str],
-                 acm_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_type: Optional[pulumi.Input['ResponderGatewayGatewayType']] = None,
-                 listener_config: Optional[pulumi.Input['ResponderGatewayListenerConfigArgs']] = None,
-                 managed_endpoint_configuration: Optional[pulumi.Input['ResponderGatewayManagedEndpointConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 trust_store_configuration: Optional[pulumi.Input['ResponderGatewayTrustStoreConfigurationArgs']] = None):
+                 acm_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_type: pulumi.Input[Optional['ResponderGatewayGatewayType']] = None,
+                 listener_config: pulumi.Input[Optional['ResponderGatewayListenerConfigArgs']] = None,
+                 managed_endpoint_configuration: pulumi.Input[Optional['ResponderGatewayManagedEndpointConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 trust_store_configuration: pulumi.Input[Optional['ResponderGatewayTrustStoreConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ResponderGateway resource.
 
@@ -135,89 +135,89 @@ class ResponderGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="acmCertificateArn")
-    def acm_certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def acm_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "acm_certificate_arn")
 
     @acm_certificate_arn.setter
-    def acm_certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def acm_certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "acm_certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description for the responder gateway.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain name for the responder gateway.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayType")
-    def gateway_type(self) -> Optional[pulumi.Input['ResponderGatewayGatewayType']]:
+    def gateway_type(self) -> pulumi.Input[Optional['ResponderGatewayGatewayType']]:
         return pulumi.get(self, "gateway_type")
 
     @gateway_type.setter
-    def gateway_type(self, value: Optional[pulumi.Input['ResponderGatewayGatewayType']]):
+    def gateway_type(self, value: pulumi.Input[Optional['ResponderGatewayGatewayType']]):
         pulumi.set(self, "gateway_type", value)
 
     @_builtins.property
     @pulumi.getter(name="listenerConfig")
-    def listener_config(self) -> Optional[pulumi.Input['ResponderGatewayListenerConfigArgs']]:
+    def listener_config(self) -> pulumi.Input[Optional['ResponderGatewayListenerConfigArgs']]:
         return pulumi.get(self, "listener_config")
 
     @listener_config.setter
-    def listener_config(self, value: Optional[pulumi.Input['ResponderGatewayListenerConfigArgs']]):
+    def listener_config(self, value: pulumi.Input[Optional['ResponderGatewayListenerConfigArgs']]):
         pulumi.set(self, "listener_config", value)
 
     @_builtins.property
     @pulumi.getter(name="managedEndpointConfiguration")
-    def managed_endpoint_configuration(self) -> Optional[pulumi.Input['ResponderGatewayManagedEndpointConfigurationArgs']]:
+    def managed_endpoint_configuration(self) -> pulumi.Input[Optional['ResponderGatewayManagedEndpointConfigurationArgs']]:
         """
         The configuration for the managed endpoint.
         """
         return pulumi.get(self, "managed_endpoint_configuration")
 
     @managed_endpoint_configuration.setter
-    def managed_endpoint_configuration(self, value: Optional[pulumi.Input['ResponderGatewayManagedEndpointConfigurationArgs']]):
+    def managed_endpoint_configuration(self, value: pulumi.Input[Optional['ResponderGatewayManagedEndpointConfigurationArgs']]):
         pulumi.set(self, "managed_endpoint_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A map of the key-value pairs of the tag or tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trustStoreConfiguration")
-    def trust_store_configuration(self) -> Optional[pulumi.Input['ResponderGatewayTrustStoreConfigurationArgs']]:
+    def trust_store_configuration(self) -> pulumi.Input[Optional['ResponderGatewayTrustStoreConfigurationArgs']]:
         """
         The configuration of the trust store.
         """
         return pulumi.get(self, "trust_store_configuration")
 
     @trust_store_configuration.setter
-    def trust_store_configuration(self, value: Optional[pulumi.Input['ResponderGatewayTrustStoreConfigurationArgs']]):
+    def trust_store_configuration(self, value: pulumi.Input[Optional['ResponderGatewayTrustStoreConfigurationArgs']]):
         pulumi.set(self, "trust_store_configuration", value)
 
 
@@ -227,19 +227,19 @@ class ResponderGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acm_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_type: Optional[pulumi.Input['ResponderGatewayGatewayType']] = None,
-                 listener_config: Optional[pulumi.Input[Union['ResponderGatewayListenerConfigArgs', 'ResponderGatewayListenerConfigArgsDict']]] = None,
-                 managed_endpoint_configuration: Optional[pulumi.Input[Union['ResponderGatewayManagedEndpointConfigurationArgs', 'ResponderGatewayManagedEndpointConfigurationArgsDict']]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input['ResponderGatewayProtocol']] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 trust_store_configuration: Optional[pulumi.Input[Union['ResponderGatewayTrustStoreConfigurationArgs', 'ResponderGatewayTrustStoreConfigurationArgsDict']]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 acm_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_type: pulumi.Input[Optional['ResponderGatewayGatewayType']] = None,
+                 listener_config: pulumi.Input[Optional[Union['ResponderGatewayListenerConfigArgs', 'ResponderGatewayListenerConfigArgsDict']]] = None,
+                 managed_endpoint_configuration: pulumi.Input[Optional[Union['ResponderGatewayManagedEndpointConfigurationArgs', 'ResponderGatewayManagedEndpointConfigurationArgsDict']]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional['ResponderGatewayProtocol']] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 trust_store_configuration: pulumi.Input[Optional[Union['ResponderGatewayTrustStoreConfigurationArgs', 'ResponderGatewayTrustStoreConfigurationArgsDict']]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::RTBFabric::ResponderGateway Resource Type
@@ -283,19 +283,19 @@ class ResponderGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acm_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_type: Optional[pulumi.Input['ResponderGatewayGatewayType']] = None,
-                 listener_config: Optional[pulumi.Input[Union['ResponderGatewayListenerConfigArgs', 'ResponderGatewayListenerConfigArgsDict']]] = None,
-                 managed_endpoint_configuration: Optional[pulumi.Input[Union['ResponderGatewayManagedEndpointConfigurationArgs', 'ResponderGatewayManagedEndpointConfigurationArgsDict']]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input['ResponderGatewayProtocol']] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 trust_store_configuration: Optional[pulumi.Input[Union['ResponderGatewayTrustStoreConfigurationArgs', 'ResponderGatewayTrustStoreConfigurationArgsDict']]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 acm_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_type: pulumi.Input[Optional['ResponderGatewayGatewayType']] = None,
+                 listener_config: pulumi.Input[Optional[Union['ResponderGatewayListenerConfigArgs', 'ResponderGatewayListenerConfigArgsDict']]] = None,
+                 managed_endpoint_configuration: pulumi.Input[Optional[Union['ResponderGatewayManagedEndpointConfigurationArgs', 'ResponderGatewayManagedEndpointConfigurationArgsDict']]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional['ResponderGatewayProtocol']] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 trust_store_configuration: pulumi.Input[Optional[Union['ResponderGatewayTrustStoreConfigurationArgs', 'ResponderGatewayTrustStoreConfigurationArgsDict']]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

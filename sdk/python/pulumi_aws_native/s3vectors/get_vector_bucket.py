@@ -94,7 +94,7 @@ def get_vector_bucket(vector_bucket_arn: Optional[_builtins.str] = None,
         creation_time=pulumi.get(__ret__, 'creation_time'),
         tags=pulumi.get(__ret__, 'tags'),
         vector_bucket_arn=pulumi.get(__ret__, 'vector_bucket_arn'))
-def get_vector_bucket_output(vector_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vector_bucket_output(vector_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVectorBucketResult]:
     """
     Resource Type definition for AWS::S3Vectors::VectorBucket

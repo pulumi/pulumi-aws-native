@@ -46,7 +46,7 @@ class Dnssec(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource used to control (enable/disable) DNSSEC in a specific hosted zone.
@@ -81,7 +81,7 @@ class Dnssec(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

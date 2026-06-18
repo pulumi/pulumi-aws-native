@@ -29,12 +29,12 @@ class ModelExplainabilityJobDefinitionArgs:
                  model_explainability_job_input: pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs'],
                  model_explainability_job_output_config: pulumi.Input['ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_explainability_baseline_config: Optional[pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs']] = None,
-                 network_config: Optional[pulumi.Input['ModelExplainabilityJobDefinitionNetworkConfigArgs']] = None,
-                 stopping_condition: Optional[pulumi.Input['ModelExplainabilityJobDefinitionStoppingConditionArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_explainability_baseline_config: pulumi.Input[Optional['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs']] = None,
+                 network_config: pulumi.Input[Optional['ModelExplainabilityJobDefinitionNetworkConfigArgs']] = None,
+                 stopping_condition: pulumi.Input[Optional['ModelExplainabilityJobDefinitionStoppingConditionArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelExplainabilityJobDefinition resource.
 
@@ -129,71 +129,71 @@ class ModelExplainabilityJobDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointName")
-    def endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
-    def endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="jobDefinitionName")
-    def job_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.
         """
         return pulumi.get(self, "job_definition_name")
 
     @job_definition_name.setter
-    def job_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="modelExplainabilityBaselineConfig")
-    def model_explainability_baseline_config(self) -> Optional[pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs']]:
+    def model_explainability_baseline_config(self) -> pulumi.Input[Optional['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs']]:
         """
         The baseline configuration for a model explainability job.
         """
         return pulumi.get(self, "model_explainability_baseline_config")
 
     @model_explainability_baseline_config.setter
-    def model_explainability_baseline_config(self, value: Optional[pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs']]):
+    def model_explainability_baseline_config(self, value: pulumi.Input[Optional['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs']]):
         pulumi.set(self, "model_explainability_baseline_config", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConfig")
-    def network_config(self) -> Optional[pulumi.Input['ModelExplainabilityJobDefinitionNetworkConfigArgs']]:
+    def network_config(self) -> pulumi.Input[Optional['ModelExplainabilityJobDefinitionNetworkConfigArgs']]:
         """
         Networking options for a model explainability job.
         """
         return pulumi.get(self, "network_config")
 
     @network_config.setter
-    def network_config(self, value: Optional[pulumi.Input['ModelExplainabilityJobDefinitionNetworkConfigArgs']]):
+    def network_config(self, value: pulumi.Input[Optional['ModelExplainabilityJobDefinitionNetworkConfigArgs']]):
         pulumi.set(self, "network_config", value)
 
     @_builtins.property
     @pulumi.getter(name="stoppingCondition")
-    def stopping_condition(self) -> Optional[pulumi.Input['ModelExplainabilityJobDefinitionStoppingConditionArgs']]:
+    def stopping_condition(self) -> pulumi.Input[Optional['ModelExplainabilityJobDefinitionStoppingConditionArgs']]:
         """
         A time limit for how long the monitoring job is allowed to run before stopping.
         """
         return pulumi.get(self, "stopping_condition")
 
     @stopping_condition.setter
-    def stopping_condition(self, value: Optional[pulumi.Input['ModelExplainabilityJobDefinitionStoppingConditionArgs']]):
+    def stopping_condition(self, value: pulumi.Input[Optional['ModelExplainabilityJobDefinitionStoppingConditionArgs']]):
         pulumi.set(self, "stopping_condition", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -203,17 +203,17 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_resources: Optional[pulumi.Input[Union['ModelExplainabilityJobDefinitionMonitoringResourcesArgs', 'ModelExplainabilityJobDefinitionMonitoringResourcesArgsDict']]] = None,
-                 model_explainability_app_specification: Optional[pulumi.Input[Union['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs', 'ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgsDict']]] = None,
-                 model_explainability_baseline_config: Optional[pulumi.Input[Union['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs', 'ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgsDict']]] = None,
-                 model_explainability_job_input: Optional[pulumi.Input[Union['ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs', 'ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgsDict']]] = None,
-                 model_explainability_job_output_config: Optional[pulumi.Input[Union['ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs', 'ModelExplainabilityJobDefinitionMonitoringOutputConfigArgsDict']]] = None,
-                 network_config: Optional[pulumi.Input[Union['ModelExplainabilityJobDefinitionNetworkConfigArgs', 'ModelExplainabilityJobDefinitionNetworkConfigArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopping_condition: Optional[pulumi.Input[Union['ModelExplainabilityJobDefinitionStoppingConditionArgs', 'ModelExplainabilityJobDefinitionStoppingConditionArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_resources: pulumi.Input[Optional[Union['ModelExplainabilityJobDefinitionMonitoringResourcesArgs', 'ModelExplainabilityJobDefinitionMonitoringResourcesArgsDict']]] = None,
+                 model_explainability_app_specification: pulumi.Input[Optional[Union['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs', 'ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgsDict']]] = None,
+                 model_explainability_baseline_config: pulumi.Input[Optional[Union['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs', 'ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgsDict']]] = None,
+                 model_explainability_job_input: pulumi.Input[Optional[Union['ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs', 'ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgsDict']]] = None,
+                 model_explainability_job_output_config: pulumi.Input[Optional[Union['ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs', 'ModelExplainabilityJobDefinitionMonitoringOutputConfigArgsDict']]] = None,
+                 network_config: pulumi.Input[Optional[Union['ModelExplainabilityJobDefinitionNetworkConfigArgs', 'ModelExplainabilityJobDefinitionNetworkConfigArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopping_condition: pulumi.Input[Optional[Union['ModelExplainabilityJobDefinitionStoppingConditionArgs', 'ModelExplainabilityJobDefinitionStoppingConditionArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
@@ -257,17 +257,17 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_resources: Optional[pulumi.Input[Union['ModelExplainabilityJobDefinitionMonitoringResourcesArgs', 'ModelExplainabilityJobDefinitionMonitoringResourcesArgsDict']]] = None,
-                 model_explainability_app_specification: Optional[pulumi.Input[Union['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs', 'ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgsDict']]] = None,
-                 model_explainability_baseline_config: Optional[pulumi.Input[Union['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs', 'ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgsDict']]] = None,
-                 model_explainability_job_input: Optional[pulumi.Input[Union['ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs', 'ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgsDict']]] = None,
-                 model_explainability_job_output_config: Optional[pulumi.Input[Union['ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs', 'ModelExplainabilityJobDefinitionMonitoringOutputConfigArgsDict']]] = None,
-                 network_config: Optional[pulumi.Input[Union['ModelExplainabilityJobDefinitionNetworkConfigArgs', 'ModelExplainabilityJobDefinitionNetworkConfigArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopping_condition: Optional[pulumi.Input[Union['ModelExplainabilityJobDefinitionStoppingConditionArgs', 'ModelExplainabilityJobDefinitionStoppingConditionArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_resources: pulumi.Input[Optional[Union['ModelExplainabilityJobDefinitionMonitoringResourcesArgs', 'ModelExplainabilityJobDefinitionMonitoringResourcesArgsDict']]] = None,
+                 model_explainability_app_specification: pulumi.Input[Optional[Union['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs', 'ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgsDict']]] = None,
+                 model_explainability_baseline_config: pulumi.Input[Optional[Union['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs', 'ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgsDict']]] = None,
+                 model_explainability_job_input: pulumi.Input[Optional[Union['ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs', 'ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgsDict']]] = None,
+                 model_explainability_job_output_config: pulumi.Input[Optional[Union['ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs', 'ModelExplainabilityJobDefinitionMonitoringOutputConfigArgsDict']]] = None,
+                 network_config: pulumi.Input[Optional[Union['ModelExplainabilityJobDefinitionNetworkConfigArgs', 'ModelExplainabilityJobDefinitionNetworkConfigArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopping_condition: pulumi.Input[Optional[Union['ModelExplainabilityJobDefinitionStoppingConditionArgs', 'ModelExplainabilityJobDefinitionStoppingConditionArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

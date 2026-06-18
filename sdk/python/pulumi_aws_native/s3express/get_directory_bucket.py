@@ -142,7 +142,7 @@ def get_directory_bucket(bucket_name: Optional[_builtins.str] = None,
         lifecycle_configuration=pulumi.get(__ret__, 'lifecycle_configuration'),
         metrics_configurations=pulumi.get(__ret__, 'metrics_configurations'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_directory_bucket_output(bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_directory_bucket_output(bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryBucketResult]:
     """
     Resource Type definition for AWS::S3Express::DirectoryBucket.

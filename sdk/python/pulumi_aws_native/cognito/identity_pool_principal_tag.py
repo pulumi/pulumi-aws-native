@@ -22,7 +22,7 @@ class IdentityPoolPrincipalTagArgs:
                  identity_pool_id: pulumi.Input[_builtins.str],
                  identity_provider_name: pulumi.Input[_builtins.str],
                  principal_tags: Optional[Any] = None,
-                 use_defaults: Optional[pulumi.Input[_builtins.bool]] = None):
+                 use_defaults: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IdentityPoolPrincipalTag resource.
 
@@ -80,14 +80,14 @@ class IdentityPoolPrincipalTagArgs:
 
     @_builtins.property
     @pulumi.getter(name="useDefaults")
-    def use_defaults(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_defaults(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Use a default set of mappings between claims and tags for this provider, instead of a custom map.
         """
         return pulumi.get(self, "use_defaults")
 
     @use_defaults.setter
-    def use_defaults(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_defaults(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_defaults", value)
 
 
@@ -97,10 +97,10 @@ class IdentityPoolPrincipalTag(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  principal_tags: Optional[Any] = None,
-                 use_defaults: Optional[pulumi.Input[_builtins.bool]] = None,
+                 use_defaults: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Cognito::IdentityPoolPrincipalTag
@@ -140,10 +140,10 @@ class IdentityPoolPrincipalTag(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  principal_tags: Optional[Any] = None,
-                 use_defaults: Optional[pulumi.Input[_builtins.bool]] = None,
+                 use_defaults: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

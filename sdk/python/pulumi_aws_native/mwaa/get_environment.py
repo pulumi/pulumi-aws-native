@@ -434,7 +434,7 @@ def get_environment(name: Optional[_builtins.str] = None,
         webserver_url=pulumi.get(__ret__, 'webserver_url'),
         webserver_vpc_endpoint_service=pulumi.get(__ret__, 'webserver_vpc_endpoint_service'),
         weekly_maintenance_window_start=pulumi.get(__ret__, 'weekly_maintenance_window_start'))
-def get_environment_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Resource schema for AWS::MWAA::Environment

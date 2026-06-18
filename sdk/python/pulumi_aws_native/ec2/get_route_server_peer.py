@@ -153,7 +153,7 @@ def get_route_server_peer(id: Optional[_builtins.str] = None,
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_route_server_peer_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_route_server_peer_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteServerPeerResult]:
     """
     VPC Route Server Peer

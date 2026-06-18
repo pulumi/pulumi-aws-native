@@ -25,8 +25,8 @@ class IpamPrefixListResolverTargetArgs:
                  prefix_list_id: pulumi.Input[_builtins.str],
                  prefix_list_region: pulumi.Input[_builtins.str],
                  track_latest_version: pulumi.Input[_builtins.bool],
-                 desired_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 desired_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpamPrefixListResolverTarget resource.
 
@@ -96,26 +96,26 @@ class IpamPrefixListResolverTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="desiredVersion")
-    def desired_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def desired_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The desired version of the Prefix List Resolver that this Target should synchronize with.
         """
         return pulumi.get(self, "desired_version")
 
     @desired_version.setter
-    def desired_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def desired_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "desired_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -125,12 +125,12 @@ class IpamPrefixListResolverTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 desired_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipam_prefix_list_resolver_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 track_latest_version: Optional[pulumi.Input[_builtins.bool]] = None,
+                 desired_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipam_prefix_list_resolver_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 track_latest_version: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::IPAMPrefixListResolverTarget
@@ -170,12 +170,12 @@ class IpamPrefixListResolverTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 desired_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipam_prefix_list_resolver_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 track_latest_version: Optional[pulumi.Input[_builtins.bool]] = None,
+                 desired_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipam_prefix_list_resolver_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 track_latest_version: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

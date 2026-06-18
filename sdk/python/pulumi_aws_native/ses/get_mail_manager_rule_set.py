@@ -116,7 +116,7 @@ def get_mail_manager_rule_set(rule_set_id: Optional[_builtins.str] = None,
         rule_set_name=pulumi.get(__ret__, 'rule_set_name'),
         rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_mail_manager_rule_set_output(rule_set_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_mail_manager_rule_set_output(rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMailManagerRuleSetResult]:
     """
     Definition of AWS::SES::MailManagerRuleSet Resource Type

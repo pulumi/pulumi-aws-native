@@ -25,7 +25,7 @@ class StorageProfileArgs:
                  display_name: pulumi.Input[_builtins.str],
                  farm_id: pulumi.Input[_builtins.str],
                  os_family: pulumi.Input['StorageProfileOperatingSystemFamily'],
-                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input['StorageProfileFileSystemLocationArgs']]]] = None):
+                 file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input['StorageProfileFileSystemLocationArgs']]]] = None):
         """
         The set of arguments for constructing a StorageProfile resource.
 
@@ -82,14 +82,14 @@ class StorageProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="fileSystemLocations")
-    def file_system_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageProfileFileSystemLocationArgs']]]]:
+    def file_system_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StorageProfileFileSystemLocationArgs']]]]:
         """
         Operating system specific file system path to the storage location.
         """
         return pulumi.get(self, "file_system_locations")
 
     @file_system_locations.setter
-    def file_system_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageProfileFileSystemLocationArgs']]]]):
+    def file_system_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StorageProfileFileSystemLocationArgs']]]]):
         pulumi.set(self, "file_system_locations", value)
 
 
@@ -99,10 +99,10 @@ class StorageProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 farm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StorageProfileFileSystemLocationArgs', 'StorageProfileFileSystemLocationArgsDict']]]]] = None,
-                 os_family: Optional[pulumi.Input['StorageProfileOperatingSystemFamily']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 farm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageProfileFileSystemLocationArgs', 'StorageProfileFileSystemLocationArgsDict']]]]] = None,
+                 os_family: pulumi.Input[Optional['StorageProfileOperatingSystemFamily']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Deadline::StorageProfile
@@ -142,10 +142,10 @@ class StorageProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 farm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StorageProfileFileSystemLocationArgs', 'StorageProfileFileSystemLocationArgsDict']]]]] = None,
-                 os_family: Optional[pulumi.Input['StorageProfileOperatingSystemFamily']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 farm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageProfileFileSystemLocationArgs', 'StorageProfileFileSystemLocationArgsDict']]]]] = None,
+                 os_family: pulumi.Input[Optional['StorageProfileOperatingSystemFamily']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

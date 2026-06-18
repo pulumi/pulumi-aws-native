@@ -415,7 +415,7 @@ def get_instance(instance_id: Optional[_builtins.str] = None,
         user_data=pulumi.get(__ret__, 'user_data'),
         volumes=pulumi.get(__ret__, 'volumes'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_instance_output(instance_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_instance_output(instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Resource Type definition for AWS::EC2::Instance

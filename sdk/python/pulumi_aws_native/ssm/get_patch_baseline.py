@@ -246,7 +246,7 @@ def get_patch_baseline(id: Optional[_builtins.str] = None,
         rejected_patches_action=pulumi.get(__ret__, 'rejected_patches_action'),
         sources=pulumi.get(__ret__, 'sources'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_patch_baseline_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_patch_baseline_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPatchBaselineResult]:
     """
     Resource Type definition for AWS::SSM::PatchBaseline

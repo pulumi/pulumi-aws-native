@@ -89,7 +89,7 @@ def get_key_group(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         key_group_config=pulumi.get(__ret__, 'key_group_config'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'))
-def get_key_group_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_key_group_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyGroupResult]:
     """
     A key group.

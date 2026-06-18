@@ -26,11 +26,11 @@ class IndexArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
-                 capacity_configuration: Optional[pulumi.Input['IndexCapacityConfigurationArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_attribute_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentAttributeConfigurationArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 type: Optional[pulumi.Input['IndexType']] = None):
+                 capacity_configuration: pulumi.Input[Optional['IndexCapacityConfigurationArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_attribute_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['IndexDocumentAttributeConfigurationArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 type: pulumi.Input[Optional['IndexType']] = None):
         """
         The set of arguments for constructing a Index resource.
 
@@ -83,31 +83,31 @@ class IndexArgs:
 
     @_builtins.property
     @pulumi.getter(name="capacityConfiguration")
-    def capacity_configuration(self) -> Optional[pulumi.Input['IndexCapacityConfigurationArgs']]:
+    def capacity_configuration(self) -> pulumi.Input[Optional['IndexCapacityConfigurationArgs']]:
         """
         The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
         """
         return pulumi.get(self, "capacity_configuration")
 
     @capacity_configuration.setter
-    def capacity_configuration(self, value: Optional[pulumi.Input['IndexCapacityConfigurationArgs']]):
+    def capacity_configuration(self, value: pulumi.Input[Optional['IndexCapacityConfigurationArgs']]):
         pulumi.set(self, "capacity_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the Amazon Q Business index.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="documentAttributeConfigurations")
-    def document_attribute_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentAttributeConfigurationArgs']]]]:
+    def document_attribute_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IndexDocumentAttributeConfigurationArgs']]]]:
         """
         Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
 
@@ -116,31 +116,31 @@ class IndexArgs:
         return pulumi.get(self, "document_attribute_configurations")
 
     @document_attribute_configurations.setter
-    def document_attribute_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentAttributeConfigurationArgs']]]]):
+    def document_attribute_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IndexDocumentAttributeConfigurationArgs']]]]):
         pulumi.set(self, "document_attribute_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['IndexType']]:
+    def type(self) -> pulumi.Input[Optional['IndexType']]:
         """
         The index type that's suitable for your needs. For more information on what's included in each type of index, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers) .
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['IndexType']]):
+    def type(self, value: pulumi.Input[Optional['IndexType']]):
         pulumi.set(self, "type", value)
 
 
@@ -150,13 +150,13 @@ class Index(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity_configuration: Optional[pulumi.Input[Union['IndexCapacityConfigurationArgs', 'IndexCapacityConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_attribute_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentAttributeConfigurationArgs', 'IndexDocumentAttributeConfigurationArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['IndexType']] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_configuration: pulumi.Input[Optional[Union['IndexCapacityConfigurationArgs', 'IndexCapacityConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_attribute_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentAttributeConfigurationArgs', 'IndexDocumentAttributeConfigurationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['IndexType']] = None,
                  __props__=None):
         """
         Definition of AWS::QBusiness::Index Resource Type
@@ -199,13 +199,13 @@ class Index(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity_configuration: Optional[pulumi.Input[Union['IndexCapacityConfigurationArgs', 'IndexCapacityConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_attribute_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentAttributeConfigurationArgs', 'IndexDocumentAttributeConfigurationArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['IndexType']] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_configuration: pulumi.Input[Optional[Union['IndexCapacityConfigurationArgs', 'IndexCapacityConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_attribute_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentAttributeConfigurationArgs', 'IndexDocumentAttributeConfigurationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['IndexType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

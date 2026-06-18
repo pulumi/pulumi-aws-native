@@ -23,12 +23,12 @@ class PermissionArgs:
                  action: pulumi.Input[_builtins.str],
                  function_name: pulumi.Input[_builtins.str],
                  principal: pulumi.Input[_builtins.str],
-                 event_source_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_url_auth_type: Optional[pulumi.Input['PermissionFunctionUrlAuthType']] = None,
-                 invoked_via_function_url: Optional[pulumi.Input[_builtins.bool]] = None,
-                 principal_org_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_source_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_url_auth_type: pulumi.Input[Optional['PermissionFunctionUrlAuthType']] = None,
+                 invoked_via_function_url: pulumi.Input[Optional[_builtins.bool]] = None,
+                 principal_org_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Permission resource.
 
@@ -109,67 +109,67 @@ class PermissionArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventSourceToken")
-    def event_source_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_source_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For Alexa Smart Home functions, a token that the invoker must supply.
         """
         return pulumi.get(self, "event_source_token")
 
     @event_source_token.setter
-    def event_source_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_source_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_source_token", value)
 
     @_builtins.property
     @pulumi.getter(name="functionUrlAuthType")
-    def function_url_auth_type(self) -> Optional[pulumi.Input['PermissionFunctionUrlAuthType']]:
+    def function_url_auth_type(self) -> pulumi.Input[Optional['PermissionFunctionUrlAuthType']]:
         """
         The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
         """
         return pulumi.get(self, "function_url_auth_type")
 
     @function_url_auth_type.setter
-    def function_url_auth_type(self, value: Optional[pulumi.Input['PermissionFunctionUrlAuthType']]):
+    def function_url_auth_type(self, value: pulumi.Input[Optional['PermissionFunctionUrlAuthType']]):
         pulumi.set(self, "function_url_auth_type", value)
 
     @_builtins.property
     @pulumi.getter(name="invokedViaFunctionUrl")
-    def invoked_via_function_url(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def invoked_via_function_url(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Restricts the ``lambda:InvokeFunction`` action to function URL calls. When specified, this option prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
         """
         return pulumi.get(self, "invoked_via_function_url")
 
     @invoked_via_function_url.setter
-    def invoked_via_function_url(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def invoked_via_function_url(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "invoked_via_function_url", value)
 
     @_builtins.property
     @pulumi.getter(name="principalOrgId")
-    def principal_org_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_org_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for your organization in AOlong. Use this to grant permissions to all the AWS-accounts under this organization.
         """
         return pulumi.get(self, "principal_org_id")
 
     @principal_org_id.setter
-    def principal_org_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_org_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_org_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAccount")
-    def source_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For AWS-service, the ID of the AWS-account that owns the resource. Use this together with ``SourceArn`` to ensure that the specified account owns the resource. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
         """
         return pulumi.get(self, "source_account")
 
     @source_account.setter
-    def source_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_account", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceArn")
-    def source_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For AWS-services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
          Note that Lambda configures the comparison using the ``StringLike`` operator.
@@ -177,7 +177,7 @@ class PermissionArgs:
         return pulumi.get(self, "source_arn")
 
     @source_arn.setter
-    def source_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_arn", value)
 
 
@@ -187,15 +187,15 @@ class Permission(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_source_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_url_auth_type: Optional[pulumi.Input['PermissionFunctionUrlAuthType']] = None,
-                 invoked_via_function_url: Optional[pulumi.Input[_builtins.bool]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_org_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_source_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_url_auth_type: pulumi.Input[Optional['PermissionFunctionUrlAuthType']] = None,
+                 invoked_via_function_url: pulumi.Input[Optional[_builtins.bool]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_org_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The ``AWS::Lambda::Permission`` resource grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
@@ -251,15 +251,15 @@ class Permission(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_source_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_url_auth_type: Optional[pulumi.Input['PermissionFunctionUrlAuthType']] = None,
-                 invoked_via_function_url: Optional[pulumi.Input[_builtins.bool]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_org_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_source_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_url_auth_type: pulumi.Input[Optional['PermissionFunctionUrlAuthType']] = None,
+                 invoked_via_function_url: pulumi.Input[Optional[_builtins.bool]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_org_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

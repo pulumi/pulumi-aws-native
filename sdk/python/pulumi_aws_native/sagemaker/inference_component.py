@@ -26,12 +26,12 @@ class InferenceComponentArgs:
     def __init__(__self__, *,
                  endpoint_name: pulumi.Input[_builtins.str],
                  specification: pulumi.Input['InferenceComponentSpecificationArgs'],
-                 deployment_config: Optional[pulumi.Input['InferenceComponentDeploymentConfigArgs']] = None,
-                 endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 inference_component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_config: Optional[pulumi.Input['InferenceComponentRuntimeConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 variant_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 deployment_config: pulumi.Input[Optional['InferenceComponentDeploymentConfigArgs']] = None,
+                 endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 inference_component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_config: pulumi.Input[Optional['InferenceComponentRuntimeConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 variant_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a InferenceComponent resource.
 
@@ -79,68 +79,68 @@ class InferenceComponentArgs:
 
     @_builtins.property
     @pulumi.getter(name="deploymentConfig")
-    def deployment_config(self) -> Optional[pulumi.Input['InferenceComponentDeploymentConfigArgs']]:
+    def deployment_config(self) -> pulumi.Input[Optional['InferenceComponentDeploymentConfigArgs']]:
         """
         The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
         """
         return pulumi.get(self, "deployment_config")
 
     @deployment_config.setter
-    def deployment_config(self, value: Optional[pulumi.Input['InferenceComponentDeploymentConfigArgs']]):
+    def deployment_config(self, value: pulumi.Input[Optional['InferenceComponentDeploymentConfigArgs']]):
         pulumi.set(self, "deployment_config", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointArn")
-    def endpoint_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
         """
         return pulumi.get(self, "endpoint_arn")
 
     @endpoint_arn.setter
-    def endpoint_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="inferenceComponentName")
-    def inference_component_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inference_component_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the inference component.
         """
         return pulumi.get(self, "inference_component_name")
 
     @inference_component_name.setter
-    def inference_component_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inference_component_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inference_component_name", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeConfig")
-    def runtime_config(self) -> Optional[pulumi.Input['InferenceComponentRuntimeConfigArgs']]:
+    def runtime_config(self) -> pulumi.Input[Optional['InferenceComponentRuntimeConfigArgs']]:
         return pulumi.get(self, "runtime_config")
 
     @runtime_config.setter
-    def runtime_config(self, value: Optional[pulumi.Input['InferenceComponentRuntimeConfigArgs']]):
+    def runtime_config(self, value: pulumi.Input[Optional['InferenceComponentRuntimeConfigArgs']]):
         pulumi.set(self, "runtime_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="variantName")
-    def variant_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def variant_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the production variant that hosts the inference component.
         """
         return pulumi.get(self, "variant_name")
 
     @variant_name.setter
-    def variant_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def variant_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "variant_name", value)
 
 
@@ -150,14 +150,14 @@ class InferenceComponent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_config: Optional[pulumi.Input[Union['InferenceComponentDeploymentConfigArgs', 'InferenceComponentDeploymentConfigArgsDict']]] = None,
-                 endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 inference_component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_config: Optional[pulumi.Input[Union['InferenceComponentRuntimeConfigArgs', 'InferenceComponentRuntimeConfigArgsDict']]] = None,
-                 specification: Optional[pulumi.Input[Union['InferenceComponentSpecificationArgs', 'InferenceComponentSpecificationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 variant_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 deployment_config: pulumi.Input[Optional[Union['InferenceComponentDeploymentConfigArgs', 'InferenceComponentDeploymentConfigArgsDict']]] = None,
+                 endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 inference_component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_config: pulumi.Input[Optional[Union['InferenceComponentRuntimeConfigArgs', 'InferenceComponentRuntimeConfigArgsDict']]] = None,
+                 specification: pulumi.Input[Optional[Union['InferenceComponentSpecificationArgs', 'InferenceComponentSpecificationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 variant_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::InferenceComponent
@@ -196,14 +196,14 @@ class InferenceComponent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_config: Optional[pulumi.Input[Union['InferenceComponentDeploymentConfigArgs', 'InferenceComponentDeploymentConfigArgsDict']]] = None,
-                 endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 inference_component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_config: Optional[pulumi.Input[Union['InferenceComponentRuntimeConfigArgs', 'InferenceComponentRuntimeConfigArgsDict']]] = None,
-                 specification: Optional[pulumi.Input[Union['InferenceComponentSpecificationArgs', 'InferenceComponentSpecificationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 variant_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 deployment_config: pulumi.Input[Optional[Union['InferenceComponentDeploymentConfigArgs', 'InferenceComponentDeploymentConfigArgsDict']]] = None,
+                 endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 inference_component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_config: pulumi.Input[Optional[Union['InferenceComponentRuntimeConfigArgs', 'InferenceComponentRuntimeConfigArgsDict']]] = None,
+                 specification: pulumi.Input[Optional[Union['InferenceComponentSpecificationArgs', 'InferenceComponentSpecificationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 variant_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

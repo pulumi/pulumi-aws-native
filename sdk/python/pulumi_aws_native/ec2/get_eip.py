@@ -136,8 +136,8 @@ def get_eip(allocation_id: Optional[_builtins.str] = None,
         public_ip=pulumi.get(__ret__, 'public_ip'),
         public_ipv4_pool=pulumi.get(__ret__, 'public_ipv4_pool'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_eip_output(allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                   public_ip: Optional[pulumi.Input[_builtins.str]] = None,
+def get_eip_output(allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                   public_ip: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEipResult]:
     """
     Specifies an Elastic IP (EIP) address and can, optionally, associate it with an Amazon EC2 instance.

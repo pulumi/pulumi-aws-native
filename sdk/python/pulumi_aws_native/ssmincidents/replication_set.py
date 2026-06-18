@@ -24,8 +24,8 @@ __all__ = ['ReplicationSetArgs', 'ReplicationSet']
 class ReplicationSetArgs:
     def __init__(__self__, *,
                  regions: pulumi.Input[Sequence[pulumi.Input['ReplicationSetReplicationRegionArgs']]],
-                 deletion_protected: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 deletion_protected: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ReplicationSet resource.
 
@@ -53,26 +53,26 @@ class ReplicationSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="deletionProtected")
-    def deletion_protected(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_protected(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
         """
         return pulumi.get(self, "deletion_protected")
 
     @deletion_protected.setter
-    def deletion_protected(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_protected(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protected", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to apply to the replication set.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -82,9 +82,9 @@ class ReplicationSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_protected: Optional[pulumi.Input[_builtins.bool]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetReplicationRegionArgs', 'ReplicationSetReplicationRegionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 deletion_protected: pulumi.Input[Optional[_builtins.bool]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetReplicationRegionArgs', 'ReplicationSetReplicationRegionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::SSMIncidents::ReplicationSet
@@ -121,9 +121,9 @@ class ReplicationSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_protected: Optional[pulumi.Input[_builtins.bool]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetReplicationRegionArgs', 'ReplicationSetReplicationRegionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 deletion_protected: pulumi.Input[Optional[_builtins.bool]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetReplicationRegionArgs', 'ReplicationSetReplicationRegionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -198,8 +198,8 @@ def get_data_source(id: Optional[_builtins.str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         schedule=pulumi.get(__ret__, 'schedule'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_data_source_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                           index_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_source_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                           index_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Kendra DataSource

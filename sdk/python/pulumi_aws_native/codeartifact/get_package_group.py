@@ -129,7 +129,7 @@ def get_package_group(arn: Optional[_builtins.str] = None,
         domain_owner=pulumi.get(__ret__, 'domain_owner'),
         origin_configuration=pulumi.get(__ret__, 'origin_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_package_group_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_package_group_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackageGroupResult]:
     """
     The resource schema to create a CodeArtifact package group.

@@ -48,7 +48,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 origin_request_policy_config: Optional[pulumi.Input[Union['OriginRequestPolicyConfigArgs', 'OriginRequestPolicyConfigArgsDict']]] = None,
+                 origin_request_policy_config: pulumi.Input[Optional[Union['OriginRequestPolicyConfigArgs', 'OriginRequestPolicyConfigArgsDict']]] = None,
                  __props__=None):
         """
         An origin request policy.
@@ -95,7 +95,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 origin_request_policy_config: Optional[pulumi.Input[Union['OriginRequestPolicyConfigArgs', 'OriginRequestPolicyConfigArgsDict']]] = None,
+                 origin_request_policy_config: pulumi.Input[Optional[Union['OriginRequestPolicyConfigArgs', 'OriginRequestPolicyConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

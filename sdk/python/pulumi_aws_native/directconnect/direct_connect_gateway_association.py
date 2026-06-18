@@ -21,8 +21,8 @@ class DirectConnectGatewayAssociationArgs:
     def __init__(__self__, *,
                  associated_gateway_id: pulumi.Input[_builtins.str],
                  direct_connect_gateway_id: pulumi.Input[_builtins.str],
-                 accept_direct_connect_gateway_association_proposal_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_prefixes_to_direct_connect_gateway: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 accept_direct_connect_gateway_association_proposal_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_prefixes_to_direct_connect_gateway: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DirectConnectGatewayAssociation resource.
 
@@ -64,26 +64,26 @@ class DirectConnectGatewayAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptDirectConnectGatewayAssociationProposalRoleArn")
-    def accept_direct_connect_gateway_association_proposal_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_direct_connect_gateway_association_proposal_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the role to accept the Direct Connect Gateway association proposal. Needs directconnect:AcceptDirectConnectGatewayAssociationProposal permissions.
         """
         return pulumi.get(self, "accept_direct_connect_gateway_association_proposal_role_arn")
 
     @accept_direct_connect_gateway_association_proposal_role_arn.setter
-    def accept_direct_connect_gateway_association_proposal_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_direct_connect_gateway_association_proposal_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_direct_connect_gateway_association_proposal_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedPrefixesToDirectConnectGateway")
-    def allowed_prefixes_to_direct_connect_gateway(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_prefixes_to_direct_connect_gateway(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Amazon VPC prefixes to advertise to the Direct Connect gateway. This parameter is required when you create an association to a transit gateway.
         """
         return pulumi.get(self, "allowed_prefixes_to_direct_connect_gateway")
 
     @allowed_prefixes_to_direct_connect_gateway.setter
-    def allowed_prefixes_to_direct_connect_gateway(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_prefixes_to_direct_connect_gateway(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_prefixes_to_direct_connect_gateway", value)
 
 
@@ -93,10 +93,10 @@ class DirectConnectGatewayAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_direct_connect_gateway_association_proposal_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_prefixes_to_direct_connect_gateway: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 associated_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 direct_connect_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_direct_connect_gateway_association_proposal_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_prefixes_to_direct_connect_gateway: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 associated_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 direct_connect_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DirectConnect::DirectConnectGatewayAssociation
@@ -134,10 +134,10 @@ class DirectConnectGatewayAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_direct_connect_gateway_association_proposal_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_prefixes_to_direct_connect_gateway: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 associated_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 direct_connect_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_direct_connect_gateway_association_proposal_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_prefixes_to_direct_connect_gateway: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 associated_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 direct_connect_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -75,7 +75,7 @@ def get_encoder_configuration(arn: Optional[_builtins.str] = None,
     return AwaitableGetEncoderConfigurationResult(
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_encoder_configuration_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_encoder_configuration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEncoderConfigurationResult]:
     """
     Resource Type definition for AWS::IVS::EncoderConfiguration.

@@ -64,8 +64,8 @@ def get_user(authentication_type: Optional[_builtins.str] = None,
 
     return AwaitableGetUserResult(
         arn=pulumi.get(__ret__, 'arn'))
-def get_user_output(authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                    user_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_output(authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                    user_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Resource Type definition for AWS::AppStream::User

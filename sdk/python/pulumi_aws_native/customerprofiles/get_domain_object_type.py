@@ -104,8 +104,8 @@ def get_domain_object_type(domain_name: Optional[_builtins.str] = None,
         encryption_key=pulumi.get(__ret__, 'encryption_key'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_domain_object_type_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  object_type_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_object_type_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainObjectTypeResult]:
     """
     Resource Type definition for AWS::CustomerProfiles::DomainObjectType

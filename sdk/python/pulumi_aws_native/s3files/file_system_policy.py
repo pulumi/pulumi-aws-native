@@ -57,7 +57,7 @@ class FileSystemPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: Optional[Any] = None,
                  __props__=None):
         """
@@ -93,7 +93,7 @@ class FileSystemPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: Optional[Any] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

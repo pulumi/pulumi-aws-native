@@ -92,7 +92,7 @@ def get_pipeline(pipeline_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         pipeline_activities=pulumi.get(__ret__, 'pipeline_activities'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_pipeline_output(pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_pipeline_output(pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineResult]:
     """
     Resource Type definition for AWS::IoTAnalytics::Pipeline

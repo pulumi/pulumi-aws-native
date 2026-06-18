@@ -88,7 +88,7 @@ def get_event_integration(name: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         event_integration_arn=pulumi.get(__ret__, 'event_integration_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_event_integration_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_integration_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventIntegrationResult]:
     """
     Resource Type definition for AWS::AppIntegrations::EventIntegration

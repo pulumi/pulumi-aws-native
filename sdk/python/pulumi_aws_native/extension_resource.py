@@ -22,11 +22,11 @@ class ExtensionResourceArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input[Mapping[str, Any]],
                  type: pulumi.Input[_builtins.str],
-                 auto_naming: Optional[pulumi.Input['AutoNamingArgs']] = None,
-                 create_only: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags_style: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_only: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 auto_naming: pulumi.Input[Optional['AutoNamingArgs']] = None,
+                 create_only: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags_style: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_only: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ExtensionResource resource.
 
@@ -80,7 +80,7 @@ class ExtensionResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoNaming")
-    def auto_naming(self) -> Optional[pulumi.Input['AutoNamingArgs']]:
+    def auto_naming(self) -> pulumi.Input[Optional['AutoNamingArgs']]:
         """
         Optional auto-naming specification for the resource.
         If provided and the name is not specified manually, the provider will automatically generate a name based on the Pulumi resource name and a random suffix.
@@ -88,12 +88,12 @@ class ExtensionResourceArgs:
         return pulumi.get(self, "auto_naming")
 
     @auto_naming.setter
-    def auto_naming(self, value: Optional[pulumi.Input['AutoNamingArgs']]):
+    def auto_naming(self, value: pulumi.Input[Optional['AutoNamingArgs']]):
         pulumi.set(self, "auto_naming", value)
 
     @_builtins.property
     @pulumi.getter(name="createOnly")
-    def create_only(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def create_only(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated. Therefore any property here should also be included in the `replaceOnChanges` resource option too.
         In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
@@ -101,36 +101,36 @@ class ExtensionResourceArgs:
         return pulumi.get(self, "create_only")
 
     @create_only.setter
-    def create_only(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def create_only(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "create_only", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsProperty")
-    def tags_property(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tags_property(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional name of the property containing the tags. Defaults to "Tags" if the `tagsStyle` is set to either "stringMap" or "keyValueArray". This is used to apply default tags to the resource and can be ignored if not using default tags.
         """
         return pulumi.get(self, "tags_property")
 
     @tags_property.setter
-    def tags_property(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tags_property(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tags_property", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsStyle")
-    def tags_style(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tags_style(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional style of tags this resource uses. Valid values are "stringMap", "keyValueArray" or "none". Defaults to `keyValueArray` if `tagsProperty` is set. This is used to apply default tags to the resource and can be ignored if not using default tags.
         """
         return pulumi.get(self, "tags_style")
 
     @tags_style.setter
-    def tags_style(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tags_style(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tags_style", value)
 
     @_builtins.property
     @pulumi.getter(name="writeOnly")
-    def write_only(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def write_only(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Property names as defined by `writeOnlyProperties` in the CloudFormation schema. Write-only properties are not returned during read operations and have to be included in all update operations as CloudControl itself can't read their previous values.
         In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
@@ -138,7 +138,7 @@ class ExtensionResourceArgs:
         return pulumi.get(self, "write_only")
 
     @write_only.setter
-    def write_only(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def write_only(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "write_only", value)
 
 
@@ -148,13 +148,13 @@ class ExtensionResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_naming: Optional[pulumi.Input[Union['AutoNamingArgs', 'AutoNamingArgsDict']]] = None,
-                 create_only: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 tags_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags_style: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_only: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_naming: pulumi.Input[Optional[Union['AutoNamingArgs', 'AutoNamingArgsDict']]] = None,
+                 create_only: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 tags_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags_style: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_only: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A special resource that enables deploying CloudFormation Extensions (third-party resources). An extension has to be pre-registered in your AWS account in order to use this resource.
@@ -198,13 +198,13 @@ class ExtensionResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_naming: Optional[pulumi.Input[Union['AutoNamingArgs', 'AutoNamingArgsDict']]] = None,
-                 create_only: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 tags_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags_style: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_only: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_naming: pulumi.Input[Optional[Union['AutoNamingArgs', 'AutoNamingArgsDict']]] = None,
+                 create_only: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 tags_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags_style: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_only: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

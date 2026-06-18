@@ -107,7 +107,7 @@ def get_capacity_provider(capacity_provider_name: Optional[_builtins.str] = None
         propagate_tags=pulumi.get(__ret__, 'propagate_tags'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_capacity_provider_output(capacity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_capacity_provider_output(capacity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityProviderResult]:
     """
     Creates a capacity provider that manages compute resources for Lambda functions

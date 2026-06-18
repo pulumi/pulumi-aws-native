@@ -27,19 +27,19 @@ class UserArgs:
                  instance_arn: pulumi.Input[_builtins.str],
                  routing_profile_arn: pulumi.Input[_builtins.str],
                  security_profile_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 after_contact_work_configs: Optional[pulumi.Input[Sequence[pulumi.Input['UserAfterContactWorkConfigPerChannelArgs']]]] = None,
-                 auto_accept_configs: Optional[pulumi.Input[Sequence[pulumi.Input['UserAutoAcceptConfigArgs']]]] = None,
-                 directory_user_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hierarchy_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_info: Optional[pulumi.Input['UserIdentityInfoArgs']] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 persistent_connection_configs: Optional[pulumi.Input[Sequence[pulumi.Input['UserPersistentConnectionConfigArgs']]]] = None,
-                 phone_config: Optional[pulumi.Input['UserPhoneConfigArgs']] = None,
-                 phone_number_configs: Optional[pulumi.Input[Sequence[pulumi.Input['UserPhoneNumberConfigArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 user_proficiencies: Optional[pulumi.Input[Sequence[pulumi.Input['UserProficiencyArgs']]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 voice_enhancement_configs: Optional[pulumi.Input[Sequence[pulumi.Input['UserVoiceEnhancementConfigArgs']]]] = None):
+                 after_contact_work_configs: pulumi.Input[Optional[Sequence[pulumi.Input['UserAfterContactWorkConfigPerChannelArgs']]]] = None,
+                 auto_accept_configs: pulumi.Input[Optional[Sequence[pulumi.Input['UserAutoAcceptConfigArgs']]]] = None,
+                 directory_user_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hierarchy_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_info: pulumi.Input[Optional['UserIdentityInfoArgs']] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 persistent_connection_configs: pulumi.Input[Optional[Sequence[pulumi.Input['UserPersistentConnectionConfigArgs']]]] = None,
+                 phone_config: pulumi.Input[Optional['UserPhoneConfigArgs']] = None,
+                 phone_number_configs: pulumi.Input[Optional[Sequence[pulumi.Input['UserPhoneNumberConfigArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 user_proficiencies: pulumi.Input[Optional[Sequence[pulumi.Input['UserProficiencyArgs']]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 voice_enhancement_configs: pulumi.Input[Optional[Sequence[pulumi.Input['UserVoiceEnhancementConfigArgs']]]] = None):
         """
         The set of arguments for constructing a User resource.
 
@@ -128,158 +128,158 @@ class UserArgs:
 
     @_builtins.property
     @pulumi.getter(name="afterContactWorkConfigs")
-    def after_contact_work_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserAfterContactWorkConfigPerChannelArgs']]]]:
+    def after_contact_work_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserAfterContactWorkConfigPerChannelArgs']]]]:
         """
         After Contact Work configurations of a user.
         """
         return pulumi.get(self, "after_contact_work_configs")
 
     @after_contact_work_configs.setter
-    def after_contact_work_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserAfterContactWorkConfigPerChannelArgs']]]]):
+    def after_contact_work_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserAfterContactWorkConfigPerChannelArgs']]]]):
         pulumi.set(self, "after_contact_work_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="autoAcceptConfigs")
-    def auto_accept_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserAutoAcceptConfigArgs']]]]:
+    def auto_accept_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserAutoAcceptConfigArgs']]]]:
         """
         Auto-accept configurations of a user.
         """
         return pulumi.get(self, "auto_accept_configs")
 
     @auto_accept_configs.setter
-    def auto_accept_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserAutoAcceptConfigArgs']]]]):
+    def auto_accept_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserAutoAcceptConfigArgs']]]]):
         pulumi.set(self, "auto_accept_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryUserId")
-    def directory_user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the user account in the directory used for identity management.
         """
         return pulumi.get(self, "directory_user_id")
 
     @directory_user_id.setter
-    def directory_user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_user_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hierarchyGroupArn")
-    def hierarchy_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hierarchy_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the hierarchy group for the user.
         """
         return pulumi.get(self, "hierarchy_group_arn")
 
     @hierarchy_group_arn.setter
-    def hierarchy_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hierarchy_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hierarchy_group_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="identityInfo")
-    def identity_info(self) -> Optional[pulumi.Input['UserIdentityInfoArgs']]:
+    def identity_info(self) -> pulumi.Input[Optional['UserIdentityInfoArgs']]:
         """
         The information about the identity of the user.
         """
         return pulumi.get(self, "identity_info")
 
     @identity_info.setter
-    def identity_info(self, value: Optional[pulumi.Input['UserIdentityInfoArgs']]):
+    def identity_info(self, value: pulumi.Input[Optional['UserIdentityInfoArgs']]):
         pulumi.set(self, "identity_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="persistentConnectionConfigs")
-    def persistent_connection_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPersistentConnectionConfigArgs']]]]:
+    def persistent_connection_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserPersistentConnectionConfigArgs']]]]:
         """
         Persistent Connection configurations of a user.
         """
         return pulumi.get(self, "persistent_connection_configs")
 
     @persistent_connection_configs.setter
-    def persistent_connection_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPersistentConnectionConfigArgs']]]]):
+    def persistent_connection_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserPersistentConnectionConfigArgs']]]]):
         pulumi.set(self, "persistent_connection_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneConfig")
-    def phone_config(self) -> Optional[pulumi.Input['UserPhoneConfigArgs']]:
+    def phone_config(self) -> pulumi.Input[Optional['UserPhoneConfigArgs']]:
         """
         The phone settings for the user.
         """
         return pulumi.get(self, "phone_config")
 
     @phone_config.setter
-    def phone_config(self, value: Optional[pulumi.Input['UserPhoneConfigArgs']]):
+    def phone_config(self, value: pulumi.Input[Optional['UserPhoneConfigArgs']]):
         pulumi.set(self, "phone_config", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumberConfigs")
-    def phone_number_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPhoneNumberConfigArgs']]]]:
+    def phone_number_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserPhoneNumberConfigArgs']]]]:
         """
         Phone Number configurations of a user.
         """
         return pulumi.get(self, "phone_number_configs")
 
     @phone_number_configs.setter
-    def phone_number_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPhoneNumberConfigArgs']]]]):
+    def phone_number_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserPhoneNumberConfigArgs']]]]):
         pulumi.set(self, "phone_number_configs", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userProficiencies")
-    def user_proficiencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProficiencyArgs']]]]:
+    def user_proficiencies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserProficiencyArgs']]]]:
         """
         One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
         """
         return pulumi.get(self, "user_proficiencies")
 
     @user_proficiencies.setter
-    def user_proficiencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProficiencyArgs']]]]):
+    def user_proficiencies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserProficiencyArgs']]]]):
         pulumi.set(self, "user_proficiencies", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user name for the account.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
     @_builtins.property
     @pulumi.getter(name="voiceEnhancementConfigs")
-    def voice_enhancement_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserVoiceEnhancementConfigArgs']]]]:
+    def voice_enhancement_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserVoiceEnhancementConfigArgs']]]]:
         """
         Voice Enhancement configurations of a user.
         """
         return pulumi.get(self, "voice_enhancement_configs")
 
     @voice_enhancement_configs.setter
-    def voice_enhancement_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserVoiceEnhancementConfigArgs']]]]):
+    def voice_enhancement_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserVoiceEnhancementConfigArgs']]]]):
         pulumi.set(self, "voice_enhancement_configs", value)
 
 
@@ -289,22 +289,22 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 after_contact_work_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserAfterContactWorkConfigPerChannelArgs', 'UserAfterContactWorkConfigPerChannelArgsDict']]]]] = None,
-                 auto_accept_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserAutoAcceptConfigArgs', 'UserAutoAcceptConfigArgsDict']]]]] = None,
-                 directory_user_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hierarchy_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_info: Optional[pulumi.Input[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 persistent_connection_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPersistentConnectionConfigArgs', 'UserPersistentConnectionConfigArgsDict']]]]] = None,
-                 phone_config: Optional[pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
-                 phone_number_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPhoneNumberConfigArgs', 'UserPhoneNumberConfigArgsDict']]]]] = None,
-                 routing_profile_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_profile_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_proficiencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserProficiencyArgs', 'UserProficiencyArgsDict']]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 voice_enhancement_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserVoiceEnhancementConfigArgs', 'UserVoiceEnhancementConfigArgsDict']]]]] = None,
+                 after_contact_work_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserAfterContactWorkConfigPerChannelArgs', 'UserAfterContactWorkConfigPerChannelArgsDict']]]]] = None,
+                 auto_accept_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserAutoAcceptConfigArgs', 'UserAutoAcceptConfigArgsDict']]]]] = None,
+                 directory_user_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hierarchy_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_info: pulumi.Input[Optional[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 persistent_connection_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPersistentConnectionConfigArgs', 'UserPersistentConnectionConfigArgsDict']]]]] = None,
+                 phone_config: pulumi.Input[Optional[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
+                 phone_number_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPhoneNumberConfigArgs', 'UserPhoneNumberConfigArgsDict']]]]] = None,
+                 routing_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_profile_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_proficiencies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserProficiencyArgs', 'UserProficiencyArgsDict']]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 voice_enhancement_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserVoiceEnhancementConfigArgs', 'UserVoiceEnhancementConfigArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::User
@@ -354,22 +354,22 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 after_contact_work_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserAfterContactWorkConfigPerChannelArgs', 'UserAfterContactWorkConfigPerChannelArgsDict']]]]] = None,
-                 auto_accept_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserAutoAcceptConfigArgs', 'UserAutoAcceptConfigArgsDict']]]]] = None,
-                 directory_user_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hierarchy_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_info: Optional[pulumi.Input[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 persistent_connection_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPersistentConnectionConfigArgs', 'UserPersistentConnectionConfigArgsDict']]]]] = None,
-                 phone_config: Optional[pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
-                 phone_number_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPhoneNumberConfigArgs', 'UserPhoneNumberConfigArgsDict']]]]] = None,
-                 routing_profile_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_profile_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_proficiencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserProficiencyArgs', 'UserProficiencyArgsDict']]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 voice_enhancement_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserVoiceEnhancementConfigArgs', 'UserVoiceEnhancementConfigArgsDict']]]]] = None,
+                 after_contact_work_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserAfterContactWorkConfigPerChannelArgs', 'UserAfterContactWorkConfigPerChannelArgsDict']]]]] = None,
+                 auto_accept_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserAutoAcceptConfigArgs', 'UserAutoAcceptConfigArgsDict']]]]] = None,
+                 directory_user_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hierarchy_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_info: pulumi.Input[Optional[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 persistent_connection_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPersistentConnectionConfigArgs', 'UserPersistentConnectionConfigArgsDict']]]]] = None,
+                 phone_config: pulumi.Input[Optional[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
+                 phone_number_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPhoneNumberConfigArgs', 'UserPhoneNumberConfigArgsDict']]]]] = None,
+                 routing_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_profile_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_proficiencies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserProficiencyArgs', 'UserProficiencyArgsDict']]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 voice_enhancement_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserVoiceEnhancementConfigArgs', 'UserVoiceEnhancementConfigArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

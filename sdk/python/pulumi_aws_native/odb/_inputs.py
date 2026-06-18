@@ -38,15 +38,15 @@ class CloudAutonomousVmClusterIamRoleArgsDict(TypedDict):
     """
     An AWS Identity and Access Management (IAM) service role associated with the Autonomous VM cluster.
     """
-    aws_integration: NotRequired[pulumi.Input[_builtins.str]]
+    aws_integration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
     """
-    iam_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    iam_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The current status of the AWS Identity and Access Management (IAM) service role.
     """
@@ -54,9 +54,9 @@ class CloudAutonomousVmClusterIamRoleArgsDict(TypedDict):
 @pulumi.input_type
 class CloudAutonomousVmClusterIamRoleArgs:
     def __init__(__self__, *,
-                 aws_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An AWS Identity and Access Management (IAM) service role associated with the Autonomous VM cluster.
 
@@ -73,38 +73,38 @@ class CloudAutonomousVmClusterIamRoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsIntegration")
-    def aws_integration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_integration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
         """
         return pulumi.get(self, "aws_integration")
 
     @aws_integration.setter
-    def aws_integration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_integration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_integration", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
         """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
-    def iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current status of the AWS Identity and Access Management (IAM) service role.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -112,27 +112,27 @@ class CloudAutonomousVmClusterMaintenanceWindowArgsDict(TypedDict):
     """
     The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
     """
-    days_of_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekItem']]]]
+    days_of_week: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekItem']]]]]
     """
     The days of the week when maintenance can be performed.
     """
-    hours_of_day: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    hours_of_day: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     The hours of the day when maintenance can be performed.
     """
-    lead_time_in_weeks: NotRequired[pulumi.Input[_builtins.int]]
+    lead_time_in_weeks: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The lead time in weeks before the maintenance window.
     """
-    months: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthsItem']]]]
+    months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthsItem']]]]]
     """
     The months when maintenance can be performed.
     """
-    preference: NotRequired[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowPreference']]
+    preference: NotRequired[pulumi.Input[Optional['CloudAutonomousVmClusterMaintenanceWindowPreference']]]
     """
     The preference for the maintenance window scheduling.
     """
-    weeks_of_month: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    weeks_of_month: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     The weeks of the month when maintenance can be performed.
     """
@@ -140,12 +140,12 @@ class CloudAutonomousVmClusterMaintenanceWindowArgsDict(TypedDict):
 @pulumi.input_type
 class CloudAutonomousVmClusterMaintenanceWindowArgs:
     def __init__(__self__, *,
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekItem']]]] = None,
-                 hours_of_day: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 lead_time_in_weeks: Optional[pulumi.Input[_builtins.int]] = None,
-                 months: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthsItem']]]] = None,
-                 preference: Optional[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowPreference']] = None,
-                 weeks_of_month: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
+                 days_of_week: pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekItem']]]] = None,
+                 hours_of_day: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 lead_time_in_weeks: pulumi.Input[Optional[_builtins.int]] = None,
+                 months: pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthsItem']]]] = None,
+                 preference: pulumi.Input[Optional['CloudAutonomousVmClusterMaintenanceWindowPreference']] = None,
+                 weeks_of_month: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
 
@@ -171,74 +171,74 @@ class CloudAutonomousVmClusterMaintenanceWindowArgs:
 
     @_builtins.property
     @pulumi.getter(name="daysOfWeek")
-    def days_of_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekItem']]]]:
+    def days_of_week(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekItem']]]]:
         """
         The days of the week when maintenance can be performed.
         """
         return pulumi.get(self, "days_of_week")
 
     @days_of_week.setter
-    def days_of_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekItem']]]]):
+    def days_of_week(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekItem']]]]):
         pulumi.set(self, "days_of_week", value)
 
     @_builtins.property
     @pulumi.getter(name="hoursOfDay")
-    def hours_of_day(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def hours_of_day(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         The hours of the day when maintenance can be performed.
         """
         return pulumi.get(self, "hours_of_day")
 
     @hours_of_day.setter
-    def hours_of_day(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def hours_of_day(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "hours_of_day", value)
 
     @_builtins.property
     @pulumi.getter(name="leadTimeInWeeks")
-    def lead_time_in_weeks(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lead_time_in_weeks(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The lead time in weeks before the maintenance window.
         """
         return pulumi.get(self, "lead_time_in_weeks")
 
     @lead_time_in_weeks.setter
-    def lead_time_in_weeks(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lead_time_in_weeks(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lead_time_in_weeks", value)
 
     @_builtins.property
     @pulumi.getter
-    def months(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthsItem']]]]:
+    def months(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthsItem']]]]:
         """
         The months when maintenance can be performed.
         """
         return pulumi.get(self, "months")
 
     @months.setter
-    def months(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthsItem']]]]):
+    def months(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthsItem']]]]):
         pulumi.set(self, "months", value)
 
     @_builtins.property
     @pulumi.getter
-    def preference(self) -> Optional[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowPreference']]:
+    def preference(self) -> pulumi.Input[Optional['CloudAutonomousVmClusterMaintenanceWindowPreference']]:
         """
         The preference for the maintenance window scheduling.
         """
         return pulumi.get(self, "preference")
 
     @preference.setter
-    def preference(self, value: Optional[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowPreference']]):
+    def preference(self, value: pulumi.Input[Optional['CloudAutonomousVmClusterMaintenanceWindowPreference']]):
         pulumi.set(self, "preference", value)
 
     @_builtins.property
     @pulumi.getter(name="weeksOfMonth")
-    def weeks_of_month(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def weeks_of_month(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         The weeks of the month when maintenance can be performed.
         """
         return pulumi.get(self, "weeks_of_month")
 
     @weeks_of_month.setter
-    def weeks_of_month(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def weeks_of_month(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "weeks_of_month", value)
 
 
@@ -246,7 +246,7 @@ class CloudExadataInfrastructureCustomerContactArgsDict(TypedDict):
     """
     A contact to receive notification from Oracle about maintenance updates for a specific Exadata infrastructure.
     """
-    email: NotRequired[pulumi.Input[_builtins.str]]
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The email address of the contact.
     """
@@ -254,7 +254,7 @@ class CloudExadataInfrastructureCustomerContactArgsDict(TypedDict):
 @pulumi.input_type
 class CloudExadataInfrastructureCustomerContactArgs:
     def __init__(__self__, *,
-                 email: Optional[pulumi.Input[_builtins.str]] = None):
+                 email: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A contact to receive notification from Oracle about maintenance updates for a specific Exadata infrastructure.
 
@@ -265,14 +265,14 @@ class CloudExadataInfrastructureCustomerContactArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address of the contact.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
 
@@ -280,39 +280,39 @@ class CloudExadataInfrastructureMaintenanceWindowArgsDict(TypedDict):
     """
     The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
     """
-    custom_action_timeout_in_mins: NotRequired[pulumi.Input[_builtins.int]]
+    custom_action_timeout_in_mins: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The timeout duration for custom actions in minutes.
     """
-    days_of_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem']]]]
+    days_of_week: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem']]]]]
     """
     The days of the week when maintenance can be performed.
     """
-    hours_of_day: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    hours_of_day: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     The hours of the day when maintenance can be performed.
     """
-    is_custom_action_timeout_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    is_custom_action_timeout_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether custom action timeout is enabled.
     """
-    lead_time_in_weeks: NotRequired[pulumi.Input[_builtins.int]]
+    lead_time_in_weeks: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The lead time in weeks before the maintenance window.
     """
-    months: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthsItem']]]]
+    months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthsItem']]]]]
     """
     The months when maintenance can be performed.
     """
-    patching_mode: NotRequired[pulumi.Input[_builtins.str]]
+    patching_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The patching mode for the maintenance window.
     """
-    preference: NotRequired[pulumi.Input[_builtins.str]]
+    preference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The preference for the maintenance window scheduling.
     """
-    weeks_of_month: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    weeks_of_month: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     The weeks of the month when maintenance can be performed.
     """
@@ -320,15 +320,15 @@ class CloudExadataInfrastructureMaintenanceWindowArgsDict(TypedDict):
 @pulumi.input_type
 class CloudExadataInfrastructureMaintenanceWindowArgs:
     def __init__(__self__, *,
-                 custom_action_timeout_in_mins: Optional[pulumi.Input[_builtins.int]] = None,
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem']]]] = None,
-                 hours_of_day: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 is_custom_action_timeout_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lead_time_in_weeks: Optional[pulumi.Input[_builtins.int]] = None,
-                 months: Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthsItem']]]] = None,
-                 patching_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 weeks_of_month: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
+                 custom_action_timeout_in_mins: pulumi.Input[Optional[_builtins.int]] = None,
+                 days_of_week: pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem']]]] = None,
+                 hours_of_day: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 is_custom_action_timeout_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lead_time_in_weeks: pulumi.Input[Optional[_builtins.int]] = None,
+                 months: pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthsItem']]]] = None,
+                 patching_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 weeks_of_month: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
 
@@ -363,110 +363,110 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
 
     @_builtins.property
     @pulumi.getter(name="customActionTimeoutInMins")
-    def custom_action_timeout_in_mins(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def custom_action_timeout_in_mins(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The timeout duration for custom actions in minutes.
         """
         return pulumi.get(self, "custom_action_timeout_in_mins")
 
     @custom_action_timeout_in_mins.setter
-    def custom_action_timeout_in_mins(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def custom_action_timeout_in_mins(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "custom_action_timeout_in_mins", value)
 
     @_builtins.property
     @pulumi.getter(name="daysOfWeek")
-    def days_of_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem']]]]:
+    def days_of_week(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem']]]]:
         """
         The days of the week when maintenance can be performed.
         """
         return pulumi.get(self, "days_of_week")
 
     @days_of_week.setter
-    def days_of_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem']]]]):
+    def days_of_week(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem']]]]):
         pulumi.set(self, "days_of_week", value)
 
     @_builtins.property
     @pulumi.getter(name="hoursOfDay")
-    def hours_of_day(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def hours_of_day(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         The hours of the day when maintenance can be performed.
         """
         return pulumi.get(self, "hours_of_day")
 
     @hours_of_day.setter
-    def hours_of_day(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def hours_of_day(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "hours_of_day", value)
 
     @_builtins.property
     @pulumi.getter(name="isCustomActionTimeoutEnabled")
-    def is_custom_action_timeout_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_custom_action_timeout_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether custom action timeout is enabled.
         """
         return pulumi.get(self, "is_custom_action_timeout_enabled")
 
     @is_custom_action_timeout_enabled.setter
-    def is_custom_action_timeout_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_custom_action_timeout_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_custom_action_timeout_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="leadTimeInWeeks")
-    def lead_time_in_weeks(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lead_time_in_weeks(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The lead time in weeks before the maintenance window.
         """
         return pulumi.get(self, "lead_time_in_weeks")
 
     @lead_time_in_weeks.setter
-    def lead_time_in_weeks(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lead_time_in_weeks(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lead_time_in_weeks", value)
 
     @_builtins.property
     @pulumi.getter
-    def months(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthsItem']]]]:
+    def months(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthsItem']]]]:
         """
         The months when maintenance can be performed.
         """
         return pulumi.get(self, "months")
 
     @months.setter
-    def months(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthsItem']]]]):
+    def months(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthsItem']]]]):
         pulumi.set(self, "months", value)
 
     @_builtins.property
     @pulumi.getter(name="patchingMode")
-    def patching_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def patching_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The patching mode for the maintenance window.
         """
         return pulumi.get(self, "patching_mode")
 
     @patching_mode.setter
-    def patching_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def patching_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "patching_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The preference for the maintenance window scheduling.
         """
         return pulumi.get(self, "preference")
 
     @preference.setter
-    def preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preference", value)
 
     @_builtins.property
     @pulumi.getter(name="weeksOfMonth")
-    def weeks_of_month(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def weeks_of_month(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         The weeks of the month when maintenance can be performed.
         """
         return pulumi.get(self, "weeks_of_month")
 
     @weeks_of_month.setter
-    def weeks_of_month(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def weeks_of_month(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "weeks_of_month", value)
 
 
@@ -474,15 +474,15 @@ class CloudVmClusterDataCollectionOptionsArgsDict(TypedDict):
     """
     Information about the data collection options enabled for a VM cluster.
     """
-    is_diagnostics_events_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    is_diagnostics_events_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether diagnostic collection is enabled for the VM cluster.
     """
-    is_health_monitoring_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    is_health_monitoring_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether health monitoring is enabled for the VM cluster.
     """
-    is_incident_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    is_incident_logs_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether incident logs are enabled for the cloud VM cluster.
     """
@@ -490,9 +490,9 @@ class CloudVmClusterDataCollectionOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class CloudVmClusterDataCollectionOptionsArgs:
     def __init__(__self__, *,
-                 is_diagnostics_events_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_health_monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_incident_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 is_diagnostics_events_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_health_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_incident_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Information about the data collection options enabled for a VM cluster.
 
@@ -509,38 +509,38 @@ class CloudVmClusterDataCollectionOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="isDiagnosticsEventsEnabled")
-    def is_diagnostics_events_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_diagnostics_events_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether diagnostic collection is enabled for the VM cluster.
         """
         return pulumi.get(self, "is_diagnostics_events_enabled")
 
     @is_diagnostics_events_enabled.setter
-    def is_diagnostics_events_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_diagnostics_events_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_diagnostics_events_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="isHealthMonitoringEnabled")
-    def is_health_monitoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_health_monitoring_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether health monitoring is enabled for the VM cluster.
         """
         return pulumi.get(self, "is_health_monitoring_enabled")
 
     @is_health_monitoring_enabled.setter
-    def is_health_monitoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_health_monitoring_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_health_monitoring_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="isIncidentLogsEnabled")
-    def is_incident_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_incident_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether incident logs are enabled for the cloud VM cluster.
         """
         return pulumi.get(self, "is_incident_logs_enabled")
 
     @is_incident_logs_enabled.setter
-    def is_incident_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_incident_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_incident_logs_enabled", value)
 
 
@@ -552,60 +552,60 @@ class CloudVmClusterDbNodeArgsDict(TypedDict):
     """
     The unique identifier of the database server that's associated with the DB node.
     """
-    backup_ip_id: NotRequired[pulumi.Input[_builtins.str]]
+    backup_ip_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
     """
-    backup_vnic2_id: NotRequired[pulumi.Input[_builtins.str]]
+    backup_vnic2_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The OCID of the second backup virtual network interface card (VNIC) for the DB node.
     """
-    cpu_core_count: NotRequired[pulumi.Input[_builtins.int]]
+    cpu_core_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of CPU cores enabled on the DB node.
     """
-    db_node_arn: NotRequired[pulumi.Input[_builtins.str]]
+    db_node_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the DB node.
     """
-    db_node_id: NotRequired[pulumi.Input[_builtins.str]]
+    db_node_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique identifier of the DB node.
     """
-    db_node_storage_size_in_gbs: NotRequired[pulumi.Input[_builtins.int]]
+    db_node_storage_size_in_gbs: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The amount of local node storage, in gigabytes (GB), that's allocated on the DB node.
     """
-    db_system_id: NotRequired[pulumi.Input[_builtins.str]]
+    db_system_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The OCID of the DB system.
     """
-    host_ip_id: NotRequired[pulumi.Input[_builtins.str]]
+    host_ip_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The OCID of the host IP address that's associated with the DB node.
     """
-    hostname: NotRequired[pulumi.Input[_builtins.str]]
+    hostname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The host name for the DB node.
     """
-    memory_size_in_gbs: NotRequired[pulumi.Input[_builtins.int]]
+    memory_size_in_gbs: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The amount of memory, in gigabytes (GB), that allocated on the DB node.
     """
-    ocid: NotRequired[pulumi.Input[_builtins.str]]
+    ocid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The OCID of the DB node.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The current status of the DB node.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterTagArgsDict']]]]
-    vnic2_id: NotRequired[pulumi.Input[_builtins.str]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudVmClusterTagArgsDict']]]]]
+    vnic2_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The OCID of the second VNIC.
     """
-    vnic_id: NotRequired[pulumi.Input[_builtins.str]]
+    vnic_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The OCID of the VNIC.
     """
@@ -614,21 +614,21 @@ class CloudVmClusterDbNodeArgsDict(TypedDict):
 class CloudVmClusterDbNodeArgs:
     def __init__(__self__, *,
                  db_server_id: pulumi.Input[_builtins.str],
-                 backup_ip_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_vnic2_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cpu_core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 db_node_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_node_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_node_storage_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
-                 db_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_ip_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
-                 ocid: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterTagArgs']]]] = None,
-                 vnic2_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnic_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_ip_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_vnic2_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu_core_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 db_node_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_node_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+                 db_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_ip_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
+                 ocid: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['CloudVmClusterTagArgs']]]] = None,
+                 vnic2_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnic_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A DbNode is a virtual machine that hosts Oracle database instances and provides access to shared storage servers within a VM Cluster
 
@@ -694,179 +694,179 @@ class CloudVmClusterDbNodeArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupIpId")
-    def backup_ip_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_ip_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
         """
         return pulumi.get(self, "backup_ip_id")
 
     @backup_ip_id.setter
-    def backup_ip_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_ip_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_ip_id", value)
 
     @_builtins.property
     @pulumi.getter(name="backupVnic2Id")
-    def backup_vnic2_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_vnic2_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OCID of the second backup virtual network interface card (VNIC) for the DB node.
         """
         return pulumi.get(self, "backup_vnic2_id")
 
     @backup_vnic2_id.setter
-    def backup_vnic2_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_vnic2_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_vnic2_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cpuCoreCount")
-    def cpu_core_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cpu_core_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of CPU cores enabled on the DB node.
         """
         return pulumi.get(self, "cpu_core_count")
 
     @cpu_core_count.setter
-    def cpu_core_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cpu_core_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cpu_core_count", value)
 
     @_builtins.property
     @pulumi.getter(name="dbNodeArn")
-    def db_node_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_node_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the DB node.
         """
         return pulumi.get(self, "db_node_arn")
 
     @db_node_arn.setter
-    def db_node_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_node_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_node_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="dbNodeId")
-    def db_node_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_node_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the DB node.
         """
         return pulumi.get(self, "db_node_id")
 
     @db_node_id.setter
-    def db_node_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_node_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_node_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dbNodeStorageSizeInGbs")
-    def db_node_storage_size_in_gbs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def db_node_storage_size_in_gbs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of local node storage, in gigabytes (GB), that's allocated on the DB node.
         """
         return pulumi.get(self, "db_node_storage_size_in_gbs")
 
     @db_node_storage_size_in_gbs.setter
-    def db_node_storage_size_in_gbs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def db_node_storage_size_in_gbs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "db_node_storage_size_in_gbs", value)
 
     @_builtins.property
     @pulumi.getter(name="dbSystemId")
-    def db_system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_system_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OCID of the DB system.
         """
         return pulumi.get(self, "db_system_id")
 
     @db_system_id.setter
-    def db_system_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_system_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_system_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hostIpId")
-    def host_ip_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_ip_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OCID of the host IP address that's associated with the DB node.
         """
         return pulumi.get(self, "host_ip_id")
 
     @host_ip_id.setter
-    def host_ip_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_ip_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_ip_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host name for the DB node.
         """
         return pulumi.get(self, "hostname")
 
     @hostname.setter
-    def hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hostname", value)
 
     @_builtins.property
     @pulumi.getter(name="memorySizeInGbs")
-    def memory_size_in_gbs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def memory_size_in_gbs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of memory, in gigabytes (GB), that allocated on the DB node.
         """
         return pulumi.get(self, "memory_size_in_gbs")
 
     @memory_size_in_gbs.setter
-    def memory_size_in_gbs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def memory_size_in_gbs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "memory_size_in_gbs", value)
 
     @_builtins.property
     @pulumi.getter
-    def ocid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ocid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OCID of the DB node.
         """
         return pulumi.get(self, "ocid")
 
     @ocid.setter
-    def ocid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ocid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ocid", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current status of the DB node.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudVmClusterTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CloudVmClusterTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vnic2Id")
-    def vnic2_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vnic2_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OCID of the second VNIC.
         """
         return pulumi.get(self, "vnic2_id")
 
     @vnic2_id.setter
-    def vnic2_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vnic2_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vnic2_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vnicId")
-    def vnic_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vnic_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OCID of the VNIC.
         """
         return pulumi.get(self, "vnic_id")
 
     @vnic_id.setter
-    def vnic_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vnic_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vnic_id", value)
 
 
@@ -874,15 +874,15 @@ class CloudVmClusterIamRoleArgsDict(TypedDict):
     """
     An AWS Identity and Access Management (IAM) service role associated with the VM cluster.
     """
-    aws_integration: NotRequired[pulumi.Input[_builtins.str]]
+    aws_integration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
     """
-    iam_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    iam_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The current status of the AWS Identity and Access Management (IAM) service role.
     """
@@ -890,9 +890,9 @@ class CloudVmClusterIamRoleArgsDict(TypedDict):
 @pulumi.input_type
 class CloudVmClusterIamRoleArgs:
     def __init__(__self__, *,
-                 aws_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An AWS Identity and Access Management (IAM) service role associated with the VM cluster.
 
@@ -909,38 +909,38 @@ class CloudVmClusterIamRoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsIntegration")
-    def aws_integration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_integration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
         """
         return pulumi.get(self, "aws_integration")
 
     @aws_integration.setter
-    def aws_integration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_integration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_integration", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
         """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
-    def iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current status of the AWS Identity and Access Management (IAM) service role.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -952,7 +952,7 @@ class CloudVmClusterTagArgsDict(TypedDict):
     """
     The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., :, /, =, +, @, -, and ".
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value for the tag. You can specify a value that's 1 to 256 characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
     """
@@ -961,7 +961,7 @@ class CloudVmClusterTagArgsDict(TypedDict):
 class CloudVmClusterTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A key-value pair to associate with a resource.
 
@@ -986,14 +986,14 @@ class CloudVmClusterTagArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value for the tag. You can specify a value that's 1 to 256 characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 

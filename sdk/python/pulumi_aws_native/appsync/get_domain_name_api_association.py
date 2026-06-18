@@ -68,7 +68,7 @@ def get_domain_name_api_association(api_association_identifier: Optional[_builti
     return AwaitableGetDomainNameApiAssociationResult(
         api_association_identifier=pulumi.get(__ret__, 'api_association_identifier'),
         api_id=pulumi.get(__ret__, 'api_id'))
-def get_domain_name_api_association_output(api_association_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_name_api_association_output(api_association_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainNameApiAssociationResult]:
     """
     Resource Type definition for AWS::AppSync::DomainNameApiAssociation

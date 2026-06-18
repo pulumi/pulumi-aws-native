@@ -297,7 +297,7 @@ def get_runtime(agent_runtime_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         workload_identity_details=pulumi.get(__ret__, 'workload_identity_details'))
-def get_runtime_output(agent_runtime_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_runtime_output(agent_runtime_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuntimeResult]:
     """
     Resource Type definition for AWS::BedrockAgentCore::Runtime

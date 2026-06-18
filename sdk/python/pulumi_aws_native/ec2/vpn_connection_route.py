@@ -61,8 +61,8 @@ class VpnConnectionRoute(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Specifies a static route for a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.
@@ -100,8 +100,8 @@ class VpnConnectionRoute(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

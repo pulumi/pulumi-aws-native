@@ -23,11 +23,11 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_properties: Optional[pulumi.Input['MultiRegionPropertiesPropertiesArgs']] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_properties: pulumi.Input[Optional['MultiRegionPropertiesPropertiesArgs']] = None,
+                 policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
@@ -50,62 +50,62 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="deletionProtectionEnabled")
-    def deletion_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether deletion protection is enabled in this cluster.
         """
         return pulumi.get(self, "deletion_protection_enabled")
 
     @deletion_protection_enabled.setter
-    def deletion_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsEncryptionKey")
-    def kms_encryption_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_encryption_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The KMS key that encrypts data on the cluster.
         """
         return pulumi.get(self, "kms_encryption_key")
 
     @kms_encryption_key.setter
-    def kms_encryption_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_encryption_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_encryption_key", value)
 
     @_builtins.property
     @pulumi.getter(name="multiRegionProperties")
-    def multi_region_properties(self) -> Optional[pulumi.Input['MultiRegionPropertiesPropertiesArgs']]:
+    def multi_region_properties(self) -> pulumi.Input[Optional['MultiRegionPropertiesPropertiesArgs']]:
         """
         The Multi-region properties associated to this cluster.
         """
         return pulumi.get(self, "multi_region_properties")
 
     @multi_region_properties.setter
-    def multi_region_properties(self, value: Optional[pulumi.Input['MultiRegionPropertiesPropertiesArgs']]):
+    def multi_region_properties(self, value: pulumi.Input[Optional['MultiRegionPropertiesPropertiesArgs']]):
         pulumi.set(self, "multi_region_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM policy applied to the cluster resource.
         """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_document", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A map of key and value pairs this cluster is tagged with.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -115,11 +115,11 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_properties: Optional[pulumi.Input[Union['MultiRegionPropertiesPropertiesArgs', 'MultiRegionPropertiesPropertiesArgsDict']]] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_properties: pulumi.Input[Optional[Union['MultiRegionPropertiesPropertiesArgs', 'MultiRegionPropertiesPropertiesArgsDict']]] = None,
+                 policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DSQL::Cluster
@@ -158,11 +158,11 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_properties: Optional[pulumi.Input[Union['MultiRegionPropertiesPropertiesArgs', 'MultiRegionPropertiesPropertiesArgsDict']]] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_properties: pulumi.Input[Optional[Union['MultiRegionPropertiesPropertiesArgs', 'MultiRegionPropertiesPropertiesArgsDict']]] = None,
+                 policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

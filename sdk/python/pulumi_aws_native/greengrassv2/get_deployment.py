@@ -81,7 +81,7 @@ def get_deployment(deployment_id: Optional[_builtins.str] = None,
     return AwaitableGetDeploymentResult(
         deployment_id=pulumi.get(__ret__, 'deployment_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_deployment_output(deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_deployment_output(deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentResult]:
     """
     Resource for Greengrass V2 deployment.

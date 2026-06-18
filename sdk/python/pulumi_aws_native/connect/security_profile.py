@@ -25,17 +25,17 @@ __all__ = ['SecurityProfileArgs', 'SecurityProfile']
 class SecurityProfileArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[_builtins.str],
-                 allowed_access_control_hierarchy_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]] = None,
-                 allowed_flow_modules: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileFlowModuleArgs']]]] = None,
-                 applications: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileApplicationArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 granular_access_control_configuration: Optional[pulumi.Input['GranularAccessControlConfigurationPropertiesArgs']] = None,
-                 hierarchy_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 allowed_access_control_hierarchy_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_access_control_tags: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityProfileTagArgs']]]] = None,
+                 allowed_flow_modules: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityProfileFlowModuleArgs']]]] = None,
+                 applications: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityProfileApplicationArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 granular_access_control_configuration: pulumi.Input[Optional['GranularAccessControlConfigurationPropertiesArgs']] = None,
+                 hierarchy_restricted_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_restricted_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SecurityProfile resource.
 
@@ -90,134 +90,134 @@ class SecurityProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedAccessControlHierarchyGroupId")
-    def allowed_access_control_hierarchy_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allowed_access_control_hierarchy_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
         """
         return pulumi.get(self, "allowed_access_control_hierarchy_group_id")
 
     @allowed_access_control_hierarchy_group_id.setter
-    def allowed_access_control_hierarchy_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allowed_access_control_hierarchy_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allowed_access_control_hierarchy_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedAccessControlTags")
-    def allowed_access_control_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]]:
+    def allowed_access_control_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecurityProfileTagArgs']]]]:
         """
         The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
         """
         return pulumi.get(self, "allowed_access_control_tags")
 
     @allowed_access_control_tags.setter
-    def allowed_access_control_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]]):
+    def allowed_access_control_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityProfileTagArgs']]]]):
         pulumi.set(self, "allowed_access_control_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedFlowModules")
-    def allowed_flow_modules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileFlowModuleArgs']]]]:
+    def allowed_flow_modules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecurityProfileFlowModuleArgs']]]]:
         """
         The list of flow-module resources to be linked to a security profile in Amazon Connect.
         """
         return pulumi.get(self, "allowed_flow_modules")
 
     @allowed_flow_modules.setter
-    def allowed_flow_modules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileFlowModuleArgs']]]]):
+    def allowed_flow_modules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityProfileFlowModuleArgs']]]]):
         pulumi.set(self, "allowed_flow_modules", value)
 
     @_builtins.property
     @pulumi.getter
-    def applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileApplicationArgs']]]]:
+    def applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecurityProfileApplicationArgs']]]]:
         """
         A list of third-party applications that the security profile will give access to.
         """
         return pulumi.get(self, "applications")
 
     @applications.setter
-    def applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileApplicationArgs']]]]):
+    def applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityProfileApplicationArgs']]]]):
         pulumi.set(self, "applications", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the security profile.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="granularAccessControlConfiguration")
-    def granular_access_control_configuration(self) -> Optional[pulumi.Input['GranularAccessControlConfigurationPropertiesArgs']]:
+    def granular_access_control_configuration(self) -> pulumi.Input[Optional['GranularAccessControlConfigurationPropertiesArgs']]:
         """
         The granular access control configuration for the security profile, including data table permissions.
         """
         return pulumi.get(self, "granular_access_control_configuration")
 
     @granular_access_control_configuration.setter
-    def granular_access_control_configuration(self, value: Optional[pulumi.Input['GranularAccessControlConfigurationPropertiesArgs']]):
+    def granular_access_control_configuration(self, value: pulumi.Input[Optional['GranularAccessControlConfigurationPropertiesArgs']]):
         pulumi.set(self, "granular_access_control_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="hierarchyRestrictedResources")
-    def hierarchy_restricted_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def hierarchy_restricted_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
         """
         return pulumi.get(self, "hierarchy_restricted_resources")
 
     @hierarchy_restricted_resources.setter
-    def hierarchy_restricted_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def hierarchy_restricted_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "hierarchy_restricted_resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Permissions assigned to the security profile.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="securityProfileName")
-    def security_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the security profile.
         """
         return pulumi.get(self, "security_profile_name")
 
     @security_profile_name.setter
-    def security_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tagRestrictedResources")
-    def tag_restricted_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tag_restricted_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of resources that a security profile applies tag restrictions to in Amazon Connect.
         """
         return pulumi.get(self, "tag_restricted_resources")
 
     @tag_restricted_resources.setter
-    def tag_restricted_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tag_restricted_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tag_restricted_resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags used to organize, track, or control access for this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -227,18 +227,18 @@ class SecurityProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_access_control_hierarchy_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileTagArgs', 'SecurityProfileTagArgsDict']]]]] = None,
-                 allowed_flow_modules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileFlowModuleArgs', 'SecurityProfileFlowModuleArgsDict']]]]] = None,
-                 applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileApplicationArgs', 'SecurityProfileApplicationArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 granular_access_control_configuration: Optional[pulumi.Input[Union['GranularAccessControlConfigurationPropertiesArgs', 'GranularAccessControlConfigurationPropertiesArgsDict']]] = None,
-                 hierarchy_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 allowed_access_control_hierarchy_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_access_control_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityProfileTagArgs', 'SecurityProfileTagArgsDict']]]]] = None,
+                 allowed_flow_modules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityProfileFlowModuleArgs', 'SecurityProfileFlowModuleArgsDict']]]]] = None,
+                 applications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityProfileApplicationArgs', 'SecurityProfileApplicationArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 granular_access_control_configuration: pulumi.Input[Optional[Union['GranularAccessControlConfigurationPropertiesArgs', 'GranularAccessControlConfigurationPropertiesArgsDict']]] = None,
+                 hierarchy_restricted_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_restricted_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::SecurityProfile
@@ -284,18 +284,18 @@ class SecurityProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_access_control_hierarchy_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileTagArgs', 'SecurityProfileTagArgsDict']]]]] = None,
-                 allowed_flow_modules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileFlowModuleArgs', 'SecurityProfileFlowModuleArgsDict']]]]] = None,
-                 applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileApplicationArgs', 'SecurityProfileApplicationArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 granular_access_control_configuration: Optional[pulumi.Input[Union['GranularAccessControlConfigurationPropertiesArgs', 'GranularAccessControlConfigurationPropertiesArgsDict']]] = None,
-                 hierarchy_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 allowed_access_control_hierarchy_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_access_control_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityProfileTagArgs', 'SecurityProfileTagArgsDict']]]]] = None,
+                 allowed_flow_modules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityProfileFlowModuleArgs', 'SecurityProfileFlowModuleArgsDict']]]]] = None,
+                 applications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityProfileApplicationArgs', 'SecurityProfileApplicationArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 granular_access_control_configuration: pulumi.Input[Optional[Union['GranularAccessControlConfigurationPropertiesArgs', 'GranularAccessControlConfigurationPropertiesArgsDict']]] = None,
+                 hierarchy_restricted_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_restricted_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -76,11 +76,11 @@ class CertificateApiPassthroughArgsDict(TypedDict):
     Contains X.509 certificate information to be placed in an issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored. 
      If conflicting or duplicate certificate information is supplied from other sources, AWS Private CA applies [order of operation rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations) to determine what information is used.
     """
-    extensions: NotRequired[pulumi.Input['CertificateExtensionsArgsDict']]
+    extensions: NotRequired[pulumi.Input[Optional['CertificateExtensionsArgsDict']]]
     """
     Specifies X.509 extension information for a certificate.
     """
-    subject: NotRequired[pulumi.Input['CertificateSubjectArgsDict']]
+    subject: NotRequired[pulumi.Input[Optional['CertificateSubjectArgsDict']]]
     """
     Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
     """
@@ -88,8 +88,8 @@ class CertificateApiPassthroughArgsDict(TypedDict):
 @pulumi.input_type
 class CertificateApiPassthroughArgs:
     def __init__(__self__, *,
-                 extensions: Optional[pulumi.Input['CertificateExtensionsArgs']] = None,
-                 subject: Optional[pulumi.Input['CertificateSubjectArgs']] = None):
+                 extensions: pulumi.Input[Optional['CertificateExtensionsArgs']] = None,
+                 subject: pulumi.Input[Optional['CertificateSubjectArgs']] = None):
         """
         Contains X.509 certificate information to be placed in an issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored. 
          If conflicting or duplicate certificate information is supplied from other sources, AWS Private CA applies [order of operation rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations) to determine what information is used.
@@ -104,26 +104,26 @@ class CertificateApiPassthroughArgs:
 
     @_builtins.property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input['CertificateExtensionsArgs']]:
+    def extensions(self) -> pulumi.Input[Optional['CertificateExtensionsArgs']]:
         """
         Specifies X.509 extension information for a certificate.
         """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input['CertificateExtensionsArgs']]):
+    def extensions(self, value: pulumi.Input[Optional['CertificateExtensionsArgs']]):
         pulumi.set(self, "extensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def subject(self) -> Optional[pulumi.Input['CertificateSubjectArgs']]:
+    def subject(self) -> pulumi.Input[Optional['CertificateSubjectArgs']]:
         """
         Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
         """
         return pulumi.get(self, "subject")
 
     @subject.setter
-    def subject(self, value: Optional[pulumi.Input['CertificateSubjectArgs']]):
+    def subject(self, value: pulumi.Input[Optional['CertificateSubjectArgs']]):
         pulumi.set(self, "subject", value)
 
 
@@ -168,14 +168,14 @@ class CertificateAuthorityAccessMethodArgsDict(TypedDict):
     """
     Structure that contains X.509 AccessMethod information. Assign one and ONLY one field.
     """
-    access_method_type: NotRequired[pulumi.Input[_builtins.str]]
-    custom_object_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    access_method_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    custom_object_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class CertificateAuthorityAccessMethodArgs:
     def __init__(__self__, *,
-                 access_method_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_object_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_method_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_object_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Structure that contains X.509 AccessMethod information. Assign one and ONLY one field.
         """
@@ -186,20 +186,20 @@ class CertificateAuthorityAccessMethodArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessMethodType")
-    def access_method_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_method_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "access_method_type")
 
     @access_method_type.setter
-    def access_method_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_method_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_method_type", value)
 
     @_builtins.property
     @pulumi.getter(name="customObjectIdentifier")
-    def custom_object_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_object_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "custom_object_identifier")
 
     @custom_object_identifier.setter
-    def custom_object_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_object_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_object_identifier", value)
 
 
@@ -211,11 +211,11 @@ class CertificateAuthorityCrlConfigurationArgsDict(TypedDict):
     """
     Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
     """
-    crl_distribution_point_extension_configuration: NotRequired[pulumi.Input['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgsDict']]
+    crl_distribution_point_extension_configuration: NotRequired[pulumi.Input[Optional['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgsDict']]]
     """
     Configures the default behavior of the CRL Distribution Point extension for certificates issued by your CA. If this field is not provided, then the CRL Distribution Point extension will be present and contain the default CRL URL.
     """
-    crl_type: NotRequired[pulumi.Input[_builtins.str]]
+    crl_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the type of CRL. This setting determines the maximum number of certificates that the certificate authority can issue and revoke. For more information, see [AWS Private CA quotas](https://docs.aws.amazon.com/general/latest/gr/pca.html#limits_pca) .
 
@@ -224,27 +224,27 @@ class CertificateAuthorityCrlConfigurationArgsDict(TypedDict):
 
     > When using partitioned CRLs, you must validate that the CRL's associated issuing distribution point (IDP) URI matches the certiﬁcate's CDP URI to ensure the right CRL has been fetched. AWS Private CA marks the IDP extension as critical, which your client must be able to process.
     """
-    custom_cname: NotRequired[pulumi.Input[_builtins.str]]
+    custom_cname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
 
     > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
     """
-    custom_path: NotRequired[pulumi.Input[_builtins.str]]
+    custom_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Designates a custom file path in S3 for CRL(s). For example, `http://<CustomName>/<CustomPath>/<CrlPartition_GUID>.crl` .
     """
-    expiration_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    expiration_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Validity period of the CRL in days.
     """
-    s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    s3_bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.
 
     > The `S3BucketName` parameter must conform to the [S3 bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) .
     """
-    s3_object_acl: NotRequired[pulumi.Input[_builtins.str]]
+    s3_object_acl: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be accessible over the public internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can access the CRL, and your PKI clients may need an alternative method of access.
 
@@ -259,13 +259,13 @@ class CertificateAuthorityCrlConfigurationArgsDict(TypedDict):
 class CertificateAuthorityCrlConfigurationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 crl_distribution_point_extension_configuration: Optional[pulumi.Input['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs']] = None,
-                 crl_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_cname: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_object_acl: Optional[pulumi.Input[_builtins.str]] = None):
+                 crl_distribution_point_extension_configuration: pulumi.Input[Optional['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs']] = None,
+                 crl_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_cname: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_object_acl: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
 
@@ -323,19 +323,19 @@ class CertificateAuthorityCrlConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crlDistributionPointExtensionConfiguration")
-    def crl_distribution_point_extension_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs']]:
+    def crl_distribution_point_extension_configuration(self) -> pulumi.Input[Optional['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs']]:
         """
         Configures the default behavior of the CRL Distribution Point extension for certificates issued by your CA. If this field is not provided, then the CRL Distribution Point extension will be present and contain the default CRL URL.
         """
         return pulumi.get(self, "crl_distribution_point_extension_configuration")
 
     @crl_distribution_point_extension_configuration.setter
-    def crl_distribution_point_extension_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs']]):
+    def crl_distribution_point_extension_configuration(self, value: pulumi.Input[Optional['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs']]):
         pulumi.set(self, "crl_distribution_point_extension_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="crlType")
-    def crl_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def crl_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of CRL. This setting determines the maximum number of certificates that the certificate authority can issue and revoke. For more information, see [AWS Private CA quotas](https://docs.aws.amazon.com/general/latest/gr/pca.html#limits_pca) .
 
@@ -347,12 +347,12 @@ class CertificateAuthorityCrlConfigurationArgs:
         return pulumi.get(self, "crl_type")
 
     @crl_type.setter
-    def crl_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def crl_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "crl_type", value)
 
     @_builtins.property
     @pulumi.getter(name="customCname")
-    def custom_cname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_cname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
 
@@ -361,36 +361,36 @@ class CertificateAuthorityCrlConfigurationArgs:
         return pulumi.get(self, "custom_cname")
 
     @custom_cname.setter
-    def custom_cname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_cname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_cname", value)
 
     @_builtins.property
     @pulumi.getter(name="customPath")
-    def custom_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Designates a custom file path in S3 for CRL(s). For example, `http://<CustomName>/<CustomPath>/<CrlPartition_GUID>.crl` .
         """
         return pulumi.get(self, "custom_path")
 
     @custom_path.setter
-    def custom_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_path", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationInDays")
-    def expiration_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expiration_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Validity period of the CRL in days.
         """
         return pulumi.get(self, "expiration_in_days")
 
     @expiration_in_days.setter
-    def expiration_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expiration_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expiration_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="s3BucketName")
-    def s3_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.
 
@@ -399,12 +399,12 @@ class CertificateAuthorityCrlConfigurationArgs:
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
-    def s3_bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectAcl")
-    def s3_object_acl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_object_acl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be accessible over the public internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can access the CRL, and your PKI clients may need an alternative method of access.
 
@@ -417,7 +417,7 @@ class CertificateAuthorityCrlConfigurationArgs:
         return pulumi.get(self, "s3_object_acl")
 
     @s3_object_acl.setter
-    def s3_object_acl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_object_acl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_object_acl", value)
 
 
@@ -470,11 +470,11 @@ class CertificateAuthorityCsrExtensionsArgsDict(TypedDict):
     """
     Structure that contains CSR pass though extensions information.
     """
-    key_usage: NotRequired[pulumi.Input['CertificateAuthorityKeyUsageArgsDict']]
+    key_usage: NotRequired[pulumi.Input[Optional['CertificateAuthorityKeyUsageArgsDict']]]
     """
     Indicates the purpose of the certificate and of the key contained in the certificate.
     """
-    subject_information_access: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgsDict']]]]
+    subject_information_access: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgsDict']]]]]
     """
     For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy. For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2) in RFC 5280.
     """
@@ -482,8 +482,8 @@ class CertificateAuthorityCsrExtensionsArgsDict(TypedDict):
 @pulumi.input_type
 class CertificateAuthorityCsrExtensionsArgs:
     def __init__(__self__, *,
-                 key_usage: Optional[pulumi.Input['CertificateAuthorityKeyUsageArgs']] = None,
-                 subject_information_access: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgs']]]] = None):
+                 key_usage: pulumi.Input[Optional['CertificateAuthorityKeyUsageArgs']] = None,
+                 subject_information_access: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgs']]]] = None):
         """
         Structure that contains CSR pass though extensions information.
 
@@ -497,26 +497,26 @@ class CertificateAuthorityCsrExtensionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyUsage")
-    def key_usage(self) -> Optional[pulumi.Input['CertificateAuthorityKeyUsageArgs']]:
+    def key_usage(self) -> pulumi.Input[Optional['CertificateAuthorityKeyUsageArgs']]:
         """
         Indicates the purpose of the certificate and of the key contained in the certificate.
         """
         return pulumi.get(self, "key_usage")
 
     @key_usage.setter
-    def key_usage(self, value: Optional[pulumi.Input['CertificateAuthorityKeyUsageArgs']]):
+    def key_usage(self, value: pulumi.Input[Optional['CertificateAuthorityKeyUsageArgs']]):
         pulumi.set(self, "key_usage", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectInformationAccess")
-    def subject_information_access(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgs']]]]:
+    def subject_information_access(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgs']]]]:
         """
         For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy. For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2) in RFC 5280.
         """
         return pulumi.get(self, "subject_information_access")
 
     @subject_information_access.setter
-    def subject_information_access(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgs']]]]):
+    def subject_information_access(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgs']]]]):
         pulumi.set(self, "subject_information_access", value)
 
 
@@ -562,13 +562,13 @@ class CertificateAuthorityEdiPartyNameArgsDict(TypedDict):
     Structure that contains X.509 EdiPartyName information.
     """
     party_name: pulumi.Input[_builtins.str]
-    name_assigner: NotRequired[pulumi.Input[_builtins.str]]
+    name_assigner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class CertificateAuthorityEdiPartyNameArgs:
     def __init__(__self__, *,
                  party_name: pulumi.Input[_builtins.str],
-                 name_assigner: Optional[pulumi.Input[_builtins.str]] = None):
+                 name_assigner: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Structure that contains X.509 EdiPartyName information.
         """
@@ -587,11 +587,11 @@ class CertificateAuthorityEdiPartyNameArgs:
 
     @_builtins.property
     @pulumi.getter(name="nameAssigner")
-    def name_assigner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_assigner(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name_assigner")
 
     @name_assigner.setter
-    def name_assigner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_assigner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_assigner", value)
 
 
@@ -599,26 +599,26 @@ class CertificateAuthorityGeneralNameArgsDict(TypedDict):
     """
     Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
     """
-    directory_name: NotRequired[pulumi.Input['CertificateAuthoritySubjectArgsDict']]
-    dns_name: NotRequired[pulumi.Input[_builtins.str]]
-    edi_party_name: NotRequired[pulumi.Input['CertificateAuthorityEdiPartyNameArgsDict']]
-    ip_address: NotRequired[pulumi.Input[_builtins.str]]
-    other_name: NotRequired[pulumi.Input['CertificateAuthorityOtherNameArgsDict']]
-    registered_id: NotRequired[pulumi.Input[_builtins.str]]
-    rfc822_name: NotRequired[pulumi.Input[_builtins.str]]
-    uniform_resource_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    directory_name: NotRequired[pulumi.Input[Optional['CertificateAuthoritySubjectArgsDict']]]
+    dns_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    edi_party_name: NotRequired[pulumi.Input[Optional['CertificateAuthorityEdiPartyNameArgsDict']]]
+    ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    other_name: NotRequired[pulumi.Input[Optional['CertificateAuthorityOtherNameArgsDict']]]
+    registered_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    rfc822_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    uniform_resource_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class CertificateAuthorityGeneralNameArgs:
     def __init__(__self__, *,
-                 directory_name: Optional[pulumi.Input['CertificateAuthoritySubjectArgs']] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 edi_party_name: Optional[pulumi.Input['CertificateAuthorityEdiPartyNameArgs']] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 other_name: Optional[pulumi.Input['CertificateAuthorityOtherNameArgs']] = None,
-                 registered_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rfc822_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 uniform_resource_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 directory_name: pulumi.Input[Optional['CertificateAuthoritySubjectArgs']] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 edi_party_name: pulumi.Input[Optional['CertificateAuthorityEdiPartyNameArgs']] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 other_name: pulumi.Input[Optional['CertificateAuthorityOtherNameArgs']] = None,
+                 registered_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rfc822_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 uniform_resource_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
         """
@@ -641,74 +641,74 @@ class CertificateAuthorityGeneralNameArgs:
 
     @_builtins.property
     @pulumi.getter(name="directoryName")
-    def directory_name(self) -> Optional[pulumi.Input['CertificateAuthoritySubjectArgs']]:
+    def directory_name(self) -> pulumi.Input[Optional['CertificateAuthoritySubjectArgs']]:
         return pulumi.get(self, "directory_name")
 
     @directory_name.setter
-    def directory_name(self, value: Optional[pulumi.Input['CertificateAuthoritySubjectArgs']]):
+    def directory_name(self, value: pulumi.Input[Optional['CertificateAuthoritySubjectArgs']]):
         pulumi.set(self, "directory_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
-    def dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ediPartyName")
-    def edi_party_name(self) -> Optional[pulumi.Input['CertificateAuthorityEdiPartyNameArgs']]:
+    def edi_party_name(self) -> pulumi.Input[Optional['CertificateAuthorityEdiPartyNameArgs']]:
         return pulumi.get(self, "edi_party_name")
 
     @edi_party_name.setter
-    def edi_party_name(self, value: Optional[pulumi.Input['CertificateAuthorityEdiPartyNameArgs']]):
+    def edi_party_name(self, value: pulumi.Input[Optional['CertificateAuthorityEdiPartyNameArgs']]):
         pulumi.set(self, "edi_party_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="otherName")
-    def other_name(self) -> Optional[pulumi.Input['CertificateAuthorityOtherNameArgs']]:
+    def other_name(self) -> pulumi.Input[Optional['CertificateAuthorityOtherNameArgs']]:
         return pulumi.get(self, "other_name")
 
     @other_name.setter
-    def other_name(self, value: Optional[pulumi.Input['CertificateAuthorityOtherNameArgs']]):
+    def other_name(self, value: pulumi.Input[Optional['CertificateAuthorityOtherNameArgs']]):
         pulumi.set(self, "other_name", value)
 
     @_builtins.property
     @pulumi.getter(name="registeredId")
-    def registered_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registered_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "registered_id")
 
     @registered_id.setter
-    def registered_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registered_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registered_id", value)
 
     @_builtins.property
     @pulumi.getter(name="rfc822Name")
-    def rfc822_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rfc822_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "rfc822_name")
 
     @rfc822_name.setter
-    def rfc822_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rfc822_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rfc822_name", value)
 
     @_builtins.property
     @pulumi.getter(name="uniformResourceIdentifier")
-    def uniform_resource_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uniform_resource_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "uniform_resource_identifier")
 
     @uniform_resource_identifier.setter
-    def uniform_resource_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uniform_resource_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uniform_resource_identifier", value)
 
 
@@ -716,39 +716,39 @@ class CertificateAuthorityKeyUsageArgsDict(TypedDict):
     """
     Structure that contains X.509 KeyUsage information.
     """
-    crl_sign: NotRequired[pulumi.Input[_builtins.bool]]
+    crl_sign: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used to sign CRLs.
     """
-    data_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
+    data_encipherment: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used to decipher data.
     """
-    decipher_only: NotRequired[pulumi.Input[_builtins.bool]]
+    decipher_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used only to decipher data.
     """
-    digital_signature: NotRequired[pulumi.Input[_builtins.bool]]
+    digital_signature: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used for digital signing.
     """
-    encipher_only: NotRequired[pulumi.Input[_builtins.bool]]
+    encipher_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used only to encipher data.
     """
-    key_agreement: NotRequired[pulumi.Input[_builtins.bool]]
+    key_agreement: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used in a key-agreement protocol.
     """
-    key_cert_sign: NotRequired[pulumi.Input[_builtins.bool]]
+    key_cert_sign: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used to sign certificates.
     """
-    key_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
+    key_encipherment: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used to encipher data.
     """
-    non_repudiation: NotRequired[pulumi.Input[_builtins.bool]]
+    non_repudiation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used for non-repudiation.
     """
@@ -756,15 +756,15 @@ class CertificateAuthorityKeyUsageArgsDict(TypedDict):
 @pulumi.input_type
 class CertificateAuthorityKeyUsageArgs:
     def __init__(__self__, *,
-                 crl_sign: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_encipherment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 decipher_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 digital_signature: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encipher_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_agreement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_cert_sign: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_encipherment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 non_repudiation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 crl_sign: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_encipherment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 decipher_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 digital_signature: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encipher_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_agreement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_cert_sign: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_encipherment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 non_repudiation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Structure that contains X.509 KeyUsage information.
 
@@ -799,110 +799,110 @@ class CertificateAuthorityKeyUsageArgs:
 
     @_builtins.property
     @pulumi.getter(name="crlSign")
-    def crl_sign(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def crl_sign(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used to sign CRLs.
         """
         return pulumi.get(self, "crl_sign")
 
     @crl_sign.setter
-    def crl_sign(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def crl_sign(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "crl_sign", value)
 
     @_builtins.property
     @pulumi.getter(name="dataEncipherment")
-    def data_encipherment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_encipherment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used to decipher data.
         """
         return pulumi.get(self, "data_encipherment")
 
     @data_encipherment.setter
-    def data_encipherment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_encipherment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_encipherment", value)
 
     @_builtins.property
     @pulumi.getter(name="decipherOnly")
-    def decipher_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def decipher_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used only to decipher data.
         """
         return pulumi.get(self, "decipher_only")
 
     @decipher_only.setter
-    def decipher_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def decipher_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "decipher_only", value)
 
     @_builtins.property
     @pulumi.getter(name="digitalSignature")
-    def digital_signature(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def digital_signature(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used for digital signing.
         """
         return pulumi.get(self, "digital_signature")
 
     @digital_signature.setter
-    def digital_signature(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def digital_signature(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "digital_signature", value)
 
     @_builtins.property
     @pulumi.getter(name="encipherOnly")
-    def encipher_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encipher_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used only to encipher data.
         """
         return pulumi.get(self, "encipher_only")
 
     @encipher_only.setter
-    def encipher_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encipher_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encipher_only", value)
 
     @_builtins.property
     @pulumi.getter(name="keyAgreement")
-    def key_agreement(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def key_agreement(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used in a key-agreement protocol.
         """
         return pulumi.get(self, "key_agreement")
 
     @key_agreement.setter
-    def key_agreement(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def key_agreement(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "key_agreement", value)
 
     @_builtins.property
     @pulumi.getter(name="keyCertSign")
-    def key_cert_sign(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def key_cert_sign(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used to sign certificates.
         """
         return pulumi.get(self, "key_cert_sign")
 
     @key_cert_sign.setter
-    def key_cert_sign(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def key_cert_sign(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "key_cert_sign", value)
 
     @_builtins.property
     @pulumi.getter(name="keyEncipherment")
-    def key_encipherment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def key_encipherment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used to encipher data.
         """
         return pulumi.get(self, "key_encipherment")
 
     @key_encipherment.setter
-    def key_encipherment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def key_encipherment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "key_encipherment", value)
 
     @_builtins.property
     @pulumi.getter(name="nonRepudiation")
-    def non_repudiation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def non_repudiation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used for non-repudiation.
         """
         return pulumi.get(self, "non_repudiation")
 
     @non_repudiation.setter
-    def non_repudiation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def non_repudiation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "non_repudiation", value)
 
 
@@ -914,7 +914,7 @@ class CertificateAuthorityOcspConfigurationArgsDict(TypedDict):
     """
     Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
     """
-    ocsp_custom_cname: NotRequired[pulumi.Input[_builtins.str]]
+    ocsp_custom_cname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     By default, AWS Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP). A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
 
@@ -925,7 +925,7 @@ class CertificateAuthorityOcspConfigurationArgsDict(TypedDict):
 class CertificateAuthorityOcspConfigurationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 ocsp_custom_cname: Optional[pulumi.Input[_builtins.str]] = None):
+                 ocsp_custom_cname: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Helps to configure online certificate status protocol (OCSP) responder for your certificate authority
 
@@ -952,7 +952,7 @@ class CertificateAuthorityOcspConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="ocspCustomCname")
-    def ocsp_custom_cname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ocsp_custom_cname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         By default, AWS Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP). A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
 
@@ -961,7 +961,7 @@ class CertificateAuthorityOcspConfigurationArgs:
         return pulumi.get(self, "ocsp_custom_cname")
 
     @ocsp_custom_cname.setter
-    def ocsp_custom_cname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ocsp_custom_cname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ocsp_custom_cname", value)
 
 
@@ -1006,11 +1006,11 @@ class CertificateAuthorityRevocationConfigurationArgsDict(TypedDict):
     """
     Certificate Authority revocation information.
     """
-    crl_configuration: NotRequired[pulumi.Input['CertificateAuthorityCrlConfigurationArgsDict']]
+    crl_configuration: NotRequired[pulumi.Input[Optional['CertificateAuthorityCrlConfigurationArgsDict']]]
     """
     Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
     """
-    ocsp_configuration: NotRequired[pulumi.Input['CertificateAuthorityOcspConfigurationArgsDict']]
+    ocsp_configuration: NotRequired[pulumi.Input[Optional['CertificateAuthorityOcspConfigurationArgsDict']]]
     """
     Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by your private CA.
     """
@@ -1018,8 +1018,8 @@ class CertificateAuthorityRevocationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class CertificateAuthorityRevocationConfigurationArgs:
     def __init__(__self__, *,
-                 crl_configuration: Optional[pulumi.Input['CertificateAuthorityCrlConfigurationArgs']] = None,
-                 ocsp_configuration: Optional[pulumi.Input['CertificateAuthorityOcspConfigurationArgs']] = None):
+                 crl_configuration: pulumi.Input[Optional['CertificateAuthorityCrlConfigurationArgs']] = None,
+                 ocsp_configuration: pulumi.Input[Optional['CertificateAuthorityOcspConfigurationArgs']] = None):
         """
         Certificate Authority revocation information.
 
@@ -1033,26 +1033,26 @@ class CertificateAuthorityRevocationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crlConfiguration")
-    def crl_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityCrlConfigurationArgs']]:
+    def crl_configuration(self) -> pulumi.Input[Optional['CertificateAuthorityCrlConfigurationArgs']]:
         """
         Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
         """
         return pulumi.get(self, "crl_configuration")
 
     @crl_configuration.setter
-    def crl_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityCrlConfigurationArgs']]):
+    def crl_configuration(self, value: pulumi.Input[Optional['CertificateAuthorityCrlConfigurationArgs']]):
         pulumi.set(self, "crl_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="ocspConfiguration")
-    def ocsp_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityOcspConfigurationArgs']]:
+    def ocsp_configuration(self) -> pulumi.Input[Optional['CertificateAuthorityOcspConfigurationArgs']]:
         """
         Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by your private CA.
         """
         return pulumi.get(self, "ocsp_configuration")
 
     @ocsp_configuration.setter
-    def ocsp_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityOcspConfigurationArgs']]):
+    def ocsp_configuration(self, value: pulumi.Input[Optional['CertificateAuthorityOcspConfigurationArgs']]):
         pulumi.set(self, "ocsp_configuration", value)
 
 
@@ -1060,40 +1060,40 @@ class CertificateAuthoritySubjectArgsDict(TypedDict):
     """
     Structure that contains X.500 distinguished name information for your CA.
     """
-    common_name: NotRequired[pulumi.Input[_builtins.str]]
-    country: NotRequired[pulumi.Input[_builtins.str]]
-    custom_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgsDict']]]]
-    distinguished_name_qualifier: NotRequired[pulumi.Input[_builtins.str]]
-    generation_qualifier: NotRequired[pulumi.Input[_builtins.str]]
-    given_name: NotRequired[pulumi.Input[_builtins.str]]
-    initials: NotRequired[pulumi.Input[_builtins.str]]
-    locality: NotRequired[pulumi.Input[_builtins.str]]
-    organization: NotRequired[pulumi.Input[_builtins.str]]
-    organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
-    pseudonym: NotRequired[pulumi.Input[_builtins.str]]
-    serial_number: NotRequired[pulumi.Input[_builtins.str]]
-    state: NotRequired[pulumi.Input[_builtins.str]]
-    surname: NotRequired[pulumi.Input[_builtins.str]]
-    title: NotRequired[pulumi.Input[_builtins.str]]
+    common_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    country: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    custom_attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgsDict']]]]]
+    distinguished_name_qualifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    generation_qualifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    given_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    initials: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    locality: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    organization: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    organizational_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    pseudonym: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    serial_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    surname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class CertificateAuthoritySubjectArgs:
     def __init__(__self__, *,
-                 common_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgs']]]] = None,
-                 distinguished_name_qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 generation_qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 given_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 initials: Optional[pulumi.Input[_builtins.str]] = None,
-                 locality: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 pseudonym: Optional[pulumi.Input[_builtins.str]] = None,
-                 serial_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 surname: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 common_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgs']]]] = None,
+                 distinguished_name_qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 generation_qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 given_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 initials: pulumi.Input[Optional[_builtins.str]] = None,
+                 locality: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 pseudonym: pulumi.Input[Optional[_builtins.str]] = None,
+                 serial_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 surname: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Structure that contains X.500 distinguished name information for your CA.
         """
@@ -1130,137 +1130,137 @@ class CertificateAuthoritySubjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="commonName")
-    def common_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def common_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "common_name")
 
     @common_name.setter
-    def common_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def common_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "common_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def country(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "country")
 
     @country.setter
-    def country(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country", value)
 
     @_builtins.property
     @pulumi.getter(name="customAttributes")
-    def custom_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgs']]]]:
+    def custom_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgs']]]]:
         return pulumi.get(self, "custom_attributes")
 
     @custom_attributes.setter
-    def custom_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgs']]]]):
+    def custom_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgs']]]]):
         pulumi.set(self, "custom_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="distinguishedNameQualifier")
-    def distinguished_name_qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def distinguished_name_qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "distinguished_name_qualifier")
 
     @distinguished_name_qualifier.setter
-    def distinguished_name_qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def distinguished_name_qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "distinguished_name_qualifier", value)
 
     @_builtins.property
     @pulumi.getter(name="generationQualifier")
-    def generation_qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def generation_qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "generation_qualifier")
 
     @generation_qualifier.setter
-    def generation_qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def generation_qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "generation_qualifier", value)
 
     @_builtins.property
     @pulumi.getter(name="givenName")
-    def given_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def given_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "given_name")
 
     @given_name.setter
-    def given_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def given_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "given_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def initials(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initials(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "initials")
 
     @initials.setter
-    def initials(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initials(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initials", value)
 
     @_builtins.property
     @pulumi.getter
-    def locality(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locality(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "locality")
 
     @locality.setter
-    def locality(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locality(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locality", value)
 
     @_builtins.property
     @pulumi.getter
-    def organization(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "organization")
 
     @organization.setter
-    def organization(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnit")
-    def organizational_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organizational_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "organizational_unit")
 
     @organizational_unit.setter
-    def organizational_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organizational_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organizational_unit", value)
 
     @_builtins.property
     @pulumi.getter
-    def pseudonym(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pseudonym(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "pseudonym")
 
     @pseudonym.setter
-    def pseudonym(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pseudonym(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pseudonym", value)
 
     @_builtins.property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serial_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
-    def serial_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serial_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serial_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def surname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def surname(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "surname")
 
     @surname.setter
-    def surname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def surname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "surname", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
@@ -1329,7 +1329,7 @@ class CertificateCustomExtensionArgsDict(TypedDict):
     """
     Specifies the base64-encoded value of the X.509 extension.
     """
-    critical: NotRequired[pulumi.Input[_builtins.bool]]
+    critical: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies the critical flag of the X.509 extension.
     """
@@ -1339,7 +1339,7 @@ class CertificateCustomExtensionArgs:
     def __init__(__self__, *,
                  object_identifier: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
-                 critical: Optional[pulumi.Input[_builtins.bool]] = None):
+                 critical: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Specifies the X.509 extension information for a certificate.
          Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough``[template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
@@ -1379,14 +1379,14 @@ class CertificateCustomExtensionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def critical(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def critical(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies the critical flag of the X.509 extension.
         """
         return pulumi.get(self, "critical")
 
     @critical.setter
-    def critical(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def critical(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "critical", value)
 
 
@@ -1446,11 +1446,11 @@ class CertificateExtendedKeyUsageArgsDict(TypedDict):
     """
     Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
     """
-    extended_key_usage_object_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    extended_key_usage_object_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a custom ``ExtendedKeyUsage`` with an object identifier (OID).
     """
-    extended_key_usage_type: NotRequired[pulumi.Input[_builtins.str]]
+    extended_key_usage_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a standard ``ExtendedKeyUsage`` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12).
     """
@@ -1458,8 +1458,8 @@ class CertificateExtendedKeyUsageArgsDict(TypedDict):
 @pulumi.input_type
 class CertificateExtendedKeyUsageArgs:
     def __init__(__self__, *,
-                 extended_key_usage_object_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_key_usage_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 extended_key_usage_object_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_key_usage_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
 
@@ -1473,26 +1473,26 @@ class CertificateExtendedKeyUsageArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedKeyUsageObjectIdentifier")
-    def extended_key_usage_object_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extended_key_usage_object_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a custom ``ExtendedKeyUsage`` with an object identifier (OID).
         """
         return pulumi.get(self, "extended_key_usage_object_identifier")
 
     @extended_key_usage_object_identifier.setter
-    def extended_key_usage_object_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extended_key_usage_object_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extended_key_usage_object_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedKeyUsageType")
-    def extended_key_usage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extended_key_usage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a standard ``ExtendedKeyUsage`` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12).
         """
         return pulumi.get(self, "extended_key_usage_type")
 
     @extended_key_usage_type.setter
-    def extended_key_usage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extended_key_usage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extended_key_usage_type", value)
 
 
@@ -1500,24 +1500,24 @@ class CertificateExtensionsArgsDict(TypedDict):
     """
     Contains X.509 extension information for a certificate.
     """
-    certificate_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyInformationArgsDict']]]]
+    certificate_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CertificatePolicyInformationArgsDict']]]]]
     """
     Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
      In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
     """
-    custom_extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateCustomExtensionArgsDict']]]]
+    custom_extensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CertificateCustomExtensionArgsDict']]]]]
     """
     Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
     """
-    extended_key_usage: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateExtendedKeyUsageArgsDict']]]]
+    extended_key_usage: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CertificateExtendedKeyUsageArgsDict']]]]]
     """
     Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
     """
-    key_usage: NotRequired[pulumi.Input['CertificateKeyUsageArgsDict']]
+    key_usage: NotRequired[pulumi.Input[Optional['CertificateKeyUsageArgsDict']]]
     """
     Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
     """
-    subject_alternative_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateGeneralNameArgsDict']]]]
+    subject_alternative_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CertificateGeneralNameArgsDict']]]]]
     """
     The subject alternative name extension allows identities to be bound to the subject of the certificate. These identities may be included in addition to or in place of the identity in the subject field of the certificate.
     """
@@ -1525,11 +1525,11 @@ class CertificateExtensionsArgsDict(TypedDict):
 @pulumi.input_type
 class CertificateExtensionsArgs:
     def __init__(__self__, *,
-                 certificate_policies: Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyInformationArgs']]]] = None,
-                 custom_extensions: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCustomExtensionArgs']]]] = None,
-                 extended_key_usage: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateExtendedKeyUsageArgs']]]] = None,
-                 key_usage: Optional[pulumi.Input['CertificateKeyUsageArgs']] = None,
-                 subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateGeneralNameArgs']]]] = None):
+                 certificate_policies: pulumi.Input[Optional[Sequence[pulumi.Input['CertificatePolicyInformationArgs']]]] = None,
+                 custom_extensions: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateCustomExtensionArgs']]]] = None,
+                 extended_key_usage: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateExtendedKeyUsageArgs']]]] = None,
+                 key_usage: pulumi.Input[Optional['CertificateKeyUsageArgs']] = None,
+                 subject_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateGeneralNameArgs']]]] = None):
         """
         Contains X.509 extension information for a certificate.
 
@@ -1553,7 +1553,7 @@ class CertificateExtensionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificatePolicies")
-    def certificate_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyInformationArgs']]]]:
+    def certificate_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertificatePolicyInformationArgs']]]]:
         """
         Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
          In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
@@ -1561,55 +1561,55 @@ class CertificateExtensionsArgs:
         return pulumi.get(self, "certificate_policies")
 
     @certificate_policies.setter
-    def certificate_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyInformationArgs']]]]):
+    def certificate_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertificatePolicyInformationArgs']]]]):
         pulumi.set(self, "certificate_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="customExtensions")
-    def custom_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCustomExtensionArgs']]]]:
+    def custom_extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertificateCustomExtensionArgs']]]]:
         """
         Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
         """
         return pulumi.get(self, "custom_extensions")
 
     @custom_extensions.setter
-    def custom_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCustomExtensionArgs']]]]):
+    def custom_extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateCustomExtensionArgs']]]]):
         pulumi.set(self, "custom_extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedKeyUsage")
-    def extended_key_usage(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateExtendedKeyUsageArgs']]]]:
+    def extended_key_usage(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertificateExtendedKeyUsageArgs']]]]:
         """
         Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
         """
         return pulumi.get(self, "extended_key_usage")
 
     @extended_key_usage.setter
-    def extended_key_usage(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateExtendedKeyUsageArgs']]]]):
+    def extended_key_usage(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateExtendedKeyUsageArgs']]]]):
         pulumi.set(self, "extended_key_usage", value)
 
     @_builtins.property
     @pulumi.getter(name="keyUsage")
-    def key_usage(self) -> Optional[pulumi.Input['CertificateKeyUsageArgs']]:
+    def key_usage(self) -> pulumi.Input[Optional['CertificateKeyUsageArgs']]:
         """
         Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
         """
         return pulumi.get(self, "key_usage")
 
     @key_usage.setter
-    def key_usage(self, value: Optional[pulumi.Input['CertificateKeyUsageArgs']]):
+    def key_usage(self, value: pulumi.Input[Optional['CertificateKeyUsageArgs']]):
         pulumi.set(self, "key_usage", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateGeneralNameArgs']]]]:
+    def subject_alternative_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertificateGeneralNameArgs']]]]:
         """
         The subject alternative name extension allows identities to be bound to the subject of the certificate. These identities may be included in addition to or in place of the identity in the subject field of the certificate.
         """
         return pulumi.get(self, "subject_alternative_names")
 
     @subject_alternative_names.setter
-    def subject_alternative_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateGeneralNameArgs']]]]):
+    def subject_alternative_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateGeneralNameArgs']]]]):
         pulumi.set(self, "subject_alternative_names", value)
 
 
@@ -1617,35 +1617,35 @@ class CertificateGeneralNameArgsDict(TypedDict):
     """
     Describes an ASN.1 X.400 ``GeneralName`` as defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280). Only one of the following naming options should be provided. Providing more than one option results in an ``InvalidArgsException`` error.
     """
-    directory_name: NotRequired[pulumi.Input['CertificateSubjectArgsDict']]
+    directory_name: NotRequired[pulumi.Input[Optional['CertificateSubjectArgsDict']]]
     """
     Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
     """
-    dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    dns_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Represents ``GeneralName`` as a DNS name.
     """
-    edi_party_name: NotRequired[pulumi.Input['CertificateEdiPartyNameArgsDict']]
+    edi_party_name: NotRequired[pulumi.Input[Optional['CertificateEdiPartyNameArgsDict']]]
     """
     Represents ``GeneralName`` as an ``EdiPartyName`` object.
     """
-    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Represents ``GeneralName`` as an IPv4 or IPv6 address.
     """
-    other_name: NotRequired[pulumi.Input['CertificateOtherNameArgsDict']]
+    other_name: NotRequired[pulumi.Input[Optional['CertificateOtherNameArgsDict']]]
     """
     Represents ``GeneralName`` using an ``OtherName`` object.
     """
-    registered_id: NotRequired[pulumi.Input[_builtins.str]]
+    registered_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Represents ``GeneralName`` as an object identifier (OID).
     """
-    rfc822_name: NotRequired[pulumi.Input[_builtins.str]]
+    rfc822_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Represents ``GeneralName`` as an [RFC 822](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc822) email address.
     """
-    uniform_resource_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    uniform_resource_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Represents ``GeneralName`` as a URI.
     """
@@ -1653,14 +1653,14 @@ class CertificateGeneralNameArgsDict(TypedDict):
 @pulumi.input_type
 class CertificateGeneralNameArgs:
     def __init__(__self__, *,
-                 directory_name: Optional[pulumi.Input['CertificateSubjectArgs']] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 edi_party_name: Optional[pulumi.Input['CertificateEdiPartyNameArgs']] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 other_name: Optional[pulumi.Input['CertificateOtherNameArgs']] = None,
-                 registered_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rfc822_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 uniform_resource_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 directory_name: pulumi.Input[Optional['CertificateSubjectArgs']] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 edi_party_name: pulumi.Input[Optional['CertificateEdiPartyNameArgs']] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 other_name: pulumi.Input[Optional['CertificateOtherNameArgs']] = None,
+                 registered_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rfc822_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 uniform_resource_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes an ASN.1 X.400 ``GeneralName`` as defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280). Only one of the following naming options should be provided. Providing more than one option results in an ``InvalidArgsException`` error.
 
@@ -1692,98 +1692,98 @@ class CertificateGeneralNameArgs:
 
     @_builtins.property
     @pulumi.getter(name="directoryName")
-    def directory_name(self) -> Optional[pulumi.Input['CertificateSubjectArgs']]:
+    def directory_name(self) -> pulumi.Input[Optional['CertificateSubjectArgs']]:
         """
         Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
         """
         return pulumi.get(self, "directory_name")
 
     @directory_name.setter
-    def directory_name(self, value: Optional[pulumi.Input['CertificateSubjectArgs']]):
+    def directory_name(self, value: pulumi.Input[Optional['CertificateSubjectArgs']]):
         pulumi.set(self, "directory_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Represents ``GeneralName`` as a DNS name.
         """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
-    def dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ediPartyName")
-    def edi_party_name(self) -> Optional[pulumi.Input['CertificateEdiPartyNameArgs']]:
+    def edi_party_name(self) -> pulumi.Input[Optional['CertificateEdiPartyNameArgs']]:
         """
         Represents ``GeneralName`` as an ``EdiPartyName`` object.
         """
         return pulumi.get(self, "edi_party_name")
 
     @edi_party_name.setter
-    def edi_party_name(self, value: Optional[pulumi.Input['CertificateEdiPartyNameArgs']]):
+    def edi_party_name(self, value: pulumi.Input[Optional['CertificateEdiPartyNameArgs']]):
         pulumi.set(self, "edi_party_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Represents ``GeneralName`` as an IPv4 or IPv6 address.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="otherName")
-    def other_name(self) -> Optional[pulumi.Input['CertificateOtherNameArgs']]:
+    def other_name(self) -> pulumi.Input[Optional['CertificateOtherNameArgs']]:
         """
         Represents ``GeneralName`` using an ``OtherName`` object.
         """
         return pulumi.get(self, "other_name")
 
     @other_name.setter
-    def other_name(self, value: Optional[pulumi.Input['CertificateOtherNameArgs']]):
+    def other_name(self, value: pulumi.Input[Optional['CertificateOtherNameArgs']]):
         pulumi.set(self, "other_name", value)
 
     @_builtins.property
     @pulumi.getter(name="registeredId")
-    def registered_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registered_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Represents ``GeneralName`` as an object identifier (OID).
         """
         return pulumi.get(self, "registered_id")
 
     @registered_id.setter
-    def registered_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registered_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registered_id", value)
 
     @_builtins.property
     @pulumi.getter(name="rfc822Name")
-    def rfc822_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rfc822_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Represents ``GeneralName`` as an [RFC 822](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc822) email address.
         """
         return pulumi.get(self, "rfc822_name")
 
     @rfc822_name.setter
-    def rfc822_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rfc822_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rfc822_name", value)
 
     @_builtins.property
     @pulumi.getter(name="uniformResourceIdentifier")
-    def uniform_resource_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uniform_resource_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Represents ``GeneralName`` as a URI.
         """
         return pulumi.get(self, "uniform_resource_identifier")
 
     @uniform_resource_identifier.setter
-    def uniform_resource_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uniform_resource_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uniform_resource_identifier", value)
 
 
@@ -1791,39 +1791,39 @@ class CertificateKeyUsageArgsDict(TypedDict):
     """
     Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
     """
-    crl_sign: NotRequired[pulumi.Input[_builtins.bool]]
+    crl_sign: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used to sign CRLs.
     """
-    data_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
+    data_encipherment: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used to decipher data.
     """
-    decipher_only: NotRequired[pulumi.Input[_builtins.bool]]
+    decipher_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used only to decipher data.
     """
-    digital_signature: NotRequired[pulumi.Input[_builtins.bool]]
+    digital_signature: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used for digital signing.
     """
-    encipher_only: NotRequired[pulumi.Input[_builtins.bool]]
+    encipher_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used only to encipher data.
     """
-    key_agreement: NotRequired[pulumi.Input[_builtins.bool]]
+    key_agreement: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used in a key-agreement protocol.
     """
-    key_cert_sign: NotRequired[pulumi.Input[_builtins.bool]]
+    key_cert_sign: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used to sign certificates.
     """
-    key_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
+    key_encipherment: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used to encipher data.
     """
-    non_repudiation: NotRequired[pulumi.Input[_builtins.bool]]
+    non_repudiation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Key can be used for non-repudiation.
     """
@@ -1831,15 +1831,15 @@ class CertificateKeyUsageArgsDict(TypedDict):
 @pulumi.input_type
 class CertificateKeyUsageArgs:
     def __init__(__self__, *,
-                 crl_sign: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_encipherment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 decipher_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 digital_signature: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encipher_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_agreement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_cert_sign: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_encipherment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 non_repudiation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 crl_sign: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_encipherment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 decipher_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 digital_signature: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encipher_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_agreement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_cert_sign: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_encipherment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 non_repudiation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
 
@@ -1874,110 +1874,110 @@ class CertificateKeyUsageArgs:
 
     @_builtins.property
     @pulumi.getter(name="crlSign")
-    def crl_sign(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def crl_sign(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used to sign CRLs.
         """
         return pulumi.get(self, "crl_sign")
 
     @crl_sign.setter
-    def crl_sign(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def crl_sign(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "crl_sign", value)
 
     @_builtins.property
     @pulumi.getter(name="dataEncipherment")
-    def data_encipherment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_encipherment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used to decipher data.
         """
         return pulumi.get(self, "data_encipherment")
 
     @data_encipherment.setter
-    def data_encipherment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_encipherment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_encipherment", value)
 
     @_builtins.property
     @pulumi.getter(name="decipherOnly")
-    def decipher_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def decipher_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used only to decipher data.
         """
         return pulumi.get(self, "decipher_only")
 
     @decipher_only.setter
-    def decipher_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def decipher_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "decipher_only", value)
 
     @_builtins.property
     @pulumi.getter(name="digitalSignature")
-    def digital_signature(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def digital_signature(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used for digital signing.
         """
         return pulumi.get(self, "digital_signature")
 
     @digital_signature.setter
-    def digital_signature(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def digital_signature(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "digital_signature", value)
 
     @_builtins.property
     @pulumi.getter(name="encipherOnly")
-    def encipher_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encipher_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used only to encipher data.
         """
         return pulumi.get(self, "encipher_only")
 
     @encipher_only.setter
-    def encipher_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encipher_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encipher_only", value)
 
     @_builtins.property
     @pulumi.getter(name="keyAgreement")
-    def key_agreement(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def key_agreement(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used in a key-agreement protocol.
         """
         return pulumi.get(self, "key_agreement")
 
     @key_agreement.setter
-    def key_agreement(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def key_agreement(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "key_agreement", value)
 
     @_builtins.property
     @pulumi.getter(name="keyCertSign")
-    def key_cert_sign(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def key_cert_sign(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used to sign certificates.
         """
         return pulumi.get(self, "key_cert_sign")
 
     @key_cert_sign.setter
-    def key_cert_sign(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def key_cert_sign(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "key_cert_sign", value)
 
     @_builtins.property
     @pulumi.getter(name="keyEncipherment")
-    def key_encipherment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def key_encipherment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used to encipher data.
         """
         return pulumi.get(self, "key_encipherment")
 
     @key_encipherment.setter
-    def key_encipherment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def key_encipherment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "key_encipherment", value)
 
     @_builtins.property
     @pulumi.getter(name="nonRepudiation")
-    def non_repudiation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def non_repudiation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Key can be used for non-repudiation.
         """
         return pulumi.get(self, "non_repudiation")
 
     @non_repudiation.setter
-    def non_repudiation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def non_repudiation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "non_repudiation", value)
 
 
@@ -2041,7 +2041,7 @@ class CertificatePolicyInformationArgsDict(TypedDict):
     """
     Specifies the object identifier (OID) of the certificate policy under which the certificate was issued. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
     """
-    policy_qualifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgsDict']]]]
+    policy_qualifiers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgsDict']]]]]
     """
     Modifies the given ``CertPolicyId`` with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
     """
@@ -2050,7 +2050,7 @@ class CertificatePolicyInformationArgsDict(TypedDict):
 class CertificatePolicyInformationArgs:
     def __init__(__self__, *,
                  cert_policy_id: pulumi.Input[_builtins.str],
-                 policy_qualifiers: Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgs']]]] = None):
+                 policy_qualifiers: pulumi.Input[Optional[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgs']]]] = None):
         """
         Defines the X.509 ``CertificatePolicies`` extension.
 
@@ -2075,14 +2075,14 @@ class CertificatePolicyInformationArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyQualifiers")
-    def policy_qualifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgs']]]]:
+    def policy_qualifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgs']]]]:
         """
         Modifies the given ``CertPolicyId`` with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
         """
         return pulumi.get(self, "policy_qualifiers")
 
     @policy_qualifiers.setter
-    def policy_qualifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgs']]]]):
+    def policy_qualifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgs']]]]):
         pulumi.set(self, "policy_qualifiers", value)
 
 
@@ -2175,65 +2175,65 @@ class CertificateSubjectArgsDict(TypedDict):
     """
     Contains information about the certificate subject. The ``Subject`` field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The ``Subject``must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
     """
-    common_name: NotRequired[pulumi.Input[_builtins.str]]
+    common_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
      Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
     """
-    country: NotRequired[pulumi.Input[_builtins.str]]
+    country: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Two-digit code that specifies the country in which the certificate subject located.
     """
-    custom_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateCustomAttributeArgsDict']]]]
+    custom_attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CertificateCustomAttributeArgsDict']]]]]
     """
     Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
       Custom attributes cannot be used in combination with standard attributes.
     """
-    distinguished_name_qualifier: NotRequired[pulumi.Input[_builtins.str]]
+    distinguished_name_qualifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Disambiguating information for the certificate subject.
     """
-    generation_qualifier: NotRequired[pulumi.Input[_builtins.str]]
+    generation_qualifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
     """
-    given_name: NotRequired[pulumi.Input[_builtins.str]]
+    given_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     First name.
     """
-    initials: NotRequired[pulumi.Input[_builtins.str]]
+    initials: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Concatenation that typically contains the first letter of the *GivenName*, the first letter of the middle name if one exists, and the first letter of the *Surname*.
     """
-    locality: NotRequired[pulumi.Input[_builtins.str]]
+    locality: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The locality (such as a city or town) in which the certificate subject is located.
     """
-    organization: NotRequired[pulumi.Input[_builtins.str]]
+    organization: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Legal name of the organization with which the certificate subject is affiliated.
     """
-    organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
+    organizational_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
     """
-    pseudonym: NotRequired[pulumi.Input[_builtins.str]]
+    pseudonym: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Typically a shortened version of a longer *GivenName*. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
     """
-    serial_number: NotRequired[pulumi.Input[_builtins.str]]
+    serial_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The certificate serial number.
     """
-    state: NotRequired[pulumi.Input[_builtins.str]]
+    state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     State in which the subject of the certificate is located.
     """
-    surname: NotRequired[pulumi.Input[_builtins.str]]
+    surname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
     """
-    title: NotRequired[pulumi.Input[_builtins.str]]
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.
     """
@@ -2241,21 +2241,21 @@ class CertificateSubjectArgsDict(TypedDict):
 @pulumi.input_type
 class CertificateSubjectArgs:
     def __init__(__self__, *,
-                 common_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCustomAttributeArgs']]]] = None,
-                 distinguished_name_qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 generation_qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 given_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 initials: Optional[pulumi.Input[_builtins.str]] = None,
-                 locality: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 pseudonym: Optional[pulumi.Input[_builtins.str]] = None,
-                 serial_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 surname: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 common_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateCustomAttributeArgs']]]] = None,
+                 distinguished_name_qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 generation_qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 given_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 initials: pulumi.Input[Optional[_builtins.str]] = None,
+                 locality: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 pseudonym: pulumi.Input[Optional[_builtins.str]] = None,
+                 serial_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 surname: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains information about the certificate subject. The ``Subject`` field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The ``Subject``must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
 
@@ -2310,7 +2310,7 @@ class CertificateSubjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="commonName")
-    def common_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def common_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
          Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
@@ -2318,24 +2318,24 @@ class CertificateSubjectArgs:
         return pulumi.get(self, "common_name")
 
     @common_name.setter
-    def common_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def common_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "common_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def country(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Two-digit code that specifies the country in which the certificate subject located.
         """
         return pulumi.get(self, "country")
 
     @country.setter
-    def country(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country", value)
 
     @_builtins.property
     @pulumi.getter(name="customAttributes")
-    def custom_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCustomAttributeArgs']]]]:
+    def custom_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertificateCustomAttributeArgs']]]]:
         """
         Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
           Custom attributes cannot be used in combination with standard attributes.
@@ -2343,151 +2343,151 @@ class CertificateSubjectArgs:
         return pulumi.get(self, "custom_attributes")
 
     @custom_attributes.setter
-    def custom_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCustomAttributeArgs']]]]):
+    def custom_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateCustomAttributeArgs']]]]):
         pulumi.set(self, "custom_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="distinguishedNameQualifier")
-    def distinguished_name_qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def distinguished_name_qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Disambiguating information for the certificate subject.
         """
         return pulumi.get(self, "distinguished_name_qualifier")
 
     @distinguished_name_qualifier.setter
-    def distinguished_name_qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def distinguished_name_qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "distinguished_name_qualifier", value)
 
     @_builtins.property
     @pulumi.getter(name="generationQualifier")
-    def generation_qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def generation_qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
         """
         return pulumi.get(self, "generation_qualifier")
 
     @generation_qualifier.setter
-    def generation_qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def generation_qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "generation_qualifier", value)
 
     @_builtins.property
     @pulumi.getter(name="givenName")
-    def given_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def given_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         First name.
         """
         return pulumi.get(self, "given_name")
 
     @given_name.setter
-    def given_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def given_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "given_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def initials(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initials(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Concatenation that typically contains the first letter of the *GivenName*, the first letter of the middle name if one exists, and the first letter of the *Surname*.
         """
         return pulumi.get(self, "initials")
 
     @initials.setter
-    def initials(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initials(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initials", value)
 
     @_builtins.property
     @pulumi.getter
-    def locality(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locality(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The locality (such as a city or town) in which the certificate subject is located.
         """
         return pulumi.get(self, "locality")
 
     @locality.setter
-    def locality(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locality(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locality", value)
 
     @_builtins.property
     @pulumi.getter
-    def organization(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Legal name of the organization with which the certificate subject is affiliated.
         """
         return pulumi.get(self, "organization")
 
     @organization.setter
-    def organization(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnit")
-    def organizational_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organizational_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
         """
         return pulumi.get(self, "organizational_unit")
 
     @organizational_unit.setter
-    def organizational_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organizational_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organizational_unit", value)
 
     @_builtins.property
     @pulumi.getter
-    def pseudonym(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pseudonym(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Typically a shortened version of a longer *GivenName*. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
         """
         return pulumi.get(self, "pseudonym")
 
     @pseudonym.setter
-    def pseudonym(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pseudonym(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pseudonym", value)
 
     @_builtins.property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serial_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate serial number.
         """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
-    def serial_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serial_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serial_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State in which the subject of the certificate is located.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def surname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def surname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
         """
         return pulumi.get(self, "surname")
 
     @surname.setter
-    def surname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def surname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "surname", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 

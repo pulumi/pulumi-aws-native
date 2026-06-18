@@ -88,7 +88,7 @@ def get_database(database_name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_database_output(database_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     The AWS::Timestream::Database resource creates a Timestream database.

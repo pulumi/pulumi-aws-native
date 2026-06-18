@@ -107,7 +107,7 @@ def get_warm_pool(auto_scaling_group_name: Optional[_builtins.str] = None,
         max_group_prepared_capacity=pulumi.get(__ret__, 'max_group_prepared_capacity'),
         min_size=pulumi.get(__ret__, 'min_size'),
         pool_state=pulumi.get(__ret__, 'pool_state'))
-def get_warm_pool_output(auto_scaling_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_warm_pool_output(auto_scaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWarmPoolResult]:
     """
     Resource schema for AWS::AutoScaling::WarmPool.

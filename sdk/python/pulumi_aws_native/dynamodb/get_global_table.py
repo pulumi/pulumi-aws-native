@@ -315,7 +315,7 @@ def get_global_table(table_name: Optional[_builtins.str] = None,
         warm_throughput=pulumi.get(__ret__, 'warm_throughput'),
         write_on_demand_throughput_settings=pulumi.get(__ret__, 'write_on_demand_throughput_settings'),
         write_provisioned_throughput_settings=pulumi.get(__ret__, 'write_provisioned_throughput_settings'))
-def get_global_table_output(table_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_global_table_output(table_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalTableResult]:
     """
     Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable

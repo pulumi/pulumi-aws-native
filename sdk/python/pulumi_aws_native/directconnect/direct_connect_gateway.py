@@ -21,9 +21,9 @@ __all__ = ['DirectConnectGatewayArgs', 'DirectConnectGateway']
 @pulumi.input_type
 class DirectConnectGatewayArgs:
     def __init__(__self__, *,
-                 amazon_side_asn: Optional[pulumi.Input[_builtins.str]] = None,
-                 direct_connect_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 amazon_side_asn: pulumi.Input[Optional[_builtins.str]] = None,
+                 direct_connect_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DirectConnectGateway resource.
 
@@ -40,38 +40,38 @@ class DirectConnectGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="amazonSideAsn")
-    def amazon_side_asn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def amazon_side_asn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The autonomous system number (ASN) for the Amazon side of the connection.
         """
         return pulumi.get(self, "amazon_side_asn")
 
     @amazon_side_asn.setter
-    def amazon_side_asn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def amazon_side_asn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "amazon_side_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="directConnectGatewayName")
-    def direct_connect_gateway_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def direct_connect_gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Direct Connect gateway.
         """
         return pulumi.get(self, "direct_connect_gateway_name")
 
     @direct_connect_gateway_name.setter
-    def direct_connect_gateway_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def direct_connect_gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "direct_connect_gateway_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags associated with the Direct Connect gateway.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -81,9 +81,9 @@ class DirectConnectGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amazon_side_asn: Optional[pulumi.Input[_builtins.str]] = None,
-                 direct_connect_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 amazon_side_asn: pulumi.Input[Optional[_builtins.str]] = None,
+                 direct_connect_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DirectConnect::DirectConnectGateway
@@ -120,9 +120,9 @@ class DirectConnectGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amazon_side_asn: Optional[pulumi.Input[_builtins.str]] = None,
-                 direct_connect_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 amazon_side_asn: pulumi.Input[Optional[_builtins.str]] = None,
+                 direct_connect_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

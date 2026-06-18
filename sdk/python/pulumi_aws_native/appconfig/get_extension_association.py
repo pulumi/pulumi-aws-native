@@ -127,7 +127,7 @@ def get_extension_association(id: Optional[_builtins.str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_extension_association_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_extension_association_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionAssociationResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.

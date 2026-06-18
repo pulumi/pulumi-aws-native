@@ -191,7 +191,7 @@ def get_file_system(file_system_id: Optional[_builtins.str] = None,
         provisioned_throughput_in_mibps=pulumi.get(__ret__, 'provisioned_throughput_in_mibps'),
         replication_configuration=pulumi.get(__ret__, 'replication_configuration'),
         throughput_mode=pulumi.get(__ret__, 'throughput_mode'))
-def get_file_system_output(file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_file_system_output(file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileSystemResult]:
     """
     The ``AWS::EFS::FileSystem`` resource creates a new, empty file system in EFSlong (EFS). You must create a mount target ([AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html)) to mount your EFS file system on an EC2 or other AWS cloud compute resource.

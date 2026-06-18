@@ -127,7 +127,7 @@ def get_portfolio(id: Optional[_builtins.str] = None,
         portfolio_name=pulumi.get(__ret__, 'portfolio_name'),
         provider_name=pulumi.get(__ret__, 'provider_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_portfolio_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_portfolio_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPortfolioResult]:
     """
     Resource type definition for AWS::ServiceCatalog::Portfolio

@@ -243,7 +243,7 @@ def get_connector(connector_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
-def get_connector_output(connector_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connector_output(connector_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Resource Type definition for AWS::Transfer::Connector

@@ -22,10 +22,10 @@ __all__ = ['ImageArgs', 'Image']
 class ImageArgs:
     def __init__(__self__, *,
                  image_role_arn: pulumi.Input[_builtins.str],
-                 image_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 image_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Image resource.
 
@@ -75,19 +75,19 @@ class ImageArgs:
 
     @_builtins.property
     @pulumi.getter(name="imageDescription")
-    def image_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the image.
         """
         return pulumi.get(self, "image_description")
 
     @image_description.setter
-    def image_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_description", value)
 
     @_builtins.property
     @pulumi.getter(name="imageDisplayName")
-    def image_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the image.
 
@@ -98,12 +98,12 @@ class ImageArgs:
         return pulumi.get(self, "image_display_name")
 
     @image_display_name.setter
-    def image_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="imageName")
-    def image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Image. Must be unique by region in your account.
 
@@ -114,19 +114,19 @@ class ImageArgs:
         return pulumi.get(self, "image_name")
 
     @image_name.setter
-    def image_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -136,11 +136,11 @@ class Image(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 image_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 image_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::Image
@@ -191,11 +191,11 @@ class Image(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 image_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 image_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

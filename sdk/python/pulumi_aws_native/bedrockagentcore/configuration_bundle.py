@@ -24,12 +24,12 @@ __all__ = ['ConfigurationBundleArgs', 'ConfigurationBundle']
 class ConfigurationBundleArgs:
     def __init__(__self__, *,
                  components: pulumi.Input[Mapping[str, pulumi.Input['ConfigurationBundleComponentConfigurationArgs']]],
-                 branch_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bundle_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input['ConfigurationBundleVersionCreatedBySourceArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 branch_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bundle_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional['ConfigurationBundleVersionCreatedBySourceArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationBundle resource.
 
@@ -68,71 +68,71 @@ class ConfigurationBundleArgs:
 
     @_builtins.property
     @pulumi.getter(name="branchName")
-    def branch_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The branch name for version tracking.
         """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
-    def branch_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch_name", value)
 
     @_builtins.property
     @pulumi.getter(name="bundleName")
-    def bundle_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bundle_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the configuration bundle. Names must be unique within your account.
         """
         return pulumi.get(self, "bundle_name")
 
     @bundle_name.setter
-    def bundle_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bundle_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bundle_name", value)
 
     @_builtins.property
     @pulumi.getter(name="commitMessage")
-    def commit_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commit_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A commit message describing the version of the configuration bundle.
         """
         return pulumi.get(self, "commit_message")
 
     @commit_message.setter
-    def commit_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commit_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commit_message", value)
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input['ConfigurationBundleVersionCreatedBySourceArgs']]:
+    def created_by(self) -> pulumi.Input[Optional['ConfigurationBundleVersionCreatedBySourceArgs']]:
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input['ConfigurationBundleVersionCreatedBySourceArgs']]):
+    def created_by(self, value: pulumi.Input[Optional['ConfigurationBundleVersionCreatedBySourceArgs']]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the configuration bundle.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags to assign to the configuration bundle.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -142,13 +142,13 @@ class ConfigurationBundle(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bundle_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 components: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ConfigurationBundleComponentConfigurationArgs', 'ConfigurationBundleComponentConfigurationArgsDict']]]]] = None,
-                 created_by: Optional[pulumi.Input[Union['ConfigurationBundleVersionCreatedBySourceArgs', 'ConfigurationBundleVersionCreatedBySourceArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 branch_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bundle_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ConfigurationBundleComponentConfigurationArgs', 'ConfigurationBundleComponentConfigurationArgsDict']]]]] = None,
+                 created_by: pulumi.Input[Optional[Union['ConfigurationBundleVersionCreatedBySourceArgs', 'ConfigurationBundleVersionCreatedBySourceArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::BedrockAgentCore::ConfigurationBundle Resource Type
@@ -188,13 +188,13 @@ class ConfigurationBundle(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bundle_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 components: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ConfigurationBundleComponentConfigurationArgs', 'ConfigurationBundleComponentConfigurationArgsDict']]]]] = None,
-                 created_by: Optional[pulumi.Input[Union['ConfigurationBundleVersionCreatedBySourceArgs', 'ConfigurationBundleVersionCreatedBySourceArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 branch_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bundle_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ConfigurationBundleComponentConfigurationArgs', 'ConfigurationBundleComponentConfigurationArgsDict']]]]] = None,
+                 created_by: pulumi.Input[Optional[Union['ConfigurationBundleVersionCreatedBySourceArgs', 'ConfigurationBundleVersionCreatedBySourceArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

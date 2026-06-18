@@ -107,7 +107,7 @@ def get_daemon(daemon_arn: Optional[_builtins.str] = None,
         deployment_arn=pulumi.get(__ret__, 'deployment_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_daemon_output(daemon_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_daemon_output(daemon_arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDaemonResult]:
     """
     Information about a daemon resource.

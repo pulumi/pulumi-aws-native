@@ -155,8 +155,8 @@ def get_domain_unit(domain_id: Optional[_builtins.str] = None,
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         name=pulumi.get(__ret__, 'name'),
         parent_domain_unit_id=pulumi.get(__ret__, 'parent_domain_unit_id'))
-def get_domain_unit_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_unit_output(domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainUnitResult]:
     """
     A domain unit enables you to easily organize your assets and other domain entities under specific business units and teams.

@@ -28,26 +28,26 @@ __all__ = [
     'DatasetActionArgsDict',
     'DatasetContainerActionArgs',
     'DatasetContainerActionArgsDict',
-    'DatasetContentDeliveryRuleDestinationArgs',
-    'DatasetContentDeliveryRuleDestinationArgsDict',
     'DatasetContentDeliveryRuleArgs',
     'DatasetContentDeliveryRuleArgsDict',
+    'DatasetContentDeliveryRuleDestinationArgs',
+    'DatasetContentDeliveryRuleDestinationArgsDict',
     'DatasetContentVersionValueArgs',
     'DatasetContentVersionValueArgsDict',
-    'DatasetDeltaTimeSessionWindowConfigurationArgs',
-    'DatasetDeltaTimeSessionWindowConfigurationArgsDict',
     'DatasetDeltaTimeArgs',
     'DatasetDeltaTimeArgsDict',
+    'DatasetDeltaTimeSessionWindowConfigurationArgs',
+    'DatasetDeltaTimeSessionWindowConfigurationArgsDict',
     'DatasetFilterArgs',
     'DatasetFilterArgsDict',
     'DatasetGlueConfigurationArgs',
     'DatasetGlueConfigurationArgsDict',
     'DatasetIotEventsDestinationConfigurationArgs',
     'DatasetIotEventsDestinationConfigurationArgsDict',
-    'DatasetLateDataRuleConfigurationArgs',
-    'DatasetLateDataRuleConfigurationArgsDict',
     'DatasetLateDataRuleArgs',
     'DatasetLateDataRuleArgsDict',
+    'DatasetLateDataRuleConfigurationArgs',
+    'DatasetLateDataRuleConfigurationArgsDict',
     'DatasetOutputFileUriValueArgs',
     'DatasetOutputFileUriValueArgsDict',
     'DatasetQueryActionArgs',
@@ -60,20 +60,20 @@ __all__ = [
     'DatasetS3DestinationConfigurationArgsDict',
     'DatasetScheduleArgs',
     'DatasetScheduleArgsDict',
-    'DatasetTriggeringDatasetArgs',
-    'DatasetTriggeringDatasetArgsDict',
     'DatasetTriggerArgs',
     'DatasetTriggerArgsDict',
+    'DatasetTriggeringDatasetArgs',
+    'DatasetTriggeringDatasetArgsDict',
     'DatasetVariableArgs',
     'DatasetVariableArgsDict',
     'DatasetVersioningConfigurationArgs',
     'DatasetVersioningConfigurationArgsDict',
     'DatastoreColumnArgs',
     'DatastoreColumnArgsDict',
-    'DatastoreCustomerManagedS3StorageArgs',
-    'DatastoreCustomerManagedS3StorageArgsDict',
     'DatastoreCustomerManagedS3Args',
     'DatastoreCustomerManagedS3ArgsDict',
+    'DatastoreCustomerManagedS3StorageArgs',
+    'DatastoreCustomerManagedS3StorageArgsDict',
     'DatastoreFileFormatConfigurationArgs',
     'DatastoreFileFormatConfigurationArgsDict',
     'DatastoreIotSiteWiseMultiLayerStorageArgs',
@@ -82,10 +82,10 @@ __all__ = [
     'DatastoreJsonConfigurationArgsDict',
     'DatastoreParquetConfigurationArgs',
     'DatastoreParquetConfigurationArgsDict',
-    'DatastorePartitionsArgs',
-    'DatastorePartitionsArgsDict',
     'DatastorePartitionArgs',
     'DatastorePartitionArgsDict',
+    'DatastorePartitionsArgs',
+    'DatastorePartitionsArgsDict',
     'DatastoreRetentionPeriodArgs',
     'DatastoreRetentionPeriodArgsDict',
     'DatastoreSchemaDefinitionArgs',
@@ -131,7 +131,7 @@ class ChannelCustomerManagedS3ArgsDict(TypedDict):
     """
     The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
     """
-    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier within the bucket (each object in a bucket has exactly one key). The prefix must end with a forward slash (/).
     """
@@ -141,7 +141,7 @@ class ChannelCustomerManagedS3Args:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket: The name of the S3 bucket in which channel data is stored.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
@@ -178,23 +178,23 @@ class ChannelCustomerManagedS3Args:
 
     @_builtins.property
     @pulumi.getter(name="keyPrefix")
-    def key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier within the bucket (each object in a bucket has exactly one key). The prefix must end with a forward slash (/).
         """
         return pulumi.get(self, "key_prefix")
 
     @key_prefix.setter
-    def key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_prefix", value)
 
 
 class ChannelRetentionPeriodArgsDict(TypedDict):
-    number_of_days: NotRequired[pulumi.Input[_builtins.int]]
+    number_of_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of days that message data is kept. The `unlimited` parameter must be false.
     """
-    unlimited: NotRequired[pulumi.Input[_builtins.bool]]
+    unlimited: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, message data is kept indefinitely.
     """
@@ -202,8 +202,8 @@ class ChannelRetentionPeriodArgsDict(TypedDict):
 @pulumi.input_type
 class ChannelRetentionPeriodArgs:
     def __init__(__self__, *,
-                 number_of_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 unlimited: Optional[pulumi.Input[_builtins.bool]] = None):
+                 number_of_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 unlimited: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.int] number_of_days: The number of days that message data is kept. The `unlimited` parameter must be false.
         :param pulumi.Input[_builtins.bool] unlimited: If true, message data is kept indefinitely.
@@ -215,26 +215,26 @@ class ChannelRetentionPeriodArgs:
 
     @_builtins.property
     @pulumi.getter(name="numberOfDays")
-    def number_of_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days that message data is kept. The `unlimited` parameter must be false.
         """
         return pulumi.get(self, "number_of_days")
 
     @number_of_days.setter
-    def number_of_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def unlimited(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unlimited(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, message data is kept indefinitely.
         """
         return pulumi.get(self, "unlimited")
 
     @unlimited.setter
-    def unlimited(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unlimited(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unlimited", value)
 
 
@@ -248,11 +248,11 @@ class ChannelServiceManagedS3Args:
 
 
 class ChannelStorageArgsDict(TypedDict):
-    customer_managed_s3: NotRequired[pulumi.Input['ChannelCustomerManagedS3ArgsDict']]
+    customer_managed_s3: NotRequired[pulumi.Input[Optional['ChannelCustomerManagedS3ArgsDict']]]
     """
     Used to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the `retentionPeriod` parameter is ignored. You can't change the choice of S3 storage after the data store is created.
     """
-    service_managed_s3: NotRequired[pulumi.Input['ChannelServiceManagedS3ArgsDict']]
+    service_managed_s3: NotRequired[pulumi.Input[Optional['ChannelServiceManagedS3ArgsDict']]]
     """
     Used to store channel data in an S3 bucket managed by ITA . You can't change the choice of S3 storage after the data store is created.
     """
@@ -260,8 +260,8 @@ class ChannelStorageArgsDict(TypedDict):
 @pulumi.input_type
 class ChannelStorageArgs:
     def __init__(__self__, *,
-                 customer_managed_s3: Optional[pulumi.Input['ChannelCustomerManagedS3Args']] = None,
-                 service_managed_s3: Optional[pulumi.Input['ChannelServiceManagedS3Args']] = None):
+                 customer_managed_s3: pulumi.Input[Optional['ChannelCustomerManagedS3Args']] = None,
+                 service_managed_s3: pulumi.Input[Optional['ChannelServiceManagedS3Args']] = None):
         """
         :param pulumi.Input['ChannelCustomerManagedS3Args'] customer_managed_s3: Used to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the `retentionPeriod` parameter is ignored. You can't change the choice of S3 storage after the data store is created.
         :param pulumi.Input['ChannelServiceManagedS3Args'] service_managed_s3: Used to store channel data in an S3 bucket managed by ITA . You can't change the choice of S3 storage after the data store is created.
@@ -273,26 +273,26 @@ class ChannelStorageArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedS3")
-    def customer_managed_s3(self) -> Optional[pulumi.Input['ChannelCustomerManagedS3Args']]:
+    def customer_managed_s3(self) -> pulumi.Input[Optional['ChannelCustomerManagedS3Args']]:
         """
         Used to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the `retentionPeriod` parameter is ignored. You can't change the choice of S3 storage after the data store is created.
         """
         return pulumi.get(self, "customer_managed_s3")
 
     @customer_managed_s3.setter
-    def customer_managed_s3(self, value: Optional[pulumi.Input['ChannelCustomerManagedS3Args']]):
+    def customer_managed_s3(self, value: pulumi.Input[Optional['ChannelCustomerManagedS3Args']]):
         pulumi.set(self, "customer_managed_s3", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceManagedS3")
-    def service_managed_s3(self) -> Optional[pulumi.Input['ChannelServiceManagedS3Args']]:
+    def service_managed_s3(self) -> pulumi.Input[Optional['ChannelServiceManagedS3Args']]:
         """
         Used to store channel data in an S3 bucket managed by ITA . You can't change the choice of S3 storage after the data store is created.
         """
         return pulumi.get(self, "service_managed_s3")
 
     @service_managed_s3.setter
-    def service_managed_s3(self, value: Optional[pulumi.Input['ChannelServiceManagedS3Args']]):
+    def service_managed_s3(self, value: pulumi.Input[Optional['ChannelServiceManagedS3Args']]):
         pulumi.set(self, "service_managed_s3", value)
 
 
@@ -301,11 +301,11 @@ class DatasetActionArgsDict(TypedDict):
     """
     The name of the data set action by which data set contents are automatically created.
     """
-    container_action: NotRequired[pulumi.Input['DatasetContainerActionArgsDict']]
+    container_action: NotRequired[pulumi.Input[Optional['DatasetContainerActionArgsDict']]]
     """
     Information which allows the system to run a containerized application in order to create the data set contents. The application must be in a Docker container along with any needed support libraries.
     """
-    query_action: NotRequired[pulumi.Input['DatasetQueryActionArgsDict']]
+    query_action: NotRequired[pulumi.Input[Optional['DatasetQueryActionArgsDict']]]
     """
     An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
     """
@@ -314,8 +314,8 @@ class DatasetActionArgsDict(TypedDict):
 class DatasetActionArgs:
     def __init__(__self__, *,
                  action_name: pulumi.Input[_builtins.str],
-                 container_action: Optional[pulumi.Input['DatasetContainerActionArgs']] = None,
-                 query_action: Optional[pulumi.Input['DatasetQueryActionArgs']] = None):
+                 container_action: pulumi.Input[Optional['DatasetContainerActionArgs']] = None,
+                 query_action: pulumi.Input[Optional['DatasetQueryActionArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] action_name: The name of the data set action by which data set contents are automatically created.
         :param pulumi.Input['DatasetContainerActionArgs'] container_action: Information which allows the system to run a containerized application in order to create the data set contents. The application must be in a Docker container along with any needed support libraries.
@@ -341,26 +341,26 @@ class DatasetActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerAction")
-    def container_action(self) -> Optional[pulumi.Input['DatasetContainerActionArgs']]:
+    def container_action(self) -> pulumi.Input[Optional['DatasetContainerActionArgs']]:
         """
         Information which allows the system to run a containerized application in order to create the data set contents. The application must be in a Docker container along with any needed support libraries.
         """
         return pulumi.get(self, "container_action")
 
     @container_action.setter
-    def container_action(self, value: Optional[pulumi.Input['DatasetContainerActionArgs']]):
+    def container_action(self, value: pulumi.Input[Optional['DatasetContainerActionArgs']]):
         pulumi.set(self, "container_action", value)
 
     @_builtins.property
     @pulumi.getter(name="queryAction")
-    def query_action(self) -> Optional[pulumi.Input['DatasetQueryActionArgs']]:
+    def query_action(self) -> pulumi.Input[Optional['DatasetQueryActionArgs']]:
         """
         An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
         """
         return pulumi.get(self, "query_action")
 
     @query_action.setter
-    def query_action(self, value: Optional[pulumi.Input['DatasetQueryActionArgs']]):
+    def query_action(self, value: pulumi.Input[Optional['DatasetQueryActionArgs']]):
         pulumi.set(self, "query_action", value)
 
 
@@ -377,7 +377,7 @@ class DatasetContainerActionArgsDict(TypedDict):
     """
     Configuration of the resource which executes the "containerAction".
     """
-    variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatasetVariableArgsDict']]]]
+    variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatasetVariableArgsDict']]]]]
     """
     The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
     """
@@ -388,7 +388,7 @@ class DatasetContainerActionArgs:
                  execution_role_arn: pulumi.Input[_builtins.str],
                  image: pulumi.Input[_builtins.str],
                  resource_configuration: pulumi.Input['DatasetResourceConfigurationArgs'],
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetVariableArgs']]]] = None):
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetVariableArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] execution_role_arn: The ARN of the role which gives permission to the system to access needed resources in order to run the "containerAction". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
         :param pulumi.Input[_builtins.str] image: The ARN of the Docker container stored in your account. The Docker container contains an application and needed support libraries and is used to generate data set contents.
@@ -439,64 +439,15 @@ class DatasetContainerActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetVariableArgs']]]]:
+    def variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatasetVariableArgs']]]]:
         """
         The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetVariableArgs']]]]):
+    def variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetVariableArgs']]]]):
         pulumi.set(self, "variables", value)
-
-
-class DatasetContentDeliveryRuleDestinationArgsDict(TypedDict):
-    iot_events_destination_configuration: NotRequired[pulumi.Input['DatasetIotEventsDestinationConfigurationArgsDict']]
-    """
-    Configuration information for delivery of dataset contents to AWS IoT Events .
-    """
-    s3_destination_configuration: NotRequired[pulumi.Input['DatasetS3DestinationConfigurationArgsDict']]
-    """
-    Configuration information for delivery of dataset contents to Amazon S3.
-    """
-
-@pulumi.input_type
-class DatasetContentDeliveryRuleDestinationArgs:
-    def __init__(__self__, *,
-                 iot_events_destination_configuration: Optional[pulumi.Input['DatasetIotEventsDestinationConfigurationArgs']] = None,
-                 s3_destination_configuration: Optional[pulumi.Input['DatasetS3DestinationConfigurationArgs']] = None):
-        """
-        :param pulumi.Input['DatasetIotEventsDestinationConfigurationArgs'] iot_events_destination_configuration: Configuration information for delivery of dataset contents to AWS IoT Events .
-        :param pulumi.Input['DatasetS3DestinationConfigurationArgs'] s3_destination_configuration: Configuration information for delivery of dataset contents to Amazon S3.
-        """
-        if iot_events_destination_configuration is not None:
-            pulumi.set(__self__, "iot_events_destination_configuration", iot_events_destination_configuration)
-        if s3_destination_configuration is not None:
-            pulumi.set(__self__, "s3_destination_configuration", s3_destination_configuration)
-
-    @_builtins.property
-    @pulumi.getter(name="iotEventsDestinationConfiguration")
-    def iot_events_destination_configuration(self) -> Optional[pulumi.Input['DatasetIotEventsDestinationConfigurationArgs']]:
-        """
-        Configuration information for delivery of dataset contents to AWS IoT Events .
-        """
-        return pulumi.get(self, "iot_events_destination_configuration")
-
-    @iot_events_destination_configuration.setter
-    def iot_events_destination_configuration(self, value: Optional[pulumi.Input['DatasetIotEventsDestinationConfigurationArgs']]):
-        pulumi.set(self, "iot_events_destination_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="s3DestinationConfiguration")
-    def s3_destination_configuration(self) -> Optional[pulumi.Input['DatasetS3DestinationConfigurationArgs']]:
-        """
-        Configuration information for delivery of dataset contents to Amazon S3.
-        """
-        return pulumi.get(self, "s3_destination_configuration")
-
-    @s3_destination_configuration.setter
-    def s3_destination_configuration(self, value: Optional[pulumi.Input['DatasetS3DestinationConfigurationArgs']]):
-        pulumi.set(self, "s3_destination_configuration", value)
 
 
 class DatasetContentDeliveryRuleArgsDict(TypedDict):
@@ -504,7 +455,7 @@ class DatasetContentDeliveryRuleArgsDict(TypedDict):
     """
     The destination to which dataset contents are delivered.
     """
-    entry_name: NotRequired[pulumi.Input[_builtins.str]]
+    entry_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the dataset content delivery rules entry.
     """
@@ -513,7 +464,7 @@ class DatasetContentDeliveryRuleArgsDict(TypedDict):
 class DatasetContentDeliveryRuleArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input['DatasetContentDeliveryRuleDestinationArgs'],
-                 entry_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 entry_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['DatasetContentDeliveryRuleDestinationArgs'] destination: The destination to which dataset contents are delivered.
         :param pulumi.Input[_builtins.str] entry_name: The name of the dataset content delivery rules entry.
@@ -536,15 +487,64 @@ class DatasetContentDeliveryRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="entryName")
-    def entry_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the dataset content delivery rules entry.
         """
         return pulumi.get(self, "entry_name")
 
     @entry_name.setter
-    def entry_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entry_name", value)
+
+
+class DatasetContentDeliveryRuleDestinationArgsDict(TypedDict):
+    iot_events_destination_configuration: NotRequired[pulumi.Input[Optional['DatasetIotEventsDestinationConfigurationArgsDict']]]
+    """
+    Configuration information for delivery of dataset contents to AWS IoT Events .
+    """
+    s3_destination_configuration: NotRequired[pulumi.Input[Optional['DatasetS3DestinationConfigurationArgsDict']]]
+    """
+    Configuration information for delivery of dataset contents to Amazon S3.
+    """
+
+@pulumi.input_type
+class DatasetContentDeliveryRuleDestinationArgs:
+    def __init__(__self__, *,
+                 iot_events_destination_configuration: pulumi.Input[Optional['DatasetIotEventsDestinationConfigurationArgs']] = None,
+                 s3_destination_configuration: pulumi.Input[Optional['DatasetS3DestinationConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['DatasetIotEventsDestinationConfigurationArgs'] iot_events_destination_configuration: Configuration information for delivery of dataset contents to AWS IoT Events .
+        :param pulumi.Input['DatasetS3DestinationConfigurationArgs'] s3_destination_configuration: Configuration information for delivery of dataset contents to Amazon S3.
+        """
+        if iot_events_destination_configuration is not None:
+            pulumi.set(__self__, "iot_events_destination_configuration", iot_events_destination_configuration)
+        if s3_destination_configuration is not None:
+            pulumi.set(__self__, "s3_destination_configuration", s3_destination_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="iotEventsDestinationConfiguration")
+    def iot_events_destination_configuration(self) -> pulumi.Input[Optional['DatasetIotEventsDestinationConfigurationArgs']]:
+        """
+        Configuration information for delivery of dataset contents to AWS IoT Events .
+        """
+        return pulumi.get(self, "iot_events_destination_configuration")
+
+    @iot_events_destination_configuration.setter
+    def iot_events_destination_configuration(self, value: pulumi.Input[Optional['DatasetIotEventsDestinationConfigurationArgs']]):
+        pulumi.set(self, "iot_events_destination_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DestinationConfiguration")
+    def s3_destination_configuration(self) -> pulumi.Input[Optional['DatasetS3DestinationConfigurationArgs']]:
+        """
+        Configuration information for delivery of dataset contents to Amazon S3.
+        """
+        return pulumi.get(self, "s3_destination_configuration")
+
+    @s3_destination_configuration.setter
+    def s3_destination_configuration(self, value: pulumi.Input[Optional['DatasetS3DestinationConfigurationArgs']]):
+        pulumi.set(self, "s3_destination_configuration", value)
 
 
 class DatasetContentVersionValueArgsDict(TypedDict):
@@ -573,40 +573,6 @@ class DatasetContentVersionValueArgs:
     @dataset_name.setter
     def dataset_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "dataset_name", value)
-
-
-class DatasetDeltaTimeSessionWindowConfigurationArgsDict(TypedDict):
-    timeout_in_minutes: pulumi.Input[_builtins.int]
-    """
-    A time interval. You can use `timeoutInMinutes` so that ITA can batch up late data notifications that have been generated since the last execution. ITA sends one batch of notifications to Amazon CloudWatch Events at one time.
-
-    For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
-    """
-
-@pulumi.input_type
-class DatasetDeltaTimeSessionWindowConfigurationArgs:
-    def __init__(__self__, *,
-                 timeout_in_minutes: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.int] timeout_in_minutes: A time interval. You can use `timeoutInMinutes` so that ITA can batch up late data notifications that have been generated since the last execution. ITA sends one batch of notifications to Amazon CloudWatch Events at one time.
-               
-               For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
-        """
-        pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
-
-    @_builtins.property
-    @pulumi.getter(name="timeoutInMinutes")
-    def timeout_in_minutes(self) -> pulumi.Input[_builtins.int]:
-        """
-        A time interval. You can use `timeoutInMinutes` so that ITA can batch up late data notifications that have been generated since the last execution. ITA sends one batch of notifications to Amazon CloudWatch Events at one time.
-
-        For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
-        """
-        return pulumi.get(self, "timeout_in_minutes")
-
-    @timeout_in_minutes.setter
-    def timeout_in_minutes(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "timeout_in_minutes", value)
 
 
 class DatasetDeltaTimeArgsDict(TypedDict):
@@ -656,8 +622,42 @@ class DatasetDeltaTimeArgs:
         pulumi.set(self, "time_expression", value)
 
 
+class DatasetDeltaTimeSessionWindowConfigurationArgsDict(TypedDict):
+    timeout_in_minutes: pulumi.Input[_builtins.int]
+    """
+    A time interval. You can use `timeoutInMinutes` so that ITA can batch up late data notifications that have been generated since the last execution. ITA sends one batch of notifications to Amazon CloudWatch Events at one time.
+
+    For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
+    """
+
+@pulumi.input_type
+class DatasetDeltaTimeSessionWindowConfigurationArgs:
+    def __init__(__self__, *,
+                 timeout_in_minutes: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] timeout_in_minutes: A time interval. You can use `timeoutInMinutes` so that ITA can batch up late data notifications that have been generated since the last execution. ITA sends one batch of notifications to Amazon CloudWatch Events at one time.
+               
+               For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
+        """
+        pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutInMinutes")
+    def timeout_in_minutes(self) -> pulumi.Input[_builtins.int]:
+        """
+        A time interval. You can use `timeoutInMinutes` so that ITA can batch up late data notifications that have been generated since the last execution. ITA sends one batch of notifications to Amazon CloudWatch Events at one time.
+
+        For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
+        """
+        return pulumi.get(self, "timeout_in_minutes")
+
+    @timeout_in_minutes.setter
+    def timeout_in_minutes(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "timeout_in_minutes", value)
+
+
 class DatasetFilterArgsDict(TypedDict):
-    delta_time: NotRequired[pulumi.Input['DatasetDeltaTimeArgsDict']]
+    delta_time: NotRequired[pulumi.Input[Optional['DatasetDeltaTimeArgsDict']]]
     """
     Used to limit data to that which has arrived since the last execution of the action.
     """
@@ -665,7 +665,7 @@ class DatasetFilterArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetFilterArgs:
     def __init__(__self__, *,
-                 delta_time: Optional[pulumi.Input['DatasetDeltaTimeArgs']] = None):
+                 delta_time: pulumi.Input[Optional['DatasetDeltaTimeArgs']] = None):
         """
         :param pulumi.Input['DatasetDeltaTimeArgs'] delta_time: Used to limit data to that which has arrived since the last execution of the action.
         """
@@ -674,14 +674,14 @@ class DatasetFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="deltaTime")
-    def delta_time(self) -> Optional[pulumi.Input['DatasetDeltaTimeArgs']]:
+    def delta_time(self) -> pulumi.Input[Optional['DatasetDeltaTimeArgs']]:
         """
         Used to limit data to that which has arrived since the last execution of the action.
         """
         return pulumi.get(self, "delta_time")
 
     @delta_time.setter
-    def delta_time(self, value: Optional[pulumi.Input['DatasetDeltaTimeArgs']]):
+    def delta_time(self, value: pulumi.Input[Optional['DatasetDeltaTimeArgs']]):
         pulumi.set(self, "delta_time", value)
 
 
@@ -779,41 +779,12 @@ class DatasetIotEventsDestinationConfigurationArgs:
         pulumi.set(self, "role_arn", value)
 
 
-class DatasetLateDataRuleConfigurationArgsDict(TypedDict):
-    delta_time_session_window_configuration: NotRequired[pulumi.Input['DatasetDeltaTimeSessionWindowConfigurationArgsDict']]
-    """
-    The information needed to configure a delta time session window.
-    """
-
-@pulumi.input_type
-class DatasetLateDataRuleConfigurationArgs:
-    def __init__(__self__, *,
-                 delta_time_session_window_configuration: Optional[pulumi.Input['DatasetDeltaTimeSessionWindowConfigurationArgs']] = None):
-        """
-        :param pulumi.Input['DatasetDeltaTimeSessionWindowConfigurationArgs'] delta_time_session_window_configuration: The information needed to configure a delta time session window.
-        """
-        if delta_time_session_window_configuration is not None:
-            pulumi.set(__self__, "delta_time_session_window_configuration", delta_time_session_window_configuration)
-
-    @_builtins.property
-    @pulumi.getter(name="deltaTimeSessionWindowConfiguration")
-    def delta_time_session_window_configuration(self) -> Optional[pulumi.Input['DatasetDeltaTimeSessionWindowConfigurationArgs']]:
-        """
-        The information needed to configure a delta time session window.
-        """
-        return pulumi.get(self, "delta_time_session_window_configuration")
-
-    @delta_time_session_window_configuration.setter
-    def delta_time_session_window_configuration(self, value: Optional[pulumi.Input['DatasetDeltaTimeSessionWindowConfigurationArgs']]):
-        pulumi.set(self, "delta_time_session_window_configuration", value)
-
-
 class DatasetLateDataRuleArgsDict(TypedDict):
     rule_configuration: pulumi.Input['DatasetLateDataRuleConfigurationArgsDict']
     """
     The information needed to configure the late data rule.
     """
-    rule_name: NotRequired[pulumi.Input[_builtins.str]]
+    rule_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the late data rule.
     """
@@ -822,7 +793,7 @@ class DatasetLateDataRuleArgsDict(TypedDict):
 class DatasetLateDataRuleArgs:
     def __init__(__self__, *,
                  rule_configuration: pulumi.Input['DatasetLateDataRuleConfigurationArgs'],
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['DatasetLateDataRuleConfigurationArgs'] rule_configuration: The information needed to configure the late data rule.
         :param pulumi.Input[_builtins.str] rule_name: The name of the late data rule.
@@ -845,15 +816,44 @@ class DatasetLateDataRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the late data rule.
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
+
+
+class DatasetLateDataRuleConfigurationArgsDict(TypedDict):
+    delta_time_session_window_configuration: NotRequired[pulumi.Input[Optional['DatasetDeltaTimeSessionWindowConfigurationArgsDict']]]
+    """
+    The information needed to configure a delta time session window.
+    """
+
+@pulumi.input_type
+class DatasetLateDataRuleConfigurationArgs:
+    def __init__(__self__, *,
+                 delta_time_session_window_configuration: pulumi.Input[Optional['DatasetDeltaTimeSessionWindowConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['DatasetDeltaTimeSessionWindowConfigurationArgs'] delta_time_session_window_configuration: The information needed to configure a delta time session window.
+        """
+        if delta_time_session_window_configuration is not None:
+            pulumi.set(__self__, "delta_time_session_window_configuration", delta_time_session_window_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="deltaTimeSessionWindowConfiguration")
+    def delta_time_session_window_configuration(self) -> pulumi.Input[Optional['DatasetDeltaTimeSessionWindowConfigurationArgs']]:
+        """
+        The information needed to configure a delta time session window.
+        """
+        return pulumi.get(self, "delta_time_session_window_configuration")
+
+    @delta_time_session_window_configuration.setter
+    def delta_time_session_window_configuration(self, value: pulumi.Input[Optional['DatasetDeltaTimeSessionWindowConfigurationArgs']]):
+        pulumi.set(self, "delta_time_session_window_configuration", value)
 
 
 class DatasetOutputFileUriValueArgsDict(TypedDict):
@@ -889,7 +889,7 @@ class DatasetQueryActionArgsDict(TypedDict):
     """
     An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
     """
-    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatasetFilterArgsDict']]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatasetFilterArgsDict']]]]]
     """
     Pre-filters applied to message data.
     """
@@ -898,7 +898,7 @@ class DatasetQueryActionArgsDict(TypedDict):
 class DatasetQueryActionArgs:
     def __init__(__self__, *,
                  sql_query: pulumi.Input[_builtins.str],
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetFilterArgs']]]] = None):
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetFilterArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] sql_query: An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
         :param pulumi.Input[Sequence[pulumi.Input['DatasetFilterArgs']]] filters: Pre-filters applied to message data.
@@ -921,14 +921,14 @@ class DatasetQueryActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatasetFilterArgs']]]]:
         """
         Pre-filters applied to message data.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
 
@@ -980,11 +980,11 @@ class DatasetResourceConfigurationArgs:
 
 
 class DatasetRetentionPeriodArgsDict(TypedDict):
-    number_of_days: NotRequired[pulumi.Input[_builtins.int]]
+    number_of_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of days that message data is kept. The `unlimited` parameter must be false.
     """
-    unlimited: NotRequired[pulumi.Input[_builtins.bool]]
+    unlimited: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, message data is kept indefinitely.
     """
@@ -992,8 +992,8 @@ class DatasetRetentionPeriodArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetRetentionPeriodArgs:
     def __init__(__self__, *,
-                 number_of_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 unlimited: Optional[pulumi.Input[_builtins.bool]] = None):
+                 number_of_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 unlimited: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.int] number_of_days: The number of days that message data is kept. The `unlimited` parameter must be false.
         :param pulumi.Input[_builtins.bool] unlimited: If true, message data is kept indefinitely.
@@ -1005,26 +1005,26 @@ class DatasetRetentionPeriodArgs:
 
     @_builtins.property
     @pulumi.getter(name="numberOfDays")
-    def number_of_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days that message data is kept. The `unlimited` parameter must be false.
         """
         return pulumi.get(self, "number_of_days")
 
     @number_of_days.setter
-    def number_of_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def unlimited(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unlimited(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, message data is kept indefinitely.
         """
         return pulumi.get(self, "unlimited")
 
     @unlimited.setter
-    def unlimited(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unlimited(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unlimited", value)
 
 
@@ -1051,7 +1051,7 @@ class DatasetS3DestinationConfigurationArgsDict(TypedDict):
     """
     The ARN of the role that grants ITA permission to interact with your Amazon S3 and AWS Glue resources.
     """
-    glue_configuration: NotRequired[pulumi.Input['DatasetGlueConfigurationArgsDict']]
+    glue_configuration: NotRequired[pulumi.Input[Optional['DatasetGlueConfigurationArgsDict']]]
     """
     Configuration information for coordination with AWS Glue , a fully managed extract, transform and load (ETL) service.
     """
@@ -1062,7 +1062,7 @@ class DatasetS3DestinationConfigurationArgs:
                  bucket: pulumi.Input[_builtins.str],
                  key: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 glue_configuration: Optional[pulumi.Input['DatasetGlueConfigurationArgs']] = None):
+                 glue_configuration: pulumi.Input[Optional['DatasetGlueConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] bucket: The name of the S3 bucket to which dataset contents are delivered.
         :param pulumi.Input[_builtins.str] key: The key of the dataset contents object in an S3 bucket. Each object has a key that is a unique identifier. Each object has exactly one key.
@@ -1133,14 +1133,14 @@ class DatasetS3DestinationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="glueConfiguration")
-    def glue_configuration(self) -> Optional[pulumi.Input['DatasetGlueConfigurationArgs']]:
+    def glue_configuration(self) -> pulumi.Input[Optional['DatasetGlueConfigurationArgs']]:
         """
         Configuration information for coordination with AWS Glue , a fully managed extract, transform and load (ETL) service.
         """
         return pulumi.get(self, "glue_configuration")
 
     @glue_configuration.setter
-    def glue_configuration(self, value: Optional[pulumi.Input['DatasetGlueConfigurationArgs']]):
+    def glue_configuration(self, value: pulumi.Input[Optional['DatasetGlueConfigurationArgs']]):
         pulumi.set(self, "glue_configuration", value)
 
 
@@ -1172,6 +1172,55 @@ class DatasetScheduleArgs:
         pulumi.set(self, "schedule_expression", value)
 
 
+class DatasetTriggerArgsDict(TypedDict):
+    schedule: NotRequired[pulumi.Input[Optional['DatasetScheduleArgsDict']]]
+    """
+    The "Schedule" when the trigger is initiated.
+    """
+    triggering_dataset: NotRequired[pulumi.Input[Optional['DatasetTriggeringDatasetArgsDict']]]
+    """
+    Information about the data set whose content generation triggers the new data set content generation.
+    """
+
+@pulumi.input_type
+class DatasetTriggerArgs:
+    def __init__(__self__, *,
+                 schedule: pulumi.Input[Optional['DatasetScheduleArgs']] = None,
+                 triggering_dataset: pulumi.Input[Optional['DatasetTriggeringDatasetArgs']] = None):
+        """
+        :param pulumi.Input['DatasetScheduleArgs'] schedule: The "Schedule" when the trigger is initiated.
+        :param pulumi.Input['DatasetTriggeringDatasetArgs'] triggering_dataset: Information about the data set whose content generation triggers the new data set content generation.
+        """
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if triggering_dataset is not None:
+            pulumi.set(__self__, "triggering_dataset", triggering_dataset)
+
+    @_builtins.property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input[Optional['DatasetScheduleArgs']]:
+        """
+        The "Schedule" when the trigger is initiated.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input[Optional['DatasetScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
+
+    @_builtins.property
+    @pulumi.getter(name="triggeringDataset")
+    def triggering_dataset(self) -> pulumi.Input[Optional['DatasetTriggeringDatasetArgs']]:
+        """
+        Information about the data set whose content generation triggers the new data set content generation.
+        """
+        return pulumi.get(self, "triggering_dataset")
+
+    @triggering_dataset.setter
+    def triggering_dataset(self, value: pulumi.Input[Optional['DatasetTriggeringDatasetArgs']]):
+        pulumi.set(self, "triggering_dataset", value)
+
+
 class DatasetTriggeringDatasetArgsDict(TypedDict):
     dataset_name: pulumi.Input[_builtins.str]
     """
@@ -1200,73 +1249,24 @@ class DatasetTriggeringDatasetArgs:
         pulumi.set(self, "dataset_name", value)
 
 
-class DatasetTriggerArgsDict(TypedDict):
-    schedule: NotRequired[pulumi.Input['DatasetScheduleArgsDict']]
-    """
-    The "Schedule" when the trigger is initiated.
-    """
-    triggering_dataset: NotRequired[pulumi.Input['DatasetTriggeringDatasetArgsDict']]
-    """
-    Information about the data set whose content generation triggers the new data set content generation.
-    """
-
-@pulumi.input_type
-class DatasetTriggerArgs:
-    def __init__(__self__, *,
-                 schedule: Optional[pulumi.Input['DatasetScheduleArgs']] = None,
-                 triggering_dataset: Optional[pulumi.Input['DatasetTriggeringDatasetArgs']] = None):
-        """
-        :param pulumi.Input['DatasetScheduleArgs'] schedule: The "Schedule" when the trigger is initiated.
-        :param pulumi.Input['DatasetTriggeringDatasetArgs'] triggering_dataset: Information about the data set whose content generation triggers the new data set content generation.
-        """
-        if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
-        if triggering_dataset is not None:
-            pulumi.set(__self__, "triggering_dataset", triggering_dataset)
-
-    @_builtins.property
-    @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['DatasetScheduleArgs']]:
-        """
-        The "Schedule" when the trigger is initiated.
-        """
-        return pulumi.get(self, "schedule")
-
-    @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['DatasetScheduleArgs']]):
-        pulumi.set(self, "schedule", value)
-
-    @_builtins.property
-    @pulumi.getter(name="triggeringDataset")
-    def triggering_dataset(self) -> Optional[pulumi.Input['DatasetTriggeringDatasetArgs']]:
-        """
-        Information about the data set whose content generation triggers the new data set content generation.
-        """
-        return pulumi.get(self, "triggering_dataset")
-
-    @triggering_dataset.setter
-    def triggering_dataset(self, value: Optional[pulumi.Input['DatasetTriggeringDatasetArgs']]):
-        pulumi.set(self, "triggering_dataset", value)
-
-
 class DatasetVariableArgsDict(TypedDict):
     variable_name: pulumi.Input[_builtins.str]
     """
     The name of the variable.
     """
-    dataset_content_version_value: NotRequired[pulumi.Input['DatasetContentVersionValueArgsDict']]
+    dataset_content_version_value: NotRequired[pulumi.Input[Optional['DatasetContentVersionValueArgsDict']]]
     """
     The value of the variable as a structure that specifies a dataset content version.
     """
-    double_value: NotRequired[pulumi.Input[_builtins.float]]
+    double_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The value of the variable as a double (numeric).
     """
-    output_file_uri_value: NotRequired[pulumi.Input['DatasetOutputFileUriValueArgsDict']]
+    output_file_uri_value: NotRequired[pulumi.Input[Optional['DatasetOutputFileUriValueArgsDict']]]
     """
     The value of the variable as a structure that specifies an output file URI.
     """
-    string_value: NotRequired[pulumi.Input[_builtins.str]]
+    string_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the variable as a string.
     """
@@ -1275,10 +1275,10 @@ class DatasetVariableArgsDict(TypedDict):
 class DatasetVariableArgs:
     def __init__(__self__, *,
                  variable_name: pulumi.Input[_builtins.str],
-                 dataset_content_version_value: Optional[pulumi.Input['DatasetContentVersionValueArgs']] = None,
-                 double_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 output_file_uri_value: Optional[pulumi.Input['DatasetOutputFileUriValueArgs']] = None,
-                 string_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 dataset_content_version_value: pulumi.Input[Optional['DatasetContentVersionValueArgs']] = None,
+                 double_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 output_file_uri_value: pulumi.Input[Optional['DatasetOutputFileUriValueArgs']] = None,
+                 string_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] variable_name: The name of the variable.
         :param pulumi.Input['DatasetContentVersionValueArgs'] dataset_content_version_value: The value of the variable as a structure that specifies a dataset content version.
@@ -1310,59 +1310,59 @@ class DatasetVariableArgs:
 
     @_builtins.property
     @pulumi.getter(name="datasetContentVersionValue")
-    def dataset_content_version_value(self) -> Optional[pulumi.Input['DatasetContentVersionValueArgs']]:
+    def dataset_content_version_value(self) -> pulumi.Input[Optional['DatasetContentVersionValueArgs']]:
         """
         The value of the variable as a structure that specifies a dataset content version.
         """
         return pulumi.get(self, "dataset_content_version_value")
 
     @dataset_content_version_value.setter
-    def dataset_content_version_value(self, value: Optional[pulumi.Input['DatasetContentVersionValueArgs']]):
+    def dataset_content_version_value(self, value: pulumi.Input[Optional['DatasetContentVersionValueArgs']]):
         pulumi.set(self, "dataset_content_version_value", value)
 
     @_builtins.property
     @pulumi.getter(name="doubleValue")
-    def double_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def double_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The value of the variable as a double (numeric).
         """
         return pulumi.get(self, "double_value")
 
     @double_value.setter
-    def double_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def double_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "double_value", value)
 
     @_builtins.property
     @pulumi.getter(name="outputFileUriValue")
-    def output_file_uri_value(self) -> Optional[pulumi.Input['DatasetOutputFileUriValueArgs']]:
+    def output_file_uri_value(self) -> pulumi.Input[Optional['DatasetOutputFileUriValueArgs']]:
         """
         The value of the variable as a structure that specifies an output file URI.
         """
         return pulumi.get(self, "output_file_uri_value")
 
     @output_file_uri_value.setter
-    def output_file_uri_value(self, value: Optional[pulumi.Input['DatasetOutputFileUriValueArgs']]):
+    def output_file_uri_value(self, value: pulumi.Input[Optional['DatasetOutputFileUriValueArgs']]):
         pulumi.set(self, "output_file_uri_value", value)
 
     @_builtins.property
     @pulumi.getter(name="stringValue")
-    def string_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def string_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the variable as a string.
         """
         return pulumi.get(self, "string_value")
 
     @string_value.setter
-    def string_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def string_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "string_value", value)
 
 
 class DatasetVersioningConfigurationArgsDict(TypedDict):
-    max_versions: NotRequired[pulumi.Input[_builtins.int]]
+    max_versions: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     How many versions of dataset contents are kept. The `unlimited` parameter must be `false` .
     """
-    unlimited: NotRequired[pulumi.Input[_builtins.bool]]
+    unlimited: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, unlimited versions of dataset contents are kept.
     """
@@ -1370,8 +1370,8 @@ class DatasetVersioningConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetVersioningConfigurationArgs:
     def __init__(__self__, *,
-                 max_versions: Optional[pulumi.Input[_builtins.int]] = None,
-                 unlimited: Optional[pulumi.Input[_builtins.bool]] = None):
+                 max_versions: pulumi.Input[Optional[_builtins.int]] = None,
+                 unlimited: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.int] max_versions: How many versions of dataset contents are kept. The `unlimited` parameter must be `false` .
         :param pulumi.Input[_builtins.bool] unlimited: If true, unlimited versions of dataset contents are kept.
@@ -1383,26 +1383,26 @@ class DatasetVersioningConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxVersions")
-    def max_versions(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_versions(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         How many versions of dataset contents are kept. The `unlimited` parameter must be `false` .
         """
         return pulumi.get(self, "max_versions")
 
     @max_versions.setter
-    def max_versions(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_versions(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_versions", value)
 
     @_builtins.property
     @pulumi.getter
-    def unlimited(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unlimited(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, unlimited versions of dataset contents are kept.
         """
         return pulumi.get(self, "unlimited")
 
     @unlimited.setter
-    def unlimited(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unlimited(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unlimited", value)
 
 
@@ -1453,54 +1453,6 @@ class DatastoreColumnArgs:
         pulumi.set(self, "type", value)
 
 
-class DatastoreCustomerManagedS3StorageArgsDict(TypedDict):
-    bucket: pulumi.Input[_builtins.str]
-    """
-    The name of the Amazon S3 bucket where your data is stored.
-    """
-    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
-    """
-
-@pulumi.input_type
-class DatastoreCustomerManagedS3StorageArgs:
-    def __init__(__self__, *,
-                 bucket: pulumi.Input[_builtins.str],
-                 key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] bucket: The name of the Amazon S3 bucket where your data is stored.
-        :param pulumi.Input[_builtins.str] key_prefix: (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
-        """
-        pulumi.set(__self__, "bucket", bucket)
-        if key_prefix is not None:
-            pulumi.set(__self__, "key_prefix", key_prefix)
-
-    @_builtins.property
-    @pulumi.getter
-    def bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Amazon S3 bucket where your data is stored.
-        """
-        return pulumi.get(self, "bucket")
-
-    @bucket.setter
-    def bucket(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "bucket", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keyPrefix")
-    def key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
-        """
-        return pulumi.get(self, "key_prefix")
-
-    @key_prefix.setter
-    def key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "key_prefix", value)
-
-
 class DatastoreCustomerManagedS3ArgsDict(TypedDict):
     bucket: pulumi.Input[_builtins.str]
     """
@@ -1510,7 +1462,7 @@ class DatastoreCustomerManagedS3ArgsDict(TypedDict):
     """
     The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
     """
-    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
     """
@@ -1520,7 +1472,7 @@ class DatastoreCustomerManagedS3Args:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket: The name of the Amazon S3 bucket where your data is stored.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
@@ -1557,23 +1509,71 @@ class DatastoreCustomerManagedS3Args:
 
     @_builtins.property
     @pulumi.getter(name="keyPrefix")
-    def key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
         """
         return pulumi.get(self, "key_prefix")
 
     @key_prefix.setter
-    def key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_prefix", value)
+
+
+class DatastoreCustomerManagedS3StorageArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The name of the Amazon S3 bucket where your data is stored.
+    """
+    key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
+    """
+
+@pulumi.input_type
+class DatastoreCustomerManagedS3StorageArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[_builtins.str],
+                 key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket: The name of the Amazon S3 bucket where your data is stored.
+        :param pulumi.Input[_builtins.str] key_prefix: (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        if key_prefix is not None:
+            pulumi.set(__self__, "key_prefix", key_prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Amazon S3 bucket where your data is stored.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
+        """
+        return pulumi.get(self, "key_prefix")
+
+    @key_prefix.setter
+    def key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_prefix", value)
 
 
 class DatastoreFileFormatConfigurationArgsDict(TypedDict):
-    json_configuration: NotRequired[pulumi.Input['DatastoreJsonConfigurationArgsDict']]
+    json_configuration: NotRequired[pulumi.Input[Optional['DatastoreJsonConfigurationArgsDict']]]
     """
     Contains the configuration information of the JSON format.
     """
-    parquet_configuration: NotRequired[pulumi.Input['DatastoreParquetConfigurationArgsDict']]
+    parquet_configuration: NotRequired[pulumi.Input[Optional['DatastoreParquetConfigurationArgsDict']]]
     """
     Contains the configuration information of the Parquet format.
     """
@@ -1581,8 +1581,8 @@ class DatastoreFileFormatConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DatastoreFileFormatConfigurationArgs:
     def __init__(__self__, *,
-                 json_configuration: Optional[pulumi.Input['DatastoreJsonConfigurationArgs']] = None,
-                 parquet_configuration: Optional[pulumi.Input['DatastoreParquetConfigurationArgs']] = None):
+                 json_configuration: pulumi.Input[Optional['DatastoreJsonConfigurationArgs']] = None,
+                 parquet_configuration: pulumi.Input[Optional['DatastoreParquetConfigurationArgs']] = None):
         """
         :param pulumi.Input['DatastoreJsonConfigurationArgs'] json_configuration: Contains the configuration information of the JSON format.
         :param pulumi.Input['DatastoreParquetConfigurationArgs'] parquet_configuration: Contains the configuration information of the Parquet format.
@@ -1594,31 +1594,31 @@ class DatastoreFileFormatConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="jsonConfiguration")
-    def json_configuration(self) -> Optional[pulumi.Input['DatastoreJsonConfigurationArgs']]:
+    def json_configuration(self) -> pulumi.Input[Optional['DatastoreJsonConfigurationArgs']]:
         """
         Contains the configuration information of the JSON format.
         """
         return pulumi.get(self, "json_configuration")
 
     @json_configuration.setter
-    def json_configuration(self, value: Optional[pulumi.Input['DatastoreJsonConfigurationArgs']]):
+    def json_configuration(self, value: pulumi.Input[Optional['DatastoreJsonConfigurationArgs']]):
         pulumi.set(self, "json_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="parquetConfiguration")
-    def parquet_configuration(self) -> Optional[pulumi.Input['DatastoreParquetConfigurationArgs']]:
+    def parquet_configuration(self) -> pulumi.Input[Optional['DatastoreParquetConfigurationArgs']]:
         """
         Contains the configuration information of the Parquet format.
         """
         return pulumi.get(self, "parquet_configuration")
 
     @parquet_configuration.setter
-    def parquet_configuration(self, value: Optional[pulumi.Input['DatastoreParquetConfigurationArgs']]):
+    def parquet_configuration(self, value: pulumi.Input[Optional['DatastoreParquetConfigurationArgs']]):
         pulumi.set(self, "parquet_configuration", value)
 
 
 class DatastoreIotSiteWiseMultiLayerStorageArgsDict(TypedDict):
-    customer_managed_s3_storage: NotRequired[pulumi.Input['DatastoreCustomerManagedS3StorageArgsDict']]
+    customer_managed_s3_storage: NotRequired[pulumi.Input[Optional['DatastoreCustomerManagedS3StorageArgsDict']]]
     """
     Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
     """
@@ -1626,7 +1626,7 @@ class DatastoreIotSiteWiseMultiLayerStorageArgsDict(TypedDict):
 @pulumi.input_type
 class DatastoreIotSiteWiseMultiLayerStorageArgs:
     def __init__(__self__, *,
-                 customer_managed_s3_storage: Optional[pulumi.Input['DatastoreCustomerManagedS3StorageArgs']] = None):
+                 customer_managed_s3_storage: pulumi.Input[Optional['DatastoreCustomerManagedS3StorageArgs']] = None):
         """
         :param pulumi.Input['DatastoreCustomerManagedS3StorageArgs'] customer_managed_s3_storage: Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
         """
@@ -1635,14 +1635,14 @@ class DatastoreIotSiteWiseMultiLayerStorageArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedS3Storage")
-    def customer_managed_s3_storage(self) -> Optional[pulumi.Input['DatastoreCustomerManagedS3StorageArgs']]:
+    def customer_managed_s3_storage(self) -> pulumi.Input[Optional['DatastoreCustomerManagedS3StorageArgs']]:
         """
         Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
         """
         return pulumi.get(self, "customer_managed_s3_storage")
 
     @customer_managed_s3_storage.setter
-    def customer_managed_s3_storage(self, value: Optional[pulumi.Input['DatastoreCustomerManagedS3StorageArgs']]):
+    def customer_managed_s3_storage(self, value: pulumi.Input[Optional['DatastoreCustomerManagedS3StorageArgs']]):
         pulumi.set(self, "customer_managed_s3_storage", value)
 
 
@@ -1656,7 +1656,7 @@ class DatastoreJsonConfigurationArgs:
 
 
 class DatastoreParquetConfigurationArgsDict(TypedDict):
-    schema_definition: NotRequired[pulumi.Input['DatastoreSchemaDefinitionArgsDict']]
+    schema_definition: NotRequired[pulumi.Input[Optional['DatastoreSchemaDefinitionArgsDict']]]
     """
     Information needed to define a schema.
     """
@@ -1664,7 +1664,7 @@ class DatastoreParquetConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DatastoreParquetConfigurationArgs:
     def __init__(__self__, *,
-                 schema_definition: Optional[pulumi.Input['DatastoreSchemaDefinitionArgs']] = None):
+                 schema_definition: pulumi.Input[Optional['DatastoreSchemaDefinitionArgs']] = None):
         """
         :param pulumi.Input['DatastoreSchemaDefinitionArgs'] schema_definition: Information needed to define a schema.
         """
@@ -1673,52 +1673,23 @@ class DatastoreParquetConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="schemaDefinition")
-    def schema_definition(self) -> Optional[pulumi.Input['DatastoreSchemaDefinitionArgs']]:
+    def schema_definition(self) -> pulumi.Input[Optional['DatastoreSchemaDefinitionArgs']]:
         """
         Information needed to define a schema.
         """
         return pulumi.get(self, "schema_definition")
 
     @schema_definition.setter
-    def schema_definition(self, value: Optional[pulumi.Input['DatastoreSchemaDefinitionArgs']]):
+    def schema_definition(self, value: pulumi.Input[Optional['DatastoreSchemaDefinitionArgs']]):
         pulumi.set(self, "schema_definition", value)
 
 
-class DatastorePartitionsArgsDict(TypedDict):
-    partitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatastorePartitionArgsDict']]]]
-    """
-    A list of partition dimensions in a data store.
-    """
-
-@pulumi.input_type
-class DatastorePartitionsArgs:
-    def __init__(__self__, *,
-                 partitions: Optional[pulumi.Input[Sequence[pulumi.Input['DatastorePartitionArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['DatastorePartitionArgs']]] partitions: A list of partition dimensions in a data store.
-        """
-        if partitions is not None:
-            pulumi.set(__self__, "partitions", partitions)
-
-    @_builtins.property
-    @pulumi.getter
-    def partitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatastorePartitionArgs']]]]:
-        """
-        A list of partition dimensions in a data store.
-        """
-        return pulumi.get(self, "partitions")
-
-    @partitions.setter
-    def partitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatastorePartitionArgs']]]]):
-        pulumi.set(self, "partitions", value)
-
-
 class DatastorePartitionArgsDict(TypedDict):
-    partition: NotRequired[pulumi.Input['PartitionArgsDict']]
+    partition: NotRequired[pulumi.Input[Optional['PartitionArgsDict']]]
     """
     A partition dimension defined by an attribute.
     """
-    timestamp_partition: NotRequired[pulumi.Input['DatastoreTimestampPartitionArgsDict']]
+    timestamp_partition: NotRequired[pulumi.Input[Optional['DatastoreTimestampPartitionArgsDict']]]
     """
     A partition dimension defined by a timestamp attribute.
     """
@@ -1726,8 +1697,8 @@ class DatastorePartitionArgsDict(TypedDict):
 @pulumi.input_type
 class DatastorePartitionArgs:
     def __init__(__self__, *,
-                 partition: Optional[pulumi.Input['PartitionArgs']] = None,
-                 timestamp_partition: Optional[pulumi.Input['DatastoreTimestampPartitionArgs']] = None):
+                 partition: pulumi.Input[Optional['PartitionArgs']] = None,
+                 timestamp_partition: pulumi.Input[Optional['DatastoreTimestampPartitionArgs']] = None):
         """
         :param pulumi.Input['PartitionArgs'] partition: A partition dimension defined by an attribute.
         :param pulumi.Input['DatastoreTimestampPartitionArgs'] timestamp_partition: A partition dimension defined by a timestamp attribute.
@@ -1739,35 +1710,64 @@ class DatastorePartitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input['PartitionArgs']]:
+    def partition(self) -> pulumi.Input[Optional['PartitionArgs']]:
         """
         A partition dimension defined by an attribute.
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input['PartitionArgs']]):
+    def partition(self, value: pulumi.Input[Optional['PartitionArgs']]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="timestampPartition")
-    def timestamp_partition(self) -> Optional[pulumi.Input['DatastoreTimestampPartitionArgs']]:
+    def timestamp_partition(self) -> pulumi.Input[Optional['DatastoreTimestampPartitionArgs']]:
         """
         A partition dimension defined by a timestamp attribute.
         """
         return pulumi.get(self, "timestamp_partition")
 
     @timestamp_partition.setter
-    def timestamp_partition(self, value: Optional[pulumi.Input['DatastoreTimestampPartitionArgs']]):
+    def timestamp_partition(self, value: pulumi.Input[Optional['DatastoreTimestampPartitionArgs']]):
         pulumi.set(self, "timestamp_partition", value)
 
 
+class DatastorePartitionsArgsDict(TypedDict):
+    partitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatastorePartitionArgsDict']]]]]
+    """
+    A list of partition dimensions in a data store.
+    """
+
+@pulumi.input_type
+class DatastorePartitionsArgs:
+    def __init__(__self__, *,
+                 partitions: pulumi.Input[Optional[Sequence[pulumi.Input['DatastorePartitionArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DatastorePartitionArgs']]] partitions: A list of partition dimensions in a data store.
+        """
+        if partitions is not None:
+            pulumi.set(__self__, "partitions", partitions)
+
+    @_builtins.property
+    @pulumi.getter
+    def partitions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatastorePartitionArgs']]]]:
+        """
+        A list of partition dimensions in a data store.
+        """
+        return pulumi.get(self, "partitions")
+
+    @partitions.setter
+    def partitions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatastorePartitionArgs']]]]):
+        pulumi.set(self, "partitions", value)
+
+
 class DatastoreRetentionPeriodArgsDict(TypedDict):
-    number_of_days: NotRequired[pulumi.Input[_builtins.int]]
+    number_of_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of days that message data is kept. The `unlimited` parameter must be false.
     """
-    unlimited: NotRequired[pulumi.Input[_builtins.bool]]
+    unlimited: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, message data is kept indefinitely.
     """
@@ -1775,8 +1775,8 @@ class DatastoreRetentionPeriodArgsDict(TypedDict):
 @pulumi.input_type
 class DatastoreRetentionPeriodArgs:
     def __init__(__self__, *,
-                 number_of_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 unlimited: Optional[pulumi.Input[_builtins.bool]] = None):
+                 number_of_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 unlimited: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.int] number_of_days: The number of days that message data is kept. The `unlimited` parameter must be false.
         :param pulumi.Input[_builtins.bool] unlimited: If true, message data is kept indefinitely.
@@ -1788,31 +1788,31 @@ class DatastoreRetentionPeriodArgs:
 
     @_builtins.property
     @pulumi.getter(name="numberOfDays")
-    def number_of_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days that message data is kept. The `unlimited` parameter must be false.
         """
         return pulumi.get(self, "number_of_days")
 
     @number_of_days.setter
-    def number_of_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def unlimited(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unlimited(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, message data is kept indefinitely.
         """
         return pulumi.get(self, "unlimited")
 
     @unlimited.setter
-    def unlimited(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unlimited(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unlimited", value)
 
 
 class DatastoreSchemaDefinitionArgsDict(TypedDict):
-    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatastoreColumnArgsDict']]]]
+    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatastoreColumnArgsDict']]]]]
     """
     Specifies one or more columns that store your data.
 
@@ -1822,7 +1822,7 @@ class DatastoreSchemaDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class DatastoreSchemaDefinitionArgs:
     def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatastoreColumnArgs']]]] = None):
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input['DatastoreColumnArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DatastoreColumnArgs']]] columns: Specifies one or more columns that store your data.
                
@@ -1833,7 +1833,7 @@ class DatastoreSchemaDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatastoreColumnArgs']]]]:
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatastoreColumnArgs']]]]:
         """
         Specifies one or more columns that store your data.
 
@@ -1842,7 +1842,7 @@ class DatastoreSchemaDefinitionArgs:
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatastoreColumnArgs']]]]):
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatastoreColumnArgs']]]]):
         pulumi.set(self, "columns", value)
 
 
@@ -1856,15 +1856,15 @@ class DatastoreServiceManagedS3Args:
 
 
 class DatastoreStorageArgsDict(TypedDict):
-    customer_managed_s3: NotRequired[pulumi.Input['DatastoreCustomerManagedS3ArgsDict']]
+    customer_managed_s3: NotRequired[pulumi.Input[Optional['DatastoreCustomerManagedS3ArgsDict']]]
     """
     Use this to store data store data in an S3 bucket that you manage. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
     """
-    iot_site_wise_multi_layer_storage: NotRequired[pulumi.Input['DatastoreIotSiteWiseMultiLayerStorageArgsDict']]
+    iot_site_wise_multi_layer_storage: NotRequired[pulumi.Input[Optional['DatastoreIotSiteWiseMultiLayerStorageArgsDict']]]
     """
     Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
     """
-    service_managed_s3: NotRequired[pulumi.Input['DatastoreServiceManagedS3ArgsDict']]
+    service_managed_s3: NotRequired[pulumi.Input[Optional['DatastoreServiceManagedS3ArgsDict']]]
     """
     Use this to store data store data in an S3 bucket managed by the  service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
     """
@@ -1872,9 +1872,9 @@ class DatastoreStorageArgsDict(TypedDict):
 @pulumi.input_type
 class DatastoreStorageArgs:
     def __init__(__self__, *,
-                 customer_managed_s3: Optional[pulumi.Input['DatastoreCustomerManagedS3Args']] = None,
-                 iot_site_wise_multi_layer_storage: Optional[pulumi.Input['DatastoreIotSiteWiseMultiLayerStorageArgs']] = None,
-                 service_managed_s3: Optional[pulumi.Input['DatastoreServiceManagedS3Args']] = None):
+                 customer_managed_s3: pulumi.Input[Optional['DatastoreCustomerManagedS3Args']] = None,
+                 iot_site_wise_multi_layer_storage: pulumi.Input[Optional['DatastoreIotSiteWiseMultiLayerStorageArgs']] = None,
+                 service_managed_s3: pulumi.Input[Optional['DatastoreServiceManagedS3Args']] = None):
         """
         :param pulumi.Input['DatastoreCustomerManagedS3Args'] customer_managed_s3: Use this to store data store data in an S3 bucket that you manage. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
         :param pulumi.Input['DatastoreIotSiteWiseMultiLayerStorageArgs'] iot_site_wise_multi_layer_storage: Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
@@ -1889,38 +1889,38 @@ class DatastoreStorageArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedS3")
-    def customer_managed_s3(self) -> Optional[pulumi.Input['DatastoreCustomerManagedS3Args']]:
+    def customer_managed_s3(self) -> pulumi.Input[Optional['DatastoreCustomerManagedS3Args']]:
         """
         Use this to store data store data in an S3 bucket that you manage. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
         """
         return pulumi.get(self, "customer_managed_s3")
 
     @customer_managed_s3.setter
-    def customer_managed_s3(self, value: Optional[pulumi.Input['DatastoreCustomerManagedS3Args']]):
+    def customer_managed_s3(self, value: pulumi.Input[Optional['DatastoreCustomerManagedS3Args']]):
         pulumi.set(self, "customer_managed_s3", value)
 
     @_builtins.property
     @pulumi.getter(name="iotSiteWiseMultiLayerStorage")
-    def iot_site_wise_multi_layer_storage(self) -> Optional[pulumi.Input['DatastoreIotSiteWiseMultiLayerStorageArgs']]:
+    def iot_site_wise_multi_layer_storage(self) -> pulumi.Input[Optional['DatastoreIotSiteWiseMultiLayerStorageArgs']]:
         """
         Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
         """
         return pulumi.get(self, "iot_site_wise_multi_layer_storage")
 
     @iot_site_wise_multi_layer_storage.setter
-    def iot_site_wise_multi_layer_storage(self, value: Optional[pulumi.Input['DatastoreIotSiteWiseMultiLayerStorageArgs']]):
+    def iot_site_wise_multi_layer_storage(self, value: pulumi.Input[Optional['DatastoreIotSiteWiseMultiLayerStorageArgs']]):
         pulumi.set(self, "iot_site_wise_multi_layer_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceManagedS3")
-    def service_managed_s3(self) -> Optional[pulumi.Input['DatastoreServiceManagedS3Args']]:
+    def service_managed_s3(self) -> pulumi.Input[Optional['DatastoreServiceManagedS3Args']]:
         """
         Use this to store data store data in an S3 bucket managed by the  service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
         """
         return pulumi.get(self, "service_managed_s3")
 
     @service_managed_s3.setter
-    def service_managed_s3(self, value: Optional[pulumi.Input['DatastoreServiceManagedS3Args']]):
+    def service_managed_s3(self, value: pulumi.Input[Optional['DatastoreServiceManagedS3Args']]):
         pulumi.set(self, "service_managed_s3", value)
 
 
@@ -1929,7 +1929,7 @@ class DatastoreTimestampPartitionArgsDict(TypedDict):
     """
     The attribute name of the partition defined by a timestamp.
     """
-    timestamp_format: NotRequired[pulumi.Input[_builtins.str]]
+    timestamp_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The timestamp format of a partition defined by a timestamp. The default format is seconds since epoch (January 1, 1970 at midnight UTC time).
     """
@@ -1938,7 +1938,7 @@ class DatastoreTimestampPartitionArgsDict(TypedDict):
 class DatastoreTimestampPartitionArgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[_builtins.str],
-                 timestamp_format: Optional[pulumi.Input[_builtins.str]] = None):
+                 timestamp_format: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] attribute_name: The attribute name of the partition defined by a timestamp.
         :param pulumi.Input[_builtins.str] timestamp_format: The timestamp format of a partition defined by a timestamp. The default format is seconds since epoch (January 1, 1970 at midnight UTC time).
@@ -1961,14 +1961,14 @@ class DatastoreTimestampPartitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="timestampFormat")
-    def timestamp_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timestamp_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp format of a partition defined by a timestamp. The default format is seconds since epoch (January 1, 1970 at midnight UTC time).
         """
         return pulumi.get(self, "timestamp_format")
 
     @timestamp_format.setter
-    def timestamp_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timestamp_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timestamp_format", value)
 
 
@@ -2001,43 +2001,43 @@ class PartitionArgs:
 
 
 class PipelineActivityArgsDict(TypedDict):
-    add_attributes: NotRequired[pulumi.Input['PipelineAddAttributesArgsDict']]
+    add_attributes: NotRequired[pulumi.Input[Optional['PipelineAddAttributesArgsDict']]]
     """
     Adds other attributes based on existing attributes in the message.
     """
-    channel: NotRequired[pulumi.Input['PipelineChannelArgsDict']]
+    channel: NotRequired[pulumi.Input[Optional['PipelineChannelArgsDict']]]
     """
     Determines the source of the messages to be processed.
     """
-    datastore: NotRequired[pulumi.Input['PipelineDatastoreArgsDict']]
+    datastore: NotRequired[pulumi.Input[Optional['PipelineDatastoreArgsDict']]]
     """
     Specifies where to store the processed message data.
     """
-    device_registry_enrich: NotRequired[pulumi.Input['PipelineDeviceRegistryEnrichArgsDict']]
+    device_registry_enrich: NotRequired[pulumi.Input[Optional['PipelineDeviceRegistryEnrichArgsDict']]]
     """
     Adds data from the AWS IoT device registry to your message.
     """
-    device_shadow_enrich: NotRequired[pulumi.Input['PipelineDeviceShadowEnrichArgsDict']]
+    device_shadow_enrich: NotRequired[pulumi.Input[Optional['PipelineDeviceShadowEnrichArgsDict']]]
     """
     Adds information from the AWS IoT Device Shadows service to a message.
     """
-    filter: NotRequired[pulumi.Input['PipelineFilterArgsDict']]
+    filter: NotRequired[pulumi.Input[Optional['PipelineFilterArgsDict']]]
     """
     Filters a message based on its attributes.
     """
-    lambda_: NotRequired[pulumi.Input['PipelineLambdaArgsDict']]
+    lambda_: NotRequired[pulumi.Input[Optional['PipelineLambdaArgsDict']]]
     """
     Runs a Lambda function to modify the message.
     """
-    math: NotRequired[pulumi.Input['PipelineMathArgsDict']]
+    math: NotRequired[pulumi.Input[Optional['PipelineMathArgsDict']]]
     """
     Computes an arithmetic expression using the message's attributes and adds it to the message.
     """
-    remove_attributes: NotRequired[pulumi.Input['PipelineRemoveAttributesArgsDict']]
+    remove_attributes: NotRequired[pulumi.Input[Optional['PipelineRemoveAttributesArgsDict']]]
     """
     Removes attributes from a message.
     """
-    select_attributes: NotRequired[pulumi.Input['PipelineSelectAttributesArgsDict']]
+    select_attributes: NotRequired[pulumi.Input[Optional['PipelineSelectAttributesArgsDict']]]
     """
     Creates a new message using only the specified attributes from the original message.
     """
@@ -2045,16 +2045,16 @@ class PipelineActivityArgsDict(TypedDict):
 @pulumi.input_type
 class PipelineActivityArgs:
     def __init__(__self__, *,
-                 add_attributes: Optional[pulumi.Input['PipelineAddAttributesArgs']] = None,
-                 channel: Optional[pulumi.Input['PipelineChannelArgs']] = None,
-                 datastore: Optional[pulumi.Input['PipelineDatastoreArgs']] = None,
-                 device_registry_enrich: Optional[pulumi.Input['PipelineDeviceRegistryEnrichArgs']] = None,
-                 device_shadow_enrich: Optional[pulumi.Input['PipelineDeviceShadowEnrichArgs']] = None,
-                 filter: Optional[pulumi.Input['PipelineFilterArgs']] = None,
-                 lambda_: Optional[pulumi.Input['PipelineLambdaArgs']] = None,
-                 math: Optional[pulumi.Input['PipelineMathArgs']] = None,
-                 remove_attributes: Optional[pulumi.Input['PipelineRemoveAttributesArgs']] = None,
-                 select_attributes: Optional[pulumi.Input['PipelineSelectAttributesArgs']] = None):
+                 add_attributes: pulumi.Input[Optional['PipelineAddAttributesArgs']] = None,
+                 channel: pulumi.Input[Optional['PipelineChannelArgs']] = None,
+                 datastore: pulumi.Input[Optional['PipelineDatastoreArgs']] = None,
+                 device_registry_enrich: pulumi.Input[Optional['PipelineDeviceRegistryEnrichArgs']] = None,
+                 device_shadow_enrich: pulumi.Input[Optional['PipelineDeviceShadowEnrichArgs']] = None,
+                 filter: pulumi.Input[Optional['PipelineFilterArgs']] = None,
+                 lambda_: pulumi.Input[Optional['PipelineLambdaArgs']] = None,
+                 math: pulumi.Input[Optional['PipelineMathArgs']] = None,
+                 remove_attributes: pulumi.Input[Optional['PipelineRemoveAttributesArgs']] = None,
+                 select_attributes: pulumi.Input[Optional['PipelineSelectAttributesArgs']] = None):
         """
         :param pulumi.Input['PipelineAddAttributesArgs'] add_attributes: Adds other attributes based on existing attributes in the message.
         :param pulumi.Input['PipelineChannelArgs'] channel: Determines the source of the messages to be processed.
@@ -2090,122 +2090,122 @@ class PipelineActivityArgs:
 
     @_builtins.property
     @pulumi.getter(name="addAttributes")
-    def add_attributes(self) -> Optional[pulumi.Input['PipelineAddAttributesArgs']]:
+    def add_attributes(self) -> pulumi.Input[Optional['PipelineAddAttributesArgs']]:
         """
         Adds other attributes based on existing attributes in the message.
         """
         return pulumi.get(self, "add_attributes")
 
     @add_attributes.setter
-    def add_attributes(self, value: Optional[pulumi.Input['PipelineAddAttributesArgs']]):
+    def add_attributes(self, value: pulumi.Input[Optional['PipelineAddAttributesArgs']]):
         pulumi.set(self, "add_attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def channel(self) -> Optional[pulumi.Input['PipelineChannelArgs']]:
+    def channel(self) -> pulumi.Input[Optional['PipelineChannelArgs']]:
         """
         Determines the source of the messages to be processed.
         """
         return pulumi.get(self, "channel")
 
     @channel.setter
-    def channel(self, value: Optional[pulumi.Input['PipelineChannelArgs']]):
+    def channel(self, value: pulumi.Input[Optional['PipelineChannelArgs']]):
         pulumi.set(self, "channel", value)
 
     @_builtins.property
     @pulumi.getter
-    def datastore(self) -> Optional[pulumi.Input['PipelineDatastoreArgs']]:
+    def datastore(self) -> pulumi.Input[Optional['PipelineDatastoreArgs']]:
         """
         Specifies where to store the processed message data.
         """
         return pulumi.get(self, "datastore")
 
     @datastore.setter
-    def datastore(self, value: Optional[pulumi.Input['PipelineDatastoreArgs']]):
+    def datastore(self, value: pulumi.Input[Optional['PipelineDatastoreArgs']]):
         pulumi.set(self, "datastore", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceRegistryEnrich")
-    def device_registry_enrich(self) -> Optional[pulumi.Input['PipelineDeviceRegistryEnrichArgs']]:
+    def device_registry_enrich(self) -> pulumi.Input[Optional['PipelineDeviceRegistryEnrichArgs']]:
         """
         Adds data from the AWS IoT device registry to your message.
         """
         return pulumi.get(self, "device_registry_enrich")
 
     @device_registry_enrich.setter
-    def device_registry_enrich(self, value: Optional[pulumi.Input['PipelineDeviceRegistryEnrichArgs']]):
+    def device_registry_enrich(self, value: pulumi.Input[Optional['PipelineDeviceRegistryEnrichArgs']]):
         pulumi.set(self, "device_registry_enrich", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceShadowEnrich")
-    def device_shadow_enrich(self) -> Optional[pulumi.Input['PipelineDeviceShadowEnrichArgs']]:
+    def device_shadow_enrich(self) -> pulumi.Input[Optional['PipelineDeviceShadowEnrichArgs']]:
         """
         Adds information from the AWS IoT Device Shadows service to a message.
         """
         return pulumi.get(self, "device_shadow_enrich")
 
     @device_shadow_enrich.setter
-    def device_shadow_enrich(self, value: Optional[pulumi.Input['PipelineDeviceShadowEnrichArgs']]):
+    def device_shadow_enrich(self, value: pulumi.Input[Optional['PipelineDeviceShadowEnrichArgs']]):
         pulumi.set(self, "device_shadow_enrich", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['PipelineFilterArgs']]:
+    def filter(self) -> pulumi.Input[Optional['PipelineFilterArgs']]:
         """
         Filters a message based on its attributes.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['PipelineFilterArgs']]):
+    def filter(self, value: pulumi.Input[Optional['PipelineFilterArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="lambda")
-    def lambda_(self) -> Optional[pulumi.Input['PipelineLambdaArgs']]:
+    def lambda_(self) -> pulumi.Input[Optional['PipelineLambdaArgs']]:
         """
         Runs a Lambda function to modify the message.
         """
         return pulumi.get(self, "lambda_")
 
     @lambda_.setter
-    def lambda_(self, value: Optional[pulumi.Input['PipelineLambdaArgs']]):
+    def lambda_(self, value: pulumi.Input[Optional['PipelineLambdaArgs']]):
         pulumi.set(self, "lambda_", value)
 
     @_builtins.property
     @pulumi.getter
-    def math(self) -> Optional[pulumi.Input['PipelineMathArgs']]:
+    def math(self) -> pulumi.Input[Optional['PipelineMathArgs']]:
         """
         Computes an arithmetic expression using the message's attributes and adds it to the message.
         """
         return pulumi.get(self, "math")
 
     @math.setter
-    def math(self, value: Optional[pulumi.Input['PipelineMathArgs']]):
+    def math(self, value: pulumi.Input[Optional['PipelineMathArgs']]):
         pulumi.set(self, "math", value)
 
     @_builtins.property
     @pulumi.getter(name="removeAttributes")
-    def remove_attributes(self) -> Optional[pulumi.Input['PipelineRemoveAttributesArgs']]:
+    def remove_attributes(self) -> pulumi.Input[Optional['PipelineRemoveAttributesArgs']]:
         """
         Removes attributes from a message.
         """
         return pulumi.get(self, "remove_attributes")
 
     @remove_attributes.setter
-    def remove_attributes(self, value: Optional[pulumi.Input['PipelineRemoveAttributesArgs']]):
+    def remove_attributes(self, value: pulumi.Input[Optional['PipelineRemoveAttributesArgs']]):
         pulumi.set(self, "remove_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="selectAttributes")
-    def select_attributes(self) -> Optional[pulumi.Input['PipelineSelectAttributesArgs']]:
+    def select_attributes(self) -> pulumi.Input[Optional['PipelineSelectAttributesArgs']]:
         """
         Creates a new message using only the specified attributes from the original message.
         """
         return pulumi.get(self, "select_attributes")
 
     @select_attributes.setter
-    def select_attributes(self, value: Optional[pulumi.Input['PipelineSelectAttributesArgs']]):
+    def select_attributes(self, value: pulumi.Input[Optional['PipelineSelectAttributesArgs']]):
         pulumi.set(self, "select_attributes", value)
 
 
@@ -2220,7 +2220,7 @@ class PipelineAddAttributesArgsDict(TypedDict):
     """
     The name of the 'addAttributes' activity.
     """
-    next: NotRequired[pulumi.Input[_builtins.str]]
+    next: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The next activity in the pipeline.
     """
@@ -2230,7 +2230,7 @@ class PipelineAddAttributesArgs:
     def __init__(__self__, *,
                  attributes: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[_builtins.str],
-                 next: Optional[pulumi.Input[_builtins.str]] = None):
+                 next: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: A list of 1-50 "AttributeNameMapping" objects that map an existing attribute to a new attribute.
                
@@ -2271,14 +2271,14 @@ class PipelineAddAttributesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def next(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The next activity in the pipeline.
         """
         return pulumi.get(self, "next")
 
     @next.setter
-    def next(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next", value)
 
 
@@ -2291,7 +2291,7 @@ class PipelineChannelArgsDict(TypedDict):
     """
     The name of the 'channel' activity.
     """
-    next: NotRequired[pulumi.Input[_builtins.str]]
+    next: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The next activity in the pipeline.
     """
@@ -2301,7 +2301,7 @@ class PipelineChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 next: Optional[pulumi.Input[_builtins.str]] = None):
+                 next: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] channel_name: The name of the channel from which the messages are processed.
         :param pulumi.Input[_builtins.str] name: The name of the 'channel' activity.
@@ -2338,14 +2338,14 @@ class PipelineChannelArgs:
 
     @_builtins.property
     @pulumi.getter
-    def next(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The next activity in the pipeline.
         """
         return pulumi.get(self, "next")
 
     @next.setter
-    def next(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next", value)
 
 
@@ -2413,7 +2413,7 @@ class PipelineDeviceRegistryEnrichArgsDict(TypedDict):
     """
     The name of the IoT device whose registry information is added to the message.
     """
-    next: NotRequired[pulumi.Input[_builtins.str]]
+    next: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The next activity in the pipeline.
     """
@@ -2425,7 +2425,7 @@ class PipelineDeviceRegistryEnrichArgs:
                  name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
                  thing_name: pulumi.Input[_builtins.str],
-                 next: Optional[pulumi.Input[_builtins.str]] = None):
+                 next: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] attribute: The name of the attribute that is added to the message.
         :param pulumi.Input[_builtins.str] name: The name of the 'deviceRegistryEnrich' activity.
@@ -2490,14 +2490,14 @@ class PipelineDeviceRegistryEnrichArgs:
 
     @_builtins.property
     @pulumi.getter
-    def next(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The next activity in the pipeline.
         """
         return pulumi.get(self, "next")
 
     @next.setter
-    def next(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next", value)
 
 
@@ -2518,7 +2518,7 @@ class PipelineDeviceShadowEnrichArgsDict(TypedDict):
     """
     The name of the IoT device whose shadow information is added to the message.
     """
-    next: NotRequired[pulumi.Input[_builtins.str]]
+    next: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The next activity in the pipeline.
     """
@@ -2530,7 +2530,7 @@ class PipelineDeviceShadowEnrichArgs:
                  name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
                  thing_name: pulumi.Input[_builtins.str],
-                 next: Optional[pulumi.Input[_builtins.str]] = None):
+                 next: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] attribute: The name of the attribute that is added to the message.
         :param pulumi.Input[_builtins.str] name: The name of the 'deviceShadowEnrich' activity.
@@ -2595,14 +2595,14 @@ class PipelineDeviceShadowEnrichArgs:
 
     @_builtins.property
     @pulumi.getter
-    def next(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The next activity in the pipeline.
         """
         return pulumi.get(self, "next")
 
     @next.setter
-    def next(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next", value)
 
 
@@ -2615,7 +2615,7 @@ class PipelineFilterArgsDict(TypedDict):
     """
     The name of the 'filter' activity.
     """
-    next: NotRequired[pulumi.Input[_builtins.str]]
+    next: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The next activity in the pipeline.
     """
@@ -2625,7 +2625,7 @@ class PipelineFilterArgs:
     def __init__(__self__, *,
                  filter: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 next: Optional[pulumi.Input[_builtins.str]] = None):
+                 next: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] filter: An expression that looks like an SQL WHERE clause that must return a Boolean value.
         :param pulumi.Input[_builtins.str] name: The name of the 'filter' activity.
@@ -2662,14 +2662,14 @@ class PipelineFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def next(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The next activity in the pipeline.
         """
         return pulumi.get(self, "next")
 
     @next.setter
-    def next(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next", value)
 
 
@@ -2688,7 +2688,7 @@ class PipelineLambdaArgsDict(TypedDict):
     """
     The name of the 'lambda' activity.
     """
-    next: NotRequired[pulumi.Input[_builtins.str]]
+    next: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The next activity in the pipeline.
     """
@@ -2699,7 +2699,7 @@ class PipelineLambdaArgs:
                  batch_size: pulumi.Input[_builtins.int],
                  lambda_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 next: Optional[pulumi.Input[_builtins.str]] = None):
+                 next: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] batch_size: The number of messages passed to the Lambda function for processing.
                
@@ -2754,14 +2754,14 @@ class PipelineLambdaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def next(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The next activity in the pipeline.
         """
         return pulumi.get(self, "next")
 
     @next.setter
-    def next(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next", value)
 
 
@@ -2778,7 +2778,7 @@ class PipelineMathArgsDict(TypedDict):
     """
     The name of the 'math' activity.
     """
-    next: NotRequired[pulumi.Input[_builtins.str]]
+    next: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The next activity in the pipeline.
     """
@@ -2789,7 +2789,7 @@ class PipelineMathArgs:
                  attribute: pulumi.Input[_builtins.str],
                  math: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 next: Optional[pulumi.Input[_builtins.str]] = None):
+                 next: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] attribute: The name of the attribute that contains the result of the math operation.
         :param pulumi.Input[_builtins.str] math: An expression that uses one or more existing attributes and must return an integer value.
@@ -2840,14 +2840,14 @@ class PipelineMathArgs:
 
     @_builtins.property
     @pulumi.getter
-    def next(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The next activity in the pipeline.
         """
         return pulumi.get(self, "next")
 
     @next.setter
-    def next(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next", value)
 
 
@@ -2860,7 +2860,7 @@ class PipelineRemoveAttributesArgsDict(TypedDict):
     """
     The name of the 'removeAttributes' activity.
     """
-    next: NotRequired[pulumi.Input[_builtins.str]]
+    next: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The next activity in the pipeline.
     """
@@ -2870,7 +2870,7 @@ class PipelineRemoveAttributesArgs:
     def __init__(__self__, *,
                  attributes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[_builtins.str],
-                 next: Optional[pulumi.Input[_builtins.str]] = None):
+                 next: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attributes: A list of 1-50 attributes to remove from the message.
         :param pulumi.Input[_builtins.str] name: The name of the 'removeAttributes' activity.
@@ -2907,14 +2907,14 @@ class PipelineRemoveAttributesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def next(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The next activity in the pipeline.
         """
         return pulumi.get(self, "next")
 
     @next.setter
-    def next(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next", value)
 
 
@@ -2927,7 +2927,7 @@ class PipelineSelectAttributesArgsDict(TypedDict):
     """
     The name of the 'selectAttributes' activity.
     """
-    next: NotRequired[pulumi.Input[_builtins.str]]
+    next: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The next activity in the pipeline.
     """
@@ -2937,7 +2937,7 @@ class PipelineSelectAttributesArgs:
     def __init__(__self__, *,
                  attributes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[_builtins.str],
-                 next: Optional[pulumi.Input[_builtins.str]] = None):
+                 next: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attributes: A list of the attributes to select from the message.
         :param pulumi.Input[_builtins.str] name: The name of the 'selectAttributes' activity.
@@ -2974,14 +2974,14 @@ class PipelineSelectAttributesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def next(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The next activity in the pipeline.
         """
         return pulumi.get(self, "next")
 
     @next.setter
-    def next(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next", value)
 
 

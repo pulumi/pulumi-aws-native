@@ -100,7 +100,7 @@ def get_metered_product(arn: Optional[_builtins.str] = None,
         family=pulumi.get(__ret__, 'family'),
         port=pulumi.get(__ret__, 'port'),
         vendor=pulumi.get(__ret__, 'vendor'))
-def get_metered_product_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_metered_product_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMeteredProductResult]:
     """
     Resource Type definition for AWS::Deadline::MeteredProduct

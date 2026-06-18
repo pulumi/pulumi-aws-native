@@ -153,7 +153,7 @@ def get_route_calculator(calculator_name: Optional[_builtins.str] = None,
         pricing_plan=pulumi.get(__ret__, 'pricing_plan'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
-def get_route_calculator_output(calculator_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_route_calculator_output(calculator_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteCalculatorResult]:
     """
     Definition of AWS::Location::RouteCalculator Resource Type

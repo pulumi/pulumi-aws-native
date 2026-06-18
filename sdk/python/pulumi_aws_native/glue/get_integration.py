@@ -130,8 +130,8 @@ def get_integration(integration_arn: Optional[_builtins.str] = None,
         integration_arn=pulumi.get(__ret__, 'integration_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_integration_output(integration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                           integration_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_output(integration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                           integration_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationResult]:
     """
     Resource Type definition for AWS::Glue::Integration

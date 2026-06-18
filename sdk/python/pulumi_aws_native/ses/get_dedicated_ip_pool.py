@@ -75,7 +75,7 @@ def get_dedicated_ip_pool(pool_name: Optional[_builtins.str] = None,
     return AwaitableGetDedicatedIpPoolResult(
         scaling_mode=pulumi.get(__ret__, 'scaling_mode'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dedicated_ip_pool_output(pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedIpPoolResult]:
     """
     Resource Type definition for AWS::SES::DedicatedIpPool

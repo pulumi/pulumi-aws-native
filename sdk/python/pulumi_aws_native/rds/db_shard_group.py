@@ -23,11 +23,11 @@ class DbShardGroupArgs:
     def __init__(__self__, *,
                  db_cluster_identifier: pulumi.Input[_builtins.str],
                  max_acu: pulumi.Input[_builtins.float],
-                 compute_redundancy: Optional[pulumi.Input[_builtins.int]] = None,
-                 db_shard_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_acu: Optional[pulumi.Input[_builtins.float]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 compute_redundancy: pulumi.Input[Optional[_builtins.int]] = None,
+                 db_shard_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_acu: pulumi.Input[Optional[_builtins.float]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DbShardGroup resource.
 
@@ -91,7 +91,7 @@ class DbShardGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="computeRedundancy")
-    def compute_redundancy(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def compute_redundancy(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies whether to create standby standby DB data access shard for the DB shard group. Valid values are the following:
           +  0 - Creates a DB shard group without a standby DB data access shard. This is the default value.
@@ -101,36 +101,36 @@ class DbShardGroupArgs:
         return pulumi.get(self, "compute_redundancy")
 
     @compute_redundancy.setter
-    def compute_redundancy(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def compute_redundancy(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "compute_redundancy", value)
 
     @_builtins.property
     @pulumi.getter(name="dbShardGroupIdentifier")
-    def db_shard_group_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_shard_group_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the DB shard group.
         """
         return pulumi.get(self, "db_shard_group_identifier")
 
     @db_shard_group_identifier.setter
-    def db_shard_group_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_shard_group_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_shard_group_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="minAcu")
-    def min_acu(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_acu(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
         """
         return pulumi.get(self, "min_acu")
 
     @min_acu.setter
-    def min_acu(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_acu(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_acu", value)
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publicly_accessible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the DB shard group is publicly accessible.
          When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it.
@@ -147,19 +147,19 @@ class DbShardGroupArgs:
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
-    def publicly_accessible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publicly_accessible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publicly_accessible", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -169,13 +169,13 @@ class DbShardGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_redundancy: Optional[pulumi.Input[_builtins.int]] = None,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_shard_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_acu: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_acu: Optional[pulumi.Input[_builtins.float]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 compute_redundancy: pulumi.Input[Optional[_builtins.int]] = None,
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_shard_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_acu: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_acu: pulumi.Input[Optional[_builtins.float]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.
@@ -231,13 +231,13 @@ class DbShardGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_redundancy: Optional[pulumi.Input[_builtins.int]] = None,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_shard_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_acu: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_acu: Optional[pulumi.Input[_builtins.float]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 compute_redundancy: pulumi.Input[Optional[_builtins.int]] = None,
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_shard_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_acu: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_acu: pulumi.Input[Optional[_builtins.float]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

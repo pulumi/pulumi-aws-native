@@ -23,11 +23,11 @@ class LagArgs:
     def __init__(__self__, *,
                  connections_bandwidth: pulumi.Input[_builtins.str],
                  location: pulumi.Input[_builtins.str],
-                 lag_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_links: Optional[pulumi.Input[_builtins.int]] = None,
-                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_mac_sec: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 lag_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_links: pulumi.Input[Optional[_builtins.int]] = None,
+                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_mac_sec: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Lag resource.
 
@@ -78,62 +78,62 @@ class LagArgs:
 
     @_builtins.property
     @pulumi.getter(name="lagName")
-    def lag_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lag_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the LAG.
         """
         return pulumi.get(self, "lag_name")
 
     @lag_name.setter
-    def lag_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lag_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lag_name", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumLinks")
-    def minimum_links(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_links(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of physical dedicated connections that must be operational for the LAG itself to be operational.
         """
         return pulumi.get(self, "minimum_links")
 
     @minimum_links.setter
-    def minimum_links(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_links(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_links", value)
 
     @_builtins.property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the service provider associated with the requested LAG.
         """
         return pulumi.get(self, "provider_name")
 
     @provider_name.setter
-    def provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMacSec")
-    def request_mac_sec(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def request_mac_sec(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether you want the LAG to support MAC Security (MACsec).
         """
         return pulumi.get(self, "request_mac_sec")
 
     @request_mac_sec.setter
-    def request_mac_sec(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def request_mac_sec(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "request_mac_sec", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags associated with the LAG.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -143,13 +143,13 @@ class Lag(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connections_bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
-                 lag_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_links: Optional[pulumi.Input[_builtins.int]] = None,
-                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_mac_sec: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 connections_bandwidth: pulumi.Input[Optional[_builtins.str]] = None,
+                 lag_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_links: pulumi.Input[Optional[_builtins.int]] = None,
+                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_mac_sec: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DirectConnect::Lag
@@ -190,13 +190,13 @@ class Lag(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connections_bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
-                 lag_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_links: Optional[pulumi.Input[_builtins.int]] = None,
-                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_mac_sec: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 connections_bandwidth: pulumi.Input[Optional[_builtins.str]] = None,
+                 lag_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_links: pulumi.Input[Optional[_builtins.int]] = None,
+                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_mac_sec: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

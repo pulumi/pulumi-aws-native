@@ -21,11 +21,11 @@ __all__ = ['ViewArgs', 'View']
 @pulumi.input_type
 class ViewArgs:
     def __init__(__self__, *,
-                 filters: Optional[pulumi.Input['ViewSearchFilterArgs']] = None,
-                 included_properties: Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 view_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 filters: pulumi.Input[Optional['ViewSearchFilterArgs']] = None,
+                 included_properties: pulumi.Input[Optional[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 view_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a View resource.
 
@@ -52,7 +52,7 @@ class ViewArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input['ViewSearchFilterArgs']]:
+    def filters(self) -> pulumi.Input[Optional['ViewSearchFilterArgs']]:
         """
         An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
 
@@ -63,55 +63,55 @@ class ViewArgs:
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input['ViewSearchFilterArgs']]):
+    def filters(self, value: pulumi.Input[Optional['ViewSearchFilterArgs']]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter(name="includedProperties")
-    def included_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]]:
+    def included_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]]:
         """
         A list of fields that provide additional information about the view.
         """
         return pulumi.get(self, "included_properties")
 
     @included_properties.setter
-    def included_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]]):
+    def included_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]]):
         pulumi.set(self, "included_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tag key and value pairs that are attached to the view.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="viewName")
-    def view_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def view_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the new view.
         """
         return pulumi.get(self, "view_name")
 
     @view_name.setter
-    def view_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def view_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "view_name", value)
 
 
@@ -121,11 +121,11 @@ class View(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[Union['ViewSearchFilterArgs', 'ViewSearchFilterArgsDict']]] = None,
-                 included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 view_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 filters: pulumi.Input[Optional[Union['ViewSearchFilterArgs', 'ViewSearchFilterArgsDict']]] = None,
+                 included_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 view_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::ResourceExplorer2::View Resource Type
@@ -168,11 +168,11 @@ class View(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[Union['ViewSearchFilterArgs', 'ViewSearchFilterArgsDict']]] = None,
-                 included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 view_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 filters: pulumi.Input[Optional[Union['ViewSearchFilterArgs', 'ViewSearchFilterArgsDict']]] = None,
+                 included_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 view_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -293,7 +293,7 @@ def get_queue(queue_url: Optional[_builtins.str] = None,
         sqs_managed_sse_enabled=pulumi.get(__ret__, 'sqs_managed_sse_enabled'),
         tags=pulumi.get(__ret__, 'tags'),
         visibility_timeout=pulumi.get(__ret__, 'visibility_timeout'))
-def get_queue_output(queue_url: Optional[pulumi.Input[_builtins.str]] = None,
+def get_queue_output(queue_url: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueResult]:
     """
     The ``AWS::SQS::Queue`` resource creates an SQS standard or FIFO queue.

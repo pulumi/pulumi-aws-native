@@ -62,7 +62,7 @@ def get_integration(integration_name: Optional[_builtins.str] = None,
 
     return AwaitableGetIntegrationResult(
         integration_status=pulumi.get(__ret__, 'integration_status'))
-def get_integration_output(integration_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_output(integration_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationResult]:
     """
     Resource Schema for Logs Integration Resource

@@ -24,9 +24,9 @@ class ServiceActionArgs:
     def __init__(__self__, *,
                  definition: pulumi.Input[Sequence[pulumi.Input['ServiceActionDefinitionParameterArgs']]],
                  definition_type: pulumi.Input['ServiceActionDefinitionType'],
-                 accept_language: Optional[pulumi.Input['ServiceActionAcceptLanguage']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 accept_language: pulumi.Input[Optional['ServiceActionAcceptLanguage']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceAction resource.
 
@@ -75,7 +75,7 @@ class ServiceActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input['ServiceActionAcceptLanguage']]:
+    def accept_language(self) -> pulumi.Input[Optional['ServiceActionAcceptLanguage']]:
         """
         The language code.
 
@@ -86,31 +86,31 @@ class ServiceActionArgs:
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input['ServiceActionAcceptLanguage']]):
+    def accept_language(self, value: pulumi.Input[Optional['ServiceActionAcceptLanguage']]):
         pulumi.set(self, "accept_language", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The self-service action description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The self-service action name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -120,11 +120,11 @@ class ServiceAction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input['ServiceActionAcceptLanguage']] = None,
-                 definition: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceActionDefinitionParameterArgs', 'ServiceActionDefinitionParameterArgsDict']]]]] = None,
-                 definition_type: Optional[pulumi.Input['ServiceActionDefinitionType']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_language: pulumi.Input[Optional['ServiceActionAcceptLanguage']] = None,
+                 definition: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceActionDefinitionParameterArgs', 'ServiceActionDefinitionParameterArgsDict']]]]] = None,
+                 definition_type: pulumi.Input[Optional['ServiceActionDefinitionType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Schema for AWS::ServiceCatalog::ServiceAction
@@ -167,11 +167,11 @@ class ServiceAction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input['ServiceActionAcceptLanguage']] = None,
-                 definition: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceActionDefinitionParameterArgs', 'ServiceActionDefinitionParameterArgsDict']]]]] = None,
-                 definition_type: Optional[pulumi.Input['ServiceActionDefinitionType']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_language: pulumi.Input[Optional['ServiceActionAcceptLanguage']] = None,
+                 definition: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceActionDefinitionParameterArgs', 'ServiceActionDefinitionParameterArgsDict']]]]] = None,
+                 definition_type: pulumi.Input[Optional['ServiceActionDefinitionType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

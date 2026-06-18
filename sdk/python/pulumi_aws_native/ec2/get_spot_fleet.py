@@ -90,7 +90,7 @@ def get_spot_fleet(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         spot_fleet_request_config_data=pulumi.get(__ret__, 'spot_fleet_request_config_data'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_spot_fleet_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_spot_fleet_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpotFleetResult]:
     """
     Resource Type definition for AWS::EC2::SpotFleet

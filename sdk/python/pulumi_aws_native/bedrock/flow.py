@@ -23,15 +23,15 @@ __all__ = ['FlowArgs', 'Flow']
 class FlowArgs:
     def __init__(__self__, *,
                  execution_role_arn: pulumi.Input[_builtins.str],
-                 customer_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition: Optional[pulumi.Input['FlowDefinitionArgs']] = None,
-                 definition_s3_location: Optional[pulumi.Input['FlowS3LocationArgs']] = None,
-                 definition_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition_substitutions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional['FlowDefinitionArgs']] = None,
+                 definition_s3_location: pulumi.Input[Optional['FlowS3LocationArgs']] = None,
+                 definition_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition_substitutions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_alias_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Flow resource.
 
@@ -84,55 +84,55 @@ class FlowArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerEncryptionKeyArn")
-    def customer_encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A KMS key ARN
         """
         return pulumi.get(self, "customer_encryption_key_arn")
 
     @customer_encryption_key_arn.setter
-    def customer_encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input['FlowDefinitionArgs']]:
+    def definition(self) -> pulumi.Input[Optional['FlowDefinitionArgs']]:
         """
         The definition of the nodes and connections between the nodes in the flow.
         """
         return pulumi.get(self, "definition")
 
     @definition.setter
-    def definition(self, value: Optional[pulumi.Input['FlowDefinitionArgs']]):
+    def definition(self, value: pulumi.Input[Optional['FlowDefinitionArgs']]):
         pulumi.set(self, "definition", value)
 
     @_builtins.property
     @pulumi.getter(name="definitionS3Location")
-    def definition_s3_location(self) -> Optional[pulumi.Input['FlowS3LocationArgs']]:
+    def definition_s3_location(self) -> pulumi.Input[Optional['FlowS3LocationArgs']]:
         """
         The Amazon S3 location of the flow definition.
         """
         return pulumi.get(self, "definition_s3_location")
 
     @definition_s3_location.setter
-    def definition_s3_location(self, value: Optional[pulumi.Input['FlowS3LocationArgs']]):
+    def definition_s3_location(self, value: pulumi.Input[Optional['FlowS3LocationArgs']]):
         pulumi.set(self, "definition_s3_location", value)
 
     @_builtins.property
     @pulumi.getter(name="definitionString")
-    def definition_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def definition_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON string containing a Definition with the same schema as the Definition property of this resource
         """
         return pulumi.get(self, "definition_string")
 
     @definition_string.setter
-    def definition_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def definition_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "definition_string", value)
 
     @_builtins.property
     @pulumi.getter(name="definitionSubstitutions")
-    def definition_substitutions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]]:
+    def definition_substitutions(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]]:
         """
         A map that specifies the mappings for placeholder variables in the prompt flow definition. This enables the customer to inject values obtained at runtime. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map. Only supported with the `DefinitionString` and `DefinitionS3Location` fields.
 
@@ -141,36 +141,36 @@ class FlowArgs:
         return pulumi.get(self, "definition_substitutions")
 
     @definition_substitutions.setter
-    def definition_substitutions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]]):
+    def definition_substitutions(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]]):
         pulumi.set(self, "definition_substitutions", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the flow
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the flow
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
 
@@ -180,16 +180,16 @@ class FlowArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="testAliasTags")
-    def test_alias_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def test_alias_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "test_alias_tags")
 
     @test_alias_tags.setter
-    def test_alias_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def test_alias_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "test_alias_tags", value)
 
 
@@ -199,16 +199,16 @@ class Flow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition: Optional[pulumi.Input[Union['FlowDefinitionArgs', 'FlowDefinitionArgsDict']]] = None,
-                 definition_s3_location: Optional[pulumi.Input[Union['FlowS3LocationArgs', 'FlowS3LocationArgsDict']]] = None,
-                 definition_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition_substitutions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[Union['FlowDefinitionArgs', 'FlowDefinitionArgsDict']]] = None,
+                 definition_s3_location: pulumi.Input[Optional[Union['FlowS3LocationArgs', 'FlowS3LocationArgsDict']]] = None,
+                 definition_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition_substitutions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_alias_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::Flow Resource Type
@@ -256,16 +256,16 @@ class Flow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition: Optional[pulumi.Input[Union['FlowDefinitionArgs', 'FlowDefinitionArgsDict']]] = None,
-                 definition_s3_location: Optional[pulumi.Input[Union['FlowS3LocationArgs', 'FlowS3LocationArgsDict']]] = None,
-                 definition_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition_substitutions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[Union['FlowDefinitionArgs', 'FlowDefinitionArgsDict']]] = None,
+                 definition_s3_location: pulumi.Input[Optional[Union['FlowS3LocationArgs', 'FlowS3LocationArgsDict']]] = None,
+                 definition_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition_substitutions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.str, _builtins.int, _builtins.bool]]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_alias_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -102,7 +102,7 @@ def get_state_machine_alias(arn: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         routing_configuration=pulumi.get(__ret__, 'routing_configuration'),
         state_machine_arn=pulumi.get(__ret__, 'state_machine_arn'))
-def get_state_machine_alias_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_state_machine_alias_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStateMachineAliasResult]:
     """
     Resource schema for StateMachineAlias

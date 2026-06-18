@@ -25,9 +25,9 @@ class ClusterArgs:
                  networking: pulumi.Input['NetworkingPropertiesArgs'],
                  scheduler: pulumi.Input['SchedulerPropertiesArgs'],
                  size: pulumi.Input['ClusterSize'],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 slurm_configuration: Optional[pulumi.Input['SlurmConfigurationPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 slurm_configuration: pulumi.Input[Optional['SlurmConfigurationPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
@@ -86,38 +86,38 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name that identifies the cluster.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="slurmConfiguration")
-    def slurm_configuration(self) -> Optional[pulumi.Input['SlurmConfigurationPropertiesArgs']]:
+    def slurm_configuration(self) -> pulumi.Input[Optional['SlurmConfigurationPropertiesArgs']]:
         """
         Additional options related to the Slurm scheduler.
         """
         return pulumi.get(self, "slurm_configuration")
 
     @slurm_configuration.setter
-    def slurm_configuration(self, value: Optional[pulumi.Input['SlurmConfigurationPropertiesArgs']]):
+    def slurm_configuration(self, value: pulumi.Input[Optional['SlurmConfigurationPropertiesArgs']]):
         pulumi.set(self, "slurm_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -127,12 +127,12 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 networking: Optional[pulumi.Input[Union['NetworkingPropertiesArgs', 'NetworkingPropertiesArgsDict']]] = None,
-                 scheduler: Optional[pulumi.Input[Union['SchedulerPropertiesArgs', 'SchedulerPropertiesArgsDict']]] = None,
-                 size: Optional[pulumi.Input['ClusterSize']] = None,
-                 slurm_configuration: Optional[pulumi.Input[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 networking: pulumi.Input[Optional[Union['NetworkingPropertiesArgs', 'NetworkingPropertiesArgsDict']]] = None,
+                 scheduler: pulumi.Input[Optional[Union['SchedulerPropertiesArgs', 'SchedulerPropertiesArgsDict']]] = None,
+                 size: pulumi.Input[Optional['ClusterSize']] = None,
+                 slurm_configuration: pulumi.Input[Optional[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         AWS::PCS::Cluster resource creates an AWS PCS cluster.
@@ -172,12 +172,12 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 networking: Optional[pulumi.Input[Union['NetworkingPropertiesArgs', 'NetworkingPropertiesArgsDict']]] = None,
-                 scheduler: Optional[pulumi.Input[Union['SchedulerPropertiesArgs', 'SchedulerPropertiesArgsDict']]] = None,
-                 size: Optional[pulumi.Input['ClusterSize']] = None,
-                 slurm_configuration: Optional[pulumi.Input[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 networking: pulumi.Input[Optional[Union['NetworkingPropertiesArgs', 'NetworkingPropertiesArgsDict']]] = None,
+                 scheduler: pulumi.Input[Optional[Union['SchedulerPropertiesArgs', 'SchedulerPropertiesArgsDict']]] = None,
+                 size: pulumi.Input[Optional['ClusterSize']] = None,
+                 slurm_configuration: pulumi.Input[Optional[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

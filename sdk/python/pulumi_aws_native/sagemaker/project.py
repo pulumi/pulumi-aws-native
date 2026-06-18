@@ -24,12 +24,12 @@ __all__ = ['ProjectArgs', 'Project']
 @pulumi.input_type
 class ProjectArgs:
     def __init__(__self__, *,
-                 project_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_catalog_provisioned_product_details: Optional[pulumi.Input['ServiceCatalogProvisionedProductDetailsPropertiesArgs']] = None,
-                 service_catalog_provisioning_details: Optional[pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
-                 template_provider_details: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTemplateProviderDetailArgs']]]] = None):
+                 project_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_catalog_provisioned_product_details: pulumi.Input[Optional['ServiceCatalogProvisionedProductDetailsPropertiesArgs']] = None,
+                 service_catalog_provisioning_details: pulumi.Input[Optional['ServiceCatalogProvisioningDetailsPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
+                 template_provider_details: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectTemplateProviderDetailArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
 
@@ -55,74 +55,74 @@ class ProjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="projectDescription")
-    def project_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the project.
         """
         return pulumi.get(self, "project_description")
 
     @project_description.setter
-    def project_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_description", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
-    def project_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the project.
         """
         return pulumi.get(self, "project_name")
 
     @project_name.setter
-    def project_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceCatalogProvisionedProductDetails")
-    def service_catalog_provisioned_product_details(self) -> Optional[pulumi.Input['ServiceCatalogProvisionedProductDetailsPropertiesArgs']]:
+    def service_catalog_provisioned_product_details(self) -> pulumi.Input[Optional['ServiceCatalogProvisionedProductDetailsPropertiesArgs']]:
         """
         Provisioned ServiceCatalog  Details
         """
         return pulumi.get(self, "service_catalog_provisioned_product_details")
 
     @service_catalog_provisioned_product_details.setter
-    def service_catalog_provisioned_product_details(self, value: Optional[pulumi.Input['ServiceCatalogProvisionedProductDetailsPropertiesArgs']]):
+    def service_catalog_provisioned_product_details(self, value: pulumi.Input[Optional['ServiceCatalogProvisionedProductDetailsPropertiesArgs']]):
         pulumi.set(self, "service_catalog_provisioned_product_details", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceCatalogProvisioningDetails")
-    def service_catalog_provisioning_details(self) -> Optional[pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs']]:
+    def service_catalog_provisioning_details(self) -> pulumi.Input[Optional['ServiceCatalogProvisioningDetailsPropertiesArgs']]:
         """
         Input ServiceCatalog Provisioning Details
         """
         return pulumi.get(self, "service_catalog_provisioning_details")
 
     @service_catalog_provisioning_details.setter
-    def service_catalog_provisioning_details(self, value: Optional[pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs']]):
+    def service_catalog_provisioning_details(self, value: pulumi.Input[Optional['ServiceCatalogProvisioningDetailsPropertiesArgs']]):
         pulumi.set(self, "service_catalog_provisioning_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="templateProviderDetails")
-    def template_provider_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTemplateProviderDetailArgs']]]]:
+    def template_provider_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectTemplateProviderDetailArgs']]]]:
         """
         An array of template providers associated with the project.
         """
         return pulumi.get(self, "template_provider_details")
 
     @template_provider_details.setter
-    def template_provider_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTemplateProviderDetailArgs']]]]):
+    def template_provider_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectTemplateProviderDetailArgs']]]]):
         pulumi.set(self, "template_provider_details", value)
 
 
@@ -132,12 +132,12 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 project_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_catalog_provisioned_product_details: Optional[pulumi.Input[Union['ServiceCatalogProvisionedProductDetailsPropertiesArgs', 'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict']]] = None,
-                 service_catalog_provisioning_details: Optional[pulumi.Input[Union['ServiceCatalogProvisioningDetailsPropertiesArgs', 'ServiceCatalogProvisioningDetailsPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 template_provider_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectTemplateProviderDetailArgs', 'ProjectTemplateProviderDetailArgsDict']]]]] = None,
+                 project_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_catalog_provisioned_product_details: pulumi.Input[Optional[Union['ServiceCatalogProvisionedProductDetailsPropertiesArgs', 'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict']]] = None,
+                 service_catalog_provisioning_details: pulumi.Input[Optional[Union['ServiceCatalogProvisioningDetailsPropertiesArgs', 'ServiceCatalogProvisioningDetailsPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 template_provider_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectTemplateProviderDetailArgs', 'ProjectTemplateProviderDetailArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::Project
@@ -241,12 +241,12 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 project_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_catalog_provisioned_product_details: Optional[pulumi.Input[Union['ServiceCatalogProvisionedProductDetailsPropertiesArgs', 'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict']]] = None,
-                 service_catalog_provisioning_details: Optional[pulumi.Input[Union['ServiceCatalogProvisioningDetailsPropertiesArgs', 'ServiceCatalogProvisioningDetailsPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 template_provider_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectTemplateProviderDetailArgs', 'ProjectTemplateProviderDetailArgsDict']]]]] = None,
+                 project_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_catalog_provisioned_product_details: pulumi.Input[Optional[Union['ServiceCatalogProvisionedProductDetailsPropertiesArgs', 'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict']]] = None,
+                 service_catalog_provisioning_details: pulumi.Input[Optional[Union['ServiceCatalogProvisioningDetailsPropertiesArgs', 'ServiceCatalogProvisioningDetailsPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 template_provider_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectTemplateProviderDetailArgs', 'ProjectTemplateProviderDetailArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

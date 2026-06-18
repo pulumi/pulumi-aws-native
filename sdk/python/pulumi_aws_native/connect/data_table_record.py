@@ -21,9 +21,9 @@ __all__ = ['DataTableRecordArgs', 'DataTableRecord']
 @pulumi.input_type
 class DataTableRecordArgs:
     def __init__(__self__, *,
-                 data_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_table_record: Optional[pulumi.Input['DataTableRecordPropertiesArgs']] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_table_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_table_record: pulumi.Input[Optional['DataTableRecordPropertiesArgs']] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataTableRecord resource.
 
@@ -39,35 +39,35 @@ class DataTableRecordArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataTableArn")
-    def data_table_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_table_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
         """
         return pulumi.get(self, "data_table_arn")
 
     @data_table_arn.setter
-    def data_table_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_table_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_table_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="dataTableRecord")
-    def data_table_record(self) -> Optional[pulumi.Input['DataTableRecordPropertiesArgs']]:
+    def data_table_record(self) -> pulumi.Input[Optional['DataTableRecordPropertiesArgs']]:
         return pulumi.get(self, "data_table_record")
 
     @data_table_record.setter
-    def data_table_record(self, value: Optional[pulumi.Input['DataTableRecordPropertiesArgs']]):
+    def data_table_record(self, value: pulumi.Input[Optional['DataTableRecordPropertiesArgs']]):
         pulumi.set(self, "data_table_record", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceArn")
-    def instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the instance.
         """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
-    def instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_arn", value)
 
 
@@ -77,9 +77,9 @@ class DataTableRecord(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_table_record: Optional[pulumi.Input[Union['DataTableRecordPropertiesArgs', 'DataTableRecordPropertiesArgsDict']]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_table_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_table_record: pulumi.Input[Optional[Union['DataTableRecordPropertiesArgs', 'DataTableRecordPropertiesArgsDict']]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::DataTableRecord
@@ -115,9 +115,9 @@ class DataTableRecord(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_table_record: Optional[pulumi.Input[Union['DataTableRecordPropertiesArgs', 'DataTableRecordPropertiesArgsDict']]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_table_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_table_record: pulumi.Input[Optional[Union['DataTableRecordPropertiesArgs', 'DataTableRecordPropertiesArgsDict']]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

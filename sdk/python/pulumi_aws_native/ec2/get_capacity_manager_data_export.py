@@ -75,7 +75,7 @@ def get_capacity_manager_data_export(capacity_manager_data_export_id: Optional[_
     return AwaitableGetCapacityManagerDataExportResult(
         capacity_manager_data_export_id=pulumi.get(__ret__, 'capacity_manager_data_export_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_capacity_manager_data_export_output(capacity_manager_data_export_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_capacity_manager_data_export_output(capacity_manager_data_export_id: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityManagerDataExportResult]:
     """
     Resource Type definition for AWS::EC2::CapacityManagerDataExport

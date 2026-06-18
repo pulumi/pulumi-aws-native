@@ -88,7 +88,7 @@ def get_version(function_arn: Optional[_builtins.str] = None,
         function_arn=pulumi.get(__ret__, 'function_arn'),
         function_scaling_config=pulumi.get(__ret__, 'function_scaling_config'),
         version=pulumi.get(__ret__, 'version'))
-def get_version_output(function_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_version_output(function_arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVersionResult]:
     """
     Resource Type definition for AWS::Lambda::Version

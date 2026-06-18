@@ -22,10 +22,10 @@ class PolicyStatementArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[_builtins.str],
                  statement_id: pulumi.Input[_builtins.str],
-                 action: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 effect: Optional[pulumi.Input['PolicyStatementStatementEffect']] = None,
-                 principal: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 action: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 effect: pulumi.Input[Optional['PolicyStatementStatementEffect']] = None,
+                 principal: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PolicyStatement resource.
 
@@ -77,7 +77,7 @@ class PolicyStatementArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def action(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The action that the principal can use on the resource.
 
@@ -86,24 +86,24 @@ class PolicyStatementArgs:
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def action(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A set of condition keys that you can use in key policies.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition", value)
 
     @_builtins.property
     @pulumi.getter
-    def effect(self) -> Optional[pulumi.Input['PolicyStatementStatementEffect']]:
+    def effect(self) -> pulumi.Input[Optional['PolicyStatementStatementEffect']]:
         """
         Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
 
@@ -112,19 +112,19 @@ class PolicyStatementArgs:
         return pulumi.get(self, "effect")
 
     @effect.setter
-    def effect(self, value: Optional[pulumi.Input['PolicyStatementStatementEffect']]):
+    def effect(self, value: pulumi.Input[Optional['PolicyStatementStatementEffect']]):
         pulumi.set(self, "effect", value)
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def principal(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The AWS service or AWS account that can access the resource defined as ARN.
         """
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def principal(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "principal", value)
 
 
@@ -134,12 +134,12 @@ class PolicyStatement(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 effect: Optional[pulumi.Input['PolicyStatementStatementEffect']] = None,
-                 principal: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 statement_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 effect: pulumi.Input[Optional['PolicyStatementStatementEffect']] = None,
+                 principal: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 statement_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Policy Statement defined in AWS Entity Resolution Service
@@ -183,12 +183,12 @@ class PolicyStatement(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 effect: Optional[pulumi.Input['PolicyStatementStatementEffect']] = None,
-                 principal: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 statement_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 effect: pulumi.Input[Optional['PolicyStatementStatementEffect']] = None,
+                 principal: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 statement_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

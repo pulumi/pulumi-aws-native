@@ -269,7 +269,7 @@ def get_image_builder(name: Optional[_builtins.str] = None,
         streaming_url=pulumi.get(__ret__, 'streaming_url'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
-def get_image_builder_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_image_builder_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageBuilderResult]:
     """
     Resource Type definition for AWS::AppStream::ImageBuilder

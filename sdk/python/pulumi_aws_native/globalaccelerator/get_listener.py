@@ -102,7 +102,7 @@ def get_listener(listener_arn: Optional[_builtins.str] = None,
         listener_arn=pulumi.get(__ret__, 'listener_arn'),
         port_ranges=pulumi.get(__ret__, 'port_ranges'),
         protocol=pulumi.get(__ret__, 'protocol'))
-def get_listener_output(listener_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_listener_output(listener_arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerResult]:
     """
     Resource Type definition for AWS::GlobalAccelerator::Listener

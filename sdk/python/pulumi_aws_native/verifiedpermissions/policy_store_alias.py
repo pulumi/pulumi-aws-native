@@ -20,7 +20,7 @@ __all__ = ['PolicyStoreAliasArgs', 'PolicyStoreAlias']
 class PolicyStoreAliasArgs:
     def __init__(__self__, *,
                  policy_store_id: pulumi.Input[_builtins.str],
-                 alias_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyStoreAlias resource.
         """
@@ -39,11 +39,11 @@ class PolicyStoreAliasArgs:
 
     @_builtins.property
     @pulumi.getter(name="aliasName")
-    def alias_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "alias_name")
 
     @alias_name.setter
-    def alias_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias_name", value)
 
 
@@ -53,8 +53,8 @@ class PolicyStoreAlias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::VerifiedPermissions::PolicyStoreAlias Resource Type
@@ -88,8 +88,8 @@ class PolicyStoreAlias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -102,7 +102,7 @@ def get_logging_configuration(resource_arn: Optional[_builtins.str] = None,
         logging_filter=pulumi.get(__ret__, 'logging_filter'),
         managed_by_firewall_manager=pulumi.get(__ret__, 'managed_by_firewall_manager'),
         redacted_fields=pulumi.get(__ret__, 'redacted_fields'))
-def get_logging_configuration_output(resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_logging_configuration_output(resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoggingConfigurationResult]:
     """
     A WAFv2 Logging Configuration Resource Provider

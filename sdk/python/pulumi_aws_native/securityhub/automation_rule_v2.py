@@ -27,8 +27,8 @@ class AutomationRuleV2Args:
                  description: pulumi.Input[_builtins.str],
                  rule_name: pulumi.Input[_builtins.str],
                  rule_order: pulumi.Input[_builtins.float],
-                 rule_status: Optional[pulumi.Input['AutomationRuleV2RuleStatus']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 rule_status: pulumi.Input[Optional['AutomationRuleV2RuleStatus']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AutomationRuleV2 resource.
 
@@ -112,26 +112,26 @@ class AutomationRuleV2Args:
 
     @_builtins.property
     @pulumi.getter(name="ruleStatus")
-    def rule_status(self) -> Optional[pulumi.Input['AutomationRuleV2RuleStatus']]:
+    def rule_status(self) -> pulumi.Input[Optional['AutomationRuleV2RuleStatus']]:
         """
         The status of the automation rule
         """
         return pulumi.get(self, "rule_status")
 
     @rule_status.setter
-    def rule_status(self, value: Optional[pulumi.Input['AutomationRuleV2RuleStatus']]):
+    def rule_status(self, value: pulumi.Input[Optional['AutomationRuleV2RuleStatus']]):
         pulumi.set(self, "rule_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A list of key-value pairs associated with the V2 automation rule.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -141,13 +141,13 @@ class AutomationRuleV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleV2AutomationRulesActionV2Args', 'AutomationRuleV2AutomationRulesActionV2ArgsDict']]]]] = None,
-                 criteria: Optional[pulumi.Input[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_order: Optional[pulumi.Input[_builtins.float]] = None,
-                 rule_status: Optional[pulumi.Input['AutomationRuleV2RuleStatus']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleV2AutomationRulesActionV2Args', 'AutomationRuleV2AutomationRulesActionV2ArgsDict']]]]] = None,
+                 criteria: pulumi.Input[Optional[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_order: pulumi.Input[Optional[_builtins.float]] = None,
+                 rule_status: pulumi.Input[Optional['AutomationRuleV2RuleStatus']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::SecurityHub::AutomationRuleV2
@@ -188,13 +188,13 @@ class AutomationRuleV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleV2AutomationRulesActionV2Args', 'AutomationRuleV2AutomationRulesActionV2ArgsDict']]]]] = None,
-                 criteria: Optional[pulumi.Input[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_order: Optional[pulumi.Input[_builtins.float]] = None,
-                 rule_status: Optional[pulumi.Input['AutomationRuleV2RuleStatus']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleV2AutomationRulesActionV2Args', 'AutomationRuleV2AutomationRulesActionV2ArgsDict']]]]] = None,
+                 criteria: pulumi.Input[Optional[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_order: pulumi.Input[Optional[_builtins.float]] = None,
+                 rule_status: pulumi.Input[Optional['AutomationRuleV2RuleStatus']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

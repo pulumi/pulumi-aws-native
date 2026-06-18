@@ -23,12 +23,12 @@ __all__ = ['HostedZoneArgs', 'HostedZone']
 @pulumi.input_type
 class HostedZoneArgs:
     def __init__(__self__, *,
-                 hosted_zone_config: Optional[pulumi.Input['HostedZoneConfigArgs']] = None,
-                 hosted_zone_features: Optional[pulumi.Input['HostedZoneFeaturesArgs']] = None,
-                 hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_logging_config: Optional[pulumi.Input['HostedZoneQueryLoggingConfigArgs']] = None,
-                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVpcArgs']]]] = None):
+                 hosted_zone_config: pulumi.Input[Optional['HostedZoneConfigArgs']] = None,
+                 hosted_zone_features: pulumi.Input[Optional['HostedZoneFeaturesArgs']] = None,
+                 hosted_zone_tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_logging_config: pulumi.Input[Optional['HostedZoneQueryLoggingConfigArgs']] = None,
+                 vpcs: pulumi.Input[Optional[Sequence[pulumi.Input['HostedZoneVpcArgs']]]] = None):
         """
         The set of arguments for constructing a HostedZone resource.
 
@@ -65,7 +65,7 @@ class HostedZoneArgs:
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneConfig")
-    def hosted_zone_config(self) -> Optional[pulumi.Input['HostedZoneConfigArgs']]:
+    def hosted_zone_config(self) -> pulumi.Input[Optional['HostedZoneConfigArgs']]:
         """
         A complex type that contains an optional comment.
          If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
@@ -73,24 +73,24 @@ class HostedZoneArgs:
         return pulumi.get(self, "hosted_zone_config")
 
     @hosted_zone_config.setter
-    def hosted_zone_config(self, value: Optional[pulumi.Input['HostedZoneConfigArgs']]):
+    def hosted_zone_config(self, value: pulumi.Input[Optional['HostedZoneConfigArgs']]):
         pulumi.set(self, "hosted_zone_config", value)
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneFeatures")
-    def hosted_zone_features(self) -> Optional[pulumi.Input['HostedZoneFeaturesArgs']]:
+    def hosted_zone_features(self) -> pulumi.Input[Optional['HostedZoneFeaturesArgs']]:
         """
         The features configuration for the hosted zone, including accelerated recovery settings and status information.
         """
         return pulumi.get(self, "hosted_zone_features")
 
     @hosted_zone_features.setter
-    def hosted_zone_features(self, value: Optional[pulumi.Input['HostedZoneFeaturesArgs']]):
+    def hosted_zone_features(self, value: pulumi.Input[Optional['HostedZoneFeaturesArgs']]):
         pulumi.set(self, "hosted_zone_features", value)
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneTags")
-    def hosted_zone_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def hosted_zone_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Adds, edits, or deletes tags for a health check or a hosted zone.
          For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
@@ -98,12 +98,12 @@ class HostedZoneArgs:
         return pulumi.get(self, "hosted_zone_tags")
 
     @hosted_zone_tags.setter
-    def hosted_zone_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def hosted_zone_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "hosted_zone_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the domain. Specify a fully qualified domain name, for example, *www.example.com*. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats *www.example.com* (without a trailing dot) and *www.example.com.* (with a trailing dot) as identical.
          If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of ``NameServers`` that are returned by the ``Fn::GetAtt`` intrinsic function.
@@ -111,12 +111,12 @@ class HostedZoneArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryLoggingConfig")
-    def query_logging_config(self) -> Optional[pulumi.Input['HostedZoneQueryLoggingConfigArgs']]:
+    def query_logging_config(self) -> pulumi.Input[Optional['HostedZoneQueryLoggingConfigArgs']]:
         """
         Creates a configuration for DNS query logging. After you create a query logging configuration, Amazon Route 53 begins to publish log data to an Amazon CloudWatch Logs log group.
          DNS query logs contain information about the queries that Route 53 receives for a specified public hosted zone, such as the following:
@@ -130,12 +130,12 @@ class HostedZoneArgs:
         return pulumi.get(self, "query_logging_config")
 
     @query_logging_config.setter
-    def query_logging_config(self, value: Optional[pulumi.Input['HostedZoneQueryLoggingConfigArgs']]):
+    def query_logging_config(self, value: pulumi.Input[Optional['HostedZoneQueryLoggingConfigArgs']]):
         pulumi.set(self, "query_logging_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVpcArgs']]]]:
+    def vpcs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HostedZoneVpcArgs']]]]:
         """
         *Private hosted zones:* A complex type that contains information about the VPCs that are associated with the specified hosted zone.
           For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
@@ -143,7 +143,7 @@ class HostedZoneArgs:
         return pulumi.get(self, "vpcs")
 
     @vpcs.setter
-    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVpcArgs']]]]):
+    def vpcs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HostedZoneVpcArgs']]]]):
         pulumi.set(self, "vpcs", value)
 
 
@@ -153,12 +153,12 @@ class HostedZone(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hosted_zone_config: Optional[pulumi.Input[Union['HostedZoneConfigArgs', 'HostedZoneConfigArgsDict']]] = None,
-                 hosted_zone_features: Optional[pulumi.Input[Union['HostedZoneFeaturesArgs', 'HostedZoneFeaturesArgsDict']]] = None,
-                 hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_logging_config: Optional[pulumi.Input[Union['HostedZoneQueryLoggingConfigArgs', 'HostedZoneQueryLoggingConfigArgsDict']]] = None,
-                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostedZoneVpcArgs', 'HostedZoneVpcArgsDict']]]]] = None,
+                 hosted_zone_config: pulumi.Input[Optional[Union['HostedZoneConfigArgs', 'HostedZoneConfigArgsDict']]] = None,
+                 hosted_zone_features: pulumi.Input[Optional[Union['HostedZoneFeaturesArgs', 'HostedZoneFeaturesArgsDict']]] = None,
+                 hosted_zone_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_logging_config: pulumi.Input[Optional[Union['HostedZoneQueryLoggingConfigArgs', 'HostedZoneQueryLoggingConfigArgsDict']]] = None,
+                 vpcs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HostedZoneVpcArgs', 'HostedZoneVpcArgsDict']]]]] = None,
                  __props__=None):
         """
         Creates a new public or private hosted zone. You create records in a public hosted zone to define how you want to route traffic on the internet for a domain, such as example.com, and its subdomains (apex.example.com, acme.example.com). You create records in a private hosted zone to define how you want to route traffic for a domain and its subdomains within one or more Amazon Virtual Private Clouds (Amazon VPCs).
@@ -239,12 +239,12 @@ class HostedZone(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hosted_zone_config: Optional[pulumi.Input[Union['HostedZoneConfigArgs', 'HostedZoneConfigArgsDict']]] = None,
-                 hosted_zone_features: Optional[pulumi.Input[Union['HostedZoneFeaturesArgs', 'HostedZoneFeaturesArgsDict']]] = None,
-                 hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_logging_config: Optional[pulumi.Input[Union['HostedZoneQueryLoggingConfigArgs', 'HostedZoneQueryLoggingConfigArgsDict']]] = None,
-                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostedZoneVpcArgs', 'HostedZoneVpcArgsDict']]]]] = None,
+                 hosted_zone_config: pulumi.Input[Optional[Union['HostedZoneConfigArgs', 'HostedZoneConfigArgsDict']]] = None,
+                 hosted_zone_features: pulumi.Input[Optional[Union['HostedZoneFeaturesArgs', 'HostedZoneFeaturesArgsDict']]] = None,
+                 hosted_zone_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_logging_config: pulumi.Input[Optional[Union['HostedZoneQueryLoggingConfigArgs', 'HostedZoneQueryLoggingConfigArgsDict']]] = None,
+                 vpcs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HostedZoneVpcArgs', 'HostedZoneVpcArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

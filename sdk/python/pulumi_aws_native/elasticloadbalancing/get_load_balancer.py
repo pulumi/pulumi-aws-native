@@ -281,7 +281,7 @@ def get_load_balancer(load_balancer_name: Optional[_builtins.str] = None,
         source_security_group=pulumi.get(__ret__, 'source_security_group'),
         subnets=pulumi.get(__ret__, 'subnets'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_load_balancer_output(load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     Resource Type definition for AWS::ElasticLoadBalancing::LoadBalancer

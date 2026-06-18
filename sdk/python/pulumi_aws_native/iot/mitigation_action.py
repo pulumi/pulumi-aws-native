@@ -26,8 +26,8 @@ class MitigationActionArgs:
     def __init__(__self__, *,
                  action_params: pulumi.Input['MitigationActionActionParamsArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 action_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 action_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MitigationAction resource.
 
@@ -69,26 +69,26 @@ class MitigationActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionName")
-    def action_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier for the mitigation action.
         """
         return pulumi.get(self, "action_name")
 
     @action_name.setter
-    def action_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -98,10 +98,10 @@ class MitigationAction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 action_params: Optional[pulumi.Input[Union['MitigationActionActionParamsArgs', 'MitigationActionActionParamsArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 action_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 action_params: pulumi.Input[Optional[Union['MitigationActionActionParamsArgs', 'MitigationActionActionParamsArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
@@ -139,10 +139,10 @@ class MitigationAction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 action_params: Optional[pulumi.Input[Union['MitigationActionActionParamsArgs', 'MitigationActionActionParamsArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 action_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 action_params: pulumi.Input[Optional[Union['MitigationActionActionParamsArgs', 'MitigationActionActionParamsArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

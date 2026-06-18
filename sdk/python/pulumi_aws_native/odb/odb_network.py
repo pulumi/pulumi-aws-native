@@ -23,23 +23,23 @@ __all__ = ['OdbNetworkArgs', 'OdbNetwork']
 @pulumi.input_type
 class OdbNetworkArgs:
     def __init__(__self__, *,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 cross_region_s3_restore_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_access: Optional[pulumi.Input['OdbNetworkKmsAccess']] = None,
-                 kms_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_access: Optional[pulumi.Input['OdbNetworkS3Access']] = None,
-                 s3_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 sts_access: Optional[pulumi.Input['OdbNetworkStsAccess']] = None,
-                 sts_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 zero_etl_access: Optional[pulumi.Input['OdbNetworkZeroEtlAccess']] = None):
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 cross_region_s3_restore_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_dns_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_associated_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_access: pulumi.Input[Optional['OdbNetworkKmsAccess']] = None,
+                 kms_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_access: pulumi.Input[Optional['OdbNetworkS3Access']] = None,
+                 s3_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 sts_access: pulumi.Input[Optional['OdbNetworkStsAccess']] = None,
+                 sts_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 zero_etl_access: pulumi.Input[Optional['OdbNetworkZeroEtlAccess']] = None):
         """
         The set of arguments for constructing a OdbNetwork resource.
 
@@ -98,206 +98,206 @@ class OdbNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Availability Zone (AZ) where the ODB network is located.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AZ ID of the AZ where the ODB network is located.
         """
         return pulumi.get(self, "availability_zone_id")
 
     @availability_zone_id.setter
-    def availability_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="backupSubnetCidr")
-    def backup_subnet_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_subnet_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CIDR range of the backup subnet in the ODB network.
         """
         return pulumi.get(self, "backup_subnet_cidr")
 
     @backup_subnet_cidr.setter
-    def backup_subnet_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_subnet_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_subnet_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSubnetCidr")
-    def client_subnet_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_subnet_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CIDR range of the client subnet in the ODB network.
         """
         return pulumi.get(self, "client_subnet_cidr")
 
     @client_subnet_cidr.setter
-    def client_subnet_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_subnet_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_subnet_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="crossRegionS3RestoreSources")
-    def cross_region_s3_restore_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cross_region_s3_restore_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The cross-Region Amazon S3 restore sources for the ODB network.
         """
         return pulumi.get(self, "cross_region_s3_restore_sources")
 
     @cross_region_s3_restore_sources.setter
-    def cross_region_s3_restore_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cross_region_s3_restore_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cross_region_s3_restore_sources", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomainName")
-    def custom_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain name to use for the resources in the ODB network.
         """
         return pulumi.get(self, "custom_domain_name")
 
     @custom_domain_name.setter
-    def custom_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDnsPrefix")
-    def default_dns_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_dns_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com.
         """
         return pulumi.get(self, "default_dns_prefix")
 
     @default_dns_prefix.setter
-    def default_dns_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_dns_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_dns_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteAssociatedResources")
-    def delete_associated_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_associated_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to delete associated OCI networking resources along with the ODB network.
         """
         return pulumi.get(self, "delete_associated_resources")
 
     @delete_associated_resources.setter
-    def delete_associated_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_associated_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_associated_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user-friendly name of the ODB network.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsAccess")
-    def kms_access(self) -> Optional[pulumi.Input['OdbNetworkKmsAccess']]:
+    def kms_access(self) -> pulumi.Input[Optional['OdbNetworkKmsAccess']]:
         """
         The AWS Key Management Service (KMS) access configuration for the ODB network.
         """
         return pulumi.get(self, "kms_access")
 
     @kms_access.setter
-    def kms_access(self, value: Optional[pulumi.Input['OdbNetworkKmsAccess']]):
+    def kms_access(self, value: pulumi.Input[Optional['OdbNetworkKmsAccess']]):
         pulumi.set(self, "kms_access", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsPolicyDocument")
-    def kms_policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_policy_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.
         """
         return pulumi.get(self, "kms_policy_document")
 
     @kms_policy_document.setter
-    def kms_policy_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_policy_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_policy_document", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Access")
-    def s3_access(self) -> Optional[pulumi.Input['OdbNetworkS3Access']]:
+    def s3_access(self) -> pulumi.Input[Optional['OdbNetworkS3Access']]:
         """
         Specifies the configuration for Amazon S3 access from the ODB network.
         """
         return pulumi.get(self, "s3_access")
 
     @s3_access.setter
-    def s3_access(self, value: Optional[pulumi.Input['OdbNetworkS3Access']]):
+    def s3_access(self, value: pulumi.Input[Optional['OdbNetworkS3Access']]):
         pulumi.set(self, "s3_access", value)
 
     @_builtins.property
     @pulumi.getter(name="s3PolicyDocument")
-    def s3_policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_policy_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the endpoint policy for Amazon S3 access from the ODB network.
         """
         return pulumi.get(self, "s3_policy_document")
 
     @s3_policy_document.setter
-    def s3_policy_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_policy_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_policy_document", value)
 
     @_builtins.property
     @pulumi.getter(name="stsAccess")
-    def sts_access(self) -> Optional[pulumi.Input['OdbNetworkStsAccess']]:
+    def sts_access(self) -> pulumi.Input[Optional['OdbNetworkStsAccess']]:
         """
         The AWS Security Token Service (STS) access configuration for the ODB network.
         """
         return pulumi.get(self, "sts_access")
 
     @sts_access.setter
-    def sts_access(self, value: Optional[pulumi.Input['OdbNetworkStsAccess']]):
+    def sts_access(self, value: pulumi.Input[Optional['OdbNetworkStsAccess']]):
         pulumi.set(self, "sts_access", value)
 
     @_builtins.property
     @pulumi.getter(name="stsPolicyDocument")
-    def sts_policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sts_policy_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network.
         """
         return pulumi.get(self, "sts_policy_document")
 
     @sts_policy_document.setter
-    def sts_policy_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sts_policy_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sts_policy_document", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags to assign to the Odb Network.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="zeroEtlAccess")
-    def zero_etl_access(self) -> Optional[pulumi.Input['OdbNetworkZeroEtlAccess']]:
+    def zero_etl_access(self) -> pulumi.Input[Optional['OdbNetworkZeroEtlAccess']]:
         """
         Specifies the configuration for Zero-ETL access from the ODB network.
         """
         return pulumi.get(self, "zero_etl_access")
 
     @zero_etl_access.setter
-    def zero_etl_access(self, value: Optional[pulumi.Input['OdbNetworkZeroEtlAccess']]):
+    def zero_etl_access(self, value: pulumi.Input[Optional['OdbNetworkZeroEtlAccess']]):
         pulumi.set(self, "zero_etl_access", value)
 
 
@@ -307,23 +307,23 @@ class OdbNetwork(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 cross_region_s3_restore_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_access: Optional[pulumi.Input['OdbNetworkKmsAccess']] = None,
-                 kms_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_access: Optional[pulumi.Input['OdbNetworkS3Access']] = None,
-                 s3_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 sts_access: Optional[pulumi.Input['OdbNetworkStsAccess']] = None,
-                 sts_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 zero_etl_access: Optional[pulumi.Input['OdbNetworkZeroEtlAccess']] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 cross_region_s3_restore_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_dns_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_associated_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_access: pulumi.Input[Optional['OdbNetworkKmsAccess']] = None,
+                 kms_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_access: pulumi.Input[Optional['OdbNetworkS3Access']] = None,
+                 s3_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 sts_access: pulumi.Input[Optional['OdbNetworkStsAccess']] = None,
+                 sts_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 zero_etl_access: pulumi.Input[Optional['OdbNetworkZeroEtlAccess']] = None,
                  __props__=None):
         """
         The AWS::ODB::OdbNetwork resource creates an ODB Network
@@ -374,23 +374,23 @@ class OdbNetwork(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 cross_region_s3_restore_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_access: Optional[pulumi.Input['OdbNetworkKmsAccess']] = None,
-                 kms_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_access: Optional[pulumi.Input['OdbNetworkS3Access']] = None,
-                 s3_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 sts_access: Optional[pulumi.Input['OdbNetworkStsAccess']] = None,
-                 sts_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 zero_etl_access: Optional[pulumi.Input['OdbNetworkZeroEtlAccess']] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 cross_region_s3_restore_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_dns_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_associated_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_access: pulumi.Input[Optional['OdbNetworkKmsAccess']] = None,
+                 kms_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_access: pulumi.Input[Optional['OdbNetworkS3Access']] = None,
+                 s3_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 sts_access: pulumi.Input[Optional['OdbNetworkStsAccess']] = None,
+                 sts_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 zero_etl_access: pulumi.Input[Optional['OdbNetworkZeroEtlAccess']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

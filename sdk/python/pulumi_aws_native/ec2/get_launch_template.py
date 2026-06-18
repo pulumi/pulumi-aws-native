@@ -95,7 +95,7 @@ def get_launch_template(launch_template_id: Optional[_builtins.str] = None,
         default_version_number=pulumi.get(__ret__, 'default_version_number'),
         latest_version_number=pulumi.get(__ret__, 'latest_version_number'),
         launch_template_id=pulumi.get(__ret__, 'launch_template_id'))
-def get_launch_template_output(launch_template_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_launch_template_output(launch_template_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLaunchTemplateResult]:
     """
     Specifies the properties for creating a launch template.

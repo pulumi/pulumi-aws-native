@@ -26,12 +26,12 @@ class CapacityProviderArgs:
     def __init__(__self__, *,
                  permissions_config: pulumi.Input['CapacityProviderPermissionsConfigArgs'],
                  vpc_config: pulumi.Input['CapacityProviderVpcConfigArgs'],
-                 capacity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity_provider_scaling_config: Optional[pulumi.Input['CapacityProviderScalingConfigArgs']] = None,
-                 instance_requirements: Optional[pulumi.Input['CapacityProviderInstanceRequirementsArgs']] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 propagate_tags: Optional[pulumi.Input['CapacityProviderPropagateTagsConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 capacity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_provider_scaling_config: pulumi.Input[Optional['CapacityProviderScalingConfigArgs']] = None,
+                 instance_requirements: pulumi.Input[Optional['CapacityProviderInstanceRequirementsArgs']] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagate_tags: pulumi.Input[Optional['CapacityProviderPropagateTagsConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CapacityProvider resource.
 
@@ -83,68 +83,68 @@ class CapacityProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="capacityProviderName")
-    def capacity_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "capacity_provider_name")
 
     @capacity_provider_name.setter
-    def capacity_provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityProviderScalingConfig")
-    def capacity_provider_scaling_config(self) -> Optional[pulumi.Input['CapacityProviderScalingConfigArgs']]:
+    def capacity_provider_scaling_config(self) -> pulumi.Input[Optional['CapacityProviderScalingConfigArgs']]:
         """
         The scaling configuration for the capacity provider.
         """
         return pulumi.get(self, "capacity_provider_scaling_config")
 
     @capacity_provider_scaling_config.setter
-    def capacity_provider_scaling_config(self, value: Optional[pulumi.Input['CapacityProviderScalingConfigArgs']]):
+    def capacity_provider_scaling_config(self, value: pulumi.Input[Optional['CapacityProviderScalingConfigArgs']]):
         pulumi.set(self, "capacity_provider_scaling_config", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceRequirements")
-    def instance_requirements(self) -> Optional[pulumi.Input['CapacityProviderInstanceRequirementsArgs']]:
+    def instance_requirements(self) -> pulumi.Input[Optional['CapacityProviderInstanceRequirementsArgs']]:
         """
         The instance requirements for compute resources managed by the capacity provider.
         """
         return pulumi.get(self, "instance_requirements")
 
     @instance_requirements.setter
-    def instance_requirements(self, value: Optional[pulumi.Input['CapacityProviderInstanceRequirementsArgs']]):
+    def instance_requirements(self, value: pulumi.Input[Optional['CapacityProviderInstanceRequirementsArgs']]):
         pulumi.set(self, "instance_requirements", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the KMS key used to encrypt the capacity provider's resources.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="propagateTags")
-    def propagate_tags(self) -> Optional[pulumi.Input['CapacityProviderPropagateTagsConfigArgs']]:
+    def propagate_tags(self) -> pulumi.Input[Optional['CapacityProviderPropagateTagsConfigArgs']]:
         return pulumi.get(self, "propagate_tags")
 
     @propagate_tags.setter
-    def propagate_tags(self, value: Optional[pulumi.Input['CapacityProviderPropagateTagsConfigArgs']]):
+    def propagate_tags(self, value: pulumi.Input[Optional['CapacityProviderPropagateTagsConfigArgs']]):
         pulumi.set(self, "propagate_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A key-value pair that provides metadata for the capacity provider.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -154,14 +154,14 @@ class CapacityProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity_provider_scaling_config: Optional[pulumi.Input[Union['CapacityProviderScalingConfigArgs', 'CapacityProviderScalingConfigArgsDict']]] = None,
-                 instance_requirements: Optional[pulumi.Input[Union['CapacityProviderInstanceRequirementsArgs', 'CapacityProviderInstanceRequirementsArgsDict']]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions_config: Optional[pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']]] = None,
-                 propagate_tags: Optional[pulumi.Input[Union['CapacityProviderPropagateTagsConfigArgs', 'CapacityProviderPropagateTagsConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']]] = None,
+                 capacity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_provider_scaling_config: pulumi.Input[Optional[Union['CapacityProviderScalingConfigArgs', 'CapacityProviderScalingConfigArgsDict']]] = None,
+                 instance_requirements: pulumi.Input[Optional[Union['CapacityProviderInstanceRequirementsArgs', 'CapacityProviderInstanceRequirementsArgsDict']]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions_config: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']]] = None,
+                 propagate_tags: pulumi.Input[Optional[Union['CapacityProviderPropagateTagsConfigArgs', 'CapacityProviderPropagateTagsConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
         Creates a capacity provider that manages compute resources for Lambda functions
@@ -201,14 +201,14 @@ class CapacityProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity_provider_scaling_config: Optional[pulumi.Input[Union['CapacityProviderScalingConfigArgs', 'CapacityProviderScalingConfigArgsDict']]] = None,
-                 instance_requirements: Optional[pulumi.Input[Union['CapacityProviderInstanceRequirementsArgs', 'CapacityProviderInstanceRequirementsArgsDict']]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions_config: Optional[pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']]] = None,
-                 propagate_tags: Optional[pulumi.Input[Union['CapacityProviderPropagateTagsConfigArgs', 'CapacityProviderPropagateTagsConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']]] = None,
+                 capacity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_provider_scaling_config: pulumi.Input[Optional[Union['CapacityProviderScalingConfigArgs', 'CapacityProviderScalingConfigArgsDict']]] = None,
+                 instance_requirements: pulumi.Input[Optional[Union['CapacityProviderInstanceRequirementsArgs', 'CapacityProviderInstanceRequirementsArgsDict']]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions_config: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']]] = None,
+                 propagate_tags: pulumi.Input[Optional[Union['CapacityProviderPropagateTagsConfigArgs', 'CapacityProviderPropagateTagsConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

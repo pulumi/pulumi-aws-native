@@ -21,7 +21,7 @@ class TagArgs:
     def __init__(__self__, *,
                  tag_key: pulumi.Input[_builtins.str],
                  tag_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Tag resource.
 
@@ -60,14 +60,14 @@ class TagArgs:
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
-    def catalog_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_id", value)
 
 
@@ -77,9 +77,9 @@ class Tag(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A resource schema representing a Lake Formation Tag.
@@ -116,9 +116,9 @@ class Tag(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

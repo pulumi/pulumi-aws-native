@@ -102,7 +102,7 @@ def get_transit_gateway_attachment(id: Optional[_builtins.str] = None,
         options=pulumi.get(__ret__, 'options'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_transit_gateway_attachment_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_transit_gateway_attachment_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayAttachmentResult]:
     """
     Resource Type definition for AWS::EC2::TransitGatewayAttachment

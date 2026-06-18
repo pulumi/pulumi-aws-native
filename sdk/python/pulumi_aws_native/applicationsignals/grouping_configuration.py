@@ -48,7 +48,7 @@ class GroupingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 grouping_attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupingConfigurationGroupingAttributeDefinitionArgs', 'GroupingConfigurationGroupingAttributeDefinitionArgsDict']]]]] = None,
+                 grouping_attribute_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupingConfigurationGroupingAttributeDefinitionArgs', 'GroupingConfigurationGroupingAttributeDefinitionArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ApplicationSignals::GroupingConfiguration
@@ -83,7 +83,7 @@ class GroupingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 grouping_attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupingConfigurationGroupingAttributeDefinitionArgs', 'GroupingConfigurationGroupingAttributeDefinitionArgsDict']]]]] = None,
+                 grouping_attribute_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupingConfigurationGroupingAttributeDefinitionArgs', 'GroupingConfigurationGroupingAttributeDefinitionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

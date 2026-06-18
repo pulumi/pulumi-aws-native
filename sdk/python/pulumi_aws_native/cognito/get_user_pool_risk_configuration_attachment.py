@@ -91,8 +91,8 @@ def get_user_pool_risk_configuration_attachment(client_id: Optional[_builtins.st
         account_takeover_risk_configuration=pulumi.get(__ret__, 'account_takeover_risk_configuration'),
         compromised_credentials_risk_configuration=pulumi.get(__ret__, 'compromised_credentials_risk_configuration'),
         risk_exception_configuration=pulumi.get(__ret__, 'risk_exception_configuration'))
-def get_user_pool_risk_configuration_attachment_output(client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_pool_risk_configuration_attachment_output(client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolRiskConfigurationAttachmentResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment

@@ -77,9 +77,9 @@ class ResourceAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input['ResourceAssociationResourceType']] = None,
+                 application: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional['ResourceAssociationResourceType']] = None,
                  __props__=None):
         """
         Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
@@ -116,9 +116,9 @@ class ResourceAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input['ResourceAssociationResourceType']] = None,
+                 application: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional['ResourceAssociationResourceType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

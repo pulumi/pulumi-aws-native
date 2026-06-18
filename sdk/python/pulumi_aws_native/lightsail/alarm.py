@@ -24,12 +24,12 @@ class AlarmArgs:
                  metric_name: pulumi.Input[_builtins.str],
                  monitored_resource_name: pulumi.Input[_builtins.str],
                  threshold: pulumi.Input[_builtins.float],
-                 alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 contact_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 datapoints_to_alarm: Optional[pulumi.Input[_builtins.int]] = None,
-                 notification_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notification_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 treat_missing_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 contact_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 datapoints_to_alarm: pulumi.Input[Optional[_builtins.int]] = None,
+                 notification_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notification_triggers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Alarm resource.
 
@@ -125,74 +125,74 @@ class AlarmArgs:
 
     @_builtins.property
     @pulumi.getter(name="alarmName")
-    def alarm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alarm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
         """
         return pulumi.get(self, "alarm_name")
 
     @alarm_name.setter
-    def alarm_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alarm_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alarm_name", value)
 
     @_builtins.property
     @pulumi.getter(name="contactProtocols")
-    def contact_protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contact_protocols(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The contact protocols to use for the alarm, such as Email, SMS (text messaging), or both.
         """
         return pulumi.get(self, "contact_protocols")
 
     @contact_protocols.setter
-    def contact_protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contact_protocols(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contact_protocols", value)
 
     @_builtins.property
     @pulumi.getter(name="datapointsToAlarm")
-    def datapoints_to_alarm(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def datapoints_to_alarm(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of data points that must be not within the specified threshold to trigger the alarm. If you are setting an "M out of N" alarm, this value (datapointsToAlarm) is the M.
         """
         return pulumi.get(self, "datapoints_to_alarm")
 
     @datapoints_to_alarm.setter
-    def datapoints_to_alarm(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def datapoints_to_alarm(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "datapoints_to_alarm", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationEnabled")
-    def notification_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notification_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the alarm is enabled. Notifications are enabled by default if you don't specify this parameter.
         """
         return pulumi.get(self, "notification_enabled")
 
     @notification_enabled.setter
-    def notification_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notification_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notification_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationTriggers")
-    def notification_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notification_triggers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The alarm states that trigger a notification.
         """
         return pulumi.get(self, "notification_triggers")
 
     @notification_triggers.setter
-    def notification_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notification_triggers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notification_triggers", value)
 
     @_builtins.property
     @pulumi.getter(name="treatMissingData")
-    def treat_missing_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def treat_missing_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets how this alarm will handle missing data points.
         """
         return pulumi.get(self, "treat_missing_data")
 
     @treat_missing_data.setter
-    def treat_missing_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def treat_missing_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "treat_missing_data", value)
 
 
@@ -202,17 +202,17 @@ class Alarm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 comparison_operator: Optional[pulumi.Input[_builtins.str]] = None,
-                 contact_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 datapoints_to_alarm: Optional[pulumi.Input[_builtins.int]] = None,
-                 evaluation_periods: Optional[pulumi.Input[_builtins.int]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitored_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notification_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 treat_missing_data: Optional[pulumi.Input[_builtins.str]] = None,
+                 alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 comparison_operator: pulumi.Input[Optional[_builtins.str]] = None,
+                 contact_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 datapoints_to_alarm: pulumi.Input[Optional[_builtins.int]] = None,
+                 evaluation_periods: pulumi.Input[Optional[_builtins.int]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitored_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notification_triggers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lightsail::Alarm
@@ -257,17 +257,17 @@ class Alarm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 comparison_operator: Optional[pulumi.Input[_builtins.str]] = None,
-                 contact_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 datapoints_to_alarm: Optional[pulumi.Input[_builtins.int]] = None,
-                 evaluation_periods: Optional[pulumi.Input[_builtins.int]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitored_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notification_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 treat_missing_data: Optional[pulumi.Input[_builtins.str]] = None,
+                 alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 comparison_operator: pulumi.Input[Optional[_builtins.str]] = None,
+                 contact_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 datapoints_to_alarm: pulumi.Input[Optional[_builtins.int]] = None,
+                 evaluation_periods: pulumi.Input[Optional[_builtins.int]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitored_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notification_triggers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

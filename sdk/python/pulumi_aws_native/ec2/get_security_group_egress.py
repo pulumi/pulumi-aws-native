@@ -73,7 +73,7 @@ def get_security_group_egress(id: Optional[_builtins.str] = None,
     return AwaitableGetSecurityGroupEgressResult(
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'))
-def get_security_group_egress_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_group_egress_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupEgressResult]:
     """
     Adds the specified outbound (egress) rule to a security group.

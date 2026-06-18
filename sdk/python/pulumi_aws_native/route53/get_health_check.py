@@ -90,7 +90,7 @@ def get_health_check(health_check_id: Optional[_builtins.str] = None,
         health_check_config=pulumi.get(__ret__, 'health_check_config'),
         health_check_id=pulumi.get(__ret__, 'health_check_id'),
         health_check_tags=pulumi.get(__ret__, 'health_check_tags'))
-def get_health_check_output(health_check_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_health_check_output(health_check_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHealthCheckResult]:
     """
     Resource schema for AWS::Route53::HealthCheck.

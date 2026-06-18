@@ -64,8 +64,8 @@ def get_resource(resource_id: Optional[_builtins.str] = None,
 
     return AwaitableGetResourceResult(
         resource_id=pulumi.get(__ret__, 'resource_id'))
-def get_resource_output(resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                        rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_output(resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                        rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceResult]:
     """
     The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.

@@ -26,10 +26,10 @@ class LinkArgs:
                  bandwidth: pulumi.Input['LinkBandwidthArgs'],
                  global_network_id: pulumi.Input[_builtins.str],
                  site_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Link resource.
 
@@ -91,50 +91,50 @@ class LinkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the link.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The provider of the link.
         """
         return pulumi.get(self, "provider")
 
     @provider.setter
-    def provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the link.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the link.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -144,13 +144,13 @@ class Link(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bandwidth: Optional[pulumi.Input[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 bandwidth: pulumi.Input[Optional[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AWS::NetworkManager::Link type describes a link.
@@ -191,13 +191,13 @@ class Link(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bandwidth: Optional[pulumi.Input[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 bandwidth: pulumi.Input[Optional[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

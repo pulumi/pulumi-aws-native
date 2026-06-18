@@ -77,7 +77,7 @@ def get_registry_policy(registry_id: Optional[_builtins.str] = None,
     return AwaitableGetRegistryPolicyResult(
         policy_text=pulumi.get(__ret__, 'policy_text'),
         registry_id=pulumi.get(__ret__, 'registry_id'))
-def get_registry_policy_output(registry_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_registry_policy_output(registry_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryPolicyResult]:
     """
     The ``AWS::ECR::RegistryPolicy`` resource creates or updates the permissions policy for a private registry.

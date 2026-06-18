@@ -24,16 +24,16 @@ __all__ = ['DomainNameArgs', 'DomainName']
 @pulumi.input_type
 class DomainNameArgs:
     def __init__(__self__, *,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_configuration: Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']] = None,
-                 mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
-                 ownership_verification_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_mode: Optional[pulumi.Input['DomainNameRoutingMode']] = None,
-                 security_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_configuration: pulumi.Input[Optional['DomainNameEndpointConfigurationArgs']] = None,
+                 mutual_tls_authentication: pulumi.Input[Optional['DomainNameMutualTlsAuthenticationArgs']] = None,
+                 ownership_verification_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_mode: pulumi.Input[Optional['DomainNameRoutingMode']] = None,
+                 security_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DomainName resource.
 
@@ -71,122 +71,122 @@ class DomainNameArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
         """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom domain name as an API host name, for example, `my-api.example.com` .
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointAccessMode")
-    def endpoint_access_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_access_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint access mode for your DomainName.
         """
         return pulumi.get(self, "endpoint_access_mode")
 
     @endpoint_access_mode.setter
-    def endpoint_access_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_access_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_access_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointConfiguration")
-    def endpoint_configuration(self) -> Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']]:
+    def endpoint_configuration(self) -> pulumi.Input[Optional['DomainNameEndpointConfigurationArgs']]:
         """
         The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
         """
         return pulumi.get(self, "endpoint_configuration")
 
     @endpoint_configuration.setter
-    def endpoint_configuration(self, value: Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']]):
+    def endpoint_configuration(self, value: pulumi.Input[Optional['DomainNameEndpointConfigurationArgs']]):
         pulumi.set(self, "endpoint_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="mutualTlsAuthentication")
-    def mutual_tls_authentication(self) -> Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']]:
+    def mutual_tls_authentication(self) -> pulumi.Input[Optional['DomainNameMutualTlsAuthenticationArgs']]:
         """
         The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
         """
         return pulumi.get(self, "mutual_tls_authentication")
 
     @mutual_tls_authentication.setter
-    def mutual_tls_authentication(self, value: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']]):
+    def mutual_tls_authentication(self, value: pulumi.Input[Optional['DomainNameMutualTlsAuthenticationArgs']]):
         pulumi.set(self, "mutual_tls_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="ownershipVerificationCertificateArn")
-    def ownership_verification_certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ownership_verification_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
         """
         return pulumi.get(self, "ownership_verification_certificate_arn")
 
     @ownership_verification_certificate_arn.setter
-    def ownership_verification_certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ownership_verification_certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ownership_verification_certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="regionalCertificateArn")
-    def regional_certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def regional_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
         """
         return pulumi.get(self, "regional_certificate_arn")
 
     @regional_certificate_arn.setter
-    def regional_certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def regional_certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "regional_certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="routingMode")
-    def routing_mode(self) -> Optional[pulumi.Input['DomainNameRoutingMode']]:
+    def routing_mode(self) -> pulumi.Input[Optional['DomainNameRoutingMode']]:
         """
         The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
         """
         return pulumi.get(self, "routing_mode")
 
     @routing_mode.setter
-    def routing_mode(self, value: Optional[pulumi.Input['DomainNameRoutingMode']]):
+    def routing_mode(self, value: pulumi.Input[Optional['DomainNameRoutingMode']]):
         pulumi.set(self, "routing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="securityPolicy")
-    def security_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Transport Layer Security (TLS) version + cipher suite for this DomainName.
         """
         return pulumi.get(self, "security_policy")
 
     @security_policy.setter
-    def security_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The collection of tags. Each tag element is associated with a given resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -196,16 +196,16 @@ class DomainName(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_configuration: Optional[pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']]] = None,
-                 mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
-                 ownership_verification_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_mode: Optional[pulumi.Input['DomainNameRoutingMode']] = None,
-                 security_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_configuration: pulumi.Input[Optional[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']]] = None,
+                 mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
+                 ownership_verification_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_mode: pulumi.Input[Optional['DomainNameRoutingMode']] = None,
+                 security_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::ApiGateway::DomainName`` resource specifies a public custom domain name for your API in API Gateway.
@@ -337,16 +337,16 @@ class DomainName(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_configuration: Optional[pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']]] = None,
-                 mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
-                 ownership_verification_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_mode: Optional[pulumi.Input['DomainNameRoutingMode']] = None,
-                 security_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_configuration: pulumi.Input[Optional[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']]] = None,
+                 mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
+                 ownership_verification_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_mode: pulumi.Input[Optional['DomainNameRoutingMode']] = None,
+                 security_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

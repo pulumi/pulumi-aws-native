@@ -140,7 +140,7 @@ def get_database(relational_database_name: Optional[_builtins.str] = None,
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
         publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_database_output(relational_database_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_output(relational_database_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Resource Type definition for AWS::Lightsail::Database

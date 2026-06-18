@@ -128,7 +128,7 @@ def get_listener_rule(rule_arn: Optional[_builtins.str] = None,
         priority=pulumi.get(__ret__, 'priority'),
         rule_arn=pulumi.get(__ret__, 'rule_arn'),
         transforms=pulumi.get(__ret__, 'transforms'))
-def get_listener_rule_output(rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_listener_rule_output(rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerRuleResult]:
     """
     Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.

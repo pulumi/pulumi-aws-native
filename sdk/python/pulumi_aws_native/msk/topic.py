@@ -22,8 +22,8 @@ class TopicArgs:
                  cluster_arn: pulumi.Input[_builtins.str],
                  partition_count: pulumi.Input[_builtins.int],
                  replication_factor: pulumi.Input[_builtins.int],
-                 configs: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 configs: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Topic resource.
 
@@ -79,26 +79,26 @@ class TopicArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configs(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configs(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64 encoded configuration properties of the topic
         """
         return pulumi.get(self, "configs")
 
     @configs.setter
-    def configs(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configs(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configs", value)
 
     @_builtins.property
     @pulumi.getter(name="topicName")
-    def topic_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the topic
         """
         return pulumi.get(self, "topic_name")
 
     @topic_name.setter
-    def topic_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_name", value)
 
 
@@ -108,11 +108,11 @@ class Topic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 configs: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 replication_factor: Optional[pulumi.Input[_builtins.int]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 configs: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 replication_factor: pulumi.Input[Optional[_builtins.int]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::MSK::Topic
@@ -151,11 +151,11 @@ class Topic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 configs: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 replication_factor: Optional[pulumi.Input[_builtins.int]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 configs: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 replication_factor: pulumi.Input[Optional[_builtins.int]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

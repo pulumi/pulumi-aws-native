@@ -68,8 +68,8 @@ class ProactiveEngagement(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 emergency_contact_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict']]]]] = None,
-                 proactive_engagement_status: Optional[pulumi.Input['ProactiveEngagementStatus']] = None,
+                 emergency_contact_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict']]]]] = None,
+                 proactive_engagement_status: pulumi.Input[Optional['ProactiveEngagementStatus']] = None,
                  __props__=None):
         """
         Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
@@ -107,8 +107,8 @@ class ProactiveEngagement(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 emergency_contact_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict']]]]] = None,
-                 proactive_engagement_status: Optional[pulumi.Input['ProactiveEngagementStatus']] = None,
+                 emergency_contact_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict']]]]] = None,
+                 proactive_engagement_status: pulumi.Input[Optional['ProactiveEngagementStatus']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -100,7 +100,7 @@ def get_launch_role_constraint(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         local_role_name=pulumi.get(__ret__, 'local_role_name'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
-def get_launch_role_constraint_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_launch_role_constraint_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLaunchRoleConstraintResult]:
     """
     Resource Type definition for AWS::ServiceCatalog::LaunchRoleConstraint

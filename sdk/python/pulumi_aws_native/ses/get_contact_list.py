@@ -89,7 +89,7 @@ def get_contact_list(contact_list_name: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         tags=pulumi.get(__ret__, 'tags'),
         topics=pulumi.get(__ret__, 'topics'))
-def get_contact_list_output(contact_list_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_contact_list_output(contact_list_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactListResult]:
     """
     Resource schema for AWS::SES::ContactList.

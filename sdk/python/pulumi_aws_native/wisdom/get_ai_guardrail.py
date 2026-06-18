@@ -206,8 +206,8 @@ def get_ai_guardrail(ai_guardrail_id: Optional[_builtins.str] = None,
         sensitive_information_policy_config=pulumi.get(__ret__, 'sensitive_information_policy_config'),
         topic_policy_config=pulumi.get(__ret__, 'topic_policy_config'),
         word_policy_config=pulumi.get(__ret__, 'word_policy_config'))
-def get_ai_guardrail_output(ai_guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
-                            assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ai_guardrail_output(ai_guardrail_id: pulumi.Input[Optional[_builtins.str]] = None,
+                            assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAiGuardrailResult]:
     """
     Definition of AWS::Wisdom::AIGuardrail Resource Type

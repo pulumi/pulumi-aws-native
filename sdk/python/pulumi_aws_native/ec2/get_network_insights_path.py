@@ -127,7 +127,7 @@ def get_network_insights_path(network_insights_path_id: Optional[_builtins.str] 
         network_insights_path_id=pulumi.get(__ret__, 'network_insights_path_id'),
         source_arn=pulumi.get(__ret__, 'source_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_network_insights_path_output(network_insights_path_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_insights_path_output(network_insights_path_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInsightsPathResult]:
     """
     Resource schema for AWS::EC2::NetworkInsightsPath

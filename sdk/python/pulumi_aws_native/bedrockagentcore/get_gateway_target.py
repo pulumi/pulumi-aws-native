@@ -240,8 +240,8 @@ def get_gateway_target(gateway_identifier: Optional[_builtins.str] = None,
         target_configuration=pulumi.get(__ret__, 'target_configuration'),
         target_id=pulumi.get(__ret__, 'target_id'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_gateway_target_output(gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                              target_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gateway_target_output(gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                              target_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayTargetResult]:
     """
     Resource Type definition for AWS::BedrockAgentCore::GatewayTarget

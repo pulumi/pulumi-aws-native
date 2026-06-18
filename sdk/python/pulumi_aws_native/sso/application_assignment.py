@@ -77,9 +77,9 @@ class ApplicationAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input['ApplicationAssignmentPrincipalType']] = None,
+                 application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional['ApplicationAssignmentPrincipalType']] = None,
                  __props__=None):
         """
         Resource Type definition for SSO application access grant to a user or group.
@@ -116,9 +116,9 @@ class ApplicationAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input['ApplicationAssignmentPrincipalType']] = None,
+                 application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional['ApplicationAssignmentPrincipalType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

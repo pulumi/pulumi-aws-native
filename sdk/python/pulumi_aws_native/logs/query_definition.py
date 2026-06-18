@@ -23,10 +23,10 @@ __all__ = ['QueryDefinitionArgs', 'QueryDefinition']
 class QueryDefinitionArgs:
     def __init__(__self__, *,
                  query_string: pulumi.Input[_builtins.str],
-                 log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['QueryDefinitionQueryParameterArgs']]]] = None,
-                 query_language: Optional[pulumi.Input['QueryDefinitionQueryLanguage']] = None):
+                 log_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['QueryDefinitionQueryParameterArgs']]]] = None,
+                 query_language: pulumi.Input[Optional['QueryDefinitionQueryLanguage']] = None):
         """
         The set of arguments for constructing a QueryDefinition resource.
 
@@ -60,50 +60,50 @@ class QueryDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroupNames")
-    def log_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def log_group_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Optionally define specific log groups as part of your query definition
         """
         return pulumi.get(self, "log_group_names")
 
     @log_group_names.setter
-    def log_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def log_group_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "log_group_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the saved query definition
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QueryDefinitionQueryParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['QueryDefinitionQueryParameterArgs']]]]:
         """
         Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the {{parameterName}} syntax in your query string to reference a parameter.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QueryDefinitionQueryParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['QueryDefinitionQueryParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="queryLanguage")
-    def query_language(self) -> Optional[pulumi.Input['QueryDefinitionQueryLanguage']]:
+    def query_language(self) -> pulumi.Input[Optional['QueryDefinitionQueryLanguage']]:
         """
         Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
         """
         return pulumi.get(self, "query_language")
 
     @query_language.setter
-    def query_language(self, value: Optional[pulumi.Input['QueryDefinitionQueryLanguage']]):
+    def query_language(self, value: pulumi.Input[Optional['QueryDefinitionQueryLanguage']]):
         pulumi.set(self, "query_language", value)
 
 
@@ -113,11 +113,11 @@ class QueryDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QueryDefinitionQueryParameterArgs', 'QueryDefinitionQueryParameterArgsDict']]]]] = None,
-                 query_language: Optional[pulumi.Input['QueryDefinitionQueryLanguage']] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueryDefinitionQueryParameterArgs', 'QueryDefinitionQueryParameterArgsDict']]]]] = None,
+                 query_language: pulumi.Input[Optional['QueryDefinitionQueryLanguage']] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The resource schema for AWSLogs QueryDefinition
@@ -156,11 +156,11 @@ class QueryDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QueryDefinitionQueryParameterArgs', 'QueryDefinitionQueryParameterArgsDict']]]]] = None,
-                 query_language: Optional[pulumi.Input['QueryDefinitionQueryLanguage']] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueryDefinitionQueryParameterArgs', 'QueryDefinitionQueryParameterArgsDict']]]]] = None,
+                 query_language: pulumi.Input[Optional['QueryDefinitionQueryLanguage']] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

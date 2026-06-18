@@ -246,7 +246,7 @@ def get_online_evaluation_config(online_evaluation_config_arn: Optional[_builtin
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_online_evaluation_config_output(online_evaluation_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_online_evaluation_config_output(online_evaluation_config_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOnlineEvaluationConfigResult]:
     """
     Resource Type definition for AWS::BedrockAgentCore::OnlineEvaluationConfig - Creates an online evaluation configuration for continuous monitoring of agent performance.

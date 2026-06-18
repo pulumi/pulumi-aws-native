@@ -175,8 +175,8 @@ def get_stage(api_id: Optional[_builtins.str] = None,
         route_settings=pulumi.get(__ret__, 'route_settings'),
         stage_variables=pulumi.get(__ret__, 'stage_variables'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_stage_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     stage_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_stage_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     stage_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStageResult]:
     """
     Resource Type definition for AWS::ApiGatewayV2::Stage

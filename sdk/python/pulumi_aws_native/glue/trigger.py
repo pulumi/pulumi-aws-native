@@ -23,14 +23,14 @@ class TriggerArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]],
                  type: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_batching_condition: Optional[pulumi.Input['TriggerEventBatchingConditionArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 predicate: Optional[pulumi.Input['TriggerPredicateArgs']] = None,
-                 schedule: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_on_creation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_batching_condition: pulumi.Input[Optional['TriggerEventBatchingConditionArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 predicate: pulumi.Input[Optional['TriggerPredicateArgs']] = None,
+                 schedule: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_on_creation: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: Optional[Any] = None,
-                 workflow_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Trigger resource.
 
@@ -92,74 +92,74 @@ class TriggerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of this trigger.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="eventBatchingCondition")
-    def event_batching_condition(self) -> Optional[pulumi.Input['TriggerEventBatchingConditionArgs']]:
+    def event_batching_condition(self) -> pulumi.Input[Optional['TriggerEventBatchingConditionArgs']]:
         """
         Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
         """
         return pulumi.get(self, "event_batching_condition")
 
     @event_batching_condition.setter
-    def event_batching_condition(self, value: Optional[pulumi.Input['TriggerEventBatchingConditionArgs']]):
+    def event_batching_condition(self, value: pulumi.Input[Optional['TriggerEventBatchingConditionArgs']]):
         pulumi.set(self, "event_batching_condition", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the trigger.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def predicate(self) -> Optional[pulumi.Input['TriggerPredicateArgs']]:
+    def predicate(self) -> pulumi.Input[Optional['TriggerPredicateArgs']]:
         """
         The predicate of this trigger, which defines when it will fire.
         """
         return pulumi.get(self, "predicate")
 
     @predicate.setter
-    def predicate(self, value: Optional[pulumi.Input['TriggerPredicateArgs']]):
+    def predicate(self, value: pulumi.Input[Optional['TriggerPredicateArgs']]):
         pulumi.set(self, "predicate", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schedule(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A cron expression used to specify the schedule.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schedule(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="startOnCreation")
-    def start_on_creation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def start_on_creation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
         """
         return pulumi.get(self, "start_on_creation")
 
     @start_on_creation.setter
-    def start_on_creation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def start_on_creation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "start_on_creation", value)
 
     @_builtins.property
@@ -178,14 +178,14 @@ class TriggerArgs:
 
     @_builtins.property
     @pulumi.getter(name="workflowName")
-    def workflow_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workflow_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the workflow associated with the trigger.
         """
         return pulumi.get(self, "workflow_name")
 
     @workflow_name.setter
-    def workflow_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workflow_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workflow_name", value)
 
 
@@ -195,16 +195,16 @@ class Trigger(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_batching_condition: Optional[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 predicate: Optional[pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']]] = None,
-                 schedule: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_on_creation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_batching_condition: pulumi.Input[Optional[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 predicate: pulumi.Input[Optional[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_on_creation: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: Optional[Any] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Glue::Trigger
@@ -410,16 +410,16 @@ class Trigger(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_batching_condition: Optional[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 predicate: Optional[pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']]] = None,
-                 schedule: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_on_creation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_batching_condition: pulumi.Input[Optional[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 predicate: pulumi.Input[Optional[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_on_creation: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: Optional[Any] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

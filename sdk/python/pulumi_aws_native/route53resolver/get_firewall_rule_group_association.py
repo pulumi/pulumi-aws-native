@@ -206,7 +206,7 @@ def get_firewall_rule_group_association(id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_firewall_rule_group_association_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_rule_group_association_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallRuleGroupAssociationResult]:
     """
     Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.

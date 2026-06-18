@@ -87,11 +87,11 @@ def get_owner(domain_identifier: Optional[_builtins.str] = None,
     return AwaitableGetOwnerResult(
         owner_identifier=pulumi.get(__ret__, 'owner_identifier'),
         owner_type=pulumi.get(__ret__, 'owner_type'))
-def get_owner_output(domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                     entity_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                     entity_type: Optional[pulumi.Input['OwnerEntityType']] = None,
-                     owner_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                     owner_type: Optional[pulumi.Input['OwnerType']] = None,
+def get_owner_output(domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                     entity_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                     entity_type: pulumi.Input[Optional['OwnerEntityType']] = None,
+                     owner_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                     owner_type: pulumi.Input[Optional['OwnerType']] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOwnerResult]:
     """
     A owner can set up authorization permissions on their resources.

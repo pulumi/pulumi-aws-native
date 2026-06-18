@@ -23,67 +23,67 @@ __all__ = ['DbClusterArgs', 'DbCluster']
 @pulumi.input_type
 class DbClusterArgs:
     def __init__(__self__, *,
-                 allocated_storage: Optional[pulumi.Input[_builtins.int]] = None,
-                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterDbClusterRoleArgs']]]] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backtrack_window: Optional[pulumi.Input[_builtins.int]] = None,
-                 backup_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 cluster_scalability_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags_to_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 database_insights_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_cluster_instance_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_cluster_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_instance_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_automated_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_iam_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_global_write_forwarding: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_http_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_iam_database_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_local_write_forwarding: Optional[pulumi.Input[_builtins.bool]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_lifecycle_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 manage_master_user_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 master_user_authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_user_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_user_secret: Optional[pulumi.Input['DbClusterMasterUserSecretArgs']] = None,
-                 master_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitoring_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 performance_insights_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 performance_insights_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 performance_insights_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replication_source_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_to_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_configuration: Optional[pulumi.Input['DbClusterScalingConfigurationArgs']] = None,
-                 serverless_v2_scaling_configuration: Optional[pulumi.Input['DbClusterServerlessV2ScalingConfigurationArgs']] = None,
-                 snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_db_cluster_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 use_latest_restorable_time: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
+                 associated_roles: pulumi.Input[Optional[Sequence[pulumi.Input['DbClusterDbClusterRoleArgs']]]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backtrack_window: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 cluster_scalability_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags_to_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 database_insights_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_cluster_instance_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_instance_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_automated_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_iam_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_cloudwatch_logs_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enable_global_write_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_http_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_iam_database_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_local_write_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_lifecycle_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 manage_master_user_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 master_user_authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_user_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_user_secret: pulumi.Input[Optional['DbClusterMasterUserSecretArgs']] = None,
+                 master_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitoring_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 performance_insights_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 performance_insights_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 performance_insights_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_to_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_configuration: pulumi.Input[Optional['DbClusterScalingConfigurationArgs']] = None,
+                 serverless_v2_scaling_configuration: pulumi.Input[Optional['DbClusterServerlessV2ScalingConfigurationArgs']] = None,
+                 snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_db_cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 use_latest_restorable_time: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DbCluster resource.
 
@@ -520,7 +520,7 @@ class DbClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def allocated_storage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
          Valid for Cluster Type: Multi-AZ DB clusters only
@@ -529,12 +529,12 @@ class DbClusterArgs:
         return pulumi.get(self, "allocated_storage")
 
     @allocated_storage.setter
-    def allocated_storage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def allocated_storage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "allocated_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="associatedRoles")
-    def associated_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterDbClusterRoleArgs']]]]:
+    def associated_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DbClusterDbClusterRoleArgs']]]]:
         """
         Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other Amazon Web Services on your behalf.
          Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -542,12 +542,12 @@ class DbClusterArgs:
         return pulumi.get(self, "associated_roles")
 
     @associated_roles.setter
-    def associated_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterDbClusterRoleArgs']]]]):
+    def associated_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DbClusterDbClusterRoleArgs']]]]):
         pulumi.set(self, "associated_roles", value)
 
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
-    def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_minor_version_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
          Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster.
@@ -556,12 +556,12 @@ class DbClusterArgs:
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @auto_minor_version_upgrade.setter
-    def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_minor_version_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_minor_version_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*. 
          Valid for: Aurora DB clusters only
@@ -569,12 +569,12 @@ class DbClusterArgs:
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="backtrackWindow")
-    def backtrack_window(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backtrack_window(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The target backtrack window, in seconds. To disable backtracking, set this value to ``0``.
          Valid for Cluster Type: Aurora MySQL DB clusters only
@@ -585,12 +585,12 @@ class DbClusterArgs:
         return pulumi.get(self, "backtrack_window")
 
     @backtrack_window.setter
-    def backtrack_window(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backtrack_window(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backtrack_window", value)
 
     @_builtins.property
     @pulumi.getter(name="backupRetentionPeriod")
-    def backup_retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backup_retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days for which automated backups are retained.
          Default: 1
@@ -602,12 +602,12 @@ class DbClusterArgs:
         return pulumi.get(self, "backup_retention_period")
 
     @backup_retention_period.setter
-    def backup_retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backup_retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backup_retention_period", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterScalabilityType")
-    def cluster_scalability_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_scalability_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the scalability mode of the Aurora DB cluster. When set to ``limitless``, the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to ``standard`` (the default), the cluster uses normal DB instance creation.
          *Important:* Automated backup retention isn't supported with Aurora Limitless Database clusters. If you set this property to ``limitless``, you cannot set ``DeleteAutomatedBackups`` to ``false``. To create a backup, use manual snapshots instead.
@@ -615,12 +615,12 @@ class DbClusterArgs:
         return pulumi.get(self, "cluster_scalability_type")
 
     @cluster_scalability_type.setter
-    def cluster_scalability_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_scalability_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_scalability_type", value)
 
     @_builtins.property
     @pulumi.getter(name="copyTagsToSnapshot")
-    def copy_tags_to_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_tags_to_snapshot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
          Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -628,12 +628,12 @@ class DbClusterArgs:
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @copy_tags_to_snapshot.setter
-    def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_tags_to_snapshot(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_tags_to_snapshot", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseInsightsMode")
-    def database_insights_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_insights_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The mode of Database Insights to enable for the DB cluster.
          If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
@@ -642,12 +642,12 @@ class DbClusterArgs:
         return pulumi.get(self, "database_insights_mode")
 
     @database_insights_mode.setter
-    def database_insights_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_insights_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_insights_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*. 
          Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -655,12 +655,12 @@ class DbClusterArgs:
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dbClusterIdentifier")
-    def db_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DB cluster identifier. This parameter is stored as a lowercase string.
          Constraints:
@@ -674,12 +674,12 @@ class DbClusterArgs:
         return pulumi.get(self, "db_cluster_identifier")
 
     @db_cluster_identifier.setter
-    def db_cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="dbClusterInstanceClass")
-    def db_cluster_instance_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_cluster_instance_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example ``db.m6gd.xlarge``. Not all DB instance classes are available in all AWS-Regions, or for all database engines.
          For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide*.
@@ -689,12 +689,12 @@ class DbClusterArgs:
         return pulumi.get(self, "db_cluster_instance_class")
 
     @db_cluster_instance_class.setter
-    def db_cluster_instance_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_cluster_instance_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_cluster_instance_class", value)
 
     @_builtins.property
     @pulumi.getter(name="dbClusterParameterGroupName")
-    def db_cluster_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_cluster_parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the DB cluster parameter group to associate with this DB cluster.
           If you apply a parameter group to an existing DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
@@ -706,12 +706,12 @@ class DbClusterArgs:
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @db_cluster_parameter_group_name.setter
-    def db_cluster_parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_cluster_parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_cluster_parameter_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dbInstanceParameterGroupName")
-    def db_instance_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_instance_parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the DB parameter group to apply to all instances of the DB cluster.
           When you apply a parameter group using the ``DBInstanceParameterGroupName`` parameter, the DB cluster isn't rebooted automatically. Also, parameter changes are applied immediately rather than during the next maintenance window.
@@ -724,12 +724,12 @@ class DbClusterArgs:
         return pulumi.get(self, "db_instance_parameter_group_name")
 
     @db_instance_parameter_group_name.setter
-    def db_instance_parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_instance_parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_instance_parameter_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dbSubnetGroupName")
-    def db_subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_subnet_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A DB subnet group that you want to associate with this DB cluster. 
          If you are restoring a DB cluster to a point in time with ``RestoreType`` set to ``copy-on-write``, and don't specify a DB subnet group name, then the DB cluster is restored with a default DB subnet group.
@@ -738,36 +738,36 @@ class DbClusterArgs:
         return pulumi.get(self, "db_subnet_group_name")
 
     @db_subnet_group_name.setter
-    def db_subnet_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_subnet_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_subnet_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dbSystemId")
-    def db_system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_system_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reserved for future use.
         """
         return pulumi.get(self, "db_system_id")
 
     @db_system_id.setter
-    def db_system_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_system_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_system_id", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteAutomatedBackups")
-    def delete_automated_backups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_automated_backups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the AWS Backup policy specifies a point-in-time restore rule.
         """
         return pulumi.get(self, "delete_automated_backups")
 
     @delete_automated_backups.setter
-    def delete_automated_backups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_automated_backups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_automated_backups", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
-    def deletion_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
          Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -775,12 +775,12 @@ class DbClusterArgs:
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
-    def deletion_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the directory ID of the Active Directory to create the DB cluster.
          For Amazon Aurora DB clusters, Amazon RDS can use Kerberos authentication to authenticate users that connect to the DB cluster.
@@ -790,12 +790,12 @@ class DbClusterArgs:
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="domainIamRoleName")
-    def domain_iam_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_iam_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the IAM role to use when making API calls to the Directory Service.
          Valid for: Aurora DB clusters only
@@ -803,12 +803,12 @@ class DbClusterArgs:
         return pulumi.get(self, "domain_iam_role_name")
 
     @domain_iam_role_name.setter
-    def domain_iam_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_iam_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_iam_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableCloudwatchLogsExports")
-    def enable_cloudwatch_logs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def enable_cloudwatch_logs_exports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see [Publishing Database Logs to Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch) in the *Amazon Aurora User Guide*.
           *Aurora MySQL* 
@@ -820,12 +820,12 @@ class DbClusterArgs:
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
 
     @enable_cloudwatch_logs_exports.setter
-    def enable_cloudwatch_logs_exports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def enable_cloudwatch_logs_exports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "enable_cloudwatch_logs_exports", value)
 
     @_builtins.property
     @pulumi.getter(name="enableGlobalWriteForwarding")
-    def enable_global_write_forwarding(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_global_write_forwarding(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database). By default, write operations are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global database.
          You can set this value only on Aurora DB clusters that are members of an Aurora global database. With this parameter enabled, a secondary cluster can forward writes to the current primary cluster, and the resulting changes are replicated back to this cluster. For the primary DB cluster of an Aurora global database, this value is used immediately if the primary is demoted by a global cluster API operation, but it does nothing until then.
@@ -834,12 +834,12 @@ class DbClusterArgs:
         return pulumi.get(self, "enable_global_write_forwarding")
 
     @enable_global_write_forwarding.setter
-    def enable_global_write_forwarding(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_global_write_forwarding(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_global_write_forwarding", value)
 
     @_builtins.property
     @pulumi.getter(name="enableHttpEndpoint")
-    def enable_http_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_http_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable the HTTP endpoint for the DB cluster. By default, the HTTP endpoint isn't enabled.
          When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data API) for running SQL queries on the DB cluster. You can also query your database from inside the RDS console with the RDS query editor.
@@ -849,12 +849,12 @@ class DbClusterArgs:
         return pulumi.get(self, "enable_http_endpoint")
 
     @enable_http_endpoint.setter
-    def enable_http_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_http_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_http_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="enableIamDatabaseAuthentication")
-    def enable_iam_database_authentication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_iam_database_authentication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
          For more information, see [IAM Database Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon Aurora User Guide.*
@@ -863,12 +863,12 @@ class DbClusterArgs:
         return pulumi.get(self, "enable_iam_database_authentication")
 
     @enable_iam_database_authentication.setter
-    def enable_iam_database_authentication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_iam_database_authentication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_iam_database_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="enableLocalWriteForwarding")
-    def enable_local_write_forwarding(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_local_write_forwarding(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
          Valid for: Aurora DB clusters only
@@ -876,12 +876,12 @@ class DbClusterArgs:
         return pulumi.get(self, "enable_local_write_forwarding")
 
     @enable_local_write_forwarding.setter
-    def enable_local_write_forwarding(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_local_write_forwarding(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_local_write_forwarding", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the database engine to be used for this DB cluster.
          Valid Values:
@@ -895,12 +895,12 @@ class DbClusterArgs:
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter(name="engineLifecycleSupport")
-    def engine_lifecycle_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_lifecycle_support(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The life cycle type for this DB cluster.
           By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.
@@ -915,12 +915,12 @@ class DbClusterArgs:
         return pulumi.get(self, "engine_lifecycle_support")
 
     @engine_lifecycle_support.setter
-    def engine_lifecycle_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_lifecycle_support(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_lifecycle_support", value)
 
     @_builtins.property
     @pulumi.getter(name="engineMode")
-    def engine_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DB engine mode of the DB cluster, either ``provisioned`` or ``serverless``.
          The ``serverless`` engine mode only applies for Aurora Serverless v1 DB clusters. Aurora Serverless v2 DB clusters use the ``provisioned`` engine mode.
@@ -933,12 +933,12 @@ class DbClusterArgs:
         return pulumi.get(self, "engine_mode")
 
     @engine_mode.setter
-    def engine_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version number of the database engine to use.
           Don't use this property if your DB cluster is a member of a global database cluster. Instead, specify the ``EngineVersion`` property on the [AWS::RDS::GlobalCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html) resource. Major version upgrades aren't supported for individual members of a global cluster. Use ``ModifyGlobalCluster`` to upgrade all members of the global cluster.
@@ -964,12 +964,12 @@ class DbClusterArgs:
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="globalClusterIdentifier")
-    def global_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If you are configuring an Aurora global database cluster and want your Aurora DB cluster to be a secondary member in the global database cluster, specify the global cluster ID of the global database cluster. To define the primary database cluster of the global cluster, use the [AWS::RDS::GlobalCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html) resource. 
           If you aren't configuring a global database cluster, don't specify this property. 
@@ -980,12 +980,12 @@ class DbClusterArgs:
         return pulumi.get(self, "global_cluster_identifier")
 
     @global_cluster_identifier.setter
-    def global_cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def iops(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster.
          For information about valid IOPS values, see [Provisioned IOPS storage](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the *Amazon RDS User Guide*.
@@ -997,12 +997,12 @@ class DbClusterArgs:
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def iops(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "iops", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as ``arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef``. If you enable the ``StorageEncrypted`` property but don't specify this property, the default KMS key is used. If you specify this property, you must set the ``StorageEncrypted`` property to ``true``.
          If you specify the ``SnapshotIdentifier`` property, the ``StorageEncrypted`` property value is inherited from the snapshot, and if the DB cluster is encrypted, the specified ``KmsKeyId`` property is used.
@@ -1012,12 +1012,12 @@ class DbClusterArgs:
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="manageMasterUserPassword")
-    def manage_master_user_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def manage_master_user_password(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to manage the master user password with AWS Secrets Manager.
          For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
@@ -1028,12 +1028,12 @@ class DbClusterArgs:
         return pulumi.get(self, "manage_master_user_password")
 
     @manage_master_user_password.setter
-    def manage_master_user_password(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def manage_master_user_password(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "manage_master_user_password", value)
 
     @_builtins.property
     @pulumi.getter(name="masterUserAuthenticationType")
-    def master_user_authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def master_user_authentication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.
          You can specify one of the following values:
@@ -1046,12 +1046,12 @@ class DbClusterArgs:
         return pulumi.get(self, "master_user_authentication_type")
 
     @master_user_authentication_type.setter
-    def master_user_authentication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def master_user_authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "master_user_authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="masterUserPassword")
-    def master_user_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def master_user_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The master password for the DB instance.
           If you specify the ``SourceDBClusterIdentifier``, ``SnapshotIdentifier``, or ``GlobalClusterIdentifier`` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
@@ -1060,12 +1060,12 @@ class DbClusterArgs:
         return pulumi.get(self, "master_user_password")
 
     @master_user_password.setter
-    def master_user_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def master_user_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "master_user_password", value)
 
     @_builtins.property
     @pulumi.getter(name="masterUserSecret")
-    def master_user_secret(self) -> Optional[pulumi.Input['DbClusterMasterUserSecretArgs']]:
+    def master_user_secret(self) -> pulumi.Input[Optional['DbClusterMasterUserSecretArgs']]:
         """
         The secret managed by RDS in AWS Secrets Manager for the master user password.
           When you restore a DB cluster from a snapshot, Amazon RDS generates a new secret instead of reusing the secret specified in the ``SecretArn`` property. This ensures that the restored DB cluster is securely managed with a dedicated secret. To maintain consistent integration with your application, you might need to update resource configurations to reference the newly created secret.
@@ -1074,12 +1074,12 @@ class DbClusterArgs:
         return pulumi.get(self, "master_user_secret")
 
     @master_user_secret.setter
-    def master_user_secret(self, value: Optional[pulumi.Input['DbClusterMasterUserSecretArgs']]):
+    def master_user_secret(self, value: pulumi.Input[Optional['DbClusterMasterUserSecretArgs']]):
         pulumi.set(self, "master_user_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="masterUsername")
-    def master_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def master_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the master user for the DB cluster.
           If you specify the ``SourceDBClusterIdentifier``, ``SnapshotIdentifier``, or ``GlobalClusterIdentifier`` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
@@ -1088,12 +1088,12 @@ class DbClusterArgs:
         return pulumi.get(self, "master_username")
 
     @master_username.setter
-    def master_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def master_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "master_username", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringInterval")
-    def monitoring_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def monitoring_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify ``0``.
          If ``MonitoringRoleArn`` is specified, also set ``MonitoringInterval`` to a value other than ``0``.
@@ -1104,12 +1104,12 @@ class DbClusterArgs:
         return pulumi.get(self, "monitoring_interval")
 
     @monitoring_interval.setter
-    def monitoring_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def monitoring_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "monitoring_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringRoleArn")
-    def monitoring_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitoring_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs. An example is ``arn:aws:iam:123456789012:role/emaccess``. For information on creating a monitoring role, see [Setting up and enabling Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling) in the *Amazon RDS User Guide*.
          If ``MonitoringInterval`` is set to a value other than ``0``, supply a ``MonitoringRoleArn`` value.
@@ -1118,12 +1118,12 @@ class DbClusterArgs:
         return pulumi.get(self, "monitoring_role_arn")
 
     @monitoring_role_arn.setter
-    def monitoring_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitoring_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitoring_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="networkType")
-    def network_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network type of the DB cluster.
          Valid values:
@@ -1137,12 +1137,12 @@ class DbClusterArgs:
         return pulumi.get(self, "network_type")
 
     @network_type.setter
-    def network_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="performanceInsightsEnabled")
-    def performance_insights_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def performance_insights_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to turn on Performance Insights for the DB cluster.
          For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon RDS User Guide*.
@@ -1151,12 +1151,12 @@ class DbClusterArgs:
         return pulumi.get(self, "performance_insights_enabled")
 
     @performance_insights_enabled.setter
-    def performance_insights_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def performance_insights_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "performance_insights_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="performanceInsightsKmsKeyId")
-    def performance_insights_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def performance_insights_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS KMS key identifier for encryption of Performance Insights data.
          The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
@@ -1166,12 +1166,12 @@ class DbClusterArgs:
         return pulumi.get(self, "performance_insights_kms_key_id")
 
     @performance_insights_kms_key_id.setter
-    def performance_insights_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def performance_insights_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "performance_insights_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="performanceInsightsRetentionPeriod")
-    def performance_insights_retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def performance_insights_retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
          Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
@@ -1186,12 +1186,12 @@ class DbClusterArgs:
         return pulumi.get(self, "performance_insights_retention_period")
 
     @performance_insights_retention_period.setter
-    def performance_insights_retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def performance_insights_retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "performance_insights_retention_period", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port number on which the DB instances in the DB cluster accept connections.
          Default:
@@ -1204,12 +1204,12 @@ class DbClusterArgs:
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
-    def preferred_backup_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_backup_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The daily time range during which automated backups are created. For more information, see [Backup Window](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow) in the *Amazon Aurora User Guide.*
          Constraints:
@@ -1223,12 +1223,12 @@ class DbClusterArgs:
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
-    def preferred_backup_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_backup_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_backup_window", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
          Format: ``ddd:hh24:mi-ddd:hh24:mi``
@@ -1240,12 +1240,12 @@ class DbClusterArgs:
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
-    def preferred_maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publicly_accessible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the DB cluster is publicly accessible.
          Valid for Cluster Type: Multi-AZ DB clusters only
@@ -1259,12 +1259,12 @@ class DbClusterArgs:
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
-    def publicly_accessible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publicly_accessible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publicly_accessible", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationSourceIdentifier")
-    def replication_source_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_source_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
          Valid for: Aurora DB clusters only
@@ -1272,12 +1272,12 @@ class DbClusterArgs:
         return pulumi.get(self, "replication_source_identifier")
 
     @replication_source_identifier.setter
-    def replication_source_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_source_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_source_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="restoreToTime")
-    def restore_to_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restore_to_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time to restore the DB cluster to.
          Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
@@ -1294,12 +1294,12 @@ class DbClusterArgs:
         return pulumi.get(self, "restore_to_time")
 
     @restore_to_time.setter
-    def restore_to_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restore_to_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restore_to_time", value)
 
     @_builtins.property
     @pulumi.getter(name="restoreType")
-    def restore_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restore_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of restore to be performed. You can specify one of the following values:
           +  ``full-copy`` - The new DB cluster is restored as a full copy of the source DB cluster.
@@ -1311,12 +1311,12 @@ class DbClusterArgs:
         return pulumi.get(self, "restore_type")
 
     @restore_type.setter
-    def restore_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restore_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restore_type", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingConfiguration")
-    def scaling_configuration(self) -> Optional[pulumi.Input['DbClusterScalingConfigurationArgs']]:
+    def scaling_configuration(self) -> pulumi.Input[Optional['DbClusterScalingConfigurationArgs']]:
         """
         The scaling configuration of an Aurora Serverless v1 DB cluster.
          This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, Use the ``ServerlessV2ScalingConfiguration`` property.
@@ -1325,12 +1325,12 @@ class DbClusterArgs:
         return pulumi.get(self, "scaling_configuration")
 
     @scaling_configuration.setter
-    def scaling_configuration(self, value: Optional[pulumi.Input['DbClusterScalingConfigurationArgs']]):
+    def scaling_configuration(self, value: pulumi.Input[Optional['DbClusterScalingConfigurationArgs']]):
         pulumi.set(self, "scaling_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="serverlessV2ScalingConfiguration")
-    def serverless_v2_scaling_configuration(self) -> Optional[pulumi.Input['DbClusterServerlessV2ScalingConfigurationArgs']]:
+    def serverless_v2_scaling_configuration(self) -> pulumi.Input[Optional['DbClusterServerlessV2ScalingConfigurationArgs']]:
         """
         The scaling configuration of an Aurora Serverless V2 DB cluster. 
          This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, Use the ``ScalingConfiguration`` property.
@@ -1339,12 +1339,12 @@ class DbClusterArgs:
         return pulumi.get(self, "serverless_v2_scaling_configuration")
 
     @serverless_v2_scaling_configuration.setter
-    def serverless_v2_scaling_configuration(self, value: Optional[pulumi.Input['DbClusterServerlessV2ScalingConfigurationArgs']]):
+    def serverless_v2_scaling_configuration(self, value: pulumi.Input[Optional['DbClusterServerlessV2ScalingConfigurationArgs']]):
         pulumi.set(self, "serverless_v2_scaling_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotIdentifier")
-    def snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the DB snapshot or DB cluster snapshot to restore from.
          You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot. However, you can use only the ARN to specify a DB snapshot.
@@ -1368,12 +1368,12 @@ class DbClusterArgs:
         return pulumi.get(self, "snapshot_identifier")
 
     @snapshot_identifier.setter
-    def snapshot_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDbClusterIdentifier")
-    def source_db_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_db_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When restoring a DB cluster to a point in time, the identifier of the source DB cluster from which to restore.
          Constraints:
@@ -1385,24 +1385,24 @@ class DbClusterArgs:
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @source_db_cluster_identifier.setter
-    def source_db_cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_db_cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_db_cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDbClusterResourceId")
-    def source_db_cluster_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_db_cluster_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the source DB cluster from which to restore.
         """
         return pulumi.get(self, "source_db_cluster_resource_id")
 
     @source_db_cluster_resource_id.setter
-    def source_db_cluster_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_db_cluster_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_db_cluster_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceRegion")
-    def source_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, ``us-east-1``. 
          Valid for: Aurora DB clusters only
@@ -1410,12 +1410,12 @@ class DbClusterArgs:
         return pulumi.get(self, "source_region")
 
     @source_region.setter
-    def source_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_region", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def storage_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the DB cluster is encrypted.
          If you specify the ``KmsKeyId`` property, then you must enable encryption.
@@ -1428,12 +1428,12 @@ class DbClusterArgs:
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
-    def storage_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def storage_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "storage_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage type to associate with the DB cluster.
          For information on storage types for Aurora DB clusters, see [Storage configurations for Amazon Aurora DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.html#aurora-storage-type). For information on storage types for Multi-AZ DB clusters, see [Settings for creating Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html#create-multi-az-db-cluster-settings).
@@ -1453,12 +1453,12 @@ class DbClusterArgs:
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags to assign to the DB cluster.
          Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
@@ -1466,12 +1466,12 @@ class DbClusterArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="useLatestRestorableTime")
-    def use_latest_restorable_time(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_latest_restorable_time(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value that indicates whether to restore the DB cluster to the latest restorable backup time. By default, the DB cluster is not restored to the latest restorable backup time. 
          Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -1479,12 +1479,12 @@ class DbClusterArgs:
         return pulumi.get(self, "use_latest_restorable_time")
 
     @use_latest_restorable_time.setter
-    def use_latest_restorable_time(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_latest_restorable_time(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_latest_restorable_time", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of EC2 VPC security groups to associate with this DB cluster.
          If you plan to update the resource, don't specify VPC security groups in a shared VPC.
@@ -1493,7 +1493,7 @@ class DbClusterArgs:
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
-    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
@@ -1503,67 +1503,67 @@ class DbCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocated_storage: Optional[pulumi.Input[_builtins.int]] = None,
-                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict']]]]] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backtrack_window: Optional[pulumi.Input[_builtins.int]] = None,
-                 backup_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 cluster_scalability_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags_to_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 database_insights_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_cluster_instance_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_cluster_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_instance_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_automated_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_iam_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_global_write_forwarding: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_http_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_iam_database_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_local_write_forwarding: Optional[pulumi.Input[_builtins.bool]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_lifecycle_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 manage_master_user_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 master_user_authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_user_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_user_secret: Optional[pulumi.Input[Union['DbClusterMasterUserSecretArgs', 'DbClusterMasterUserSecretArgsDict']]] = None,
-                 master_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitoring_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 performance_insights_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 performance_insights_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 performance_insights_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replication_source_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_to_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_configuration: Optional[pulumi.Input[Union['DbClusterScalingConfigurationArgs', 'DbClusterScalingConfigurationArgsDict']]] = None,
-                 serverless_v2_scaling_configuration: Optional[pulumi.Input[Union['DbClusterServerlessV2ScalingConfigurationArgs', 'DbClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
-                 snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_db_cluster_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 use_latest_restorable_time: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
+                 associated_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict']]]]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backtrack_window: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 cluster_scalability_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags_to_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 database_insights_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_cluster_instance_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_instance_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_automated_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_iam_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_cloudwatch_logs_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enable_global_write_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_http_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_iam_database_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_local_write_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_lifecycle_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 manage_master_user_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 master_user_authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_user_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_user_secret: pulumi.Input[Optional[Union['DbClusterMasterUserSecretArgs', 'DbClusterMasterUserSecretArgsDict']]] = None,
+                 master_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitoring_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 performance_insights_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 performance_insights_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 performance_insights_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_to_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_configuration: pulumi.Input[Optional[Union['DbClusterScalingConfigurationArgs', 'DbClusterScalingConfigurationArgsDict']]] = None,
+                 serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['DbClusterServerlessV2ScalingConfigurationArgs', 'DbClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
+                 snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_db_cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 use_latest_restorable_time: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The ``AWS::RDS::DBCluster`` resource creates an Amazon Aurora DB cluster or Multi-AZ DB cluster.
@@ -1936,67 +1936,67 @@ class DbCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocated_storage: Optional[pulumi.Input[_builtins.int]] = None,
-                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict']]]]] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backtrack_window: Optional[pulumi.Input[_builtins.int]] = None,
-                 backup_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 cluster_scalability_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags_to_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 database_insights_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_cluster_instance_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_cluster_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_instance_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_automated_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_iam_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_global_write_forwarding: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_http_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_iam_database_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_local_write_forwarding: Optional[pulumi.Input[_builtins.bool]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_lifecycle_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 manage_master_user_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 master_user_authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_user_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_user_secret: Optional[pulumi.Input[Union['DbClusterMasterUserSecretArgs', 'DbClusterMasterUserSecretArgsDict']]] = None,
-                 master_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitoring_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 performance_insights_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 performance_insights_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 performance_insights_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replication_source_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_to_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_configuration: Optional[pulumi.Input[Union['DbClusterScalingConfigurationArgs', 'DbClusterScalingConfigurationArgsDict']]] = None,
-                 serverless_v2_scaling_configuration: Optional[pulumi.Input[Union['DbClusterServerlessV2ScalingConfigurationArgs', 'DbClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
-                 snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_db_cluster_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 use_latest_restorable_time: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
+                 associated_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict']]]]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backtrack_window: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 cluster_scalability_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags_to_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 database_insights_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_cluster_instance_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_instance_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_automated_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_iam_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_cloudwatch_logs_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enable_global_write_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_http_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_iam_database_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_local_write_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_lifecycle_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 manage_master_user_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 master_user_authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_user_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_user_secret: pulumi.Input[Optional[Union['DbClusterMasterUserSecretArgs', 'DbClusterMasterUserSecretArgsDict']]] = None,
+                 master_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitoring_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 performance_insights_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 performance_insights_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 performance_insights_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_to_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_configuration: pulumi.Input[Optional[Union['DbClusterScalingConfigurationArgs', 'DbClusterScalingConfigurationArgsDict']]] = None,
+                 serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['DbClusterServerlessV2ScalingConfigurationArgs', 'DbClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
+                 snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_db_cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 use_latest_restorable_time: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -40,14 +40,14 @@ __all__ = [
     'ConfigurationSetReputationOptionsArgsDict',
     'ConfigurationSetSendingOptionsArgs',
     'ConfigurationSetSendingOptionsArgsDict',
-    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs',
-    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgsDict',
-    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs',
-    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgsDict',
-    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs',
-    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgsDict',
     'ConfigurationSetSuppressionOptionsArgs',
     'ConfigurationSetSuppressionOptionsArgsDict',
+    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs',
+    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgsDict',
+    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs',
+    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgsDict',
+    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs',
+    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgsDict',
     'ConfigurationSetTrackingOptionsArgs',
     'ConfigurationSetTrackingOptionsArgsDict',
     'ConfigurationSetVdmOptionsArgs',
@@ -110,6 +110,8 @@ __all__ = [
     'MailManagerRuleSetRelayActionArgsDict',
     'MailManagerRuleSetReplaceRecipientActionArgs',
     'MailManagerRuleSetReplaceRecipientActionArgsDict',
+    'MailManagerRuleSetRuleArgs',
+    'MailManagerRuleSetRuleArgsDict',
     'MailManagerRuleSetRuleAction0PropertiesArgs',
     'MailManagerRuleSetRuleAction0PropertiesArgsDict',
     'MailManagerRuleSetRuleAction10PropertiesArgs',
@@ -182,8 +184,6 @@ __all__ = [
     'MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgsDict',
     'MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs',
     'MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgsDict',
-    'MailManagerRuleSetRuleArgs',
-    'MailManagerRuleSetRuleArgsDict',
     'MailManagerRuleSetS3ActionArgs',
     'MailManagerRuleSetS3ActionArgsDict',
     'MailManagerRuleSetSendActionArgs',
@@ -248,7 +248,7 @@ class ConfigurationSetArchivingOptionsArgsDict(TypedDict):
     """
     An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
     """
-    archive_arn: NotRequired[pulumi.Input[_builtins.str]]
+    archive_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the MailManager archive to associate with the configuration set.
     """
@@ -256,7 +256,7 @@ class ConfigurationSetArchivingOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationSetArchivingOptionsArgs:
     def __init__(__self__, *,
-                 archive_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 archive_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
 
@@ -267,14 +267,14 @@ class ConfigurationSetArchivingOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="archiveArn")
-    def archive_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def archive_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the MailManager archive to associate with the configuration set.
         """
         return pulumi.get(self, "archive_arn")
 
     @archive_arn.setter
-    def archive_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def archive_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "archive_arn", value)
 
 
@@ -315,15 +315,15 @@ class ConfigurationSetDeliveryOptionsArgsDict(TypedDict):
     """
     An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
     """
-    max_delivery_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    max_delivery_seconds: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Specifies the maximum time until which SES will retry sending emails
     """
-    sending_pool_name: NotRequired[pulumi.Input[_builtins.str]]
+    sending_pool_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the dedicated IP pool to associate with the configuration set.
     """
-    tls_policy: NotRequired[pulumi.Input[_builtins.str]]
+    tls_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
     """
@@ -331,9 +331,9 @@ class ConfigurationSetDeliveryOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationSetDeliveryOptionsArgs:
     def __init__(__self__, *,
-                 max_delivery_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 sending_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 max_delivery_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 sending_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
 
@@ -350,38 +350,38 @@ class ConfigurationSetDeliveryOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxDeliverySeconds")
-    def max_delivery_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_delivery_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies the maximum time until which SES will retry sending emails
         """
         return pulumi.get(self, "max_delivery_seconds")
 
     @max_delivery_seconds.setter
-    def max_delivery_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_delivery_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_delivery_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="sendingPoolName")
-    def sending_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sending_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the dedicated IP pool to associate with the configuration set.
         """
         return pulumi.get(self, "sending_pool_name")
 
     @sending_pool_name.setter
-    def sending_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sending_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sending_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsPolicy")
-    def tls_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tls_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
         """
         return pulumi.get(self, "tls_policy")
 
     @tls_policy.setter
-    def tls_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tls_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tls_policy", value)
 
 
@@ -389,7 +389,7 @@ class ConfigurationSetEventDestinationCloudWatchDestinationArgsDict(TypedDict):
     """
     An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
     """
-    dimension_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationDimensionConfigurationArgsDict']]]]
+    dimension_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationSetEventDestinationDimensionConfigurationArgsDict']]]]]
     """
     A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
     """
@@ -397,7 +397,7 @@ class ConfigurationSetEventDestinationCloudWatchDestinationArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationSetEventDestinationCloudWatchDestinationArgs:
     def __init__(__self__, *,
-                 dimension_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationDimensionConfigurationArgs']]]] = None):
+                 dimension_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationSetEventDestinationDimensionConfigurationArgs']]]] = None):
         """
         An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
 
@@ -408,14 +408,14 @@ class ConfigurationSetEventDestinationCloudWatchDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dimensionConfigurations")
-    def dimension_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationDimensionConfigurationArgs']]]]:
+    def dimension_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationSetEventDestinationDimensionConfigurationArgs']]]]:
         """
         A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
         """
         return pulumi.get(self, "dimension_configurations")
 
     @dimension_configurations.setter
-    def dimension_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationDimensionConfigurationArgs']]]]):
+    def dimension_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationSetEventDestinationDimensionConfigurationArgs']]]]):
         pulumi.set(self, "dimension_configurations", value)
 
 
@@ -528,27 +528,27 @@ class ConfigurationSetEventDestinationEventDestinationArgsDict(TypedDict):
     """
     The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
     """
-    cloud_watch_destination: NotRequired[pulumi.Input['ConfigurationSetEventDestinationCloudWatchDestinationArgsDict']]
+    cloud_watch_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetEventDestinationCloudWatchDestinationArgsDict']]]
     """
     An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
     """
-    event_bridge_destination: NotRequired[pulumi.Input['ConfigurationSetEventDestinationEventBridgeDestinationArgsDict']]
+    event_bridge_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetEventDestinationEventBridgeDestinationArgsDict']]]
     """
     An object that contains Event bus ARN associated with the event bridge destination.
     """
-    kinesis_firehose_destination: NotRequired[pulumi.Input['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgsDict']]
+    kinesis_firehose_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgsDict']]]
     """
     An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the event destination set.
     """
-    sns_destination: NotRequired[pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgsDict']]
+    sns_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetEventDestinationSnsDestinationArgsDict']]]
     """
     An object that contains SNS topic ARN associated event destination.
     """
@@ -557,12 +557,12 @@ class ConfigurationSetEventDestinationEventDestinationArgsDict(TypedDict):
 class ConfigurationSetEventDestinationEventDestinationArgs:
     def __init__(__self__, *,
                  matching_event_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 cloud_watch_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationCloudWatchDestinationArgs']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_bridge_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventBridgeDestinationArgs']] = None,
-                 kinesis_firehose_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgs']] = None):
+                 cloud_watch_destination: pulumi.Input[Optional['ConfigurationSetEventDestinationCloudWatchDestinationArgs']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_bridge_destination: pulumi.Input[Optional['ConfigurationSetEventDestinationEventBridgeDestinationArgs']] = None,
+                 kinesis_firehose_destination: pulumi.Input[Optional['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_destination: pulumi.Input[Optional['ConfigurationSetEventDestinationSnsDestinationArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] matching_event_types: The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
         :param pulumi.Input['ConfigurationSetEventDestinationCloudWatchDestinationArgs'] cloud_watch_destination: An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
@@ -600,74 +600,74 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchDestination")
-    def cloud_watch_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationCloudWatchDestinationArgs']]:
+    def cloud_watch_destination(self) -> pulumi.Input[Optional['ConfigurationSetEventDestinationCloudWatchDestinationArgs']]:
         """
         An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
         """
         return pulumi.get(self, "cloud_watch_destination")
 
     @cloud_watch_destination.setter
-    def cloud_watch_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationCloudWatchDestinationArgs']]):
+    def cloud_watch_destination(self, value: pulumi.Input[Optional['ConfigurationSetEventDestinationCloudWatchDestinationArgs']]):
         pulumi.set(self, "cloud_watch_destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="eventBridgeDestination")
-    def event_bridge_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventBridgeDestinationArgs']]:
+    def event_bridge_destination(self) -> pulumi.Input[Optional['ConfigurationSetEventDestinationEventBridgeDestinationArgs']]:
         """
         An object that contains Event bus ARN associated with the event bridge destination.
         """
         return pulumi.get(self, "event_bridge_destination")
 
     @event_bridge_destination.setter
-    def event_bridge_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationEventBridgeDestinationArgs']]):
+    def event_bridge_destination(self, value: pulumi.Input[Optional['ConfigurationSetEventDestinationEventBridgeDestinationArgs']]):
         pulumi.set(self, "event_bridge_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisFirehoseDestination")
-    def kinesis_firehose_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs']]:
+    def kinesis_firehose_destination(self) -> pulumi.Input[Optional['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs']]:
         """
         An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
         """
         return pulumi.get(self, "kinesis_firehose_destination")
 
     @kinesis_firehose_destination.setter
-    def kinesis_firehose_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs']]):
+    def kinesis_firehose_destination(self, value: pulumi.Input[Optional['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs']]):
         pulumi.set(self, "kinesis_firehose_destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the event destination set.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="snsDestination")
-    def sns_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgs']]:
+    def sns_destination(self) -> pulumi.Input[Optional['ConfigurationSetEventDestinationSnsDestinationArgs']]:
         """
         An object that contains SNS topic ARN associated event destination.
         """
         return pulumi.get(self, "sns_destination")
 
     @sns_destination.setter
-    def sns_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgs']]):
+    def sns_destination(self, value: pulumi.Input[Optional['ConfigurationSetEventDestinationSnsDestinationArgs']]):
         pulumi.set(self, "sns_destination", value)
 
 
@@ -799,7 +799,7 @@ class ConfigurationSetReputationOptionsArgsDict(TypedDict):
     """
     An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
     """
-    reputation_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    reputation_metrics_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set.
     """
@@ -807,7 +807,7 @@ class ConfigurationSetReputationOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationSetReputationOptionsArgs:
     def __init__(__self__, *,
-                 reputation_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 reputation_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
 
@@ -818,14 +818,14 @@ class ConfigurationSetReputationOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="reputationMetricsEnabled")
-    def reputation_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reputation_metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set.
         """
         return pulumi.get(self, "reputation_metrics_enabled")
 
     @reputation_metrics_enabled.setter
-    def reputation_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reputation_metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reputation_metrics_enabled", value)
 
 
@@ -833,7 +833,7 @@ class ConfigurationSetSendingOptionsArgsDict(TypedDict):
     """
     An object that defines whether or not Amazon SES can send email that you send using the configuration set.
     """
-    sending_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    sending_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If `true` , email sending is enabled for the configuration set. If `false` , email sending is disabled for the configuration set.
     """
@@ -841,7 +841,7 @@ class ConfigurationSetSendingOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationSetSendingOptionsArgs:
     def __init__(__self__, *,
-                 sending_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 sending_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         An object that defines whether or not Amazon SES can send email that you send using the configuration set.
 
@@ -852,101 +852,69 @@ class ConfigurationSetSendingOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="sendingEnabled")
-    def sending_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sending_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If `true` , email sending is enabled for the configuration set. If `false` , email sending is disabled for the configuration set.
         """
         return pulumi.get(self, "sending_enabled")
 
     @sending_enabled.setter
-    def sending_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sending_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sending_enabled", value)
 
 
-class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgsDict(TypedDict):
+class ConfigurationSetSuppressionOptionsArgsDict(TypedDict):
     """
-    The overall confidence threshold settings.
+    An object that contains information about the suppression list preferences for your account.
     """
-    confidence_verdict_threshold: pulumi.Input[_builtins.str]
+    suppressed_reasons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    The confidence verdict threshold level.
+    A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
     """
-
-@pulumi.input_type
-class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs:
-    def __init__(__self__, *,
-                 confidence_verdict_threshold: pulumi.Input[_builtins.str]):
-        """
-        The overall confidence threshold settings.
-
-        :param pulumi.Input[_builtins.str] confidence_verdict_threshold: The confidence verdict threshold level.
-        """
-        pulumi.set(__self__, "confidence_verdict_threshold", confidence_verdict_threshold)
-
-    @_builtins.property
-    @pulumi.getter(name="confidenceVerdictThreshold")
-    def confidence_verdict_threshold(self) -> pulumi.Input[_builtins.str]:
-        """
-        The confidence verdict threshold level.
-        """
-        return pulumi.get(self, "confidence_verdict_threshold")
-
-    @confidence_verdict_threshold.setter
-    def confidence_verdict_threshold(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "confidence_verdict_threshold", value)
-
-
-class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgsDict(TypedDict):
+    validation_options: NotRequired[pulumi.Input[Optional['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgsDict']]]
     """
-    The condition threshold settings for suppression validation.
-    """
-    condition_threshold_enabled: pulumi.Input[_builtins.str]
-    """
-    Whether the condition threshold is enabled or disabled.
-    """
-    overall_confidence_threshold: NotRequired[pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgsDict']]
-    """
-    The overall confidence threshold settings.
+    An object that contains information about the validation options for your account.
     """
 
 @pulumi.input_type
-class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs:
+class ConfigurationSetSuppressionOptionsArgs:
     def __init__(__self__, *,
-                 condition_threshold_enabled: pulumi.Input[_builtins.str],
-                 overall_confidence_threshold: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs']] = None):
+                 suppressed_reasons: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 validation_options: pulumi.Input[Optional['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs']] = None):
         """
-        The condition threshold settings for suppression validation.
+        An object that contains information about the suppression list preferences for your account.
 
-        :param pulumi.Input[_builtins.str] condition_threshold_enabled: Whether the condition threshold is enabled or disabled.
-        :param pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs'] overall_confidence_threshold: The overall confidence threshold settings.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+        :param pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs'] validation_options: An object that contains information about the validation options for your account.
         """
-        pulumi.set(__self__, "condition_threshold_enabled", condition_threshold_enabled)
-        if overall_confidence_threshold is not None:
-            pulumi.set(__self__, "overall_confidence_threshold", overall_confidence_threshold)
-
-    @_builtins.property
-    @pulumi.getter(name="conditionThresholdEnabled")
-    def condition_threshold_enabled(self) -> pulumi.Input[_builtins.str]:
-        """
-        Whether the condition threshold is enabled or disabled.
-        """
-        return pulumi.get(self, "condition_threshold_enabled")
-
-    @condition_threshold_enabled.setter
-    def condition_threshold_enabled(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "condition_threshold_enabled", value)
+        if suppressed_reasons is not None:
+            pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
+        if validation_options is not None:
+            pulumi.set(__self__, "validation_options", validation_options)
 
     @_builtins.property
-    @pulumi.getter(name="overallConfidenceThreshold")
-    def overall_confidence_threshold(self) -> Optional[pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs']]:
+    @pulumi.getter(name="suppressedReasons")
+    def suppressed_reasons(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The overall confidence threshold settings.
+        A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
         """
-        return pulumi.get(self, "overall_confidence_threshold")
+        return pulumi.get(self, "suppressed_reasons")
 
-    @overall_confidence_threshold.setter
-    def overall_confidence_threshold(self, value: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs']]):
-        pulumi.set(self, "overall_confidence_threshold", value)
+    @suppressed_reasons.setter
+    def suppressed_reasons(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "suppressed_reasons", value)
+
+    @_builtins.property
+    @pulumi.getter(name="validationOptions")
+    def validation_options(self) -> pulumi.Input[Optional['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs']]:
+        """
+        An object that contains information about the validation options for your account.
+        """
+        return pulumi.get(self, "validation_options")
+
+    @validation_options.setter
+    def validation_options(self, value: pulumi.Input[Optional['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs']]):
+        pulumi.set(self, "validation_options", value)
 
 
 class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgsDict(TypedDict):
@@ -982,69 +950,101 @@ class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs:
         pulumi.set(self, "condition_threshold", value)
 
 
-class ConfigurationSetSuppressionOptionsArgsDict(TypedDict):
+class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgsDict(TypedDict):
     """
-    An object that contains information about the suppression list preferences for your account.
+    The condition threshold settings for suppression validation.
     """
-    suppressed_reasons: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    condition_threshold_enabled: pulumi.Input[_builtins.str]
     """
-    A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+    Whether the condition threshold is enabled or disabled.
     """
-    validation_options: NotRequired[pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgsDict']]
+    overall_confidence_threshold: NotRequired[pulumi.Input[Optional['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgsDict']]]
     """
-    An object that contains information about the validation options for your account.
+    The overall confidence threshold settings.
     """
 
 @pulumi.input_type
-class ConfigurationSetSuppressionOptionsArgs:
+class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs:
     def __init__(__self__, *,
-                 suppressed_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 validation_options: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs']] = None):
+                 condition_threshold_enabled: pulumi.Input[_builtins.str],
+                 overall_confidence_threshold: pulumi.Input[Optional['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs']] = None):
         """
-        An object that contains information about the suppression list preferences for your account.
+        The condition threshold settings for suppression validation.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
-        :param pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs'] validation_options: An object that contains information about the validation options for your account.
+        :param pulumi.Input[_builtins.str] condition_threshold_enabled: Whether the condition threshold is enabled or disabled.
+        :param pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs'] overall_confidence_threshold: The overall confidence threshold settings.
         """
-        if suppressed_reasons is not None:
-            pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
-        if validation_options is not None:
-            pulumi.set(__self__, "validation_options", validation_options)
-
-    @_builtins.property
-    @pulumi.getter(name="suppressedReasons")
-    def suppressed_reasons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
-        """
-        return pulumi.get(self, "suppressed_reasons")
-
-    @suppressed_reasons.setter
-    def suppressed_reasons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "suppressed_reasons", value)
+        pulumi.set(__self__, "condition_threshold_enabled", condition_threshold_enabled)
+        if overall_confidence_threshold is not None:
+            pulumi.set(__self__, "overall_confidence_threshold", overall_confidence_threshold)
 
     @_builtins.property
-    @pulumi.getter(name="validationOptions")
-    def validation_options(self) -> Optional[pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs']]:
+    @pulumi.getter(name="conditionThresholdEnabled")
+    def condition_threshold_enabled(self) -> pulumi.Input[_builtins.str]:
         """
-        An object that contains information about the validation options for your account.
+        Whether the condition threshold is enabled or disabled.
         """
-        return pulumi.get(self, "validation_options")
+        return pulumi.get(self, "condition_threshold_enabled")
 
-    @validation_options.setter
-    def validation_options(self, value: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs']]):
-        pulumi.set(self, "validation_options", value)
+    @condition_threshold_enabled.setter
+    def condition_threshold_enabled(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "condition_threshold_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="overallConfidenceThreshold")
+    def overall_confidence_threshold(self) -> pulumi.Input[Optional['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs']]:
+        """
+        The overall confidence threshold settings.
+        """
+        return pulumi.get(self, "overall_confidence_threshold")
+
+    @overall_confidence_threshold.setter
+    def overall_confidence_threshold(self, value: pulumi.Input[Optional['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs']]):
+        pulumi.set(self, "overall_confidence_threshold", value)
+
+
+class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgsDict(TypedDict):
+    """
+    The overall confidence threshold settings.
+    """
+    confidence_verdict_threshold: pulumi.Input[_builtins.str]
+    """
+    The confidence verdict threshold level.
+    """
+
+@pulumi.input_type
+class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs:
+    def __init__(__self__, *,
+                 confidence_verdict_threshold: pulumi.Input[_builtins.str]):
+        """
+        The overall confidence threshold settings.
+
+        :param pulumi.Input[_builtins.str] confidence_verdict_threshold: The confidence verdict threshold level.
+        """
+        pulumi.set(__self__, "confidence_verdict_threshold", confidence_verdict_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="confidenceVerdictThreshold")
+    def confidence_verdict_threshold(self) -> pulumi.Input[_builtins.str]:
+        """
+        The confidence verdict threshold level.
+        """
+        return pulumi.get(self, "confidence_verdict_threshold")
+
+    @confidence_verdict_threshold.setter
+    def confidence_verdict_threshold(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "confidence_verdict_threshold", value)
 
 
 class ConfigurationSetTrackingOptionsArgsDict(TypedDict):
     """
     An object that defines the open and click tracking options for emails that you send using the configuration set.
     """
-    custom_redirect_domain: NotRequired[pulumi.Input[_builtins.str]]
+    custom_redirect_domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The domain to use for tracking open and click events.
     """
-    https_policy: NotRequired[pulumi.Input[_builtins.str]]
+    https_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The https policy to use for tracking open and click events.
     """
@@ -1052,8 +1052,8 @@ class ConfigurationSetTrackingOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationSetTrackingOptionsArgs:
     def __init__(__self__, *,
-                 custom_redirect_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_redirect_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object that defines the open and click tracking options for emails that you send using the configuration set.
 
@@ -1067,26 +1067,26 @@ class ConfigurationSetTrackingOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="customRedirectDomain")
-    def custom_redirect_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_redirect_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain to use for tracking open and click events.
         """
         return pulumi.get(self, "custom_redirect_domain")
 
     @custom_redirect_domain.setter
-    def custom_redirect_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_redirect_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_redirect_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsPolicy")
-    def https_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def https_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The https policy to use for tracking open and click events.
         """
         return pulumi.get(self, "https_policy")
 
     @https_policy.setter
-    def https_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def https_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "https_policy", value)
 
 
@@ -1094,11 +1094,11 @@ class ConfigurationSetVdmOptionsArgsDict(TypedDict):
     """
     An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
     """
-    dashboard_options: NotRequired[pulumi.Input['ConfigurationSetDashboardOptionsArgsDict']]
+    dashboard_options: NotRequired[pulumi.Input[Optional['ConfigurationSetDashboardOptionsArgsDict']]]
     """
     Specifies additional settings for your VDM configuration as applicable to the Dashboard.
     """
-    guardian_options: NotRequired[pulumi.Input['ConfigurationSetGuardianOptionsArgsDict']]
+    guardian_options: NotRequired[pulumi.Input[Optional['ConfigurationSetGuardianOptionsArgsDict']]]
     """
     Specifies additional settings for your VDM configuration as applicable to the Guardian.
     """
@@ -1106,8 +1106,8 @@ class ConfigurationSetVdmOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationSetVdmOptionsArgs:
     def __init__(__self__, *,
-                 dashboard_options: Optional[pulumi.Input['ConfigurationSetDashboardOptionsArgs']] = None,
-                 guardian_options: Optional[pulumi.Input['ConfigurationSetGuardianOptionsArgs']] = None):
+                 dashboard_options: pulumi.Input[Optional['ConfigurationSetDashboardOptionsArgs']] = None,
+                 guardian_options: pulumi.Input[Optional['ConfigurationSetGuardianOptionsArgs']] = None):
         """
         An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
 
@@ -1121,26 +1121,26 @@ class ConfigurationSetVdmOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dashboardOptions")
-    def dashboard_options(self) -> Optional[pulumi.Input['ConfigurationSetDashboardOptionsArgs']]:
+    def dashboard_options(self) -> pulumi.Input[Optional['ConfigurationSetDashboardOptionsArgs']]:
         """
         Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         """
         return pulumi.get(self, "dashboard_options")
 
     @dashboard_options.setter
-    def dashboard_options(self, value: Optional[pulumi.Input['ConfigurationSetDashboardOptionsArgs']]):
+    def dashboard_options(self, value: pulumi.Input[Optional['ConfigurationSetDashboardOptionsArgs']]):
         pulumi.set(self, "dashboard_options", value)
 
     @_builtins.property
     @pulumi.getter(name="guardianOptions")
-    def guardian_options(self) -> Optional[pulumi.Input['ConfigurationSetGuardianOptionsArgs']]:
+    def guardian_options(self) -> pulumi.Input[Optional['ConfigurationSetGuardianOptionsArgs']]:
         """
         Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         return pulumi.get(self, "guardian_options")
 
     @guardian_options.setter
-    def guardian_options(self, value: Optional[pulumi.Input['ConfigurationSetGuardianOptionsArgs']]):
+    def guardian_options(self, value: pulumi.Input[Optional['ConfigurationSetGuardianOptionsArgs']]):
         pulumi.set(self, "guardian_options", value)
 
 
@@ -1157,7 +1157,7 @@ class ContactListTopicArgsDict(TypedDict):
     """
     The name of the topic.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the topic.
     """
@@ -1168,7 +1168,7 @@ class ContactListTopicArgs:
                  default_subscription_status: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  topic_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] default_subscription_status: The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
         :param pulumi.Input[_builtins.str] display_name: The display name of the topic.
@@ -1219,14 +1219,14 @@ class ContactListTopicArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the topic.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -1234,7 +1234,7 @@ class EmailIdentityConfigurationSetAttributesArgsDict(TypedDict):
     """
     Used to associate a configuration set with an email identity.
     """
-    configuration_set_name: NotRequired[pulumi.Input[_builtins.str]]
+    configuration_set_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
     """
@@ -1242,7 +1242,7 @@ class EmailIdentityConfigurationSetAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class EmailIdentityConfigurationSetAttributesArgs:
     def __init__(__self__, *,
-                 configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Used to associate a configuration set with an email identity.
 
@@ -1253,14 +1253,14 @@ class EmailIdentityConfigurationSetAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationSetName")
-    def configuration_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
         """
         return pulumi.get(self, "configuration_set_name")
 
     @configuration_set_name.setter
-    def configuration_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_set_name", value)
 
 
@@ -1268,7 +1268,7 @@ class EmailIdentityDkimAttributesArgsDict(TypedDict):
     """
     Used to enable or disable DKIM authentication for an email identity.
     """
-    signing_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    signing_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Sets the DKIM signing configuration for the identity. When you set this value true, then the messages that are sent from the identity are signed using DKIM. If you set this value to false, your messages are sent without DKIM signing.
     """
@@ -1276,7 +1276,7 @@ class EmailIdentityDkimAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class EmailIdentityDkimAttributesArgs:
     def __init__(__self__, *,
-                 signing_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 signing_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Used to enable or disable DKIM authentication for an email identity.
 
@@ -1287,14 +1287,14 @@ class EmailIdentityDkimAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="signingEnabled")
-    def signing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def signing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Sets the DKIM signing configuration for the identity. When you set this value true, then the messages that are sent from the identity are signed using DKIM. If you set this value to false, your messages are sent without DKIM signing.
         """
         return pulumi.get(self, "signing_enabled")
 
     @signing_enabled.setter
-    def signing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def signing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "signing_enabled", value)
 
 
@@ -1302,15 +1302,15 @@ class EmailIdentityDkimSigningAttributesArgsDict(TypedDict):
     """
     If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for Easy DKIM.
     """
-    domain_signing_private_key: NotRequired[pulumi.Input[_builtins.str]]
+    domain_signing_private_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
     """
-    domain_signing_selector: NotRequired[pulumi.Input[_builtins.str]]
+    domain_signing_selector: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
     """
-    next_signing_key_length: NotRequired[pulumi.Input[_builtins.str]]
+    next_signing_key_length: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
     """
@@ -1318,9 +1318,9 @@ class EmailIdentityDkimSigningAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class EmailIdentityDkimSigningAttributesArgs:
     def __init__(__self__, *,
-                 domain_signing_private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_signing_selector: Optional[pulumi.Input[_builtins.str]] = None,
-                 next_signing_key_length: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain_signing_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_signing_selector: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_signing_key_length: pulumi.Input[Optional[_builtins.str]] = None):
         """
         If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for Easy DKIM.
 
@@ -1337,38 +1337,38 @@ class EmailIdentityDkimSigningAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="domainSigningPrivateKey")
-    def domain_signing_private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_signing_private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
         """
         return pulumi.get(self, "domain_signing_private_key")
 
     @domain_signing_private_key.setter
-    def domain_signing_private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_signing_private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_signing_private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="domainSigningSelector")
-    def domain_signing_selector(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_signing_selector(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
         """
         return pulumi.get(self, "domain_signing_selector")
 
     @domain_signing_selector.setter
-    def domain_signing_selector(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_signing_selector(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_signing_selector", value)
 
     @_builtins.property
     @pulumi.getter(name="nextSigningKeyLength")
-    def next_signing_key_length(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next_signing_key_length(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
         """
         return pulumi.get(self, "next_signing_key_length")
 
     @next_signing_key_length.setter
-    def next_signing_key_length(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next_signing_key_length(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next_signing_key_length", value)
 
 
@@ -1376,7 +1376,7 @@ class EmailIdentityFeedbackAttributesArgsDict(TypedDict):
     """
     Used to enable or disable feedback forwarding for an identity.
     """
-    email_forwarding_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    email_forwarding_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If the value is true, you receive email notifications when bounce or complaint events occur
     """
@@ -1384,7 +1384,7 @@ class EmailIdentityFeedbackAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class EmailIdentityFeedbackAttributesArgs:
     def __init__(__self__, *,
-                 email_forwarding_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 email_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Used to enable or disable feedback forwarding for an identity.
 
@@ -1395,14 +1395,14 @@ class EmailIdentityFeedbackAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailForwardingEnabled")
-    def email_forwarding_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def email_forwarding_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the value is true, you receive email notifications when bounce or complaint events occur
         """
         return pulumi.get(self, "email_forwarding_enabled")
 
     @email_forwarding_enabled.setter
-    def email_forwarding_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def email_forwarding_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "email_forwarding_enabled", value)
 
 
@@ -1410,11 +1410,11 @@ class EmailIdentityMailFromAttributesArgsDict(TypedDict):
     """
     Used to enable or disable the custom Mail-From domain configuration for an email identity.
     """
-    behavior_on_mx_failure: NotRequired[pulumi.Input[_builtins.str]]
+    behavior_on_mx_failure: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The action to take if the required MX record isn't found when you send an email. When you set this value to UseDefaultValue , the mail is sent using amazonses.com as the MAIL FROM domain. When you set this value to RejectMessage , the Amazon SES API v2 returns a MailFromDomainNotVerified error, and doesn't attempt to deliver the email.
     """
-    mail_from_domain: NotRequired[pulumi.Input[_builtins.str]]
+    mail_from_domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The custom MAIL FROM domain that you want the verified identity to use
     """
@@ -1422,8 +1422,8 @@ class EmailIdentityMailFromAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class EmailIdentityMailFromAttributesArgs:
     def __init__(__self__, *,
-                 behavior_on_mx_failure: Optional[pulumi.Input[_builtins.str]] = None,
-                 mail_from_domain: Optional[pulumi.Input[_builtins.str]] = None):
+                 behavior_on_mx_failure: pulumi.Input[Optional[_builtins.str]] = None,
+                 mail_from_domain: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Used to enable or disable the custom Mail-From domain configuration for an email identity.
 
@@ -1437,26 +1437,26 @@ class EmailIdentityMailFromAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="behaviorOnMxFailure")
-    def behavior_on_mx_failure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def behavior_on_mx_failure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action to take if the required MX record isn't found when you send an email. When you set this value to UseDefaultValue , the mail is sent using amazonses.com as the MAIL FROM domain. When you set this value to RejectMessage , the Amazon SES API v2 returns a MailFromDomainNotVerified error, and doesn't attempt to deliver the email.
         """
         return pulumi.get(self, "behavior_on_mx_failure")
 
     @behavior_on_mx_failure.setter
-    def behavior_on_mx_failure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def behavior_on_mx_failure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "behavior_on_mx_failure", value)
 
     @_builtins.property
     @pulumi.getter(name="mailFromDomain")
-    def mail_from_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mail_from_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom MAIL FROM domain that you want the verified identity to use
         """
         return pulumi.get(self, "mail_from_domain")
 
     @mail_from_domain.setter
-    def mail_from_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mail_from_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mail_from_domain", value)
 
 
@@ -1633,15 +1633,15 @@ class MailManagerIngressPointTlsAuthConfigurationArgs:
 
 class MailManagerIngressPointTrustStoreArgsDict(TypedDict):
     ca_content: pulumi.Input[_builtins.str]
-    crl_content: NotRequired[pulumi.Input[_builtins.str]]
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    crl_content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class MailManagerIngressPointTrustStoreArgs:
     def __init__(__self__, *,
                  ca_content: pulumi.Input[_builtins.str],
-                 crl_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 crl_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "ca_content", ca_content)
         if crl_content is not None:
             pulumi.set(__self__, "crl_content", crl_content)
@@ -1659,20 +1659,20 @@ class MailManagerIngressPointTrustStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="crlContent")
-    def crl_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def crl_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "crl_content")
 
     @crl_content.setter
-    def crl_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def crl_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "crl_content", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
 
@@ -1787,13 +1787,13 @@ class MailManagerRuleSetAnalysisArgs:
 
 class MailManagerRuleSetArchiveActionArgsDict(TypedDict):
     target_archive: pulumi.Input[_builtins.str]
-    action_failure_policy: NotRequired[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]
+    action_failure_policy: NotRequired[pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]]
 
 @pulumi.input_type
 class MailManagerRuleSetArchiveActionArgs:
     def __init__(__self__, *,
                  target_archive: pulumi.Input[_builtins.str],
-                 action_failure_policy: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']] = None):
+                 action_failure_policy: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']] = None):
         pulumi.set(__self__, "target_archive", target_archive)
         if action_failure_policy is not None:
             pulumi.set(__self__, "action_failure_policy", action_failure_policy)
@@ -1809,11 +1809,11 @@ class MailManagerRuleSetArchiveActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionFailurePolicy")
-    def action_failure_policy(self) -> Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]:
+    def action_failure_policy(self) -> pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]:
         return pulumi.get(self, "action_failure_policy")
 
     @action_failure_policy.setter
-    def action_failure_policy(self, value: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]):
+    def action_failure_policy(self, value: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]):
         pulumi.set(self, "action_failure_policy", value)
 
 
@@ -1823,8 +1823,8 @@ class MailManagerRuleSetBounceActionArgsDict(TypedDict):
     sender: pulumi.Input[_builtins.str]
     smtp_reply_code: pulumi.Input[_builtins.str]
     status_code: pulumi.Input[_builtins.str]
-    action_failure_policy: NotRequired[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    action_failure_policy: NotRequired[pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class MailManagerRuleSetBounceActionArgs:
@@ -1834,8 +1834,8 @@ class MailManagerRuleSetBounceActionArgs:
                  sender: pulumi.Input[_builtins.str],
                  smtp_reply_code: pulumi.Input[_builtins.str],
                  status_code: pulumi.Input[_builtins.str],
-                 action_failure_policy: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_failure_policy: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "diagnostic_message", diagnostic_message)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "sender", sender)
@@ -1893,34 +1893,34 @@ class MailManagerRuleSetBounceActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionFailurePolicy")
-    def action_failure_policy(self) -> Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]:
+    def action_failure_policy(self) -> pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]:
         return pulumi.get(self, "action_failure_policy")
 
     @action_failure_policy.setter
-    def action_failure_policy(self, value: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]):
+    def action_failure_policy(self, value: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]):
         pulumi.set(self, "action_failure_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
 
 class MailManagerRuleSetDeliverToMailboxActionArgsDict(TypedDict):
     mailbox_arn: pulumi.Input[_builtins.str]
     role_arn: pulumi.Input[_builtins.str]
-    action_failure_policy: NotRequired[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]
+    action_failure_policy: NotRequired[pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]]
 
 @pulumi.input_type
 class MailManagerRuleSetDeliverToMailboxActionArgs:
     def __init__(__self__, *,
                  mailbox_arn: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 action_failure_policy: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']] = None):
+                 action_failure_policy: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']] = None):
         pulumi.set(__self__, "mailbox_arn", mailbox_arn)
         pulumi.set(__self__, "role_arn", role_arn)
         if action_failure_policy is not None:
@@ -1946,11 +1946,11 @@ class MailManagerRuleSetDeliverToMailboxActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionFailurePolicy")
-    def action_failure_policy(self) -> Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]:
+    def action_failure_policy(self) -> pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]:
         return pulumi.get(self, "action_failure_policy")
 
     @action_failure_policy.setter
-    def action_failure_policy(self, value: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]):
+    def action_failure_policy(self, value: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]):
         pulumi.set(self, "action_failure_policy", value)
 
 
@@ -1958,7 +1958,7 @@ class MailManagerRuleSetDeliverToQBusinessActionArgsDict(TypedDict):
     application_id: pulumi.Input[_builtins.str]
     index_id: pulumi.Input[_builtins.str]
     role_arn: pulumi.Input[_builtins.str]
-    action_failure_policy: NotRequired[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]
+    action_failure_policy: NotRequired[pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]]
 
 @pulumi.input_type
 class MailManagerRuleSetDeliverToQBusinessActionArgs:
@@ -1966,7 +1966,7 @@ class MailManagerRuleSetDeliverToQBusinessActionArgs:
                  application_id: pulumi.Input[_builtins.str],
                  index_id: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 action_failure_policy: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']] = None):
+                 action_failure_policy: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']] = None):
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -2002,11 +2002,11 @@ class MailManagerRuleSetDeliverToQBusinessActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionFailurePolicy")
-    def action_failure_policy(self) -> Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]:
+    def action_failure_policy(self) -> pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]:
         return pulumi.get(self, "action_failure_policy")
 
     @action_failure_policy.setter
-    def action_failure_policy(self, value: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]):
+    def action_failure_policy(self, value: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]):
         pulumi.set(self, "action_failure_policy", value)
 
 
@@ -2023,8 +2023,8 @@ class MailManagerRuleSetInvokeLambdaActionArgsDict(TypedDict):
     function_arn: pulumi.Input[_builtins.str]
     invocation_type: pulumi.Input['MailManagerRuleSetLambdaInvocationType']
     role_arn: pulumi.Input[_builtins.str]
-    action_failure_policy: NotRequired[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]
-    retry_time_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    action_failure_policy: NotRequired[pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]]
+    retry_time_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class MailManagerRuleSetInvokeLambdaActionArgs:
@@ -2032,8 +2032,8 @@ class MailManagerRuleSetInvokeLambdaActionArgs:
                  function_arn: pulumi.Input[_builtins.str],
                  invocation_type: pulumi.Input['MailManagerRuleSetLambdaInvocationType'],
                  role_arn: pulumi.Input[_builtins.str],
-                 action_failure_policy: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']] = None,
-                 retry_time_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 action_failure_policy: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']] = None,
+                 retry_time_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         pulumi.set(__self__, "function_arn", function_arn)
         pulumi.set(__self__, "invocation_type", invocation_type)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -2071,34 +2071,34 @@ class MailManagerRuleSetInvokeLambdaActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionFailurePolicy")
-    def action_failure_policy(self) -> Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]:
+    def action_failure_policy(self) -> pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]:
         return pulumi.get(self, "action_failure_policy")
 
     @action_failure_policy.setter
-    def action_failure_policy(self, value: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]):
+    def action_failure_policy(self, value: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]):
         pulumi.set(self, "action_failure_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="retryTimeMinutes")
-    def retry_time_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry_time_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "retry_time_minutes")
 
     @retry_time_minutes.setter
-    def retry_time_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry_time_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_time_minutes", value)
 
 
 class MailManagerRuleSetRelayActionArgsDict(TypedDict):
     relay: pulumi.Input[_builtins.str]
-    action_failure_policy: NotRequired[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]
-    mail_from: NotRequired[pulumi.Input['MailManagerRuleSetMailFrom']]
+    action_failure_policy: NotRequired[pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]]
+    mail_from: NotRequired[pulumi.Input[Optional['MailManagerRuleSetMailFrom']]]
 
 @pulumi.input_type
 class MailManagerRuleSetRelayActionArgs:
     def __init__(__self__, *,
                  relay: pulumi.Input[_builtins.str],
-                 action_failure_policy: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']] = None,
-                 mail_from: Optional[pulumi.Input['MailManagerRuleSetMailFrom']] = None):
+                 action_failure_policy: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']] = None,
+                 mail_from: pulumi.Input[Optional['MailManagerRuleSetMailFrom']] = None):
         pulumi.set(__self__, "relay", relay)
         if action_failure_policy is not None:
             pulumi.set(__self__, "action_failure_policy", action_failure_policy)
@@ -2116,41 +2116,129 @@ class MailManagerRuleSetRelayActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionFailurePolicy")
-    def action_failure_policy(self) -> Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]:
+    def action_failure_policy(self) -> pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]:
         return pulumi.get(self, "action_failure_policy")
 
     @action_failure_policy.setter
-    def action_failure_policy(self, value: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]):
+    def action_failure_policy(self, value: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]):
         pulumi.set(self, "action_failure_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="mailFrom")
-    def mail_from(self) -> Optional[pulumi.Input['MailManagerRuleSetMailFrom']]:
+    def mail_from(self) -> pulumi.Input[Optional['MailManagerRuleSetMailFrom']]:
         return pulumi.get(self, "mail_from")
 
     @mail_from.setter
-    def mail_from(self, value: Optional[pulumi.Input['MailManagerRuleSetMailFrom']]):
+    def mail_from(self, value: pulumi.Input[Optional['MailManagerRuleSetMailFrom']]):
         pulumi.set(self, "mail_from", value)
 
 
 class MailManagerRuleSetReplaceRecipientActionArgsDict(TypedDict):
-    replace_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    replace_with: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class MailManagerRuleSetReplaceRecipientActionArgs:
     def __init__(__self__, *,
-                 replace_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 replace_with: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if replace_with is not None:
             pulumi.set(__self__, "replace_with", replace_with)
 
     @_builtins.property
     @pulumi.getter(name="replaceWith")
-    def replace_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def replace_with(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "replace_with")
 
     @replace_with.setter
-    def replace_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def replace_with(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "replace_with", value)
+
+
+class MailManagerRuleSetRuleArgsDict(TypedDict):
+    actions: pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgsDict', 'MailManagerRuleSetRuleAction1PropertiesArgsDict', 'MailManagerRuleSetRuleAction2PropertiesArgsDict', 'MailManagerRuleSetRuleAction3PropertiesArgsDict', 'MailManagerRuleSetRuleAction4PropertiesArgsDict', 'MailManagerRuleSetRuleAction5PropertiesArgsDict', 'MailManagerRuleSetRuleAction6PropertiesArgsDict', 'MailManagerRuleSetRuleAction7PropertiesArgsDict', 'MailManagerRuleSetRuleAction8PropertiesArgsDict', 'MailManagerRuleSetRuleAction9PropertiesArgsDict', 'MailManagerRuleSetRuleAction10PropertiesArgsDict', 'MailManagerRuleSetRuleAction11PropertiesArgsDict']]]]
+    """
+    The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
+    """
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgsDict', 'MailManagerRuleSetRuleCondition1PropertiesArgsDict', 'MailManagerRuleSetRuleCondition2PropertiesArgsDict', 'MailManagerRuleSetRuleCondition3PropertiesArgsDict', 'MailManagerRuleSetRuleCondition4PropertiesArgsDict', 'MailManagerRuleSetRuleCondition5PropertiesArgsDict']]]]]]
+    """
+    The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The user-friendly name of the rule.
+    """
+    unless: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgsDict', 'MailManagerRuleSetRuleCondition1PropertiesArgsDict', 'MailManagerRuleSetRuleCondition2PropertiesArgsDict', 'MailManagerRuleSetRuleCondition3PropertiesArgsDict', 'MailManagerRuleSetRuleCondition4PropertiesArgsDict', 'MailManagerRuleSetRuleCondition5PropertiesArgsDict']]]]]]
+    """
+    The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
+    """
+
+@pulumi.input_type
+class MailManagerRuleSetRuleArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgs', 'MailManagerRuleSetRuleAction1PropertiesArgs', 'MailManagerRuleSetRuleAction2PropertiesArgs', 'MailManagerRuleSetRuleAction3PropertiesArgs', 'MailManagerRuleSetRuleAction4PropertiesArgs', 'MailManagerRuleSetRuleAction5PropertiesArgs', 'MailManagerRuleSetRuleAction6PropertiesArgs', 'MailManagerRuleSetRuleAction7PropertiesArgs', 'MailManagerRuleSetRuleAction8PropertiesArgs', 'MailManagerRuleSetRuleAction9PropertiesArgs', 'MailManagerRuleSetRuleAction10PropertiesArgs', 'MailManagerRuleSetRuleAction11PropertiesArgs']]]],
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 unless: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgs', 'MailManagerRuleSetRuleAction1PropertiesArgs', 'MailManagerRuleSetRuleAction2PropertiesArgs', 'MailManagerRuleSetRuleAction3PropertiesArgs', 'MailManagerRuleSetRuleAction4PropertiesArgs', 'MailManagerRuleSetRuleAction5PropertiesArgs', 'MailManagerRuleSetRuleAction6PropertiesArgs', 'MailManagerRuleSetRuleAction7PropertiesArgs', 'MailManagerRuleSetRuleAction8PropertiesArgs', 'MailManagerRuleSetRuleAction9PropertiesArgs', 'MailManagerRuleSetRuleAction10PropertiesArgs', 'MailManagerRuleSetRuleAction11PropertiesArgs']]]] actions: The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]] conditions: The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
+        :param pulumi.Input[_builtins.str] name: The user-friendly name of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]] unless: The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
+        """
+        pulumi.set(__self__, "actions", actions)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if unless is not None:
+            pulumi.set(__self__, "unless", unless)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgs', 'MailManagerRuleSetRuleAction1PropertiesArgs', 'MailManagerRuleSetRuleAction2PropertiesArgs', 'MailManagerRuleSetRuleAction3PropertiesArgs', 'MailManagerRuleSetRuleAction4PropertiesArgs', 'MailManagerRuleSetRuleAction5PropertiesArgs', 'MailManagerRuleSetRuleAction6PropertiesArgs', 'MailManagerRuleSetRuleAction7PropertiesArgs', 'MailManagerRuleSetRuleAction8PropertiesArgs', 'MailManagerRuleSetRuleAction9PropertiesArgs', 'MailManagerRuleSetRuleAction10PropertiesArgs', 'MailManagerRuleSetRuleAction11PropertiesArgs']]]]:
+        """
+        The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgs', 'MailManagerRuleSetRuleAction1PropertiesArgs', 'MailManagerRuleSetRuleAction2PropertiesArgs', 'MailManagerRuleSetRuleAction3PropertiesArgs', 'MailManagerRuleSetRuleAction4PropertiesArgs', 'MailManagerRuleSetRuleAction5PropertiesArgs', 'MailManagerRuleSetRuleAction6PropertiesArgs', 'MailManagerRuleSetRuleAction7PropertiesArgs', 'MailManagerRuleSetRuleAction8PropertiesArgs', 'MailManagerRuleSetRuleAction9PropertiesArgs', 'MailManagerRuleSetRuleAction10PropertiesArgs', 'MailManagerRuleSetRuleAction11PropertiesArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]]]:
+        """
+        The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]]]):
+        pulumi.set(self, "conditions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The user-friendly name of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unless(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]]]:
+        """
+        The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
+        """
+        return pulumi.get(self, "unless")
+
+    @unless.setter
+    def unless(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]]]):
+        pulumi.set(self, "unless", value)
 
 
 class MailManagerRuleSetRuleAction0PropertiesArgsDict(TypedDict):
@@ -2969,109 +3057,21 @@ class MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs:
         pulumi.set(self, "analysis", value)
 
 
-class MailManagerRuleSetRuleArgsDict(TypedDict):
-    actions: pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgsDict', 'MailManagerRuleSetRuleAction1PropertiesArgsDict', 'MailManagerRuleSetRuleAction2PropertiesArgsDict', 'MailManagerRuleSetRuleAction3PropertiesArgsDict', 'MailManagerRuleSetRuleAction4PropertiesArgsDict', 'MailManagerRuleSetRuleAction5PropertiesArgsDict', 'MailManagerRuleSetRuleAction6PropertiesArgsDict', 'MailManagerRuleSetRuleAction7PropertiesArgsDict', 'MailManagerRuleSetRuleAction8PropertiesArgsDict', 'MailManagerRuleSetRuleAction9PropertiesArgsDict', 'MailManagerRuleSetRuleAction10PropertiesArgsDict', 'MailManagerRuleSetRuleAction11PropertiesArgsDict']]]]
-    """
-    The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
-    """
-    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgsDict', 'MailManagerRuleSetRuleCondition1PropertiesArgsDict', 'MailManagerRuleSetRuleCondition2PropertiesArgsDict', 'MailManagerRuleSetRuleCondition3PropertiesArgsDict', 'MailManagerRuleSetRuleCondition4PropertiesArgsDict', 'MailManagerRuleSetRuleCondition5PropertiesArgsDict']]]]]
-    """
-    The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
-    """
-    name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The user-friendly name of the rule.
-    """
-    unless: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgsDict', 'MailManagerRuleSetRuleCondition1PropertiesArgsDict', 'MailManagerRuleSetRuleCondition2PropertiesArgsDict', 'MailManagerRuleSetRuleCondition3PropertiesArgsDict', 'MailManagerRuleSetRuleCondition4PropertiesArgsDict', 'MailManagerRuleSetRuleCondition5PropertiesArgsDict']]]]]
-    """
-    The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
-    """
-
-@pulumi.input_type
-class MailManagerRuleSetRuleArgs:
-    def __init__(__self__, *,
-                 actions: pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgs', 'MailManagerRuleSetRuleAction1PropertiesArgs', 'MailManagerRuleSetRuleAction2PropertiesArgs', 'MailManagerRuleSetRuleAction3PropertiesArgs', 'MailManagerRuleSetRuleAction4PropertiesArgs', 'MailManagerRuleSetRuleAction5PropertiesArgs', 'MailManagerRuleSetRuleAction6PropertiesArgs', 'MailManagerRuleSetRuleAction7PropertiesArgs', 'MailManagerRuleSetRuleAction8PropertiesArgs', 'MailManagerRuleSetRuleAction9PropertiesArgs', 'MailManagerRuleSetRuleAction10PropertiesArgs', 'MailManagerRuleSetRuleAction11PropertiesArgs']]]],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 unless: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgs', 'MailManagerRuleSetRuleAction1PropertiesArgs', 'MailManagerRuleSetRuleAction2PropertiesArgs', 'MailManagerRuleSetRuleAction3PropertiesArgs', 'MailManagerRuleSetRuleAction4PropertiesArgs', 'MailManagerRuleSetRuleAction5PropertiesArgs', 'MailManagerRuleSetRuleAction6PropertiesArgs', 'MailManagerRuleSetRuleAction7PropertiesArgs', 'MailManagerRuleSetRuleAction8PropertiesArgs', 'MailManagerRuleSetRuleAction9PropertiesArgs', 'MailManagerRuleSetRuleAction10PropertiesArgs', 'MailManagerRuleSetRuleAction11PropertiesArgs']]]] actions: The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]] conditions: The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
-        :param pulumi.Input[_builtins.str] name: The user-friendly name of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]] unless: The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
-        """
-        pulumi.set(__self__, "actions", actions)
-        if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if unless is not None:
-            pulumi.set(__self__, "unless", unless)
-
-    @_builtins.property
-    @pulumi.getter
-    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgs', 'MailManagerRuleSetRuleAction1PropertiesArgs', 'MailManagerRuleSetRuleAction2PropertiesArgs', 'MailManagerRuleSetRuleAction3PropertiesArgs', 'MailManagerRuleSetRuleAction4PropertiesArgs', 'MailManagerRuleSetRuleAction5PropertiesArgs', 'MailManagerRuleSetRuleAction6PropertiesArgs', 'MailManagerRuleSetRuleAction7PropertiesArgs', 'MailManagerRuleSetRuleAction8PropertiesArgs', 'MailManagerRuleSetRuleAction9PropertiesArgs', 'MailManagerRuleSetRuleAction10PropertiesArgs', 'MailManagerRuleSetRuleAction11PropertiesArgs']]]]:
-        """
-        The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
-        """
-        return pulumi.get(self, "actions")
-
-    @actions.setter
-    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgs', 'MailManagerRuleSetRuleAction1PropertiesArgs', 'MailManagerRuleSetRuleAction2PropertiesArgs', 'MailManagerRuleSetRuleAction3PropertiesArgs', 'MailManagerRuleSetRuleAction4PropertiesArgs', 'MailManagerRuleSetRuleAction5PropertiesArgs', 'MailManagerRuleSetRuleAction6PropertiesArgs', 'MailManagerRuleSetRuleAction7PropertiesArgs', 'MailManagerRuleSetRuleAction8PropertiesArgs', 'MailManagerRuleSetRuleAction9PropertiesArgs', 'MailManagerRuleSetRuleAction10PropertiesArgs', 'MailManagerRuleSetRuleAction11PropertiesArgs']]]]):
-        pulumi.set(self, "actions", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]]]:
-        """
-        The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
-        """
-        return pulumi.get(self, "conditions")
-
-    @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]]]):
-        pulumi.set(self, "conditions", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user-friendly name of the rule.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def unless(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]]]:
-        """
-        The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
-        """
-        return pulumi.get(self, "unless")
-
-    @unless.setter
-    def unless(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]]]):
-        pulumi.set(self, "unless", value)
-
-
 class MailManagerRuleSetS3ActionArgsDict(TypedDict):
     role_arn: pulumi.Input[_builtins.str]
     s3_bucket: pulumi.Input[_builtins.str]
-    action_failure_policy: NotRequired[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]
-    s3_prefix: NotRequired[pulumi.Input[_builtins.str]]
-    s3_sse_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    action_failure_policy: NotRequired[pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]]
+    s3_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    s3_sse_kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class MailManagerRuleSetS3ActionArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  s3_bucket: pulumi.Input[_builtins.str],
-                 action_failure_policy: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']] = None,
-                 s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_sse_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_failure_policy: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']] = None,
+                 s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_sse_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         if action_failure_policy is not None:
@@ -3101,41 +3101,41 @@ class MailManagerRuleSetS3ActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionFailurePolicy")
-    def action_failure_policy(self) -> Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]:
+    def action_failure_policy(self) -> pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]:
         return pulumi.get(self, "action_failure_policy")
 
     @action_failure_policy.setter
-    def action_failure_policy(self, value: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]):
+    def action_failure_policy(self, value: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]):
         pulumi.set(self, "action_failure_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Prefix")
-    def s3_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "s3_prefix")
 
     @s3_prefix.setter
-    def s3_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="s3SseKmsKeyId")
-    def s3_sse_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_sse_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "s3_sse_kms_key_id")
 
     @s3_sse_kms_key_id.setter
-    def s3_sse_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_sse_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_sse_kms_key_id", value)
 
 
 class MailManagerRuleSetSendActionArgsDict(TypedDict):
     role_arn: pulumi.Input[_builtins.str]
-    action_failure_policy: NotRequired[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]
+    action_failure_policy: NotRequired[pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]]
 
 @pulumi.input_type
 class MailManagerRuleSetSendActionArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
-                 action_failure_policy: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']] = None):
+                 action_failure_policy: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']] = None):
         pulumi.set(__self__, "role_arn", role_arn)
         if action_failure_policy is not None:
             pulumi.set(__self__, "action_failure_policy", action_failure_policy)
@@ -3151,29 +3151,29 @@ class MailManagerRuleSetSendActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionFailurePolicy")
-    def action_failure_policy(self) -> Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]:
+    def action_failure_policy(self) -> pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]:
         return pulumi.get(self, "action_failure_policy")
 
     @action_failure_policy.setter
-    def action_failure_policy(self, value: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]):
+    def action_failure_policy(self, value: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]):
         pulumi.set(self, "action_failure_policy", value)
 
 
 class MailManagerRuleSetSnsActionArgsDict(TypedDict):
     role_arn: pulumi.Input[_builtins.str]
     topic_arn: pulumi.Input[_builtins.str]
-    action_failure_policy: NotRequired[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]
-    encoding: NotRequired[pulumi.Input['MailManagerRuleSetSnsNotificationEncoding']]
-    payload_type: NotRequired[pulumi.Input['MailManagerRuleSetSnsNotificationPayloadType']]
+    action_failure_policy: NotRequired[pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]]
+    encoding: NotRequired[pulumi.Input[Optional['MailManagerRuleSetSnsNotificationEncoding']]]
+    payload_type: NotRequired[pulumi.Input[Optional['MailManagerRuleSetSnsNotificationPayloadType']]]
 
 @pulumi.input_type
 class MailManagerRuleSetSnsActionArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  topic_arn: pulumi.Input[_builtins.str],
-                 action_failure_policy: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']] = None,
-                 encoding: Optional[pulumi.Input['MailManagerRuleSetSnsNotificationEncoding']] = None,
-                 payload_type: Optional[pulumi.Input['MailManagerRuleSetSnsNotificationPayloadType']] = None):
+                 action_failure_policy: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']] = None,
+                 encoding: pulumi.Input[Optional['MailManagerRuleSetSnsNotificationEncoding']] = None,
+                 payload_type: pulumi.Input[Optional['MailManagerRuleSetSnsNotificationPayloadType']] = None):
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "topic_arn", topic_arn)
         if action_failure_policy is not None:
@@ -3203,29 +3203,29 @@ class MailManagerRuleSetSnsActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionFailurePolicy")
-    def action_failure_policy(self) -> Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]:
+    def action_failure_policy(self) -> pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]:
         return pulumi.get(self, "action_failure_policy")
 
     @action_failure_policy.setter
-    def action_failure_policy(self, value: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]):
+    def action_failure_policy(self, value: pulumi.Input[Optional['MailManagerRuleSetActionFailurePolicy']]):
         pulumi.set(self, "action_failure_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input['MailManagerRuleSetSnsNotificationEncoding']]:
+    def encoding(self) -> pulumi.Input[Optional['MailManagerRuleSetSnsNotificationEncoding']]:
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input['MailManagerRuleSetSnsNotificationEncoding']]):
+    def encoding(self, value: pulumi.Input[Optional['MailManagerRuleSetSnsNotificationEncoding']]):
         pulumi.set(self, "encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="payloadType")
-    def payload_type(self) -> Optional[pulumi.Input['MailManagerRuleSetSnsNotificationPayloadType']]:
+    def payload_type(self) -> pulumi.Input[Optional['MailManagerRuleSetSnsNotificationPayloadType']]:
         return pulumi.get(self, "payload_type")
 
     @payload_type.setter
-    def payload_type(self, value: Optional[pulumi.Input['MailManagerRuleSetSnsNotificationPayloadType']]):
+    def payload_type(self, value: pulumi.Input[Optional['MailManagerRuleSetSnsNotificationPayloadType']]):
         pulumi.set(self, "payload_type", value)
 
 
@@ -3829,15 +3829,15 @@ class TemplateArgsDict(TypedDict):
     """
     The subject line of the email.
     """
-    html_part: NotRequired[pulumi.Input[_builtins.str]]
+    html_part: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The HTML body of the email.
     """
-    template_name: NotRequired[pulumi.Input[_builtins.str]]
+    template_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the template.
     """
-    text_part: NotRequired[pulumi.Input[_builtins.str]]
+    text_part: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The email body that is visible to recipients whose email clients do not display HTML content.
     """
@@ -3846,9 +3846,9 @@ class TemplateArgsDict(TypedDict):
 class TemplateArgs:
     def __init__(__self__, *,
                  subject_part: pulumi.Input[_builtins.str],
-                 html_part: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 text_part: Optional[pulumi.Input[_builtins.str]] = None):
+                 html_part: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 text_part: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The content of the email, composed of a subject line, an HTML part, and a text-only part
 
@@ -3879,38 +3879,38 @@ class TemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="htmlPart")
-    def html_part(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def html_part(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTML body of the email.
         """
         return pulumi.get(self, "html_part")
 
     @html_part.setter
-    def html_part(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def html_part(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "html_part", value)
 
     @_builtins.property
     @pulumi.getter(name="templateName")
-    def template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the template.
         """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
-    def template_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_name", value)
 
     @_builtins.property
     @pulumi.getter(name="textPart")
-    def text_part(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def text_part(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email body that is visible to recipients whose email clients do not display HTML content.
         """
         return pulumi.get(self, "text_part")
 
     @text_part.setter
-    def text_part(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def text_part(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "text_part", value)
 
 
@@ -3951,7 +3951,7 @@ class VdmAttributesDashboardAttributesArgsDict(TypedDict):
     """
     Preferences regarding the Dashboard feature.
     """
-    engagement_metrics: NotRequired[pulumi.Input[_builtins.str]]
+    engagement_metrics: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Whether emails sent from this account have engagement tracking enabled.
     """
@@ -3959,7 +3959,7 @@ class VdmAttributesDashboardAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class VdmAttributesDashboardAttributesArgs:
     def __init__(__self__, *,
-                 engagement_metrics: Optional[pulumi.Input[_builtins.str]] = None):
+                 engagement_metrics: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Preferences regarding the Dashboard feature.
 
@@ -3970,14 +3970,14 @@ class VdmAttributesDashboardAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="engagementMetrics")
-    def engagement_metrics(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engagement_metrics(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether emails sent from this account have engagement tracking enabled.
         """
         return pulumi.get(self, "engagement_metrics")
 
     @engagement_metrics.setter
-    def engagement_metrics(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engagement_metrics(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engagement_metrics", value)
 
 
@@ -3985,7 +3985,7 @@ class VdmAttributesGuardianAttributesArgsDict(TypedDict):
     """
     Preferences regarding the Guardian feature.
     """
-    optimized_shared_delivery: NotRequired[pulumi.Input[_builtins.str]]
+    optimized_shared_delivery: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Whether emails sent from this account have optimized delivery algorithm enabled.
     """
@@ -3993,7 +3993,7 @@ class VdmAttributesGuardianAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class VdmAttributesGuardianAttributesArgs:
     def __init__(__self__, *,
-                 optimized_shared_delivery: Optional[pulumi.Input[_builtins.str]] = None):
+                 optimized_shared_delivery: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Preferences regarding the Guardian feature.
 
@@ -4004,14 +4004,14 @@ class VdmAttributesGuardianAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="optimizedSharedDelivery")
-    def optimized_shared_delivery(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optimized_shared_delivery(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether emails sent from this account have optimized delivery algorithm enabled.
         """
         return pulumi.get(self, "optimized_shared_delivery")
 
     @optimized_shared_delivery.setter
-    def optimized_shared_delivery(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optimized_shared_delivery(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optimized_shared_delivery", value)
 
 

@@ -61,8 +61,8 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
@@ -98,8 +98,8 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

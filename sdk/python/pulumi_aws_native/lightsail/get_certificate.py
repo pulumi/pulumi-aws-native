@@ -88,7 +88,7 @@ def get_certificate(certificate_name: Optional[_builtins.str] = None,
         certificate_arn=pulumi.get(__ret__, 'certificate_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_certificate_output(certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_certificate_output(certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Resource Type definition for AWS::Lightsail::Certificate.

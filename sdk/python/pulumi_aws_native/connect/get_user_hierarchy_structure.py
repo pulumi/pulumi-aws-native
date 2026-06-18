@@ -75,7 +75,7 @@ def get_user_hierarchy_structure(user_hierarchy_structure_arn: Optional[_builtin
     return AwaitableGetUserHierarchyStructureResult(
         user_hierarchy_structure=pulumi.get(__ret__, 'user_hierarchy_structure'),
         user_hierarchy_structure_arn=pulumi.get(__ret__, 'user_hierarchy_structure_arn'))
-def get_user_hierarchy_structure_output(user_hierarchy_structure_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_hierarchy_structure_output(user_hierarchy_structure_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserHierarchyStructureResult]:
     """
     Resource Type definition for AWS::Connect::UserHierarchyStructure

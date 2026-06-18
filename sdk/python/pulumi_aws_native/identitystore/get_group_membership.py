@@ -64,8 +64,8 @@ def get_group_membership(identity_store_id: Optional[_builtins.str] = None,
 
     return AwaitableGetGroupMembershipResult(
         membership_id=pulumi.get(__ret__, 'membership_id'))
-def get_group_membership_output(identity_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                membership_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_group_membership_output(identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                membership_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupMembershipResult]:
     """
     Resource Type Definition for AWS:IdentityStore::GroupMembership

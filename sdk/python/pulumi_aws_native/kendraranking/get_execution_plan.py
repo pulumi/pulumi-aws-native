@@ -128,7 +128,7 @@ def get_execution_plan(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_execution_plan_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_execution_plan_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExecutionPlanResult]:
     """
     A KendraRanking Rescore execution plan

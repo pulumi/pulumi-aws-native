@@ -22,9 +22,9 @@ __all__ = ['TopicRuleDestinationArgs', 'TopicRuleDestination']
 @pulumi.input_type
 class TopicRuleDestinationArgs:
     def __init__(__self__, *,
-                 http_url_properties: Optional[pulumi.Input['TopicRuleDestinationHttpUrlDestinationSummaryArgs']] = None,
-                 status: Optional[pulumi.Input['TopicRuleDestinationStatus']] = None,
-                 vpc_properties: Optional[pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs']] = None):
+                 http_url_properties: pulumi.Input[Optional['TopicRuleDestinationHttpUrlDestinationSummaryArgs']] = None,
+                 status: pulumi.Input[Optional['TopicRuleDestinationStatus']] = None,
+                 vpc_properties: pulumi.Input[Optional['TopicRuleDestinationVpcDestinationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a TopicRuleDestination resource.
 
@@ -41,38 +41,38 @@ class TopicRuleDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="httpUrlProperties")
-    def http_url_properties(self) -> Optional[pulumi.Input['TopicRuleDestinationHttpUrlDestinationSummaryArgs']]:
+    def http_url_properties(self) -> pulumi.Input[Optional['TopicRuleDestinationHttpUrlDestinationSummaryArgs']]:
         """
         HTTP URL destination properties.
         """
         return pulumi.get(self, "http_url_properties")
 
     @http_url_properties.setter
-    def http_url_properties(self, value: Optional[pulumi.Input['TopicRuleDestinationHttpUrlDestinationSummaryArgs']]):
+    def http_url_properties(self, value: pulumi.Input[Optional['TopicRuleDestinationHttpUrlDestinationSummaryArgs']]):
         pulumi.set(self, "http_url_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['TopicRuleDestinationStatus']]:
+    def status(self) -> pulumi.Input[Optional['TopicRuleDestinationStatus']]:
         """
         The status of the TopicRuleDestination.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['TopicRuleDestinationStatus']]):
+    def status(self, value: pulumi.Input[Optional['TopicRuleDestinationStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcProperties")
-    def vpc_properties(self) -> Optional[pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs']]:
+    def vpc_properties(self) -> pulumi.Input[Optional['TopicRuleDestinationVpcDestinationPropertiesArgs']]:
         """
         VPC destination properties.
         """
         return pulumi.get(self, "vpc_properties")
 
     @vpc_properties.setter
-    def vpc_properties(self, value: Optional[pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs']]):
+    def vpc_properties(self, value: pulumi.Input[Optional['TopicRuleDestinationVpcDestinationPropertiesArgs']]):
         pulumi.set(self, "vpc_properties", value)
 
 
@@ -82,9 +82,9 @@ class TopicRuleDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 http_url_properties: Optional[pulumi.Input[Union['TopicRuleDestinationHttpUrlDestinationSummaryArgs', 'TopicRuleDestinationHttpUrlDestinationSummaryArgsDict']]] = None,
-                 status: Optional[pulumi.Input['TopicRuleDestinationStatus']] = None,
-                 vpc_properties: Optional[pulumi.Input[Union['TopicRuleDestinationVpcDestinationPropertiesArgs', 'TopicRuleDestinationVpcDestinationPropertiesArgsDict']]] = None,
+                 http_url_properties: pulumi.Input[Optional[Union['TopicRuleDestinationHttpUrlDestinationSummaryArgs', 'TopicRuleDestinationHttpUrlDestinationSummaryArgsDict']]] = None,
+                 status: pulumi.Input[Optional['TopicRuleDestinationStatus']] = None,
+                 vpc_properties: pulumi.Input[Optional[Union['TopicRuleDestinationVpcDestinationPropertiesArgs', 'TopicRuleDestinationVpcDestinationPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoT::TopicRuleDestination
@@ -121,9 +121,9 @@ class TopicRuleDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 http_url_properties: Optional[pulumi.Input[Union['TopicRuleDestinationHttpUrlDestinationSummaryArgs', 'TopicRuleDestinationHttpUrlDestinationSummaryArgsDict']]] = None,
-                 status: Optional[pulumi.Input['TopicRuleDestinationStatus']] = None,
-                 vpc_properties: Optional[pulumi.Input[Union['TopicRuleDestinationVpcDestinationPropertiesArgs', 'TopicRuleDestinationVpcDestinationPropertiesArgsDict']]] = None,
+                 http_url_properties: pulumi.Input[Optional[Union['TopicRuleDestinationHttpUrlDestinationSummaryArgs', 'TopicRuleDestinationHttpUrlDestinationSummaryArgsDict']]] = None,
+                 status: pulumi.Input[Optional['TopicRuleDestinationStatus']] = None,
+                 vpc_properties: pulumi.Input[Optional[Union['TopicRuleDestinationVpcDestinationPropertiesArgs', 'TopicRuleDestinationVpcDestinationPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

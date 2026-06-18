@@ -21,7 +21,7 @@ class RegistryPolicyArgs:
     def __init__(__self__, *,
                  policy: Any,
                  registry_name: pulumi.Input[_builtins.str],
-                 revision_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 revision_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryPolicy resource.
 
@@ -64,14 +64,14 @@ class RegistryPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="revisionId")
-    def revision_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revision_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The revision ID of the policy.
         """
         return pulumi.get(self, "revision_id")
 
     @revision_id.setter
-    def revision_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revision_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revision_id", value)
 
 
@@ -82,8 +82,8 @@ class RegistryPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[Any] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 revision_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EventSchemas::RegistryPolicy
@@ -277,8 +277,8 @@ class RegistryPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[Any] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 revision_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

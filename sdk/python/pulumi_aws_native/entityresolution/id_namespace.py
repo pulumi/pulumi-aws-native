@@ -25,12 +25,12 @@ __all__ = ['IdNamespaceArgs', 'IdNamespace']
 class IdNamespaceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['IdNamespaceType'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_mapping_workflow_properties: Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceIdMappingWorkflowPropertiesArgs']]]] = None,
-                 id_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceInputSourceArgs']]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_mapping_workflow_properties: pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceIdMappingWorkflowPropertiesArgs']]]] = None,
+                 id_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_source_config: pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceInputSourceArgs']]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IdNamespace resource.
 
@@ -78,74 +78,74 @@ class IdNamespaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the ID namespace.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="idMappingWorkflowProperties")
-    def id_mapping_workflow_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceIdMappingWorkflowPropertiesArgs']]]]:
+    def id_mapping_workflow_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceIdMappingWorkflowPropertiesArgs']]]]:
         """
         Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
         """
         return pulumi.get(self, "id_mapping_workflow_properties")
 
     @id_mapping_workflow_properties.setter
-    def id_mapping_workflow_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceIdMappingWorkflowPropertiesArgs']]]]):
+    def id_mapping_workflow_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceIdMappingWorkflowPropertiesArgs']]]]):
         pulumi.set(self, "id_mapping_workflow_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="idNamespaceName")
-    def id_namespace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id_namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ID namespace.
         """
         return pulumi.get(self, "id_namespace_name")
 
     @id_namespace_name.setter
-    def id_namespace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id_namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id_namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="inputSourceConfig")
-    def input_source_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceInputSourceArgs']]]]:
+    def input_source_config(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceInputSourceArgs']]]]:
         """
         A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         """
         return pulumi.get(self, "input_source_config")
 
     @input_source_config.setter
-    def input_source_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceInputSourceArgs']]]]):
+    def input_source_config(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IdNamespaceInputSourceArgs']]]]):
         pulumi.set(self, "input_source_config", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags used to organize, track, or control access for this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -155,13 +155,13 @@ class IdNamespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_mapping_workflow_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdNamespaceIdMappingWorkflowPropertiesArgs', 'IdNamespaceIdMappingWorkflowPropertiesArgsDict']]]]] = None,
-                 id_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdNamespaceInputSourceArgs', 'IdNamespaceInputSourceArgsDict']]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['IdNamespaceType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_mapping_workflow_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdNamespaceIdMappingWorkflowPropertiesArgs', 'IdNamespaceIdMappingWorkflowPropertiesArgsDict']]]]] = None,
+                 id_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_source_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdNamespaceInputSourceArgs', 'IdNamespaceInputSourceArgsDict']]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['IdNamespaceType']] = None,
                  __props__=None):
         """
         IdNamespace defined in AWS Entity Resolution service
@@ -206,13 +206,13 @@ class IdNamespace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_mapping_workflow_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdNamespaceIdMappingWorkflowPropertiesArgs', 'IdNamespaceIdMappingWorkflowPropertiesArgsDict']]]]] = None,
-                 id_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdNamespaceInputSourceArgs', 'IdNamespaceInputSourceArgsDict']]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['IdNamespaceType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_mapping_workflow_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdNamespaceIdMappingWorkflowPropertiesArgs', 'IdNamespaceIdMappingWorkflowPropertiesArgsDict']]]]] = None,
+                 id_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_source_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdNamespaceInputSourceArgs', 'IdNamespaceInputSourceArgsDict']]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['IdNamespaceType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

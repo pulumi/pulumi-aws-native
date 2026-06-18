@@ -181,7 +181,7 @@ def get_config_rule(config_rule_name: Optional[_builtins.str] = None,
         maximum_execution_frequency=pulumi.get(__ret__, 'maximum_execution_frequency'),
         scope=pulumi.get(__ret__, 'scope'),
         source=pulumi.get(__ret__, 'source'))
-def get_config_rule_output(config_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_config_rule_output(config_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigRuleResult]:
     """
     You must first create and start the CC configuration recorder in order to create CC managed rules with CFNlong. For more information, see [Managing the Configuration Recorder](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html).

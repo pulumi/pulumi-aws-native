@@ -89,7 +89,7 @@ def get_training_dataset(training_dataset_arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         training_dataset_arn=pulumi.get(__ret__, 'training_dataset_arn'))
-def get_training_dataset_output(training_dataset_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_training_dataset_output(training_dataset_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrainingDatasetResult]:
     """
     Definition of AWS::CleanRoomsML::TrainingDataset Resource Type

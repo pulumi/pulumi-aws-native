@@ -220,8 +220,8 @@ def get_route(cidr_block: Optional[_builtins.str] = None,
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         vpc_endpoint_id=pulumi.get(__ret__, 'vpc_endpoint_id'),
         vpc_peering_connection_id=pulumi.get(__ret__, 'vpc_peering_connection_id'))
-def get_route_output(cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                     route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_route_output(cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                     route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteResult]:
     """
     Specifies a route in a route table. For more information, see [Routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#route-table-routes) in the *Amazon VPC User Guide*.

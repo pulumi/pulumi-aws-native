@@ -380,8 +380,8 @@ def get_service(cluster: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         task_definition=pulumi.get(__ret__, 'task_definition'),
         vpc_lattice_configurations=pulumi.get(__ret__, 'vpc_lattice_configurations'))
-def get_service_output(cluster: Optional[pulumi.Input[_builtins.str]] = None,
-                       service_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_output(cluster: pulumi.Input[Optional[_builtins.str]] = None,
+                       service_arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     The ``AWS::ECS::Service`` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.
