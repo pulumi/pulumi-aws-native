@@ -64,6 +64,7 @@ export class CapacityProvider extends pulumi.CustomResource {
      * A key-value pair that provides metadata for the capacity provider.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly telemetryConfig: pulumi.Output<outputs.lambda.CapacityProviderTelemetryConfig | undefined>;
     /**
      * The VPC configuration for the capacity provider.
      */
@@ -93,6 +94,7 @@ export class CapacityProvider extends pulumi.CustomResource {
             resourceInputs["permissionsConfig"] = args?.permissionsConfig;
             resourceInputs["propagateTags"] = args?.propagateTags;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["telemetryConfig"] = args?.telemetryConfig;
             resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -106,6 +108,7 @@ export class CapacityProvider extends pulumi.CustomResource {
             resourceInputs["propagateTags"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["telemetryConfig"] = undefined /*out*/;
             resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -141,6 +144,7 @@ export interface CapacityProviderArgs {
      * A key-value pair that provides metadata for the capacity provider.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    telemetryConfig?: pulumi.Input<inputs.lambda.CapacityProviderTelemetryConfigArgs>;
     /**
      * The VPC configuration for the capacity provider.
      */

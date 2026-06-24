@@ -25,6 +25,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// Log specific configuration for centralization source log groups.
         /// </summary>
         public readonly Outputs.OrganizationCentralizationRuleSourceLogsConfiguration? SourceLogsConfiguration;
+        public readonly Outputs.OrganizationCentralizationRuleSourceMetricsConfiguration? SourceMetricsConfiguration;
 
         [OutputConstructor]
         private OrganizationCentralizationRuleCentralizationRuleSource(
@@ -32,11 +33,14 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
 
             string? scope,
 
-            Outputs.OrganizationCentralizationRuleSourceLogsConfiguration? sourceLogsConfiguration)
+            Outputs.OrganizationCentralizationRuleSourceLogsConfiguration? sourceLogsConfiguration,
+
+            Outputs.OrganizationCentralizationRuleSourceMetricsConfiguration? sourceMetricsConfiguration)
         {
             Regions = regions;
             Scope = scope;
             SourceLogsConfiguration = sourceLogsConfiguration;
+            SourceMetricsConfiguration = sourceMetricsConfiguration;
         }
     }
 }

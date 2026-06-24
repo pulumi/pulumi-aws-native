@@ -976,6 +976,50 @@ func (o SchedulerPropertiesOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v SchedulerProperties) string { return v.Version }).(pulumi.StringOutput)
 }
 
+type SchedulerPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SchedulerPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchedulerProperties)(nil)).Elem()
+}
+
+func (o SchedulerPropertiesPtrOutput) ToSchedulerPropertiesPtrOutput() SchedulerPropertiesPtrOutput {
+	return o
+}
+
+func (o SchedulerPropertiesPtrOutput) ToSchedulerPropertiesPtrOutputWithContext(ctx context.Context) SchedulerPropertiesPtrOutput {
+	return o
+}
+
+func (o SchedulerPropertiesPtrOutput) Elem() SchedulerPropertiesOutput {
+	return o.ApplyT(func(v *SchedulerProperties) SchedulerProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SchedulerProperties
+		return ret
+	}).(SchedulerPropertiesOutput)
+}
+
+// The software AWS PCS uses to manage cluster scaling and job scheduling.
+func (o SchedulerPropertiesPtrOutput) Type() ClusterSchedulerPropertiesTypePtrOutput {
+	return o.ApplyT(func(v *SchedulerProperties) *ClusterSchedulerPropertiesType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(ClusterSchedulerPropertiesTypePtrOutput)
+}
+
+// The version of the specified scheduling software that AWS PCS uses to manage cluster scaling and job scheduling.
+func (o SchedulerPropertiesPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchedulerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 // The Slurm configuration for the queue.
 type SlurmConfigurationProperties struct {
 	// Custom Slurm parameters that directly map to Slurm configuration settings.
@@ -1293,6 +1337,7 @@ func init() {
 	pulumi.RegisterOutputType(ScalingConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(ScalingConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SchedulerPropertiesOutput{})
+	pulumi.RegisterOutputType(SchedulerPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SlurmConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(SlurmConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SpotOptionsPropertiesOutput{})

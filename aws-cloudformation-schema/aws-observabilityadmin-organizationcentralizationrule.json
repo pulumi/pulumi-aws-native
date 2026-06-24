@@ -74,6 +74,9 @@
         },
         "SourceLogsConfiguration" : {
           "$ref" : "#/definitions/SourceLogsConfiguration"
+        },
+        "SourceMetricsConfiguration" : {
+          "$ref" : "#/definitions/SourceMetricsConfiguration"
         }
       },
       "required" : [ "Regions" ],
@@ -100,6 +103,17 @@
       "required" : [ "EncryptedLogGroupStrategy" ],
       "additionalProperties" : false
     },
+    "SourceMetricsConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "MetricsSelectionCriteria" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 2000
+        }
+      },
+      "additionalProperties" : false
+    },
     "CentralizationRuleDestination" : {
       "type" : "object",
       "properties" : {
@@ -111,6 +125,9 @@
         },
         "DestinationLogsConfiguration" : {
           "$ref" : "#/definitions/DestinationLogsConfiguration"
+        },
+        "DestinationMetricsConfiguration" : {
+          "$ref" : "#/definitions/DestinationMetricsConfiguration"
         }
       },
       "required" : [ "Region" ],
@@ -129,6 +146,25 @@
           "$ref" : "#/definitions/LogGroupNameConfiguration"
         }
       },
+      "additionalProperties" : false
+    },
+    "DestinationMetricsConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "BackupConfiguration" : {
+          "$ref" : "#/definitions/MetricsBackupConfiguration"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MetricsBackupConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Region" : {
+          "$ref" : "#/definitions/Region"
+        }
+      },
+      "required" : [ "Region" ],
       "additionalProperties" : false
     },
     "LogsEncryptionConfiguration" : {

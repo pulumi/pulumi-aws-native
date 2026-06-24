@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -29,6 +31,7 @@ class WebhookArgs:
                  target_pipeline: pulumi.Input[_builtins.str],
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  register_with_third_party: Optional[pulumi.Input[_builtins.bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  target_pipeline_version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Webhook resource.
@@ -40,6 +43,7 @@ class WebhookArgs:
         :param pulumi.Input[_builtins.str] target_pipeline: The name of the pipeline you want to connect to the webhook.
         :param pulumi.Input[_builtins.str] name: The name of the webhook
         :param pulumi.Input[_builtins.bool] register_with_third_party: Configures a connection between the webhook that was created and the external tool with events to be detected.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.int] target_pipeline_version: The version number of the pipeline to be connected to the trigger request.
         """
         pulumi.set(__self__, "authentication", authentication)
@@ -51,6 +55,8 @@ class WebhookArgs:
             pulumi.set(__self__, "name", name)
         if register_with_third_party is not None:
             pulumi.set(__self__, "register_with_third_party", register_with_third_party)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if target_pipeline_version is not None:
             pulumi.set(__self__, "target_pipeline_version", target_pipeline_version)
 
@@ -139,6 +145,18 @@ class WebhookArgs:
         pulumi.set(self, "register_with_third_party", value)
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
     @pulumi.getter(name="targetPipelineVersion")
     def target_pipeline_version(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -162,6 +180,7 @@ class Webhook(pulumi.CustomResource):
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterRuleArgs', 'WebhookFilterRuleArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  register_with_third_party: Optional[pulumi.Input[_builtins.bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  target_action: Optional[pulumi.Input[_builtins.str]] = None,
                  target_pipeline: Optional[pulumi.Input[_builtins.str]] = None,
                  target_pipeline_version: Optional[pulumi.Input[_builtins.int]] = None,
@@ -177,6 +196,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterRuleArgs', 'WebhookFilterRuleArgsDict']]]] filters: A list of rules applied to the body/payload sent in the POST request to a webhook URL
         :param pulumi.Input[_builtins.str] name: The name of the webhook
         :param pulumi.Input[_builtins.bool] register_with_third_party: Configures a connection between the webhook that was created and the external tool with events to be detected.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] target_action: The name of the action in a pipeline you want to connect to the webhook.
         :param pulumi.Input[_builtins.str] target_pipeline: The name of the pipeline you want to connect to the webhook.
         :param pulumi.Input[_builtins.int] target_pipeline_version: The version number of the pipeline to be connected to the trigger request.
@@ -211,6 +231,7 @@ class Webhook(pulumi.CustomResource):
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterRuleArgs', 'WebhookFilterRuleArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  register_with_third_party: Optional[pulumi.Input[_builtins.bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  target_action: Optional[pulumi.Input[_builtins.str]] = None,
                  target_pipeline: Optional[pulumi.Input[_builtins.str]] = None,
                  target_pipeline_version: Optional[pulumi.Input[_builtins.int]] = None,
@@ -234,6 +255,7 @@ class Webhook(pulumi.CustomResource):
             __props__.__dict__["filters"] = filters
             __props__.__dict__["name"] = name
             __props__.__dict__["register_with_third_party"] = register_with_third_party
+            __props__.__dict__["tags"] = tags
             if target_action is None and not opts.urn:
                 raise TypeError("Missing required property 'target_action'")
             __props__.__dict__["target_action"] = target_action
@@ -273,6 +295,7 @@ class Webhook(pulumi.CustomResource):
         __props__.__dict__["filters"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["register_with_third_party"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["target_action"] = None
         __props__.__dict__["target_pipeline"] = None
         __props__.__dict__["target_pipeline_version"] = None
@@ -326,6 +349,14 @@ class Webhook(pulumi.CustomResource):
         Configures a connection between the webhook that was created and the external tool with events to be detected.
         """
         return pulumi.get(self, "register_with_third_party")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="targetAction")

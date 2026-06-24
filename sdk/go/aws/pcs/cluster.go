@@ -59,7 +59,6 @@ func NewCluster(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
 		"networking",
-		"scheduler",
 		"size",
 	})
 	opts = append(opts, replaceOnChanges)

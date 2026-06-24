@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("enforcementMode")]
+        public Output<Pulumi.AwsNative.BedrockAgentCore.PolicyEnforcementMode?> EnforcementMode { get; private set; } = null!;
+
         /// <summary>
         /// The customer-assigned immutable name for the policy. Must be unique within the policy engine.
         /// </summary>
@@ -133,6 +136,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("enforcementMode")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.PolicyEnforcementMode>? EnforcementMode { get; set; }
 
         /// <summary>
         /// The customer-assigned immutable name for the policy. Must be unique within the policy engine.

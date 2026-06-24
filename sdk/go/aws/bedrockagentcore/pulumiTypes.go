@@ -6025,6 +6025,47 @@ func (i GatewayTargetApiSchemaConfiguration0PropertiesArgs) ToGatewayTargetApiSc
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetApiSchemaConfiguration0PropertiesOutput)
 }
 
+func (i GatewayTargetApiSchemaConfiguration0PropertiesArgs) ToGatewayTargetApiSchemaConfiguration0PropertiesPtrOutput() GatewayTargetApiSchemaConfiguration0PropertiesPtrOutput {
+	return i.ToGatewayTargetApiSchemaConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetApiSchemaConfiguration0PropertiesArgs) ToGatewayTargetApiSchemaConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetApiSchemaConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetApiSchemaConfiguration0PropertiesOutput).ToGatewayTargetApiSchemaConfiguration0PropertiesPtrOutputWithContext(ctx)
+}
+
+// GatewayTargetApiSchemaConfiguration0PropertiesPtrInput is an input type that accepts GatewayTargetApiSchemaConfiguration0PropertiesArgs, GatewayTargetApiSchemaConfiguration0PropertiesPtr and GatewayTargetApiSchemaConfiguration0PropertiesPtrOutput values.
+// You can construct a concrete instance of `GatewayTargetApiSchemaConfiguration0PropertiesPtrInput` via:
+//
+//	        GatewayTargetApiSchemaConfiguration0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTargetApiSchemaConfiguration0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetApiSchemaConfiguration0PropertiesPtrOutput() GatewayTargetApiSchemaConfiguration0PropertiesPtrOutput
+	ToGatewayTargetApiSchemaConfiguration0PropertiesPtrOutputWithContext(context.Context) GatewayTargetApiSchemaConfiguration0PropertiesPtrOutput
+}
+
+type gatewayTargetApiSchemaConfiguration0PropertiesPtrType GatewayTargetApiSchemaConfiguration0PropertiesArgs
+
+func GatewayTargetApiSchemaConfiguration0PropertiesPtr(v *GatewayTargetApiSchemaConfiguration0PropertiesArgs) GatewayTargetApiSchemaConfiguration0PropertiesPtrInput {
+	return (*gatewayTargetApiSchemaConfiguration0PropertiesPtrType)(v)
+}
+
+func (*gatewayTargetApiSchemaConfiguration0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetApiSchemaConfiguration0Properties)(nil)).Elem()
+}
+
+func (i *gatewayTargetApiSchemaConfiguration0PropertiesPtrType) ToGatewayTargetApiSchemaConfiguration0PropertiesPtrOutput() GatewayTargetApiSchemaConfiguration0PropertiesPtrOutput {
+	return i.ToGatewayTargetApiSchemaConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTargetApiSchemaConfiguration0PropertiesPtrType) ToGatewayTargetApiSchemaConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetApiSchemaConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetApiSchemaConfiguration0PropertiesPtrOutput)
+}
+
 type GatewayTargetApiSchemaConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
 
 func (GatewayTargetApiSchemaConfiguration0PropertiesOutput) ElementType() reflect.Type {
@@ -6037,6 +6078,16 @@ func (o GatewayTargetApiSchemaConfiguration0PropertiesOutput) ToGatewayTargetApi
 
 func (o GatewayTargetApiSchemaConfiguration0PropertiesOutput) ToGatewayTargetApiSchemaConfiguration0PropertiesOutputWithContext(ctx context.Context) GatewayTargetApiSchemaConfiguration0PropertiesOutput {
 	return o
+}
+
+func (o GatewayTargetApiSchemaConfiguration0PropertiesOutput) ToGatewayTargetApiSchemaConfiguration0PropertiesPtrOutput() GatewayTargetApiSchemaConfiguration0PropertiesPtrOutput {
+	return o.ToGatewayTargetApiSchemaConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetApiSchemaConfiguration0PropertiesOutput) ToGatewayTargetApiSchemaConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetApiSchemaConfiguration0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetApiSchemaConfiguration0Properties) *GatewayTargetApiSchemaConfiguration0Properties {
+		return &v
+	}).(GatewayTargetApiSchemaConfiguration0PropertiesPtrOutput)
 }
 
 func (o GatewayTargetApiSchemaConfiguration0PropertiesOutput) S3() GatewayTargetS3ConfigurationOutput {
@@ -6107,6 +6158,47 @@ func (i GatewayTargetApiSchemaConfiguration1PropertiesArgs) ToGatewayTargetApiSc
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetApiSchemaConfiguration1PropertiesOutput)
 }
 
+func (i GatewayTargetApiSchemaConfiguration1PropertiesArgs) ToGatewayTargetApiSchemaConfiguration1PropertiesPtrOutput() GatewayTargetApiSchemaConfiguration1PropertiesPtrOutput {
+	return i.ToGatewayTargetApiSchemaConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetApiSchemaConfiguration1PropertiesArgs) ToGatewayTargetApiSchemaConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetApiSchemaConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetApiSchemaConfiguration1PropertiesOutput).ToGatewayTargetApiSchemaConfiguration1PropertiesPtrOutputWithContext(ctx)
+}
+
+// GatewayTargetApiSchemaConfiguration1PropertiesPtrInput is an input type that accepts GatewayTargetApiSchemaConfiguration1PropertiesArgs, GatewayTargetApiSchemaConfiguration1PropertiesPtr and GatewayTargetApiSchemaConfiguration1PropertiesPtrOutput values.
+// You can construct a concrete instance of `GatewayTargetApiSchemaConfiguration1PropertiesPtrInput` via:
+//
+//	        GatewayTargetApiSchemaConfiguration1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTargetApiSchemaConfiguration1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetApiSchemaConfiguration1PropertiesPtrOutput() GatewayTargetApiSchemaConfiguration1PropertiesPtrOutput
+	ToGatewayTargetApiSchemaConfiguration1PropertiesPtrOutputWithContext(context.Context) GatewayTargetApiSchemaConfiguration1PropertiesPtrOutput
+}
+
+type gatewayTargetApiSchemaConfiguration1PropertiesPtrType GatewayTargetApiSchemaConfiguration1PropertiesArgs
+
+func GatewayTargetApiSchemaConfiguration1PropertiesPtr(v *GatewayTargetApiSchemaConfiguration1PropertiesArgs) GatewayTargetApiSchemaConfiguration1PropertiesPtrInput {
+	return (*gatewayTargetApiSchemaConfiguration1PropertiesPtrType)(v)
+}
+
+func (*gatewayTargetApiSchemaConfiguration1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetApiSchemaConfiguration1Properties)(nil)).Elem()
+}
+
+func (i *gatewayTargetApiSchemaConfiguration1PropertiesPtrType) ToGatewayTargetApiSchemaConfiguration1PropertiesPtrOutput() GatewayTargetApiSchemaConfiguration1PropertiesPtrOutput {
+	return i.ToGatewayTargetApiSchemaConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTargetApiSchemaConfiguration1PropertiesPtrType) ToGatewayTargetApiSchemaConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetApiSchemaConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetApiSchemaConfiguration1PropertiesPtrOutput)
+}
+
 type GatewayTargetApiSchemaConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
 
 func (GatewayTargetApiSchemaConfiguration1PropertiesOutput) ElementType() reflect.Type {
@@ -6119,6 +6211,16 @@ func (o GatewayTargetApiSchemaConfiguration1PropertiesOutput) ToGatewayTargetApi
 
 func (o GatewayTargetApiSchemaConfiguration1PropertiesOutput) ToGatewayTargetApiSchemaConfiguration1PropertiesOutputWithContext(ctx context.Context) GatewayTargetApiSchemaConfiguration1PropertiesOutput {
 	return o
+}
+
+func (o GatewayTargetApiSchemaConfiguration1PropertiesOutput) ToGatewayTargetApiSchemaConfiguration1PropertiesPtrOutput() GatewayTargetApiSchemaConfiguration1PropertiesPtrOutput {
+	return o.ToGatewayTargetApiSchemaConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetApiSchemaConfiguration1PropertiesOutput) ToGatewayTargetApiSchemaConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetApiSchemaConfiguration1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetApiSchemaConfiguration1Properties) *GatewayTargetApiSchemaConfiguration1Properties {
+		return &v
+	}).(GatewayTargetApiSchemaConfiguration1PropertiesPtrOutput)
 }
 
 func (o GatewayTargetApiSchemaConfiguration1PropertiesOutput) InlinePayload() pulumi.StringOutput {
@@ -6215,6 +6317,422 @@ func (o GatewayTargetAuthorizationDataPropertiesPtrOutput) Oauth2() GatewayTarge
 		}
 		return &v.Oauth2
 	}).(GatewayTargetOAuth2AuthorizationDataPtrOutput)
+}
+
+type GatewayTargetConnectorConfiguration struct {
+	Description        *string                                   `pulumi:"description"`
+	Name               string                                    `pulumi:"name"`
+	ParameterOverrides []GatewayTargetConnectorParameterOverride `pulumi:"parameterOverrides"`
+	ParameterValues    interface{}                               `pulumi:"parameterValues"`
+}
+
+// GatewayTargetConnectorConfigurationInput is an input type that accepts GatewayTargetConnectorConfigurationArgs and GatewayTargetConnectorConfigurationOutput values.
+// You can construct a concrete instance of `GatewayTargetConnectorConfigurationInput` via:
+//
+//	GatewayTargetConnectorConfigurationArgs{...}
+type GatewayTargetConnectorConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayTargetConnectorConfigurationOutput() GatewayTargetConnectorConfigurationOutput
+	ToGatewayTargetConnectorConfigurationOutputWithContext(context.Context) GatewayTargetConnectorConfigurationOutput
+}
+
+type GatewayTargetConnectorConfigurationArgs struct {
+	Description        pulumi.StringPtrInput                             `pulumi:"description"`
+	Name               pulumi.StringInput                                `pulumi:"name"`
+	ParameterOverrides GatewayTargetConnectorParameterOverrideArrayInput `pulumi:"parameterOverrides"`
+	ParameterValues    pulumi.Input                                      `pulumi:"parameterValues"`
+}
+
+func (GatewayTargetConnectorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetConnectorConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetConnectorConfigurationArgs) ToGatewayTargetConnectorConfigurationOutput() GatewayTargetConnectorConfigurationOutput {
+	return i.ToGatewayTargetConnectorConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetConnectorConfigurationArgs) ToGatewayTargetConnectorConfigurationOutputWithContext(ctx context.Context) GatewayTargetConnectorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetConnectorConfigurationOutput)
+}
+
+// GatewayTargetConnectorConfigurationArrayInput is an input type that accepts GatewayTargetConnectorConfigurationArray and GatewayTargetConnectorConfigurationArrayOutput values.
+// You can construct a concrete instance of `GatewayTargetConnectorConfigurationArrayInput` via:
+//
+//	GatewayTargetConnectorConfigurationArray{ GatewayTargetConnectorConfigurationArgs{...} }
+type GatewayTargetConnectorConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGatewayTargetConnectorConfigurationArrayOutput() GatewayTargetConnectorConfigurationArrayOutput
+	ToGatewayTargetConnectorConfigurationArrayOutputWithContext(context.Context) GatewayTargetConnectorConfigurationArrayOutput
+}
+
+type GatewayTargetConnectorConfigurationArray []GatewayTargetConnectorConfigurationInput
+
+func (GatewayTargetConnectorConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTargetConnectorConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetConnectorConfigurationArray) ToGatewayTargetConnectorConfigurationArrayOutput() GatewayTargetConnectorConfigurationArrayOutput {
+	return i.ToGatewayTargetConnectorConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetConnectorConfigurationArray) ToGatewayTargetConnectorConfigurationArrayOutputWithContext(ctx context.Context) GatewayTargetConnectorConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetConnectorConfigurationArrayOutput)
+}
+
+type GatewayTargetConnectorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetConnectorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetConnectorConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetConnectorConfigurationOutput) ToGatewayTargetConnectorConfigurationOutput() GatewayTargetConnectorConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetConnectorConfigurationOutput) ToGatewayTargetConnectorConfigurationOutputWithContext(ctx context.Context) GatewayTargetConnectorConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetConnectorConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayTargetConnectorConfiguration) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetConnectorConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetConnectorConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetConnectorConfigurationOutput) ParameterOverrides() GatewayTargetConnectorParameterOverrideArrayOutput {
+	return o.ApplyT(func(v GatewayTargetConnectorConfiguration) []GatewayTargetConnectorParameterOverride {
+		return v.ParameterOverrides
+	}).(GatewayTargetConnectorParameterOverrideArrayOutput)
+}
+
+func (o GatewayTargetConnectorConfigurationOutput) ParameterValues() pulumi.AnyOutput {
+	return o.ApplyT(func(v GatewayTargetConnectorConfiguration) interface{} { return v.ParameterValues }).(pulumi.AnyOutput)
+}
+
+type GatewayTargetConnectorConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetConnectorConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTargetConnectorConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetConnectorConfigurationArrayOutput) ToGatewayTargetConnectorConfigurationArrayOutput() GatewayTargetConnectorConfigurationArrayOutput {
+	return o
+}
+
+func (o GatewayTargetConnectorConfigurationArrayOutput) ToGatewayTargetConnectorConfigurationArrayOutputWithContext(ctx context.Context) GatewayTargetConnectorConfigurationArrayOutput {
+	return o
+}
+
+func (o GatewayTargetConnectorConfigurationArrayOutput) Index(i pulumi.IntInput) GatewayTargetConnectorConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayTargetConnectorConfiguration {
+		return vs[0].([]GatewayTargetConnectorConfiguration)[vs[1].(int)]
+	}).(GatewayTargetConnectorConfigurationOutput)
+}
+
+type GatewayTargetConnectorParameterOverride struct {
+	Description *string `pulumi:"description"`
+	Path        string  `pulumi:"path"`
+	Visible     *bool   `pulumi:"visible"`
+}
+
+// GatewayTargetConnectorParameterOverrideInput is an input type that accepts GatewayTargetConnectorParameterOverrideArgs and GatewayTargetConnectorParameterOverrideOutput values.
+// You can construct a concrete instance of `GatewayTargetConnectorParameterOverrideInput` via:
+//
+//	GatewayTargetConnectorParameterOverrideArgs{...}
+type GatewayTargetConnectorParameterOverrideInput interface {
+	pulumi.Input
+
+	ToGatewayTargetConnectorParameterOverrideOutput() GatewayTargetConnectorParameterOverrideOutput
+	ToGatewayTargetConnectorParameterOverrideOutputWithContext(context.Context) GatewayTargetConnectorParameterOverrideOutput
+}
+
+type GatewayTargetConnectorParameterOverrideArgs struct {
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Path        pulumi.StringInput    `pulumi:"path"`
+	Visible     pulumi.BoolPtrInput   `pulumi:"visible"`
+}
+
+func (GatewayTargetConnectorParameterOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetConnectorParameterOverride)(nil)).Elem()
+}
+
+func (i GatewayTargetConnectorParameterOverrideArgs) ToGatewayTargetConnectorParameterOverrideOutput() GatewayTargetConnectorParameterOverrideOutput {
+	return i.ToGatewayTargetConnectorParameterOverrideOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetConnectorParameterOverrideArgs) ToGatewayTargetConnectorParameterOverrideOutputWithContext(ctx context.Context) GatewayTargetConnectorParameterOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetConnectorParameterOverrideOutput)
+}
+
+// GatewayTargetConnectorParameterOverrideArrayInput is an input type that accepts GatewayTargetConnectorParameterOverrideArray and GatewayTargetConnectorParameterOverrideArrayOutput values.
+// You can construct a concrete instance of `GatewayTargetConnectorParameterOverrideArrayInput` via:
+//
+//	GatewayTargetConnectorParameterOverrideArray{ GatewayTargetConnectorParameterOverrideArgs{...} }
+type GatewayTargetConnectorParameterOverrideArrayInput interface {
+	pulumi.Input
+
+	ToGatewayTargetConnectorParameterOverrideArrayOutput() GatewayTargetConnectorParameterOverrideArrayOutput
+	ToGatewayTargetConnectorParameterOverrideArrayOutputWithContext(context.Context) GatewayTargetConnectorParameterOverrideArrayOutput
+}
+
+type GatewayTargetConnectorParameterOverrideArray []GatewayTargetConnectorParameterOverrideInput
+
+func (GatewayTargetConnectorParameterOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTargetConnectorParameterOverride)(nil)).Elem()
+}
+
+func (i GatewayTargetConnectorParameterOverrideArray) ToGatewayTargetConnectorParameterOverrideArrayOutput() GatewayTargetConnectorParameterOverrideArrayOutput {
+	return i.ToGatewayTargetConnectorParameterOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetConnectorParameterOverrideArray) ToGatewayTargetConnectorParameterOverrideArrayOutputWithContext(ctx context.Context) GatewayTargetConnectorParameterOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetConnectorParameterOverrideArrayOutput)
+}
+
+type GatewayTargetConnectorParameterOverrideOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetConnectorParameterOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetConnectorParameterOverride)(nil)).Elem()
+}
+
+func (o GatewayTargetConnectorParameterOverrideOutput) ToGatewayTargetConnectorParameterOverrideOutput() GatewayTargetConnectorParameterOverrideOutput {
+	return o
+}
+
+func (o GatewayTargetConnectorParameterOverrideOutput) ToGatewayTargetConnectorParameterOverrideOutputWithContext(ctx context.Context) GatewayTargetConnectorParameterOverrideOutput {
+	return o
+}
+
+func (o GatewayTargetConnectorParameterOverrideOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayTargetConnectorParameterOverride) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetConnectorParameterOverrideOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetConnectorParameterOverride) string { return v.Path }).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetConnectorParameterOverrideOutput) Visible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GatewayTargetConnectorParameterOverride) *bool { return v.Visible }).(pulumi.BoolPtrOutput)
+}
+
+type GatewayTargetConnectorParameterOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetConnectorParameterOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTargetConnectorParameterOverride)(nil)).Elem()
+}
+
+func (o GatewayTargetConnectorParameterOverrideArrayOutput) ToGatewayTargetConnectorParameterOverrideArrayOutput() GatewayTargetConnectorParameterOverrideArrayOutput {
+	return o
+}
+
+func (o GatewayTargetConnectorParameterOverrideArrayOutput) ToGatewayTargetConnectorParameterOverrideArrayOutputWithContext(ctx context.Context) GatewayTargetConnectorParameterOverrideArrayOutput {
+	return o
+}
+
+func (o GatewayTargetConnectorParameterOverrideArrayOutput) Index(i pulumi.IntInput) GatewayTargetConnectorParameterOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayTargetConnectorParameterOverride {
+		return vs[0].([]GatewayTargetConnectorParameterOverride)[vs[1].(int)]
+	}).(GatewayTargetConnectorParameterOverrideOutput)
+}
+
+type GatewayTargetConnectorSource struct {
+	ConnectorId string `pulumi:"connectorId"`
+}
+
+// GatewayTargetConnectorSourceInput is an input type that accepts GatewayTargetConnectorSourceArgs and GatewayTargetConnectorSourceOutput values.
+// You can construct a concrete instance of `GatewayTargetConnectorSourceInput` via:
+//
+//	GatewayTargetConnectorSourceArgs{...}
+type GatewayTargetConnectorSourceInput interface {
+	pulumi.Input
+
+	ToGatewayTargetConnectorSourceOutput() GatewayTargetConnectorSourceOutput
+	ToGatewayTargetConnectorSourceOutputWithContext(context.Context) GatewayTargetConnectorSourceOutput
+}
+
+type GatewayTargetConnectorSourceArgs struct {
+	ConnectorId pulumi.StringInput `pulumi:"connectorId"`
+}
+
+func (GatewayTargetConnectorSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetConnectorSource)(nil)).Elem()
+}
+
+func (i GatewayTargetConnectorSourceArgs) ToGatewayTargetConnectorSourceOutput() GatewayTargetConnectorSourceOutput {
+	return i.ToGatewayTargetConnectorSourceOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetConnectorSourceArgs) ToGatewayTargetConnectorSourceOutputWithContext(ctx context.Context) GatewayTargetConnectorSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetConnectorSourceOutput)
+}
+
+type GatewayTargetConnectorSourceOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetConnectorSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetConnectorSource)(nil)).Elem()
+}
+
+func (o GatewayTargetConnectorSourceOutput) ToGatewayTargetConnectorSourceOutput() GatewayTargetConnectorSourceOutput {
+	return o
+}
+
+func (o GatewayTargetConnectorSourceOutput) ToGatewayTargetConnectorSourceOutputWithContext(ctx context.Context) GatewayTargetConnectorSourceOutput {
+	return o
+}
+
+func (o GatewayTargetConnectorSourceOutput) ConnectorId() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetConnectorSource) string { return v.ConnectorId }).(pulumi.StringOutput)
+}
+
+type GatewayTargetConnectorSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetConnectorSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetConnectorSource)(nil)).Elem()
+}
+
+func (o GatewayTargetConnectorSourcePtrOutput) ToGatewayTargetConnectorSourcePtrOutput() GatewayTargetConnectorSourcePtrOutput {
+	return o
+}
+
+func (o GatewayTargetConnectorSourcePtrOutput) ToGatewayTargetConnectorSourcePtrOutputWithContext(ctx context.Context) GatewayTargetConnectorSourcePtrOutput {
+	return o
+}
+
+func (o GatewayTargetConnectorSourcePtrOutput) Elem() GatewayTargetConnectorSourceOutput {
+	return o.ApplyT(func(v *GatewayTargetConnectorSource) GatewayTargetConnectorSource {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetConnectorSource
+		return ret
+	}).(GatewayTargetConnectorSourceOutput)
+}
+
+func (o GatewayTargetConnectorSourcePtrOutput) ConnectorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetConnectorSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectorId
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayTargetConnectorTargetConfiguration struct {
+	Configurations []GatewayTargetConnectorConfiguration `pulumi:"configurations"`
+	Enabled        []string                              `pulumi:"enabled"`
+	Source         GatewayTargetConnectorSource          `pulumi:"source"`
+}
+
+// GatewayTargetConnectorTargetConfigurationInput is an input type that accepts GatewayTargetConnectorTargetConfigurationArgs and GatewayTargetConnectorTargetConfigurationOutput values.
+// You can construct a concrete instance of `GatewayTargetConnectorTargetConfigurationInput` via:
+//
+//	GatewayTargetConnectorTargetConfigurationArgs{...}
+type GatewayTargetConnectorTargetConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayTargetConnectorTargetConfigurationOutput() GatewayTargetConnectorTargetConfigurationOutput
+	ToGatewayTargetConnectorTargetConfigurationOutputWithContext(context.Context) GatewayTargetConnectorTargetConfigurationOutput
+}
+
+type GatewayTargetConnectorTargetConfigurationArgs struct {
+	Configurations GatewayTargetConnectorConfigurationArrayInput `pulumi:"configurations"`
+	Enabled        pulumi.StringArrayInput                       `pulumi:"enabled"`
+	Source         GatewayTargetConnectorSourceInput             `pulumi:"source"`
+}
+
+func (GatewayTargetConnectorTargetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetConnectorTargetConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetConnectorTargetConfigurationArgs) ToGatewayTargetConnectorTargetConfigurationOutput() GatewayTargetConnectorTargetConfigurationOutput {
+	return i.ToGatewayTargetConnectorTargetConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetConnectorTargetConfigurationArgs) ToGatewayTargetConnectorTargetConfigurationOutputWithContext(ctx context.Context) GatewayTargetConnectorTargetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetConnectorTargetConfigurationOutput)
+}
+
+type GatewayTargetConnectorTargetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetConnectorTargetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetConnectorTargetConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetConnectorTargetConfigurationOutput) ToGatewayTargetConnectorTargetConfigurationOutput() GatewayTargetConnectorTargetConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetConnectorTargetConfigurationOutput) ToGatewayTargetConnectorTargetConfigurationOutputWithContext(ctx context.Context) GatewayTargetConnectorTargetConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetConnectorTargetConfigurationOutput) Configurations() GatewayTargetConnectorConfigurationArrayOutput {
+	return o.ApplyT(func(v GatewayTargetConnectorTargetConfiguration) []GatewayTargetConnectorConfiguration {
+		return v.Configurations
+	}).(GatewayTargetConnectorConfigurationArrayOutput)
+}
+
+func (o GatewayTargetConnectorTargetConfigurationOutput) Enabled() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GatewayTargetConnectorTargetConfiguration) []string { return v.Enabled }).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayTargetConnectorTargetConfigurationOutput) Source() GatewayTargetConnectorSourceOutput {
+	return o.ApplyT(func(v GatewayTargetConnectorTargetConfiguration) GatewayTargetConnectorSource { return v.Source }).(GatewayTargetConnectorSourceOutput)
+}
+
+type GatewayTargetConnectorTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetConnectorTargetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetConnectorTargetConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetConnectorTargetConfigurationPtrOutput) ToGatewayTargetConnectorTargetConfigurationPtrOutput() GatewayTargetConnectorTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetConnectorTargetConfigurationPtrOutput) ToGatewayTargetConnectorTargetConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetConnectorTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetConnectorTargetConfigurationPtrOutput) Elem() GatewayTargetConnectorTargetConfigurationOutput {
+	return o.ApplyT(func(v *GatewayTargetConnectorTargetConfiguration) GatewayTargetConnectorTargetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetConnectorTargetConfiguration
+		return ret
+	}).(GatewayTargetConnectorTargetConfigurationOutput)
+}
+
+func (o GatewayTargetConnectorTargetConfigurationPtrOutput) Configurations() GatewayTargetConnectorConfigurationArrayOutput {
+	return o.ApplyT(func(v *GatewayTargetConnectorTargetConfiguration) []GatewayTargetConnectorConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Configurations
+	}).(GatewayTargetConnectorConfigurationArrayOutput)
+}
+
+func (o GatewayTargetConnectorTargetConfigurationPtrOutput) Enabled() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GatewayTargetConnectorTargetConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayTargetConnectorTargetConfigurationPtrOutput) Source() GatewayTargetConnectorSourcePtrOutput {
+	return o.ApplyT(func(v *GatewayTargetConnectorTargetConfiguration) *GatewayTargetConnectorSource {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(GatewayTargetConnectorSourcePtrOutput)
 }
 
 type GatewayTargetCredentialProvider0Properties struct {
@@ -6730,92 +7248,305 @@ func (o GatewayTargetCredentialProviderConfigurationArrayOutput) Index(i pulumi.
 	}).(GatewayTargetCredentialProviderConfigurationOutput)
 }
 
+type GatewayTargetHttpApiSchemaConfiguration struct {
+	Source interface{} `pulumi:"source"`
+}
+
+// GatewayTargetHttpApiSchemaConfigurationInput is an input type that accepts GatewayTargetHttpApiSchemaConfigurationArgs and GatewayTargetHttpApiSchemaConfigurationOutput values.
+// You can construct a concrete instance of `GatewayTargetHttpApiSchemaConfigurationInput` via:
+//
+//	GatewayTargetHttpApiSchemaConfigurationArgs{...}
+type GatewayTargetHttpApiSchemaConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayTargetHttpApiSchemaConfigurationOutput() GatewayTargetHttpApiSchemaConfigurationOutput
+	ToGatewayTargetHttpApiSchemaConfigurationOutputWithContext(context.Context) GatewayTargetHttpApiSchemaConfigurationOutput
+}
+
+type GatewayTargetHttpApiSchemaConfigurationArgs struct {
+	Source pulumi.Input `pulumi:"source"`
+}
+
+func (GatewayTargetHttpApiSchemaConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetHttpApiSchemaConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetHttpApiSchemaConfigurationArgs) ToGatewayTargetHttpApiSchemaConfigurationOutput() GatewayTargetHttpApiSchemaConfigurationOutput {
+	return i.ToGatewayTargetHttpApiSchemaConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetHttpApiSchemaConfigurationArgs) ToGatewayTargetHttpApiSchemaConfigurationOutputWithContext(ctx context.Context) GatewayTargetHttpApiSchemaConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetHttpApiSchemaConfigurationOutput)
+}
+
+func (i GatewayTargetHttpApiSchemaConfigurationArgs) ToGatewayTargetHttpApiSchemaConfigurationPtrOutput() GatewayTargetHttpApiSchemaConfigurationPtrOutput {
+	return i.ToGatewayTargetHttpApiSchemaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetHttpApiSchemaConfigurationArgs) ToGatewayTargetHttpApiSchemaConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetHttpApiSchemaConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetHttpApiSchemaConfigurationOutput).ToGatewayTargetHttpApiSchemaConfigurationPtrOutputWithContext(ctx)
+}
+
+// GatewayTargetHttpApiSchemaConfigurationPtrInput is an input type that accepts GatewayTargetHttpApiSchemaConfigurationArgs, GatewayTargetHttpApiSchemaConfigurationPtr and GatewayTargetHttpApiSchemaConfigurationPtrOutput values.
+// You can construct a concrete instance of `GatewayTargetHttpApiSchemaConfigurationPtrInput` via:
+//
+//	        GatewayTargetHttpApiSchemaConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTargetHttpApiSchemaConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetHttpApiSchemaConfigurationPtrOutput() GatewayTargetHttpApiSchemaConfigurationPtrOutput
+	ToGatewayTargetHttpApiSchemaConfigurationPtrOutputWithContext(context.Context) GatewayTargetHttpApiSchemaConfigurationPtrOutput
+}
+
+type gatewayTargetHttpApiSchemaConfigurationPtrType GatewayTargetHttpApiSchemaConfigurationArgs
+
+func GatewayTargetHttpApiSchemaConfigurationPtr(v *GatewayTargetHttpApiSchemaConfigurationArgs) GatewayTargetHttpApiSchemaConfigurationPtrInput {
+	return (*gatewayTargetHttpApiSchemaConfigurationPtrType)(v)
+}
+
+func (*gatewayTargetHttpApiSchemaConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetHttpApiSchemaConfiguration)(nil)).Elem()
+}
+
+func (i *gatewayTargetHttpApiSchemaConfigurationPtrType) ToGatewayTargetHttpApiSchemaConfigurationPtrOutput() GatewayTargetHttpApiSchemaConfigurationPtrOutput {
+	return i.ToGatewayTargetHttpApiSchemaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTargetHttpApiSchemaConfigurationPtrType) ToGatewayTargetHttpApiSchemaConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetHttpApiSchemaConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetHttpApiSchemaConfigurationPtrOutput)
+}
+
+type GatewayTargetHttpApiSchemaConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetHttpApiSchemaConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetHttpApiSchemaConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetHttpApiSchemaConfigurationOutput) ToGatewayTargetHttpApiSchemaConfigurationOutput() GatewayTargetHttpApiSchemaConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetHttpApiSchemaConfigurationOutput) ToGatewayTargetHttpApiSchemaConfigurationOutputWithContext(ctx context.Context) GatewayTargetHttpApiSchemaConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetHttpApiSchemaConfigurationOutput) ToGatewayTargetHttpApiSchemaConfigurationPtrOutput() GatewayTargetHttpApiSchemaConfigurationPtrOutput {
+	return o.ToGatewayTargetHttpApiSchemaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetHttpApiSchemaConfigurationOutput) ToGatewayTargetHttpApiSchemaConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetHttpApiSchemaConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetHttpApiSchemaConfiguration) *GatewayTargetHttpApiSchemaConfiguration {
+		return &v
+	}).(GatewayTargetHttpApiSchemaConfigurationPtrOutput)
+}
+
+func (o GatewayTargetHttpApiSchemaConfigurationOutput) Source() pulumi.AnyOutput {
+	return o.ApplyT(func(v GatewayTargetHttpApiSchemaConfiguration) interface{} { return v.Source }).(pulumi.AnyOutput)
+}
+
+type GatewayTargetHttpApiSchemaConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetHttpApiSchemaConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetHttpApiSchemaConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetHttpApiSchemaConfigurationPtrOutput) ToGatewayTargetHttpApiSchemaConfigurationPtrOutput() GatewayTargetHttpApiSchemaConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetHttpApiSchemaConfigurationPtrOutput) ToGatewayTargetHttpApiSchemaConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetHttpApiSchemaConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetHttpApiSchemaConfigurationPtrOutput) Elem() GatewayTargetHttpApiSchemaConfigurationOutput {
+	return o.ApplyT(func(v *GatewayTargetHttpApiSchemaConfiguration) GatewayTargetHttpApiSchemaConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetHttpApiSchemaConfiguration
+		return ret
+	}).(GatewayTargetHttpApiSchemaConfigurationOutput)
+}
+
+func (o GatewayTargetHttpApiSchemaConfigurationPtrOutput) Source() pulumi.AnyOutput {
+	return o.ApplyT(func(v *GatewayTargetHttpApiSchemaConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.AnyOutput)
+}
+
 type GatewayTargetHttpTargetConfiguration0Properties struct {
 	AgentcoreRuntime GatewayTargetRuntimeTargetConfiguration `pulumi:"agentcoreRuntime"`
 }
 
-type GatewayTargetHttpTargetConfigurationProperties struct {
-	AgentcoreRuntime GatewayTargetRuntimeTargetConfiguration `pulumi:"agentcoreRuntime"`
-}
-
-// GatewayTargetHttpTargetConfigurationPropertiesInput is an input type that accepts GatewayTargetHttpTargetConfigurationPropertiesArgs and GatewayTargetHttpTargetConfigurationPropertiesOutput values.
-// You can construct a concrete instance of `GatewayTargetHttpTargetConfigurationPropertiesInput` via:
+// GatewayTargetHttpTargetConfiguration0PropertiesInput is an input type that accepts GatewayTargetHttpTargetConfiguration0PropertiesArgs and GatewayTargetHttpTargetConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetHttpTargetConfiguration0PropertiesInput` via:
 //
-//	GatewayTargetHttpTargetConfigurationPropertiesArgs{...}
-type GatewayTargetHttpTargetConfigurationPropertiesInput interface {
+//	GatewayTargetHttpTargetConfiguration0PropertiesArgs{...}
+type GatewayTargetHttpTargetConfiguration0PropertiesInput interface {
 	pulumi.Input
 
-	ToGatewayTargetHttpTargetConfigurationPropertiesOutput() GatewayTargetHttpTargetConfigurationPropertiesOutput
-	ToGatewayTargetHttpTargetConfigurationPropertiesOutputWithContext(context.Context) GatewayTargetHttpTargetConfigurationPropertiesOutput
+	ToGatewayTargetHttpTargetConfiguration0PropertiesOutput() GatewayTargetHttpTargetConfiguration0PropertiesOutput
+	ToGatewayTargetHttpTargetConfiguration0PropertiesOutputWithContext(context.Context) GatewayTargetHttpTargetConfiguration0PropertiesOutput
 }
 
-type GatewayTargetHttpTargetConfigurationPropertiesArgs struct {
+type GatewayTargetHttpTargetConfiguration0PropertiesArgs struct {
 	AgentcoreRuntime GatewayTargetRuntimeTargetConfigurationInput `pulumi:"agentcoreRuntime"`
 }
 
-func (GatewayTargetHttpTargetConfigurationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayTargetHttpTargetConfigurationProperties)(nil)).Elem()
+func (GatewayTargetHttpTargetConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetHttpTargetConfiguration0Properties)(nil)).Elem()
 }
 
-func (i GatewayTargetHttpTargetConfigurationPropertiesArgs) ToGatewayTargetHttpTargetConfigurationPropertiesOutput() GatewayTargetHttpTargetConfigurationPropertiesOutput {
-	return i.ToGatewayTargetHttpTargetConfigurationPropertiesOutputWithContext(context.Background())
+func (i GatewayTargetHttpTargetConfiguration0PropertiesArgs) ToGatewayTargetHttpTargetConfiguration0PropertiesOutput() GatewayTargetHttpTargetConfiguration0PropertiesOutput {
+	return i.ToGatewayTargetHttpTargetConfiguration0PropertiesOutputWithContext(context.Background())
 }
 
-func (i GatewayTargetHttpTargetConfigurationPropertiesArgs) ToGatewayTargetHttpTargetConfigurationPropertiesOutputWithContext(ctx context.Context) GatewayTargetHttpTargetConfigurationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetHttpTargetConfigurationPropertiesOutput)
+func (i GatewayTargetHttpTargetConfiguration0PropertiesArgs) ToGatewayTargetHttpTargetConfiguration0PropertiesOutputWithContext(ctx context.Context) GatewayTargetHttpTargetConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetHttpTargetConfiguration0PropertiesOutput)
 }
 
-type GatewayTargetHttpTargetConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+type GatewayTargetHttpTargetConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
 
-func (GatewayTargetHttpTargetConfigurationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayTargetHttpTargetConfigurationProperties)(nil)).Elem()
+func (GatewayTargetHttpTargetConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetHttpTargetConfiguration0Properties)(nil)).Elem()
 }
 
-func (o GatewayTargetHttpTargetConfigurationPropertiesOutput) ToGatewayTargetHttpTargetConfigurationPropertiesOutput() GatewayTargetHttpTargetConfigurationPropertiesOutput {
+func (o GatewayTargetHttpTargetConfiguration0PropertiesOutput) ToGatewayTargetHttpTargetConfiguration0PropertiesOutput() GatewayTargetHttpTargetConfiguration0PropertiesOutput {
 	return o
 }
 
-func (o GatewayTargetHttpTargetConfigurationPropertiesOutput) ToGatewayTargetHttpTargetConfigurationPropertiesOutputWithContext(ctx context.Context) GatewayTargetHttpTargetConfigurationPropertiesOutput {
+func (o GatewayTargetHttpTargetConfiguration0PropertiesOutput) ToGatewayTargetHttpTargetConfiguration0PropertiesOutputWithContext(ctx context.Context) GatewayTargetHttpTargetConfiguration0PropertiesOutput {
 	return o
 }
 
-func (o GatewayTargetHttpTargetConfigurationPropertiesOutput) AgentcoreRuntime() GatewayTargetRuntimeTargetConfigurationOutput {
-	return o.ApplyT(func(v GatewayTargetHttpTargetConfigurationProperties) GatewayTargetRuntimeTargetConfiguration {
+func (o GatewayTargetHttpTargetConfiguration0PropertiesOutput) AgentcoreRuntime() GatewayTargetRuntimeTargetConfigurationOutput {
+	return o.ApplyT(func(v GatewayTargetHttpTargetConfiguration0Properties) GatewayTargetRuntimeTargetConfiguration {
 		return v.AgentcoreRuntime
 	}).(GatewayTargetRuntimeTargetConfigurationOutput)
 }
 
-type GatewayTargetHttpTargetConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+type GatewayTargetHttpTargetConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (GatewayTargetHttpTargetConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayTargetHttpTargetConfigurationProperties)(nil)).Elem()
+func (GatewayTargetHttpTargetConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetHttpTargetConfiguration0Properties)(nil)).Elem()
 }
 
-func (o GatewayTargetHttpTargetConfigurationPropertiesPtrOutput) ToGatewayTargetHttpTargetConfigurationPropertiesPtrOutput() GatewayTargetHttpTargetConfigurationPropertiesPtrOutput {
+func (o GatewayTargetHttpTargetConfiguration0PropertiesPtrOutput) ToGatewayTargetHttpTargetConfiguration0PropertiesPtrOutput() GatewayTargetHttpTargetConfiguration0PropertiesPtrOutput {
 	return o
 }
 
-func (o GatewayTargetHttpTargetConfigurationPropertiesPtrOutput) ToGatewayTargetHttpTargetConfigurationPropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetHttpTargetConfigurationPropertiesPtrOutput {
+func (o GatewayTargetHttpTargetConfiguration0PropertiesPtrOutput) ToGatewayTargetHttpTargetConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetHttpTargetConfiguration0PropertiesPtrOutput {
 	return o
 }
 
-func (o GatewayTargetHttpTargetConfigurationPropertiesPtrOutput) Elem() GatewayTargetHttpTargetConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *GatewayTargetHttpTargetConfigurationProperties) GatewayTargetHttpTargetConfigurationProperties {
+func (o GatewayTargetHttpTargetConfiguration0PropertiesPtrOutput) Elem() GatewayTargetHttpTargetConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetHttpTargetConfiguration0Properties) GatewayTargetHttpTargetConfiguration0Properties {
 		if v != nil {
 			return *v
 		}
-		var ret GatewayTargetHttpTargetConfigurationProperties
+		var ret GatewayTargetHttpTargetConfiguration0Properties
 		return ret
-	}).(GatewayTargetHttpTargetConfigurationPropertiesOutput)
+	}).(GatewayTargetHttpTargetConfiguration0PropertiesOutput)
 }
 
-func (o GatewayTargetHttpTargetConfigurationPropertiesPtrOutput) AgentcoreRuntime() GatewayTargetRuntimeTargetConfigurationPtrOutput {
-	return o.ApplyT(func(v *GatewayTargetHttpTargetConfigurationProperties) *GatewayTargetRuntimeTargetConfiguration {
+func (o GatewayTargetHttpTargetConfiguration0PropertiesPtrOutput) AgentcoreRuntime() GatewayTargetRuntimeTargetConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetHttpTargetConfiguration0Properties) *GatewayTargetRuntimeTargetConfiguration {
 		if v == nil {
 			return nil
 		}
 		return &v.AgentcoreRuntime
 	}).(GatewayTargetRuntimeTargetConfigurationPtrOutput)
+}
+
+type GatewayTargetHttpTargetConfiguration1Properties struct {
+	Passthrough GatewayTargetPassthroughTargetConfiguration `pulumi:"passthrough"`
+}
+
+// GatewayTargetHttpTargetConfiguration1PropertiesInput is an input type that accepts GatewayTargetHttpTargetConfiguration1PropertiesArgs and GatewayTargetHttpTargetConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetHttpTargetConfiguration1PropertiesInput` via:
+//
+//	GatewayTargetHttpTargetConfiguration1PropertiesArgs{...}
+type GatewayTargetHttpTargetConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetHttpTargetConfiguration1PropertiesOutput() GatewayTargetHttpTargetConfiguration1PropertiesOutput
+	ToGatewayTargetHttpTargetConfiguration1PropertiesOutputWithContext(context.Context) GatewayTargetHttpTargetConfiguration1PropertiesOutput
+}
+
+type GatewayTargetHttpTargetConfiguration1PropertiesArgs struct {
+	Passthrough GatewayTargetPassthroughTargetConfigurationInput `pulumi:"passthrough"`
+}
+
+func (GatewayTargetHttpTargetConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetHttpTargetConfiguration1Properties)(nil)).Elem()
+}
+
+func (i GatewayTargetHttpTargetConfiguration1PropertiesArgs) ToGatewayTargetHttpTargetConfiguration1PropertiesOutput() GatewayTargetHttpTargetConfiguration1PropertiesOutput {
+	return i.ToGatewayTargetHttpTargetConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetHttpTargetConfiguration1PropertiesArgs) ToGatewayTargetHttpTargetConfiguration1PropertiesOutputWithContext(ctx context.Context) GatewayTargetHttpTargetConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetHttpTargetConfiguration1PropertiesOutput)
+}
+
+type GatewayTargetHttpTargetConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetHttpTargetConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetHttpTargetConfiguration1Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetHttpTargetConfiguration1PropertiesOutput) ToGatewayTargetHttpTargetConfiguration1PropertiesOutput() GatewayTargetHttpTargetConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetHttpTargetConfiguration1PropertiesOutput) ToGatewayTargetHttpTargetConfiguration1PropertiesOutputWithContext(ctx context.Context) GatewayTargetHttpTargetConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetHttpTargetConfiguration1PropertiesOutput) Passthrough() GatewayTargetPassthroughTargetConfigurationOutput {
+	return o.ApplyT(func(v GatewayTargetHttpTargetConfiguration1Properties) GatewayTargetPassthroughTargetConfiguration {
+		return v.Passthrough
+	}).(GatewayTargetPassthroughTargetConfigurationOutput)
+}
+
+type GatewayTargetHttpTargetConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetHttpTargetConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetHttpTargetConfiguration1Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetHttpTargetConfiguration1PropertiesPtrOutput) ToGatewayTargetHttpTargetConfiguration1PropertiesPtrOutput() GatewayTargetHttpTargetConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetHttpTargetConfiguration1PropertiesPtrOutput) ToGatewayTargetHttpTargetConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetHttpTargetConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetHttpTargetConfiguration1PropertiesPtrOutput) Elem() GatewayTargetHttpTargetConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetHttpTargetConfiguration1Properties) GatewayTargetHttpTargetConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetHttpTargetConfiguration1Properties
+		return ret
+	}).(GatewayTargetHttpTargetConfiguration1PropertiesOutput)
+}
+
+func (o GatewayTargetHttpTargetConfiguration1PropertiesPtrOutput) Passthrough() GatewayTargetPassthroughTargetConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetHttpTargetConfiguration1Properties) *GatewayTargetPassthroughTargetConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Passthrough
+	}).(GatewayTargetPassthroughTargetConfigurationPtrOutput)
 }
 
 type GatewayTargetIamCredentialProvider struct {
@@ -7855,6 +8586,90 @@ func (o GatewayTargetMcpTargetConfiguration4PropertiesPtrOutput) ApiGateway() Ga
 	}).(GatewayTargetApiGatewayTargetConfigurationPtrOutput)
 }
 
+type GatewayTargetMcpTargetConfiguration5Properties struct {
+	Connector GatewayTargetConnectorTargetConfiguration `pulumi:"connector"`
+}
+
+// GatewayTargetMcpTargetConfiguration5PropertiesInput is an input type that accepts GatewayTargetMcpTargetConfiguration5PropertiesArgs and GatewayTargetMcpTargetConfiguration5PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetMcpTargetConfiguration5PropertiesInput` via:
+//
+//	GatewayTargetMcpTargetConfiguration5PropertiesArgs{...}
+type GatewayTargetMcpTargetConfiguration5PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetMcpTargetConfiguration5PropertiesOutput() GatewayTargetMcpTargetConfiguration5PropertiesOutput
+	ToGatewayTargetMcpTargetConfiguration5PropertiesOutputWithContext(context.Context) GatewayTargetMcpTargetConfiguration5PropertiesOutput
+}
+
+type GatewayTargetMcpTargetConfiguration5PropertiesArgs struct {
+	Connector GatewayTargetConnectorTargetConfigurationInput `pulumi:"connector"`
+}
+
+func (GatewayTargetMcpTargetConfiguration5PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetMcpTargetConfiguration5Properties)(nil)).Elem()
+}
+
+func (i GatewayTargetMcpTargetConfiguration5PropertiesArgs) ToGatewayTargetMcpTargetConfiguration5PropertiesOutput() GatewayTargetMcpTargetConfiguration5PropertiesOutput {
+	return i.ToGatewayTargetMcpTargetConfiguration5PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetMcpTargetConfiguration5PropertiesArgs) ToGatewayTargetMcpTargetConfiguration5PropertiesOutputWithContext(ctx context.Context) GatewayTargetMcpTargetConfiguration5PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetMcpTargetConfiguration5PropertiesOutput)
+}
+
+type GatewayTargetMcpTargetConfiguration5PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetMcpTargetConfiguration5PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetMcpTargetConfiguration5Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetMcpTargetConfiguration5PropertiesOutput) ToGatewayTargetMcpTargetConfiguration5PropertiesOutput() GatewayTargetMcpTargetConfiguration5PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetMcpTargetConfiguration5PropertiesOutput) ToGatewayTargetMcpTargetConfiguration5PropertiesOutputWithContext(ctx context.Context) GatewayTargetMcpTargetConfiguration5PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetMcpTargetConfiguration5PropertiesOutput) Connector() GatewayTargetConnectorTargetConfigurationOutput {
+	return o.ApplyT(func(v GatewayTargetMcpTargetConfiguration5Properties) GatewayTargetConnectorTargetConfiguration {
+		return v.Connector
+	}).(GatewayTargetConnectorTargetConfigurationOutput)
+}
+
+type GatewayTargetMcpTargetConfiguration5PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetMcpTargetConfiguration5PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetMcpTargetConfiguration5Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetMcpTargetConfiguration5PropertiesPtrOutput) ToGatewayTargetMcpTargetConfiguration5PropertiesPtrOutput() GatewayTargetMcpTargetConfiguration5PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetMcpTargetConfiguration5PropertiesPtrOutput) ToGatewayTargetMcpTargetConfiguration5PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetMcpTargetConfiguration5PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetMcpTargetConfiguration5PropertiesPtrOutput) Elem() GatewayTargetMcpTargetConfiguration5PropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpTargetConfiguration5Properties) GatewayTargetMcpTargetConfiguration5Properties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetMcpTargetConfiguration5Properties
+		return ret
+	}).(GatewayTargetMcpTargetConfiguration5PropertiesOutput)
+}
+
+func (o GatewayTargetMcpTargetConfiguration5PropertiesPtrOutput) Connector() GatewayTargetConnectorTargetConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpTargetConfiguration5Properties) *GatewayTargetConnectorTargetConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Connector
+	}).(GatewayTargetConnectorTargetConfigurationPtrOutput)
+}
+
 type GatewayTargetMcpToolSchemaConfiguration0Properties struct {
 	S3 GatewayTargetS3Configuration `pulumi:"s3"`
 }
@@ -8550,6 +9365,139 @@ func (o GatewayTargetOAuthCredentialProviderPtrOutput) Scopes() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
+type GatewayTargetPassthroughTargetConfiguration struct {
+	Endpoint                string                                   `pulumi:"endpoint"`
+	ProtocolType            GatewayTargetPassthroughProtocolType     `pulumi:"protocolType"`
+	Schema                  *GatewayTargetHttpApiSchemaConfiguration `pulumi:"schema"`
+	StickinessConfiguration *GatewayTargetStickinessConfiguration    `pulumi:"stickinessConfiguration"`
+}
+
+// GatewayTargetPassthroughTargetConfigurationInput is an input type that accepts GatewayTargetPassthroughTargetConfigurationArgs and GatewayTargetPassthroughTargetConfigurationOutput values.
+// You can construct a concrete instance of `GatewayTargetPassthroughTargetConfigurationInput` via:
+//
+//	GatewayTargetPassthroughTargetConfigurationArgs{...}
+type GatewayTargetPassthroughTargetConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayTargetPassthroughTargetConfigurationOutput() GatewayTargetPassthroughTargetConfigurationOutput
+	ToGatewayTargetPassthroughTargetConfigurationOutputWithContext(context.Context) GatewayTargetPassthroughTargetConfigurationOutput
+}
+
+type GatewayTargetPassthroughTargetConfigurationArgs struct {
+	Endpoint                pulumi.StringInput                              `pulumi:"endpoint"`
+	ProtocolType            GatewayTargetPassthroughProtocolTypeInput       `pulumi:"protocolType"`
+	Schema                  GatewayTargetHttpApiSchemaConfigurationPtrInput `pulumi:"schema"`
+	StickinessConfiguration GatewayTargetStickinessConfigurationPtrInput    `pulumi:"stickinessConfiguration"`
+}
+
+func (GatewayTargetPassthroughTargetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetPassthroughTargetConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetPassthroughTargetConfigurationArgs) ToGatewayTargetPassthroughTargetConfigurationOutput() GatewayTargetPassthroughTargetConfigurationOutput {
+	return i.ToGatewayTargetPassthroughTargetConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetPassthroughTargetConfigurationArgs) ToGatewayTargetPassthroughTargetConfigurationOutputWithContext(ctx context.Context) GatewayTargetPassthroughTargetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetPassthroughTargetConfigurationOutput)
+}
+
+type GatewayTargetPassthroughTargetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetPassthroughTargetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetPassthroughTargetConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetPassthroughTargetConfigurationOutput) ToGatewayTargetPassthroughTargetConfigurationOutput() GatewayTargetPassthroughTargetConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetPassthroughTargetConfigurationOutput) ToGatewayTargetPassthroughTargetConfigurationOutputWithContext(ctx context.Context) GatewayTargetPassthroughTargetConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetPassthroughTargetConfigurationOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetPassthroughTargetConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetPassthroughTargetConfigurationOutput) ProtocolType() GatewayTargetPassthroughProtocolTypeOutput {
+	return o.ApplyT(func(v GatewayTargetPassthroughTargetConfiguration) GatewayTargetPassthroughProtocolType {
+		return v.ProtocolType
+	}).(GatewayTargetPassthroughProtocolTypeOutput)
+}
+
+func (o GatewayTargetPassthroughTargetConfigurationOutput) Schema() GatewayTargetHttpApiSchemaConfigurationPtrOutput {
+	return o.ApplyT(func(v GatewayTargetPassthroughTargetConfiguration) *GatewayTargetHttpApiSchemaConfiguration {
+		return v.Schema
+	}).(GatewayTargetHttpApiSchemaConfigurationPtrOutput)
+}
+
+func (o GatewayTargetPassthroughTargetConfigurationOutput) StickinessConfiguration() GatewayTargetStickinessConfigurationPtrOutput {
+	return o.ApplyT(func(v GatewayTargetPassthroughTargetConfiguration) *GatewayTargetStickinessConfiguration {
+		return v.StickinessConfiguration
+	}).(GatewayTargetStickinessConfigurationPtrOutput)
+}
+
+type GatewayTargetPassthroughTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetPassthroughTargetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetPassthroughTargetConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetPassthroughTargetConfigurationPtrOutput) ToGatewayTargetPassthroughTargetConfigurationPtrOutput() GatewayTargetPassthroughTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetPassthroughTargetConfigurationPtrOutput) ToGatewayTargetPassthroughTargetConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetPassthroughTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetPassthroughTargetConfigurationPtrOutput) Elem() GatewayTargetPassthroughTargetConfigurationOutput {
+	return o.ApplyT(func(v *GatewayTargetPassthroughTargetConfiguration) GatewayTargetPassthroughTargetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetPassthroughTargetConfiguration
+		return ret
+	}).(GatewayTargetPassthroughTargetConfigurationOutput)
+}
+
+func (o GatewayTargetPassthroughTargetConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetPassthroughTargetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetPassthroughTargetConfigurationPtrOutput) ProtocolType() GatewayTargetPassthroughProtocolTypePtrOutput {
+	return o.ApplyT(func(v *GatewayTargetPassthroughTargetConfiguration) *GatewayTargetPassthroughProtocolType {
+		if v == nil {
+			return nil
+		}
+		return &v.ProtocolType
+	}).(GatewayTargetPassthroughProtocolTypePtrOutput)
+}
+
+func (o GatewayTargetPassthroughTargetConfigurationPtrOutput) Schema() GatewayTargetHttpApiSchemaConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetPassthroughTargetConfiguration) *GatewayTargetHttpApiSchemaConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Schema
+	}).(GatewayTargetHttpApiSchemaConfigurationPtrOutput)
+}
+
+func (o GatewayTargetPassthroughTargetConfigurationPtrOutput) StickinessConfiguration() GatewayTargetStickinessConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetPassthroughTargetConfiguration) *GatewayTargetStickinessConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.StickinessConfiguration
+	}).(GatewayTargetStickinessConfigurationPtrOutput)
+}
+
 type GatewayTargetPrivateEndpoint0Properties struct {
 	SelfManagedLatticeResource GatewayTargetSelfManagedLatticeResourceProperties `pulumi:"selfManagedLatticeResource"`
 }
@@ -8821,8 +9769,9 @@ func (o GatewayTargetPrivateEndpoint1PropertiesPtrOutput) ManagedVpcResource() G
 }
 
 type GatewayTargetRuntimeTargetConfiguration struct {
-	Arn       string  `pulumi:"arn"`
-	Qualifier *string `pulumi:"qualifier"`
+	Arn       string                                   `pulumi:"arn"`
+	Qualifier *string                                  `pulumi:"qualifier"`
+	Schema    *GatewayTargetHttpApiSchemaConfiguration `pulumi:"schema"`
 }
 
 // GatewayTargetRuntimeTargetConfigurationInput is an input type that accepts GatewayTargetRuntimeTargetConfigurationArgs and GatewayTargetRuntimeTargetConfigurationOutput values.
@@ -8837,8 +9786,9 @@ type GatewayTargetRuntimeTargetConfigurationInput interface {
 }
 
 type GatewayTargetRuntimeTargetConfigurationArgs struct {
-	Arn       pulumi.StringInput    `pulumi:"arn"`
-	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
+	Arn       pulumi.StringInput                              `pulumi:"arn"`
+	Qualifier pulumi.StringPtrInput                           `pulumi:"qualifier"`
+	Schema    GatewayTargetHttpApiSchemaConfigurationPtrInput `pulumi:"schema"`
 }
 
 func (GatewayTargetRuntimeTargetConfigurationArgs) ElementType() reflect.Type {
@@ -8873,6 +9823,12 @@ func (o GatewayTargetRuntimeTargetConfigurationOutput) Arn() pulumi.StringOutput
 
 func (o GatewayTargetRuntimeTargetConfigurationOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayTargetRuntimeTargetConfiguration) *string { return v.Qualifier }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetRuntimeTargetConfigurationOutput) Schema() GatewayTargetHttpApiSchemaConfigurationPtrOutput {
+	return o.ApplyT(func(v GatewayTargetRuntimeTargetConfiguration) *GatewayTargetHttpApiSchemaConfiguration {
+		return v.Schema
+	}).(GatewayTargetHttpApiSchemaConfigurationPtrOutput)
 }
 
 type GatewayTargetRuntimeTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -8915,6 +9871,15 @@ func (o GatewayTargetRuntimeTargetConfigurationPtrOutput) Qualifier() pulumi.Str
 		}
 		return v.Qualifier
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetRuntimeTargetConfigurationPtrOutput) Schema() GatewayTargetHttpApiSchemaConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetRuntimeTargetConfiguration) *GatewayTargetHttpApiSchemaConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Schema
+	}).(GatewayTargetHttpApiSchemaConfigurationPtrOutput)
 }
 
 type GatewayTargetS3Configuration struct {
@@ -9442,6 +10407,154 @@ func (o GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput) ResourceConf
 	}).(pulumi.StringPtrOutput)
 }
 
+type GatewayTargetStickinessConfiguration struct {
+	Identifier string `pulumi:"identifier"`
+	Timeout    *int   `pulumi:"timeout"`
+}
+
+// GatewayTargetStickinessConfigurationInput is an input type that accepts GatewayTargetStickinessConfigurationArgs and GatewayTargetStickinessConfigurationOutput values.
+// You can construct a concrete instance of `GatewayTargetStickinessConfigurationInput` via:
+//
+//	GatewayTargetStickinessConfigurationArgs{...}
+type GatewayTargetStickinessConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayTargetStickinessConfigurationOutput() GatewayTargetStickinessConfigurationOutput
+	ToGatewayTargetStickinessConfigurationOutputWithContext(context.Context) GatewayTargetStickinessConfigurationOutput
+}
+
+type GatewayTargetStickinessConfigurationArgs struct {
+	Identifier pulumi.StringInput `pulumi:"identifier"`
+	Timeout    pulumi.IntPtrInput `pulumi:"timeout"`
+}
+
+func (GatewayTargetStickinessConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetStickinessConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetStickinessConfigurationArgs) ToGatewayTargetStickinessConfigurationOutput() GatewayTargetStickinessConfigurationOutput {
+	return i.ToGatewayTargetStickinessConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetStickinessConfigurationArgs) ToGatewayTargetStickinessConfigurationOutputWithContext(ctx context.Context) GatewayTargetStickinessConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetStickinessConfigurationOutput)
+}
+
+func (i GatewayTargetStickinessConfigurationArgs) ToGatewayTargetStickinessConfigurationPtrOutput() GatewayTargetStickinessConfigurationPtrOutput {
+	return i.ToGatewayTargetStickinessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetStickinessConfigurationArgs) ToGatewayTargetStickinessConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetStickinessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetStickinessConfigurationOutput).ToGatewayTargetStickinessConfigurationPtrOutputWithContext(ctx)
+}
+
+// GatewayTargetStickinessConfigurationPtrInput is an input type that accepts GatewayTargetStickinessConfigurationArgs, GatewayTargetStickinessConfigurationPtr and GatewayTargetStickinessConfigurationPtrOutput values.
+// You can construct a concrete instance of `GatewayTargetStickinessConfigurationPtrInput` via:
+//
+//	        GatewayTargetStickinessConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTargetStickinessConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetStickinessConfigurationPtrOutput() GatewayTargetStickinessConfigurationPtrOutput
+	ToGatewayTargetStickinessConfigurationPtrOutputWithContext(context.Context) GatewayTargetStickinessConfigurationPtrOutput
+}
+
+type gatewayTargetStickinessConfigurationPtrType GatewayTargetStickinessConfigurationArgs
+
+func GatewayTargetStickinessConfigurationPtr(v *GatewayTargetStickinessConfigurationArgs) GatewayTargetStickinessConfigurationPtrInput {
+	return (*gatewayTargetStickinessConfigurationPtrType)(v)
+}
+
+func (*gatewayTargetStickinessConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetStickinessConfiguration)(nil)).Elem()
+}
+
+func (i *gatewayTargetStickinessConfigurationPtrType) ToGatewayTargetStickinessConfigurationPtrOutput() GatewayTargetStickinessConfigurationPtrOutput {
+	return i.ToGatewayTargetStickinessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTargetStickinessConfigurationPtrType) ToGatewayTargetStickinessConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetStickinessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetStickinessConfigurationPtrOutput)
+}
+
+type GatewayTargetStickinessConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetStickinessConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetStickinessConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetStickinessConfigurationOutput) ToGatewayTargetStickinessConfigurationOutput() GatewayTargetStickinessConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetStickinessConfigurationOutput) ToGatewayTargetStickinessConfigurationOutputWithContext(ctx context.Context) GatewayTargetStickinessConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetStickinessConfigurationOutput) ToGatewayTargetStickinessConfigurationPtrOutput() GatewayTargetStickinessConfigurationPtrOutput {
+	return o.ToGatewayTargetStickinessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetStickinessConfigurationOutput) ToGatewayTargetStickinessConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetStickinessConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetStickinessConfiguration) *GatewayTargetStickinessConfiguration {
+		return &v
+	}).(GatewayTargetStickinessConfigurationPtrOutput)
+}
+
+func (o GatewayTargetStickinessConfigurationOutput) Identifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetStickinessConfiguration) string { return v.Identifier }).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetStickinessConfigurationOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayTargetStickinessConfiguration) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+type GatewayTargetStickinessConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetStickinessConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetStickinessConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetStickinessConfigurationPtrOutput) ToGatewayTargetStickinessConfigurationPtrOutput() GatewayTargetStickinessConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetStickinessConfigurationPtrOutput) ToGatewayTargetStickinessConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetStickinessConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetStickinessConfigurationPtrOutput) Elem() GatewayTargetStickinessConfigurationOutput {
+	return o.ApplyT(func(v *GatewayTargetStickinessConfiguration) GatewayTargetStickinessConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetStickinessConfiguration
+		return ret
+	}).(GatewayTargetStickinessConfigurationOutput)
+}
+
+func (o GatewayTargetStickinessConfigurationPtrOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetStickinessConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Identifier
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetStickinessConfigurationPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetStickinessConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.IntPtrOutput)
+}
+
 type GatewayTargetTargetConfiguration0Properties struct {
 	Mcp interface{} `pulumi:"mcp"`
 }
@@ -9525,7 +10638,7 @@ func (o GatewayTargetTargetConfiguration0PropertiesPtrOutput) Mcp() pulumi.AnyOu
 }
 
 type GatewayTargetTargetConfiguration1Properties struct {
-	Http GatewayTargetHttpTargetConfigurationProperties `pulumi:"http"`
+	Http interface{} `pulumi:"http"`
 }
 
 // GatewayTargetTargetConfiguration1PropertiesInput is an input type that accepts GatewayTargetTargetConfiguration1PropertiesArgs and GatewayTargetTargetConfiguration1PropertiesOutput values.
@@ -9540,7 +10653,7 @@ type GatewayTargetTargetConfiguration1PropertiesInput interface {
 }
 
 type GatewayTargetTargetConfiguration1PropertiesArgs struct {
-	Http GatewayTargetHttpTargetConfigurationPropertiesInput `pulumi:"http"`
+	Http pulumi.Input `pulumi:"http"`
 }
 
 func (GatewayTargetTargetConfiguration1PropertiesArgs) ElementType() reflect.Type {
@@ -9569,10 +10682,8 @@ func (o GatewayTargetTargetConfiguration1PropertiesOutput) ToGatewayTargetTarget
 	return o
 }
 
-func (o GatewayTargetTargetConfiguration1PropertiesOutput) Http() GatewayTargetHttpTargetConfigurationPropertiesOutput {
-	return o.ApplyT(func(v GatewayTargetTargetConfiguration1Properties) GatewayTargetHttpTargetConfigurationProperties {
-		return v.Http
-	}).(GatewayTargetHttpTargetConfigurationPropertiesOutput)
+func (o GatewayTargetTargetConfiguration1PropertiesOutput) Http() pulumi.AnyOutput {
+	return o.ApplyT(func(v GatewayTargetTargetConfiguration1Properties) interface{} { return v.Http }).(pulumi.AnyOutput)
 }
 
 type GatewayTargetTargetConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -9599,13 +10710,13 @@ func (o GatewayTargetTargetConfiguration1PropertiesPtrOutput) Elem() GatewayTarg
 	}).(GatewayTargetTargetConfiguration1PropertiesOutput)
 }
 
-func (o GatewayTargetTargetConfiguration1PropertiesPtrOutput) Http() GatewayTargetHttpTargetConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v *GatewayTargetTargetConfiguration1Properties) *GatewayTargetHttpTargetConfigurationProperties {
+func (o GatewayTargetTargetConfiguration1PropertiesPtrOutput) Http() pulumi.AnyOutput {
+	return o.ApplyT(func(v *GatewayTargetTargetConfiguration1Properties) interface{} {
 		if v == nil {
 			return nil
 		}
-		return &v.Http
-	}).(GatewayTargetHttpTargetConfigurationPropertiesPtrOutput)
+		return v.Http
+	}).(pulumi.AnyOutput)
 }
 
 type GatewayTargetToolDefinition struct {
@@ -10534,9 +11645,11 @@ func (o HarnessAgentCoreMemoryConfigurationPtrOutput) RetrievalConfig() HarnessA
 }
 
 type HarnessAgentCoreMemoryRetrievalConfig struct {
-	RelevanceScore *float64 `pulumi:"relevanceScore"`
-	StrategyId     *string  `pulumi:"strategyId"`
-	TopK           *int     `pulumi:"topK"`
+	// Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
+	RelevanceScore interface{} `pulumi:"relevanceScore"`
+	StrategyId     *string     `pulumi:"strategyId"`
+	// Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
+	TopK interface{} `pulumi:"topK"`
 }
 
 // HarnessAgentCoreMemoryRetrievalConfigInput is an input type that accepts HarnessAgentCoreMemoryRetrievalConfigArgs and HarnessAgentCoreMemoryRetrievalConfigOutput values.
@@ -10551,9 +11664,11 @@ type HarnessAgentCoreMemoryRetrievalConfigInput interface {
 }
 
 type HarnessAgentCoreMemoryRetrievalConfigArgs struct {
-	RelevanceScore pulumi.Float64PtrInput `pulumi:"relevanceScore"`
-	StrategyId     pulumi.StringPtrInput  `pulumi:"strategyId"`
-	TopK           pulumi.IntPtrInput     `pulumi:"topK"`
+	// Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
+	RelevanceScore pulumi.Input          `pulumi:"relevanceScore"`
+	StrategyId     pulumi.StringPtrInput `pulumi:"strategyId"`
+	// Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
+	TopK pulumi.Input `pulumi:"topK"`
 }
 
 func (HarnessAgentCoreMemoryRetrievalConfigArgs) ElementType() reflect.Type {
@@ -10607,16 +11722,18 @@ func (o HarnessAgentCoreMemoryRetrievalConfigOutput) ToHarnessAgentCoreMemoryRet
 	return o
 }
 
-func (o HarnessAgentCoreMemoryRetrievalConfigOutput) RelevanceScore() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v HarnessAgentCoreMemoryRetrievalConfig) *float64 { return v.RelevanceScore }).(pulumi.Float64PtrOutput)
+// Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
+func (o HarnessAgentCoreMemoryRetrievalConfigOutput) RelevanceScore() pulumi.AnyOutput {
+	return o.ApplyT(func(v HarnessAgentCoreMemoryRetrievalConfig) interface{} { return v.RelevanceScore }).(pulumi.AnyOutput)
 }
 
 func (o HarnessAgentCoreMemoryRetrievalConfigOutput) StrategyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HarnessAgentCoreMemoryRetrievalConfig) *string { return v.StrategyId }).(pulumi.StringPtrOutput)
 }
 
-func (o HarnessAgentCoreMemoryRetrievalConfigOutput) TopK() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HarnessAgentCoreMemoryRetrievalConfig) *int { return v.TopK }).(pulumi.IntPtrOutput)
+// Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
+func (o HarnessAgentCoreMemoryRetrievalConfigOutput) TopK() pulumi.AnyOutput {
+	return o.ApplyT(func(v HarnessAgentCoreMemoryRetrievalConfig) interface{} { return v.TopK }).(pulumi.AnyOutput)
 }
 
 type HarnessAgentCoreMemoryRetrievalConfigMapOutput struct{ *pulumi.OutputState }
@@ -11056,10 +12173,13 @@ func (o HarnessAuthorizingClaimMatchValueTypeOutput) ClaimMatchValue() HarnessCl
 }
 
 type HarnessBedrockModelConfig struct {
-	MaxTokens   *int     `pulumi:"maxTokens"`
-	ModelId     string   `pulumi:"modelId"`
-	Temperature *float64 `pulumi:"temperature"`
-	TopP        *float64 `pulumi:"topP"`
+	// Provider-specific parameters passed through to the model provider unchanged.
+	AdditionalParams map[string]interface{}              `pulumi:"additionalParams"`
+	ApiFormat        *HarnessBedrockModelConfigApiFormat `pulumi:"apiFormat"`
+	MaxTokens        *int                                `pulumi:"maxTokens"`
+	ModelId          string                              `pulumi:"modelId"`
+	Temperature      *float64                            `pulumi:"temperature"`
+	TopP             *float64                            `pulumi:"topP"`
 }
 
 // HarnessBedrockModelConfigInput is an input type that accepts HarnessBedrockModelConfigArgs and HarnessBedrockModelConfigOutput values.
@@ -11074,10 +12194,13 @@ type HarnessBedrockModelConfigInput interface {
 }
 
 type HarnessBedrockModelConfigArgs struct {
-	MaxTokens   pulumi.IntPtrInput     `pulumi:"maxTokens"`
-	ModelId     pulumi.StringInput     `pulumi:"modelId"`
-	Temperature pulumi.Float64PtrInput `pulumi:"temperature"`
-	TopP        pulumi.Float64PtrInput `pulumi:"topP"`
+	// Provider-specific parameters passed through to the model provider unchanged.
+	AdditionalParams pulumi.MapInput                            `pulumi:"additionalParams"`
+	ApiFormat        HarnessBedrockModelConfigApiFormatPtrInput `pulumi:"apiFormat"`
+	MaxTokens        pulumi.IntPtrInput                         `pulumi:"maxTokens"`
+	ModelId          pulumi.StringInput                         `pulumi:"modelId"`
+	Temperature      pulumi.Float64PtrInput                     `pulumi:"temperature"`
+	TopP             pulumi.Float64PtrInput                     `pulumi:"topP"`
 }
 
 func (HarnessBedrockModelConfigArgs) ElementType() reflect.Type {
@@ -11157,6 +12280,15 @@ func (o HarnessBedrockModelConfigOutput) ToHarnessBedrockModelConfigPtrOutputWit
 	}).(HarnessBedrockModelConfigPtrOutput)
 }
 
+// Provider-specific parameters passed through to the model provider unchanged.
+func (o HarnessBedrockModelConfigOutput) AdditionalParams() pulumi.MapOutput {
+	return o.ApplyT(func(v HarnessBedrockModelConfig) map[string]interface{} { return v.AdditionalParams }).(pulumi.MapOutput)
+}
+
+func (o HarnessBedrockModelConfigOutput) ApiFormat() HarnessBedrockModelConfigApiFormatPtrOutput {
+	return o.ApplyT(func(v HarnessBedrockModelConfig) *HarnessBedrockModelConfigApiFormat { return v.ApiFormat }).(HarnessBedrockModelConfigApiFormatPtrOutput)
+}
+
 func (o HarnessBedrockModelConfigOutput) MaxTokens() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HarnessBedrockModelConfig) *int { return v.MaxTokens }).(pulumi.IntPtrOutput)
 }
@@ -11195,6 +12327,25 @@ func (o HarnessBedrockModelConfigPtrOutput) Elem() HarnessBedrockModelConfigOutp
 		var ret HarnessBedrockModelConfig
 		return ret
 	}).(HarnessBedrockModelConfigOutput)
+}
+
+// Provider-specific parameters passed through to the model provider unchanged.
+func (o HarnessBedrockModelConfigPtrOutput) AdditionalParams() pulumi.MapOutput {
+	return o.ApplyT(func(v *HarnessBedrockModelConfig) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalParams
+	}).(pulumi.MapOutput)
+}
+
+func (o HarnessBedrockModelConfigPtrOutput) ApiFormat() HarnessBedrockModelConfigApiFormatPtrOutput {
+	return o.ApplyT(func(v *HarnessBedrockModelConfig) *HarnessBedrockModelConfigApiFormat {
+		if v == nil {
+			return nil
+		}
+		return v.ApiFormat
+	}).(HarnessBedrockModelConfigApiFormatPtrOutput)
 }
 
 func (o HarnessBedrockModelConfigPtrOutput) MaxTokens() pulumi.IntPtrOutput {
@@ -11536,11 +12687,13 @@ func (o HarnessCustomClaimValidationTypeArrayOutput) Index(i pulumi.IntInput) Ha
 }
 
 type HarnessCustomJwtAuthorizerConfiguration struct {
-	AllowedAudience []string                           `pulumi:"allowedAudience"`
-	AllowedClients  []string                           `pulumi:"allowedClients"`
-	AllowedScopes   []string                           `pulumi:"allowedScopes"`
-	CustomClaims    []HarnessCustomClaimValidationType `pulumi:"customClaims"`
-	DiscoveryUrl    string                             `pulumi:"discoveryUrl"`
+	AllowedAudience          []string                           `pulumi:"allowedAudience"`
+	AllowedClients           []string                           `pulumi:"allowedClients"`
+	AllowedScopes            []string                           `pulumi:"allowedScopes"`
+	CustomClaims             []HarnessCustomClaimValidationType `pulumi:"customClaims"`
+	DiscoveryUrl             string                             `pulumi:"discoveryUrl"`
+	PrivateEndpoint          *HarnessPrivateEndpoint            `pulumi:"privateEndpoint"`
+	PrivateEndpointOverrides []HarnessPrivateEndpointOverride   `pulumi:"privateEndpointOverrides"`
 }
 
 // HarnessCustomJwtAuthorizerConfigurationInput is an input type that accepts HarnessCustomJwtAuthorizerConfigurationArgs and HarnessCustomJwtAuthorizerConfigurationOutput values.
@@ -11555,11 +12708,13 @@ type HarnessCustomJwtAuthorizerConfigurationInput interface {
 }
 
 type HarnessCustomJwtAuthorizerConfigurationArgs struct {
-	AllowedAudience pulumi.StringArrayInput                    `pulumi:"allowedAudience"`
-	AllowedClients  pulumi.StringArrayInput                    `pulumi:"allowedClients"`
-	AllowedScopes   pulumi.StringArrayInput                    `pulumi:"allowedScopes"`
-	CustomClaims    HarnessCustomClaimValidationTypeArrayInput `pulumi:"customClaims"`
-	DiscoveryUrl    pulumi.StringInput                         `pulumi:"discoveryUrl"`
+	AllowedAudience          pulumi.StringArrayInput                    `pulumi:"allowedAudience"`
+	AllowedClients           pulumi.StringArrayInput                    `pulumi:"allowedClients"`
+	AllowedScopes            pulumi.StringArrayInput                    `pulumi:"allowedScopes"`
+	CustomClaims             HarnessCustomClaimValidationTypeArrayInput `pulumi:"customClaims"`
+	DiscoveryUrl             pulumi.StringInput                         `pulumi:"discoveryUrl"`
+	PrivateEndpoint          HarnessPrivateEndpointPtrInput             `pulumi:"privateEndpoint"`
+	PrivateEndpointOverrides HarnessPrivateEndpointOverrideArrayInput   `pulumi:"privateEndpointOverrides"`
 }
 
 func (HarnessCustomJwtAuthorizerConfigurationArgs) ElementType() reflect.Type {
@@ -11661,6 +12816,16 @@ func (o HarnessCustomJwtAuthorizerConfigurationOutput) DiscoveryUrl() pulumi.Str
 	return o.ApplyT(func(v HarnessCustomJwtAuthorizerConfiguration) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
 }
 
+func (o HarnessCustomJwtAuthorizerConfigurationOutput) PrivateEndpoint() HarnessPrivateEndpointPtrOutput {
+	return o.ApplyT(func(v HarnessCustomJwtAuthorizerConfiguration) *HarnessPrivateEndpoint { return v.PrivateEndpoint }).(HarnessPrivateEndpointPtrOutput)
+}
+
+func (o HarnessCustomJwtAuthorizerConfigurationOutput) PrivateEndpointOverrides() HarnessPrivateEndpointOverrideArrayOutput {
+	return o.ApplyT(func(v HarnessCustomJwtAuthorizerConfiguration) []HarnessPrivateEndpointOverride {
+		return v.PrivateEndpointOverrides
+	}).(HarnessPrivateEndpointOverrideArrayOutput)
+}
+
 type HarnessCustomJwtAuthorizerConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (HarnessCustomJwtAuthorizerConfigurationPtrOutput) ElementType() reflect.Type {
@@ -11727,6 +12892,296 @@ func (o HarnessCustomJwtAuthorizerConfigurationPtrOutput) DiscoveryUrl() pulumi.
 			return nil
 		}
 		return &v.DiscoveryUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HarnessCustomJwtAuthorizerConfigurationPtrOutput) PrivateEndpoint() HarnessPrivateEndpointPtrOutput {
+	return o.ApplyT(func(v *HarnessCustomJwtAuthorizerConfiguration) *HarnessPrivateEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpoint
+	}).(HarnessPrivateEndpointPtrOutput)
+}
+
+func (o HarnessCustomJwtAuthorizerConfigurationPtrOutput) PrivateEndpointOverrides() HarnessPrivateEndpointOverrideArrayOutput {
+	return o.ApplyT(func(v *HarnessCustomJwtAuthorizerConfiguration) []HarnessPrivateEndpointOverride {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpointOverrides
+	}).(HarnessPrivateEndpointOverrideArrayOutput)
+}
+
+// Explicitly opt out of memory.
+type HarnessDisabledMemoryConfiguration struct {
+}
+
+// HarnessDisabledMemoryConfigurationInput is an input type that accepts HarnessDisabledMemoryConfigurationArgs and HarnessDisabledMemoryConfigurationOutput values.
+// You can construct a concrete instance of `HarnessDisabledMemoryConfigurationInput` via:
+//
+//	HarnessDisabledMemoryConfigurationArgs{...}
+type HarnessDisabledMemoryConfigurationInput interface {
+	pulumi.Input
+
+	ToHarnessDisabledMemoryConfigurationOutput() HarnessDisabledMemoryConfigurationOutput
+	ToHarnessDisabledMemoryConfigurationOutputWithContext(context.Context) HarnessDisabledMemoryConfigurationOutput
+}
+
+// Explicitly opt out of memory.
+type HarnessDisabledMemoryConfigurationArgs struct {
+}
+
+func (HarnessDisabledMemoryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessDisabledMemoryConfiguration)(nil)).Elem()
+}
+
+func (i HarnessDisabledMemoryConfigurationArgs) ToHarnessDisabledMemoryConfigurationOutput() HarnessDisabledMemoryConfigurationOutput {
+	return i.ToHarnessDisabledMemoryConfigurationOutputWithContext(context.Background())
+}
+
+func (i HarnessDisabledMemoryConfigurationArgs) ToHarnessDisabledMemoryConfigurationOutputWithContext(ctx context.Context) HarnessDisabledMemoryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessDisabledMemoryConfigurationOutput)
+}
+
+func (i HarnessDisabledMemoryConfigurationArgs) ToHarnessDisabledMemoryConfigurationPtrOutput() HarnessDisabledMemoryConfigurationPtrOutput {
+	return i.ToHarnessDisabledMemoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i HarnessDisabledMemoryConfigurationArgs) ToHarnessDisabledMemoryConfigurationPtrOutputWithContext(ctx context.Context) HarnessDisabledMemoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessDisabledMemoryConfigurationOutput).ToHarnessDisabledMemoryConfigurationPtrOutputWithContext(ctx)
+}
+
+// HarnessDisabledMemoryConfigurationPtrInput is an input type that accepts HarnessDisabledMemoryConfigurationArgs, HarnessDisabledMemoryConfigurationPtr and HarnessDisabledMemoryConfigurationPtrOutput values.
+// You can construct a concrete instance of `HarnessDisabledMemoryConfigurationPtrInput` via:
+//
+//	        HarnessDisabledMemoryConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessDisabledMemoryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToHarnessDisabledMemoryConfigurationPtrOutput() HarnessDisabledMemoryConfigurationPtrOutput
+	ToHarnessDisabledMemoryConfigurationPtrOutputWithContext(context.Context) HarnessDisabledMemoryConfigurationPtrOutput
+}
+
+type harnessDisabledMemoryConfigurationPtrType HarnessDisabledMemoryConfigurationArgs
+
+func HarnessDisabledMemoryConfigurationPtr(v *HarnessDisabledMemoryConfigurationArgs) HarnessDisabledMemoryConfigurationPtrInput {
+	return (*harnessDisabledMemoryConfigurationPtrType)(v)
+}
+
+func (*harnessDisabledMemoryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessDisabledMemoryConfiguration)(nil)).Elem()
+}
+
+func (i *harnessDisabledMemoryConfigurationPtrType) ToHarnessDisabledMemoryConfigurationPtrOutput() HarnessDisabledMemoryConfigurationPtrOutput {
+	return i.ToHarnessDisabledMemoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *harnessDisabledMemoryConfigurationPtrType) ToHarnessDisabledMemoryConfigurationPtrOutputWithContext(ctx context.Context) HarnessDisabledMemoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessDisabledMemoryConfigurationPtrOutput)
+}
+
+// Explicitly opt out of memory.
+type HarnessDisabledMemoryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (HarnessDisabledMemoryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessDisabledMemoryConfiguration)(nil)).Elem()
+}
+
+func (o HarnessDisabledMemoryConfigurationOutput) ToHarnessDisabledMemoryConfigurationOutput() HarnessDisabledMemoryConfigurationOutput {
+	return o
+}
+
+func (o HarnessDisabledMemoryConfigurationOutput) ToHarnessDisabledMemoryConfigurationOutputWithContext(ctx context.Context) HarnessDisabledMemoryConfigurationOutput {
+	return o
+}
+
+func (o HarnessDisabledMemoryConfigurationOutput) ToHarnessDisabledMemoryConfigurationPtrOutput() HarnessDisabledMemoryConfigurationPtrOutput {
+	return o.ToHarnessDisabledMemoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessDisabledMemoryConfigurationOutput) ToHarnessDisabledMemoryConfigurationPtrOutputWithContext(ctx context.Context) HarnessDisabledMemoryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessDisabledMemoryConfiguration) *HarnessDisabledMemoryConfiguration {
+		return &v
+	}).(HarnessDisabledMemoryConfigurationPtrOutput)
+}
+
+type HarnessDisabledMemoryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessDisabledMemoryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessDisabledMemoryConfiguration)(nil)).Elem()
+}
+
+func (o HarnessDisabledMemoryConfigurationPtrOutput) ToHarnessDisabledMemoryConfigurationPtrOutput() HarnessDisabledMemoryConfigurationPtrOutput {
+	return o
+}
+
+func (o HarnessDisabledMemoryConfigurationPtrOutput) ToHarnessDisabledMemoryConfigurationPtrOutputWithContext(ctx context.Context) HarnessDisabledMemoryConfigurationPtrOutput {
+	return o
+}
+
+func (o HarnessDisabledMemoryConfigurationPtrOutput) Elem() HarnessDisabledMemoryConfigurationOutput {
+	return o.ApplyT(func(v *HarnessDisabledMemoryConfiguration) HarnessDisabledMemoryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessDisabledMemoryConfiguration
+		return ret
+	}).(HarnessDisabledMemoryConfigurationOutput)
+}
+
+// Configuration for an Amazon EFS access point to mount into the AgentCore Runtime.
+type HarnessEfsAccessPointConfiguration struct {
+	AccessPointArn string `pulumi:"accessPointArn"`
+	MountPath      string `pulumi:"mountPath"`
+}
+
+// HarnessEfsAccessPointConfigurationInput is an input type that accepts HarnessEfsAccessPointConfigurationArgs and HarnessEfsAccessPointConfigurationOutput values.
+// You can construct a concrete instance of `HarnessEfsAccessPointConfigurationInput` via:
+//
+//	HarnessEfsAccessPointConfigurationArgs{...}
+type HarnessEfsAccessPointConfigurationInput interface {
+	pulumi.Input
+
+	ToHarnessEfsAccessPointConfigurationOutput() HarnessEfsAccessPointConfigurationOutput
+	ToHarnessEfsAccessPointConfigurationOutputWithContext(context.Context) HarnessEfsAccessPointConfigurationOutput
+}
+
+// Configuration for an Amazon EFS access point to mount into the AgentCore Runtime.
+type HarnessEfsAccessPointConfigurationArgs struct {
+	AccessPointArn pulumi.StringInput `pulumi:"accessPointArn"`
+	MountPath      pulumi.StringInput `pulumi:"mountPath"`
+}
+
+func (HarnessEfsAccessPointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessEfsAccessPointConfiguration)(nil)).Elem()
+}
+
+func (i HarnessEfsAccessPointConfigurationArgs) ToHarnessEfsAccessPointConfigurationOutput() HarnessEfsAccessPointConfigurationOutput {
+	return i.ToHarnessEfsAccessPointConfigurationOutputWithContext(context.Background())
+}
+
+func (i HarnessEfsAccessPointConfigurationArgs) ToHarnessEfsAccessPointConfigurationOutputWithContext(ctx context.Context) HarnessEfsAccessPointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessEfsAccessPointConfigurationOutput)
+}
+
+func (i HarnessEfsAccessPointConfigurationArgs) ToHarnessEfsAccessPointConfigurationPtrOutput() HarnessEfsAccessPointConfigurationPtrOutput {
+	return i.ToHarnessEfsAccessPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i HarnessEfsAccessPointConfigurationArgs) ToHarnessEfsAccessPointConfigurationPtrOutputWithContext(ctx context.Context) HarnessEfsAccessPointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessEfsAccessPointConfigurationOutput).ToHarnessEfsAccessPointConfigurationPtrOutputWithContext(ctx)
+}
+
+// HarnessEfsAccessPointConfigurationPtrInput is an input type that accepts HarnessEfsAccessPointConfigurationArgs, HarnessEfsAccessPointConfigurationPtr and HarnessEfsAccessPointConfigurationPtrOutput values.
+// You can construct a concrete instance of `HarnessEfsAccessPointConfigurationPtrInput` via:
+//
+//	        HarnessEfsAccessPointConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessEfsAccessPointConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToHarnessEfsAccessPointConfigurationPtrOutput() HarnessEfsAccessPointConfigurationPtrOutput
+	ToHarnessEfsAccessPointConfigurationPtrOutputWithContext(context.Context) HarnessEfsAccessPointConfigurationPtrOutput
+}
+
+type harnessEfsAccessPointConfigurationPtrType HarnessEfsAccessPointConfigurationArgs
+
+func HarnessEfsAccessPointConfigurationPtr(v *HarnessEfsAccessPointConfigurationArgs) HarnessEfsAccessPointConfigurationPtrInput {
+	return (*harnessEfsAccessPointConfigurationPtrType)(v)
+}
+
+func (*harnessEfsAccessPointConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessEfsAccessPointConfiguration)(nil)).Elem()
+}
+
+func (i *harnessEfsAccessPointConfigurationPtrType) ToHarnessEfsAccessPointConfigurationPtrOutput() HarnessEfsAccessPointConfigurationPtrOutput {
+	return i.ToHarnessEfsAccessPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *harnessEfsAccessPointConfigurationPtrType) ToHarnessEfsAccessPointConfigurationPtrOutputWithContext(ctx context.Context) HarnessEfsAccessPointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessEfsAccessPointConfigurationPtrOutput)
+}
+
+// Configuration for an Amazon EFS access point to mount into the AgentCore Runtime.
+type HarnessEfsAccessPointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (HarnessEfsAccessPointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessEfsAccessPointConfiguration)(nil)).Elem()
+}
+
+func (o HarnessEfsAccessPointConfigurationOutput) ToHarnessEfsAccessPointConfigurationOutput() HarnessEfsAccessPointConfigurationOutput {
+	return o
+}
+
+func (o HarnessEfsAccessPointConfigurationOutput) ToHarnessEfsAccessPointConfigurationOutputWithContext(ctx context.Context) HarnessEfsAccessPointConfigurationOutput {
+	return o
+}
+
+func (o HarnessEfsAccessPointConfigurationOutput) ToHarnessEfsAccessPointConfigurationPtrOutput() HarnessEfsAccessPointConfigurationPtrOutput {
+	return o.ToHarnessEfsAccessPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessEfsAccessPointConfigurationOutput) ToHarnessEfsAccessPointConfigurationPtrOutputWithContext(ctx context.Context) HarnessEfsAccessPointConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessEfsAccessPointConfiguration) *HarnessEfsAccessPointConfiguration {
+		return &v
+	}).(HarnessEfsAccessPointConfigurationPtrOutput)
+}
+
+func (o HarnessEfsAccessPointConfigurationOutput) AccessPointArn() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessEfsAccessPointConfiguration) string { return v.AccessPointArn }).(pulumi.StringOutput)
+}
+
+func (o HarnessEfsAccessPointConfigurationOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessEfsAccessPointConfiguration) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+type HarnessEfsAccessPointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessEfsAccessPointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessEfsAccessPointConfiguration)(nil)).Elem()
+}
+
+func (o HarnessEfsAccessPointConfigurationPtrOutput) ToHarnessEfsAccessPointConfigurationPtrOutput() HarnessEfsAccessPointConfigurationPtrOutput {
+	return o
+}
+
+func (o HarnessEfsAccessPointConfigurationPtrOutput) ToHarnessEfsAccessPointConfigurationPtrOutputWithContext(ctx context.Context) HarnessEfsAccessPointConfigurationPtrOutput {
+	return o
+}
+
+func (o HarnessEfsAccessPointConfigurationPtrOutput) Elem() HarnessEfsAccessPointConfigurationOutput {
+	return o.ApplyT(func(v *HarnessEfsAccessPointConfiguration) HarnessEfsAccessPointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessEfsAccessPointConfiguration
+		return ret
+	}).(HarnessEfsAccessPointConfigurationOutput)
+}
+
+func (o HarnessEfsAccessPointConfigurationPtrOutput) AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessEfsAccessPointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessPointArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HarnessEfsAccessPointConfigurationPtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessEfsAccessPointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MountPath
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11999,7 +13454,9 @@ func (o HarnessEnvironmentProviderPtrOutput) AgentCoreRuntimeEnvironment() Harne
 }
 
 type HarnessFilesystemConfiguration struct {
-	SessionStorage HarnessSessionStorageConfiguration `pulumi:"sessionStorage"`
+	EfsAccessPoint     *HarnessEfsAccessPointConfiguration     `pulumi:"efsAccessPoint"`
+	S3FilesAccessPoint *HarnessS3FilesAccessPointConfiguration `pulumi:"s3FilesAccessPoint"`
+	SessionStorage     *HarnessSessionStorageConfiguration     `pulumi:"sessionStorage"`
 }
 
 // HarnessFilesystemConfigurationInput is an input type that accepts HarnessFilesystemConfigurationArgs and HarnessFilesystemConfigurationOutput values.
@@ -12014,7 +13471,9 @@ type HarnessFilesystemConfigurationInput interface {
 }
 
 type HarnessFilesystemConfigurationArgs struct {
-	SessionStorage HarnessSessionStorageConfigurationInput `pulumi:"sessionStorage"`
+	EfsAccessPoint     HarnessEfsAccessPointConfigurationPtrInput     `pulumi:"efsAccessPoint"`
+	S3FilesAccessPoint HarnessS3FilesAccessPointConfigurationPtrInput `pulumi:"s3FilesAccessPoint"`
+	SessionStorage     HarnessSessionStorageConfigurationPtrInput     `pulumi:"sessionStorage"`
 }
 
 func (HarnessFilesystemConfigurationArgs) ElementType() reflect.Type {
@@ -12068,8 +13527,18 @@ func (o HarnessFilesystemConfigurationOutput) ToHarnessFilesystemConfigurationOu
 	return o
 }
 
-func (o HarnessFilesystemConfigurationOutput) SessionStorage() HarnessSessionStorageConfigurationOutput {
-	return o.ApplyT(func(v HarnessFilesystemConfiguration) HarnessSessionStorageConfiguration { return v.SessionStorage }).(HarnessSessionStorageConfigurationOutput)
+func (o HarnessFilesystemConfigurationOutput) EfsAccessPoint() HarnessEfsAccessPointConfigurationPtrOutput {
+	return o.ApplyT(func(v HarnessFilesystemConfiguration) *HarnessEfsAccessPointConfiguration { return v.EfsAccessPoint }).(HarnessEfsAccessPointConfigurationPtrOutput)
+}
+
+func (o HarnessFilesystemConfigurationOutput) S3FilesAccessPoint() HarnessS3FilesAccessPointConfigurationPtrOutput {
+	return o.ApplyT(func(v HarnessFilesystemConfiguration) *HarnessS3FilesAccessPointConfiguration {
+		return v.S3FilesAccessPoint
+	}).(HarnessS3FilesAccessPointConfigurationPtrOutput)
+}
+
+func (o HarnessFilesystemConfigurationOutput) SessionStorage() HarnessSessionStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v HarnessFilesystemConfiguration) *HarnessSessionStorageConfiguration { return v.SessionStorage }).(HarnessSessionStorageConfigurationPtrOutput)
 }
 
 type HarnessFilesystemConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -12763,8 +14232,649 @@ func (o HarnessLifecycleConfigurationPtrOutput) MaxLifetime() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+type HarnessLiteLlmModelConfig struct {
+	// Provider-specific parameters passed through to LiteLLM unchanged.
+	AdditionalParams map[string]interface{} `pulumi:"additionalParams"`
+	ApiBase          *string                `pulumi:"apiBase"`
+	ApiKeyArn        *string                `pulumi:"apiKeyArn"`
+	MaxTokens        *int                   `pulumi:"maxTokens"`
+	ModelId          string                 `pulumi:"modelId"`
+	Temperature      *float64               `pulumi:"temperature"`
+	TopP             *float64               `pulumi:"topP"`
+}
+
+// HarnessLiteLlmModelConfigInput is an input type that accepts HarnessLiteLlmModelConfigArgs and HarnessLiteLlmModelConfigOutput values.
+// You can construct a concrete instance of `HarnessLiteLlmModelConfigInput` via:
+//
+//	HarnessLiteLlmModelConfigArgs{...}
+type HarnessLiteLlmModelConfigInput interface {
+	pulumi.Input
+
+	ToHarnessLiteLlmModelConfigOutput() HarnessLiteLlmModelConfigOutput
+	ToHarnessLiteLlmModelConfigOutputWithContext(context.Context) HarnessLiteLlmModelConfigOutput
+}
+
+type HarnessLiteLlmModelConfigArgs struct {
+	// Provider-specific parameters passed through to LiteLLM unchanged.
+	AdditionalParams pulumi.MapInput        `pulumi:"additionalParams"`
+	ApiBase          pulumi.StringPtrInput  `pulumi:"apiBase"`
+	ApiKeyArn        pulumi.StringPtrInput  `pulumi:"apiKeyArn"`
+	MaxTokens        pulumi.IntPtrInput     `pulumi:"maxTokens"`
+	ModelId          pulumi.StringInput     `pulumi:"modelId"`
+	Temperature      pulumi.Float64PtrInput `pulumi:"temperature"`
+	TopP             pulumi.Float64PtrInput `pulumi:"topP"`
+}
+
+func (HarnessLiteLlmModelConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessLiteLlmModelConfig)(nil)).Elem()
+}
+
+func (i HarnessLiteLlmModelConfigArgs) ToHarnessLiteLlmModelConfigOutput() HarnessLiteLlmModelConfigOutput {
+	return i.ToHarnessLiteLlmModelConfigOutputWithContext(context.Background())
+}
+
+func (i HarnessLiteLlmModelConfigArgs) ToHarnessLiteLlmModelConfigOutputWithContext(ctx context.Context) HarnessLiteLlmModelConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessLiteLlmModelConfigOutput)
+}
+
+func (i HarnessLiteLlmModelConfigArgs) ToHarnessLiteLlmModelConfigPtrOutput() HarnessLiteLlmModelConfigPtrOutput {
+	return i.ToHarnessLiteLlmModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (i HarnessLiteLlmModelConfigArgs) ToHarnessLiteLlmModelConfigPtrOutputWithContext(ctx context.Context) HarnessLiteLlmModelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessLiteLlmModelConfigOutput).ToHarnessLiteLlmModelConfigPtrOutputWithContext(ctx)
+}
+
+// HarnessLiteLlmModelConfigPtrInput is an input type that accepts HarnessLiteLlmModelConfigArgs, HarnessLiteLlmModelConfigPtr and HarnessLiteLlmModelConfigPtrOutput values.
+// You can construct a concrete instance of `HarnessLiteLlmModelConfigPtrInput` via:
+//
+//	        HarnessLiteLlmModelConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessLiteLlmModelConfigPtrInput interface {
+	pulumi.Input
+
+	ToHarnessLiteLlmModelConfigPtrOutput() HarnessLiteLlmModelConfigPtrOutput
+	ToHarnessLiteLlmModelConfigPtrOutputWithContext(context.Context) HarnessLiteLlmModelConfigPtrOutput
+}
+
+type harnessLiteLlmModelConfigPtrType HarnessLiteLlmModelConfigArgs
+
+func HarnessLiteLlmModelConfigPtr(v *HarnessLiteLlmModelConfigArgs) HarnessLiteLlmModelConfigPtrInput {
+	return (*harnessLiteLlmModelConfigPtrType)(v)
+}
+
+func (*harnessLiteLlmModelConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessLiteLlmModelConfig)(nil)).Elem()
+}
+
+func (i *harnessLiteLlmModelConfigPtrType) ToHarnessLiteLlmModelConfigPtrOutput() HarnessLiteLlmModelConfigPtrOutput {
+	return i.ToHarnessLiteLlmModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *harnessLiteLlmModelConfigPtrType) ToHarnessLiteLlmModelConfigPtrOutputWithContext(ctx context.Context) HarnessLiteLlmModelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessLiteLlmModelConfigPtrOutput)
+}
+
+type HarnessLiteLlmModelConfigOutput struct{ *pulumi.OutputState }
+
+func (HarnessLiteLlmModelConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessLiteLlmModelConfig)(nil)).Elem()
+}
+
+func (o HarnessLiteLlmModelConfigOutput) ToHarnessLiteLlmModelConfigOutput() HarnessLiteLlmModelConfigOutput {
+	return o
+}
+
+func (o HarnessLiteLlmModelConfigOutput) ToHarnessLiteLlmModelConfigOutputWithContext(ctx context.Context) HarnessLiteLlmModelConfigOutput {
+	return o
+}
+
+func (o HarnessLiteLlmModelConfigOutput) ToHarnessLiteLlmModelConfigPtrOutput() HarnessLiteLlmModelConfigPtrOutput {
+	return o.ToHarnessLiteLlmModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessLiteLlmModelConfigOutput) ToHarnessLiteLlmModelConfigPtrOutputWithContext(ctx context.Context) HarnessLiteLlmModelConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessLiteLlmModelConfig) *HarnessLiteLlmModelConfig {
+		return &v
+	}).(HarnessLiteLlmModelConfigPtrOutput)
+}
+
+// Provider-specific parameters passed through to LiteLLM unchanged.
+func (o HarnessLiteLlmModelConfigOutput) AdditionalParams() pulumi.MapOutput {
+	return o.ApplyT(func(v HarnessLiteLlmModelConfig) map[string]interface{} { return v.AdditionalParams }).(pulumi.MapOutput)
+}
+
+func (o HarnessLiteLlmModelConfigOutput) ApiBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HarnessLiteLlmModelConfig) *string { return v.ApiBase }).(pulumi.StringPtrOutput)
+}
+
+func (o HarnessLiteLlmModelConfigOutput) ApiKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HarnessLiteLlmModelConfig) *string { return v.ApiKeyArn }).(pulumi.StringPtrOutput)
+}
+
+func (o HarnessLiteLlmModelConfigOutput) MaxTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HarnessLiteLlmModelConfig) *int { return v.MaxTokens }).(pulumi.IntPtrOutput)
+}
+
+func (o HarnessLiteLlmModelConfigOutput) ModelId() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessLiteLlmModelConfig) string { return v.ModelId }).(pulumi.StringOutput)
+}
+
+func (o HarnessLiteLlmModelConfigOutput) Temperature() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v HarnessLiteLlmModelConfig) *float64 { return v.Temperature }).(pulumi.Float64PtrOutput)
+}
+
+func (o HarnessLiteLlmModelConfigOutput) TopP() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v HarnessLiteLlmModelConfig) *float64 { return v.TopP }).(pulumi.Float64PtrOutput)
+}
+
+type HarnessLiteLlmModelConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessLiteLlmModelConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessLiteLlmModelConfig)(nil)).Elem()
+}
+
+func (o HarnessLiteLlmModelConfigPtrOutput) ToHarnessLiteLlmModelConfigPtrOutput() HarnessLiteLlmModelConfigPtrOutput {
+	return o
+}
+
+func (o HarnessLiteLlmModelConfigPtrOutput) ToHarnessLiteLlmModelConfigPtrOutputWithContext(ctx context.Context) HarnessLiteLlmModelConfigPtrOutput {
+	return o
+}
+
+func (o HarnessLiteLlmModelConfigPtrOutput) Elem() HarnessLiteLlmModelConfigOutput {
+	return o.ApplyT(func(v *HarnessLiteLlmModelConfig) HarnessLiteLlmModelConfig {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessLiteLlmModelConfig
+		return ret
+	}).(HarnessLiteLlmModelConfigOutput)
+}
+
+// Provider-specific parameters passed through to LiteLLM unchanged.
+func (o HarnessLiteLlmModelConfigPtrOutput) AdditionalParams() pulumi.MapOutput {
+	return o.ApplyT(func(v *HarnessLiteLlmModelConfig) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalParams
+	}).(pulumi.MapOutput)
+}
+
+func (o HarnessLiteLlmModelConfigPtrOutput) ApiBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessLiteLlmModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiBase
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HarnessLiteLlmModelConfigPtrOutput) ApiKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessLiteLlmModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HarnessLiteLlmModelConfigPtrOutput) MaxTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HarnessLiteLlmModelConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTokens
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o HarnessLiteLlmModelConfigPtrOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessLiteLlmModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HarnessLiteLlmModelConfigPtrOutput) Temperature() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *HarnessLiteLlmModelConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Temperature
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o HarnessLiteLlmModelConfigPtrOutput) TopP() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *HarnessLiteLlmModelConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.TopP
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Configuration for managed memory. The harness creates and manages a memory resource in the customer's account.
+type HarnessManagedMemoryConfiguration struct {
+	// The ARN of the managed memory resource. Read-only, populated by the service.
+	Arn *string `pulumi:"arn"`
+	// Customer-managed KMS key ARN. Defaults to AWS-owned key. Not updatable after creation.
+	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
+	// Event retention in days. Defaults to 30.
+	EventExpiryDuration *int `pulumi:"eventExpiryDuration"`
+	// Strategy types to enable. Defaults to [SEMANTIC, SUMMARIZATION].
+	Strategies []HarnessManagedMemoryConfigurationStrategiesItem `pulumi:"strategies"`
+}
+
+// HarnessManagedMemoryConfigurationInput is an input type that accepts HarnessManagedMemoryConfigurationArgs and HarnessManagedMemoryConfigurationOutput values.
+// You can construct a concrete instance of `HarnessManagedMemoryConfigurationInput` via:
+//
+//	HarnessManagedMemoryConfigurationArgs{...}
+type HarnessManagedMemoryConfigurationInput interface {
+	pulumi.Input
+
+	ToHarnessManagedMemoryConfigurationOutput() HarnessManagedMemoryConfigurationOutput
+	ToHarnessManagedMemoryConfigurationOutputWithContext(context.Context) HarnessManagedMemoryConfigurationOutput
+}
+
+// Configuration for managed memory. The harness creates and manages a memory resource in the customer's account.
+type HarnessManagedMemoryConfigurationArgs struct {
+	// The ARN of the managed memory resource. Read-only, populated by the service.
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// Customer-managed KMS key ARN. Defaults to AWS-owned key. Not updatable after creation.
+	EncryptionKeyArn pulumi.StringPtrInput `pulumi:"encryptionKeyArn"`
+	// Event retention in days. Defaults to 30.
+	EventExpiryDuration pulumi.IntPtrInput `pulumi:"eventExpiryDuration"`
+	// Strategy types to enable. Defaults to [SEMANTIC, SUMMARIZATION].
+	Strategies HarnessManagedMemoryConfigurationStrategiesItemArrayInput `pulumi:"strategies"`
+}
+
+func (HarnessManagedMemoryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessManagedMemoryConfiguration)(nil)).Elem()
+}
+
+func (i HarnessManagedMemoryConfigurationArgs) ToHarnessManagedMemoryConfigurationOutput() HarnessManagedMemoryConfigurationOutput {
+	return i.ToHarnessManagedMemoryConfigurationOutputWithContext(context.Background())
+}
+
+func (i HarnessManagedMemoryConfigurationArgs) ToHarnessManagedMemoryConfigurationOutputWithContext(ctx context.Context) HarnessManagedMemoryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessManagedMemoryConfigurationOutput)
+}
+
+func (i HarnessManagedMemoryConfigurationArgs) ToHarnessManagedMemoryConfigurationPtrOutput() HarnessManagedMemoryConfigurationPtrOutput {
+	return i.ToHarnessManagedMemoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i HarnessManagedMemoryConfigurationArgs) ToHarnessManagedMemoryConfigurationPtrOutputWithContext(ctx context.Context) HarnessManagedMemoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessManagedMemoryConfigurationOutput).ToHarnessManagedMemoryConfigurationPtrOutputWithContext(ctx)
+}
+
+// HarnessManagedMemoryConfigurationPtrInput is an input type that accepts HarnessManagedMemoryConfigurationArgs, HarnessManagedMemoryConfigurationPtr and HarnessManagedMemoryConfigurationPtrOutput values.
+// You can construct a concrete instance of `HarnessManagedMemoryConfigurationPtrInput` via:
+//
+//	        HarnessManagedMemoryConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessManagedMemoryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToHarnessManagedMemoryConfigurationPtrOutput() HarnessManagedMemoryConfigurationPtrOutput
+	ToHarnessManagedMemoryConfigurationPtrOutputWithContext(context.Context) HarnessManagedMemoryConfigurationPtrOutput
+}
+
+type harnessManagedMemoryConfigurationPtrType HarnessManagedMemoryConfigurationArgs
+
+func HarnessManagedMemoryConfigurationPtr(v *HarnessManagedMemoryConfigurationArgs) HarnessManagedMemoryConfigurationPtrInput {
+	return (*harnessManagedMemoryConfigurationPtrType)(v)
+}
+
+func (*harnessManagedMemoryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessManagedMemoryConfiguration)(nil)).Elem()
+}
+
+func (i *harnessManagedMemoryConfigurationPtrType) ToHarnessManagedMemoryConfigurationPtrOutput() HarnessManagedMemoryConfigurationPtrOutput {
+	return i.ToHarnessManagedMemoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *harnessManagedMemoryConfigurationPtrType) ToHarnessManagedMemoryConfigurationPtrOutputWithContext(ctx context.Context) HarnessManagedMemoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessManagedMemoryConfigurationPtrOutput)
+}
+
+// Configuration for managed memory. The harness creates and manages a memory resource in the customer's account.
+type HarnessManagedMemoryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (HarnessManagedMemoryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessManagedMemoryConfiguration)(nil)).Elem()
+}
+
+func (o HarnessManagedMemoryConfigurationOutput) ToHarnessManagedMemoryConfigurationOutput() HarnessManagedMemoryConfigurationOutput {
+	return o
+}
+
+func (o HarnessManagedMemoryConfigurationOutput) ToHarnessManagedMemoryConfigurationOutputWithContext(ctx context.Context) HarnessManagedMemoryConfigurationOutput {
+	return o
+}
+
+func (o HarnessManagedMemoryConfigurationOutput) ToHarnessManagedMemoryConfigurationPtrOutput() HarnessManagedMemoryConfigurationPtrOutput {
+	return o.ToHarnessManagedMemoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessManagedMemoryConfigurationOutput) ToHarnessManagedMemoryConfigurationPtrOutputWithContext(ctx context.Context) HarnessManagedMemoryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessManagedMemoryConfiguration) *HarnessManagedMemoryConfiguration {
+		return &v
+	}).(HarnessManagedMemoryConfigurationPtrOutput)
+}
+
+// The ARN of the managed memory resource. Read-only, populated by the service.
+func (o HarnessManagedMemoryConfigurationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HarnessManagedMemoryConfiguration) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// Customer-managed KMS key ARN. Defaults to AWS-owned key. Not updatable after creation.
+func (o HarnessManagedMemoryConfigurationOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HarnessManagedMemoryConfiguration) *string { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// Event retention in days. Defaults to 30.
+func (o HarnessManagedMemoryConfigurationOutput) EventExpiryDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HarnessManagedMemoryConfiguration) *int { return v.EventExpiryDuration }).(pulumi.IntPtrOutput)
+}
+
+// Strategy types to enable. Defaults to [SEMANTIC, SUMMARIZATION].
+func (o HarnessManagedMemoryConfigurationOutput) Strategies() HarnessManagedMemoryConfigurationStrategiesItemArrayOutput {
+	return o.ApplyT(func(v HarnessManagedMemoryConfiguration) []HarnessManagedMemoryConfigurationStrategiesItem {
+		return v.Strategies
+	}).(HarnessManagedMemoryConfigurationStrategiesItemArrayOutput)
+}
+
+type HarnessManagedMemoryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessManagedMemoryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessManagedMemoryConfiguration)(nil)).Elem()
+}
+
+func (o HarnessManagedMemoryConfigurationPtrOutput) ToHarnessManagedMemoryConfigurationPtrOutput() HarnessManagedMemoryConfigurationPtrOutput {
+	return o
+}
+
+func (o HarnessManagedMemoryConfigurationPtrOutput) ToHarnessManagedMemoryConfigurationPtrOutputWithContext(ctx context.Context) HarnessManagedMemoryConfigurationPtrOutput {
+	return o
+}
+
+func (o HarnessManagedMemoryConfigurationPtrOutput) Elem() HarnessManagedMemoryConfigurationOutput {
+	return o.ApplyT(func(v *HarnessManagedMemoryConfiguration) HarnessManagedMemoryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessManagedMemoryConfiguration
+		return ret
+	}).(HarnessManagedMemoryConfigurationOutput)
+}
+
+// The ARN of the managed memory resource. Read-only, populated by the service.
+func (o HarnessManagedMemoryConfigurationPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessManagedMemoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Customer-managed KMS key ARN. Defaults to AWS-owned key. Not updatable after creation.
+func (o HarnessManagedMemoryConfigurationPtrOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessManagedMemoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Event retention in days. Defaults to 30.
+func (o HarnessManagedMemoryConfigurationPtrOutput) EventExpiryDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HarnessManagedMemoryConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EventExpiryDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+// Strategy types to enable. Defaults to [SEMANTIC, SUMMARIZATION].
+func (o HarnessManagedMemoryConfigurationPtrOutput) Strategies() HarnessManagedMemoryConfigurationStrategiesItemArrayOutput {
+	return o.ApplyT(func(v *HarnessManagedMemoryConfiguration) []HarnessManagedMemoryConfigurationStrategiesItem {
+		if v == nil {
+			return nil
+		}
+		return v.Strategies
+	}).(HarnessManagedMemoryConfigurationStrategiesItemArrayOutput)
+}
+
+// Configuration for a service-managed VPC endpoint.
+type HarnessManagedVpcResource struct {
+	EndpointIpAddressType HarnessManagedVpcResourceEndpointIpAddressType `pulumi:"endpointIpAddressType"`
+	RoutingDomain         *string                                        `pulumi:"routingDomain"`
+	SecurityGroupIds      []string                                       `pulumi:"securityGroupIds"`
+	SubnetIds             []string                                       `pulumi:"subnetIds"`
+	Tags                  map[string]string                              `pulumi:"tags"`
+	VpcIdentifier         string                                         `pulumi:"vpcIdentifier"`
+}
+
+// HarnessManagedVpcResourceInput is an input type that accepts HarnessManagedVpcResourceArgs and HarnessManagedVpcResourceOutput values.
+// You can construct a concrete instance of `HarnessManagedVpcResourceInput` via:
+//
+//	HarnessManagedVpcResourceArgs{...}
+type HarnessManagedVpcResourceInput interface {
+	pulumi.Input
+
+	ToHarnessManagedVpcResourceOutput() HarnessManagedVpcResourceOutput
+	ToHarnessManagedVpcResourceOutputWithContext(context.Context) HarnessManagedVpcResourceOutput
+}
+
+// Configuration for a service-managed VPC endpoint.
+type HarnessManagedVpcResourceArgs struct {
+	EndpointIpAddressType HarnessManagedVpcResourceEndpointIpAddressTypeInput `pulumi:"endpointIpAddressType"`
+	RoutingDomain         pulumi.StringPtrInput                               `pulumi:"routingDomain"`
+	SecurityGroupIds      pulumi.StringArrayInput                             `pulumi:"securityGroupIds"`
+	SubnetIds             pulumi.StringArrayInput                             `pulumi:"subnetIds"`
+	Tags                  pulumi.StringMapInput                               `pulumi:"tags"`
+	VpcIdentifier         pulumi.StringInput                                  `pulumi:"vpcIdentifier"`
+}
+
+func (HarnessManagedVpcResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessManagedVpcResource)(nil)).Elem()
+}
+
+func (i HarnessManagedVpcResourceArgs) ToHarnessManagedVpcResourceOutput() HarnessManagedVpcResourceOutput {
+	return i.ToHarnessManagedVpcResourceOutputWithContext(context.Background())
+}
+
+func (i HarnessManagedVpcResourceArgs) ToHarnessManagedVpcResourceOutputWithContext(ctx context.Context) HarnessManagedVpcResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessManagedVpcResourceOutput)
+}
+
+func (i HarnessManagedVpcResourceArgs) ToHarnessManagedVpcResourcePtrOutput() HarnessManagedVpcResourcePtrOutput {
+	return i.ToHarnessManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (i HarnessManagedVpcResourceArgs) ToHarnessManagedVpcResourcePtrOutputWithContext(ctx context.Context) HarnessManagedVpcResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessManagedVpcResourceOutput).ToHarnessManagedVpcResourcePtrOutputWithContext(ctx)
+}
+
+// HarnessManagedVpcResourcePtrInput is an input type that accepts HarnessManagedVpcResourceArgs, HarnessManagedVpcResourcePtr and HarnessManagedVpcResourcePtrOutput values.
+// You can construct a concrete instance of `HarnessManagedVpcResourcePtrInput` via:
+//
+//	        HarnessManagedVpcResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessManagedVpcResourcePtrInput interface {
+	pulumi.Input
+
+	ToHarnessManagedVpcResourcePtrOutput() HarnessManagedVpcResourcePtrOutput
+	ToHarnessManagedVpcResourcePtrOutputWithContext(context.Context) HarnessManagedVpcResourcePtrOutput
+}
+
+type harnessManagedVpcResourcePtrType HarnessManagedVpcResourceArgs
+
+func HarnessManagedVpcResourcePtr(v *HarnessManagedVpcResourceArgs) HarnessManagedVpcResourcePtrInput {
+	return (*harnessManagedVpcResourcePtrType)(v)
+}
+
+func (*harnessManagedVpcResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessManagedVpcResource)(nil)).Elem()
+}
+
+func (i *harnessManagedVpcResourcePtrType) ToHarnessManagedVpcResourcePtrOutput() HarnessManagedVpcResourcePtrOutput {
+	return i.ToHarnessManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *harnessManagedVpcResourcePtrType) ToHarnessManagedVpcResourcePtrOutputWithContext(ctx context.Context) HarnessManagedVpcResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessManagedVpcResourcePtrOutput)
+}
+
+// Configuration for a service-managed VPC endpoint.
+type HarnessManagedVpcResourceOutput struct{ *pulumi.OutputState }
+
+func (HarnessManagedVpcResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessManagedVpcResource)(nil)).Elem()
+}
+
+func (o HarnessManagedVpcResourceOutput) ToHarnessManagedVpcResourceOutput() HarnessManagedVpcResourceOutput {
+	return o
+}
+
+func (o HarnessManagedVpcResourceOutput) ToHarnessManagedVpcResourceOutputWithContext(ctx context.Context) HarnessManagedVpcResourceOutput {
+	return o
+}
+
+func (o HarnessManagedVpcResourceOutput) ToHarnessManagedVpcResourcePtrOutput() HarnessManagedVpcResourcePtrOutput {
+	return o.ToHarnessManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (o HarnessManagedVpcResourceOutput) ToHarnessManagedVpcResourcePtrOutputWithContext(ctx context.Context) HarnessManagedVpcResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessManagedVpcResource) *HarnessManagedVpcResource {
+		return &v
+	}).(HarnessManagedVpcResourcePtrOutput)
+}
+
+func (o HarnessManagedVpcResourceOutput) EndpointIpAddressType() HarnessManagedVpcResourceEndpointIpAddressTypeOutput {
+	return o.ApplyT(func(v HarnessManagedVpcResource) HarnessManagedVpcResourceEndpointIpAddressType {
+		return v.EndpointIpAddressType
+	}).(HarnessManagedVpcResourceEndpointIpAddressTypeOutput)
+}
+
+func (o HarnessManagedVpcResourceOutput) RoutingDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HarnessManagedVpcResource) *string { return v.RoutingDomain }).(pulumi.StringPtrOutput)
+}
+
+func (o HarnessManagedVpcResourceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HarnessManagedVpcResource) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o HarnessManagedVpcResourceOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HarnessManagedVpcResource) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o HarnessManagedVpcResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v HarnessManagedVpcResource) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o HarnessManagedVpcResourceOutput) VpcIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessManagedVpcResource) string { return v.VpcIdentifier }).(pulumi.StringOutput)
+}
+
+type HarnessManagedVpcResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessManagedVpcResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessManagedVpcResource)(nil)).Elem()
+}
+
+func (o HarnessManagedVpcResourcePtrOutput) ToHarnessManagedVpcResourcePtrOutput() HarnessManagedVpcResourcePtrOutput {
+	return o
+}
+
+func (o HarnessManagedVpcResourcePtrOutput) ToHarnessManagedVpcResourcePtrOutputWithContext(ctx context.Context) HarnessManagedVpcResourcePtrOutput {
+	return o
+}
+
+func (o HarnessManagedVpcResourcePtrOutput) Elem() HarnessManagedVpcResourceOutput {
+	return o.ApplyT(func(v *HarnessManagedVpcResource) HarnessManagedVpcResource {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessManagedVpcResource
+		return ret
+	}).(HarnessManagedVpcResourceOutput)
+}
+
+func (o HarnessManagedVpcResourcePtrOutput) EndpointIpAddressType() HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *HarnessManagedVpcResource) *HarnessManagedVpcResourceEndpointIpAddressType {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointIpAddressType
+	}).(HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput)
+}
+
+func (o HarnessManagedVpcResourcePtrOutput) RoutingDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HarnessManagedVpcResourcePtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HarnessManagedVpcResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o HarnessManagedVpcResourcePtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HarnessManagedVpcResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o HarnessManagedVpcResourcePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *HarnessManagedVpcResource) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+func (o HarnessManagedVpcResourcePtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 type HarnessMemoryConfiguration struct {
 	AgentCoreMemoryConfiguration *HarnessAgentCoreMemoryConfiguration `pulumi:"agentCoreMemoryConfiguration"`
+	Disabled                     *HarnessDisabledMemoryConfiguration  `pulumi:"disabled"`
+	ManagedMemoryConfiguration   *HarnessManagedMemoryConfiguration   `pulumi:"managedMemoryConfiguration"`
 }
 
 // HarnessMemoryConfigurationInput is an input type that accepts HarnessMemoryConfigurationArgs and HarnessMemoryConfigurationOutput values.
@@ -12780,6 +14890,8 @@ type HarnessMemoryConfigurationInput interface {
 
 type HarnessMemoryConfigurationArgs struct {
 	AgentCoreMemoryConfiguration HarnessAgentCoreMemoryConfigurationPtrInput `pulumi:"agentCoreMemoryConfiguration"`
+	Disabled                     HarnessDisabledMemoryConfigurationPtrInput  `pulumi:"disabled"`
+	ManagedMemoryConfiguration   HarnessManagedMemoryConfigurationPtrInput   `pulumi:"managedMemoryConfiguration"`
 }
 
 func (HarnessMemoryConfigurationArgs) ElementType() reflect.Type {
@@ -12865,6 +14977,16 @@ func (o HarnessMemoryConfigurationOutput) AgentCoreMemoryConfiguration() Harness
 	}).(HarnessAgentCoreMemoryConfigurationPtrOutput)
 }
 
+func (o HarnessMemoryConfigurationOutput) Disabled() HarnessDisabledMemoryConfigurationPtrOutput {
+	return o.ApplyT(func(v HarnessMemoryConfiguration) *HarnessDisabledMemoryConfiguration { return v.Disabled }).(HarnessDisabledMemoryConfigurationPtrOutput)
+}
+
+func (o HarnessMemoryConfigurationOutput) ManagedMemoryConfiguration() HarnessManagedMemoryConfigurationPtrOutput {
+	return o.ApplyT(func(v HarnessMemoryConfiguration) *HarnessManagedMemoryConfiguration {
+		return v.ManagedMemoryConfiguration
+	}).(HarnessManagedMemoryConfigurationPtrOutput)
+}
+
 type HarnessMemoryConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (HarnessMemoryConfigurationPtrOutput) ElementType() reflect.Type {
@@ -12898,9 +15020,28 @@ func (o HarnessMemoryConfigurationPtrOutput) AgentCoreMemoryConfiguration() Harn
 	}).(HarnessAgentCoreMemoryConfigurationPtrOutput)
 }
 
+func (o HarnessMemoryConfigurationPtrOutput) Disabled() HarnessDisabledMemoryConfigurationPtrOutput {
+	return o.ApplyT(func(v *HarnessMemoryConfiguration) *HarnessDisabledMemoryConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Disabled
+	}).(HarnessDisabledMemoryConfigurationPtrOutput)
+}
+
+func (o HarnessMemoryConfigurationPtrOutput) ManagedMemoryConfiguration() HarnessManagedMemoryConfigurationPtrOutput {
+	return o.ApplyT(func(v *HarnessMemoryConfiguration) *HarnessManagedMemoryConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedMemoryConfiguration
+	}).(HarnessManagedMemoryConfigurationPtrOutput)
+}
+
 type HarnessModelConfiguration struct {
 	BedrockModelConfig *HarnessBedrockModelConfig `pulumi:"bedrockModelConfig"`
 	GeminiModelConfig  *HarnessGeminiModelConfig  `pulumi:"geminiModelConfig"`
+	LiteLlmModelConfig *HarnessLiteLlmModelConfig `pulumi:"liteLlmModelConfig"`
 	OpenAiModelConfig  *HarnessOpenAiModelConfig  `pulumi:"openAiModelConfig"`
 }
 
@@ -12918,6 +15059,7 @@ type HarnessModelConfigurationInput interface {
 type HarnessModelConfigurationArgs struct {
 	BedrockModelConfig HarnessBedrockModelConfigPtrInput `pulumi:"bedrockModelConfig"`
 	GeminiModelConfig  HarnessGeminiModelConfigPtrInput  `pulumi:"geminiModelConfig"`
+	LiteLlmModelConfig HarnessLiteLlmModelConfigPtrInput `pulumi:"liteLlmModelConfig"`
 	OpenAiModelConfig  HarnessOpenAiModelConfigPtrInput  `pulumi:"openAiModelConfig"`
 }
 
@@ -12953,6 +15095,10 @@ func (o HarnessModelConfigurationOutput) BedrockModelConfig() HarnessBedrockMode
 
 func (o HarnessModelConfigurationOutput) GeminiModelConfig() HarnessGeminiModelConfigPtrOutput {
 	return o.ApplyT(func(v HarnessModelConfiguration) *HarnessGeminiModelConfig { return v.GeminiModelConfig }).(HarnessGeminiModelConfigPtrOutput)
+}
+
+func (o HarnessModelConfigurationOutput) LiteLlmModelConfig() HarnessLiteLlmModelConfigPtrOutput {
+	return o.ApplyT(func(v HarnessModelConfiguration) *HarnessLiteLlmModelConfig { return v.LiteLlmModelConfig }).(HarnessLiteLlmModelConfigPtrOutput)
 }
 
 func (o HarnessModelConfigurationOutput) OpenAiModelConfig() HarnessOpenAiModelConfigPtrOutput {
@@ -12999,6 +15145,15 @@ func (o HarnessModelConfigurationPtrOutput) GeminiModelConfig() HarnessGeminiMod
 		}
 		return v.GeminiModelConfig
 	}).(HarnessGeminiModelConfigPtrOutput)
+}
+
+func (o HarnessModelConfigurationPtrOutput) LiteLlmModelConfig() HarnessLiteLlmModelConfigPtrOutput {
+	return o.ApplyT(func(v *HarnessModelConfiguration) *HarnessLiteLlmModelConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LiteLlmModelConfig
+	}).(HarnessLiteLlmModelConfigPtrOutput)
 }
 
 func (o HarnessModelConfigurationPtrOutput) OpenAiModelConfig() HarnessOpenAiModelConfigPtrOutput {
@@ -13352,11 +15507,14 @@ func (o HarnessOAuthCredentialProviderPtrOutput) Scopes() pulumi.StringArrayOutp
 }
 
 type HarnessOpenAiModelConfig struct {
-	ApiKeyArn   string   `pulumi:"apiKeyArn"`
-	MaxTokens   *int     `pulumi:"maxTokens"`
-	ModelId     string   `pulumi:"modelId"`
-	Temperature *float64 `pulumi:"temperature"`
-	TopP        *float64 `pulumi:"topP"`
+	// Provider-specific parameters passed through to the model provider unchanged.
+	AdditionalParams map[string]interface{}             `pulumi:"additionalParams"`
+	ApiFormat        *HarnessOpenAiModelConfigApiFormat `pulumi:"apiFormat"`
+	ApiKeyArn        string                             `pulumi:"apiKeyArn"`
+	MaxTokens        *int                               `pulumi:"maxTokens"`
+	ModelId          string                             `pulumi:"modelId"`
+	Temperature      *float64                           `pulumi:"temperature"`
+	TopP             *float64                           `pulumi:"topP"`
 }
 
 // HarnessOpenAiModelConfigInput is an input type that accepts HarnessOpenAiModelConfigArgs and HarnessOpenAiModelConfigOutput values.
@@ -13371,11 +15529,14 @@ type HarnessOpenAiModelConfigInput interface {
 }
 
 type HarnessOpenAiModelConfigArgs struct {
-	ApiKeyArn   pulumi.StringInput     `pulumi:"apiKeyArn"`
-	MaxTokens   pulumi.IntPtrInput     `pulumi:"maxTokens"`
-	ModelId     pulumi.StringInput     `pulumi:"modelId"`
-	Temperature pulumi.Float64PtrInput `pulumi:"temperature"`
-	TopP        pulumi.Float64PtrInput `pulumi:"topP"`
+	// Provider-specific parameters passed through to the model provider unchanged.
+	AdditionalParams pulumi.MapInput                           `pulumi:"additionalParams"`
+	ApiFormat        HarnessOpenAiModelConfigApiFormatPtrInput `pulumi:"apiFormat"`
+	ApiKeyArn        pulumi.StringInput                        `pulumi:"apiKeyArn"`
+	MaxTokens        pulumi.IntPtrInput                        `pulumi:"maxTokens"`
+	ModelId          pulumi.StringInput                        `pulumi:"modelId"`
+	Temperature      pulumi.Float64PtrInput                    `pulumi:"temperature"`
+	TopP             pulumi.Float64PtrInput                    `pulumi:"topP"`
 }
 
 func (HarnessOpenAiModelConfigArgs) ElementType() reflect.Type {
@@ -13455,6 +15616,15 @@ func (o HarnessOpenAiModelConfigOutput) ToHarnessOpenAiModelConfigPtrOutputWithC
 	}).(HarnessOpenAiModelConfigPtrOutput)
 }
 
+// Provider-specific parameters passed through to the model provider unchanged.
+func (o HarnessOpenAiModelConfigOutput) AdditionalParams() pulumi.MapOutput {
+	return o.ApplyT(func(v HarnessOpenAiModelConfig) map[string]interface{} { return v.AdditionalParams }).(pulumi.MapOutput)
+}
+
+func (o HarnessOpenAiModelConfigOutput) ApiFormat() HarnessOpenAiModelConfigApiFormatPtrOutput {
+	return o.ApplyT(func(v HarnessOpenAiModelConfig) *HarnessOpenAiModelConfigApiFormat { return v.ApiFormat }).(HarnessOpenAiModelConfigApiFormatPtrOutput)
+}
+
 func (o HarnessOpenAiModelConfigOutput) ApiKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v HarnessOpenAiModelConfig) string { return v.ApiKeyArn }).(pulumi.StringOutput)
 }
@@ -13497,6 +15667,25 @@ func (o HarnessOpenAiModelConfigPtrOutput) Elem() HarnessOpenAiModelConfigOutput
 		var ret HarnessOpenAiModelConfig
 		return ret
 	}).(HarnessOpenAiModelConfigOutput)
+}
+
+// Provider-specific parameters passed through to the model provider unchanged.
+func (o HarnessOpenAiModelConfigPtrOutput) AdditionalParams() pulumi.MapOutput {
+	return o.ApplyT(func(v *HarnessOpenAiModelConfig) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalParams
+	}).(pulumi.MapOutput)
+}
+
+func (o HarnessOpenAiModelConfigPtrOutput) ApiFormat() HarnessOpenAiModelConfigApiFormatPtrOutput {
+	return o.ApplyT(func(v *HarnessOpenAiModelConfig) *HarnessOpenAiModelConfigApiFormat {
+		if v == nil {
+			return nil
+		}
+		return v.ApiFormat
+	}).(HarnessOpenAiModelConfigApiFormatPtrOutput)
 }
 
 func (o HarnessOpenAiModelConfigPtrOutput) ApiKeyArn() pulumi.StringPtrOutput {
@@ -13542,6 +15731,260 @@ func (o HarnessOpenAiModelConfigPtrOutput) TopP() pulumi.Float64PtrOutput {
 		}
 		return v.TopP
 	}).(pulumi.Float64PtrOutput)
+}
+
+// Private endpoint configuration for connecting to the OpenID Connect discovery endpoint over a private network.
+type HarnessPrivateEndpoint struct {
+	ManagedVpcResource         *HarnessManagedVpcResource         `pulumi:"managedVpcResource"`
+	SelfManagedLatticeResource *HarnessSelfManagedLatticeResource `pulumi:"selfManagedLatticeResource"`
+}
+
+// HarnessPrivateEndpointInput is an input type that accepts HarnessPrivateEndpointArgs and HarnessPrivateEndpointOutput values.
+// You can construct a concrete instance of `HarnessPrivateEndpointInput` via:
+//
+//	HarnessPrivateEndpointArgs{...}
+type HarnessPrivateEndpointInput interface {
+	pulumi.Input
+
+	ToHarnessPrivateEndpointOutput() HarnessPrivateEndpointOutput
+	ToHarnessPrivateEndpointOutputWithContext(context.Context) HarnessPrivateEndpointOutput
+}
+
+// Private endpoint configuration for connecting to the OpenID Connect discovery endpoint over a private network.
+type HarnessPrivateEndpointArgs struct {
+	ManagedVpcResource         HarnessManagedVpcResourcePtrInput         `pulumi:"managedVpcResource"`
+	SelfManagedLatticeResource HarnessSelfManagedLatticeResourcePtrInput `pulumi:"selfManagedLatticeResource"`
+}
+
+func (HarnessPrivateEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessPrivateEndpoint)(nil)).Elem()
+}
+
+func (i HarnessPrivateEndpointArgs) ToHarnessPrivateEndpointOutput() HarnessPrivateEndpointOutput {
+	return i.ToHarnessPrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i HarnessPrivateEndpointArgs) ToHarnessPrivateEndpointOutputWithContext(ctx context.Context) HarnessPrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessPrivateEndpointOutput)
+}
+
+func (i HarnessPrivateEndpointArgs) ToHarnessPrivateEndpointPtrOutput() HarnessPrivateEndpointPtrOutput {
+	return i.ToHarnessPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i HarnessPrivateEndpointArgs) ToHarnessPrivateEndpointPtrOutputWithContext(ctx context.Context) HarnessPrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessPrivateEndpointOutput).ToHarnessPrivateEndpointPtrOutputWithContext(ctx)
+}
+
+// HarnessPrivateEndpointPtrInput is an input type that accepts HarnessPrivateEndpointArgs, HarnessPrivateEndpointPtr and HarnessPrivateEndpointPtrOutput values.
+// You can construct a concrete instance of `HarnessPrivateEndpointPtrInput` via:
+//
+//	        HarnessPrivateEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessPrivateEndpointPtrInput interface {
+	pulumi.Input
+
+	ToHarnessPrivateEndpointPtrOutput() HarnessPrivateEndpointPtrOutput
+	ToHarnessPrivateEndpointPtrOutputWithContext(context.Context) HarnessPrivateEndpointPtrOutput
+}
+
+type harnessPrivateEndpointPtrType HarnessPrivateEndpointArgs
+
+func HarnessPrivateEndpointPtr(v *HarnessPrivateEndpointArgs) HarnessPrivateEndpointPtrInput {
+	return (*harnessPrivateEndpointPtrType)(v)
+}
+
+func (*harnessPrivateEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessPrivateEndpoint)(nil)).Elem()
+}
+
+func (i *harnessPrivateEndpointPtrType) ToHarnessPrivateEndpointPtrOutput() HarnessPrivateEndpointPtrOutput {
+	return i.ToHarnessPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *harnessPrivateEndpointPtrType) ToHarnessPrivateEndpointPtrOutputWithContext(ctx context.Context) HarnessPrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessPrivateEndpointPtrOutput)
+}
+
+// Private endpoint configuration for connecting to the OpenID Connect discovery endpoint over a private network.
+type HarnessPrivateEndpointOutput struct{ *pulumi.OutputState }
+
+func (HarnessPrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessPrivateEndpoint)(nil)).Elem()
+}
+
+func (o HarnessPrivateEndpointOutput) ToHarnessPrivateEndpointOutput() HarnessPrivateEndpointOutput {
+	return o
+}
+
+func (o HarnessPrivateEndpointOutput) ToHarnessPrivateEndpointOutputWithContext(ctx context.Context) HarnessPrivateEndpointOutput {
+	return o
+}
+
+func (o HarnessPrivateEndpointOutput) ToHarnessPrivateEndpointPtrOutput() HarnessPrivateEndpointPtrOutput {
+	return o.ToHarnessPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessPrivateEndpointOutput) ToHarnessPrivateEndpointPtrOutputWithContext(ctx context.Context) HarnessPrivateEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessPrivateEndpoint) *HarnessPrivateEndpoint {
+		return &v
+	}).(HarnessPrivateEndpointPtrOutput)
+}
+
+func (o HarnessPrivateEndpointOutput) ManagedVpcResource() HarnessManagedVpcResourcePtrOutput {
+	return o.ApplyT(func(v HarnessPrivateEndpoint) *HarnessManagedVpcResource { return v.ManagedVpcResource }).(HarnessManagedVpcResourcePtrOutput)
+}
+
+func (o HarnessPrivateEndpointOutput) SelfManagedLatticeResource() HarnessSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyT(func(v HarnessPrivateEndpoint) *HarnessSelfManagedLatticeResource { return v.SelfManagedLatticeResource }).(HarnessSelfManagedLatticeResourcePtrOutput)
+}
+
+type HarnessPrivateEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessPrivateEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessPrivateEndpoint)(nil)).Elem()
+}
+
+func (o HarnessPrivateEndpointPtrOutput) ToHarnessPrivateEndpointPtrOutput() HarnessPrivateEndpointPtrOutput {
+	return o
+}
+
+func (o HarnessPrivateEndpointPtrOutput) ToHarnessPrivateEndpointPtrOutputWithContext(ctx context.Context) HarnessPrivateEndpointPtrOutput {
+	return o
+}
+
+func (o HarnessPrivateEndpointPtrOutput) Elem() HarnessPrivateEndpointOutput {
+	return o.ApplyT(func(v *HarnessPrivateEndpoint) HarnessPrivateEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessPrivateEndpoint
+		return ret
+	}).(HarnessPrivateEndpointOutput)
+}
+
+func (o HarnessPrivateEndpointPtrOutput) ManagedVpcResource() HarnessManagedVpcResourcePtrOutput {
+	return o.ApplyT(func(v *HarnessPrivateEndpoint) *HarnessManagedVpcResource {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedVpcResource
+	}).(HarnessManagedVpcResourcePtrOutput)
+}
+
+func (o HarnessPrivateEndpointPtrOutput) SelfManagedLatticeResource() HarnessSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyT(func(v *HarnessPrivateEndpoint) *HarnessSelfManagedLatticeResource {
+		if v == nil {
+			return nil
+		}
+		return v.SelfManagedLatticeResource
+	}).(HarnessSelfManagedLatticeResourcePtrOutput)
+}
+
+// Maps a domain to a private endpoint for resolving that domain over a private network.
+type HarnessPrivateEndpointOverride struct {
+	Domain          string                 `pulumi:"domain"`
+	PrivateEndpoint HarnessPrivateEndpoint `pulumi:"privateEndpoint"`
+}
+
+// HarnessPrivateEndpointOverrideInput is an input type that accepts HarnessPrivateEndpointOverrideArgs and HarnessPrivateEndpointOverrideOutput values.
+// You can construct a concrete instance of `HarnessPrivateEndpointOverrideInput` via:
+//
+//	HarnessPrivateEndpointOverrideArgs{...}
+type HarnessPrivateEndpointOverrideInput interface {
+	pulumi.Input
+
+	ToHarnessPrivateEndpointOverrideOutput() HarnessPrivateEndpointOverrideOutput
+	ToHarnessPrivateEndpointOverrideOutputWithContext(context.Context) HarnessPrivateEndpointOverrideOutput
+}
+
+// Maps a domain to a private endpoint for resolving that domain over a private network.
+type HarnessPrivateEndpointOverrideArgs struct {
+	Domain          pulumi.StringInput          `pulumi:"domain"`
+	PrivateEndpoint HarnessPrivateEndpointInput `pulumi:"privateEndpoint"`
+}
+
+func (HarnessPrivateEndpointOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (i HarnessPrivateEndpointOverrideArgs) ToHarnessPrivateEndpointOverrideOutput() HarnessPrivateEndpointOverrideOutput {
+	return i.ToHarnessPrivateEndpointOverrideOutputWithContext(context.Background())
+}
+
+func (i HarnessPrivateEndpointOverrideArgs) ToHarnessPrivateEndpointOverrideOutputWithContext(ctx context.Context) HarnessPrivateEndpointOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessPrivateEndpointOverrideOutput)
+}
+
+// HarnessPrivateEndpointOverrideArrayInput is an input type that accepts HarnessPrivateEndpointOverrideArray and HarnessPrivateEndpointOverrideArrayOutput values.
+// You can construct a concrete instance of `HarnessPrivateEndpointOverrideArrayInput` via:
+//
+//	HarnessPrivateEndpointOverrideArray{ HarnessPrivateEndpointOverrideArgs{...} }
+type HarnessPrivateEndpointOverrideArrayInput interface {
+	pulumi.Input
+
+	ToHarnessPrivateEndpointOverrideArrayOutput() HarnessPrivateEndpointOverrideArrayOutput
+	ToHarnessPrivateEndpointOverrideArrayOutputWithContext(context.Context) HarnessPrivateEndpointOverrideArrayOutput
+}
+
+type HarnessPrivateEndpointOverrideArray []HarnessPrivateEndpointOverrideInput
+
+func (HarnessPrivateEndpointOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HarnessPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (i HarnessPrivateEndpointOverrideArray) ToHarnessPrivateEndpointOverrideArrayOutput() HarnessPrivateEndpointOverrideArrayOutput {
+	return i.ToHarnessPrivateEndpointOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i HarnessPrivateEndpointOverrideArray) ToHarnessPrivateEndpointOverrideArrayOutputWithContext(ctx context.Context) HarnessPrivateEndpointOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessPrivateEndpointOverrideArrayOutput)
+}
+
+// Maps a domain to a private endpoint for resolving that domain over a private network.
+type HarnessPrivateEndpointOverrideOutput struct{ *pulumi.OutputState }
+
+func (HarnessPrivateEndpointOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (o HarnessPrivateEndpointOverrideOutput) ToHarnessPrivateEndpointOverrideOutput() HarnessPrivateEndpointOverrideOutput {
+	return o
+}
+
+func (o HarnessPrivateEndpointOverrideOutput) ToHarnessPrivateEndpointOverrideOutputWithContext(ctx context.Context) HarnessPrivateEndpointOverrideOutput {
+	return o
+}
+
+func (o HarnessPrivateEndpointOverrideOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessPrivateEndpointOverride) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+func (o HarnessPrivateEndpointOverrideOutput) PrivateEndpoint() HarnessPrivateEndpointOutput {
+	return o.ApplyT(func(v HarnessPrivateEndpointOverride) HarnessPrivateEndpoint { return v.PrivateEndpoint }).(HarnessPrivateEndpointOutput)
+}
+
+type HarnessPrivateEndpointOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (HarnessPrivateEndpointOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HarnessPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (o HarnessPrivateEndpointOverrideArrayOutput) ToHarnessPrivateEndpointOverrideArrayOutput() HarnessPrivateEndpointOverrideArrayOutput {
+	return o
+}
+
+func (o HarnessPrivateEndpointOverrideArrayOutput) ToHarnessPrivateEndpointOverrideArrayOutputWithContext(ctx context.Context) HarnessPrivateEndpointOverrideArrayOutput {
+	return o
+}
+
+func (o HarnessPrivateEndpointOverrideArrayOutput) Index(i pulumi.IntInput) HarnessPrivateEndpointOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HarnessPrivateEndpointOverride {
+		return vs[0].([]HarnessPrivateEndpointOverride)[vs[1].(int)]
+	}).(HarnessPrivateEndpointOverrideOutput)
 }
 
 type HarnessRemoteMcpConfig struct {
@@ -13692,6 +16135,293 @@ func (o HarnessRemoteMcpConfigPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration for an Amazon S3 Files access point to mount into the AgentCore Runtime.
+type HarnessS3FilesAccessPointConfiguration struct {
+	AccessPointArn string `pulumi:"accessPointArn"`
+	MountPath      string `pulumi:"mountPath"`
+}
+
+// HarnessS3FilesAccessPointConfigurationInput is an input type that accepts HarnessS3FilesAccessPointConfigurationArgs and HarnessS3FilesAccessPointConfigurationOutput values.
+// You can construct a concrete instance of `HarnessS3FilesAccessPointConfigurationInput` via:
+//
+//	HarnessS3FilesAccessPointConfigurationArgs{...}
+type HarnessS3FilesAccessPointConfigurationInput interface {
+	pulumi.Input
+
+	ToHarnessS3FilesAccessPointConfigurationOutput() HarnessS3FilesAccessPointConfigurationOutput
+	ToHarnessS3FilesAccessPointConfigurationOutputWithContext(context.Context) HarnessS3FilesAccessPointConfigurationOutput
+}
+
+// Configuration for an Amazon S3 Files access point to mount into the AgentCore Runtime.
+type HarnessS3FilesAccessPointConfigurationArgs struct {
+	AccessPointArn pulumi.StringInput `pulumi:"accessPointArn"`
+	MountPath      pulumi.StringInput `pulumi:"mountPath"`
+}
+
+func (HarnessS3FilesAccessPointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessS3FilesAccessPointConfiguration)(nil)).Elem()
+}
+
+func (i HarnessS3FilesAccessPointConfigurationArgs) ToHarnessS3FilesAccessPointConfigurationOutput() HarnessS3FilesAccessPointConfigurationOutput {
+	return i.ToHarnessS3FilesAccessPointConfigurationOutputWithContext(context.Background())
+}
+
+func (i HarnessS3FilesAccessPointConfigurationArgs) ToHarnessS3FilesAccessPointConfigurationOutputWithContext(ctx context.Context) HarnessS3FilesAccessPointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessS3FilesAccessPointConfigurationOutput)
+}
+
+func (i HarnessS3FilesAccessPointConfigurationArgs) ToHarnessS3FilesAccessPointConfigurationPtrOutput() HarnessS3FilesAccessPointConfigurationPtrOutput {
+	return i.ToHarnessS3FilesAccessPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i HarnessS3FilesAccessPointConfigurationArgs) ToHarnessS3FilesAccessPointConfigurationPtrOutputWithContext(ctx context.Context) HarnessS3FilesAccessPointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessS3FilesAccessPointConfigurationOutput).ToHarnessS3FilesAccessPointConfigurationPtrOutputWithContext(ctx)
+}
+
+// HarnessS3FilesAccessPointConfigurationPtrInput is an input type that accepts HarnessS3FilesAccessPointConfigurationArgs, HarnessS3FilesAccessPointConfigurationPtr and HarnessS3FilesAccessPointConfigurationPtrOutput values.
+// You can construct a concrete instance of `HarnessS3FilesAccessPointConfigurationPtrInput` via:
+//
+//	        HarnessS3FilesAccessPointConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessS3FilesAccessPointConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToHarnessS3FilesAccessPointConfigurationPtrOutput() HarnessS3FilesAccessPointConfigurationPtrOutput
+	ToHarnessS3FilesAccessPointConfigurationPtrOutputWithContext(context.Context) HarnessS3FilesAccessPointConfigurationPtrOutput
+}
+
+type harnessS3FilesAccessPointConfigurationPtrType HarnessS3FilesAccessPointConfigurationArgs
+
+func HarnessS3FilesAccessPointConfigurationPtr(v *HarnessS3FilesAccessPointConfigurationArgs) HarnessS3FilesAccessPointConfigurationPtrInput {
+	return (*harnessS3FilesAccessPointConfigurationPtrType)(v)
+}
+
+func (*harnessS3FilesAccessPointConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessS3FilesAccessPointConfiguration)(nil)).Elem()
+}
+
+func (i *harnessS3FilesAccessPointConfigurationPtrType) ToHarnessS3FilesAccessPointConfigurationPtrOutput() HarnessS3FilesAccessPointConfigurationPtrOutput {
+	return i.ToHarnessS3FilesAccessPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *harnessS3FilesAccessPointConfigurationPtrType) ToHarnessS3FilesAccessPointConfigurationPtrOutputWithContext(ctx context.Context) HarnessS3FilesAccessPointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessS3FilesAccessPointConfigurationPtrOutput)
+}
+
+// Configuration for an Amazon S3 Files access point to mount into the AgentCore Runtime.
+type HarnessS3FilesAccessPointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (HarnessS3FilesAccessPointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessS3FilesAccessPointConfiguration)(nil)).Elem()
+}
+
+func (o HarnessS3FilesAccessPointConfigurationOutput) ToHarnessS3FilesAccessPointConfigurationOutput() HarnessS3FilesAccessPointConfigurationOutput {
+	return o
+}
+
+func (o HarnessS3FilesAccessPointConfigurationOutput) ToHarnessS3FilesAccessPointConfigurationOutputWithContext(ctx context.Context) HarnessS3FilesAccessPointConfigurationOutput {
+	return o
+}
+
+func (o HarnessS3FilesAccessPointConfigurationOutput) ToHarnessS3FilesAccessPointConfigurationPtrOutput() HarnessS3FilesAccessPointConfigurationPtrOutput {
+	return o.ToHarnessS3FilesAccessPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessS3FilesAccessPointConfigurationOutput) ToHarnessS3FilesAccessPointConfigurationPtrOutputWithContext(ctx context.Context) HarnessS3FilesAccessPointConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessS3FilesAccessPointConfiguration) *HarnessS3FilesAccessPointConfiguration {
+		return &v
+	}).(HarnessS3FilesAccessPointConfigurationPtrOutput)
+}
+
+func (o HarnessS3FilesAccessPointConfigurationOutput) AccessPointArn() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessS3FilesAccessPointConfiguration) string { return v.AccessPointArn }).(pulumi.StringOutput)
+}
+
+func (o HarnessS3FilesAccessPointConfigurationOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessS3FilesAccessPointConfiguration) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+type HarnessS3FilesAccessPointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessS3FilesAccessPointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessS3FilesAccessPointConfiguration)(nil)).Elem()
+}
+
+func (o HarnessS3FilesAccessPointConfigurationPtrOutput) ToHarnessS3FilesAccessPointConfigurationPtrOutput() HarnessS3FilesAccessPointConfigurationPtrOutput {
+	return o
+}
+
+func (o HarnessS3FilesAccessPointConfigurationPtrOutput) ToHarnessS3FilesAccessPointConfigurationPtrOutputWithContext(ctx context.Context) HarnessS3FilesAccessPointConfigurationPtrOutput {
+	return o
+}
+
+func (o HarnessS3FilesAccessPointConfigurationPtrOutput) Elem() HarnessS3FilesAccessPointConfigurationOutput {
+	return o.ApplyT(func(v *HarnessS3FilesAccessPointConfiguration) HarnessS3FilesAccessPointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessS3FilesAccessPointConfiguration
+		return ret
+	}).(HarnessS3FilesAccessPointConfigurationOutput)
+}
+
+func (o HarnessS3FilesAccessPointConfigurationPtrOutput) AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessS3FilesAccessPointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessPointArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HarnessS3FilesAccessPointConfigurationPtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessS3FilesAccessPointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MountPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for connecting to a private resource using a self-managed VPC Lattice resource configuration.
+type HarnessSelfManagedLatticeResource struct {
+	ResourceConfigurationIdentifier string `pulumi:"resourceConfigurationIdentifier"`
+}
+
+// HarnessSelfManagedLatticeResourceInput is an input type that accepts HarnessSelfManagedLatticeResourceArgs and HarnessSelfManagedLatticeResourceOutput values.
+// You can construct a concrete instance of `HarnessSelfManagedLatticeResourceInput` via:
+//
+//	HarnessSelfManagedLatticeResourceArgs{...}
+type HarnessSelfManagedLatticeResourceInput interface {
+	pulumi.Input
+
+	ToHarnessSelfManagedLatticeResourceOutput() HarnessSelfManagedLatticeResourceOutput
+	ToHarnessSelfManagedLatticeResourceOutputWithContext(context.Context) HarnessSelfManagedLatticeResourceOutput
+}
+
+// Configuration for connecting to a private resource using a self-managed VPC Lattice resource configuration.
+type HarnessSelfManagedLatticeResourceArgs struct {
+	ResourceConfigurationIdentifier pulumi.StringInput `pulumi:"resourceConfigurationIdentifier"`
+}
+
+func (HarnessSelfManagedLatticeResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (i HarnessSelfManagedLatticeResourceArgs) ToHarnessSelfManagedLatticeResourceOutput() HarnessSelfManagedLatticeResourceOutput {
+	return i.ToHarnessSelfManagedLatticeResourceOutputWithContext(context.Background())
+}
+
+func (i HarnessSelfManagedLatticeResourceArgs) ToHarnessSelfManagedLatticeResourceOutputWithContext(ctx context.Context) HarnessSelfManagedLatticeResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSelfManagedLatticeResourceOutput)
+}
+
+func (i HarnessSelfManagedLatticeResourceArgs) ToHarnessSelfManagedLatticeResourcePtrOutput() HarnessSelfManagedLatticeResourcePtrOutput {
+	return i.ToHarnessSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (i HarnessSelfManagedLatticeResourceArgs) ToHarnessSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) HarnessSelfManagedLatticeResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSelfManagedLatticeResourceOutput).ToHarnessSelfManagedLatticeResourcePtrOutputWithContext(ctx)
+}
+
+// HarnessSelfManagedLatticeResourcePtrInput is an input type that accepts HarnessSelfManagedLatticeResourceArgs, HarnessSelfManagedLatticeResourcePtr and HarnessSelfManagedLatticeResourcePtrOutput values.
+// You can construct a concrete instance of `HarnessSelfManagedLatticeResourcePtrInput` via:
+//
+//	        HarnessSelfManagedLatticeResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessSelfManagedLatticeResourcePtrInput interface {
+	pulumi.Input
+
+	ToHarnessSelfManagedLatticeResourcePtrOutput() HarnessSelfManagedLatticeResourcePtrOutput
+	ToHarnessSelfManagedLatticeResourcePtrOutputWithContext(context.Context) HarnessSelfManagedLatticeResourcePtrOutput
+}
+
+type harnessSelfManagedLatticeResourcePtrType HarnessSelfManagedLatticeResourceArgs
+
+func HarnessSelfManagedLatticeResourcePtr(v *HarnessSelfManagedLatticeResourceArgs) HarnessSelfManagedLatticeResourcePtrInput {
+	return (*harnessSelfManagedLatticeResourcePtrType)(v)
+}
+
+func (*harnessSelfManagedLatticeResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (i *harnessSelfManagedLatticeResourcePtrType) ToHarnessSelfManagedLatticeResourcePtrOutput() HarnessSelfManagedLatticeResourcePtrOutput {
+	return i.ToHarnessSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *harnessSelfManagedLatticeResourcePtrType) ToHarnessSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) HarnessSelfManagedLatticeResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSelfManagedLatticeResourcePtrOutput)
+}
+
+// Configuration for connecting to a private resource using a self-managed VPC Lattice resource configuration.
+type HarnessSelfManagedLatticeResourceOutput struct{ *pulumi.OutputState }
+
+func (HarnessSelfManagedLatticeResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (o HarnessSelfManagedLatticeResourceOutput) ToHarnessSelfManagedLatticeResourceOutput() HarnessSelfManagedLatticeResourceOutput {
+	return o
+}
+
+func (o HarnessSelfManagedLatticeResourceOutput) ToHarnessSelfManagedLatticeResourceOutputWithContext(ctx context.Context) HarnessSelfManagedLatticeResourceOutput {
+	return o
+}
+
+func (o HarnessSelfManagedLatticeResourceOutput) ToHarnessSelfManagedLatticeResourcePtrOutput() HarnessSelfManagedLatticeResourcePtrOutput {
+	return o.ToHarnessSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (o HarnessSelfManagedLatticeResourceOutput) ToHarnessSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) HarnessSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessSelfManagedLatticeResource) *HarnessSelfManagedLatticeResource {
+		return &v
+	}).(HarnessSelfManagedLatticeResourcePtrOutput)
+}
+
+func (o HarnessSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessSelfManagedLatticeResource) string { return v.ResourceConfigurationIdentifier }).(pulumi.StringOutput)
+}
+
+type HarnessSelfManagedLatticeResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessSelfManagedLatticeResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (o HarnessSelfManagedLatticeResourcePtrOutput) ToHarnessSelfManagedLatticeResourcePtrOutput() HarnessSelfManagedLatticeResourcePtrOutput {
+	return o
+}
+
+func (o HarnessSelfManagedLatticeResourcePtrOutput) ToHarnessSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) HarnessSelfManagedLatticeResourcePtrOutput {
+	return o
+}
+
+func (o HarnessSelfManagedLatticeResourcePtrOutput) Elem() HarnessSelfManagedLatticeResourceOutput {
+	return o.ApplyT(func(v *HarnessSelfManagedLatticeResource) HarnessSelfManagedLatticeResource {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessSelfManagedLatticeResource
+		return ret
+	}).(HarnessSelfManagedLatticeResourceOutput)
+}
+
+func (o HarnessSelfManagedLatticeResourcePtrOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessSelfManagedLatticeResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceConfigurationIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 type HarnessSessionStorageConfiguration struct {
 	MountPath string `pulumi:"mountPath"`
 }
@@ -13723,6 +16453,47 @@ func (i HarnessSessionStorageConfigurationArgs) ToHarnessSessionStorageConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(HarnessSessionStorageConfigurationOutput)
 }
 
+func (i HarnessSessionStorageConfigurationArgs) ToHarnessSessionStorageConfigurationPtrOutput() HarnessSessionStorageConfigurationPtrOutput {
+	return i.ToHarnessSessionStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i HarnessSessionStorageConfigurationArgs) ToHarnessSessionStorageConfigurationPtrOutputWithContext(ctx context.Context) HarnessSessionStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSessionStorageConfigurationOutput).ToHarnessSessionStorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// HarnessSessionStorageConfigurationPtrInput is an input type that accepts HarnessSessionStorageConfigurationArgs, HarnessSessionStorageConfigurationPtr and HarnessSessionStorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `HarnessSessionStorageConfigurationPtrInput` via:
+//
+//	        HarnessSessionStorageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessSessionStorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToHarnessSessionStorageConfigurationPtrOutput() HarnessSessionStorageConfigurationPtrOutput
+	ToHarnessSessionStorageConfigurationPtrOutputWithContext(context.Context) HarnessSessionStorageConfigurationPtrOutput
+}
+
+type harnessSessionStorageConfigurationPtrType HarnessSessionStorageConfigurationArgs
+
+func HarnessSessionStorageConfigurationPtr(v *HarnessSessionStorageConfigurationArgs) HarnessSessionStorageConfigurationPtrInput {
+	return (*harnessSessionStorageConfigurationPtrType)(v)
+}
+
+func (*harnessSessionStorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessSessionStorageConfiguration)(nil)).Elem()
+}
+
+func (i *harnessSessionStorageConfigurationPtrType) ToHarnessSessionStorageConfigurationPtrOutput() HarnessSessionStorageConfigurationPtrOutput {
+	return i.ToHarnessSessionStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *harnessSessionStorageConfigurationPtrType) ToHarnessSessionStorageConfigurationPtrOutputWithContext(ctx context.Context) HarnessSessionStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSessionStorageConfigurationPtrOutput)
+}
+
 type HarnessSessionStorageConfigurationOutput struct{ *pulumi.OutputState }
 
 func (HarnessSessionStorageConfigurationOutput) ElementType() reflect.Type {
@@ -13737,13 +16508,59 @@ func (o HarnessSessionStorageConfigurationOutput) ToHarnessSessionStorageConfigu
 	return o
 }
 
+func (o HarnessSessionStorageConfigurationOutput) ToHarnessSessionStorageConfigurationPtrOutput() HarnessSessionStorageConfigurationPtrOutput {
+	return o.ToHarnessSessionStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessSessionStorageConfigurationOutput) ToHarnessSessionStorageConfigurationPtrOutputWithContext(ctx context.Context) HarnessSessionStorageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessSessionStorageConfiguration) *HarnessSessionStorageConfiguration {
+		return &v
+	}).(HarnessSessionStorageConfigurationPtrOutput)
+}
+
 func (o HarnessSessionStorageConfigurationOutput) MountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v HarnessSessionStorageConfiguration) string { return v.MountPath }).(pulumi.StringOutput)
 }
 
+type HarnessSessionStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessSessionStorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessSessionStorageConfiguration)(nil)).Elem()
+}
+
+func (o HarnessSessionStorageConfigurationPtrOutput) ToHarnessSessionStorageConfigurationPtrOutput() HarnessSessionStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o HarnessSessionStorageConfigurationPtrOutput) ToHarnessSessionStorageConfigurationPtrOutputWithContext(ctx context.Context) HarnessSessionStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o HarnessSessionStorageConfigurationPtrOutput) Elem() HarnessSessionStorageConfigurationOutput {
+	return o.ApplyT(func(v *HarnessSessionStorageConfiguration) HarnessSessionStorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessSessionStorageConfiguration
+		return ret
+	}).(HarnessSessionStorageConfigurationOutput)
+}
+
+func (o HarnessSessionStorageConfigurationPtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessSessionStorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MountPath
+	}).(pulumi.StringPtrOutput)
+}
+
 type HarnessSkill struct {
+	AwsSkills *HarnessSkillAwsSkillsSource `pulumi:"awsSkills"`
+	Git       *HarnessSkillGitSource       `pulumi:"git"`
 	// The filesystem path to the skill definition.
-	Path string `pulumi:"path"`
+	Path *string               `pulumi:"path"`
+	S3   *HarnessSkillS3Source `pulumi:"s3"`
 }
 
 // HarnessSkillInput is an input type that accepts HarnessSkillArgs and HarnessSkillOutput values.
@@ -13758,8 +16575,11 @@ type HarnessSkillInput interface {
 }
 
 type HarnessSkillArgs struct {
+	AwsSkills HarnessSkillAwsSkillsSourcePtrInput `pulumi:"awsSkills"`
+	Git       HarnessSkillGitSourcePtrInput       `pulumi:"git"`
 	// The filesystem path to the skill definition.
-	Path pulumi.StringInput `pulumi:"path"`
+	Path pulumi.StringPtrInput        `pulumi:"path"`
+	S3   HarnessSkillS3SourcePtrInput `pulumi:"s3"`
 }
 
 func (HarnessSkillArgs) ElementType() reflect.Type {
@@ -13813,9 +16633,21 @@ func (o HarnessSkillOutput) ToHarnessSkillOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o HarnessSkillOutput) AwsSkills() HarnessSkillAwsSkillsSourcePtrOutput {
+	return o.ApplyT(func(v HarnessSkill) *HarnessSkillAwsSkillsSource { return v.AwsSkills }).(HarnessSkillAwsSkillsSourcePtrOutput)
+}
+
+func (o HarnessSkillOutput) Git() HarnessSkillGitSourcePtrOutput {
+	return o.ApplyT(func(v HarnessSkill) *HarnessSkillGitSource { return v.Git }).(HarnessSkillGitSourcePtrOutput)
+}
+
 // The filesystem path to the skill definition.
-func (o HarnessSkillOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v HarnessSkill) string { return v.Path }).(pulumi.StringOutput)
+func (o HarnessSkillOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HarnessSkill) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o HarnessSkillOutput) S3() HarnessSkillS3SourcePtrOutput {
+	return o.ApplyT(func(v HarnessSkill) *HarnessSkillS3Source { return v.S3 }).(HarnessSkillS3SourcePtrOutput)
 }
 
 type HarnessSkillArrayOutput struct{ *pulumi.OutputState }
@@ -13836,6 +16668,619 @@ func (o HarnessSkillArrayOutput) Index(i pulumi.IntInput) HarnessSkillOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HarnessSkill {
 		return vs[0].([]HarnessSkill)[vs[1].(int)]
 	}).(HarnessSkillOutput)
+}
+
+// AWS Skills baked into the Harness's underlying Runtime.
+type HarnessSkillAwsSkillsSource struct {
+	// Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].
+	Paths []string `pulumi:"paths"`
+}
+
+// HarnessSkillAwsSkillsSourceInput is an input type that accepts HarnessSkillAwsSkillsSourceArgs and HarnessSkillAwsSkillsSourceOutput values.
+// You can construct a concrete instance of `HarnessSkillAwsSkillsSourceInput` via:
+//
+//	HarnessSkillAwsSkillsSourceArgs{...}
+type HarnessSkillAwsSkillsSourceInput interface {
+	pulumi.Input
+
+	ToHarnessSkillAwsSkillsSourceOutput() HarnessSkillAwsSkillsSourceOutput
+	ToHarnessSkillAwsSkillsSourceOutputWithContext(context.Context) HarnessSkillAwsSkillsSourceOutput
+}
+
+// AWS Skills baked into the Harness's underlying Runtime.
+type HarnessSkillAwsSkillsSourceArgs struct {
+	// Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+}
+
+func (HarnessSkillAwsSkillsSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessSkillAwsSkillsSource)(nil)).Elem()
+}
+
+func (i HarnessSkillAwsSkillsSourceArgs) ToHarnessSkillAwsSkillsSourceOutput() HarnessSkillAwsSkillsSourceOutput {
+	return i.ToHarnessSkillAwsSkillsSourceOutputWithContext(context.Background())
+}
+
+func (i HarnessSkillAwsSkillsSourceArgs) ToHarnessSkillAwsSkillsSourceOutputWithContext(ctx context.Context) HarnessSkillAwsSkillsSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSkillAwsSkillsSourceOutput)
+}
+
+func (i HarnessSkillAwsSkillsSourceArgs) ToHarnessSkillAwsSkillsSourcePtrOutput() HarnessSkillAwsSkillsSourcePtrOutput {
+	return i.ToHarnessSkillAwsSkillsSourcePtrOutputWithContext(context.Background())
+}
+
+func (i HarnessSkillAwsSkillsSourceArgs) ToHarnessSkillAwsSkillsSourcePtrOutputWithContext(ctx context.Context) HarnessSkillAwsSkillsSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSkillAwsSkillsSourceOutput).ToHarnessSkillAwsSkillsSourcePtrOutputWithContext(ctx)
+}
+
+// HarnessSkillAwsSkillsSourcePtrInput is an input type that accepts HarnessSkillAwsSkillsSourceArgs, HarnessSkillAwsSkillsSourcePtr and HarnessSkillAwsSkillsSourcePtrOutput values.
+// You can construct a concrete instance of `HarnessSkillAwsSkillsSourcePtrInput` via:
+//
+//	        HarnessSkillAwsSkillsSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessSkillAwsSkillsSourcePtrInput interface {
+	pulumi.Input
+
+	ToHarnessSkillAwsSkillsSourcePtrOutput() HarnessSkillAwsSkillsSourcePtrOutput
+	ToHarnessSkillAwsSkillsSourcePtrOutputWithContext(context.Context) HarnessSkillAwsSkillsSourcePtrOutput
+}
+
+type harnessSkillAwsSkillsSourcePtrType HarnessSkillAwsSkillsSourceArgs
+
+func HarnessSkillAwsSkillsSourcePtr(v *HarnessSkillAwsSkillsSourceArgs) HarnessSkillAwsSkillsSourcePtrInput {
+	return (*harnessSkillAwsSkillsSourcePtrType)(v)
+}
+
+func (*harnessSkillAwsSkillsSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessSkillAwsSkillsSource)(nil)).Elem()
+}
+
+func (i *harnessSkillAwsSkillsSourcePtrType) ToHarnessSkillAwsSkillsSourcePtrOutput() HarnessSkillAwsSkillsSourcePtrOutput {
+	return i.ToHarnessSkillAwsSkillsSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *harnessSkillAwsSkillsSourcePtrType) ToHarnessSkillAwsSkillsSourcePtrOutputWithContext(ctx context.Context) HarnessSkillAwsSkillsSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSkillAwsSkillsSourcePtrOutput)
+}
+
+// AWS Skills baked into the Harness's underlying Runtime.
+type HarnessSkillAwsSkillsSourceOutput struct{ *pulumi.OutputState }
+
+func (HarnessSkillAwsSkillsSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessSkillAwsSkillsSource)(nil)).Elem()
+}
+
+func (o HarnessSkillAwsSkillsSourceOutput) ToHarnessSkillAwsSkillsSourceOutput() HarnessSkillAwsSkillsSourceOutput {
+	return o
+}
+
+func (o HarnessSkillAwsSkillsSourceOutput) ToHarnessSkillAwsSkillsSourceOutputWithContext(ctx context.Context) HarnessSkillAwsSkillsSourceOutput {
+	return o
+}
+
+func (o HarnessSkillAwsSkillsSourceOutput) ToHarnessSkillAwsSkillsSourcePtrOutput() HarnessSkillAwsSkillsSourcePtrOutput {
+	return o.ToHarnessSkillAwsSkillsSourcePtrOutputWithContext(context.Background())
+}
+
+func (o HarnessSkillAwsSkillsSourceOutput) ToHarnessSkillAwsSkillsSourcePtrOutputWithContext(ctx context.Context) HarnessSkillAwsSkillsSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessSkillAwsSkillsSource) *HarnessSkillAwsSkillsSource {
+		return &v
+	}).(HarnessSkillAwsSkillsSourcePtrOutput)
+}
+
+// Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].
+func (o HarnessSkillAwsSkillsSourceOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HarnessSkillAwsSkillsSource) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+type HarnessSkillAwsSkillsSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessSkillAwsSkillsSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessSkillAwsSkillsSource)(nil)).Elem()
+}
+
+func (o HarnessSkillAwsSkillsSourcePtrOutput) ToHarnessSkillAwsSkillsSourcePtrOutput() HarnessSkillAwsSkillsSourcePtrOutput {
+	return o
+}
+
+func (o HarnessSkillAwsSkillsSourcePtrOutput) ToHarnessSkillAwsSkillsSourcePtrOutputWithContext(ctx context.Context) HarnessSkillAwsSkillsSourcePtrOutput {
+	return o
+}
+
+func (o HarnessSkillAwsSkillsSourcePtrOutput) Elem() HarnessSkillAwsSkillsSourceOutput {
+	return o.ApplyT(func(v *HarnessSkillAwsSkillsSource) HarnessSkillAwsSkillsSource {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessSkillAwsSkillsSource
+		return ret
+	}).(HarnessSkillAwsSkillsSourceOutput)
+}
+
+// Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].
+func (o HarnessSkillAwsSkillsSourcePtrOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HarnessSkillAwsSkillsSource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Paths
+	}).(pulumi.StringArrayOutput)
+}
+
+// Authentication configuration for accessing a private git repository.
+type HarnessSkillGitAuth struct {
+	// The ARN of the credential in AgentCore Identity containing the password or personal access token.
+	CredentialArn string `pulumi:"credentialArn"`
+	// Username for authentication. Defaults to 'oauth2' if not specified.
+	Username *string `pulumi:"username"`
+}
+
+// HarnessSkillGitAuthInput is an input type that accepts HarnessSkillGitAuthArgs and HarnessSkillGitAuthOutput values.
+// You can construct a concrete instance of `HarnessSkillGitAuthInput` via:
+//
+//	HarnessSkillGitAuthArgs{...}
+type HarnessSkillGitAuthInput interface {
+	pulumi.Input
+
+	ToHarnessSkillGitAuthOutput() HarnessSkillGitAuthOutput
+	ToHarnessSkillGitAuthOutputWithContext(context.Context) HarnessSkillGitAuthOutput
+}
+
+// Authentication configuration for accessing a private git repository.
+type HarnessSkillGitAuthArgs struct {
+	// The ARN of the credential in AgentCore Identity containing the password or personal access token.
+	CredentialArn pulumi.StringInput `pulumi:"credentialArn"`
+	// Username for authentication. Defaults to 'oauth2' if not specified.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (HarnessSkillGitAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessSkillGitAuth)(nil)).Elem()
+}
+
+func (i HarnessSkillGitAuthArgs) ToHarnessSkillGitAuthOutput() HarnessSkillGitAuthOutput {
+	return i.ToHarnessSkillGitAuthOutputWithContext(context.Background())
+}
+
+func (i HarnessSkillGitAuthArgs) ToHarnessSkillGitAuthOutputWithContext(ctx context.Context) HarnessSkillGitAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSkillGitAuthOutput)
+}
+
+func (i HarnessSkillGitAuthArgs) ToHarnessSkillGitAuthPtrOutput() HarnessSkillGitAuthPtrOutput {
+	return i.ToHarnessSkillGitAuthPtrOutputWithContext(context.Background())
+}
+
+func (i HarnessSkillGitAuthArgs) ToHarnessSkillGitAuthPtrOutputWithContext(ctx context.Context) HarnessSkillGitAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSkillGitAuthOutput).ToHarnessSkillGitAuthPtrOutputWithContext(ctx)
+}
+
+// HarnessSkillGitAuthPtrInput is an input type that accepts HarnessSkillGitAuthArgs, HarnessSkillGitAuthPtr and HarnessSkillGitAuthPtrOutput values.
+// You can construct a concrete instance of `HarnessSkillGitAuthPtrInput` via:
+//
+//	        HarnessSkillGitAuthArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessSkillGitAuthPtrInput interface {
+	pulumi.Input
+
+	ToHarnessSkillGitAuthPtrOutput() HarnessSkillGitAuthPtrOutput
+	ToHarnessSkillGitAuthPtrOutputWithContext(context.Context) HarnessSkillGitAuthPtrOutput
+}
+
+type harnessSkillGitAuthPtrType HarnessSkillGitAuthArgs
+
+func HarnessSkillGitAuthPtr(v *HarnessSkillGitAuthArgs) HarnessSkillGitAuthPtrInput {
+	return (*harnessSkillGitAuthPtrType)(v)
+}
+
+func (*harnessSkillGitAuthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessSkillGitAuth)(nil)).Elem()
+}
+
+func (i *harnessSkillGitAuthPtrType) ToHarnessSkillGitAuthPtrOutput() HarnessSkillGitAuthPtrOutput {
+	return i.ToHarnessSkillGitAuthPtrOutputWithContext(context.Background())
+}
+
+func (i *harnessSkillGitAuthPtrType) ToHarnessSkillGitAuthPtrOutputWithContext(ctx context.Context) HarnessSkillGitAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSkillGitAuthPtrOutput)
+}
+
+// Authentication configuration for accessing a private git repository.
+type HarnessSkillGitAuthOutput struct{ *pulumi.OutputState }
+
+func (HarnessSkillGitAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessSkillGitAuth)(nil)).Elem()
+}
+
+func (o HarnessSkillGitAuthOutput) ToHarnessSkillGitAuthOutput() HarnessSkillGitAuthOutput {
+	return o
+}
+
+func (o HarnessSkillGitAuthOutput) ToHarnessSkillGitAuthOutputWithContext(ctx context.Context) HarnessSkillGitAuthOutput {
+	return o
+}
+
+func (o HarnessSkillGitAuthOutput) ToHarnessSkillGitAuthPtrOutput() HarnessSkillGitAuthPtrOutput {
+	return o.ToHarnessSkillGitAuthPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessSkillGitAuthOutput) ToHarnessSkillGitAuthPtrOutputWithContext(ctx context.Context) HarnessSkillGitAuthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessSkillGitAuth) *HarnessSkillGitAuth {
+		return &v
+	}).(HarnessSkillGitAuthPtrOutput)
+}
+
+// The ARN of the credential in AgentCore Identity containing the password or personal access token.
+func (o HarnessSkillGitAuthOutput) CredentialArn() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessSkillGitAuth) string { return v.CredentialArn }).(pulumi.StringOutput)
+}
+
+// Username for authentication. Defaults to 'oauth2' if not specified.
+func (o HarnessSkillGitAuthOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HarnessSkillGitAuth) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type HarnessSkillGitAuthPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessSkillGitAuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessSkillGitAuth)(nil)).Elem()
+}
+
+func (o HarnessSkillGitAuthPtrOutput) ToHarnessSkillGitAuthPtrOutput() HarnessSkillGitAuthPtrOutput {
+	return o
+}
+
+func (o HarnessSkillGitAuthPtrOutput) ToHarnessSkillGitAuthPtrOutputWithContext(ctx context.Context) HarnessSkillGitAuthPtrOutput {
+	return o
+}
+
+func (o HarnessSkillGitAuthPtrOutput) Elem() HarnessSkillGitAuthOutput {
+	return o.ApplyT(func(v *HarnessSkillGitAuth) HarnessSkillGitAuth {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessSkillGitAuth
+		return ret
+	}).(HarnessSkillGitAuthOutput)
+}
+
+// The ARN of the credential in AgentCore Identity containing the password or personal access token.
+func (o HarnessSkillGitAuthPtrOutput) CredentialArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessSkillGitAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Username for authentication. Defaults to 'oauth2' if not specified.
+func (o HarnessSkillGitAuthPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessSkillGitAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+// A git repository containing the skill, cloned over HTTPS.
+type HarnessSkillGitSource struct {
+	Auth *HarnessSkillGitAuth `pulumi:"auth"`
+	// Subdirectory within the repository containing the skill.
+	Path *string `pulumi:"path"`
+	// The HTTPS URL of the git repository.
+	Url string `pulumi:"url"`
+}
+
+// HarnessSkillGitSourceInput is an input type that accepts HarnessSkillGitSourceArgs and HarnessSkillGitSourceOutput values.
+// You can construct a concrete instance of `HarnessSkillGitSourceInput` via:
+//
+//	HarnessSkillGitSourceArgs{...}
+type HarnessSkillGitSourceInput interface {
+	pulumi.Input
+
+	ToHarnessSkillGitSourceOutput() HarnessSkillGitSourceOutput
+	ToHarnessSkillGitSourceOutputWithContext(context.Context) HarnessSkillGitSourceOutput
+}
+
+// A git repository containing the skill, cloned over HTTPS.
+type HarnessSkillGitSourceArgs struct {
+	Auth HarnessSkillGitAuthPtrInput `pulumi:"auth"`
+	// Subdirectory within the repository containing the skill.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The HTTPS URL of the git repository.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (HarnessSkillGitSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessSkillGitSource)(nil)).Elem()
+}
+
+func (i HarnessSkillGitSourceArgs) ToHarnessSkillGitSourceOutput() HarnessSkillGitSourceOutput {
+	return i.ToHarnessSkillGitSourceOutputWithContext(context.Background())
+}
+
+func (i HarnessSkillGitSourceArgs) ToHarnessSkillGitSourceOutputWithContext(ctx context.Context) HarnessSkillGitSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSkillGitSourceOutput)
+}
+
+func (i HarnessSkillGitSourceArgs) ToHarnessSkillGitSourcePtrOutput() HarnessSkillGitSourcePtrOutput {
+	return i.ToHarnessSkillGitSourcePtrOutputWithContext(context.Background())
+}
+
+func (i HarnessSkillGitSourceArgs) ToHarnessSkillGitSourcePtrOutputWithContext(ctx context.Context) HarnessSkillGitSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSkillGitSourceOutput).ToHarnessSkillGitSourcePtrOutputWithContext(ctx)
+}
+
+// HarnessSkillGitSourcePtrInput is an input type that accepts HarnessSkillGitSourceArgs, HarnessSkillGitSourcePtr and HarnessSkillGitSourcePtrOutput values.
+// You can construct a concrete instance of `HarnessSkillGitSourcePtrInput` via:
+//
+//	        HarnessSkillGitSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessSkillGitSourcePtrInput interface {
+	pulumi.Input
+
+	ToHarnessSkillGitSourcePtrOutput() HarnessSkillGitSourcePtrOutput
+	ToHarnessSkillGitSourcePtrOutputWithContext(context.Context) HarnessSkillGitSourcePtrOutput
+}
+
+type harnessSkillGitSourcePtrType HarnessSkillGitSourceArgs
+
+func HarnessSkillGitSourcePtr(v *HarnessSkillGitSourceArgs) HarnessSkillGitSourcePtrInput {
+	return (*harnessSkillGitSourcePtrType)(v)
+}
+
+func (*harnessSkillGitSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessSkillGitSource)(nil)).Elem()
+}
+
+func (i *harnessSkillGitSourcePtrType) ToHarnessSkillGitSourcePtrOutput() HarnessSkillGitSourcePtrOutput {
+	return i.ToHarnessSkillGitSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *harnessSkillGitSourcePtrType) ToHarnessSkillGitSourcePtrOutputWithContext(ctx context.Context) HarnessSkillGitSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSkillGitSourcePtrOutput)
+}
+
+// A git repository containing the skill, cloned over HTTPS.
+type HarnessSkillGitSourceOutput struct{ *pulumi.OutputState }
+
+func (HarnessSkillGitSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessSkillGitSource)(nil)).Elem()
+}
+
+func (o HarnessSkillGitSourceOutput) ToHarnessSkillGitSourceOutput() HarnessSkillGitSourceOutput {
+	return o
+}
+
+func (o HarnessSkillGitSourceOutput) ToHarnessSkillGitSourceOutputWithContext(ctx context.Context) HarnessSkillGitSourceOutput {
+	return o
+}
+
+func (o HarnessSkillGitSourceOutput) ToHarnessSkillGitSourcePtrOutput() HarnessSkillGitSourcePtrOutput {
+	return o.ToHarnessSkillGitSourcePtrOutputWithContext(context.Background())
+}
+
+func (o HarnessSkillGitSourceOutput) ToHarnessSkillGitSourcePtrOutputWithContext(ctx context.Context) HarnessSkillGitSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessSkillGitSource) *HarnessSkillGitSource {
+		return &v
+	}).(HarnessSkillGitSourcePtrOutput)
+}
+
+func (o HarnessSkillGitSourceOutput) Auth() HarnessSkillGitAuthPtrOutput {
+	return o.ApplyT(func(v HarnessSkillGitSource) *HarnessSkillGitAuth { return v.Auth }).(HarnessSkillGitAuthPtrOutput)
+}
+
+// Subdirectory within the repository containing the skill.
+func (o HarnessSkillGitSourceOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HarnessSkillGitSource) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The HTTPS URL of the git repository.
+func (o HarnessSkillGitSourceOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessSkillGitSource) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type HarnessSkillGitSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessSkillGitSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessSkillGitSource)(nil)).Elem()
+}
+
+func (o HarnessSkillGitSourcePtrOutput) ToHarnessSkillGitSourcePtrOutput() HarnessSkillGitSourcePtrOutput {
+	return o
+}
+
+func (o HarnessSkillGitSourcePtrOutput) ToHarnessSkillGitSourcePtrOutputWithContext(ctx context.Context) HarnessSkillGitSourcePtrOutput {
+	return o
+}
+
+func (o HarnessSkillGitSourcePtrOutput) Elem() HarnessSkillGitSourceOutput {
+	return o.ApplyT(func(v *HarnessSkillGitSource) HarnessSkillGitSource {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessSkillGitSource
+		return ret
+	}).(HarnessSkillGitSourceOutput)
+}
+
+func (o HarnessSkillGitSourcePtrOutput) Auth() HarnessSkillGitAuthPtrOutput {
+	return o.ApplyT(func(v *HarnessSkillGitSource) *HarnessSkillGitAuth {
+		if v == nil {
+			return nil
+		}
+		return v.Auth
+	}).(HarnessSkillGitAuthPtrOutput)
+}
+
+// Subdirectory within the repository containing the skill.
+func (o HarnessSkillGitSourcePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessSkillGitSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTPS URL of the git repository.
+func (o HarnessSkillGitSourcePtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessSkillGitSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+// An S3 source containing the skill.
+type HarnessSkillS3Source struct {
+	// The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).
+	Uri string `pulumi:"uri"`
+}
+
+// HarnessSkillS3SourceInput is an input type that accepts HarnessSkillS3SourceArgs and HarnessSkillS3SourceOutput values.
+// You can construct a concrete instance of `HarnessSkillS3SourceInput` via:
+//
+//	HarnessSkillS3SourceArgs{...}
+type HarnessSkillS3SourceInput interface {
+	pulumi.Input
+
+	ToHarnessSkillS3SourceOutput() HarnessSkillS3SourceOutput
+	ToHarnessSkillS3SourceOutputWithContext(context.Context) HarnessSkillS3SourceOutput
+}
+
+// An S3 source containing the skill.
+type HarnessSkillS3SourceArgs struct {
+	// The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (HarnessSkillS3SourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessSkillS3Source)(nil)).Elem()
+}
+
+func (i HarnessSkillS3SourceArgs) ToHarnessSkillS3SourceOutput() HarnessSkillS3SourceOutput {
+	return i.ToHarnessSkillS3SourceOutputWithContext(context.Background())
+}
+
+func (i HarnessSkillS3SourceArgs) ToHarnessSkillS3SourceOutputWithContext(ctx context.Context) HarnessSkillS3SourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSkillS3SourceOutput)
+}
+
+func (i HarnessSkillS3SourceArgs) ToHarnessSkillS3SourcePtrOutput() HarnessSkillS3SourcePtrOutput {
+	return i.ToHarnessSkillS3SourcePtrOutputWithContext(context.Background())
+}
+
+func (i HarnessSkillS3SourceArgs) ToHarnessSkillS3SourcePtrOutputWithContext(ctx context.Context) HarnessSkillS3SourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSkillS3SourceOutput).ToHarnessSkillS3SourcePtrOutputWithContext(ctx)
+}
+
+// HarnessSkillS3SourcePtrInput is an input type that accepts HarnessSkillS3SourceArgs, HarnessSkillS3SourcePtr and HarnessSkillS3SourcePtrOutput values.
+// You can construct a concrete instance of `HarnessSkillS3SourcePtrInput` via:
+//
+//	        HarnessSkillS3SourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessSkillS3SourcePtrInput interface {
+	pulumi.Input
+
+	ToHarnessSkillS3SourcePtrOutput() HarnessSkillS3SourcePtrOutput
+	ToHarnessSkillS3SourcePtrOutputWithContext(context.Context) HarnessSkillS3SourcePtrOutput
+}
+
+type harnessSkillS3SourcePtrType HarnessSkillS3SourceArgs
+
+func HarnessSkillS3SourcePtr(v *HarnessSkillS3SourceArgs) HarnessSkillS3SourcePtrInput {
+	return (*harnessSkillS3SourcePtrType)(v)
+}
+
+func (*harnessSkillS3SourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessSkillS3Source)(nil)).Elem()
+}
+
+func (i *harnessSkillS3SourcePtrType) ToHarnessSkillS3SourcePtrOutput() HarnessSkillS3SourcePtrOutput {
+	return i.ToHarnessSkillS3SourcePtrOutputWithContext(context.Background())
+}
+
+func (i *harnessSkillS3SourcePtrType) ToHarnessSkillS3SourcePtrOutputWithContext(ctx context.Context) HarnessSkillS3SourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessSkillS3SourcePtrOutput)
+}
+
+// An S3 source containing the skill.
+type HarnessSkillS3SourceOutput struct{ *pulumi.OutputState }
+
+func (HarnessSkillS3SourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessSkillS3Source)(nil)).Elem()
+}
+
+func (o HarnessSkillS3SourceOutput) ToHarnessSkillS3SourceOutput() HarnessSkillS3SourceOutput {
+	return o
+}
+
+func (o HarnessSkillS3SourceOutput) ToHarnessSkillS3SourceOutputWithContext(ctx context.Context) HarnessSkillS3SourceOutput {
+	return o
+}
+
+func (o HarnessSkillS3SourceOutput) ToHarnessSkillS3SourcePtrOutput() HarnessSkillS3SourcePtrOutput {
+	return o.ToHarnessSkillS3SourcePtrOutputWithContext(context.Background())
+}
+
+func (o HarnessSkillS3SourceOutput) ToHarnessSkillS3SourcePtrOutputWithContext(ctx context.Context) HarnessSkillS3SourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessSkillS3Source) *HarnessSkillS3Source {
+		return &v
+	}).(HarnessSkillS3SourcePtrOutput)
+}
+
+// The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).
+func (o HarnessSkillS3SourceOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessSkillS3Source) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type HarnessSkillS3SourcePtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessSkillS3SourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessSkillS3Source)(nil)).Elem()
+}
+
+func (o HarnessSkillS3SourcePtrOutput) ToHarnessSkillS3SourcePtrOutput() HarnessSkillS3SourcePtrOutput {
+	return o
+}
+
+func (o HarnessSkillS3SourcePtrOutput) ToHarnessSkillS3SourcePtrOutputWithContext(ctx context.Context) HarnessSkillS3SourcePtrOutput {
+	return o
+}
+
+func (o HarnessSkillS3SourcePtrOutput) Elem() HarnessSkillS3SourceOutput {
+	return o.ApplyT(func(v *HarnessSkillS3Source) HarnessSkillS3Source {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessSkillS3Source
+		return ret
+	}).(HarnessSkillS3SourceOutput)
+}
+
+// The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).
+func (o HarnessSkillS3SourcePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessSkillS3Source) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
 }
 
 type HarnessSlidingWindowConfiguration struct {
@@ -27832,6 +31277,47 @@ func (i PolicyCedarPolicyArgs) ToPolicyCedarPolicyOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyCedarPolicyOutput)
 }
 
+func (i PolicyCedarPolicyArgs) ToPolicyCedarPolicyPtrOutput() PolicyCedarPolicyPtrOutput {
+	return i.ToPolicyCedarPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyCedarPolicyArgs) ToPolicyCedarPolicyPtrOutputWithContext(ctx context.Context) PolicyCedarPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyCedarPolicyOutput).ToPolicyCedarPolicyPtrOutputWithContext(ctx)
+}
+
+// PolicyCedarPolicyPtrInput is an input type that accepts PolicyCedarPolicyArgs, PolicyCedarPolicyPtr and PolicyCedarPolicyPtrOutput values.
+// You can construct a concrete instance of `PolicyCedarPolicyPtrInput` via:
+//
+//	        PolicyCedarPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyCedarPolicyPtrInput interface {
+	pulumi.Input
+
+	ToPolicyCedarPolicyPtrOutput() PolicyCedarPolicyPtrOutput
+	ToPolicyCedarPolicyPtrOutputWithContext(context.Context) PolicyCedarPolicyPtrOutput
+}
+
+type policyCedarPolicyPtrType PolicyCedarPolicyArgs
+
+func PolicyCedarPolicyPtr(v *PolicyCedarPolicyArgs) PolicyCedarPolicyPtrInput {
+	return (*policyCedarPolicyPtrType)(v)
+}
+
+func (*policyCedarPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyCedarPolicy)(nil)).Elem()
+}
+
+func (i *policyCedarPolicyPtrType) ToPolicyCedarPolicyPtrOutput() PolicyCedarPolicyPtrOutput {
+	return i.ToPolicyCedarPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *policyCedarPolicyPtrType) ToPolicyCedarPolicyPtrOutputWithContext(ctx context.Context) PolicyCedarPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyCedarPolicyPtrOutput)
+}
+
 // A Cedar policy statement within the AgentCore Policy system.
 type PolicyCedarPolicyOutput struct{ *pulumi.OutputState }
 
@@ -27845,6 +31331,16 @@ func (o PolicyCedarPolicyOutput) ToPolicyCedarPolicyOutput() PolicyCedarPolicyOu
 
 func (o PolicyCedarPolicyOutput) ToPolicyCedarPolicyOutputWithContext(ctx context.Context) PolicyCedarPolicyOutput {
 	return o
+}
+
+func (o PolicyCedarPolicyOutput) ToPolicyCedarPolicyPtrOutput() PolicyCedarPolicyPtrOutput {
+	return o.ToPolicyCedarPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyCedarPolicyOutput) ToPolicyCedarPolicyPtrOutputWithContext(ctx context.Context) PolicyCedarPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyCedarPolicy) *PolicyCedarPolicy {
+		return &v
+	}).(PolicyCedarPolicyPtrOutput)
 }
 
 // The Cedar policy statement that defines the authorization logic.
@@ -27888,7 +31384,8 @@ func (o PolicyCedarPolicyPtrOutput) Statement() pulumi.StringPtrOutput {
 
 // The definition structure for policies. Encapsulates different policy formats.
 type PolicyDefinition struct {
-	Cedar PolicyCedarPolicy `pulumi:"cedar"`
+	Cedar  *PolicyCedarPolicy `pulumi:"cedar"`
+	Policy *PolicyStatement   `pulumi:"policy"`
 }
 
 // PolicyDefinitionInput is an input type that accepts PolicyDefinitionArgs and PolicyDefinitionOutput values.
@@ -27904,7 +31401,8 @@ type PolicyDefinitionInput interface {
 
 // The definition structure for policies. Encapsulates different policy formats.
 type PolicyDefinitionArgs struct {
-	Cedar PolicyCedarPolicyInput `pulumi:"cedar"`
+	Cedar  PolicyCedarPolicyPtrInput `pulumi:"cedar"`
+	Policy PolicyStatementPtrInput   `pulumi:"policy"`
 }
 
 func (PolicyDefinitionArgs) ElementType() reflect.Type {
@@ -27934,8 +31432,12 @@ func (o PolicyDefinitionOutput) ToPolicyDefinitionOutputWithContext(ctx context.
 	return o
 }
 
-func (o PolicyDefinitionOutput) Cedar() PolicyCedarPolicyOutput {
-	return o.ApplyT(func(v PolicyDefinition) PolicyCedarPolicy { return v.Cedar }).(PolicyCedarPolicyOutput)
+func (o PolicyDefinitionOutput) Cedar() PolicyCedarPolicyPtrOutput {
+	return o.ApplyT(func(v PolicyDefinition) *PolicyCedarPolicy { return v.Cedar }).(PolicyCedarPolicyPtrOutput)
+}
+
+func (o PolicyDefinitionOutput) Policy() PolicyStatementPtrOutput {
+	return o.ApplyT(func(v PolicyDefinition) *PolicyStatement { return v.Policy }).(PolicyStatementPtrOutput)
 }
 
 type PolicyDefinitionPtrOutput struct{ *pulumi.OutputState }
@@ -27967,13 +31469,162 @@ func (o PolicyDefinitionPtrOutput) Cedar() PolicyCedarPolicyPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Cedar
+		return v.Cedar
 	}).(PolicyCedarPolicyPtrOutput)
+}
+
+func (o PolicyDefinitionPtrOutput) Policy() PolicyStatementPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinition) *PolicyStatement {
+		if v == nil {
+			return nil
+		}
+		return v.Policy
+	}).(PolicyStatementPtrOutput)
 }
 
 type PolicyEngineTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
+}
+
+// A policy statement within the AgentCore Policy system.
+type PolicyStatement struct {
+	// The policy statement.
+	Statement string `pulumi:"statement"`
+}
+
+// PolicyStatementInput is an input type that accepts PolicyStatementArgs and PolicyStatementOutput values.
+// You can construct a concrete instance of `PolicyStatementInput` via:
+//
+//	PolicyStatementArgs{...}
+type PolicyStatementInput interface {
+	pulumi.Input
+
+	ToPolicyStatementOutput() PolicyStatementOutput
+	ToPolicyStatementOutputWithContext(context.Context) PolicyStatementOutput
+}
+
+// A policy statement within the AgentCore Policy system.
+type PolicyStatementArgs struct {
+	// The policy statement.
+	Statement pulumi.StringInput `pulumi:"statement"`
+}
+
+func (PolicyStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStatement)(nil)).Elem()
+}
+
+func (i PolicyStatementArgs) ToPolicyStatementOutput() PolicyStatementOutput {
+	return i.ToPolicyStatementOutputWithContext(context.Background())
+}
+
+func (i PolicyStatementArgs) ToPolicyStatementOutputWithContext(ctx context.Context) PolicyStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStatementOutput)
+}
+
+func (i PolicyStatementArgs) ToPolicyStatementPtrOutput() PolicyStatementPtrOutput {
+	return i.ToPolicyStatementPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyStatementArgs) ToPolicyStatementPtrOutputWithContext(ctx context.Context) PolicyStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStatementOutput).ToPolicyStatementPtrOutputWithContext(ctx)
+}
+
+// PolicyStatementPtrInput is an input type that accepts PolicyStatementArgs, PolicyStatementPtr and PolicyStatementPtrOutput values.
+// You can construct a concrete instance of `PolicyStatementPtrInput` via:
+//
+//	        PolicyStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyStatementPtrInput interface {
+	pulumi.Input
+
+	ToPolicyStatementPtrOutput() PolicyStatementPtrOutput
+	ToPolicyStatementPtrOutputWithContext(context.Context) PolicyStatementPtrOutput
+}
+
+type policyStatementPtrType PolicyStatementArgs
+
+func PolicyStatementPtr(v *PolicyStatementArgs) PolicyStatementPtrInput {
+	return (*policyStatementPtrType)(v)
+}
+
+func (*policyStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyStatement)(nil)).Elem()
+}
+
+func (i *policyStatementPtrType) ToPolicyStatementPtrOutput() PolicyStatementPtrOutput {
+	return i.ToPolicyStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *policyStatementPtrType) ToPolicyStatementPtrOutputWithContext(ctx context.Context) PolicyStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStatementPtrOutput)
+}
+
+// A policy statement within the AgentCore Policy system.
+type PolicyStatementOutput struct{ *pulumi.OutputState }
+
+func (PolicyStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStatement)(nil)).Elem()
+}
+
+func (o PolicyStatementOutput) ToPolicyStatementOutput() PolicyStatementOutput {
+	return o
+}
+
+func (o PolicyStatementOutput) ToPolicyStatementOutputWithContext(ctx context.Context) PolicyStatementOutput {
+	return o
+}
+
+func (o PolicyStatementOutput) ToPolicyStatementPtrOutput() PolicyStatementPtrOutput {
+	return o.ToPolicyStatementPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStatementOutput) ToPolicyStatementPtrOutputWithContext(ctx context.Context) PolicyStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyStatement) *PolicyStatement {
+		return &v
+	}).(PolicyStatementPtrOutput)
+}
+
+// The policy statement.
+func (o PolicyStatementOutput) Statement() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyStatement) string { return v.Statement }).(pulumi.StringOutput)
+}
+
+type PolicyStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyStatement)(nil)).Elem()
+}
+
+func (o PolicyStatementPtrOutput) ToPolicyStatementPtrOutput() PolicyStatementPtrOutput {
+	return o
+}
+
+func (o PolicyStatementPtrOutput) ToPolicyStatementPtrOutputWithContext(ctx context.Context) PolicyStatementPtrOutput {
+	return o
+}
+
+func (o PolicyStatementPtrOutput) Elem() PolicyStatementOutput {
+	return o.ApplyT(func(v *PolicyStatement) PolicyStatement {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyStatement
+		return ret
+	}).(PolicyStatementOutput)
+}
+
+// The policy statement.
+func (o PolicyStatementPtrOutput) Statement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Statement
+	}).(pulumi.StringPtrOutput)
 }
 
 type RuntimeAgentRuntimeArtifact struct {
@@ -30522,7 +34173,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiKeyCredentialProviderInput)(nil)).Elem(), GatewayTargetApiKeyCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiKeyCredentialProviderPtrInput)(nil)).Elem(), GatewayTargetApiKeyCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiSchemaConfiguration0PropertiesInput)(nil)).Elem(), GatewayTargetApiSchemaConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiSchemaConfiguration0PropertiesPtrInput)(nil)).Elem(), GatewayTargetApiSchemaConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiSchemaConfiguration1PropertiesInput)(nil)).Elem(), GatewayTargetApiSchemaConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiSchemaConfiguration1PropertiesPtrInput)(nil)).Elem(), GatewayTargetApiSchemaConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetConnectorConfigurationInput)(nil)).Elem(), GatewayTargetConnectorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetConnectorConfigurationArrayInput)(nil)).Elem(), GatewayTargetConnectorConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetConnectorParameterOverrideInput)(nil)).Elem(), GatewayTargetConnectorParameterOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetConnectorParameterOverrideArrayInput)(nil)).Elem(), GatewayTargetConnectorParameterOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetConnectorSourceInput)(nil)).Elem(), GatewayTargetConnectorSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetConnectorTargetConfigurationInput)(nil)).Elem(), GatewayTargetConnectorTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProvider0PropertiesInput)(nil)).Elem(), GatewayTargetCredentialProvider0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProvider0PropertiesPtrInput)(nil)).Elem(), GatewayTargetCredentialProvider0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProvider1PropertiesInput)(nil)).Elem(), GatewayTargetCredentialProvider1PropertiesArgs{})
@@ -30531,7 +34190,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProvider2PropertiesPtrInput)(nil)).Elem(), GatewayTargetCredentialProvider2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProviderConfigurationInput)(nil)).Elem(), GatewayTargetCredentialProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProviderConfigurationArrayInput)(nil)).Elem(), GatewayTargetCredentialProviderConfigurationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetHttpTargetConfigurationPropertiesInput)(nil)).Elem(), GatewayTargetHttpTargetConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetHttpApiSchemaConfigurationInput)(nil)).Elem(), GatewayTargetHttpApiSchemaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetHttpApiSchemaConfigurationPtrInput)(nil)).Elem(), GatewayTargetHttpApiSchemaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetHttpTargetConfiguration0PropertiesInput)(nil)).Elem(), GatewayTargetHttpTargetConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetHttpTargetConfiguration1PropertiesInput)(nil)).Elem(), GatewayTargetHttpTargetConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetIamCredentialProviderInput)(nil)).Elem(), GatewayTargetIamCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetIamCredentialProviderPtrInput)(nil)).Elem(), GatewayTargetIamCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetManagedVpcResourceInput)(nil)).Elem(), GatewayTargetManagedVpcResourceArgs{})
@@ -30543,6 +34205,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration2PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration3PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration4PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration4PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration5PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration5PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpToolSchemaConfiguration0PropertiesInput)(nil)).Elem(), GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrInput)(nil)).Elem(), GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpToolSchemaConfiguration1PropertiesInput)(nil)).Elem(), GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs{})
@@ -30551,6 +34214,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMetadataConfigurationPtrInput)(nil)).Elem(), GatewayTargetMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthCredentialProviderInput)(nil)).Elem(), GatewayTargetOAuthCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthCredentialProviderPtrInput)(nil)).Elem(), GatewayTargetOAuthCredentialProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetPassthroughTargetConfigurationInput)(nil)).Elem(), GatewayTargetPassthroughTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetPrivateEndpoint0PropertiesInput)(nil)).Elem(), GatewayTargetPrivateEndpoint0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetPrivateEndpoint0PropertiesPtrInput)(nil)).Elem(), GatewayTargetPrivateEndpoint0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetPrivateEndpoint1PropertiesInput)(nil)).Elem(), GatewayTargetPrivateEndpoint1PropertiesArgs{})
@@ -30563,6 +34227,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaDefinitionMapInput)(nil)).Elem(), GatewayTargetSchemaDefinitionMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSelfManagedLatticeResourcePropertiesInput)(nil)).Elem(), GatewayTargetSelfManagedLatticeResourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSelfManagedLatticeResourcePropertiesPtrInput)(nil)).Elem(), GatewayTargetSelfManagedLatticeResourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetStickinessConfigurationInput)(nil)).Elem(), GatewayTargetStickinessConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetStickinessConfigurationPtrInput)(nil)).Elem(), GatewayTargetStickinessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetTargetConfiguration0PropertiesInput)(nil)).Elem(), GatewayTargetTargetConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetTargetConfiguration1PropertiesInput)(nil)).Elem(), GatewayTargetTargetConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolDefinitionInput)(nil)).Elem(), GatewayTargetToolDefinitionArgs{})
@@ -30593,6 +34259,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessCustomClaimValidationTypeArrayInput)(nil)).Elem(), HarnessCustomClaimValidationTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessCustomJwtAuthorizerConfigurationInput)(nil)).Elem(), HarnessCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessCustomJwtAuthorizerConfigurationPtrInput)(nil)).Elem(), HarnessCustomJwtAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessDisabledMemoryConfigurationInput)(nil)).Elem(), HarnessDisabledMemoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessDisabledMemoryConfigurationPtrInput)(nil)).Elem(), HarnessDisabledMemoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessEfsAccessPointConfigurationInput)(nil)).Elem(), HarnessEfsAccessPointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessEfsAccessPointConfigurationPtrInput)(nil)).Elem(), HarnessEfsAccessPointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessEnvironmentArtifactInput)(nil)).Elem(), HarnessEnvironmentArtifactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessEnvironmentArtifactPtrInput)(nil)).Elem(), HarnessEnvironmentArtifactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessEnvironmentProviderInput)(nil)).Elem(), HarnessEnvironmentProviderArgs{})
@@ -30607,6 +34277,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessInlineFunctionConfigPtrInput)(nil)).Elem(), HarnessInlineFunctionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessLifecycleConfigurationInput)(nil)).Elem(), HarnessLifecycleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessLifecycleConfigurationPtrInput)(nil)).Elem(), HarnessLifecycleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessLiteLlmModelConfigInput)(nil)).Elem(), HarnessLiteLlmModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessLiteLlmModelConfigPtrInput)(nil)).Elem(), HarnessLiteLlmModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessManagedMemoryConfigurationInput)(nil)).Elem(), HarnessManagedMemoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessManagedMemoryConfigurationPtrInput)(nil)).Elem(), HarnessManagedMemoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessManagedVpcResourceInput)(nil)).Elem(), HarnessManagedVpcResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessManagedVpcResourcePtrInput)(nil)).Elem(), HarnessManagedVpcResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessMemoryConfigurationInput)(nil)).Elem(), HarnessMemoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessMemoryConfigurationPtrInput)(nil)).Elem(), HarnessMemoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessModelConfigurationInput)(nil)).Elem(), HarnessModelConfigurationArgs{})
@@ -30616,11 +34292,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessOAuthCredentialProviderPtrInput)(nil)).Elem(), HarnessOAuthCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessOpenAiModelConfigInput)(nil)).Elem(), HarnessOpenAiModelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessOpenAiModelConfigPtrInput)(nil)).Elem(), HarnessOpenAiModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessPrivateEndpointInput)(nil)).Elem(), HarnessPrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessPrivateEndpointPtrInput)(nil)).Elem(), HarnessPrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessPrivateEndpointOverrideInput)(nil)).Elem(), HarnessPrivateEndpointOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessPrivateEndpointOverrideArrayInput)(nil)).Elem(), HarnessPrivateEndpointOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessRemoteMcpConfigInput)(nil)).Elem(), HarnessRemoteMcpConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessRemoteMcpConfigPtrInput)(nil)).Elem(), HarnessRemoteMcpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessS3FilesAccessPointConfigurationInput)(nil)).Elem(), HarnessS3FilesAccessPointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessS3FilesAccessPointConfigurationPtrInput)(nil)).Elem(), HarnessS3FilesAccessPointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSelfManagedLatticeResourceInput)(nil)).Elem(), HarnessSelfManagedLatticeResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSelfManagedLatticeResourcePtrInput)(nil)).Elem(), HarnessSelfManagedLatticeResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSessionStorageConfigurationInput)(nil)).Elem(), HarnessSessionStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSessionStorageConfigurationPtrInput)(nil)).Elem(), HarnessSessionStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSkillInput)(nil)).Elem(), HarnessSkillArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSkillArrayInput)(nil)).Elem(), HarnessSkillArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSkillAwsSkillsSourceInput)(nil)).Elem(), HarnessSkillAwsSkillsSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSkillAwsSkillsSourcePtrInput)(nil)).Elem(), HarnessSkillAwsSkillsSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSkillGitAuthInput)(nil)).Elem(), HarnessSkillGitAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSkillGitAuthPtrInput)(nil)).Elem(), HarnessSkillGitAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSkillGitSourceInput)(nil)).Elem(), HarnessSkillGitSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSkillGitSourcePtrInput)(nil)).Elem(), HarnessSkillGitSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSkillS3SourceInput)(nil)).Elem(), HarnessSkillS3SourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSkillS3SourcePtrInput)(nil)).Elem(), HarnessSkillS3SourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSlidingWindowConfigurationInput)(nil)).Elem(), HarnessSlidingWindowConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSlidingWindowConfigurationPtrInput)(nil)).Elem(), HarnessSlidingWindowConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessSummarizationConfigurationInput)(nil)).Elem(), HarnessSummarizationConfigurationArgs{})
@@ -30782,7 +34475,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerCustomJwtAuthorizerConfigurationInput)(nil)).Elem(), PaymentManagerCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerCustomJwtAuthorizerConfigurationPtrInput)(nil)).Elem(), PaymentManagerCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCedarPolicyInput)(nil)).Elem(), PolicyCedarPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCedarPolicyPtrInput)(nil)).Elem(), PolicyCedarPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionInput)(nil)).Elem(), PolicyDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStatementInput)(nil)).Elem(), PolicyStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStatementPtrInput)(nil)).Elem(), PolicyStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentRuntimeArtifactInput)(nil)).Elem(), RuntimeAgentRuntimeArtifactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizerConfigurationInput)(nil)).Elem(), RuntimeAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizerConfigurationPtrInput)(nil)).Elem(), RuntimeAuthorizerConfigurationArgs{})
@@ -30910,6 +34606,14 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetApiSchemaConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetAuthorizationDataPropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetAuthorizationDataPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetConnectorConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayTargetConnectorConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GatewayTargetConnectorParameterOverrideOutput{})
+	pulumi.RegisterOutputType(GatewayTargetConnectorParameterOverrideArrayOutput{})
+	pulumi.RegisterOutputType(GatewayTargetConnectorSourceOutput{})
+	pulumi.RegisterOutputType(GatewayTargetConnectorSourcePtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetConnectorTargetConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayTargetConnectorTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetCredentialProvider0PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetCredentialProvider0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetCredentialProvider1PropertiesOutput{})
@@ -30918,8 +34622,12 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetCredentialProvider2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetCredentialProviderConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetCredentialProviderConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(GatewayTargetHttpTargetConfigurationPropertiesOutput{})
-	pulumi.RegisterOutputType(GatewayTargetHttpTargetConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetHttpApiSchemaConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayTargetHttpApiSchemaConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetHttpTargetConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetHttpTargetConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetHttpTargetConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetHttpTargetConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetIamCredentialProviderOutput{})
 	pulumi.RegisterOutputType(GatewayTargetIamCredentialProviderPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetManagedResourceDetailsOutput{})
@@ -30940,6 +34648,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration3PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration4PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration4PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration5PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration5PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpToolSchemaConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpToolSchemaConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpToolSchemaConfiguration1PropertiesOutput{})
@@ -30950,6 +34660,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetOAuth2AuthorizationDataPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuthCredentialProviderOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuthCredentialProviderPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetPassthroughTargetConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayTargetPassthroughTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetPrivateEndpoint0PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetPrivateEndpoint0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetPrivateEndpoint1PropertiesOutput{})
@@ -30963,6 +34675,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetSchemaDefinitionMapOutput{})
 	pulumi.RegisterOutputType(GatewayTargetSelfManagedLatticeResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetStickinessConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayTargetStickinessConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetConfiguration1PropertiesOutput{})
@@ -30999,6 +34713,10 @@ func init() {
 	pulumi.RegisterOutputType(HarnessCustomClaimValidationTypeArrayOutput{})
 	pulumi.RegisterOutputType(HarnessCustomJwtAuthorizerConfigurationOutput{})
 	pulumi.RegisterOutputType(HarnessCustomJwtAuthorizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(HarnessDisabledMemoryConfigurationOutput{})
+	pulumi.RegisterOutputType(HarnessDisabledMemoryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(HarnessEfsAccessPointConfigurationOutput{})
+	pulumi.RegisterOutputType(HarnessEfsAccessPointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(HarnessEnvironmentArtifactOutput{})
 	pulumi.RegisterOutputType(HarnessEnvironmentArtifactPtrOutput{})
 	pulumi.RegisterOutputType(HarnessEnvironmentProviderOutput{})
@@ -31013,6 +34731,12 @@ func init() {
 	pulumi.RegisterOutputType(HarnessInlineFunctionConfigPtrOutput{})
 	pulumi.RegisterOutputType(HarnessLifecycleConfigurationOutput{})
 	pulumi.RegisterOutputType(HarnessLifecycleConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(HarnessLiteLlmModelConfigOutput{})
+	pulumi.RegisterOutputType(HarnessLiteLlmModelConfigPtrOutput{})
+	pulumi.RegisterOutputType(HarnessManagedMemoryConfigurationOutput{})
+	pulumi.RegisterOutputType(HarnessManagedMemoryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(HarnessManagedVpcResourceOutput{})
+	pulumi.RegisterOutputType(HarnessManagedVpcResourcePtrOutput{})
 	pulumi.RegisterOutputType(HarnessMemoryConfigurationOutput{})
 	pulumi.RegisterOutputType(HarnessMemoryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(HarnessModelConfigurationOutput{})
@@ -31023,11 +34747,28 @@ func init() {
 	pulumi.RegisterOutputType(HarnessOAuthCredentialProviderPtrOutput{})
 	pulumi.RegisterOutputType(HarnessOpenAiModelConfigOutput{})
 	pulumi.RegisterOutputType(HarnessOpenAiModelConfigPtrOutput{})
+	pulumi.RegisterOutputType(HarnessPrivateEndpointOutput{})
+	pulumi.RegisterOutputType(HarnessPrivateEndpointPtrOutput{})
+	pulumi.RegisterOutputType(HarnessPrivateEndpointOverrideOutput{})
+	pulumi.RegisterOutputType(HarnessPrivateEndpointOverrideArrayOutput{})
 	pulumi.RegisterOutputType(HarnessRemoteMcpConfigOutput{})
 	pulumi.RegisterOutputType(HarnessRemoteMcpConfigPtrOutput{})
+	pulumi.RegisterOutputType(HarnessS3FilesAccessPointConfigurationOutput{})
+	pulumi.RegisterOutputType(HarnessS3FilesAccessPointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(HarnessSelfManagedLatticeResourceOutput{})
+	pulumi.RegisterOutputType(HarnessSelfManagedLatticeResourcePtrOutput{})
 	pulumi.RegisterOutputType(HarnessSessionStorageConfigurationOutput{})
+	pulumi.RegisterOutputType(HarnessSessionStorageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(HarnessSkillOutput{})
 	pulumi.RegisterOutputType(HarnessSkillArrayOutput{})
+	pulumi.RegisterOutputType(HarnessSkillAwsSkillsSourceOutput{})
+	pulumi.RegisterOutputType(HarnessSkillAwsSkillsSourcePtrOutput{})
+	pulumi.RegisterOutputType(HarnessSkillGitAuthOutput{})
+	pulumi.RegisterOutputType(HarnessSkillGitAuthPtrOutput{})
+	pulumi.RegisterOutputType(HarnessSkillGitSourceOutput{})
+	pulumi.RegisterOutputType(HarnessSkillGitSourcePtrOutput{})
+	pulumi.RegisterOutputType(HarnessSkillS3SourceOutput{})
+	pulumi.RegisterOutputType(HarnessSkillS3SourcePtrOutput{})
 	pulumi.RegisterOutputType(HarnessSlidingWindowConfigurationOutput{})
 	pulumi.RegisterOutputType(HarnessSlidingWindowConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(HarnessSummarizationConfigurationOutput{})
@@ -31214,6 +34955,8 @@ func init() {
 	pulumi.RegisterOutputType(PolicyCedarPolicyPtrOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(PolicyStatementOutput{})
+	pulumi.RegisterOutputType(PolicyStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentRuntimeArtifactOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentRuntimeArtifactPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAuthorizerConfigurationOutput{})

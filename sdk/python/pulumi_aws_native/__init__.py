@@ -2020,6 +2020,7 @@ _utilities.register(
   "mod": "elementalinference",
   "fqn": "pulumi_aws_native.elementalinference",
   "classes": {
+   "aws-native:elementalinference:Dictionary": "Dictionary",
    "aws-native:elementalinference:Feed": "Feed"
   }
  },
@@ -2624,6 +2625,8 @@ _utilities.register(
    "aws-native:lambda:Function": "Function",
    "aws-native:lambda:LayerVersion": "LayerVersion",
    "aws-native:lambda:LayerVersionPermission": "LayerVersionPermission",
+   "aws-native:lambda:MicrovmImage": "MicrovmImage",
+   "aws-native:lambda:NetworkConnector": "NetworkConnector",
    "aws-native:lambda:Permission": "Permission",
    "aws-native:lambda:Url": "Url",
    "aws-native:lambda:Version": "Version"
@@ -2870,7 +2873,8 @@ _utilities.register(
    "aws-native:neptune:DbInstance": "DbInstance",
    "aws-native:neptune:DbParameterGroup": "DbParameterGroup",
    "aws-native:neptune:DbSubnetGroup": "DbSubnetGroup",
-   "aws-native:neptune:EventSubscription": "EventSubscription"
+   "aws-native:neptune:EventSubscription": "EventSubscription",
+   "aws-native:neptune:GlobalCluster": "GlobalCluster"
   }
  },
  {

@@ -159,6 +159,7 @@ namespace Pulumi.AwsNative.WaFv2
         /// When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
         /// </summary>
         public readonly string? LabelNamespace;
+        public readonly Outputs.WebAclMonetizationConfig? MonetizationConfig;
         /// <summary>
         /// Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
         /// </summary>
@@ -208,6 +209,8 @@ namespace Pulumi.AwsNative.WaFv2
 
             string? labelNamespace,
 
+            Outputs.WebAclMonetizationConfig? monetizationConfig,
+
             Outputs.WebAclOnSourceDDoSProtectionConfig? onSourceDDoSProtectionConfig,
 
             ImmutableArray<Outputs.WebAclRule> rules,
@@ -230,6 +233,7 @@ namespace Pulumi.AwsNative.WaFv2
             Description = description;
             Id = id;
             LabelNamespace = labelNamespace;
+            MonetizationConfig = monetizationConfig;
             OnSourceDDoSProtectionConfig = onSourceDDoSProtectionConfig;
             Rules = rules;
             Tags = tags;

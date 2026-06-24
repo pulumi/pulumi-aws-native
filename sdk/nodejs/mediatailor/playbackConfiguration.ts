@@ -67,6 +67,10 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
      */
     declare public readonly dashConfiguration: pulumi.Output<outputs.mediatailor.PlaybackConfigurationDashConfiguration | undefined>;
     /**
+     * A map of event names to function identifiers for custom processing during session lifecycle events.
+     */
+    declare public readonly functionMapping: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The configuration for HLS content.
      */
     declare public readonly hlsConfiguration: pulumi.Output<outputs.mediatailor.PlaybackConfigurationHlsConfiguration | undefined>;
@@ -148,6 +152,7 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
             resourceInputs["cdnConfiguration"] = args?.cdnConfiguration;
             resourceInputs["configurationAliases"] = args?.configurationAliases;
             resourceInputs["dashConfiguration"] = args?.dashConfiguration;
+            resourceInputs["functionMapping"] = args?.functionMapping;
             resourceInputs["hlsConfiguration"] = args?.hlsConfiguration;
             resourceInputs["insertionMode"] = args?.insertionMode;
             resourceInputs["livePreRollConfiguration"] = args?.livePreRollConfiguration;
@@ -171,6 +176,7 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
             resourceInputs["cdnConfiguration"] = undefined /*out*/;
             resourceInputs["configurationAliases"] = undefined /*out*/;
             resourceInputs["dashConfiguration"] = undefined /*out*/;
+            resourceInputs["functionMapping"] = undefined /*out*/;
             resourceInputs["hlsConfiguration"] = undefined /*out*/;
             resourceInputs["insertionMode"] = undefined /*out*/;
             resourceInputs["livePreRollConfiguration"] = undefined /*out*/;
@@ -226,6 +232,10 @@ export interface PlaybackConfigurationArgs {
      * The configuration for DASH content.
      */
     dashConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationDashConfigurationArgs>;
+    /**
+     * A map of event names to function identifiers for custom processing during session lifecycle events.
+     */
+    functionMapping?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The configuration for HLS content.
      */

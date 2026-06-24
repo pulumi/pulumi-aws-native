@@ -41,6 +41,10 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         /// </summary>
         public readonly string ImageUri;
         /// <summary>
+        /// Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
+        /// </summary>
+        public readonly Outputs.ContainerGroupDefinitionLinuxCapabilities? LinuxCapabilities;
+        /// <summary>
         /// The total memory limit of container groups following this definition in MiB
         /// </summary>
         public readonly int? MemoryHardLimitMebibytes;
@@ -75,6 +79,8 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 
             string imageUri,
 
+            Outputs.ContainerGroupDefinitionLinuxCapabilities? linuxCapabilities,
+
             int? memoryHardLimitMebibytes,
 
             ImmutableArray<Outputs.ContainerGroupDefinitionContainerMountPoint> mountPoints,
@@ -91,6 +97,7 @@ namespace Pulumi.AwsNative.GameLift.Outputs
             Essential = essential;
             HealthCheck = healthCheck;
             ImageUri = imageUri;
+            LinuxCapabilities = linuxCapabilities;
             MemoryHardLimitMebibytes = memoryHardLimitMebibytes;
             MountPoints = mountPoints;
             PortConfiguration = portConfiguration;

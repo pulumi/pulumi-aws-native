@@ -314,7 +314,7 @@ class GatewayTarget(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> pulumi.Output[_builtins.str]:
+    def name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The name for the gateway target.
         """

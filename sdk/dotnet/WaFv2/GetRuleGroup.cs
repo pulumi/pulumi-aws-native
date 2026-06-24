@@ -135,6 +135,7 @@ namespace Pulumi.AwsNative.WaFv2
         /// When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
         /// </summary>
         public readonly string? LabelNamespace;
+        public readonly Outputs.RuleGroupMonetizationConfig? MonetizationConfig;
         /// <summary>
         /// Collection of Rules.
         /// </summary>
@@ -168,6 +169,8 @@ namespace Pulumi.AwsNative.WaFv2
 
             string? labelNamespace,
 
+            Outputs.RuleGroupMonetizationConfig? monetizationConfig,
+
             ImmutableArray<Outputs.RuleGroupRule> rules,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -182,6 +185,7 @@ namespace Pulumi.AwsNative.WaFv2
             Description = description;
             Id = id;
             LabelNamespace = labelNamespace;
+            MonetizationConfig = monetizationConfig;
             Rules = rules;
             Tags = tags;
             VisibilityConfig = visibilityConfig;

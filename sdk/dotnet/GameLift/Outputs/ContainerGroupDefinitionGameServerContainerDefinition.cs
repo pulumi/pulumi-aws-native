@@ -33,6 +33,10 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         /// </summary>
         public readonly string ImageUri;
         /// <summary>
+        /// Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
+        /// </summary>
+        public readonly Outputs.ContainerGroupDefinitionLinuxCapabilities? LinuxCapabilities;
+        /// <summary>
         /// A list of mount point configurations to be used in a container.
         /// </summary>
         public readonly ImmutableArray<Outputs.ContainerGroupDefinitionContainerMountPoint> MountPoints;
@@ -59,6 +63,8 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 
             string imageUri,
 
+            Outputs.ContainerGroupDefinitionLinuxCapabilities? linuxCapabilities,
+
             ImmutableArray<Outputs.ContainerGroupDefinitionContainerMountPoint> mountPoints,
 
             Outputs.ContainerGroupDefinitionPortConfiguration? portConfiguration,
@@ -71,6 +77,7 @@ namespace Pulumi.AwsNative.GameLift.Outputs
             DependsOn = dependsOn;
             EnvironmentOverride = environmentOverride;
             ImageUri = imageUri;
+            LinuxCapabilities = linuxCapabilities;
             MountPoints = mountPoints;
             PortConfiguration = portConfiguration;
             ResolvedImageDigest = resolvedImageDigest;

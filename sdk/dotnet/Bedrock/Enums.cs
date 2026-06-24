@@ -1481,6 +1481,37 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Indicates whether a feature is enabled or disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSourceEnabledOrDisabledState : IEquatable<DataSourceEnabledOrDisabledState>
+    {
+        private readonly string _value;
+
+        private DataSourceEnabledOrDisabledState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceEnabledOrDisabledState Enabled { get; } = new DataSourceEnabledOrDisabledState("ENABLED");
+        public static DataSourceEnabledOrDisabledState Disabled { get; } = new DataSourceEnabledOrDisabledState("DISABLED");
+
+        public static bool operator ==(DataSourceEnabledOrDisabledState left, DataSourceEnabledOrDisabledState right) => left.Equals(right);
+        public static bool operator !=(DataSourceEnabledOrDisabledState left, DataSourceEnabledOrDisabledState right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceEnabledOrDisabledState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceEnabledOrDisabledState other && Equals(other);
+        public bool Equals(DataSourceEnabledOrDisabledState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enrichment Strategy method.
     /// </summary>
     [EnumType]
@@ -1555,6 +1586,7 @@ namespace Pulumi.AwsNative.Bedrock
 
         public static DataSourceParsingStrategy BedrockFoundationModel { get; } = new DataSourceParsingStrategy("BEDROCK_FOUNDATION_MODEL");
         public static DataSourceParsingStrategy BedrockDataAutomation { get; } = new DataSourceParsingStrategy("BEDROCK_DATA_AUTOMATION");
+        public static DataSourceParsingStrategy SmartParsing { get; } = new DataSourceParsingStrategy("SMART_PARSING");
 
         public static bool operator ==(DataSourceParsingStrategy left, DataSourceParsingStrategy right) => left.Equals(right);
         public static bool operator !=(DataSourceParsingStrategy left, DataSourceParsingStrategy right) => !left.Equals(right);
@@ -1678,6 +1710,9 @@ namespace Pulumi.AwsNative.Bedrock
         public static DataSourceStatus Available { get; } = new DataSourceStatus("AVAILABLE");
         public static DataSourceStatus Deleting { get; } = new DataSourceStatus("DELETING");
         public static DataSourceStatus DeleteUnsuccessful { get; } = new DataSourceStatus("DELETE_UNSUCCESSFUL");
+        public static DataSourceStatus Creating { get; } = new DataSourceStatus("CREATING");
+        public static DataSourceStatus Updating { get; } = new DataSourceStatus("UPDATING");
+        public static DataSourceStatus Failed { get; } = new DataSourceStatus("FAILED");
 
         public static bool operator ==(DataSourceStatus left, DataSourceStatus right) => left.Equals(right);
         public static bool operator !=(DataSourceStatus left, DataSourceStatus right) => !left.Equals(right);
@@ -1744,6 +1779,7 @@ namespace Pulumi.AwsNative.Bedrock
         public static DataSourceType Web { get; } = new DataSourceType("WEB");
         public static DataSourceType Custom { get; } = new DataSourceType("CUSTOM");
         public static DataSourceType RedshiftMetadata { get; } = new DataSourceType("REDSHIFT_METADATA");
+        public static DataSourceType ManagedKnowledgeBaseConnector { get; } = new DataSourceType("MANAGED_KNOWLEDGE_BASE_CONNECTOR");
 
         public static bool operator ==(DataSourceType left, DataSourceType right) => left.Equals(right);
         public static bool operator !=(DataSourceType left, DataSourceType right) => !left.Equals(right);
@@ -3117,6 +3153,37 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// The type of embedding model to use for the managed knowledge base.
+    /// </summary>
+    [EnumType]
+    public readonly struct KnowledgeBaseEmbeddingModelType : IEquatable<KnowledgeBaseEmbeddingModelType>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseEmbeddingModelType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseEmbeddingModelType Custom { get; } = new KnowledgeBaseEmbeddingModelType("CUSTOM");
+        public static KnowledgeBaseEmbeddingModelType Managed { get; } = new KnowledgeBaseEmbeddingModelType("MANAGED");
+
+        public static bool operator ==(KnowledgeBaseEmbeddingModelType left, KnowledgeBaseEmbeddingModelType right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseEmbeddingModelType left, KnowledgeBaseEmbeddingModelType right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseEmbeddingModelType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseEmbeddingModelType other && Equals(other);
+        public bool Equals(KnowledgeBaseEmbeddingModelType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Include or Exclude status for an entity
     /// </summary>
     [EnumType]
@@ -3321,6 +3388,7 @@ namespace Pulumi.AwsNative.Bedrock
         public static KnowledgeBaseStatus Updating { get; } = new KnowledgeBaseStatus("UPDATING");
         public static KnowledgeBaseStatus Failed { get; } = new KnowledgeBaseStatus("FAILED");
         public static KnowledgeBaseStatus DeleteUnsuccessful { get; } = new KnowledgeBaseStatus("DELETE_UNSUCCESSFUL");
+        public static KnowledgeBaseStatus UpdateUnsuccessful { get; } = new KnowledgeBaseStatus("UPDATE_UNSUCCESSFUL");
 
         public static bool operator ==(KnowledgeBaseStatus left, KnowledgeBaseStatus right) => left.Equals(right);
         public static bool operator !=(KnowledgeBaseStatus left, KnowledgeBaseStatus right) => !left.Equals(right);
@@ -3419,6 +3487,7 @@ namespace Pulumi.AwsNative.Bedrock
         public static KnowledgeBaseType Vector { get; } = new KnowledgeBaseType("VECTOR");
         public static KnowledgeBaseType Kendra { get; } = new KnowledgeBaseType("KENDRA");
         public static KnowledgeBaseType Sql { get; } = new KnowledgeBaseType("SQL");
+        public static KnowledgeBaseType Managed { get; } = new KnowledgeBaseType("MANAGED");
 
         public static bool operator ==(KnowledgeBaseType left, KnowledgeBaseType right) => left.Equals(right);
         public static bool operator !=(KnowledgeBaseType left, KnowledgeBaseType right) => !left.Equals(right);

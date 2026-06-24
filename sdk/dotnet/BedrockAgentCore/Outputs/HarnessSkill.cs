@@ -13,15 +13,28 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class HarnessSkill
     {
+        public readonly Outputs.HarnessSkillAwsSkillsSource? AwsSkills;
+        public readonly Outputs.HarnessSkillGitSource? Git;
         /// <summary>
         /// The filesystem path to the skill definition.
         /// </summary>
-        public readonly string Path;
+        public readonly string? Path;
+        public readonly Outputs.HarnessSkillS3Source? S3;
 
         [OutputConstructor]
-        private HarnessSkill(string path)
+        private HarnessSkill(
+            Outputs.HarnessSkillAwsSkillsSource? awsSkills,
+
+            Outputs.HarnessSkillGitSource? git,
+
+            string? path,
+
+            Outputs.HarnessSkillS3Source? s3)
         {
+            AwsSkills = awsSkills;
+            Git = git;
             Path = path;
+            S3 = s3;
         }
     }
 }

@@ -40,6 +40,7 @@ export interface GetUserPoolDomainResult {
      * When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
      */
     readonly customDomainConfig?: outputs.cognito.UserPoolDomainCustomDomainConfigType;
+    readonly routing?: outputs.cognito.UserPoolDomainRoutingType;
 }
 /**
  * Resource Type definition for AWS::Cognito::UserPoolDomain

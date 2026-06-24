@@ -12,6 +12,21 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 
     public sealed class HarnessOpenAiModelConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalParams")]
+        private InputMap<object>? _additionalParams;
+
+        /// <summary>
+        /// Provider-specific parameters passed through to the model provider unchanged.
+        /// </summary>
+        public InputMap<object> AdditionalParams
+        {
+            get => _additionalParams ?? (_additionalParams = new InputMap<object>());
+            set => _additionalParams = value;
+        }
+
+        [Input("apiFormat")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.HarnessOpenAiModelConfigApiFormat>? ApiFormat { get; set; }
+
         [Input("apiKeyArn", required: true)]
         public Input<string> ApiKeyArn { get; set; } = null!;
 

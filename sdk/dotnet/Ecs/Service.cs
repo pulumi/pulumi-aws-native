@@ -124,6 +124,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("loadBalancers")]
         public Output<ImmutableArray<Outputs.ServiceLoadBalancer>> LoadBalancers { get; private set; } = null!;
 
+        [Output("monitoring")]
+        public Output<Outputs.ServiceMonitoringConfiguration?> Monitoring { get; private set; } = null!;
+
         /// <summary>
         /// The name of the Amazon ECS service, such as `sample-webapp` .
         /// </summary>
@@ -393,6 +396,9 @@ namespace Pulumi.AwsNative.Ecs
             get => _loadBalancers ?? (_loadBalancers = new InputList<Inputs.ServiceLoadBalancerArgs>());
             set => _loadBalancers = value;
         }
+
+        [Input("monitoring")]
+        public Input<Inputs.ServiceMonitoringConfigurationArgs>? Monitoring { get; set; }
 
         /// <summary>
         /// The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.

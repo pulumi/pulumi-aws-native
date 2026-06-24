@@ -255,6 +255,16 @@ export const ClusterNodeRecovery = {
  */
 export type ClusterNodeRecovery = (typeof ClusterNodeRecovery)[keyof typeof ClusterNodeRecovery];
 
+export const ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy = {
+    Keep: "Keep",
+    DeleteIfNotUsed: "DeleteIfNotUsed",
+} as const;
+
+/**
+ * The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
+ */
+export type ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy = (typeof ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy)[keyof typeof ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy];
+
 export const ClusterSlurmConfigNodeType = {
     Controller: "Controller",
     Login: "Login",
@@ -507,6 +517,12 @@ export const DomainAppInstanceType = {
     MlR6id32xlarge: "ml.r6id.32xlarge",
     MlP54xlarge: "ml.p5.4xlarge",
     MlP6b20048xlarge: "ml.p6-b200.48xlarge",
+    MlG7e2xlarge: "ml.g7e.2xlarge",
+    MlG7e4xlarge: "ml.g7e.4xlarge",
+    MlG7e8xlarge: "ml.g7e.8xlarge",
+    MlG7e12xlarge: "ml.g7e.12xlarge",
+    MlG7e24xlarge: "ml.g7e.24xlarge",
+    MlG7e48xlarge: "ml.g7e.48xlarge",
 } as const;
 
 /**
@@ -574,6 +590,16 @@ export const DomainHiddenSageMakerImageSageMakerImageName = {
  * The SageMaker image name that you are hiding from the Studio user interface.
  */
 export type DomainHiddenSageMakerImageSageMakerImageName = (typeof DomainHiddenSageMakerImageSageMakerImageName)[keyof typeof DomainHiddenSageMakerImageSageMakerImageName];
+
+export const DomainHomeEfsFileSystemCreation = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+ */
+export type DomainHomeEfsFileSystemCreation = (typeof DomainHomeEfsFileSystemCreation)[keyof typeof DomainHomeEfsFileSystemCreation];
 
 export const DomainIpAddressType = {
     Ipv4: "IPV4",
@@ -1943,6 +1969,12 @@ export const SpaceResourceSpecInstanceType = {
     MlR6id32xlarge: "ml.r6id.32xlarge",
     MlP54xlarge: "ml.p5.4xlarge",
     MlP6b20048xlarge: "ml.p6-b200.48xlarge",
+    MlG7e2xlarge: "ml.g7e.2xlarge",
+    MlG7e4xlarge: "ml.g7e.4xlarge",
+    MlG7e8xlarge: "ml.g7e.8xlarge",
+    MlG7e12xlarge: "ml.g7e.12xlarge",
+    MlG7e24xlarge: "ml.g7e.24xlarge",
+    MlG7e48xlarge: "ml.g7e.48xlarge",
 } as const;
 
 /**

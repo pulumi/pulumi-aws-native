@@ -72,6 +72,67 @@ namespace Pulumi.AwsNative.Logs
     }
 
     /// <summary>
+    /// The status of this delivery source. The value can be ACTIVE or INACTIVE.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeliverySourceStatus : IEquatable<DeliverySourceStatus>
+    {
+        private readonly string _value;
+
+        private DeliverySourceStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliverySourceStatus Active { get; } = new DeliverySourceStatus("ACTIVE");
+        public static DeliverySourceStatus Inactive { get; } = new DeliverySourceStatus("INACTIVE");
+
+        public static bool operator ==(DeliverySourceStatus left, DeliverySourceStatus right) => left.Equals(right);
+        public static bool operator !=(DeliverySourceStatus left, DeliverySourceStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DeliverySourceStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliverySourceStatus other && Equals(other);
+        public bool Equals(DeliverySourceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The reason for the status of this delivery source, such as RESOURCE_DELETED.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeliverySourceStatusReason : IEquatable<DeliverySourceStatusReason>
+    {
+        private readonly string _value;
+
+        private DeliverySourceStatusReason(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliverySourceStatusReason ResourceDeleted { get; } = new DeliverySourceStatusReason("RESOURCE_DELETED");
+
+        public static bool operator ==(DeliverySourceStatusReason left, DeliverySourceStatusReason right) => left.Equals(right);
+        public static bool operator !=(DeliverySourceStatusReason left, DeliverySourceStatusReason right) => !left.Equals(right);
+
+        public static explicit operator string(DeliverySourceStatusReason value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliverySourceStatusReason other && Equals(other);
+        public bool Equals(DeliverySourceStatusReason other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Status of creation for the Integration and its resources
     /// </summary>
     [EnumType]

@@ -35,7 +35,8 @@ type LookupCapacityProviderResult struct {
 	// The current state of the capacity provider.
 	State *CapacityProviderStateEnum `pulumi:"state"`
 	// A key-value pair that provides metadata for the capacity provider.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags            []aws.Tag                        `pulumi:"tags"`
+	TelemetryConfig *CapacityProviderTelemetryConfig `pulumi:"telemetryConfig"`
 }
 
 func LookupCapacityProviderOutput(ctx *pulumi.Context, args LookupCapacityProviderOutputArgs, opts ...pulumi.InvokeOption) LookupCapacityProviderResultOutput {
@@ -92,6 +93,10 @@ func (o LookupCapacityProviderResultOutput) State() CapacityProviderStateEnumPtr
 // A key-value pair that provides metadata for the capacity provider.
 func (o LookupCapacityProviderResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupCapacityProviderResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o LookupCapacityProviderResultOutput) TelemetryConfig() CapacityProviderTelemetryConfigPtrOutput {
+	return o.ApplyT(func(v LookupCapacityProviderResult) *CapacityProviderTelemetryConfig { return v.TelemetryConfig }).(CapacityProviderTelemetryConfigPtrOutput)
 }
 
 func init() {

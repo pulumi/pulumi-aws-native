@@ -55,6 +55,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
      * A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
      */
     declare public readonly managedLoginVersion: pulumi.Output<number | undefined>;
+    declare public readonly routing: pulumi.Output<outputs.cognito.UserPoolDomainRoutingType | undefined>;
     /**
      * The ID of the user pool that is associated with the domain you're updating.
      */
@@ -80,6 +81,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
             resourceInputs["customDomainConfig"] = args?.customDomainConfig;
             resourceInputs["domain"] = args?.domain;
             resourceInputs["managedLoginVersion"] = args?.managedLoginVersion;
+            resourceInputs["routing"] = args?.routing;
             resourceInputs["userPoolId"] = args?.userPoolId;
             resourceInputs["cloudFrontDistribution"] = undefined /*out*/;
         } else {
@@ -87,6 +89,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
             resourceInputs["customDomainConfig"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["managedLoginVersion"] = undefined /*out*/;
+            resourceInputs["routing"] = undefined /*out*/;
             resourceInputs["userPoolId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -114,6 +117,7 @@ export interface UserPoolDomainArgs {
      * A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
      */
     managedLoginVersion?: pulumi.Input<number>;
+    routing?: pulumi.Input<inputs.cognito.UserPoolDomainRoutingTypeArgs>;
     /**
      * The ID of the user pool that is associated with the domain you're updating.
      */

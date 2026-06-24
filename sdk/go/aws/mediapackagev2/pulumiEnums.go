@@ -1053,6 +1053,171 @@ func (o OriginEndpointCustomAdTypeArrayOutput) Index(i pulumi.IntInput) OriginEn
 	}).(OriginEndpointCustomAdTypeOutput)
 }
 
+type OriginEndpointDashAudioTimelinePattern string
+
+const (
+	OriginEndpointDashAudioTimelinePatternNone      = OriginEndpointDashAudioTimelinePattern("NONE")
+	OriginEndpointDashAudioTimelinePatternPatterned = OriginEndpointDashAudioTimelinePattern("PATTERNED")
+)
+
+func (OriginEndpointDashAudioTimelinePattern) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointDashAudioTimelinePattern)(nil)).Elem()
+}
+
+func (e OriginEndpointDashAudioTimelinePattern) ToOriginEndpointDashAudioTimelinePatternOutput() OriginEndpointDashAudioTimelinePatternOutput {
+	return pulumi.ToOutput(e).(OriginEndpointDashAudioTimelinePatternOutput)
+}
+
+func (e OriginEndpointDashAudioTimelinePattern) ToOriginEndpointDashAudioTimelinePatternOutputWithContext(ctx context.Context) OriginEndpointDashAudioTimelinePatternOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointDashAudioTimelinePatternOutput)
+}
+
+func (e OriginEndpointDashAudioTimelinePattern) ToOriginEndpointDashAudioTimelinePatternPtrOutput() OriginEndpointDashAudioTimelinePatternPtrOutput {
+	return e.ToOriginEndpointDashAudioTimelinePatternPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointDashAudioTimelinePattern) ToOriginEndpointDashAudioTimelinePatternPtrOutputWithContext(ctx context.Context) OriginEndpointDashAudioTimelinePatternPtrOutput {
+	return OriginEndpointDashAudioTimelinePattern(e).ToOriginEndpointDashAudioTimelinePatternOutputWithContext(ctx).ToOriginEndpointDashAudioTimelinePatternPtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointDashAudioTimelinePattern) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointDashAudioTimelinePattern) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointDashAudioTimelinePattern) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointDashAudioTimelinePattern) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointDashAudioTimelinePatternOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashAudioTimelinePatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointDashAudioTimelinePattern)(nil)).Elem()
+}
+
+func (o OriginEndpointDashAudioTimelinePatternOutput) ToOriginEndpointDashAudioTimelinePatternOutput() OriginEndpointDashAudioTimelinePatternOutput {
+	return o
+}
+
+func (o OriginEndpointDashAudioTimelinePatternOutput) ToOriginEndpointDashAudioTimelinePatternOutputWithContext(ctx context.Context) OriginEndpointDashAudioTimelinePatternOutput {
+	return o
+}
+
+func (o OriginEndpointDashAudioTimelinePatternOutput) ToOriginEndpointDashAudioTimelinePatternPtrOutput() OriginEndpointDashAudioTimelinePatternPtrOutput {
+	return o.ToOriginEndpointDashAudioTimelinePatternPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashAudioTimelinePatternOutput) ToOriginEndpointDashAudioTimelinePatternPtrOutputWithContext(ctx context.Context) OriginEndpointDashAudioTimelinePatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointDashAudioTimelinePattern) *OriginEndpointDashAudioTimelinePattern {
+		return &v
+	}).(OriginEndpointDashAudioTimelinePatternPtrOutput)
+}
+
+func (o OriginEndpointDashAudioTimelinePatternOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashAudioTimelinePatternOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointDashAudioTimelinePattern) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointDashAudioTimelinePatternOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashAudioTimelinePatternOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointDashAudioTimelinePattern) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointDashAudioTimelinePatternPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashAudioTimelinePatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointDashAudioTimelinePattern)(nil)).Elem()
+}
+
+func (o OriginEndpointDashAudioTimelinePatternPtrOutput) ToOriginEndpointDashAudioTimelinePatternPtrOutput() OriginEndpointDashAudioTimelinePatternPtrOutput {
+	return o
+}
+
+func (o OriginEndpointDashAudioTimelinePatternPtrOutput) ToOriginEndpointDashAudioTimelinePatternPtrOutputWithContext(ctx context.Context) OriginEndpointDashAudioTimelinePatternPtrOutput {
+	return o
+}
+
+func (o OriginEndpointDashAudioTimelinePatternPtrOutput) Elem() OriginEndpointDashAudioTimelinePatternOutput {
+	return o.ApplyT(func(v *OriginEndpointDashAudioTimelinePattern) OriginEndpointDashAudioTimelinePattern {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointDashAudioTimelinePattern
+		return ret
+	}).(OriginEndpointDashAudioTimelinePatternOutput)
+}
+
+func (o OriginEndpointDashAudioTimelinePatternPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashAudioTimelinePatternPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointDashAudioTimelinePattern) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointDashAudioTimelinePatternInput is an input type that accepts values of the OriginEndpointDashAudioTimelinePattern enum
+// A concrete instance of `OriginEndpointDashAudioTimelinePatternInput` can be one of the following:
+//
+//	OriginEndpointDashAudioTimelinePatternNone
+//	OriginEndpointDashAudioTimelinePatternPatterned
+type OriginEndpointDashAudioTimelinePatternInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashAudioTimelinePatternOutput() OriginEndpointDashAudioTimelinePatternOutput
+	ToOriginEndpointDashAudioTimelinePatternOutputWithContext(context.Context) OriginEndpointDashAudioTimelinePatternOutput
+}
+
+var originEndpointDashAudioTimelinePatternPtrType = reflect.TypeOf((**OriginEndpointDashAudioTimelinePattern)(nil)).Elem()
+
+type OriginEndpointDashAudioTimelinePatternPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashAudioTimelinePatternPtrOutput() OriginEndpointDashAudioTimelinePatternPtrOutput
+	ToOriginEndpointDashAudioTimelinePatternPtrOutputWithContext(context.Context) OriginEndpointDashAudioTimelinePatternPtrOutput
+}
+
+type originEndpointDashAudioTimelinePatternPtr string
+
+func OriginEndpointDashAudioTimelinePatternPtr(v string) OriginEndpointDashAudioTimelinePatternPtrInput {
+	return (*originEndpointDashAudioTimelinePatternPtr)(&v)
+}
+
+func (*originEndpointDashAudioTimelinePatternPtr) ElementType() reflect.Type {
+	return originEndpointDashAudioTimelinePatternPtrType
+}
+
+func (in *originEndpointDashAudioTimelinePatternPtr) ToOriginEndpointDashAudioTimelinePatternPtrOutput() OriginEndpointDashAudioTimelinePatternPtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointDashAudioTimelinePatternPtrOutput)
+}
+
+func (in *originEndpointDashAudioTimelinePatternPtr) ToOriginEndpointDashAudioTimelinePatternPtrOutputWithContext(ctx context.Context) OriginEndpointDashAudioTimelinePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashAudioTimelinePatternPtrOutput)
+}
+
 type OriginEndpointDashCompactness string
 
 const (
@@ -3434,6 +3599,8 @@ const (
 	OriginEndpointScteFilterDistributorPromo                       = OriginEndpointScteFilter("DISTRIBUTOR_PROMO")
 	OriginEndpointScteFilterProviderAdBlock                        = OriginEndpointScteFilter("PROVIDER_AD_BLOCK")
 	OriginEndpointScteFilterDistributorAdBlock                     = OriginEndpointScteFilter("DISTRIBUTOR_AD_BLOCK")
+	OriginEndpointScteFilterContentIdentification                  = OriginEndpointScteFilter("CONTENT_IDENTIFICATION")
+	OriginEndpointScteFilterCallAdServer                           = OriginEndpointScteFilter("CALL_AD_SERVER")
 )
 
 func (OriginEndpointScteFilter) ElementType() reflect.Type {
@@ -3575,6 +3742,8 @@ func (o OriginEndpointScteFilterPtrOutput) ToStringPtrOutputWithContext(ctx cont
 //	OriginEndpointScteFilterDistributorPromo
 //	OriginEndpointScteFilterProviderAdBlock
 //	OriginEndpointScteFilterDistributorAdBlock
+//	OriginEndpointScteFilterContentIdentification
+//	OriginEndpointScteFilterCallAdServer
 type OriginEndpointScteFilterInput interface {
 	pulumi.Input
 
@@ -4495,6 +4664,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointCustomAdTypeInput)(nil)).Elem(), OriginEndpointCustomAdType("PROGRAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointCustomAdTypePtrInput)(nil)).Elem(), OriginEndpointCustomAdType("PROGRAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointCustomAdTypeArrayInput)(nil)).Elem(), OriginEndpointCustomAdTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashAudioTimelinePatternInput)(nil)).Elem(), OriginEndpointDashAudioTimelinePattern("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashAudioTimelinePatternPtrInput)(nil)).Elem(), OriginEndpointDashAudioTimelinePattern("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashCompactnessInput)(nil)).Elem(), OriginEndpointDashCompactness("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashCompactnessPtrInput)(nil)).Elem(), OriginEndpointDashCompactness("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashDrmSignalingInput)(nil)).Elem(), OriginEndpointDashDrmSignaling("INDIVIDUAL"))
@@ -4551,6 +4722,8 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointCustomAdTypeOutput{})
 	pulumi.RegisterOutputType(OriginEndpointCustomAdTypePtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointCustomAdTypeArrayOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashAudioTimelinePatternOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashAudioTimelinePatternPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashCompactnessOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashCompactnessPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashDrmSignalingOutput{})

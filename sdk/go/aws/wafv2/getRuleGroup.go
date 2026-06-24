@@ -62,7 +62,8 @@ type LookupRuleGroupResult struct {
 	// The syntax for the label namespace prefix for a rule group is the following: `awswaf:<account ID>:rule group:<rule group name>:`
 	//
 	// When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
-	LabelNamespace *string `pulumi:"labelNamespace"`
+	LabelNamespace     *string                      `pulumi:"labelNamespace"`
+	MonetizationConfig *RuleGroupMonetizationConfig `pulumi:"monetizationConfig"`
 	// Collection of Rules.
 	Rules []RuleGroupRule `pulumi:"rules"`
 	// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
@@ -161,6 +162,10 @@ func (o LookupRuleGroupResultOutput) Id() pulumi.StringPtrOutput {
 // When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
 func (o LookupRuleGroupResultOutput) LabelNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) *string { return v.LabelNamespace }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupRuleGroupResultOutput) MonetizationConfig() RuleGroupMonetizationConfigPtrOutput {
+	return o.ApplyT(func(v LookupRuleGroupResult) *RuleGroupMonetizationConfig { return v.MonetizationConfig }).(RuleGroupMonetizationConfigPtrOutput)
 }
 
 // Collection of Rules.

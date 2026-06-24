@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,6 +29,8 @@ type Webhook struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Configures a connection between the webhook that was created and the external tool with events to be detected.
 	RegisterWithThirdParty pulumi.BoolPtrOutput `pulumi:"registerWithThirdParty"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The name of the action in a pipeline you want to connect to the webhook.
 	TargetAction pulumi.StringOutput `pulumi:"targetAction"`
 	// The name of the pipeline you want to connect to the webhook.
@@ -107,6 +110,8 @@ type webhookArgs struct {
 	Name *string `pulumi:"name"`
 	// Configures a connection between the webhook that was created and the external tool with events to be detected.
 	RegisterWithThirdParty *bool `pulumi:"registerWithThirdParty"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the action in a pipeline you want to connect to the webhook.
 	TargetAction string `pulumi:"targetAction"`
 	// The name of the pipeline you want to connect to the webhook.
@@ -127,6 +132,8 @@ type WebhookArgs struct {
 	Name pulumi.StringPtrInput
 	// Configures a connection between the webhook that was created and the external tool with events to be detected.
 	RegisterWithThirdParty pulumi.BoolPtrInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 	// The name of the action in a pipeline you want to connect to the webhook.
 	TargetAction pulumi.StringInput
 	// The name of the pipeline you want to connect to the webhook.
@@ -200,6 +207,11 @@ func (o WebhookOutput) Name() pulumi.StringPtrOutput {
 // Configures a connection between the webhook that was created and the external tool with events to be detected.
 func (o WebhookOutput) RegisterWithThirdParty() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.BoolPtrOutput { return v.RegisterWithThirdParty }).(pulumi.BoolPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o WebhookOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Webhook) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The name of the action in a pipeline you want to connect to the webhook.

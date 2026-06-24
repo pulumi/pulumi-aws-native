@@ -13,11 +13,20 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class HarnessFilesystemConfiguration
     {
-        public readonly Outputs.HarnessSessionStorageConfiguration SessionStorage;
+        public readonly Outputs.HarnessEfsAccessPointConfiguration? EfsAccessPoint;
+        public readonly Outputs.HarnessS3FilesAccessPointConfiguration? S3FilesAccessPoint;
+        public readonly Outputs.HarnessSessionStorageConfiguration? SessionStorage;
 
         [OutputConstructor]
-        private HarnessFilesystemConfiguration(Outputs.HarnessSessionStorageConfiguration sessionStorage)
+        private HarnessFilesystemConfiguration(
+            Outputs.HarnessEfsAccessPointConfiguration? efsAccessPoint,
+
+            Outputs.HarnessS3FilesAccessPointConfiguration? s3FilesAccessPoint,
+
+            Outputs.HarnessSessionStorageConfiguration? sessionStorage)
         {
+            EfsAccessPoint = efsAccessPoint;
+            S3FilesAccessPoint = s3FilesAccessPoint;
             SessionStorage = sessionStorage;
         }
     }

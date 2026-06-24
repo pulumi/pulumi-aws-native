@@ -17,13 +17,21 @@ namespace Pulumi.AwsNative.Msk.Outputs
     public sealed class ReplicatorKafkaClusterClientAuthentication
     {
         /// <summary>
+        /// Details for mTLS client authentication.
+        /// </summary>
+        public readonly Outputs.ReplicatorKafkaClusterMtlsAuthentication? Mtls;
+        /// <summary>
         /// Details for SASL/SCRAM client authentication.
         /// </summary>
-        public readonly Outputs.ReplicatorKafkaClusterSaslScramAuthentication SaslScram;
+        public readonly Outputs.ReplicatorKafkaClusterSaslScramAuthentication? SaslScram;
 
         [OutputConstructor]
-        private ReplicatorKafkaClusterClientAuthentication(Outputs.ReplicatorKafkaClusterSaslScramAuthentication saslScram)
+        private ReplicatorKafkaClusterClientAuthentication(
+            Outputs.ReplicatorKafkaClusterMtlsAuthentication? mtls,
+
+            Outputs.ReplicatorKafkaClusterSaslScramAuthentication? saslScram)
         {
+            Mtls = mtls;
             SaslScram = saslScram;
         }
     }

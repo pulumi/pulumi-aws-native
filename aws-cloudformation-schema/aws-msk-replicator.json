@@ -357,9 +357,24 @@
         "SaslScram" : {
           "description" : "Details for SASL/SCRAM client authentication.",
           "$ref" : "#/definitions/KafkaClusterSaslScramAuthentication"
+        },
+        "MTLS" : {
+          "description" : "Details for mTLS client authentication.",
+          "$ref" : "#/definitions/KafkaClusterMtlsAuthentication"
+        }
+      }
+    },
+    "KafkaClusterMtlsAuthentication" : {
+      "description" : "Details for mTLS client authentication.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SecretArn" : {
+          "description" : "The Amazon Resource Name (ARN) of the Secrets Manager secret.",
+          "type" : "string"
         }
       },
-      "required" : [ "SaslScram" ]
+      "required" : [ "SecretArn" ]
     },
     "KafkaClusterSaslScramAuthentication" : {
       "description" : "Details for SASL/SCRAM client authentication.",
@@ -495,16 +510,16 @@
   "createOnlyProperties" : [ "/properties/ReplicatorName", "/properties/Description", "/properties/KafkaClusters", "/properties/ServiceExecutionRoleArn", "/properties/ReplicationInfoList/*/SourceKafkaClusterArn", "/properties/ReplicationInfoList/*/SourceKafkaClusterId", "/properties/ReplicationInfoList/*/TargetKafkaClusterArn", "/properties/ReplicationInfoList/*/TargetKafkaClusterId", "/properties/ReplicationInfoList/*/TargetCompressionType", "/properties/ReplicationInfoList/*/ConsumerGroupReplication/ConsumerGroupOffsetSyncMode", "/properties/ReplicationInfoList/*/TopicReplication/StartingPosition", "/properties/ReplicationInfoList/*/TopicReplication/TopicNameConfiguration" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:CreateNetworkInterface", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "iam:CreateServiceLinkedRole", "iam:PassRole", "kafka:CreateReplicator", "kafka:CreateReplicatorReference", "kafka:DescribeClusterV2", "kafka:DescribeReplicator", "kafka:GetBootstrapBrokers", "kafka:ListTagsForResource", "kafka:TagResource" ]
+      "permissions" : [ "ec2:CreateNetworkInterface", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "iam:CreateServiceLinkedRole", "iam:PassRole", "kafka:CreateReplicator", "kafka:CreateReplicatorReference", "kafka:DescribeClusterV2", "kafka:DescribeReplicator", "kafka:GetBootstrapBrokers", "kafka:ListTagsForResource", "kafka:TagResource", "logs:CreateLogDelivery", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:ListLogDeliveries", "logs:PutResourcePolicy", "s3:GetBucketPolicy", "s3:PutBucketPolicy", "firehose:TagDeliveryStream" ]
     },
     "read" : {
       "permissions" : [ "kafka:DescribeReplicator", "kafka:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "kafka:DescribeReplicator", "kafka:ListTagsForResource", "kafka:TagResource", "kafka:UntagResource", "kafka:UpdateReplicationInfo" ]
+      "permissions" : [ "kafka:DescribeReplicator", "kafka:ListTagsForResource", "kafka:TagResource", "kafka:UntagResource", "kafka:UpdateReplicationInfo", "logs:CreateLogDelivery", "logs:DeleteLogDelivery", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:ListLogDeliveries", "logs:PutResourcePolicy", "s3:GetBucketPolicy", "s3:PutBucketPolicy", "firehose:TagDeliveryStream" ]
     },
     "delete" : {
-      "permissions" : [ "kafka:DeleteReplicator", "kafka:DescribeReplicator", "kafka:ListTagsForResource", "kafka:UntagResource" ]
+      "permissions" : [ "kafka:DeleteReplicator", "kafka:DescribeReplicator", "kafka:ListTagsForResource", "kafka:UntagResource", "logs:DeleteLogDelivery", "logs:ListLogDeliveries" ]
     },
     "list" : {
       "permissions" : [ "kafka:ListReplicators" ]

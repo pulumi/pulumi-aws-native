@@ -14,6 +14,7 @@ __all__ = [
     'BucketAbacStatus',
     'BucketAccelerateConfigurationAccelerationStatus',
     'BucketAccessControl',
+    'BucketAnnotationTableConfigurationConfigurationState',
     'BucketBlockedEncryptionTypeListItem',
     'BucketCorsRuleAllowedMethodsItem',
     'BucketDefaultRetentionMode',
@@ -121,6 +122,15 @@ class BucketAccessControl(_builtins.str, Enum):
     PRIVATE = "Private"
     PUBLIC_READ = "PublicRead"
     PUBLIC_READ_WRITE = "PublicReadWrite"
+
+
+@pulumi.type_token("aws-native:s3:BucketAnnotationTableConfigurationConfigurationState")
+class BucketAnnotationTableConfigurationConfigurationState(_builtins.str, Enum):
+    """
+    Specifies whether annotation table configuration is enabled or disabled.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:s3:BucketBlockedEncryptionTypeListItem")

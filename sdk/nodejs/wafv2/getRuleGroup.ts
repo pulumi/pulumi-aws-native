@@ -81,6 +81,7 @@ export interface GetRuleGroupResult {
      * When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
      */
     readonly labelNamespace?: string;
+    readonly monetizationConfig?: outputs.wafv2.RuleGroupMonetizationConfig;
     /**
      * Collection of Rules.
      */

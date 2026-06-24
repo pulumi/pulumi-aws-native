@@ -93,6 +93,10 @@ export interface GetBrokerResult {
      */
     readonly openWireEndpoints?: string[];
     /**
+     * The ARNs of the resource shares to be associated with the broker.
+     */
+    readonly resourceShareArns?: string[];
+    /**
      * The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
      */
     readonly securityGroups?: string[];

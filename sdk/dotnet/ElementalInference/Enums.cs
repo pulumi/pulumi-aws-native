@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AwsNative.ElementalInference
 {
     [EnumType]
+    public readonly struct DictionaryLanguage : IEquatable<DictionaryLanguage>
+    {
+        private readonly string _value;
+
+        private DictionaryLanguage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DictionaryLanguage Eng { get; } = new DictionaryLanguage("eng");
+        public static DictionaryLanguage Fra { get; } = new DictionaryLanguage("fra");
+        public static DictionaryLanguage Ita { get; } = new DictionaryLanguage("ita");
+        public static DictionaryLanguage Deu { get; } = new DictionaryLanguage("deu");
+        public static DictionaryLanguage Spa { get; } = new DictionaryLanguage("spa");
+        public static DictionaryLanguage Por { get; } = new DictionaryLanguage("por");
+
+        public static bool operator ==(DictionaryLanguage left, DictionaryLanguage right) => left.Equals(right);
+        public static bool operator !=(DictionaryLanguage left, DictionaryLanguage right) => !left.Equals(right);
+
+        public static explicit operator string(DictionaryLanguage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DictionaryLanguage other && Equals(other);
+        public bool Equals(DictionaryLanguage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct FeedOutputStatus : IEquatable<FeedOutputStatus>
     {
         private readonly string _value;
@@ -28,6 +60,70 @@ namespace Pulumi.AwsNative.ElementalInference
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FeedOutputStatus other && Equals(other);
         public bool Equals(FeedOutputStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FeedProfanityFilterMode : IEquatable<FeedProfanityFilterMode>
+    {
+        private readonly string _value;
+
+        private FeedProfanityFilterMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FeedProfanityFilterMode Disabled { get; } = new FeedProfanityFilterMode("DISABLED");
+        public static FeedProfanityFilterMode Censor { get; } = new FeedProfanityFilterMode("CENSOR");
+        public static FeedProfanityFilterMode Drop { get; } = new FeedProfanityFilterMode("DROP");
+
+        public static bool operator ==(FeedProfanityFilterMode left, FeedProfanityFilterMode right) => left.Equals(right);
+        public static bool operator !=(FeedProfanityFilterMode left, FeedProfanityFilterMode right) => !left.Equals(right);
+
+        public static explicit operator string(FeedProfanityFilterMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FeedProfanityFilterMode other && Equals(other);
+        public bool Equals(FeedProfanityFilterMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FeedTranscriptionLanguage : IEquatable<FeedTranscriptionLanguage>
+    {
+        private readonly string _value;
+
+        private FeedTranscriptionLanguage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FeedTranscriptionLanguage Eng { get; } = new FeedTranscriptionLanguage("eng");
+        public static FeedTranscriptionLanguage EngAu { get; } = new FeedTranscriptionLanguage("eng-au");
+        public static FeedTranscriptionLanguage EngGb { get; } = new FeedTranscriptionLanguage("eng-gb");
+        public static FeedTranscriptionLanguage EngUs { get; } = new FeedTranscriptionLanguage("eng-us");
+        public static FeedTranscriptionLanguage Fra { get; } = new FeedTranscriptionLanguage("fra");
+        public static FeedTranscriptionLanguage Ita { get; } = new FeedTranscriptionLanguage("ita");
+        public static FeedTranscriptionLanguage Deu { get; } = new FeedTranscriptionLanguage("deu");
+        public static FeedTranscriptionLanguage Spa { get; } = new FeedTranscriptionLanguage("spa");
+        public static FeedTranscriptionLanguage Por { get; } = new FeedTranscriptionLanguage("por");
+
+        public static bool operator ==(FeedTranscriptionLanguage left, FeedTranscriptionLanguage right) => left.Equals(right);
+        public static bool operator !=(FeedTranscriptionLanguage left, FeedTranscriptionLanguage right) => !left.Equals(right);
+
+        public static explicit operator string(FeedTranscriptionLanguage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FeedTranscriptionLanguage other && Equals(other);
+        public bool Equals(FeedTranscriptionLanguage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

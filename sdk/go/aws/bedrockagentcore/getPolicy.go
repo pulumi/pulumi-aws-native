@@ -32,7 +32,8 @@ type LookupPolicyResult struct {
 	CreatedAt  *string           `pulumi:"createdAt"`
 	Definition *PolicyDefinition `pulumi:"definition"`
 	// A human-readable description of the policy's purpose and functionality.
-	Description *string `pulumi:"description"`
+	Description     *string                `pulumi:"description"`
+	EnforcementMode *PolicyEnforcementMode `pulumi:"enforcementMode"`
 	// The Amazon Resource Name (ARN) of the policy.
 	PolicyArn *string `pulumi:"policyArn"`
 	// The unique identifier for the policy.
@@ -89,6 +90,10 @@ func (o LookupPolicyResultOutput) Definition() PolicyDefinitionPtrOutput {
 // A human-readable description of the policy's purpose and functionality.
 func (o LookupPolicyResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPolicyResultOutput) EnforcementMode() PolicyEnforcementModePtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *PolicyEnforcementMode { return v.EnforcementMode }).(PolicyEnforcementModePtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the policy.

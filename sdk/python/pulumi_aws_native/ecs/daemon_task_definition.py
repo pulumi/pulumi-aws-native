@@ -40,7 +40,11 @@ class DaemonTaskDefinitionArgs:
         :param pulumi.Input[_builtins.str] cpu: The number of CPU units used by the daemon task.
         :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
         :param pulumi.Input[_builtins.str] family: The name of a family that this daemon task definition is registered to.
+        :param pulumi.Input[_builtins.str] ipc_mode: The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+                If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: "host"`` or other daemons that use ``ipcMode: "shared"``.
         :param pulumi.Input[_builtins.str] memory: The amount of memory (in MiB) used by the daemon task.
+        :param pulumi.Input[_builtins.str] pid_mode: The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+                If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: "host"`` or other daemons that use ``pidMode: "shared"``.
         :param pulumi.Input[_builtins.str] task_role_arn: The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionVolumeArgs']]] volumes: The list of data volume definitions for the daemon task.
         """
@@ -116,6 +120,10 @@ class DaemonTaskDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="ipcMode")
     def ipc_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+         If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: "host"`` or other daemons that use ``ipcMode: "shared"``.
+        """
         return pulumi.get(self, "ipc_mode")
 
     @ipc_mode.setter
@@ -137,6 +145,10 @@ class DaemonTaskDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="pidMode")
     def pid_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+         If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: "host"`` or other daemons that use ``pidMode: "shared"``.
+        """
         return pulumi.get(self, "pid_mode")
 
     @pid_mode.setter
@@ -204,7 +216,11 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cpu: The number of CPU units used by the daemon task.
         :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
         :param pulumi.Input[_builtins.str] family: The name of a family that this daemon task definition is registered to.
+        :param pulumi.Input[_builtins.str] ipc_mode: The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+                If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: "host"`` or other daemons that use ``ipcMode: "shared"``.
         :param pulumi.Input[_builtins.str] memory: The amount of memory (in MiB) used by the daemon task.
+        :param pulumi.Input[_builtins.str] pid_mode: The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+                If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: "host"`` or other daemons that use ``pidMode: "shared"``.
         :param pulumi.Input[_builtins.str] task_role_arn: The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict']]]] volumes: The list of data volume definitions for the daemon task.
         """
@@ -340,6 +356,10 @@ class DaemonTaskDefinition(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="ipcMode")
     def ipc_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+         If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: "host"`` or other daemons that use ``ipcMode: "shared"``.
+        """
         return pulumi.get(self, "ipc_mode")
 
     @_builtins.property
@@ -353,6 +373,10 @@ class DaemonTaskDefinition(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="pidMode")
     def pid_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+         If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: "host"`` or other daemons that use ``pidMode: "shared"``.
+        """
         return pulumi.get(self, "pid_mode")
 
     @_builtins.property

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("geminiModelConfig")]
         public Input<Inputs.HarnessGeminiModelConfigArgs>? GeminiModelConfig { get; set; }
 
+        [Input("liteLlmModelConfig")]
+        public Input<Inputs.HarnessLiteLlmModelConfigArgs>? LiteLlmModelConfig { get; set; }
+
         [Input("openAiModelConfig")]
         public Input<Inputs.HarnessOpenAiModelConfigArgs>? OpenAiModelConfig { get; set; }
 

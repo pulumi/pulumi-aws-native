@@ -20,7 +20,8 @@ type Policy struct {
 	CreatedAt  pulumi.StringOutput    `pulumi:"createdAt"`
 	Definition PolicyDefinitionOutput `pulumi:"definition"`
 	// A human-readable description of the policy's purpose and functionality.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description     pulumi.StringPtrOutput         `pulumi:"description"`
+	EnforcementMode PolicyEnforcementModePtrOutput `pulumi:"enforcementMode"`
 	// The customer-assigned immutable name for the policy. Must be unique within the policy engine.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the policy.
@@ -91,7 +92,8 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	Definition PolicyDefinition `pulumi:"definition"`
 	// A human-readable description of the policy's purpose and functionality.
-	Description *string `pulumi:"description"`
+	Description     *string                `pulumi:"description"`
+	EnforcementMode *PolicyEnforcementMode `pulumi:"enforcementMode"`
 	// The customer-assigned immutable name for the policy. Must be unique within the policy engine.
 	Name *string `pulumi:"name"`
 	// The identifier of the policy engine which contains this policy.
@@ -103,7 +105,8 @@ type policyArgs struct {
 type PolicyArgs struct {
 	Definition PolicyDefinitionInput
 	// A human-readable description of the policy's purpose and functionality.
-	Description pulumi.StringPtrInput
+	Description     pulumi.StringPtrInput
+	EnforcementMode PolicyEnforcementModePtrInput
 	// The customer-assigned immutable name for the policy. Must be unique within the policy engine.
 	Name pulumi.StringPtrInput
 	// The identifier of the policy engine which contains this policy.
@@ -160,6 +163,10 @@ func (o PolicyOutput) Definition() PolicyDefinitionOutput {
 // A human-readable description of the policy's purpose and functionality.
 func (o PolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o PolicyOutput) EnforcementMode() PolicyEnforcementModePtrOutput {
+	return o.ApplyT(func(v *Policy) PolicyEnforcementModePtrOutput { return v.EnforcementMode }).(PolicyEnforcementModePtrOutput)
 }
 
 // The customer-assigned immutable name for the policy. Must be unique within the policy engine.

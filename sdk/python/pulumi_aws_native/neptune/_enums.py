@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'DbClusterNetworkType',
+    'GlobalClusterEngine',
 ]
 
 
@@ -18,3 +19,11 @@ class DbClusterNetworkType(_builtins.str, Enum):
     """
     IPV4 = "IPV4"
     DUAL = "DUAL"
+
+
+@pulumi.type_token("aws-native:neptune:GlobalClusterEngine")
+class GlobalClusterEngine(_builtins.str, Enum):
+    """
+    The name of the database engine.
+    """
+    NEPTUNE = "neptune"

@@ -3510,6 +3510,286 @@ func (in *containerGroupDefinitionContainerPortRangeProtocolPtr) ToContainerGrou
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput)
 }
 
+type ContainerGroupDefinitionLinuxCapabilitiesIncludeItem string
+
+const (
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemAuditControl   = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("AUDIT_CONTROL")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemAuditWrite     = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("AUDIT_WRITE")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemBlockSuspend   = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("BLOCK_SUSPEND")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemChown          = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("CHOWN")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemDacOverride    = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("DAC_OVERRIDE")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemDacReadSearch  = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("DAC_READ_SEARCH")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemFowner         = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("FOWNER")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemFsetid         = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("FSETID")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemIpcLock        = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("IPC_LOCK")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemIpcOwner       = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("IPC_OWNER")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemKill           = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("KILL")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemLease          = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("LEASE")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemLinuxImmutable = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("LINUX_IMMUTABLE")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemMacAdmin       = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("MAC_ADMIN")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemMacOverride    = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("MAC_OVERRIDE")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemMknod          = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("MKNOD")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemNetAdmin       = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("NET_ADMIN")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemNetBindService = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("NET_BIND_SERVICE")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemNetBroadcast   = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("NET_BROADCAST")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemNetRaw         = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("NET_RAW")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSetfcap        = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SETFCAP")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSetgid         = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SETGID")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSetpcap        = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SETPCAP")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSetuid         = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SETUID")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysAdmin       = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_ADMIN")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysBoot        = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_BOOT")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysChroot      = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_CHROOT")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysModule      = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_MODULE")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysNice        = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_NICE")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysPacct       = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_PACCT")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysPtrace      = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_PTRACE")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysRawio       = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_RAWIO")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysResource    = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_RESOURCE")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysTime        = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_TIME")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysTtyConfig   = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_TTY_CONFIG")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSyslog         = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYSLOG")
+	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemWakeAlarm      = ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("WAKE_ALARM")
+)
+
+func (ContainerGroupDefinitionLinuxCapabilitiesIncludeItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionLinuxCapabilitiesIncludeItem)(nil)).Elem()
+}
+
+func (e ContainerGroupDefinitionLinuxCapabilitiesIncludeItem) ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput() ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput {
+	return pulumi.ToOutput(e).(ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput)
+}
+
+func (e ContainerGroupDefinitionLinuxCapabilitiesIncludeItem) ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutputWithContext(ctx context.Context) ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput)
+}
+
+func (e ContainerGroupDefinitionLinuxCapabilitiesIncludeItem) ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput() ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput {
+	return e.ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerGroupDefinitionLinuxCapabilitiesIncludeItem) ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput {
+	return ContainerGroupDefinitionLinuxCapabilitiesIncludeItem(e).ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutputWithContext(ctx).ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutputWithContext(ctx)
+}
+
+func (e ContainerGroupDefinitionLinuxCapabilitiesIncludeItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerGroupDefinitionLinuxCapabilitiesIncludeItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerGroupDefinitionLinuxCapabilitiesIncludeItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerGroupDefinitionLinuxCapabilitiesIncludeItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionLinuxCapabilitiesIncludeItem)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput) ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput() ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput) ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutputWithContext(ctx context.Context) ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput) ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput() ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput {
+	return o.ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput) ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupDefinitionLinuxCapabilitiesIncludeItem) *ContainerGroupDefinitionLinuxCapabilitiesIncludeItem {
+		return &v
+	}).(ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput)
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupDefinitionLinuxCapabilitiesIncludeItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupDefinitionLinuxCapabilitiesIncludeItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupDefinitionLinuxCapabilitiesIncludeItem)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput) ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput() ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput) ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput) Elem() ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionLinuxCapabilitiesIncludeItem) ContainerGroupDefinitionLinuxCapabilitiesIncludeItem {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerGroupDefinitionLinuxCapabilitiesIncludeItem
+		return ret
+	}).(ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput)
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerGroupDefinitionLinuxCapabilitiesIncludeItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerGroupDefinitionLinuxCapabilitiesIncludeItemInput is an input type that accepts values of the ContainerGroupDefinitionLinuxCapabilitiesIncludeItem enum
+// A concrete instance of `ContainerGroupDefinitionLinuxCapabilitiesIncludeItemInput` can be one of the following:
+//
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemAuditControl
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemAuditWrite
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemBlockSuspend
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemChown
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemDacOverride
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemDacReadSearch
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemFowner
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemFsetid
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemIpcLock
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemIpcOwner
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemKill
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemLease
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemLinuxImmutable
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemMacAdmin
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemMacOverride
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemMknod
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemNetAdmin
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemNetBindService
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemNetBroadcast
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemNetRaw
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSetfcap
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSetgid
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSetpcap
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSetuid
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysAdmin
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysBoot
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysChroot
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysModule
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysNice
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysPacct
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysPtrace
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysRawio
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysResource
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysTime
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSysTtyConfig
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemSyslog
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemWakeAlarm
+type ContainerGroupDefinitionLinuxCapabilitiesIncludeItemInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput() ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput
+	ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutputWithContext(context.Context) ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput
+}
+
+var containerGroupDefinitionLinuxCapabilitiesIncludeItemPtrType = reflect.TypeOf((**ContainerGroupDefinitionLinuxCapabilitiesIncludeItem)(nil)).Elem()
+
+type ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput() ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput
+	ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutputWithContext(context.Context) ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput
+}
+
+type containerGroupDefinitionLinuxCapabilitiesIncludeItemPtr string
+
+func ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtr(v string) ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrInput {
+	return (*containerGroupDefinitionLinuxCapabilitiesIncludeItemPtr)(&v)
+}
+
+func (*containerGroupDefinitionLinuxCapabilitiesIncludeItemPtr) ElementType() reflect.Type {
+	return containerGroupDefinitionLinuxCapabilitiesIncludeItemPtrType
+}
+
+func (in *containerGroupDefinitionLinuxCapabilitiesIncludeItemPtr) ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput() ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput {
+	return pulumi.ToOutput(in).(ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput)
+}
+
+func (in *containerGroupDefinitionLinuxCapabilitiesIncludeItemPtr) ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput)
+}
+
+// ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayInput is an input type that accepts ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArray and ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayInput` via:
+//
+//	ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArray{ ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArgs{...} }
+type ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput() ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput
+	ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutputWithContext(context.Context) ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput
+}
+
+type ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArray []ContainerGroupDefinitionLinuxCapabilitiesIncludeItem
+
+func (ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerGroupDefinitionLinuxCapabilitiesIncludeItem)(nil)).Elem()
+}
+
+func (i ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArray) ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput() ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput {
+	return i.ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArray) ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutputWithContext(ctx context.Context) ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput)
+}
+
+type ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerGroupDefinitionLinuxCapabilitiesIncludeItem)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput) ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput() ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput) ToContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutputWithContext(ctx context.Context) ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput) Index(i pulumi.IntInput) ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerGroupDefinitionLinuxCapabilitiesIncludeItem {
+		return vs[0].([]ContainerGroupDefinitionLinuxCapabilitiesIncludeItem)[vs[1].(int)]
+	}).(ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput)
+}
+
 // The operating system of the container group
 type ContainerGroupDefinitionOperatingSystem string
 
@@ -7719,6 +7999,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerMountPointAccessLevelPtrInput)(nil)).Elem(), ContainerGroupDefinitionContainerMountPointAccessLevel("READ_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerPortRangeProtocolInput)(nil)).Elem(), ContainerGroupDefinitionContainerPortRangeProtocol("TCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerPortRangeProtocolPtrInput)(nil)).Elem(), ContainerGroupDefinitionContainerPortRangeProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionLinuxCapabilitiesIncludeItemInput)(nil)).Elem(), ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("AUDIT_CONTROL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrInput)(nil)).Elem(), ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("AUDIT_CONTROL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayInput)(nil)).Elem(), ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionOperatingSystemInput)(nil)).Elem(), ContainerGroupDefinitionOperatingSystem("AMAZON_LINUX_2023"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionOperatingSystemPtrInput)(nil)).Elem(), ContainerGroupDefinitionOperatingSystem("AMAZON_LINUX_2023"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetApplyCapacityInput)(nil)).Elem(), FleetApplyCapacity("ON_UPDATE"))
@@ -7811,6 +8094,9 @@ func init() {
 	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerPortRangeProtocolOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionLinuxCapabilitiesIncludeItemOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionLinuxCapabilitiesIncludeItemPtrOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDefinitionOperatingSystemOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDefinitionOperatingSystemPtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDefinitionStatusOutput{})

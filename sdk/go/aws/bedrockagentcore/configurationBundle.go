@@ -33,7 +33,9 @@ type ConfigurationBundle struct {
 	CreatedAt pulumi.StringOutput                                `pulumi:"createdAt"`
 	CreatedBy ConfigurationBundleVersionCreatedBySourcePtrOutput `pulumi:"createdBy"`
 	// The description for the configuration bundle.
-	Description     pulumi.StringPtrOutput                          `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ARN of the KMS key used to encrypt component configurations.
+	KmsKeyArn       pulumi.StringPtrOutput                          `pulumi:"kmsKeyArn"`
 	LineageMetadata ConfigurationBundleVersionLineageMetadataOutput `pulumi:"lineageMetadata"`
 	// Tags to assign to the configuration bundle.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -101,6 +103,8 @@ type configurationBundleArgs struct {
 	CreatedBy  *ConfigurationBundleVersionCreatedBySource           `pulumi:"createdBy"`
 	// The description for the configuration bundle.
 	Description *string `pulumi:"description"`
+	// The ARN of the KMS key used to encrypt component configurations.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Tags to assign to the configuration bundle.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -118,6 +122,8 @@ type ConfigurationBundleArgs struct {
 	CreatedBy  ConfigurationBundleVersionCreatedBySourcePtrInput
 	// The description for the configuration bundle.
 	Description pulumi.StringPtrInput
+	// The ARN of the KMS key used to encrypt component configurations.
+	KmsKeyArn pulumi.StringPtrInput
 	// Tags to assign to the configuration bundle.
 	Tags aws.TagArrayInput
 }
@@ -201,6 +207,11 @@ func (o ConfigurationBundleOutput) CreatedBy() ConfigurationBundleVersionCreated
 // The description for the configuration bundle.
 func (o ConfigurationBundleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationBundle) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the KMS key used to encrypt component configurations.
+func (o ConfigurationBundleOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationBundle) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 func (o ConfigurationBundleOutput) LineageMetadata() ConfigurationBundleVersionLineageMetadataOutput {

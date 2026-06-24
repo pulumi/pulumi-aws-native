@@ -42,8 +42,10 @@ __all__ = [
     'ClusterOnDemandOptions',
     'ClusterOrchestrator',
     'ClusterRestrictedInstanceGroup',
+    'ClusterRestrictedInstanceGroupsConfig',
     'ClusterRollingUpdatePolicy',
     'ClusterScheduledUpdateConfig',
+    'ClusterSharedEnvironmentConfig',
     'ClusterSlurmConfig',
     'ClusterSpotOptions',
     'ClusterTieredStorageConfig',
@@ -1595,9 +1597,7 @@ class ClusterRestrictedInstanceGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "environmentConfig":
-            suggest = "environment_config"
-        elif key == "executionRole":
+        if key == "executionRole":
             suggest = "execution_role"
         elif key == "instanceCount":
             suggest = "instance_count"
@@ -1607,6 +1607,8 @@ class ClusterRestrictedInstanceGroup(dict):
             suggest = "instance_type"
         elif key == "currentCount":
             suggest = "current_count"
+        elif key == "environmentConfig":
+            suggest = "environment_config"
         elif key == "instanceStorageConfigs":
             suggest = "instance_storage_configs"
         elif key == "onStartDeepHealthChecks":
@@ -1630,12 +1632,12 @@ class ClusterRestrictedInstanceGroup(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 environment_config: 'outputs.ClusterEnvironmentConfig',
                  execution_role: _builtins.str,
                  instance_count: _builtins.int,
                  instance_group_name: _builtins.str,
                  instance_type: _builtins.str,
                  current_count: Optional[_builtins.int] = None,
+                 environment_config: Optional['outputs.ClusterEnvironmentConfig'] = None,
                  instance_storage_configs: Optional[Sequence['outputs.ClusterInstanceStorageConfig']] = None,
                  on_start_deep_health_checks: Optional[Sequence['ClusterDeepHealthCheckType']] = None,
                  override_vpc_config: Optional['outputs.ClusterVpcConfig'] = None,
@@ -1649,13 +1651,14 @@ class ClusterRestrictedInstanceGroup(dict):
         :param _builtins.int threads_per_core: The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
         :param _builtins.str training_plan_arn: The Amazon Resource Name (ARN) of the training plan to use for this cluster restricted instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
         """
-        pulumi.set(__self__, "environment_config", environment_config)
         pulumi.set(__self__, "execution_role", execution_role)
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_group_name", instance_group_name)
         pulumi.set(__self__, "instance_type", instance_type)
         if current_count is not None:
             pulumi.set(__self__, "current_count", current_count)
+        if environment_config is not None:
+            pulumi.set(__self__, "environment_config", environment_config)
         if instance_storage_configs is not None:
             pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
         if on_start_deep_health_checks is not None:
@@ -1666,11 +1669,6 @@ class ClusterRestrictedInstanceGroup(dict):
             pulumi.set(__self__, "threads_per_core", threads_per_core)
         if training_plan_arn is not None:
             pulumi.set(__self__, "training_plan_arn", training_plan_arn)
-
-    @_builtins.property
-    @pulumi.getter(name="environmentConfig")
-    def environment_config(self) -> 'outputs.ClusterEnvironmentConfig':
-        return pulumi.get(self, "environment_config")
 
     @_builtins.property
     @pulumi.getter(name="executionRole")
@@ -1704,6 +1702,11 @@ class ClusterRestrictedInstanceGroup(dict):
         return pulumi.get(self, "current_count")
 
     @_builtins.property
+    @pulumi.getter(name="environmentConfig")
+    def environment_config(self) -> Optional['outputs.ClusterEnvironmentConfig']:
+        return pulumi.get(self, "environment_config")
+
+    @_builtins.property
     @pulumi.getter(name="instanceStorageConfigs")
     def instance_storage_configs(self) -> Optional[Sequence['outputs.ClusterInstanceStorageConfig']]:
         return pulumi.get(self, "instance_storage_configs")
@@ -1733,6 +1736,41 @@ class ClusterRestrictedInstanceGroup(dict):
         The Amazon Resource Name (ARN) of the training plan to use for this cluster restricted instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
         """
         return pulumi.get(self, "training_plan_arn")
+
+
+@pulumi.output_type
+class ClusterRestrictedInstanceGroupsConfig(dict):
+    """
+    The cluster-level configuration for restricted instance groups, including shared environment settings for inter-RIG communication and FSx Lustre sharing.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sharedEnvironmentConfig":
+            suggest = "shared_environment_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterRestrictedInstanceGroupsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterRestrictedInstanceGroupsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterRestrictedInstanceGroupsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 shared_environment_config: 'outputs.ClusterSharedEnvironmentConfig'):
+        """
+        The cluster-level configuration for restricted instance groups, including shared environment settings for inter-RIG communication and FSx Lustre sharing.
+        """
+        pulumi.set(__self__, "shared_environment_config", shared_environment_config)
+
+    @_builtins.property
+    @pulumi.getter(name="sharedEnvironmentConfig")
+    def shared_environment_config(self) -> 'outputs.ClusterSharedEnvironmentConfig':
+        return pulumi.get(self, "shared_environment_config")
 
 
 @pulumi.output_type
@@ -1828,6 +1866,56 @@ class ClusterScheduledUpdateConfig(dict):
     @pulumi.getter(name="deploymentConfig")
     def deployment_config(self) -> Optional['outputs.ClusterDeploymentConfig']:
         return pulumi.get(self, "deployment_config")
+
+
+@pulumi.output_type
+class ClusterSharedEnvironmentConfig(dict):
+    """
+    The shared environment configuration for restricted instance groups that use cluster-level shared FSx Lustre storage.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fSxLustreDeletionPolicy":
+            suggest = "f_sx_lustre_deletion_policy"
+        elif key == "fSxLustreConfig":
+            suggest = "f_sx_lustre_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterSharedEnvironmentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterSharedEnvironmentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterSharedEnvironmentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 f_sx_lustre_deletion_policy: 'ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy',
+                 f_sx_lustre_config: Optional['outputs.ClusterFSxLustreConfig'] = None):
+        """
+        The shared environment configuration for restricted instance groups that use cluster-level shared FSx Lustre storage.
+
+        :param 'ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy' f_sx_lustre_deletion_policy: The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
+        """
+        pulumi.set(__self__, "f_sx_lustre_deletion_policy", f_sx_lustre_deletion_policy)
+        if f_sx_lustre_config is not None:
+            pulumi.set(__self__, "f_sx_lustre_config", f_sx_lustre_config)
+
+    @_builtins.property
+    @pulumi.getter(name="fSxLustreDeletionPolicy")
+    def f_sx_lustre_deletion_policy(self) -> 'ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy':
+        """
+        The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
+        """
+        return pulumi.get(self, "f_sx_lustre_deletion_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="fSxLustreConfig")
+    def f_sx_lustre_config(self) -> Optional['outputs.ClusterFSxLustreConfig']:
+        return pulumi.get(self, "f_sx_lustre_config")
 
 
 @pulumi.output_type
@@ -4436,6 +4524,8 @@ class DomainResourceSpec(dict):
             suggest = "sage_maker_image_arn"
         elif key == "sageMakerImageVersionArn":
             suggest = "sage_maker_image_version_arn"
+        elif key == "trainingPlanArn":
+            suggest = "training_plan_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainResourceSpec. Access the value via the '{suggest}' property getter instead.")
@@ -4452,7 +4542,8 @@ class DomainResourceSpec(dict):
                  instance_type: Optional['DomainAppInstanceType'] = None,
                  lifecycle_config_arn: Optional[_builtins.str] = None,
                  sage_maker_image_arn: Optional[_builtins.str] = None,
-                 sage_maker_image_version_arn: Optional[_builtins.str] = None):
+                 sage_maker_image_version_arn: Optional[_builtins.str] = None,
+                 training_plan_arn: Optional[_builtins.str] = None):
         """
         :param 'DomainAppInstanceType' instance_type: The instance type that the image version runs on.
                
@@ -4462,6 +4553,7 @@ class DomainResourceSpec(dict):
         :param _builtins.str lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
         :param _builtins.str sage_maker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image that the image version belongs to.
         :param _builtins.str sage_maker_image_version_arn: The Amazon Resource Name (ARN) of the image version created on the instance.
+        :param _builtins.str training_plan_arn: The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
@@ -4471,6 +4563,8 @@ class DomainResourceSpec(dict):
             pulumi.set(__self__, "sage_maker_image_arn", sage_maker_image_arn)
         if sage_maker_image_version_arn is not None:
             pulumi.set(__self__, "sage_maker_image_version_arn", sage_maker_image_version_arn)
+        if training_plan_arn is not None:
+            pulumi.set(__self__, "training_plan_arn", training_plan_arn)
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
@@ -4507,6 +4601,14 @@ class DomainResourceSpec(dict):
         The Amazon Resource Name (ARN) of the image version created on the instance.
         """
         return pulumi.get(self, "sage_maker_image_version_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingPlanArn")
+    def training_plan_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+        """
+        return pulumi.get(self, "training_plan_arn")
 
 
 @pulumi.output_type
@@ -19079,6 +19181,8 @@ class SpaceResourceSpec(dict):
             suggest = "sage_maker_image_arn"
         elif key == "sageMakerImageVersionArn":
             suggest = "sage_maker_image_version_arn"
+        elif key == "trainingPlanArn":
+            suggest = "training_plan_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SpaceResourceSpec. Access the value via the '{suggest}' property getter instead.")
@@ -19095,12 +19199,14 @@ class SpaceResourceSpec(dict):
                  instance_type: Optional['SpaceResourceSpecInstanceType'] = None,
                  lifecycle_config_arn: Optional[_builtins.str] = None,
                  sage_maker_image_arn: Optional[_builtins.str] = None,
-                 sage_maker_image_version_arn: Optional[_builtins.str] = None):
+                 sage_maker_image_version_arn: Optional[_builtins.str] = None,
+                 training_plan_arn: Optional[_builtins.str] = None):
         """
         :param 'SpaceResourceSpecInstanceType' instance_type: The instance type that the image version runs on.
         :param _builtins.str lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
         :param _builtins.str sage_maker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param _builtins.str sage_maker_image_version_arn: The ARN of the image version created on the instance.
+        :param _builtins.str training_plan_arn: The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
@@ -19110,6 +19216,8 @@ class SpaceResourceSpec(dict):
             pulumi.set(__self__, "sage_maker_image_arn", sage_maker_image_arn)
         if sage_maker_image_version_arn is not None:
             pulumi.set(__self__, "sage_maker_image_version_arn", sage_maker_image_version_arn)
+        if training_plan_arn is not None:
+            pulumi.set(__self__, "training_plan_arn", training_plan_arn)
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
@@ -19142,6 +19250,14 @@ class SpaceResourceSpec(dict):
         The ARN of the image version created on the instance.
         """
         return pulumi.get(self, "sage_maker_image_version_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingPlanArn")
+    def training_plan_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+        """
+        return pulumi.get(self, "training_plan_arn")
 
 
 @pulumi.output_type

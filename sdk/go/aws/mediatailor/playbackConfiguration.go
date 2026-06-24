@@ -32,6 +32,8 @@ type PlaybackConfiguration struct {
 	ConfigurationAliases pulumi.MapOutput `pulumi:"configurationAliases"`
 	// The configuration for DASH content.
 	DashConfiguration PlaybackConfigurationDashConfigurationPtrOutput `pulumi:"dashConfiguration"`
+	// A map of event names to function identifiers for custom processing during session lifecycle events.
+	FunctionMapping pulumi.StringMapOutput `pulumi:"functionMapping"`
 	// The configuration for HLS content.
 	HlsConfiguration PlaybackConfigurationHlsConfigurationPtrOutput `pulumi:"hlsConfiguration"`
 	// The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
@@ -127,6 +129,8 @@ type playbackConfigurationArgs struct {
 	ConfigurationAliases map[string]interface{} `pulumi:"configurationAliases"`
 	// The configuration for DASH content.
 	DashConfiguration *PlaybackConfigurationDashConfiguration `pulumi:"dashConfiguration"`
+	// A map of event names to function identifiers for custom processing during session lifecycle events.
+	FunctionMapping map[string]string `pulumi:"functionMapping"`
 	// The configuration for HLS content.
 	HlsConfiguration *PlaybackConfigurationHlsConfiguration `pulumi:"hlsConfiguration"`
 	// The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
@@ -168,6 +172,8 @@ type PlaybackConfigurationArgs struct {
 	ConfigurationAliases pulumi.MapInput
 	// The configuration for DASH content.
 	DashConfiguration PlaybackConfigurationDashConfigurationPtrInput
+	// A map of event names to function identifiers for custom processing during session lifecycle events.
+	FunctionMapping pulumi.StringMapInput
 	// The configuration for HLS content.
 	HlsConfiguration PlaybackConfigurationHlsConfigurationPtrInput
 	// The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
@@ -276,6 +282,11 @@ func (o PlaybackConfigurationOutput) DashConfiguration() PlaybackConfigurationDa
 	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationDashConfigurationPtrOutput {
 		return v.DashConfiguration
 	}).(PlaybackConfigurationDashConfigurationPtrOutput)
+}
+
+// A map of event names to function identifiers for custom processing during session lifecycle events.
+func (o PlaybackConfigurationOutput) FunctionMapping() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) pulumi.StringMapOutput { return v.FunctionMapping }).(pulumi.StringMapOutput)
 }
 
 // The configuration for HLS content.

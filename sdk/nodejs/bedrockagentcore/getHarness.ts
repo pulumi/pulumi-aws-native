@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::BedrockAgentCore::Harness resource type - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
+ * Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
  */
 export function getHarness(args: GetHarnessArgs, opts?: pulumi.InvokeOptions): Promise<GetHarnessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -109,9 +109,13 @@ export interface GetHarnessResult {
      * The timestamp when the harness was last updated.
      */
     readonly updatedAt?: string;
+    /**
+     * The version of the harness. Incremented on every successful update.
+     */
+    readonly version?: string;
 }
 /**
- * Definition of AWS::BedrockAgentCore::Harness resource type - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
+ * Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
  */
 export function getHarnessOutput(args: GetHarnessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHarnessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

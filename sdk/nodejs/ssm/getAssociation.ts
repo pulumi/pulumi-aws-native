@@ -30,6 +30,10 @@ export interface GetAssociationResult {
      */
     readonly applyOnlyAtCronInterval?: boolean;
     /**
+     * A role used by association to take actions on your behalf.
+     */
+    readonly associationDispatchAssumeRole?: string;
+    /**
      * Unique identifier of the association.
      */
     readonly associationId?: string;
@@ -97,6 +101,10 @@ export interface GetAssociationResult {
      * By default, all associations use `AUTO` mode.
      */
     readonly syncCompliance?: enums.ssm.AssociationSyncCompliance;
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    readonly tags?: outputs.Tag[];
     /**
      * The targets that the SSM document sends commands to.
      */

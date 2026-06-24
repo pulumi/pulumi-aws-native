@@ -60,7 +60,7 @@ export class GatewayTarget extends pulumi.CustomResource {
     /**
      * The name for the gateway target.
      */
-    declare public readonly name: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     declare public readonly privateEndpoint: pulumi.Output<outputs.bedrockagentcore.GatewayTargetPrivateEndpoint0Properties | outputs.bedrockagentcore.GatewayTargetPrivateEndpoint1Properties | undefined>;
     declare public /*out*/ readonly privateEndpointManagedResources: pulumi.Output<outputs.bedrockagentcore.GatewayTargetManagedResourceDetails[]>;
     declare public /*out*/ readonly protocolType: pulumi.Output<enums.bedrockagentcore.GatewayTargetTargetProtocolType>;

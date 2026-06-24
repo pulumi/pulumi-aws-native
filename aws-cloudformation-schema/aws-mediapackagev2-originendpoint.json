@@ -72,6 +72,10 @@
       "type" : "string",
       "enum" : [ "STANDARD", "NONE" ]
     },
+    "DashAudioTimelinePattern" : {
+      "type" : "string",
+      "enum" : [ "NONE", "PATTERNED" ]
+    },
     "DashDrmSignaling" : {
       "type" : "string",
       "enum" : [ "INDIVIDUAL", "REFERENCED" ]
@@ -437,6 +441,9 @@
         "Compactness" : {
           "$ref" : "#/definitions/DashCompactness"
         },
+        "AudioTimelinePattern" : {
+          "$ref" : "#/definitions/DashAudioTimelinePattern"
+        },
         "SubtitleConfiguration" : {
           "$ref" : "#/definitions/DashSubtitleConfiguration"
         },
@@ -634,7 +641,7 @@
     },
     "ScteFilter" : {
       "type" : "string",
-      "enum" : [ "SPLICE_INSERT", "BREAK", "PROVIDER_ADVERTISEMENT", "DISTRIBUTOR_ADVERTISEMENT", "PROVIDER_PLACEMENT_OPPORTUNITY", "DISTRIBUTOR_PLACEMENT_OPPORTUNITY", "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY", "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY", "PROGRAM", "CHAPTER", "UNSCHEDULED_EVENT", "ALTERNATE_CONTENT_OPPORTUNITY", "NETWORK", "PROVIDER_PROMO", "DISTRIBUTOR_PROMO", "PROVIDER_AD_BLOCK", "DISTRIBUTOR_AD_BLOCK" ]
+      "enum" : [ "SPLICE_INSERT", "BREAK", "PROVIDER_ADVERTISEMENT", "DISTRIBUTOR_ADVERTISEMENT", "PROVIDER_PLACEMENT_OPPORTUNITY", "DISTRIBUTOR_PLACEMENT_OPPORTUNITY", "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY", "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY", "PROGRAM", "CHAPTER", "UNSCHEDULED_EVENT", "ALTERNATE_CONTENT_OPPORTUNITY", "NETWORK", "PROVIDER_PROMO", "DISTRIBUTOR_PROMO", "PROVIDER_AD_BLOCK", "DISTRIBUTOR_AD_BLOCK", "CONTENT_IDENTIFICATION", "CALL_AD_SERVER" ]
     },
     "ScteHls" : {
       "type" : "object",

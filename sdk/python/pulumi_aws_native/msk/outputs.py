@@ -61,6 +61,7 @@ __all__ = [
     'ReplicatorKafkaClusterClientAuthentication',
     'ReplicatorKafkaClusterClientVpcConfig',
     'ReplicatorKafkaClusterEncryptionInTransit',
+    'ReplicatorKafkaClusterMtlsAuthentication',
     'ReplicatorKafkaClusterSaslScramAuthentication',
     'ReplicatorLogDelivery',
     'ReplicatorReplicationInfo',
@@ -1839,17 +1840,30 @@ class ReplicatorKafkaClusterClientAuthentication(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 sasl_scram: 'outputs.ReplicatorKafkaClusterSaslScramAuthentication'):
+                 mtls: Optional['outputs.ReplicatorKafkaClusterMtlsAuthentication'] = None,
+                 sasl_scram: Optional['outputs.ReplicatorKafkaClusterSaslScramAuthentication'] = None):
         """
         Details of the client authentication used by the Apache Kafka cluster.
 
+        :param 'ReplicatorKafkaClusterMtlsAuthentication' mtls: Details for mTLS client authentication.
         :param 'ReplicatorKafkaClusterSaslScramAuthentication' sasl_scram: Details for SASL/SCRAM client authentication.
         """
-        pulumi.set(__self__, "sasl_scram", sasl_scram)
+        if mtls is not None:
+            pulumi.set(__self__, "mtls", mtls)
+        if sasl_scram is not None:
+            pulumi.set(__self__, "sasl_scram", sasl_scram)
+
+    @_builtins.property
+    @pulumi.getter
+    def mtls(self) -> Optional['outputs.ReplicatorKafkaClusterMtlsAuthentication']:
+        """
+        Details for mTLS client authentication.
+        """
+        return pulumi.get(self, "mtls")
 
     @_builtins.property
     @pulumi.getter(name="saslScram")
-    def sasl_scram(self) -> 'outputs.ReplicatorKafkaClusterSaslScramAuthentication':
+    def sasl_scram(self) -> Optional['outputs.ReplicatorKafkaClusterSaslScramAuthentication']:
         """
         Details for SASL/SCRAM client authentication.
         """
@@ -1962,6 +1976,46 @@ class ReplicatorKafkaClusterEncryptionInTransit(dict):
         The root CA certificate.
         """
         return pulumi.get(self, "root_ca_certificate")
+
+
+@pulumi.output_type
+class ReplicatorKafkaClusterMtlsAuthentication(dict):
+    """
+    Details for mTLS client authentication.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatorKafkaClusterMtlsAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatorKafkaClusterMtlsAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatorKafkaClusterMtlsAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_arn: _builtins.str):
+        """
+        Details for mTLS client authentication.
+
+        :param _builtins.str secret_arn: The Amazon Resource Name (ARN) of the Secrets Manager secret.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the Secrets Manager secret.
+        """
+        return pulumi.get(self, "secret_arn")
 
 
 @pulumi.output_type

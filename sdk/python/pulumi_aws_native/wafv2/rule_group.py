@@ -31,6 +31,7 @@ class RuleGroupArgs:
                  consumed_labels: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]] = None,
                  custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupCustomResponseBodyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 monetization_config: Optional[pulumi.Input['RuleGroupMonetizationConfigArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -71,6 +72,8 @@ class RuleGroupArgs:
             pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if monetization_config is not None:
+            pulumi.set(__self__, "monetization_config", monetization_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if rules is not None:
@@ -173,6 +176,15 @@ class RuleGroupArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="monetizationConfig")
+    def monetization_config(self) -> Optional[pulumi.Input['RuleGroupMonetizationConfigArgs']]:
+        return pulumi.get(self, "monetization_config")
+
+    @monetization_config.setter
+    def monetization_config(self, value: Optional[pulumi.Input['RuleGroupMonetizationConfigArgs']]):
+        pulumi.set(self, "monetization_config", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -222,6 +234,7 @@ class RuleGroup(pulumi.CustomResource):
                  consumed_labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict']]]]] = None,
                  custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 monetization_config: Optional[pulumi.Input[Union['RuleGroupMonetizationConfigArgs', 'RuleGroupMonetizationConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input['RuleGroupScope']] = None,
@@ -287,6 +300,7 @@ class RuleGroup(pulumi.CustomResource):
                  consumed_labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict']]]]] = None,
                  custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 monetization_config: Optional[pulumi.Input[Union['RuleGroupMonetizationConfigArgs', 'RuleGroupMonetizationConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input['RuleGroupScope']] = None,
@@ -308,6 +322,7 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["consumed_labels"] = consumed_labels
             __props__.__dict__["custom_response_bodies"] = custom_response_bodies
             __props__.__dict__["description"] = description
+            __props__.__dict__["monetization_config"] = monetization_config
             __props__.__dict__["name"] = name
             __props__.__dict__["rules"] = rules
             if scope is None and not opts.urn:
@@ -352,6 +367,7 @@ class RuleGroup(pulumi.CustomResource):
         __props__.__dict__["custom_response_bodies"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["label_namespace"] = None
+        __props__.__dict__["monetization_config"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["rules"] = None
         __props__.__dict__["scope"] = None
@@ -434,6 +450,11 @@ class RuleGroup(pulumi.CustomResource):
         When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
         """
         return pulumi.get(self, "label_namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="monetizationConfig")
+    def monetization_config(self) -> pulumi.Output[Optional['outputs.RuleGroupMonetizationConfig']]:
+        return pulumi.get(self, "monetization_config")
 
     @_builtins.property
     @pulumi.getter

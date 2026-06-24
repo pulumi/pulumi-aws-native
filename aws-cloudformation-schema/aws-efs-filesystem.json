@@ -193,7 +193,7 @@
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/Arn", "/properties/FileSystemId", "/properties/ReplicationConfiguration/Destinations/*/Status", "/properties/ReplicationConfiguration/Destinations/*/StatusMessage" ],
   "primaryIdentifier" : [ "/properties/FileSystemId" ],
-  "writeOnlyProperties" : [ "/properties/BypassPolicyLockoutSafetyCheck", "/properties/ReplicationConfiguration/Destinations/0/AvailabilityZoneName", "/properties/ReplicationConfiguration/Destinations/0/KmsKeyId" ],
+  "writeOnlyProperties" : [ "/properties/BypassPolicyLockoutSafetyCheck", "/properties/ReplicationConfiguration/Destinations/*/AvailabilityZoneName", "/properties/ReplicationConfiguration/Destinations/*/KmsKeyId" ],
   "createOnlyProperties" : [ "/properties/AvailabilityZoneName", "/properties/Encrypted", "/properties/KmsKeyId", "/properties/PerformanceMode" ],
   "propertyTransform" : {
     "/properties/KmsKeyId" : "\"arn:aws[-a-z]*:kms:[a-z0-9-]+:[0-9]{12}:key/[a-zA-Z0-9-]+\"",

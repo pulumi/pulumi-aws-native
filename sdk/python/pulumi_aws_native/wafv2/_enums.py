@@ -14,7 +14,10 @@ __all__ = [
     'LoggingConfigurationFilterRequirement',
     'LoggingConfigurationLoggingFilterPropertiesDefaultBehavior',
     'RegexPatternSetScope',
+    'RuleGroupBlockchainChain',
     'RuleGroupBodyParsingFallbackBehavior',
+    'RuleGroupCryptoCurrency',
+    'RuleGroupCurrencyMode',
     'RuleGroupForwardedIpConfigurationFallbackBehavior',
     'RuleGroupIpSetForwardedIpConfigurationFallbackBehavior',
     'RuleGroupIpSetForwardedIpConfigurationPosition',
@@ -35,7 +38,10 @@ __all__ = [
     'RuleGroupTextTransformationType',
     'RuleGroupUriFragmentFallbackBehavior',
     'WebAclAwsManagedRulesBotControlRuleSetInspectionLevel',
+    'WebAclBlockchainChain',
     'WebAclBodyParsingFallbackBehavior',
+    'WebAclCryptoCurrency',
+    'WebAclCurrencyMode',
     'WebAclDataProtectionAction',
     'WebAclFieldToProtectFieldType',
     'WebAclForwardedIpConfigurationFallbackBehavior',
@@ -95,6 +101,7 @@ class LoggingConfigurationConditionActionConditionPropertiesAction(_builtins.str
     COUNT = "COUNT"
     CAPTCHA = "CAPTCHA"
     CHALLENGE = "CHALLENGE"
+    MONETIZE = "MONETIZE"
     EXCLUDED_AS_COUNT = "EXCLUDED_AS_COUNT"
 
 
@@ -134,6 +141,17 @@ class RegexPatternSetScope(_builtins.str, Enum):
     REGIONAL = "REGIONAL"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupBlockchainChain")
+class RuleGroupBlockchainChain(_builtins.str, Enum):
+    """
+    The blockchain chain to use.
+    """
+    BASE = "BASE"
+    SOLANA = "SOLANA"
+    BASE_SEPOLIA = "BASE_SEPOLIA"
+    SOLANA_DEVNET = "SOLANA_DEVNET"
+
+
 @pulumi.type_token("aws-native:wafv2:RuleGroupBodyParsingFallbackBehavior")
 class RuleGroupBodyParsingFallbackBehavior(_builtins.str, Enum):
     """
@@ -142,6 +160,23 @@ class RuleGroupBodyParsingFallbackBehavior(_builtins.str, Enum):
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
     EVALUATE_AS_STRING = "EVALUATE_AS_STRING"
+
+
+@pulumi.type_token("aws-native:wafv2:RuleGroupCryptoCurrency")
+class RuleGroupCryptoCurrency(_builtins.str, Enum):
+    """
+    The cryptocurrency to use for payment.
+    """
+    USDC = "USDC"
+
+
+@pulumi.type_token("aws-native:wafv2:RuleGroupCurrencyMode")
+class RuleGroupCurrencyMode(_builtins.str, Enum):
+    """
+    The currency mode for monetization. Use REAL for production payments and TEST for testing with testnet currencies.
+    """
+    REAL = "REAL"
+    TEST = "TEST"
 
 
 @pulumi.type_token("aws-native:wafv2:RuleGroupForwardedIpConfigurationFallbackBehavior")
@@ -423,6 +458,17 @@ class WebAclAwsManagedRulesBotControlRuleSetInspectionLevel(_builtins.str, Enum)
     TARGETED = "TARGETED"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclBlockchainChain")
+class WebAclBlockchainChain(_builtins.str, Enum):
+    """
+    The blockchain chain to use.
+    """
+    BASE = "BASE"
+    SOLANA = "SOLANA"
+    BASE_SEPOLIA = "BASE_SEPOLIA"
+    SOLANA_DEVNET = "SOLANA_DEVNET"
+
+
 @pulumi.type_token("aws-native:wafv2:WebAclBodyParsingFallbackBehavior")
 class WebAclBodyParsingFallbackBehavior(_builtins.str, Enum):
     """
@@ -431,6 +477,23 @@ class WebAclBodyParsingFallbackBehavior(_builtins.str, Enum):
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
     EVALUATE_AS_STRING = "EVALUATE_AS_STRING"
+
+
+@pulumi.type_token("aws-native:wafv2:WebAclCryptoCurrency")
+class WebAclCryptoCurrency(_builtins.str, Enum):
+    """
+    The cryptocurrency to use for payment.
+    """
+    USDC = "USDC"
+
+
+@pulumi.type_token("aws-native:wafv2:WebAclCurrencyMode")
+class WebAclCurrencyMode(_builtins.str, Enum):
+    """
+    The currency mode for monetization. Use REAL for production payments and TEST for testing with testnet currencies.
+    """
+    REAL = "REAL"
+    TEST = "TEST"
 
 
 @pulumi.type_token("aws-native:wafv2:WebAclDataProtectionAction")

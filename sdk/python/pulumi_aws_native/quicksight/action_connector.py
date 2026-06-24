@@ -25,9 +25,9 @@ __all__ = ['ActionConnectorArgs', 'ActionConnector']
 class ActionConnectorArgs:
     def __init__(__self__, *,
                  action_connector_id: pulumi.Input[_builtins.str],
+                 authentication_config: pulumi.Input['ActionConnectorAuthConfigArgs'],
                  aws_account_id: pulumi.Input[_builtins.str],
                  type: pulumi.Input['ActionConnectorType'],
-                 authentication_config: Optional[pulumi.Input['ActionConnectorAuthConfigArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ActionConnectorResourcePermissionArgs']]]] = None,
@@ -37,10 +37,9 @@ class ActionConnectorArgs:
         The set of arguments for constructing a ActionConnector resource.
         """
         pulumi.set(__self__, "action_connector_id", action_connector_id)
+        pulumi.set(__self__, "authentication_config", authentication_config)
         pulumi.set(__self__, "aws_account_id", aws_account_id)
         pulumi.set(__self__, "type", type)
-        if authentication_config is not None:
-            pulumi.set(__self__, "authentication_config", authentication_config)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -62,6 +61,15 @@ class ActionConnectorArgs:
         pulumi.set(self, "action_connector_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="authenticationConfig")
+    def authentication_config(self) -> pulumi.Input['ActionConnectorAuthConfigArgs']:
+        return pulumi.get(self, "authentication_config")
+
+    @authentication_config.setter
+    def authentication_config(self, value: pulumi.Input['ActionConnectorAuthConfigArgs']):
+        pulumi.set(self, "authentication_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Input[_builtins.str]:
         return pulumi.get(self, "aws_account_id")
@@ -78,15 +86,6 @@ class ActionConnectorArgs:
     @type.setter
     def type(self, value: pulumi.Input['ActionConnectorType']):
         pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="authenticationConfig")
-    def authentication_config(self) -> Optional[pulumi.Input['ActionConnectorAuthConfigArgs']]:
-        return pulumi.get(self, "authentication_config")
-
-    @authentication_config.setter
-    def authentication_config(self, value: Optional[pulumi.Input['ActionConnectorAuthConfigArgs']]):
-        pulumi.set(self, "authentication_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -203,6 +202,8 @@ class ActionConnector(pulumi.CustomResource):
             if action_connector_id is None and not opts.urn:
                 raise TypeError("Missing required property 'action_connector_id'")
             __props__.__dict__["action_connector_id"] = action_connector_id
+            if authentication_config is None and not opts.urn:
+                raise TypeError("Missing required property 'authentication_config'")
             __props__.__dict__["authentication_config"] = authentication_config
             if aws_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'aws_account_id'")
@@ -272,7 +273,7 @@ class ActionConnector(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="authenticationConfig")
-    def authentication_config(self) -> pulumi.Output[Optional['outputs.ActionConnectorAuthConfig']]:
+    def authentication_config(self) -> pulumi.Output['outputs.ActionConnectorAuthConfig']:
         return pulumi.get(self, "authentication_config")
 
     @_builtins.property

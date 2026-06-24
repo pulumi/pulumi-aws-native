@@ -15736,6 +15736,239 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) VolumeType() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServiceMetricConfiguration struct {
+	MetricNames       []ServiceMetricConfigurationMetricNamesItem `pulumi:"metricNames"`
+	ResolutionSeconds int                                         `pulumi:"resolutionSeconds"`
+}
+
+// ServiceMetricConfigurationInput is an input type that accepts ServiceMetricConfigurationArgs and ServiceMetricConfigurationOutput values.
+// You can construct a concrete instance of `ServiceMetricConfigurationInput` via:
+//
+//	ServiceMetricConfigurationArgs{...}
+type ServiceMetricConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceMetricConfigurationOutput() ServiceMetricConfigurationOutput
+	ToServiceMetricConfigurationOutputWithContext(context.Context) ServiceMetricConfigurationOutput
+}
+
+type ServiceMetricConfigurationArgs struct {
+	MetricNames       ServiceMetricConfigurationMetricNamesItemArrayInput `pulumi:"metricNames"`
+	ResolutionSeconds pulumi.IntInput                                     `pulumi:"resolutionSeconds"`
+}
+
+func (ServiceMetricConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMetricConfiguration)(nil)).Elem()
+}
+
+func (i ServiceMetricConfigurationArgs) ToServiceMetricConfigurationOutput() ServiceMetricConfigurationOutput {
+	return i.ToServiceMetricConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceMetricConfigurationArgs) ToServiceMetricConfigurationOutputWithContext(ctx context.Context) ServiceMetricConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMetricConfigurationOutput)
+}
+
+// ServiceMetricConfigurationArrayInput is an input type that accepts ServiceMetricConfigurationArray and ServiceMetricConfigurationArrayOutput values.
+// You can construct a concrete instance of `ServiceMetricConfigurationArrayInput` via:
+//
+//	ServiceMetricConfigurationArray{ ServiceMetricConfigurationArgs{...} }
+type ServiceMetricConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToServiceMetricConfigurationArrayOutput() ServiceMetricConfigurationArrayOutput
+	ToServiceMetricConfigurationArrayOutputWithContext(context.Context) ServiceMetricConfigurationArrayOutput
+}
+
+type ServiceMetricConfigurationArray []ServiceMetricConfigurationInput
+
+func (ServiceMetricConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceMetricConfiguration)(nil)).Elem()
+}
+
+func (i ServiceMetricConfigurationArray) ToServiceMetricConfigurationArrayOutput() ServiceMetricConfigurationArrayOutput {
+	return i.ToServiceMetricConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceMetricConfigurationArray) ToServiceMetricConfigurationArrayOutputWithContext(ctx context.Context) ServiceMetricConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMetricConfigurationArrayOutput)
+}
+
+type ServiceMetricConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceMetricConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMetricConfiguration)(nil)).Elem()
+}
+
+func (o ServiceMetricConfigurationOutput) ToServiceMetricConfigurationOutput() ServiceMetricConfigurationOutput {
+	return o
+}
+
+func (o ServiceMetricConfigurationOutput) ToServiceMetricConfigurationOutputWithContext(ctx context.Context) ServiceMetricConfigurationOutput {
+	return o
+}
+
+func (o ServiceMetricConfigurationOutput) MetricNames() ServiceMetricConfigurationMetricNamesItemArrayOutput {
+	return o.ApplyT(func(v ServiceMetricConfiguration) []ServiceMetricConfigurationMetricNamesItem { return v.MetricNames }).(ServiceMetricConfigurationMetricNamesItemArrayOutput)
+}
+
+func (o ServiceMetricConfigurationOutput) ResolutionSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v ServiceMetricConfiguration) int { return v.ResolutionSeconds }).(pulumi.IntOutput)
+}
+
+type ServiceMetricConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceMetricConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceMetricConfiguration)(nil)).Elem()
+}
+
+func (o ServiceMetricConfigurationArrayOutput) ToServiceMetricConfigurationArrayOutput() ServiceMetricConfigurationArrayOutput {
+	return o
+}
+
+func (o ServiceMetricConfigurationArrayOutput) ToServiceMetricConfigurationArrayOutputWithContext(ctx context.Context) ServiceMetricConfigurationArrayOutput {
+	return o
+}
+
+func (o ServiceMetricConfigurationArrayOutput) Index(i pulumi.IntInput) ServiceMetricConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceMetricConfiguration {
+		return vs[0].([]ServiceMetricConfiguration)[vs[1].(int)]
+	}).(ServiceMetricConfigurationOutput)
+}
+
+type ServiceMonitoringConfiguration struct {
+	MetricConfigurations []ServiceMetricConfiguration `pulumi:"metricConfigurations"`
+}
+
+// ServiceMonitoringConfigurationInput is an input type that accepts ServiceMonitoringConfigurationArgs and ServiceMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `ServiceMonitoringConfigurationInput` via:
+//
+//	ServiceMonitoringConfigurationArgs{...}
+type ServiceMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceMonitoringConfigurationOutput() ServiceMonitoringConfigurationOutput
+	ToServiceMonitoringConfigurationOutputWithContext(context.Context) ServiceMonitoringConfigurationOutput
+}
+
+type ServiceMonitoringConfigurationArgs struct {
+	MetricConfigurations ServiceMetricConfigurationArrayInput `pulumi:"metricConfigurations"`
+}
+
+func (ServiceMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i ServiceMonitoringConfigurationArgs) ToServiceMonitoringConfigurationOutput() ServiceMonitoringConfigurationOutput {
+	return i.ToServiceMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceMonitoringConfigurationArgs) ToServiceMonitoringConfigurationOutputWithContext(ctx context.Context) ServiceMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMonitoringConfigurationOutput)
+}
+
+func (i ServiceMonitoringConfigurationArgs) ToServiceMonitoringConfigurationPtrOutput() ServiceMonitoringConfigurationPtrOutput {
+	return i.ToServiceMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceMonitoringConfigurationArgs) ToServiceMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ServiceMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMonitoringConfigurationOutput).ToServiceMonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceMonitoringConfigurationPtrInput is an input type that accepts ServiceMonitoringConfigurationArgs, ServiceMonitoringConfigurationPtr and ServiceMonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceMonitoringConfigurationPtrInput` via:
+//
+//	        ServiceMonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceMonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceMonitoringConfigurationPtrOutput() ServiceMonitoringConfigurationPtrOutput
+	ToServiceMonitoringConfigurationPtrOutputWithContext(context.Context) ServiceMonitoringConfigurationPtrOutput
+}
+
+type serviceMonitoringConfigurationPtrType ServiceMonitoringConfigurationArgs
+
+func ServiceMonitoringConfigurationPtr(v *ServiceMonitoringConfigurationArgs) ServiceMonitoringConfigurationPtrInput {
+	return (*serviceMonitoringConfigurationPtrType)(v)
+}
+
+func (*serviceMonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *serviceMonitoringConfigurationPtrType) ToServiceMonitoringConfigurationPtrOutput() ServiceMonitoringConfigurationPtrOutput {
+	return i.ToServiceMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceMonitoringConfigurationPtrType) ToServiceMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ServiceMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMonitoringConfigurationPtrOutput)
+}
+
+type ServiceMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ServiceMonitoringConfigurationOutput) ToServiceMonitoringConfigurationOutput() ServiceMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ServiceMonitoringConfigurationOutput) ToServiceMonitoringConfigurationOutputWithContext(ctx context.Context) ServiceMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ServiceMonitoringConfigurationOutput) ToServiceMonitoringConfigurationPtrOutput() ServiceMonitoringConfigurationPtrOutput {
+	return o.ToServiceMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceMonitoringConfigurationOutput) ToServiceMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ServiceMonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceMonitoringConfiguration) *ServiceMonitoringConfiguration {
+		return &v
+	}).(ServiceMonitoringConfigurationPtrOutput)
+}
+
+func (o ServiceMonitoringConfigurationOutput) MetricConfigurations() ServiceMetricConfigurationArrayOutput {
+	return o.ApplyT(func(v ServiceMonitoringConfiguration) []ServiceMetricConfiguration { return v.MetricConfigurations }).(ServiceMetricConfigurationArrayOutput)
+}
+
+type ServiceMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceMonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ServiceMonitoringConfigurationPtrOutput) ToServiceMonitoringConfigurationPtrOutput() ServiceMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceMonitoringConfigurationPtrOutput) ToServiceMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ServiceMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceMonitoringConfigurationPtrOutput) Elem() ServiceMonitoringConfigurationOutput {
+	return o.ApplyT(func(v *ServiceMonitoringConfiguration) ServiceMonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceMonitoringConfiguration
+		return ret
+	}).(ServiceMonitoringConfigurationOutput)
+}
+
+func (o ServiceMonitoringConfigurationPtrOutput) MetricConfigurations() ServiceMetricConfigurationArrayOutput {
+	return o.ApplyT(func(v *ServiceMonitoringConfiguration) []ServiceMetricConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.MetricConfigurations
+	}).(ServiceMetricConfigurationArrayOutput)
+}
+
 // The network configuration for a task or service.
 type ServiceNetworkConfiguration struct {
 	// The VPC subnets and security groups that are associated with a task.
@@ -17220,7 +17453,7 @@ type TaskDefinitionContainerDefinition struct {
 	ReadonlyRootFilesystem *bool `pulumi:"readonlyRootFilesystem"`
 	// The private repository authentication credentials to use.
 	RepositoryCredentials *TaskDefinitionRepositoryCredentials `pulumi:"repositoryCredentials"`
-	// The type and amount of a resource to assign to a container. The only supported resource is a GPU.
+	// The type and amount of a resource to assign to a container. The supported resources are GPUs and Neuron devices.
 	ResourceRequirements []TaskDefinitionResourceRequirement `pulumi:"resourceRequirements"`
 	// The restart policy for a container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide*.
 	RestartPolicy *TaskDefinitionRestartPolicy `pulumi:"restartPolicy"`
@@ -17406,7 +17639,7 @@ type TaskDefinitionContainerDefinitionArgs struct {
 	ReadonlyRootFilesystem pulumi.BoolPtrInput `pulumi:"readonlyRootFilesystem"`
 	// The private repository authentication credentials to use.
 	RepositoryCredentials TaskDefinitionRepositoryCredentialsPtrInput `pulumi:"repositoryCredentials"`
-	// The type and amount of a resource to assign to a container. The only supported resource is a GPU.
+	// The type and amount of a resource to assign to a container. The supported resources are GPUs and Neuron devices.
 	ResourceRequirements TaskDefinitionResourceRequirementArrayInput `pulumi:"resourceRequirements"`
 	// The restart policy for a container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide*.
 	RestartPolicy TaskDefinitionRestartPolicyPtrInput `pulumi:"restartPolicy"`
@@ -17750,7 +17983,7 @@ func (o TaskDefinitionContainerDefinitionOutput) RepositoryCredentials() TaskDef
 	}).(TaskDefinitionRepositoryCredentialsPtrOutput)
 }
 
-// The type and amount of a resource to assign to a container. The only supported resource is a GPU.
+// The type and amount of a resource to assign to a container. The supported resources are GPUs and Neuron devices.
 func (o TaskDefinitionContainerDefinitionOutput) ResourceRequirements() TaskDefinitionResourceRequirementArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []TaskDefinitionResourceRequirement {
 		return v.ResourceRequirements
@@ -20324,7 +20557,6 @@ type TaskDefinitionLinuxParameters struct {
 	//  If you're using tasks on Amazon Linux 2023 the ``swappiness`` parameter isn't supported.
 	Swappiness *int `pulumi:"swappiness"`
 	// The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the ``--tmpfs`` option to docker run.
-	//   If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
 	Tmpfs []TaskDefinitionTmpfs `pulumi:"tmpfs"`
 }
 
@@ -20362,7 +20594,6 @@ type TaskDefinitionLinuxParametersArgs struct {
 	//  If you're using tasks on Amazon Linux 2023 the ``swappiness`` parameter isn't supported.
 	Swappiness pulumi.IntPtrInput `pulumi:"swappiness"`
 	// The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the ``--tmpfs`` option to docker run.
-	//   If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
 	Tmpfs TaskDefinitionTmpfsArrayInput `pulumi:"tmpfs"`
 }
 
@@ -20488,8 +20719,6 @@ func (o TaskDefinitionLinuxParametersOutput) Swappiness() pulumi.IntPtrOutput {
 }
 
 // The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the “--tmpfs“ option to docker run.
-//
-//	If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
 func (o TaskDefinitionLinuxParametersOutput) Tmpfs() TaskDefinitionTmpfsArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionLinuxParameters) []TaskDefinitionTmpfs { return v.Tmpfs }).(TaskDefinitionTmpfsArrayOutput)
 }
@@ -20592,8 +20821,6 @@ func (o TaskDefinitionLinuxParametersPtrOutput) Swappiness() pulumi.IntPtrOutput
 }
 
 // The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the “--tmpfs“ option to docker run.
-//
-//	If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
 func (o TaskDefinitionLinuxParametersPtrOutput) Tmpfs() TaskDefinitionTmpfsArrayOutput {
 	return o.ApplyT(func(v *TaskDefinitionLinuxParameters) []TaskDefinitionTmpfs {
 		if v == nil {
@@ -21696,12 +21923,13 @@ func (o TaskDefinitionRepositoryCredentialsPtrOutput) CredentialsParameter() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type and amount of a resource to assign to a container. The supported resource types are GPUs and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
+// The type and amount of a resource to assign to a container. The supported resource types are GPUs, Neuron devices, and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
 type TaskDefinitionResourceRequirement struct {
 	// The type of resource to assign to a container.
 	Type string `pulumi:"type"`
 	// The value for the specified resource type.
-	//  When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
+	//  When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. You can also specify ``ALL`` to allocate all available GPUs on the instance to the container.
+	//  When the type is ``NeuronDevice``, the value must be ``ALL``. This allocates all available Neuron devices on the instance to the container. Only one container in a task can specify ``NeuronDevice`` resources. This resource type is only supported on Managed Instances.
 	//  When the type is ``InferenceAccelerator``, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
 	Value string `pulumi:"value"`
 }
@@ -21717,12 +21945,13 @@ type TaskDefinitionResourceRequirementInput interface {
 	ToTaskDefinitionResourceRequirementOutputWithContext(context.Context) TaskDefinitionResourceRequirementOutput
 }
 
-// The type and amount of a resource to assign to a container. The supported resource types are GPUs and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
+// The type and amount of a resource to assign to a container. The supported resource types are GPUs, Neuron devices, and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
 type TaskDefinitionResourceRequirementArgs struct {
 	// The type of resource to assign to a container.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The value for the specified resource type.
-	//  When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
+	//  When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. You can also specify ``ALL`` to allocate all available GPUs on the instance to the container.
+	//  When the type is ``NeuronDevice``, the value must be ``ALL``. This allocates all available Neuron devices on the instance to the container. Only one container in a task can specify ``NeuronDevice`` resources. This resource type is only supported on Managed Instances.
 	//  When the type is ``InferenceAccelerator``, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
 	Value pulumi.StringInput `pulumi:"value"`
 }
@@ -21764,7 +21993,7 @@ func (i TaskDefinitionResourceRequirementArray) ToTaskDefinitionResourceRequirem
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionResourceRequirementArrayOutput)
 }
 
-// The type and amount of a resource to assign to a container. The supported resource types are GPUs and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
+// The type and amount of a resource to assign to a container. The supported resource types are GPUs, Neuron devices, and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
 type TaskDefinitionResourceRequirementOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionResourceRequirementOutput) ElementType() reflect.Type {
@@ -21786,7 +22015,8 @@ func (o TaskDefinitionResourceRequirementOutput) Type() pulumi.StringOutput {
 
 // The value for the specified resource type.
 //
-//	When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
+//	When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. You can also specify ``ALL`` to allocate all available GPUs on the instance to the container.
+//	When the type is ``NeuronDevice``, the value must be ``ALL``. This allocates all available Neuron devices on the instance to the container. Only one container in a task can specify ``NeuronDevice`` resources. This resource type is only supported on Managed Instances.
 //	When the type is ``InferenceAccelerator``, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
 func (o TaskDefinitionResourceRequirementOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionResourceRequirement) string { return v.Value }).(pulumi.StringOutput)
@@ -22161,11 +22391,19 @@ func (o TaskDefinitionRuntimePlatformPtrOutput) OperatingSystemFamily() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// This parameter is specified when you're using an Amazon S3 Files file system for task storage. For more information, see [Amazon S3 Files volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/s3files-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+//
+//	Your task definition must include a Task IAM Role. See [IAM role for attaching your file system to compute resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-prereq-policies.html#s3-files-prereq-iam-compute-role) for required permissions.
 type TaskDefinitionS3FilesVolumeConfiguration struct {
-	AccessPointArn        *string `pulumi:"accessPointArn"`
-	FileSystemArn         string  `pulumi:"fileSystemArn"`
-	RootDirectory         *string `pulumi:"rootDirectory"`
-	TransitEncryptionPort *int    `pulumi:"transitEncryptionPort"`
+	// The full ARN of the S3 Files access point to use. If an access point is specified, the root directory value specified in the ``S3FilesVolumeConfiguration`` must either be omitted or set to ``/`` which will enforce the path set on the S3 Files access point. For more information, see [Creating S3 Files access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-access-points-creating.html).
+	AccessPointArn *string `pulumi:"accessPointArn"`
+	// The full ARN of the S3 Files file system to mount.
+	FileSystemArn string `pulumi:"fileSystemArn"`
+	// The directory within the Amazon S3 Files file system to mount as the root directory. If this parameter is omitted, the root of the Amazon S3 Files file system will be used. Specifying ``/`` will have the same effect as omitting this parameter.
+	//   If a S3 Files access point is specified in the ``accessPointArn``, the root directory parameter must either be omitted or set to ``/`` which will enforce the path set on the S3 Files access point.
+	RootDirectory *string `pulumi:"rootDirectory"`
+	// The port to use for sending encrypted data between the ECS host and the S3 Files file system. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon S3 Files mount helper uses. For more information, see [S3 Files mount helper](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-mounting.html).
+	TransitEncryptionPort *int `pulumi:"transitEncryptionPort"`
 }
 
 // TaskDefinitionS3FilesVolumeConfigurationInput is an input type that accepts TaskDefinitionS3FilesVolumeConfigurationArgs and TaskDefinitionS3FilesVolumeConfigurationOutput values.
@@ -22179,11 +22417,19 @@ type TaskDefinitionS3FilesVolumeConfigurationInput interface {
 	ToTaskDefinitionS3FilesVolumeConfigurationOutputWithContext(context.Context) TaskDefinitionS3FilesVolumeConfigurationOutput
 }
 
+// This parameter is specified when you're using an Amazon S3 Files file system for task storage. For more information, see [Amazon S3 Files volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/s3files-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+//
+//	Your task definition must include a Task IAM Role. See [IAM role for attaching your file system to compute resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-prereq-policies.html#s3-files-prereq-iam-compute-role) for required permissions.
 type TaskDefinitionS3FilesVolumeConfigurationArgs struct {
-	AccessPointArn        pulumi.StringPtrInput `pulumi:"accessPointArn"`
-	FileSystemArn         pulumi.StringInput    `pulumi:"fileSystemArn"`
-	RootDirectory         pulumi.StringPtrInput `pulumi:"rootDirectory"`
-	TransitEncryptionPort pulumi.IntPtrInput    `pulumi:"transitEncryptionPort"`
+	// The full ARN of the S3 Files access point to use. If an access point is specified, the root directory value specified in the ``S3FilesVolumeConfiguration`` must either be omitted or set to ``/`` which will enforce the path set on the S3 Files access point. For more information, see [Creating S3 Files access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-access-points-creating.html).
+	AccessPointArn pulumi.StringPtrInput `pulumi:"accessPointArn"`
+	// The full ARN of the S3 Files file system to mount.
+	FileSystemArn pulumi.StringInput `pulumi:"fileSystemArn"`
+	// The directory within the Amazon S3 Files file system to mount as the root directory. If this parameter is omitted, the root of the Amazon S3 Files file system will be used. Specifying ``/`` will have the same effect as omitting this parameter.
+	//   If a S3 Files access point is specified in the ``accessPointArn``, the root directory parameter must either be omitted or set to ``/`` which will enforce the path set on the S3 Files access point.
+	RootDirectory pulumi.StringPtrInput `pulumi:"rootDirectory"`
+	// The port to use for sending encrypted data between the ECS host and the S3 Files file system. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon S3 Files mount helper uses. For more information, see [S3 Files mount helper](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-mounting.html).
+	TransitEncryptionPort pulumi.IntPtrInput `pulumi:"transitEncryptionPort"`
 }
 
 func (TaskDefinitionS3FilesVolumeConfigurationArgs) ElementType() reflect.Type {
@@ -22239,6 +22485,9 @@ func (i *taskDefinitionS3FilesVolumeConfigurationPtrType) ToTaskDefinitionS3File
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionS3FilesVolumeConfigurationPtrOutput)
 }
 
+// This parameter is specified when you're using an Amazon S3 Files file system for task storage. For more information, see [Amazon S3 Files volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/s3files-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+//
+//	Your task definition must include a Task IAM Role. See [IAM role for attaching your file system to compute resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-prereq-policies.html#s3-files-prereq-iam-compute-role) for required permissions.
 type TaskDefinitionS3FilesVolumeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionS3FilesVolumeConfigurationOutput) ElementType() reflect.Type {
@@ -22263,18 +22512,24 @@ func (o TaskDefinitionS3FilesVolumeConfigurationOutput) ToTaskDefinitionS3FilesV
 	}).(TaskDefinitionS3FilesVolumeConfigurationPtrOutput)
 }
 
+// The full ARN of the S3 Files access point to use. If an access point is specified, the root directory value specified in the “S3FilesVolumeConfiguration“ must either be omitted or set to “/“ which will enforce the path set on the S3 Files access point. For more information, see [Creating S3 Files access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-access-points-creating.html).
 func (o TaskDefinitionS3FilesVolumeConfigurationOutput) AccessPointArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionS3FilesVolumeConfiguration) *string { return v.AccessPointArn }).(pulumi.StringPtrOutput)
 }
 
+// The full ARN of the S3 Files file system to mount.
 func (o TaskDefinitionS3FilesVolumeConfigurationOutput) FileSystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionS3FilesVolumeConfiguration) string { return v.FileSystemArn }).(pulumi.StringOutput)
 }
 
+// The directory within the Amazon S3 Files file system to mount as the root directory. If this parameter is omitted, the root of the Amazon S3 Files file system will be used. Specifying “/“ will have the same effect as omitting this parameter.
+//
+//	If a S3 Files access point is specified in the ``accessPointArn``, the root directory parameter must either be omitted or set to ``/`` which will enforce the path set on the S3 Files access point.
 func (o TaskDefinitionS3FilesVolumeConfigurationOutput) RootDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionS3FilesVolumeConfiguration) *string { return v.RootDirectory }).(pulumi.StringPtrOutput)
 }
 
+// The port to use for sending encrypted data between the ECS host and the S3 Files file system. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon S3 Files mount helper uses. For more information, see [S3 Files mount helper](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-mounting.html).
 func (o TaskDefinitionS3FilesVolumeConfigurationOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionS3FilesVolumeConfiguration) *int { return v.TransitEncryptionPort }).(pulumi.IntPtrOutput)
 }
@@ -22303,6 +22558,7 @@ func (o TaskDefinitionS3FilesVolumeConfigurationPtrOutput) Elem() TaskDefinition
 	}).(TaskDefinitionS3FilesVolumeConfigurationOutput)
 }
 
+// The full ARN of the S3 Files access point to use. If an access point is specified, the root directory value specified in the “S3FilesVolumeConfiguration“ must either be omitted or set to “/“ which will enforce the path set on the S3 Files access point. For more information, see [Creating S3 Files access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-access-points-creating.html).
 func (o TaskDefinitionS3FilesVolumeConfigurationPtrOutput) AccessPointArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionS3FilesVolumeConfiguration) *string {
 		if v == nil {
@@ -22312,6 +22568,7 @@ func (o TaskDefinitionS3FilesVolumeConfigurationPtrOutput) AccessPointArn() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The full ARN of the S3 Files file system to mount.
 func (o TaskDefinitionS3FilesVolumeConfigurationPtrOutput) FileSystemArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionS3FilesVolumeConfiguration) *string {
 		if v == nil {
@@ -22321,6 +22578,9 @@ func (o TaskDefinitionS3FilesVolumeConfigurationPtrOutput) FileSystemArn() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The directory within the Amazon S3 Files file system to mount as the root directory. If this parameter is omitted, the root of the Amazon S3 Files file system will be used. Specifying “/“ will have the same effect as omitting this parameter.
+//
+//	If a S3 Files access point is specified in the ``accessPointArn``, the root directory parameter must either be omitted or set to ``/`` which will enforce the path set on the S3 Files access point.
 func (o TaskDefinitionS3FilesVolumeConfigurationPtrOutput) RootDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionS3FilesVolumeConfiguration) *string {
 		if v == nil {
@@ -22330,6 +22590,7 @@ func (o TaskDefinitionS3FilesVolumeConfigurationPtrOutput) RootDirectory() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port to use for sending encrypted data between the ECS host and the S3 Files file system. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon S3 Files mount helper uses. For more information, see [S3 Files mount helper](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-mounting.html).
 func (o TaskDefinitionS3FilesVolumeConfigurationPtrOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionS3FilesVolumeConfiguration) *int {
 		if v == nil {
@@ -22891,7 +23152,7 @@ func (o TaskDefinitionUlimitArrayOutput) Index(i pulumi.IntInput) TaskDefinition
 	}).(TaskDefinitionUlimitOutput)
 }
 
-// The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a “name“ and one of either “configuredAtLaunch“, “dockerVolumeConfiguration“, “efsVolumeConfiguration“, “fsxWindowsFileServerVolumeConfiguration“, or “host“. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
+// The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a “name“ and one of either “configuredAtLaunch“, “dockerVolumeConfiguration“, “efsVolumeConfiguration“, “s3filesVolumeConfiguration“, “fsxWindowsFileServerVolumeConfiguration“, or “host“. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
 type TaskDefinitionVolume struct {
 	// Indicates whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
 	//  To configure a volume at launch time, use this task definition revision and specify a ``volumeConfigurations`` object when calling the ``CreateService``, ``UpdateService``, ``RunTask`` or ``StartTask`` APIs.
@@ -22911,7 +23172,9 @@ type TaskDefinitionVolume struct {
 	//  When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
 	//  For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.
 	//  When a volume is using the ``efsVolumeConfiguration``, the name is required.
-	Name                       *string                                   `pulumi:"name"`
+	//  When a volume is using the ``s3filesVolumeConfiguration``, the name is required.
+	Name *string `pulumi:"name"`
+	// This parameter is specified when you use an Amazon S3 Files file system for task storage.
 	S3FilesVolumeConfiguration *TaskDefinitionS3FilesVolumeConfiguration `pulumi:"s3FilesVolumeConfiguration"`
 }
 
@@ -22926,7 +23189,7 @@ type TaskDefinitionVolumeInput interface {
 	ToTaskDefinitionVolumeOutputWithContext(context.Context) TaskDefinitionVolumeOutput
 }
 
-// The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a “name“ and one of either “configuredAtLaunch“, “dockerVolumeConfiguration“, “efsVolumeConfiguration“, “fsxWindowsFileServerVolumeConfiguration“, or “host“. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
+// The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a “name“ and one of either “configuredAtLaunch“, “dockerVolumeConfiguration“, “efsVolumeConfiguration“, “s3filesVolumeConfiguration“, “fsxWindowsFileServerVolumeConfiguration“, or “host“. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
 type TaskDefinitionVolumeArgs struct {
 	// Indicates whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
 	//  To configure a volume at launch time, use this task definition revision and specify a ``volumeConfigurations`` object when calling the ``CreateService``, ``UpdateService``, ``RunTask`` or ``StartTask`` APIs.
@@ -22946,7 +23209,9 @@ type TaskDefinitionVolumeArgs struct {
 	//  When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
 	//  For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.
 	//  When a volume is using the ``efsVolumeConfiguration``, the name is required.
-	Name                       pulumi.StringPtrInput                            `pulumi:"name"`
+	//  When a volume is using the ``s3filesVolumeConfiguration``, the name is required.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// This parameter is specified when you use an Amazon S3 Files file system for task storage.
 	S3FilesVolumeConfiguration TaskDefinitionS3FilesVolumeConfigurationPtrInput `pulumi:"s3FilesVolumeConfiguration"`
 }
 
@@ -22987,7 +23252,7 @@ func (i TaskDefinitionVolumeArray) ToTaskDefinitionVolumeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeArrayOutput)
 }
 
-// The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a “name“ and one of either “configuredAtLaunch“, “dockerVolumeConfiguration“, “efsVolumeConfiguration“, “fsxWindowsFileServerVolumeConfiguration“, or “host“. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
+// The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a “name“ and one of either “configuredAtLaunch“, “dockerVolumeConfiguration“, “efsVolumeConfiguration“, “s3filesVolumeConfiguration“, “fsxWindowsFileServerVolumeConfiguration“, or “host“. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
 type TaskDefinitionVolumeOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionVolumeOutput) ElementType() reflect.Type {
@@ -23043,10 +23308,12 @@ func (o TaskDefinitionVolumeOutput) Host() TaskDefinitionHostVolumePropertiesPtr
 //	When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
 //	For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.
 //	When a volume is using the ``efsVolumeConfiguration``, the name is required.
+//	When a volume is using the ``s3filesVolumeConfiguration``, the name is required.
 func (o TaskDefinitionVolumeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// This parameter is specified when you use an Amazon S3 Files file system for task storage.
 func (o TaskDefinitionVolumeOutput) S3FilesVolumeConfiguration() TaskDefinitionS3FilesVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionS3FilesVolumeConfiguration {
 		return v.S3FilesVolumeConfiguration
@@ -24274,6 +24541,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLogConfigurationPtrInput)(nil)).Elem(), ServiceLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceManagedEbsVolumeConfigurationInput)(nil)).Elem(), ServiceManagedEbsVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceManagedEbsVolumeConfigurationPtrInput)(nil)).Elem(), ServiceManagedEbsVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMetricConfigurationInput)(nil)).Elem(), ServiceMetricConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMetricConfigurationArrayInput)(nil)).Elem(), ServiceMetricConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMonitoringConfigurationInput)(nil)).Elem(), ServiceMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMonitoringConfigurationPtrInput)(nil)).Elem(), ServiceMonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationInput)(nil)).Elem(), ServiceNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationPtrInput)(nil)).Elem(), ServiceNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlacementConstraintInput)(nil)).Elem(), ServicePlacementConstraintArgs{})
@@ -24546,6 +24817,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceManagedEbsVolumeConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceManagedEbsVolumeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceMetricConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceMetricConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ServiceMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceMonitoringConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServicePlacementConstraintOutput{})

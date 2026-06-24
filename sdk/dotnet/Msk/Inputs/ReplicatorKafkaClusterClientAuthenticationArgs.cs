@@ -16,10 +16,16 @@ namespace Pulumi.AwsNative.Msk.Inputs
     public sealed class ReplicatorKafkaClusterClientAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Details for mTLS client authentication.
+        /// </summary>
+        [Input("mtls")]
+        public Input<Inputs.ReplicatorKafkaClusterMtlsAuthenticationArgs>? Mtls { get; set; }
+
+        /// <summary>
         /// Details for SASL/SCRAM client authentication.
         /// </summary>
-        [Input("saslScram", required: true)]
-        public Input<Inputs.ReplicatorKafkaClusterSaslScramAuthenticationArgs> SaslScram { get; set; } = null!;
+        [Input("saslScram")]
+        public Input<Inputs.ReplicatorKafkaClusterSaslScramAuthenticationArgs>? SaslScram { get; set; }
 
         public ReplicatorKafkaClusterClientAuthenticationArgs()
         {

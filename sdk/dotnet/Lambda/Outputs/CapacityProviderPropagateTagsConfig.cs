@@ -13,9 +13,6 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     [OutputType]
     public sealed class CapacityProviderPropagateTagsConfig
     {
-        /// <summary>
-        /// A list of tags to explicitly propagate to managed resources.
-        /// </summary>
         public readonly ImmutableArray<Outputs.CapacityProviderTag> ExplicitTags;
         public readonly Pulumi.AwsNative.Lambda.CapacityProviderPropagateTagsMode? Mode;
 

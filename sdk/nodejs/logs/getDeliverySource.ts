@@ -32,6 +32,10 @@ export interface GetDeliverySourceResult {
      */
     readonly arn?: string;
     /**
+     * A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
+     */
+    readonly deliverySourceConfiguration?: {[key: string]: string};
+    /**
      * The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
      */
     readonly logType?: string;
@@ -43,6 +47,14 @@ export interface GetDeliverySourceResult {
      * The AWS service that is sending logs.
      */
     readonly service?: string;
+    /**
+     * The status of this delivery source. The value can be ACTIVE or INACTIVE.
+     */
+    readonly status?: enums.logs.DeliverySourceStatus;
+    /**
+     * The reason for the status of this delivery source, such as RESOURCE_DELETED.
+     */
+    readonly statusReason?: enums.logs.DeliverySourceStatusReason;
     /**
      * The tags that have been assigned to this delivery source.
      */

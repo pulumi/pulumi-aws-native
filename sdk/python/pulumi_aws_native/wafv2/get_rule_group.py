@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRuleGroupResult:
-    def __init__(__self__, arn=None, available_labels=None, capacity=None, consumed_labels=None, custom_response_bodies=None, description=None, id=None, label_namespace=None, rules=None, tags=None, visibility_config=None):
+    def __init__(__self__, arn=None, available_labels=None, capacity=None, consumed_labels=None, custom_response_bodies=None, description=None, id=None, label_namespace=None, monetization_config=None, rules=None, tags=None, visibility_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -51,6 +51,9 @@ class GetRuleGroupResult:
         if label_namespace and not isinstance(label_namespace, str):
             raise TypeError("Expected argument 'label_namespace' to be a str")
         pulumi.set(__self__, "label_namespace", label_namespace)
+        if monetization_config and not isinstance(monetization_config, dict):
+            raise TypeError("Expected argument 'monetization_config' to be a dict")
+        pulumi.set(__self__, "monetization_config", monetization_config)
         if rules and not isinstance(rules, list):
             raise TypeError("Expected argument 'rules' to be a list")
         pulumi.set(__self__, "rules", rules)
@@ -138,6 +141,11 @@ class GetRuleGroupResult:
         return pulumi.get(self, "label_namespace")
 
     @_builtins.property
+    @pulumi.getter(name="monetizationConfig")
+    def monetization_config(self) -> Optional['outputs.RuleGroupMonetizationConfig']:
+        return pulumi.get(self, "monetization_config")
+
+    @_builtins.property
     @pulumi.getter
     def rules(self) -> Optional[Sequence['outputs.RuleGroupRule']]:
         """
@@ -178,6 +186,7 @@ class AwaitableGetRuleGroupResult(GetRuleGroupResult):
             description=self.description,
             id=self.id,
             label_namespace=self.label_namespace,
+            monetization_config=self.monetization_config,
             rules=self.rules,
             tags=self.tags,
             visibility_config=self.visibility_config)
@@ -213,6 +222,7 @@ def get_rule_group(id: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         label_namespace=pulumi.get(__ret__, 'label_namespace'),
+        monetization_config=pulumi.get(__ret__, 'monetization_config'),
         rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'),
         visibility_config=pulumi.get(__ret__, 'visibility_config'))
@@ -245,6 +255,7 @@ def get_rule_group_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         label_namespace=pulumi.get(__response__, 'label_namespace'),
+        monetization_config=pulumi.get(__response__, 'monetization_config'),
         rules=pulumi.get(__response__, 'rules'),
         tags=pulumi.get(__response__, 'tags'),
         visibility_config=pulumi.get(__response__, 'visibility_config')))

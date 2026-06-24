@@ -150,6 +150,10 @@ export class Association extends pulumi.CustomResource {
      */
     declare public readonly applyOnlyAtCronInterval: pulumi.Output<boolean | undefined>;
     /**
+     * A role used by association to take actions on your behalf.
+     */
+    declare public readonly associationDispatchAssumeRole: pulumi.Output<string | undefined>;
+    /**
      * Unique identifier of the association.
      */
     declare public /*out*/ readonly associationId: pulumi.Output<string>;
@@ -218,6 +222,10 @@ export class Association extends pulumi.CustomResource {
      */
     declare public readonly syncCompliance: pulumi.Output<enums.ssm.AssociationSyncCompliance | undefined>;
     /**
+     * A key-value pair to associate with a resource.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * The targets that the SSM document sends commands to.
      */
     declare public readonly targets: pulumi.Output<outputs.ssm.AssociationTarget[] | undefined>;
@@ -240,6 +248,7 @@ export class Association extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["applyOnlyAtCronInterval"] = args?.applyOnlyAtCronInterval;
+            resourceInputs["associationDispatchAssumeRole"] = args?.associationDispatchAssumeRole;
             resourceInputs["associationName"] = args?.associationName;
             resourceInputs["automationTargetParameterName"] = args?.automationTargetParameterName;
             resourceInputs["calendarNames"] = args?.calendarNames;
@@ -254,11 +263,13 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["scheduleExpression"] = args?.scheduleExpression;
             resourceInputs["scheduleOffset"] = args?.scheduleOffset;
             resourceInputs["syncCompliance"] = args?.syncCompliance;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["targets"] = args?.targets;
             resourceInputs["waitForSuccessTimeoutSeconds"] = args?.waitForSuccessTimeoutSeconds;
             resourceInputs["associationId"] = undefined /*out*/;
         } else {
             resourceInputs["applyOnlyAtCronInterval"] = undefined /*out*/;
+            resourceInputs["associationDispatchAssumeRole"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["associationName"] = undefined /*out*/;
             resourceInputs["automationTargetParameterName"] = undefined /*out*/;
@@ -274,6 +285,7 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["scheduleExpression"] = undefined /*out*/;
             resourceInputs["scheduleOffset"] = undefined /*out*/;
             resourceInputs["syncCompliance"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targets"] = undefined /*out*/;
             resourceInputs["waitForSuccessTimeoutSeconds"] = undefined /*out*/;
         }
@@ -290,6 +302,10 @@ export interface AssociationArgs {
      * By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
      */
     applyOnlyAtCronInterval?: pulumi.Input<boolean>;
+    /**
+     * A role used by association to take actions on your behalf.
+     */
+    associationDispatchAssumeRole?: pulumi.Input<string>;
     /**
      * The name of the association.
      */
@@ -354,6 +370,10 @@ export interface AssociationArgs {
      * By default, all associations use `AUTO` mode.
      */
     syncCompliance?: pulumi.Input<enums.ssm.AssociationSyncCompliance>;
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The targets that the SSM document sends commands to.
      */

@@ -104,6 +104,8 @@ __all__ = [
     'ServiceLoadBalancer',
     'ServiceLogConfiguration',
     'ServiceManagedEbsVolumeConfiguration',
+    'ServiceMetricConfiguration',
+    'ServiceMonitoringConfiguration',
     'ServiceNetworkConfiguration',
     'ServicePlacementConstraint',
     'ServicePlacementStrategy',
@@ -6728,6 +6730,73 @@ class ServiceManagedEbsVolumeConfiguration(dict):
 
 
 @pulumi.output_type
+class ServiceMetricConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricNames":
+            suggest = "metric_names"
+        elif key == "resolutionSeconds":
+            suggest = "resolution_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceMetricConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceMetricConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceMetricConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_names: Sequence['ServiceMetricConfigurationMetricNamesItem'],
+                 resolution_seconds: _builtins.int):
+        pulumi.set(__self__, "metric_names", metric_names)
+        pulumi.set(__self__, "resolution_seconds", resolution_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="metricNames")
+    def metric_names(self) -> Sequence['ServiceMetricConfigurationMetricNamesItem']:
+        return pulumi.get(self, "metric_names")
+
+    @_builtins.property
+    @pulumi.getter(name="resolutionSeconds")
+    def resolution_seconds(self) -> _builtins.int:
+        return pulumi.get(self, "resolution_seconds")
+
+
+@pulumi.output_type
+class ServiceMonitoringConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricConfigurations":
+            suggest = "metric_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceMonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceMonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceMonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_configurations: Sequence['outputs.ServiceMetricConfiguration']):
+        pulumi.set(__self__, "metric_configurations", metric_configurations)
+
+    @_builtins.property
+    @pulumi.getter(name="metricConfigurations")
+    def metric_configurations(self) -> Sequence['outputs.ServiceMetricConfiguration']:
+        return pulumi.get(self, "metric_configurations")
+
+
+@pulumi.output_type
 class ServiceNetworkConfiguration(dict):
     """
     The network configuration for a task or service.
@@ -7503,7 +7572,7 @@ class TaskDefinitionContainerDefinition(dict):
         :param _builtins.bool readonly_root_filesystem: When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the docker container create command and the ``--read-only`` option to docker run.
                  This parameter is not supported for Windows containers.
         :param 'TaskDefinitionRepositoryCredentials' repository_credentials: The private repository authentication credentials to use.
-        :param Sequence['TaskDefinitionResourceRequirement'] resource_requirements: The type and amount of a resource to assign to a container. The only supported resource is a GPU.
+        :param Sequence['TaskDefinitionResourceRequirement'] resource_requirements: The type and amount of a resource to assign to a container. The supported resources are GPUs and Neuron devices.
         :param 'TaskDefinitionRestartPolicy' restart_policy: The restart policy for a container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param Sequence['TaskDefinitionSecret'] secrets: The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param _builtins.int start_timeout: Time duration (in seconds) to wait before giving up on resolving dependencies for a container. For example, you specify two containers in a task definition with containerA having a dependency on containerB reaching a ``COMPLETE``, ``SUCCESS``, or ``HEALTHY`` status. If a ``startTimeout`` value is specified for containerB and it doesn't reach the desired status within that time then containerA gives up and not start. This results in the task transitioning to a ``STOPPED`` state.
@@ -7937,7 +8006,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter(name="resourceRequirements")
     def resource_requirements(self) -> Optional[Sequence['outputs.TaskDefinitionResourceRequirement']]:
         """
-        The type and amount of a resource to assign to a container. The only supported resource is a GPU.
+        The type and amount of a resource to assign to a container. The supported resources are GPUs and Neuron devices.
         """
         return pulumi.get(self, "resource_requirements")
 
@@ -9028,7 +9097,6 @@ class TaskDefinitionLinuxParameters(dict):
                  If you're using tasks that use the Fargate launch type, the ``swappiness`` parameter isn't supported.
                 If you're using tasks on Amazon Linux 2023 the ``swappiness`` parameter isn't supported.
         :param Sequence['TaskDefinitionTmpfs'] tmpfs: The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the ``--tmpfs`` option to docker run.
-                 If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
         """
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
@@ -9106,7 +9174,6 @@ class TaskDefinitionLinuxParameters(dict):
     def tmpfs(self) -> Optional[Sequence['outputs.TaskDefinitionTmpfs']]:
         """
         The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the ``--tmpfs`` option to docker run.
-          If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
         """
         return pulumi.get(self, "tmpfs")
 
@@ -9618,17 +9685,18 @@ class TaskDefinitionRepositoryCredentials(dict):
 @pulumi.output_type
 class TaskDefinitionResourceRequirement(dict):
     """
-    The type and amount of a resource to assign to a container. The supported resource types are GPUs and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
+    The type and amount of a resource to assign to a container. The supported resource types are GPUs, Neuron devices, and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
     """
     def __init__(__self__, *,
                  type: _builtins.str,
                  value: _builtins.str):
         """
-        The type and amount of a resource to assign to a container. The supported resource types are GPUs and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
+        The type and amount of a resource to assign to a container. The supported resource types are GPUs, Neuron devices, and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
 
         :param _builtins.str type: The type of resource to assign to a container.
         :param _builtins.str value: The value for the specified resource type.
-                When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
+                When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. You can also specify ``ALL`` to allocate all available GPUs on the instance to the container.
+                When the type is ``NeuronDevice``, the value must be ``ALL``. This allocates all available Neuron devices on the instance to the container. Only one container in a task can specify ``NeuronDevice`` resources. This resource type is only supported on Managed Instances.
                 When the type is ``InferenceAccelerator``, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
         """
         pulumi.set(__self__, "type", type)
@@ -9647,7 +9715,8 @@ class TaskDefinitionResourceRequirement(dict):
     def value(self) -> _builtins.str:
         """
         The value for the specified resource type.
-         When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
+         When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. You can also specify ``ALL`` to allocate all available GPUs on the instance to the container.
+         When the type is ``NeuronDevice``, the value must be ``ALL``. This allocates all available Neuron devices on the instance to the container. Only one container in a task can specify ``NeuronDevice`` resources. This resource type is only supported on Managed Instances.
          When the type is ``InferenceAccelerator``, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
         """
         return pulumi.get(self, "value")
@@ -9781,6 +9850,10 @@ class TaskDefinitionRuntimePlatform(dict):
 
 @pulumi.output_type
 class TaskDefinitionS3FilesVolumeConfiguration(dict):
+    """
+    This parameter is specified when you're using an Amazon S3 Files file system for task storage. For more information, see [Amazon S3 Files volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/s3files-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+      Your task definition must include a Task IAM Role. See [IAM role for attaching your file system to compute resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-prereq-policies.html#s3-files-prereq-iam-compute-role) for required permissions.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9809,6 +9882,16 @@ class TaskDefinitionS3FilesVolumeConfiguration(dict):
                  access_point_arn: Optional[_builtins.str] = None,
                  root_directory: Optional[_builtins.str] = None,
                  transit_encryption_port: Optional[_builtins.int] = None):
+        """
+        This parameter is specified when you're using an Amazon S3 Files file system for task storage. For more information, see [Amazon S3 Files volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/s3files-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+          Your task definition must include a Task IAM Role. See [IAM role for attaching your file system to compute resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-prereq-policies.html#s3-files-prereq-iam-compute-role) for required permissions.
+
+        :param _builtins.str file_system_arn: The full ARN of the S3 Files file system to mount.
+        :param _builtins.str access_point_arn: The full ARN of the S3 Files access point to use. If an access point is specified, the root directory value specified in the ``S3FilesVolumeConfiguration`` must either be omitted or set to ``/`` which will enforce the path set on the S3 Files access point. For more information, see [Creating S3 Files access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-access-points-creating.html).
+        :param _builtins.str root_directory: The directory within the Amazon S3 Files file system to mount as the root directory. If this parameter is omitted, the root of the Amazon S3 Files file system will be used. Specifying ``/`` will have the same effect as omitting this parameter.
+                 If a S3 Files access point is specified in the ``accessPointArn``, the root directory parameter must either be omitted or set to ``/`` which will enforce the path set on the S3 Files access point.
+        :param _builtins.int transit_encryption_port: The port to use for sending encrypted data between the ECS host and the S3 Files file system. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon S3 Files mount helper uses. For more information, see [S3 Files mount helper](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-mounting.html).
+        """
         pulumi.set(__self__, "file_system_arn", file_system_arn)
         if access_point_arn is not None:
             pulumi.set(__self__, "access_point_arn", access_point_arn)
@@ -9820,21 +9903,34 @@ class TaskDefinitionS3FilesVolumeConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="fileSystemArn")
     def file_system_arn(self) -> _builtins.str:
+        """
+        The full ARN of the S3 Files file system to mount.
+        """
         return pulumi.get(self, "file_system_arn")
 
     @_builtins.property
     @pulumi.getter(name="accessPointArn")
     def access_point_arn(self) -> Optional[_builtins.str]:
+        """
+        The full ARN of the S3 Files access point to use. If an access point is specified, the root directory value specified in the ``S3FilesVolumeConfiguration`` must either be omitted or set to ``/`` which will enforce the path set on the S3 Files access point. For more information, see [Creating S3 Files access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-access-points-creating.html).
+        """
         return pulumi.get(self, "access_point_arn")
 
     @_builtins.property
     @pulumi.getter(name="rootDirectory")
     def root_directory(self) -> Optional[_builtins.str]:
+        """
+        The directory within the Amazon S3 Files file system to mount as the root directory. If this parameter is omitted, the root of the Amazon S3 Files file system will be used. Specifying ``/`` will have the same effect as omitting this parameter.
+          If a S3 Files access point is specified in the ``accessPointArn``, the root directory parameter must either be omitted or set to ``/`` which will enforce the path set on the S3 Files access point.
+        """
         return pulumi.get(self, "root_directory")
 
     @_builtins.property
     @pulumi.getter(name="transitEncryptionPort")
     def transit_encryption_port(self) -> Optional[_builtins.int]:
+        """
+        The port to use for sending encrypted data between the ECS host and the S3 Files file system. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon S3 Files mount helper uses. For more information, see [S3 Files mount helper](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-mounting.html).
+        """
         return pulumi.get(self, "transit_encryption_port")
 
 
@@ -10102,7 +10198,7 @@ class TaskDefinitionUlimit(dict):
 @pulumi.output_type
 class TaskDefinitionVolume(dict):
     """
-    The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a ``name`` and one of either ``configuredAtLaunch``, ``dockerVolumeConfiguration``, ``efsVolumeConfiguration``, ``fsxWindowsFileServerVolumeConfiguration``, or ``host``. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
+    The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a ``name`` and one of either ``configuredAtLaunch``, ``dockerVolumeConfiguration``, ``efsVolumeConfiguration``, ``s3filesVolumeConfiguration``, ``fsxWindowsFileServerVolumeConfiguration``, or ``host``. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -10138,7 +10234,7 @@ class TaskDefinitionVolume(dict):
                  name: Optional[_builtins.str] = None,
                  s3_files_volume_configuration: Optional['outputs.TaskDefinitionS3FilesVolumeConfiguration'] = None):
         """
-        The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a ``name`` and one of either ``configuredAtLaunch``, ``dockerVolumeConfiguration``, ``efsVolumeConfiguration``, ``fsxWindowsFileServerVolumeConfiguration``, or ``host``. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
+        The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a ``name`` and one of either ``configuredAtLaunch``, ``dockerVolumeConfiguration``, ``efsVolumeConfiguration``, ``s3filesVolumeConfiguration``, ``fsxWindowsFileServerVolumeConfiguration``, or ``host``. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
 
         :param _builtins.bool configured_at_launch: Indicates whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
                 To configure a volume at launch time, use this task definition revision and specify a ``volumeConfigurations`` object when calling the ``CreateService``, ``UpdateService``, ``RunTask`` or ``StartTask`` APIs.
@@ -10153,6 +10249,8 @@ class TaskDefinitionVolume(dict):
                 When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
                 For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.
                 When a volume is using the ``efsVolumeConfiguration``, the name is required.
+                When a volume is using the ``s3filesVolumeConfiguration``, the name is required.
+        :param 'TaskDefinitionS3FilesVolumeConfiguration' s3_files_volume_configuration: This parameter is specified when you use an Amazon S3 Files file system for task storage.
         """
         if configured_at_launch is not None:
             pulumi.set(__self__, "configured_at_launch", configured_at_launch)
@@ -10221,12 +10319,16 @@ class TaskDefinitionVolume(dict):
          When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
          For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.
          When a volume is using the ``efsVolumeConfiguration``, the name is required.
+         When a volume is using the ``s3filesVolumeConfiguration``, the name is required.
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="s3FilesVolumeConfiguration")
     def s3_files_volume_configuration(self) -> Optional['outputs.TaskDefinitionS3FilesVolumeConfiguration']:
+        """
+        This parameter is specified when you use an Amazon S3 Files file system for task storage.
+        """
         return pulumi.get(self, "s3_files_volume_configuration")
 
 

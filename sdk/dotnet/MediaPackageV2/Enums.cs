@@ -180,6 +180,34 @@ namespace Pulumi.AwsNative.MediaPackageV2
     }
 
     [EnumType]
+    public readonly struct OriginEndpointDashAudioTimelinePattern : IEquatable<OriginEndpointDashAudioTimelinePattern>
+    {
+        private readonly string _value;
+
+        private OriginEndpointDashAudioTimelinePattern(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointDashAudioTimelinePattern None { get; } = new OriginEndpointDashAudioTimelinePattern("NONE");
+        public static OriginEndpointDashAudioTimelinePattern Patterned { get; } = new OriginEndpointDashAudioTimelinePattern("PATTERNED");
+
+        public static bool operator ==(OriginEndpointDashAudioTimelinePattern left, OriginEndpointDashAudioTimelinePattern right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointDashAudioTimelinePattern left, OriginEndpointDashAudioTimelinePattern right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointDashAudioTimelinePattern value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointDashAudioTimelinePattern other && Equals(other);
+        public bool Equals(OriginEndpointDashAudioTimelinePattern other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct OriginEndpointDashCompactness : IEquatable<OriginEndpointDashCompactness>
     {
         private readonly string _value;
@@ -588,6 +616,8 @@ namespace Pulumi.AwsNative.MediaPackageV2
         public static OriginEndpointScteFilter DistributorPromo { get; } = new OriginEndpointScteFilter("DISTRIBUTOR_PROMO");
         public static OriginEndpointScteFilter ProviderAdBlock { get; } = new OriginEndpointScteFilter("PROVIDER_AD_BLOCK");
         public static OriginEndpointScteFilter DistributorAdBlock { get; } = new OriginEndpointScteFilter("DISTRIBUTOR_AD_BLOCK");
+        public static OriginEndpointScteFilter ContentIdentification { get; } = new OriginEndpointScteFilter("CONTENT_IDENTIFICATION");
+        public static OriginEndpointScteFilter CallAdServer { get; } = new OriginEndpointScteFilter("CALL_AD_SERVER");
 
         public static bool operator ==(OriginEndpointScteFilter left, OriginEndpointScteFilter right) => left.Equals(right);
         public static bool operator !=(OriginEndpointScteFilter left, OriginEndpointScteFilter right) => !left.Equals(right);

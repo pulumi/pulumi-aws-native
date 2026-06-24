@@ -39,7 +39,7 @@ export class ActionConnector extends pulumi.CustomResource {
 
     declare public readonly actionConnectorId: pulumi.Output<string>;
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public readonly authenticationConfig: pulumi.Output<outputs.quicksight.ActionConnectorAuthConfig | undefined>;
+    declare public readonly authenticationConfig: pulumi.Output<outputs.quicksight.ActionConnectorAuthConfig>;
     declare public readonly awsAccountId: pulumi.Output<string>;
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -65,6 +65,9 @@ export class ActionConnector extends pulumi.CustomResource {
         if (!opts.id) {
             if (args?.actionConnectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionConnectorId'");
+            }
+            if (args?.authenticationConfig === undefined && !opts.urn) {
+                throw new Error("Missing required property 'authenticationConfig'");
             }
             if (args?.awsAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
@@ -114,7 +117,7 @@ export class ActionConnector extends pulumi.CustomResource {
  */
 export interface ActionConnectorArgs {
     actionConnectorId: pulumi.Input<string>;
-    authenticationConfig?: pulumi.Input<inputs.quicksight.ActionConnectorAuthConfigArgs>;
+    authenticationConfig: pulumi.Input<inputs.quicksight.ActionConnectorAuthConfigArgs>;
     awsAccountId: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;

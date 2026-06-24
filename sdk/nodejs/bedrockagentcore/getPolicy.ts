@@ -34,6 +34,7 @@ export interface GetPolicyResult {
      * A human-readable description of the policy's purpose and functionality.
      */
     readonly description?: string;
+    readonly enforcementMode?: enums.bedrockagentcore.PolicyEnforcementMode;
     /**
      * The Amazon Resource Name (ARN) of the policy.
      */

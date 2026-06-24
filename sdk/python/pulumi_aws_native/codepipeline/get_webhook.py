@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWebhookResult:
-    def __init__(__self__, authentication=None, authentication_configuration=None, filters=None, id=None, target_action=None, target_pipeline=None, url=None):
+    def __init__(__self__, authentication=None, authentication_configuration=None, filters=None, id=None, tags=None, target_action=None, target_pipeline=None, url=None):
         if authentication and not isinstance(authentication, str):
             raise TypeError("Expected argument 'authentication' to be a str")
         pulumi.set(__self__, "authentication", authentication)
@@ -38,6 +39,9 @@ class GetWebhookResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if target_action and not isinstance(target_action, str):
             raise TypeError("Expected argument 'target_action' to be a str")
         pulumi.set(__self__, "target_action", target_action)
@@ -81,6 +85,14 @@ class GetWebhookResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
     @pulumi.getter(name="targetAction")
     def target_action(self) -> Optional[_builtins.str]:
         """
@@ -115,6 +127,7 @@ class AwaitableGetWebhookResult(GetWebhookResult):
             authentication_configuration=self.authentication_configuration,
             filters=self.filters,
             id=self.id,
+            tags=self.tags,
             target_action=self.target_action,
             target_pipeline=self.target_pipeline,
             url=self.url)
@@ -138,6 +151,7 @@ def get_webhook(id: Optional[_builtins.str] = None,
         authentication_configuration=pulumi.get(__ret__, 'authentication_configuration'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'),
         target_action=pulumi.get(__ret__, 'target_action'),
         target_pipeline=pulumi.get(__ret__, 'target_pipeline'),
         url=pulumi.get(__ret__, 'url'))
@@ -158,6 +172,7 @@ def get_webhook_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         authentication_configuration=pulumi.get(__response__, 'authentication_configuration'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags'),
         target_action=pulumi.get(__response__, 'target_action'),
         target_pipeline=pulumi.get(__response__, 'target_pipeline'),
         url=pulumi.get(__response__, 'url')))

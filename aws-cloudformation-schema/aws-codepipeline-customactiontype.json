@@ -150,7 +150,7 @@
   },
   "required" : [ "Category", "InputArtifactDetails", "OutputArtifactDetails", "Provider", "Version" ],
   "createOnlyProperties" : [ "/properties/Category", "/properties/ConfigurationProperties", "/properties/InputArtifactDetails", "/properties/OutputArtifactDetails", "/properties/Provider", "/properties/Settings", "/properties/Version" ],
-  "writeOnlyProperties" : [ "/properties/ConfigurationProperties/*/Type" ],
+  "writeOnlyProperties" : [ "/properties/ConfigurationProperties/*/Type", "/properties/Settings/ThirdPartyConfigurationUrl" ],
   "readOnlyProperties" : [ "/properties/Id" ],
   "primaryIdentifier" : [ "/properties/Category", "/properties/Provider", "/properties/Version" ],
   "deprecatedProperties" : [ "/properties/Id" ],

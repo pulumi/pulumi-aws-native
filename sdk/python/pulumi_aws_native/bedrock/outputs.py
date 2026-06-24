@@ -89,6 +89,7 @@ __all__ = [
     'DataAutomationProjectVideoStandardExtraction',
     'DataAutomationProjectVideoStandardGenerativeField',
     'DataAutomationProjectVideoStandardOutputConfiguration',
+    'DataSourceAudioExtractionConfiguration',
     'DataSourceBedrockDataAutomationConfiguration',
     'DataSourceBedrockFoundationModelConfiguration',
     'DataSourceBedrockFoundationModelContextEnrichmentConfiguration',
@@ -100,11 +101,15 @@ __all__ = [
     'DataSourceContextEnrichmentConfiguration',
     'DataSourceCrawlFilterConfiguration',
     'DataSourceCustomTransformationConfiguration',
+    'DataSourceDeletionProtectionConfiguration',
     'DataSourceEnrichmentStrategyConfiguration',
     'DataSourceFixedSizeChunkingConfiguration',
     'DataSourceHierarchicalChunkingConfiguration',
     'DataSourceHierarchicalChunkingLevelConfiguration',
+    'DataSourceImageExtractionConfiguration',
     'DataSourceIntermediateStorage',
+    'DataSourceManagedKnowledgeBaseConnectorConfiguration',
+    'DataSourceMediaExtractionConfiguration',
     'DataSourceParsingConfiguration',
     'DataSourceParsingPrompt',
     'DataSourcePatternObjectFilter',
@@ -125,6 +130,7 @@ __all__ = [
     'DataSourceTransformationLambdaConfiguration',
     'DataSourceUrlConfiguration',
     'DataSourceVectorIngestionConfiguration',
+    'DataSourceVideoExtractionConfiguration',
     'DataSourceWebCrawlerConfiguration',
     'DataSourceWebCrawlerLimits',
     'DataSourceWebDataSourceConfiguration',
@@ -294,6 +300,8 @@ __all__ = [
     'KnowledgeBaseCuratedQuery',
     'KnowledgeBaseEmbeddingModelConfiguration',
     'KnowledgeBaseKendraKnowledgeBaseConfiguration',
+    'KnowledgeBaseManagedKnowledgeBaseConfiguration',
+    'KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration',
     'KnowledgeBaseMongoDbAtlasConfiguration',
     'KnowledgeBaseMongoDbAtlasFieldMapping',
     'KnowledgeBaseNeptuneAnalyticsConfiguration',
@@ -3682,6 +3690,41 @@ class DataAutomationProjectVideoStandardOutputConfiguration(dict):
 
 
 @pulumi.output_type
+class DataSourceAudioExtractionConfiguration(dict):
+    """
+    Configuration for audio extraction.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioExtractionStatus":
+            suggest = "audio_extraction_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceAudioExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceAudioExtractionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceAudioExtractionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_extraction_status: 'DataSourceEnabledOrDisabledState'):
+        """
+        Configuration for audio extraction.
+        """
+        pulumi.set(__self__, "audio_extraction_status", audio_extraction_status)
+
+    @_builtins.property
+    @pulumi.getter(name="audioExtractionStatus")
+    def audio_extraction_status(self) -> 'DataSourceEnabledOrDisabledState':
+        return pulumi.get(self, "audio_extraction_status")
+
+
+@pulumi.output_type
 class DataSourceBedrockDataAutomationConfiguration(dict):
     """
     Settings for a Bedrock Data Automation used to parse documents for a data source.
@@ -3945,6 +3988,8 @@ class DataSourceConfiguration(dict):
         suggest = None
         if key == "confluenceConfiguration":
             suggest = "confluence_configuration"
+        elif key == "managedKnowledgeBaseConnectorConfiguration":
+            suggest = "managed_knowledge_base_connector_configuration"
         elif key == "s3Configuration":
             suggest = "s3_configuration"
         elif key == "salesforceConfiguration":
@@ -3968,6 +4013,7 @@ class DataSourceConfiguration(dict):
     def __init__(__self__, *,
                  type: 'DataSourceType',
                  confluence_configuration: Optional['outputs.DataSourceConfluenceDataSourceConfiguration'] = None,
+                 managed_knowledge_base_connector_configuration: Optional['outputs.DataSourceManagedKnowledgeBaseConnectorConfiguration'] = None,
                  s3_configuration: Optional['outputs.DataSourceS3DataSourceConfiguration'] = None,
                  salesforce_configuration: Optional['outputs.DataSourceSalesforceDataSourceConfiguration'] = None,
                  share_point_configuration: Optional['outputs.DataSourceSharePointDataSourceConfiguration'] = None,
@@ -3993,6 +4039,8 @@ class DataSourceConfiguration(dict):
         pulumi.set(__self__, "type", type)
         if confluence_configuration is not None:
             pulumi.set(__self__, "confluence_configuration", confluence_configuration)
+        if managed_knowledge_base_connector_configuration is not None:
+            pulumi.set(__self__, "managed_knowledge_base_connector_configuration", managed_knowledge_base_connector_configuration)
         if s3_configuration is not None:
             pulumi.set(__self__, "s3_configuration", s3_configuration)
         if salesforce_configuration is not None:
@@ -4019,6 +4067,11 @@ class DataSourceConfiguration(dict):
         > Confluence data source connector is in preview release and is subject to change.
         """
         return pulumi.get(self, "confluence_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="managedKnowledgeBaseConnectorConfiguration")
+    def managed_knowledge_base_connector_configuration(self) -> Optional['outputs.DataSourceManagedKnowledgeBaseConnectorConfiguration']:
+        return pulumi.get(self, "managed_knowledge_base_connector_configuration")
 
     @_builtins.property
     @pulumi.getter(name="s3Configuration")
@@ -4389,6 +4442,56 @@ class DataSourceCustomTransformationConfiguration(dict):
 
 
 @pulumi.output_type
+class DataSourceDeletionProtectionConfiguration(dict):
+    """
+    Configuration for deletion protection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deletionProtectionStatus":
+            suggest = "deletion_protection_status"
+        elif key == "deletionProtectionThreshold":
+            suggest = "deletion_protection_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceDeletionProtectionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceDeletionProtectionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceDeletionProtectionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deletion_protection_status: 'DataSourceEnabledOrDisabledState',
+                 deletion_protection_threshold: Optional[_builtins.int] = None):
+        """
+        Configuration for deletion protection.
+
+        :param _builtins.int deletion_protection_threshold: Threshold for deletion protection.
+        """
+        pulumi.set(__self__, "deletion_protection_status", deletion_protection_status)
+        if deletion_protection_threshold is not None:
+            pulumi.set(__self__, "deletion_protection_threshold", deletion_protection_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionStatus")
+    def deletion_protection_status(self) -> 'DataSourceEnabledOrDisabledState':
+        return pulumi.get(self, "deletion_protection_status")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionThreshold")
+    def deletion_protection_threshold(self) -> Optional[_builtins.int]:
+        """
+        Threshold for deletion protection.
+        """
+        return pulumi.get(self, "deletion_protection_threshold")
+
+
+@pulumi.output_type
 class DataSourceEnrichmentStrategyConfiguration(dict):
     """
     Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
@@ -4558,6 +4661,41 @@ class DataSourceHierarchicalChunkingLevelConfiguration(dict):
 
 
 @pulumi.output_type
+class DataSourceImageExtractionConfiguration(dict):
+    """
+    Configuration for image extraction.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageExtractionStatus":
+            suggest = "image_extraction_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceImageExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceImageExtractionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceImageExtractionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_extraction_status: 'DataSourceEnabledOrDisabledState'):
+        """
+        Configuration for image extraction.
+        """
+        pulumi.set(__self__, "image_extraction_status", image_extraction_status)
+
+    @_builtins.property
+    @pulumi.getter(name="imageExtractionStatus")
+    def image_extraction_status(self) -> 'DataSourceEnabledOrDisabledState':
+        return pulumi.get(self, "image_extraction_status")
+
+
+@pulumi.output_type
 class DataSourceIntermediateStorage(dict):
     """
     A location for storing content from data sources temporarily as it is processed by custom components in the ingestion pipeline.
@@ -4595,6 +4733,123 @@ class DataSourceIntermediateStorage(dict):
         An S3 bucket path.
         """
         return pulumi.get(self, "s3_location")
+
+
+@pulumi.output_type
+class DataSourceManagedKnowledgeBaseConnectorConfiguration(dict):
+    """
+    Configuration for managed knowledge base connector data sources.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorParameters":
+            suggest = "connector_parameters"
+        elif key == "deletionProtectionConfiguration":
+            suggest = "deletion_protection_configuration"
+        elif key == "mediaExtractionConfiguration":
+            suggest = "media_extraction_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceManagedKnowledgeBaseConnectorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceManagedKnowledgeBaseConnectorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceManagedKnowledgeBaseConnectorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_parameters: Optional[Any] = None,
+                 deletion_protection_configuration: Optional['outputs.DataSourceDeletionProtectionConfiguration'] = None,
+                 media_extraction_configuration: Optional['outputs.DataSourceMediaExtractionConfiguration'] = None):
+        """
+        Configuration for managed knowledge base connector data sources.
+
+        :param Any connector_parameters: Connector-specific parameters.
+        """
+        if connector_parameters is not None:
+            pulumi.set(__self__, "connector_parameters", connector_parameters)
+        if deletion_protection_configuration is not None:
+            pulumi.set(__self__, "deletion_protection_configuration", deletion_protection_configuration)
+        if media_extraction_configuration is not None:
+            pulumi.set(__self__, "media_extraction_configuration", media_extraction_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorParameters")
+    def connector_parameters(self) -> Optional[Any]:
+        """
+        Connector-specific parameters.
+        """
+        return pulumi.get(self, "connector_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionConfiguration")
+    def deletion_protection_configuration(self) -> Optional['outputs.DataSourceDeletionProtectionConfiguration']:
+        return pulumi.get(self, "deletion_protection_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="mediaExtractionConfiguration")
+    def media_extraction_configuration(self) -> Optional['outputs.DataSourceMediaExtractionConfiguration']:
+        return pulumi.get(self, "media_extraction_configuration")
+
+
+@pulumi.output_type
+class DataSourceMediaExtractionConfiguration(dict):
+    """
+    Configuration for media extraction settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioExtractionConfiguration":
+            suggest = "audio_extraction_configuration"
+        elif key == "imageExtractionConfiguration":
+            suggest = "image_extraction_configuration"
+        elif key == "videoExtractionConfiguration":
+            suggest = "video_extraction_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceMediaExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceMediaExtractionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceMediaExtractionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_extraction_configuration: Optional['outputs.DataSourceAudioExtractionConfiguration'] = None,
+                 image_extraction_configuration: Optional['outputs.DataSourceImageExtractionConfiguration'] = None,
+                 video_extraction_configuration: Optional['outputs.DataSourceVideoExtractionConfiguration'] = None):
+        """
+        Configuration for media extraction settings.
+        """
+        if audio_extraction_configuration is not None:
+            pulumi.set(__self__, "audio_extraction_configuration", audio_extraction_configuration)
+        if image_extraction_configuration is not None:
+            pulumi.set(__self__, "image_extraction_configuration", image_extraction_configuration)
+        if video_extraction_configuration is not None:
+            pulumi.set(__self__, "video_extraction_configuration", video_extraction_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="audioExtractionConfiguration")
+    def audio_extraction_configuration(self) -> Optional['outputs.DataSourceAudioExtractionConfiguration']:
+        return pulumi.get(self, "audio_extraction_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="imageExtractionConfiguration")
+    def image_extraction_configuration(self) -> Optional['outputs.DataSourceImageExtractionConfiguration']:
+        return pulumi.get(self, "image_extraction_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="videoExtractionConfiguration")
+    def video_extraction_configuration(self) -> Optional['outputs.DataSourceVideoExtractionConfiguration']:
+        return pulumi.get(self, "video_extraction_configuration")
 
 
 @pulumi.output_type
@@ -5623,6 +5878,41 @@ class DataSourceVectorIngestionConfiguration(dict):
         Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.
         """
         return pulumi.get(self, "parsing_configuration")
+
+
+@pulumi.output_type
+class DataSourceVideoExtractionConfiguration(dict):
+    """
+    Configuration for video extraction.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "videoExtractionStatus":
+            suggest = "video_extraction_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceVideoExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceVideoExtractionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceVideoExtractionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 video_extraction_status: 'DataSourceEnabledOrDisabledState'):
+        """
+        Configuration for video extraction.
+        """
+        pulumi.set(__self__, "video_extraction_status", video_extraction_status)
+
+    @_builtins.property
+    @pulumi.getter(name="videoExtractionStatus")
+    def video_extraction_status(self) -> 'DataSourceEnabledOrDisabledState':
+        return pulumi.get(self, "video_extraction_status")
 
 
 @pulumi.output_type
@@ -12335,6 +12625,8 @@ class KnowledgeBaseConfiguration(dict):
         suggest = None
         if key == "kendraKnowledgeBaseConfiguration":
             suggest = "kendra_knowledge_base_configuration"
+        elif key == "managedKnowledgeBaseConfiguration":
+            suggest = "managed_knowledge_base_configuration"
         elif key == "sqlKnowledgeBaseConfiguration":
             suggest = "sql_knowledge_base_configuration"
         elif key == "vectorKnowledgeBaseConfiguration":
@@ -12354,6 +12646,7 @@ class KnowledgeBaseConfiguration(dict):
     def __init__(__self__, *,
                  type: 'KnowledgeBaseType',
                  kendra_knowledge_base_configuration: Optional['outputs.KnowledgeBaseKendraKnowledgeBaseConfiguration'] = None,
+                 managed_knowledge_base_configuration: Optional['outputs.KnowledgeBaseManagedKnowledgeBaseConfiguration'] = None,
                  sql_knowledge_base_configuration: Optional['outputs.KnowledgeBaseSqlKnowledgeBaseConfiguration'] = None,
                  vector_knowledge_base_configuration: Optional['outputs.KnowledgeBaseVectorKnowledgeBaseConfiguration'] = None):
         """
@@ -12367,6 +12660,8 @@ class KnowledgeBaseConfiguration(dict):
         pulumi.set(__self__, "type", type)
         if kendra_knowledge_base_configuration is not None:
             pulumi.set(__self__, "kendra_knowledge_base_configuration", kendra_knowledge_base_configuration)
+        if managed_knowledge_base_configuration is not None:
+            pulumi.set(__self__, "managed_knowledge_base_configuration", managed_knowledge_base_configuration)
         if sql_knowledge_base_configuration is not None:
             pulumi.set(__self__, "sql_knowledge_base_configuration", sql_knowledge_base_configuration)
         if vector_knowledge_base_configuration is not None:
@@ -12387,6 +12682,11 @@ class KnowledgeBaseConfiguration(dict):
         Settings for an Amazon Kendra knowledge base.
         """
         return pulumi.get(self, "kendra_knowledge_base_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="managedKnowledgeBaseConfiguration")
+    def managed_knowledge_base_configuration(self) -> Optional['outputs.KnowledgeBaseManagedKnowledgeBaseConfiguration']:
+        return pulumi.get(self, "managed_knowledge_base_configuration")
 
     @_builtins.property
     @pulumi.getter(name="sqlKnowledgeBaseConfiguration")
@@ -12526,6 +12826,117 @@ class KnowledgeBaseKendraKnowledgeBaseConfiguration(dict):
         The ARN of the Amazon Kendra index.
         """
         return pulumi.get(self, "kendra_index_arn")
+
+
+@pulumi.output_type
+class KnowledgeBaseManagedKnowledgeBaseConfiguration(dict):
+    """
+    Contains details about the model used to create vector embeddings for a managed knowledge base.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "embeddingModelArn":
+            suggest = "embedding_model_arn"
+        elif key == "embeddingModelConfiguration":
+            suggest = "embedding_model_configuration"
+        elif key == "embeddingModelType":
+            suggest = "embedding_model_type"
+        elif key == "serverSideEncryptionConfiguration":
+            suggest = "server_side_encryption_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseManagedKnowledgeBaseConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseManagedKnowledgeBaseConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseManagedKnowledgeBaseConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 embedding_model_arn: _builtins.str,
+                 embedding_model_configuration: Optional['outputs.KnowledgeBaseEmbeddingModelConfiguration'] = None,
+                 embedding_model_type: Optional['KnowledgeBaseEmbeddingModelType'] = None,
+                 server_side_encryption_configuration: Optional['outputs.KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration'] = None):
+        """
+        Contains details about the model used to create vector embeddings for a managed knowledge base.
+
+        :param _builtins.str embedding_model_arn: The ARN of the model used to create vector embeddings for the knowledge base.
+        """
+        pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
+        if embedding_model_configuration is not None:
+            pulumi.set(__self__, "embedding_model_configuration", embedding_model_configuration)
+        if embedding_model_type is not None:
+            pulumi.set(__self__, "embedding_model_type", embedding_model_type)
+        if server_side_encryption_configuration is not None:
+            pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="embeddingModelArn")
+    def embedding_model_arn(self) -> _builtins.str:
+        """
+        The ARN of the model used to create vector embeddings for the knowledge base.
+        """
+        return pulumi.get(self, "embedding_model_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="embeddingModelConfiguration")
+    def embedding_model_configuration(self) -> Optional['outputs.KnowledgeBaseEmbeddingModelConfiguration']:
+        return pulumi.get(self, "embedding_model_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="embeddingModelType")
+    def embedding_model_type(self) -> Optional['KnowledgeBaseEmbeddingModelType']:
+        return pulumi.get(self, "embedding_model_type")
+
+    @_builtins.property
+    @pulumi.getter(name="serverSideEncryptionConfiguration")
+    def server_side_encryption_configuration(self) -> Optional['outputs.KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration']:
+        return pulumi.get(self, "server_side_encryption_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration(dict):
+    """
+    Contains details about the server-side encryption for the managed knowledge base.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: Optional[_builtins.str] = None):
+        """
+        Contains details about the server-side encryption for the managed knowledge base.
+
+        :param _builtins.str kms_key_arn: The ARN of the AWS KMS key used to encrypt the managed knowledge base.
+        """
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the AWS KMS key used to encrypt the managed knowledge base.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
 
 @pulumi.output_type

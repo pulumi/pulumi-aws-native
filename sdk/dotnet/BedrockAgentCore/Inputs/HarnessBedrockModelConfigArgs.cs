@@ -12,6 +12,21 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 
     public sealed class HarnessBedrockModelConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalParams")]
+        private InputMap<object>? _additionalParams;
+
+        /// <summary>
+        /// Provider-specific parameters passed through to the model provider unchanged.
+        /// </summary>
+        public InputMap<object> AdditionalParams
+        {
+            get => _additionalParams ?? (_additionalParams = new InputMap<object>());
+            set => _additionalParams = value;
+        }
+
+        [Input("apiFormat")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.HarnessBedrockModelConfigApiFormat>? ApiFormat { get; set; }
+
         [Input("maxTokens")]
         public Input<int>? MaxTokens { get; set; }
 

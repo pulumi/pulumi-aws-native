@@ -291,7 +291,7 @@
           "items" : {
             "type" : "string"
           },
-          "maxItems" : 20,
+          "maxItems" : 30,
           "minItems" : 1,
           "description" : "<p>The IAM action to grant or revoke permissions on.</p>"
         }
@@ -397,7 +397,7 @@
       "type" : "string"
     }
   },
-  "required" : [ "ActionConnectorId", "AwsAccountId", "Name", "Type" ],
+  "required" : [ "ActionConnectorId", "AuthenticationConfig", "AwsAccountId", "Name", "Type" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime", "/properties/EnabledActions", "/properties/LastUpdatedTime", "/properties/Status" ],
   "writeOnlyProperties" : [ "/properties/AuthenticationConfig", "/properties/VpcConnectionArn" ],
   "createOnlyProperties" : [ "/properties/ActionConnectorId", "/properties/AwsAccountId", "/properties/Type" ],

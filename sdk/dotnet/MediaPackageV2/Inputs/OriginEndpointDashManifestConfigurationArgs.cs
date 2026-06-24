@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
     /// </summary>
     public sealed class OriginEndpointDashManifestConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("audioTimelinePattern")]
+        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashAudioTimelinePattern>? AudioTimelinePattern { get; set; }
+
         [Input("availabilityStartTimeConfiguration")]
         public Input<Inputs.OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs>? AvailabilityStartTimeConfiguration { get; set; }
 

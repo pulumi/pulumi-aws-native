@@ -1190,6 +1190,223 @@ func (o BucketAnalyticsConfigurationArrayOutput) Index(i pulumi.IntInput) Bucket
 	}).(BucketAnalyticsConfigurationOutput)
 }
 
+type BucketAnnotationTableConfiguration struct {
+	// Specifies whether annotation table configuration is enabled or disabled.
+	ConfigurationState BucketAnnotationTableConfigurationConfigurationState `pulumi:"configurationState"`
+	// The encryption configuration for the annotation table.
+	EncryptionConfiguration *BucketMetadataTableEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+	// The ARN of the IAM role that grants Amazon S3 Metadata permission to read annotations from your bucket.
+	Role *string `pulumi:"role"`
+	// The ARN of the annotation table.
+	TableArn *string `pulumi:"tableArn"`
+	// The name of the annotation table.
+	TableName *string `pulumi:"tableName"`
+}
+
+// BucketAnnotationTableConfigurationInput is an input type that accepts BucketAnnotationTableConfigurationArgs and BucketAnnotationTableConfigurationOutput values.
+// You can construct a concrete instance of `BucketAnnotationTableConfigurationInput` via:
+//
+//	BucketAnnotationTableConfigurationArgs{...}
+type BucketAnnotationTableConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketAnnotationTableConfigurationOutput() BucketAnnotationTableConfigurationOutput
+	ToBucketAnnotationTableConfigurationOutputWithContext(context.Context) BucketAnnotationTableConfigurationOutput
+}
+
+type BucketAnnotationTableConfigurationArgs struct {
+	// Specifies whether annotation table configuration is enabled or disabled.
+	ConfigurationState BucketAnnotationTableConfigurationConfigurationStateInput `pulumi:"configurationState"`
+	// The encryption configuration for the annotation table.
+	EncryptionConfiguration BucketMetadataTableEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
+	// The ARN of the IAM role that grants Amazon S3 Metadata permission to read annotations from your bucket.
+	Role pulumi.StringPtrInput `pulumi:"role"`
+	// The ARN of the annotation table.
+	TableArn pulumi.StringPtrInput `pulumi:"tableArn"`
+	// The name of the annotation table.
+	TableName pulumi.StringPtrInput `pulumi:"tableName"`
+}
+
+func (BucketAnnotationTableConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAnnotationTableConfiguration)(nil)).Elem()
+}
+
+func (i BucketAnnotationTableConfigurationArgs) ToBucketAnnotationTableConfigurationOutput() BucketAnnotationTableConfigurationOutput {
+	return i.ToBucketAnnotationTableConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketAnnotationTableConfigurationArgs) ToBucketAnnotationTableConfigurationOutputWithContext(ctx context.Context) BucketAnnotationTableConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAnnotationTableConfigurationOutput)
+}
+
+func (i BucketAnnotationTableConfigurationArgs) ToBucketAnnotationTableConfigurationPtrOutput() BucketAnnotationTableConfigurationPtrOutput {
+	return i.ToBucketAnnotationTableConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketAnnotationTableConfigurationArgs) ToBucketAnnotationTableConfigurationPtrOutputWithContext(ctx context.Context) BucketAnnotationTableConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAnnotationTableConfigurationOutput).ToBucketAnnotationTableConfigurationPtrOutputWithContext(ctx)
+}
+
+// BucketAnnotationTableConfigurationPtrInput is an input type that accepts BucketAnnotationTableConfigurationArgs, BucketAnnotationTableConfigurationPtr and BucketAnnotationTableConfigurationPtrOutput values.
+// You can construct a concrete instance of `BucketAnnotationTableConfigurationPtrInput` via:
+//
+//	        BucketAnnotationTableConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketAnnotationTableConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBucketAnnotationTableConfigurationPtrOutput() BucketAnnotationTableConfigurationPtrOutput
+	ToBucketAnnotationTableConfigurationPtrOutputWithContext(context.Context) BucketAnnotationTableConfigurationPtrOutput
+}
+
+type bucketAnnotationTableConfigurationPtrType BucketAnnotationTableConfigurationArgs
+
+func BucketAnnotationTableConfigurationPtr(v *BucketAnnotationTableConfigurationArgs) BucketAnnotationTableConfigurationPtrInput {
+	return (*bucketAnnotationTableConfigurationPtrType)(v)
+}
+
+func (*bucketAnnotationTableConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAnnotationTableConfiguration)(nil)).Elem()
+}
+
+func (i *bucketAnnotationTableConfigurationPtrType) ToBucketAnnotationTableConfigurationPtrOutput() BucketAnnotationTableConfigurationPtrOutput {
+	return i.ToBucketAnnotationTableConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketAnnotationTableConfigurationPtrType) ToBucketAnnotationTableConfigurationPtrOutputWithContext(ctx context.Context) BucketAnnotationTableConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAnnotationTableConfigurationPtrOutput)
+}
+
+type BucketAnnotationTableConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketAnnotationTableConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAnnotationTableConfiguration)(nil)).Elem()
+}
+
+func (o BucketAnnotationTableConfigurationOutput) ToBucketAnnotationTableConfigurationOutput() BucketAnnotationTableConfigurationOutput {
+	return o
+}
+
+func (o BucketAnnotationTableConfigurationOutput) ToBucketAnnotationTableConfigurationOutputWithContext(ctx context.Context) BucketAnnotationTableConfigurationOutput {
+	return o
+}
+
+func (o BucketAnnotationTableConfigurationOutput) ToBucketAnnotationTableConfigurationPtrOutput() BucketAnnotationTableConfigurationPtrOutput {
+	return o.ToBucketAnnotationTableConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketAnnotationTableConfigurationOutput) ToBucketAnnotationTableConfigurationPtrOutputWithContext(ctx context.Context) BucketAnnotationTableConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketAnnotationTableConfiguration) *BucketAnnotationTableConfiguration {
+		return &v
+	}).(BucketAnnotationTableConfigurationPtrOutput)
+}
+
+// Specifies whether annotation table configuration is enabled or disabled.
+func (o BucketAnnotationTableConfigurationOutput) ConfigurationState() BucketAnnotationTableConfigurationConfigurationStateOutput {
+	return o.ApplyT(func(v BucketAnnotationTableConfiguration) BucketAnnotationTableConfigurationConfigurationState {
+		return v.ConfigurationState
+	}).(BucketAnnotationTableConfigurationConfigurationStateOutput)
+}
+
+// The encryption configuration for the annotation table.
+func (o BucketAnnotationTableConfigurationOutput) EncryptionConfiguration() BucketMetadataTableEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v BucketAnnotationTableConfiguration) *BucketMetadataTableEncryptionConfiguration {
+		return v.EncryptionConfiguration
+	}).(BucketMetadataTableEncryptionConfigurationPtrOutput)
+}
+
+// The ARN of the IAM role that grants Amazon S3 Metadata permission to read annotations from your bucket.
+func (o BucketAnnotationTableConfigurationOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketAnnotationTableConfiguration) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the annotation table.
+func (o BucketAnnotationTableConfigurationOutput) TableArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketAnnotationTableConfiguration) *string { return v.TableArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the annotation table.
+func (o BucketAnnotationTableConfigurationOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketAnnotationTableConfiguration) *string { return v.TableName }).(pulumi.StringPtrOutput)
+}
+
+type BucketAnnotationTableConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketAnnotationTableConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAnnotationTableConfiguration)(nil)).Elem()
+}
+
+func (o BucketAnnotationTableConfigurationPtrOutput) ToBucketAnnotationTableConfigurationPtrOutput() BucketAnnotationTableConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketAnnotationTableConfigurationPtrOutput) ToBucketAnnotationTableConfigurationPtrOutputWithContext(ctx context.Context) BucketAnnotationTableConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketAnnotationTableConfigurationPtrOutput) Elem() BucketAnnotationTableConfigurationOutput {
+	return o.ApplyT(func(v *BucketAnnotationTableConfiguration) BucketAnnotationTableConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketAnnotationTableConfiguration
+		return ret
+	}).(BucketAnnotationTableConfigurationOutput)
+}
+
+// Specifies whether annotation table configuration is enabled or disabled.
+func (o BucketAnnotationTableConfigurationPtrOutput) ConfigurationState() BucketAnnotationTableConfigurationConfigurationStatePtrOutput {
+	return o.ApplyT(func(v *BucketAnnotationTableConfiguration) *BucketAnnotationTableConfigurationConfigurationState {
+		if v == nil {
+			return nil
+		}
+		return &v.ConfigurationState
+	}).(BucketAnnotationTableConfigurationConfigurationStatePtrOutput)
+}
+
+// The encryption configuration for the annotation table.
+func (o BucketAnnotationTableConfigurationPtrOutput) EncryptionConfiguration() BucketMetadataTableEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *BucketAnnotationTableConfiguration) *BucketMetadataTableEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionConfiguration
+	}).(BucketMetadataTableEncryptionConfigurationPtrOutput)
+}
+
+// The ARN of the IAM role that grants Amazon S3 Metadata permission to read annotations from your bucket.
+func (o BucketAnnotationTableConfigurationPtrOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAnnotationTableConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Role
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the annotation table.
+func (o BucketAnnotationTableConfigurationPtrOutput) TableArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAnnotationTableConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TableArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the annotation table.
+func (o BucketAnnotationTableConfigurationPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAnnotationTableConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
 // A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block “PutObject“, “CopyObject“, “PostObject“, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
 //
 //	This data type is used with the following actions:
@@ -4083,6 +4300,7 @@ func (o BucketLoggingConfigurationPtrOutput) TargetObjectKeyFormat() BucketTarge
 
 // Creates a V2 S3 Metadata configuration of a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
 type BucketMetadataConfiguration struct {
+	AnnotationTableConfiguration *BucketAnnotationTableConfiguration `pulumi:"annotationTableConfiguration"`
 	// The destination information for the S3 Metadata configuration.
 	Destination *BucketMetadataDestination `pulumi:"destination"`
 	// The inventory table configuration for a metadata configuration.
@@ -4104,6 +4322,7 @@ type BucketMetadataConfigurationInput interface {
 
 // Creates a V2 S3 Metadata configuration of a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
 type BucketMetadataConfigurationArgs struct {
+	AnnotationTableConfiguration BucketAnnotationTableConfigurationPtrInput `pulumi:"annotationTableConfiguration"`
 	// The destination information for the S3 Metadata configuration.
 	Destination BucketMetadataDestinationPtrInput `pulumi:"destination"`
 	// The inventory table configuration for a metadata configuration.
@@ -4190,6 +4409,12 @@ func (o BucketMetadataConfigurationOutput) ToBucketMetadataConfigurationPtrOutpu
 	}).(BucketMetadataConfigurationPtrOutput)
 }
 
+func (o BucketMetadataConfigurationOutput) AnnotationTableConfiguration() BucketAnnotationTableConfigurationPtrOutput {
+	return o.ApplyT(func(v BucketMetadataConfiguration) *BucketAnnotationTableConfiguration {
+		return v.AnnotationTableConfiguration
+	}).(BucketAnnotationTableConfigurationPtrOutput)
+}
+
 // The destination information for the S3 Metadata configuration.
 func (o BucketMetadataConfigurationOutput) Destination() BucketMetadataDestinationPtrOutput {
 	return o.ApplyT(func(v BucketMetadataConfiguration) *BucketMetadataDestination { return v.Destination }).(BucketMetadataDestinationPtrOutput)
@@ -4231,6 +4456,15 @@ func (o BucketMetadataConfigurationPtrOutput) Elem() BucketMetadataConfiguration
 		var ret BucketMetadataConfiguration
 		return ret
 	}).(BucketMetadataConfigurationOutput)
+}
+
+func (o BucketMetadataConfigurationPtrOutput) AnnotationTableConfiguration() BucketAnnotationTableConfigurationPtrOutput {
+	return o.ApplyT(func(v *BucketMetadataConfiguration) *BucketAnnotationTableConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AnnotationTableConfiguration
+	}).(BucketAnnotationTableConfigurationPtrOutput)
 }
 
 // The destination information for the S3 Metadata configuration.
@@ -15719,6 +15953,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccessControlTranslationPtrInput)(nil)).Elem(), BucketAccessControlTranslationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAnalyticsConfigurationInput)(nil)).Elem(), BucketAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAnalyticsConfigurationArrayInput)(nil)).Elem(), BucketAnalyticsConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAnnotationTableConfigurationInput)(nil)).Elem(), BucketAnnotationTableConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAnnotationTableConfigurationPtrInput)(nil)).Elem(), BucketAnnotationTableConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketBlockedEncryptionTypesInput)(nil)).Elem(), BucketBlockedEncryptionTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketBlockedEncryptionTypesPtrInput)(nil)).Elem(), BucketBlockedEncryptionTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsConfigurationInput)(nil)).Elem(), BucketCorsConfigurationArgs{})
@@ -15913,6 +16149,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketAccessControlTranslationPtrOutput{})
 	pulumi.RegisterOutputType(BucketAnalyticsConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketAnalyticsConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(BucketAnnotationTableConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketAnnotationTableConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketBlockedEncryptionTypesOutput{})
 	pulumi.RegisterOutputType(BucketBlockedEncryptionTypesPtrOutput{})
 	pulumi.RegisterOutputType(BucketCorsConfigurationOutput{})

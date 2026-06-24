@@ -60,6 +60,7 @@ func NewKnowledgeBase(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"knowledgeBaseConfiguration.kendraKnowledgeBaseConfiguration",
+		"knowledgeBaseConfiguration.managedKnowledgeBaseConfiguration",
 		"knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.redshiftConfiguration.queryEngineConfiguration",
 		"knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.redshiftConfiguration.storageConfigurations[*]",
 		"knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.type",

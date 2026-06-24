@@ -60,6 +60,10 @@ __all__ = [
     'UserPoolDeviceConfigurationArgsDict',
     'UserPoolDomainCustomDomainConfigTypeArgs',
     'UserPoolDomainCustomDomainConfigTypeArgsDict',
+    'UserPoolDomainFailoverTypeArgs',
+    'UserPoolDomainFailoverTypeArgsDict',
+    'UserPoolDomainRoutingTypeArgs',
+    'UserPoolDomainRoutingTypeArgsDict',
     'UserPoolEmailConfigurationArgs',
     'UserPoolEmailConfigurationArgsDict',
     'UserPoolInboundFederationArgs',
@@ -1263,6 +1267,57 @@ class UserPoolDomainCustomDomainConfigTypeArgs:
     @certificate_arn.setter
     def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
+
+
+class UserPoolDomainFailoverTypeArgsDict(TypedDict):
+    primary_route53_health_check_id: pulumi.Input[_builtins.str]
+    secondary_region: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class UserPoolDomainFailoverTypeArgs:
+    def __init__(__self__, *,
+                 primary_route53_health_check_id: pulumi.Input[_builtins.str],
+                 secondary_region: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "primary_route53_health_check_id", primary_route53_health_check_id)
+        pulumi.set(__self__, "secondary_region", secondary_region)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryRoute53HealthCheckId")
+    def primary_route53_health_check_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "primary_route53_health_check_id")
+
+    @primary_route53_health_check_id.setter
+    def primary_route53_health_check_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "primary_route53_health_check_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryRegion")
+    def secondary_region(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "secondary_region")
+
+    @secondary_region.setter
+    def secondary_region(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secondary_region", value)
+
+
+class UserPoolDomainRoutingTypeArgsDict(TypedDict):
+    failover: NotRequired[pulumi.Input['UserPoolDomainFailoverTypeArgsDict']]
+
+@pulumi.input_type
+class UserPoolDomainRoutingTypeArgs:
+    def __init__(__self__, *,
+                 failover: Optional[pulumi.Input['UserPoolDomainFailoverTypeArgs']] = None):
+        if failover is not None:
+            pulumi.set(__self__, "failover", failover)
+
+    @_builtins.property
+    @pulumi.getter
+    def failover(self) -> Optional[pulumi.Input['UserPoolDomainFailoverTypeArgs']]:
+        return pulumi.get(self, "failover")
+
+    @failover.setter
+    def failover(self, value: Optional[pulumi.Input['UserPoolDomainFailoverTypeArgs']]):
+        pulumi.set(self, "failover", value)
 
 
 class UserPoolEmailConfigurationArgsDict(TypedDict):

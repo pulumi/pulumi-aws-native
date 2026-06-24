@@ -44,7 +44,8 @@ type RuleGroup struct {
 	// The syntax for the label namespace prefix for a rule group is the following: `awswaf:<account ID>:rule group:<rule group name>:`
 	//
 	// When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
-	LabelNamespace pulumi.StringOutput `pulumi:"labelNamespace"`
+	LabelNamespace     pulumi.StringOutput                  `pulumi:"labelNamespace"`
+	MonetizationConfig RuleGroupMonetizationConfigPtrOutput `pulumi:"monetizationConfig"`
 	// The name of the rule group. You cannot change the name of a rule group after you create it.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Collection of Rules.
@@ -132,7 +133,8 @@ type ruleGroupArgs struct {
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 	CustomResponseBodies map[string]RuleGroupCustomResponseBody `pulumi:"customResponseBodies"`
 	// A description of the rule group that helps with identification.
-	Description *string `pulumi:"description"`
+	Description        *string                      `pulumi:"description"`
+	MonetizationConfig *RuleGroupMonetizationConfig `pulumi:"monetizationConfig"`
 	// The name of the rule group. You cannot change the name of a rule group after you create it.
 	Name *string `pulumi:"name"`
 	// Collection of Rules.
@@ -168,7 +170,8 @@ type RuleGroupArgs struct {
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 	CustomResponseBodies RuleGroupCustomResponseBodyMapInput
 	// A description of the rule group that helps with identification.
-	Description pulumi.StringPtrInput
+	Description        pulumi.StringPtrInput
+	MonetizationConfig RuleGroupMonetizationConfigPtrInput
 	// The name of the rule group. You cannot change the name of a rule group after you create it.
 	Name pulumi.StringPtrInput
 	// Collection of Rules.
@@ -272,6 +275,10 @@ func (o RuleGroupOutput) Description() pulumi.StringPtrOutput {
 // When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
 func (o RuleGroupOutput) LabelNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.LabelNamespace }).(pulumi.StringOutput)
+}
+
+func (o RuleGroupOutput) MonetizationConfig() RuleGroupMonetizationConfigPtrOutput {
+	return o.ApplyT(func(v *RuleGroup) RuleGroupMonetizationConfigPtrOutput { return v.MonetizationConfig }).(RuleGroupMonetizationConfigPtrOutput)
 }
 
 // The name of the rule group. You cannot change the name of a rule group after you create it.

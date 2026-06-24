@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class BucketMetadataConfiguration
     {
+        public readonly Outputs.BucketAnnotationTableConfiguration? AnnotationTableConfiguration;
         /// <summary>
         /// The destination information for the S3 Metadata configuration.
         /// </summary>
@@ -31,12 +32,15 @@ namespace Pulumi.AwsNative.S3.Outputs
 
         [OutputConstructor]
         private BucketMetadataConfiguration(
+            Outputs.BucketAnnotationTableConfiguration? annotationTableConfiguration,
+
             Outputs.BucketMetadataDestination? destination,
 
             Outputs.BucketInventoryTableConfiguration? inventoryTableConfiguration,
 
             Outputs.BucketJournalTableConfiguration journalTableConfiguration)
         {
+            AnnotationTableConfiguration = annotationTableConfiguration;
             Destination = destination;
             InventoryTableConfiguration = inventoryTableConfiguration;
             JournalTableConfiguration = journalTableConfiguration;

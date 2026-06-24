@@ -140,6 +140,9 @@ class GetRouteResult:
     @_builtins.property
     @pulumi.getter(name="odbNetworkArn")
     def odb_network_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the ODB network.
+        """
         return pulumi.get(self, "odb_network_arn")
 
     @_builtins.property

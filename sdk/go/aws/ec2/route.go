@@ -44,7 +44,8 @@ type Route struct {
 	NatGatewayId pulumi.StringPtrOutput `pulumi:"natGatewayId"`
 	// The ID of a network interface.
 	NetworkInterfaceId pulumi.StringPtrOutput `pulumi:"networkInterfaceId"`
-	OdbNetworkArn      pulumi.StringPtrOutput `pulumi:"odbNetworkArn"`
+	// The Amazon Resource Name (ARN) of the ODB network.
+	OdbNetworkArn pulumi.StringPtrOutput `pulumi:"odbNetworkArn"`
 	// The ID of the route table for the route.
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
 	// The ID of a transit gateway.
@@ -128,7 +129,8 @@ type routeArgs struct {
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// The ID of a network interface.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	OdbNetworkArn      *string `pulumi:"odbNetworkArn"`
+	// The Amazon Resource Name (ARN) of the ODB network.
+	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
 	// The ID of the route table for the route.
 	RouteTableId string `pulumi:"routeTableId"`
 	// The ID of a transit gateway.
@@ -164,7 +166,8 @@ type RouteArgs struct {
 	NatGatewayId pulumi.StringPtrInput
 	// The ID of a network interface.
 	NetworkInterfaceId pulumi.StringPtrInput
-	OdbNetworkArn      pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the ODB network.
+	OdbNetworkArn pulumi.StringPtrInput
 	// The ID of the route table for the route.
 	RouteTableId pulumi.StringInput
 	// The ID of a transit gateway.
@@ -274,6 +277,7 @@ func (o RouteOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the ODB network.
 func (o RouteOutput) OdbNetworkArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.OdbNetworkArn }).(pulumi.StringPtrOutput)
 }

@@ -65,6 +65,16 @@ export const getEventSubscription: typeof import("./getEventSubscription").getEv
 export const getEventSubscriptionOutput: typeof import("./getEventSubscription").getEventSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getEventSubscription","getEventSubscriptionOutput"], () => require("./getEventSubscription"));
 
+export { GetGlobalClusterArgs, GetGlobalClusterResult, GetGlobalClusterOutputArgs } from "./getGlobalCluster";
+export const getGlobalCluster: typeof import("./getGlobalCluster").getGlobalCluster = null as any;
+export const getGlobalClusterOutput: typeof import("./getGlobalCluster").getGlobalClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getGlobalCluster","getGlobalClusterOutput"], () => require("./getGlobalCluster"));
+
+export { GlobalClusterArgs } from "./globalCluster";
+export type GlobalCluster = import("./globalCluster").GlobalCluster;
+export const GlobalCluster: typeof import("./globalCluster").GlobalCluster = null as any;
+utilities.lazyLoad(exports, ["GlobalCluster"], () => require("./globalCluster"));
+
 
 // Export enums:
 export * from "../types/enums/neptune";
@@ -85,6 +95,8 @@ const _module = {
                 return new DbSubnetGroup(name, <any>undefined, { urn })
             case "aws-native:neptune:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
+            case "aws-native:neptune:GlobalCluster":
+                return new GlobalCluster(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

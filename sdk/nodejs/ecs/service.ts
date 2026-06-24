@@ -122,6 +122,7 @@ export class Service extends pulumi.CustomResource {
      *   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
      */
     declare public readonly loadBalancers: pulumi.Output<outputs.ecs.ServiceLoadBalancer[] | undefined>;
+    declare public readonly monitoring: pulumi.Output<outputs.ecs.ServiceMonitoringConfiguration | undefined>;
     /**
      * The name of the Amazon ECS service, such as `sample-webapp` .
      */
@@ -235,6 +236,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["healthCheckGracePeriodSeconds"] = args?.healthCheckGracePeriodSeconds;
             resourceInputs["launchType"] = args?.launchType;
             resourceInputs["loadBalancers"] = args?.loadBalancers;
+            resourceInputs["monitoring"] = args?.monitoring;
             resourceInputs["networkConfiguration"] = args?.networkConfiguration;
             resourceInputs["placementConstraints"] = args?.placementConstraints;
             resourceInputs["placementStrategies"] = args?.placementStrategies;
@@ -264,6 +266,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["healthCheckGracePeriodSeconds"] = undefined /*out*/;
             resourceInputs["launchType"] = undefined /*out*/;
             resourceInputs["loadBalancers"] = undefined /*out*/;
+            resourceInputs["monitoring"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkConfiguration"] = undefined /*out*/;
             resourceInputs["placementConstraints"] = undefined /*out*/;
@@ -353,6 +356,7 @@ export interface ServiceArgs {
      *   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
      */
     loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceLoadBalancerArgs>[]>;
+    monitoring?: pulumi.Input<inputs.ecs.ServiceMonitoringConfigurationArgs>;
     /**
      * The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
      */

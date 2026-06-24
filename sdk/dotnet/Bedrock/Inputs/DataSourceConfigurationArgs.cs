@@ -23,6 +23,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("confluenceConfiguration")]
         public Input<Inputs.DataSourceConfluenceDataSourceConfigurationArgs>? ConfluenceConfiguration { get; set; }
 
+        [Input("managedKnowledgeBaseConnectorConfiguration")]
+        public Input<Inputs.DataSourceManagedKnowledgeBaseConnectorConfigurationArgs>? ManagedKnowledgeBaseConnectorConfiguration { get; set; }
+
         /// <summary>
         /// The configuration information to connect to Amazon S3 as your data source.
         /// </summary>

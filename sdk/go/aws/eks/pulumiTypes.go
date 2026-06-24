@@ -3523,6 +3523,8 @@ func (o ClusterRemotePodNetworkArrayOutput) Index(i pulumi.IntInput) ClusterRemo
 
 // An object representing the VPC configuration to use for an Amazon EKS cluster.
 type ClusterResourcesVpcConfig struct {
+	// Specify the egress mode for the cluster control plane. If you set this to CUSTOMER_ROUTED, the control plane routes traffic through your VPC subnets instead of using AWS managed networking.
+	ControlPlaneEgressMode *string `pulumi:"controlPlaneEgressMode"`
 	// Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
 	EndpointPrivateAccess *bool `pulumi:"endpointPrivateAccess"`
 	// Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
@@ -3548,6 +3550,8 @@ type ClusterResourcesVpcConfigInput interface {
 
 // An object representing the VPC configuration to use for an Amazon EKS cluster.
 type ClusterResourcesVpcConfigArgs struct {
+	// Specify the egress mode for the cluster control plane. If you set this to CUSTOMER_ROUTED, the control plane routes traffic through your VPC subnets instead of using AWS managed networking.
+	ControlPlaneEgressMode pulumi.StringPtrInput `pulumi:"controlPlaneEgressMode"`
 	// Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
 	EndpointPrivateAccess pulumi.BoolPtrInput `pulumi:"endpointPrivateAccess"`
 	// Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
@@ -3585,6 +3589,11 @@ func (o ClusterResourcesVpcConfigOutput) ToClusterResourcesVpcConfigOutput() Clu
 
 func (o ClusterResourcesVpcConfigOutput) ToClusterResourcesVpcConfigOutputWithContext(ctx context.Context) ClusterResourcesVpcConfigOutput {
 	return o
+}
+
+// Specify the egress mode for the cluster control plane. If you set this to CUSTOMER_ROUTED, the control plane routes traffic through your VPC subnets instead of using AWS managed networking.
+func (o ClusterResourcesVpcConfigOutput) ControlPlaneEgressMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourcesVpcConfig) *string { return v.ControlPlaneEgressMode }).(pulumi.StringPtrOutput)
 }
 
 // Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
@@ -3634,6 +3643,16 @@ func (o ClusterResourcesVpcConfigPtrOutput) Elem() ClusterResourcesVpcConfigOutp
 		var ret ClusterResourcesVpcConfig
 		return ret
 	}).(ClusterResourcesVpcConfigOutput)
+}
+
+// Specify the egress mode for the cluster control plane. If you set this to CUSTOMER_ROUTED, the control plane routes traffic through your VPC subnets instead of using AWS managed networking.
+func (o ClusterResourcesVpcConfigPtrOutput) ControlPlaneEgressMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourcesVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ControlPlaneEgressMode
+	}).(pulumi.StringPtrOutput)
 }
 
 // Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.

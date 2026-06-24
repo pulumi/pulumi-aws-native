@@ -2,9 +2,42 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const DictionaryLanguage = {
+    Eng: "eng",
+    Fra: "fra",
+    Ita: "ita",
+    Deu: "deu",
+    Spa: "spa",
+    Por: "por",
+} as const;
+
+export type DictionaryLanguage = (typeof DictionaryLanguage)[keyof typeof DictionaryLanguage];
+
 export const FeedOutputStatus = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
 } as const;
 
 export type FeedOutputStatus = (typeof FeedOutputStatus)[keyof typeof FeedOutputStatus];
+
+export const FeedProfanityFilterMode = {
+    Disabled: "DISABLED",
+    Censor: "CENSOR",
+    Drop: "DROP",
+} as const;
+
+export type FeedProfanityFilterMode = (typeof FeedProfanityFilterMode)[keyof typeof FeedProfanityFilterMode];
+
+export const FeedTranscriptionLanguage = {
+    Eng: "eng",
+    EngAu: "eng-au",
+    EngGb: "eng-gb",
+    EngUs: "eng-us",
+    Fra: "fra",
+    Ita: "ita",
+    Deu: "deu",
+    Spa: "spa",
+    Por: "por",
+} as const;
+
+export type FeedTranscriptionLanguage = (typeof FeedTranscriptionLanguage)[keyof typeof FeedTranscriptionLanguage];

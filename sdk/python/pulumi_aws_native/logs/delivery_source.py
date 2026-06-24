@@ -15,12 +15,14 @@ else:
 from .. import _utilities
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = ['DeliverySourceArgs', 'DeliverySource']
 
 @pulumi.input_type
 class DeliverySourceArgs:
     def __init__(__self__, *,
+                 delivery_source_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  log_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -28,11 +30,14 @@ class DeliverySourceArgs:
         """
         The set of arguments for constructing a DeliverySource resource.
 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] delivery_source_configuration: A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] log_type: The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
         :param pulumi.Input[_builtins.str] name: The unique name of the Log source.
         :param pulumi.Input[_builtins.str] resource_arn: The ARN of the resource that will be sending the logs.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags that have been assigned to this delivery source.
         """
+        if delivery_source_configuration is not None:
+            pulumi.set(__self__, "delivery_source_configuration", delivery_source_configuration)
         if log_type is not None:
             pulumi.set(__self__, "log_type", log_type)
         if name is not None:
@@ -41,6 +46,18 @@ class DeliverySourceArgs:
             pulumi.set(__self__, "resource_arn", resource_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="deliverySourceConfiguration")
+    def delivery_source_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "delivery_source_configuration")
+
+    @delivery_source_configuration.setter
+    def delivery_source_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "delivery_source_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="logType")
@@ -97,6 +114,7 @@ class DeliverySource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delivery_source_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  log_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -110,6 +128,7 @@ class DeliverySource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] delivery_source_configuration: A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] log_type: The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
         :param pulumi.Input[_builtins.str] name: The unique name of the Log source.
         :param pulumi.Input[_builtins.str] resource_arn: The ARN of the resource that will be sending the logs.
@@ -142,6 +161,7 @@ class DeliverySource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delivery_source_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  log_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -155,6 +175,7 @@ class DeliverySource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeliverySourceArgs.__new__(DeliverySourceArgs)
 
+            __props__.__dict__["delivery_source_configuration"] = delivery_source_configuration
             __props__.__dict__["log_type"] = log_type
             __props__.__dict__["name"] = name
             __props__.__dict__["resource_arn"] = resource_arn
@@ -162,6 +183,8 @@ class DeliverySource(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["resource_arns"] = None
             __props__.__dict__["service"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["status_reason"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeliverySource, __self__).__init__(
@@ -187,11 +210,14 @@ class DeliverySource(pulumi.CustomResource):
         __props__ = DeliverySourceArgs.__new__(DeliverySourceArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["delivery_source_configuration"] = None
         __props__.__dict__["log_type"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["resource_arn"] = None
         __props__.__dict__["resource_arns"] = None
         __props__.__dict__["service"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["status_reason"] = None
         __props__.__dict__["tags"] = None
         return DeliverySource(resource_name, opts=opts, __props__=__props__)
 
@@ -202,6 +228,14 @@ class DeliverySource(pulumi.CustomResource):
         The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="deliverySourceConfiguration")
+    def delivery_source_configuration(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "delivery_source_configuration")
 
     @_builtins.property
     @pulumi.getter(name="logType")
@@ -242,6 +276,22 @@ class DeliverySource(pulumi.CustomResource):
         The AWS service that is sending logs.
         """
         return pulumi.get(self, "service")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Output['DeliverySourceStatus']:
+        """
+        The status of this delivery source. The value can be ACTIVE or INACTIVE.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="statusReason")
+    def status_reason(self) -> pulumi.Output['DeliverySourceStatusReason']:
+        """
+        The reason for the status of this delivery source, such as RESOURCE_DELETED.
+        """
+        return pulumi.get(self, "status_reason")
 
     @_builtins.property
     @pulumi.getter

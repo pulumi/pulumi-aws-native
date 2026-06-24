@@ -325,6 +325,14 @@ func (o AssociationS3OutputLocationPtrOutput) OutputS3Region() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Metadata that you assign to your AWS resources.
+type AssociationTag struct {
+	// The name of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 type AssociationTarget struct {
 	// User-defined criteria for sending commands that target managed nodes that meet the criteria.
 	Key string `pulumi:"key"`

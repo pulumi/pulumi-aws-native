@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     [OutputType]
     public sealed class OriginEndpointDashManifestConfiguration
     {
+        public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashAudioTimelinePattern? AudioTimelinePattern;
         public readonly Outputs.OriginEndpointDashAvailabilityStartTimeConfigurationProperties? AvailabilityStartTimeConfiguration;
         /// <summary>
         /// &lt;p&gt;The base URL to use for retrieving segments.&lt;/p&gt;
@@ -95,6 +96,8 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
         [OutputConstructor]
         private OriginEndpointDashManifestConfiguration(
+            Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashAudioTimelinePattern? audioTimelinePattern,
+
             Outputs.OriginEndpointDashAvailabilityStartTimeConfigurationProperties? availabilityStartTimeConfiguration,
 
             ImmutableArray<Outputs.OriginEndpointDashBaseUrl> baseUrls,
@@ -133,6 +136,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
             Outputs.OriginEndpointDashUtcTiming? utcTiming)
         {
+            AudioTimelinePattern = audioTimelinePattern;
             AvailabilityStartTimeConfiguration = availabilityStartTimeConfiguration;
             BaseUrls = baseUrls;
             Compactness = compactness;

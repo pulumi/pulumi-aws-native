@@ -16,12 +16,17 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class PolicyDefinition
     {
-        public readonly Outputs.PolicyCedarPolicy Cedar;
+        public readonly Outputs.PolicyCedarPolicy? Cedar;
+        public readonly Outputs.PolicyStatement? Policy;
 
         [OutputConstructor]
-        private PolicyDefinition(Outputs.PolicyCedarPolicy cedar)
+        private PolicyDefinition(
+            Outputs.PolicyCedarPolicy? cedar,
+
+            Outputs.PolicyStatement? policy)
         {
             Cedar = cedar;
+            Policy = policy;
         }
     }
 }

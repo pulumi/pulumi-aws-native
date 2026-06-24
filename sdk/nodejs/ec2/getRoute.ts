@@ -66,6 +66,9 @@ export interface GetRouteResult {
      * The ID of a network interface.
      */
     readonly networkInterfaceId?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the ODB network.
+     */
     readonly odbNetworkArn?: string;
     /**
      * The ID of a transit gateway.

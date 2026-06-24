@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::BedrockAgentCore::Harness resource type - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
+// Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
 type Harness struct {
 	pulumi.CustomResourceState
 
@@ -61,6 +61,8 @@ type Harness struct {
 	Truncation HarnessTruncationConfigurationPtrOutput `pulumi:"truncation"`
 	// The timestamp when the harness was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	// The version of the harness. Incremented on every successful update.
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewHarness registers a new resource with the given unique name, arguments, and options.
@@ -77,8 +79,8 @@ func NewHarness(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Model'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"environment.agentCoreRuntimeEnvironment.networkConfiguration",
 		"harnessName",
+		"memory.managedMemoryConfiguration.encryptionKeyArn",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -333,6 +335,11 @@ func (o HarnessOutput) Truncation() HarnessTruncationConfigurationPtrOutput {
 // The timestamp when the harness was last updated.
 func (o HarnessOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Harness) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// The version of the harness. Incremented on every successful update.
+func (o HarnessOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *Harness) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
 
 func init() {

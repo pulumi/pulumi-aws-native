@@ -3219,6 +3219,142 @@ func (o RuleGroupCountActionPtrOutput) CustomRequestHandling() RuleGroupCustomRe
 	}).(RuleGroupCustomRequestHandlingPtrOutput)
 }
 
+// Configures cryptocurrency payment settings.
+type RuleGroupCryptoConfig struct {
+	PaymentNetworks []RuleGroupPaymentNetwork `pulumi:"paymentNetworks"`
+}
+
+// RuleGroupCryptoConfigInput is an input type that accepts RuleGroupCryptoConfigArgs and RuleGroupCryptoConfigOutput values.
+// You can construct a concrete instance of `RuleGroupCryptoConfigInput` via:
+//
+//	RuleGroupCryptoConfigArgs{...}
+type RuleGroupCryptoConfigInput interface {
+	pulumi.Input
+
+	ToRuleGroupCryptoConfigOutput() RuleGroupCryptoConfigOutput
+	ToRuleGroupCryptoConfigOutputWithContext(context.Context) RuleGroupCryptoConfigOutput
+}
+
+// Configures cryptocurrency payment settings.
+type RuleGroupCryptoConfigArgs struct {
+	PaymentNetworks RuleGroupPaymentNetworkArrayInput `pulumi:"paymentNetworks"`
+}
+
+func (RuleGroupCryptoConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCryptoConfig)(nil)).Elem()
+}
+
+func (i RuleGroupCryptoConfigArgs) ToRuleGroupCryptoConfigOutput() RuleGroupCryptoConfigOutput {
+	return i.ToRuleGroupCryptoConfigOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCryptoConfigArgs) ToRuleGroupCryptoConfigOutputWithContext(ctx context.Context) RuleGroupCryptoConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCryptoConfigOutput)
+}
+
+func (i RuleGroupCryptoConfigArgs) ToRuleGroupCryptoConfigPtrOutput() RuleGroupCryptoConfigPtrOutput {
+	return i.ToRuleGroupCryptoConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCryptoConfigArgs) ToRuleGroupCryptoConfigPtrOutputWithContext(ctx context.Context) RuleGroupCryptoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCryptoConfigOutput).ToRuleGroupCryptoConfigPtrOutputWithContext(ctx)
+}
+
+// RuleGroupCryptoConfigPtrInput is an input type that accepts RuleGroupCryptoConfigArgs, RuleGroupCryptoConfigPtr and RuleGroupCryptoConfigPtrOutput values.
+// You can construct a concrete instance of `RuleGroupCryptoConfigPtrInput` via:
+//
+//	        RuleGroupCryptoConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupCryptoConfigPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupCryptoConfigPtrOutput() RuleGroupCryptoConfigPtrOutput
+	ToRuleGroupCryptoConfigPtrOutputWithContext(context.Context) RuleGroupCryptoConfigPtrOutput
+}
+
+type ruleGroupCryptoConfigPtrType RuleGroupCryptoConfigArgs
+
+func RuleGroupCryptoConfigPtr(v *RuleGroupCryptoConfigArgs) RuleGroupCryptoConfigPtrInput {
+	return (*ruleGroupCryptoConfigPtrType)(v)
+}
+
+func (*ruleGroupCryptoConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCryptoConfig)(nil)).Elem()
+}
+
+func (i *ruleGroupCryptoConfigPtrType) ToRuleGroupCryptoConfigPtrOutput() RuleGroupCryptoConfigPtrOutput {
+	return i.ToRuleGroupCryptoConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupCryptoConfigPtrType) ToRuleGroupCryptoConfigPtrOutputWithContext(ctx context.Context) RuleGroupCryptoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCryptoConfigPtrOutput)
+}
+
+// Configures cryptocurrency payment settings.
+type RuleGroupCryptoConfigOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCryptoConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCryptoConfig)(nil)).Elem()
+}
+
+func (o RuleGroupCryptoConfigOutput) ToRuleGroupCryptoConfigOutput() RuleGroupCryptoConfigOutput {
+	return o
+}
+
+func (o RuleGroupCryptoConfigOutput) ToRuleGroupCryptoConfigOutputWithContext(ctx context.Context) RuleGroupCryptoConfigOutput {
+	return o
+}
+
+func (o RuleGroupCryptoConfigOutput) ToRuleGroupCryptoConfigPtrOutput() RuleGroupCryptoConfigPtrOutput {
+	return o.ToRuleGroupCryptoConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupCryptoConfigOutput) ToRuleGroupCryptoConfigPtrOutputWithContext(ctx context.Context) RuleGroupCryptoConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupCryptoConfig) *RuleGroupCryptoConfig {
+		return &v
+	}).(RuleGroupCryptoConfigPtrOutput)
+}
+
+func (o RuleGroupCryptoConfigOutput) PaymentNetworks() RuleGroupPaymentNetworkArrayOutput {
+	return o.ApplyT(func(v RuleGroupCryptoConfig) []RuleGroupPaymentNetwork { return v.PaymentNetworks }).(RuleGroupPaymentNetworkArrayOutput)
+}
+
+type RuleGroupCryptoConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCryptoConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCryptoConfig)(nil)).Elem()
+}
+
+func (o RuleGroupCryptoConfigPtrOutput) ToRuleGroupCryptoConfigPtrOutput() RuleGroupCryptoConfigPtrOutput {
+	return o
+}
+
+func (o RuleGroupCryptoConfigPtrOutput) ToRuleGroupCryptoConfigPtrOutputWithContext(ctx context.Context) RuleGroupCryptoConfigPtrOutput {
+	return o
+}
+
+func (o RuleGroupCryptoConfigPtrOutput) Elem() RuleGroupCryptoConfigOutput {
+	return o.ApplyT(func(v *RuleGroupCryptoConfig) RuleGroupCryptoConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupCryptoConfig
+		return ret
+	}).(RuleGroupCryptoConfigOutput)
+}
+
+func (o RuleGroupCryptoConfigPtrOutput) PaymentNetworks() RuleGroupPaymentNetworkArrayOutput {
+	return o.ApplyT(func(v *RuleGroupCryptoConfig) []RuleGroupPaymentNetwork {
+		if v == nil {
+			return nil
+		}
+		return v.PaymentNetworks
+	}).(RuleGroupPaymentNetworkArrayOutput)
+}
+
 // HTTP header.
 type RuleGroupCustomHttpHeader struct {
 	// The name of the custom header.
@@ -7232,6 +7368,293 @@ func (o RuleGroupLabelSummaryArrayOutput) Index(i pulumi.IntInput) RuleGroupLabe
 	}).(RuleGroupLabelSummaryOutput)
 }
 
+// Configures monetization for the web ACL or rule group.
+type RuleGroupMonetizationConfig struct {
+	CryptoConfig *RuleGroupCryptoConfig `pulumi:"cryptoConfig"`
+	CurrencyMode *RuleGroupCurrencyMode `pulumi:"currencyMode"`
+}
+
+// RuleGroupMonetizationConfigInput is an input type that accepts RuleGroupMonetizationConfigArgs and RuleGroupMonetizationConfigOutput values.
+// You can construct a concrete instance of `RuleGroupMonetizationConfigInput` via:
+//
+//	RuleGroupMonetizationConfigArgs{...}
+type RuleGroupMonetizationConfigInput interface {
+	pulumi.Input
+
+	ToRuleGroupMonetizationConfigOutput() RuleGroupMonetizationConfigOutput
+	ToRuleGroupMonetizationConfigOutputWithContext(context.Context) RuleGroupMonetizationConfigOutput
+}
+
+// Configures monetization for the web ACL or rule group.
+type RuleGroupMonetizationConfigArgs struct {
+	CryptoConfig RuleGroupCryptoConfigPtrInput `pulumi:"cryptoConfig"`
+	CurrencyMode RuleGroupCurrencyModePtrInput `pulumi:"currencyMode"`
+}
+
+func (RuleGroupMonetizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupMonetizationConfig)(nil)).Elem()
+}
+
+func (i RuleGroupMonetizationConfigArgs) ToRuleGroupMonetizationConfigOutput() RuleGroupMonetizationConfigOutput {
+	return i.ToRuleGroupMonetizationConfigOutputWithContext(context.Background())
+}
+
+func (i RuleGroupMonetizationConfigArgs) ToRuleGroupMonetizationConfigOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMonetizationConfigOutput)
+}
+
+func (i RuleGroupMonetizationConfigArgs) ToRuleGroupMonetizationConfigPtrOutput() RuleGroupMonetizationConfigPtrOutput {
+	return i.ToRuleGroupMonetizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupMonetizationConfigArgs) ToRuleGroupMonetizationConfigPtrOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMonetizationConfigOutput).ToRuleGroupMonetizationConfigPtrOutputWithContext(ctx)
+}
+
+// RuleGroupMonetizationConfigPtrInput is an input type that accepts RuleGroupMonetizationConfigArgs, RuleGroupMonetizationConfigPtr and RuleGroupMonetizationConfigPtrOutput values.
+// You can construct a concrete instance of `RuleGroupMonetizationConfigPtrInput` via:
+//
+//	        RuleGroupMonetizationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupMonetizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupMonetizationConfigPtrOutput() RuleGroupMonetizationConfigPtrOutput
+	ToRuleGroupMonetizationConfigPtrOutputWithContext(context.Context) RuleGroupMonetizationConfigPtrOutput
+}
+
+type ruleGroupMonetizationConfigPtrType RuleGroupMonetizationConfigArgs
+
+func RuleGroupMonetizationConfigPtr(v *RuleGroupMonetizationConfigArgs) RuleGroupMonetizationConfigPtrInput {
+	return (*ruleGroupMonetizationConfigPtrType)(v)
+}
+
+func (*ruleGroupMonetizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupMonetizationConfig)(nil)).Elem()
+}
+
+func (i *ruleGroupMonetizationConfigPtrType) ToRuleGroupMonetizationConfigPtrOutput() RuleGroupMonetizationConfigPtrOutput {
+	return i.ToRuleGroupMonetizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupMonetizationConfigPtrType) ToRuleGroupMonetizationConfigPtrOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMonetizationConfigPtrOutput)
+}
+
+// Configures monetization for the web ACL or rule group.
+type RuleGroupMonetizationConfigOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupMonetizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupMonetizationConfig)(nil)).Elem()
+}
+
+func (o RuleGroupMonetizationConfigOutput) ToRuleGroupMonetizationConfigOutput() RuleGroupMonetizationConfigOutput {
+	return o
+}
+
+func (o RuleGroupMonetizationConfigOutput) ToRuleGroupMonetizationConfigOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigOutput {
+	return o
+}
+
+func (o RuleGroupMonetizationConfigOutput) ToRuleGroupMonetizationConfigPtrOutput() RuleGroupMonetizationConfigPtrOutput {
+	return o.ToRuleGroupMonetizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupMonetizationConfigOutput) ToRuleGroupMonetizationConfigPtrOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupMonetizationConfig) *RuleGroupMonetizationConfig {
+		return &v
+	}).(RuleGroupMonetizationConfigPtrOutput)
+}
+
+func (o RuleGroupMonetizationConfigOutput) CryptoConfig() RuleGroupCryptoConfigPtrOutput {
+	return o.ApplyT(func(v RuleGroupMonetizationConfig) *RuleGroupCryptoConfig { return v.CryptoConfig }).(RuleGroupCryptoConfigPtrOutput)
+}
+
+func (o RuleGroupMonetizationConfigOutput) CurrencyMode() RuleGroupCurrencyModePtrOutput {
+	return o.ApplyT(func(v RuleGroupMonetizationConfig) *RuleGroupCurrencyMode { return v.CurrencyMode }).(RuleGroupCurrencyModePtrOutput)
+}
+
+type RuleGroupMonetizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupMonetizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupMonetizationConfig)(nil)).Elem()
+}
+
+func (o RuleGroupMonetizationConfigPtrOutput) ToRuleGroupMonetizationConfigPtrOutput() RuleGroupMonetizationConfigPtrOutput {
+	return o
+}
+
+func (o RuleGroupMonetizationConfigPtrOutput) ToRuleGroupMonetizationConfigPtrOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigPtrOutput {
+	return o
+}
+
+func (o RuleGroupMonetizationConfigPtrOutput) Elem() RuleGroupMonetizationConfigOutput {
+	return o.ApplyT(func(v *RuleGroupMonetizationConfig) RuleGroupMonetizationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupMonetizationConfig
+		return ret
+	}).(RuleGroupMonetizationConfigOutput)
+}
+
+func (o RuleGroupMonetizationConfigPtrOutput) CryptoConfig() RuleGroupCryptoConfigPtrOutput {
+	return o.ApplyT(func(v *RuleGroupMonetizationConfig) *RuleGroupCryptoConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CryptoConfig
+	}).(RuleGroupCryptoConfigPtrOutput)
+}
+
+func (o RuleGroupMonetizationConfigPtrOutput) CurrencyMode() RuleGroupCurrencyModePtrOutput {
+	return o.ApplyT(func(v *RuleGroupMonetizationConfig) *RuleGroupCurrencyMode {
+		if v == nil {
+			return nil
+		}
+		return v.CurrencyMode
+	}).(RuleGroupCurrencyModePtrOutput)
+}
+
+// Monetize action for rules.
+type RuleGroupMonetizeAction struct {
+	PriceMultiplier *string `pulumi:"priceMultiplier"`
+}
+
+// RuleGroupMonetizeActionInput is an input type that accepts RuleGroupMonetizeActionArgs and RuleGroupMonetizeActionOutput values.
+// You can construct a concrete instance of `RuleGroupMonetizeActionInput` via:
+//
+//	RuleGroupMonetizeActionArgs{...}
+type RuleGroupMonetizeActionInput interface {
+	pulumi.Input
+
+	ToRuleGroupMonetizeActionOutput() RuleGroupMonetizeActionOutput
+	ToRuleGroupMonetizeActionOutputWithContext(context.Context) RuleGroupMonetizeActionOutput
+}
+
+// Monetize action for rules.
+type RuleGroupMonetizeActionArgs struct {
+	PriceMultiplier pulumi.StringPtrInput `pulumi:"priceMultiplier"`
+}
+
+func (RuleGroupMonetizeActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupMonetizeAction)(nil)).Elem()
+}
+
+func (i RuleGroupMonetizeActionArgs) ToRuleGroupMonetizeActionOutput() RuleGroupMonetizeActionOutput {
+	return i.ToRuleGroupMonetizeActionOutputWithContext(context.Background())
+}
+
+func (i RuleGroupMonetizeActionArgs) ToRuleGroupMonetizeActionOutputWithContext(ctx context.Context) RuleGroupMonetizeActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMonetizeActionOutput)
+}
+
+func (i RuleGroupMonetizeActionArgs) ToRuleGroupMonetizeActionPtrOutput() RuleGroupMonetizeActionPtrOutput {
+	return i.ToRuleGroupMonetizeActionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupMonetizeActionArgs) ToRuleGroupMonetizeActionPtrOutputWithContext(ctx context.Context) RuleGroupMonetizeActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMonetizeActionOutput).ToRuleGroupMonetizeActionPtrOutputWithContext(ctx)
+}
+
+// RuleGroupMonetizeActionPtrInput is an input type that accepts RuleGroupMonetizeActionArgs, RuleGroupMonetizeActionPtr and RuleGroupMonetizeActionPtrOutput values.
+// You can construct a concrete instance of `RuleGroupMonetizeActionPtrInput` via:
+//
+//	        RuleGroupMonetizeActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupMonetizeActionPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupMonetizeActionPtrOutput() RuleGroupMonetizeActionPtrOutput
+	ToRuleGroupMonetizeActionPtrOutputWithContext(context.Context) RuleGroupMonetizeActionPtrOutput
+}
+
+type ruleGroupMonetizeActionPtrType RuleGroupMonetizeActionArgs
+
+func RuleGroupMonetizeActionPtr(v *RuleGroupMonetizeActionArgs) RuleGroupMonetizeActionPtrInput {
+	return (*ruleGroupMonetizeActionPtrType)(v)
+}
+
+func (*ruleGroupMonetizeActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupMonetizeAction)(nil)).Elem()
+}
+
+func (i *ruleGroupMonetizeActionPtrType) ToRuleGroupMonetizeActionPtrOutput() RuleGroupMonetizeActionPtrOutput {
+	return i.ToRuleGroupMonetizeActionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupMonetizeActionPtrType) ToRuleGroupMonetizeActionPtrOutputWithContext(ctx context.Context) RuleGroupMonetizeActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMonetizeActionPtrOutput)
+}
+
+// Monetize action for rules.
+type RuleGroupMonetizeActionOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupMonetizeActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupMonetizeAction)(nil)).Elem()
+}
+
+func (o RuleGroupMonetizeActionOutput) ToRuleGroupMonetizeActionOutput() RuleGroupMonetizeActionOutput {
+	return o
+}
+
+func (o RuleGroupMonetizeActionOutput) ToRuleGroupMonetizeActionOutputWithContext(ctx context.Context) RuleGroupMonetizeActionOutput {
+	return o
+}
+
+func (o RuleGroupMonetizeActionOutput) ToRuleGroupMonetizeActionPtrOutput() RuleGroupMonetizeActionPtrOutput {
+	return o.ToRuleGroupMonetizeActionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupMonetizeActionOutput) ToRuleGroupMonetizeActionPtrOutputWithContext(ctx context.Context) RuleGroupMonetizeActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupMonetizeAction) *RuleGroupMonetizeAction {
+		return &v
+	}).(RuleGroupMonetizeActionPtrOutput)
+}
+
+func (o RuleGroupMonetizeActionOutput) PriceMultiplier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleGroupMonetizeAction) *string { return v.PriceMultiplier }).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupMonetizeActionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupMonetizeActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupMonetizeAction)(nil)).Elem()
+}
+
+func (o RuleGroupMonetizeActionPtrOutput) ToRuleGroupMonetizeActionPtrOutput() RuleGroupMonetizeActionPtrOutput {
+	return o
+}
+
+func (o RuleGroupMonetizeActionPtrOutput) ToRuleGroupMonetizeActionPtrOutputWithContext(ctx context.Context) RuleGroupMonetizeActionPtrOutput {
+	return o
+}
+
+func (o RuleGroupMonetizeActionPtrOutput) Elem() RuleGroupMonetizeActionOutput {
+	return o.ApplyT(func(v *RuleGroupMonetizeAction) RuleGroupMonetizeAction {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupMonetizeAction
+		return ret
+	}).(RuleGroupMonetizeActionOutput)
+}
+
+func (o RuleGroupMonetizeActionPtrOutput) PriceMultiplier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupMonetizeAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PriceMultiplier
+	}).(pulumi.StringPtrOutput)
+}
+
 type RuleGroupNotStatement struct {
 	// The statement to negate. You can use any statement that can be nested.
 	Statement RuleGroupStatement `pulumi:"statement"`
@@ -7504,6 +7927,218 @@ func (o RuleGroupOrStatementPtrOutput) Statements() RuleGroupStatementArrayOutpu
 		}
 		return v.Statements
 	}).(RuleGroupStatementArrayOutput)
+}
+
+// Configuration for a single payment network.
+type RuleGroupPaymentNetwork struct {
+	Chain         RuleGroupBlockchainChain `pulumi:"chain"`
+	Prices        []RuleGroupPrice         `pulumi:"prices"`
+	WalletAddress string                   `pulumi:"walletAddress"`
+}
+
+// RuleGroupPaymentNetworkInput is an input type that accepts RuleGroupPaymentNetworkArgs and RuleGroupPaymentNetworkOutput values.
+// You can construct a concrete instance of `RuleGroupPaymentNetworkInput` via:
+//
+//	RuleGroupPaymentNetworkArgs{...}
+type RuleGroupPaymentNetworkInput interface {
+	pulumi.Input
+
+	ToRuleGroupPaymentNetworkOutput() RuleGroupPaymentNetworkOutput
+	ToRuleGroupPaymentNetworkOutputWithContext(context.Context) RuleGroupPaymentNetworkOutput
+}
+
+// Configuration for a single payment network.
+type RuleGroupPaymentNetworkArgs struct {
+	Chain         RuleGroupBlockchainChainInput `pulumi:"chain"`
+	Prices        RuleGroupPriceArrayInput      `pulumi:"prices"`
+	WalletAddress pulumi.StringInput            `pulumi:"walletAddress"`
+}
+
+func (RuleGroupPaymentNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupPaymentNetwork)(nil)).Elem()
+}
+
+func (i RuleGroupPaymentNetworkArgs) ToRuleGroupPaymentNetworkOutput() RuleGroupPaymentNetworkOutput {
+	return i.ToRuleGroupPaymentNetworkOutputWithContext(context.Background())
+}
+
+func (i RuleGroupPaymentNetworkArgs) ToRuleGroupPaymentNetworkOutputWithContext(ctx context.Context) RuleGroupPaymentNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPaymentNetworkOutput)
+}
+
+// RuleGroupPaymentNetworkArrayInput is an input type that accepts RuleGroupPaymentNetworkArray and RuleGroupPaymentNetworkArrayOutput values.
+// You can construct a concrete instance of `RuleGroupPaymentNetworkArrayInput` via:
+//
+//	RuleGroupPaymentNetworkArray{ RuleGroupPaymentNetworkArgs{...} }
+type RuleGroupPaymentNetworkArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupPaymentNetworkArrayOutput() RuleGroupPaymentNetworkArrayOutput
+	ToRuleGroupPaymentNetworkArrayOutputWithContext(context.Context) RuleGroupPaymentNetworkArrayOutput
+}
+
+type RuleGroupPaymentNetworkArray []RuleGroupPaymentNetworkInput
+
+func (RuleGroupPaymentNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupPaymentNetwork)(nil)).Elem()
+}
+
+func (i RuleGroupPaymentNetworkArray) ToRuleGroupPaymentNetworkArrayOutput() RuleGroupPaymentNetworkArrayOutput {
+	return i.ToRuleGroupPaymentNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupPaymentNetworkArray) ToRuleGroupPaymentNetworkArrayOutputWithContext(ctx context.Context) RuleGroupPaymentNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPaymentNetworkArrayOutput)
+}
+
+// Configuration for a single payment network.
+type RuleGroupPaymentNetworkOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupPaymentNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupPaymentNetwork)(nil)).Elem()
+}
+
+func (o RuleGroupPaymentNetworkOutput) ToRuleGroupPaymentNetworkOutput() RuleGroupPaymentNetworkOutput {
+	return o
+}
+
+func (o RuleGroupPaymentNetworkOutput) ToRuleGroupPaymentNetworkOutputWithContext(ctx context.Context) RuleGroupPaymentNetworkOutput {
+	return o
+}
+
+func (o RuleGroupPaymentNetworkOutput) Chain() RuleGroupBlockchainChainOutput {
+	return o.ApplyT(func(v RuleGroupPaymentNetwork) RuleGroupBlockchainChain { return v.Chain }).(RuleGroupBlockchainChainOutput)
+}
+
+func (o RuleGroupPaymentNetworkOutput) Prices() RuleGroupPriceArrayOutput {
+	return o.ApplyT(func(v RuleGroupPaymentNetwork) []RuleGroupPrice { return v.Prices }).(RuleGroupPriceArrayOutput)
+}
+
+func (o RuleGroupPaymentNetworkOutput) WalletAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupPaymentNetwork) string { return v.WalletAddress }).(pulumi.StringOutput)
+}
+
+type RuleGroupPaymentNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupPaymentNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupPaymentNetwork)(nil)).Elem()
+}
+
+func (o RuleGroupPaymentNetworkArrayOutput) ToRuleGroupPaymentNetworkArrayOutput() RuleGroupPaymentNetworkArrayOutput {
+	return o
+}
+
+func (o RuleGroupPaymentNetworkArrayOutput) ToRuleGroupPaymentNetworkArrayOutputWithContext(ctx context.Context) RuleGroupPaymentNetworkArrayOutput {
+	return o
+}
+
+func (o RuleGroupPaymentNetworkArrayOutput) Index(i pulumi.IntInput) RuleGroupPaymentNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupPaymentNetwork {
+		return vs[0].([]RuleGroupPaymentNetwork)[vs[1].(int)]
+	}).(RuleGroupPaymentNetworkOutput)
+}
+
+// A price configuration.
+type RuleGroupPrice struct {
+	Amount   string                  `pulumi:"amount"`
+	Currency RuleGroupCryptoCurrency `pulumi:"currency"`
+}
+
+// RuleGroupPriceInput is an input type that accepts RuleGroupPriceArgs and RuleGroupPriceOutput values.
+// You can construct a concrete instance of `RuleGroupPriceInput` via:
+//
+//	RuleGroupPriceArgs{...}
+type RuleGroupPriceInput interface {
+	pulumi.Input
+
+	ToRuleGroupPriceOutput() RuleGroupPriceOutput
+	ToRuleGroupPriceOutputWithContext(context.Context) RuleGroupPriceOutput
+}
+
+// A price configuration.
+type RuleGroupPriceArgs struct {
+	Amount   pulumi.StringInput           `pulumi:"amount"`
+	Currency RuleGroupCryptoCurrencyInput `pulumi:"currency"`
+}
+
+func (RuleGroupPriceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupPrice)(nil)).Elem()
+}
+
+func (i RuleGroupPriceArgs) ToRuleGroupPriceOutput() RuleGroupPriceOutput {
+	return i.ToRuleGroupPriceOutputWithContext(context.Background())
+}
+
+func (i RuleGroupPriceArgs) ToRuleGroupPriceOutputWithContext(ctx context.Context) RuleGroupPriceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPriceOutput)
+}
+
+// RuleGroupPriceArrayInput is an input type that accepts RuleGroupPriceArray and RuleGroupPriceArrayOutput values.
+// You can construct a concrete instance of `RuleGroupPriceArrayInput` via:
+//
+//	RuleGroupPriceArray{ RuleGroupPriceArgs{...} }
+type RuleGroupPriceArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupPriceArrayOutput() RuleGroupPriceArrayOutput
+	ToRuleGroupPriceArrayOutputWithContext(context.Context) RuleGroupPriceArrayOutput
+}
+
+type RuleGroupPriceArray []RuleGroupPriceInput
+
+func (RuleGroupPriceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupPrice)(nil)).Elem()
+}
+
+func (i RuleGroupPriceArray) ToRuleGroupPriceArrayOutput() RuleGroupPriceArrayOutput {
+	return i.ToRuleGroupPriceArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupPriceArray) ToRuleGroupPriceArrayOutputWithContext(ctx context.Context) RuleGroupPriceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPriceArrayOutput)
+}
+
+// A price configuration.
+type RuleGroupPriceOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupPriceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupPrice)(nil)).Elem()
+}
+
+func (o RuleGroupPriceOutput) ToRuleGroupPriceOutput() RuleGroupPriceOutput {
+	return o
+}
+
+func (o RuleGroupPriceOutput) ToRuleGroupPriceOutputWithContext(ctx context.Context) RuleGroupPriceOutput {
+	return o
+}
+
+func (o RuleGroupPriceOutput) Amount() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupPrice) string { return v.Amount }).(pulumi.StringOutput)
+}
+
+func (o RuleGroupPriceOutput) Currency() RuleGroupCryptoCurrencyOutput {
+	return o.ApplyT(func(v RuleGroupPrice) RuleGroupCryptoCurrency { return v.Currency }).(RuleGroupCryptoCurrencyOutput)
+}
+
+type RuleGroupPriceArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupPriceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupPrice)(nil)).Elem()
+}
+
+func (o RuleGroupPriceArrayOutput) ToRuleGroupPriceArrayOutput() RuleGroupPriceArrayOutput {
+	return o
+}
+
+func (o RuleGroupPriceArrayOutput) ToRuleGroupPriceArrayOutputWithContext(ctx context.Context) RuleGroupPriceArrayOutput {
+	return o
+}
+
+func (o RuleGroupPriceArrayOutput) Index(i pulumi.IntInput) RuleGroupPriceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupPrice {
+		return vs[0].([]RuleGroupPrice)[vs[1].(int)]
+	}).(RuleGroupPriceOutput)
 }
 
 type RuleGroupRateBasedStatement struct {
@@ -10359,7 +10994,8 @@ type RuleGroupRuleAction struct {
 	// Instructs AWS WAF to run a `Challenge` check against the web request.
 	Challenge *RuleGroupChallengeAction `pulumi:"challenge"`
 	// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
-	Count *RuleGroupCountAction `pulumi:"count"`
+	Count    *RuleGroupCountAction    `pulumi:"count"`
+	Monetize *RuleGroupMonetizeAction `pulumi:"monetize"`
 }
 
 // RuleGroupRuleActionInput is an input type that accepts RuleGroupRuleActionArgs and RuleGroupRuleActionOutput values.
@@ -10397,7 +11033,8 @@ type RuleGroupRuleActionArgs struct {
 	// Instructs AWS WAF to run a `Challenge` check against the web request.
 	Challenge RuleGroupChallengeActionPtrInput `pulumi:"challenge"`
 	// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
-	Count RuleGroupCountActionPtrInput `pulumi:"count"`
+	Count    RuleGroupCountActionPtrInput    `pulumi:"count"`
+	Monetize RuleGroupMonetizeActionPtrInput `pulumi:"monetize"`
 }
 
 func (RuleGroupRuleActionArgs) ElementType() reflect.Type {
@@ -10516,6 +11153,10 @@ func (o RuleGroupRuleActionOutput) Count() RuleGroupCountActionPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupCountAction { return v.Count }).(RuleGroupCountActionPtrOutput)
 }
 
+func (o RuleGroupRuleActionOutput) Monetize() RuleGroupMonetizeActionPtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupMonetizeAction { return v.Monetize }).(RuleGroupMonetizeActionPtrOutput)
+}
+
 type RuleGroupRuleActionPtrOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleActionPtrOutput) ElementType() reflect.Type {
@@ -10601,6 +11242,15 @@ func (o RuleGroupRuleActionPtrOutput) Count() RuleGroupCountActionPtrOutput {
 		}
 		return v.Count
 	}).(RuleGroupCountActionPtrOutput)
+}
+
+func (o RuleGroupRuleActionPtrOutput) Monetize() RuleGroupMonetizeActionPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupMonetizeAction {
+		if v == nil {
+			return nil
+		}
+		return v.Monetize
+	}).(RuleGroupMonetizeActionPtrOutput)
 }
 
 // Size Constraint statement.
@@ -16289,6 +16939,142 @@ func (o WebAclCountActionPtrOutput) CustomRequestHandling() WebAclCustomRequestH
 	}).(WebAclCustomRequestHandlingPtrOutput)
 }
 
+// Configures cryptocurrency payment settings.
+type WebAclCryptoConfig struct {
+	PaymentNetworks []WebAclPaymentNetwork `pulumi:"paymentNetworks"`
+}
+
+// WebAclCryptoConfigInput is an input type that accepts WebAclCryptoConfigArgs and WebAclCryptoConfigOutput values.
+// You can construct a concrete instance of `WebAclCryptoConfigInput` via:
+//
+//	WebAclCryptoConfigArgs{...}
+type WebAclCryptoConfigInput interface {
+	pulumi.Input
+
+	ToWebAclCryptoConfigOutput() WebAclCryptoConfigOutput
+	ToWebAclCryptoConfigOutputWithContext(context.Context) WebAclCryptoConfigOutput
+}
+
+// Configures cryptocurrency payment settings.
+type WebAclCryptoConfigArgs struct {
+	PaymentNetworks WebAclPaymentNetworkArrayInput `pulumi:"paymentNetworks"`
+}
+
+func (WebAclCryptoConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclCryptoConfig)(nil)).Elem()
+}
+
+func (i WebAclCryptoConfigArgs) ToWebAclCryptoConfigOutput() WebAclCryptoConfigOutput {
+	return i.ToWebAclCryptoConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclCryptoConfigArgs) ToWebAclCryptoConfigOutputWithContext(ctx context.Context) WebAclCryptoConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclCryptoConfigOutput)
+}
+
+func (i WebAclCryptoConfigArgs) ToWebAclCryptoConfigPtrOutput() WebAclCryptoConfigPtrOutput {
+	return i.ToWebAclCryptoConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclCryptoConfigArgs) ToWebAclCryptoConfigPtrOutputWithContext(ctx context.Context) WebAclCryptoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclCryptoConfigOutput).ToWebAclCryptoConfigPtrOutputWithContext(ctx)
+}
+
+// WebAclCryptoConfigPtrInput is an input type that accepts WebAclCryptoConfigArgs, WebAclCryptoConfigPtr and WebAclCryptoConfigPtrOutput values.
+// You can construct a concrete instance of `WebAclCryptoConfigPtrInput` via:
+//
+//	        WebAclCryptoConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclCryptoConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebAclCryptoConfigPtrOutput() WebAclCryptoConfigPtrOutput
+	ToWebAclCryptoConfigPtrOutputWithContext(context.Context) WebAclCryptoConfigPtrOutput
+}
+
+type webAclCryptoConfigPtrType WebAclCryptoConfigArgs
+
+func WebAclCryptoConfigPtr(v *WebAclCryptoConfigArgs) WebAclCryptoConfigPtrInput {
+	return (*webAclCryptoConfigPtrType)(v)
+}
+
+func (*webAclCryptoConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclCryptoConfig)(nil)).Elem()
+}
+
+func (i *webAclCryptoConfigPtrType) ToWebAclCryptoConfigPtrOutput() WebAclCryptoConfigPtrOutput {
+	return i.ToWebAclCryptoConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclCryptoConfigPtrType) ToWebAclCryptoConfigPtrOutputWithContext(ctx context.Context) WebAclCryptoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclCryptoConfigPtrOutput)
+}
+
+// Configures cryptocurrency payment settings.
+type WebAclCryptoConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclCryptoConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclCryptoConfig)(nil)).Elem()
+}
+
+func (o WebAclCryptoConfigOutput) ToWebAclCryptoConfigOutput() WebAclCryptoConfigOutput {
+	return o
+}
+
+func (o WebAclCryptoConfigOutput) ToWebAclCryptoConfigOutputWithContext(ctx context.Context) WebAclCryptoConfigOutput {
+	return o
+}
+
+func (o WebAclCryptoConfigOutput) ToWebAclCryptoConfigPtrOutput() WebAclCryptoConfigPtrOutput {
+	return o.ToWebAclCryptoConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclCryptoConfigOutput) ToWebAclCryptoConfigPtrOutputWithContext(ctx context.Context) WebAclCryptoConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclCryptoConfig) *WebAclCryptoConfig {
+		return &v
+	}).(WebAclCryptoConfigPtrOutput)
+}
+
+func (o WebAclCryptoConfigOutput) PaymentNetworks() WebAclPaymentNetworkArrayOutput {
+	return o.ApplyT(func(v WebAclCryptoConfig) []WebAclPaymentNetwork { return v.PaymentNetworks }).(WebAclPaymentNetworkArrayOutput)
+}
+
+type WebAclCryptoConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclCryptoConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclCryptoConfig)(nil)).Elem()
+}
+
+func (o WebAclCryptoConfigPtrOutput) ToWebAclCryptoConfigPtrOutput() WebAclCryptoConfigPtrOutput {
+	return o
+}
+
+func (o WebAclCryptoConfigPtrOutput) ToWebAclCryptoConfigPtrOutputWithContext(ctx context.Context) WebAclCryptoConfigPtrOutput {
+	return o
+}
+
+func (o WebAclCryptoConfigPtrOutput) Elem() WebAclCryptoConfigOutput {
+	return o.ApplyT(func(v *WebAclCryptoConfig) WebAclCryptoConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclCryptoConfig
+		return ret
+	}).(WebAclCryptoConfigOutput)
+}
+
+func (o WebAclCryptoConfigPtrOutput) PaymentNetworks() WebAclPaymentNetworkArrayOutput {
+	return o.ApplyT(func(v *WebAclCryptoConfig) []WebAclPaymentNetwork {
+		if v == nil {
+			return nil
+		}
+		return v.PaymentNetworks
+	}).(WebAclPaymentNetworkArrayOutput)
+}
+
 // HTTP header.
 type WebAclCustomHttpHeader struct {
 	// The name of the custom header.
@@ -21388,6 +22174,293 @@ func (o WebAclManagedRuleGroupStatementPtrOutput) Version() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configures monetization for the web ACL or rule group.
+type WebAclMonetizationConfig struct {
+	CryptoConfig *WebAclCryptoConfig `pulumi:"cryptoConfig"`
+	CurrencyMode *WebAclCurrencyMode `pulumi:"currencyMode"`
+}
+
+// WebAclMonetizationConfigInput is an input type that accepts WebAclMonetizationConfigArgs and WebAclMonetizationConfigOutput values.
+// You can construct a concrete instance of `WebAclMonetizationConfigInput` via:
+//
+//	WebAclMonetizationConfigArgs{...}
+type WebAclMonetizationConfigInput interface {
+	pulumi.Input
+
+	ToWebAclMonetizationConfigOutput() WebAclMonetizationConfigOutput
+	ToWebAclMonetizationConfigOutputWithContext(context.Context) WebAclMonetizationConfigOutput
+}
+
+// Configures monetization for the web ACL or rule group.
+type WebAclMonetizationConfigArgs struct {
+	CryptoConfig WebAclCryptoConfigPtrInput `pulumi:"cryptoConfig"`
+	CurrencyMode WebAclCurrencyModePtrInput `pulumi:"currencyMode"`
+}
+
+func (WebAclMonetizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclMonetizationConfig)(nil)).Elem()
+}
+
+func (i WebAclMonetizationConfigArgs) ToWebAclMonetizationConfigOutput() WebAclMonetizationConfigOutput {
+	return i.ToWebAclMonetizationConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclMonetizationConfigArgs) ToWebAclMonetizationConfigOutputWithContext(ctx context.Context) WebAclMonetizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclMonetizationConfigOutput)
+}
+
+func (i WebAclMonetizationConfigArgs) ToWebAclMonetizationConfigPtrOutput() WebAclMonetizationConfigPtrOutput {
+	return i.ToWebAclMonetizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclMonetizationConfigArgs) ToWebAclMonetizationConfigPtrOutputWithContext(ctx context.Context) WebAclMonetizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclMonetizationConfigOutput).ToWebAclMonetizationConfigPtrOutputWithContext(ctx)
+}
+
+// WebAclMonetizationConfigPtrInput is an input type that accepts WebAclMonetizationConfigArgs, WebAclMonetizationConfigPtr and WebAclMonetizationConfigPtrOutput values.
+// You can construct a concrete instance of `WebAclMonetizationConfigPtrInput` via:
+//
+//	        WebAclMonetizationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclMonetizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebAclMonetizationConfigPtrOutput() WebAclMonetizationConfigPtrOutput
+	ToWebAclMonetizationConfigPtrOutputWithContext(context.Context) WebAclMonetizationConfigPtrOutput
+}
+
+type webAclMonetizationConfigPtrType WebAclMonetizationConfigArgs
+
+func WebAclMonetizationConfigPtr(v *WebAclMonetizationConfigArgs) WebAclMonetizationConfigPtrInput {
+	return (*webAclMonetizationConfigPtrType)(v)
+}
+
+func (*webAclMonetizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclMonetizationConfig)(nil)).Elem()
+}
+
+func (i *webAclMonetizationConfigPtrType) ToWebAclMonetizationConfigPtrOutput() WebAclMonetizationConfigPtrOutput {
+	return i.ToWebAclMonetizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclMonetizationConfigPtrType) ToWebAclMonetizationConfigPtrOutputWithContext(ctx context.Context) WebAclMonetizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclMonetizationConfigPtrOutput)
+}
+
+// Configures monetization for the web ACL or rule group.
+type WebAclMonetizationConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclMonetizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclMonetizationConfig)(nil)).Elem()
+}
+
+func (o WebAclMonetizationConfigOutput) ToWebAclMonetizationConfigOutput() WebAclMonetizationConfigOutput {
+	return o
+}
+
+func (o WebAclMonetizationConfigOutput) ToWebAclMonetizationConfigOutputWithContext(ctx context.Context) WebAclMonetizationConfigOutput {
+	return o
+}
+
+func (o WebAclMonetizationConfigOutput) ToWebAclMonetizationConfigPtrOutput() WebAclMonetizationConfigPtrOutput {
+	return o.ToWebAclMonetizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclMonetizationConfigOutput) ToWebAclMonetizationConfigPtrOutputWithContext(ctx context.Context) WebAclMonetizationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclMonetizationConfig) *WebAclMonetizationConfig {
+		return &v
+	}).(WebAclMonetizationConfigPtrOutput)
+}
+
+func (o WebAclMonetizationConfigOutput) CryptoConfig() WebAclCryptoConfigPtrOutput {
+	return o.ApplyT(func(v WebAclMonetizationConfig) *WebAclCryptoConfig { return v.CryptoConfig }).(WebAclCryptoConfigPtrOutput)
+}
+
+func (o WebAclMonetizationConfigOutput) CurrencyMode() WebAclCurrencyModePtrOutput {
+	return o.ApplyT(func(v WebAclMonetizationConfig) *WebAclCurrencyMode { return v.CurrencyMode }).(WebAclCurrencyModePtrOutput)
+}
+
+type WebAclMonetizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclMonetizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclMonetizationConfig)(nil)).Elem()
+}
+
+func (o WebAclMonetizationConfigPtrOutput) ToWebAclMonetizationConfigPtrOutput() WebAclMonetizationConfigPtrOutput {
+	return o
+}
+
+func (o WebAclMonetizationConfigPtrOutput) ToWebAclMonetizationConfigPtrOutputWithContext(ctx context.Context) WebAclMonetizationConfigPtrOutput {
+	return o
+}
+
+func (o WebAclMonetizationConfigPtrOutput) Elem() WebAclMonetizationConfigOutput {
+	return o.ApplyT(func(v *WebAclMonetizationConfig) WebAclMonetizationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclMonetizationConfig
+		return ret
+	}).(WebAclMonetizationConfigOutput)
+}
+
+func (o WebAclMonetizationConfigPtrOutput) CryptoConfig() WebAclCryptoConfigPtrOutput {
+	return o.ApplyT(func(v *WebAclMonetizationConfig) *WebAclCryptoConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CryptoConfig
+	}).(WebAclCryptoConfigPtrOutput)
+}
+
+func (o WebAclMonetizationConfigPtrOutput) CurrencyMode() WebAclCurrencyModePtrOutput {
+	return o.ApplyT(func(v *WebAclMonetizationConfig) *WebAclCurrencyMode {
+		if v == nil {
+			return nil
+		}
+		return v.CurrencyMode
+	}).(WebAclCurrencyModePtrOutput)
+}
+
+// Monetize action for rules.
+type WebAclMonetizeAction struct {
+	PriceMultiplier *string `pulumi:"priceMultiplier"`
+}
+
+// WebAclMonetizeActionInput is an input type that accepts WebAclMonetizeActionArgs and WebAclMonetizeActionOutput values.
+// You can construct a concrete instance of `WebAclMonetizeActionInput` via:
+//
+//	WebAclMonetizeActionArgs{...}
+type WebAclMonetizeActionInput interface {
+	pulumi.Input
+
+	ToWebAclMonetizeActionOutput() WebAclMonetizeActionOutput
+	ToWebAclMonetizeActionOutputWithContext(context.Context) WebAclMonetizeActionOutput
+}
+
+// Monetize action for rules.
+type WebAclMonetizeActionArgs struct {
+	PriceMultiplier pulumi.StringPtrInput `pulumi:"priceMultiplier"`
+}
+
+func (WebAclMonetizeActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclMonetizeAction)(nil)).Elem()
+}
+
+func (i WebAclMonetizeActionArgs) ToWebAclMonetizeActionOutput() WebAclMonetizeActionOutput {
+	return i.ToWebAclMonetizeActionOutputWithContext(context.Background())
+}
+
+func (i WebAclMonetizeActionArgs) ToWebAclMonetizeActionOutputWithContext(ctx context.Context) WebAclMonetizeActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclMonetizeActionOutput)
+}
+
+func (i WebAclMonetizeActionArgs) ToWebAclMonetizeActionPtrOutput() WebAclMonetizeActionPtrOutput {
+	return i.ToWebAclMonetizeActionPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclMonetizeActionArgs) ToWebAclMonetizeActionPtrOutputWithContext(ctx context.Context) WebAclMonetizeActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclMonetizeActionOutput).ToWebAclMonetizeActionPtrOutputWithContext(ctx)
+}
+
+// WebAclMonetizeActionPtrInput is an input type that accepts WebAclMonetizeActionArgs, WebAclMonetizeActionPtr and WebAclMonetizeActionPtrOutput values.
+// You can construct a concrete instance of `WebAclMonetizeActionPtrInput` via:
+//
+//	        WebAclMonetizeActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclMonetizeActionPtrInput interface {
+	pulumi.Input
+
+	ToWebAclMonetizeActionPtrOutput() WebAclMonetizeActionPtrOutput
+	ToWebAclMonetizeActionPtrOutputWithContext(context.Context) WebAclMonetizeActionPtrOutput
+}
+
+type webAclMonetizeActionPtrType WebAclMonetizeActionArgs
+
+func WebAclMonetizeActionPtr(v *WebAclMonetizeActionArgs) WebAclMonetizeActionPtrInput {
+	return (*webAclMonetizeActionPtrType)(v)
+}
+
+func (*webAclMonetizeActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclMonetizeAction)(nil)).Elem()
+}
+
+func (i *webAclMonetizeActionPtrType) ToWebAclMonetizeActionPtrOutput() WebAclMonetizeActionPtrOutput {
+	return i.ToWebAclMonetizeActionPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclMonetizeActionPtrType) ToWebAclMonetizeActionPtrOutputWithContext(ctx context.Context) WebAclMonetizeActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclMonetizeActionPtrOutput)
+}
+
+// Monetize action for rules.
+type WebAclMonetizeActionOutput struct{ *pulumi.OutputState }
+
+func (WebAclMonetizeActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclMonetizeAction)(nil)).Elem()
+}
+
+func (o WebAclMonetizeActionOutput) ToWebAclMonetizeActionOutput() WebAclMonetizeActionOutput {
+	return o
+}
+
+func (o WebAclMonetizeActionOutput) ToWebAclMonetizeActionOutputWithContext(ctx context.Context) WebAclMonetizeActionOutput {
+	return o
+}
+
+func (o WebAclMonetizeActionOutput) ToWebAclMonetizeActionPtrOutput() WebAclMonetizeActionPtrOutput {
+	return o.ToWebAclMonetizeActionPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclMonetizeActionOutput) ToWebAclMonetizeActionPtrOutputWithContext(ctx context.Context) WebAclMonetizeActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclMonetizeAction) *WebAclMonetizeAction {
+		return &v
+	}).(WebAclMonetizeActionPtrOutput)
+}
+
+func (o WebAclMonetizeActionOutput) PriceMultiplier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAclMonetizeAction) *string { return v.PriceMultiplier }).(pulumi.StringPtrOutput)
+}
+
+type WebAclMonetizeActionPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclMonetizeActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclMonetizeAction)(nil)).Elem()
+}
+
+func (o WebAclMonetizeActionPtrOutput) ToWebAclMonetizeActionPtrOutput() WebAclMonetizeActionPtrOutput {
+	return o
+}
+
+func (o WebAclMonetizeActionPtrOutput) ToWebAclMonetizeActionPtrOutputWithContext(ctx context.Context) WebAclMonetizeActionPtrOutput {
+	return o
+}
+
+func (o WebAclMonetizeActionPtrOutput) Elem() WebAclMonetizeActionOutput {
+	return o.ApplyT(func(v *WebAclMonetizeAction) WebAclMonetizeAction {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclMonetizeAction
+		return ret
+	}).(WebAclMonetizeActionOutput)
+}
+
+func (o WebAclMonetizeActionPtrOutput) PriceMultiplier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclMonetizeAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PriceMultiplier
+	}).(pulumi.StringPtrOutput)
+}
+
 type WebAclNotStatement struct {
 	// The statement to negate. You can use any statement that can be nested.
 	Statement WebAclStatement `pulumi:"statement"`
@@ -21961,6 +23034,218 @@ func (o WebAclOverrideActionPtrOutput) None() pulumi.AnyOutput {
 		}
 		return v.None
 	}).(pulumi.AnyOutput)
+}
+
+// Configuration for a single payment network.
+type WebAclPaymentNetwork struct {
+	Chain         WebAclBlockchainChain `pulumi:"chain"`
+	Prices        []WebAclPrice         `pulumi:"prices"`
+	WalletAddress string                `pulumi:"walletAddress"`
+}
+
+// WebAclPaymentNetworkInput is an input type that accepts WebAclPaymentNetworkArgs and WebAclPaymentNetworkOutput values.
+// You can construct a concrete instance of `WebAclPaymentNetworkInput` via:
+//
+//	WebAclPaymentNetworkArgs{...}
+type WebAclPaymentNetworkInput interface {
+	pulumi.Input
+
+	ToWebAclPaymentNetworkOutput() WebAclPaymentNetworkOutput
+	ToWebAclPaymentNetworkOutputWithContext(context.Context) WebAclPaymentNetworkOutput
+}
+
+// Configuration for a single payment network.
+type WebAclPaymentNetworkArgs struct {
+	Chain         WebAclBlockchainChainInput `pulumi:"chain"`
+	Prices        WebAclPriceArrayInput      `pulumi:"prices"`
+	WalletAddress pulumi.StringInput         `pulumi:"walletAddress"`
+}
+
+func (WebAclPaymentNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclPaymentNetwork)(nil)).Elem()
+}
+
+func (i WebAclPaymentNetworkArgs) ToWebAclPaymentNetworkOutput() WebAclPaymentNetworkOutput {
+	return i.ToWebAclPaymentNetworkOutputWithContext(context.Background())
+}
+
+func (i WebAclPaymentNetworkArgs) ToWebAclPaymentNetworkOutputWithContext(ctx context.Context) WebAclPaymentNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclPaymentNetworkOutput)
+}
+
+// WebAclPaymentNetworkArrayInput is an input type that accepts WebAclPaymentNetworkArray and WebAclPaymentNetworkArrayOutput values.
+// You can construct a concrete instance of `WebAclPaymentNetworkArrayInput` via:
+//
+//	WebAclPaymentNetworkArray{ WebAclPaymentNetworkArgs{...} }
+type WebAclPaymentNetworkArrayInput interface {
+	pulumi.Input
+
+	ToWebAclPaymentNetworkArrayOutput() WebAclPaymentNetworkArrayOutput
+	ToWebAclPaymentNetworkArrayOutputWithContext(context.Context) WebAclPaymentNetworkArrayOutput
+}
+
+type WebAclPaymentNetworkArray []WebAclPaymentNetworkInput
+
+func (WebAclPaymentNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclPaymentNetwork)(nil)).Elem()
+}
+
+func (i WebAclPaymentNetworkArray) ToWebAclPaymentNetworkArrayOutput() WebAclPaymentNetworkArrayOutput {
+	return i.ToWebAclPaymentNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclPaymentNetworkArray) ToWebAclPaymentNetworkArrayOutputWithContext(ctx context.Context) WebAclPaymentNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclPaymentNetworkArrayOutput)
+}
+
+// Configuration for a single payment network.
+type WebAclPaymentNetworkOutput struct{ *pulumi.OutputState }
+
+func (WebAclPaymentNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclPaymentNetwork)(nil)).Elem()
+}
+
+func (o WebAclPaymentNetworkOutput) ToWebAclPaymentNetworkOutput() WebAclPaymentNetworkOutput {
+	return o
+}
+
+func (o WebAclPaymentNetworkOutput) ToWebAclPaymentNetworkOutputWithContext(ctx context.Context) WebAclPaymentNetworkOutput {
+	return o
+}
+
+func (o WebAclPaymentNetworkOutput) Chain() WebAclBlockchainChainOutput {
+	return o.ApplyT(func(v WebAclPaymentNetwork) WebAclBlockchainChain { return v.Chain }).(WebAclBlockchainChainOutput)
+}
+
+func (o WebAclPaymentNetworkOutput) Prices() WebAclPriceArrayOutput {
+	return o.ApplyT(func(v WebAclPaymentNetwork) []WebAclPrice { return v.Prices }).(WebAclPriceArrayOutput)
+}
+
+func (o WebAclPaymentNetworkOutput) WalletAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclPaymentNetwork) string { return v.WalletAddress }).(pulumi.StringOutput)
+}
+
+type WebAclPaymentNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclPaymentNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclPaymentNetwork)(nil)).Elem()
+}
+
+func (o WebAclPaymentNetworkArrayOutput) ToWebAclPaymentNetworkArrayOutput() WebAclPaymentNetworkArrayOutput {
+	return o
+}
+
+func (o WebAclPaymentNetworkArrayOutput) ToWebAclPaymentNetworkArrayOutputWithContext(ctx context.Context) WebAclPaymentNetworkArrayOutput {
+	return o
+}
+
+func (o WebAclPaymentNetworkArrayOutput) Index(i pulumi.IntInput) WebAclPaymentNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclPaymentNetwork {
+		return vs[0].([]WebAclPaymentNetwork)[vs[1].(int)]
+	}).(WebAclPaymentNetworkOutput)
+}
+
+// A price configuration.
+type WebAclPrice struct {
+	Amount   string               `pulumi:"amount"`
+	Currency WebAclCryptoCurrency `pulumi:"currency"`
+}
+
+// WebAclPriceInput is an input type that accepts WebAclPriceArgs and WebAclPriceOutput values.
+// You can construct a concrete instance of `WebAclPriceInput` via:
+//
+//	WebAclPriceArgs{...}
+type WebAclPriceInput interface {
+	pulumi.Input
+
+	ToWebAclPriceOutput() WebAclPriceOutput
+	ToWebAclPriceOutputWithContext(context.Context) WebAclPriceOutput
+}
+
+// A price configuration.
+type WebAclPriceArgs struct {
+	Amount   pulumi.StringInput        `pulumi:"amount"`
+	Currency WebAclCryptoCurrencyInput `pulumi:"currency"`
+}
+
+func (WebAclPriceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclPrice)(nil)).Elem()
+}
+
+func (i WebAclPriceArgs) ToWebAclPriceOutput() WebAclPriceOutput {
+	return i.ToWebAclPriceOutputWithContext(context.Background())
+}
+
+func (i WebAclPriceArgs) ToWebAclPriceOutputWithContext(ctx context.Context) WebAclPriceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclPriceOutput)
+}
+
+// WebAclPriceArrayInput is an input type that accepts WebAclPriceArray and WebAclPriceArrayOutput values.
+// You can construct a concrete instance of `WebAclPriceArrayInput` via:
+//
+//	WebAclPriceArray{ WebAclPriceArgs{...} }
+type WebAclPriceArrayInput interface {
+	pulumi.Input
+
+	ToWebAclPriceArrayOutput() WebAclPriceArrayOutput
+	ToWebAclPriceArrayOutputWithContext(context.Context) WebAclPriceArrayOutput
+}
+
+type WebAclPriceArray []WebAclPriceInput
+
+func (WebAclPriceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclPrice)(nil)).Elem()
+}
+
+func (i WebAclPriceArray) ToWebAclPriceArrayOutput() WebAclPriceArrayOutput {
+	return i.ToWebAclPriceArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclPriceArray) ToWebAclPriceArrayOutputWithContext(ctx context.Context) WebAclPriceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclPriceArrayOutput)
+}
+
+// A price configuration.
+type WebAclPriceOutput struct{ *pulumi.OutputState }
+
+func (WebAclPriceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclPrice)(nil)).Elem()
+}
+
+func (o WebAclPriceOutput) ToWebAclPriceOutput() WebAclPriceOutput {
+	return o
+}
+
+func (o WebAclPriceOutput) ToWebAclPriceOutputWithContext(ctx context.Context) WebAclPriceOutput {
+	return o
+}
+
+func (o WebAclPriceOutput) Amount() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclPrice) string { return v.Amount }).(pulumi.StringOutput)
+}
+
+func (o WebAclPriceOutput) Currency() WebAclCryptoCurrencyOutput {
+	return o.ApplyT(func(v WebAclPrice) WebAclCryptoCurrency { return v.Currency }).(WebAclCryptoCurrencyOutput)
+}
+
+type WebAclPriceArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclPriceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclPrice)(nil)).Elem()
+}
+
+func (o WebAclPriceArrayOutput) ToWebAclPriceArrayOutput() WebAclPriceArrayOutput {
+	return o
+}
+
+func (o WebAclPriceArrayOutput) ToWebAclPriceArrayOutputWithContext(ctx context.Context) WebAclPriceArrayOutput {
+	return o
+}
+
+func (o WebAclPriceArrayOutput) Index(i pulumi.IntInput) WebAclPriceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclPrice {
+		return vs[0].([]WebAclPrice)[vs[1].(int)]
+	}).(WebAclPriceOutput)
 }
 
 type WebAclRateBasedStatement struct {
@@ -26696,7 +27981,8 @@ type WebAclRuleAction struct {
 	// Instructs AWS WAF to run a `Challenge` check against the web request.
 	Challenge *WebAclChallengeAction `pulumi:"challenge"`
 	// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
-	Count *WebAclCountAction `pulumi:"count"`
+	Count    *WebAclCountAction    `pulumi:"count"`
+	Monetize *WebAclMonetizeAction `pulumi:"monetize"`
 }
 
 // WebAclRuleActionInput is an input type that accepts WebAclRuleActionArgs and WebAclRuleActionOutput values.
@@ -26734,7 +28020,8 @@ type WebAclRuleActionArgs struct {
 	// Instructs AWS WAF to run a `Challenge` check against the web request.
 	Challenge WebAclChallengeActionPtrInput `pulumi:"challenge"`
 	// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
-	Count WebAclCountActionPtrInput `pulumi:"count"`
+	Count    WebAclCountActionPtrInput    `pulumi:"count"`
+	Monetize WebAclMonetizeActionPtrInput `pulumi:"monetize"`
 }
 
 func (WebAclRuleActionArgs) ElementType() reflect.Type {
@@ -26853,6 +28140,10 @@ func (o WebAclRuleActionOutput) Count() WebAclCountActionPtrOutput {
 	return o.ApplyT(func(v WebAclRuleAction) *WebAclCountAction { return v.Count }).(WebAclCountActionPtrOutput)
 }
 
+func (o WebAclRuleActionOutput) Monetize() WebAclMonetizeActionPtrOutput {
+	return o.ApplyT(func(v WebAclRuleAction) *WebAclMonetizeAction { return v.Monetize }).(WebAclMonetizeActionPtrOutput)
+}
+
 type WebAclRuleActionPtrOutput struct{ *pulumi.OutputState }
 
 func (WebAclRuleActionPtrOutput) ElementType() reflect.Type {
@@ -26938,6 +28229,15 @@ func (o WebAclRuleActionPtrOutput) Count() WebAclCountActionPtrOutput {
 		}
 		return v.Count
 	}).(WebAclCountActionPtrOutput)
+}
+
+func (o WebAclRuleActionPtrOutput) Monetize() WebAclMonetizeActionPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleAction) *WebAclMonetizeAction {
+		if v == nil {
+			return nil
+		}
+		return v.Monetize
+	}).(WebAclMonetizeActionPtrOutput)
 }
 
 // Action override for rules in the rule group.
@@ -29036,6 +30336,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCookiesPtrInput)(nil)).Elem(), RuleGroupCookiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCountActionInput)(nil)).Elem(), RuleGroupCountActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCountActionPtrInput)(nil)).Elem(), RuleGroupCountActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCryptoConfigInput)(nil)).Elem(), RuleGroupCryptoConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCryptoConfigPtrInput)(nil)).Elem(), RuleGroupCryptoConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomHttpHeaderInput)(nil)).Elem(), RuleGroupCustomHttpHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomHttpHeaderArrayInput)(nil)).Elem(), RuleGroupCustomHttpHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomRequestHandlingInput)(nil)).Elem(), RuleGroupCustomRequestHandlingArgs{})
@@ -29080,10 +30382,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupLabelMatchStatementPtrInput)(nil)).Elem(), RuleGroupLabelMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupLabelSummaryInput)(nil)).Elem(), RuleGroupLabelSummaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupLabelSummaryArrayInput)(nil)).Elem(), RuleGroupLabelSummaryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupMonetizationConfigInput)(nil)).Elem(), RuleGroupMonetizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupMonetizationConfigPtrInput)(nil)).Elem(), RuleGroupMonetizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupMonetizeActionInput)(nil)).Elem(), RuleGroupMonetizeActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupMonetizeActionPtrInput)(nil)).Elem(), RuleGroupMonetizeActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupNotStatementInput)(nil)).Elem(), RuleGroupNotStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupNotStatementPtrInput)(nil)).Elem(), RuleGroupNotStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupOrStatementInput)(nil)).Elem(), RuleGroupOrStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupOrStatementPtrInput)(nil)).Elem(), RuleGroupOrStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPaymentNetworkInput)(nil)).Elem(), RuleGroupPaymentNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPaymentNetworkArrayInput)(nil)).Elem(), RuleGroupPaymentNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPriceInput)(nil)).Elem(), RuleGroupPriceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPriceArrayInput)(nil)).Elem(), RuleGroupPriceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementInput)(nil)).Elem(), RuleGroupRateBasedStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementPtrInput)(nil)).Elem(), RuleGroupRateBasedStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementCustomKeyInput)(nil)).Elem(), RuleGroupRateBasedStatementCustomKeyArgs{})
@@ -29178,6 +30488,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCookiesPtrInput)(nil)).Elem(), WebAclCookiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCountActionInput)(nil)).Elem(), WebAclCountActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCountActionPtrInput)(nil)).Elem(), WebAclCountActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCryptoConfigInput)(nil)).Elem(), WebAclCryptoConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCryptoConfigPtrInput)(nil)).Elem(), WebAclCryptoConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCustomHttpHeaderInput)(nil)).Elem(), WebAclCustomHttpHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCustomHttpHeaderArrayInput)(nil)).Elem(), WebAclCustomHttpHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCustomRequestHandlingInput)(nil)).Elem(), WebAclCustomRequestHandlingArgs{})
@@ -29235,6 +30547,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclManagedRuleGroupConfigArrayInput)(nil)).Elem(), WebAclManagedRuleGroupConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclManagedRuleGroupStatementInput)(nil)).Elem(), WebAclManagedRuleGroupStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclManagedRuleGroupStatementPtrInput)(nil)).Elem(), WebAclManagedRuleGroupStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMonetizationConfigInput)(nil)).Elem(), WebAclMonetizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMonetizationConfigPtrInput)(nil)).Elem(), WebAclMonetizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMonetizeActionInput)(nil)).Elem(), WebAclMonetizeActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMonetizeActionPtrInput)(nil)).Elem(), WebAclMonetizeActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclNotStatementInput)(nil)).Elem(), WebAclNotStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclNotStatementPtrInput)(nil)).Elem(), WebAclNotStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOnSourceDDoSProtectionConfigInput)(nil)).Elem(), WebAclOnSourceDDoSProtectionConfigArgs{})
@@ -29243,6 +30559,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOrStatementPtrInput)(nil)).Elem(), WebAclOrStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOverrideActionInput)(nil)).Elem(), WebAclOverrideActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOverrideActionPtrInput)(nil)).Elem(), WebAclOverrideActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPaymentNetworkInput)(nil)).Elem(), WebAclPaymentNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPaymentNetworkArrayInput)(nil)).Elem(), WebAclPaymentNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPriceInput)(nil)).Elem(), WebAclPriceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPriceArrayInput)(nil)).Elem(), WebAclPriceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateBasedStatementInput)(nil)).Elem(), WebAclRateBasedStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateBasedStatementPtrInput)(nil)).Elem(), WebAclRateBasedStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateBasedStatementCustomKeyInput)(nil)).Elem(), WebAclRateBasedStatementCustomKeyArgs{})
@@ -29355,6 +30675,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupCookiesPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCountActionOutput{})
 	pulumi.RegisterOutputType(RuleGroupCountActionPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupCryptoConfigOutput{})
+	pulumi.RegisterOutputType(RuleGroupCryptoConfigPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomHttpHeaderOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomHttpHeaderArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomRequestHandlingOutput{})
@@ -29399,10 +30721,18 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupLabelMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupLabelSummaryOutput{})
 	pulumi.RegisterOutputType(RuleGroupLabelSummaryArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupMonetizationConfigOutput{})
+	pulumi.RegisterOutputType(RuleGroupMonetizationConfigPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupMonetizeActionOutput{})
+	pulumi.RegisterOutputType(RuleGroupMonetizeActionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupNotStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupNotStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupOrStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupOrStatementPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupPaymentNetworkOutput{})
+	pulumi.RegisterOutputType(RuleGroupPaymentNetworkArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupPriceOutput{})
+	pulumi.RegisterOutputType(RuleGroupPriceArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementCustomKeyOutput{})
@@ -29498,6 +30828,8 @@ func init() {
 	pulumi.RegisterOutputType(WebAclCookiesPtrOutput{})
 	pulumi.RegisterOutputType(WebAclCountActionOutput{})
 	pulumi.RegisterOutputType(WebAclCountActionPtrOutput{})
+	pulumi.RegisterOutputType(WebAclCryptoConfigOutput{})
+	pulumi.RegisterOutputType(WebAclCryptoConfigPtrOutput{})
 	pulumi.RegisterOutputType(WebAclCustomHttpHeaderOutput{})
 	pulumi.RegisterOutputType(WebAclCustomHttpHeaderArrayOutput{})
 	pulumi.RegisterOutputType(WebAclCustomRequestHandlingOutput{})
@@ -29556,6 +30888,10 @@ func init() {
 	pulumi.RegisterOutputType(WebAclManagedRuleGroupConfigArrayOutput{})
 	pulumi.RegisterOutputType(WebAclManagedRuleGroupStatementOutput{})
 	pulumi.RegisterOutputType(WebAclManagedRuleGroupStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebAclMonetizationConfigOutput{})
+	pulumi.RegisterOutputType(WebAclMonetizationConfigPtrOutput{})
+	pulumi.RegisterOutputType(WebAclMonetizeActionOutput{})
+	pulumi.RegisterOutputType(WebAclMonetizeActionPtrOutput{})
 	pulumi.RegisterOutputType(WebAclNotStatementOutput{})
 	pulumi.RegisterOutputType(WebAclNotStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclOnSourceDDoSProtectionConfigOutput{})
@@ -29564,6 +30900,10 @@ func init() {
 	pulumi.RegisterOutputType(WebAclOrStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclOverrideActionOutput{})
 	pulumi.RegisterOutputType(WebAclOverrideActionPtrOutput{})
+	pulumi.RegisterOutputType(WebAclPaymentNetworkOutput{})
+	pulumi.RegisterOutputType(WebAclPaymentNetworkArrayOutput{})
+	pulumi.RegisterOutputType(WebAclPriceOutput{})
+	pulumi.RegisterOutputType(WebAclPriceArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRateBasedStatementOutput{})
 	pulumi.RegisterOutputType(WebAclRateBasedStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRateBasedStatementCustomKeyOutput{})

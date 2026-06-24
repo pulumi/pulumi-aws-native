@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     {
         public readonly Outputs.HarnessBedrockModelConfig? BedrockModelConfig;
         public readonly Outputs.HarnessGeminiModelConfig? GeminiModelConfig;
+        public readonly Outputs.HarnessLiteLlmModelConfig? LiteLlmModelConfig;
         public readonly Outputs.HarnessOpenAiModelConfig? OpenAiModelConfig;
 
         [OutputConstructor]
@@ -23,10 +24,13 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             Outputs.HarnessGeminiModelConfig? geminiModelConfig,
 
+            Outputs.HarnessLiteLlmModelConfig? liteLlmModelConfig,
+
             Outputs.HarnessOpenAiModelConfig? openAiModelConfig)
         {
             BedrockModelConfig = bedrockModelConfig;
             GeminiModelConfig = geminiModelConfig;
+            LiteLlmModelConfig = liteLlmModelConfig;
             OpenAiModelConfig = openAiModelConfig;
         }
     }

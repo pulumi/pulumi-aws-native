@@ -45,6 +45,10 @@ export interface GetConfigurationBundleResult {
      * The description for the configuration bundle.
      */
     readonly description?: string;
+    /**
+     * The ARN of the KMS key used to encrypt component configurations.
+     */
+    readonly kmsKeyArn?: string;
     readonly lineageMetadata?: outputs.bedrockagentcore.ConfigurationBundleVersionLineageMetadata;
     /**
      * Tags to assign to the configuration bundle.

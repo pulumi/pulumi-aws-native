@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     {
         public readonly string Arn;
         public readonly string? Qualifier;
+        public readonly Outputs.GatewayTargetHttpApiSchemaConfiguration? Schema;
 
         [OutputConstructor]
         private GatewayTargetRuntimeTargetConfiguration(
             string arn,
 
-            string? qualifier)
+            string? qualifier,
+
+            Outputs.GatewayTargetHttpApiSchemaConfiguration? schema)
         {
             Arn = arn;
             Qualifier = qualifier;
+            Schema = schema;
         }
     }
 }

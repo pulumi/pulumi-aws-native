@@ -44,6 +44,10 @@ export class DeliverySource extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
+     */
+    declare public readonly deliverySourceConfiguration: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
      */
     declare public readonly logType: pulumi.Output<string | undefined>;
@@ -64,6 +68,14 @@ export class DeliverySource extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly service: pulumi.Output<string>;
     /**
+     * The status of this delivery source. The value can be ACTIVE or INACTIVE.
+     */
+    declare public /*out*/ readonly status: pulumi.Output<enums.logs.DeliverySourceStatus>;
+    /**
+     * The reason for the status of this delivery source, such as RESOURCE_DELETED.
+     */
+    declare public /*out*/ readonly statusReason: pulumi.Output<enums.logs.DeliverySourceStatusReason>;
+    /**
      * The tags that have been assigned to this delivery source.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -79,6 +91,7 @@ export class DeliverySource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["deliverySourceConfiguration"] = args?.deliverySourceConfiguration;
             resourceInputs["logType"] = args?.logType;
             resourceInputs["name"] = args?.name;
             resourceInputs["resourceArn"] = args?.resourceArn;
@@ -86,13 +99,18 @@ export class DeliverySource extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["resourceArns"] = undefined /*out*/;
             resourceInputs["service"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusReason"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["deliverySourceConfiguration"] = undefined /*out*/;
             resourceInputs["logType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["resourceArns"] = undefined /*out*/;
             resourceInputs["service"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusReason"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -106,6 +124,10 @@ export class DeliverySource extends pulumi.CustomResource {
  * The set of arguments for constructing a DeliverySource resource.
  */
 export interface DeliverySourceArgs {
+    /**
+     * A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
+     */
+    deliverySourceConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
      */

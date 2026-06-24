@@ -38,7 +38,9 @@ type LookupConfigurationBundleResult struct {
 	// The timestamp when the configuration bundle was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The description for the configuration bundle.
-	Description     *string                                    `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The ARN of the KMS key used to encrypt component configurations.
+	KmsKeyArn       *string                                    `pulumi:"kmsKeyArn"`
 	LineageMetadata *ConfigurationBundleVersionLineageMetadata `pulumi:"lineageMetadata"`
 	// Tags to assign to the configuration bundle.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -105,6 +107,11 @@ func (o LookupConfigurationBundleResultOutput) CreatedAt() pulumi.StringPtrOutpu
 // The description for the configuration bundle.
 func (o LookupConfigurationBundleResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationBundleResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the KMS key used to encrypt component configurations.
+func (o LookupConfigurationBundleResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationBundleResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupConfigurationBundleResultOutput) LineageMetadata() ConfigurationBundleVersionLineageMetadataPtrOutput {

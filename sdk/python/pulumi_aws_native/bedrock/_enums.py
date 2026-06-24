@@ -54,6 +54,7 @@ __all__ = [
     'DataSourceContextEnrichmentType',
     'DataSourceCrawlFilterConfigurationType',
     'DataSourceDataDeletionPolicy',
+    'DataSourceEnabledOrDisabledState',
     'DataSourceEnrichmentStrategyMethod',
     'DataSourceParsingModality',
     'DataSourceParsingStrategy',
@@ -105,6 +106,7 @@ __all__ = [
     'IntelligentPromptRouterPromptRouterStatus',
     'IntelligentPromptRouterPromptRouterType',
     'KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType',
+    'KnowledgeBaseEmbeddingModelType',
     'KnowledgeBaseInclusionType',
     'KnowledgeBaseQueryEngineType',
     'KnowledgeBaseRedshiftProvisionedAuthType',
@@ -563,6 +565,15 @@ class DataSourceDataDeletionPolicy(_builtins.str, Enum):
     DELETE = "DELETE"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceEnabledOrDisabledState")
+class DataSourceEnabledOrDisabledState(_builtins.str, Enum):
+    """
+    Indicates whether a feature is enabled or disabled.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 @pulumi.type_token("aws-native:bedrock:DataSourceEnrichmentStrategyMethod")
 class DataSourceEnrichmentStrategyMethod(_builtins.str, Enum):
     """
@@ -586,6 +597,7 @@ class DataSourceParsingStrategy(_builtins.str, Enum):
     """
     BEDROCK_FOUNDATION_MODEL = "BEDROCK_FOUNDATION_MODEL"
     BEDROCK_DATA_AUTOMATION = "BEDROCK_DATA_AUTOMATION"
+    SMART_PARSING = "SMART_PARSING"
 
 
 @pulumi.type_token("aws-native:bedrock:DataSourceSalesforceSourceConfigurationAuthType")
@@ -621,6 +633,9 @@ class DataSourceStatus(_builtins.str, Enum):
     AVAILABLE = "AVAILABLE"
     DELETING = "DELETING"
     DELETE_UNSUCCESSFUL = "DELETE_UNSUCCESSFUL"
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    FAILED = "FAILED"
 
 
 @pulumi.type_token("aws-native:bedrock:DataSourceTransformationStepToApply")
@@ -643,6 +658,7 @@ class DataSourceType(_builtins.str, Enum):
     WEB = "WEB"
     CUSTOM = "CUSTOM"
     REDSHIFT_METADATA = "REDSHIFT_METADATA"
+    MANAGED_KNOWLEDGE_BASE_CONNECTOR = "MANAGED_KNOWLEDGE_BASE_CONNECTOR"
 
 
 @pulumi.type_token("aws-native:bedrock:DataSourceWebScopeType")
@@ -1077,6 +1093,15 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType(_builtins
     BINARY = "BINARY"
 
 
+@pulumi.type_token("aws-native:bedrock:KnowledgeBaseEmbeddingModelType")
+class KnowledgeBaseEmbeddingModelType(_builtins.str, Enum):
+    """
+    The type of embedding model to use for the managed knowledge base.
+    """
+    CUSTOM = "CUSTOM"
+    MANAGED = "MANAGED"
+
+
 @pulumi.type_token("aws-native:bedrock:KnowledgeBaseInclusionType")
 class KnowledgeBaseInclusionType(_builtins.str, Enum):
     """
@@ -1142,6 +1167,7 @@ class KnowledgeBaseStatus(_builtins.str, Enum):
     UPDATING = "UPDATING"
     FAILED = "FAILED"
     DELETE_UNSUCCESSFUL = "DELETE_UNSUCCESSFUL"
+    UPDATE_UNSUCCESSFUL = "UPDATE_UNSUCCESSFUL"
 
 
 @pulumi.type_token("aws-native:bedrock:KnowledgeBaseStorageType")
@@ -1174,6 +1200,7 @@ class KnowledgeBaseType(_builtins.str, Enum):
     VECTOR = "VECTOR"
     KENDRA = "KENDRA"
     SQL = "SQL"
+    MANAGED = "MANAGED"
 
 
 @pulumi.type_token("aws-native:bedrock:PromptCachePointType")

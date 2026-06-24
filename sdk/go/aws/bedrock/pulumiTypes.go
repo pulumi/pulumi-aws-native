@@ -10615,6 +10615,144 @@ func (o DataAutomationProjectVideoStandardOutputConfigurationPtrOutput) Generati
 	}).(DataAutomationProjectVideoStandardGenerativeFieldPtrOutput)
 }
 
+// Configuration for audio extraction.
+type DataSourceAudioExtractionConfiguration struct {
+	AudioExtractionStatus DataSourceEnabledOrDisabledState `pulumi:"audioExtractionStatus"`
+}
+
+// DataSourceAudioExtractionConfigurationInput is an input type that accepts DataSourceAudioExtractionConfigurationArgs and DataSourceAudioExtractionConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceAudioExtractionConfigurationInput` via:
+//
+//	DataSourceAudioExtractionConfigurationArgs{...}
+type DataSourceAudioExtractionConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceAudioExtractionConfigurationOutput() DataSourceAudioExtractionConfigurationOutput
+	ToDataSourceAudioExtractionConfigurationOutputWithContext(context.Context) DataSourceAudioExtractionConfigurationOutput
+}
+
+// Configuration for audio extraction.
+type DataSourceAudioExtractionConfigurationArgs struct {
+	AudioExtractionStatus DataSourceEnabledOrDisabledStateInput `pulumi:"audioExtractionStatus"`
+}
+
+func (DataSourceAudioExtractionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceAudioExtractionConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceAudioExtractionConfigurationArgs) ToDataSourceAudioExtractionConfigurationOutput() DataSourceAudioExtractionConfigurationOutput {
+	return i.ToDataSourceAudioExtractionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceAudioExtractionConfigurationArgs) ToDataSourceAudioExtractionConfigurationOutputWithContext(ctx context.Context) DataSourceAudioExtractionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAudioExtractionConfigurationOutput)
+}
+
+func (i DataSourceAudioExtractionConfigurationArgs) ToDataSourceAudioExtractionConfigurationPtrOutput() DataSourceAudioExtractionConfigurationPtrOutput {
+	return i.ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceAudioExtractionConfigurationArgs) ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceAudioExtractionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAudioExtractionConfigurationOutput).ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceAudioExtractionConfigurationPtrInput is an input type that accepts DataSourceAudioExtractionConfigurationArgs, DataSourceAudioExtractionConfigurationPtr and DataSourceAudioExtractionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceAudioExtractionConfigurationPtrInput` via:
+//
+//	        DataSourceAudioExtractionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceAudioExtractionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceAudioExtractionConfigurationPtrOutput() DataSourceAudioExtractionConfigurationPtrOutput
+	ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(context.Context) DataSourceAudioExtractionConfigurationPtrOutput
+}
+
+type dataSourceAudioExtractionConfigurationPtrType DataSourceAudioExtractionConfigurationArgs
+
+func DataSourceAudioExtractionConfigurationPtr(v *DataSourceAudioExtractionConfigurationArgs) DataSourceAudioExtractionConfigurationPtrInput {
+	return (*dataSourceAudioExtractionConfigurationPtrType)(v)
+}
+
+func (*dataSourceAudioExtractionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceAudioExtractionConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceAudioExtractionConfigurationPtrType) ToDataSourceAudioExtractionConfigurationPtrOutput() DataSourceAudioExtractionConfigurationPtrOutput {
+	return i.ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceAudioExtractionConfigurationPtrType) ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceAudioExtractionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAudioExtractionConfigurationPtrOutput)
+}
+
+// Configuration for audio extraction.
+type DataSourceAudioExtractionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceAudioExtractionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceAudioExtractionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceAudioExtractionConfigurationOutput) ToDataSourceAudioExtractionConfigurationOutput() DataSourceAudioExtractionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceAudioExtractionConfigurationOutput) ToDataSourceAudioExtractionConfigurationOutputWithContext(ctx context.Context) DataSourceAudioExtractionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceAudioExtractionConfigurationOutput) ToDataSourceAudioExtractionConfigurationPtrOutput() DataSourceAudioExtractionConfigurationPtrOutput {
+	return o.ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceAudioExtractionConfigurationOutput) ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceAudioExtractionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceAudioExtractionConfiguration) *DataSourceAudioExtractionConfiguration {
+		return &v
+	}).(DataSourceAudioExtractionConfigurationPtrOutput)
+}
+
+func (o DataSourceAudioExtractionConfigurationOutput) AudioExtractionStatus() DataSourceEnabledOrDisabledStateOutput {
+	return o.ApplyT(func(v DataSourceAudioExtractionConfiguration) DataSourceEnabledOrDisabledState {
+		return v.AudioExtractionStatus
+	}).(DataSourceEnabledOrDisabledStateOutput)
+}
+
+type DataSourceAudioExtractionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceAudioExtractionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceAudioExtractionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceAudioExtractionConfigurationPtrOutput) ToDataSourceAudioExtractionConfigurationPtrOutput() DataSourceAudioExtractionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceAudioExtractionConfigurationPtrOutput) ToDataSourceAudioExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceAudioExtractionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceAudioExtractionConfigurationPtrOutput) Elem() DataSourceAudioExtractionConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceAudioExtractionConfiguration) DataSourceAudioExtractionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceAudioExtractionConfiguration
+		return ret
+	}).(DataSourceAudioExtractionConfigurationOutput)
+}
+
+func (o DataSourceAudioExtractionConfigurationPtrOutput) AudioExtractionStatus() DataSourceEnabledOrDisabledStatePtrOutput {
+	return o.ApplyT(func(v *DataSourceAudioExtractionConfiguration) *DataSourceEnabledOrDisabledState {
+		if v == nil {
+			return nil
+		}
+		return &v.AudioExtractionStatus
+	}).(DataSourceEnabledOrDisabledStatePtrOutput)
+}
+
 // Settings for a Bedrock Data Automation used to parse documents for a data source.
 type DataSourceBedrockDataAutomationConfiguration struct {
 	// Specifies whether to enable parsing of multimodal data, including both text and/or images.
@@ -11326,7 +11464,8 @@ type DataSourceConfiguration struct {
 	// The configuration information to connect to Confluence as your data source.
 	//
 	// > Confluence data source connector is in preview release and is subject to change.
-	ConfluenceConfiguration *DataSourceConfluenceDataSourceConfiguration `pulumi:"confluenceConfiguration"`
+	ConfluenceConfiguration                    *DataSourceConfluenceDataSourceConfiguration          `pulumi:"confluenceConfiguration"`
+	ManagedKnowledgeBaseConnectorConfiguration *DataSourceManagedKnowledgeBaseConnectorConfiguration `pulumi:"managedKnowledgeBaseConnectorConfiguration"`
 	// The configuration information to connect to Amazon S3 as your data source.
 	S3Configuration *DataSourceS3DataSourceConfiguration `pulumi:"s3Configuration"`
 	// The configuration information to connect to Salesforce as your data source.
@@ -11361,7 +11500,8 @@ type DataSourceConfigurationArgs struct {
 	// The configuration information to connect to Confluence as your data source.
 	//
 	// > Confluence data source connector is in preview release and is subject to change.
-	ConfluenceConfiguration DataSourceConfluenceDataSourceConfigurationPtrInput `pulumi:"confluenceConfiguration"`
+	ConfluenceConfiguration                    DataSourceConfluenceDataSourceConfigurationPtrInput          `pulumi:"confluenceConfiguration"`
+	ManagedKnowledgeBaseConnectorConfiguration DataSourceManagedKnowledgeBaseConnectorConfigurationPtrInput `pulumi:"managedKnowledgeBaseConnectorConfiguration"`
 	// The configuration information to connect to Amazon S3 as your data source.
 	S3Configuration DataSourceS3DataSourceConfigurationPtrInput `pulumi:"s3Configuration"`
 	// The configuration information to connect to Salesforce as your data source.
@@ -11414,6 +11554,12 @@ func (o DataSourceConfigurationOutput) ConfluenceConfiguration() DataSourceConfl
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceConfluenceDataSourceConfiguration {
 		return v.ConfluenceConfiguration
 	}).(DataSourceConfluenceDataSourceConfigurationPtrOutput)
+}
+
+func (o DataSourceConfigurationOutput) ManagedKnowledgeBaseConnectorConfiguration() DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceManagedKnowledgeBaseConnectorConfiguration {
+		return v.ManagedKnowledgeBaseConnectorConfiguration
+	}).(DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput)
 }
 
 // The configuration information to connect to Amazon S3 as your data source.
@@ -11485,6 +11631,15 @@ func (o DataSourceConfigurationPtrOutput) ConfluenceConfiguration() DataSourceCo
 		}
 		return v.ConfluenceConfiguration
 	}).(DataSourceConfluenceDataSourceConfigurationPtrOutput)
+}
+
+func (o DataSourceConfigurationPtrOutput) ManagedKnowledgeBaseConnectorConfiguration() DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceManagedKnowledgeBaseConnectorConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedKnowledgeBaseConnectorConfiguration
+	}).(DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput)
 }
 
 // The configuration information to connect to Amazon S3 as your data source.
@@ -12534,6 +12689,163 @@ func (o DataSourceCustomTransformationConfigurationPtrOutput) Transformations() 
 	}).(DataSourceTransformationArrayOutput)
 }
 
+// Configuration for deletion protection.
+type DataSourceDeletionProtectionConfiguration struct {
+	DeletionProtectionStatus DataSourceEnabledOrDisabledState `pulumi:"deletionProtectionStatus"`
+	// Threshold for deletion protection.
+	DeletionProtectionThreshold *int `pulumi:"deletionProtectionThreshold"`
+}
+
+// DataSourceDeletionProtectionConfigurationInput is an input type that accepts DataSourceDeletionProtectionConfigurationArgs and DataSourceDeletionProtectionConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceDeletionProtectionConfigurationInput` via:
+//
+//	DataSourceDeletionProtectionConfigurationArgs{...}
+type DataSourceDeletionProtectionConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceDeletionProtectionConfigurationOutput() DataSourceDeletionProtectionConfigurationOutput
+	ToDataSourceDeletionProtectionConfigurationOutputWithContext(context.Context) DataSourceDeletionProtectionConfigurationOutput
+}
+
+// Configuration for deletion protection.
+type DataSourceDeletionProtectionConfigurationArgs struct {
+	DeletionProtectionStatus DataSourceEnabledOrDisabledStateInput `pulumi:"deletionProtectionStatus"`
+	// Threshold for deletion protection.
+	DeletionProtectionThreshold pulumi.IntPtrInput `pulumi:"deletionProtectionThreshold"`
+}
+
+func (DataSourceDeletionProtectionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDeletionProtectionConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceDeletionProtectionConfigurationArgs) ToDataSourceDeletionProtectionConfigurationOutput() DataSourceDeletionProtectionConfigurationOutput {
+	return i.ToDataSourceDeletionProtectionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceDeletionProtectionConfigurationArgs) ToDataSourceDeletionProtectionConfigurationOutputWithContext(ctx context.Context) DataSourceDeletionProtectionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDeletionProtectionConfigurationOutput)
+}
+
+func (i DataSourceDeletionProtectionConfigurationArgs) ToDataSourceDeletionProtectionConfigurationPtrOutput() DataSourceDeletionProtectionConfigurationPtrOutput {
+	return i.ToDataSourceDeletionProtectionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceDeletionProtectionConfigurationArgs) ToDataSourceDeletionProtectionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceDeletionProtectionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDeletionProtectionConfigurationOutput).ToDataSourceDeletionProtectionConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceDeletionProtectionConfigurationPtrInput is an input type that accepts DataSourceDeletionProtectionConfigurationArgs, DataSourceDeletionProtectionConfigurationPtr and DataSourceDeletionProtectionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceDeletionProtectionConfigurationPtrInput` via:
+//
+//	        DataSourceDeletionProtectionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceDeletionProtectionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceDeletionProtectionConfigurationPtrOutput() DataSourceDeletionProtectionConfigurationPtrOutput
+	ToDataSourceDeletionProtectionConfigurationPtrOutputWithContext(context.Context) DataSourceDeletionProtectionConfigurationPtrOutput
+}
+
+type dataSourceDeletionProtectionConfigurationPtrType DataSourceDeletionProtectionConfigurationArgs
+
+func DataSourceDeletionProtectionConfigurationPtr(v *DataSourceDeletionProtectionConfigurationArgs) DataSourceDeletionProtectionConfigurationPtrInput {
+	return (*dataSourceDeletionProtectionConfigurationPtrType)(v)
+}
+
+func (*dataSourceDeletionProtectionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDeletionProtectionConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceDeletionProtectionConfigurationPtrType) ToDataSourceDeletionProtectionConfigurationPtrOutput() DataSourceDeletionProtectionConfigurationPtrOutput {
+	return i.ToDataSourceDeletionProtectionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceDeletionProtectionConfigurationPtrType) ToDataSourceDeletionProtectionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceDeletionProtectionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDeletionProtectionConfigurationPtrOutput)
+}
+
+// Configuration for deletion protection.
+type DataSourceDeletionProtectionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDeletionProtectionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDeletionProtectionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceDeletionProtectionConfigurationOutput) ToDataSourceDeletionProtectionConfigurationOutput() DataSourceDeletionProtectionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceDeletionProtectionConfigurationOutput) ToDataSourceDeletionProtectionConfigurationOutputWithContext(ctx context.Context) DataSourceDeletionProtectionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceDeletionProtectionConfigurationOutput) ToDataSourceDeletionProtectionConfigurationPtrOutput() DataSourceDeletionProtectionConfigurationPtrOutput {
+	return o.ToDataSourceDeletionProtectionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceDeletionProtectionConfigurationOutput) ToDataSourceDeletionProtectionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceDeletionProtectionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDeletionProtectionConfiguration) *DataSourceDeletionProtectionConfiguration {
+		return &v
+	}).(DataSourceDeletionProtectionConfigurationPtrOutput)
+}
+
+func (o DataSourceDeletionProtectionConfigurationOutput) DeletionProtectionStatus() DataSourceEnabledOrDisabledStateOutput {
+	return o.ApplyT(func(v DataSourceDeletionProtectionConfiguration) DataSourceEnabledOrDisabledState {
+		return v.DeletionProtectionStatus
+	}).(DataSourceEnabledOrDisabledStateOutput)
+}
+
+// Threshold for deletion protection.
+func (o DataSourceDeletionProtectionConfigurationOutput) DeletionProtectionThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataSourceDeletionProtectionConfiguration) *int { return v.DeletionProtectionThreshold }).(pulumi.IntPtrOutput)
+}
+
+type DataSourceDeletionProtectionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDeletionProtectionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDeletionProtectionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceDeletionProtectionConfigurationPtrOutput) ToDataSourceDeletionProtectionConfigurationPtrOutput() DataSourceDeletionProtectionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceDeletionProtectionConfigurationPtrOutput) ToDataSourceDeletionProtectionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceDeletionProtectionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceDeletionProtectionConfigurationPtrOutput) Elem() DataSourceDeletionProtectionConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceDeletionProtectionConfiguration) DataSourceDeletionProtectionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceDeletionProtectionConfiguration
+		return ret
+	}).(DataSourceDeletionProtectionConfigurationOutput)
+}
+
+func (o DataSourceDeletionProtectionConfigurationPtrOutput) DeletionProtectionStatus() DataSourceEnabledOrDisabledStatePtrOutput {
+	return o.ApplyT(func(v *DataSourceDeletionProtectionConfiguration) *DataSourceEnabledOrDisabledState {
+		if v == nil {
+			return nil
+		}
+		return &v.DeletionProtectionStatus
+	}).(DataSourceEnabledOrDisabledStatePtrOutput)
+}
+
+// Threshold for deletion protection.
+func (o DataSourceDeletionProtectionConfigurationPtrOutput) DeletionProtectionThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceDeletionProtectionConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DeletionProtectionThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
 // Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
 type DataSourceEnrichmentStrategyConfiguration struct {
 	// The method used for the context enrichment strategy.
@@ -13094,6 +13406,144 @@ func (o DataSourceHierarchicalChunkingLevelConfigurationArrayOutput) Index(i pul
 	}).(DataSourceHierarchicalChunkingLevelConfigurationOutput)
 }
 
+// Configuration for image extraction.
+type DataSourceImageExtractionConfiguration struct {
+	ImageExtractionStatus DataSourceEnabledOrDisabledState `pulumi:"imageExtractionStatus"`
+}
+
+// DataSourceImageExtractionConfigurationInput is an input type that accepts DataSourceImageExtractionConfigurationArgs and DataSourceImageExtractionConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceImageExtractionConfigurationInput` via:
+//
+//	DataSourceImageExtractionConfigurationArgs{...}
+type DataSourceImageExtractionConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceImageExtractionConfigurationOutput() DataSourceImageExtractionConfigurationOutput
+	ToDataSourceImageExtractionConfigurationOutputWithContext(context.Context) DataSourceImageExtractionConfigurationOutput
+}
+
+// Configuration for image extraction.
+type DataSourceImageExtractionConfigurationArgs struct {
+	ImageExtractionStatus DataSourceEnabledOrDisabledStateInput `pulumi:"imageExtractionStatus"`
+}
+
+func (DataSourceImageExtractionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceImageExtractionConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceImageExtractionConfigurationArgs) ToDataSourceImageExtractionConfigurationOutput() DataSourceImageExtractionConfigurationOutput {
+	return i.ToDataSourceImageExtractionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceImageExtractionConfigurationArgs) ToDataSourceImageExtractionConfigurationOutputWithContext(ctx context.Context) DataSourceImageExtractionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceImageExtractionConfigurationOutput)
+}
+
+func (i DataSourceImageExtractionConfigurationArgs) ToDataSourceImageExtractionConfigurationPtrOutput() DataSourceImageExtractionConfigurationPtrOutput {
+	return i.ToDataSourceImageExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceImageExtractionConfigurationArgs) ToDataSourceImageExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceImageExtractionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceImageExtractionConfigurationOutput).ToDataSourceImageExtractionConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceImageExtractionConfigurationPtrInput is an input type that accepts DataSourceImageExtractionConfigurationArgs, DataSourceImageExtractionConfigurationPtr and DataSourceImageExtractionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceImageExtractionConfigurationPtrInput` via:
+//
+//	        DataSourceImageExtractionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceImageExtractionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceImageExtractionConfigurationPtrOutput() DataSourceImageExtractionConfigurationPtrOutput
+	ToDataSourceImageExtractionConfigurationPtrOutputWithContext(context.Context) DataSourceImageExtractionConfigurationPtrOutput
+}
+
+type dataSourceImageExtractionConfigurationPtrType DataSourceImageExtractionConfigurationArgs
+
+func DataSourceImageExtractionConfigurationPtr(v *DataSourceImageExtractionConfigurationArgs) DataSourceImageExtractionConfigurationPtrInput {
+	return (*dataSourceImageExtractionConfigurationPtrType)(v)
+}
+
+func (*dataSourceImageExtractionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceImageExtractionConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceImageExtractionConfigurationPtrType) ToDataSourceImageExtractionConfigurationPtrOutput() DataSourceImageExtractionConfigurationPtrOutput {
+	return i.ToDataSourceImageExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceImageExtractionConfigurationPtrType) ToDataSourceImageExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceImageExtractionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceImageExtractionConfigurationPtrOutput)
+}
+
+// Configuration for image extraction.
+type DataSourceImageExtractionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceImageExtractionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceImageExtractionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceImageExtractionConfigurationOutput) ToDataSourceImageExtractionConfigurationOutput() DataSourceImageExtractionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceImageExtractionConfigurationOutput) ToDataSourceImageExtractionConfigurationOutputWithContext(ctx context.Context) DataSourceImageExtractionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceImageExtractionConfigurationOutput) ToDataSourceImageExtractionConfigurationPtrOutput() DataSourceImageExtractionConfigurationPtrOutput {
+	return o.ToDataSourceImageExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceImageExtractionConfigurationOutput) ToDataSourceImageExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceImageExtractionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceImageExtractionConfiguration) *DataSourceImageExtractionConfiguration {
+		return &v
+	}).(DataSourceImageExtractionConfigurationPtrOutput)
+}
+
+func (o DataSourceImageExtractionConfigurationOutput) ImageExtractionStatus() DataSourceEnabledOrDisabledStateOutput {
+	return o.ApplyT(func(v DataSourceImageExtractionConfiguration) DataSourceEnabledOrDisabledState {
+		return v.ImageExtractionStatus
+	}).(DataSourceEnabledOrDisabledStateOutput)
+}
+
+type DataSourceImageExtractionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceImageExtractionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceImageExtractionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceImageExtractionConfigurationPtrOutput) ToDataSourceImageExtractionConfigurationPtrOutput() DataSourceImageExtractionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceImageExtractionConfigurationPtrOutput) ToDataSourceImageExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceImageExtractionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceImageExtractionConfigurationPtrOutput) Elem() DataSourceImageExtractionConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceImageExtractionConfiguration) DataSourceImageExtractionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceImageExtractionConfiguration
+		return ret
+	}).(DataSourceImageExtractionConfigurationOutput)
+}
+
+func (o DataSourceImageExtractionConfigurationPtrOutput) ImageExtractionStatus() DataSourceEnabledOrDisabledStatePtrOutput {
+	return o.ApplyT(func(v *DataSourceImageExtractionConfiguration) *DataSourceEnabledOrDisabledState {
+		if v == nil {
+			return nil
+		}
+		return &v.ImageExtractionStatus
+	}).(DataSourceEnabledOrDisabledStatePtrOutput)
+}
+
 // A location for storing content from data sources temporarily as it is processed by custom components in the ingestion pipeline.
 type DataSourceIntermediateStorage struct {
 	// An S3 bucket path.
@@ -13232,6 +13682,352 @@ func (o DataSourceIntermediateStoragePtrOutput) S3Location() DataSourceS3Locatio
 		}
 		return &v.S3Location
 	}).(DataSourceS3LocationPtrOutput)
+}
+
+// Configuration for managed knowledge base connector data sources.
+type DataSourceManagedKnowledgeBaseConnectorConfiguration struct {
+	// Connector-specific parameters.
+	ConnectorParameters             interface{}                                `pulumi:"connectorParameters"`
+	DeletionProtectionConfiguration *DataSourceDeletionProtectionConfiguration `pulumi:"deletionProtectionConfiguration"`
+	MediaExtractionConfiguration    *DataSourceMediaExtractionConfiguration    `pulumi:"mediaExtractionConfiguration"`
+}
+
+// DataSourceManagedKnowledgeBaseConnectorConfigurationInput is an input type that accepts DataSourceManagedKnowledgeBaseConnectorConfigurationArgs and DataSourceManagedKnowledgeBaseConnectorConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceManagedKnowledgeBaseConnectorConfigurationInput` via:
+//
+//	DataSourceManagedKnowledgeBaseConnectorConfigurationArgs{...}
+type DataSourceManagedKnowledgeBaseConnectorConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceManagedKnowledgeBaseConnectorConfigurationOutput() DataSourceManagedKnowledgeBaseConnectorConfigurationOutput
+	ToDataSourceManagedKnowledgeBaseConnectorConfigurationOutputWithContext(context.Context) DataSourceManagedKnowledgeBaseConnectorConfigurationOutput
+}
+
+// Configuration for managed knowledge base connector data sources.
+type DataSourceManagedKnowledgeBaseConnectorConfigurationArgs struct {
+	// Connector-specific parameters.
+	ConnectorParameters             pulumi.Input                                      `pulumi:"connectorParameters"`
+	DeletionProtectionConfiguration DataSourceDeletionProtectionConfigurationPtrInput `pulumi:"deletionProtectionConfiguration"`
+	MediaExtractionConfiguration    DataSourceMediaExtractionConfigurationPtrInput    `pulumi:"mediaExtractionConfiguration"`
+}
+
+func (DataSourceManagedKnowledgeBaseConnectorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceManagedKnowledgeBaseConnectorConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceManagedKnowledgeBaseConnectorConfigurationArgs) ToDataSourceManagedKnowledgeBaseConnectorConfigurationOutput() DataSourceManagedKnowledgeBaseConnectorConfigurationOutput {
+	return i.ToDataSourceManagedKnowledgeBaseConnectorConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceManagedKnowledgeBaseConnectorConfigurationArgs) ToDataSourceManagedKnowledgeBaseConnectorConfigurationOutputWithContext(ctx context.Context) DataSourceManagedKnowledgeBaseConnectorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceManagedKnowledgeBaseConnectorConfigurationOutput)
+}
+
+func (i DataSourceManagedKnowledgeBaseConnectorConfigurationArgs) ToDataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput() DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput {
+	return i.ToDataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceManagedKnowledgeBaseConnectorConfigurationArgs) ToDataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutputWithContext(ctx context.Context) DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceManagedKnowledgeBaseConnectorConfigurationOutput).ToDataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceManagedKnowledgeBaseConnectorConfigurationPtrInput is an input type that accepts DataSourceManagedKnowledgeBaseConnectorConfigurationArgs, DataSourceManagedKnowledgeBaseConnectorConfigurationPtr and DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceManagedKnowledgeBaseConnectorConfigurationPtrInput` via:
+//
+//	        DataSourceManagedKnowledgeBaseConnectorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceManagedKnowledgeBaseConnectorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput() DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput
+	ToDataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutputWithContext(context.Context) DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput
+}
+
+type dataSourceManagedKnowledgeBaseConnectorConfigurationPtrType DataSourceManagedKnowledgeBaseConnectorConfigurationArgs
+
+func DataSourceManagedKnowledgeBaseConnectorConfigurationPtr(v *DataSourceManagedKnowledgeBaseConnectorConfigurationArgs) DataSourceManagedKnowledgeBaseConnectorConfigurationPtrInput {
+	return (*dataSourceManagedKnowledgeBaseConnectorConfigurationPtrType)(v)
+}
+
+func (*dataSourceManagedKnowledgeBaseConnectorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceManagedKnowledgeBaseConnectorConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceManagedKnowledgeBaseConnectorConfigurationPtrType) ToDataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput() DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput {
+	return i.ToDataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceManagedKnowledgeBaseConnectorConfigurationPtrType) ToDataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutputWithContext(ctx context.Context) DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput)
+}
+
+// Configuration for managed knowledge base connector data sources.
+type DataSourceManagedKnowledgeBaseConnectorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceManagedKnowledgeBaseConnectorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceManagedKnowledgeBaseConnectorConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceManagedKnowledgeBaseConnectorConfigurationOutput) ToDataSourceManagedKnowledgeBaseConnectorConfigurationOutput() DataSourceManagedKnowledgeBaseConnectorConfigurationOutput {
+	return o
+}
+
+func (o DataSourceManagedKnowledgeBaseConnectorConfigurationOutput) ToDataSourceManagedKnowledgeBaseConnectorConfigurationOutputWithContext(ctx context.Context) DataSourceManagedKnowledgeBaseConnectorConfigurationOutput {
+	return o
+}
+
+func (o DataSourceManagedKnowledgeBaseConnectorConfigurationOutput) ToDataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput() DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput {
+	return o.ToDataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceManagedKnowledgeBaseConnectorConfigurationOutput) ToDataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutputWithContext(ctx context.Context) DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceManagedKnowledgeBaseConnectorConfiguration) *DataSourceManagedKnowledgeBaseConnectorConfiguration {
+		return &v
+	}).(DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput)
+}
+
+// Connector-specific parameters.
+func (o DataSourceManagedKnowledgeBaseConnectorConfigurationOutput) ConnectorParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v DataSourceManagedKnowledgeBaseConnectorConfiguration) interface{} { return v.ConnectorParameters }).(pulumi.AnyOutput)
+}
+
+func (o DataSourceManagedKnowledgeBaseConnectorConfigurationOutput) DeletionProtectionConfiguration() DataSourceDeletionProtectionConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceManagedKnowledgeBaseConnectorConfiguration) *DataSourceDeletionProtectionConfiguration {
+		return v.DeletionProtectionConfiguration
+	}).(DataSourceDeletionProtectionConfigurationPtrOutput)
+}
+
+func (o DataSourceManagedKnowledgeBaseConnectorConfigurationOutput) MediaExtractionConfiguration() DataSourceMediaExtractionConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceManagedKnowledgeBaseConnectorConfiguration) *DataSourceMediaExtractionConfiguration {
+		return v.MediaExtractionConfiguration
+	}).(DataSourceMediaExtractionConfigurationPtrOutput)
+}
+
+type DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceManagedKnowledgeBaseConnectorConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput) ToDataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput() DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput) ToDataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutputWithContext(ctx context.Context) DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput) Elem() DataSourceManagedKnowledgeBaseConnectorConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceManagedKnowledgeBaseConnectorConfiguration) DataSourceManagedKnowledgeBaseConnectorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceManagedKnowledgeBaseConnectorConfiguration
+		return ret
+	}).(DataSourceManagedKnowledgeBaseConnectorConfigurationOutput)
+}
+
+// Connector-specific parameters.
+func (o DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput) ConnectorParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DataSourceManagedKnowledgeBaseConnectorConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectorParameters
+	}).(pulumi.AnyOutput)
+}
+
+func (o DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput) DeletionProtectionConfiguration() DataSourceDeletionProtectionConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceManagedKnowledgeBaseConnectorConfiguration) *DataSourceDeletionProtectionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DeletionProtectionConfiguration
+	}).(DataSourceDeletionProtectionConfigurationPtrOutput)
+}
+
+func (o DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput) MediaExtractionConfiguration() DataSourceMediaExtractionConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceManagedKnowledgeBaseConnectorConfiguration) *DataSourceMediaExtractionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.MediaExtractionConfiguration
+	}).(DataSourceMediaExtractionConfigurationPtrOutput)
+}
+
+// Configuration for media extraction settings.
+type DataSourceMediaExtractionConfiguration struct {
+	AudioExtractionConfiguration *DataSourceAudioExtractionConfiguration `pulumi:"audioExtractionConfiguration"`
+	ImageExtractionConfiguration *DataSourceImageExtractionConfiguration `pulumi:"imageExtractionConfiguration"`
+	VideoExtractionConfiguration *DataSourceVideoExtractionConfiguration `pulumi:"videoExtractionConfiguration"`
+}
+
+// DataSourceMediaExtractionConfigurationInput is an input type that accepts DataSourceMediaExtractionConfigurationArgs and DataSourceMediaExtractionConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceMediaExtractionConfigurationInput` via:
+//
+//	DataSourceMediaExtractionConfigurationArgs{...}
+type DataSourceMediaExtractionConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceMediaExtractionConfigurationOutput() DataSourceMediaExtractionConfigurationOutput
+	ToDataSourceMediaExtractionConfigurationOutputWithContext(context.Context) DataSourceMediaExtractionConfigurationOutput
+}
+
+// Configuration for media extraction settings.
+type DataSourceMediaExtractionConfigurationArgs struct {
+	AudioExtractionConfiguration DataSourceAudioExtractionConfigurationPtrInput `pulumi:"audioExtractionConfiguration"`
+	ImageExtractionConfiguration DataSourceImageExtractionConfigurationPtrInput `pulumi:"imageExtractionConfiguration"`
+	VideoExtractionConfiguration DataSourceVideoExtractionConfigurationPtrInput `pulumi:"videoExtractionConfiguration"`
+}
+
+func (DataSourceMediaExtractionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceMediaExtractionConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceMediaExtractionConfigurationArgs) ToDataSourceMediaExtractionConfigurationOutput() DataSourceMediaExtractionConfigurationOutput {
+	return i.ToDataSourceMediaExtractionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceMediaExtractionConfigurationArgs) ToDataSourceMediaExtractionConfigurationOutputWithContext(ctx context.Context) DataSourceMediaExtractionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceMediaExtractionConfigurationOutput)
+}
+
+func (i DataSourceMediaExtractionConfigurationArgs) ToDataSourceMediaExtractionConfigurationPtrOutput() DataSourceMediaExtractionConfigurationPtrOutput {
+	return i.ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceMediaExtractionConfigurationArgs) ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceMediaExtractionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceMediaExtractionConfigurationOutput).ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceMediaExtractionConfigurationPtrInput is an input type that accepts DataSourceMediaExtractionConfigurationArgs, DataSourceMediaExtractionConfigurationPtr and DataSourceMediaExtractionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceMediaExtractionConfigurationPtrInput` via:
+//
+//	        DataSourceMediaExtractionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceMediaExtractionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceMediaExtractionConfigurationPtrOutput() DataSourceMediaExtractionConfigurationPtrOutput
+	ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(context.Context) DataSourceMediaExtractionConfigurationPtrOutput
+}
+
+type dataSourceMediaExtractionConfigurationPtrType DataSourceMediaExtractionConfigurationArgs
+
+func DataSourceMediaExtractionConfigurationPtr(v *DataSourceMediaExtractionConfigurationArgs) DataSourceMediaExtractionConfigurationPtrInput {
+	return (*dataSourceMediaExtractionConfigurationPtrType)(v)
+}
+
+func (*dataSourceMediaExtractionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceMediaExtractionConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceMediaExtractionConfigurationPtrType) ToDataSourceMediaExtractionConfigurationPtrOutput() DataSourceMediaExtractionConfigurationPtrOutput {
+	return i.ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceMediaExtractionConfigurationPtrType) ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceMediaExtractionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceMediaExtractionConfigurationPtrOutput)
+}
+
+// Configuration for media extraction settings.
+type DataSourceMediaExtractionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceMediaExtractionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceMediaExtractionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceMediaExtractionConfigurationOutput) ToDataSourceMediaExtractionConfigurationOutput() DataSourceMediaExtractionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceMediaExtractionConfigurationOutput) ToDataSourceMediaExtractionConfigurationOutputWithContext(ctx context.Context) DataSourceMediaExtractionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceMediaExtractionConfigurationOutput) ToDataSourceMediaExtractionConfigurationPtrOutput() DataSourceMediaExtractionConfigurationPtrOutput {
+	return o.ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceMediaExtractionConfigurationOutput) ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceMediaExtractionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceMediaExtractionConfiguration) *DataSourceMediaExtractionConfiguration {
+		return &v
+	}).(DataSourceMediaExtractionConfigurationPtrOutput)
+}
+
+func (o DataSourceMediaExtractionConfigurationOutput) AudioExtractionConfiguration() DataSourceAudioExtractionConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceMediaExtractionConfiguration) *DataSourceAudioExtractionConfiguration {
+		return v.AudioExtractionConfiguration
+	}).(DataSourceAudioExtractionConfigurationPtrOutput)
+}
+
+func (o DataSourceMediaExtractionConfigurationOutput) ImageExtractionConfiguration() DataSourceImageExtractionConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceMediaExtractionConfiguration) *DataSourceImageExtractionConfiguration {
+		return v.ImageExtractionConfiguration
+	}).(DataSourceImageExtractionConfigurationPtrOutput)
+}
+
+func (o DataSourceMediaExtractionConfigurationOutput) VideoExtractionConfiguration() DataSourceVideoExtractionConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceMediaExtractionConfiguration) *DataSourceVideoExtractionConfiguration {
+		return v.VideoExtractionConfiguration
+	}).(DataSourceVideoExtractionConfigurationPtrOutput)
+}
+
+type DataSourceMediaExtractionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceMediaExtractionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceMediaExtractionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceMediaExtractionConfigurationPtrOutput) ToDataSourceMediaExtractionConfigurationPtrOutput() DataSourceMediaExtractionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceMediaExtractionConfigurationPtrOutput) ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceMediaExtractionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceMediaExtractionConfigurationPtrOutput) Elem() DataSourceMediaExtractionConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceMediaExtractionConfiguration) DataSourceMediaExtractionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceMediaExtractionConfiguration
+		return ret
+	}).(DataSourceMediaExtractionConfigurationOutput)
+}
+
+func (o DataSourceMediaExtractionConfigurationPtrOutput) AudioExtractionConfiguration() DataSourceAudioExtractionConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceMediaExtractionConfiguration) *DataSourceAudioExtractionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AudioExtractionConfiguration
+	}).(DataSourceAudioExtractionConfigurationPtrOutput)
+}
+
+func (o DataSourceMediaExtractionConfigurationPtrOutput) ImageExtractionConfiguration() DataSourceImageExtractionConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceMediaExtractionConfiguration) *DataSourceImageExtractionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ImageExtractionConfiguration
+	}).(DataSourceImageExtractionConfigurationPtrOutput)
+}
+
+func (o DataSourceMediaExtractionConfigurationPtrOutput) VideoExtractionConfiguration() DataSourceVideoExtractionConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceMediaExtractionConfiguration) *DataSourceVideoExtractionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.VideoExtractionConfiguration
+	}).(DataSourceVideoExtractionConfigurationPtrOutput)
 }
 
 // Settings for parsing document contents
@@ -16137,6 +16933,144 @@ func (o DataSourceVectorIngestionConfigurationPtrOutput) ParsingConfiguration() 
 		}
 		return v.ParsingConfiguration
 	}).(DataSourceParsingConfigurationPtrOutput)
+}
+
+// Configuration for video extraction.
+type DataSourceVideoExtractionConfiguration struct {
+	VideoExtractionStatus DataSourceEnabledOrDisabledState `pulumi:"videoExtractionStatus"`
+}
+
+// DataSourceVideoExtractionConfigurationInput is an input type that accepts DataSourceVideoExtractionConfigurationArgs and DataSourceVideoExtractionConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceVideoExtractionConfigurationInput` via:
+//
+//	DataSourceVideoExtractionConfigurationArgs{...}
+type DataSourceVideoExtractionConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceVideoExtractionConfigurationOutput() DataSourceVideoExtractionConfigurationOutput
+	ToDataSourceVideoExtractionConfigurationOutputWithContext(context.Context) DataSourceVideoExtractionConfigurationOutput
+}
+
+// Configuration for video extraction.
+type DataSourceVideoExtractionConfigurationArgs struct {
+	VideoExtractionStatus DataSourceEnabledOrDisabledStateInput `pulumi:"videoExtractionStatus"`
+}
+
+func (DataSourceVideoExtractionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceVideoExtractionConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceVideoExtractionConfigurationArgs) ToDataSourceVideoExtractionConfigurationOutput() DataSourceVideoExtractionConfigurationOutput {
+	return i.ToDataSourceVideoExtractionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceVideoExtractionConfigurationArgs) ToDataSourceVideoExtractionConfigurationOutputWithContext(ctx context.Context) DataSourceVideoExtractionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceVideoExtractionConfigurationOutput)
+}
+
+func (i DataSourceVideoExtractionConfigurationArgs) ToDataSourceVideoExtractionConfigurationPtrOutput() DataSourceVideoExtractionConfigurationPtrOutput {
+	return i.ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceVideoExtractionConfigurationArgs) ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceVideoExtractionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceVideoExtractionConfigurationOutput).ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceVideoExtractionConfigurationPtrInput is an input type that accepts DataSourceVideoExtractionConfigurationArgs, DataSourceVideoExtractionConfigurationPtr and DataSourceVideoExtractionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceVideoExtractionConfigurationPtrInput` via:
+//
+//	        DataSourceVideoExtractionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceVideoExtractionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceVideoExtractionConfigurationPtrOutput() DataSourceVideoExtractionConfigurationPtrOutput
+	ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(context.Context) DataSourceVideoExtractionConfigurationPtrOutput
+}
+
+type dataSourceVideoExtractionConfigurationPtrType DataSourceVideoExtractionConfigurationArgs
+
+func DataSourceVideoExtractionConfigurationPtr(v *DataSourceVideoExtractionConfigurationArgs) DataSourceVideoExtractionConfigurationPtrInput {
+	return (*dataSourceVideoExtractionConfigurationPtrType)(v)
+}
+
+func (*dataSourceVideoExtractionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceVideoExtractionConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceVideoExtractionConfigurationPtrType) ToDataSourceVideoExtractionConfigurationPtrOutput() DataSourceVideoExtractionConfigurationPtrOutput {
+	return i.ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceVideoExtractionConfigurationPtrType) ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceVideoExtractionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceVideoExtractionConfigurationPtrOutput)
+}
+
+// Configuration for video extraction.
+type DataSourceVideoExtractionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceVideoExtractionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceVideoExtractionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceVideoExtractionConfigurationOutput) ToDataSourceVideoExtractionConfigurationOutput() DataSourceVideoExtractionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceVideoExtractionConfigurationOutput) ToDataSourceVideoExtractionConfigurationOutputWithContext(ctx context.Context) DataSourceVideoExtractionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceVideoExtractionConfigurationOutput) ToDataSourceVideoExtractionConfigurationPtrOutput() DataSourceVideoExtractionConfigurationPtrOutput {
+	return o.ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceVideoExtractionConfigurationOutput) ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceVideoExtractionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceVideoExtractionConfiguration) *DataSourceVideoExtractionConfiguration {
+		return &v
+	}).(DataSourceVideoExtractionConfigurationPtrOutput)
+}
+
+func (o DataSourceVideoExtractionConfigurationOutput) VideoExtractionStatus() DataSourceEnabledOrDisabledStateOutput {
+	return o.ApplyT(func(v DataSourceVideoExtractionConfiguration) DataSourceEnabledOrDisabledState {
+		return v.VideoExtractionStatus
+	}).(DataSourceEnabledOrDisabledStateOutput)
+}
+
+type DataSourceVideoExtractionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceVideoExtractionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceVideoExtractionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceVideoExtractionConfigurationPtrOutput) ToDataSourceVideoExtractionConfigurationPtrOutput() DataSourceVideoExtractionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceVideoExtractionConfigurationPtrOutput) ToDataSourceVideoExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceVideoExtractionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceVideoExtractionConfigurationPtrOutput) Elem() DataSourceVideoExtractionConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceVideoExtractionConfiguration) DataSourceVideoExtractionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceVideoExtractionConfiguration
+		return ret
+	}).(DataSourceVideoExtractionConfigurationOutput)
+}
+
+func (o DataSourceVideoExtractionConfigurationPtrOutput) VideoExtractionStatus() DataSourceEnabledOrDisabledStatePtrOutput {
+	return o.ApplyT(func(v *DataSourceVideoExtractionConfiguration) *DataSourceEnabledOrDisabledState {
+		if v == nil {
+			return nil
+		}
+		return &v.VideoExtractionStatus
+	}).(DataSourceEnabledOrDisabledStatePtrOutput)
 }
 
 // Configuration for the web crawler.
@@ -35053,7 +35987,8 @@ func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) Video() Knowle
 // Contains details about the embeddings model used for the knowledge base.
 type KnowledgeBaseConfiguration struct {
 	// Settings for an Amazon Kendra knowledge base.
-	KendraKnowledgeBaseConfiguration *KnowledgeBaseKendraKnowledgeBaseConfiguration `pulumi:"kendraKnowledgeBaseConfiguration"`
+	KendraKnowledgeBaseConfiguration  *KnowledgeBaseKendraKnowledgeBaseConfiguration  `pulumi:"kendraKnowledgeBaseConfiguration"`
+	ManagedKnowledgeBaseConfiguration *KnowledgeBaseManagedKnowledgeBaseConfiguration `pulumi:"managedKnowledgeBaseConfiguration"`
 	// Specifies configurations for a knowledge base connected to an SQL database.
 	SqlKnowledgeBaseConfiguration *KnowledgeBaseSqlKnowledgeBaseConfiguration `pulumi:"sqlKnowledgeBaseConfiguration"`
 	// The type of data that the data source is converted into for the knowledge base.
@@ -35076,7 +36011,8 @@ type KnowledgeBaseConfigurationInput interface {
 // Contains details about the embeddings model used for the knowledge base.
 type KnowledgeBaseConfigurationArgs struct {
 	// Settings for an Amazon Kendra knowledge base.
-	KendraKnowledgeBaseConfiguration KnowledgeBaseKendraKnowledgeBaseConfigurationPtrInput `pulumi:"kendraKnowledgeBaseConfiguration"`
+	KendraKnowledgeBaseConfiguration  KnowledgeBaseKendraKnowledgeBaseConfigurationPtrInput  `pulumi:"kendraKnowledgeBaseConfiguration"`
+	ManagedKnowledgeBaseConfiguration KnowledgeBaseManagedKnowledgeBaseConfigurationPtrInput `pulumi:"managedKnowledgeBaseConfiguration"`
 	// Specifies configurations for a knowledge base connected to an SQL database.
 	SqlKnowledgeBaseConfiguration KnowledgeBaseSqlKnowledgeBaseConfigurationPtrInput `pulumi:"sqlKnowledgeBaseConfiguration"`
 	// The type of data that the data source is converted into for the knowledge base.
@@ -35117,6 +36053,12 @@ func (o KnowledgeBaseConfigurationOutput) KendraKnowledgeBaseConfiguration() Kno
 	return o.ApplyT(func(v KnowledgeBaseConfiguration) *KnowledgeBaseKendraKnowledgeBaseConfiguration {
 		return v.KendraKnowledgeBaseConfiguration
 	}).(KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseConfigurationOutput) ManagedKnowledgeBaseConfiguration() KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseConfiguration) *KnowledgeBaseManagedKnowledgeBaseConfiguration {
+		return v.ManagedKnowledgeBaseConfiguration
+	}).(KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput)
 }
 
 // Specifies configurations for a knowledge base connected to an SQL database.
@@ -35170,6 +36112,15 @@ func (o KnowledgeBaseConfigurationPtrOutput) KendraKnowledgeBaseConfiguration() 
 		}
 		return v.KendraKnowledgeBaseConfiguration
 	}).(KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseConfigurationPtrOutput) ManagedKnowledgeBaseConfiguration() KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseConfiguration) *KnowledgeBaseManagedKnowledgeBaseConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedKnowledgeBaseConfiguration
+	}).(KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput)
 }
 
 // Specifies configurations for a knowledge base connected to an SQL database.
@@ -35584,6 +36535,337 @@ func (o KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput) KendraIndexArn()
 			return nil
 		}
 		return &v.KendraIndexArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains details about the model used to create vector embeddings for a managed knowledge base.
+type KnowledgeBaseManagedKnowledgeBaseConfiguration struct {
+	// The ARN of the model used to create vector embeddings for the knowledge base.
+	EmbeddingModelArn                 string                                                              `pulumi:"embeddingModelArn"`
+	EmbeddingModelConfiguration       *KnowledgeBaseEmbeddingModelConfiguration                           `pulumi:"embeddingModelConfiguration"`
+	EmbeddingModelType                *KnowledgeBaseEmbeddingModelType                                    `pulumi:"embeddingModelType"`
+	ServerSideEncryptionConfiguration *KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
+}
+
+// KnowledgeBaseManagedKnowledgeBaseConfigurationInput is an input type that accepts KnowledgeBaseManagedKnowledgeBaseConfigurationArgs and KnowledgeBaseManagedKnowledgeBaseConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseManagedKnowledgeBaseConfigurationInput` via:
+//
+//	KnowledgeBaseManagedKnowledgeBaseConfigurationArgs{...}
+type KnowledgeBaseManagedKnowledgeBaseConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseManagedKnowledgeBaseConfigurationOutput() KnowledgeBaseManagedKnowledgeBaseConfigurationOutput
+	ToKnowledgeBaseManagedKnowledgeBaseConfigurationOutputWithContext(context.Context) KnowledgeBaseManagedKnowledgeBaseConfigurationOutput
+}
+
+// Contains details about the model used to create vector embeddings for a managed knowledge base.
+type KnowledgeBaseManagedKnowledgeBaseConfigurationArgs struct {
+	// The ARN of the model used to create vector embeddings for the knowledge base.
+	EmbeddingModelArn                 pulumi.StringInput                                                         `pulumi:"embeddingModelArn"`
+	EmbeddingModelConfiguration       KnowledgeBaseEmbeddingModelConfigurationPtrInput                           `pulumi:"embeddingModelConfiguration"`
+	EmbeddingModelType                KnowledgeBaseEmbeddingModelTypePtrInput                                    `pulumi:"embeddingModelType"`
+	ServerSideEncryptionConfiguration KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrInput `pulumi:"serverSideEncryptionConfiguration"`
+}
+
+func (KnowledgeBaseManagedKnowledgeBaseConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseManagedKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseManagedKnowledgeBaseConfigurationArgs) ToKnowledgeBaseManagedKnowledgeBaseConfigurationOutput() KnowledgeBaseManagedKnowledgeBaseConfigurationOutput {
+	return i.ToKnowledgeBaseManagedKnowledgeBaseConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseManagedKnowledgeBaseConfigurationArgs) ToKnowledgeBaseManagedKnowledgeBaseConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseManagedKnowledgeBaseConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseManagedKnowledgeBaseConfigurationOutput)
+}
+
+func (i KnowledgeBaseManagedKnowledgeBaseConfigurationArgs) ToKnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput() KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput {
+	return i.ToKnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseManagedKnowledgeBaseConfigurationArgs) ToKnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseManagedKnowledgeBaseConfigurationOutput).ToKnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseManagedKnowledgeBaseConfigurationPtrInput is an input type that accepts KnowledgeBaseManagedKnowledgeBaseConfigurationArgs, KnowledgeBaseManagedKnowledgeBaseConfigurationPtr and KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseManagedKnowledgeBaseConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseManagedKnowledgeBaseConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseManagedKnowledgeBaseConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput() KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput
+	ToKnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput
+}
+
+type knowledgeBaseManagedKnowledgeBaseConfigurationPtrType KnowledgeBaseManagedKnowledgeBaseConfigurationArgs
+
+func KnowledgeBaseManagedKnowledgeBaseConfigurationPtr(v *KnowledgeBaseManagedKnowledgeBaseConfigurationArgs) KnowledgeBaseManagedKnowledgeBaseConfigurationPtrInput {
+	return (*knowledgeBaseManagedKnowledgeBaseConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseManagedKnowledgeBaseConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseManagedKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseManagedKnowledgeBaseConfigurationPtrType) ToKnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput() KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput {
+	return i.ToKnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseManagedKnowledgeBaseConfigurationPtrType) ToKnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput)
+}
+
+// Contains details about the model used to create vector embeddings for a managed knowledge base.
+type KnowledgeBaseManagedKnowledgeBaseConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseManagedKnowledgeBaseConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseManagedKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationOutput) ToKnowledgeBaseManagedKnowledgeBaseConfigurationOutput() KnowledgeBaseManagedKnowledgeBaseConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationOutput) ToKnowledgeBaseManagedKnowledgeBaseConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseManagedKnowledgeBaseConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationOutput) ToKnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput() KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput {
+	return o.ToKnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationOutput) ToKnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseManagedKnowledgeBaseConfiguration) *KnowledgeBaseManagedKnowledgeBaseConfiguration {
+		return &v
+	}).(KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput)
+}
+
+// The ARN of the model used to create vector embeddings for the knowledge base.
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationOutput) EmbeddingModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseManagedKnowledgeBaseConfiguration) string { return v.EmbeddingModelArn }).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationOutput) EmbeddingModelConfiguration() KnowledgeBaseEmbeddingModelConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseManagedKnowledgeBaseConfiguration) *KnowledgeBaseEmbeddingModelConfiguration {
+		return v.EmbeddingModelConfiguration
+	}).(KnowledgeBaseEmbeddingModelConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationOutput) EmbeddingModelType() KnowledgeBaseEmbeddingModelTypePtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseManagedKnowledgeBaseConfiguration) *KnowledgeBaseEmbeddingModelType {
+		return v.EmbeddingModelType
+	}).(KnowledgeBaseEmbeddingModelTypePtrOutput)
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationOutput) ServerSideEncryptionConfiguration() KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseManagedKnowledgeBaseConfiguration) *KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration {
+		return v.ServerSideEncryptionConfiguration
+	}).(KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput)
+}
+
+type KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseManagedKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput) ToKnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput() KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput) ToKnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput) Elem() KnowledgeBaseManagedKnowledgeBaseConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseManagedKnowledgeBaseConfiguration) KnowledgeBaseManagedKnowledgeBaseConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseManagedKnowledgeBaseConfiguration
+		return ret
+	}).(KnowledgeBaseManagedKnowledgeBaseConfigurationOutput)
+}
+
+// The ARN of the model used to create vector embeddings for the knowledge base.
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput) EmbeddingModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseManagedKnowledgeBaseConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EmbeddingModelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput) EmbeddingModelConfiguration() KnowledgeBaseEmbeddingModelConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseManagedKnowledgeBaseConfiguration) *KnowledgeBaseEmbeddingModelConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EmbeddingModelConfiguration
+	}).(KnowledgeBaseEmbeddingModelConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput) EmbeddingModelType() KnowledgeBaseEmbeddingModelTypePtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseManagedKnowledgeBaseConfiguration) *KnowledgeBaseEmbeddingModelType {
+		if v == nil {
+			return nil
+		}
+		return v.EmbeddingModelType
+	}).(KnowledgeBaseEmbeddingModelTypePtrOutput)
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput) ServerSideEncryptionConfiguration() KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseManagedKnowledgeBaseConfiguration) *KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ServerSideEncryptionConfiguration
+	}).(KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput)
+}
+
+// Contains details about the server-side encryption for the managed knowledge base.
+type KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration struct {
+	// The ARN of the AWS KMS key used to encrypt the managed knowledge base.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+
+// KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationInput is an input type that accepts KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs and KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationInput` via:
+//
+//	KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs{...}
+type KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput() KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput
+	ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutputWithContext(context.Context) KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput
+}
+
+// Contains details about the server-side encryption for the managed knowledge base.
+type KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs struct {
+	// The ARN of the AWS KMS key used to encrypt the managed knowledge base.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs) ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput() KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput {
+	return i.ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs) ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput)
+}
+
+func (i KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs) ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput() KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
+	return i.ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs) ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput).ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrInput is an input type that accepts KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs, KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtr and KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput() KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput
+	ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput
+}
+
+type knowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrType KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs
+
+func KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtr(v *KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs) KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrInput {
+	return (*knowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrType) ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput() KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
+	return i.ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrType) ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput)
+}
+
+// Contains details about the server-side encryption for the managed knowledge base.
+type KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput) ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput() KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput) ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput) ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput() KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
+	return o.ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput) ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration) *KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration {
+		return &v
+	}).(KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput)
+}
+
+// The ARN of the AWS KMS key used to encrypt the managed knowledge base.
+func (o KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput) ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput() KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput) ToKnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput) Elem() KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration) KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration
+		return ret
+	}).(KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput)
+}
+
+// The ARN of the AWS KMS key used to encrypt the managed knowledge base.
+func (o KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -45886,6 +47168,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoStandardGenerativeFieldPtrInput)(nil)).Elem(), DataAutomationProjectVideoStandardGenerativeFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoStandardOutputConfigurationInput)(nil)).Elem(), DataAutomationProjectVideoStandardOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoStandardOutputConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectVideoStandardOutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAudioExtractionConfigurationInput)(nil)).Elem(), DataSourceAudioExtractionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAudioExtractionConfigurationPtrInput)(nil)).Elem(), DataSourceAudioExtractionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockDataAutomationConfigurationInput)(nil)).Elem(), DataSourceBedrockDataAutomationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockDataAutomationConfigurationPtrInput)(nil)).Elem(), DataSourceBedrockDataAutomationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockFoundationModelConfigurationInput)(nil)).Elem(), DataSourceBedrockFoundationModelConfigurationArgs{})
@@ -45907,6 +47191,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCrawlFilterConfigurationPtrInput)(nil)).Elem(), DataSourceCrawlFilterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomTransformationConfigurationInput)(nil)).Elem(), DataSourceCustomTransformationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomTransformationConfigurationPtrInput)(nil)).Elem(), DataSourceCustomTransformationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDeletionProtectionConfigurationInput)(nil)).Elem(), DataSourceDeletionProtectionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDeletionProtectionConfigurationPtrInput)(nil)).Elem(), DataSourceDeletionProtectionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnrichmentStrategyConfigurationInput)(nil)).Elem(), DataSourceEnrichmentStrategyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnrichmentStrategyConfigurationPtrInput)(nil)).Elem(), DataSourceEnrichmentStrategyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceFixedSizeChunkingConfigurationInput)(nil)).Elem(), DataSourceFixedSizeChunkingConfigurationArgs{})
@@ -45915,8 +47201,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHierarchicalChunkingConfigurationPtrInput)(nil)).Elem(), DataSourceHierarchicalChunkingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHierarchicalChunkingLevelConfigurationInput)(nil)).Elem(), DataSourceHierarchicalChunkingLevelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHierarchicalChunkingLevelConfigurationArrayInput)(nil)).Elem(), DataSourceHierarchicalChunkingLevelConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceImageExtractionConfigurationInput)(nil)).Elem(), DataSourceImageExtractionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceImageExtractionConfigurationPtrInput)(nil)).Elem(), DataSourceImageExtractionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceIntermediateStorageInput)(nil)).Elem(), DataSourceIntermediateStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceIntermediateStoragePtrInput)(nil)).Elem(), DataSourceIntermediateStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceManagedKnowledgeBaseConnectorConfigurationInput)(nil)).Elem(), DataSourceManagedKnowledgeBaseConnectorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceManagedKnowledgeBaseConnectorConfigurationPtrInput)(nil)).Elem(), DataSourceManagedKnowledgeBaseConnectorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMediaExtractionConfigurationInput)(nil)).Elem(), DataSourceMediaExtractionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMediaExtractionConfigurationPtrInput)(nil)).Elem(), DataSourceMediaExtractionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingConfigurationInput)(nil)).Elem(), DataSourceParsingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingConfigurationPtrInput)(nil)).Elem(), DataSourceParsingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingPromptInput)(nil)).Elem(), DataSourceParsingPromptArgs{})
@@ -45955,6 +47247,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceUrlConfigurationPtrInput)(nil)).Elem(), DataSourceUrlConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVectorIngestionConfigurationInput)(nil)).Elem(), DataSourceVectorIngestionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVectorIngestionConfigurationPtrInput)(nil)).Elem(), DataSourceVectorIngestionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVideoExtractionConfigurationInput)(nil)).Elem(), DataSourceVideoExtractionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVideoExtractionConfigurationPtrInput)(nil)).Elem(), DataSourceVideoExtractionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebCrawlerConfigurationInput)(nil)).Elem(), DataSourceWebCrawlerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebCrawlerConfigurationPtrInput)(nil)).Elem(), DataSourceWebCrawlerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebCrawlerLimitsInput)(nil)).Elem(), DataSourceWebCrawlerLimitsArgs{})
@@ -46155,6 +47449,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseEmbeddingModelConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseEmbeddingModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseKendraKnowledgeBaseConfigurationInput)(nil)).Elem(), KnowledgeBaseKendraKnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseKendraKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseKendraKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseManagedKnowledgeBaseConfigurationInput)(nil)).Elem(), KnowledgeBaseManagedKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseManagedKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseManagedKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationInput)(nil)).Elem(), KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseMongoDbAtlasConfigurationInput)(nil)).Elem(), KnowledgeBaseMongoDbAtlasConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseMongoDbAtlasConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseMongoDbAtlasConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseMongoDbAtlasFieldMappingInput)(nil)).Elem(), KnowledgeBaseMongoDbAtlasFieldMappingArgs{})
@@ -46413,6 +47711,8 @@ func init() {
 	pulumi.RegisterOutputType(DataAutomationProjectVideoStandardGenerativeFieldPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectVideoStandardOutputConfigurationOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectVideoStandardOutputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceAudioExtractionConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceAudioExtractionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceBedrockDataAutomationConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceBedrockDataAutomationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceBedrockFoundationModelConfigurationOutput{})
@@ -46435,6 +47735,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceCrawlFilterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceCustomTransformationConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceCustomTransformationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceDeletionProtectionConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceDeletionProtectionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceEnrichmentStrategyConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceEnrichmentStrategyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceFixedSizeChunkingConfigurationOutput{})
@@ -46443,8 +47745,14 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceHierarchicalChunkingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceHierarchicalChunkingLevelConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceHierarchicalChunkingLevelConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(DataSourceImageExtractionConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceImageExtractionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceIntermediateStorageOutput{})
 	pulumi.RegisterOutputType(DataSourceIntermediateStoragePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceManagedKnowledgeBaseConnectorConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceMediaExtractionConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceMediaExtractionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceParsingConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceParsingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceParsingPromptOutput{})
@@ -46483,6 +47791,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceUrlConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceVectorIngestionConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceVectorIngestionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceVideoExtractionConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceVideoExtractionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceWebCrawlerConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceWebCrawlerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceWebCrawlerLimitsOutput{})
@@ -46821,6 +48131,10 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseEmbeddingModelConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseKendraKnowledgeBaseConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseManagedKnowledgeBaseConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseMongoDbAtlasConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseMongoDbAtlasConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseMongoDbAtlasFieldMappingOutput{})

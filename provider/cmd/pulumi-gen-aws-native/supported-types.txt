@@ -592,6 +592,7 @@ AWS::ElasticLoadBalancingV2::LoadBalancer
 AWS::ElasticLoadBalancingV2::TargetGroup
 AWS::ElasticLoadBalancingV2::TrustStore
 AWS::ElasticLoadBalancingV2::TrustStoreRevocation
+AWS::ElementalInference::Dictionary
 AWS::ElementalInference::Feed
 AWS::EntityResolution::IdMappingWorkflow
 AWS::EntityResolution::IdNamespace
@@ -816,6 +817,8 @@ AWS::Lambda::EventSourceMapping
 AWS::Lambda::Function
 AWS::Lambda::LayerVersion
 AWS::Lambda::LayerVersionPermission
+AWS::Lambda::MicrovmImage
+AWS::Lambda::NetworkConnector
 AWS::Lambda::Permission
 AWS::Lambda::Url
 AWS::Lambda::Version
@@ -932,6 +935,7 @@ AWS::Neptune::DBInstance
 AWS::Neptune::DBParameterGroup
 AWS::Neptune::DBSubnetGroup
 AWS::Neptune::EventSubscription
+AWS::Neptune::GlobalCluster
 AWS::NeptuneGraph::Graph
 AWS::NeptuneGraph::GraphSnapshot
 AWS::NeptuneGraph::PrivateGraphEndpoint

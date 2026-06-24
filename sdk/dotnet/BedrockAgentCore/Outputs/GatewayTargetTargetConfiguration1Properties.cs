@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class GatewayTargetTargetConfiguration1Properties
     {
-        public readonly Outputs.GatewayTargetHttpTargetConfigurationProperties Http;
+        public readonly Union<Outputs.GatewayTargetHttpTargetConfiguration0Properties, Outputs.GatewayTargetHttpTargetConfiguration1Properties> Http;
 
         [OutputConstructor]
-        private GatewayTargetTargetConfiguration1Properties(Outputs.GatewayTargetHttpTargetConfigurationProperties http)
+        private GatewayTargetTargetConfiguration1Properties(Union<Outputs.GatewayTargetHttpTargetConfiguration0Properties, Outputs.GatewayTargetHttpTargetConfiguration1Properties> http)
         {
             Http = http;
         }

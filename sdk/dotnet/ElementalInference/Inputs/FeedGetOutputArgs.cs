@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ElementalInference.Inputs
         public Input<string> Name { get; set; } = null!;
 
         [Input("outputConfig", required: true)]
-        public InputUnion<Inputs.FeedOutputConfig0PropertiesArgs, Inputs.FeedOutputConfig1PropertiesArgs> OutputConfig { get; set; } = null!;
+        public object OutputConfig { get; set; } = null!;
 
         [Input("status", required: true)]
         public Input<Pulumi.AwsNative.ElementalInference.FeedOutputStatus> Status { get; set; } = null!;

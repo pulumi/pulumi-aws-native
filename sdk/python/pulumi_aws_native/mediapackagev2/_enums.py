@@ -13,6 +13,7 @@ __all__ = [
     'OriginEndpointCmafEncryptionMethod',
     'OriginEndpointContainerType',
     'OriginEndpointCustomAdType',
+    'OriginEndpointDashAudioTimelinePattern',
     'OriginEndpointDashCompactness',
     'OriginEndpointDashDrmSignaling',
     'OriginEndpointDashPeriodTrigger',
@@ -73,6 +74,12 @@ class OriginEndpointCustomAdType(_builtins.str, Enum):
     UNSCHEDULED_EVENT = "UNSCHEDULED_EVENT"
     ALTERNATE_CONTENT_OPPORTUNITY = "ALTERNATE_CONTENT_OPPORTUNITY"
     NETWORK = "NETWORK"
+
+
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointDashAudioTimelinePattern")
+class OriginEndpointDashAudioTimelinePattern(_builtins.str, Enum):
+    NONE = "NONE"
+    PATTERNED = "PATTERNED"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointDashCompactness")
@@ -190,6 +197,8 @@ class OriginEndpointScteFilter(_builtins.str, Enum):
     DISTRIBUTOR_PROMO = "DISTRIBUTOR_PROMO"
     PROVIDER_AD_BLOCK = "PROVIDER_AD_BLOCK"
     DISTRIBUTOR_AD_BLOCK = "DISTRIBUTOR_AD_BLOCK"
+    CONTENT_IDENTIFICATION = "CONTENT_IDENTIFICATION"
+    CALL_AD_SERVER = "CALL_AD_SERVER"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointScteInManifests")

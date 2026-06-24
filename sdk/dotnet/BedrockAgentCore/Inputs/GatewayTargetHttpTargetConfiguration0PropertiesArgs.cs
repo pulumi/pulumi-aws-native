@@ -10,14 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 {
 
-    public sealed class GatewayTargetHttpTargetConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class GatewayTargetHttpTargetConfiguration0PropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("agentcoreRuntime", required: true)]
         public Input<Inputs.GatewayTargetRuntimeTargetConfigurationArgs> AgentcoreRuntime { get; set; } = null!;
 
-        public GatewayTargetHttpTargetConfigurationPropertiesArgs()
+        public GatewayTargetHttpTargetConfiguration0PropertiesArgs()
         {
         }
-        public static new GatewayTargetHttpTargetConfigurationPropertiesArgs Empty => new GatewayTargetHttpTargetConfigurationPropertiesArgs();
+        public static new GatewayTargetHttpTargetConfiguration0PropertiesArgs Empty => new GatewayTargetHttpTargetConfiguration0PropertiesArgs();
     }
 }

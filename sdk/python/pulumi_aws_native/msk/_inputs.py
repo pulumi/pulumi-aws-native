@@ -102,6 +102,8 @@ __all__ = [
     'ReplicatorKafkaClusterClientVpcConfigArgsDict',
     'ReplicatorKafkaClusterEncryptionInTransitArgs',
     'ReplicatorKafkaClusterEncryptionInTransitArgsDict',
+    'ReplicatorKafkaClusterMtlsAuthenticationArgs',
+    'ReplicatorKafkaClusterMtlsAuthenticationArgsDict',
     'ReplicatorKafkaClusterSaslScramAuthenticationArgs',
     'ReplicatorKafkaClusterSaslScramAuthenticationArgsDict',
     'ReplicatorKafkaClusterArgs',
@@ -2023,7 +2025,11 @@ class ReplicatorKafkaClusterClientAuthenticationArgsDict(TypedDict):
     """
     Details of the client authentication used by the Apache Kafka cluster.
     """
-    sasl_scram: pulumi.Input['ReplicatorKafkaClusterSaslScramAuthenticationArgsDict']
+    mtls: NotRequired[pulumi.Input['ReplicatorKafkaClusterMtlsAuthenticationArgsDict']]
+    """
+    Details for mTLS client authentication.
+    """
+    sasl_scram: NotRequired[pulumi.Input['ReplicatorKafkaClusterSaslScramAuthenticationArgsDict']]
     """
     Details for SASL/SCRAM client authentication.
     """
@@ -2031,24 +2037,41 @@ class ReplicatorKafkaClusterClientAuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class ReplicatorKafkaClusterClientAuthenticationArgs:
     def __init__(__self__, *,
-                 sasl_scram: pulumi.Input['ReplicatorKafkaClusterSaslScramAuthenticationArgs']):
+                 mtls: Optional[pulumi.Input['ReplicatorKafkaClusterMtlsAuthenticationArgs']] = None,
+                 sasl_scram: Optional[pulumi.Input['ReplicatorKafkaClusterSaslScramAuthenticationArgs']] = None):
         """
         Details of the client authentication used by the Apache Kafka cluster.
 
+        :param pulumi.Input['ReplicatorKafkaClusterMtlsAuthenticationArgs'] mtls: Details for mTLS client authentication.
         :param pulumi.Input['ReplicatorKafkaClusterSaslScramAuthenticationArgs'] sasl_scram: Details for SASL/SCRAM client authentication.
         """
-        pulumi.set(__self__, "sasl_scram", sasl_scram)
+        if mtls is not None:
+            pulumi.set(__self__, "mtls", mtls)
+        if sasl_scram is not None:
+            pulumi.set(__self__, "sasl_scram", sasl_scram)
+
+    @_builtins.property
+    @pulumi.getter
+    def mtls(self) -> Optional[pulumi.Input['ReplicatorKafkaClusterMtlsAuthenticationArgs']]:
+        """
+        Details for mTLS client authentication.
+        """
+        return pulumi.get(self, "mtls")
+
+    @mtls.setter
+    def mtls(self, value: Optional[pulumi.Input['ReplicatorKafkaClusterMtlsAuthenticationArgs']]):
+        pulumi.set(self, "mtls", value)
 
     @_builtins.property
     @pulumi.getter(name="saslScram")
-    def sasl_scram(self) -> pulumi.Input['ReplicatorKafkaClusterSaslScramAuthenticationArgs']:
+    def sasl_scram(self) -> Optional[pulumi.Input['ReplicatorKafkaClusterSaslScramAuthenticationArgs']]:
         """
         Details for SASL/SCRAM client authentication.
         """
         return pulumi.get(self, "sasl_scram")
 
     @sasl_scram.setter
-    def sasl_scram(self, value: pulumi.Input['ReplicatorKafkaClusterSaslScramAuthenticationArgs']):
+    def sasl_scram(self, value: Optional[pulumi.Input['ReplicatorKafkaClusterSaslScramAuthenticationArgs']]):
         pulumi.set(self, "sasl_scram", value)
 
 
@@ -2156,6 +2179,39 @@ class ReplicatorKafkaClusterEncryptionInTransitArgs:
     @root_ca_certificate.setter
     def root_ca_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "root_ca_certificate", value)
+
+
+class ReplicatorKafkaClusterMtlsAuthenticationArgsDict(TypedDict):
+    """
+    Details for mTLS client authentication.
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Secrets Manager secret.
+    """
+
+@pulumi.input_type
+class ReplicatorKafkaClusterMtlsAuthenticationArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[_builtins.str]):
+        """
+        Details for mTLS client authentication.
+
+        :param pulumi.Input[_builtins.str] secret_arn: The Amazon Resource Name (ARN) of the Secrets Manager secret.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Secrets Manager secret.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
 
 
 class ReplicatorKafkaClusterSaslScramAuthenticationArgsDict(TypedDict):

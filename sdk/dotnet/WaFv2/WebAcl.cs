@@ -103,6 +103,9 @@ namespace Pulumi.AwsNative.WaFv2
         [Output("labelNamespace")]
         public Output<string> LabelNamespace { get; private set; } = null!;
 
+        [Output("monetizationConfig")]
+        public Output<Outputs.WebAclMonetizationConfig?> MonetizationConfig { get; private set; } = null!;
+
         /// <summary>
         /// The name of the web ACL. You cannot change the name of a web ACL after you create it.
         /// </summary>
@@ -264,6 +267,9 @@ namespace Pulumi.AwsNative.WaFv2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("monetizationConfig")]
+        public Input<Inputs.WebAclMonetizationConfigArgs>? MonetizationConfig { get; set; }
 
         /// <summary>
         /// The name of the web ACL. You cannot change the name of a web ACL after you create it.

@@ -17,12 +17,34 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'FeedAspectRatio',
     'FeedClippingConfig',
     'FeedCroppingConfig',
     'FeedGetOutput',
     'FeedOutputConfig0Properties',
     'FeedOutputConfig1Properties',
+    'FeedOutputConfig2Properties',
+    'FeedSubtitlingConfig',
 ]
+
+@pulumi.output_type
+class FeedAspectRatio(dict):
+    def __init__(__self__, *,
+                 height: _builtins.int,
+                 width: _builtins.int):
+        pulumi.set(__self__, "height", height)
+        pulumi.set(__self__, "width", width)
+
+    @_builtins.property
+    @pulumi.getter
+    def height(self) -> _builtins.int:
+        return pulumi.get(self, "height")
+
+    @_builtins.property
+    @pulumi.getter
+    def width(self) -> _builtins.int:
+        return pulumi.get(self, "width")
+
 
 @pulumi.output_type
 class FeedClippingConfig(dict):
@@ -133,5 +155,72 @@ class FeedOutputConfig1Properties(dict):
     @pulumi.getter
     def clipping(self) -> 'outputs.FeedClippingConfig':
         return pulumi.get(self, "clipping")
+
+
+@pulumi.output_type
+class FeedOutputConfig2Properties(dict):
+    def __init__(__self__, *,
+                 subtitling: 'outputs.FeedSubtitlingConfig'):
+        pulumi.set(__self__, "subtitling", subtitling)
+
+    @_builtins.property
+    @pulumi.getter
+    def subtitling(self) -> 'outputs.FeedSubtitlingConfig':
+        return pulumi.get(self, "subtitling")
+
+
+@pulumi.output_type
+class FeedSubtitlingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aspectRatio":
+            suggest = "aspect_ratio"
+        elif key == "profanityFilter":
+            suggest = "profanity_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeedSubtitlingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeedSubtitlingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeedSubtitlingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 language: 'FeedTranscriptionLanguage',
+                 aspect_ratio: Optional['outputs.FeedAspectRatio'] = None,
+                 dictionary: Optional[_builtins.str] = None,
+                 profanity_filter: Optional['FeedProfanityFilterMode'] = None):
+        pulumi.set(__self__, "language", language)
+        if aspect_ratio is not None:
+            pulumi.set(__self__, "aspect_ratio", aspect_ratio)
+        if dictionary is not None:
+            pulumi.set(__self__, "dictionary", dictionary)
+        if profanity_filter is not None:
+            pulumi.set(__self__, "profanity_filter", profanity_filter)
+
+    @_builtins.property
+    @pulumi.getter
+    def language(self) -> 'FeedTranscriptionLanguage':
+        return pulumi.get(self, "language")
+
+    @_builtins.property
+    @pulumi.getter(name="aspectRatio")
+    def aspect_ratio(self) -> Optional['outputs.FeedAspectRatio']:
+        return pulumi.get(self, "aspect_ratio")
+
+    @_builtins.property
+    @pulumi.getter
+    def dictionary(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "dictionary")
+
+    @_builtins.property
+    @pulumi.getter(name="profanityFilter")
+    def profanity_filter(self) -> Optional['FeedProfanityFilterMode']:
+        return pulumi.get(self, "profanity_filter")
 
 

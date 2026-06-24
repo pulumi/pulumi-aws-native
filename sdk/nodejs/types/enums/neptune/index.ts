@@ -11,3 +11,12 @@ export const DbClusterNetworkType = {
  * The network type of the DB cluster.
  */
 export type DbClusterNetworkType = (typeof DbClusterNetworkType)[keyof typeof DbClusterNetworkType];
+
+export const GlobalClusterEngine = {
+    Neptune: "neptune",
+} as const;
+
+/**
+ * The name of the database engine.
+ */
+export type GlobalClusterEngine = (typeof GlobalClusterEngine)[keyof typeof GlobalClusterEngine];

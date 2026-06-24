@@ -3295,6 +3295,287 @@ func (o UserPoolDomainCustomDomainConfigTypePtrOutput) CertificateArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserPoolDomainFailoverType struct {
+	PrimaryRoute53HealthCheckId string `pulumi:"primaryRoute53HealthCheckId"`
+	SecondaryRegion             string `pulumi:"secondaryRegion"`
+}
+
+// UserPoolDomainFailoverTypeInput is an input type that accepts UserPoolDomainFailoverTypeArgs and UserPoolDomainFailoverTypeOutput values.
+// You can construct a concrete instance of `UserPoolDomainFailoverTypeInput` via:
+//
+//	UserPoolDomainFailoverTypeArgs{...}
+type UserPoolDomainFailoverTypeInput interface {
+	pulumi.Input
+
+	ToUserPoolDomainFailoverTypeOutput() UserPoolDomainFailoverTypeOutput
+	ToUserPoolDomainFailoverTypeOutputWithContext(context.Context) UserPoolDomainFailoverTypeOutput
+}
+
+type UserPoolDomainFailoverTypeArgs struct {
+	PrimaryRoute53HealthCheckId pulumi.StringInput `pulumi:"primaryRoute53HealthCheckId"`
+	SecondaryRegion             pulumi.StringInput `pulumi:"secondaryRegion"`
+}
+
+func (UserPoolDomainFailoverTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolDomainFailoverType)(nil)).Elem()
+}
+
+func (i UserPoolDomainFailoverTypeArgs) ToUserPoolDomainFailoverTypeOutput() UserPoolDomainFailoverTypeOutput {
+	return i.ToUserPoolDomainFailoverTypeOutputWithContext(context.Background())
+}
+
+func (i UserPoolDomainFailoverTypeArgs) ToUserPoolDomainFailoverTypeOutputWithContext(ctx context.Context) UserPoolDomainFailoverTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainFailoverTypeOutput)
+}
+
+func (i UserPoolDomainFailoverTypeArgs) ToUserPoolDomainFailoverTypePtrOutput() UserPoolDomainFailoverTypePtrOutput {
+	return i.ToUserPoolDomainFailoverTypePtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolDomainFailoverTypeArgs) ToUserPoolDomainFailoverTypePtrOutputWithContext(ctx context.Context) UserPoolDomainFailoverTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainFailoverTypeOutput).ToUserPoolDomainFailoverTypePtrOutputWithContext(ctx)
+}
+
+// UserPoolDomainFailoverTypePtrInput is an input type that accepts UserPoolDomainFailoverTypeArgs, UserPoolDomainFailoverTypePtr and UserPoolDomainFailoverTypePtrOutput values.
+// You can construct a concrete instance of `UserPoolDomainFailoverTypePtrInput` via:
+//
+//	        UserPoolDomainFailoverTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolDomainFailoverTypePtrInput interface {
+	pulumi.Input
+
+	ToUserPoolDomainFailoverTypePtrOutput() UserPoolDomainFailoverTypePtrOutput
+	ToUserPoolDomainFailoverTypePtrOutputWithContext(context.Context) UserPoolDomainFailoverTypePtrOutput
+}
+
+type userPoolDomainFailoverTypePtrType UserPoolDomainFailoverTypeArgs
+
+func UserPoolDomainFailoverTypePtr(v *UserPoolDomainFailoverTypeArgs) UserPoolDomainFailoverTypePtrInput {
+	return (*userPoolDomainFailoverTypePtrType)(v)
+}
+
+func (*userPoolDomainFailoverTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolDomainFailoverType)(nil)).Elem()
+}
+
+func (i *userPoolDomainFailoverTypePtrType) ToUserPoolDomainFailoverTypePtrOutput() UserPoolDomainFailoverTypePtrOutput {
+	return i.ToUserPoolDomainFailoverTypePtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolDomainFailoverTypePtrType) ToUserPoolDomainFailoverTypePtrOutputWithContext(ctx context.Context) UserPoolDomainFailoverTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainFailoverTypePtrOutput)
+}
+
+type UserPoolDomainFailoverTypeOutput struct{ *pulumi.OutputState }
+
+func (UserPoolDomainFailoverTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolDomainFailoverType)(nil)).Elem()
+}
+
+func (o UserPoolDomainFailoverTypeOutput) ToUserPoolDomainFailoverTypeOutput() UserPoolDomainFailoverTypeOutput {
+	return o
+}
+
+func (o UserPoolDomainFailoverTypeOutput) ToUserPoolDomainFailoverTypeOutputWithContext(ctx context.Context) UserPoolDomainFailoverTypeOutput {
+	return o
+}
+
+func (o UserPoolDomainFailoverTypeOutput) ToUserPoolDomainFailoverTypePtrOutput() UserPoolDomainFailoverTypePtrOutput {
+	return o.ToUserPoolDomainFailoverTypePtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolDomainFailoverTypeOutput) ToUserPoolDomainFailoverTypePtrOutputWithContext(ctx context.Context) UserPoolDomainFailoverTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolDomainFailoverType) *UserPoolDomainFailoverType {
+		return &v
+	}).(UserPoolDomainFailoverTypePtrOutput)
+}
+
+func (o UserPoolDomainFailoverTypeOutput) PrimaryRoute53HealthCheckId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolDomainFailoverType) string { return v.PrimaryRoute53HealthCheckId }).(pulumi.StringOutput)
+}
+
+func (o UserPoolDomainFailoverTypeOutput) SecondaryRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolDomainFailoverType) string { return v.SecondaryRegion }).(pulumi.StringOutput)
+}
+
+type UserPoolDomainFailoverTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolDomainFailoverTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolDomainFailoverType)(nil)).Elem()
+}
+
+func (o UserPoolDomainFailoverTypePtrOutput) ToUserPoolDomainFailoverTypePtrOutput() UserPoolDomainFailoverTypePtrOutput {
+	return o
+}
+
+func (o UserPoolDomainFailoverTypePtrOutput) ToUserPoolDomainFailoverTypePtrOutputWithContext(ctx context.Context) UserPoolDomainFailoverTypePtrOutput {
+	return o
+}
+
+func (o UserPoolDomainFailoverTypePtrOutput) Elem() UserPoolDomainFailoverTypeOutput {
+	return o.ApplyT(func(v *UserPoolDomainFailoverType) UserPoolDomainFailoverType {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolDomainFailoverType
+		return ret
+	}).(UserPoolDomainFailoverTypeOutput)
+}
+
+func (o UserPoolDomainFailoverTypePtrOutput) PrimaryRoute53HealthCheckId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolDomainFailoverType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryRoute53HealthCheckId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolDomainFailoverTypePtrOutput) SecondaryRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolDomainFailoverType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecondaryRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolDomainRoutingType struct {
+	Failover *UserPoolDomainFailoverType `pulumi:"failover"`
+}
+
+// UserPoolDomainRoutingTypeInput is an input type that accepts UserPoolDomainRoutingTypeArgs and UserPoolDomainRoutingTypeOutput values.
+// You can construct a concrete instance of `UserPoolDomainRoutingTypeInput` via:
+//
+//	UserPoolDomainRoutingTypeArgs{...}
+type UserPoolDomainRoutingTypeInput interface {
+	pulumi.Input
+
+	ToUserPoolDomainRoutingTypeOutput() UserPoolDomainRoutingTypeOutput
+	ToUserPoolDomainRoutingTypeOutputWithContext(context.Context) UserPoolDomainRoutingTypeOutput
+}
+
+type UserPoolDomainRoutingTypeArgs struct {
+	Failover UserPoolDomainFailoverTypePtrInput `pulumi:"failover"`
+}
+
+func (UserPoolDomainRoutingTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolDomainRoutingType)(nil)).Elem()
+}
+
+func (i UserPoolDomainRoutingTypeArgs) ToUserPoolDomainRoutingTypeOutput() UserPoolDomainRoutingTypeOutput {
+	return i.ToUserPoolDomainRoutingTypeOutputWithContext(context.Background())
+}
+
+func (i UserPoolDomainRoutingTypeArgs) ToUserPoolDomainRoutingTypeOutputWithContext(ctx context.Context) UserPoolDomainRoutingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainRoutingTypeOutput)
+}
+
+func (i UserPoolDomainRoutingTypeArgs) ToUserPoolDomainRoutingTypePtrOutput() UserPoolDomainRoutingTypePtrOutput {
+	return i.ToUserPoolDomainRoutingTypePtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolDomainRoutingTypeArgs) ToUserPoolDomainRoutingTypePtrOutputWithContext(ctx context.Context) UserPoolDomainRoutingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainRoutingTypeOutput).ToUserPoolDomainRoutingTypePtrOutputWithContext(ctx)
+}
+
+// UserPoolDomainRoutingTypePtrInput is an input type that accepts UserPoolDomainRoutingTypeArgs, UserPoolDomainRoutingTypePtr and UserPoolDomainRoutingTypePtrOutput values.
+// You can construct a concrete instance of `UserPoolDomainRoutingTypePtrInput` via:
+//
+//	        UserPoolDomainRoutingTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolDomainRoutingTypePtrInput interface {
+	pulumi.Input
+
+	ToUserPoolDomainRoutingTypePtrOutput() UserPoolDomainRoutingTypePtrOutput
+	ToUserPoolDomainRoutingTypePtrOutputWithContext(context.Context) UserPoolDomainRoutingTypePtrOutput
+}
+
+type userPoolDomainRoutingTypePtrType UserPoolDomainRoutingTypeArgs
+
+func UserPoolDomainRoutingTypePtr(v *UserPoolDomainRoutingTypeArgs) UserPoolDomainRoutingTypePtrInput {
+	return (*userPoolDomainRoutingTypePtrType)(v)
+}
+
+func (*userPoolDomainRoutingTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolDomainRoutingType)(nil)).Elem()
+}
+
+func (i *userPoolDomainRoutingTypePtrType) ToUserPoolDomainRoutingTypePtrOutput() UserPoolDomainRoutingTypePtrOutput {
+	return i.ToUserPoolDomainRoutingTypePtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolDomainRoutingTypePtrType) ToUserPoolDomainRoutingTypePtrOutputWithContext(ctx context.Context) UserPoolDomainRoutingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainRoutingTypePtrOutput)
+}
+
+type UserPoolDomainRoutingTypeOutput struct{ *pulumi.OutputState }
+
+func (UserPoolDomainRoutingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolDomainRoutingType)(nil)).Elem()
+}
+
+func (o UserPoolDomainRoutingTypeOutput) ToUserPoolDomainRoutingTypeOutput() UserPoolDomainRoutingTypeOutput {
+	return o
+}
+
+func (o UserPoolDomainRoutingTypeOutput) ToUserPoolDomainRoutingTypeOutputWithContext(ctx context.Context) UserPoolDomainRoutingTypeOutput {
+	return o
+}
+
+func (o UserPoolDomainRoutingTypeOutput) ToUserPoolDomainRoutingTypePtrOutput() UserPoolDomainRoutingTypePtrOutput {
+	return o.ToUserPoolDomainRoutingTypePtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolDomainRoutingTypeOutput) ToUserPoolDomainRoutingTypePtrOutputWithContext(ctx context.Context) UserPoolDomainRoutingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolDomainRoutingType) *UserPoolDomainRoutingType {
+		return &v
+	}).(UserPoolDomainRoutingTypePtrOutput)
+}
+
+func (o UserPoolDomainRoutingTypeOutput) Failover() UserPoolDomainFailoverTypePtrOutput {
+	return o.ApplyT(func(v UserPoolDomainRoutingType) *UserPoolDomainFailoverType { return v.Failover }).(UserPoolDomainFailoverTypePtrOutput)
+}
+
+type UserPoolDomainRoutingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolDomainRoutingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolDomainRoutingType)(nil)).Elem()
+}
+
+func (o UserPoolDomainRoutingTypePtrOutput) ToUserPoolDomainRoutingTypePtrOutput() UserPoolDomainRoutingTypePtrOutput {
+	return o
+}
+
+func (o UserPoolDomainRoutingTypePtrOutput) ToUserPoolDomainRoutingTypePtrOutputWithContext(ctx context.Context) UserPoolDomainRoutingTypePtrOutput {
+	return o
+}
+
+func (o UserPoolDomainRoutingTypePtrOutput) Elem() UserPoolDomainRoutingTypeOutput {
+	return o.ApplyT(func(v *UserPoolDomainRoutingType) UserPoolDomainRoutingType {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolDomainRoutingType
+		return ret
+	}).(UserPoolDomainRoutingTypeOutput)
+}
+
+func (o UserPoolDomainRoutingTypePtrOutput) Failover() UserPoolDomainFailoverTypePtrOutput {
+	return o.ApplyT(func(v *UserPoolDomainRoutingType) *UserPoolDomainFailoverType {
+		if v == nil {
+			return nil
+		}
+		return v.Failover
+	}).(UserPoolDomainFailoverTypePtrOutput)
+}
+
 type UserPoolEmailConfiguration struct {
 	// The set of configuration rules that can be applied to emails sent using Amazon Simple Email Service. A configuration set is applied to an email by including a reference to the configuration set in the headers of the email. Once applied, all of the rules in that configuration set are applied to the email. Configuration sets can be used to apply the following types of rules to emails:
 	//
@@ -8004,6 +8285,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDeviceConfigurationPtrInput)(nil)).Elem(), UserPoolDeviceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainCustomDomainConfigTypeInput)(nil)).Elem(), UserPoolDomainCustomDomainConfigTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainCustomDomainConfigTypePtrInput)(nil)).Elem(), UserPoolDomainCustomDomainConfigTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainFailoverTypeInput)(nil)).Elem(), UserPoolDomainFailoverTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainFailoverTypePtrInput)(nil)).Elem(), UserPoolDomainFailoverTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainRoutingTypeInput)(nil)).Elem(), UserPoolDomainRoutingTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainRoutingTypePtrInput)(nil)).Elem(), UserPoolDomainRoutingTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEmailConfigurationInput)(nil)).Elem(), UserPoolEmailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEmailConfigurationPtrInput)(nil)).Elem(), UserPoolEmailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolInboundFederationInput)(nil)).Elem(), UserPoolInboundFederationArgs{})
@@ -8100,6 +8385,10 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolDeviceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolDomainCustomDomainConfigTypeOutput{})
 	pulumi.RegisterOutputType(UserPoolDomainCustomDomainConfigTypePtrOutput{})
+	pulumi.RegisterOutputType(UserPoolDomainFailoverTypeOutput{})
+	pulumi.RegisterOutputType(UserPoolDomainFailoverTypePtrOutput{})
+	pulumi.RegisterOutputType(UserPoolDomainRoutingTypeOutput{})
+	pulumi.RegisterOutputType(UserPoolDomainRoutingTypePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolEmailConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolEmailConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolInboundFederationOutput{})

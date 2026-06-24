@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetDeliverySourceResult',
@@ -24,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeliverySourceResult:
-    def __init__(__self__, arn=None, log_type=None, resource_arns=None, service=None, tags=None):
+    def __init__(__self__, arn=None, delivery_source_configuration=None, log_type=None, resource_arns=None, service=None, status=None, status_reason=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if delivery_source_configuration and not isinstance(delivery_source_configuration, dict):
+            raise TypeError("Expected argument 'delivery_source_configuration' to be a dict")
+        pulumi.set(__self__, "delivery_source_configuration", delivery_source_configuration)
         if log_type and not isinstance(log_type, str):
             raise TypeError("Expected argument 'log_type' to be a str")
         pulumi.set(__self__, "log_type", log_type)
@@ -37,6 +41,12 @@ class GetDeliverySourceResult:
         if service and not isinstance(service, str):
             raise TypeError("Expected argument 'service' to be a str")
         pulumi.set(__self__, "service", service)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if status_reason and not isinstance(status_reason, str):
+            raise TypeError("Expected argument 'status_reason' to be a str")
+        pulumi.set(__self__, "status_reason", status_reason)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -48,6 +58,14 @@ class GetDeliverySourceResult:
         The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="deliverySourceConfiguration")
+    def delivery_source_configuration(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "delivery_source_configuration")
 
     @_builtins.property
     @pulumi.getter(name="logType")
@@ -75,6 +93,22 @@ class GetDeliverySourceResult:
 
     @_builtins.property
     @pulumi.getter
+    def status(self) -> Optional['DeliverySourceStatus']:
+        """
+        The status of this delivery source. The value can be ACTIVE or INACTIVE.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="statusReason")
+    def status_reason(self) -> Optional['DeliverySourceStatusReason']:
+        """
+        The reason for the status of this delivery source, such as RESOURCE_DELETED.
+        """
+        return pulumi.get(self, "status_reason")
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         The tags that have been assigned to this delivery source.
@@ -89,9 +123,12 @@ class AwaitableGetDeliverySourceResult(GetDeliverySourceResult):
             yield self
         return GetDeliverySourceResult(
             arn=self.arn,
+            delivery_source_configuration=self.delivery_source_configuration,
             log_type=self.log_type,
             resource_arns=self.resource_arns,
             service=self.service,
+            status=self.status,
+            status_reason=self.status_reason,
             tags=self.tags)
 
 
@@ -112,9 +149,12 @@ def get_delivery_source(name: Optional[_builtins.str] = None,
 
     return AwaitableGetDeliverySourceResult(
         arn=pulumi.get(__ret__, 'arn'),
+        delivery_source_configuration=pulumi.get(__ret__, 'delivery_source_configuration'),
         log_type=pulumi.get(__ret__, 'log_type'),
         resource_arns=pulumi.get(__ret__, 'resource_arns'),
         service=pulumi.get(__ret__, 'service'),
+        status=pulumi.get(__ret__, 'status'),
+        status_reason=pulumi.get(__ret__, 'status_reason'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_delivery_source_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeliverySourceResult]:
@@ -132,7 +172,10 @@ def get_delivery_source_output(name: Optional[pulumi.Input[_builtins.str]] = Non
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getDeliverySource', __args__, opts=opts, typ=GetDeliverySourceResult)
     return __ret__.apply(lambda __response__: GetDeliverySourceResult(
         arn=pulumi.get(__response__, 'arn'),
+        delivery_source_configuration=pulumi.get(__response__, 'delivery_source_configuration'),
         log_type=pulumi.get(__response__, 'log_type'),
         resource_arns=pulumi.get(__response__, 'resource_arns'),
         service=pulumi.get(__response__, 'service'),
+        status=pulumi.get(__response__, 'status'),
+        status_reason=pulumi.get(__response__, 'status_reason'),
         tags=pulumi.get(__response__, 'tags')))

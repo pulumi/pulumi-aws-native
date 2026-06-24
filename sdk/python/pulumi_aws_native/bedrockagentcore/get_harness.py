@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetHarnessResult:
-    def __init__(__self__, allowed_tools=None, arn=None, authorizer_configuration=None, created_at=None, environment=None, environment_artifact=None, environment_variables=None, execution_role_arn=None, harness_id=None, max_iterations=None, max_tokens=None, memory=None, model=None, skills=None, status=None, system_prompt=None, tags=None, timeout_seconds=None, tools=None, truncation=None, updated_at=None):
+    def __init__(__self__, allowed_tools=None, arn=None, authorizer_configuration=None, created_at=None, environment=None, environment_artifact=None, environment_variables=None, execution_role_arn=None, harness_id=None, max_iterations=None, max_tokens=None, memory=None, model=None, skills=None, status=None, system_prompt=None, tags=None, timeout_seconds=None, tools=None, truncation=None, updated_at=None, version=None):
         if allowed_tools and not isinstance(allowed_tools, list):
             raise TypeError("Expected argument 'allowed_tools' to be a list")
         pulumi.set(__self__, "allowed_tools", allowed_tools)
@@ -90,6 +90,9 @@ class GetHarnessResult:
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        pulumi.set(__self__, "version", version)
 
     @_builtins.property
     @pulumi.getter(name="allowedTools")
@@ -259,6 +262,14 @@ class GetHarnessResult:
         """
         return pulumi.get(self, "updated_at")
 
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[_builtins.str]:
+        """
+        The version of the harness. Incremented on every successful update.
+        """
+        return pulumi.get(self, "version")
+
 
 class AwaitableGetHarnessResult(GetHarnessResult):
     # pylint: disable=using-constant-test
@@ -286,13 +297,14 @@ class AwaitableGetHarnessResult(GetHarnessResult):
             timeout_seconds=self.timeout_seconds,
             tools=self.tools,
             truncation=self.truncation,
-            updated_at=self.updated_at)
+            updated_at=self.updated_at,
+            version=self.version)
 
 
 def get_harness(arn: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHarnessResult:
     """
-    Definition of AWS::BedrockAgentCore::Harness resource type - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
+    Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
 
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the harness.
@@ -323,11 +335,12 @@ def get_harness(arn: Optional[_builtins.str] = None,
         timeout_seconds=pulumi.get(__ret__, 'timeout_seconds'),
         tools=pulumi.get(__ret__, 'tools'),
         truncation=pulumi.get(__ret__, 'truncation'),
-        updated_at=pulumi.get(__ret__, 'updated_at'))
+        updated_at=pulumi.get(__ret__, 'updated_at'),
+        version=pulumi.get(__ret__, 'version'))
 def get_harness_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHarnessResult]:
     """
-    Definition of AWS::BedrockAgentCore::Harness resource type - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
+    Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
 
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the harness.
@@ -357,4 +370,5 @@ def get_harness_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
         timeout_seconds=pulumi.get(__response__, 'timeout_seconds'),
         tools=pulumi.get(__response__, 'tools'),
         truncation=pulumi.get(__response__, 'truncation'),
-        updated_at=pulumi.get(__response__, 'updated_at')))
+        updated_at=pulumi.get(__response__, 'updated_at'),
+        version=pulumi.get(__response__, 'version')))

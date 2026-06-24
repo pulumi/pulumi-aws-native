@@ -90,6 +90,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("networkInterfaceId")]
         public Output<string?> NetworkInterfaceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the ODB network.
+        /// </summary>
         [Output("odbNetworkArn")]
         public Output<string?> OdbNetworkArn { get; private set; } = null!;
 
@@ -236,6 +239,9 @@ namespace Pulumi.AwsNative.Ec2
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the ODB network.
+        /// </summary>
         [Input("odbNetworkArn")]
         public Input<string>? OdbNetworkArn { get; set; }
 

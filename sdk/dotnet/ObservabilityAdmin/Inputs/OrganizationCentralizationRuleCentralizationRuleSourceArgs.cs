@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         [Input("sourceLogsConfiguration")]
         public Input<Inputs.OrganizationCentralizationRuleSourceLogsConfigurationArgs>? SourceLogsConfiguration { get; set; }
 
+        [Input("sourceMetricsConfiguration")]
+        public Input<Inputs.OrganizationCentralizationRuleSourceMetricsConfigurationArgs>? SourceMetricsConfiguration { get; set; }
+
         public OrganizationCentralizationRuleCentralizationRuleSourceArgs()
         {
         }

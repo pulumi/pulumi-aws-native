@@ -56,6 +56,8 @@ __all__ = [
     'RuleGroupCookiesArgsDict',
     'RuleGroupCountActionArgs',
     'RuleGroupCountActionArgsDict',
+    'RuleGroupCryptoConfigArgs',
+    'RuleGroupCryptoConfigArgsDict',
     'RuleGroupCustomHttpHeaderArgs',
     'RuleGroupCustomHttpHeaderArgsDict',
     'RuleGroupCustomRequestHandlingArgs',
@@ -100,10 +102,18 @@ __all__ = [
     'RuleGroupLabelSummaryArgsDict',
     'RuleGroupLabelArgs',
     'RuleGroupLabelArgsDict',
+    'RuleGroupMonetizationConfigArgs',
+    'RuleGroupMonetizationConfigArgsDict',
+    'RuleGroupMonetizeActionArgs',
+    'RuleGroupMonetizeActionArgsDict',
     'RuleGroupNotStatementArgs',
     'RuleGroupNotStatementArgsDict',
     'RuleGroupOrStatementArgs',
     'RuleGroupOrStatementArgsDict',
+    'RuleGroupPaymentNetworkArgs',
+    'RuleGroupPaymentNetworkArgsDict',
+    'RuleGroupPriceArgs',
+    'RuleGroupPriceArgsDict',
     'RuleGroupRateBasedStatementCustomKeyArgs',
     'RuleGroupRateBasedStatementCustomKeyArgsDict',
     'RuleGroupRateBasedStatementArgs',
@@ -198,6 +208,8 @@ __all__ = [
     'WebAclCookiesArgsDict',
     'WebAclCountActionArgs',
     'WebAclCountActionArgsDict',
+    'WebAclCryptoConfigArgs',
+    'WebAclCryptoConfigArgsDict',
     'WebAclCustomHttpHeaderArgs',
     'WebAclCustomHttpHeaderArgsDict',
     'WebAclCustomRequestHandlingArgs',
@@ -256,6 +268,10 @@ __all__ = [
     'WebAclManagedRuleGroupConfigArgsDict',
     'WebAclManagedRuleGroupStatementArgs',
     'WebAclManagedRuleGroupStatementArgsDict',
+    'WebAclMonetizationConfigArgs',
+    'WebAclMonetizationConfigArgsDict',
+    'WebAclMonetizeActionArgs',
+    'WebAclMonetizeActionArgsDict',
     'WebAclNotStatementArgs',
     'WebAclNotStatementArgsDict',
     'WebAclOnSourceDDoSProtectionConfigArgs',
@@ -264,6 +280,10 @@ __all__ = [
     'WebAclOrStatementArgsDict',
     'WebAclOverrideActionArgs',
     'WebAclOverrideActionArgsDict',
+    'WebAclPaymentNetworkArgs',
+    'WebAclPaymentNetworkArgsDict',
+    'WebAclPriceArgs',
+    'WebAclPriceArgsDict',
     'WebAclRateBasedStatementCustomKeyArgs',
     'WebAclRateBasedStatementCustomKeyArgsDict',
     'WebAclRateBasedStatementArgs',
@@ -1498,6 +1518,31 @@ class RuleGroupCountActionArgs:
     @custom_request_handling.setter
     def custom_request_handling(self, value: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]):
         pulumi.set(self, "custom_request_handling", value)
+
+
+class RuleGroupCryptoConfigArgsDict(TypedDict):
+    """
+    Configures cryptocurrency payment settings.
+    """
+    payment_networks: pulumi.Input[Sequence[pulumi.Input['RuleGroupPaymentNetworkArgsDict']]]
+
+@pulumi.input_type
+class RuleGroupCryptoConfigArgs:
+    def __init__(__self__, *,
+                 payment_networks: pulumi.Input[Sequence[pulumi.Input['RuleGroupPaymentNetworkArgs']]]):
+        """
+        Configures cryptocurrency payment settings.
+        """
+        pulumi.set(__self__, "payment_networks", payment_networks)
+
+    @_builtins.property
+    @pulumi.getter(name="paymentNetworks")
+    def payment_networks(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupPaymentNetworkArgs']]]:
+        return pulumi.get(self, "payment_networks")
+
+    @payment_networks.setter
+    def payment_networks(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupPaymentNetworkArgs']]]):
+        pulumi.set(self, "payment_networks", value)
 
 
 class RuleGroupCustomHttpHeaderArgsDict(TypedDict):
@@ -3190,6 +3235,71 @@ class RuleGroupLabelArgs:
         pulumi.set(self, "name", value)
 
 
+class RuleGroupMonetizationConfigArgsDict(TypedDict):
+    """
+    Configures monetization for the web ACL or rule group.
+    """
+    crypto_config: NotRequired[pulumi.Input['RuleGroupCryptoConfigArgsDict']]
+    currency_mode: NotRequired[pulumi.Input['RuleGroupCurrencyMode']]
+
+@pulumi.input_type
+class RuleGroupMonetizationConfigArgs:
+    def __init__(__self__, *,
+                 crypto_config: Optional[pulumi.Input['RuleGroupCryptoConfigArgs']] = None,
+                 currency_mode: Optional[pulumi.Input['RuleGroupCurrencyMode']] = None):
+        """
+        Configures monetization for the web ACL or rule group.
+        """
+        if crypto_config is not None:
+            pulumi.set(__self__, "crypto_config", crypto_config)
+        if currency_mode is not None:
+            pulumi.set(__self__, "currency_mode", currency_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="cryptoConfig")
+    def crypto_config(self) -> Optional[pulumi.Input['RuleGroupCryptoConfigArgs']]:
+        return pulumi.get(self, "crypto_config")
+
+    @crypto_config.setter
+    def crypto_config(self, value: Optional[pulumi.Input['RuleGroupCryptoConfigArgs']]):
+        pulumi.set(self, "crypto_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="currencyMode")
+    def currency_mode(self) -> Optional[pulumi.Input['RuleGroupCurrencyMode']]:
+        return pulumi.get(self, "currency_mode")
+
+    @currency_mode.setter
+    def currency_mode(self, value: Optional[pulumi.Input['RuleGroupCurrencyMode']]):
+        pulumi.set(self, "currency_mode", value)
+
+
+class RuleGroupMonetizeActionArgsDict(TypedDict):
+    """
+    Monetize action for rules.
+    """
+    price_multiplier: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class RuleGroupMonetizeActionArgs:
+    def __init__(__self__, *,
+                 price_multiplier: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Monetize action for rules.
+        """
+        if price_multiplier is not None:
+            pulumi.set(__self__, "price_multiplier", price_multiplier)
+
+    @_builtins.property
+    @pulumi.getter(name="priceMultiplier")
+    def price_multiplier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "price_multiplier")
+
+    @price_multiplier.setter
+    def price_multiplier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "price_multiplier", value)
+
+
 class RuleGroupNotStatementArgsDict(TypedDict):
     statement: pulumi.Input['RuleGroupStatementArgsDict']
     """
@@ -3244,6 +3354,92 @@ class RuleGroupOrStatementArgs:
     @statements.setter
     def statements(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupStatementArgs']]]):
         pulumi.set(self, "statements", value)
+
+
+class RuleGroupPaymentNetworkArgsDict(TypedDict):
+    """
+    Configuration for a single payment network.
+    """
+    chain: pulumi.Input['RuleGroupBlockchainChain']
+    prices: pulumi.Input[Sequence[pulumi.Input['RuleGroupPriceArgsDict']]]
+    wallet_address: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class RuleGroupPaymentNetworkArgs:
+    def __init__(__self__, *,
+                 chain: pulumi.Input['RuleGroupBlockchainChain'],
+                 prices: pulumi.Input[Sequence[pulumi.Input['RuleGroupPriceArgs']]],
+                 wallet_address: pulumi.Input[_builtins.str]):
+        """
+        Configuration for a single payment network.
+        """
+        pulumi.set(__self__, "chain", chain)
+        pulumi.set(__self__, "prices", prices)
+        pulumi.set(__self__, "wallet_address", wallet_address)
+
+    @_builtins.property
+    @pulumi.getter
+    def chain(self) -> pulumi.Input['RuleGroupBlockchainChain']:
+        return pulumi.get(self, "chain")
+
+    @chain.setter
+    def chain(self, value: pulumi.Input['RuleGroupBlockchainChain']):
+        pulumi.set(self, "chain", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prices(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupPriceArgs']]]:
+        return pulumi.get(self, "prices")
+
+    @prices.setter
+    def prices(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupPriceArgs']]]):
+        pulumi.set(self, "prices", value)
+
+    @_builtins.property
+    @pulumi.getter(name="walletAddress")
+    def wallet_address(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "wallet_address")
+
+    @wallet_address.setter
+    def wallet_address(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "wallet_address", value)
+
+
+class RuleGroupPriceArgsDict(TypedDict):
+    """
+    A price configuration.
+    """
+    amount: pulumi.Input[_builtins.str]
+    currency: pulumi.Input['RuleGroupCryptoCurrency']
+
+@pulumi.input_type
+class RuleGroupPriceArgs:
+    def __init__(__self__, *,
+                 amount: pulumi.Input[_builtins.str],
+                 currency: pulumi.Input['RuleGroupCryptoCurrency']):
+        """
+        A price configuration.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "currency", currency)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "amount")
+
+    @amount.setter
+    def amount(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "amount", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def currency(self) -> pulumi.Input['RuleGroupCryptoCurrency']:
+        return pulumi.get(self, "currency")
+
+    @currency.setter
+    def currency(self, value: pulumi.Input['RuleGroupCryptoCurrency']):
+        pulumi.set(self, "currency", value)
 
 
 class RuleGroupRateBasedStatementCustomKeyArgsDict(TypedDict):
@@ -4333,6 +4529,7 @@ class RuleGroupRuleActionArgsDict(TypedDict):
     """
     Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
     """
+    monetize: NotRequired[pulumi.Input['RuleGroupMonetizeActionArgsDict']]
 
 @pulumi.input_type
 class RuleGroupRuleActionArgs:
@@ -4341,7 +4538,8 @@ class RuleGroupRuleActionArgs:
                  block: Optional[pulumi.Input['RuleGroupBlockActionArgs']] = None,
                  captcha: Optional[pulumi.Input['RuleGroupCaptchaActionArgs']] = None,
                  challenge: Optional[pulumi.Input['RuleGroupChallengeActionArgs']] = None,
-                 count: Optional[pulumi.Input['RuleGroupCountActionArgs']] = None):
+                 count: Optional[pulumi.Input['RuleGroupCountActionArgs']] = None,
+                 monetize: Optional[pulumi.Input['RuleGroupMonetizeActionArgs']] = None):
         """
         Action taken when Rule matches its condition.
 
@@ -4374,6 +4572,8 @@ class RuleGroupRuleActionArgs:
             pulumi.set(__self__, "challenge", challenge)
         if count is not None:
             pulumi.set(__self__, "count", count)
+        if monetize is not None:
+            pulumi.set(__self__, "monetize", monetize)
 
     @_builtins.property
     @pulumi.getter
@@ -4447,6 +4647,15 @@ class RuleGroupRuleActionArgs:
     @count.setter
     def count(self, value: Optional[pulumi.Input['RuleGroupCountActionArgs']]):
         pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def monetize(self) -> Optional[pulumi.Input['RuleGroupMonetizeActionArgs']]:
+        return pulumi.get(self, "monetize")
+
+    @monetize.setter
+    def monetize(self, value: Optional[pulumi.Input['RuleGroupMonetizeActionArgs']]):
+        pulumi.set(self, "monetize", value)
 
 
 class RuleGroupRuleArgsDict(TypedDict):
@@ -7098,6 +7307,31 @@ class WebAclCountActionArgs:
         pulumi.set(self, "custom_request_handling", value)
 
 
+class WebAclCryptoConfigArgsDict(TypedDict):
+    """
+    Configures cryptocurrency payment settings.
+    """
+    payment_networks: pulumi.Input[Sequence[pulumi.Input['WebAclPaymentNetworkArgsDict']]]
+
+@pulumi.input_type
+class WebAclCryptoConfigArgs:
+    def __init__(__self__, *,
+                 payment_networks: pulumi.Input[Sequence[pulumi.Input['WebAclPaymentNetworkArgs']]]):
+        """
+        Configures cryptocurrency payment settings.
+        """
+        pulumi.set(__self__, "payment_networks", payment_networks)
+
+    @_builtins.property
+    @pulumi.getter(name="paymentNetworks")
+    def payment_networks(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclPaymentNetworkArgs']]]:
+        return pulumi.get(self, "payment_networks")
+
+    @payment_networks.setter
+    def payment_networks(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclPaymentNetworkArgs']]]):
+        pulumi.set(self, "payment_networks", value)
+
+
 class WebAclCustomHttpHeaderArgsDict(TypedDict):
     """
     HTTP header.
@@ -9381,6 +9615,71 @@ class WebAclManagedRuleGroupStatementArgs:
         pulumi.set(self, "version", value)
 
 
+class WebAclMonetizationConfigArgsDict(TypedDict):
+    """
+    Configures monetization for the web ACL or rule group.
+    """
+    crypto_config: NotRequired[pulumi.Input['WebAclCryptoConfigArgsDict']]
+    currency_mode: NotRequired[pulumi.Input['WebAclCurrencyMode']]
+
+@pulumi.input_type
+class WebAclMonetizationConfigArgs:
+    def __init__(__self__, *,
+                 crypto_config: Optional[pulumi.Input['WebAclCryptoConfigArgs']] = None,
+                 currency_mode: Optional[pulumi.Input['WebAclCurrencyMode']] = None):
+        """
+        Configures monetization for the web ACL or rule group.
+        """
+        if crypto_config is not None:
+            pulumi.set(__self__, "crypto_config", crypto_config)
+        if currency_mode is not None:
+            pulumi.set(__self__, "currency_mode", currency_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="cryptoConfig")
+    def crypto_config(self) -> Optional[pulumi.Input['WebAclCryptoConfigArgs']]:
+        return pulumi.get(self, "crypto_config")
+
+    @crypto_config.setter
+    def crypto_config(self, value: Optional[pulumi.Input['WebAclCryptoConfigArgs']]):
+        pulumi.set(self, "crypto_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="currencyMode")
+    def currency_mode(self) -> Optional[pulumi.Input['WebAclCurrencyMode']]:
+        return pulumi.get(self, "currency_mode")
+
+    @currency_mode.setter
+    def currency_mode(self, value: Optional[pulumi.Input['WebAclCurrencyMode']]):
+        pulumi.set(self, "currency_mode", value)
+
+
+class WebAclMonetizeActionArgsDict(TypedDict):
+    """
+    Monetize action for rules.
+    """
+    price_multiplier: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class WebAclMonetizeActionArgs:
+    def __init__(__self__, *,
+                 price_multiplier: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Monetize action for rules.
+        """
+        if price_multiplier is not None:
+            pulumi.set(__self__, "price_multiplier", price_multiplier)
+
+    @_builtins.property
+    @pulumi.getter(name="priceMultiplier")
+    def price_multiplier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "price_multiplier")
+
+    @price_multiplier.setter
+    def price_multiplier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "price_multiplier", value)
+
+
 class WebAclNotStatementArgsDict(TypedDict):
     statement: pulumi.Input['WebAclStatementArgsDict']
     """
@@ -9522,6 +9821,92 @@ class WebAclOverrideActionArgs:
     @none.setter
     def none(self, value: Optional[Any]):
         pulumi.set(self, "none", value)
+
+
+class WebAclPaymentNetworkArgsDict(TypedDict):
+    """
+    Configuration for a single payment network.
+    """
+    chain: pulumi.Input['WebAclBlockchainChain']
+    prices: pulumi.Input[Sequence[pulumi.Input['WebAclPriceArgsDict']]]
+    wallet_address: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class WebAclPaymentNetworkArgs:
+    def __init__(__self__, *,
+                 chain: pulumi.Input['WebAclBlockchainChain'],
+                 prices: pulumi.Input[Sequence[pulumi.Input['WebAclPriceArgs']]],
+                 wallet_address: pulumi.Input[_builtins.str]):
+        """
+        Configuration for a single payment network.
+        """
+        pulumi.set(__self__, "chain", chain)
+        pulumi.set(__self__, "prices", prices)
+        pulumi.set(__self__, "wallet_address", wallet_address)
+
+    @_builtins.property
+    @pulumi.getter
+    def chain(self) -> pulumi.Input['WebAclBlockchainChain']:
+        return pulumi.get(self, "chain")
+
+    @chain.setter
+    def chain(self, value: pulumi.Input['WebAclBlockchainChain']):
+        pulumi.set(self, "chain", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prices(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclPriceArgs']]]:
+        return pulumi.get(self, "prices")
+
+    @prices.setter
+    def prices(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclPriceArgs']]]):
+        pulumi.set(self, "prices", value)
+
+    @_builtins.property
+    @pulumi.getter(name="walletAddress")
+    def wallet_address(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "wallet_address")
+
+    @wallet_address.setter
+    def wallet_address(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "wallet_address", value)
+
+
+class WebAclPriceArgsDict(TypedDict):
+    """
+    A price configuration.
+    """
+    amount: pulumi.Input[_builtins.str]
+    currency: pulumi.Input['WebAclCryptoCurrency']
+
+@pulumi.input_type
+class WebAclPriceArgs:
+    def __init__(__self__, *,
+                 amount: pulumi.Input[_builtins.str],
+                 currency: pulumi.Input['WebAclCryptoCurrency']):
+        """
+        A price configuration.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "currency", currency)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "amount")
+
+    @amount.setter
+    def amount(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "amount", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def currency(self) -> pulumi.Input['WebAclCryptoCurrency']:
+        return pulumi.get(self, "currency")
+
+    @currency.setter
+    def currency(self, value: pulumi.Input['WebAclCryptoCurrency']):
+        pulumi.set(self, "currency", value)
 
 
 class WebAclRateBasedStatementCustomKeyArgsDict(TypedDict):
@@ -11533,6 +11918,7 @@ class WebAclRuleActionArgsDict(TypedDict):
     """
     Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
     """
+    monetize: NotRequired[pulumi.Input['WebAclMonetizeActionArgsDict']]
 
 @pulumi.input_type
 class WebAclRuleActionArgs:
@@ -11541,7 +11927,8 @@ class WebAclRuleActionArgs:
                  block: Optional[pulumi.Input['WebAclBlockActionArgs']] = None,
                  captcha: Optional[pulumi.Input['WebAclCaptchaActionArgs']] = None,
                  challenge: Optional[pulumi.Input['WebAclChallengeActionArgs']] = None,
-                 count: Optional[pulumi.Input['WebAclCountActionArgs']] = None):
+                 count: Optional[pulumi.Input['WebAclCountActionArgs']] = None,
+                 monetize: Optional[pulumi.Input['WebAclMonetizeActionArgs']] = None):
         """
         Action taken when Rule matches its condition.
 
@@ -11574,6 +11961,8 @@ class WebAclRuleActionArgs:
             pulumi.set(__self__, "challenge", challenge)
         if count is not None:
             pulumi.set(__self__, "count", count)
+        if monetize is not None:
+            pulumi.set(__self__, "monetize", monetize)
 
     @_builtins.property
     @pulumi.getter
@@ -11647,6 +12036,15 @@ class WebAclRuleActionArgs:
     @count.setter
     def count(self, value: Optional[pulumi.Input['WebAclCountActionArgs']]):
         pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def monetize(self) -> Optional[pulumi.Input['WebAclMonetizeActionArgs']]:
+        return pulumi.get(self, "monetize")
+
+    @monetize.setter
+    def monetize(self, value: Optional[pulumi.Input['WebAclMonetizeActionArgs']]):
+        pulumi.set(self, "monetize", value)
 
 
 class WebAclRuleGroupReferenceStatementArgsDict(TypedDict):

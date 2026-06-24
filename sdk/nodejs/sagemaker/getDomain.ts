@@ -54,6 +54,10 @@ export interface GetDomainResult {
      */
     readonly domainSettings?: outputs.sagemaker.DomainSettings;
     /**
+     * Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+     */
+    readonly homeEfsFileSystemCreation?: enums.sagemaker.DomainHomeEfsFileSystemCreation;
+    /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      */
     readonly homeEfsFileSystemId?: string;

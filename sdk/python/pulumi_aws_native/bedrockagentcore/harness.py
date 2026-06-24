@@ -325,7 +325,7 @@ class Harness(pulumi.CustomResource):
                  truncation: Optional[pulumi.Input[Union['HarnessTruncationConfigurationArgs', 'HarnessTruncationConfigurationArgsDict']]] = None,
                  __props__=None):
         """
-        Definition of AWS::BedrockAgentCore::Harness resource type - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
+        Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
 
 
         :param str resource_name: The name of the resource.
@@ -355,7 +355,7 @@ class Harness(pulumi.CustomResource):
                  args: HarnessArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::BedrockAgentCore::Harness resource type - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
+        Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
 
 
         :param str resource_name: The name of the resource.
@@ -425,7 +425,8 @@ class Harness(pulumi.CustomResource):
             __props__.__dict__["harness_id"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["environment.agentCoreRuntimeEnvironment.networkConfiguration", "harnessName"])
+            __props__.__dict__["version"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["harnessName", "memory.managedMemoryConfiguration.encryptionKeyArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Harness, __self__).__init__(
             'aws-native:bedrockagentcore:Harness',
@@ -471,6 +472,7 @@ class Harness(pulumi.CustomResource):
         __props__.__dict__["tools"] = None
         __props__.__dict__["truncation"] = None
         __props__.__dict__["updated_at"] = None
+        __props__.__dict__["version"] = None
         return Harness(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -648,4 +650,12 @@ class Harness(pulumi.CustomResource):
         The timestamp when the harness was last updated.
         """
         return pulumi.get(self, "updated_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> pulumi.Output[_builtins.str]:
+        """
+        The version of the harness. Incremented on every successful update.
+        """
+        return pulumi.get(self, "version")
 

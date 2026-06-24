@@ -24,13 +24,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolDomainResult:
-    def __init__(__self__, cloud_front_distribution=None, custom_domain_config=None):
+    def __init__(__self__, cloud_front_distribution=None, custom_domain_config=None, routing=None):
         if cloud_front_distribution and not isinstance(cloud_front_distribution, str):
             raise TypeError("Expected argument 'cloud_front_distribution' to be a str")
         pulumi.set(__self__, "cloud_front_distribution", cloud_front_distribution)
         if custom_domain_config and not isinstance(custom_domain_config, dict):
             raise TypeError("Expected argument 'custom_domain_config' to be a dict")
         pulumi.set(__self__, "custom_domain_config", custom_domain_config)
+        if routing and not isinstance(routing, dict):
+            raise TypeError("Expected argument 'routing' to be a dict")
+        pulumi.set(__self__, "routing", routing)
 
     @_builtins.property
     @pulumi.getter(name="cloudFrontDistribution")
@@ -50,6 +53,11 @@ class GetUserPoolDomainResult:
         """
         return pulumi.get(self, "custom_domain_config")
 
+    @_builtins.property
+    @pulumi.getter
+    def routing(self) -> Optional['outputs.UserPoolDomainRoutingType']:
+        return pulumi.get(self, "routing")
+
 
 class AwaitableGetUserPoolDomainResult(GetUserPoolDomainResult):
     # pylint: disable=using-constant-test
@@ -58,7 +66,8 @@ class AwaitableGetUserPoolDomainResult(GetUserPoolDomainResult):
             yield self
         return GetUserPoolDomainResult(
             cloud_front_distribution=self.cloud_front_distribution,
-            custom_domain_config=self.custom_domain_config)
+            custom_domain_config=self.custom_domain_config,
+            routing=self.routing)
 
 
 def get_user_pool_domain(domain: Optional[_builtins.str] = None,
@@ -79,7 +88,8 @@ def get_user_pool_domain(domain: Optional[_builtins.str] = None,
 
     return AwaitableGetUserPoolDomainResult(
         cloud_front_distribution=pulumi.get(__ret__, 'cloud_front_distribution'),
-        custom_domain_config=pulumi.get(__ret__, 'custom_domain_config'))
+        custom_domain_config=pulumi.get(__ret__, 'custom_domain_config'),
+        routing=pulumi.get(__ret__, 'routing'))
 def get_user_pool_domain_output(domain: Optional[pulumi.Input[_builtins.str]] = None,
                                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolDomainResult]:
@@ -97,4 +107,5 @@ def get_user_pool_domain_output(domain: Optional[pulumi.Input[_builtins.str]] = 
     __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPoolDomain', __args__, opts=opts, typ=GetUserPoolDomainResult)
     return __ret__.apply(lambda __response__: GetUserPoolDomainResult(
         cloud_front_distribution=pulumi.get(__response__, 'cloud_front_distribution'),
-        custom_domain_config=pulumi.get(__response__, 'custom_domain_config')))
+        custom_domain_config=pulumi.get(__response__, 'custom_domain_config'),
+        routing=pulumi.get(__response__, 'routing')))

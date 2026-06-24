@@ -56,7 +56,8 @@ type WebAcl struct {
 	// The syntax for the label namespace prefix for a web ACL is the following: `awswaf:<account ID>:webacl:<web ACL name>:`
 	//
 	// When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
-	LabelNamespace pulumi.StringOutput `pulumi:"labelNamespace"`
+	LabelNamespace     pulumi.StringOutput               `pulumi:"labelNamespace"`
+	MonetizationConfig WebAclMonetizationConfigPtrOutput `pulumi:"monetizationConfig"`
 	// The name of the web ACL. You cannot change the name of a web ACL after you create it.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
@@ -158,7 +159,8 @@ type webAclArgs struct {
 	// The action to perform if none of the `Rules` contained in the `WebACL` match.
 	DefaultAction WebAclDefaultAction `pulumi:"defaultAction"`
 	// A description of the web ACL that helps with identification.
-	Description *string `pulumi:"description"`
+	Description        *string                   `pulumi:"description"`
+	MonetizationConfig *WebAclMonetizationConfig `pulumi:"monetizationConfig"`
 	// The name of the web ACL. You cannot change the name of a web ACL after you create it.
 	Name *string `pulumi:"name"`
 	// Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
@@ -208,7 +210,8 @@ type WebAclArgs struct {
 	// The action to perform if none of the `Rules` contained in the `WebACL` match.
 	DefaultAction WebAclDefaultActionInput
 	// A description of the web ACL that helps with identification.
-	Description pulumi.StringPtrInput
+	Description        pulumi.StringPtrInput
+	MonetizationConfig WebAclMonetizationConfigPtrInput
 	// The name of the web ACL. You cannot change the name of a web ACL after you create it.
 	Name pulumi.StringPtrInput
 	// Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
@@ -342,6 +345,10 @@ func (o WebAclOutput) Description() pulumi.StringPtrOutput {
 // When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
 func (o WebAclOutput) LabelNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.LabelNamespace }).(pulumi.StringOutput)
+}
+
+func (o WebAclOutput) MonetizationConfig() WebAclMonetizationConfigPtrOutput {
+	return o.ApplyT(func(v *WebAcl) WebAclMonetizationConfigPtrOutput { return v.MonetizationConfig }).(WebAclMonetizationConfigPtrOutput)
 }
 
 // The name of the web ACL. You cannot change the name of a web ACL after you create it.

@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, auto_scaling=None, cluster_arn=None, cluster_role=None, cluster_status=None, creation_time=None, failure_message=None, instance_groups=None, node_provisioning_mode=None, node_recovery=None, orchestrator=None, restricted_instance_groups=None, tags=None, tiered_storage_config=None):
+    def __init__(__self__, auto_scaling=None, cluster_arn=None, cluster_role=None, cluster_status=None, creation_time=None, failure_message=None, instance_groups=None, node_provisioning_mode=None, node_recovery=None, orchestrator=None, restricted_instance_groups=None, restricted_instance_groups_config=None, tags=None, tiered_storage_config=None):
         if auto_scaling and not isinstance(auto_scaling, dict):
             raise TypeError("Expected argument 'auto_scaling' to be a dict")
         pulumi.set(__self__, "auto_scaling", auto_scaling)
@@ -60,6 +60,9 @@ class GetClusterResult:
         if restricted_instance_groups and not isinstance(restricted_instance_groups, list):
             raise TypeError("Expected argument 'restricted_instance_groups' to be a list")
         pulumi.set(__self__, "restricted_instance_groups", restricted_instance_groups)
+        if restricted_instance_groups_config and not isinstance(restricted_instance_groups_config, dict):
+            raise TypeError("Expected argument 'restricted_instance_groups_config' to be a dict")
+        pulumi.set(__self__, "restricted_instance_groups_config", restricted_instance_groups_config)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -150,6 +153,11 @@ class GetClusterResult:
         return pulumi.get(self, "restricted_instance_groups")
 
     @_builtins.property
+    @pulumi.getter(name="restrictedInstanceGroupsConfig")
+    def restricted_instance_groups_config(self) -> Optional['outputs.ClusterRestrictedInstanceGroupsConfig']:
+        return pulumi.get(self, "restricted_instance_groups_config")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -180,6 +188,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             node_recovery=self.node_recovery,
             orchestrator=self.orchestrator,
             restricted_instance_groups=self.restricted_instance_groups,
+            restricted_instance_groups_config=self.restricted_instance_groups_config,
             tags=self.tags,
             tiered_storage_config=self.tiered_storage_config)
 
@@ -209,6 +218,7 @@ def get_cluster(cluster_arn: Optional[_builtins.str] = None,
         node_recovery=pulumi.get(__ret__, 'node_recovery'),
         orchestrator=pulumi.get(__ret__, 'orchestrator'),
         restricted_instance_groups=pulumi.get(__ret__, 'restricted_instance_groups'),
+        restricted_instance_groups_config=pulumi.get(__ret__, 'restricted_instance_groups_config'),
         tags=pulumi.get(__ret__, 'tags'),
         tiered_storage_config=pulumi.get(__ret__, 'tiered_storage_config'))
 def get_cluster_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -235,5 +245,6 @@ def get_cluster_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] = None
         node_recovery=pulumi.get(__response__, 'node_recovery'),
         orchestrator=pulumi.get(__response__, 'orchestrator'),
         restricted_instance_groups=pulumi.get(__response__, 'restricted_instance_groups'),
+        restricted_instance_groups_config=pulumi.get(__response__, 'restricted_instance_groups_config'),
         tags=pulumi.get(__response__, 'tags'),
         tiered_storage_config=pulumi.get(__response__, 'tiered_storage_config')))

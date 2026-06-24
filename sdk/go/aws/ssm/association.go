@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -241,6 +242,8 @@ type Association struct {
 
 	// By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
 	ApplyOnlyAtCronInterval pulumi.BoolPtrOutput `pulumi:"applyOnlyAtCronInterval"`
+	// A role used by association to take actions on your behalf.
+	AssociationDispatchAssumeRole pulumi.StringPtrOutput `pulumi:"associationDispatchAssumeRole"`
 	// Unique identifier of the association.
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// The name of the association.
@@ -279,6 +282,8 @@ type Association struct {
 	//
 	// By default, all associations use `AUTO` mode.
 	SyncCompliance AssociationSyncCompliancePtrOutput `pulumi:"syncCompliance"`
+	// A key-value pair to associate with a resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The targets that the SSM document sends commands to.
 	Targets AssociationTargetArrayOutput `pulumi:"targets"`
 	// The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution. If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
@@ -329,6 +334,8 @@ func (AssociationState) ElementType() reflect.Type {
 type associationArgs struct {
 	// By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
 	ApplyOnlyAtCronInterval *bool `pulumi:"applyOnlyAtCronInterval"`
+	// A role used by association to take actions on your behalf.
+	AssociationDispatchAssumeRole *string `pulumi:"associationDispatchAssumeRole"`
 	// The name of the association.
 	AssociationName *string `pulumi:"associationName"`
 	// Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
@@ -365,6 +372,8 @@ type associationArgs struct {
 	//
 	// By default, all associations use `AUTO` mode.
 	SyncCompliance *AssociationSyncCompliance `pulumi:"syncCompliance"`
+	// A key-value pair to associate with a resource.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The targets that the SSM document sends commands to.
 	Targets []AssociationTarget `pulumi:"targets"`
 	// The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution. If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
@@ -377,6 +386,8 @@ type associationArgs struct {
 type AssociationArgs struct {
 	// By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
 	ApplyOnlyAtCronInterval pulumi.BoolPtrInput
+	// A role used by association to take actions on your behalf.
+	AssociationDispatchAssumeRole pulumi.StringPtrInput
 	// The name of the association.
 	AssociationName pulumi.StringPtrInput
 	// Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
@@ -413,6 +424,8 @@ type AssociationArgs struct {
 	//
 	// By default, all associations use `AUTO` mode.
 	SyncCompliance AssociationSyncCompliancePtrInput
+	// A key-value pair to associate with a resource.
+	Tags aws.TagArrayInput
 	// The targets that the SSM document sends commands to.
 	Targets AssociationTargetArrayInput
 	// The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution. If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
@@ -461,6 +474,11 @@ func (o AssociationOutput) ToAssociationOutputWithContext(ctx context.Context) A
 // By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
 func (o AssociationOutput) ApplyOnlyAtCronInterval() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.BoolPtrOutput { return v.ApplyOnlyAtCronInterval }).(pulumi.BoolPtrOutput)
+}
+
+// A role used by association to take actions on your behalf.
+func (o AssociationOutput) AssociationDispatchAssumeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.AssociationDispatchAssumeRole }).(pulumi.StringPtrOutput)
 }
 
 // Unique identifier of the association.
@@ -544,6 +562,11 @@ func (o AssociationOutput) ScheduleOffset() pulumi.IntPtrOutput {
 // By default, all associations use `AUTO` mode.
 func (o AssociationOutput) SyncCompliance() AssociationSyncCompliancePtrOutput {
 	return o.ApplyT(func(v *Association) AssociationSyncCompliancePtrOutput { return v.SyncCompliance }).(AssociationSyncCompliancePtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+func (o AssociationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Association) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The targets that the SSM document sends commands to.

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,6 +31,8 @@ type LookupAssociationArgs struct {
 type LookupAssociationResult struct {
 	// By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
 	ApplyOnlyAtCronInterval *bool `pulumi:"applyOnlyAtCronInterval"`
+	// A role used by association to take actions on your behalf.
+	AssociationDispatchAssumeRole *string `pulumi:"associationDispatchAssumeRole"`
 	// Unique identifier of the association.
 	AssociationId *string `pulumi:"associationId"`
 	// The name of the association.
@@ -68,6 +71,8 @@ type LookupAssociationResult struct {
 	//
 	// By default, all associations use `AUTO` mode.
 	SyncCompliance *AssociationSyncCompliance `pulumi:"syncCompliance"`
+	// A key-value pair to associate with a resource.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The targets that the SSM document sends commands to.
 	Targets []AssociationTarget `pulumi:"targets"`
 }
@@ -107,6 +112,11 @@ func (o LookupAssociationResultOutput) ToLookupAssociationResultOutputWithContex
 // By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
 func (o LookupAssociationResultOutput) ApplyOnlyAtCronInterval() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAssociationResult) *bool { return v.ApplyOnlyAtCronInterval }).(pulumi.BoolPtrOutput)
+}
+
+// A role used by association to take actions on your behalf.
+func (o LookupAssociationResultOutput) AssociationDispatchAssumeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAssociationResult) *string { return v.AssociationDispatchAssumeRole }).(pulumi.StringPtrOutput)
 }
 
 // Unique identifier of the association.
@@ -190,6 +200,11 @@ func (o LookupAssociationResultOutput) ScheduleOffset() pulumi.IntPtrOutput {
 // By default, all associations use `AUTO` mode.
 func (o LookupAssociationResultOutput) SyncCompliance() AssociationSyncCompliancePtrOutput {
 	return o.ApplyT(func(v LookupAssociationResult) *AssociationSyncCompliance { return v.SyncCompliance }).(AssociationSyncCompliancePtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+func (o LookupAssociationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The targets that the SSM document sends commands to.

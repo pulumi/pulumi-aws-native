@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.Ssm
         /// </summary>
         public readonly bool? ApplyOnlyAtCronInterval;
         /// <summary>
+        /// A role used by association to take actions on your behalf.
+        /// </summary>
+        public readonly string? AssociationDispatchAssumeRole;
+        /// <summary>
         /// Unique identifier of the association.
         /// </summary>
         public readonly string? AssociationId;
@@ -136,6 +140,10 @@ namespace Pulumi.AwsNative.Ssm
         /// </summary>
         public readonly Pulumi.AwsNative.Ssm.AssociationSyncCompliance? SyncCompliance;
         /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// The targets that the SSM document sends commands to.
         /// </summary>
         public readonly ImmutableArray<Outputs.AssociationTarget> Targets;
@@ -143,6 +151,8 @@ namespace Pulumi.AwsNative.Ssm
         [OutputConstructor]
         private GetAssociationResult(
             bool? applyOnlyAtCronInterval,
+
+            string? associationDispatchAssumeRole,
 
             string? associationId,
 
@@ -174,9 +184,12 @@ namespace Pulumi.AwsNative.Ssm
 
             Pulumi.AwsNative.Ssm.AssociationSyncCompliance? syncCompliance,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             ImmutableArray<Outputs.AssociationTarget> targets)
         {
             ApplyOnlyAtCronInterval = applyOnlyAtCronInterval;
+            AssociationDispatchAssumeRole = associationDispatchAssumeRole;
             AssociationId = associationId;
             AssociationName = associationName;
             AutomationTargetParameterName = automationTargetParameterName;
@@ -192,6 +205,7 @@ namespace Pulumi.AwsNative.Ssm
             ScheduleExpression = scheduleExpression;
             ScheduleOffset = scheduleOffset;
             SyncCompliance = syncCompliance;
+            Tags = tags;
             Targets = targets;
         }
     }

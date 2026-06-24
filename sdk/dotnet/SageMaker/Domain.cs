@@ -70,6 +70,12 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<Outputs.DomainSettings?> DomainSettings { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+        /// </summary>
+        [Output("homeEfsFileSystemCreation")]
+        public Output<Pulumi.AwsNative.SageMaker.DomainHomeEfsFileSystemCreation?> HomeEfsFileSystemCreation { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         /// </summary>
         [Output("homeEfsFileSystemId")]
@@ -222,6 +228,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Input("domainSettings")]
         public Input<Inputs.DomainSettingsArgs>? DomainSettings { get; set; }
+
+        /// <summary>
+        /// Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+        /// </summary>
+        [Input("homeEfsFileSystemCreation")]
+        public Input<Pulumi.AwsNative.SageMaker.DomainHomeEfsFileSystemCreation>? HomeEfsFileSystemCreation { get; set; }
 
         /// <summary>
         /// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.

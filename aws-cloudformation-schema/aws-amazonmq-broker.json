@@ -197,6 +197,16 @@
         "$ref" : "#/definitions/TagsEntry"
       },
       "insertionOrder" : false
+    },
+    "ResourceShareArns" : {
+      "description" : "The ARNs of the resource shares to be associated with the broker.\n",
+      "type" : "array",
+      "uniqueItems" : true,
+      "items" : {
+        "type" : "string",
+        "pattern" : "^arn:.*"
+      },
+      "insertionOrder" : false
     }
   },
   "definitions" : {
@@ -383,13 +393,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "mq:CreateBroker", "mq:CreateReplicaBroker", "mq:DescribeBroker", "mq:CreateTags", "kms:CreateGrant", "kms:DescribeKey", "ec2:CreateNetworkInterface", "ec2:CreateNetworkInterfacePermission", "ec2:CreateSecurityGroup", "ec2:CreateVpcEndpoint", "ec2:DescribeInternetGateways", "ec2:DescribeNetworkInterfaces", "ec2:DescribeNetworkInterfacePermissions", "ec2:DescribeRouteTables", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeVpcEndpoints", "ec2:ModifyNetworkInterfaceAttribute", "iam:CreateServiceLinkedRole", "route53:AssociateVPCWithHostedZone", "ec2:DeleteNetworkInterface", "ec2:DeleteNetworkInterfacePermission", "ec2:DeleteVpcEndpoints", "ec2:DetachNetworkInterface" ]
+      "permissions" : [ "mq:CreateBroker", "mq:CreateReplicaBroker", "mq:DescribeBroker", "mq:DescribeSharedResources", "mq:UpdateBroker", "mq:RebootBroker", "mq:CreateTags", "kms:CreateGrant", "kms:DescribeKey", "ec2:CreateNetworkInterface", "ec2:CreateNetworkInterfacePermission", "ec2:CreateSecurityGroup", "ec2:CreateVpcEndpoint", "ec2:DescribeInternetGateways", "ec2:DescribeNetworkInterfaces", "ec2:DescribeNetworkInterfacePermissions", "ec2:DescribeRouteTables", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeVpcEndpoints", "ec2:ModifyNetworkInterfaceAttribute", "iam:CreateServiceLinkedRole", "ram:AssociateResourceShare", "vpc-lattice:PutResourcePolicy", "route53:AssociateVPCWithHostedZone", "ec2:DeleteNetworkInterface", "ec2:DeleteNetworkInterfacePermission", "ec2:DeleteVpcEndpoints", "ec2:DetachNetworkInterface" ]
     },
     "read" : {
-      "permissions" : [ "mq:DescribeBroker" ]
+      "permissions" : [ "mq:DescribeBroker", "mq:DescribeSharedResources" ]
     },
     "update" : {
-      "permissions" : [ "mq:DescribeBroker", "mq:UpdateBroker", "mq:RebootBroker", "mq:DescribeUser", "mq:CreateUser", "mq:UpdateUser", "mq:DeleteUser", "mq:CreateTags", "mq:DeleteTags", "ec2:CreateNetworkInterface", "ec2:CreateNetworkInterfacePermission", "ec2:CreateSecurityGroup", "ec2:CreateVpcEndpoint", "ec2:DeleteNetworkInterface", "ec2:DeleteNetworkInterfacePermission", "ec2:DeleteVpcEndpoints", "ec2:DetachNetworkInterface", "ec2:DescribeInternetGateways", "ec2:DescribeNetworkInterfaces", "ec2:DescribeNetworkInterfacePermissions", "ec2:DescribeRouteTables", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeVpcEndpoints", "ec2:ModifyNetworkInterfaceAttribute", "iam:CreateServiceLinkedRole", "route53:AssociateVPCWithHostedZone" ]
+      "permissions" : [ "mq:DescribeBroker", "mq:DescribeSharedResources", "mq:UpdateBroker", "mq:RebootBroker", "mq:DescribeUser", "mq:CreateUser", "mq:UpdateUser", "mq:DeleteUser", "mq:CreateTags", "mq:DeleteTags", "ec2:CreateNetworkInterface", "ec2:CreateNetworkInterfacePermission", "ec2:CreateSecurityGroup", "ec2:CreateVpcEndpoint", "ec2:DeleteNetworkInterface", "ec2:DeleteNetworkInterfacePermission", "ec2:DeleteVpcEndpoints", "ec2:DetachNetworkInterface", "ec2:DescribeInternetGateways", "ec2:DescribeNetworkInterfaces", "ec2:DescribeNetworkInterfacePermissions", "ec2:DescribeRouteTables", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeVpcEndpoints", "ec2:ModifyNetworkInterfaceAttribute", "iam:CreateServiceLinkedRole", "ram:AssociateResourceShare", "vpc-lattice:PutResourcePolicy", "route53:AssociateVPCWithHostedZone" ]
     },
     "delete" : {
       "permissions" : [ "mq:DeleteBroker", "mq:DescribeBroker", "ec2:DeleteNetworkInterface", "ec2:DeleteNetworkInterfacePermission", "ec2:DeleteVpcEndpoints", "ec2:DetachNetworkInterface" ]

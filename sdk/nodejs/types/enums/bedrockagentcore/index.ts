@@ -236,6 +236,15 @@ export const GatewayTargetOAuthGrantType = {
 
 export type GatewayTargetOAuthGrantType = (typeof GatewayTargetOAuthGrantType)[keyof typeof GatewayTargetOAuthGrantType];
 
+export const GatewayTargetPassthroughProtocolType = {
+    Mcp: "MCP",
+    A2a: "A2A",
+    Inference: "INFERENCE",
+    Custom: "CUSTOM",
+} as const;
+
+export type GatewayTargetPassthroughProtocolType = (typeof GatewayTargetPassthroughProtocolType)[keyof typeof GatewayTargetPassthroughProtocolType];
+
 export const GatewayTargetRestApiMethod = {
     Get: "GET",
     Delete: "DELETE",
@@ -290,12 +299,36 @@ export const HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator = {
 
 export type HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator = (typeof HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator)[keyof typeof HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator];
 
+export const HarnessBedrockModelConfigApiFormat = {
+    ConverseStream: "converse_stream",
+    Responses: "responses",
+    ChatCompletions: "chat_completions",
+} as const;
+
+export type HarnessBedrockModelConfigApiFormat = (typeof HarnessBedrockModelConfigApiFormat)[keyof typeof HarnessBedrockModelConfigApiFormat];
+
 export const HarnessCustomClaimValidationTypeInboundTokenClaimValueType = {
     String: "STRING",
     StringArray: "STRING_ARRAY",
 } as const;
 
 export type HarnessCustomClaimValidationTypeInboundTokenClaimValueType = (typeof HarnessCustomClaimValidationTypeInboundTokenClaimValueType)[keyof typeof HarnessCustomClaimValidationTypeInboundTokenClaimValueType];
+
+export const HarnessManagedMemoryConfigurationStrategiesItem = {
+    Semantic: "SEMANTIC",
+    Summarization: "SUMMARIZATION",
+    UserPreference: "USER_PREFERENCE",
+    Episodic: "EPISODIC",
+} as const;
+
+export type HarnessManagedMemoryConfigurationStrategiesItem = (typeof HarnessManagedMemoryConfigurationStrategiesItem)[keyof typeof HarnessManagedMemoryConfigurationStrategiesItem];
+
+export const HarnessManagedVpcResourceEndpointIpAddressType = {
+    Ipv4: "IPV4",
+    Ipv6: "IPV6",
+} as const;
+
+export type HarnessManagedVpcResourceEndpointIpAddressType = (typeof HarnessManagedVpcResourceEndpointIpAddressType)[keyof typeof HarnessManagedVpcResourceEndpointIpAddressType];
 
 export const HarnessNetworkConfigurationNetworkMode = {
     Public: "PUBLIC",
@@ -310,6 +343,13 @@ export const HarnessOAuthCredentialProviderGrantType = {
 } as const;
 
 export type HarnessOAuthCredentialProviderGrantType = (typeof HarnessOAuthCredentialProviderGrantType)[keyof typeof HarnessOAuthCredentialProviderGrantType];
+
+export const HarnessOpenAiModelConfigApiFormat = {
+    ChatCompletions: "chat_completions",
+    Responses: "responses",
+} as const;
+
+export type HarnessOpenAiModelConfigApiFormat = (typeof HarnessOpenAiModelConfigApiFormat)[keyof typeof HarnessOpenAiModelConfigApiFormat];
 
 export const HarnessStatus = {
     Creating: "CREATING",
@@ -777,6 +817,16 @@ export const PaymentManagerStatus = {
 } as const;
 
 export type PaymentManagerStatus = (typeof PaymentManagerStatus)[keyof typeof PaymentManagerStatus];
+
+export const PolicyEnforcementMode = {
+    Active: "ACTIVE",
+    LogOnly: "LOG_ONLY",
+} as const;
+
+/**
+ * Whether the policy contributes to the enforce decision returned to Gateway. LOG_ONLY policies are still evaluated but their decisions are observed only, allowing customers to validate a policy against real traffic before promoting it.
+ */
+export type PolicyEnforcementMode = (typeof PolicyEnforcementMode)[keyof typeof PolicyEnforcementMode];
 
 export const PolicyEngineStatus = {
     Creating: "CREATING",

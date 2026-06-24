@@ -10,6 +10,179 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DictionaryLanguage string
+
+const (
+	DictionaryLanguageEng = DictionaryLanguage("eng")
+	DictionaryLanguageFra = DictionaryLanguage("fra")
+	DictionaryLanguageIta = DictionaryLanguage("ita")
+	DictionaryLanguageDeu = DictionaryLanguage("deu")
+	DictionaryLanguageSpa = DictionaryLanguage("spa")
+	DictionaryLanguagePor = DictionaryLanguage("por")
+)
+
+func (DictionaryLanguage) ElementType() reflect.Type {
+	return reflect.TypeOf((*DictionaryLanguage)(nil)).Elem()
+}
+
+func (e DictionaryLanguage) ToDictionaryLanguageOutput() DictionaryLanguageOutput {
+	return pulumi.ToOutput(e).(DictionaryLanguageOutput)
+}
+
+func (e DictionaryLanguage) ToDictionaryLanguageOutputWithContext(ctx context.Context) DictionaryLanguageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DictionaryLanguageOutput)
+}
+
+func (e DictionaryLanguage) ToDictionaryLanguagePtrOutput() DictionaryLanguagePtrOutput {
+	return e.ToDictionaryLanguagePtrOutputWithContext(context.Background())
+}
+
+func (e DictionaryLanguage) ToDictionaryLanguagePtrOutputWithContext(ctx context.Context) DictionaryLanguagePtrOutput {
+	return DictionaryLanguage(e).ToDictionaryLanguageOutputWithContext(ctx).ToDictionaryLanguagePtrOutputWithContext(ctx)
+}
+
+func (e DictionaryLanguage) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DictionaryLanguage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DictionaryLanguage) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DictionaryLanguage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DictionaryLanguageOutput struct{ *pulumi.OutputState }
+
+func (DictionaryLanguageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DictionaryLanguage)(nil)).Elem()
+}
+
+func (o DictionaryLanguageOutput) ToDictionaryLanguageOutput() DictionaryLanguageOutput {
+	return o
+}
+
+func (o DictionaryLanguageOutput) ToDictionaryLanguageOutputWithContext(ctx context.Context) DictionaryLanguageOutput {
+	return o
+}
+
+func (o DictionaryLanguageOutput) ToDictionaryLanguagePtrOutput() DictionaryLanguagePtrOutput {
+	return o.ToDictionaryLanguagePtrOutputWithContext(context.Background())
+}
+
+func (o DictionaryLanguageOutput) ToDictionaryLanguagePtrOutputWithContext(ctx context.Context) DictionaryLanguagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DictionaryLanguage) *DictionaryLanguage {
+		return &v
+	}).(DictionaryLanguagePtrOutput)
+}
+
+func (o DictionaryLanguageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DictionaryLanguageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DictionaryLanguage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DictionaryLanguageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DictionaryLanguageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DictionaryLanguage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DictionaryLanguagePtrOutput struct{ *pulumi.OutputState }
+
+func (DictionaryLanguagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DictionaryLanguage)(nil)).Elem()
+}
+
+func (o DictionaryLanguagePtrOutput) ToDictionaryLanguagePtrOutput() DictionaryLanguagePtrOutput {
+	return o
+}
+
+func (o DictionaryLanguagePtrOutput) ToDictionaryLanguagePtrOutputWithContext(ctx context.Context) DictionaryLanguagePtrOutput {
+	return o
+}
+
+func (o DictionaryLanguagePtrOutput) Elem() DictionaryLanguageOutput {
+	return o.ApplyT(func(v *DictionaryLanguage) DictionaryLanguage {
+		if v != nil {
+			return *v
+		}
+		var ret DictionaryLanguage
+		return ret
+	}).(DictionaryLanguageOutput)
+}
+
+func (o DictionaryLanguagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DictionaryLanguagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DictionaryLanguage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DictionaryLanguageInput is an input type that accepts values of the DictionaryLanguage enum
+// A concrete instance of `DictionaryLanguageInput` can be one of the following:
+//
+//	DictionaryLanguageEng
+//	DictionaryLanguageFra
+//	DictionaryLanguageIta
+//	DictionaryLanguageDeu
+//	DictionaryLanguageSpa
+//	DictionaryLanguagePor
+type DictionaryLanguageInput interface {
+	pulumi.Input
+
+	ToDictionaryLanguageOutput() DictionaryLanguageOutput
+	ToDictionaryLanguageOutputWithContext(context.Context) DictionaryLanguageOutput
+}
+
+var dictionaryLanguagePtrType = reflect.TypeOf((**DictionaryLanguage)(nil)).Elem()
+
+type DictionaryLanguagePtrInput interface {
+	pulumi.Input
+
+	ToDictionaryLanguagePtrOutput() DictionaryLanguagePtrOutput
+	ToDictionaryLanguagePtrOutputWithContext(context.Context) DictionaryLanguagePtrOutput
+}
+
+type dictionaryLanguagePtr string
+
+func DictionaryLanguagePtr(v string) DictionaryLanguagePtrInput {
+	return (*dictionaryLanguagePtr)(&v)
+}
+
+func (*dictionaryLanguagePtr) ElementType() reflect.Type {
+	return dictionaryLanguagePtrType
+}
+
+func (in *dictionaryLanguagePtr) ToDictionaryLanguagePtrOutput() DictionaryLanguagePtrOutput {
+	return pulumi.ToOutput(in).(DictionaryLanguagePtrOutput)
+}
+
+func (in *dictionaryLanguagePtr) ToDictionaryLanguagePtrOutputWithContext(ctx context.Context) DictionaryLanguagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DictionaryLanguagePtrOutput)
+}
+
 type FeedOutputStatus string
 
 const (
@@ -175,9 +348,367 @@ func (in *feedOutputStatusPtr) ToFeedOutputStatusPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(FeedOutputStatusPtrOutput)
 }
 
+type FeedProfanityFilterMode string
+
+const (
+	FeedProfanityFilterModeDisabled = FeedProfanityFilterMode("DISABLED")
+	FeedProfanityFilterModeCensor   = FeedProfanityFilterMode("CENSOR")
+	FeedProfanityFilterModeDrop     = FeedProfanityFilterMode("DROP")
+)
+
+func (FeedProfanityFilterMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedProfanityFilterMode)(nil)).Elem()
+}
+
+func (e FeedProfanityFilterMode) ToFeedProfanityFilterModeOutput() FeedProfanityFilterModeOutput {
+	return pulumi.ToOutput(e).(FeedProfanityFilterModeOutput)
+}
+
+func (e FeedProfanityFilterMode) ToFeedProfanityFilterModeOutputWithContext(ctx context.Context) FeedProfanityFilterModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FeedProfanityFilterModeOutput)
+}
+
+func (e FeedProfanityFilterMode) ToFeedProfanityFilterModePtrOutput() FeedProfanityFilterModePtrOutput {
+	return e.ToFeedProfanityFilterModePtrOutputWithContext(context.Background())
+}
+
+func (e FeedProfanityFilterMode) ToFeedProfanityFilterModePtrOutputWithContext(ctx context.Context) FeedProfanityFilterModePtrOutput {
+	return FeedProfanityFilterMode(e).ToFeedProfanityFilterModeOutputWithContext(ctx).ToFeedProfanityFilterModePtrOutputWithContext(ctx)
+}
+
+func (e FeedProfanityFilterMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FeedProfanityFilterMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FeedProfanityFilterMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FeedProfanityFilterMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FeedProfanityFilterModeOutput struct{ *pulumi.OutputState }
+
+func (FeedProfanityFilterModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedProfanityFilterMode)(nil)).Elem()
+}
+
+func (o FeedProfanityFilterModeOutput) ToFeedProfanityFilterModeOutput() FeedProfanityFilterModeOutput {
+	return o
+}
+
+func (o FeedProfanityFilterModeOutput) ToFeedProfanityFilterModeOutputWithContext(ctx context.Context) FeedProfanityFilterModeOutput {
+	return o
+}
+
+func (o FeedProfanityFilterModeOutput) ToFeedProfanityFilterModePtrOutput() FeedProfanityFilterModePtrOutput {
+	return o.ToFeedProfanityFilterModePtrOutputWithContext(context.Background())
+}
+
+func (o FeedProfanityFilterModeOutput) ToFeedProfanityFilterModePtrOutputWithContext(ctx context.Context) FeedProfanityFilterModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeedProfanityFilterMode) *FeedProfanityFilterMode {
+		return &v
+	}).(FeedProfanityFilterModePtrOutput)
+}
+
+func (o FeedProfanityFilterModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FeedProfanityFilterModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FeedProfanityFilterMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FeedProfanityFilterModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FeedProfanityFilterModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FeedProfanityFilterMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeedProfanityFilterModePtrOutput struct{ *pulumi.OutputState }
+
+func (FeedProfanityFilterModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeedProfanityFilterMode)(nil)).Elem()
+}
+
+func (o FeedProfanityFilterModePtrOutput) ToFeedProfanityFilterModePtrOutput() FeedProfanityFilterModePtrOutput {
+	return o
+}
+
+func (o FeedProfanityFilterModePtrOutput) ToFeedProfanityFilterModePtrOutputWithContext(ctx context.Context) FeedProfanityFilterModePtrOutput {
+	return o
+}
+
+func (o FeedProfanityFilterModePtrOutput) Elem() FeedProfanityFilterModeOutput {
+	return o.ApplyT(func(v *FeedProfanityFilterMode) FeedProfanityFilterMode {
+		if v != nil {
+			return *v
+		}
+		var ret FeedProfanityFilterMode
+		return ret
+	}).(FeedProfanityFilterModeOutput)
+}
+
+func (o FeedProfanityFilterModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FeedProfanityFilterModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FeedProfanityFilterMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FeedProfanityFilterModeInput is an input type that accepts values of the FeedProfanityFilterMode enum
+// A concrete instance of `FeedProfanityFilterModeInput` can be one of the following:
+//
+//	FeedProfanityFilterModeDisabled
+//	FeedProfanityFilterModeCensor
+//	FeedProfanityFilterModeDrop
+type FeedProfanityFilterModeInput interface {
+	pulumi.Input
+
+	ToFeedProfanityFilterModeOutput() FeedProfanityFilterModeOutput
+	ToFeedProfanityFilterModeOutputWithContext(context.Context) FeedProfanityFilterModeOutput
+}
+
+var feedProfanityFilterModePtrType = reflect.TypeOf((**FeedProfanityFilterMode)(nil)).Elem()
+
+type FeedProfanityFilterModePtrInput interface {
+	pulumi.Input
+
+	ToFeedProfanityFilterModePtrOutput() FeedProfanityFilterModePtrOutput
+	ToFeedProfanityFilterModePtrOutputWithContext(context.Context) FeedProfanityFilterModePtrOutput
+}
+
+type feedProfanityFilterModePtr string
+
+func FeedProfanityFilterModePtr(v string) FeedProfanityFilterModePtrInput {
+	return (*feedProfanityFilterModePtr)(&v)
+}
+
+func (*feedProfanityFilterModePtr) ElementType() reflect.Type {
+	return feedProfanityFilterModePtrType
+}
+
+func (in *feedProfanityFilterModePtr) ToFeedProfanityFilterModePtrOutput() FeedProfanityFilterModePtrOutput {
+	return pulumi.ToOutput(in).(FeedProfanityFilterModePtrOutput)
+}
+
+func (in *feedProfanityFilterModePtr) ToFeedProfanityFilterModePtrOutputWithContext(ctx context.Context) FeedProfanityFilterModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FeedProfanityFilterModePtrOutput)
+}
+
+type FeedTranscriptionLanguage string
+
+const (
+	FeedTranscriptionLanguageEng   = FeedTranscriptionLanguage("eng")
+	FeedTranscriptionLanguageEngAu = FeedTranscriptionLanguage("eng-au")
+	FeedTranscriptionLanguageEngGb = FeedTranscriptionLanguage("eng-gb")
+	FeedTranscriptionLanguageEngUs = FeedTranscriptionLanguage("eng-us")
+	FeedTranscriptionLanguageFra   = FeedTranscriptionLanguage("fra")
+	FeedTranscriptionLanguageIta   = FeedTranscriptionLanguage("ita")
+	FeedTranscriptionLanguageDeu   = FeedTranscriptionLanguage("deu")
+	FeedTranscriptionLanguageSpa   = FeedTranscriptionLanguage("spa")
+	FeedTranscriptionLanguagePor   = FeedTranscriptionLanguage("por")
+)
+
+func (FeedTranscriptionLanguage) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedTranscriptionLanguage)(nil)).Elem()
+}
+
+func (e FeedTranscriptionLanguage) ToFeedTranscriptionLanguageOutput() FeedTranscriptionLanguageOutput {
+	return pulumi.ToOutput(e).(FeedTranscriptionLanguageOutput)
+}
+
+func (e FeedTranscriptionLanguage) ToFeedTranscriptionLanguageOutputWithContext(ctx context.Context) FeedTranscriptionLanguageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FeedTranscriptionLanguageOutput)
+}
+
+func (e FeedTranscriptionLanguage) ToFeedTranscriptionLanguagePtrOutput() FeedTranscriptionLanguagePtrOutput {
+	return e.ToFeedTranscriptionLanguagePtrOutputWithContext(context.Background())
+}
+
+func (e FeedTranscriptionLanguage) ToFeedTranscriptionLanguagePtrOutputWithContext(ctx context.Context) FeedTranscriptionLanguagePtrOutput {
+	return FeedTranscriptionLanguage(e).ToFeedTranscriptionLanguageOutputWithContext(ctx).ToFeedTranscriptionLanguagePtrOutputWithContext(ctx)
+}
+
+func (e FeedTranscriptionLanguage) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FeedTranscriptionLanguage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FeedTranscriptionLanguage) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FeedTranscriptionLanguage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FeedTranscriptionLanguageOutput struct{ *pulumi.OutputState }
+
+func (FeedTranscriptionLanguageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedTranscriptionLanguage)(nil)).Elem()
+}
+
+func (o FeedTranscriptionLanguageOutput) ToFeedTranscriptionLanguageOutput() FeedTranscriptionLanguageOutput {
+	return o
+}
+
+func (o FeedTranscriptionLanguageOutput) ToFeedTranscriptionLanguageOutputWithContext(ctx context.Context) FeedTranscriptionLanguageOutput {
+	return o
+}
+
+func (o FeedTranscriptionLanguageOutput) ToFeedTranscriptionLanguagePtrOutput() FeedTranscriptionLanguagePtrOutput {
+	return o.ToFeedTranscriptionLanguagePtrOutputWithContext(context.Background())
+}
+
+func (o FeedTranscriptionLanguageOutput) ToFeedTranscriptionLanguagePtrOutputWithContext(ctx context.Context) FeedTranscriptionLanguagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeedTranscriptionLanguage) *FeedTranscriptionLanguage {
+		return &v
+	}).(FeedTranscriptionLanguagePtrOutput)
+}
+
+func (o FeedTranscriptionLanguageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FeedTranscriptionLanguageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FeedTranscriptionLanguage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FeedTranscriptionLanguageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FeedTranscriptionLanguageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FeedTranscriptionLanguage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeedTranscriptionLanguagePtrOutput struct{ *pulumi.OutputState }
+
+func (FeedTranscriptionLanguagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeedTranscriptionLanguage)(nil)).Elem()
+}
+
+func (o FeedTranscriptionLanguagePtrOutput) ToFeedTranscriptionLanguagePtrOutput() FeedTranscriptionLanguagePtrOutput {
+	return o
+}
+
+func (o FeedTranscriptionLanguagePtrOutput) ToFeedTranscriptionLanguagePtrOutputWithContext(ctx context.Context) FeedTranscriptionLanguagePtrOutput {
+	return o
+}
+
+func (o FeedTranscriptionLanguagePtrOutput) Elem() FeedTranscriptionLanguageOutput {
+	return o.ApplyT(func(v *FeedTranscriptionLanguage) FeedTranscriptionLanguage {
+		if v != nil {
+			return *v
+		}
+		var ret FeedTranscriptionLanguage
+		return ret
+	}).(FeedTranscriptionLanguageOutput)
+}
+
+func (o FeedTranscriptionLanguagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FeedTranscriptionLanguagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FeedTranscriptionLanguage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FeedTranscriptionLanguageInput is an input type that accepts values of the FeedTranscriptionLanguage enum
+// A concrete instance of `FeedTranscriptionLanguageInput` can be one of the following:
+//
+//	FeedTranscriptionLanguageEng
+//	FeedTranscriptionLanguageEngAu
+//	FeedTranscriptionLanguageEngGb
+//	FeedTranscriptionLanguageEngUs
+//	FeedTranscriptionLanguageFra
+//	FeedTranscriptionLanguageIta
+//	FeedTranscriptionLanguageDeu
+//	FeedTranscriptionLanguageSpa
+//	FeedTranscriptionLanguagePor
+type FeedTranscriptionLanguageInput interface {
+	pulumi.Input
+
+	ToFeedTranscriptionLanguageOutput() FeedTranscriptionLanguageOutput
+	ToFeedTranscriptionLanguageOutputWithContext(context.Context) FeedTranscriptionLanguageOutput
+}
+
+var feedTranscriptionLanguagePtrType = reflect.TypeOf((**FeedTranscriptionLanguage)(nil)).Elem()
+
+type FeedTranscriptionLanguagePtrInput interface {
+	pulumi.Input
+
+	ToFeedTranscriptionLanguagePtrOutput() FeedTranscriptionLanguagePtrOutput
+	ToFeedTranscriptionLanguagePtrOutputWithContext(context.Context) FeedTranscriptionLanguagePtrOutput
+}
+
+type feedTranscriptionLanguagePtr string
+
+func FeedTranscriptionLanguagePtr(v string) FeedTranscriptionLanguagePtrInput {
+	return (*feedTranscriptionLanguagePtr)(&v)
+}
+
+func (*feedTranscriptionLanguagePtr) ElementType() reflect.Type {
+	return feedTranscriptionLanguagePtrType
+}
+
+func (in *feedTranscriptionLanguagePtr) ToFeedTranscriptionLanguagePtrOutput() FeedTranscriptionLanguagePtrOutput {
+	return pulumi.ToOutput(in).(FeedTranscriptionLanguagePtrOutput)
+}
+
+func (in *feedTranscriptionLanguagePtr) ToFeedTranscriptionLanguagePtrOutputWithContext(ctx context.Context) FeedTranscriptionLanguagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FeedTranscriptionLanguagePtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DictionaryLanguageInput)(nil)).Elem(), DictionaryLanguage("eng"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DictionaryLanguagePtrInput)(nil)).Elem(), DictionaryLanguage("eng"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedOutputStatusInput)(nil)).Elem(), FeedOutputStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedOutputStatusPtrInput)(nil)).Elem(), FeedOutputStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FeedProfanityFilterModeInput)(nil)).Elem(), FeedProfanityFilterMode("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FeedProfanityFilterModePtrInput)(nil)).Elem(), FeedProfanityFilterMode("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FeedTranscriptionLanguageInput)(nil)).Elem(), FeedTranscriptionLanguage("eng"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FeedTranscriptionLanguagePtrInput)(nil)).Elem(), FeedTranscriptionLanguage("eng"))
+	pulumi.RegisterOutputType(DictionaryLanguageOutput{})
+	pulumi.RegisterOutputType(DictionaryLanguagePtrOutput{})
 	pulumi.RegisterOutputType(FeedOutputStatusOutput{})
 	pulumi.RegisterOutputType(FeedOutputStatusPtrOutput{})
+	pulumi.RegisterOutputType(FeedProfanityFilterModeOutput{})
+	pulumi.RegisterOutputType(FeedProfanityFilterModePtrOutput{})
+	pulumi.RegisterOutputType(FeedTranscriptionLanguageOutput{})
+	pulumi.RegisterOutputType(FeedTranscriptionLanguagePtrOutput{})
 }

@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'CapacityProviderArchitecture',
+    'CapacityProviderLoggingConfigSystemLogLevel',
     'CapacityProviderPredefinedMetricType',
     'CapacityProviderPropagateTagsMode',
     'CapacityProviderScalingMode',
@@ -33,6 +34,14 @@ __all__ = [
     'FunctionSnapStartResponseOptimizationStatus',
     'FunctionTenancyConfigTenantIsolationMode',
     'FunctionTracingConfigMode',
+    'LayerVersionContentS3ObjectStorageMode',
+    'MicrovmImageAdditionalOsCapabilitiesItem',
+    'MicrovmImageCpuConfigurationArchitecture',
+    'MicrovmImageHookState',
+    'MicrovmImageState',
+    'NetworkConnectorState',
+    'NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem',
+    'NetworkConnectorVpcEgressConfigurationNetworkProtocol',
     'PermissionFunctionUrlAuthType',
     'UrlAllowMethodsItem',
     'UrlAuthType',
@@ -47,6 +56,16 @@ class CapacityProviderArchitecture(_builtins.str, Enum):
     """
     X8664 = "x86_64"
     ARM64 = "arm64"
+
+
+@pulumi.type_token("aws-native:lambda:CapacityProviderLoggingConfigSystemLogLevel")
+class CapacityProviderLoggingConfigSystemLogLevel(_builtins.str, Enum):
+    """
+    System log granularity level
+    """
+    DEBUG = "DEBUG"
+    INFO = "INFO"
+    WARN = "WARN"
 
 
 @pulumi.type_token("aws-native:lambda:CapacityProviderPredefinedMetricType")
@@ -293,6 +312,71 @@ class FunctionTracingConfigMode(_builtins.str, Enum):
     """
     ACTIVE = "Active"
     PASS_THROUGH = "PassThrough"
+
+
+@pulumi.type_token("aws-native:lambda:LayerVersionContentS3ObjectStorageMode")
+class LayerVersionContentS3ObjectStorageMode(_builtins.str, Enum):
+    """
+    Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).
+    """
+    COPY = "COPY"
+    REFERENCE = "REFERENCE"
+
+
+@pulumi.type_token("aws-native:lambda:MicrovmImageAdditionalOsCapabilitiesItem")
+class MicrovmImageAdditionalOsCapabilitiesItem(_builtins.str, Enum):
+    ALL = "ALL"
+
+
+@pulumi.type_token("aws-native:lambda:MicrovmImageCpuConfigurationArchitecture")
+class MicrovmImageCpuConfigurationArchitecture(_builtins.str, Enum):
+    ARM64 = "ARM_64"
+
+
+@pulumi.type_token("aws-native:lambda:MicrovmImageHookState")
+class MicrovmImageHookState(_builtins.str, Enum):
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
+
+
+@pulumi.type_token("aws-native:lambda:MicrovmImageState")
+class MicrovmImageState(_builtins.str, Enum):
+    CREATING = "CREATING"
+    CREATED = "CREATED"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATING = "UPDATING"
+    UPDATED = "UPDATED"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    DELETING = "DELETING"
+    DELETE_FAILED = "DELETE_FAILED"
+    DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:lambda:NetworkConnectorState")
+class NetworkConnectorState(_builtins.str, Enum):
+    """
+    The current state of the network connector.
+    """
+    PENDING = "PENDING"
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+    FAILED = "FAILED"
+    DELETING = "DELETING"
+    DELETE_FAILED = "DELETE_FAILED"
+
+
+@pulumi.type_token("aws-native:lambda:NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem")
+class NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem(_builtins.str, Enum):
+    MICRO_VM = "MicroVm"
+
+
+@pulumi.type_token("aws-native:lambda:NetworkConnectorVpcEgressConfigurationNetworkProtocol")
+class NetworkConnectorVpcEgressConfigurationNetworkProtocol(_builtins.str, Enum):
+    """
+    The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
+    """
+    I_PV4 = "IPv4"
+    DUAL_STACK = "DualStack"
 
 
 @pulumi.type_token("aws-native:lambda:PermissionFunctionUrlAuthType")

@@ -74,6 +74,10 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? DeliverySourceConfiguration;
+        /// <summary>
         /// The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
         /// </summary>
         public readonly string? LogType;
@@ -86,6 +90,14 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public readonly string? Service;
         /// <summary>
+        /// The status of this delivery source. The value can be ACTIVE or INACTIVE.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Logs.DeliverySourceStatus? Status;
+        /// <summary>
+        /// The reason for the status of this delivery source, such as RESOURCE_DELETED.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Logs.DeliverySourceStatusReason? StatusReason;
+        /// <summary>
         /// The tags that have been assigned to this delivery source.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -94,18 +106,27 @@ namespace Pulumi.AwsNative.Logs
         private GetDeliverySourceResult(
             string? arn,
 
+            ImmutableDictionary<string, string>? deliverySourceConfiguration,
+
             string? logType,
 
             ImmutableArray<string> resourceArns,
 
             string? service,
 
+            Pulumi.AwsNative.Logs.DeliverySourceStatus? status,
+
+            Pulumi.AwsNative.Logs.DeliverySourceStatusReason? statusReason,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
+            DeliverySourceConfiguration = deliverySourceConfiguration;
             LogType = logType;
             ResourceArns = resourceArns;
             Service = service;
+            Status = status;
+            StatusReason = statusReason;
             Tags = tags;
         }
     }

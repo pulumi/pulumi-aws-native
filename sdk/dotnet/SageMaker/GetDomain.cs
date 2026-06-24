@@ -92,6 +92,10 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public readonly Outputs.DomainSettings? DomainSettings;
         /// <summary>
+        /// Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+        /// </summary>
+        public readonly Pulumi.AwsNative.SageMaker.DomainHomeEfsFileSystemCreation? HomeEfsFileSystemCreation;
+        /// <summary>
         /// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         /// </summary>
         public readonly string? HomeEfsFileSystemId;
@@ -144,6 +148,8 @@ namespace Pulumi.AwsNative.SageMaker
 
             Outputs.DomainSettings? domainSettings,
 
+            Pulumi.AwsNative.SageMaker.DomainHomeEfsFileSystemCreation? homeEfsFileSystemCreation,
+
             string? homeEfsFileSystemId,
 
             string? securityGroupIdForDomainBoundary,
@@ -169,6 +175,7 @@ namespace Pulumi.AwsNative.SageMaker
             DomainArn = domainArn;
             DomainId = domainId;
             DomainSettings = domainSettings;
+            HomeEfsFileSystemCreation = homeEfsFileSystemCreation;
             HomeEfsFileSystemId = homeEfsFileSystemId;
             SecurityGroupIdForDomainBoundary = securityGroupIdForDomainBoundary;
             SingleSignOnApplicationArn = singleSignOnApplicationArn;

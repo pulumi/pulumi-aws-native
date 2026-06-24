@@ -33,12 +33,18 @@ type LookupDeliverySourceArgs struct {
 type LookupDeliverySourceResult struct {
 	// The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
 	Arn *string `pulumi:"arn"`
+	// A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
+	DeliverySourceConfiguration map[string]string `pulumi:"deliverySourceConfiguration"`
 	// The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
 	LogType *string `pulumi:"logType"`
 	// This array contains the ARN of the AWS resource that sends logs and is represented by this delivery source. Currently, only one ARN can be in the array.
 	ResourceArns []string `pulumi:"resourceArns"`
 	// The AWS service that is sending logs.
 	Service *string `pulumi:"service"`
+	// The status of this delivery source. The value can be ACTIVE or INACTIVE.
+	Status *DeliverySourceStatus `pulumi:"status"`
+	// The reason for the status of this delivery source, such as RESOURCE_DELETED.
+	StatusReason *DeliverySourceStatusReason `pulumi:"statusReason"`
 	// The tags that have been assigned to this delivery source.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -80,6 +86,11 @@ func (o LookupDeliverySourceResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeliverySourceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
+func (o LookupDeliverySourceResultOutput) DeliverySourceConfiguration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDeliverySourceResult) map[string]string { return v.DeliverySourceConfiguration }).(pulumi.StringMapOutput)
+}
+
 // The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
 func (o LookupDeliverySourceResultOutput) LogType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeliverySourceResult) *string { return v.LogType }).(pulumi.StringPtrOutput)
@@ -93,6 +104,16 @@ func (o LookupDeliverySourceResultOutput) ResourceArns() pulumi.StringArrayOutpu
 // The AWS service that is sending logs.
 func (o LookupDeliverySourceResultOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeliverySourceResult) *string { return v.Service }).(pulumi.StringPtrOutput)
+}
+
+// The status of this delivery source. The value can be ACTIVE or INACTIVE.
+func (o LookupDeliverySourceResultOutput) Status() DeliverySourceStatusPtrOutput {
+	return o.ApplyT(func(v LookupDeliverySourceResult) *DeliverySourceStatus { return v.Status }).(DeliverySourceStatusPtrOutput)
+}
+
+// The reason for the status of this delivery source, such as RESOURCE_DELETED.
+func (o LookupDeliverySourceResultOutput) StatusReason() DeliverySourceStatusReasonPtrOutput {
+	return o.ApplyT(func(v LookupDeliverySourceResult) *DeliverySourceStatusReason { return v.StatusReason }).(DeliverySourceStatusReasonPtrOutput)
 }
 
 // The tags that have been assigned to this delivery source.

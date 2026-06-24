@@ -37,6 +37,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LayerVersion{}
 	case "aws-native:lambda:LayerVersionPermission":
 		r = &LayerVersionPermission{}
+	case "aws-native:lambda:MicrovmImage":
+		r = &MicrovmImage{}
+	case "aws-native:lambda:NetworkConnector":
+		r = &NetworkConnector{}
 	case "aws-native:lambda:Permission":
 		r = &Permission{}
 	case "aws-native:lambda:Url":

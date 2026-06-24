@@ -61,6 +61,12 @@ namespace Pulumi.AwsNative.MediaTailor
         public Output<Outputs.PlaybackConfigurationDashConfiguration?> DashConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// A map of event names to function identifiers for custom processing during session lifecycle events.
+        /// </summary>
+        [Output("functionMapping")]
+        public Output<ImmutableDictionary<string, string>?> FunctionMapping { get; private set; } = null!;
+
+        /// <summary>
         /// The configuration for HLS content.
         /// </summary>
         [Output("hlsConfiguration")]
@@ -243,6 +249,18 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         [Input("dashConfiguration")]
         public Input<Inputs.PlaybackConfigurationDashConfigurationArgs>? DashConfiguration { get; set; }
+
+        [Input("functionMapping")]
+        private InputMap<string>? _functionMapping;
+
+        /// <summary>
+        /// A map of event names to function identifiers for custom processing during session lifecycle events.
+        /// </summary>
+        public InputMap<string> FunctionMapping
+        {
+            get => _functionMapping ?? (_functionMapping = new InputMap<string>());
+            set => _functionMapping = value;
+        }
 
         /// <summary>
         /// The configuration for HLS content.

@@ -22,6 +22,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// &gt; Confluence data source connector is in preview release and is subject to change.
         /// </summary>
         public readonly Outputs.DataSourceConfluenceDataSourceConfiguration? ConfluenceConfiguration;
+        public readonly Outputs.DataSourceManagedKnowledgeBaseConnectorConfiguration? ManagedKnowledgeBaseConnectorConfiguration;
         /// <summary>
         /// The configuration information to connect to Amazon S3 as your data source.
         /// </summary>
@@ -53,6 +54,8 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         private DataSourceConfiguration(
             Outputs.DataSourceConfluenceDataSourceConfiguration? confluenceConfiguration,
 
+            Outputs.DataSourceManagedKnowledgeBaseConnectorConfiguration? managedKnowledgeBaseConnectorConfiguration,
+
             Outputs.DataSourceS3DataSourceConfiguration? s3Configuration,
 
             Outputs.DataSourceSalesforceDataSourceConfiguration? salesforceConfiguration,
@@ -64,6 +67,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
             Outputs.DataSourceWebDataSourceConfiguration? webConfiguration)
         {
             ConfluenceConfiguration = confluenceConfiguration;
+            ManagedKnowledgeBaseConnectorConfiguration = managedKnowledgeBaseConnectorConfiguration;
             S3Configuration = s3Configuration;
             SalesforceConfiguration = salesforceConfiguration;
             SharePointConfiguration = sharePointConfiguration;
