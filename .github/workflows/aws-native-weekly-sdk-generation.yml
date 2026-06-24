@@ -38,7 +38,7 @@ jobs:
         ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
       id: esc-secrets
       name: Fetch secrets from ESC
-      uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
+      uses: pulumi/esc-action@a8d154a4bea2f65dfc51bfa3a42935fb9110c7af
     - uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
       id: app-auth
       with:
@@ -58,7 +58,7 @@ jobs:
         requested-token-type: urn:pulumi:token-type:access_token:organization
         export-environment-variables: false
     - name: Export AWS Credentials
-      uses: pulumi/esc-action@8afe12bb7bb3df0a599e5309ee429ff1079ba85f # v3.0.0
+      uses: pulumi/esc-action@a8d154a4bea2f65dfc51bfa3a42935fb9110c7af # v3.0.0
       env:
         PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
       with:
