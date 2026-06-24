@@ -10,15 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 {
 
+    /// <summary>
+    /// A policy statement within the AgentCore Policy system.
+    /// </summary>
     [OutputType]
-    public sealed class GatewayTargetHttpTargetConfigurationProperties
+    public sealed class PolicyStatement
     {
-        public readonly Outputs.GatewayTargetRuntimeTargetConfiguration AgentcoreRuntime;
+        /// <summary>
+        /// The policy statement.
+        /// </summary>
+        public readonly string Statement;
 
         [OutputConstructor]
-        private GatewayTargetHttpTargetConfigurationProperties(Outputs.GatewayTargetRuntimeTargetConfiguration agentcoreRuntime)
+        private PolicyStatement(string statement)
         {
-            AgentcoreRuntime = agentcoreRuntime;
+            Statement = statement;
         }
     }
 }

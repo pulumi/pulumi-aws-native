@@ -75,6 +75,9 @@ namespace Pulumi.AwsNative.WaFv2
         [Output("labelNamespace")]
         public Output<string> LabelNamespace { get; private set; } = null!;
 
+        [Output("monetizationConfig")]
+        public Output<Outputs.RuleGroupMonetizationConfig?> MonetizationConfig { get; private set; } = null!;
+
         /// <summary>
         /// The name of the rule group. You cannot change the name of a rule group after you create it.
         /// </summary>
@@ -214,6 +217,9 @@ namespace Pulumi.AwsNative.WaFv2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("monetizationConfig")]
+        public Input<Inputs.RuleGroupMonetizationConfigArgs>? MonetizationConfig { get; set; }
 
         /// <summary>
         /// The name of the rule group. You cannot change the name of a rule group after you create it.

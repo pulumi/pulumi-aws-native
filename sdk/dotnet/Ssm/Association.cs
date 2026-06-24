@@ -228,6 +228,12 @@ namespace Pulumi.AwsNative.Ssm
         public Output<bool?> ApplyOnlyAtCronInterval { get; private set; } = null!;
 
         /// <summary>
+        /// A role used by association to take actions on your behalf.
+        /// </summary>
+        [Output("associationDispatchAssumeRole")]
+        public Output<string?> AssociationDispatchAssumeRole { get; private set; } = null!;
+
+        /// <summary>
         /// Unique identifier of the association.
         /// </summary>
         [Output("associationId")]
@@ -326,6 +332,12 @@ namespace Pulumi.AwsNative.Ssm
         public Output<Pulumi.AwsNative.Ssm.AssociationSyncCompliance?> SyncCompliance { get; private set; } = null!;
 
         /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The targets that the SSM document sends commands to.
         /// </summary>
         [Output("targets")]
@@ -389,6 +401,12 @@ namespace Pulumi.AwsNative.Ssm
         /// </summary>
         [Input("applyOnlyAtCronInterval")]
         public Input<bool>? ApplyOnlyAtCronInterval { get; set; }
+
+        /// <summary>
+        /// A role used by association to take actions on your behalf.
+        /// </summary>
+        [Input("associationDispatchAssumeRole")]
+        public Input<string>? AssociationDispatchAssumeRole { get; set; }
 
         /// <summary>
         /// The name of the association.
@@ -493,6 +511,18 @@ namespace Pulumi.AwsNative.Ssm
         /// </summary>
         [Input("syncCompliance")]
         public Input<Pulumi.AwsNative.Ssm.AssociationSyncCompliance>? SyncCompliance { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         [Input("targets")]
         private InputList<Inputs.AssociationTargetArgs>? _targets;

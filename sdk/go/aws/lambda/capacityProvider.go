@@ -31,7 +31,8 @@ type CapacityProvider struct {
 	// The current state of the capacity provider.
 	State CapacityProviderStateEnumOutput `pulumi:"state"`
 	// A key-value pair that provides metadata for the capacity provider.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags            aws.TagArrayOutput                       `pulumi:"tags"`
+	TelemetryConfig CapacityProviderTelemetryConfigPtrOutput `pulumi:"telemetryConfig"`
 	// The VPC configuration for the capacity provider.
 	VpcConfig CapacityProviderVpcConfigOutput `pulumi:"vpcConfig"`
 }
@@ -101,7 +102,8 @@ type capacityProviderArgs struct {
 	PermissionsConfig CapacityProviderPermissionsConfig    `pulumi:"permissionsConfig"`
 	PropagateTags     *CapacityProviderPropagateTagsConfig `pulumi:"propagateTags"`
 	// A key-value pair that provides metadata for the capacity provider.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags            []aws.Tag                        `pulumi:"tags"`
+	TelemetryConfig *CapacityProviderTelemetryConfig `pulumi:"telemetryConfig"`
 	// The VPC configuration for the capacity provider.
 	VpcConfig CapacityProviderVpcConfig `pulumi:"vpcConfig"`
 }
@@ -119,7 +121,8 @@ type CapacityProviderArgs struct {
 	PermissionsConfig CapacityProviderPermissionsConfigInput
 	PropagateTags     CapacityProviderPropagateTagsConfigPtrInput
 	// A key-value pair that provides metadata for the capacity provider.
-	Tags aws.TagArrayInput
+	Tags            aws.TagArrayInput
+	TelemetryConfig CapacityProviderTelemetryConfigPtrInput
 	// The VPC configuration for the capacity provider.
 	VpcConfig CapacityProviderVpcConfigInput
 }
@@ -203,6 +206,10 @@ func (o CapacityProviderOutput) State() CapacityProviderStateEnumOutput {
 // A key-value pair that provides metadata for the capacity provider.
 func (o CapacityProviderOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *CapacityProvider) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o CapacityProviderOutput) TelemetryConfig() CapacityProviderTelemetryConfigPtrOutput {
+	return o.ApplyT(func(v *CapacityProvider) CapacityProviderTelemetryConfigPtrOutput { return v.TelemetryConfig }).(CapacityProviderTelemetryConfigPtrOutput)
 }
 
 // The VPC configuration for the capacity provider.

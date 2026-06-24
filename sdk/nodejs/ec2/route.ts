@@ -85,6 +85,9 @@ export class Route extends pulumi.CustomResource {
      * The ID of a network interface.
      */
     declare public readonly networkInterfaceId: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the ODB network.
+     */
     declare public readonly odbNetworkArn: pulumi.Output<string | undefined>;
     /**
      * The ID of the route table for the route.
@@ -209,6 +212,9 @@ export interface RouteArgs {
      * The ID of a network interface.
      */
     networkInterfaceId?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the ODB network.
+     */
     odbNetworkArn?: pulumi.Input<string>;
     /**
      * The ID of the route table for the route.

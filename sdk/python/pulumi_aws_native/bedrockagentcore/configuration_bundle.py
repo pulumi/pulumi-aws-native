@@ -29,6 +29,7 @@ class ConfigurationBundleArgs:
                  commit_message: Optional[pulumi.Input[_builtins.str]] = None,
                  created_by: Optional[pulumi.Input['ConfigurationBundleVersionCreatedBySourceArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationBundle resource.
@@ -38,6 +39,7 @@ class ConfigurationBundleArgs:
         :param pulumi.Input[_builtins.str] bundle_name: The name for the configuration bundle. Names must be unique within your account.
         :param pulumi.Input[_builtins.str] commit_message: A commit message describing the version of the configuration bundle.
         :param pulumi.Input[_builtins.str] description: The description for the configuration bundle.
+        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt component configurations.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags to assign to the configuration bundle.
         """
         pulumi.set(__self__, "components", components)
@@ -51,6 +53,8 @@ class ConfigurationBundleArgs:
             pulumi.set(__self__, "created_by", created_by)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -124,6 +128,18 @@ class ConfigurationBundleArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the KMS key used to encrypt component configurations.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -148,6 +164,7 @@ class ConfigurationBundle(pulumi.CustomResource):
                  components: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ConfigurationBundleComponentConfigurationArgs', 'ConfigurationBundleComponentConfigurationArgsDict']]]]] = None,
                  created_by: Optional[pulumi.Input[Union['ConfigurationBundleVersionCreatedBySourceArgs', 'ConfigurationBundleVersionCreatedBySourceArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -161,6 +178,7 @@ class ConfigurationBundle(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] commit_message: A commit message describing the version of the configuration bundle.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['ConfigurationBundleComponentConfigurationArgs', 'ConfigurationBundleComponentConfigurationArgsDict']]]] components: A map of component identifiers to their configurations.
         :param pulumi.Input[_builtins.str] description: The description for the configuration bundle.
+        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt component configurations.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the configuration bundle.
         """
         ...
@@ -194,6 +212,7 @@ class ConfigurationBundle(pulumi.CustomResource):
                  components: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ConfigurationBundleComponentConfigurationArgs', 'ConfigurationBundleComponentConfigurationArgsDict']]]]] = None,
                  created_by: Optional[pulumi.Input[Union['ConfigurationBundleVersionCreatedBySourceArgs', 'ConfigurationBundleVersionCreatedBySourceArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -212,6 +231,7 @@ class ConfigurationBundle(pulumi.CustomResource):
             __props__.__dict__["components"] = components
             __props__.__dict__["created_by"] = created_by
             __props__.__dict__["description"] = description
+            __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["bundle_arn"] = None
             __props__.__dict__["bundle_id"] = None
@@ -252,6 +272,7 @@ class ConfigurationBundle(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["lineage_metadata"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["updated_at"] = None
@@ -326,6 +347,14 @@ class ConfigurationBundle(pulumi.CustomResource):
         The description for the configuration bundle.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ARN of the KMS key used to encrypt component configurations.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="lineageMetadata")

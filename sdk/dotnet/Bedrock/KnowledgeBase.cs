@@ -116,6 +116,7 @@ namespace Pulumi.AwsNative.Bedrock
                 ReplaceOnChanges =
                 {
                     "knowledgeBaseConfiguration.kendraKnowledgeBaseConfiguration",
+                    "knowledgeBaseConfiguration.managedKnowledgeBaseConfiguration",
                     "knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.redshiftConfiguration.queryEngineConfiguration",
                     "knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.redshiftConfiguration.storageConfigurations[*]",
                     "knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.type",

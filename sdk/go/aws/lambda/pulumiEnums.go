@@ -221,6 +221,174 @@ func (o CapacityProviderArchitectureArrayOutput) Index(i pulumi.IntInput) Capaci
 	}).(CapacityProviderArchitectureOutput)
 }
 
+// System log granularity level
+type CapacityProviderLoggingConfigSystemLogLevel string
+
+const (
+	CapacityProviderLoggingConfigSystemLogLevelDebug = CapacityProviderLoggingConfigSystemLogLevel("DEBUG")
+	CapacityProviderLoggingConfigSystemLogLevelInfo  = CapacityProviderLoggingConfigSystemLogLevel("INFO")
+	CapacityProviderLoggingConfigSystemLogLevelWarn  = CapacityProviderLoggingConfigSystemLogLevel("WARN")
+)
+
+func (CapacityProviderLoggingConfigSystemLogLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderLoggingConfigSystemLogLevel)(nil)).Elem()
+}
+
+func (e CapacityProviderLoggingConfigSystemLogLevel) ToCapacityProviderLoggingConfigSystemLogLevelOutput() CapacityProviderLoggingConfigSystemLogLevelOutput {
+	return pulumi.ToOutput(e).(CapacityProviderLoggingConfigSystemLogLevelOutput)
+}
+
+func (e CapacityProviderLoggingConfigSystemLogLevel) ToCapacityProviderLoggingConfigSystemLogLevelOutputWithContext(ctx context.Context) CapacityProviderLoggingConfigSystemLogLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityProviderLoggingConfigSystemLogLevelOutput)
+}
+
+func (e CapacityProviderLoggingConfigSystemLogLevel) ToCapacityProviderLoggingConfigSystemLogLevelPtrOutput() CapacityProviderLoggingConfigSystemLogLevelPtrOutput {
+	return e.ToCapacityProviderLoggingConfigSystemLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderLoggingConfigSystemLogLevel) ToCapacityProviderLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) CapacityProviderLoggingConfigSystemLogLevelPtrOutput {
+	return CapacityProviderLoggingConfigSystemLogLevel(e).ToCapacityProviderLoggingConfigSystemLogLevelOutputWithContext(ctx).ToCapacityProviderLoggingConfigSystemLogLevelPtrOutputWithContext(ctx)
+}
+
+func (e CapacityProviderLoggingConfigSystemLogLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderLoggingConfigSystemLogLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderLoggingConfigSystemLogLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderLoggingConfigSystemLogLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityProviderLoggingConfigSystemLogLevelOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderLoggingConfigSystemLogLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderLoggingConfigSystemLogLevel)(nil)).Elem()
+}
+
+func (o CapacityProviderLoggingConfigSystemLogLevelOutput) ToCapacityProviderLoggingConfigSystemLogLevelOutput() CapacityProviderLoggingConfigSystemLogLevelOutput {
+	return o
+}
+
+func (o CapacityProviderLoggingConfigSystemLogLevelOutput) ToCapacityProviderLoggingConfigSystemLogLevelOutputWithContext(ctx context.Context) CapacityProviderLoggingConfigSystemLogLevelOutput {
+	return o
+}
+
+func (o CapacityProviderLoggingConfigSystemLogLevelOutput) ToCapacityProviderLoggingConfigSystemLogLevelPtrOutput() CapacityProviderLoggingConfigSystemLogLevelPtrOutput {
+	return o.ToCapacityProviderLoggingConfigSystemLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderLoggingConfigSystemLogLevelOutput) ToCapacityProviderLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) CapacityProviderLoggingConfigSystemLogLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderLoggingConfigSystemLogLevel) *CapacityProviderLoggingConfigSystemLogLevel {
+		return &v
+	}).(CapacityProviderLoggingConfigSystemLogLevelPtrOutput)
+}
+
+func (o CapacityProviderLoggingConfigSystemLogLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderLoggingConfigSystemLogLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderLoggingConfigSystemLogLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderLoggingConfigSystemLogLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderLoggingConfigSystemLogLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderLoggingConfigSystemLogLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderLoggingConfigSystemLogLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderLoggingConfigSystemLogLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderLoggingConfigSystemLogLevel)(nil)).Elem()
+}
+
+func (o CapacityProviderLoggingConfigSystemLogLevelPtrOutput) ToCapacityProviderLoggingConfigSystemLogLevelPtrOutput() CapacityProviderLoggingConfigSystemLogLevelPtrOutput {
+	return o
+}
+
+func (o CapacityProviderLoggingConfigSystemLogLevelPtrOutput) ToCapacityProviderLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) CapacityProviderLoggingConfigSystemLogLevelPtrOutput {
+	return o
+}
+
+func (o CapacityProviderLoggingConfigSystemLogLevelPtrOutput) Elem() CapacityProviderLoggingConfigSystemLogLevelOutput {
+	return o.ApplyT(func(v *CapacityProviderLoggingConfigSystemLogLevel) CapacityProviderLoggingConfigSystemLogLevel {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderLoggingConfigSystemLogLevel
+		return ret
+	}).(CapacityProviderLoggingConfigSystemLogLevelOutput)
+}
+
+func (o CapacityProviderLoggingConfigSystemLogLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderLoggingConfigSystemLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderLoggingConfigSystemLogLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityProviderLoggingConfigSystemLogLevelInput is an input type that accepts values of the CapacityProviderLoggingConfigSystemLogLevel enum
+// A concrete instance of `CapacityProviderLoggingConfigSystemLogLevelInput` can be one of the following:
+//
+//	CapacityProviderLoggingConfigSystemLogLevelDebug
+//	CapacityProviderLoggingConfigSystemLogLevelInfo
+//	CapacityProviderLoggingConfigSystemLogLevelWarn
+type CapacityProviderLoggingConfigSystemLogLevelInput interface {
+	pulumi.Input
+
+	ToCapacityProviderLoggingConfigSystemLogLevelOutput() CapacityProviderLoggingConfigSystemLogLevelOutput
+	ToCapacityProviderLoggingConfigSystemLogLevelOutputWithContext(context.Context) CapacityProviderLoggingConfigSystemLogLevelOutput
+}
+
+var capacityProviderLoggingConfigSystemLogLevelPtrType = reflect.TypeOf((**CapacityProviderLoggingConfigSystemLogLevel)(nil)).Elem()
+
+type CapacityProviderLoggingConfigSystemLogLevelPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderLoggingConfigSystemLogLevelPtrOutput() CapacityProviderLoggingConfigSystemLogLevelPtrOutput
+	ToCapacityProviderLoggingConfigSystemLogLevelPtrOutputWithContext(context.Context) CapacityProviderLoggingConfigSystemLogLevelPtrOutput
+}
+
+type capacityProviderLoggingConfigSystemLogLevelPtr string
+
+func CapacityProviderLoggingConfigSystemLogLevelPtr(v string) CapacityProviderLoggingConfigSystemLogLevelPtrInput {
+	return (*capacityProviderLoggingConfigSystemLogLevelPtr)(&v)
+}
+
+func (*capacityProviderLoggingConfigSystemLogLevelPtr) ElementType() reflect.Type {
+	return capacityProviderLoggingConfigSystemLogLevelPtrType
+}
+
+func (in *capacityProviderLoggingConfigSystemLogLevelPtr) ToCapacityProviderLoggingConfigSystemLogLevelPtrOutput() CapacityProviderLoggingConfigSystemLogLevelPtrOutput {
+	return pulumi.ToOutput(in).(CapacityProviderLoggingConfigSystemLogLevelPtrOutput)
+}
+
+func (in *capacityProviderLoggingConfigSystemLogLevelPtr) ToCapacityProviderLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) CapacityProviderLoggingConfigSystemLogLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderLoggingConfigSystemLogLevelPtrOutput)
+}
+
 // The predefined metric for target tracking.
 type CapacityProviderPredefinedMetricType string
 
@@ -4323,6 +4491,1274 @@ func (in *functionTracingConfigModePtr) ToFunctionTracingConfigModePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionTracingConfigModePtrOutput)
 }
 
+// Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).
+type LayerVersionContentS3ObjectStorageMode string
+
+const (
+	LayerVersionContentS3ObjectStorageModeCopy      = LayerVersionContentS3ObjectStorageMode("COPY")
+	LayerVersionContentS3ObjectStorageModeReference = LayerVersionContentS3ObjectStorageMode("REFERENCE")
+)
+
+func (LayerVersionContentS3ObjectStorageMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*LayerVersionContentS3ObjectStorageMode)(nil)).Elem()
+}
+
+func (e LayerVersionContentS3ObjectStorageMode) ToLayerVersionContentS3ObjectStorageModeOutput() LayerVersionContentS3ObjectStorageModeOutput {
+	return pulumi.ToOutput(e).(LayerVersionContentS3ObjectStorageModeOutput)
+}
+
+func (e LayerVersionContentS3ObjectStorageMode) ToLayerVersionContentS3ObjectStorageModeOutputWithContext(ctx context.Context) LayerVersionContentS3ObjectStorageModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LayerVersionContentS3ObjectStorageModeOutput)
+}
+
+func (e LayerVersionContentS3ObjectStorageMode) ToLayerVersionContentS3ObjectStorageModePtrOutput() LayerVersionContentS3ObjectStorageModePtrOutput {
+	return e.ToLayerVersionContentS3ObjectStorageModePtrOutputWithContext(context.Background())
+}
+
+func (e LayerVersionContentS3ObjectStorageMode) ToLayerVersionContentS3ObjectStorageModePtrOutputWithContext(ctx context.Context) LayerVersionContentS3ObjectStorageModePtrOutput {
+	return LayerVersionContentS3ObjectStorageMode(e).ToLayerVersionContentS3ObjectStorageModeOutputWithContext(ctx).ToLayerVersionContentS3ObjectStorageModePtrOutputWithContext(ctx)
+}
+
+func (e LayerVersionContentS3ObjectStorageMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LayerVersionContentS3ObjectStorageMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LayerVersionContentS3ObjectStorageMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LayerVersionContentS3ObjectStorageMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LayerVersionContentS3ObjectStorageModeOutput struct{ *pulumi.OutputState }
+
+func (LayerVersionContentS3ObjectStorageModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LayerVersionContentS3ObjectStorageMode)(nil)).Elem()
+}
+
+func (o LayerVersionContentS3ObjectStorageModeOutput) ToLayerVersionContentS3ObjectStorageModeOutput() LayerVersionContentS3ObjectStorageModeOutput {
+	return o
+}
+
+func (o LayerVersionContentS3ObjectStorageModeOutput) ToLayerVersionContentS3ObjectStorageModeOutputWithContext(ctx context.Context) LayerVersionContentS3ObjectStorageModeOutput {
+	return o
+}
+
+func (o LayerVersionContentS3ObjectStorageModeOutput) ToLayerVersionContentS3ObjectStorageModePtrOutput() LayerVersionContentS3ObjectStorageModePtrOutput {
+	return o.ToLayerVersionContentS3ObjectStorageModePtrOutputWithContext(context.Background())
+}
+
+func (o LayerVersionContentS3ObjectStorageModeOutput) ToLayerVersionContentS3ObjectStorageModePtrOutputWithContext(ctx context.Context) LayerVersionContentS3ObjectStorageModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LayerVersionContentS3ObjectStorageMode) *LayerVersionContentS3ObjectStorageMode {
+		return &v
+	}).(LayerVersionContentS3ObjectStorageModePtrOutput)
+}
+
+func (o LayerVersionContentS3ObjectStorageModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LayerVersionContentS3ObjectStorageModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LayerVersionContentS3ObjectStorageMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LayerVersionContentS3ObjectStorageModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LayerVersionContentS3ObjectStorageModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LayerVersionContentS3ObjectStorageMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LayerVersionContentS3ObjectStorageModePtrOutput struct{ *pulumi.OutputState }
+
+func (LayerVersionContentS3ObjectStorageModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LayerVersionContentS3ObjectStorageMode)(nil)).Elem()
+}
+
+func (o LayerVersionContentS3ObjectStorageModePtrOutput) ToLayerVersionContentS3ObjectStorageModePtrOutput() LayerVersionContentS3ObjectStorageModePtrOutput {
+	return o
+}
+
+func (o LayerVersionContentS3ObjectStorageModePtrOutput) ToLayerVersionContentS3ObjectStorageModePtrOutputWithContext(ctx context.Context) LayerVersionContentS3ObjectStorageModePtrOutput {
+	return o
+}
+
+func (o LayerVersionContentS3ObjectStorageModePtrOutput) Elem() LayerVersionContentS3ObjectStorageModeOutput {
+	return o.ApplyT(func(v *LayerVersionContentS3ObjectStorageMode) LayerVersionContentS3ObjectStorageMode {
+		if v != nil {
+			return *v
+		}
+		var ret LayerVersionContentS3ObjectStorageMode
+		return ret
+	}).(LayerVersionContentS3ObjectStorageModeOutput)
+}
+
+func (o LayerVersionContentS3ObjectStorageModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LayerVersionContentS3ObjectStorageModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LayerVersionContentS3ObjectStorageMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LayerVersionContentS3ObjectStorageModeInput is an input type that accepts values of the LayerVersionContentS3ObjectStorageMode enum
+// A concrete instance of `LayerVersionContentS3ObjectStorageModeInput` can be one of the following:
+//
+//	LayerVersionContentS3ObjectStorageModeCopy
+//	LayerVersionContentS3ObjectStorageModeReference
+type LayerVersionContentS3ObjectStorageModeInput interface {
+	pulumi.Input
+
+	ToLayerVersionContentS3ObjectStorageModeOutput() LayerVersionContentS3ObjectStorageModeOutput
+	ToLayerVersionContentS3ObjectStorageModeOutputWithContext(context.Context) LayerVersionContentS3ObjectStorageModeOutput
+}
+
+var layerVersionContentS3ObjectStorageModePtrType = reflect.TypeOf((**LayerVersionContentS3ObjectStorageMode)(nil)).Elem()
+
+type LayerVersionContentS3ObjectStorageModePtrInput interface {
+	pulumi.Input
+
+	ToLayerVersionContentS3ObjectStorageModePtrOutput() LayerVersionContentS3ObjectStorageModePtrOutput
+	ToLayerVersionContentS3ObjectStorageModePtrOutputWithContext(context.Context) LayerVersionContentS3ObjectStorageModePtrOutput
+}
+
+type layerVersionContentS3ObjectStorageModePtr string
+
+func LayerVersionContentS3ObjectStorageModePtr(v string) LayerVersionContentS3ObjectStorageModePtrInput {
+	return (*layerVersionContentS3ObjectStorageModePtr)(&v)
+}
+
+func (*layerVersionContentS3ObjectStorageModePtr) ElementType() reflect.Type {
+	return layerVersionContentS3ObjectStorageModePtrType
+}
+
+func (in *layerVersionContentS3ObjectStorageModePtr) ToLayerVersionContentS3ObjectStorageModePtrOutput() LayerVersionContentS3ObjectStorageModePtrOutput {
+	return pulumi.ToOutput(in).(LayerVersionContentS3ObjectStorageModePtrOutput)
+}
+
+func (in *layerVersionContentS3ObjectStorageModePtr) ToLayerVersionContentS3ObjectStorageModePtrOutputWithContext(ctx context.Context) LayerVersionContentS3ObjectStorageModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LayerVersionContentS3ObjectStorageModePtrOutput)
+}
+
+type MicrovmImageAdditionalOsCapabilitiesItem string
+
+const (
+	MicrovmImageAdditionalOsCapabilitiesItemAll = MicrovmImageAdditionalOsCapabilitiesItem("ALL")
+)
+
+func (MicrovmImageAdditionalOsCapabilitiesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageAdditionalOsCapabilitiesItem)(nil)).Elem()
+}
+
+func (e MicrovmImageAdditionalOsCapabilitiesItem) ToMicrovmImageAdditionalOsCapabilitiesItemOutput() MicrovmImageAdditionalOsCapabilitiesItemOutput {
+	return pulumi.ToOutput(e).(MicrovmImageAdditionalOsCapabilitiesItemOutput)
+}
+
+func (e MicrovmImageAdditionalOsCapabilitiesItem) ToMicrovmImageAdditionalOsCapabilitiesItemOutputWithContext(ctx context.Context) MicrovmImageAdditionalOsCapabilitiesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MicrovmImageAdditionalOsCapabilitiesItemOutput)
+}
+
+func (e MicrovmImageAdditionalOsCapabilitiesItem) ToMicrovmImageAdditionalOsCapabilitiesItemPtrOutput() MicrovmImageAdditionalOsCapabilitiesItemPtrOutput {
+	return e.ToMicrovmImageAdditionalOsCapabilitiesItemPtrOutputWithContext(context.Background())
+}
+
+func (e MicrovmImageAdditionalOsCapabilitiesItem) ToMicrovmImageAdditionalOsCapabilitiesItemPtrOutputWithContext(ctx context.Context) MicrovmImageAdditionalOsCapabilitiesItemPtrOutput {
+	return MicrovmImageAdditionalOsCapabilitiesItem(e).ToMicrovmImageAdditionalOsCapabilitiesItemOutputWithContext(ctx).ToMicrovmImageAdditionalOsCapabilitiesItemPtrOutputWithContext(ctx)
+}
+
+func (e MicrovmImageAdditionalOsCapabilitiesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MicrovmImageAdditionalOsCapabilitiesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MicrovmImageAdditionalOsCapabilitiesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MicrovmImageAdditionalOsCapabilitiesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MicrovmImageAdditionalOsCapabilitiesItemOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageAdditionalOsCapabilitiesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageAdditionalOsCapabilitiesItem)(nil)).Elem()
+}
+
+func (o MicrovmImageAdditionalOsCapabilitiesItemOutput) ToMicrovmImageAdditionalOsCapabilitiesItemOutput() MicrovmImageAdditionalOsCapabilitiesItemOutput {
+	return o
+}
+
+func (o MicrovmImageAdditionalOsCapabilitiesItemOutput) ToMicrovmImageAdditionalOsCapabilitiesItemOutputWithContext(ctx context.Context) MicrovmImageAdditionalOsCapabilitiesItemOutput {
+	return o
+}
+
+func (o MicrovmImageAdditionalOsCapabilitiesItemOutput) ToMicrovmImageAdditionalOsCapabilitiesItemPtrOutput() MicrovmImageAdditionalOsCapabilitiesItemPtrOutput {
+	return o.ToMicrovmImageAdditionalOsCapabilitiesItemPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageAdditionalOsCapabilitiesItemOutput) ToMicrovmImageAdditionalOsCapabilitiesItemPtrOutputWithContext(ctx context.Context) MicrovmImageAdditionalOsCapabilitiesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MicrovmImageAdditionalOsCapabilitiesItem) *MicrovmImageAdditionalOsCapabilitiesItem {
+		return &v
+	}).(MicrovmImageAdditionalOsCapabilitiesItemPtrOutput)
+}
+
+func (o MicrovmImageAdditionalOsCapabilitiesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageAdditionalOsCapabilitiesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MicrovmImageAdditionalOsCapabilitiesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MicrovmImageAdditionalOsCapabilitiesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageAdditionalOsCapabilitiesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MicrovmImageAdditionalOsCapabilitiesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MicrovmImageAdditionalOsCapabilitiesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageAdditionalOsCapabilitiesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmImageAdditionalOsCapabilitiesItem)(nil)).Elem()
+}
+
+func (o MicrovmImageAdditionalOsCapabilitiesItemPtrOutput) ToMicrovmImageAdditionalOsCapabilitiesItemPtrOutput() MicrovmImageAdditionalOsCapabilitiesItemPtrOutput {
+	return o
+}
+
+func (o MicrovmImageAdditionalOsCapabilitiesItemPtrOutput) ToMicrovmImageAdditionalOsCapabilitiesItemPtrOutputWithContext(ctx context.Context) MicrovmImageAdditionalOsCapabilitiesItemPtrOutput {
+	return o
+}
+
+func (o MicrovmImageAdditionalOsCapabilitiesItemPtrOutput) Elem() MicrovmImageAdditionalOsCapabilitiesItemOutput {
+	return o.ApplyT(func(v *MicrovmImageAdditionalOsCapabilitiesItem) MicrovmImageAdditionalOsCapabilitiesItem {
+		if v != nil {
+			return *v
+		}
+		var ret MicrovmImageAdditionalOsCapabilitiesItem
+		return ret
+	}).(MicrovmImageAdditionalOsCapabilitiesItemOutput)
+}
+
+func (o MicrovmImageAdditionalOsCapabilitiesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageAdditionalOsCapabilitiesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MicrovmImageAdditionalOsCapabilitiesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MicrovmImageAdditionalOsCapabilitiesItemInput is an input type that accepts values of the MicrovmImageAdditionalOsCapabilitiesItem enum
+// A concrete instance of `MicrovmImageAdditionalOsCapabilitiesItemInput` can be one of the following:
+//
+//	MicrovmImageAdditionalOsCapabilitiesItemAll
+type MicrovmImageAdditionalOsCapabilitiesItemInput interface {
+	pulumi.Input
+
+	ToMicrovmImageAdditionalOsCapabilitiesItemOutput() MicrovmImageAdditionalOsCapabilitiesItemOutput
+	ToMicrovmImageAdditionalOsCapabilitiesItemOutputWithContext(context.Context) MicrovmImageAdditionalOsCapabilitiesItemOutput
+}
+
+var microvmImageAdditionalOsCapabilitiesItemPtrType = reflect.TypeOf((**MicrovmImageAdditionalOsCapabilitiesItem)(nil)).Elem()
+
+type MicrovmImageAdditionalOsCapabilitiesItemPtrInput interface {
+	pulumi.Input
+
+	ToMicrovmImageAdditionalOsCapabilitiesItemPtrOutput() MicrovmImageAdditionalOsCapabilitiesItemPtrOutput
+	ToMicrovmImageAdditionalOsCapabilitiesItemPtrOutputWithContext(context.Context) MicrovmImageAdditionalOsCapabilitiesItemPtrOutput
+}
+
+type microvmImageAdditionalOsCapabilitiesItemPtr string
+
+func MicrovmImageAdditionalOsCapabilitiesItemPtr(v string) MicrovmImageAdditionalOsCapabilitiesItemPtrInput {
+	return (*microvmImageAdditionalOsCapabilitiesItemPtr)(&v)
+}
+
+func (*microvmImageAdditionalOsCapabilitiesItemPtr) ElementType() reflect.Type {
+	return microvmImageAdditionalOsCapabilitiesItemPtrType
+}
+
+func (in *microvmImageAdditionalOsCapabilitiesItemPtr) ToMicrovmImageAdditionalOsCapabilitiesItemPtrOutput() MicrovmImageAdditionalOsCapabilitiesItemPtrOutput {
+	return pulumi.ToOutput(in).(MicrovmImageAdditionalOsCapabilitiesItemPtrOutput)
+}
+
+func (in *microvmImageAdditionalOsCapabilitiesItemPtr) ToMicrovmImageAdditionalOsCapabilitiesItemPtrOutputWithContext(ctx context.Context) MicrovmImageAdditionalOsCapabilitiesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MicrovmImageAdditionalOsCapabilitiesItemPtrOutput)
+}
+
+// MicrovmImageAdditionalOsCapabilitiesItemArrayInput is an input type that accepts MicrovmImageAdditionalOsCapabilitiesItemArray and MicrovmImageAdditionalOsCapabilitiesItemArrayOutput values.
+// You can construct a concrete instance of `MicrovmImageAdditionalOsCapabilitiesItemArrayInput` via:
+//
+//	MicrovmImageAdditionalOsCapabilitiesItemArray{ MicrovmImageAdditionalOsCapabilitiesItemArgs{...} }
+type MicrovmImageAdditionalOsCapabilitiesItemArrayInput interface {
+	pulumi.Input
+
+	ToMicrovmImageAdditionalOsCapabilitiesItemArrayOutput() MicrovmImageAdditionalOsCapabilitiesItemArrayOutput
+	ToMicrovmImageAdditionalOsCapabilitiesItemArrayOutputWithContext(context.Context) MicrovmImageAdditionalOsCapabilitiesItemArrayOutput
+}
+
+type MicrovmImageAdditionalOsCapabilitiesItemArray []MicrovmImageAdditionalOsCapabilitiesItem
+
+func (MicrovmImageAdditionalOsCapabilitiesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MicrovmImageAdditionalOsCapabilitiesItem)(nil)).Elem()
+}
+
+func (i MicrovmImageAdditionalOsCapabilitiesItemArray) ToMicrovmImageAdditionalOsCapabilitiesItemArrayOutput() MicrovmImageAdditionalOsCapabilitiesItemArrayOutput {
+	return i.ToMicrovmImageAdditionalOsCapabilitiesItemArrayOutputWithContext(context.Background())
+}
+
+func (i MicrovmImageAdditionalOsCapabilitiesItemArray) ToMicrovmImageAdditionalOsCapabilitiesItemArrayOutputWithContext(ctx context.Context) MicrovmImageAdditionalOsCapabilitiesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageAdditionalOsCapabilitiesItemArrayOutput)
+}
+
+type MicrovmImageAdditionalOsCapabilitiesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageAdditionalOsCapabilitiesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MicrovmImageAdditionalOsCapabilitiesItem)(nil)).Elem()
+}
+
+func (o MicrovmImageAdditionalOsCapabilitiesItemArrayOutput) ToMicrovmImageAdditionalOsCapabilitiesItemArrayOutput() MicrovmImageAdditionalOsCapabilitiesItemArrayOutput {
+	return o
+}
+
+func (o MicrovmImageAdditionalOsCapabilitiesItemArrayOutput) ToMicrovmImageAdditionalOsCapabilitiesItemArrayOutputWithContext(ctx context.Context) MicrovmImageAdditionalOsCapabilitiesItemArrayOutput {
+	return o
+}
+
+func (o MicrovmImageAdditionalOsCapabilitiesItemArrayOutput) Index(i pulumi.IntInput) MicrovmImageAdditionalOsCapabilitiesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MicrovmImageAdditionalOsCapabilitiesItem {
+		return vs[0].([]MicrovmImageAdditionalOsCapabilitiesItem)[vs[1].(int)]
+	}).(MicrovmImageAdditionalOsCapabilitiesItemOutput)
+}
+
+type MicrovmImageCpuConfigurationArchitecture string
+
+const (
+	MicrovmImageCpuConfigurationArchitectureArm64 = MicrovmImageCpuConfigurationArchitecture("ARM_64")
+)
+
+func (MicrovmImageCpuConfigurationArchitecture) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageCpuConfigurationArchitecture)(nil)).Elem()
+}
+
+func (e MicrovmImageCpuConfigurationArchitecture) ToMicrovmImageCpuConfigurationArchitectureOutput() MicrovmImageCpuConfigurationArchitectureOutput {
+	return pulumi.ToOutput(e).(MicrovmImageCpuConfigurationArchitectureOutput)
+}
+
+func (e MicrovmImageCpuConfigurationArchitecture) ToMicrovmImageCpuConfigurationArchitectureOutputWithContext(ctx context.Context) MicrovmImageCpuConfigurationArchitectureOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MicrovmImageCpuConfigurationArchitectureOutput)
+}
+
+func (e MicrovmImageCpuConfigurationArchitecture) ToMicrovmImageCpuConfigurationArchitecturePtrOutput() MicrovmImageCpuConfigurationArchitecturePtrOutput {
+	return e.ToMicrovmImageCpuConfigurationArchitecturePtrOutputWithContext(context.Background())
+}
+
+func (e MicrovmImageCpuConfigurationArchitecture) ToMicrovmImageCpuConfigurationArchitecturePtrOutputWithContext(ctx context.Context) MicrovmImageCpuConfigurationArchitecturePtrOutput {
+	return MicrovmImageCpuConfigurationArchitecture(e).ToMicrovmImageCpuConfigurationArchitectureOutputWithContext(ctx).ToMicrovmImageCpuConfigurationArchitecturePtrOutputWithContext(ctx)
+}
+
+func (e MicrovmImageCpuConfigurationArchitecture) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MicrovmImageCpuConfigurationArchitecture) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MicrovmImageCpuConfigurationArchitecture) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MicrovmImageCpuConfigurationArchitecture) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MicrovmImageCpuConfigurationArchitectureOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageCpuConfigurationArchitectureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageCpuConfigurationArchitecture)(nil)).Elem()
+}
+
+func (o MicrovmImageCpuConfigurationArchitectureOutput) ToMicrovmImageCpuConfigurationArchitectureOutput() MicrovmImageCpuConfigurationArchitectureOutput {
+	return o
+}
+
+func (o MicrovmImageCpuConfigurationArchitectureOutput) ToMicrovmImageCpuConfigurationArchitectureOutputWithContext(ctx context.Context) MicrovmImageCpuConfigurationArchitectureOutput {
+	return o
+}
+
+func (o MicrovmImageCpuConfigurationArchitectureOutput) ToMicrovmImageCpuConfigurationArchitecturePtrOutput() MicrovmImageCpuConfigurationArchitecturePtrOutput {
+	return o.ToMicrovmImageCpuConfigurationArchitecturePtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageCpuConfigurationArchitectureOutput) ToMicrovmImageCpuConfigurationArchitecturePtrOutputWithContext(ctx context.Context) MicrovmImageCpuConfigurationArchitecturePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MicrovmImageCpuConfigurationArchitecture) *MicrovmImageCpuConfigurationArchitecture {
+		return &v
+	}).(MicrovmImageCpuConfigurationArchitecturePtrOutput)
+}
+
+func (o MicrovmImageCpuConfigurationArchitectureOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageCpuConfigurationArchitectureOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MicrovmImageCpuConfigurationArchitecture) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MicrovmImageCpuConfigurationArchitectureOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageCpuConfigurationArchitectureOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MicrovmImageCpuConfigurationArchitecture) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MicrovmImageCpuConfigurationArchitecturePtrOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageCpuConfigurationArchitecturePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmImageCpuConfigurationArchitecture)(nil)).Elem()
+}
+
+func (o MicrovmImageCpuConfigurationArchitecturePtrOutput) ToMicrovmImageCpuConfigurationArchitecturePtrOutput() MicrovmImageCpuConfigurationArchitecturePtrOutput {
+	return o
+}
+
+func (o MicrovmImageCpuConfigurationArchitecturePtrOutput) ToMicrovmImageCpuConfigurationArchitecturePtrOutputWithContext(ctx context.Context) MicrovmImageCpuConfigurationArchitecturePtrOutput {
+	return o
+}
+
+func (o MicrovmImageCpuConfigurationArchitecturePtrOutput) Elem() MicrovmImageCpuConfigurationArchitectureOutput {
+	return o.ApplyT(func(v *MicrovmImageCpuConfigurationArchitecture) MicrovmImageCpuConfigurationArchitecture {
+		if v != nil {
+			return *v
+		}
+		var ret MicrovmImageCpuConfigurationArchitecture
+		return ret
+	}).(MicrovmImageCpuConfigurationArchitectureOutput)
+}
+
+func (o MicrovmImageCpuConfigurationArchitecturePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageCpuConfigurationArchitecturePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MicrovmImageCpuConfigurationArchitecture) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MicrovmImageCpuConfigurationArchitectureInput is an input type that accepts values of the MicrovmImageCpuConfigurationArchitecture enum
+// A concrete instance of `MicrovmImageCpuConfigurationArchitectureInput` can be one of the following:
+//
+//	MicrovmImageCpuConfigurationArchitectureArm64
+type MicrovmImageCpuConfigurationArchitectureInput interface {
+	pulumi.Input
+
+	ToMicrovmImageCpuConfigurationArchitectureOutput() MicrovmImageCpuConfigurationArchitectureOutput
+	ToMicrovmImageCpuConfigurationArchitectureOutputWithContext(context.Context) MicrovmImageCpuConfigurationArchitectureOutput
+}
+
+var microvmImageCpuConfigurationArchitecturePtrType = reflect.TypeOf((**MicrovmImageCpuConfigurationArchitecture)(nil)).Elem()
+
+type MicrovmImageCpuConfigurationArchitecturePtrInput interface {
+	pulumi.Input
+
+	ToMicrovmImageCpuConfigurationArchitecturePtrOutput() MicrovmImageCpuConfigurationArchitecturePtrOutput
+	ToMicrovmImageCpuConfigurationArchitecturePtrOutputWithContext(context.Context) MicrovmImageCpuConfigurationArchitecturePtrOutput
+}
+
+type microvmImageCpuConfigurationArchitecturePtr string
+
+func MicrovmImageCpuConfigurationArchitecturePtr(v string) MicrovmImageCpuConfigurationArchitecturePtrInput {
+	return (*microvmImageCpuConfigurationArchitecturePtr)(&v)
+}
+
+func (*microvmImageCpuConfigurationArchitecturePtr) ElementType() reflect.Type {
+	return microvmImageCpuConfigurationArchitecturePtrType
+}
+
+func (in *microvmImageCpuConfigurationArchitecturePtr) ToMicrovmImageCpuConfigurationArchitecturePtrOutput() MicrovmImageCpuConfigurationArchitecturePtrOutput {
+	return pulumi.ToOutput(in).(MicrovmImageCpuConfigurationArchitecturePtrOutput)
+}
+
+func (in *microvmImageCpuConfigurationArchitecturePtr) ToMicrovmImageCpuConfigurationArchitecturePtrOutputWithContext(ctx context.Context) MicrovmImageCpuConfigurationArchitecturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MicrovmImageCpuConfigurationArchitecturePtrOutput)
+}
+
+type MicrovmImageHookState string
+
+const (
+	MicrovmImageHookStateDisabled = MicrovmImageHookState("DISABLED")
+	MicrovmImageHookStateEnabled  = MicrovmImageHookState("ENABLED")
+)
+
+func (MicrovmImageHookState) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageHookState)(nil)).Elem()
+}
+
+func (e MicrovmImageHookState) ToMicrovmImageHookStateOutput() MicrovmImageHookStateOutput {
+	return pulumi.ToOutput(e).(MicrovmImageHookStateOutput)
+}
+
+func (e MicrovmImageHookState) ToMicrovmImageHookStateOutputWithContext(ctx context.Context) MicrovmImageHookStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MicrovmImageHookStateOutput)
+}
+
+func (e MicrovmImageHookState) ToMicrovmImageHookStatePtrOutput() MicrovmImageHookStatePtrOutput {
+	return e.ToMicrovmImageHookStatePtrOutputWithContext(context.Background())
+}
+
+func (e MicrovmImageHookState) ToMicrovmImageHookStatePtrOutputWithContext(ctx context.Context) MicrovmImageHookStatePtrOutput {
+	return MicrovmImageHookState(e).ToMicrovmImageHookStateOutputWithContext(ctx).ToMicrovmImageHookStatePtrOutputWithContext(ctx)
+}
+
+func (e MicrovmImageHookState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MicrovmImageHookState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MicrovmImageHookState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MicrovmImageHookState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MicrovmImageHookStateOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageHookStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageHookState)(nil)).Elem()
+}
+
+func (o MicrovmImageHookStateOutput) ToMicrovmImageHookStateOutput() MicrovmImageHookStateOutput {
+	return o
+}
+
+func (o MicrovmImageHookStateOutput) ToMicrovmImageHookStateOutputWithContext(ctx context.Context) MicrovmImageHookStateOutput {
+	return o
+}
+
+func (o MicrovmImageHookStateOutput) ToMicrovmImageHookStatePtrOutput() MicrovmImageHookStatePtrOutput {
+	return o.ToMicrovmImageHookStatePtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageHookStateOutput) ToMicrovmImageHookStatePtrOutputWithContext(ctx context.Context) MicrovmImageHookStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MicrovmImageHookState) *MicrovmImageHookState {
+		return &v
+	}).(MicrovmImageHookStatePtrOutput)
+}
+
+func (o MicrovmImageHookStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageHookStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MicrovmImageHookState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MicrovmImageHookStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageHookStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MicrovmImageHookState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MicrovmImageHookStatePtrOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageHookStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmImageHookState)(nil)).Elem()
+}
+
+func (o MicrovmImageHookStatePtrOutput) ToMicrovmImageHookStatePtrOutput() MicrovmImageHookStatePtrOutput {
+	return o
+}
+
+func (o MicrovmImageHookStatePtrOutput) ToMicrovmImageHookStatePtrOutputWithContext(ctx context.Context) MicrovmImageHookStatePtrOutput {
+	return o
+}
+
+func (o MicrovmImageHookStatePtrOutput) Elem() MicrovmImageHookStateOutput {
+	return o.ApplyT(func(v *MicrovmImageHookState) MicrovmImageHookState {
+		if v != nil {
+			return *v
+		}
+		var ret MicrovmImageHookState
+		return ret
+	}).(MicrovmImageHookStateOutput)
+}
+
+func (o MicrovmImageHookStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageHookStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MicrovmImageHookState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MicrovmImageHookStateInput is an input type that accepts values of the MicrovmImageHookState enum
+// A concrete instance of `MicrovmImageHookStateInput` can be one of the following:
+//
+//	MicrovmImageHookStateDisabled
+//	MicrovmImageHookStateEnabled
+type MicrovmImageHookStateInput interface {
+	pulumi.Input
+
+	ToMicrovmImageHookStateOutput() MicrovmImageHookStateOutput
+	ToMicrovmImageHookStateOutputWithContext(context.Context) MicrovmImageHookStateOutput
+}
+
+var microvmImageHookStatePtrType = reflect.TypeOf((**MicrovmImageHookState)(nil)).Elem()
+
+type MicrovmImageHookStatePtrInput interface {
+	pulumi.Input
+
+	ToMicrovmImageHookStatePtrOutput() MicrovmImageHookStatePtrOutput
+	ToMicrovmImageHookStatePtrOutputWithContext(context.Context) MicrovmImageHookStatePtrOutput
+}
+
+type microvmImageHookStatePtr string
+
+func MicrovmImageHookStatePtr(v string) MicrovmImageHookStatePtrInput {
+	return (*microvmImageHookStatePtr)(&v)
+}
+
+func (*microvmImageHookStatePtr) ElementType() reflect.Type {
+	return microvmImageHookStatePtrType
+}
+
+func (in *microvmImageHookStatePtr) ToMicrovmImageHookStatePtrOutput() MicrovmImageHookStatePtrOutput {
+	return pulumi.ToOutput(in).(MicrovmImageHookStatePtrOutput)
+}
+
+func (in *microvmImageHookStatePtr) ToMicrovmImageHookStatePtrOutputWithContext(ctx context.Context) MicrovmImageHookStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MicrovmImageHookStatePtrOutput)
+}
+
+type MicrovmImageStateEnum string
+
+const (
+	MicrovmImageStateEnumCreating     = MicrovmImageStateEnum("CREATING")
+	MicrovmImageStateEnumCreated      = MicrovmImageStateEnum("CREATED")
+	MicrovmImageStateEnumCreateFailed = MicrovmImageStateEnum("CREATE_FAILED")
+	MicrovmImageStateEnumUpdating     = MicrovmImageStateEnum("UPDATING")
+	MicrovmImageStateEnumUpdated      = MicrovmImageStateEnum("UPDATED")
+	MicrovmImageStateEnumUpdateFailed = MicrovmImageStateEnum("UPDATE_FAILED")
+	MicrovmImageStateEnumDeleting     = MicrovmImageStateEnum("DELETING")
+	MicrovmImageStateEnumDeleteFailed = MicrovmImageStateEnum("DELETE_FAILED")
+	MicrovmImageStateEnumDeleted      = MicrovmImageStateEnum("DELETED")
+)
+
+type MicrovmImageStateEnumOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageStateEnum)(nil)).Elem()
+}
+
+func (o MicrovmImageStateEnumOutput) ToMicrovmImageStateEnumOutput() MicrovmImageStateEnumOutput {
+	return o
+}
+
+func (o MicrovmImageStateEnumOutput) ToMicrovmImageStateEnumOutputWithContext(ctx context.Context) MicrovmImageStateEnumOutput {
+	return o
+}
+
+func (o MicrovmImageStateEnumOutput) ToMicrovmImageStateEnumPtrOutput() MicrovmImageStateEnumPtrOutput {
+	return o.ToMicrovmImageStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageStateEnumOutput) ToMicrovmImageStateEnumPtrOutputWithContext(ctx context.Context) MicrovmImageStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MicrovmImageStateEnum) *MicrovmImageStateEnum {
+		return &v
+	}).(MicrovmImageStateEnumPtrOutput)
+}
+
+func (o MicrovmImageStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MicrovmImageStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MicrovmImageStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MicrovmImageStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MicrovmImageStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmImageStateEnum)(nil)).Elem()
+}
+
+func (o MicrovmImageStateEnumPtrOutput) ToMicrovmImageStateEnumPtrOutput() MicrovmImageStateEnumPtrOutput {
+	return o
+}
+
+func (o MicrovmImageStateEnumPtrOutput) ToMicrovmImageStateEnumPtrOutputWithContext(ctx context.Context) MicrovmImageStateEnumPtrOutput {
+	return o
+}
+
+func (o MicrovmImageStateEnumPtrOutput) Elem() MicrovmImageStateEnumOutput {
+	return o.ApplyT(func(v *MicrovmImageStateEnum) MicrovmImageStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret MicrovmImageStateEnum
+		return ret
+	}).(MicrovmImageStateEnumOutput)
+}
+
+func (o MicrovmImageStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MicrovmImageStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current state of the network connector.
+type NetworkConnectorStateEnum string
+
+const (
+	NetworkConnectorStateEnumPending      = NetworkConnectorStateEnum("PENDING")
+	NetworkConnectorStateEnumActive       = NetworkConnectorStateEnum("ACTIVE")
+	NetworkConnectorStateEnumInactive     = NetworkConnectorStateEnum("INACTIVE")
+	NetworkConnectorStateEnumFailed       = NetworkConnectorStateEnum("FAILED")
+	NetworkConnectorStateEnumDeleting     = NetworkConnectorStateEnum("DELETING")
+	NetworkConnectorStateEnumDeleteFailed = NetworkConnectorStateEnum("DELETE_FAILED")
+)
+
+type NetworkConnectorStateEnumOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectorStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectorStateEnum)(nil)).Elem()
+}
+
+func (o NetworkConnectorStateEnumOutput) ToNetworkConnectorStateEnumOutput() NetworkConnectorStateEnumOutput {
+	return o
+}
+
+func (o NetworkConnectorStateEnumOutput) ToNetworkConnectorStateEnumOutputWithContext(ctx context.Context) NetworkConnectorStateEnumOutput {
+	return o
+}
+
+func (o NetworkConnectorStateEnumOutput) ToNetworkConnectorStateEnumPtrOutput() NetworkConnectorStateEnumPtrOutput {
+	return o.ToNetworkConnectorStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorStateEnumOutput) ToNetworkConnectorStateEnumPtrOutputWithContext(ctx context.Context) NetworkConnectorStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkConnectorStateEnum) *NetworkConnectorStateEnum {
+		return &v
+	}).(NetworkConnectorStateEnumPtrOutput)
+}
+
+func (o NetworkConnectorStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkConnectorStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkConnectorStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkConnectorStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkConnectorStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectorStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectorStateEnum)(nil)).Elem()
+}
+
+func (o NetworkConnectorStateEnumPtrOutput) ToNetworkConnectorStateEnumPtrOutput() NetworkConnectorStateEnumPtrOutput {
+	return o
+}
+
+func (o NetworkConnectorStateEnumPtrOutput) ToNetworkConnectorStateEnumPtrOutputWithContext(ctx context.Context) NetworkConnectorStateEnumPtrOutput {
+	return o
+}
+
+func (o NetworkConnectorStateEnumPtrOutput) Elem() NetworkConnectorStateEnumOutput {
+	return o.ApplyT(func(v *NetworkConnectorStateEnum) NetworkConnectorStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkConnectorStateEnum
+		return ret
+	}).(NetworkConnectorStateEnumOutput)
+}
+
+func (o NetworkConnectorStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NetworkConnectorStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem string
+
+const (
+	NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemMicroVm = NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem("MicroVm")
+)
+
+func (NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem)(nil)).Elem()
+}
+
+func (e NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem) ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput() NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput {
+	return pulumi.ToOutput(e).(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput)
+}
+
+func (e NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem) ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput)
+}
+
+func (e NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem) ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput() NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput {
+	return e.ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem) ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput {
+	return NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem(e).ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutputWithContext(ctx).ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem)(nil)).Elem()
+}
+
+func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput) ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput() NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput {
+	return o
+}
+
+func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput) ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput {
+	return o
+}
+
+func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput) ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput() NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput {
+	return o.ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput) ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem) *NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem {
+		return &v
+	}).(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput)
+}
+
+func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem)(nil)).Elem()
+}
+
+func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput) ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput() NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput {
+	return o
+}
+
+func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput) ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput {
+	return o
+}
+
+func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput) Elem() NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput {
+	return o.ApplyT(func(v *NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem) NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem
+		return ret
+	}).(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput)
+}
+
+func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemInput is an input type that accepts values of the NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem enum
+// A concrete instance of `NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemInput` can be one of the following:
+//
+//	NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemMicroVm
+type NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemInput interface {
+	pulumi.Input
+
+	ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput() NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput
+	ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutputWithContext(context.Context) NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput
+}
+
+var networkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrType = reflect.TypeOf((**NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem)(nil)).Elem()
+
+type NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput() NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput
+	ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutputWithContext(context.Context) NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput
+}
+
+type networkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtr string
+
+func NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtr(v string) NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrInput {
+	return (*networkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtr)(&v)
+}
+
+func (*networkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtr) ElementType() reflect.Type {
+	return networkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrType
+}
+
+func (in *networkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtr) ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput() NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput)
+}
+
+func (in *networkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtr) ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput)
+}
+
+// NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayInput is an input type that accepts NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArray and NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput values.
+// You can construct a concrete instance of `NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayInput` via:
+//
+//	NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArray{ NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArgs{...} }
+type NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput() NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput
+	ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutputWithContext(context.Context) NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput
+}
+
+type NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArray []NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem
+
+func (NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem)(nil)).Elem()
+}
+
+func (i NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArray) ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput() NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput {
+	return i.ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArray) ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput)
+}
+
+type NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem)(nil)).Elem()
+}
+
+func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput) ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput() NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput {
+	return o
+}
+
+func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput) ToNetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput {
+	return o
+}
+
+func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput) Index(i pulumi.IntInput) NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem {
+		return vs[0].([]NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem)[vs[1].(int)]
+	}).(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput)
+}
+
+// The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
+type NetworkConnectorVpcEgressConfigurationNetworkProtocol string
+
+const (
+	NetworkConnectorVpcEgressConfigurationNetworkProtocolIPv4      = NetworkConnectorVpcEgressConfigurationNetworkProtocol("IPv4")
+	NetworkConnectorVpcEgressConfigurationNetworkProtocolDualStack = NetworkConnectorVpcEgressConfigurationNetworkProtocol("DualStack")
+)
+
+func (NetworkConnectorVpcEgressConfigurationNetworkProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectorVpcEgressConfigurationNetworkProtocol)(nil)).Elem()
+}
+
+func (e NetworkConnectorVpcEgressConfigurationNetworkProtocol) ToNetworkConnectorVpcEgressConfigurationNetworkProtocolOutput() NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput {
+	return pulumi.ToOutput(e).(NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput)
+}
+
+func (e NetworkConnectorVpcEgressConfigurationNetworkProtocol) ToNetworkConnectorVpcEgressConfigurationNetworkProtocolOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput)
+}
+
+func (e NetworkConnectorVpcEgressConfigurationNetworkProtocol) ToNetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput() NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput {
+	return e.ToNetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkConnectorVpcEgressConfigurationNetworkProtocol) ToNetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput {
+	return NetworkConnectorVpcEgressConfigurationNetworkProtocol(e).ToNetworkConnectorVpcEgressConfigurationNetworkProtocolOutputWithContext(ctx).ToNetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutputWithContext(ctx)
+}
+
+func (e NetworkConnectorVpcEgressConfigurationNetworkProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkConnectorVpcEgressConfigurationNetworkProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkConnectorVpcEgressConfigurationNetworkProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkConnectorVpcEgressConfigurationNetworkProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectorVpcEgressConfigurationNetworkProtocol)(nil)).Elem()
+}
+
+func (o NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput) ToNetworkConnectorVpcEgressConfigurationNetworkProtocolOutput() NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput {
+	return o
+}
+
+func (o NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput) ToNetworkConnectorVpcEgressConfigurationNetworkProtocolOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput {
+	return o
+}
+
+func (o NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput) ToNetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput() NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput {
+	return o.ToNetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput) ToNetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkConnectorVpcEgressConfigurationNetworkProtocol) *NetworkConnectorVpcEgressConfigurationNetworkProtocol {
+		return &v
+	}).(NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput)
+}
+
+func (o NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkConnectorVpcEgressConfigurationNetworkProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkConnectorVpcEgressConfigurationNetworkProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectorVpcEgressConfigurationNetworkProtocol)(nil)).Elem()
+}
+
+func (o NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput) ToNetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput() NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput {
+	return o
+}
+
+func (o NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput) ToNetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput {
+	return o
+}
+
+func (o NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput) Elem() NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput {
+	return o.ApplyT(func(v *NetworkConnectorVpcEgressConfigurationNetworkProtocol) NetworkConnectorVpcEgressConfigurationNetworkProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkConnectorVpcEgressConfigurationNetworkProtocol
+		return ret
+	}).(NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput)
+}
+
+func (o NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NetworkConnectorVpcEgressConfigurationNetworkProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NetworkConnectorVpcEgressConfigurationNetworkProtocolInput is an input type that accepts values of the NetworkConnectorVpcEgressConfigurationNetworkProtocol enum
+// A concrete instance of `NetworkConnectorVpcEgressConfigurationNetworkProtocolInput` can be one of the following:
+//
+//	NetworkConnectorVpcEgressConfigurationNetworkProtocolIPv4
+//	NetworkConnectorVpcEgressConfigurationNetworkProtocolDualStack
+type NetworkConnectorVpcEgressConfigurationNetworkProtocolInput interface {
+	pulumi.Input
+
+	ToNetworkConnectorVpcEgressConfigurationNetworkProtocolOutput() NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput
+	ToNetworkConnectorVpcEgressConfigurationNetworkProtocolOutputWithContext(context.Context) NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput
+}
+
+var networkConnectorVpcEgressConfigurationNetworkProtocolPtrType = reflect.TypeOf((**NetworkConnectorVpcEgressConfigurationNetworkProtocol)(nil)).Elem()
+
+type NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrInput interface {
+	pulumi.Input
+
+	ToNetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput() NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput
+	ToNetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutputWithContext(context.Context) NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput
+}
+
+type networkConnectorVpcEgressConfigurationNetworkProtocolPtr string
+
+func NetworkConnectorVpcEgressConfigurationNetworkProtocolPtr(v string) NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrInput {
+	return (*networkConnectorVpcEgressConfigurationNetworkProtocolPtr)(&v)
+}
+
+func (*networkConnectorVpcEgressConfigurationNetworkProtocolPtr) ElementType() reflect.Type {
+	return networkConnectorVpcEgressConfigurationNetworkProtocolPtrType
+}
+
+func (in *networkConnectorVpcEgressConfigurationNetworkProtocolPtr) ToNetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput() NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput {
+	return pulumi.ToOutput(in).(NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput)
+}
+
+func (in *networkConnectorVpcEgressConfigurationNetworkProtocolPtr) ToNetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput)
+}
+
 // The type of authentication that your function URL uses. Set to “AWS_IAM“ if you want to restrict access to authenticated users only. Set to “NONE“ if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
 type PermissionFunctionUrlAuthType string
 
@@ -5045,6 +6481,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderArchitectureInput)(nil)).Elem(), CapacityProviderArchitecture("x86_64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderArchitecturePtrInput)(nil)).Elem(), CapacityProviderArchitecture("x86_64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderArchitectureArrayInput)(nil)).Elem(), CapacityProviderArchitectureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderLoggingConfigSystemLogLevelInput)(nil)).Elem(), CapacityProviderLoggingConfigSystemLogLevel("DEBUG"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderLoggingConfigSystemLogLevelPtrInput)(nil)).Elem(), CapacityProviderLoggingConfigSystemLogLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPredefinedMetricTypeInput)(nil)).Elem(), CapacityProviderPredefinedMetricType("LambdaCapacityProviderAverageCPUUtilization"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPredefinedMetricTypePtrInput)(nil)).Elem(), CapacityProviderPredefinedMetricType("LambdaCapacityProviderAverageCPUUtilization"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPropagateTagsModeInput)(nil)).Elem(), CapacityProviderPropagateTagsMode("None"))
@@ -5092,6 +6530,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTenancyConfigTenantIsolationModePtrInput)(nil)).Elem(), FunctionTenancyConfigTenantIsolationMode("PER_TENANT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigModeInput)(nil)).Elem(), FunctionTracingConfigMode("Active"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigModePtrInput)(nil)).Elem(), FunctionTracingConfigMode("Active"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionContentS3ObjectStorageModeInput)(nil)).Elem(), LayerVersionContentS3ObjectStorageMode("COPY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionContentS3ObjectStorageModePtrInput)(nil)).Elem(), LayerVersionContentS3ObjectStorageMode("COPY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageAdditionalOsCapabilitiesItemInput)(nil)).Elem(), MicrovmImageAdditionalOsCapabilitiesItem("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageAdditionalOsCapabilitiesItemPtrInput)(nil)).Elem(), MicrovmImageAdditionalOsCapabilitiesItem("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageAdditionalOsCapabilitiesItemArrayInput)(nil)).Elem(), MicrovmImageAdditionalOsCapabilitiesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageCpuConfigurationArchitectureInput)(nil)).Elem(), MicrovmImageCpuConfigurationArchitecture("ARM_64"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageCpuConfigurationArchitecturePtrInput)(nil)).Elem(), MicrovmImageCpuConfigurationArchitecture("ARM_64"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageHookStateInput)(nil)).Elem(), MicrovmImageHookState("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageHookStatePtrInput)(nil)).Elem(), MicrovmImageHookState("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemInput)(nil)).Elem(), NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem("MicroVm"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrInput)(nil)).Elem(), NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem("MicroVm"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayInput)(nil)).Elem(), NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorVpcEgressConfigurationNetworkProtocolInput)(nil)).Elem(), NetworkConnectorVpcEgressConfigurationNetworkProtocol("IPv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrInput)(nil)).Elem(), NetworkConnectorVpcEgressConfigurationNetworkProtocol("IPv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionFunctionUrlAuthTypeInput)(nil)).Elem(), PermissionFunctionUrlAuthType("AWS_IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionFunctionUrlAuthTypePtrInput)(nil)).Elem(), PermissionFunctionUrlAuthType("AWS_IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlAllowMethodsItemInput)(nil)).Elem(), UrlAllowMethodsItem("GET"))
@@ -5104,6 +6556,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderArchitectureOutput{})
 	pulumi.RegisterOutputType(CapacityProviderArchitecturePtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderArchitectureArrayOutput{})
+	pulumi.RegisterOutputType(CapacityProviderLoggingConfigSystemLogLevelOutput{})
+	pulumi.RegisterOutputType(CapacityProviderLoggingConfigSystemLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderPredefinedMetricTypeOutput{})
 	pulumi.RegisterOutputType(CapacityProviderPredefinedMetricTypePtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderPropagateTagsModeOutput{})
@@ -5157,6 +6611,24 @@ func init() {
 	pulumi.RegisterOutputType(FunctionTenancyConfigTenantIsolationModePtrOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigModeOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigModePtrOutput{})
+	pulumi.RegisterOutputType(LayerVersionContentS3ObjectStorageModeOutput{})
+	pulumi.RegisterOutputType(LayerVersionContentS3ObjectStorageModePtrOutput{})
+	pulumi.RegisterOutputType(MicrovmImageAdditionalOsCapabilitiesItemOutput{})
+	pulumi.RegisterOutputType(MicrovmImageAdditionalOsCapabilitiesItemPtrOutput{})
+	pulumi.RegisterOutputType(MicrovmImageAdditionalOsCapabilitiesItemArrayOutput{})
+	pulumi.RegisterOutputType(MicrovmImageCpuConfigurationArchitectureOutput{})
+	pulumi.RegisterOutputType(MicrovmImageCpuConfigurationArchitecturePtrOutput{})
+	pulumi.RegisterOutputType(MicrovmImageHookStateOutput{})
+	pulumi.RegisterOutputType(MicrovmImageHookStatePtrOutput{})
+	pulumi.RegisterOutputType(MicrovmImageStateEnumOutput{})
+	pulumi.RegisterOutputType(MicrovmImageStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(NetworkConnectorStateEnumOutput{})
+	pulumi.RegisterOutputType(NetworkConnectorStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemOutput{})
+	pulumi.RegisterOutputType(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput{})
+	pulumi.RegisterOutputType(NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput{})
+	pulumi.RegisterOutputType(NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput{})
 	pulumi.RegisterOutputType(PermissionFunctionUrlAuthTypeOutput{})
 	pulumi.RegisterOutputType(PermissionFunctionUrlAuthTypePtrOutput{})
 	pulumi.RegisterOutputType(UrlAllowMethodsItemOutput{})

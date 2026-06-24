@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPolicyResult:
-    def __init__(__self__, created_at=None, definition=None, description=None, policy_arn=None, policy_id=None, status=None, status_reasons=None, updated_at=None):
+    def __init__(__self__, created_at=None, definition=None, description=None, enforcement_mode=None, policy_arn=None, policy_id=None, status=None, status_reasons=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -35,6 +35,9 @@ class GetPolicyResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if enforcement_mode and not isinstance(enforcement_mode, str):
+            raise TypeError("Expected argument 'enforcement_mode' to be a str")
+        pulumi.set(__self__, "enforcement_mode", enforcement_mode)
         if policy_arn and not isinstance(policy_arn, str):
             raise TypeError("Expected argument 'policy_arn' to be a str")
         pulumi.set(__self__, "policy_arn", policy_arn)
@@ -71,6 +74,11 @@ class GetPolicyResult:
         A human-readable description of the policy's purpose and functionality.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="enforcementMode")
+    def enforcement_mode(self) -> Optional['PolicyEnforcementMode']:
+        return pulumi.get(self, "enforcement_mode")
 
     @_builtins.property
     @pulumi.getter(name="policyArn")
@@ -122,6 +130,7 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             created_at=self.created_at,
             definition=self.definition,
             description=self.description,
+            enforcement_mode=self.enforcement_mode,
             policy_arn=self.policy_arn,
             policy_id=self.policy_id,
             status=self.status,
@@ -146,6 +155,7 @@ def get_policy(policy_arn: Optional[_builtins.str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         definition=pulumi.get(__ret__, 'definition'),
         description=pulumi.get(__ret__, 'description'),
+        enforcement_mode=pulumi.get(__ret__, 'enforcement_mode'),
         policy_arn=pulumi.get(__ret__, 'policy_arn'),
         policy_id=pulumi.get(__ret__, 'policy_id'),
         status=pulumi.get(__ret__, 'status'),
@@ -167,6 +177,7 @@ def get_policy_output(policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
         created_at=pulumi.get(__response__, 'created_at'),
         definition=pulumi.get(__response__, 'definition'),
         description=pulumi.get(__response__, 'description'),
+        enforcement_mode=pulumi.get(__response__, 'enforcement_mode'),
         policy_arn=pulumi.get(__response__, 'policy_arn'),
         policy_id=pulumi.get(__response__, 'policy_id'),
         status=pulumi.get(__response__, 'status'),

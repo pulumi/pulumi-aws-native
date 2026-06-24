@@ -24,14 +24,20 @@ __all__ = [
     'OrganizationCentralizationRuleCentralizationRuleArgsDict',
     'OrganizationCentralizationRuleDestinationLogsConfigurationArgs',
     'OrganizationCentralizationRuleDestinationLogsConfigurationArgsDict',
+    'OrganizationCentralizationRuleDestinationMetricsConfigurationArgs',
+    'OrganizationCentralizationRuleDestinationMetricsConfigurationArgsDict',
     'OrganizationCentralizationRuleLogGroupNameConfigurationArgs',
     'OrganizationCentralizationRuleLogGroupNameConfigurationArgsDict',
     'OrganizationCentralizationRuleLogsBackupConfigurationArgs',
     'OrganizationCentralizationRuleLogsBackupConfigurationArgsDict',
     'OrganizationCentralizationRuleLogsEncryptionConfigurationArgs',
     'OrganizationCentralizationRuleLogsEncryptionConfigurationArgsDict',
+    'OrganizationCentralizationRuleMetricsBackupConfigurationArgs',
+    'OrganizationCentralizationRuleMetricsBackupConfigurationArgsDict',
     'OrganizationCentralizationRuleSourceLogsConfigurationArgs',
     'OrganizationCentralizationRuleSourceLogsConfigurationArgsDict',
+    'OrganizationCentralizationRuleSourceMetricsConfigurationArgs',
+    'OrganizationCentralizationRuleSourceMetricsConfigurationArgsDict',
     'OrganizationTelemetryRuleActionConditionArgs',
     'OrganizationTelemetryRuleActionConditionArgsDict',
     'OrganizationTelemetryRuleAdvancedEventSelectorArgs',
@@ -117,13 +123,15 @@ class OrganizationCentralizationRuleCentralizationRuleDestinationArgsDict(TypedD
     """
     Log specific configuration for centralization destination log groups.
     """
+    destination_metrics_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleDestinationMetricsConfigurationArgsDict']]
 
 @pulumi.input_type
 class OrganizationCentralizationRuleCentralizationRuleDestinationArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[_builtins.str],
                  account: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_logs_configuration: Optional[pulumi.Input['OrganizationCentralizationRuleDestinationLogsConfigurationArgs']] = None):
+                 destination_logs_configuration: Optional[pulumi.Input['OrganizationCentralizationRuleDestinationLogsConfigurationArgs']] = None,
+                 destination_metrics_configuration: Optional[pulumi.Input['OrganizationCentralizationRuleDestinationMetricsConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] region: The primary destination region to which telemetry data should be centralized.
         :param pulumi.Input[_builtins.str] account: The destination account (within the organization) to which the telemetry data should be centralized.
@@ -134,6 +142,8 @@ class OrganizationCentralizationRuleCentralizationRuleDestinationArgs:
             pulumi.set(__self__, "account", account)
         if destination_logs_configuration is not None:
             pulumi.set(__self__, "destination_logs_configuration", destination_logs_configuration)
+        if destination_metrics_configuration is not None:
+            pulumi.set(__self__, "destination_metrics_configuration", destination_metrics_configuration)
 
     @_builtins.property
     @pulumi.getter
@@ -171,6 +181,15 @@ class OrganizationCentralizationRuleCentralizationRuleDestinationArgs:
     def destination_logs_configuration(self, value: Optional[pulumi.Input['OrganizationCentralizationRuleDestinationLogsConfigurationArgs']]):
         pulumi.set(self, "destination_logs_configuration", value)
 
+    @_builtins.property
+    @pulumi.getter(name="destinationMetricsConfiguration")
+    def destination_metrics_configuration(self) -> Optional[pulumi.Input['OrganizationCentralizationRuleDestinationMetricsConfigurationArgs']]:
+        return pulumi.get(self, "destination_metrics_configuration")
+
+    @destination_metrics_configuration.setter
+    def destination_metrics_configuration(self, value: Optional[pulumi.Input['OrganizationCentralizationRuleDestinationMetricsConfigurationArgs']]):
+        pulumi.set(self, "destination_metrics_configuration", value)
+
 
 class OrganizationCentralizationRuleCentralizationRuleSourceArgsDict(TypedDict):
     regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
@@ -185,13 +204,15 @@ class OrganizationCentralizationRuleCentralizationRuleSourceArgsDict(TypedDict):
     """
     Log specific configuration for centralization source log groups.
     """
+    source_metrics_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleSourceMetricsConfigurationArgsDict']]
 
 @pulumi.input_type
 class OrganizationCentralizationRuleCentralizationRuleSourceArgs:
     def __init__(__self__, *,
                  regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_logs_configuration: Optional[pulumi.Input['OrganizationCentralizationRuleSourceLogsConfigurationArgs']] = None):
+                 source_logs_configuration: Optional[pulumi.Input['OrganizationCentralizationRuleSourceLogsConfigurationArgs']] = None,
+                 source_metrics_configuration: Optional[pulumi.Input['OrganizationCentralizationRuleSourceMetricsConfigurationArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The list of source regions from which telemetry data should be centralized.
         :param pulumi.Input[_builtins.str] scope: The organizational scope from which telemetry data should be centralized, specified using organization id, accounts or organizational unit ids.
@@ -202,6 +223,8 @@ class OrganizationCentralizationRuleCentralizationRuleSourceArgs:
             pulumi.set(__self__, "scope", scope)
         if source_logs_configuration is not None:
             pulumi.set(__self__, "source_logs_configuration", source_logs_configuration)
+        if source_metrics_configuration is not None:
+            pulumi.set(__self__, "source_metrics_configuration", source_metrics_configuration)
 
     @_builtins.property
     @pulumi.getter
@@ -238,6 +261,15 @@ class OrganizationCentralizationRuleCentralizationRuleSourceArgs:
     @source_logs_configuration.setter
     def source_logs_configuration(self, value: Optional[pulumi.Input['OrganizationCentralizationRuleSourceLogsConfigurationArgs']]):
         pulumi.set(self, "source_logs_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceMetricsConfiguration")
+    def source_metrics_configuration(self) -> Optional[pulumi.Input['OrganizationCentralizationRuleSourceMetricsConfigurationArgs']]:
+        return pulumi.get(self, "source_metrics_configuration")
+
+    @source_metrics_configuration.setter
+    def source_metrics_configuration(self, value: Optional[pulumi.Input['OrganizationCentralizationRuleSourceMetricsConfigurationArgs']]):
+        pulumi.set(self, "source_metrics_configuration", value)
 
 
 class OrganizationCentralizationRuleCentralizationRuleArgsDict(TypedDict):
@@ -347,6 +379,26 @@ class OrganizationCentralizationRuleDestinationLogsConfigurationArgs:
     @logs_encryption_configuration.setter
     def logs_encryption_configuration(self, value: Optional[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationArgs']]):
         pulumi.set(self, "logs_encryption_configuration", value)
+
+
+class OrganizationCentralizationRuleDestinationMetricsConfigurationArgsDict(TypedDict):
+    backup_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleMetricsBackupConfigurationArgsDict']]
+
+@pulumi.input_type
+class OrganizationCentralizationRuleDestinationMetricsConfigurationArgs:
+    def __init__(__self__, *,
+                 backup_configuration: Optional[pulumi.Input['OrganizationCentralizationRuleMetricsBackupConfigurationArgs']] = None):
+        if backup_configuration is not None:
+            pulumi.set(__self__, "backup_configuration", backup_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="backupConfiguration")
+    def backup_configuration(self) -> Optional[pulumi.Input['OrganizationCentralizationRuleMetricsBackupConfigurationArgs']]:
+        return pulumi.get(self, "backup_configuration")
+
+    @backup_configuration.setter
+    def backup_configuration(self, value: Optional[pulumi.Input['OrganizationCentralizationRuleMetricsBackupConfigurationArgs']]):
+        pulumi.set(self, "backup_configuration", value)
 
 
 class OrganizationCentralizationRuleLogGroupNameConfigurationArgsDict(TypedDict):
@@ -484,6 +536,25 @@ class OrganizationCentralizationRuleLogsEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
+class OrganizationCentralizationRuleMetricsBackupConfigurationArgsDict(TypedDict):
+    region: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class OrganizationCentralizationRuleMetricsBackupConfigurationArgs:
+    def __init__(__self__, *,
+                 region: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "region", value)
+
+
 class OrganizationCentralizationRuleSourceLogsConfigurationArgsDict(TypedDict):
     encrypted_log_group_strategy: pulumi.Input['OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy']
     """
@@ -543,6 +614,26 @@ class OrganizationCentralizationRuleSourceLogsConfigurationArgs:
     @log_group_selection_criteria.setter
     def log_group_selection_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "log_group_selection_criteria", value)
+
+
+class OrganizationCentralizationRuleSourceMetricsConfigurationArgsDict(TypedDict):
+    metrics_selection_criteria: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class OrganizationCentralizationRuleSourceMetricsConfigurationArgs:
+    def __init__(__self__, *,
+                 metrics_selection_criteria: Optional[pulumi.Input[_builtins.str]] = None):
+        if metrics_selection_criteria is not None:
+            pulumi.set(__self__, "metrics_selection_criteria", metrics_selection_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsSelectionCriteria")
+    def metrics_selection_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "metrics_selection_criteria")
+
+    @metrics_selection_criteria.setter
+    def metrics_selection_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "metrics_selection_criteria", value)
 
 
 class OrganizationTelemetryRuleActionConditionArgsDict(TypedDict):

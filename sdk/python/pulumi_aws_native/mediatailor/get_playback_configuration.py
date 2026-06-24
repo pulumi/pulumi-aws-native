@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPlaybackConfigurationResult:
-    def __init__(__self__, ad_conditioning_configuration=None, ad_decision_server_configuration=None, ad_decision_server_url=None, avail_suppression=None, bumper=None, cdn_configuration=None, configuration_aliases=None, dash_configuration=None, hls_configuration=None, insertion_mode=None, live_pre_roll_configuration=None, log_configuration=None, manifest_processing_rules=None, personalization_threshold_seconds=None, playback_configuration_arn=None, playback_endpoint_prefix=None, session_initialization_endpoint_prefix=None, slate_ad_url=None, tags=None, transcode_profile_name=None, video_content_source_url=None):
+    def __init__(__self__, ad_conditioning_configuration=None, ad_decision_server_configuration=None, ad_decision_server_url=None, avail_suppression=None, bumper=None, cdn_configuration=None, configuration_aliases=None, dash_configuration=None, function_mapping=None, hls_configuration=None, insertion_mode=None, live_pre_roll_configuration=None, log_configuration=None, manifest_processing_rules=None, personalization_threshold_seconds=None, playback_configuration_arn=None, playback_endpoint_prefix=None, session_initialization_endpoint_prefix=None, slate_ad_url=None, tags=None, transcode_profile_name=None, video_content_source_url=None):
         if ad_conditioning_configuration and not isinstance(ad_conditioning_configuration, dict):
             raise TypeError("Expected argument 'ad_conditioning_configuration' to be a dict")
         pulumi.set(__self__, "ad_conditioning_configuration", ad_conditioning_configuration)
@@ -51,6 +51,9 @@ class GetPlaybackConfigurationResult:
         if dash_configuration and not isinstance(dash_configuration, dict):
             raise TypeError("Expected argument 'dash_configuration' to be a dict")
         pulumi.set(__self__, "dash_configuration", dash_configuration)
+        if function_mapping and not isinstance(function_mapping, dict):
+            raise TypeError("Expected argument 'function_mapping' to be a dict")
+        pulumi.set(__self__, "function_mapping", function_mapping)
         if hls_configuration and not isinstance(hls_configuration, dict):
             raise TypeError("Expected argument 'hls_configuration' to be a dict")
         pulumi.set(__self__, "hls_configuration", hls_configuration)
@@ -151,6 +154,14 @@ class GetPlaybackConfigurationResult:
         The configuration for DASH content.
         """
         return pulumi.get(self, "dash_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="functionMapping")
+    def function_mapping(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A map of event names to function identifiers for custom processing during session lifecycle events.
+        """
+        return pulumi.get(self, "function_mapping")
 
     @_builtins.property
     @pulumi.getter(name="hlsConfiguration")
@@ -271,6 +282,7 @@ class AwaitableGetPlaybackConfigurationResult(GetPlaybackConfigurationResult):
             cdn_configuration=self.cdn_configuration,
             configuration_aliases=self.configuration_aliases,
             dash_configuration=self.dash_configuration,
+            function_mapping=self.function_mapping,
             hls_configuration=self.hls_configuration,
             insertion_mode=self.insertion_mode,
             live_pre_roll_configuration=self.live_pre_roll_configuration,
@@ -308,6 +320,7 @@ def get_playback_configuration(name: Optional[_builtins.str] = None,
         cdn_configuration=pulumi.get(__ret__, 'cdn_configuration'),
         configuration_aliases=pulumi.get(__ret__, 'configuration_aliases'),
         dash_configuration=pulumi.get(__ret__, 'dash_configuration'),
+        function_mapping=pulumi.get(__ret__, 'function_mapping'),
         hls_configuration=pulumi.get(__ret__, 'hls_configuration'),
         insertion_mode=pulumi.get(__ret__, 'insertion_mode'),
         live_pre_roll_configuration=pulumi.get(__ret__, 'live_pre_roll_configuration'),
@@ -342,6 +355,7 @@ def get_playback_configuration_output(name: Optional[pulumi.Input[_builtins.str]
         cdn_configuration=pulumi.get(__response__, 'cdn_configuration'),
         configuration_aliases=pulumi.get(__response__, 'configuration_aliases'),
         dash_configuration=pulumi.get(__response__, 'dash_configuration'),
+        function_mapping=pulumi.get(__response__, 'function_mapping'),
         hls_configuration=pulumi.get(__response__, 'hls_configuration'),
         insertion_mode=pulumi.get(__response__, 'insertion_mode'),
         live_pre_roll_configuration=pulumi.get(__response__, 'live_pre_roll_configuration'),

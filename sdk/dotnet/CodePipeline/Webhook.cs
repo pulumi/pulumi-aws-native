@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.CodePipeline
         public Output<bool?> RegisterWithThirdParty { get; private set; } = null!;
 
         /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the action in a pipeline you want to connect to the webhook.
         /// </summary>
         [Output("targetAction")]
@@ -159,6 +165,18 @@ namespace Pulumi.AwsNative.CodePipeline
         /// </summary>
         [Input("registerWithThirdParty")]
         public Input<bool>? RegisterWithThirdParty { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The name of the action in a pipeline you want to connect to the webhook.

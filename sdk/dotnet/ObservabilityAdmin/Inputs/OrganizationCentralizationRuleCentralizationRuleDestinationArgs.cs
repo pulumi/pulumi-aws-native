@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         [Input("destinationLogsConfiguration")]
         public Input<Inputs.OrganizationCentralizationRuleDestinationLogsConfigurationArgs>? DestinationLogsConfiguration { get; set; }
 
+        [Input("destinationMetricsConfiguration")]
+        public Input<Inputs.OrganizationCentralizationRuleDestinationMetricsConfigurationArgs>? DestinationMetricsConfiguration { get; set; }
+
         /// <summary>
         /// The primary destination region to which telemetry data should be centralized.
         /// </summary>

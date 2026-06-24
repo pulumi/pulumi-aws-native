@@ -2008,6 +2008,47 @@ func (i ClusterEnvironmentConfigArgs) ToClusterEnvironmentConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEnvironmentConfigOutput)
 }
 
+func (i ClusterEnvironmentConfigArgs) ToClusterEnvironmentConfigPtrOutput() ClusterEnvironmentConfigPtrOutput {
+	return i.ToClusterEnvironmentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterEnvironmentConfigArgs) ToClusterEnvironmentConfigPtrOutputWithContext(ctx context.Context) ClusterEnvironmentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEnvironmentConfigOutput).ToClusterEnvironmentConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterEnvironmentConfigPtrInput is an input type that accepts ClusterEnvironmentConfigArgs, ClusterEnvironmentConfigPtr and ClusterEnvironmentConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterEnvironmentConfigPtrInput` via:
+//
+//	        ClusterEnvironmentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterEnvironmentConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterEnvironmentConfigPtrOutput() ClusterEnvironmentConfigPtrOutput
+	ToClusterEnvironmentConfigPtrOutputWithContext(context.Context) ClusterEnvironmentConfigPtrOutput
+}
+
+type clusterEnvironmentConfigPtrType ClusterEnvironmentConfigArgs
+
+func ClusterEnvironmentConfigPtr(v *ClusterEnvironmentConfigArgs) ClusterEnvironmentConfigPtrInput {
+	return (*clusterEnvironmentConfigPtrType)(v)
+}
+
+func (*clusterEnvironmentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEnvironmentConfig)(nil)).Elem()
+}
+
+func (i *clusterEnvironmentConfigPtrType) ToClusterEnvironmentConfigPtrOutput() ClusterEnvironmentConfigPtrOutput {
+	return i.ToClusterEnvironmentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterEnvironmentConfigPtrType) ToClusterEnvironmentConfigPtrOutputWithContext(ctx context.Context) ClusterEnvironmentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEnvironmentConfigPtrOutput)
+}
+
 // The configuration for the restricted instance groups (RIG) environment.
 type ClusterEnvironmentConfigOutput struct{ *pulumi.OutputState }
 
@@ -2023,8 +2064,51 @@ func (o ClusterEnvironmentConfigOutput) ToClusterEnvironmentConfigOutputWithCont
 	return o
 }
 
+func (o ClusterEnvironmentConfigOutput) ToClusterEnvironmentConfigPtrOutput() ClusterEnvironmentConfigPtrOutput {
+	return o.ToClusterEnvironmentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterEnvironmentConfigOutput) ToClusterEnvironmentConfigPtrOutputWithContext(ctx context.Context) ClusterEnvironmentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterEnvironmentConfig) *ClusterEnvironmentConfig {
+		return &v
+	}).(ClusterEnvironmentConfigPtrOutput)
+}
+
 func (o ClusterEnvironmentConfigOutput) FSxLustreConfig() ClusterFSxLustreConfigPtrOutput {
 	return o.ApplyT(func(v ClusterEnvironmentConfig) *ClusterFSxLustreConfig { return v.FSxLustreConfig }).(ClusterFSxLustreConfigPtrOutput)
+}
+
+type ClusterEnvironmentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterEnvironmentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEnvironmentConfig)(nil)).Elem()
+}
+
+func (o ClusterEnvironmentConfigPtrOutput) ToClusterEnvironmentConfigPtrOutput() ClusterEnvironmentConfigPtrOutput {
+	return o
+}
+
+func (o ClusterEnvironmentConfigPtrOutput) ToClusterEnvironmentConfigPtrOutputWithContext(ctx context.Context) ClusterEnvironmentConfigPtrOutput {
+	return o
+}
+
+func (o ClusterEnvironmentConfigPtrOutput) Elem() ClusterEnvironmentConfigOutput {
+	return o.ApplyT(func(v *ClusterEnvironmentConfig) ClusterEnvironmentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterEnvironmentConfig
+		return ret
+	}).(ClusterEnvironmentConfigOutput)
+}
+
+func (o ClusterEnvironmentConfigPtrOutput) FSxLustreConfig() ClusterFSxLustreConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterEnvironmentConfig) *ClusterFSxLustreConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FSxLustreConfig
+	}).(ClusterFSxLustreConfigPtrOutput)
 }
 
 // Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.
@@ -3469,9 +3553,9 @@ func (o ClusterOrchestratorPtrOutput) Elem() ClusterOrchestratorOutput {
 // Details of a restricted instance group in a SageMaker HyperPod cluster.
 type ClusterRestrictedInstanceGroup struct {
 	// The number of instances that are currently in the restricted instance group of a SageMaker HyperPod cluster.
-	CurrentCount      *int                     `pulumi:"currentCount"`
-	EnvironmentConfig ClusterEnvironmentConfig `pulumi:"environmentConfig"`
-	ExecutionRole     string                   `pulumi:"executionRole"`
+	CurrentCount      *int                      `pulumi:"currentCount"`
+	EnvironmentConfig *ClusterEnvironmentConfig `pulumi:"environmentConfig"`
+	ExecutionRole     string                    `pulumi:"executionRole"`
 	// The number of instances you specified to add to the restricted instance group of a SageMaker HyperPod cluster.
 	InstanceCount           int                            `pulumi:"instanceCount"`
 	InstanceGroupName       string                         `pulumi:"instanceGroupName"`
@@ -3499,9 +3583,9 @@ type ClusterRestrictedInstanceGroupInput interface {
 // Details of a restricted instance group in a SageMaker HyperPod cluster.
 type ClusterRestrictedInstanceGroupArgs struct {
 	// The number of instances that are currently in the restricted instance group of a SageMaker HyperPod cluster.
-	CurrentCount      pulumi.IntPtrInput            `pulumi:"currentCount"`
-	EnvironmentConfig ClusterEnvironmentConfigInput `pulumi:"environmentConfig"`
-	ExecutionRole     pulumi.StringInput            `pulumi:"executionRole"`
+	CurrentCount      pulumi.IntPtrInput               `pulumi:"currentCount"`
+	EnvironmentConfig ClusterEnvironmentConfigPtrInput `pulumi:"environmentConfig"`
+	ExecutionRole     pulumi.StringInput               `pulumi:"executionRole"`
 	// The number of instances you specified to add to the restricted instance group of a SageMaker HyperPod cluster.
 	InstanceCount           pulumi.IntInput                        `pulumi:"instanceCount"`
 	InstanceGroupName       pulumi.StringInput                     `pulumi:"instanceGroupName"`
@@ -3572,8 +3656,8 @@ func (o ClusterRestrictedInstanceGroupOutput) CurrentCount() pulumi.IntPtrOutput
 	return o.ApplyT(func(v ClusterRestrictedInstanceGroup) *int { return v.CurrentCount }).(pulumi.IntPtrOutput)
 }
 
-func (o ClusterRestrictedInstanceGroupOutput) EnvironmentConfig() ClusterEnvironmentConfigOutput {
-	return o.ApplyT(func(v ClusterRestrictedInstanceGroup) ClusterEnvironmentConfig { return v.EnvironmentConfig }).(ClusterEnvironmentConfigOutput)
+func (o ClusterRestrictedInstanceGroupOutput) EnvironmentConfig() ClusterEnvironmentConfigPtrOutput {
+	return o.ApplyT(func(v ClusterRestrictedInstanceGroup) *ClusterEnvironmentConfig { return v.EnvironmentConfig }).(ClusterEnvironmentConfigPtrOutput)
 }
 
 func (o ClusterRestrictedInstanceGroupOutput) ExecutionRole() pulumi.StringOutput {
@@ -3633,6 +3717,144 @@ func (o ClusterRestrictedInstanceGroupArrayOutput) Index(i pulumi.IntInput) Clus
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterRestrictedInstanceGroup {
 		return vs[0].([]ClusterRestrictedInstanceGroup)[vs[1].(int)]
 	}).(ClusterRestrictedInstanceGroupOutput)
+}
+
+// The cluster-level configuration for restricted instance groups, including shared environment settings for inter-RIG communication and FSx Lustre sharing.
+type ClusterRestrictedInstanceGroupsConfig struct {
+	SharedEnvironmentConfig ClusterSharedEnvironmentConfig `pulumi:"sharedEnvironmentConfig"`
+}
+
+// ClusterRestrictedInstanceGroupsConfigInput is an input type that accepts ClusterRestrictedInstanceGroupsConfigArgs and ClusterRestrictedInstanceGroupsConfigOutput values.
+// You can construct a concrete instance of `ClusterRestrictedInstanceGroupsConfigInput` via:
+//
+//	ClusterRestrictedInstanceGroupsConfigArgs{...}
+type ClusterRestrictedInstanceGroupsConfigInput interface {
+	pulumi.Input
+
+	ToClusterRestrictedInstanceGroupsConfigOutput() ClusterRestrictedInstanceGroupsConfigOutput
+	ToClusterRestrictedInstanceGroupsConfigOutputWithContext(context.Context) ClusterRestrictedInstanceGroupsConfigOutput
+}
+
+// The cluster-level configuration for restricted instance groups, including shared environment settings for inter-RIG communication and FSx Lustre sharing.
+type ClusterRestrictedInstanceGroupsConfigArgs struct {
+	SharedEnvironmentConfig ClusterSharedEnvironmentConfigInput `pulumi:"sharedEnvironmentConfig"`
+}
+
+func (ClusterRestrictedInstanceGroupsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRestrictedInstanceGroupsConfig)(nil)).Elem()
+}
+
+func (i ClusterRestrictedInstanceGroupsConfigArgs) ToClusterRestrictedInstanceGroupsConfigOutput() ClusterRestrictedInstanceGroupsConfigOutput {
+	return i.ToClusterRestrictedInstanceGroupsConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterRestrictedInstanceGroupsConfigArgs) ToClusterRestrictedInstanceGroupsConfigOutputWithContext(ctx context.Context) ClusterRestrictedInstanceGroupsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestrictedInstanceGroupsConfigOutput)
+}
+
+func (i ClusterRestrictedInstanceGroupsConfigArgs) ToClusterRestrictedInstanceGroupsConfigPtrOutput() ClusterRestrictedInstanceGroupsConfigPtrOutput {
+	return i.ToClusterRestrictedInstanceGroupsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterRestrictedInstanceGroupsConfigArgs) ToClusterRestrictedInstanceGroupsConfigPtrOutputWithContext(ctx context.Context) ClusterRestrictedInstanceGroupsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestrictedInstanceGroupsConfigOutput).ToClusterRestrictedInstanceGroupsConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterRestrictedInstanceGroupsConfigPtrInput is an input type that accepts ClusterRestrictedInstanceGroupsConfigArgs, ClusterRestrictedInstanceGroupsConfigPtr and ClusterRestrictedInstanceGroupsConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterRestrictedInstanceGroupsConfigPtrInput` via:
+//
+//	        ClusterRestrictedInstanceGroupsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterRestrictedInstanceGroupsConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterRestrictedInstanceGroupsConfigPtrOutput() ClusterRestrictedInstanceGroupsConfigPtrOutput
+	ToClusterRestrictedInstanceGroupsConfigPtrOutputWithContext(context.Context) ClusterRestrictedInstanceGroupsConfigPtrOutput
+}
+
+type clusterRestrictedInstanceGroupsConfigPtrType ClusterRestrictedInstanceGroupsConfigArgs
+
+func ClusterRestrictedInstanceGroupsConfigPtr(v *ClusterRestrictedInstanceGroupsConfigArgs) ClusterRestrictedInstanceGroupsConfigPtrInput {
+	return (*clusterRestrictedInstanceGroupsConfigPtrType)(v)
+}
+
+func (*clusterRestrictedInstanceGroupsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRestrictedInstanceGroupsConfig)(nil)).Elem()
+}
+
+func (i *clusterRestrictedInstanceGroupsConfigPtrType) ToClusterRestrictedInstanceGroupsConfigPtrOutput() ClusterRestrictedInstanceGroupsConfigPtrOutput {
+	return i.ToClusterRestrictedInstanceGroupsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterRestrictedInstanceGroupsConfigPtrType) ToClusterRestrictedInstanceGroupsConfigPtrOutputWithContext(ctx context.Context) ClusterRestrictedInstanceGroupsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestrictedInstanceGroupsConfigPtrOutput)
+}
+
+// The cluster-level configuration for restricted instance groups, including shared environment settings for inter-RIG communication and FSx Lustre sharing.
+type ClusterRestrictedInstanceGroupsConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterRestrictedInstanceGroupsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRestrictedInstanceGroupsConfig)(nil)).Elem()
+}
+
+func (o ClusterRestrictedInstanceGroupsConfigOutput) ToClusterRestrictedInstanceGroupsConfigOutput() ClusterRestrictedInstanceGroupsConfigOutput {
+	return o
+}
+
+func (o ClusterRestrictedInstanceGroupsConfigOutput) ToClusterRestrictedInstanceGroupsConfigOutputWithContext(ctx context.Context) ClusterRestrictedInstanceGroupsConfigOutput {
+	return o
+}
+
+func (o ClusterRestrictedInstanceGroupsConfigOutput) ToClusterRestrictedInstanceGroupsConfigPtrOutput() ClusterRestrictedInstanceGroupsConfigPtrOutput {
+	return o.ToClusterRestrictedInstanceGroupsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterRestrictedInstanceGroupsConfigOutput) ToClusterRestrictedInstanceGroupsConfigPtrOutputWithContext(ctx context.Context) ClusterRestrictedInstanceGroupsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRestrictedInstanceGroupsConfig) *ClusterRestrictedInstanceGroupsConfig {
+		return &v
+	}).(ClusterRestrictedInstanceGroupsConfigPtrOutput)
+}
+
+func (o ClusterRestrictedInstanceGroupsConfigOutput) SharedEnvironmentConfig() ClusterSharedEnvironmentConfigOutput {
+	return o.ApplyT(func(v ClusterRestrictedInstanceGroupsConfig) ClusterSharedEnvironmentConfig {
+		return v.SharedEnvironmentConfig
+	}).(ClusterSharedEnvironmentConfigOutput)
+}
+
+type ClusterRestrictedInstanceGroupsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterRestrictedInstanceGroupsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRestrictedInstanceGroupsConfig)(nil)).Elem()
+}
+
+func (o ClusterRestrictedInstanceGroupsConfigPtrOutput) ToClusterRestrictedInstanceGroupsConfigPtrOutput() ClusterRestrictedInstanceGroupsConfigPtrOutput {
+	return o
+}
+
+func (o ClusterRestrictedInstanceGroupsConfigPtrOutput) ToClusterRestrictedInstanceGroupsConfigPtrOutputWithContext(ctx context.Context) ClusterRestrictedInstanceGroupsConfigPtrOutput {
+	return o
+}
+
+func (o ClusterRestrictedInstanceGroupsConfigPtrOutput) Elem() ClusterRestrictedInstanceGroupsConfigOutput {
+	return o.ApplyT(func(v *ClusterRestrictedInstanceGroupsConfig) ClusterRestrictedInstanceGroupsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterRestrictedInstanceGroupsConfig
+		return ret
+	}).(ClusterRestrictedInstanceGroupsConfigOutput)
+}
+
+func (o ClusterRestrictedInstanceGroupsConfigPtrOutput) SharedEnvironmentConfig() ClusterSharedEnvironmentConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterRestrictedInstanceGroupsConfig) *ClusterSharedEnvironmentConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.SharedEnvironmentConfig
+	}).(ClusterSharedEnvironmentConfigPtrOutput)
 }
 
 // The policy that SageMaker uses when updating the AMI versions of the cluster.
@@ -3939,6 +4161,163 @@ func (o ClusterScheduledUpdateConfigPtrOutput) ScheduleExpression() pulumi.Strin
 		}
 		return &v.ScheduleExpression
 	}).(pulumi.StringPtrOutput)
+}
+
+// The shared environment configuration for restricted instance groups that use cluster-level shared FSx Lustre storage.
+type ClusterSharedEnvironmentConfig struct {
+	FSxLustreConfig *ClusterFSxLustreConfig `pulumi:"fSxLustreConfig"`
+	// The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
+	FSxLustreDeletionPolicy ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy `pulumi:"fSxLustreDeletionPolicy"`
+}
+
+// ClusterSharedEnvironmentConfigInput is an input type that accepts ClusterSharedEnvironmentConfigArgs and ClusterSharedEnvironmentConfigOutput values.
+// You can construct a concrete instance of `ClusterSharedEnvironmentConfigInput` via:
+//
+//	ClusterSharedEnvironmentConfigArgs{...}
+type ClusterSharedEnvironmentConfigInput interface {
+	pulumi.Input
+
+	ToClusterSharedEnvironmentConfigOutput() ClusterSharedEnvironmentConfigOutput
+	ToClusterSharedEnvironmentConfigOutputWithContext(context.Context) ClusterSharedEnvironmentConfigOutput
+}
+
+// The shared environment configuration for restricted instance groups that use cluster-level shared FSx Lustre storage.
+type ClusterSharedEnvironmentConfigArgs struct {
+	FSxLustreConfig ClusterFSxLustreConfigPtrInput `pulumi:"fSxLustreConfig"`
+	// The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
+	FSxLustreDeletionPolicy ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyInput `pulumi:"fSxLustreDeletionPolicy"`
+}
+
+func (ClusterSharedEnvironmentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSharedEnvironmentConfig)(nil)).Elem()
+}
+
+func (i ClusterSharedEnvironmentConfigArgs) ToClusterSharedEnvironmentConfigOutput() ClusterSharedEnvironmentConfigOutput {
+	return i.ToClusterSharedEnvironmentConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterSharedEnvironmentConfigArgs) ToClusterSharedEnvironmentConfigOutputWithContext(ctx context.Context) ClusterSharedEnvironmentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSharedEnvironmentConfigOutput)
+}
+
+func (i ClusterSharedEnvironmentConfigArgs) ToClusterSharedEnvironmentConfigPtrOutput() ClusterSharedEnvironmentConfigPtrOutput {
+	return i.ToClusterSharedEnvironmentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterSharedEnvironmentConfigArgs) ToClusterSharedEnvironmentConfigPtrOutputWithContext(ctx context.Context) ClusterSharedEnvironmentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSharedEnvironmentConfigOutput).ToClusterSharedEnvironmentConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterSharedEnvironmentConfigPtrInput is an input type that accepts ClusterSharedEnvironmentConfigArgs, ClusterSharedEnvironmentConfigPtr and ClusterSharedEnvironmentConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterSharedEnvironmentConfigPtrInput` via:
+//
+//	        ClusterSharedEnvironmentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterSharedEnvironmentConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterSharedEnvironmentConfigPtrOutput() ClusterSharedEnvironmentConfigPtrOutput
+	ToClusterSharedEnvironmentConfigPtrOutputWithContext(context.Context) ClusterSharedEnvironmentConfigPtrOutput
+}
+
+type clusterSharedEnvironmentConfigPtrType ClusterSharedEnvironmentConfigArgs
+
+func ClusterSharedEnvironmentConfigPtr(v *ClusterSharedEnvironmentConfigArgs) ClusterSharedEnvironmentConfigPtrInput {
+	return (*clusterSharedEnvironmentConfigPtrType)(v)
+}
+
+func (*clusterSharedEnvironmentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSharedEnvironmentConfig)(nil)).Elem()
+}
+
+func (i *clusterSharedEnvironmentConfigPtrType) ToClusterSharedEnvironmentConfigPtrOutput() ClusterSharedEnvironmentConfigPtrOutput {
+	return i.ToClusterSharedEnvironmentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterSharedEnvironmentConfigPtrType) ToClusterSharedEnvironmentConfigPtrOutputWithContext(ctx context.Context) ClusterSharedEnvironmentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSharedEnvironmentConfigPtrOutput)
+}
+
+// The shared environment configuration for restricted instance groups that use cluster-level shared FSx Lustre storage.
+type ClusterSharedEnvironmentConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterSharedEnvironmentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSharedEnvironmentConfig)(nil)).Elem()
+}
+
+func (o ClusterSharedEnvironmentConfigOutput) ToClusterSharedEnvironmentConfigOutput() ClusterSharedEnvironmentConfigOutput {
+	return o
+}
+
+func (o ClusterSharedEnvironmentConfigOutput) ToClusterSharedEnvironmentConfigOutputWithContext(ctx context.Context) ClusterSharedEnvironmentConfigOutput {
+	return o
+}
+
+func (o ClusterSharedEnvironmentConfigOutput) ToClusterSharedEnvironmentConfigPtrOutput() ClusterSharedEnvironmentConfigPtrOutput {
+	return o.ToClusterSharedEnvironmentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSharedEnvironmentConfigOutput) ToClusterSharedEnvironmentConfigPtrOutputWithContext(ctx context.Context) ClusterSharedEnvironmentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSharedEnvironmentConfig) *ClusterSharedEnvironmentConfig {
+		return &v
+	}).(ClusterSharedEnvironmentConfigPtrOutput)
+}
+
+func (o ClusterSharedEnvironmentConfigOutput) FSxLustreConfig() ClusterFSxLustreConfigPtrOutput {
+	return o.ApplyT(func(v ClusterSharedEnvironmentConfig) *ClusterFSxLustreConfig { return v.FSxLustreConfig }).(ClusterFSxLustreConfigPtrOutput)
+}
+
+// The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
+func (o ClusterSharedEnvironmentConfigOutput) FSxLustreDeletionPolicy() ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput {
+	return o.ApplyT(func(v ClusterSharedEnvironmentConfig) ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy {
+		return v.FSxLustreDeletionPolicy
+	}).(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput)
+}
+
+type ClusterSharedEnvironmentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSharedEnvironmentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSharedEnvironmentConfig)(nil)).Elem()
+}
+
+func (o ClusterSharedEnvironmentConfigPtrOutput) ToClusterSharedEnvironmentConfigPtrOutput() ClusterSharedEnvironmentConfigPtrOutput {
+	return o
+}
+
+func (o ClusterSharedEnvironmentConfigPtrOutput) ToClusterSharedEnvironmentConfigPtrOutputWithContext(ctx context.Context) ClusterSharedEnvironmentConfigPtrOutput {
+	return o
+}
+
+func (o ClusterSharedEnvironmentConfigPtrOutput) Elem() ClusterSharedEnvironmentConfigOutput {
+	return o.ApplyT(func(v *ClusterSharedEnvironmentConfig) ClusterSharedEnvironmentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSharedEnvironmentConfig
+		return ret
+	}).(ClusterSharedEnvironmentConfigOutput)
+}
+
+func (o ClusterSharedEnvironmentConfigPtrOutput) FSxLustreConfig() ClusterFSxLustreConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterSharedEnvironmentConfig) *ClusterFSxLustreConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FSxLustreConfig
+	}).(ClusterFSxLustreConfigPtrOutput)
+}
+
+// The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
+func (o ClusterSharedEnvironmentConfigPtrOutput) FSxLustreDeletionPolicy() ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput {
+	return o.ApplyT(func(v *ClusterSharedEnvironmentConfig) *ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy {
+		if v == nil {
+			return nil
+		}
+		return &v.FSxLustreDeletionPolicy
+	}).(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput)
 }
 
 // Slurm configuration for the instance group.
@@ -10543,6 +10922,8 @@ type DomainResourceSpec struct {
 	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
 	// The Amazon Resource Name (ARN) of the image version created on the instance.
 	SageMakerImageVersionArn *string `pulumi:"sageMakerImageVersionArn"`
+	// The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+	TrainingPlanArn *string `pulumi:"trainingPlanArn"`
 }
 
 // DomainResourceSpecInput is an input type that accepts DomainResourceSpecArgs and DomainResourceSpecOutput values.
@@ -10569,6 +10950,8 @@ type DomainResourceSpecArgs struct {
 	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
 	// The Amazon Resource Name (ARN) of the image version created on the instance.
 	SageMakerImageVersionArn pulumi.StringPtrInput `pulumi:"sageMakerImageVersionArn"`
+	// The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+	TrainingPlanArn pulumi.StringPtrInput `pulumi:"trainingPlanArn"`
 }
 
 func (DomainResourceSpecArgs) ElementType() reflect.Type {
@@ -10672,6 +11055,11 @@ func (o DomainResourceSpecOutput) SageMakerImageVersionArn() pulumi.StringPtrOut
 	return o.ApplyT(func(v DomainResourceSpec) *string { return v.SageMakerImageVersionArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+func (o DomainResourceSpecOutput) TrainingPlanArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainResourceSpec) *string { return v.TrainingPlanArn }).(pulumi.StringPtrOutput)
+}
+
 type DomainResourceSpecPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainResourceSpecPtrOutput) ElementType() reflect.Type {
@@ -10737,6 +11125,16 @@ func (o DomainResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtr
 			return nil
 		}
 		return v.SageMakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+func (o DomainResourceSpecPtrOutput) TrainingPlanArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingPlanArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -46116,6 +46514,8 @@ type SpaceResourceSpec struct {
 	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
 	SageMakerImageVersionArn *string `pulumi:"sageMakerImageVersionArn"`
+	// The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+	TrainingPlanArn *string `pulumi:"trainingPlanArn"`
 }
 
 // SpaceResourceSpecInput is an input type that accepts SpaceResourceSpecArgs and SpaceResourceSpecOutput values.
@@ -46138,6 +46538,8 @@ type SpaceResourceSpecArgs struct {
 	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
 	SageMakerImageVersionArn pulumi.StringPtrInput `pulumi:"sageMakerImageVersionArn"`
+	// The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+	TrainingPlanArn pulumi.StringPtrInput `pulumi:"trainingPlanArn"`
 }
 
 func (SpaceResourceSpecArgs) ElementType() reflect.Type {
@@ -46237,6 +46639,11 @@ func (o SpaceResourceSpecOutput) SageMakerImageVersionArn() pulumi.StringPtrOutp
 	return o.ApplyT(func(v SpaceResourceSpec) *string { return v.SageMakerImageVersionArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+func (o SpaceResourceSpecOutput) TrainingPlanArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceResourceSpec) *string { return v.TrainingPlanArn }).(pulumi.StringPtrOutput)
+}
+
 type SpaceResourceSpecPtrOutput struct{ *pulumi.OutputState }
 
 func (SpaceResourceSpecPtrOutput) ElementType() reflect.Type {
@@ -46298,6 +46705,16 @@ func (o SpaceResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtrO
 			return nil
 		}
 		return v.SageMakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+func (o SpaceResourceSpecPtrOutput) TrainingPlanArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingPlanArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -50751,6 +51168,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDeploymentConfigInput)(nil)).Elem(), ClusterDeploymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDeploymentConfigPtrInput)(nil)).Elem(), ClusterDeploymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEnvironmentConfigInput)(nil)).Elem(), ClusterEnvironmentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEnvironmentConfigPtrInput)(nil)).Elem(), ClusterEnvironmentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFSxLustreConfigInput)(nil)).Elem(), ClusterFSxLustreConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFSxLustreConfigPtrInput)(nil)).Elem(), ClusterFSxLustreConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupInput)(nil)).Elem(), ClusterInstanceGroupArgs{})
@@ -50773,10 +51191,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorPtrInput)(nil)).Elem(), ClusterOrchestratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestrictedInstanceGroupInput)(nil)).Elem(), ClusterRestrictedInstanceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestrictedInstanceGroupArrayInput)(nil)).Elem(), ClusterRestrictedInstanceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestrictedInstanceGroupsConfigInput)(nil)).Elem(), ClusterRestrictedInstanceGroupsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestrictedInstanceGroupsConfigPtrInput)(nil)).Elem(), ClusterRestrictedInstanceGroupsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRollingUpdatePolicyInput)(nil)).Elem(), ClusterRollingUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRollingUpdatePolicyPtrInput)(nil)).Elem(), ClusterRollingUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScheduledUpdateConfigInput)(nil)).Elem(), ClusterScheduledUpdateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScheduledUpdateConfigPtrInput)(nil)).Elem(), ClusterScheduledUpdateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSharedEnvironmentConfigInput)(nil)).Elem(), ClusterSharedEnvironmentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSharedEnvironmentConfigPtrInput)(nil)).Elem(), ClusterSharedEnvironmentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSlurmConfigInput)(nil)).Elem(), ClusterSlurmConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSlurmConfigPtrInput)(nil)).Elem(), ClusterSlurmConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSpotOptionsInput)(nil)).Elem(), ClusterSpotOptionsArgs{})
@@ -51355,6 +51777,7 @@ func init() {
 	pulumi.RegisterOutputType(ClusterDeploymentConfigOutput{})
 	pulumi.RegisterOutputType(ClusterDeploymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEnvironmentConfigOutput{})
+	pulumi.RegisterOutputType(ClusterEnvironmentConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterFSxLustreConfigOutput{})
 	pulumi.RegisterOutputType(ClusterFSxLustreConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceGroupOutput{})
@@ -51377,10 +51800,14 @@ func init() {
 	pulumi.RegisterOutputType(ClusterOrchestratorPtrOutput{})
 	pulumi.RegisterOutputType(ClusterRestrictedInstanceGroupOutput{})
 	pulumi.RegisterOutputType(ClusterRestrictedInstanceGroupArrayOutput{})
+	pulumi.RegisterOutputType(ClusterRestrictedInstanceGroupsConfigOutput{})
+	pulumi.RegisterOutputType(ClusterRestrictedInstanceGroupsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterRollingUpdatePolicyOutput{})
 	pulumi.RegisterOutputType(ClusterRollingUpdatePolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterScheduledUpdateConfigOutput{})
 	pulumi.RegisterOutputType(ClusterScheduledUpdateConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSharedEnvironmentConfigOutput{})
+	pulumi.RegisterOutputType(ClusterSharedEnvironmentConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSlurmConfigOutput{})
 	pulumi.RegisterOutputType(ClusterSlurmConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSpotOptionsOutput{})

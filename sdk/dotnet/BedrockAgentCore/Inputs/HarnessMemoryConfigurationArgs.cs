@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("agentCoreMemoryConfiguration")]
         public Input<Inputs.HarnessAgentCoreMemoryConfigurationArgs>? AgentCoreMemoryConfiguration { get; set; }
 
+        [Input("disabled")]
+        public Input<Inputs.HarnessDisabledMemoryConfigurationArgs>? Disabled { get; set; }
+
+        [Input("managedMemoryConfiguration")]
+        public Input<Inputs.HarnessManagedMemoryConfigurationArgs>? ManagedMemoryConfiguration { get; set; }
+
         public HarnessMemoryConfigurationArgs()
         {
         }

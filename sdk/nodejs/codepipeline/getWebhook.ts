@@ -42,6 +42,10 @@ export interface GetWebhookResult {
      */
     readonly id?: string;
     /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * The name of the action in a pipeline you want to connect to the webhook.
      */
     readonly targetAction?: string;

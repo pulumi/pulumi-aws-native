@@ -29,7 +29,7 @@ type GatewayTarget struct {
 	LastSynchronizedAt    pulumi.StringOutput                         `pulumi:"lastSynchronizedAt"`
 	MetadataConfiguration GatewayTargetMetadataConfigurationPtrOutput `pulumi:"metadataConfiguration"`
 	// The name for the gateway target.
-	Name                            pulumi.StringOutput                            `pulumi:"name"`
+	Name                            pulumi.StringPtrOutput                         `pulumi:"name"`
 	PrivateEndpoint                 pulumi.AnyOutput                               `pulumi:"privateEndpoint"`
 	PrivateEndpointManagedResources GatewayTargetManagedResourceDetailsArrayOutput `pulumi:"privateEndpointManagedResources"`
 	ProtocolType                    GatewayTargetTargetProtocolTypeOutput          `pulumi:"protocolType"`
@@ -198,8 +198,8 @@ func (o GatewayTargetOutput) MetadataConfiguration() GatewayTargetMetadataConfig
 }
 
 // The name for the gateway target.
-func (o GatewayTargetOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *GatewayTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o GatewayTargetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTarget) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o GatewayTargetOutput) PrivateEndpoint() pulumi.AnyOutput {

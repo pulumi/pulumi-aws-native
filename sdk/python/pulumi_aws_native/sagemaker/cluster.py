@@ -32,6 +32,7 @@ class ClusterArgs:
                  node_recovery: Optional[pulumi.Input['ClusterNodeRecovery']] = None,
                  orchestrator: Optional[pulumi.Input['ClusterOrchestratorArgs']] = None,
                  restricted_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRestrictedInstanceGroupArgs']]]] = None,
+                 restricted_instance_groups_config: Optional[pulumi.Input['ClusterRestrictedInstanceGroupsConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  tiered_storage_config: Optional[pulumi.Input['ClusterTieredStorageConfigArgs']] = None,
                  vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None):
@@ -63,6 +64,8 @@ class ClusterArgs:
             pulumi.set(__self__, "orchestrator", orchestrator)
         if restricted_instance_groups is not None:
             pulumi.set(__self__, "restricted_instance_groups", restricted_instance_groups)
+        if restricted_instance_groups_config is not None:
+            pulumi.set(__self__, "restricted_instance_groups_config", restricted_instance_groups_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tiered_storage_config is not None:
@@ -161,6 +164,15 @@ class ClusterArgs:
         pulumi.set(self, "restricted_instance_groups", value)
 
     @_builtins.property
+    @pulumi.getter(name="restrictedInstanceGroupsConfig")
+    def restricted_instance_groups_config(self) -> Optional[pulumi.Input['ClusterRestrictedInstanceGroupsConfigArgs']]:
+        return pulumi.get(self, "restricted_instance_groups_config")
+
+    @restricted_instance_groups_config.setter
+    def restricted_instance_groups_config(self, value: Optional[pulumi.Input['ClusterRestrictedInstanceGroupsConfigArgs']]):
+        pulumi.set(self, "restricted_instance_groups_config", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -208,6 +220,7 @@ class Cluster(pulumi.CustomResource):
                  node_recovery: Optional[pulumi.Input['ClusterNodeRecovery']] = None,
                  orchestrator: Optional[pulumi.Input[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']]] = None,
                  restricted_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRestrictedInstanceGroupArgs', 'ClusterRestrictedInstanceGroupArgsDict']]]]] = None,
+                 restricted_instance_groups_config: Optional[pulumi.Input[Union['ClusterRestrictedInstanceGroupsConfigArgs', 'ClusterRestrictedInstanceGroupsConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tiered_storage_config: Optional[pulumi.Input[Union['ClusterTieredStorageConfigArgs', 'ClusterTieredStorageConfigArgsDict']]] = None,
                  vpc_config: Optional[pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
@@ -260,6 +273,7 @@ class Cluster(pulumi.CustomResource):
                  node_recovery: Optional[pulumi.Input['ClusterNodeRecovery']] = None,
                  orchestrator: Optional[pulumi.Input[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']]] = None,
                  restricted_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRestrictedInstanceGroupArgs', 'ClusterRestrictedInstanceGroupArgsDict']]]]] = None,
+                 restricted_instance_groups_config: Optional[pulumi.Input[Union['ClusterRestrictedInstanceGroupsConfigArgs', 'ClusterRestrictedInstanceGroupsConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tiered_storage_config: Optional[pulumi.Input[Union['ClusterTieredStorageConfigArgs', 'ClusterTieredStorageConfigArgsDict']]] = None,
                  vpc_config: Optional[pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
@@ -280,6 +294,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["node_recovery"] = node_recovery
             __props__.__dict__["orchestrator"] = orchestrator
             __props__.__dict__["restricted_instance_groups"] = restricted_instance_groups
+            __props__.__dict__["restricted_instance_groups_config"] = restricted_instance_groups_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tiered_storage_config"] = tiered_storage_config
             __props__.__dict__["vpc_config"] = vpc_config
@@ -323,6 +338,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["node_recovery"] = None
         __props__.__dict__["orchestrator"] = None
         __props__.__dict__["restricted_instance_groups"] = None
+        __props__.__dict__["restricted_instance_groups_config"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tiered_storage_config"] = None
         __props__.__dict__["vpc_config"] = None
@@ -417,6 +433,11 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="restrictedInstanceGroups")
     def restricted_instance_groups(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterRestrictedInstanceGroup']]]:
         return pulumi.get(self, "restricted_instance_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="restrictedInstanceGroupsConfig")
+    def restricted_instance_groups_config(self) -> pulumi.Output[Optional['outputs.ClusterRestrictedInstanceGroupsConfig']]:
+        return pulumi.get(self, "restricted_instance_groups_config")
 
     @_builtins.property
     @pulumi.getter

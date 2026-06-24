@@ -17,6 +17,28 @@
         }
       },
       "additionalProperties" : false
+    },
+    "FailoverType" : {
+      "type" : "object",
+      "properties" : {
+        "SecondaryRegion" : {
+          "type" : "string"
+        },
+        "PrimaryRoute53HealthCheckId" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "SecondaryRegion", "PrimaryRoute53HealthCheckId" ],
+      "additionalProperties" : false
+    },
+    "RoutingType" : {
+      "type" : "object",
+      "properties" : {
+        "Failover" : {
+          "$ref" : "#/definitions/FailoverType"
+        }
+      },
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -34,6 +56,9 @@
     },
     "ManagedLoginVersion" : {
       "type" : "integer"
+    },
+    "Routing" : {
+      "$ref" : "#/definitions/RoutingType"
     }
   },
   "additionalProperties" : false,
@@ -44,18 +69,18 @@
   "writeOnlyProperties" : [ "/properties/ManagedLoginVersion" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "cognito-idp:CreateUserPoolDomain", "cognito-idp:DescribeUserPoolDomain", "cloudfront:updateDistribution" ],
+      "permissions" : [ "cognito-idp:CreateUserPoolDomain", "cognito-idp:DescribeUserPoolDomain", "cloudfront:updateDistribution", "kms:CreateGrant", "kms:Decrypt", "kms:DescribeKey", "kms:Encrypt", "kms:GenerateDataKeyWithoutPlaintext", "kms:ReEncryptFrom", "kms:ReEncryptTo" ],
       "timeoutInMinutes" : 20
     },
     "read" : {
-      "permissions" : [ "cognito-idp:DescribeUserPoolDomain" ]
+      "permissions" : [ "cognito-idp:DescribeUserPoolDomain", "kms:CreateGrant", "kms:Decrypt", "kms:DescribeKey", "kms:Encrypt", "kms:GenerateDataKeyWithoutPlaintext", "kms:ReEncryptFrom", "kms:ReEncryptTo" ]
     },
     "update" : {
-      "permissions" : [ "cognito-idp:UpdateUserPoolDomain", "cognito-idp:DescribeUserPoolDomain", "cloudfront:updateDistribution" ],
+      "permissions" : [ "cognito-idp:UpdateUserPoolDomain", "cognito-idp:DescribeUserPoolDomain", "cloudfront:updateDistribution", "kms:CreateGrant", "kms:Decrypt", "kms:DescribeKey", "kms:Encrypt", "kms:GenerateDataKeyWithoutPlaintext", "kms:ReEncryptFrom", "kms:ReEncryptTo" ],
       "timeoutInMinutes" : 20
     },
     "delete" : {
-      "permissions" : [ "cognito-idp:DeleteUserPoolDomain", "cognito-idp:DescribeUserPoolDomain" ],
+      "permissions" : [ "cognito-idp:DeleteUserPoolDomain", "cognito-idp:DescribeUserPoolDomain", "kms:CreateGrant", "kms:Decrypt", "kms:DescribeKey", "kms:Encrypt", "kms:GenerateDataKeyWithoutPlaintext", "kms:ReEncryptFrom", "kms:ReEncryptTo" ],
       "timeoutInMinutes" : 25
     }
   }

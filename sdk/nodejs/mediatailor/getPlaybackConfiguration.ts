@@ -55,6 +55,10 @@ export interface GetPlaybackConfigurationResult {
      */
     readonly dashConfiguration?: outputs.mediatailor.PlaybackConfigurationDashConfiguration;
     /**
+     * A map of event names to function identifiers for custom processing during session lifecycle events.
+     */
+    readonly functionMapping?: {[key: string]: string};
+    /**
      * The configuration for HLS content.
      */
     readonly hlsConfiguration?: outputs.mediatailor.PlaybackConfigurationHlsConfiguration;

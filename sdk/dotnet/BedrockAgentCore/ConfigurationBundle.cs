@@ -66,6 +66,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the KMS key used to encrypt component configurations.
+        /// </summary>
+        [Output("kmsKeyArn")]
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
+
         [Output("lineageMetadata")]
         public Output<Outputs.ConfigurationBundleVersionLineageMetadata> LineageMetadata { get; private set; } = null!;
 
@@ -174,6 +180,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The ARN of the KMS key used to encrypt component configurations.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

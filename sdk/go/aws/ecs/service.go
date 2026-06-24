@@ -77,7 +77,8 @@ type Service struct {
 	LaunchType ServiceLaunchTypePtrOutput `pulumi:"launchType"`
 	// A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
-	LoadBalancers ServiceLoadBalancerArrayOutput `pulumi:"loadBalancers"`
+	LoadBalancers ServiceLoadBalancerArrayOutput          `pulumi:"loadBalancers"`
+	Monitoring    ServiceMonitoringConfigurationPtrOutput `pulumi:"monitoring"`
 	// The name of the Amazon ECS service, such as `sample-webapp` .
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -220,7 +221,8 @@ type serviceArgs struct {
 	LaunchType *ServiceLaunchType `pulumi:"launchType"`
 	// A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
-	LoadBalancers []ServiceLoadBalancer `pulumi:"loadBalancers"`
+	LoadBalancers []ServiceLoadBalancer           `pulumi:"loadBalancers"`
+	Monitoring    *ServiceMonitoringConfiguration `pulumi:"monitoring"`
 	// The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
 	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
 	// An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
@@ -315,6 +317,7 @@ type ServiceArgs struct {
 	// A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
 	LoadBalancers ServiceLoadBalancerArrayInput
+	Monitoring    ServiceMonitoringConfigurationPtrInput
 	// The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
 	NetworkConfiguration ServiceNetworkConfigurationPtrInput
 	// An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
@@ -485,6 +488,10 @@ func (o ServiceOutput) LaunchType() ServiceLaunchTypePtrOutput {
 //	To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
 func (o ServiceOutput) LoadBalancers() ServiceLoadBalancerArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceLoadBalancerArrayOutput { return v.LoadBalancers }).(ServiceLoadBalancerArrayOutput)
+}
+
+func (o ServiceOutput) Monitoring() ServiceMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceMonitoringConfigurationPtrOutput { return v.Monitoring }).(ServiceMonitoringConfigurationPtrOutput)
 }
 
 // The name of the Amazon ECS service, such as `sample-webapp` .

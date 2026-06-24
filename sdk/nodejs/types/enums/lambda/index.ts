@@ -12,6 +12,17 @@ export const CapacityProviderArchitecture = {
  */
 export type CapacityProviderArchitecture = (typeof CapacityProviderArchitecture)[keyof typeof CapacityProviderArchitecture];
 
+export const CapacityProviderLoggingConfigSystemLogLevel = {
+    Debug: "DEBUG",
+    Info: "INFO",
+    Warn: "WARN",
+} as const;
+
+/**
+ * System log granularity level
+ */
+export type CapacityProviderLoggingConfigSystemLogLevel = (typeof CapacityProviderLoggingConfigSystemLogLevel)[keyof typeof CapacityProviderLoggingConfigSystemLogLevel];
+
 export const CapacityProviderPredefinedMetricType = {
     LambdaCapacityProviderAverageCpuUtilization: "LambdaCapacityProviderAverageCPUUtilization",
 } as const;
@@ -282,6 +293,79 @@ export const FunctionTracingConfigMode = {
  * The tracing mode.
  */
 export type FunctionTracingConfigMode = (typeof FunctionTracingConfigMode)[keyof typeof FunctionTracingConfigMode];
+
+export const LayerVersionContentS3ObjectStorageMode = {
+    Copy: "COPY",
+    Reference: "REFERENCE",
+} as const;
+
+/**
+ * Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).
+ */
+export type LayerVersionContentS3ObjectStorageMode = (typeof LayerVersionContentS3ObjectStorageMode)[keyof typeof LayerVersionContentS3ObjectStorageMode];
+
+export const MicrovmImageAdditionalOsCapabilitiesItem = {
+    All: "ALL",
+} as const;
+
+export type MicrovmImageAdditionalOsCapabilitiesItem = (typeof MicrovmImageAdditionalOsCapabilitiesItem)[keyof typeof MicrovmImageAdditionalOsCapabilitiesItem];
+
+export const MicrovmImageCpuConfigurationArchitecture = {
+    Arm64: "ARM_64",
+} as const;
+
+export type MicrovmImageCpuConfigurationArchitecture = (typeof MicrovmImageCpuConfigurationArchitecture)[keyof typeof MicrovmImageCpuConfigurationArchitecture];
+
+export const MicrovmImageHookState = {
+    Disabled: "DISABLED",
+    Enabled: "ENABLED",
+} as const;
+
+export type MicrovmImageHookState = (typeof MicrovmImageHookState)[keyof typeof MicrovmImageHookState];
+
+export const MicrovmImageState = {
+    Creating: "CREATING",
+    Created: "CREATED",
+    CreateFailed: "CREATE_FAILED",
+    Updating: "UPDATING",
+    Updated: "UPDATED",
+    UpdateFailed: "UPDATE_FAILED",
+    Deleting: "DELETING",
+    DeleteFailed: "DELETE_FAILED",
+    Deleted: "DELETED",
+} as const;
+
+export type MicrovmImageState = (typeof MicrovmImageState)[keyof typeof MicrovmImageState];
+
+export const NetworkConnectorState = {
+    Pending: "PENDING",
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+    Failed: "FAILED",
+    Deleting: "DELETING",
+    DeleteFailed: "DELETE_FAILED",
+} as const;
+
+/**
+ * The current state of the network connector.
+ */
+export type NetworkConnectorState = (typeof NetworkConnectorState)[keyof typeof NetworkConnectorState];
+
+export const NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem = {
+    MicroVm: "MicroVm",
+} as const;
+
+export type NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem = (typeof NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem)[keyof typeof NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem];
+
+export const NetworkConnectorVpcEgressConfigurationNetworkProtocol = {
+    IPv4: "IPv4",
+    DualStack: "DualStack",
+} as const;
+
+/**
+ * The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
+ */
+export type NetworkConnectorVpcEgressConfigurationNetworkProtocol = (typeof NetworkConnectorVpcEgressConfigurationNetworkProtocol)[keyof typeof NetworkConnectorVpcEgressConfigurationNetworkProtocol];
 
 export const PermissionFunctionUrlAuthType = {
     AwsIam: "AWS_IAM",

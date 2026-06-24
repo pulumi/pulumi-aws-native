@@ -234,6 +234,37 @@ namespace Pulumi.AwsNative.S3
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies whether annotation table configuration is enabled or disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct BucketAnnotationTableConfigurationConfigurationState : IEquatable<BucketAnnotationTableConfigurationConfigurationState>
+    {
+        private readonly string _value;
+
+        private BucketAnnotationTableConfigurationConfigurationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BucketAnnotationTableConfigurationConfigurationState Enabled { get; } = new BucketAnnotationTableConfigurationConfigurationState("ENABLED");
+        public static BucketAnnotationTableConfigurationConfigurationState Disabled { get; } = new BucketAnnotationTableConfigurationConfigurationState("DISABLED");
+
+        public static bool operator ==(BucketAnnotationTableConfigurationConfigurationState left, BucketAnnotationTableConfigurationConfigurationState right) => left.Equals(right);
+        public static bool operator !=(BucketAnnotationTableConfigurationConfigurationState left, BucketAnnotationTableConfigurationConfigurationState right) => !left.Equals(right);
+
+        public static explicit operator string(BucketAnnotationTableConfigurationConfigurationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BucketAnnotationTableConfigurationConfigurationState other && Equals(other);
+        public bool Equals(BucketAnnotationTableConfigurationConfigurationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct BucketBlockedEncryptionTypeListItem : IEquatable<BucketBlockedEncryptionTypeListItem>
     {

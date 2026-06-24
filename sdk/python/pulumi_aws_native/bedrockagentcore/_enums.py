@@ -31,14 +31,19 @@ __all__ = [
     'GatewayTargetEndpointIpAddressType',
     'GatewayTargetMcpServerListingMode',
     'GatewayTargetOAuthGrantType',
+    'GatewayTargetPassthroughProtocolType',
     'GatewayTargetRestApiMethod',
     'GatewayTargetSchemaType',
     'GatewayTargetTargetProtocolType',
     'GatewayTargetTargetStatus',
     'HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator',
+    'HarnessBedrockModelConfigApiFormat',
     'HarnessCustomClaimValidationTypeInboundTokenClaimValueType',
+    'HarnessManagedMemoryConfigurationStrategiesItem',
+    'HarnessManagedVpcResourceEndpointIpAddressType',
     'HarnessNetworkConfigurationNetworkMode',
     'HarnessOAuthCredentialProviderGrantType',
+    'HarnessOpenAiModelConfigApiFormat',
     'HarnessStatus',
     'HarnessToolType',
     'HarnessTruncationConfigurationStrategy',
@@ -83,6 +88,7 @@ __all__ = [
     'PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType',
     'PaymentManagerPaymentsAuthorizerType',
     'PaymentManagerStatus',
+    'PolicyEnforcementMode',
     'PolicyEngineStatus',
     'PolicyStatus',
     'PolicyValidationMode',
@@ -306,6 +312,14 @@ class GatewayTargetOAuthGrantType(_builtins.str, Enum):
     TOKEN_EXCHANGE = "TOKEN_EXCHANGE"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetPassthroughProtocolType")
+class GatewayTargetPassthroughProtocolType(_builtins.str, Enum):
+    MCP = "MCP"
+    A2A = "A2A"
+    INFERENCE = "INFERENCE"
+    CUSTOM = "CUSTOM"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetRestApiMethod")
 class GatewayTargetRestApiMethod(_builtins.str, Enum):
     GET = "GET"
@@ -355,10 +369,31 @@ class HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator(_builtins.str, Enu
     CONTAINS_ANY = "CONTAINS_ANY"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessBedrockModelConfigApiFormat")
+class HarnessBedrockModelConfigApiFormat(_builtins.str, Enum):
+    CONVERSE_STREAM = "converse_stream"
+    RESPONSES = "responses"
+    CHAT_COMPLETIONS = "chat_completions"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:HarnessCustomClaimValidationTypeInboundTokenClaimValueType")
 class HarnessCustomClaimValidationTypeInboundTokenClaimValueType(_builtins.str, Enum):
     STRING = "STRING"
     STRING_ARRAY = "STRING_ARRAY"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessManagedMemoryConfigurationStrategiesItem")
+class HarnessManagedMemoryConfigurationStrategiesItem(_builtins.str, Enum):
+    SEMANTIC = "SEMANTIC"
+    SUMMARIZATION = "SUMMARIZATION"
+    USER_PREFERENCE = "USER_PREFERENCE"
+    EPISODIC = "EPISODIC"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessManagedVpcResourceEndpointIpAddressType")
+class HarnessManagedVpcResourceEndpointIpAddressType(_builtins.str, Enum):
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:HarnessNetworkConfigurationNetworkMode")
@@ -371,6 +406,12 @@ class HarnessNetworkConfigurationNetworkMode(_builtins.str, Enum):
 class HarnessOAuthCredentialProviderGrantType(_builtins.str, Enum):
     CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS"
     AUTHORIZATION_CODE = "AUTHORIZATION_CODE"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessOpenAiModelConfigApiFormat")
+class HarnessOpenAiModelConfigApiFormat(_builtins.str, Enum):
+    CHAT_COMPLETIONS = "chat_completions"
+    RESPONSES = "responses"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:HarnessStatus")
@@ -794,6 +835,15 @@ class PaymentManagerStatus(_builtins.str, Enum):
     CREATE_FAILED = "CREATE_FAILED"
     UPDATE_FAILED = "UPDATE_FAILED"
     DELETE_FAILED = "DELETE_FAILED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PolicyEnforcementMode")
+class PolicyEnforcementMode(_builtins.str, Enum):
+    """
+    Whether the policy contributes to the enforce decision returned to Gateway. LOG_ONLY policies are still evaluated but their decisions are observed only, allowing customers to validate a policy against real traffic before promoting it.
+    """
+    ACTIVE = "ACTIVE"
+    LOG_ONLY = "LOG_ONLY"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:PolicyEngineStatus")

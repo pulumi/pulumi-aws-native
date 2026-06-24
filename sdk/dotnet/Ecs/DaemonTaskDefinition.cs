@@ -42,6 +42,10 @@ namespace Pulumi.AwsNative.Ecs
         [Output("family")]
         public Output<string?> Family { get; private set; } = null!;
 
+        /// <summary>
+        /// The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+        ///  If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: "host"`` or other daemons that use ``ipcMode: "shared"``.
+        /// </summary>
         [Output("ipcMode")]
         public Output<string?> IpcMode { get; private set; } = null!;
 
@@ -51,6 +55,10 @@ namespace Pulumi.AwsNative.Ecs
         [Output("memory")]
         public Output<string?> Memory { get; private set; } = null!;
 
+        /// <summary>
+        /// The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+        ///  If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: "host"`` or other daemons that use ``pidMode: "shared"``.
+        /// </summary>
         [Output("pidMode")]
         public Output<string?> PidMode { get; private set; } = null!;
 
@@ -156,6 +164,10 @@ namespace Pulumi.AwsNative.Ecs
         [Input("family")]
         public Input<string>? Family { get; set; }
 
+        /// <summary>
+        /// The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+        ///  If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: "host"`` or other daemons that use ``ipcMode: "shared"``.
+        /// </summary>
         [Input("ipcMode")]
         public Input<string>? IpcMode { get; set; }
 
@@ -165,6 +177,10 @@ namespace Pulumi.AwsNative.Ecs
         [Input("memory")]
         public Input<string>? Memory { get; set; }
 
+        /// <summary>
+        /// The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+        ///  If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: "host"`` or other daemons that use ``pidMode: "shared"``.
+        /// </summary>
         [Input("pidMode")]
         public Input<string>? PidMode { get; set; }
 

@@ -24,6 +24,8 @@ __all__ = [
     'AliasVersionWeightArgsDict',
     'CapacityProviderInstanceRequirementsArgs',
     'CapacityProviderInstanceRequirementsArgsDict',
+    'CapacityProviderLoggingConfigArgs',
+    'CapacityProviderLoggingConfigArgsDict',
     'CapacityProviderPermissionsConfigArgs',
     'CapacityProviderPermissionsConfigArgsDict',
     'CapacityProviderPropagateTagsConfigArgs',
@@ -34,6 +36,8 @@ __all__ = [
     'CapacityProviderTagArgsDict',
     'CapacityProviderTargetTrackingScalingPolicyArgs',
     'CapacityProviderTargetTrackingScalingPolicyArgsDict',
+    'CapacityProviderTelemetryConfigArgs',
+    'CapacityProviderTelemetryConfigArgsDict',
     'CapacityProviderVpcConfigArgs',
     'CapacityProviderVpcConfigArgsDict',
     'CodeSigningConfigAllowedPublishersArgs',
@@ -112,8 +116,30 @@ __all__ = [
     'FunctionTracingConfigArgsDict',
     'FunctionVpcConfigArgs',
     'FunctionVpcConfigArgsDict',
+    'HooksArgs',
+    'HooksArgsDict',
     'LayerVersionContentArgs',
     'LayerVersionContentArgsDict',
+    'MicrovmImageCloudWatchLoggingArgs',
+    'MicrovmImageCloudWatchLoggingArgsDict',
+    'MicrovmImageCodeArtifactArgs',
+    'MicrovmImageCodeArtifactArgsDict',
+    'MicrovmImageCpuConfigurationArgs',
+    'MicrovmImageCpuConfigurationArgsDict',
+    'MicrovmImageEnvironmentVariableArgs',
+    'MicrovmImageEnvironmentVariableArgsDict',
+    'MicrovmImageHooksArgs',
+    'MicrovmImageHooksArgsDict',
+    'MicrovmImageLoggingArgs',
+    'MicrovmImageLoggingArgsDict',
+    'MicrovmImageMicrovmHooksArgs',
+    'MicrovmImageMicrovmHooksArgsDict',
+    'MicrovmImageResourcesArgs',
+    'MicrovmImageResourcesArgsDict',
+    'NetworkConnectorConfigArgs',
+    'NetworkConnectorConfigArgsDict',
+    'NetworkConnectorVpcEgressConfigurationArgs',
+    'NetworkConnectorVpcEgressConfigurationArgsDict',
     'UrlCorsArgs',
     'UrlCorsArgsDict',
     'VersionFunctionScalingConfigArgs',
@@ -317,6 +343,55 @@ class CapacityProviderInstanceRequirementsArgs:
         pulumi.set(self, "excluded_instance_types", value)
 
 
+class CapacityProviderLoggingConfigArgsDict(TypedDict):
+    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The log group name.
+    """
+    system_log_level: NotRequired[pulumi.Input['CapacityProviderLoggingConfigSystemLogLevel']]
+    """
+    System log granularity level
+    """
+
+@pulumi.input_type
+class CapacityProviderLoggingConfigArgs:
+    def __init__(__self__, *,
+                 log_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 system_log_level: Optional[pulumi.Input['CapacityProviderLoggingConfigSystemLogLevel']] = None):
+        """
+        :param pulumi.Input[_builtins.str] log_group: The log group name.
+        :param pulumi.Input['CapacityProviderLoggingConfigSystemLogLevel'] system_log_level: System log granularity level
+        """
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+        if system_log_level is not None:
+            pulumi.set(__self__, "system_log_level", system_log_level)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The log group name.
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "log_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="systemLogLevel")
+    def system_log_level(self) -> Optional[pulumi.Input['CapacityProviderLoggingConfigSystemLogLevel']]:
+        """
+        System log granularity level
+        """
+        return pulumi.get(self, "system_log_level")
+
+    @system_log_level.setter
+    def system_log_level(self, value: Optional[pulumi.Input['CapacityProviderLoggingConfigSystemLogLevel']]):
+        pulumi.set(self, "system_log_level", value)
+
+
 class CapacityProviderPermissionsConfigArgsDict(TypedDict):
     """
     Configuration that specifies the permissions required for the capacity provider to manage compute resources.
@@ -352,9 +427,6 @@ class CapacityProviderPermissionsConfigArgs:
 
 class CapacityProviderPropagateTagsConfigArgsDict(TypedDict):
     explicit_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgsDict']]]]
-    """
-    A list of tags to explicitly propagate to managed resources.
-    """
     mode: NotRequired[pulumi.Input['CapacityProviderPropagateTagsMode']]
 
 @pulumi.input_type
@@ -362,9 +434,6 @@ class CapacityProviderPropagateTagsConfigArgs:
     def __init__(__self__, *,
                  explicit_tags: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgs']]]] = None,
                  mode: Optional[pulumi.Input['CapacityProviderPropagateTagsMode']] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgs']]] explicit_tags: A list of tags to explicitly propagate to managed resources.
-        """
         if explicit_tags is not None:
             pulumi.set(__self__, "explicit_tags", explicit_tags)
         if mode is not None:
@@ -373,9 +442,6 @@ class CapacityProviderPropagateTagsConfigArgs:
     @_builtins.property
     @pulumi.getter(name="explicitTags")
     def explicit_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgs']]]]:
-        """
-        A list of tags to explicitly propagate to managed resources.
-        """
         return pulumi.get(self, "explicit_tags")
 
     @explicit_tags.setter
@@ -569,6 +635,35 @@ class CapacityProviderTargetTrackingScalingPolicyArgs:
     @target_value.setter
     def target_value(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "target_value", value)
+
+
+class CapacityProviderTelemetryConfigArgsDict(TypedDict):
+    logging_config: NotRequired[pulumi.Input['CapacityProviderLoggingConfigArgsDict']]
+    """
+    The logging configuration for the capacity provider.
+    """
+
+@pulumi.input_type
+class CapacityProviderTelemetryConfigArgs:
+    def __init__(__self__, *,
+                 logging_config: Optional[pulumi.Input['CapacityProviderLoggingConfigArgs']] = None):
+        """
+        :param pulumi.Input['CapacityProviderLoggingConfigArgs'] logging_config: The logging configuration for the capacity provider.
+        """
+        if logging_config is not None:
+            pulumi.set(__self__, "logging_config", logging_config)
+
+    @_builtins.property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> Optional[pulumi.Input['CapacityProviderLoggingConfigArgs']]:
+        """
+        The logging configuration for the capacity provider.
+        """
+        return pulumi.get(self, "logging_config")
+
+    @logging_config.setter
+    def logging_config(self, value: Optional[pulumi.Input['CapacityProviderLoggingConfigArgs']]):
+        pulumi.set(self, "logging_config", value)
 
 
 class CapacityProviderVpcConfigArgsDict(TypedDict):
@@ -2607,6 +2702,52 @@ class FunctionVpcConfigArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
+class HooksArgsDict(TypedDict):
+    microvm_hooks: NotRequired[pulumi.Input['MicrovmImageMicrovmHooksArgsDict']]
+    microvm_image_hooks: NotRequired[pulumi.Input['MicrovmImageHooksArgsDict']]
+    port: NotRequired[pulumi.Input[_builtins.int]]
+
+@pulumi.input_type
+class HooksArgs:
+    def __init__(__self__, *,
+                 microvm_hooks: Optional[pulumi.Input['MicrovmImageMicrovmHooksArgs']] = None,
+                 microvm_image_hooks: Optional[pulumi.Input['MicrovmImageHooksArgs']] = None,
+                 port: Optional[pulumi.Input[_builtins.int]] = None):
+        if microvm_hooks is not None:
+            pulumi.set(__self__, "microvm_hooks", microvm_hooks)
+        if microvm_image_hooks is not None:
+            pulumi.set(__self__, "microvm_image_hooks", microvm_image_hooks)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @_builtins.property
+    @pulumi.getter(name="microvmHooks")
+    def microvm_hooks(self) -> Optional[pulumi.Input['MicrovmImageMicrovmHooksArgs']]:
+        return pulumi.get(self, "microvm_hooks")
+
+    @microvm_hooks.setter
+    def microvm_hooks(self, value: Optional[pulumi.Input['MicrovmImageMicrovmHooksArgs']]):
+        pulumi.set(self, "microvm_hooks", value)
+
+    @_builtins.property
+    @pulumi.getter(name="microvmImageHooks")
+    def microvm_image_hooks(self) -> Optional[pulumi.Input['MicrovmImageHooksArgs']]:
+        return pulumi.get(self, "microvm_image_hooks")
+
+    @microvm_image_hooks.setter
+    def microvm_image_hooks(self, value: Optional[pulumi.Input['MicrovmImageHooksArgs']]):
+        pulumi.set(self, "microvm_image_hooks", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+
 class LayerVersionContentArgsDict(TypedDict):
     s3_bucket: pulumi.Input[_builtins.str]
     """
@@ -2615,6 +2756,10 @@ class LayerVersionContentArgsDict(TypedDict):
     s3_key: pulumi.Input[_builtins.str]
     """
     The Amazon S3 key of the layer archive.
+    """
+    s3_object_storage_mode: NotRequired[pulumi.Input['LayerVersionContentS3ObjectStorageMode']]
+    """
+    Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).
     """
     s3_object_version: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -2626,14 +2771,18 @@ class LayerVersionContentArgs:
     def __init__(__self__, *,
                  s3_bucket: pulumi.Input[_builtins.str],
                  s3_key: pulumi.Input[_builtins.str],
+                 s3_object_storage_mode: Optional[pulumi.Input['LayerVersionContentS3ObjectStorageMode']] = None,
                  s3_object_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] s3_bucket: The Amazon S3 bucket of the layer archive.
         :param pulumi.Input[_builtins.str] s3_key: The Amazon S3 key of the layer archive.
+        :param pulumi.Input['LayerVersionContentS3ObjectStorageMode'] s3_object_storage_mode: Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).
         :param pulumi.Input[_builtins.str] s3_object_version: For versioned objects, the version of the layer archive object to use.
         """
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         pulumi.set(__self__, "s3_key", s3_key)
+        if s3_object_storage_mode is not None:
+            pulumi.set(__self__, "s3_object_storage_mode", s3_object_storage_mode)
         if s3_object_version is not None:
             pulumi.set(__self__, "s3_object_version", s3_object_version)
 
@@ -2662,6 +2811,18 @@ class LayerVersionContentArgs:
         pulumi.set(self, "s3_key", value)
 
     @_builtins.property
+    @pulumi.getter(name="s3ObjectStorageMode")
+    def s3_object_storage_mode(self) -> Optional[pulumi.Input['LayerVersionContentS3ObjectStorageMode']]:
+        """
+        Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).
+        """
+        return pulumi.get(self, "s3_object_storage_mode")
+
+    @s3_object_storage_mode.setter
+    def s3_object_storage_mode(self, value: Optional[pulumi.Input['LayerVersionContentS3ObjectStorageMode']]):
+        pulumi.set(self, "s3_object_storage_mode", value)
+
+    @_builtins.property
     @pulumi.getter(name="s3ObjectVersion")
     def s3_object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -2672,6 +2833,447 @@ class LayerVersionContentArgs:
     @s3_object_version.setter
     def s3_object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "s3_object_version", value)
+
+
+class MicrovmImageCloudWatchLoggingArgsDict(TypedDict):
+    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    log_stream: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class MicrovmImageCloudWatchLoggingArgs:
+    def __init__(__self__, *,
+                 log_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_stream: Optional[pulumi.Input[_builtins.str]] = None):
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+        if log_stream is not None:
+            pulumi.set(__self__, "log_stream", log_stream)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "log_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logStream")
+    def log_stream(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "log_stream")
+
+    @log_stream.setter
+    def log_stream(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "log_stream", value)
+
+
+class MicrovmImageCodeArtifactArgsDict(TypedDict):
+    uri: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class MicrovmImageCodeArtifactArgs:
+    def __init__(__self__, *,
+                 uri: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "uri", value)
+
+
+class MicrovmImageCpuConfigurationArgsDict(TypedDict):
+    architecture: pulumi.Input['MicrovmImageCpuConfigurationArchitecture']
+
+@pulumi.input_type
+class MicrovmImageCpuConfigurationArgs:
+    def __init__(__self__, *,
+                 architecture: pulumi.Input['MicrovmImageCpuConfigurationArchitecture']):
+        pulumi.set(__self__, "architecture", architecture)
+
+    @_builtins.property
+    @pulumi.getter
+    def architecture(self) -> pulumi.Input['MicrovmImageCpuConfigurationArchitecture']:
+        return pulumi.get(self, "architecture")
+
+    @architecture.setter
+    def architecture(self, value: pulumi.Input['MicrovmImageCpuConfigurationArchitecture']):
+        pulumi.set(self, "architecture", value)
+
+
+class MicrovmImageEnvironmentVariableArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class MicrovmImageEnvironmentVariableArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class MicrovmImageHooksArgsDict(TypedDict):
+    ready: NotRequired[pulumi.Input['MicrovmImageHookState']]
+    ready_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    validate: NotRequired[pulumi.Input['MicrovmImageHookState']]
+    validate_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+
+@pulumi.input_type
+class MicrovmImageHooksArgs:
+    def __init__(__self__, *,
+                 ready: Optional[pulumi.Input['MicrovmImageHookState']] = None,
+                 ready_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 validate: Optional[pulumi.Input['MicrovmImageHookState']] = None,
+                 validate_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+        if ready is not None:
+            pulumi.set(__self__, "ready", ready)
+        if ready_timeout_in_seconds is not None:
+            pulumi.set(__self__, "ready_timeout_in_seconds", ready_timeout_in_seconds)
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
+        if validate_timeout_in_seconds is not None:
+            pulumi.set(__self__, "validate_timeout_in_seconds", validate_timeout_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def ready(self) -> Optional[pulumi.Input['MicrovmImageHookState']]:
+        return pulumi.get(self, "ready")
+
+    @ready.setter
+    def ready(self, value: Optional[pulumi.Input['MicrovmImageHookState']]):
+        pulumi.set(self, "ready", value)
+
+    @_builtins.property
+    @pulumi.getter(name="readyTimeoutInSeconds")
+    def ready_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "ready_timeout_in_seconds")
+
+    @ready_timeout_in_seconds.setter
+    def ready_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "ready_timeout_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def validate(self) -> Optional[pulumi.Input['MicrovmImageHookState']]:
+        return pulumi.get(self, "validate")
+
+    @validate.setter
+    def validate(self, value: Optional[pulumi.Input['MicrovmImageHookState']]):
+        pulumi.set(self, "validate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="validateTimeoutInSeconds")
+    def validate_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "validate_timeout_in_seconds")
+
+    @validate_timeout_in_seconds.setter
+    def validate_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "validate_timeout_in_seconds", value)
+
+
+class MicrovmImageLoggingArgsDict(TypedDict):
+    cloud_watch: NotRequired[pulumi.Input['MicrovmImageCloudWatchLoggingArgsDict']]
+    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+
+@pulumi.input_type
+class MicrovmImageLoggingArgs:
+    def __init__(__self__, *,
+                 cloud_watch: Optional[pulumi.Input['MicrovmImageCloudWatchLoggingArgs']] = None,
+                 disabled: Optional[pulumi.Input[_builtins.bool]] = None):
+        if cloud_watch is not None:
+            pulumi.set(__self__, "cloud_watch", cloud_watch)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatch")
+    def cloud_watch(self) -> Optional[pulumi.Input['MicrovmImageCloudWatchLoggingArgs']]:
+        return pulumi.get(self, "cloud_watch")
+
+    @cloud_watch.setter
+    def cloud_watch(self, value: Optional[pulumi.Input['MicrovmImageCloudWatchLoggingArgs']]):
+        pulumi.set(self, "cloud_watch", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "disabled")
+
+    @disabled.setter
+    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "disabled", value)
+
+
+class MicrovmImageMicrovmHooksArgsDict(TypedDict):
+    resume: NotRequired[pulumi.Input['MicrovmImageHookState']]
+    resume_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    run: NotRequired[pulumi.Input['MicrovmImageHookState']]
+    run_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    suspend: NotRequired[pulumi.Input['MicrovmImageHookState']]
+    suspend_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    terminate: NotRequired[pulumi.Input['MicrovmImageHookState']]
+    terminate_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+
+@pulumi.input_type
+class MicrovmImageMicrovmHooksArgs:
+    def __init__(__self__, *,
+                 resume: Optional[pulumi.Input['MicrovmImageHookState']] = None,
+                 resume_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 run: Optional[pulumi.Input['MicrovmImageHookState']] = None,
+                 run_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 suspend: Optional[pulumi.Input['MicrovmImageHookState']] = None,
+                 suspend_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 terminate: Optional[pulumi.Input['MicrovmImageHookState']] = None,
+                 terminate_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+        if resume is not None:
+            pulumi.set(__self__, "resume", resume)
+        if resume_timeout_in_seconds is not None:
+            pulumi.set(__self__, "resume_timeout_in_seconds", resume_timeout_in_seconds)
+        if run is not None:
+            pulumi.set(__self__, "run", run)
+        if run_timeout_in_seconds is not None:
+            pulumi.set(__self__, "run_timeout_in_seconds", run_timeout_in_seconds)
+        if suspend is not None:
+            pulumi.set(__self__, "suspend", suspend)
+        if suspend_timeout_in_seconds is not None:
+            pulumi.set(__self__, "suspend_timeout_in_seconds", suspend_timeout_in_seconds)
+        if terminate is not None:
+            pulumi.set(__self__, "terminate", terminate)
+        if terminate_timeout_in_seconds is not None:
+            pulumi.set(__self__, "terminate_timeout_in_seconds", terminate_timeout_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def resume(self) -> Optional[pulumi.Input['MicrovmImageHookState']]:
+        return pulumi.get(self, "resume")
+
+    @resume.setter
+    def resume(self, value: Optional[pulumi.Input['MicrovmImageHookState']]):
+        pulumi.set(self, "resume", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resumeTimeoutInSeconds")
+    def resume_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "resume_timeout_in_seconds")
+
+    @resume_timeout_in_seconds.setter
+    def resume_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "resume_timeout_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def run(self) -> Optional[pulumi.Input['MicrovmImageHookState']]:
+        return pulumi.get(self, "run")
+
+    @run.setter
+    def run(self, value: Optional[pulumi.Input['MicrovmImageHookState']]):
+        pulumi.set(self, "run", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runTimeoutInSeconds")
+    def run_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "run_timeout_in_seconds")
+
+    @run_timeout_in_seconds.setter
+    def run_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "run_timeout_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def suspend(self) -> Optional[pulumi.Input['MicrovmImageHookState']]:
+        return pulumi.get(self, "suspend")
+
+    @suspend.setter
+    def suspend(self, value: Optional[pulumi.Input['MicrovmImageHookState']]):
+        pulumi.set(self, "suspend", value)
+
+    @_builtins.property
+    @pulumi.getter(name="suspendTimeoutInSeconds")
+    def suspend_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "suspend_timeout_in_seconds")
+
+    @suspend_timeout_in_seconds.setter
+    def suspend_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "suspend_timeout_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def terminate(self) -> Optional[pulumi.Input['MicrovmImageHookState']]:
+        return pulumi.get(self, "terminate")
+
+    @terminate.setter
+    def terminate(self, value: Optional[pulumi.Input['MicrovmImageHookState']]):
+        pulumi.set(self, "terminate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="terminateTimeoutInSeconds")
+    def terminate_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "terminate_timeout_in_seconds")
+
+    @terminate_timeout_in_seconds.setter
+    def terminate_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "terminate_timeout_in_seconds", value)
+
+
+class MicrovmImageResourcesArgsDict(TypedDict):
+    minimum_memory_in_mi_b: pulumi.Input[_builtins.int]
+
+@pulumi.input_type
+class MicrovmImageResourcesArgs:
+    def __init__(__self__, *,
+                 minimum_memory_in_mi_b: pulumi.Input[_builtins.int]):
+        pulumi.set(__self__, "minimum_memory_in_mi_b", minimum_memory_in_mi_b)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumMemoryInMiB")
+    def minimum_memory_in_mi_b(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "minimum_memory_in_mi_b")
+
+    @minimum_memory_in_mi_b.setter
+    def minimum_memory_in_mi_b(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "minimum_memory_in_mi_b", value)
+
+
+class NetworkConnectorConfigArgsDict(TypedDict):
+    """
+    The network configuration for the connector. Specify a VpcEgressConfiguration to enable outbound traffic routing through your VPC.
+    """
+    vpc_egress_configuration: pulumi.Input['NetworkConnectorVpcEgressConfigurationArgsDict']
+
+@pulumi.input_type
+class NetworkConnectorConfigArgs:
+    def __init__(__self__, *,
+                 vpc_egress_configuration: pulumi.Input['NetworkConnectorVpcEgressConfigurationArgs']):
+        """
+        The network configuration for the connector. Specify a VpcEgressConfiguration to enable outbound traffic routing through your VPC.
+        """
+        pulumi.set(__self__, "vpc_egress_configuration", vpc_egress_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEgressConfiguration")
+    def vpc_egress_configuration(self) -> pulumi.Input['NetworkConnectorVpcEgressConfigurationArgs']:
+        return pulumi.get(self, "vpc_egress_configuration")
+
+    @vpc_egress_configuration.setter
+    def vpc_egress_configuration(self, value: pulumi.Input['NetworkConnectorVpcEgressConfigurationArgs']):
+        pulumi.set(self, "vpc_egress_configuration", value)
+
+
+class NetworkConnectorVpcEgressConfigurationArgsDict(TypedDict):
+    """
+    The VPC egress configuration for the network connector. Specifies the subnets, security groups, and network protocol for routing outbound traffic through your VPC.
+    """
+    associated_compute_resource_types: pulumi.Input[Sequence[pulumi.Input['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem']]]
+    """
+    The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
+    """
+    network_protocol: NotRequired[pulumi.Input['NetworkConnectorVpcEgressConfigurationNetworkProtocol']]
+    """
+    The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
+    """
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+    """
+
+@pulumi.input_type
+class NetworkConnectorVpcEgressConfigurationArgs:
+    def __init__(__self__, *,
+                 associated_compute_resource_types: pulumi.Input[Sequence[pulumi.Input['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem']]],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 network_protocol: Optional[pulumi.Input['NetworkConnectorVpcEgressConfigurationNetworkProtocol']] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The VPC egress configuration for the network connector. Specifies the subnets, security groups, and network protocol for routing outbound traffic through your VPC.
+
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem']]] associated_compute_resource_types: The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
+        :param pulumi.Input['NetworkConnectorVpcEgressConfigurationNetworkProtocol'] network_protocol: The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+        """
+        pulumi.set(__self__, "associated_compute_resource_types", associated_compute_resource_types)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if network_protocol is not None:
+            pulumi.set(__self__, "network_protocol", network_protocol)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedComputeResourceTypes")
+    def associated_compute_resource_types(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem']]]:
+        """
+        The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+        """
+        return pulumi.get(self, "associated_compute_resource_types")
+
+    @associated_compute_resource_types.setter
+    def associated_compute_resource_types(self, value: pulumi.Input[Sequence[pulumi.Input['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem']]]):
+        pulumi.set(self, "associated_compute_resource_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkProtocol")
+    def network_protocol(self) -> Optional[pulumi.Input['NetworkConnectorVpcEgressConfigurationNetworkProtocol']]:
+        """
+        The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
+        """
+        return pulumi.get(self, "network_protocol")
+
+    @network_protocol.setter
+    def network_protocol(self, value: Optional[pulumi.Input['NetworkConnectorVpcEgressConfigurationNetworkProtocol']]):
+        pulumi.set(self, "network_protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_group_ids", value)
 
 
 class UrlCorsArgsDict(TypedDict):

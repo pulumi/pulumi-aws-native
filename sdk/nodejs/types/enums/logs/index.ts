@@ -24,6 +24,25 @@ export const AccountPolicyScope = {
  */
 export type AccountPolicyScope = (typeof AccountPolicyScope)[keyof typeof AccountPolicyScope];
 
+export const DeliverySourceStatus = {
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+} as const;
+
+/**
+ * The status of this delivery source. The value can be ACTIVE or INACTIVE.
+ */
+export type DeliverySourceStatus = (typeof DeliverySourceStatus)[keyof typeof DeliverySourceStatus];
+
+export const DeliverySourceStatusReason = {
+    ResourceDeleted: "RESOURCE_DELETED",
+} as const;
+
+/**
+ * The reason for the status of this delivery source, such as RESOURCE_DELETED.
+ */
+export type DeliverySourceStatusReason = (typeof DeliverySourceStatusReason)[keyof typeof DeliverySourceStatusReason];
+
 export const IntegrationStatus = {
     Provisioning: "PROVISIONING",
     Active: "ACTIVE",

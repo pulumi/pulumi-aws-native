@@ -42,6 +42,10 @@ export interface GetClusterResult {
      */
     readonly id?: string;
     /**
+     * The cluster management and job scheduling software associated with the cluster.
+     */
+    readonly scheduler?: outputs.pcs.SchedulerProperties;
+    /**
      * Additional options related to the Slurm scheduler.
      */
     readonly slurmConfiguration?: outputs.pcs.SlurmConfigurationProperties;

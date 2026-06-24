@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The name for the gateway target.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         [Output("privateEndpoint")]
         public Output<Union<Outputs.GatewayTargetPrivateEndpoint0Properties, Outputs.GatewayTargetPrivateEndpoint1Properties>?> PrivateEndpoint { get; private set; } = null!;

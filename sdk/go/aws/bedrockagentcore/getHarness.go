@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::BedrockAgentCore::Harness resource type - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
+// Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
 func LookupHarness(ctx *pulumi.Context, args *LookupHarnessArgs, opts ...pulumi.InvokeOption) (*LookupHarnessResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHarnessResult
@@ -71,6 +71,8 @@ type LookupHarnessResult struct {
 	Truncation *HarnessTruncationConfiguration `pulumi:"truncation"`
 	// The timestamp when the harness was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
+	// The version of the harness. Incremented on every successful update.
+	Version *string `pulumi:"version"`
 }
 
 func LookupHarnessOutput(ctx *pulumi.Context, args LookupHarnessOutputArgs, opts ...pulumi.InvokeOption) LookupHarnessResultOutput {
@@ -208,6 +210,11 @@ func (o LookupHarnessResultOutput) Truncation() HarnessTruncationConfigurationPt
 // The timestamp when the harness was last updated.
 func (o LookupHarnessResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHarnessResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The version of the harness. Incremented on every successful update.
+func (o LookupHarnessResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHarnessResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 func init() {

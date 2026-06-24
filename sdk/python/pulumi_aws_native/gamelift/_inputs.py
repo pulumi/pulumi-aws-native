@@ -52,6 +52,8 @@ __all__ = [
     'ContainerGroupDefinitionContainerPortRangeArgsDict',
     'ContainerGroupDefinitionGameServerContainerDefinitionArgs',
     'ContainerGroupDefinitionGameServerContainerDefinitionArgsDict',
+    'ContainerGroupDefinitionLinuxCapabilitiesArgs',
+    'ContainerGroupDefinitionLinuxCapabilitiesArgsDict',
     'ContainerGroupDefinitionPortConfigurationArgs',
     'ContainerGroupDefinitionPortConfigurationArgsDict',
     'ContainerGroupDefinitionSupportContainerDefinitionArgs',
@@ -1451,6 +1453,10 @@ class ContainerGroupDefinitionGameServerContainerDefinitionArgsDict(TypedDict):
     """
     The environment variables to pass to a container.
     """
+    linux_capabilities: NotRequired[pulumi.Input['ContainerGroupDefinitionLinuxCapabilitiesArgsDict']]
+    """
+    Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
+    """
     mount_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerMountPointArgsDict']]]]
     """
     A list of mount point configurations to be used in a container.
@@ -1472,6 +1478,7 @@ class ContainerGroupDefinitionGameServerContainerDefinitionArgs:
                  server_sdk_version: pulumi.Input[_builtins.str],
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerDependencyArgs']]]] = None,
                  environment_override: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerEnvironmentArgs']]]] = None,
+                 linux_capabilities: Optional[pulumi.Input['ContainerGroupDefinitionLinuxCapabilitiesArgs']] = None,
                  mount_points: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerMountPointArgs']]]] = None,
                  port_configuration: Optional[pulumi.Input['ContainerGroupDefinitionPortConfigurationArgs']] = None,
                  resolved_image_digest: Optional[pulumi.Input[_builtins.str]] = None):
@@ -1483,6 +1490,7 @@ class ContainerGroupDefinitionGameServerContainerDefinitionArgs:
         :param pulumi.Input[_builtins.str] server_sdk_version: The version of the server SDK used in this container group
         :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerDependencyArgs']]] depends_on: A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerEnvironmentArgs']]] environment_override: The environment variables to pass to a container.
+        :param pulumi.Input['ContainerGroupDefinitionLinuxCapabilitiesArgs'] linux_capabilities: Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerMountPointArgs']]] mount_points: A list of mount point configurations to be used in a container.
         :param pulumi.Input['ContainerGroupDefinitionPortConfigurationArgs'] port_configuration: Defines the ports on the container.
         :param pulumi.Input[_builtins.str] resolved_image_digest: The digest of the container image.
@@ -1494,6 +1502,8 @@ class ContainerGroupDefinitionGameServerContainerDefinitionArgs:
             pulumi.set(__self__, "depends_on", depends_on)
         if environment_override is not None:
             pulumi.set(__self__, "environment_override", environment_override)
+        if linux_capabilities is not None:
+            pulumi.set(__self__, "linux_capabilities", linux_capabilities)
         if mount_points is not None:
             pulumi.set(__self__, "mount_points", mount_points)
         if port_configuration is not None:
@@ -1562,6 +1572,18 @@ class ContainerGroupDefinitionGameServerContainerDefinitionArgs:
         pulumi.set(self, "environment_override", value)
 
     @_builtins.property
+    @pulumi.getter(name="linuxCapabilities")
+    def linux_capabilities(self) -> Optional[pulumi.Input['ContainerGroupDefinitionLinuxCapabilitiesArgs']]:
+        """
+        Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
+        """
+        return pulumi.get(self, "linux_capabilities")
+
+    @linux_capabilities.setter
+    def linux_capabilities(self, value: Optional[pulumi.Input['ContainerGroupDefinitionLinuxCapabilitiesArgs']]):
+        pulumi.set(self, "linux_capabilities", value)
+
+    @_builtins.property
     @pulumi.getter(name="mountPoints")
     def mount_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerMountPointArgs']]]]:
         """
@@ -1596,6 +1618,40 @@ class ContainerGroupDefinitionGameServerContainerDefinitionArgs:
     @resolved_image_digest.setter
     def resolved_image_digest(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "resolved_image_digest", value)
+
+
+class ContainerGroupDefinitionLinuxCapabilitiesArgsDict(TypedDict):
+    """
+    A set of Linux capabilities that are added to a container's default Docker configuration. For more detailed information, see the capabilities(7) Linux manual page.
+    """
+    include: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionLinuxCapabilitiesIncludeItem']]]]
+    """
+    The list of Linux capabilities to add to the container's default configuration.
+    """
+
+@pulumi.input_type
+class ContainerGroupDefinitionLinuxCapabilitiesArgs:
+    def __init__(__self__, *,
+                 include: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionLinuxCapabilitiesIncludeItem']]]] = None):
+        """
+        A set of Linux capabilities that are added to a container's default Docker configuration. For more detailed information, see the capabilities(7) Linux manual page.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionLinuxCapabilitiesIncludeItem']]] include: The list of Linux capabilities to add to the container's default configuration.
+        """
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @_builtins.property
+    @pulumi.getter
+    def include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionLinuxCapabilitiesIncludeItem']]]]:
+        """
+        The list of Linux capabilities to add to the container's default configuration.
+        """
+        return pulumi.get(self, "include")
+
+    @include.setter
+    def include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionLinuxCapabilitiesIncludeItem']]]]):
+        pulumi.set(self, "include", value)
 
 
 class ContainerGroupDefinitionPortConfigurationArgsDict(TypedDict):
@@ -1659,6 +1715,10 @@ class ContainerGroupDefinitionSupportContainerDefinitionArgsDict(TypedDict):
     """
     Specifies how the health of the containers will be checked.
     """
+    linux_capabilities: NotRequired[pulumi.Input['ContainerGroupDefinitionLinuxCapabilitiesArgsDict']]
+    """
+    Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
+    """
     memory_hard_limit_mebibytes: NotRequired[pulumi.Input[_builtins.int]]
     """
     The total memory limit of container groups following this definition in MiB
@@ -1689,6 +1749,7 @@ class ContainerGroupDefinitionSupportContainerDefinitionArgs:
                  environment_override: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerEnvironmentArgs']]]] = None,
                  essential: Optional[pulumi.Input[_builtins.bool]] = None,
                  health_check: Optional[pulumi.Input['ContainerGroupDefinitionContainerHealthCheckArgs']] = None,
+                 linux_capabilities: Optional[pulumi.Input['ContainerGroupDefinitionLinuxCapabilitiesArgs']] = None,
                  memory_hard_limit_mebibytes: Optional[pulumi.Input[_builtins.int]] = None,
                  mount_points: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerMountPointArgs']]]] = None,
                  port_configuration: Optional[pulumi.Input['ContainerGroupDefinitionPortConfigurationArgs']] = None,
@@ -1703,6 +1764,7 @@ class ContainerGroupDefinitionSupportContainerDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerEnvironmentArgs']]] environment_override: The environment variables to pass to a container.
         :param pulumi.Input[_builtins.bool] essential: Specifies if the container is essential. If an essential container fails a health check, then all containers in the container group will be restarted. You must specify exactly 1 essential container in a container group.
         :param pulumi.Input['ContainerGroupDefinitionContainerHealthCheckArgs'] health_check: Specifies how the health of the containers will be checked.
+        :param pulumi.Input['ContainerGroupDefinitionLinuxCapabilitiesArgs'] linux_capabilities: Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
         :param pulumi.Input[_builtins.int] memory_hard_limit_mebibytes: The total memory limit of container groups following this definition in MiB
         :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerMountPointArgs']]] mount_points: A list of mount point configurations to be used in a container.
         :param pulumi.Input['ContainerGroupDefinitionPortConfigurationArgs'] port_configuration: Defines the ports on the container.
@@ -1719,6 +1781,8 @@ class ContainerGroupDefinitionSupportContainerDefinitionArgs:
             pulumi.set(__self__, "essential", essential)
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
+        if linux_capabilities is not None:
+            pulumi.set(__self__, "linux_capabilities", linux_capabilities)
         if memory_hard_limit_mebibytes is not None:
             pulumi.set(__self__, "memory_hard_limit_mebibytes", memory_hard_limit_mebibytes)
         if mount_points is not None:
@@ -1801,6 +1865,18 @@ class ContainerGroupDefinitionSupportContainerDefinitionArgs:
     @health_check.setter
     def health_check(self, value: Optional[pulumi.Input['ContainerGroupDefinitionContainerHealthCheckArgs']]):
         pulumi.set(self, "health_check", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linuxCapabilities")
+    def linux_capabilities(self) -> Optional[pulumi.Input['ContainerGroupDefinitionLinuxCapabilitiesArgs']]:
+        """
+        Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
+        """
+        return pulumi.get(self, "linux_capabilities")
+
+    @linux_capabilities.setter
+    def linux_capabilities(self, value: Optional[pulumi.Input['ContainerGroupDefinitionLinuxCapabilitiesArgs']]):
+        pulumi.set(self, "linux_capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryHardLimitMebibytes")

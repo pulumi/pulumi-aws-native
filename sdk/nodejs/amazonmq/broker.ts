@@ -301,6 +301,10 @@ export class Broker extends pulumi.CustomResource {
      */
     declare public readonly publiclyAccessible: pulumi.Output<boolean>;
     /**
+     * The ARNs of the resource shares to be associated with the broker.
+     */
+    declare public readonly resourceShareArns: pulumi.Output<string[] | undefined>;
+    /**
      * The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
      */
     declare public readonly securityGroups: pulumi.Output<string[] | undefined>;
@@ -376,6 +380,7 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["logs"] = args?.logs;
             resourceInputs["maintenanceWindowStartTime"] = args?.maintenanceWindowStartTime;
             resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
+            resourceInputs["resourceShareArns"] = args?.resourceShareArns;
             resourceInputs["securityGroups"] = args?.securityGroups;
             resourceInputs["storageType"] = args?.storageType;
             resourceInputs["subnetIds"] = args?.subnetIds;
@@ -419,6 +424,7 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["mqttEndpoints"] = undefined /*out*/;
             resourceInputs["openWireEndpoints"] = undefined /*out*/;
             resourceInputs["publiclyAccessible"] = undefined /*out*/;
+            resourceInputs["resourceShareArns"] = undefined /*out*/;
             resourceInputs["securityGroups"] = undefined /*out*/;
             resourceInputs["stompEndpoints"] = undefined /*out*/;
             resourceInputs["storageType"] = undefined /*out*/;
@@ -505,6 +511,10 @@ export interface BrokerArgs {
      * Enables connections from applications outside of the VPC that hosts the broker's subnets. Set to `false` by default, if no value is provided.
      */
     publiclyAccessible: pulumi.Input<boolean>;
+    /**
+     * The ARNs of the resource shares to be associated with the broker.
+     */
+    resourceShareArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
      */

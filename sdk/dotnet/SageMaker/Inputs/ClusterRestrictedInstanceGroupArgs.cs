@@ -21,8 +21,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("currentCount")]
         public Input<int>? CurrentCount { get; set; }
 
-        [Input("environmentConfig", required: true)]
-        public Input<Inputs.ClusterEnvironmentConfigArgs> EnvironmentConfig { get; set; } = null!;
+        [Input("environmentConfig")]
+        public Input<Inputs.ClusterEnvironmentConfigArgs>? EnvironmentConfig { get; set; }
 
         [Input("executionRole", required: true)]
         public Input<string> ExecutionRole { get; set; } = null!;

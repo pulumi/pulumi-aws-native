@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DbSubnetGroup{}
 	case "aws-native:neptune:EventSubscription":
 		r = &EventSubscription{}
+	case "aws-native:neptune:GlobalCluster":
+		r = &GlobalCluster{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

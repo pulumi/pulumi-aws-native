@@ -28,6 +28,7 @@ __all__ = [
     'ContainerGroupDefinitionContainerGroupType',
     'ContainerGroupDefinitionContainerMountPointAccessLevel',
     'ContainerGroupDefinitionContainerPortRangeProtocol',
+    'ContainerGroupDefinitionLinuxCapabilitiesIncludeItem',
     'ContainerGroupDefinitionOperatingSystem',
     'ContainerGroupDefinitionStatus',
     'FleetApplyCapacity',
@@ -265,6 +266,47 @@ class ContainerGroupDefinitionContainerPortRangeProtocol(_builtins.str, Enum):
     """
     TCP = "TCP"
     UDP = "UDP"
+
+
+@pulumi.type_token("aws-native:gamelift:ContainerGroupDefinitionLinuxCapabilitiesIncludeItem")
+class ContainerGroupDefinitionLinuxCapabilitiesIncludeItem(_builtins.str, Enum):
+    AUDIT_CONTROL = "AUDIT_CONTROL"
+    AUDIT_WRITE = "AUDIT_WRITE"
+    BLOCK_SUSPEND = "BLOCK_SUSPEND"
+    CHOWN = "CHOWN"
+    DAC_OVERRIDE = "DAC_OVERRIDE"
+    DAC_READ_SEARCH = "DAC_READ_SEARCH"
+    FOWNER = "FOWNER"
+    FSETID = "FSETID"
+    IPC_LOCK = "IPC_LOCK"
+    IPC_OWNER = "IPC_OWNER"
+    KILL = "KILL"
+    LEASE = "LEASE"
+    LINUX_IMMUTABLE = "LINUX_IMMUTABLE"
+    MAC_ADMIN = "MAC_ADMIN"
+    MAC_OVERRIDE = "MAC_OVERRIDE"
+    MKNOD = "MKNOD"
+    NET_ADMIN = "NET_ADMIN"
+    NET_BIND_SERVICE = "NET_BIND_SERVICE"
+    NET_BROADCAST = "NET_BROADCAST"
+    NET_RAW = "NET_RAW"
+    SETFCAP = "SETFCAP"
+    SETGID = "SETGID"
+    SETPCAP = "SETPCAP"
+    SETUID = "SETUID"
+    SYS_ADMIN = "SYS_ADMIN"
+    SYS_BOOT = "SYS_BOOT"
+    SYS_CHROOT = "SYS_CHROOT"
+    SYS_MODULE = "SYS_MODULE"
+    SYS_NICE = "SYS_NICE"
+    SYS_PACCT = "SYS_PACCT"
+    SYS_PTRACE = "SYS_PTRACE"
+    SYS_RAWIO = "SYS_RAWIO"
+    SYS_RESOURCE = "SYS_RESOURCE"
+    SYS_TIME = "SYS_TIME"
+    SYS_TTY_CONFIG = "SYS_TTY_CONFIG"
+    SYSLOG = "SYSLOG"
+    WAKE_ALARM = "WAKE_ALARM"
 
 
 @pulumi.type_token("aws-native:gamelift:ContainerGroupDefinitionOperatingSystem")

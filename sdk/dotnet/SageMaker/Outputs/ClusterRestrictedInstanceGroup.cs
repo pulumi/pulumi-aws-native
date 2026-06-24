@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The number of instances that are currently in the restricted instance group of a SageMaker HyperPod cluster.
         /// </summary>
         public readonly int? CurrentCount;
-        public readonly Outputs.ClusterEnvironmentConfig EnvironmentConfig;
+        public readonly Outputs.ClusterEnvironmentConfig? EnvironmentConfig;
         public readonly string ExecutionRole;
         /// <summary>
         /// The number of instances you specified to add to the restricted instance group of a SageMaker HyperPod cluster.
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         private ClusterRestrictedInstanceGroup(
             int? currentCount,
 
-            Outputs.ClusterEnvironmentConfig environmentConfig,
+            Outputs.ClusterEnvironmentConfig? environmentConfig,
 
             string executionRole,
 

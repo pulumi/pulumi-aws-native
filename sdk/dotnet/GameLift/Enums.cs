@@ -680,6 +680,69 @@ namespace Pulumi.AwsNative.GameLift
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ContainerGroupDefinitionLinuxCapabilitiesIncludeItem : IEquatable<ContainerGroupDefinitionLinuxCapabilitiesIncludeItem>
+    {
+        private readonly string _value;
+
+        private ContainerGroupDefinitionLinuxCapabilitiesIncludeItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem AuditControl { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("AUDIT_CONTROL");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem AuditWrite { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("AUDIT_WRITE");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem BlockSuspend { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("BLOCK_SUSPEND");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem Chown { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("CHOWN");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem DacOverride { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("DAC_OVERRIDE");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem DacReadSearch { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("DAC_READ_SEARCH");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem Fowner { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("FOWNER");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem Fsetid { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("FSETID");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem IpcLock { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("IPC_LOCK");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem IpcOwner { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("IPC_OWNER");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem Kill { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("KILL");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem Lease { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("LEASE");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem LinuxImmutable { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("LINUX_IMMUTABLE");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem MacAdmin { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("MAC_ADMIN");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem MacOverride { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("MAC_OVERRIDE");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem Mknod { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("MKNOD");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem NetAdmin { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("NET_ADMIN");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem NetBindService { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("NET_BIND_SERVICE");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem NetBroadcast { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("NET_BROADCAST");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem NetRaw { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("NET_RAW");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem Setfcap { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SETFCAP");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem Setgid { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SETGID");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem Setpcap { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SETPCAP");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem Setuid { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SETUID");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem SysAdmin { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_ADMIN");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem SysBoot { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_BOOT");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem SysChroot { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_CHROOT");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem SysModule { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_MODULE");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem SysNice { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_NICE");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem SysPacct { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_PACCT");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem SysPtrace { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_PTRACE");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem SysRawio { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_RAWIO");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem SysResource { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_RESOURCE");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem SysTime { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_TIME");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem SysTtyConfig { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYS_TTY_CONFIG");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem Syslog { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("SYSLOG");
+        public static ContainerGroupDefinitionLinuxCapabilitiesIncludeItem WakeAlarm { get; } = new ContainerGroupDefinitionLinuxCapabilitiesIncludeItem("WAKE_ALARM");
+
+        public static bool operator ==(ContainerGroupDefinitionLinuxCapabilitiesIncludeItem left, ContainerGroupDefinitionLinuxCapabilitiesIncludeItem right) => left.Equals(right);
+        public static bool operator !=(ContainerGroupDefinitionLinuxCapabilitiesIncludeItem left, ContainerGroupDefinitionLinuxCapabilitiesIncludeItem right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerGroupDefinitionLinuxCapabilitiesIncludeItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerGroupDefinitionLinuxCapabilitiesIncludeItem other && Equals(other);
+        public bool Equals(ContainerGroupDefinitionLinuxCapabilitiesIncludeItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The operating system of the container group
     /// </summary>

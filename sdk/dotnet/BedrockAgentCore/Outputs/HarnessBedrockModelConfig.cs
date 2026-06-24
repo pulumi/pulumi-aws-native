@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class HarnessBedrockModelConfig
     {
+        /// <summary>
+        /// Provider-specific parameters passed through to the model provider unchanged.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? AdditionalParams;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.HarnessBedrockModelConfigApiFormat? ApiFormat;
         public readonly int? MaxTokens;
         public readonly string ModelId;
         public readonly double? Temperature;
@@ -20,6 +25,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
         [OutputConstructor]
         private HarnessBedrockModelConfig(
+            ImmutableDictionary<string, object>? additionalParams,
+
+            Pulumi.AwsNative.BedrockAgentCore.HarnessBedrockModelConfigApiFormat? apiFormat,
+
             int? maxTokens,
 
             string modelId,
@@ -28,6 +37,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             double? topP)
         {
+            AdditionalParams = additionalParams;
+            ApiFormat = apiFormat;
             MaxTokens = maxTokens;
             ModelId = modelId;
             Temperature = temperature;

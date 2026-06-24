@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public Input<string> ImageUri { get; set; } = null!;
 
         /// <summary>
+        /// Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
+        /// </summary>
+        [Input("linuxCapabilities")]
+        public Input<Inputs.ContainerGroupDefinitionLinuxCapabilitiesArgs>? LinuxCapabilities { get; set; }
+
+        /// <summary>
         /// The total memory limit of container groups following this definition in MiB
         /// </summary>
         [Input("memoryHardLimitMebibytes")]

@@ -347,7 +347,7 @@
   "required" : [ "Networking", "Scheduler", "Size" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Networking", "/properties/Scheduler", "/properties/Size" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Networking", "/properties/Size" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Endpoints", "/properties/ErrorInfo", "/properties/Id", "/properties/Status" ],
   "handlers" : {
     "create" : {

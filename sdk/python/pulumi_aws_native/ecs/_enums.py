@@ -42,6 +42,7 @@ __all__ = [
     'ServiceEbsTagSpecificationPropagateTags',
     'ServiceHookTimeoutConfigAction',
     'ServiceLaunchType',
+    'ServiceMetricConfigurationMetricNamesItem',
     'ServicePlacementConstraintType',
     'ServicePlacementStrategyType',
     'ServicePropagateTags',
@@ -422,6 +423,12 @@ class ServiceLaunchType(_builtins.str, Enum):
     EC2 = "EC2"
     FARGATE = "FARGATE"
     EXTERNAL = "EXTERNAL"
+
+
+@pulumi.type_token("aws-native:ecs:ServiceMetricConfigurationMetricNamesItem")
+class ServiceMetricConfigurationMetricNamesItem(_builtins.str, Enum):
+    CPU_UTILIZATION = "CPUUtilization"
+    MEMORY_UTILIZATION = "MemoryUtilization"
 
 
 @pulumi.type_token("aws-native:ecs:ServicePlacementConstraintType")

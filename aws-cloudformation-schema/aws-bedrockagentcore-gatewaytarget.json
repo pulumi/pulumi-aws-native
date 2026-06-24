@@ -437,6 +437,16 @@
         },
         "required" : [ "ApiGateway" ],
         "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "title" : "Connector",
+        "properties" : {
+          "Connector" : {
+            "$ref" : "#/definitions/ConnectorTargetConfiguration"
+          }
+        },
+        "required" : [ "Connector" ],
+        "additionalProperties" : false
       } ]
     },
     "OAuthCredentialProvider" : {
@@ -648,6 +658,16 @@
         },
         "required" : [ "AgentcoreRuntime" ],
         "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "title" : "Passthrough",
+        "properties" : {
+          "Passthrough" : {
+            "$ref" : "#/definitions/PassthroughTargetConfiguration"
+          }
+        },
+        "required" : [ "Passthrough" ],
+        "additionalProperties" : false
       } ]
     },
     "RuntimeTargetConfiguration" : {
@@ -660,6 +680,9 @@
         "Qualifier" : {
           "type" : "string",
           "pattern" : "^(([1-9][0-9]{0,4})|([a-zA-Z][a-zA-Z0-9_]{0,47}))$"
+        },
+        "Schema" : {
+          "$ref" : "#/definitions/HttpApiSchemaConfiguration"
         }
       },
       "required" : [ "Arn" ],
@@ -668,6 +691,136 @@
     "TargetProtocolType" : {
       "type" : "string",
       "enum" : [ "MCP", "HTTP" ]
+    },
+    "ConnectorConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Name" : {
+          "type" : "string",
+          "maxLength" : 64,
+          "pattern" : "^[a-zA-Z][a-zA-Z0-9_-]*$"
+        },
+        "Description" : {
+          "type" : "string",
+          "maxLength" : 2000
+        },
+        "ParameterValues" : {
+          "type" : "object"
+        },
+        "ParameterOverrides" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ConnectorParameterOverride"
+          }
+        }
+      },
+      "required" : [ "Name" ],
+      "additionalProperties" : false
+    },
+    "ConnectorParameterOverride" : {
+      "type" : "object",
+      "properties" : {
+        "Path" : {
+          "type" : "string"
+        },
+        "Description" : {
+          "type" : "string"
+        },
+        "Visible" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Path" ],
+      "additionalProperties" : false
+    },
+    "ConnectorSource" : {
+      "type" : "object",
+      "properties" : {
+        "ConnectorId" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 1
+        }
+      },
+      "required" : [ "ConnectorId" ],
+      "additionalProperties" : false
+    },
+    "ConnectorTargetConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Source" : {
+          "$ref" : "#/definitions/ConnectorSource"
+        },
+        "Enabled" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "maxItems" : 50,
+          "minItems" : 1
+        },
+        "Configurations" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ConnectorConfiguration"
+          }
+        }
+      },
+      "required" : [ "Source" ],
+      "additionalProperties" : false
+    },
+    "HttpApiSchemaConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Source" : {
+          "$ref" : "#/definitions/ApiSchemaConfiguration"
+        }
+      },
+      "required" : [ "Source" ],
+      "additionalProperties" : false
+    },
+    "PassthroughTargetConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Endpoint" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "minLength" : 1,
+          "pattern" : "^https://[a-zA-Z0-9\\-\\.]+(:[0-9]{1,5})?(/.*)?$"
+        },
+        "ProtocolType" : {
+          "$ref" : "#/definitions/PassthroughProtocolType"
+        },
+        "Schema" : {
+          "$ref" : "#/definitions/HttpApiSchemaConfiguration"
+        },
+        "StickinessConfiguration" : {
+          "$ref" : "#/definitions/StickinessConfiguration"
+        }
+      },
+      "required" : [ "Endpoint", "ProtocolType" ],
+      "additionalProperties" : false
+    },
+    "PassthroughProtocolType" : {
+      "type" : "string",
+      "enum" : [ "MCP", "A2A", "INFERENCE", "CUSTOM" ]
+    },
+    "StickinessConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Identifier" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 1
+        },
+        "Timeout" : {
+          "type" : "integer",
+          "maximum" : 86400,
+          "minimum" : 1
+        }
+      },
+      "required" : [ "Identifier" ],
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -745,19 +898,19 @@
       "$ref" : "#/definitions/TargetProtocolType"
     }
   },
-  "required" : [ "Name", "TargetConfiguration" ],
+  "required" : [ "TargetConfiguration" ],
   "createOnlyProperties" : [ "/properties/GatewayIdentifier" ],
   "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/GatewayArn", "/properties/LastSynchronizedAt", "/properties/Status", "/properties/StatusReasons", "/properties/TargetId", "/properties/PrivateEndpointManagedResources", "/properties/UpdatedAt", "/properties/AuthorizationData", "/properties/ProtocolType" ],
   "primaryIdentifier" : [ "/properties/GatewayIdentifier", "/properties/TargetId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "apigateway:GET", "bedrock-agentcore:CreateGatewayTarget", "bedrock-agentcore:GetGatewayTarget", "bedrock-agentcore:GetResourceOauth2Token", "bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:GetWorkloadAccessTokenForUserId", "bedrock-agentcore:SynchronizeGatewayTargets", "kms:Decrypt", "kms:GenerateDataKey", "kms:ListGrants", "s3:GetObject", "secretsmanager:GetSecretValue", "iam:CreateServiceLinkedRole", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "vpc-lattice:AssociateViaAWSService", "vpc-lattice:GetResourceConfiguration", "vpc-lattice:CreateResourceConfiguration", "vpc-lattice:CreateResourceGateway", "vpc-lattice:DeleteResourceConfiguration", "vpc-lattice:DeleteResourceGateway", "vpc-lattice:GetServiceNetworkResourceAssociation", "vpc-lattice:CreateServiceNetworkResourceAssociation", "vpc-lattice:DeleteServiceNetworkResourceAssociation", "vpc-lattice:ListServiceNetworkResourceAssociations" ]
+      "permissions" : [ "apigateway:GET", "bedrock-agentcore:CreateGatewayTarget", "bedrock-agentcore:GetAgentRuntime", "bedrock-agentcore:GetGatewayTarget", "bedrock-agentcore:GetResourceOauth2Token", "bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:GetWorkloadAccessTokenForUserId", "bedrock-agentcore:SynchronizeGatewayTargets", "kms:Decrypt", "kms:GenerateDataKey", "kms:ListGrants", "s3:GetObject", "secretsmanager:GetSecretValue", "iam:CreateServiceLinkedRole", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "vpc-lattice:AssociateViaAWSService", "vpc-lattice:GetResourceConfiguration", "vpc-lattice:CreateResourceConfiguration", "vpc-lattice:CreateResourceGateway", "vpc-lattice:DeleteResourceConfiguration", "vpc-lattice:DeleteResourceGateway", "vpc-lattice:GetServiceNetworkResourceAssociation", "vpc-lattice:CreateServiceNetworkResourceAssociation", "vpc-lattice:DeleteServiceNetworkResourceAssociation", "vpc-lattice:ListServiceNetworkResourceAssociations" ]
     },
     "read" : {
       "permissions" : [ "bedrock-agentcore:GetGatewayTarget" ]
     },
     "update" : {
-      "permissions" : [ "apigateway:GET", "bedrock-agentcore:GetGatewayTarget", "bedrock-agentcore:GetResourceOauth2Token", "bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:GetWorkloadAccessTokenForUserId", "bedrock-agentcore:SynchronizeGatewayTargets", "bedrock-agentcore:UpdateGatewayTarget", "kms:Decrypt", "kms:GenerateDataKey", "kms:ListGrants", "s3:GetObject", "secretsmanager:GetSecretValue", "iam:CreateServiceLinkedRole", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "vpc-lattice:AssociateViaAWSService", "vpc-lattice:GetResourceConfiguration", "vpc-lattice:CreateResourceConfiguration", "vpc-lattice:CreateResourceGateway", "vpc-lattice:DeleteResourceConfiguration", "vpc-lattice:DeleteResourceGateway", "vpc-lattice:GetServiceNetworkResourceAssociation", "vpc-lattice:CreateServiceNetworkResourceAssociation", "vpc-lattice:DeleteServiceNetworkResourceAssociation", "vpc-lattice:ListServiceNetworkResourceAssociations" ]
+      "permissions" : [ "apigateway:GET", "bedrock-agentcore:GetAgentRuntime", "bedrock-agentcore:GetGatewayTarget", "bedrock-agentcore:GetResourceOauth2Token", "bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:GetWorkloadAccessTokenForUserId", "bedrock-agentcore:SynchronizeGatewayTargets", "bedrock-agentcore:UpdateGatewayTarget", "kms:Decrypt", "kms:GenerateDataKey", "kms:ListGrants", "s3:GetObject", "secretsmanager:GetSecretValue", "iam:CreateServiceLinkedRole", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "vpc-lattice:AssociateViaAWSService", "vpc-lattice:GetResourceConfiguration", "vpc-lattice:CreateResourceConfiguration", "vpc-lattice:CreateResourceGateway", "vpc-lattice:DeleteResourceConfiguration", "vpc-lattice:DeleteResourceGateway", "vpc-lattice:GetServiceNetworkResourceAssociation", "vpc-lattice:CreateServiceNetworkResourceAssociation", "vpc-lattice:DeleteServiceNetworkResourceAssociation", "vpc-lattice:ListServiceNetworkResourceAssociations" ]
     },
     "delete" : {
       "permissions" : [ "bedrock-agentcore:DeleteGatewayTarget", "bedrock-agentcore:GetGatewayTarget", "kms:Decrypt", "kms:GenerateDataKey", "kms:ListGrants", "vpc-lattice:DeleteResourceConfiguration", "vpc-lattice:DeleteResourceGateway", "vpc-lattice:DeleteServiceNetworkResourceAssociation" ]

@@ -35,6 +35,8 @@ type Domain struct {
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
 	DomainSettings DomainSettingsPtrOutput `pulumi:"domainSettings"`
+	// Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+	HomeEfsFileSystemCreation DomainHomeEfsFileSystemCreationPtrOutput `pulumi:"homeEfsFileSystemCreation"`
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 	HomeEfsFileSystemId pulumi.StringOutput `pulumi:"homeEfsFileSystemId"`
 	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
@@ -124,6 +126,8 @@ type domainArgs struct {
 	DomainName *string `pulumi:"domainName"`
 	// A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
 	DomainSettings *DomainSettings `pulumi:"domainSettings"`
+	// Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+	HomeEfsFileSystemCreation *DomainHomeEfsFileSystemCreation `pulumi:"homeEfsFileSystemCreation"`
 	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The VPC subnets that Studio uses for communication.
@@ -152,6 +156,8 @@ type DomainArgs struct {
 	DomainName pulumi.StringPtrInput
 	// A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
 	DomainSettings DomainSettingsPtrInput
+	// Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+	HomeEfsFileSystemCreation DomainHomeEfsFileSystemCreationPtrInput
 	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
 	KmsKeyId pulumi.StringPtrInput
 	// The VPC subnets that Studio uses for communication.
@@ -244,6 +250,11 @@ func (o DomainOutput) DomainName() pulumi.StringOutput {
 // A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
 func (o DomainOutput) DomainSettings() DomainSettingsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainSettingsPtrOutput { return v.DomainSettings }).(DomainSettingsPtrOutput)
+}
+
+// Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+func (o DomainOutput) HomeEfsFileSystemCreation() DomainHomeEfsFileSystemCreationPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainHomeEfsFileSystemCreationPtrOutput { return v.HomeEfsFileSystemCreation }).(DomainHomeEfsFileSystemCreationPtrOutput)
 }
 
 // The ID of the Amazon Elastic File System (EFS) managed by this Domain.

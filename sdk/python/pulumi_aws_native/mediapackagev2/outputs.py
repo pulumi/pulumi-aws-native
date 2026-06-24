@@ -472,6 +472,8 @@ class OriginEndpointDashManifestConfiguration(dict):
         suggest = None
         if key == "manifestName":
             suggest = "manifest_name"
+        elif key == "audioTimelinePattern":
+            suggest = "audio_timeline_pattern"
         elif key == "availabilityStartTimeConfiguration":
             suggest = "availability_start_time_configuration"
         elif key == "baseUrls":
@@ -518,6 +520,7 @@ class OriginEndpointDashManifestConfiguration(dict):
 
     def __init__(__self__, *,
                  manifest_name: _builtins.str,
+                 audio_timeline_pattern: Optional['OriginEndpointDashAudioTimelinePattern'] = None,
                  availability_start_time_configuration: Optional['outputs.OriginEndpointDashAvailabilityStartTimeConfigurationProperties'] = None,
                  base_urls: Optional[Sequence['outputs.OriginEndpointDashBaseUrl']] = None,
                  compactness: Optional['OriginEndpointDashCompactness'] = None,
@@ -564,6 +567,8 @@ class OriginEndpointDashManifestConfiguration(dict):
         :param 'OriginEndpointDashUtcTiming' utc_timing: Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
         """
         pulumi.set(__self__, "manifest_name", manifest_name)
+        if audio_timeline_pattern is not None:
+            pulumi.set(__self__, "audio_timeline_pattern", audio_timeline_pattern)
         if availability_start_time_configuration is not None:
             pulumi.set(__self__, "availability_start_time_configuration", availability_start_time_configuration)
         if base_urls is not None:
@@ -608,6 +613,11 @@ class OriginEndpointDashManifestConfiguration(dict):
         <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
         """
         return pulumi.get(self, "manifest_name")
+
+    @_builtins.property
+    @pulumi.getter(name="audioTimelinePattern")
+    def audio_timeline_pattern(self) -> Optional['OriginEndpointDashAudioTimelinePattern']:
+        return pulumi.get(self, "audio_timeline_pattern")
 
     @_builtins.property
     @pulumi.getter(name="availabilityStartTimeConfiguration")

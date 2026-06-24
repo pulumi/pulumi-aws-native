@@ -21,10 +21,13 @@ __all__ = [
     'OrganizationCentralizationRuleCentralizationRuleDestination',
     'OrganizationCentralizationRuleCentralizationRuleSource',
     'OrganizationCentralizationRuleDestinationLogsConfiguration',
+    'OrganizationCentralizationRuleDestinationMetricsConfiguration',
     'OrganizationCentralizationRuleLogGroupNameConfiguration',
     'OrganizationCentralizationRuleLogsBackupConfiguration',
     'OrganizationCentralizationRuleLogsEncryptionConfiguration',
+    'OrganizationCentralizationRuleMetricsBackupConfiguration',
     'OrganizationCentralizationRuleSourceLogsConfiguration',
+    'OrganizationCentralizationRuleSourceMetricsConfiguration',
     'OrganizationTelemetryRuleActionCondition',
     'OrganizationTelemetryRuleAdvancedEventSelector',
     'OrganizationTelemetryRuleAdvancedFieldSelector',
@@ -103,6 +106,8 @@ class OrganizationCentralizationRuleCentralizationRuleDestination(dict):
         suggest = None
         if key == "destinationLogsConfiguration":
             suggest = "destination_logs_configuration"
+        elif key == "destinationMetricsConfiguration":
+            suggest = "destination_metrics_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OrganizationCentralizationRuleCentralizationRuleDestination. Access the value via the '{suggest}' property getter instead.")
@@ -118,7 +123,8 @@ class OrganizationCentralizationRuleCentralizationRuleDestination(dict):
     def __init__(__self__, *,
                  region: _builtins.str,
                  account: Optional[_builtins.str] = None,
-                 destination_logs_configuration: Optional['outputs.OrganizationCentralizationRuleDestinationLogsConfiguration'] = None):
+                 destination_logs_configuration: Optional['outputs.OrganizationCentralizationRuleDestinationLogsConfiguration'] = None,
+                 destination_metrics_configuration: Optional['outputs.OrganizationCentralizationRuleDestinationMetricsConfiguration'] = None):
         """
         :param _builtins.str region: The primary destination region to which telemetry data should be centralized.
         :param _builtins.str account: The destination account (within the organization) to which the telemetry data should be centralized.
@@ -129,6 +135,8 @@ class OrganizationCentralizationRuleCentralizationRuleDestination(dict):
             pulumi.set(__self__, "account", account)
         if destination_logs_configuration is not None:
             pulumi.set(__self__, "destination_logs_configuration", destination_logs_configuration)
+        if destination_metrics_configuration is not None:
+            pulumi.set(__self__, "destination_metrics_configuration", destination_metrics_configuration)
 
     @_builtins.property
     @pulumi.getter
@@ -154,6 +162,11 @@ class OrganizationCentralizationRuleCentralizationRuleDestination(dict):
         """
         return pulumi.get(self, "destination_logs_configuration")
 
+    @_builtins.property
+    @pulumi.getter(name="destinationMetricsConfiguration")
+    def destination_metrics_configuration(self) -> Optional['outputs.OrganizationCentralizationRuleDestinationMetricsConfiguration']:
+        return pulumi.get(self, "destination_metrics_configuration")
+
 
 @pulumi.output_type
 class OrganizationCentralizationRuleCentralizationRuleSource(dict):
@@ -162,6 +175,8 @@ class OrganizationCentralizationRuleCentralizationRuleSource(dict):
         suggest = None
         if key == "sourceLogsConfiguration":
             suggest = "source_logs_configuration"
+        elif key == "sourceMetricsConfiguration":
+            suggest = "source_metrics_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OrganizationCentralizationRuleCentralizationRuleSource. Access the value via the '{suggest}' property getter instead.")
@@ -177,7 +192,8 @@ class OrganizationCentralizationRuleCentralizationRuleSource(dict):
     def __init__(__self__, *,
                  regions: Sequence[_builtins.str],
                  scope: Optional[_builtins.str] = None,
-                 source_logs_configuration: Optional['outputs.OrganizationCentralizationRuleSourceLogsConfiguration'] = None):
+                 source_logs_configuration: Optional['outputs.OrganizationCentralizationRuleSourceLogsConfiguration'] = None,
+                 source_metrics_configuration: Optional['outputs.OrganizationCentralizationRuleSourceMetricsConfiguration'] = None):
         """
         :param Sequence[_builtins.str] regions: The list of source regions from which telemetry data should be centralized.
         :param _builtins.str scope: The organizational scope from which telemetry data should be centralized, specified using organization id, accounts or organizational unit ids.
@@ -188,6 +204,8 @@ class OrganizationCentralizationRuleCentralizationRuleSource(dict):
             pulumi.set(__self__, "scope", scope)
         if source_logs_configuration is not None:
             pulumi.set(__self__, "source_logs_configuration", source_logs_configuration)
+        if source_metrics_configuration is not None:
+            pulumi.set(__self__, "source_metrics_configuration", source_metrics_configuration)
 
     @_builtins.property
     @pulumi.getter
@@ -212,6 +230,11 @@ class OrganizationCentralizationRuleCentralizationRuleSource(dict):
         Log specific configuration for centralization source log groups.
         """
         return pulumi.get(self, "source_logs_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceMetricsConfiguration")
+    def source_metrics_configuration(self) -> Optional['outputs.OrganizationCentralizationRuleSourceMetricsConfiguration']:
+        return pulumi.get(self, "source_metrics_configuration")
 
 
 @pulumi.output_type
@@ -272,6 +295,36 @@ class OrganizationCentralizationRuleDestinationLogsConfiguration(dict):
         The encryption configuration for centralization destination log groups.
         """
         return pulumi.get(self, "logs_encryption_configuration")
+
+
+@pulumi.output_type
+class OrganizationCentralizationRuleDestinationMetricsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupConfiguration":
+            suggest = "backup_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationCentralizationRuleDestinationMetricsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationCentralizationRuleDestinationMetricsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationCentralizationRuleDestinationMetricsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backup_configuration: Optional['outputs.OrganizationCentralizationRuleMetricsBackupConfiguration'] = None):
+        if backup_configuration is not None:
+            pulumi.set(__self__, "backup_configuration", backup_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="backupConfiguration")
+    def backup_configuration(self) -> Optional['outputs.OrganizationCentralizationRuleMetricsBackupConfiguration']:
+        return pulumi.get(self, "backup_configuration")
 
 
 @pulumi.output_type
@@ -414,6 +467,18 @@ class OrganizationCentralizationRuleLogsEncryptionConfiguration(dict):
 
 
 @pulumi.output_type
+class OrganizationCentralizationRuleMetricsBackupConfiguration(dict):
+    def __init__(__self__, *,
+                 region: _builtins.str):
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
 class OrganizationCentralizationRuleSourceLogsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -470,6 +535,36 @@ class OrganizationCentralizationRuleSourceLogsConfiguration(dict):
         The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.
         """
         return pulumi.get(self, "log_group_selection_criteria")
+
+
+@pulumi.output_type
+class OrganizationCentralizationRuleSourceMetricsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricsSelectionCriteria":
+            suggest = "metrics_selection_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationCentralizationRuleSourceMetricsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationCentralizationRuleSourceMetricsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationCentralizationRuleSourceMetricsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metrics_selection_criteria: Optional[_builtins.str] = None):
+        if metrics_selection_criteria is not None:
+            pulumi.set(__self__, "metrics_selection_criteria", metrics_selection_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsSelectionCriteria")
+    def metrics_selection_criteria(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "metrics_selection_criteria")
 
 
 @pulumi.output_type

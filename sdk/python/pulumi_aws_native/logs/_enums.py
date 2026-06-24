@@ -9,6 +9,8 @@ from enum import Enum
 __all__ = [
     'AccountPolicyPolicyType',
     'AccountPolicyScope',
+    'DeliverySourceStatus',
+    'DeliverySourceStatusReason',
     'IntegrationStatus',
     'IntegrationType',
     'LogAnomalyDetectorEvaluationFrequency',
@@ -43,6 +45,23 @@ class AccountPolicyScope(_builtins.str, Enum):
     Scope for policy application
     """
     ALL = "ALL"
+
+
+@pulumi.type_token("aws-native:logs:DeliverySourceStatus")
+class DeliverySourceStatus(_builtins.str, Enum):
+    """
+    The status of this delivery source. The value can be ACTIVE or INACTIVE.
+    """
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+
+
+@pulumi.type_token("aws-native:logs:DeliverySourceStatusReason")
+class DeliverySourceStatusReason(_builtins.str, Enum):
+    """
+    The reason for the status of this delivery source, such as RESOURCE_DELETED.
+    """
+    RESOURCE_DELETED = "RESOURCE_DELETED"
 
 
 @pulumi.type_token("aws-native:logs:IntegrationStatus")

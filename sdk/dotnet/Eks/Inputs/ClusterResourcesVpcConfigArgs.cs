@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Eks.Inputs
     public sealed class ClusterResourcesVpcConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specify the egress mode for the cluster control plane. If you set this to CUSTOMER_ROUTED, the control plane routes traffic through your VPC subnets instead of using AWS managed networking.
+        /// </summary>
+        [Input("controlPlaneEgressMode")]
+        public Input<string>? ControlPlaneEgressMode { get; set; }
+
+        /// <summary>
         /// Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
         /// </summary>
         [Input("endpointPrivateAccess")]

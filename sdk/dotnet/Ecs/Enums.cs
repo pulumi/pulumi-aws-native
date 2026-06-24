@@ -1145,6 +1145,34 @@ namespace Pulumi.AwsNative.Ecs
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ServiceMetricConfigurationMetricNamesItem : IEquatable<ServiceMetricConfigurationMetricNamesItem>
+    {
+        private readonly string _value;
+
+        private ServiceMetricConfigurationMetricNamesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceMetricConfigurationMetricNamesItem CpuUtilization { get; } = new ServiceMetricConfigurationMetricNamesItem("CPUUtilization");
+        public static ServiceMetricConfigurationMetricNamesItem MemoryUtilization { get; } = new ServiceMetricConfigurationMetricNamesItem("MemoryUtilization");
+
+        public static bool operator ==(ServiceMetricConfigurationMetricNamesItem left, ServiceMetricConfigurationMetricNamesItem right) => left.Equals(right);
+        public static bool operator !=(ServiceMetricConfigurationMetricNamesItem left, ServiceMetricConfigurationMetricNamesItem right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceMetricConfigurationMetricNamesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceMetricConfigurationMetricNamesItem other && Equals(other);
+        public bool Equals(ServiceMetricConfigurationMetricNamesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The type of constraint. Use ``distinctInstance`` to ensure that each task in a particular group is running on a different container instance. Use ``memberOf`` to restrict the selection to a group of valid candidates.
     /// </summary>

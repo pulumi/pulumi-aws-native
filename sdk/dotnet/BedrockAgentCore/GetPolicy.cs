@@ -72,6 +72,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// A human-readable description of the policy's purpose and functionality.
         /// </summary>
         public readonly string? Description;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.PolicyEnforcementMode? EnforcementMode;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the policy.
         /// </summary>
@@ -101,6 +102,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? description,
 
+            Pulumi.AwsNative.BedrockAgentCore.PolicyEnforcementMode? enforcementMode,
+
             string? policyArn,
 
             string? policyId,
@@ -114,6 +117,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             CreatedAt = createdAt;
             Definition = definition;
             Description = description;
+            EnforcementMode = enforcementMode;
             PolicyArn = policyArn;
             PolicyId = policyId;
             Status = status;

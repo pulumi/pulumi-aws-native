@@ -37,4 +37,34 @@ namespace Pulumi.AwsNative.Neptune
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The name of the database engine.
+    /// </summary>
+    [EnumType]
+    public readonly struct GlobalClusterEngine : IEquatable<GlobalClusterEngine>
+    {
+        private readonly string _value;
+
+        private GlobalClusterEngine(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GlobalClusterEngine Neptune { get; } = new GlobalClusterEngine("neptune");
+
+        public static bool operator ==(GlobalClusterEngine left, GlobalClusterEngine right) => left.Equals(right);
+        public static bool operator !=(GlobalClusterEngine left, GlobalClusterEngine right) => !left.Equals(right);
+
+        public static explicit operator string(GlobalClusterEngine value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GlobalClusterEngine other && Equals(other);
+        public bool Equals(GlobalClusterEngine other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

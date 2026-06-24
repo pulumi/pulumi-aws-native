@@ -203,7 +203,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly Outputs.TaskDefinitionRepositoryCredentials? RepositoryCredentials;
         /// <summary>
-        /// The type and amount of a resource to assign to a container. The only supported resource is a GPU.
+        /// The type and amount of a resource to assign to a container. The supported resources are GPUs and Neuron devices.
         /// </summary>
         public readonly ImmutableArray<Outputs.TaskDefinitionResourceRequirement> ResourceRequirements;
         /// <summary>

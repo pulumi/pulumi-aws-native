@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class HarnessOpenAiModelConfig
     {
+        /// <summary>
+        /// Provider-specific parameters passed through to the model provider unchanged.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? AdditionalParams;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.HarnessOpenAiModelConfigApiFormat? ApiFormat;
         public readonly string ApiKeyArn;
         public readonly int? MaxTokens;
         public readonly string ModelId;
@@ -21,6 +26,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
         [OutputConstructor]
         private HarnessOpenAiModelConfig(
+            ImmutableDictionary<string, object>? additionalParams,
+
+            Pulumi.AwsNative.BedrockAgentCore.HarnessOpenAiModelConfigApiFormat? apiFormat,
+
             string apiKeyArn,
 
             int? maxTokens,
@@ -31,6 +40,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             double? topP)
         {
+            AdditionalParams = additionalParams;
+            ApiFormat = apiFormat;
             ApiKeyArn = apiKeyArn;
             MaxTokens = maxTokens;
             ModelId = modelId;

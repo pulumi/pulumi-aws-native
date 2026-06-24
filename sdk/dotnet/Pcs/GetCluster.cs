@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.Pcs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The cluster management and job scheduling software associated with the cluster.
+        /// </summary>
+        public readonly Outputs.SchedulerProperties? Scheduler;
+        /// <summary>
         /// Additional options related to the Slurm scheduler.
         /// </summary>
         public readonly Outputs.SlurmConfigurationProperties? SlurmConfiguration;
@@ -102,6 +106,8 @@ namespace Pulumi.AwsNative.Pcs
 
             string? id,
 
+            Outputs.SchedulerProperties? scheduler,
+
             Outputs.SlurmConfigurationProperties? slurmConfiguration,
 
             Pulumi.AwsNative.Pcs.ClusterStatus? status,
@@ -112,6 +118,7 @@ namespace Pulumi.AwsNative.Pcs
             Endpoints = endpoints;
             ErrorInfo = errorInfo;
             Id = id;
+            Scheduler = scheduler;
             SlurmConfiguration = slurmConfiguration;
             Status = status;
             Tags = tags;

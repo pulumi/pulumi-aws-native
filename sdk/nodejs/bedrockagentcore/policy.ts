@@ -46,6 +46,7 @@ export class Policy extends pulumi.CustomResource {
      * A human-readable description of the policy's purpose and functionality.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly enforcementMode: pulumi.Output<enums.bedrockagentcore.PolicyEnforcementMode | undefined>;
     /**
      * The customer-assigned immutable name for the policy. Must be unique within the policy engine.
      */
@@ -95,6 +96,7 @@ export class Policy extends pulumi.CustomResource {
             }
             resourceInputs["definition"] = args?.definition;
             resourceInputs["description"] = args?.description;
+            resourceInputs["enforcementMode"] = args?.enforcementMode;
             resourceInputs["name"] = args?.name;
             resourceInputs["policyEngineId"] = args?.policyEngineId;
             resourceInputs["validationMode"] = args?.validationMode;
@@ -108,6 +110,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["definition"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enforcementMode"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyArn"] = undefined /*out*/;
             resourceInputs["policyEngineId"] = undefined /*out*/;
@@ -133,6 +136,7 @@ export interface PolicyArgs {
      * A human-readable description of the policy's purpose and functionality.
      */
     description?: pulumi.Input<string>;
+    enforcementMode?: pulumi.Input<enums.bedrockagentcore.PolicyEnforcementMode>;
     /**
      * The customer-assigned immutable name for the policy. Must be unique within the policy engine.
      */

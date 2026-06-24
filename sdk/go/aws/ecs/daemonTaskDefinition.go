@@ -24,10 +24,14 @@ type DaemonTaskDefinition struct {
 	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
 	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
 	// The name of a family that this daemon task definition is registered to.
-	Family  pulumi.StringPtrOutput `pulumi:"family"`
+	Family pulumi.StringPtrOutput `pulumi:"family"`
+	// The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+	//  If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: "host"`` or other daemons that use ``ipcMode: "shared"``.
 	IpcMode pulumi.StringPtrOutput `pulumi:"ipcMode"`
 	// The amount of memory (in MiB) used by the daemon task.
-	Memory  pulumi.StringPtrOutput `pulumi:"memory"`
+	Memory pulumi.StringPtrOutput `pulumi:"memory"`
+	// The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+	//  If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: "host"`` or other daemons that use ``pidMode: "shared"``.
 	PidMode pulumi.StringPtrOutput `pulumi:"pidMode"`
 	Tags    aws.TagArrayOutput     `pulumi:"tags"`
 	// The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
@@ -95,10 +99,14 @@ type daemonTaskDefinitionArgs struct {
 	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// The name of a family that this daemon task definition is registered to.
-	Family  *string `pulumi:"family"`
+	Family *string `pulumi:"family"`
+	// The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+	//  If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: "host"`` or other daemons that use ``ipcMode: "shared"``.
 	IpcMode *string `pulumi:"ipcMode"`
 	// The amount of memory (in MiB) used by the daemon task.
-	Memory  *string   `pulumi:"memory"`
+	Memory *string `pulumi:"memory"`
+	// The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+	//  If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: "host"`` or other daemons that use ``pidMode: "shared"``.
 	PidMode *string   `pulumi:"pidMode"`
 	Tags    []aws.Tag `pulumi:"tags"`
 	// The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
@@ -116,10 +124,14 @@ type DaemonTaskDefinitionArgs struct {
 	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
 	ExecutionRoleArn pulumi.StringPtrInput
 	// The name of a family that this daemon task definition is registered to.
-	Family  pulumi.StringPtrInput
+	Family pulumi.StringPtrInput
+	// The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+	//  If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: "host"`` or other daemons that use ``ipcMode: "shared"``.
 	IpcMode pulumi.StringPtrInput
 	// The amount of memory (in MiB) used by the daemon task.
-	Memory  pulumi.StringPtrInput
+	Memory pulumi.StringPtrInput
+	// The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+	//  If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: "host"`` or other daemons that use ``pidMode: "shared"``.
 	PidMode pulumi.StringPtrInput
 	Tags    aws.TagArrayInput
 	// The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
@@ -191,6 +203,9 @@ func (o DaemonTaskDefinitionOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DaemonTaskDefinition) pulumi.StringPtrOutput { return v.Family }).(pulumi.StringPtrOutput)
 }
 
+// The IPC namespace mode for the daemon. The valid values are “none“ and “shared“. The default is “none“.
+//
+//	If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: "host"`` or other daemons that use ``ipcMode: "shared"``.
 func (o DaemonTaskDefinitionOutput) IpcMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DaemonTaskDefinition) pulumi.StringPtrOutput { return v.IpcMode }).(pulumi.StringPtrOutput)
 }
@@ -200,6 +215,9 @@ func (o DaemonTaskDefinitionOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DaemonTaskDefinition) pulumi.StringPtrOutput { return v.Memory }).(pulumi.StringPtrOutput)
 }
 
+// The PID namespace mode for the daemon. The valid values are “none“ and “shared“. The default is “none“.
+//
+//	If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: "host"`` or other daemons that use ``pidMode: "shared"``.
 func (o DaemonTaskDefinitionOutput) PidMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DaemonTaskDefinition) pulumi.StringPtrOutput { return v.PidMode }).(pulumi.StringPtrOutput)
 }

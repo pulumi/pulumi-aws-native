@@ -7786,6 +7786,172 @@ func (in *dataSourceDataDeletionPolicyPtr) ToDataSourceDataDeletionPolicyPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceDataDeletionPolicyPtrOutput)
 }
 
+// Indicates whether a feature is enabled or disabled.
+type DataSourceEnabledOrDisabledState string
+
+const (
+	DataSourceEnabledOrDisabledStateEnabled  = DataSourceEnabledOrDisabledState("ENABLED")
+	DataSourceEnabledOrDisabledStateDisabled = DataSourceEnabledOrDisabledState("DISABLED")
+)
+
+func (DataSourceEnabledOrDisabledState) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceEnabledOrDisabledState)(nil)).Elem()
+}
+
+func (e DataSourceEnabledOrDisabledState) ToDataSourceEnabledOrDisabledStateOutput() DataSourceEnabledOrDisabledStateOutput {
+	return pulumi.ToOutput(e).(DataSourceEnabledOrDisabledStateOutput)
+}
+
+func (e DataSourceEnabledOrDisabledState) ToDataSourceEnabledOrDisabledStateOutputWithContext(ctx context.Context) DataSourceEnabledOrDisabledStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceEnabledOrDisabledStateOutput)
+}
+
+func (e DataSourceEnabledOrDisabledState) ToDataSourceEnabledOrDisabledStatePtrOutput() DataSourceEnabledOrDisabledStatePtrOutput {
+	return e.ToDataSourceEnabledOrDisabledStatePtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceEnabledOrDisabledState) ToDataSourceEnabledOrDisabledStatePtrOutputWithContext(ctx context.Context) DataSourceEnabledOrDisabledStatePtrOutput {
+	return DataSourceEnabledOrDisabledState(e).ToDataSourceEnabledOrDisabledStateOutputWithContext(ctx).ToDataSourceEnabledOrDisabledStatePtrOutputWithContext(ctx)
+}
+
+func (e DataSourceEnabledOrDisabledState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceEnabledOrDisabledState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceEnabledOrDisabledState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceEnabledOrDisabledState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceEnabledOrDisabledStateOutput struct{ *pulumi.OutputState }
+
+func (DataSourceEnabledOrDisabledStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceEnabledOrDisabledState)(nil)).Elem()
+}
+
+func (o DataSourceEnabledOrDisabledStateOutput) ToDataSourceEnabledOrDisabledStateOutput() DataSourceEnabledOrDisabledStateOutput {
+	return o
+}
+
+func (o DataSourceEnabledOrDisabledStateOutput) ToDataSourceEnabledOrDisabledStateOutputWithContext(ctx context.Context) DataSourceEnabledOrDisabledStateOutput {
+	return o
+}
+
+func (o DataSourceEnabledOrDisabledStateOutput) ToDataSourceEnabledOrDisabledStatePtrOutput() DataSourceEnabledOrDisabledStatePtrOutput {
+	return o.ToDataSourceEnabledOrDisabledStatePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceEnabledOrDisabledStateOutput) ToDataSourceEnabledOrDisabledStatePtrOutputWithContext(ctx context.Context) DataSourceEnabledOrDisabledStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceEnabledOrDisabledState) *DataSourceEnabledOrDisabledState {
+		return &v
+	}).(DataSourceEnabledOrDisabledStatePtrOutput)
+}
+
+func (o DataSourceEnabledOrDisabledStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceEnabledOrDisabledStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceEnabledOrDisabledState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceEnabledOrDisabledStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceEnabledOrDisabledStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceEnabledOrDisabledState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceEnabledOrDisabledStatePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceEnabledOrDisabledStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceEnabledOrDisabledState)(nil)).Elem()
+}
+
+func (o DataSourceEnabledOrDisabledStatePtrOutput) ToDataSourceEnabledOrDisabledStatePtrOutput() DataSourceEnabledOrDisabledStatePtrOutput {
+	return o
+}
+
+func (o DataSourceEnabledOrDisabledStatePtrOutput) ToDataSourceEnabledOrDisabledStatePtrOutputWithContext(ctx context.Context) DataSourceEnabledOrDisabledStatePtrOutput {
+	return o
+}
+
+func (o DataSourceEnabledOrDisabledStatePtrOutput) Elem() DataSourceEnabledOrDisabledStateOutput {
+	return o.ApplyT(func(v *DataSourceEnabledOrDisabledState) DataSourceEnabledOrDisabledState {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceEnabledOrDisabledState
+		return ret
+	}).(DataSourceEnabledOrDisabledStateOutput)
+}
+
+func (o DataSourceEnabledOrDisabledStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceEnabledOrDisabledStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceEnabledOrDisabledState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceEnabledOrDisabledStateInput is an input type that accepts values of the DataSourceEnabledOrDisabledState enum
+// A concrete instance of `DataSourceEnabledOrDisabledStateInput` can be one of the following:
+//
+//	DataSourceEnabledOrDisabledStateEnabled
+//	DataSourceEnabledOrDisabledStateDisabled
+type DataSourceEnabledOrDisabledStateInput interface {
+	pulumi.Input
+
+	ToDataSourceEnabledOrDisabledStateOutput() DataSourceEnabledOrDisabledStateOutput
+	ToDataSourceEnabledOrDisabledStateOutputWithContext(context.Context) DataSourceEnabledOrDisabledStateOutput
+}
+
+var dataSourceEnabledOrDisabledStatePtrType = reflect.TypeOf((**DataSourceEnabledOrDisabledState)(nil)).Elem()
+
+type DataSourceEnabledOrDisabledStatePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceEnabledOrDisabledStatePtrOutput() DataSourceEnabledOrDisabledStatePtrOutput
+	ToDataSourceEnabledOrDisabledStatePtrOutputWithContext(context.Context) DataSourceEnabledOrDisabledStatePtrOutput
+}
+
+type dataSourceEnabledOrDisabledStatePtr string
+
+func DataSourceEnabledOrDisabledStatePtr(v string) DataSourceEnabledOrDisabledStatePtrInput {
+	return (*dataSourceEnabledOrDisabledStatePtr)(&v)
+}
+
+func (*dataSourceEnabledOrDisabledStatePtr) ElementType() reflect.Type {
+	return dataSourceEnabledOrDisabledStatePtrType
+}
+
+func (in *dataSourceEnabledOrDisabledStatePtr) ToDataSourceEnabledOrDisabledStatePtrOutput() DataSourceEnabledOrDisabledStatePtrOutput {
+	return pulumi.ToOutput(in).(DataSourceEnabledOrDisabledStatePtrOutput)
+}
+
+func (in *dataSourceEnabledOrDisabledStatePtr) ToDataSourceEnabledOrDisabledStatePtrOutputWithContext(ctx context.Context) DataSourceEnabledOrDisabledStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceEnabledOrDisabledStatePtrOutput)
+}
+
 // Enrichment Strategy method.
 type DataSourceEnrichmentStrategyMethod string
 
@@ -8120,6 +8286,7 @@ type DataSourceParsingStrategy string
 const (
 	DataSourceParsingStrategyBedrockFoundationModel = DataSourceParsingStrategy("BEDROCK_FOUNDATION_MODEL")
 	DataSourceParsingStrategyBedrockDataAutomation  = DataSourceParsingStrategy("BEDROCK_DATA_AUTOMATION")
+	DataSourceParsingStrategySmartParsing           = DataSourceParsingStrategy("SMART_PARSING")
 )
 
 func (DataSourceParsingStrategy) ElementType() reflect.Type {
@@ -8246,6 +8413,7 @@ func (o DataSourceParsingStrategyPtrOutput) ToStringPtrOutputWithContext(ctx con
 //
 //	DataSourceParsingStrategyBedrockFoundationModel
 //	DataSourceParsingStrategyBedrockDataAutomation
+//	DataSourceParsingStrategySmartParsing
 type DataSourceParsingStrategyInput interface {
 	pulumi.Input
 
@@ -8781,6 +8949,9 @@ const (
 	DataSourceStatusAvailable          = DataSourceStatus("AVAILABLE")
 	DataSourceStatusDeleting           = DataSourceStatus("DELETING")
 	DataSourceStatusDeleteUnsuccessful = DataSourceStatus("DELETE_UNSUCCESSFUL")
+	DataSourceStatusCreating           = DataSourceStatus("CREATING")
+	DataSourceStatusUpdating           = DataSourceStatus("UPDATING")
+	DataSourceStatusFailed             = DataSourceStatus("FAILED")
 )
 
 type DataSourceStatusOutput struct{ *pulumi.OutputState }
@@ -9034,13 +9205,14 @@ func (in *dataSourceTransformationStepToApplyPtr) ToDataSourceTransformationStep
 type DataSourceType string
 
 const (
-	DataSourceTypeS3               = DataSourceType("S3")
-	DataSourceTypeConfluence       = DataSourceType("CONFLUENCE")
-	DataSourceTypeSalesforce       = DataSourceType("SALESFORCE")
-	DataSourceTypeSharepoint       = DataSourceType("SHAREPOINT")
-	DataSourceTypeWeb              = DataSourceType("WEB")
-	DataSourceTypeCustom           = DataSourceType("CUSTOM")
-	DataSourceTypeRedshiftMetadata = DataSourceType("REDSHIFT_METADATA")
+	DataSourceTypeS3                            = DataSourceType("S3")
+	DataSourceTypeConfluence                    = DataSourceType("CONFLUENCE")
+	DataSourceTypeSalesforce                    = DataSourceType("SALESFORCE")
+	DataSourceTypeSharepoint                    = DataSourceType("SHAREPOINT")
+	DataSourceTypeWeb                           = DataSourceType("WEB")
+	DataSourceTypeCustom                        = DataSourceType("CUSTOM")
+	DataSourceTypeRedshiftMetadata              = DataSourceType("REDSHIFT_METADATA")
+	DataSourceTypeManagedKnowledgeBaseConnector = DataSourceType("MANAGED_KNOWLEDGE_BASE_CONNECTOR")
 )
 
 func (DataSourceType) ElementType() reflect.Type {
@@ -9172,6 +9344,7 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 //	DataSourceTypeWeb
 //	DataSourceTypeCustom
 //	DataSourceTypeRedshiftMetadata
+//	DataSourceTypeManagedKnowledgeBaseConnector
 type DataSourceTypeInput interface {
 	pulumi.Input
 
@@ -15286,6 +15459,172 @@ func (in *knowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtr) T
 	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput)
 }
 
+// The type of embedding model to use for the managed knowledge base.
+type KnowledgeBaseEmbeddingModelType string
+
+const (
+	KnowledgeBaseEmbeddingModelTypeCustom  = KnowledgeBaseEmbeddingModelType("CUSTOM")
+	KnowledgeBaseEmbeddingModelTypeManaged = KnowledgeBaseEmbeddingModelType("MANAGED")
+)
+
+func (KnowledgeBaseEmbeddingModelType) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseEmbeddingModelType)(nil)).Elem()
+}
+
+func (e KnowledgeBaseEmbeddingModelType) ToKnowledgeBaseEmbeddingModelTypeOutput() KnowledgeBaseEmbeddingModelTypeOutput {
+	return pulumi.ToOutput(e).(KnowledgeBaseEmbeddingModelTypeOutput)
+}
+
+func (e KnowledgeBaseEmbeddingModelType) ToKnowledgeBaseEmbeddingModelTypeOutputWithContext(ctx context.Context) KnowledgeBaseEmbeddingModelTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnowledgeBaseEmbeddingModelTypeOutput)
+}
+
+func (e KnowledgeBaseEmbeddingModelType) ToKnowledgeBaseEmbeddingModelTypePtrOutput() KnowledgeBaseEmbeddingModelTypePtrOutput {
+	return e.ToKnowledgeBaseEmbeddingModelTypePtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseEmbeddingModelType) ToKnowledgeBaseEmbeddingModelTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseEmbeddingModelTypePtrOutput {
+	return KnowledgeBaseEmbeddingModelType(e).ToKnowledgeBaseEmbeddingModelTypeOutputWithContext(ctx).ToKnowledgeBaseEmbeddingModelTypePtrOutputWithContext(ctx)
+}
+
+func (e KnowledgeBaseEmbeddingModelType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseEmbeddingModelType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseEmbeddingModelType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseEmbeddingModelType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KnowledgeBaseEmbeddingModelTypeOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseEmbeddingModelTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseEmbeddingModelType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseEmbeddingModelTypeOutput) ToKnowledgeBaseEmbeddingModelTypeOutput() KnowledgeBaseEmbeddingModelTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseEmbeddingModelTypeOutput) ToKnowledgeBaseEmbeddingModelTypeOutputWithContext(ctx context.Context) KnowledgeBaseEmbeddingModelTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseEmbeddingModelTypeOutput) ToKnowledgeBaseEmbeddingModelTypePtrOutput() KnowledgeBaseEmbeddingModelTypePtrOutput {
+	return o.ToKnowledgeBaseEmbeddingModelTypePtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseEmbeddingModelTypeOutput) ToKnowledgeBaseEmbeddingModelTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseEmbeddingModelTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseEmbeddingModelType) *KnowledgeBaseEmbeddingModelType {
+		return &v
+	}).(KnowledgeBaseEmbeddingModelTypePtrOutput)
+}
+
+func (o KnowledgeBaseEmbeddingModelTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseEmbeddingModelTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseEmbeddingModelType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseEmbeddingModelTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseEmbeddingModelTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseEmbeddingModelType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseEmbeddingModelTypePtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseEmbeddingModelTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseEmbeddingModelType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseEmbeddingModelTypePtrOutput) ToKnowledgeBaseEmbeddingModelTypePtrOutput() KnowledgeBaseEmbeddingModelTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseEmbeddingModelTypePtrOutput) ToKnowledgeBaseEmbeddingModelTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseEmbeddingModelTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseEmbeddingModelTypePtrOutput) Elem() KnowledgeBaseEmbeddingModelTypeOutput {
+	return o.ApplyT(func(v *KnowledgeBaseEmbeddingModelType) KnowledgeBaseEmbeddingModelType {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseEmbeddingModelType
+		return ret
+	}).(KnowledgeBaseEmbeddingModelTypeOutput)
+}
+
+func (o KnowledgeBaseEmbeddingModelTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseEmbeddingModelTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnowledgeBaseEmbeddingModelType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KnowledgeBaseEmbeddingModelTypeInput is an input type that accepts values of the KnowledgeBaseEmbeddingModelType enum
+// A concrete instance of `KnowledgeBaseEmbeddingModelTypeInput` can be one of the following:
+//
+//	KnowledgeBaseEmbeddingModelTypeCustom
+//	KnowledgeBaseEmbeddingModelTypeManaged
+type KnowledgeBaseEmbeddingModelTypeInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseEmbeddingModelTypeOutput() KnowledgeBaseEmbeddingModelTypeOutput
+	ToKnowledgeBaseEmbeddingModelTypeOutputWithContext(context.Context) KnowledgeBaseEmbeddingModelTypeOutput
+}
+
+var knowledgeBaseEmbeddingModelTypePtrType = reflect.TypeOf((**KnowledgeBaseEmbeddingModelType)(nil)).Elem()
+
+type KnowledgeBaseEmbeddingModelTypePtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseEmbeddingModelTypePtrOutput() KnowledgeBaseEmbeddingModelTypePtrOutput
+	ToKnowledgeBaseEmbeddingModelTypePtrOutputWithContext(context.Context) KnowledgeBaseEmbeddingModelTypePtrOutput
+}
+
+type knowledgeBaseEmbeddingModelTypePtr string
+
+func KnowledgeBaseEmbeddingModelTypePtr(v string) KnowledgeBaseEmbeddingModelTypePtrInput {
+	return (*knowledgeBaseEmbeddingModelTypePtr)(&v)
+}
+
+func (*knowledgeBaseEmbeddingModelTypePtr) ElementType() reflect.Type {
+	return knowledgeBaseEmbeddingModelTypePtrType
+}
+
+func (in *knowledgeBaseEmbeddingModelTypePtr) ToKnowledgeBaseEmbeddingModelTypePtrOutput() KnowledgeBaseEmbeddingModelTypePtrOutput {
+	return pulumi.ToOutput(in).(KnowledgeBaseEmbeddingModelTypePtrOutput)
+}
+
+func (in *knowledgeBaseEmbeddingModelTypePtr) ToKnowledgeBaseEmbeddingModelTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseEmbeddingModelTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseEmbeddingModelTypePtrOutput)
+}
+
 // Include or Exclude status for an entity
 type KnowledgeBaseInclusionType string
 
@@ -16292,6 +16631,7 @@ const (
 	KnowledgeBaseStatusUpdating           = KnowledgeBaseStatus("UPDATING")
 	KnowledgeBaseStatusFailed             = KnowledgeBaseStatus("FAILED")
 	KnowledgeBaseStatusDeleteUnsuccessful = KnowledgeBaseStatus("DELETE_UNSUCCESSFUL")
+	KnowledgeBaseStatusUpdateUnsuccessful = KnowledgeBaseStatus("UPDATE_UNSUCCESSFUL")
 )
 
 type KnowledgeBaseStatusOutput struct{ *pulumi.OutputState }
@@ -16721,9 +17061,10 @@ func (in *knowledgeBaseSupplementalDataStorageLocationTypePtr) ToKnowledgeBaseSu
 type KnowledgeBaseType string
 
 const (
-	KnowledgeBaseTypeVector = KnowledgeBaseType("VECTOR")
-	KnowledgeBaseTypeKendra = KnowledgeBaseType("KENDRA")
-	KnowledgeBaseTypeSql    = KnowledgeBaseType("SQL")
+	KnowledgeBaseTypeVector  = KnowledgeBaseType("VECTOR")
+	KnowledgeBaseTypeKendra  = KnowledgeBaseType("KENDRA")
+	KnowledgeBaseTypeSql     = KnowledgeBaseType("SQL")
+	KnowledgeBaseTypeManaged = KnowledgeBaseType("MANAGED")
 )
 
 func (KnowledgeBaseType) ElementType() reflect.Type {
@@ -16851,6 +17192,7 @@ func (o KnowledgeBaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 //	KnowledgeBaseTypeVector
 //	KnowledgeBaseTypeKendra
 //	KnowledgeBaseTypeSql
+//	KnowledgeBaseTypeManaged
 type KnowledgeBaseTypeInput interface {
 	pulumi.Input
 
@@ -17742,6 +18084,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCrawlFilterConfigurationTypePtrInput)(nil)).Elem(), DataSourceCrawlFilterConfigurationType("PATTERN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDataDeletionPolicyInput)(nil)).Elem(), DataSourceDataDeletionPolicy("RETAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDataDeletionPolicyPtrInput)(nil)).Elem(), DataSourceDataDeletionPolicy("RETAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnabledOrDisabledStateInput)(nil)).Elem(), DataSourceEnabledOrDisabledState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnabledOrDisabledStatePtrInput)(nil)).Elem(), DataSourceEnabledOrDisabledState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnrichmentStrategyMethodInput)(nil)).Elem(), DataSourceEnrichmentStrategyMethod("CHUNK_ENTITY_EXTRACTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnrichmentStrategyMethodPtrInput)(nil)).Elem(), DataSourceEnrichmentStrategyMethod("CHUNK_ENTITY_EXTRACTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingModalityInput)(nil)).Elem(), DataSourceParsingModality("MULTIMODAL"))
@@ -17815,6 +18159,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordActionPtrInput)(nil)).Elem(), GuardrailWordAction("BLOCK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeInput)(nil)).Elem(), KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType("FLOAT32"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrInput)(nil)).Elem(), KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType("FLOAT32"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseEmbeddingModelTypeInput)(nil)).Elem(), KnowledgeBaseEmbeddingModelType("CUSTOM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseEmbeddingModelTypePtrInput)(nil)).Elem(), KnowledgeBaseEmbeddingModelType("CUSTOM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseInclusionTypeInput)(nil)).Elem(), KnowledgeBaseInclusionType("INCLUDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseInclusionTypePtrInput)(nil)).Elem(), KnowledgeBaseInclusionType("INCLUDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseQueryEngineTypeInput)(nil)).Elem(), KnowledgeBaseQueryEngineType("REDSHIFT"))
@@ -17945,6 +18291,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceCrawlFilterConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDataDeletionPolicyOutput{})
 	pulumi.RegisterOutputType(DataSourceDataDeletionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceEnabledOrDisabledStateOutput{})
+	pulumi.RegisterOutputType(DataSourceEnabledOrDisabledStatePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceEnrichmentStrategyMethodOutput{})
 	pulumi.RegisterOutputType(DataSourceEnrichmentStrategyMethodPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceParsingModalityOutput{})
@@ -18048,6 +18396,8 @@ func init() {
 	pulumi.RegisterOutputType(IntelligentPromptRouterPromptRouterTypePtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseEmbeddingModelTypeOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseEmbeddingModelTypePtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseInclusionTypeOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseInclusionTypePtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseQueryEngineTypeOutput{})

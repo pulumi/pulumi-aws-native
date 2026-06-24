@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BedrockAgentCore
 {
     /// <summary>
-    /// Definition of AWS::BedrockAgentCore::Harness resource type - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
+    /// Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
     /// </summary>
     [AwsNativeResourceType("aws-native:bedrockagentcore:Harness")]
     public partial class Harness : global::Pulumi.CustomResource
@@ -147,6 +147,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The version of the harness. Incremented on every successful update.
+        /// </summary>
+        [Output("version")]
+        public Output<string> Version { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Harness resource with the given unique name, arguments, and options.
@@ -172,8 +178,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "environment.agentCoreRuntimeEnvironment.networkConfiguration",
                     "harnessName",
+                    "memory.managedMemoryConfiguration.encryptionKeyArn",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -41,6 +41,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("managedLoginVersion")]
         public Output<int?> ManagedLoginVersion { get; private set; } = null!;
 
+        [Output("routing")]
+        public Output<Outputs.UserPoolDomainRoutingType?> Routing { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the user pool that is associated with the domain you're updating.
         /// </summary>
@@ -116,6 +119,9 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         [Input("managedLoginVersion")]
         public Input<int>? ManagedLoginVersion { get; set; }
+
+        [Input("routing")]
+        public Input<Inputs.UserPoolDomainRoutingTypeArgs>? Routing { get; set; }
 
         /// <summary>
         /// The ID of the user pool that is associated with the domain you're updating.

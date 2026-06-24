@@ -33,6 +33,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The Amazon Resource Name (ARN) of the image version created on the instance.
         /// </summary>
         public readonly string? SageMakerImageVersionArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+        /// </summary>
+        public readonly string? TrainingPlanArn;
 
         [OutputConstructor]
         private DomainResourceSpec(
@@ -42,12 +46,15 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string? sageMakerImageArn,
 
-            string? sageMakerImageVersionArn)
+            string? sageMakerImageVersionArn,
+
+            string? trainingPlanArn)
         {
             InstanceType = instanceType;
             LifecycleConfigArn = lifecycleConfigArn;
             SageMakerImageArn = sageMakerImageArn;
             SageMakerImageVersionArn = sageMakerImageVersionArn;
+            TrainingPlanArn = trainingPlanArn;
         }
     }
 }

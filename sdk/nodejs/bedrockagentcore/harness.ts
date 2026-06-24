@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::BedrockAgentCore::Harness resource type - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
+ * Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
  */
 export class Harness extends pulumi.CustomResource {
     /**
@@ -125,6 +125,10 @@ export class Harness extends pulumi.CustomResource {
      * The timestamp when the harness was last updated.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
+    /**
+     * The version of the harness. Incremented on every successful update.
+     */
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a Harness resource with the given unique name, arguments, and options.
@@ -165,6 +169,7 @@ export class Harness extends pulumi.CustomResource {
             resourceInputs["harnessId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["allowedTools"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -188,9 +193,10 @@ export class Harness extends pulumi.CustomResource {
             resourceInputs["tools"] = undefined /*out*/;
             resourceInputs["truncation"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["environment.agentCoreRuntimeEnvironment.networkConfiguration", "harnessName"] };
+        const replaceOnChanges = { replaceOnChanges: ["harnessName", "memory.managedMemoryConfiguration.encryptionKeyArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Harness.__pulumiType, name, resourceInputs, opts);
     }

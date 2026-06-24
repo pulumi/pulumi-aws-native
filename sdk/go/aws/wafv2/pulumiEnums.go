@@ -351,6 +351,7 @@ const (
 	LoggingConfigurationConditionActionConditionPropertiesActionCount           = LoggingConfigurationConditionActionConditionPropertiesAction("COUNT")
 	LoggingConfigurationConditionActionConditionPropertiesActionCaptcha         = LoggingConfigurationConditionActionConditionPropertiesAction("CAPTCHA")
 	LoggingConfigurationConditionActionConditionPropertiesActionChallenge       = LoggingConfigurationConditionActionConditionPropertiesAction("CHALLENGE")
+	LoggingConfigurationConditionActionConditionPropertiesActionMonetize        = LoggingConfigurationConditionActionConditionPropertiesAction("MONETIZE")
 	LoggingConfigurationConditionActionConditionPropertiesActionExcludedAsCount = LoggingConfigurationConditionActionConditionPropertiesAction("EXCLUDED_AS_COUNT")
 )
 
@@ -481,6 +482,7 @@ func (o LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput) T
 //	LoggingConfigurationConditionActionConditionPropertiesActionCount
 //	LoggingConfigurationConditionActionConditionPropertiesActionCaptcha
 //	LoggingConfigurationConditionActionConditionPropertiesActionChallenge
+//	LoggingConfigurationConditionActionConditionPropertiesActionMonetize
 //	LoggingConfigurationConditionActionConditionPropertiesActionExcludedAsCount
 type LoggingConfigurationConditionActionConditionPropertiesActionInput interface {
 	pulumi.Input
@@ -1180,6 +1182,176 @@ func (in *regexPatternSetScopePtr) ToRegexPatternSetScopePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(RegexPatternSetScopePtrOutput)
 }
 
+// The blockchain chain to use.
+type RuleGroupBlockchainChain string
+
+const (
+	RuleGroupBlockchainChainBase         = RuleGroupBlockchainChain("BASE")
+	RuleGroupBlockchainChainSolana       = RuleGroupBlockchainChain("SOLANA")
+	RuleGroupBlockchainChainBaseSepolia  = RuleGroupBlockchainChain("BASE_SEPOLIA")
+	RuleGroupBlockchainChainSolanaDevnet = RuleGroupBlockchainChain("SOLANA_DEVNET")
+)
+
+func (RuleGroupBlockchainChain) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupBlockchainChain)(nil)).Elem()
+}
+
+func (e RuleGroupBlockchainChain) ToRuleGroupBlockchainChainOutput() RuleGroupBlockchainChainOutput {
+	return pulumi.ToOutput(e).(RuleGroupBlockchainChainOutput)
+}
+
+func (e RuleGroupBlockchainChain) ToRuleGroupBlockchainChainOutputWithContext(ctx context.Context) RuleGroupBlockchainChainOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupBlockchainChainOutput)
+}
+
+func (e RuleGroupBlockchainChain) ToRuleGroupBlockchainChainPtrOutput() RuleGroupBlockchainChainPtrOutput {
+	return e.ToRuleGroupBlockchainChainPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupBlockchainChain) ToRuleGroupBlockchainChainPtrOutputWithContext(ctx context.Context) RuleGroupBlockchainChainPtrOutput {
+	return RuleGroupBlockchainChain(e).ToRuleGroupBlockchainChainOutputWithContext(ctx).ToRuleGroupBlockchainChainPtrOutputWithContext(ctx)
+}
+
+func (e RuleGroupBlockchainChain) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupBlockchainChain) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupBlockchainChain) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupBlockchainChain) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleGroupBlockchainChainOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupBlockchainChainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupBlockchainChain)(nil)).Elem()
+}
+
+func (o RuleGroupBlockchainChainOutput) ToRuleGroupBlockchainChainOutput() RuleGroupBlockchainChainOutput {
+	return o
+}
+
+func (o RuleGroupBlockchainChainOutput) ToRuleGroupBlockchainChainOutputWithContext(ctx context.Context) RuleGroupBlockchainChainOutput {
+	return o
+}
+
+func (o RuleGroupBlockchainChainOutput) ToRuleGroupBlockchainChainPtrOutput() RuleGroupBlockchainChainPtrOutput {
+	return o.ToRuleGroupBlockchainChainPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupBlockchainChainOutput) ToRuleGroupBlockchainChainPtrOutputWithContext(ctx context.Context) RuleGroupBlockchainChainPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupBlockchainChain) *RuleGroupBlockchainChain {
+		return &v
+	}).(RuleGroupBlockchainChainPtrOutput)
+}
+
+func (o RuleGroupBlockchainChainOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleGroupBlockchainChainOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupBlockchainChain) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleGroupBlockchainChainOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupBlockchainChainOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupBlockchainChain) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupBlockchainChainPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupBlockchainChainPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupBlockchainChain)(nil)).Elem()
+}
+
+func (o RuleGroupBlockchainChainPtrOutput) ToRuleGroupBlockchainChainPtrOutput() RuleGroupBlockchainChainPtrOutput {
+	return o
+}
+
+func (o RuleGroupBlockchainChainPtrOutput) ToRuleGroupBlockchainChainPtrOutputWithContext(ctx context.Context) RuleGroupBlockchainChainPtrOutput {
+	return o
+}
+
+func (o RuleGroupBlockchainChainPtrOutput) Elem() RuleGroupBlockchainChainOutput {
+	return o.ApplyT(func(v *RuleGroupBlockchainChain) RuleGroupBlockchainChain {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupBlockchainChain
+		return ret
+	}).(RuleGroupBlockchainChainOutput)
+}
+
+func (o RuleGroupBlockchainChainPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupBlockchainChainPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupBlockchainChain) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleGroupBlockchainChainInput is an input type that accepts values of the RuleGroupBlockchainChain enum
+// A concrete instance of `RuleGroupBlockchainChainInput` can be one of the following:
+//
+//	RuleGroupBlockchainChainBase
+//	RuleGroupBlockchainChainSolana
+//	RuleGroupBlockchainChainBaseSepolia
+//	RuleGroupBlockchainChainSolanaDevnet
+type RuleGroupBlockchainChainInput interface {
+	pulumi.Input
+
+	ToRuleGroupBlockchainChainOutput() RuleGroupBlockchainChainOutput
+	ToRuleGroupBlockchainChainOutputWithContext(context.Context) RuleGroupBlockchainChainOutput
+}
+
+var ruleGroupBlockchainChainPtrType = reflect.TypeOf((**RuleGroupBlockchainChain)(nil)).Elem()
+
+type RuleGroupBlockchainChainPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupBlockchainChainPtrOutput() RuleGroupBlockchainChainPtrOutput
+	ToRuleGroupBlockchainChainPtrOutputWithContext(context.Context) RuleGroupBlockchainChainPtrOutput
+}
+
+type ruleGroupBlockchainChainPtr string
+
+func RuleGroupBlockchainChainPtr(v string) RuleGroupBlockchainChainPtrInput {
+	return (*ruleGroupBlockchainChainPtr)(&v)
+}
+
+func (*ruleGroupBlockchainChainPtr) ElementType() reflect.Type {
+	return ruleGroupBlockchainChainPtrType
+}
+
+func (in *ruleGroupBlockchainChainPtr) ToRuleGroupBlockchainChainPtrOutput() RuleGroupBlockchainChainPtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupBlockchainChainPtrOutput)
+}
+
+func (in *ruleGroupBlockchainChainPtr) ToRuleGroupBlockchainChainPtrOutputWithContext(ctx context.Context) RuleGroupBlockchainChainPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupBlockchainChainPtrOutput)
+}
+
 // The inspection behavior to fall back to if the JSON in the request body is invalid.
 type RuleGroupBodyParsingFallbackBehavior string
 
@@ -1346,6 +1518,336 @@ func (in *ruleGroupBodyParsingFallbackBehaviorPtr) ToRuleGroupBodyParsingFallbac
 
 func (in *ruleGroupBodyParsingFallbackBehaviorPtr) ToRuleGroupBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupBodyParsingFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupBodyParsingFallbackBehaviorPtrOutput)
+}
+
+// The cryptocurrency to use for payment.
+type RuleGroupCryptoCurrency string
+
+const (
+	RuleGroupCryptoCurrencyUsdc = RuleGroupCryptoCurrency("USDC")
+)
+
+func (RuleGroupCryptoCurrency) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCryptoCurrency)(nil)).Elem()
+}
+
+func (e RuleGroupCryptoCurrency) ToRuleGroupCryptoCurrencyOutput() RuleGroupCryptoCurrencyOutput {
+	return pulumi.ToOutput(e).(RuleGroupCryptoCurrencyOutput)
+}
+
+func (e RuleGroupCryptoCurrency) ToRuleGroupCryptoCurrencyOutputWithContext(ctx context.Context) RuleGroupCryptoCurrencyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupCryptoCurrencyOutput)
+}
+
+func (e RuleGroupCryptoCurrency) ToRuleGroupCryptoCurrencyPtrOutput() RuleGroupCryptoCurrencyPtrOutput {
+	return e.ToRuleGroupCryptoCurrencyPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupCryptoCurrency) ToRuleGroupCryptoCurrencyPtrOutputWithContext(ctx context.Context) RuleGroupCryptoCurrencyPtrOutput {
+	return RuleGroupCryptoCurrency(e).ToRuleGroupCryptoCurrencyOutputWithContext(ctx).ToRuleGroupCryptoCurrencyPtrOutputWithContext(ctx)
+}
+
+func (e RuleGroupCryptoCurrency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupCryptoCurrency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupCryptoCurrency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupCryptoCurrency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleGroupCryptoCurrencyOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCryptoCurrencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCryptoCurrency)(nil)).Elem()
+}
+
+func (o RuleGroupCryptoCurrencyOutput) ToRuleGroupCryptoCurrencyOutput() RuleGroupCryptoCurrencyOutput {
+	return o
+}
+
+func (o RuleGroupCryptoCurrencyOutput) ToRuleGroupCryptoCurrencyOutputWithContext(ctx context.Context) RuleGroupCryptoCurrencyOutput {
+	return o
+}
+
+func (o RuleGroupCryptoCurrencyOutput) ToRuleGroupCryptoCurrencyPtrOutput() RuleGroupCryptoCurrencyPtrOutput {
+	return o.ToRuleGroupCryptoCurrencyPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupCryptoCurrencyOutput) ToRuleGroupCryptoCurrencyPtrOutputWithContext(ctx context.Context) RuleGroupCryptoCurrencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupCryptoCurrency) *RuleGroupCryptoCurrency {
+		return &v
+	}).(RuleGroupCryptoCurrencyPtrOutput)
+}
+
+func (o RuleGroupCryptoCurrencyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleGroupCryptoCurrencyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupCryptoCurrency) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleGroupCryptoCurrencyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupCryptoCurrencyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupCryptoCurrency) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupCryptoCurrencyPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCryptoCurrencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCryptoCurrency)(nil)).Elem()
+}
+
+func (o RuleGroupCryptoCurrencyPtrOutput) ToRuleGroupCryptoCurrencyPtrOutput() RuleGroupCryptoCurrencyPtrOutput {
+	return o
+}
+
+func (o RuleGroupCryptoCurrencyPtrOutput) ToRuleGroupCryptoCurrencyPtrOutputWithContext(ctx context.Context) RuleGroupCryptoCurrencyPtrOutput {
+	return o
+}
+
+func (o RuleGroupCryptoCurrencyPtrOutput) Elem() RuleGroupCryptoCurrencyOutput {
+	return o.ApplyT(func(v *RuleGroupCryptoCurrency) RuleGroupCryptoCurrency {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupCryptoCurrency
+		return ret
+	}).(RuleGroupCryptoCurrencyOutput)
+}
+
+func (o RuleGroupCryptoCurrencyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupCryptoCurrencyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupCryptoCurrency) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleGroupCryptoCurrencyInput is an input type that accepts values of the RuleGroupCryptoCurrency enum
+// A concrete instance of `RuleGroupCryptoCurrencyInput` can be one of the following:
+//
+//	RuleGroupCryptoCurrencyUsdc
+type RuleGroupCryptoCurrencyInput interface {
+	pulumi.Input
+
+	ToRuleGroupCryptoCurrencyOutput() RuleGroupCryptoCurrencyOutput
+	ToRuleGroupCryptoCurrencyOutputWithContext(context.Context) RuleGroupCryptoCurrencyOutput
+}
+
+var ruleGroupCryptoCurrencyPtrType = reflect.TypeOf((**RuleGroupCryptoCurrency)(nil)).Elem()
+
+type RuleGroupCryptoCurrencyPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupCryptoCurrencyPtrOutput() RuleGroupCryptoCurrencyPtrOutput
+	ToRuleGroupCryptoCurrencyPtrOutputWithContext(context.Context) RuleGroupCryptoCurrencyPtrOutput
+}
+
+type ruleGroupCryptoCurrencyPtr string
+
+func RuleGroupCryptoCurrencyPtr(v string) RuleGroupCryptoCurrencyPtrInput {
+	return (*ruleGroupCryptoCurrencyPtr)(&v)
+}
+
+func (*ruleGroupCryptoCurrencyPtr) ElementType() reflect.Type {
+	return ruleGroupCryptoCurrencyPtrType
+}
+
+func (in *ruleGroupCryptoCurrencyPtr) ToRuleGroupCryptoCurrencyPtrOutput() RuleGroupCryptoCurrencyPtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupCryptoCurrencyPtrOutput)
+}
+
+func (in *ruleGroupCryptoCurrencyPtr) ToRuleGroupCryptoCurrencyPtrOutputWithContext(ctx context.Context) RuleGroupCryptoCurrencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupCryptoCurrencyPtrOutput)
+}
+
+// The currency mode for monetization. Use REAL for production payments and TEST for testing with testnet currencies.
+type RuleGroupCurrencyMode string
+
+const (
+	RuleGroupCurrencyModeReal = RuleGroupCurrencyMode("REAL")
+	RuleGroupCurrencyModeTest = RuleGroupCurrencyMode("TEST")
+)
+
+func (RuleGroupCurrencyMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCurrencyMode)(nil)).Elem()
+}
+
+func (e RuleGroupCurrencyMode) ToRuleGroupCurrencyModeOutput() RuleGroupCurrencyModeOutput {
+	return pulumi.ToOutput(e).(RuleGroupCurrencyModeOutput)
+}
+
+func (e RuleGroupCurrencyMode) ToRuleGroupCurrencyModeOutputWithContext(ctx context.Context) RuleGroupCurrencyModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupCurrencyModeOutput)
+}
+
+func (e RuleGroupCurrencyMode) ToRuleGroupCurrencyModePtrOutput() RuleGroupCurrencyModePtrOutput {
+	return e.ToRuleGroupCurrencyModePtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupCurrencyMode) ToRuleGroupCurrencyModePtrOutputWithContext(ctx context.Context) RuleGroupCurrencyModePtrOutput {
+	return RuleGroupCurrencyMode(e).ToRuleGroupCurrencyModeOutputWithContext(ctx).ToRuleGroupCurrencyModePtrOutputWithContext(ctx)
+}
+
+func (e RuleGroupCurrencyMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupCurrencyMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupCurrencyMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupCurrencyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleGroupCurrencyModeOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCurrencyModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCurrencyMode)(nil)).Elem()
+}
+
+func (o RuleGroupCurrencyModeOutput) ToRuleGroupCurrencyModeOutput() RuleGroupCurrencyModeOutput {
+	return o
+}
+
+func (o RuleGroupCurrencyModeOutput) ToRuleGroupCurrencyModeOutputWithContext(ctx context.Context) RuleGroupCurrencyModeOutput {
+	return o
+}
+
+func (o RuleGroupCurrencyModeOutput) ToRuleGroupCurrencyModePtrOutput() RuleGroupCurrencyModePtrOutput {
+	return o.ToRuleGroupCurrencyModePtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupCurrencyModeOutput) ToRuleGroupCurrencyModePtrOutputWithContext(ctx context.Context) RuleGroupCurrencyModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupCurrencyMode) *RuleGroupCurrencyMode {
+		return &v
+	}).(RuleGroupCurrencyModePtrOutput)
+}
+
+func (o RuleGroupCurrencyModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleGroupCurrencyModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupCurrencyMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleGroupCurrencyModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupCurrencyModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupCurrencyMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupCurrencyModePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCurrencyModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCurrencyMode)(nil)).Elem()
+}
+
+func (o RuleGroupCurrencyModePtrOutput) ToRuleGroupCurrencyModePtrOutput() RuleGroupCurrencyModePtrOutput {
+	return o
+}
+
+func (o RuleGroupCurrencyModePtrOutput) ToRuleGroupCurrencyModePtrOutputWithContext(ctx context.Context) RuleGroupCurrencyModePtrOutput {
+	return o
+}
+
+func (o RuleGroupCurrencyModePtrOutput) Elem() RuleGroupCurrencyModeOutput {
+	return o.ApplyT(func(v *RuleGroupCurrencyMode) RuleGroupCurrencyMode {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupCurrencyMode
+		return ret
+	}).(RuleGroupCurrencyModeOutput)
+}
+
+func (o RuleGroupCurrencyModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupCurrencyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupCurrencyMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleGroupCurrencyModeInput is an input type that accepts values of the RuleGroupCurrencyMode enum
+// A concrete instance of `RuleGroupCurrencyModeInput` can be one of the following:
+//
+//	RuleGroupCurrencyModeReal
+//	RuleGroupCurrencyModeTest
+type RuleGroupCurrencyModeInput interface {
+	pulumi.Input
+
+	ToRuleGroupCurrencyModeOutput() RuleGroupCurrencyModeOutput
+	ToRuleGroupCurrencyModeOutputWithContext(context.Context) RuleGroupCurrencyModeOutput
+}
+
+var ruleGroupCurrencyModePtrType = reflect.TypeOf((**RuleGroupCurrencyMode)(nil)).Elem()
+
+type RuleGroupCurrencyModePtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupCurrencyModePtrOutput() RuleGroupCurrencyModePtrOutput
+	ToRuleGroupCurrencyModePtrOutputWithContext(context.Context) RuleGroupCurrencyModePtrOutput
+}
+
+type ruleGroupCurrencyModePtr string
+
+func RuleGroupCurrencyModePtr(v string) RuleGroupCurrencyModePtrInput {
+	return (*ruleGroupCurrencyModePtr)(&v)
+}
+
+func (*ruleGroupCurrencyModePtr) ElementType() reflect.Type {
+	return ruleGroupCurrencyModePtrType
+}
+
+func (in *ruleGroupCurrencyModePtr) ToRuleGroupCurrencyModePtrOutput() RuleGroupCurrencyModePtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupCurrencyModePtrOutput)
+}
+
+func (in *ruleGroupCurrencyModePtr) ToRuleGroupCurrencyModePtrOutputWithContext(ctx context.Context) RuleGroupCurrencyModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupCurrencyModePtrOutput)
 }
 
 // The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
@@ -4802,6 +5304,176 @@ func (in *webAclAwsManagedRulesBotControlRuleSetInspectionLevelPtr) ToWebAclAwsM
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
 }
 
+// The blockchain chain to use.
+type WebAclBlockchainChain string
+
+const (
+	WebAclBlockchainChainBase         = WebAclBlockchainChain("BASE")
+	WebAclBlockchainChainSolana       = WebAclBlockchainChain("SOLANA")
+	WebAclBlockchainChainBaseSepolia  = WebAclBlockchainChain("BASE_SEPOLIA")
+	WebAclBlockchainChainSolanaDevnet = WebAclBlockchainChain("SOLANA_DEVNET")
+)
+
+func (WebAclBlockchainChain) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclBlockchainChain)(nil)).Elem()
+}
+
+func (e WebAclBlockchainChain) ToWebAclBlockchainChainOutput() WebAclBlockchainChainOutput {
+	return pulumi.ToOutput(e).(WebAclBlockchainChainOutput)
+}
+
+func (e WebAclBlockchainChain) ToWebAclBlockchainChainOutputWithContext(ctx context.Context) WebAclBlockchainChainOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclBlockchainChainOutput)
+}
+
+func (e WebAclBlockchainChain) ToWebAclBlockchainChainPtrOutput() WebAclBlockchainChainPtrOutput {
+	return e.ToWebAclBlockchainChainPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclBlockchainChain) ToWebAclBlockchainChainPtrOutputWithContext(ctx context.Context) WebAclBlockchainChainPtrOutput {
+	return WebAclBlockchainChain(e).ToWebAclBlockchainChainOutputWithContext(ctx).ToWebAclBlockchainChainPtrOutputWithContext(ctx)
+}
+
+func (e WebAclBlockchainChain) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclBlockchainChain) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclBlockchainChain) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclBlockchainChain) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclBlockchainChainOutput struct{ *pulumi.OutputState }
+
+func (WebAclBlockchainChainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclBlockchainChain)(nil)).Elem()
+}
+
+func (o WebAclBlockchainChainOutput) ToWebAclBlockchainChainOutput() WebAclBlockchainChainOutput {
+	return o
+}
+
+func (o WebAclBlockchainChainOutput) ToWebAclBlockchainChainOutputWithContext(ctx context.Context) WebAclBlockchainChainOutput {
+	return o
+}
+
+func (o WebAclBlockchainChainOutput) ToWebAclBlockchainChainPtrOutput() WebAclBlockchainChainPtrOutput {
+	return o.ToWebAclBlockchainChainPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclBlockchainChainOutput) ToWebAclBlockchainChainPtrOutputWithContext(ctx context.Context) WebAclBlockchainChainPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclBlockchainChain) *WebAclBlockchainChain {
+		return &v
+	}).(WebAclBlockchainChainPtrOutput)
+}
+
+func (o WebAclBlockchainChainOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclBlockchainChainOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclBlockchainChain) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclBlockchainChainOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclBlockchainChainOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclBlockchainChain) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclBlockchainChainPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclBlockchainChainPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclBlockchainChain)(nil)).Elem()
+}
+
+func (o WebAclBlockchainChainPtrOutput) ToWebAclBlockchainChainPtrOutput() WebAclBlockchainChainPtrOutput {
+	return o
+}
+
+func (o WebAclBlockchainChainPtrOutput) ToWebAclBlockchainChainPtrOutputWithContext(ctx context.Context) WebAclBlockchainChainPtrOutput {
+	return o
+}
+
+func (o WebAclBlockchainChainPtrOutput) Elem() WebAclBlockchainChainOutput {
+	return o.ApplyT(func(v *WebAclBlockchainChain) WebAclBlockchainChain {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclBlockchainChain
+		return ret
+	}).(WebAclBlockchainChainOutput)
+}
+
+func (o WebAclBlockchainChainPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclBlockchainChainPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclBlockchainChain) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclBlockchainChainInput is an input type that accepts values of the WebAclBlockchainChain enum
+// A concrete instance of `WebAclBlockchainChainInput` can be one of the following:
+//
+//	WebAclBlockchainChainBase
+//	WebAclBlockchainChainSolana
+//	WebAclBlockchainChainBaseSepolia
+//	WebAclBlockchainChainSolanaDevnet
+type WebAclBlockchainChainInput interface {
+	pulumi.Input
+
+	ToWebAclBlockchainChainOutput() WebAclBlockchainChainOutput
+	ToWebAclBlockchainChainOutputWithContext(context.Context) WebAclBlockchainChainOutput
+}
+
+var webAclBlockchainChainPtrType = reflect.TypeOf((**WebAclBlockchainChain)(nil)).Elem()
+
+type WebAclBlockchainChainPtrInput interface {
+	pulumi.Input
+
+	ToWebAclBlockchainChainPtrOutput() WebAclBlockchainChainPtrOutput
+	ToWebAclBlockchainChainPtrOutputWithContext(context.Context) WebAclBlockchainChainPtrOutput
+}
+
+type webAclBlockchainChainPtr string
+
+func WebAclBlockchainChainPtr(v string) WebAclBlockchainChainPtrInput {
+	return (*webAclBlockchainChainPtr)(&v)
+}
+
+func (*webAclBlockchainChainPtr) ElementType() reflect.Type {
+	return webAclBlockchainChainPtrType
+}
+
+func (in *webAclBlockchainChainPtr) ToWebAclBlockchainChainPtrOutput() WebAclBlockchainChainPtrOutput {
+	return pulumi.ToOutput(in).(WebAclBlockchainChainPtrOutput)
+}
+
+func (in *webAclBlockchainChainPtr) ToWebAclBlockchainChainPtrOutputWithContext(ctx context.Context) WebAclBlockchainChainPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclBlockchainChainPtrOutput)
+}
+
 // The inspection behavior to fall back to if the JSON in the request body is invalid.
 type WebAclBodyParsingFallbackBehavior string
 
@@ -4968,6 +5640,336 @@ func (in *webAclBodyParsingFallbackBehaviorPtr) ToWebAclBodyParsingFallbackBehav
 
 func (in *webAclBodyParsingFallbackBehaviorPtr) ToWebAclBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebAclBodyParsingFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclBodyParsingFallbackBehaviorPtrOutput)
+}
+
+// The cryptocurrency to use for payment.
+type WebAclCryptoCurrency string
+
+const (
+	WebAclCryptoCurrencyUsdc = WebAclCryptoCurrency("USDC")
+)
+
+func (WebAclCryptoCurrency) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclCryptoCurrency)(nil)).Elem()
+}
+
+func (e WebAclCryptoCurrency) ToWebAclCryptoCurrencyOutput() WebAclCryptoCurrencyOutput {
+	return pulumi.ToOutput(e).(WebAclCryptoCurrencyOutput)
+}
+
+func (e WebAclCryptoCurrency) ToWebAclCryptoCurrencyOutputWithContext(ctx context.Context) WebAclCryptoCurrencyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclCryptoCurrencyOutput)
+}
+
+func (e WebAclCryptoCurrency) ToWebAclCryptoCurrencyPtrOutput() WebAclCryptoCurrencyPtrOutput {
+	return e.ToWebAclCryptoCurrencyPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclCryptoCurrency) ToWebAclCryptoCurrencyPtrOutputWithContext(ctx context.Context) WebAclCryptoCurrencyPtrOutput {
+	return WebAclCryptoCurrency(e).ToWebAclCryptoCurrencyOutputWithContext(ctx).ToWebAclCryptoCurrencyPtrOutputWithContext(ctx)
+}
+
+func (e WebAclCryptoCurrency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclCryptoCurrency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclCryptoCurrency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclCryptoCurrency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclCryptoCurrencyOutput struct{ *pulumi.OutputState }
+
+func (WebAclCryptoCurrencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclCryptoCurrency)(nil)).Elem()
+}
+
+func (o WebAclCryptoCurrencyOutput) ToWebAclCryptoCurrencyOutput() WebAclCryptoCurrencyOutput {
+	return o
+}
+
+func (o WebAclCryptoCurrencyOutput) ToWebAclCryptoCurrencyOutputWithContext(ctx context.Context) WebAclCryptoCurrencyOutput {
+	return o
+}
+
+func (o WebAclCryptoCurrencyOutput) ToWebAclCryptoCurrencyPtrOutput() WebAclCryptoCurrencyPtrOutput {
+	return o.ToWebAclCryptoCurrencyPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclCryptoCurrencyOutput) ToWebAclCryptoCurrencyPtrOutputWithContext(ctx context.Context) WebAclCryptoCurrencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclCryptoCurrency) *WebAclCryptoCurrency {
+		return &v
+	}).(WebAclCryptoCurrencyPtrOutput)
+}
+
+func (o WebAclCryptoCurrencyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclCryptoCurrencyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclCryptoCurrency) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclCryptoCurrencyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclCryptoCurrencyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclCryptoCurrency) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclCryptoCurrencyPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclCryptoCurrencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclCryptoCurrency)(nil)).Elem()
+}
+
+func (o WebAclCryptoCurrencyPtrOutput) ToWebAclCryptoCurrencyPtrOutput() WebAclCryptoCurrencyPtrOutput {
+	return o
+}
+
+func (o WebAclCryptoCurrencyPtrOutput) ToWebAclCryptoCurrencyPtrOutputWithContext(ctx context.Context) WebAclCryptoCurrencyPtrOutput {
+	return o
+}
+
+func (o WebAclCryptoCurrencyPtrOutput) Elem() WebAclCryptoCurrencyOutput {
+	return o.ApplyT(func(v *WebAclCryptoCurrency) WebAclCryptoCurrency {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclCryptoCurrency
+		return ret
+	}).(WebAclCryptoCurrencyOutput)
+}
+
+func (o WebAclCryptoCurrencyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclCryptoCurrencyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclCryptoCurrency) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclCryptoCurrencyInput is an input type that accepts values of the WebAclCryptoCurrency enum
+// A concrete instance of `WebAclCryptoCurrencyInput` can be one of the following:
+//
+//	WebAclCryptoCurrencyUsdc
+type WebAclCryptoCurrencyInput interface {
+	pulumi.Input
+
+	ToWebAclCryptoCurrencyOutput() WebAclCryptoCurrencyOutput
+	ToWebAclCryptoCurrencyOutputWithContext(context.Context) WebAclCryptoCurrencyOutput
+}
+
+var webAclCryptoCurrencyPtrType = reflect.TypeOf((**WebAclCryptoCurrency)(nil)).Elem()
+
+type WebAclCryptoCurrencyPtrInput interface {
+	pulumi.Input
+
+	ToWebAclCryptoCurrencyPtrOutput() WebAclCryptoCurrencyPtrOutput
+	ToWebAclCryptoCurrencyPtrOutputWithContext(context.Context) WebAclCryptoCurrencyPtrOutput
+}
+
+type webAclCryptoCurrencyPtr string
+
+func WebAclCryptoCurrencyPtr(v string) WebAclCryptoCurrencyPtrInput {
+	return (*webAclCryptoCurrencyPtr)(&v)
+}
+
+func (*webAclCryptoCurrencyPtr) ElementType() reflect.Type {
+	return webAclCryptoCurrencyPtrType
+}
+
+func (in *webAclCryptoCurrencyPtr) ToWebAclCryptoCurrencyPtrOutput() WebAclCryptoCurrencyPtrOutput {
+	return pulumi.ToOutput(in).(WebAclCryptoCurrencyPtrOutput)
+}
+
+func (in *webAclCryptoCurrencyPtr) ToWebAclCryptoCurrencyPtrOutputWithContext(ctx context.Context) WebAclCryptoCurrencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclCryptoCurrencyPtrOutput)
+}
+
+// The currency mode for monetization. Use REAL for production payments and TEST for testing with testnet currencies.
+type WebAclCurrencyMode string
+
+const (
+	WebAclCurrencyModeReal = WebAclCurrencyMode("REAL")
+	WebAclCurrencyModeTest = WebAclCurrencyMode("TEST")
+)
+
+func (WebAclCurrencyMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclCurrencyMode)(nil)).Elem()
+}
+
+func (e WebAclCurrencyMode) ToWebAclCurrencyModeOutput() WebAclCurrencyModeOutput {
+	return pulumi.ToOutput(e).(WebAclCurrencyModeOutput)
+}
+
+func (e WebAclCurrencyMode) ToWebAclCurrencyModeOutputWithContext(ctx context.Context) WebAclCurrencyModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclCurrencyModeOutput)
+}
+
+func (e WebAclCurrencyMode) ToWebAclCurrencyModePtrOutput() WebAclCurrencyModePtrOutput {
+	return e.ToWebAclCurrencyModePtrOutputWithContext(context.Background())
+}
+
+func (e WebAclCurrencyMode) ToWebAclCurrencyModePtrOutputWithContext(ctx context.Context) WebAclCurrencyModePtrOutput {
+	return WebAclCurrencyMode(e).ToWebAclCurrencyModeOutputWithContext(ctx).ToWebAclCurrencyModePtrOutputWithContext(ctx)
+}
+
+func (e WebAclCurrencyMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclCurrencyMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclCurrencyMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclCurrencyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclCurrencyModeOutput struct{ *pulumi.OutputState }
+
+func (WebAclCurrencyModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclCurrencyMode)(nil)).Elem()
+}
+
+func (o WebAclCurrencyModeOutput) ToWebAclCurrencyModeOutput() WebAclCurrencyModeOutput {
+	return o
+}
+
+func (o WebAclCurrencyModeOutput) ToWebAclCurrencyModeOutputWithContext(ctx context.Context) WebAclCurrencyModeOutput {
+	return o
+}
+
+func (o WebAclCurrencyModeOutput) ToWebAclCurrencyModePtrOutput() WebAclCurrencyModePtrOutput {
+	return o.ToWebAclCurrencyModePtrOutputWithContext(context.Background())
+}
+
+func (o WebAclCurrencyModeOutput) ToWebAclCurrencyModePtrOutputWithContext(ctx context.Context) WebAclCurrencyModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclCurrencyMode) *WebAclCurrencyMode {
+		return &v
+	}).(WebAclCurrencyModePtrOutput)
+}
+
+func (o WebAclCurrencyModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclCurrencyModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclCurrencyMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclCurrencyModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclCurrencyModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclCurrencyMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclCurrencyModePtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclCurrencyModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclCurrencyMode)(nil)).Elem()
+}
+
+func (o WebAclCurrencyModePtrOutput) ToWebAclCurrencyModePtrOutput() WebAclCurrencyModePtrOutput {
+	return o
+}
+
+func (o WebAclCurrencyModePtrOutput) ToWebAclCurrencyModePtrOutputWithContext(ctx context.Context) WebAclCurrencyModePtrOutput {
+	return o
+}
+
+func (o WebAclCurrencyModePtrOutput) Elem() WebAclCurrencyModeOutput {
+	return o.ApplyT(func(v *WebAclCurrencyMode) WebAclCurrencyMode {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclCurrencyMode
+		return ret
+	}).(WebAclCurrencyModeOutput)
+}
+
+func (o WebAclCurrencyModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclCurrencyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclCurrencyMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclCurrencyModeInput is an input type that accepts values of the WebAclCurrencyMode enum
+// A concrete instance of `WebAclCurrencyModeInput` can be one of the following:
+//
+//	WebAclCurrencyModeReal
+//	WebAclCurrencyModeTest
+type WebAclCurrencyModeInput interface {
+	pulumi.Input
+
+	ToWebAclCurrencyModeOutput() WebAclCurrencyModeOutput
+	ToWebAclCurrencyModeOutputWithContext(context.Context) WebAclCurrencyModeOutput
+}
+
+var webAclCurrencyModePtrType = reflect.TypeOf((**WebAclCurrencyMode)(nil)).Elem()
+
+type WebAclCurrencyModePtrInput interface {
+	pulumi.Input
+
+	ToWebAclCurrencyModePtrOutput() WebAclCurrencyModePtrOutput
+	ToWebAclCurrencyModePtrOutputWithContext(context.Context) WebAclCurrencyModePtrOutput
+}
+
+type webAclCurrencyModePtr string
+
+func WebAclCurrencyModePtr(v string) WebAclCurrencyModePtrInput {
+	return (*webAclCurrencyModePtr)(&v)
+}
+
+func (*webAclCurrencyModePtr) ElementType() reflect.Type {
+	return webAclCurrencyModePtrType
+}
+
+func (in *webAclCurrencyModePtr) ToWebAclCurrencyModePtrOutput() WebAclCurrencyModePtrOutput {
+	return pulumi.ToOutput(in).(WebAclCurrencyModePtrOutput)
+}
+
+func (in *webAclCurrencyModePtr) ToWebAclCurrencyModePtrOutputWithContext(ctx context.Context) WebAclCurrencyModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclCurrencyModePtrOutput)
 }
 
 type WebAclDataProtectionAction string
@@ -9775,8 +10777,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrInput)(nil)).Elem(), LoggingConfigurationLoggingFilterPropertiesDefaultBehavior("KEEP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetScopeInput)(nil)).Elem(), RegexPatternSetScope("CLOUDFRONT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetScopePtrInput)(nil)).Elem(), RegexPatternSetScope("CLOUDFRONT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBlockchainChainInput)(nil)).Elem(), RuleGroupBlockchainChain("BASE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBlockchainChainPtrInput)(nil)).Elem(), RuleGroupBlockchainChain("BASE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBodyParsingFallbackBehaviorInput)(nil)).Elem(), RuleGroupBodyParsingFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBodyParsingFallbackBehaviorPtrInput)(nil)).Elem(), RuleGroupBodyParsingFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCryptoCurrencyInput)(nil)).Elem(), RuleGroupCryptoCurrency("USDC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCryptoCurrencyPtrInput)(nil)).Elem(), RuleGroupCryptoCurrency("USDC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCurrencyModeInput)(nil)).Elem(), RuleGroupCurrencyMode("REAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCurrencyModePtrInput)(nil)).Elem(), RuleGroupCurrencyMode("REAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupForwardedIpConfigurationFallbackBehaviorInput)(nil)).Elem(), RuleGroupForwardedIpConfigurationFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupForwardedIpConfigurationFallbackBehaviorPtrInput)(nil)).Elem(), RuleGroupForwardedIpConfigurationFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorInput)(nil)).Elem(), RuleGroupIpSetForwardedIpConfigurationFallbackBehavior("MATCH"))
@@ -9817,8 +10825,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupUriFragmentFallbackBehaviorPtrInput)(nil)).Elem(), RuleGroupUriFragmentFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAwsManagedRulesBotControlRuleSetInspectionLevelInput)(nil)).Elem(), WebAclAwsManagedRulesBotControlRuleSetInspectionLevel("COMMON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrInput)(nil)).Elem(), WebAclAwsManagedRulesBotControlRuleSetInspectionLevel("COMMON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclBlockchainChainInput)(nil)).Elem(), WebAclBlockchainChain("BASE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclBlockchainChainPtrInput)(nil)).Elem(), WebAclBlockchainChain("BASE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclBodyParsingFallbackBehaviorInput)(nil)).Elem(), WebAclBodyParsingFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclBodyParsingFallbackBehaviorPtrInput)(nil)).Elem(), WebAclBodyParsingFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCryptoCurrencyInput)(nil)).Elem(), WebAclCryptoCurrency("USDC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCryptoCurrencyPtrInput)(nil)).Elem(), WebAclCryptoCurrency("USDC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCurrencyModeInput)(nil)).Elem(), WebAclCurrencyMode("REAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCurrencyModePtrInput)(nil)).Elem(), WebAclCurrencyMode("REAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDataProtectionActionInput)(nil)).Elem(), WebAclDataProtectionAction("SUBSTITUTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDataProtectionActionPtrInput)(nil)).Elem(), WebAclDataProtectionAction("SUBSTITUTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclFieldToProtectFieldTypeInput)(nil)).Elem(), WebAclFieldToProtectFieldType("SINGLE_HEADER"))
@@ -9889,8 +10903,14 @@ func init() {
 	pulumi.RegisterOutputType(LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(RegexPatternSetScopeOutput{})
 	pulumi.RegisterOutputType(RegexPatternSetScopePtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupBlockchainChainOutput{})
+	pulumi.RegisterOutputType(RuleGroupBlockchainChainPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupBodyParsingFallbackBehaviorOutput{})
 	pulumi.RegisterOutputType(RuleGroupBodyParsingFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupCryptoCurrencyOutput{})
+	pulumi.RegisterOutputType(RuleGroupCryptoCurrencyPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupCurrencyModeOutput{})
+	pulumi.RegisterOutputType(RuleGroupCurrencyModePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupForwardedIpConfigurationFallbackBehaviorOutput{})
 	pulumi.RegisterOutputType(RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorOutput{})
@@ -9931,8 +10951,14 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupUriFragmentFallbackBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelOutput{})
 	pulumi.RegisterOutputType(WebAclAwsManagedRulesBotControlRuleSetInspectionLevelPtrOutput{})
+	pulumi.RegisterOutputType(WebAclBlockchainChainOutput{})
+	pulumi.RegisterOutputType(WebAclBlockchainChainPtrOutput{})
 	pulumi.RegisterOutputType(WebAclBodyParsingFallbackBehaviorOutput{})
 	pulumi.RegisterOutputType(WebAclBodyParsingFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(WebAclCryptoCurrencyOutput{})
+	pulumi.RegisterOutputType(WebAclCryptoCurrencyPtrOutput{})
+	pulumi.RegisterOutputType(WebAclCurrencyModeOutput{})
+	pulumi.RegisterOutputType(WebAclCurrencyModePtrOutput{})
 	pulumi.RegisterOutputType(WebAclDataProtectionActionOutput{})
 	pulumi.RegisterOutputType(WebAclDataProtectionActionPtrOutput{})
 	pulumi.RegisterOutputType(WebAclFieldToProtectFieldTypeOutput{})

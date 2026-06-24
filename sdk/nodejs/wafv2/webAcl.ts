@@ -101,6 +101,7 @@ export class WebAcl extends pulumi.CustomResource {
      * When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
      */
     declare public /*out*/ readonly labelNamespace: pulumi.Output<string>;
+    declare public readonly monetizationConfig: pulumi.Output<outputs.wafv2.WebAclMonetizationConfig | undefined>;
     /**
      * The name of the web ACL. You cannot change the name of a web ACL after you create it.
      */
@@ -164,6 +165,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["dataProtectionConfig"] = args?.dataProtectionConfig;
             resourceInputs["defaultAction"] = args?.defaultAction;
             resourceInputs["description"] = args?.description;
+            resourceInputs["monetizationConfig"] = args?.monetizationConfig;
             resourceInputs["name"] = args?.name;
             resourceInputs["onSourceDDoSProtectionConfig"] = args?.onSourceDDoSProtectionConfig;
             resourceInputs["rules"] = args?.rules;
@@ -188,6 +190,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["defaultAction"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["labelNamespace"] = undefined /*out*/;
+            resourceInputs["monetizationConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["onSourceDDoSProtectionConfig"] = undefined /*out*/;
             resourceInputs["rules"] = undefined /*out*/;
@@ -249,6 +252,7 @@ export interface WebAclArgs {
      * A description of the web ACL that helps with identification.
      */
     description?: pulumi.Input<string>;
+    monetizationConfig?: pulumi.Input<inputs.wafv2.WebAclMonetizationConfigArgs>;
     /**
      * The name of the web ACL. You cannot change the name of a web ACL after you create it.
      */

@@ -14,11 +14,20 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class HarnessMemoryConfiguration
     {
         public readonly Outputs.HarnessAgentCoreMemoryConfiguration? AgentCoreMemoryConfiguration;
+        public readonly Outputs.HarnessDisabledMemoryConfiguration? Disabled;
+        public readonly Outputs.HarnessManagedMemoryConfiguration? ManagedMemoryConfiguration;
 
         [OutputConstructor]
-        private HarnessMemoryConfiguration(Outputs.HarnessAgentCoreMemoryConfiguration? agentCoreMemoryConfiguration)
+        private HarnessMemoryConfiguration(
+            Outputs.HarnessAgentCoreMemoryConfiguration? agentCoreMemoryConfiguration,
+
+            Outputs.HarnessDisabledMemoryConfiguration? disabled,
+
+            Outputs.HarnessManagedMemoryConfiguration? managedMemoryConfiguration)
         {
             AgentCoreMemoryConfiguration = agentCoreMemoryConfiguration;
+            Disabled = disabled;
+            ManagedMemoryConfiguration = managedMemoryConfiguration;
         }
     }
 }

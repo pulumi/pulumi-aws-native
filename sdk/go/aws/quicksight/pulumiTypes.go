@@ -48,47 +48,6 @@ func (i ActionConnectorApiKeyConnectionMetadataArgs) ToActionConnectorApiKeyConn
 	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorApiKeyConnectionMetadataOutput)
 }
 
-func (i ActionConnectorApiKeyConnectionMetadataArgs) ToActionConnectorApiKeyConnectionMetadataPtrOutput() ActionConnectorApiKeyConnectionMetadataPtrOutput {
-	return i.ToActionConnectorApiKeyConnectionMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i ActionConnectorApiKeyConnectionMetadataArgs) ToActionConnectorApiKeyConnectionMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorApiKeyConnectionMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorApiKeyConnectionMetadataOutput).ToActionConnectorApiKeyConnectionMetadataPtrOutputWithContext(ctx)
-}
-
-// ActionConnectorApiKeyConnectionMetadataPtrInput is an input type that accepts ActionConnectorApiKeyConnectionMetadataArgs, ActionConnectorApiKeyConnectionMetadataPtr and ActionConnectorApiKeyConnectionMetadataPtrOutput values.
-// You can construct a concrete instance of `ActionConnectorApiKeyConnectionMetadataPtrInput` via:
-//
-//	        ActionConnectorApiKeyConnectionMetadataArgs{...}
-//
-//	or:
-//
-//	        nil
-type ActionConnectorApiKeyConnectionMetadataPtrInput interface {
-	pulumi.Input
-
-	ToActionConnectorApiKeyConnectionMetadataPtrOutput() ActionConnectorApiKeyConnectionMetadataPtrOutput
-	ToActionConnectorApiKeyConnectionMetadataPtrOutputWithContext(context.Context) ActionConnectorApiKeyConnectionMetadataPtrOutput
-}
-
-type actionConnectorApiKeyConnectionMetadataPtrType ActionConnectorApiKeyConnectionMetadataArgs
-
-func ActionConnectorApiKeyConnectionMetadataPtr(v *ActionConnectorApiKeyConnectionMetadataArgs) ActionConnectorApiKeyConnectionMetadataPtrInput {
-	return (*actionConnectorApiKeyConnectionMetadataPtrType)(v)
-}
-
-func (*actionConnectorApiKeyConnectionMetadataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorApiKeyConnectionMetadata)(nil)).Elem()
-}
-
-func (i *actionConnectorApiKeyConnectionMetadataPtrType) ToActionConnectorApiKeyConnectionMetadataPtrOutput() ActionConnectorApiKeyConnectionMetadataPtrOutput {
-	return i.ToActionConnectorApiKeyConnectionMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i *actionConnectorApiKeyConnectionMetadataPtrType) ToActionConnectorApiKeyConnectionMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorApiKeyConnectionMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorApiKeyConnectionMetadataPtrOutput)
-}
-
 type ActionConnectorApiKeyConnectionMetadataOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectorApiKeyConnectionMetadataOutput) ElementType() reflect.Type {
@@ -103,16 +62,6 @@ func (o ActionConnectorApiKeyConnectionMetadataOutput) ToActionConnectorApiKeyCo
 	return o
 }
 
-func (o ActionConnectorApiKeyConnectionMetadataOutput) ToActionConnectorApiKeyConnectionMetadataPtrOutput() ActionConnectorApiKeyConnectionMetadataPtrOutput {
-	return o.ToActionConnectorApiKeyConnectionMetadataPtrOutputWithContext(context.Background())
-}
-
-func (o ActionConnectorApiKeyConnectionMetadataOutput) ToActionConnectorApiKeyConnectionMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorApiKeyConnectionMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorApiKeyConnectionMetadata) *ActionConnectorApiKeyConnectionMetadata {
-		return &v
-	}).(ActionConnectorApiKeyConnectionMetadataPtrOutput)
-}
-
 func (o ActionConnectorApiKeyConnectionMetadataOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionConnectorApiKeyConnectionMetadata) string { return v.ApiKey }).(pulumi.StringOutput)
 }
@@ -123,57 +72,6 @@ func (o ActionConnectorApiKeyConnectionMetadataOutput) BaseEndpoint() pulumi.Str
 
 func (o ActionConnectorApiKeyConnectionMetadataOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectorApiKeyConnectionMetadata) *string { return v.Email }).(pulumi.StringPtrOutput)
-}
-
-type ActionConnectorApiKeyConnectionMetadataPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionConnectorApiKeyConnectionMetadataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorApiKeyConnectionMetadata)(nil)).Elem()
-}
-
-func (o ActionConnectorApiKeyConnectionMetadataPtrOutput) ToActionConnectorApiKeyConnectionMetadataPtrOutput() ActionConnectorApiKeyConnectionMetadataPtrOutput {
-	return o
-}
-
-func (o ActionConnectorApiKeyConnectionMetadataPtrOutput) ToActionConnectorApiKeyConnectionMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorApiKeyConnectionMetadataPtrOutput {
-	return o
-}
-
-func (o ActionConnectorApiKeyConnectionMetadataPtrOutput) Elem() ActionConnectorApiKeyConnectionMetadataOutput {
-	return o.ApplyT(func(v *ActionConnectorApiKeyConnectionMetadata) ActionConnectorApiKeyConnectionMetadata {
-		if v != nil {
-			return *v
-		}
-		var ret ActionConnectorApiKeyConnectionMetadata
-		return ret
-	}).(ActionConnectorApiKeyConnectionMetadataOutput)
-}
-
-func (o ActionConnectorApiKeyConnectionMetadataPtrOutput) ApiKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorApiKeyConnectionMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ApiKey
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ActionConnectorApiKeyConnectionMetadataPtrOutput) BaseEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorApiKeyConnectionMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BaseEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ActionConnectorApiKeyConnectionMetadataPtrOutput) Email() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorApiKeyConnectionMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Email
-	}).(pulumi.StringPtrOutput)
 }
 
 type ActionConnectorAuthConfig struct {
@@ -209,47 +107,6 @@ func (i ActionConnectorAuthConfigArgs) ToActionConnectorAuthConfigOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthConfigOutput)
 }
 
-func (i ActionConnectorAuthConfigArgs) ToActionConnectorAuthConfigPtrOutput() ActionConnectorAuthConfigPtrOutput {
-	return i.ToActionConnectorAuthConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ActionConnectorAuthConfigArgs) ToActionConnectorAuthConfigPtrOutputWithContext(ctx context.Context) ActionConnectorAuthConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthConfigOutput).ToActionConnectorAuthConfigPtrOutputWithContext(ctx)
-}
-
-// ActionConnectorAuthConfigPtrInput is an input type that accepts ActionConnectorAuthConfigArgs, ActionConnectorAuthConfigPtr and ActionConnectorAuthConfigPtrOutput values.
-// You can construct a concrete instance of `ActionConnectorAuthConfigPtrInput` via:
-//
-//	        ActionConnectorAuthConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type ActionConnectorAuthConfigPtrInput interface {
-	pulumi.Input
-
-	ToActionConnectorAuthConfigPtrOutput() ActionConnectorAuthConfigPtrOutput
-	ToActionConnectorAuthConfigPtrOutputWithContext(context.Context) ActionConnectorAuthConfigPtrOutput
-}
-
-type actionConnectorAuthConfigPtrType ActionConnectorAuthConfigArgs
-
-func ActionConnectorAuthConfigPtr(v *ActionConnectorAuthConfigArgs) ActionConnectorAuthConfigPtrInput {
-	return (*actionConnectorAuthConfigPtrType)(v)
-}
-
-func (*actionConnectorAuthConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorAuthConfig)(nil)).Elem()
-}
-
-func (i *actionConnectorAuthConfigPtrType) ToActionConnectorAuthConfigPtrOutput() ActionConnectorAuthConfigPtrOutput {
-	return i.ToActionConnectorAuthConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *actionConnectorAuthConfigPtrType) ToActionConnectorAuthConfigPtrOutputWithContext(ctx context.Context) ActionConnectorAuthConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthConfigPtrOutput)
-}
-
 type ActionConnectorAuthConfigOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectorAuthConfigOutput) ElementType() reflect.Type {
@@ -264,64 +121,12 @@ func (o ActionConnectorAuthConfigOutput) ToActionConnectorAuthConfigOutputWithCo
 	return o
 }
 
-func (o ActionConnectorAuthConfigOutput) ToActionConnectorAuthConfigPtrOutput() ActionConnectorAuthConfigPtrOutput {
-	return o.ToActionConnectorAuthConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ActionConnectorAuthConfigOutput) ToActionConnectorAuthConfigPtrOutputWithContext(ctx context.Context) ActionConnectorAuthConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorAuthConfig) *ActionConnectorAuthConfig {
-		return &v
-	}).(ActionConnectorAuthConfigPtrOutput)
-}
-
 func (o ActionConnectorAuthConfigOutput) AuthenticationMetadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v ActionConnectorAuthConfig) interface{} { return v.AuthenticationMetadata }).(pulumi.AnyOutput)
 }
 
 func (o ActionConnectorAuthConfigOutput) AuthenticationType() ActionConnectorConnectionAuthTypeOutput {
 	return o.ApplyT(func(v ActionConnectorAuthConfig) ActionConnectorConnectionAuthType { return v.AuthenticationType }).(ActionConnectorConnectionAuthTypeOutput)
-}
-
-type ActionConnectorAuthConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionConnectorAuthConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorAuthConfig)(nil)).Elem()
-}
-
-func (o ActionConnectorAuthConfigPtrOutput) ToActionConnectorAuthConfigPtrOutput() ActionConnectorAuthConfigPtrOutput {
-	return o
-}
-
-func (o ActionConnectorAuthConfigPtrOutput) ToActionConnectorAuthConfigPtrOutputWithContext(ctx context.Context) ActionConnectorAuthConfigPtrOutput {
-	return o
-}
-
-func (o ActionConnectorAuthConfigPtrOutput) Elem() ActionConnectorAuthConfigOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthConfig) ActionConnectorAuthConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ActionConnectorAuthConfig
-		return ret
-	}).(ActionConnectorAuthConfigOutput)
-}
-
-func (o ActionConnectorAuthConfigPtrOutput) AuthenticationMetadata() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthConfig) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.AuthenticationMetadata
-	}).(pulumi.AnyOutput)
-}
-
-func (o ActionConnectorAuthConfigPtrOutput) AuthenticationType() ActionConnectorConnectionAuthTypePtrOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthConfig) *ActionConnectorConnectionAuthType {
-		if v == nil {
-			return nil
-		}
-		return &v.AuthenticationType
-	}).(ActionConnectorConnectionAuthTypePtrOutput)
 }
 
 type ActionConnectorAuthenticationMetadata0Properties struct {
@@ -355,47 +160,6 @@ func (i ActionConnectorAuthenticationMetadata0PropertiesArgs) ToActionConnectorA
 	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata0PropertiesOutput)
 }
 
-func (i ActionConnectorAuthenticationMetadata0PropertiesArgs) ToActionConnectorAuthenticationMetadata0PropertiesPtrOutput() ActionConnectorAuthenticationMetadata0PropertiesPtrOutput {
-	return i.ToActionConnectorAuthenticationMetadata0PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ActionConnectorAuthenticationMetadata0PropertiesArgs) ToActionConnectorAuthenticationMetadata0PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata0PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata0PropertiesOutput).ToActionConnectorAuthenticationMetadata0PropertiesPtrOutputWithContext(ctx)
-}
-
-// ActionConnectorAuthenticationMetadata0PropertiesPtrInput is an input type that accepts ActionConnectorAuthenticationMetadata0PropertiesArgs, ActionConnectorAuthenticationMetadata0PropertiesPtr and ActionConnectorAuthenticationMetadata0PropertiesPtrOutput values.
-// You can construct a concrete instance of `ActionConnectorAuthenticationMetadata0PropertiesPtrInput` via:
-//
-//	        ActionConnectorAuthenticationMetadata0PropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type ActionConnectorAuthenticationMetadata0PropertiesPtrInput interface {
-	pulumi.Input
-
-	ToActionConnectorAuthenticationMetadata0PropertiesPtrOutput() ActionConnectorAuthenticationMetadata0PropertiesPtrOutput
-	ToActionConnectorAuthenticationMetadata0PropertiesPtrOutputWithContext(context.Context) ActionConnectorAuthenticationMetadata0PropertiesPtrOutput
-}
-
-type actionConnectorAuthenticationMetadata0PropertiesPtrType ActionConnectorAuthenticationMetadata0PropertiesArgs
-
-func ActionConnectorAuthenticationMetadata0PropertiesPtr(v *ActionConnectorAuthenticationMetadata0PropertiesArgs) ActionConnectorAuthenticationMetadata0PropertiesPtrInput {
-	return (*actionConnectorAuthenticationMetadata0PropertiesPtrType)(v)
-}
-
-func (*actionConnectorAuthenticationMetadata0PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorAuthenticationMetadata0Properties)(nil)).Elem()
-}
-
-func (i *actionConnectorAuthenticationMetadata0PropertiesPtrType) ToActionConnectorAuthenticationMetadata0PropertiesPtrOutput() ActionConnectorAuthenticationMetadata0PropertiesPtrOutput {
-	return i.ToActionConnectorAuthenticationMetadata0PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *actionConnectorAuthenticationMetadata0PropertiesPtrType) ToActionConnectorAuthenticationMetadata0PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata0PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata0PropertiesPtrOutput)
-}
-
 type ActionConnectorAuthenticationMetadata0PropertiesOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectorAuthenticationMetadata0PropertiesOutput) ElementType() reflect.Type {
@@ -410,53 +174,10 @@ func (o ActionConnectorAuthenticationMetadata0PropertiesOutput) ToActionConnecto
 	return o
 }
 
-func (o ActionConnectorAuthenticationMetadata0PropertiesOutput) ToActionConnectorAuthenticationMetadata0PropertiesPtrOutput() ActionConnectorAuthenticationMetadata0PropertiesPtrOutput {
-	return o.ToActionConnectorAuthenticationMetadata0PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ActionConnectorAuthenticationMetadata0PropertiesOutput) ToActionConnectorAuthenticationMetadata0PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata0PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorAuthenticationMetadata0Properties) *ActionConnectorAuthenticationMetadata0Properties {
-		return &v
-	}).(ActionConnectorAuthenticationMetadata0PropertiesPtrOutput)
-}
-
 func (o ActionConnectorAuthenticationMetadata0PropertiesOutput) AuthorizationCodeGrantMetadata() ActionConnectorAuthorizationCodeGrantMetadataOutput {
 	return o.ApplyT(func(v ActionConnectorAuthenticationMetadata0Properties) ActionConnectorAuthorizationCodeGrantMetadata {
 		return v.AuthorizationCodeGrantMetadata
 	}).(ActionConnectorAuthorizationCodeGrantMetadataOutput)
-}
-
-type ActionConnectorAuthenticationMetadata0PropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionConnectorAuthenticationMetadata0PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorAuthenticationMetadata0Properties)(nil)).Elem()
-}
-
-func (o ActionConnectorAuthenticationMetadata0PropertiesPtrOutput) ToActionConnectorAuthenticationMetadata0PropertiesPtrOutput() ActionConnectorAuthenticationMetadata0PropertiesPtrOutput {
-	return o
-}
-
-func (o ActionConnectorAuthenticationMetadata0PropertiesPtrOutput) ToActionConnectorAuthenticationMetadata0PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata0PropertiesPtrOutput {
-	return o
-}
-
-func (o ActionConnectorAuthenticationMetadata0PropertiesPtrOutput) Elem() ActionConnectorAuthenticationMetadata0PropertiesOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthenticationMetadata0Properties) ActionConnectorAuthenticationMetadata0Properties {
-		if v != nil {
-			return *v
-		}
-		var ret ActionConnectorAuthenticationMetadata0Properties
-		return ret
-	}).(ActionConnectorAuthenticationMetadata0PropertiesOutput)
-}
-
-func (o ActionConnectorAuthenticationMetadata0PropertiesPtrOutput) AuthorizationCodeGrantMetadata() ActionConnectorAuthorizationCodeGrantMetadataPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthenticationMetadata0Properties) *ActionConnectorAuthorizationCodeGrantMetadata {
-		if v == nil {
-			return nil
-		}
-		return &v.AuthorizationCodeGrantMetadata
-	}).(ActionConnectorAuthorizationCodeGrantMetadataPtrOutput)
 }
 
 type ActionConnectorAuthenticationMetadata1Properties struct {
@@ -490,47 +211,6 @@ func (i ActionConnectorAuthenticationMetadata1PropertiesArgs) ToActionConnectorA
 	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata1PropertiesOutput)
 }
 
-func (i ActionConnectorAuthenticationMetadata1PropertiesArgs) ToActionConnectorAuthenticationMetadata1PropertiesPtrOutput() ActionConnectorAuthenticationMetadata1PropertiesPtrOutput {
-	return i.ToActionConnectorAuthenticationMetadata1PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ActionConnectorAuthenticationMetadata1PropertiesArgs) ToActionConnectorAuthenticationMetadata1PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata1PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata1PropertiesOutput).ToActionConnectorAuthenticationMetadata1PropertiesPtrOutputWithContext(ctx)
-}
-
-// ActionConnectorAuthenticationMetadata1PropertiesPtrInput is an input type that accepts ActionConnectorAuthenticationMetadata1PropertiesArgs, ActionConnectorAuthenticationMetadata1PropertiesPtr and ActionConnectorAuthenticationMetadata1PropertiesPtrOutput values.
-// You can construct a concrete instance of `ActionConnectorAuthenticationMetadata1PropertiesPtrInput` via:
-//
-//	        ActionConnectorAuthenticationMetadata1PropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type ActionConnectorAuthenticationMetadata1PropertiesPtrInput interface {
-	pulumi.Input
-
-	ToActionConnectorAuthenticationMetadata1PropertiesPtrOutput() ActionConnectorAuthenticationMetadata1PropertiesPtrOutput
-	ToActionConnectorAuthenticationMetadata1PropertiesPtrOutputWithContext(context.Context) ActionConnectorAuthenticationMetadata1PropertiesPtrOutput
-}
-
-type actionConnectorAuthenticationMetadata1PropertiesPtrType ActionConnectorAuthenticationMetadata1PropertiesArgs
-
-func ActionConnectorAuthenticationMetadata1PropertiesPtr(v *ActionConnectorAuthenticationMetadata1PropertiesArgs) ActionConnectorAuthenticationMetadata1PropertiesPtrInput {
-	return (*actionConnectorAuthenticationMetadata1PropertiesPtrType)(v)
-}
-
-func (*actionConnectorAuthenticationMetadata1PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorAuthenticationMetadata1Properties)(nil)).Elem()
-}
-
-func (i *actionConnectorAuthenticationMetadata1PropertiesPtrType) ToActionConnectorAuthenticationMetadata1PropertiesPtrOutput() ActionConnectorAuthenticationMetadata1PropertiesPtrOutput {
-	return i.ToActionConnectorAuthenticationMetadata1PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *actionConnectorAuthenticationMetadata1PropertiesPtrType) ToActionConnectorAuthenticationMetadata1PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata1PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata1PropertiesPtrOutput)
-}
-
 type ActionConnectorAuthenticationMetadata1PropertiesOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectorAuthenticationMetadata1PropertiesOutput) ElementType() reflect.Type {
@@ -545,53 +225,10 @@ func (o ActionConnectorAuthenticationMetadata1PropertiesOutput) ToActionConnecto
 	return o
 }
 
-func (o ActionConnectorAuthenticationMetadata1PropertiesOutput) ToActionConnectorAuthenticationMetadata1PropertiesPtrOutput() ActionConnectorAuthenticationMetadata1PropertiesPtrOutput {
-	return o.ToActionConnectorAuthenticationMetadata1PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ActionConnectorAuthenticationMetadata1PropertiesOutput) ToActionConnectorAuthenticationMetadata1PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata1PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorAuthenticationMetadata1Properties) *ActionConnectorAuthenticationMetadata1Properties {
-		return &v
-	}).(ActionConnectorAuthenticationMetadata1PropertiesPtrOutput)
-}
-
 func (o ActionConnectorAuthenticationMetadata1PropertiesOutput) ClientCredentialsGrantMetadata() ActionConnectorClientCredentialsGrantMetadataOutput {
 	return o.ApplyT(func(v ActionConnectorAuthenticationMetadata1Properties) ActionConnectorClientCredentialsGrantMetadata {
 		return v.ClientCredentialsGrantMetadata
 	}).(ActionConnectorClientCredentialsGrantMetadataOutput)
-}
-
-type ActionConnectorAuthenticationMetadata1PropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionConnectorAuthenticationMetadata1PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorAuthenticationMetadata1Properties)(nil)).Elem()
-}
-
-func (o ActionConnectorAuthenticationMetadata1PropertiesPtrOutput) ToActionConnectorAuthenticationMetadata1PropertiesPtrOutput() ActionConnectorAuthenticationMetadata1PropertiesPtrOutput {
-	return o
-}
-
-func (o ActionConnectorAuthenticationMetadata1PropertiesPtrOutput) ToActionConnectorAuthenticationMetadata1PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata1PropertiesPtrOutput {
-	return o
-}
-
-func (o ActionConnectorAuthenticationMetadata1PropertiesPtrOutput) Elem() ActionConnectorAuthenticationMetadata1PropertiesOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthenticationMetadata1Properties) ActionConnectorAuthenticationMetadata1Properties {
-		if v != nil {
-			return *v
-		}
-		var ret ActionConnectorAuthenticationMetadata1Properties
-		return ret
-	}).(ActionConnectorAuthenticationMetadata1PropertiesOutput)
-}
-
-func (o ActionConnectorAuthenticationMetadata1PropertiesPtrOutput) ClientCredentialsGrantMetadata() ActionConnectorClientCredentialsGrantMetadataPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthenticationMetadata1Properties) *ActionConnectorClientCredentialsGrantMetadata {
-		if v == nil {
-			return nil
-		}
-		return &v.ClientCredentialsGrantMetadata
-	}).(ActionConnectorClientCredentialsGrantMetadataPtrOutput)
 }
 
 type ActionConnectorAuthenticationMetadata2Properties struct {
@@ -625,47 +262,6 @@ func (i ActionConnectorAuthenticationMetadata2PropertiesArgs) ToActionConnectorA
 	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata2PropertiesOutput)
 }
 
-func (i ActionConnectorAuthenticationMetadata2PropertiesArgs) ToActionConnectorAuthenticationMetadata2PropertiesPtrOutput() ActionConnectorAuthenticationMetadata2PropertiesPtrOutput {
-	return i.ToActionConnectorAuthenticationMetadata2PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ActionConnectorAuthenticationMetadata2PropertiesArgs) ToActionConnectorAuthenticationMetadata2PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata2PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata2PropertiesOutput).ToActionConnectorAuthenticationMetadata2PropertiesPtrOutputWithContext(ctx)
-}
-
-// ActionConnectorAuthenticationMetadata2PropertiesPtrInput is an input type that accepts ActionConnectorAuthenticationMetadata2PropertiesArgs, ActionConnectorAuthenticationMetadata2PropertiesPtr and ActionConnectorAuthenticationMetadata2PropertiesPtrOutput values.
-// You can construct a concrete instance of `ActionConnectorAuthenticationMetadata2PropertiesPtrInput` via:
-//
-//	        ActionConnectorAuthenticationMetadata2PropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type ActionConnectorAuthenticationMetadata2PropertiesPtrInput interface {
-	pulumi.Input
-
-	ToActionConnectorAuthenticationMetadata2PropertiesPtrOutput() ActionConnectorAuthenticationMetadata2PropertiesPtrOutput
-	ToActionConnectorAuthenticationMetadata2PropertiesPtrOutputWithContext(context.Context) ActionConnectorAuthenticationMetadata2PropertiesPtrOutput
-}
-
-type actionConnectorAuthenticationMetadata2PropertiesPtrType ActionConnectorAuthenticationMetadata2PropertiesArgs
-
-func ActionConnectorAuthenticationMetadata2PropertiesPtr(v *ActionConnectorAuthenticationMetadata2PropertiesArgs) ActionConnectorAuthenticationMetadata2PropertiesPtrInput {
-	return (*actionConnectorAuthenticationMetadata2PropertiesPtrType)(v)
-}
-
-func (*actionConnectorAuthenticationMetadata2PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorAuthenticationMetadata2Properties)(nil)).Elem()
-}
-
-func (i *actionConnectorAuthenticationMetadata2PropertiesPtrType) ToActionConnectorAuthenticationMetadata2PropertiesPtrOutput() ActionConnectorAuthenticationMetadata2PropertiesPtrOutput {
-	return i.ToActionConnectorAuthenticationMetadata2PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *actionConnectorAuthenticationMetadata2PropertiesPtrType) ToActionConnectorAuthenticationMetadata2PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata2PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata2PropertiesPtrOutput)
-}
-
 type ActionConnectorAuthenticationMetadata2PropertiesOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectorAuthenticationMetadata2PropertiesOutput) ElementType() reflect.Type {
@@ -680,53 +276,10 @@ func (o ActionConnectorAuthenticationMetadata2PropertiesOutput) ToActionConnecto
 	return o
 }
 
-func (o ActionConnectorAuthenticationMetadata2PropertiesOutput) ToActionConnectorAuthenticationMetadata2PropertiesPtrOutput() ActionConnectorAuthenticationMetadata2PropertiesPtrOutput {
-	return o.ToActionConnectorAuthenticationMetadata2PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ActionConnectorAuthenticationMetadata2PropertiesOutput) ToActionConnectorAuthenticationMetadata2PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata2PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorAuthenticationMetadata2Properties) *ActionConnectorAuthenticationMetadata2Properties {
-		return &v
-	}).(ActionConnectorAuthenticationMetadata2PropertiesPtrOutput)
-}
-
 func (o ActionConnectorAuthenticationMetadata2PropertiesOutput) BasicAuthConnectionMetadata() ActionConnectorBasicAuthConnectionMetadataOutput {
 	return o.ApplyT(func(v ActionConnectorAuthenticationMetadata2Properties) ActionConnectorBasicAuthConnectionMetadata {
 		return v.BasicAuthConnectionMetadata
 	}).(ActionConnectorBasicAuthConnectionMetadataOutput)
-}
-
-type ActionConnectorAuthenticationMetadata2PropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionConnectorAuthenticationMetadata2PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorAuthenticationMetadata2Properties)(nil)).Elem()
-}
-
-func (o ActionConnectorAuthenticationMetadata2PropertiesPtrOutput) ToActionConnectorAuthenticationMetadata2PropertiesPtrOutput() ActionConnectorAuthenticationMetadata2PropertiesPtrOutput {
-	return o
-}
-
-func (o ActionConnectorAuthenticationMetadata2PropertiesPtrOutput) ToActionConnectorAuthenticationMetadata2PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata2PropertiesPtrOutput {
-	return o
-}
-
-func (o ActionConnectorAuthenticationMetadata2PropertiesPtrOutput) Elem() ActionConnectorAuthenticationMetadata2PropertiesOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthenticationMetadata2Properties) ActionConnectorAuthenticationMetadata2Properties {
-		if v != nil {
-			return *v
-		}
-		var ret ActionConnectorAuthenticationMetadata2Properties
-		return ret
-	}).(ActionConnectorAuthenticationMetadata2PropertiesOutput)
-}
-
-func (o ActionConnectorAuthenticationMetadata2PropertiesPtrOutput) BasicAuthConnectionMetadata() ActionConnectorBasicAuthConnectionMetadataPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthenticationMetadata2Properties) *ActionConnectorBasicAuthConnectionMetadata {
-		if v == nil {
-			return nil
-		}
-		return &v.BasicAuthConnectionMetadata
-	}).(ActionConnectorBasicAuthConnectionMetadataPtrOutput)
 }
 
 type ActionConnectorAuthenticationMetadata3Properties struct {
@@ -760,47 +313,6 @@ func (i ActionConnectorAuthenticationMetadata3PropertiesArgs) ToActionConnectorA
 	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata3PropertiesOutput)
 }
 
-func (i ActionConnectorAuthenticationMetadata3PropertiesArgs) ToActionConnectorAuthenticationMetadata3PropertiesPtrOutput() ActionConnectorAuthenticationMetadata3PropertiesPtrOutput {
-	return i.ToActionConnectorAuthenticationMetadata3PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ActionConnectorAuthenticationMetadata3PropertiesArgs) ToActionConnectorAuthenticationMetadata3PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata3PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata3PropertiesOutput).ToActionConnectorAuthenticationMetadata3PropertiesPtrOutputWithContext(ctx)
-}
-
-// ActionConnectorAuthenticationMetadata3PropertiesPtrInput is an input type that accepts ActionConnectorAuthenticationMetadata3PropertiesArgs, ActionConnectorAuthenticationMetadata3PropertiesPtr and ActionConnectorAuthenticationMetadata3PropertiesPtrOutput values.
-// You can construct a concrete instance of `ActionConnectorAuthenticationMetadata3PropertiesPtrInput` via:
-//
-//	        ActionConnectorAuthenticationMetadata3PropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type ActionConnectorAuthenticationMetadata3PropertiesPtrInput interface {
-	pulumi.Input
-
-	ToActionConnectorAuthenticationMetadata3PropertiesPtrOutput() ActionConnectorAuthenticationMetadata3PropertiesPtrOutput
-	ToActionConnectorAuthenticationMetadata3PropertiesPtrOutputWithContext(context.Context) ActionConnectorAuthenticationMetadata3PropertiesPtrOutput
-}
-
-type actionConnectorAuthenticationMetadata3PropertiesPtrType ActionConnectorAuthenticationMetadata3PropertiesArgs
-
-func ActionConnectorAuthenticationMetadata3PropertiesPtr(v *ActionConnectorAuthenticationMetadata3PropertiesArgs) ActionConnectorAuthenticationMetadata3PropertiesPtrInput {
-	return (*actionConnectorAuthenticationMetadata3PropertiesPtrType)(v)
-}
-
-func (*actionConnectorAuthenticationMetadata3PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorAuthenticationMetadata3Properties)(nil)).Elem()
-}
-
-func (i *actionConnectorAuthenticationMetadata3PropertiesPtrType) ToActionConnectorAuthenticationMetadata3PropertiesPtrOutput() ActionConnectorAuthenticationMetadata3PropertiesPtrOutput {
-	return i.ToActionConnectorAuthenticationMetadata3PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *actionConnectorAuthenticationMetadata3PropertiesPtrType) ToActionConnectorAuthenticationMetadata3PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata3PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata3PropertiesPtrOutput)
-}
-
 type ActionConnectorAuthenticationMetadata3PropertiesOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectorAuthenticationMetadata3PropertiesOutput) ElementType() reflect.Type {
@@ -815,53 +327,10 @@ func (o ActionConnectorAuthenticationMetadata3PropertiesOutput) ToActionConnecto
 	return o
 }
 
-func (o ActionConnectorAuthenticationMetadata3PropertiesOutput) ToActionConnectorAuthenticationMetadata3PropertiesPtrOutput() ActionConnectorAuthenticationMetadata3PropertiesPtrOutput {
-	return o.ToActionConnectorAuthenticationMetadata3PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ActionConnectorAuthenticationMetadata3PropertiesOutput) ToActionConnectorAuthenticationMetadata3PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata3PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorAuthenticationMetadata3Properties) *ActionConnectorAuthenticationMetadata3Properties {
-		return &v
-	}).(ActionConnectorAuthenticationMetadata3PropertiesPtrOutput)
-}
-
 func (o ActionConnectorAuthenticationMetadata3PropertiesOutput) ApiKeyConnectionMetadata() ActionConnectorApiKeyConnectionMetadataOutput {
 	return o.ApplyT(func(v ActionConnectorAuthenticationMetadata3Properties) ActionConnectorApiKeyConnectionMetadata {
 		return v.ApiKeyConnectionMetadata
 	}).(ActionConnectorApiKeyConnectionMetadataOutput)
-}
-
-type ActionConnectorAuthenticationMetadata3PropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionConnectorAuthenticationMetadata3PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorAuthenticationMetadata3Properties)(nil)).Elem()
-}
-
-func (o ActionConnectorAuthenticationMetadata3PropertiesPtrOutput) ToActionConnectorAuthenticationMetadata3PropertiesPtrOutput() ActionConnectorAuthenticationMetadata3PropertiesPtrOutput {
-	return o
-}
-
-func (o ActionConnectorAuthenticationMetadata3PropertiesPtrOutput) ToActionConnectorAuthenticationMetadata3PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata3PropertiesPtrOutput {
-	return o
-}
-
-func (o ActionConnectorAuthenticationMetadata3PropertiesPtrOutput) Elem() ActionConnectorAuthenticationMetadata3PropertiesOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthenticationMetadata3Properties) ActionConnectorAuthenticationMetadata3Properties {
-		if v != nil {
-			return *v
-		}
-		var ret ActionConnectorAuthenticationMetadata3Properties
-		return ret
-	}).(ActionConnectorAuthenticationMetadata3PropertiesOutput)
-}
-
-func (o ActionConnectorAuthenticationMetadata3PropertiesPtrOutput) ApiKeyConnectionMetadata() ActionConnectorApiKeyConnectionMetadataPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthenticationMetadata3Properties) *ActionConnectorApiKeyConnectionMetadata {
-		if v == nil {
-			return nil
-		}
-		return &v.ApiKeyConnectionMetadata
-	}).(ActionConnectorApiKeyConnectionMetadataPtrOutput)
 }
 
 type ActionConnectorAuthenticationMetadata4Properties struct {
@@ -895,47 +364,6 @@ func (i ActionConnectorAuthenticationMetadata4PropertiesArgs) ToActionConnectorA
 	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata4PropertiesOutput)
 }
 
-func (i ActionConnectorAuthenticationMetadata4PropertiesArgs) ToActionConnectorAuthenticationMetadata4PropertiesPtrOutput() ActionConnectorAuthenticationMetadata4PropertiesPtrOutput {
-	return i.ToActionConnectorAuthenticationMetadata4PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ActionConnectorAuthenticationMetadata4PropertiesArgs) ToActionConnectorAuthenticationMetadata4PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata4PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata4PropertiesOutput).ToActionConnectorAuthenticationMetadata4PropertiesPtrOutputWithContext(ctx)
-}
-
-// ActionConnectorAuthenticationMetadata4PropertiesPtrInput is an input type that accepts ActionConnectorAuthenticationMetadata4PropertiesArgs, ActionConnectorAuthenticationMetadata4PropertiesPtr and ActionConnectorAuthenticationMetadata4PropertiesPtrOutput values.
-// You can construct a concrete instance of `ActionConnectorAuthenticationMetadata4PropertiesPtrInput` via:
-//
-//	        ActionConnectorAuthenticationMetadata4PropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type ActionConnectorAuthenticationMetadata4PropertiesPtrInput interface {
-	pulumi.Input
-
-	ToActionConnectorAuthenticationMetadata4PropertiesPtrOutput() ActionConnectorAuthenticationMetadata4PropertiesPtrOutput
-	ToActionConnectorAuthenticationMetadata4PropertiesPtrOutputWithContext(context.Context) ActionConnectorAuthenticationMetadata4PropertiesPtrOutput
-}
-
-type actionConnectorAuthenticationMetadata4PropertiesPtrType ActionConnectorAuthenticationMetadata4PropertiesArgs
-
-func ActionConnectorAuthenticationMetadata4PropertiesPtr(v *ActionConnectorAuthenticationMetadata4PropertiesArgs) ActionConnectorAuthenticationMetadata4PropertiesPtrInput {
-	return (*actionConnectorAuthenticationMetadata4PropertiesPtrType)(v)
-}
-
-func (*actionConnectorAuthenticationMetadata4PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorAuthenticationMetadata4Properties)(nil)).Elem()
-}
-
-func (i *actionConnectorAuthenticationMetadata4PropertiesPtrType) ToActionConnectorAuthenticationMetadata4PropertiesPtrOutput() ActionConnectorAuthenticationMetadata4PropertiesPtrOutput {
-	return i.ToActionConnectorAuthenticationMetadata4PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *actionConnectorAuthenticationMetadata4PropertiesPtrType) ToActionConnectorAuthenticationMetadata4PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata4PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata4PropertiesPtrOutput)
-}
-
 type ActionConnectorAuthenticationMetadata4PropertiesOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectorAuthenticationMetadata4PropertiesOutput) ElementType() reflect.Type {
@@ -950,53 +378,10 @@ func (o ActionConnectorAuthenticationMetadata4PropertiesOutput) ToActionConnecto
 	return o
 }
 
-func (o ActionConnectorAuthenticationMetadata4PropertiesOutput) ToActionConnectorAuthenticationMetadata4PropertiesPtrOutput() ActionConnectorAuthenticationMetadata4PropertiesPtrOutput {
-	return o.ToActionConnectorAuthenticationMetadata4PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ActionConnectorAuthenticationMetadata4PropertiesOutput) ToActionConnectorAuthenticationMetadata4PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata4PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorAuthenticationMetadata4Properties) *ActionConnectorAuthenticationMetadata4Properties {
-		return &v
-	}).(ActionConnectorAuthenticationMetadata4PropertiesPtrOutput)
-}
-
 func (o ActionConnectorAuthenticationMetadata4PropertiesOutput) NoneConnectionMetadata() ActionConnectorNoneConnectionMetadataOutput {
 	return o.ApplyT(func(v ActionConnectorAuthenticationMetadata4Properties) ActionConnectorNoneConnectionMetadata {
 		return v.NoneConnectionMetadata
 	}).(ActionConnectorNoneConnectionMetadataOutput)
-}
-
-type ActionConnectorAuthenticationMetadata4PropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionConnectorAuthenticationMetadata4PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorAuthenticationMetadata4Properties)(nil)).Elem()
-}
-
-func (o ActionConnectorAuthenticationMetadata4PropertiesPtrOutput) ToActionConnectorAuthenticationMetadata4PropertiesPtrOutput() ActionConnectorAuthenticationMetadata4PropertiesPtrOutput {
-	return o
-}
-
-func (o ActionConnectorAuthenticationMetadata4PropertiesPtrOutput) ToActionConnectorAuthenticationMetadata4PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata4PropertiesPtrOutput {
-	return o
-}
-
-func (o ActionConnectorAuthenticationMetadata4PropertiesPtrOutput) Elem() ActionConnectorAuthenticationMetadata4PropertiesOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthenticationMetadata4Properties) ActionConnectorAuthenticationMetadata4Properties {
-		if v != nil {
-			return *v
-		}
-		var ret ActionConnectorAuthenticationMetadata4Properties
-		return ret
-	}).(ActionConnectorAuthenticationMetadata4PropertiesOutput)
-}
-
-func (o ActionConnectorAuthenticationMetadata4PropertiesPtrOutput) NoneConnectionMetadata() ActionConnectorNoneConnectionMetadataPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthenticationMetadata4Properties) *ActionConnectorNoneConnectionMetadata {
-		if v == nil {
-			return nil
-		}
-		return &v.NoneConnectionMetadata
-	}).(ActionConnectorNoneConnectionMetadataPtrOutput)
 }
 
 type ActionConnectorAuthenticationMetadata5Properties struct {
@@ -1030,47 +415,6 @@ func (i ActionConnectorAuthenticationMetadata5PropertiesArgs) ToActionConnectorA
 	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata5PropertiesOutput)
 }
 
-func (i ActionConnectorAuthenticationMetadata5PropertiesArgs) ToActionConnectorAuthenticationMetadata5PropertiesPtrOutput() ActionConnectorAuthenticationMetadata5PropertiesPtrOutput {
-	return i.ToActionConnectorAuthenticationMetadata5PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ActionConnectorAuthenticationMetadata5PropertiesArgs) ToActionConnectorAuthenticationMetadata5PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata5PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata5PropertiesOutput).ToActionConnectorAuthenticationMetadata5PropertiesPtrOutputWithContext(ctx)
-}
-
-// ActionConnectorAuthenticationMetadata5PropertiesPtrInput is an input type that accepts ActionConnectorAuthenticationMetadata5PropertiesArgs, ActionConnectorAuthenticationMetadata5PropertiesPtr and ActionConnectorAuthenticationMetadata5PropertiesPtrOutput values.
-// You can construct a concrete instance of `ActionConnectorAuthenticationMetadata5PropertiesPtrInput` via:
-//
-//	        ActionConnectorAuthenticationMetadata5PropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type ActionConnectorAuthenticationMetadata5PropertiesPtrInput interface {
-	pulumi.Input
-
-	ToActionConnectorAuthenticationMetadata5PropertiesPtrOutput() ActionConnectorAuthenticationMetadata5PropertiesPtrOutput
-	ToActionConnectorAuthenticationMetadata5PropertiesPtrOutputWithContext(context.Context) ActionConnectorAuthenticationMetadata5PropertiesPtrOutput
-}
-
-type actionConnectorAuthenticationMetadata5PropertiesPtrType ActionConnectorAuthenticationMetadata5PropertiesArgs
-
-func ActionConnectorAuthenticationMetadata5PropertiesPtr(v *ActionConnectorAuthenticationMetadata5PropertiesArgs) ActionConnectorAuthenticationMetadata5PropertiesPtrInput {
-	return (*actionConnectorAuthenticationMetadata5PropertiesPtrType)(v)
-}
-
-func (*actionConnectorAuthenticationMetadata5PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorAuthenticationMetadata5Properties)(nil)).Elem()
-}
-
-func (i *actionConnectorAuthenticationMetadata5PropertiesPtrType) ToActionConnectorAuthenticationMetadata5PropertiesPtrOutput() ActionConnectorAuthenticationMetadata5PropertiesPtrOutput {
-	return i.ToActionConnectorAuthenticationMetadata5PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *actionConnectorAuthenticationMetadata5PropertiesPtrType) ToActionConnectorAuthenticationMetadata5PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata5PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthenticationMetadata5PropertiesPtrOutput)
-}
-
 type ActionConnectorAuthenticationMetadata5PropertiesOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectorAuthenticationMetadata5PropertiesOutput) ElementType() reflect.Type {
@@ -1085,53 +429,10 @@ func (o ActionConnectorAuthenticationMetadata5PropertiesOutput) ToActionConnecto
 	return o
 }
 
-func (o ActionConnectorAuthenticationMetadata5PropertiesOutput) ToActionConnectorAuthenticationMetadata5PropertiesPtrOutput() ActionConnectorAuthenticationMetadata5PropertiesPtrOutput {
-	return o.ToActionConnectorAuthenticationMetadata5PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ActionConnectorAuthenticationMetadata5PropertiesOutput) ToActionConnectorAuthenticationMetadata5PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata5PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorAuthenticationMetadata5Properties) *ActionConnectorAuthenticationMetadata5Properties {
-		return &v
-	}).(ActionConnectorAuthenticationMetadata5PropertiesPtrOutput)
-}
-
 func (o ActionConnectorAuthenticationMetadata5PropertiesOutput) IamConnectionMetadata() ActionConnectorIamConnectionMetadataOutput {
 	return o.ApplyT(func(v ActionConnectorAuthenticationMetadata5Properties) ActionConnectorIamConnectionMetadata {
 		return v.IamConnectionMetadata
 	}).(ActionConnectorIamConnectionMetadataOutput)
-}
-
-type ActionConnectorAuthenticationMetadata5PropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionConnectorAuthenticationMetadata5PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorAuthenticationMetadata5Properties)(nil)).Elem()
-}
-
-func (o ActionConnectorAuthenticationMetadata5PropertiesPtrOutput) ToActionConnectorAuthenticationMetadata5PropertiesPtrOutput() ActionConnectorAuthenticationMetadata5PropertiesPtrOutput {
-	return o
-}
-
-func (o ActionConnectorAuthenticationMetadata5PropertiesPtrOutput) ToActionConnectorAuthenticationMetadata5PropertiesPtrOutputWithContext(ctx context.Context) ActionConnectorAuthenticationMetadata5PropertiesPtrOutput {
-	return o
-}
-
-func (o ActionConnectorAuthenticationMetadata5PropertiesPtrOutput) Elem() ActionConnectorAuthenticationMetadata5PropertiesOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthenticationMetadata5Properties) ActionConnectorAuthenticationMetadata5Properties {
-		if v != nil {
-			return *v
-		}
-		var ret ActionConnectorAuthenticationMetadata5Properties
-		return ret
-	}).(ActionConnectorAuthenticationMetadata5PropertiesOutput)
-}
-
-func (o ActionConnectorAuthenticationMetadata5PropertiesPtrOutput) IamConnectionMetadata() ActionConnectorIamConnectionMetadataPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthenticationMetadata5Properties) *ActionConnectorIamConnectionMetadata {
-		if v == nil {
-			return nil
-		}
-		return &v.IamConnectionMetadata
-	}).(ActionConnectorIamConnectionMetadataPtrOutput)
 }
 
 type ActionConnectorAuthorizationCodeGrantCredentialsDetails0Properties struct {
@@ -1488,47 +789,6 @@ func (i ActionConnectorAuthorizationCodeGrantMetadataArgs) ToActionConnectorAuth
 	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthorizationCodeGrantMetadataOutput)
 }
 
-func (i ActionConnectorAuthorizationCodeGrantMetadataArgs) ToActionConnectorAuthorizationCodeGrantMetadataPtrOutput() ActionConnectorAuthorizationCodeGrantMetadataPtrOutput {
-	return i.ToActionConnectorAuthorizationCodeGrantMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i ActionConnectorAuthorizationCodeGrantMetadataArgs) ToActionConnectorAuthorizationCodeGrantMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorAuthorizationCodeGrantMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthorizationCodeGrantMetadataOutput).ToActionConnectorAuthorizationCodeGrantMetadataPtrOutputWithContext(ctx)
-}
-
-// ActionConnectorAuthorizationCodeGrantMetadataPtrInput is an input type that accepts ActionConnectorAuthorizationCodeGrantMetadataArgs, ActionConnectorAuthorizationCodeGrantMetadataPtr and ActionConnectorAuthorizationCodeGrantMetadataPtrOutput values.
-// You can construct a concrete instance of `ActionConnectorAuthorizationCodeGrantMetadataPtrInput` via:
-//
-//	        ActionConnectorAuthorizationCodeGrantMetadataArgs{...}
-//
-//	or:
-//
-//	        nil
-type ActionConnectorAuthorizationCodeGrantMetadataPtrInput interface {
-	pulumi.Input
-
-	ToActionConnectorAuthorizationCodeGrantMetadataPtrOutput() ActionConnectorAuthorizationCodeGrantMetadataPtrOutput
-	ToActionConnectorAuthorizationCodeGrantMetadataPtrOutputWithContext(context.Context) ActionConnectorAuthorizationCodeGrantMetadataPtrOutput
-}
-
-type actionConnectorAuthorizationCodeGrantMetadataPtrType ActionConnectorAuthorizationCodeGrantMetadataArgs
-
-func ActionConnectorAuthorizationCodeGrantMetadataPtr(v *ActionConnectorAuthorizationCodeGrantMetadataArgs) ActionConnectorAuthorizationCodeGrantMetadataPtrInput {
-	return (*actionConnectorAuthorizationCodeGrantMetadataPtrType)(v)
-}
-
-func (*actionConnectorAuthorizationCodeGrantMetadataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorAuthorizationCodeGrantMetadata)(nil)).Elem()
-}
-
-func (i *actionConnectorAuthorizationCodeGrantMetadataPtrType) ToActionConnectorAuthorizationCodeGrantMetadataPtrOutput() ActionConnectorAuthorizationCodeGrantMetadataPtrOutput {
-	return i.ToActionConnectorAuthorizationCodeGrantMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i *actionConnectorAuthorizationCodeGrantMetadataPtrType) ToActionConnectorAuthorizationCodeGrantMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorAuthorizationCodeGrantMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorAuthorizationCodeGrantMetadataPtrOutput)
-}
-
 type ActionConnectorAuthorizationCodeGrantMetadataOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectorAuthorizationCodeGrantMetadataOutput) ElementType() reflect.Type {
@@ -1541,16 +801,6 @@ func (o ActionConnectorAuthorizationCodeGrantMetadataOutput) ToActionConnectorAu
 
 func (o ActionConnectorAuthorizationCodeGrantMetadataOutput) ToActionConnectorAuthorizationCodeGrantMetadataOutputWithContext(ctx context.Context) ActionConnectorAuthorizationCodeGrantMetadataOutput {
 	return o
-}
-
-func (o ActionConnectorAuthorizationCodeGrantMetadataOutput) ToActionConnectorAuthorizationCodeGrantMetadataPtrOutput() ActionConnectorAuthorizationCodeGrantMetadataPtrOutput {
-	return o.ToActionConnectorAuthorizationCodeGrantMetadataPtrOutputWithContext(context.Background())
-}
-
-func (o ActionConnectorAuthorizationCodeGrantMetadataOutput) ToActionConnectorAuthorizationCodeGrantMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorAuthorizationCodeGrantMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorAuthorizationCodeGrantMetadata) *ActionConnectorAuthorizationCodeGrantMetadata {
-		return &v
-	}).(ActionConnectorAuthorizationCodeGrantMetadataPtrOutput)
 }
 
 func (o ActionConnectorAuthorizationCodeGrantMetadataOutput) AuthorizationCodeGrantCredentialsDetails() ActionConnectorAuthorizationCodeGrantCredentialsDetailsPropertiesPtrOutput {
@@ -1571,66 +821,6 @@ func (o ActionConnectorAuthorizationCodeGrantMetadataOutput) BaseEndpoint() pulu
 
 func (o ActionConnectorAuthorizationCodeGrantMetadataOutput) RedirectUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionConnectorAuthorizationCodeGrantMetadata) string { return v.RedirectUrl }).(pulumi.StringOutput)
-}
-
-type ActionConnectorAuthorizationCodeGrantMetadataPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionConnectorAuthorizationCodeGrantMetadataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorAuthorizationCodeGrantMetadata)(nil)).Elem()
-}
-
-func (o ActionConnectorAuthorizationCodeGrantMetadataPtrOutput) ToActionConnectorAuthorizationCodeGrantMetadataPtrOutput() ActionConnectorAuthorizationCodeGrantMetadataPtrOutput {
-	return o
-}
-
-func (o ActionConnectorAuthorizationCodeGrantMetadataPtrOutput) ToActionConnectorAuthorizationCodeGrantMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorAuthorizationCodeGrantMetadataPtrOutput {
-	return o
-}
-
-func (o ActionConnectorAuthorizationCodeGrantMetadataPtrOutput) Elem() ActionConnectorAuthorizationCodeGrantMetadataOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthorizationCodeGrantMetadata) ActionConnectorAuthorizationCodeGrantMetadata {
-		if v != nil {
-			return *v
-		}
-		var ret ActionConnectorAuthorizationCodeGrantMetadata
-		return ret
-	}).(ActionConnectorAuthorizationCodeGrantMetadataOutput)
-}
-
-func (o ActionConnectorAuthorizationCodeGrantMetadataPtrOutput) AuthorizationCodeGrantCredentialsDetails() ActionConnectorAuthorizationCodeGrantCredentialsDetailsPropertiesPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthorizationCodeGrantMetadata) *ActionConnectorAuthorizationCodeGrantCredentialsDetailsProperties {
-		if v == nil {
-			return nil
-		}
-		return v.AuthorizationCodeGrantCredentialsDetails
-	}).(ActionConnectorAuthorizationCodeGrantCredentialsDetailsPropertiesPtrOutput)
-}
-
-func (o ActionConnectorAuthorizationCodeGrantMetadataPtrOutput) AuthorizationCodeGrantCredentialsSource() ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthorizationCodeGrantMetadata) *ActionConnectorAuthorizationCodeGrantCredentialsSource {
-		if v == nil {
-			return nil
-		}
-		return v.AuthorizationCodeGrantCredentialsSource
-	}).(ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput)
-}
-
-func (o ActionConnectorAuthorizationCodeGrantMetadataPtrOutput) BaseEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthorizationCodeGrantMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BaseEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ActionConnectorAuthorizationCodeGrantMetadataPtrOutput) RedirectUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorAuthorizationCodeGrantMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RedirectUrl
-	}).(pulumi.StringPtrOutput)
 }
 
 type ActionConnectorBasicAuthConnectionMetadata struct {
@@ -1668,47 +858,6 @@ func (i ActionConnectorBasicAuthConnectionMetadataArgs) ToActionConnectorBasicAu
 	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorBasicAuthConnectionMetadataOutput)
 }
 
-func (i ActionConnectorBasicAuthConnectionMetadataArgs) ToActionConnectorBasicAuthConnectionMetadataPtrOutput() ActionConnectorBasicAuthConnectionMetadataPtrOutput {
-	return i.ToActionConnectorBasicAuthConnectionMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i ActionConnectorBasicAuthConnectionMetadataArgs) ToActionConnectorBasicAuthConnectionMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorBasicAuthConnectionMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorBasicAuthConnectionMetadataOutput).ToActionConnectorBasicAuthConnectionMetadataPtrOutputWithContext(ctx)
-}
-
-// ActionConnectorBasicAuthConnectionMetadataPtrInput is an input type that accepts ActionConnectorBasicAuthConnectionMetadataArgs, ActionConnectorBasicAuthConnectionMetadataPtr and ActionConnectorBasicAuthConnectionMetadataPtrOutput values.
-// You can construct a concrete instance of `ActionConnectorBasicAuthConnectionMetadataPtrInput` via:
-//
-//	        ActionConnectorBasicAuthConnectionMetadataArgs{...}
-//
-//	or:
-//
-//	        nil
-type ActionConnectorBasicAuthConnectionMetadataPtrInput interface {
-	pulumi.Input
-
-	ToActionConnectorBasicAuthConnectionMetadataPtrOutput() ActionConnectorBasicAuthConnectionMetadataPtrOutput
-	ToActionConnectorBasicAuthConnectionMetadataPtrOutputWithContext(context.Context) ActionConnectorBasicAuthConnectionMetadataPtrOutput
-}
-
-type actionConnectorBasicAuthConnectionMetadataPtrType ActionConnectorBasicAuthConnectionMetadataArgs
-
-func ActionConnectorBasicAuthConnectionMetadataPtr(v *ActionConnectorBasicAuthConnectionMetadataArgs) ActionConnectorBasicAuthConnectionMetadataPtrInput {
-	return (*actionConnectorBasicAuthConnectionMetadataPtrType)(v)
-}
-
-func (*actionConnectorBasicAuthConnectionMetadataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorBasicAuthConnectionMetadata)(nil)).Elem()
-}
-
-func (i *actionConnectorBasicAuthConnectionMetadataPtrType) ToActionConnectorBasicAuthConnectionMetadataPtrOutput() ActionConnectorBasicAuthConnectionMetadataPtrOutput {
-	return i.ToActionConnectorBasicAuthConnectionMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i *actionConnectorBasicAuthConnectionMetadataPtrType) ToActionConnectorBasicAuthConnectionMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorBasicAuthConnectionMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorBasicAuthConnectionMetadataPtrOutput)
-}
-
 type ActionConnectorBasicAuthConnectionMetadataOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectorBasicAuthConnectionMetadataOutput) ElementType() reflect.Type {
@@ -1723,16 +872,6 @@ func (o ActionConnectorBasicAuthConnectionMetadataOutput) ToActionConnectorBasic
 	return o
 }
 
-func (o ActionConnectorBasicAuthConnectionMetadataOutput) ToActionConnectorBasicAuthConnectionMetadataPtrOutput() ActionConnectorBasicAuthConnectionMetadataPtrOutput {
-	return o.ToActionConnectorBasicAuthConnectionMetadataPtrOutputWithContext(context.Background())
-}
-
-func (o ActionConnectorBasicAuthConnectionMetadataOutput) ToActionConnectorBasicAuthConnectionMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorBasicAuthConnectionMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorBasicAuthConnectionMetadata) *ActionConnectorBasicAuthConnectionMetadata {
-		return &v
-	}).(ActionConnectorBasicAuthConnectionMetadataPtrOutput)
-}
-
 func (o ActionConnectorBasicAuthConnectionMetadataOutput) BaseEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionConnectorBasicAuthConnectionMetadata) string { return v.BaseEndpoint }).(pulumi.StringOutput)
 }
@@ -1743,57 +882,6 @@ func (o ActionConnectorBasicAuthConnectionMetadataOutput) Password() pulumi.Stri
 
 func (o ActionConnectorBasicAuthConnectionMetadataOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionConnectorBasicAuthConnectionMetadata) string { return v.Username }).(pulumi.StringOutput)
-}
-
-type ActionConnectorBasicAuthConnectionMetadataPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionConnectorBasicAuthConnectionMetadataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorBasicAuthConnectionMetadata)(nil)).Elem()
-}
-
-func (o ActionConnectorBasicAuthConnectionMetadataPtrOutput) ToActionConnectorBasicAuthConnectionMetadataPtrOutput() ActionConnectorBasicAuthConnectionMetadataPtrOutput {
-	return o
-}
-
-func (o ActionConnectorBasicAuthConnectionMetadataPtrOutput) ToActionConnectorBasicAuthConnectionMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorBasicAuthConnectionMetadataPtrOutput {
-	return o
-}
-
-func (o ActionConnectorBasicAuthConnectionMetadataPtrOutput) Elem() ActionConnectorBasicAuthConnectionMetadataOutput {
-	return o.ApplyT(func(v *ActionConnectorBasicAuthConnectionMetadata) ActionConnectorBasicAuthConnectionMetadata {
-		if v != nil {
-			return *v
-		}
-		var ret ActionConnectorBasicAuthConnectionMetadata
-		return ret
-	}).(ActionConnectorBasicAuthConnectionMetadataOutput)
-}
-
-func (o ActionConnectorBasicAuthConnectionMetadataPtrOutput) BaseEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorBasicAuthConnectionMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BaseEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ActionConnectorBasicAuthConnectionMetadataPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorBasicAuthConnectionMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ActionConnectorBasicAuthConnectionMetadataPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorBasicAuthConnectionMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
 }
 
 type ActionConnectorClientCredentialsDetails0Properties struct {
@@ -2133,47 +1221,6 @@ func (i ActionConnectorClientCredentialsGrantMetadataArgs) ToActionConnectorClie
 	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorClientCredentialsGrantMetadataOutput)
 }
 
-func (i ActionConnectorClientCredentialsGrantMetadataArgs) ToActionConnectorClientCredentialsGrantMetadataPtrOutput() ActionConnectorClientCredentialsGrantMetadataPtrOutput {
-	return i.ToActionConnectorClientCredentialsGrantMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i ActionConnectorClientCredentialsGrantMetadataArgs) ToActionConnectorClientCredentialsGrantMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorClientCredentialsGrantMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorClientCredentialsGrantMetadataOutput).ToActionConnectorClientCredentialsGrantMetadataPtrOutputWithContext(ctx)
-}
-
-// ActionConnectorClientCredentialsGrantMetadataPtrInput is an input type that accepts ActionConnectorClientCredentialsGrantMetadataArgs, ActionConnectorClientCredentialsGrantMetadataPtr and ActionConnectorClientCredentialsGrantMetadataPtrOutput values.
-// You can construct a concrete instance of `ActionConnectorClientCredentialsGrantMetadataPtrInput` via:
-//
-//	        ActionConnectorClientCredentialsGrantMetadataArgs{...}
-//
-//	or:
-//
-//	        nil
-type ActionConnectorClientCredentialsGrantMetadataPtrInput interface {
-	pulumi.Input
-
-	ToActionConnectorClientCredentialsGrantMetadataPtrOutput() ActionConnectorClientCredentialsGrantMetadataPtrOutput
-	ToActionConnectorClientCredentialsGrantMetadataPtrOutputWithContext(context.Context) ActionConnectorClientCredentialsGrantMetadataPtrOutput
-}
-
-type actionConnectorClientCredentialsGrantMetadataPtrType ActionConnectorClientCredentialsGrantMetadataArgs
-
-func ActionConnectorClientCredentialsGrantMetadataPtr(v *ActionConnectorClientCredentialsGrantMetadataArgs) ActionConnectorClientCredentialsGrantMetadataPtrInput {
-	return (*actionConnectorClientCredentialsGrantMetadataPtrType)(v)
-}
-
-func (*actionConnectorClientCredentialsGrantMetadataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorClientCredentialsGrantMetadata)(nil)).Elem()
-}
-
-func (i *actionConnectorClientCredentialsGrantMetadataPtrType) ToActionConnectorClientCredentialsGrantMetadataPtrOutput() ActionConnectorClientCredentialsGrantMetadataPtrOutput {
-	return i.ToActionConnectorClientCredentialsGrantMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i *actionConnectorClientCredentialsGrantMetadataPtrType) ToActionConnectorClientCredentialsGrantMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorClientCredentialsGrantMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorClientCredentialsGrantMetadataPtrOutput)
-}
-
 type ActionConnectorClientCredentialsGrantMetadataOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectorClientCredentialsGrantMetadataOutput) ElementType() reflect.Type {
@@ -2188,16 +1235,6 @@ func (o ActionConnectorClientCredentialsGrantMetadataOutput) ToActionConnectorCl
 	return o
 }
 
-func (o ActionConnectorClientCredentialsGrantMetadataOutput) ToActionConnectorClientCredentialsGrantMetadataPtrOutput() ActionConnectorClientCredentialsGrantMetadataPtrOutput {
-	return o.ToActionConnectorClientCredentialsGrantMetadataPtrOutputWithContext(context.Background())
-}
-
-func (o ActionConnectorClientCredentialsGrantMetadataOutput) ToActionConnectorClientCredentialsGrantMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorClientCredentialsGrantMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorClientCredentialsGrantMetadata) *ActionConnectorClientCredentialsGrantMetadata {
-		return &v
-	}).(ActionConnectorClientCredentialsGrantMetadataPtrOutput)
-}
-
 func (o ActionConnectorClientCredentialsGrantMetadataOutput) BaseEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionConnectorClientCredentialsGrantMetadata) string { return v.BaseEndpoint }).(pulumi.StringOutput)
 }
@@ -2210,57 +1247,6 @@ func (o ActionConnectorClientCredentialsGrantMetadataOutput) ClientCredentialsDe
 
 func (o ActionConnectorClientCredentialsGrantMetadataOutput) ClientCredentialsSource() ActionConnectorClientCredentialsSourcePtrOutput {
 	return o.ApplyT(func(v ActionConnectorClientCredentialsGrantMetadata) *ActionConnectorClientCredentialsSource {
-		return v.ClientCredentialsSource
-	}).(ActionConnectorClientCredentialsSourcePtrOutput)
-}
-
-type ActionConnectorClientCredentialsGrantMetadataPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionConnectorClientCredentialsGrantMetadataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorClientCredentialsGrantMetadata)(nil)).Elem()
-}
-
-func (o ActionConnectorClientCredentialsGrantMetadataPtrOutput) ToActionConnectorClientCredentialsGrantMetadataPtrOutput() ActionConnectorClientCredentialsGrantMetadataPtrOutput {
-	return o
-}
-
-func (o ActionConnectorClientCredentialsGrantMetadataPtrOutput) ToActionConnectorClientCredentialsGrantMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorClientCredentialsGrantMetadataPtrOutput {
-	return o
-}
-
-func (o ActionConnectorClientCredentialsGrantMetadataPtrOutput) Elem() ActionConnectorClientCredentialsGrantMetadataOutput {
-	return o.ApplyT(func(v *ActionConnectorClientCredentialsGrantMetadata) ActionConnectorClientCredentialsGrantMetadata {
-		if v != nil {
-			return *v
-		}
-		var ret ActionConnectorClientCredentialsGrantMetadata
-		return ret
-	}).(ActionConnectorClientCredentialsGrantMetadataOutput)
-}
-
-func (o ActionConnectorClientCredentialsGrantMetadataPtrOutput) BaseEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorClientCredentialsGrantMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BaseEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ActionConnectorClientCredentialsGrantMetadataPtrOutput) ClientCredentialsDetails() ActionConnectorClientCredentialsDetailsPropertiesPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorClientCredentialsGrantMetadata) *ActionConnectorClientCredentialsDetailsProperties {
-		if v == nil {
-			return nil
-		}
-		return v.ClientCredentialsDetails
-	}).(ActionConnectorClientCredentialsDetailsPropertiesPtrOutput)
-}
-
-func (o ActionConnectorClientCredentialsGrantMetadataPtrOutput) ClientCredentialsSource() ActionConnectorClientCredentialsSourcePtrOutput {
-	return o.ApplyT(func(v *ActionConnectorClientCredentialsGrantMetadata) *ActionConnectorClientCredentialsSource {
-		if v == nil {
-			return nil
-		}
 		return v.ClientCredentialsSource
 	}).(ActionConnectorClientCredentialsSourcePtrOutput)
 }
@@ -2296,47 +1282,6 @@ func (i ActionConnectorIamConnectionMetadataArgs) ToActionConnectorIamConnection
 	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorIamConnectionMetadataOutput)
 }
 
-func (i ActionConnectorIamConnectionMetadataArgs) ToActionConnectorIamConnectionMetadataPtrOutput() ActionConnectorIamConnectionMetadataPtrOutput {
-	return i.ToActionConnectorIamConnectionMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i ActionConnectorIamConnectionMetadataArgs) ToActionConnectorIamConnectionMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorIamConnectionMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorIamConnectionMetadataOutput).ToActionConnectorIamConnectionMetadataPtrOutputWithContext(ctx)
-}
-
-// ActionConnectorIamConnectionMetadataPtrInput is an input type that accepts ActionConnectorIamConnectionMetadataArgs, ActionConnectorIamConnectionMetadataPtr and ActionConnectorIamConnectionMetadataPtrOutput values.
-// You can construct a concrete instance of `ActionConnectorIamConnectionMetadataPtrInput` via:
-//
-//	        ActionConnectorIamConnectionMetadataArgs{...}
-//
-//	or:
-//
-//	        nil
-type ActionConnectorIamConnectionMetadataPtrInput interface {
-	pulumi.Input
-
-	ToActionConnectorIamConnectionMetadataPtrOutput() ActionConnectorIamConnectionMetadataPtrOutput
-	ToActionConnectorIamConnectionMetadataPtrOutputWithContext(context.Context) ActionConnectorIamConnectionMetadataPtrOutput
-}
-
-type actionConnectorIamConnectionMetadataPtrType ActionConnectorIamConnectionMetadataArgs
-
-func ActionConnectorIamConnectionMetadataPtr(v *ActionConnectorIamConnectionMetadataArgs) ActionConnectorIamConnectionMetadataPtrInput {
-	return (*actionConnectorIamConnectionMetadataPtrType)(v)
-}
-
-func (*actionConnectorIamConnectionMetadataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorIamConnectionMetadata)(nil)).Elem()
-}
-
-func (i *actionConnectorIamConnectionMetadataPtrType) ToActionConnectorIamConnectionMetadataPtrOutput() ActionConnectorIamConnectionMetadataPtrOutput {
-	return i.ToActionConnectorIamConnectionMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i *actionConnectorIamConnectionMetadataPtrType) ToActionConnectorIamConnectionMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorIamConnectionMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorIamConnectionMetadataPtrOutput)
-}
-
 type ActionConnectorIamConnectionMetadataOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectorIamConnectionMetadataOutput) ElementType() reflect.Type {
@@ -2351,51 +1296,8 @@ func (o ActionConnectorIamConnectionMetadataOutput) ToActionConnectorIamConnecti
 	return o
 }
 
-func (o ActionConnectorIamConnectionMetadataOutput) ToActionConnectorIamConnectionMetadataPtrOutput() ActionConnectorIamConnectionMetadataPtrOutput {
-	return o.ToActionConnectorIamConnectionMetadataPtrOutputWithContext(context.Background())
-}
-
-func (o ActionConnectorIamConnectionMetadataOutput) ToActionConnectorIamConnectionMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorIamConnectionMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorIamConnectionMetadata) *ActionConnectorIamConnectionMetadata {
-		return &v
-	}).(ActionConnectorIamConnectionMetadataPtrOutput)
-}
-
 func (o ActionConnectorIamConnectionMetadataOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionConnectorIamConnectionMetadata) string { return v.RoleArn }).(pulumi.StringOutput)
-}
-
-type ActionConnectorIamConnectionMetadataPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionConnectorIamConnectionMetadataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorIamConnectionMetadata)(nil)).Elem()
-}
-
-func (o ActionConnectorIamConnectionMetadataPtrOutput) ToActionConnectorIamConnectionMetadataPtrOutput() ActionConnectorIamConnectionMetadataPtrOutput {
-	return o
-}
-
-func (o ActionConnectorIamConnectionMetadataPtrOutput) ToActionConnectorIamConnectionMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorIamConnectionMetadataPtrOutput {
-	return o
-}
-
-func (o ActionConnectorIamConnectionMetadataPtrOutput) Elem() ActionConnectorIamConnectionMetadataOutput {
-	return o.ApplyT(func(v *ActionConnectorIamConnectionMetadata) ActionConnectorIamConnectionMetadata {
-		if v != nil {
-			return *v
-		}
-		var ret ActionConnectorIamConnectionMetadata
-		return ret
-	}).(ActionConnectorIamConnectionMetadataOutput)
-}
-
-func (o ActionConnectorIamConnectionMetadataPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorIamConnectionMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RoleArn
-	}).(pulumi.StringPtrOutput)
 }
 
 type ActionConnectorNoneConnectionMetadata struct {
@@ -2429,47 +1331,6 @@ func (i ActionConnectorNoneConnectionMetadataArgs) ToActionConnectorNoneConnecti
 	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorNoneConnectionMetadataOutput)
 }
 
-func (i ActionConnectorNoneConnectionMetadataArgs) ToActionConnectorNoneConnectionMetadataPtrOutput() ActionConnectorNoneConnectionMetadataPtrOutput {
-	return i.ToActionConnectorNoneConnectionMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i ActionConnectorNoneConnectionMetadataArgs) ToActionConnectorNoneConnectionMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorNoneConnectionMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorNoneConnectionMetadataOutput).ToActionConnectorNoneConnectionMetadataPtrOutputWithContext(ctx)
-}
-
-// ActionConnectorNoneConnectionMetadataPtrInput is an input type that accepts ActionConnectorNoneConnectionMetadataArgs, ActionConnectorNoneConnectionMetadataPtr and ActionConnectorNoneConnectionMetadataPtrOutput values.
-// You can construct a concrete instance of `ActionConnectorNoneConnectionMetadataPtrInput` via:
-//
-//	        ActionConnectorNoneConnectionMetadataArgs{...}
-//
-//	or:
-//
-//	        nil
-type ActionConnectorNoneConnectionMetadataPtrInput interface {
-	pulumi.Input
-
-	ToActionConnectorNoneConnectionMetadataPtrOutput() ActionConnectorNoneConnectionMetadataPtrOutput
-	ToActionConnectorNoneConnectionMetadataPtrOutputWithContext(context.Context) ActionConnectorNoneConnectionMetadataPtrOutput
-}
-
-type actionConnectorNoneConnectionMetadataPtrType ActionConnectorNoneConnectionMetadataArgs
-
-func ActionConnectorNoneConnectionMetadataPtr(v *ActionConnectorNoneConnectionMetadataArgs) ActionConnectorNoneConnectionMetadataPtrInput {
-	return (*actionConnectorNoneConnectionMetadataPtrType)(v)
-}
-
-func (*actionConnectorNoneConnectionMetadataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorNoneConnectionMetadata)(nil)).Elem()
-}
-
-func (i *actionConnectorNoneConnectionMetadataPtrType) ToActionConnectorNoneConnectionMetadataPtrOutput() ActionConnectorNoneConnectionMetadataPtrOutput {
-	return i.ToActionConnectorNoneConnectionMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i *actionConnectorNoneConnectionMetadataPtrType) ToActionConnectorNoneConnectionMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorNoneConnectionMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectorNoneConnectionMetadataPtrOutput)
-}
-
 type ActionConnectorNoneConnectionMetadataOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectorNoneConnectionMetadataOutput) ElementType() reflect.Type {
@@ -2484,51 +1345,8 @@ func (o ActionConnectorNoneConnectionMetadataOutput) ToActionConnectorNoneConnec
 	return o
 }
 
-func (o ActionConnectorNoneConnectionMetadataOutput) ToActionConnectorNoneConnectionMetadataPtrOutput() ActionConnectorNoneConnectionMetadataPtrOutput {
-	return o.ToActionConnectorNoneConnectionMetadataPtrOutputWithContext(context.Background())
-}
-
-func (o ActionConnectorNoneConnectionMetadataOutput) ToActionConnectorNoneConnectionMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorNoneConnectionMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorNoneConnectionMetadata) *ActionConnectorNoneConnectionMetadata {
-		return &v
-	}).(ActionConnectorNoneConnectionMetadataPtrOutput)
-}
-
 func (o ActionConnectorNoneConnectionMetadataOutput) BaseEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionConnectorNoneConnectionMetadata) string { return v.BaseEndpoint }).(pulumi.StringOutput)
-}
-
-type ActionConnectorNoneConnectionMetadataPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionConnectorNoneConnectionMetadataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionConnectorNoneConnectionMetadata)(nil)).Elem()
-}
-
-func (o ActionConnectorNoneConnectionMetadataPtrOutput) ToActionConnectorNoneConnectionMetadataPtrOutput() ActionConnectorNoneConnectionMetadataPtrOutput {
-	return o
-}
-
-func (o ActionConnectorNoneConnectionMetadataPtrOutput) ToActionConnectorNoneConnectionMetadataPtrOutputWithContext(ctx context.Context) ActionConnectorNoneConnectionMetadataPtrOutput {
-	return o
-}
-
-func (o ActionConnectorNoneConnectionMetadataPtrOutput) Elem() ActionConnectorNoneConnectionMetadataOutput {
-	return o.ApplyT(func(v *ActionConnectorNoneConnectionMetadata) ActionConnectorNoneConnectionMetadata {
-		if v != nil {
-			return *v
-		}
-		var ret ActionConnectorNoneConnectionMetadata
-		return ret
-	}).(ActionConnectorNoneConnectionMetadataOutput)
-}
-
-func (o ActionConnectorNoneConnectionMetadataPtrOutput) BaseEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActionConnectorNoneConnectionMetadata) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BaseEndpoint
-	}).(pulumi.StringPtrOutput)
 }
 
 // <p>Permission for the resource.</p>
@@ -85213,39 +84031,26 @@ func (o AnalysisTableCellImageSizingConfigurationPtrOutput) TableCellImageScalin
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorApiKeyConnectionMetadataInput)(nil)).Elem(), ActionConnectorApiKeyConnectionMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorApiKeyConnectionMetadataPtrInput)(nil)).Elem(), ActionConnectorApiKeyConnectionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthConfigInput)(nil)).Elem(), ActionConnectorAuthConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthConfigPtrInput)(nil)).Elem(), ActionConnectorAuthConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthenticationMetadata0PropertiesInput)(nil)).Elem(), ActionConnectorAuthenticationMetadata0PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthenticationMetadata0PropertiesPtrInput)(nil)).Elem(), ActionConnectorAuthenticationMetadata0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthenticationMetadata1PropertiesInput)(nil)).Elem(), ActionConnectorAuthenticationMetadata1PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthenticationMetadata1PropertiesPtrInput)(nil)).Elem(), ActionConnectorAuthenticationMetadata1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthenticationMetadata2PropertiesInput)(nil)).Elem(), ActionConnectorAuthenticationMetadata2PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthenticationMetadata2PropertiesPtrInput)(nil)).Elem(), ActionConnectorAuthenticationMetadata2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthenticationMetadata3PropertiesInput)(nil)).Elem(), ActionConnectorAuthenticationMetadata3PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthenticationMetadata3PropertiesPtrInput)(nil)).Elem(), ActionConnectorAuthenticationMetadata3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthenticationMetadata4PropertiesInput)(nil)).Elem(), ActionConnectorAuthenticationMetadata4PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthenticationMetadata4PropertiesPtrInput)(nil)).Elem(), ActionConnectorAuthenticationMetadata4PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthenticationMetadata5PropertiesInput)(nil)).Elem(), ActionConnectorAuthenticationMetadata5PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthenticationMetadata5PropertiesPtrInput)(nil)).Elem(), ActionConnectorAuthenticationMetadata5PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthorizationCodeGrantCredentialsDetailsPropertiesInput)(nil)).Elem(), ActionConnectorAuthorizationCodeGrantCredentialsDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthorizationCodeGrantCredentialsDetailsPropertiesPtrInput)(nil)).Elem(), ActionConnectorAuthorizationCodeGrantCredentialsDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthorizationCodeGrantDetailsInput)(nil)).Elem(), ActionConnectorAuthorizationCodeGrantDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthorizationCodeGrantDetailsPtrInput)(nil)).Elem(), ActionConnectorAuthorizationCodeGrantDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthorizationCodeGrantMetadataInput)(nil)).Elem(), ActionConnectorAuthorizationCodeGrantMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthorizationCodeGrantMetadataPtrInput)(nil)).Elem(), ActionConnectorAuthorizationCodeGrantMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorBasicAuthConnectionMetadataInput)(nil)).Elem(), ActionConnectorBasicAuthConnectionMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorBasicAuthConnectionMetadataPtrInput)(nil)).Elem(), ActionConnectorBasicAuthConnectionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorClientCredentialsDetailsPropertiesInput)(nil)).Elem(), ActionConnectorClientCredentialsDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorClientCredentialsDetailsPropertiesPtrInput)(nil)).Elem(), ActionConnectorClientCredentialsDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorClientCredentialsGrantDetailsInput)(nil)).Elem(), ActionConnectorClientCredentialsGrantDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorClientCredentialsGrantDetailsPtrInput)(nil)).Elem(), ActionConnectorClientCredentialsGrantDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorClientCredentialsGrantMetadataInput)(nil)).Elem(), ActionConnectorClientCredentialsGrantMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorClientCredentialsGrantMetadataPtrInput)(nil)).Elem(), ActionConnectorClientCredentialsGrantMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorIamConnectionMetadataInput)(nil)).Elem(), ActionConnectorIamConnectionMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorIamConnectionMetadataPtrInput)(nil)).Elem(), ActionConnectorIamConnectionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorNoneConnectionMetadataInput)(nil)).Elem(), ActionConnectorNoneConnectionMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorNoneConnectionMetadataPtrInput)(nil)).Elem(), ActionConnectorNoneConnectionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorResourcePermissionInput)(nil)).Elem(), ActionConnectorResourcePermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorResourcePermissionArrayInput)(nil)).Elem(), ActionConnectorResourcePermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAggregationFunctionInput)(nil)).Elem(), AnalysisAggregationFunctionArgs{})
@@ -86202,39 +85007,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableCellImageSizingConfigurationInput)(nil)).Elem(), AnalysisTableCellImageSizingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableCellImageSizingConfigurationPtrInput)(nil)).Elem(), AnalysisTableCellImageSizingConfigurationArgs{})
 	pulumi.RegisterOutputType(ActionConnectorApiKeyConnectionMetadataOutput{})
-	pulumi.RegisterOutputType(ActionConnectorApiKeyConnectionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorAuthConfigOutput{})
-	pulumi.RegisterOutputType(ActionConnectorAuthConfigPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorAuthenticationMetadata0PropertiesOutput{})
-	pulumi.RegisterOutputType(ActionConnectorAuthenticationMetadata0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorAuthenticationMetadata1PropertiesOutput{})
-	pulumi.RegisterOutputType(ActionConnectorAuthenticationMetadata1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorAuthenticationMetadata2PropertiesOutput{})
-	pulumi.RegisterOutputType(ActionConnectorAuthenticationMetadata2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorAuthenticationMetadata3PropertiesOutput{})
-	pulumi.RegisterOutputType(ActionConnectorAuthenticationMetadata3PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorAuthenticationMetadata4PropertiesOutput{})
-	pulumi.RegisterOutputType(ActionConnectorAuthenticationMetadata4PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorAuthenticationMetadata5PropertiesOutput{})
-	pulumi.RegisterOutputType(ActionConnectorAuthenticationMetadata5PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorAuthorizationCodeGrantCredentialsDetailsPropertiesOutput{})
 	pulumi.RegisterOutputType(ActionConnectorAuthorizationCodeGrantCredentialsDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorAuthorizationCodeGrantDetailsOutput{})
 	pulumi.RegisterOutputType(ActionConnectorAuthorizationCodeGrantDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorAuthorizationCodeGrantMetadataOutput{})
-	pulumi.RegisterOutputType(ActionConnectorAuthorizationCodeGrantMetadataPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorBasicAuthConnectionMetadataOutput{})
-	pulumi.RegisterOutputType(ActionConnectorBasicAuthConnectionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorClientCredentialsDetailsPropertiesOutput{})
 	pulumi.RegisterOutputType(ActionConnectorClientCredentialsDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorClientCredentialsGrantDetailsOutput{})
 	pulumi.RegisterOutputType(ActionConnectorClientCredentialsGrantDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorClientCredentialsGrantMetadataOutput{})
-	pulumi.RegisterOutputType(ActionConnectorClientCredentialsGrantMetadataPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorIamConnectionMetadataOutput{})
-	pulumi.RegisterOutputType(ActionConnectorIamConnectionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorNoneConnectionMetadataOutput{})
-	pulumi.RegisterOutputType(ActionConnectorNoneConnectionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorResourcePermissionOutput{})
 	pulumi.RegisterOutputType(ActionConnectorResourcePermissionArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisAggregationFunctionOutput{})

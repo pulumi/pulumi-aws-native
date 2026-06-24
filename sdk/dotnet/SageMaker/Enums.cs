@@ -450,6 +450,37 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy : IEquatable<ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy>
+    {
+        private readonly string _value;
+
+        private ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy Keep { get; } = new ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy("Keep");
+        public static ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy DeleteIfNotUsed { get; } = new ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy("DeleteIfNotUsed");
+
+        public static bool operator ==(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy left, ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy right) => left.Equals(right);
+        public static bool operator !=(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy left, ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy other && Equals(other);
+        public bool Equals(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of Slurm node for this instance group.
     /// </summary>
     [EnumType]
@@ -881,6 +912,12 @@ namespace Pulumi.AwsNative.SageMaker
         public static DomainAppInstanceType MlR6id32xlarge { get; } = new DomainAppInstanceType("ml.r6id.32xlarge");
         public static DomainAppInstanceType MlP54xlarge { get; } = new DomainAppInstanceType("ml.p5.4xlarge");
         public static DomainAppInstanceType MlP6b20048xlarge { get; } = new DomainAppInstanceType("ml.p6-b200.48xlarge");
+        public static DomainAppInstanceType MlG7e2xlarge { get; } = new DomainAppInstanceType("ml.g7e.2xlarge");
+        public static DomainAppInstanceType MlG7e4xlarge { get; } = new DomainAppInstanceType("ml.g7e.4xlarge");
+        public static DomainAppInstanceType MlG7e8xlarge { get; } = new DomainAppInstanceType("ml.g7e.8xlarge");
+        public static DomainAppInstanceType MlG7e12xlarge { get; } = new DomainAppInstanceType("ml.g7e.12xlarge");
+        public static DomainAppInstanceType MlG7e24xlarge { get; } = new DomainAppInstanceType("ml.g7e.24xlarge");
+        public static DomainAppInstanceType MlG7e48xlarge { get; } = new DomainAppInstanceType("ml.g7e.48xlarge");
 
         public static bool operator ==(DomainAppInstanceType left, DomainAppInstanceType right) => left.Equals(right);
         public static bool operator !=(DomainAppInstanceType left, DomainAppInstanceType right) => !left.Equals(right);
@@ -1077,6 +1114,37 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DomainHiddenSageMakerImageSageMakerImageName other && Equals(other);
         public bool Equals(DomainHiddenSageMakerImageSageMakerImageName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainHomeEfsFileSystemCreation : IEquatable<DomainHomeEfsFileSystemCreation>
+    {
+        private readonly string _value;
+
+        private DomainHomeEfsFileSystemCreation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainHomeEfsFileSystemCreation Enabled { get; } = new DomainHomeEfsFileSystemCreation("Enabled");
+        public static DomainHomeEfsFileSystemCreation Disabled { get; } = new DomainHomeEfsFileSystemCreation("Disabled");
+
+        public static bool operator ==(DomainHomeEfsFileSystemCreation left, DomainHomeEfsFileSystemCreation right) => left.Equals(right);
+        public static bool operator !=(DomainHomeEfsFileSystemCreation left, DomainHomeEfsFileSystemCreation right) => !left.Equals(right);
+
+        public static explicit operator string(DomainHomeEfsFileSystemCreation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainHomeEfsFileSystemCreation other && Equals(other);
+        public bool Equals(DomainHomeEfsFileSystemCreation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -4585,6 +4653,12 @@ namespace Pulumi.AwsNative.SageMaker
         public static SpaceResourceSpecInstanceType MlR6id32xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6id.32xlarge");
         public static SpaceResourceSpecInstanceType MlP54xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p5.4xlarge");
         public static SpaceResourceSpecInstanceType MlP6b20048xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p6-b200.48xlarge");
+        public static SpaceResourceSpecInstanceType MlG7e2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g7e.2xlarge");
+        public static SpaceResourceSpecInstanceType MlG7e4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g7e.4xlarge");
+        public static SpaceResourceSpecInstanceType MlG7e8xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g7e.8xlarge");
+        public static SpaceResourceSpecInstanceType MlG7e12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g7e.12xlarge");
+        public static SpaceResourceSpecInstanceType MlG7e24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g7e.24xlarge");
+        public static SpaceResourceSpecInstanceType MlG7e48xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g7e.48xlarge");
 
         public static bool operator ==(SpaceResourceSpecInstanceType left, SpaceResourceSpecInstanceType right) => left.Equals(right);
         public static bool operator !=(SpaceResourceSpecInstanceType left, SpaceResourceSpecInstanceType right) => !left.Equals(right);

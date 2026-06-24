@@ -1093,6 +1093,7 @@ func (o OriginEndpointDashDvbSettingsPtrOutput) FontDownload() OriginEndpointDas
 
 // <p>Retrieve the DASH manifest configuration.</p>
 type OriginEndpointDashManifestConfiguration struct {
+	AudioTimelinePattern               *OriginEndpointDashAudioTimelinePattern                         `pulumi:"audioTimelinePattern"`
 	AvailabilityStartTimeConfiguration *OriginEndpointDashAvailabilityStartTimeConfigurationProperties `pulumi:"availabilityStartTimeConfiguration"`
 	// <p>The base URL to use for retrieving segments.</p>
 	BaseUrls []OriginEndpointDashBaseUrl `pulumi:"baseUrls"`
@@ -1150,6 +1151,7 @@ type OriginEndpointDashManifestConfigurationInput interface {
 
 // <p>Retrieve the DASH manifest configuration.</p>
 type OriginEndpointDashManifestConfigurationArgs struct {
+	AudioTimelinePattern               OriginEndpointDashAudioTimelinePatternPtrInput                         `pulumi:"audioTimelinePattern"`
 	AvailabilityStartTimeConfiguration OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrInput `pulumi:"availabilityStartTimeConfiguration"`
 	// <p>The base URL to use for retrieving segments.</p>
 	BaseUrls OriginEndpointDashBaseUrlArrayInput `pulumi:"baseUrls"`
@@ -1244,6 +1246,12 @@ func (o OriginEndpointDashManifestConfigurationOutput) ToOriginEndpointDashManif
 
 func (o OriginEndpointDashManifestConfigurationOutput) ToOriginEndpointDashManifestConfigurationOutputWithContext(ctx context.Context) OriginEndpointDashManifestConfigurationOutput {
 	return o
+}
+
+func (o OriginEndpointDashManifestConfigurationOutput) AudioTimelinePattern() OriginEndpointDashAudioTimelinePatternPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *OriginEndpointDashAudioTimelinePattern {
+		return v.AudioTimelinePattern
+	}).(OriginEndpointDashAudioTimelinePatternPtrOutput)
 }
 
 func (o OriginEndpointDashManifestConfigurationOutput) AvailabilityStartTimeConfiguration() OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput {

@@ -39,6 +39,38 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
+    /// System log granularity level
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityProviderLoggingConfigSystemLogLevel : IEquatable<CapacityProviderLoggingConfigSystemLogLevel>
+    {
+        private readonly string _value;
+
+        private CapacityProviderLoggingConfigSystemLogLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderLoggingConfigSystemLogLevel Debug { get; } = new CapacityProviderLoggingConfigSystemLogLevel("DEBUG");
+        public static CapacityProviderLoggingConfigSystemLogLevel Info { get; } = new CapacityProviderLoggingConfigSystemLogLevel("INFO");
+        public static CapacityProviderLoggingConfigSystemLogLevel Warn { get; } = new CapacityProviderLoggingConfigSystemLogLevel("WARN");
+
+        public static bool operator ==(CapacityProviderLoggingConfigSystemLogLevel left, CapacityProviderLoggingConfigSystemLogLevel right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderLoggingConfigSystemLogLevel left, CapacityProviderLoggingConfigSystemLogLevel right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderLoggingConfigSystemLogLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderLoggingConfigSystemLogLevel other && Equals(other);
+        public bool Equals(CapacityProviderLoggingConfigSystemLogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The predefined metric for target tracking.
     /// </summary>
     [EnumType]
@@ -827,6 +859,247 @@ namespace Pulumi.AwsNative.Lambda
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FunctionTracingConfigMode other && Equals(other);
         public bool Equals(FunctionTracingConfigMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).
+    /// </summary>
+    [EnumType]
+    public readonly struct LayerVersionContentS3ObjectStorageMode : IEquatable<LayerVersionContentS3ObjectStorageMode>
+    {
+        private readonly string _value;
+
+        private LayerVersionContentS3ObjectStorageMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LayerVersionContentS3ObjectStorageMode Copy { get; } = new LayerVersionContentS3ObjectStorageMode("COPY");
+        public static LayerVersionContentS3ObjectStorageMode Reference { get; } = new LayerVersionContentS3ObjectStorageMode("REFERENCE");
+
+        public static bool operator ==(LayerVersionContentS3ObjectStorageMode left, LayerVersionContentS3ObjectStorageMode right) => left.Equals(right);
+        public static bool operator !=(LayerVersionContentS3ObjectStorageMode left, LayerVersionContentS3ObjectStorageMode right) => !left.Equals(right);
+
+        public static explicit operator string(LayerVersionContentS3ObjectStorageMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LayerVersionContentS3ObjectStorageMode other && Equals(other);
+        public bool Equals(LayerVersionContentS3ObjectStorageMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MicrovmImageAdditionalOsCapabilitiesItem : IEquatable<MicrovmImageAdditionalOsCapabilitiesItem>
+    {
+        private readonly string _value;
+
+        private MicrovmImageAdditionalOsCapabilitiesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MicrovmImageAdditionalOsCapabilitiesItem All { get; } = new MicrovmImageAdditionalOsCapabilitiesItem("ALL");
+
+        public static bool operator ==(MicrovmImageAdditionalOsCapabilitiesItem left, MicrovmImageAdditionalOsCapabilitiesItem right) => left.Equals(right);
+        public static bool operator !=(MicrovmImageAdditionalOsCapabilitiesItem left, MicrovmImageAdditionalOsCapabilitiesItem right) => !left.Equals(right);
+
+        public static explicit operator string(MicrovmImageAdditionalOsCapabilitiesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MicrovmImageAdditionalOsCapabilitiesItem other && Equals(other);
+        public bool Equals(MicrovmImageAdditionalOsCapabilitiesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MicrovmImageCpuConfigurationArchitecture : IEquatable<MicrovmImageCpuConfigurationArchitecture>
+    {
+        private readonly string _value;
+
+        private MicrovmImageCpuConfigurationArchitecture(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MicrovmImageCpuConfigurationArchitecture Arm64 { get; } = new MicrovmImageCpuConfigurationArchitecture("ARM_64");
+
+        public static bool operator ==(MicrovmImageCpuConfigurationArchitecture left, MicrovmImageCpuConfigurationArchitecture right) => left.Equals(right);
+        public static bool operator !=(MicrovmImageCpuConfigurationArchitecture left, MicrovmImageCpuConfigurationArchitecture right) => !left.Equals(right);
+
+        public static explicit operator string(MicrovmImageCpuConfigurationArchitecture value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MicrovmImageCpuConfigurationArchitecture other && Equals(other);
+        public bool Equals(MicrovmImageCpuConfigurationArchitecture other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MicrovmImageHookState : IEquatable<MicrovmImageHookState>
+    {
+        private readonly string _value;
+
+        private MicrovmImageHookState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MicrovmImageHookState Disabled { get; } = new MicrovmImageHookState("DISABLED");
+        public static MicrovmImageHookState Enabled { get; } = new MicrovmImageHookState("ENABLED");
+
+        public static bool operator ==(MicrovmImageHookState left, MicrovmImageHookState right) => left.Equals(right);
+        public static bool operator !=(MicrovmImageHookState left, MicrovmImageHookState right) => !left.Equals(right);
+
+        public static explicit operator string(MicrovmImageHookState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MicrovmImageHookState other && Equals(other);
+        public bool Equals(MicrovmImageHookState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MicrovmImageState : IEquatable<MicrovmImageState>
+    {
+        private readonly string _value;
+
+        private MicrovmImageState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MicrovmImageState Creating { get; } = new MicrovmImageState("CREATING");
+        public static MicrovmImageState Created { get; } = new MicrovmImageState("CREATED");
+        public static MicrovmImageState CreateFailed { get; } = new MicrovmImageState("CREATE_FAILED");
+        public static MicrovmImageState Updating { get; } = new MicrovmImageState("UPDATING");
+        public static MicrovmImageState Updated { get; } = new MicrovmImageState("UPDATED");
+        public static MicrovmImageState UpdateFailed { get; } = new MicrovmImageState("UPDATE_FAILED");
+        public static MicrovmImageState Deleting { get; } = new MicrovmImageState("DELETING");
+        public static MicrovmImageState DeleteFailed { get; } = new MicrovmImageState("DELETE_FAILED");
+        public static MicrovmImageState Deleted { get; } = new MicrovmImageState("DELETED");
+
+        public static bool operator ==(MicrovmImageState left, MicrovmImageState right) => left.Equals(right);
+        public static bool operator !=(MicrovmImageState left, MicrovmImageState right) => !left.Equals(right);
+
+        public static explicit operator string(MicrovmImageState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MicrovmImageState other && Equals(other);
+        public bool Equals(MicrovmImageState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current state of the network connector.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkConnectorState : IEquatable<NetworkConnectorState>
+    {
+        private readonly string _value;
+
+        private NetworkConnectorState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkConnectorState Pending { get; } = new NetworkConnectorState("PENDING");
+        public static NetworkConnectorState Active { get; } = new NetworkConnectorState("ACTIVE");
+        public static NetworkConnectorState Inactive { get; } = new NetworkConnectorState("INACTIVE");
+        public static NetworkConnectorState Failed { get; } = new NetworkConnectorState("FAILED");
+        public static NetworkConnectorState Deleting { get; } = new NetworkConnectorState("DELETING");
+        public static NetworkConnectorState DeleteFailed { get; } = new NetworkConnectorState("DELETE_FAILED");
+
+        public static bool operator ==(NetworkConnectorState left, NetworkConnectorState right) => left.Equals(right);
+        public static bool operator !=(NetworkConnectorState left, NetworkConnectorState right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkConnectorState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkConnectorState other && Equals(other);
+        public bool Equals(NetworkConnectorState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem : IEquatable<NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem>
+    {
+        private readonly string _value;
+
+        private NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem MicroVm { get; } = new NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem("MicroVm");
+
+        public static bool operator ==(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem left, NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem right) => left.Equals(right);
+        public static bool operator !=(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem left, NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem other && Equals(other);
+        public bool Equals(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkConnectorVpcEgressConfigurationNetworkProtocol : IEquatable<NetworkConnectorVpcEgressConfigurationNetworkProtocol>
+    {
+        private readonly string _value;
+
+        private NetworkConnectorVpcEgressConfigurationNetworkProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkConnectorVpcEgressConfigurationNetworkProtocol IPv4 { get; } = new NetworkConnectorVpcEgressConfigurationNetworkProtocol("IPv4");
+        public static NetworkConnectorVpcEgressConfigurationNetworkProtocol DualStack { get; } = new NetworkConnectorVpcEgressConfigurationNetworkProtocol("DualStack");
+
+        public static bool operator ==(NetworkConnectorVpcEgressConfigurationNetworkProtocol left, NetworkConnectorVpcEgressConfigurationNetworkProtocol right) => left.Equals(right);
+        public static bool operator !=(NetworkConnectorVpcEgressConfigurationNetworkProtocol left, NetworkConnectorVpcEgressConfigurationNetworkProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkConnectorVpcEgressConfigurationNetworkProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkConnectorVpcEgressConfigurationNetworkProtocol other && Equals(other);
+        public bool Equals(NetworkConnectorVpcEgressConfigurationNetworkProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -1115,6 +1115,172 @@ func (in *bucketAccessControlPtr) ToBucketAccessControlPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(BucketAccessControlPtrOutput)
 }
 
+// Specifies whether annotation table configuration is enabled or disabled.
+type BucketAnnotationTableConfigurationConfigurationState string
+
+const (
+	BucketAnnotationTableConfigurationConfigurationStateEnabled  = BucketAnnotationTableConfigurationConfigurationState("ENABLED")
+	BucketAnnotationTableConfigurationConfigurationStateDisabled = BucketAnnotationTableConfigurationConfigurationState("DISABLED")
+)
+
+func (BucketAnnotationTableConfigurationConfigurationState) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAnnotationTableConfigurationConfigurationState)(nil)).Elem()
+}
+
+func (e BucketAnnotationTableConfigurationConfigurationState) ToBucketAnnotationTableConfigurationConfigurationStateOutput() BucketAnnotationTableConfigurationConfigurationStateOutput {
+	return pulumi.ToOutput(e).(BucketAnnotationTableConfigurationConfigurationStateOutput)
+}
+
+func (e BucketAnnotationTableConfigurationConfigurationState) ToBucketAnnotationTableConfigurationConfigurationStateOutputWithContext(ctx context.Context) BucketAnnotationTableConfigurationConfigurationStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BucketAnnotationTableConfigurationConfigurationStateOutput)
+}
+
+func (e BucketAnnotationTableConfigurationConfigurationState) ToBucketAnnotationTableConfigurationConfigurationStatePtrOutput() BucketAnnotationTableConfigurationConfigurationStatePtrOutput {
+	return e.ToBucketAnnotationTableConfigurationConfigurationStatePtrOutputWithContext(context.Background())
+}
+
+func (e BucketAnnotationTableConfigurationConfigurationState) ToBucketAnnotationTableConfigurationConfigurationStatePtrOutputWithContext(ctx context.Context) BucketAnnotationTableConfigurationConfigurationStatePtrOutput {
+	return BucketAnnotationTableConfigurationConfigurationState(e).ToBucketAnnotationTableConfigurationConfigurationStateOutputWithContext(ctx).ToBucketAnnotationTableConfigurationConfigurationStatePtrOutputWithContext(ctx)
+}
+
+func (e BucketAnnotationTableConfigurationConfigurationState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketAnnotationTableConfigurationConfigurationState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketAnnotationTableConfigurationConfigurationState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BucketAnnotationTableConfigurationConfigurationState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BucketAnnotationTableConfigurationConfigurationStateOutput struct{ *pulumi.OutputState }
+
+func (BucketAnnotationTableConfigurationConfigurationStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAnnotationTableConfigurationConfigurationState)(nil)).Elem()
+}
+
+func (o BucketAnnotationTableConfigurationConfigurationStateOutput) ToBucketAnnotationTableConfigurationConfigurationStateOutput() BucketAnnotationTableConfigurationConfigurationStateOutput {
+	return o
+}
+
+func (o BucketAnnotationTableConfigurationConfigurationStateOutput) ToBucketAnnotationTableConfigurationConfigurationStateOutputWithContext(ctx context.Context) BucketAnnotationTableConfigurationConfigurationStateOutput {
+	return o
+}
+
+func (o BucketAnnotationTableConfigurationConfigurationStateOutput) ToBucketAnnotationTableConfigurationConfigurationStatePtrOutput() BucketAnnotationTableConfigurationConfigurationStatePtrOutput {
+	return o.ToBucketAnnotationTableConfigurationConfigurationStatePtrOutputWithContext(context.Background())
+}
+
+func (o BucketAnnotationTableConfigurationConfigurationStateOutput) ToBucketAnnotationTableConfigurationConfigurationStatePtrOutputWithContext(ctx context.Context) BucketAnnotationTableConfigurationConfigurationStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketAnnotationTableConfigurationConfigurationState) *BucketAnnotationTableConfigurationConfigurationState {
+		return &v
+	}).(BucketAnnotationTableConfigurationConfigurationStatePtrOutput)
+}
+
+func (o BucketAnnotationTableConfigurationConfigurationStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BucketAnnotationTableConfigurationConfigurationStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketAnnotationTableConfigurationConfigurationState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BucketAnnotationTableConfigurationConfigurationStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketAnnotationTableConfigurationConfigurationStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketAnnotationTableConfigurationConfigurationState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketAnnotationTableConfigurationConfigurationStatePtrOutput struct{ *pulumi.OutputState }
+
+func (BucketAnnotationTableConfigurationConfigurationStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAnnotationTableConfigurationConfigurationState)(nil)).Elem()
+}
+
+func (o BucketAnnotationTableConfigurationConfigurationStatePtrOutput) ToBucketAnnotationTableConfigurationConfigurationStatePtrOutput() BucketAnnotationTableConfigurationConfigurationStatePtrOutput {
+	return o
+}
+
+func (o BucketAnnotationTableConfigurationConfigurationStatePtrOutput) ToBucketAnnotationTableConfigurationConfigurationStatePtrOutputWithContext(ctx context.Context) BucketAnnotationTableConfigurationConfigurationStatePtrOutput {
+	return o
+}
+
+func (o BucketAnnotationTableConfigurationConfigurationStatePtrOutput) Elem() BucketAnnotationTableConfigurationConfigurationStateOutput {
+	return o.ApplyT(func(v *BucketAnnotationTableConfigurationConfigurationState) BucketAnnotationTableConfigurationConfigurationState {
+		if v != nil {
+			return *v
+		}
+		var ret BucketAnnotationTableConfigurationConfigurationState
+		return ret
+	}).(BucketAnnotationTableConfigurationConfigurationStateOutput)
+}
+
+func (o BucketAnnotationTableConfigurationConfigurationStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketAnnotationTableConfigurationConfigurationStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BucketAnnotationTableConfigurationConfigurationState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BucketAnnotationTableConfigurationConfigurationStateInput is an input type that accepts values of the BucketAnnotationTableConfigurationConfigurationState enum
+// A concrete instance of `BucketAnnotationTableConfigurationConfigurationStateInput` can be one of the following:
+//
+//	BucketAnnotationTableConfigurationConfigurationStateEnabled
+//	BucketAnnotationTableConfigurationConfigurationStateDisabled
+type BucketAnnotationTableConfigurationConfigurationStateInput interface {
+	pulumi.Input
+
+	ToBucketAnnotationTableConfigurationConfigurationStateOutput() BucketAnnotationTableConfigurationConfigurationStateOutput
+	ToBucketAnnotationTableConfigurationConfigurationStateOutputWithContext(context.Context) BucketAnnotationTableConfigurationConfigurationStateOutput
+}
+
+var bucketAnnotationTableConfigurationConfigurationStatePtrType = reflect.TypeOf((**BucketAnnotationTableConfigurationConfigurationState)(nil)).Elem()
+
+type BucketAnnotationTableConfigurationConfigurationStatePtrInput interface {
+	pulumi.Input
+
+	ToBucketAnnotationTableConfigurationConfigurationStatePtrOutput() BucketAnnotationTableConfigurationConfigurationStatePtrOutput
+	ToBucketAnnotationTableConfigurationConfigurationStatePtrOutputWithContext(context.Context) BucketAnnotationTableConfigurationConfigurationStatePtrOutput
+}
+
+type bucketAnnotationTableConfigurationConfigurationStatePtr string
+
+func BucketAnnotationTableConfigurationConfigurationStatePtr(v string) BucketAnnotationTableConfigurationConfigurationStatePtrInput {
+	return (*bucketAnnotationTableConfigurationConfigurationStatePtr)(&v)
+}
+
+func (*bucketAnnotationTableConfigurationConfigurationStatePtr) ElementType() reflect.Type {
+	return bucketAnnotationTableConfigurationConfigurationStatePtrType
+}
+
+func (in *bucketAnnotationTableConfigurationConfigurationStatePtr) ToBucketAnnotationTableConfigurationConfigurationStatePtrOutput() BucketAnnotationTableConfigurationConfigurationStatePtrOutput {
+	return pulumi.ToOutput(in).(BucketAnnotationTableConfigurationConfigurationStatePtrOutput)
+}
+
+func (in *bucketAnnotationTableConfigurationConfigurationStatePtr) ToBucketAnnotationTableConfigurationConfigurationStatePtrOutputWithContext(ctx context.Context) BucketAnnotationTableConfigurationConfigurationStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BucketAnnotationTableConfigurationConfigurationStatePtrOutput)
+}
+
 type BucketBlockedEncryptionTypeListItem string
 
 const (
@@ -6743,6 +6909,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccelerateConfigurationAccelerationStatusPtrInput)(nil)).Elem(), BucketAccelerateConfigurationAccelerationStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccessControlInput)(nil)).Elem(), BucketAccessControl("AuthenticatedRead"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccessControlPtrInput)(nil)).Elem(), BucketAccessControl("AuthenticatedRead"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAnnotationTableConfigurationConfigurationStateInput)(nil)).Elem(), BucketAnnotationTableConfigurationConfigurationState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAnnotationTableConfigurationConfigurationStatePtrInput)(nil)).Elem(), BucketAnnotationTableConfigurationConfigurationState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketBlockedEncryptionTypeListItemInput)(nil)).Elem(), BucketBlockedEncryptionTypeListItem("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketBlockedEncryptionTypeListItemPtrInput)(nil)).Elem(), BucketBlockedEncryptionTypeListItem("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketBlockedEncryptionTypeListItemArrayInput)(nil)).Elem(), BucketBlockedEncryptionTypeListItemArray{})
@@ -6824,6 +6992,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketAccelerateConfigurationAccelerationStatusPtrOutput{})
 	pulumi.RegisterOutputType(BucketAccessControlOutput{})
 	pulumi.RegisterOutputType(BucketAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(BucketAnnotationTableConfigurationConfigurationStateOutput{})
+	pulumi.RegisterOutputType(BucketAnnotationTableConfigurationConfigurationStatePtrOutput{})
 	pulumi.RegisterOutputType(BucketBlockedEncryptionTypeListItemOutput{})
 	pulumi.RegisterOutputType(BucketBlockedEncryptionTypeListItemPtrOutput{})
 	pulumi.RegisterOutputType(BucketBlockedEncryptionTypeListItemArrayOutput{})

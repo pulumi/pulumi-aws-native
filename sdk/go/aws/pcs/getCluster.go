@@ -36,6 +36,8 @@ type LookupClusterResult struct {
 	ErrorInfo []ClusterErrorInfo `pulumi:"errorInfo"`
 	// The generated unique ID of the cluster.
 	Id *string `pulumi:"id"`
+	// The cluster management and job scheduling software associated with the cluster.
+	Scheduler *SchedulerProperties `pulumi:"scheduler"`
 	// Additional options related to the Slurm scheduler.
 	SlurmConfiguration *SlurmConfigurationProperties `pulumi:"slurmConfiguration"`
 	// The provisioning status of the cluster. The provisioning status doesn't indicate the overall health of the cluster.
@@ -94,6 +96,11 @@ func (o LookupClusterResultOutput) ErrorInfo() ClusterErrorInfoArrayOutput {
 // The generated unique ID of the cluster.
 func (o LookupClusterResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The cluster management and job scheduling software associated with the cluster.
+func (o LookupClusterResultOutput) Scheduler() SchedulerPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *SchedulerProperties { return v.Scheduler }).(SchedulerPropertiesPtrOutput)
 }
 
 // Additional options related to the Slurm scheduler.

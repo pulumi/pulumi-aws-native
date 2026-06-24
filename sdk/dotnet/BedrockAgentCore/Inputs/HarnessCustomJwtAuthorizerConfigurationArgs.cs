@@ -47,6 +47,17 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("discoveryUrl", required: true)]
         public Input<string> DiscoveryUrl { get; set; } = null!;
 
+        [Input("privateEndpoint")]
+        public Input<Inputs.HarnessPrivateEndpointArgs>? PrivateEndpoint { get; set; }
+
+        [Input("privateEndpointOverrides")]
+        private InputList<Inputs.HarnessPrivateEndpointOverrideArgs>? _privateEndpointOverrides;
+        public InputList<Inputs.HarnessPrivateEndpointOverrideArgs> PrivateEndpointOverrides
+        {
+            get => _privateEndpointOverrides ?? (_privateEndpointOverrides = new InputList<Inputs.HarnessPrivateEndpointOverrideArgs>());
+            set => _privateEndpointOverrides = value;
+        }
+
         public HarnessCustomJwtAuthorizerConfigurationArgs()
         {
         }

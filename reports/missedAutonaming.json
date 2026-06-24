@@ -2651,6 +2651,9 @@
         "type": "integer",
         "description": "A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) ."
       },
+      "routing": {
+        "$ref": "#/types/aws-native:cognito:UserPoolDomainRoutingType"
+      },
       "userPoolId": {
         "type": "string",
         "description": "The ID of the user pool that is associated with the domain you're updating."
@@ -6269,7 +6272,8 @@
         "description": "The ID of a network interface."
       },
       "odbNetworkArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the ODB network."
       },
       "routeTableId": {
         "type": "string",
@@ -8252,14 +8256,16 @@
         "description": "The name of a family that this daemon task definition is registered to."
       },
       "ipcMode": {
-        "type": "string"
+        "type": "string",
+        "description": "The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.\n If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: \"host\"`` or other daemons that use ``ipcMode: \"shared\"``."
       },
       "memory": {
         "type": "string",
         "description": "The amount of memory (in MiB) used by the daemon task."
       },
       "pidMode": {
-        "type": "string"
+        "type": "string",
+        "description": "The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.\n If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: \"host\"`` or other daemons that use ``pidMode: \"shared\"``."
       },
       "tags": {
         "type": "array",
@@ -12039,6 +12045,42 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "An arbitrary set of tags (key-value pairs) for this DB instance."
+      }
+    }
+  },
+  "aws-native:neptune:GlobalCluster": {
+    "cfTypeName": "AWS::Neptune::GlobalCluster",
+    "properties": {
+      "deletionProtection": {
+        "type": "boolean",
+        "description": "Whether deletion protection is enabled."
+      },
+      "engine": {
+        "$ref": "#/types/aws-native:neptune:GlobalClusterEngine",
+        "description": "The name of the database engine."
+      },
+      "engineVersion": {
+        "type": "string",
+        "description": "The version number of the database engine."
+      },
+      "globalClusterIdentifier": {
+        "type": "string",
+        "description": "The cluster identifier of the global database cluster."
+      },
+      "sourceDbClusterIdentifier": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of an existing Neptune DB cluster to use as the primary cluster of the new global database."
+      },
+      "storageEncrypted": {
+        "type": "boolean",
+        "description": "Whether the global database cluster is storage encrypted."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
       }
     }
   },

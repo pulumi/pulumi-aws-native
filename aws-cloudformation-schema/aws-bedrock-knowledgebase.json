@@ -17,6 +17,9 @@
         },
         "SqlKnowledgeBaseConfiguration" : {
           "$ref" : "#/definitions/SqlKnowledgeBaseConfiguration"
+        },
+        "ManagedKnowledgeBaseConfiguration" : {
+          "$ref" : "#/definitions/ManagedKnowledgeBaseConfiguration"
         }
       },
       "required" : [ "Type" ],
@@ -25,7 +28,7 @@
     "KnowledgeBaseStatus" : {
       "type" : "string",
       "description" : "The status of a knowledge base.",
-      "enum" : [ "CREATING", "ACTIVE", "DELETING", "UPDATING", "FAILED", "DELETE_UNSUCCESSFUL" ]
+      "enum" : [ "CREATING", "ACTIVE", "DELETING", "UPDATING", "FAILED", "DELETE_UNSUCCESSFUL", "UPDATE_UNSUCCESSFUL" ]
     },
     "KnowledgeBaseStorageType" : {
       "type" : "string",
@@ -35,7 +38,7 @@
     "KnowledgeBaseType" : {
       "type" : "string",
       "description" : "The type of a knowledge base.",
-      "enum" : [ "VECTOR", "KENDRA", "SQL" ]
+      "enum" : [ "VECTOR", "KENDRA", "SQL", "MANAGED" ]
     },
     "OpenSearchManagedClusterConfiguration" : {
       "type" : "object",
@@ -698,6 +701,49 @@
       "required" : [ "SupplementalDataStorageLocations" ],
       "additionalProperties" : false
     },
+    "EmbeddingModelType" : {
+      "type" : "string",
+      "description" : "The type of embedding model to use for the managed knowledge base.",
+      "enum" : [ "CUSTOM", "MANAGED" ]
+    },
+    "ManagedKnowledgeBaseConfiguration" : {
+      "type" : "object",
+      "description" : "Contains details about the model used to create vector embeddings for a managed knowledge base.",
+      "properties" : {
+        "EmbeddingModelArn" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "minLength" : 20,
+          "pattern" : "^(arn:aws(-[^:]+)?:[a-z0-9-]+:[a-z0-9-]{1,20}:[0-9]{0,12}:[a-zA-Z0-9-:/._+]+)$",
+          "description" : "The ARN of the model used to create vector embeddings for the knowledge base."
+        },
+        "EmbeddingModelType" : {
+          "$ref" : "#/definitions/EmbeddingModelType"
+        },
+        "EmbeddingModelConfiguration" : {
+          "$ref" : "#/definitions/EmbeddingModelConfiguration"
+        },
+        "ServerSideEncryptionConfiguration" : {
+          "$ref" : "#/definitions/ManagedKnowledgeBaseServerSideEncryptionConfiguration"
+        }
+      },
+      "required" : [ "EmbeddingModelArn" ],
+      "additionalProperties" : false
+    },
+    "ManagedKnowledgeBaseServerSideEncryptionConfiguration" : {
+      "type" : "object",
+      "description" : "Contains details about the server-side encryption for the managed knowledge base.",
+      "properties" : {
+        "KmsKeyArn" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "minLength" : 1,
+          "pattern" : "^arn:aws(-cn|-us-gov|-eusc|-iso(-[b-f])?)?:kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$",
+          "description" : "The ARN of the AWS KMS key used to encrypt the managed knowledge base."
+        }
+      },
+      "additionalProperties" : false
+    },
     "KendraKnowledgeBaseConfiguration" : {
       "type" : "object",
       "description" : "Configurations for a Kendra knowledge base",
@@ -1142,17 +1188,17 @@
   },
   "required" : [ "KnowledgeBaseConfiguration", "Name", "RoleArn" ],
   "readOnlyProperties" : [ "/properties/KnowledgeBaseId", "/properties/KnowledgeBaseArn", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/FailureReasons", "/properties/Status" ],
-  "createOnlyProperties" : [ "/properties/StorageConfiguration", "/properties/KnowledgeBaseConfiguration/Type", "/properties/KnowledgeBaseConfiguration/VectorKnowledgeBaseConfiguration", "/properties/KnowledgeBaseConfiguration/KendraKnowledgeBaseConfiguration", "/properties/KnowledgeBaseConfiguration/SqlKnowledgeBaseConfiguration/Type", "/properties/KnowledgeBaseConfiguration/SqlKnowledgeBaseConfiguration/RedshiftConfiguration/StorageConfigurations", "/properties/KnowledgeBaseConfiguration/SqlKnowledgeBaseConfiguration/RedshiftConfiguration/QueryEngineConfiguration" ],
+  "createOnlyProperties" : [ "/properties/StorageConfiguration", "/properties/KnowledgeBaseConfiguration/Type", "/properties/KnowledgeBaseConfiguration/VectorKnowledgeBaseConfiguration", "/properties/KnowledgeBaseConfiguration/KendraKnowledgeBaseConfiguration", "/properties/KnowledgeBaseConfiguration/ManagedKnowledgeBaseConfiguration", "/properties/KnowledgeBaseConfiguration/SqlKnowledgeBaseConfiguration/Type", "/properties/KnowledgeBaseConfiguration/SqlKnowledgeBaseConfiguration/RedshiftConfiguration/StorageConfigurations", "/properties/KnowledgeBaseConfiguration/SqlKnowledgeBaseConfiguration/RedshiftConfiguration/QueryEngineConfiguration" ],
   "primaryIdentifier" : [ "/properties/KnowledgeBaseId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "bedrock:CreateKnowledgeBase", "bedrock:GetKnowledgeBase", "bedrock:TagResource", "bedrock:ListTagsForResource", "bedrock:AssociateThirdPartyKnowledgeBase", "iam:PassRole" ]
+      "permissions" : [ "bedrock:CreateKnowledgeBase", "bedrock:GetKnowledgeBase", "bedrock:TagResource", "bedrock:ListTagsForResource", "bedrock:AssociateThirdPartyKnowledgeBase", "iam:PassRole", "kms:CreateGrant", "kms:RetireGrant", "kms:GenerateDataKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:Encrypt", "kms:Decrypt" ]
     },
     "read" : {
       "permissions" : [ "bedrock:GetKnowledgeBase", "bedrock:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "bedrock:GetKnowledgeBase", "bedrock:UpdateKnowledgeBase", "bedrock:TagResource", "bedrock:UntagResource", "bedrock:ListTagsForResource", "bedrock:AssociateThirdPartyKnowledgeBase", "iam:PassRole" ]
+      "permissions" : [ "bedrock:GetKnowledgeBase", "bedrock:UpdateKnowledgeBase", "bedrock:TagResource", "bedrock:UntagResource", "bedrock:ListTagsForResource", "bedrock:AssociateThirdPartyKnowledgeBase", "iam:PassRole", "kms:CreateGrant", "kms:RetireGrant", "kms:GenerateDataKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:Encrypt", "kms:Decrypt" ]
     },
     "delete" : {
       "permissions" : [ "bedrock:GetKnowledgeBase", "bedrock:DeleteKnowledgeBase", "bedrock:ListDataSources" ]

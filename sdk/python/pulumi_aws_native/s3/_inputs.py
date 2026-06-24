@@ -32,6 +32,8 @@ __all__ = [
     'BucketAccessControlTranslationArgsDict',
     'BucketAnalyticsConfigurationArgs',
     'BucketAnalyticsConfigurationArgsDict',
+    'BucketAnnotationTableConfigurationArgs',
+    'BucketAnnotationTableConfigurationArgsDict',
     'BucketBlockedEncryptionTypesArgs',
     'BucketBlockedEncryptionTypesArgsDict',
     'BucketCorsConfigurationArgs',
@@ -621,6 +623,114 @@ class BucketAnalyticsConfigurationArgs:
     @tag_filters.setter
     def tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgs']]]]):
         pulumi.set(self, "tag_filters", value)
+
+
+class BucketAnnotationTableConfigurationArgsDict(TypedDict):
+    configuration_state: pulumi.Input['BucketAnnotationTableConfigurationConfigurationState']
+    """
+    Specifies whether annotation table configuration is enabled or disabled.
+    """
+    encryption_configuration: NotRequired[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgsDict']]
+    """
+    The encryption configuration for the annotation table.
+    """
+    role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the IAM role that grants Amazon S3 Metadata permission to read annotations from your bucket.
+    """
+    table_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the annotation table.
+    """
+    table_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the annotation table.
+    """
+
+@pulumi.input_type
+class BucketAnnotationTableConfigurationArgs:
+    def __init__(__self__, *,
+                 configuration_state: pulumi.Input['BucketAnnotationTableConfigurationConfigurationState'],
+                 encryption_configuration: Optional[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs']] = None,
+                 role: Optional[pulumi.Input[_builtins.str]] = None,
+                 table_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 table_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['BucketAnnotationTableConfigurationConfigurationState'] configuration_state: Specifies whether annotation table configuration is enabled or disabled.
+        :param pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the annotation table.
+        :param pulumi.Input[_builtins.str] role: The ARN of the IAM role that grants Amazon S3 Metadata permission to read annotations from your bucket.
+        :param pulumi.Input[_builtins.str] table_arn: The ARN of the annotation table.
+        :param pulumi.Input[_builtins.str] table_name: The name of the annotation table.
+        """
+        pulumi.set(__self__, "configuration_state", configuration_state)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if table_arn is not None:
+            pulumi.set(__self__, "table_arn", table_arn)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> pulumi.Input['BucketAnnotationTableConfigurationConfigurationState']:
+        """
+        Specifies whether annotation table configuration is enabled or disabled.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @configuration_state.setter
+    def configuration_state(self, value: pulumi.Input['BucketAnnotationTableConfigurationConfigurationState']):
+        pulumi.set(self, "configuration_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs']]:
+        """
+        The encryption configuration for the annotation table.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the IAM role that grants Amazon S3 Metadata permission to read annotations from your bucket.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableArn")
+    def table_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the annotation table.
+        """
+        return pulumi.get(self, "table_arn")
+
+    @table_arn.setter
+    def table_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "table_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the annotation table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "table_name", value)
 
 
 class BucketBlockedEncryptionTypesArgsDict(TypedDict):
@@ -1936,6 +2046,7 @@ class BucketMetadataConfigurationArgsDict(TypedDict):
     """
     The journal table configuration for a metadata configuration.
     """
+    annotation_table_configuration: NotRequired[pulumi.Input['BucketAnnotationTableConfigurationArgsDict']]
     destination: NotRequired[pulumi.Input['BucketMetadataDestinationArgsDict']]
     """
     The destination information for the S3 Metadata configuration.
@@ -1949,6 +2060,7 @@ class BucketMetadataConfigurationArgsDict(TypedDict):
 class BucketMetadataConfigurationArgs:
     def __init__(__self__, *,
                  journal_table_configuration: pulumi.Input['BucketJournalTableConfigurationArgs'],
+                 annotation_table_configuration: Optional[pulumi.Input['BucketAnnotationTableConfigurationArgs']] = None,
                  destination: Optional[pulumi.Input['BucketMetadataDestinationArgs']] = None,
                  inventory_table_configuration: Optional[pulumi.Input['BucketInventoryTableConfigurationArgs']] = None):
         """
@@ -1959,6 +2071,8 @@ class BucketMetadataConfigurationArgs:
         :param pulumi.Input['BucketInventoryTableConfigurationArgs'] inventory_table_configuration: The inventory table configuration for a metadata configuration.
         """
         pulumi.set(__self__, "journal_table_configuration", journal_table_configuration)
+        if annotation_table_configuration is not None:
+            pulumi.set(__self__, "annotation_table_configuration", annotation_table_configuration)
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
         if inventory_table_configuration is not None:
@@ -1975,6 +2089,15 @@ class BucketMetadataConfigurationArgs:
     @journal_table_configuration.setter
     def journal_table_configuration(self, value: pulumi.Input['BucketJournalTableConfigurationArgs']):
         pulumi.set(self, "journal_table_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="annotationTableConfiguration")
+    def annotation_table_configuration(self) -> Optional[pulumi.Input['BucketAnnotationTableConfigurationArgs']]:
+        return pulumi.get(self, "annotation_table_configuration")
+
+    @annotation_table_configuration.setter
+    def annotation_table_configuration(self, value: Optional[pulumi.Input['BucketAnnotationTableConfigurationArgs']]):
+        pulumi.set(self, "annotation_table_configuration", value)
 
     @_builtins.property
     @pulumi.getter

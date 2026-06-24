@@ -85,15 +85,19 @@ namespace Pulumi.AwsNative.Cognito
         /// When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
         /// </summary>
         public readonly Outputs.UserPoolDomainCustomDomainConfigType? CustomDomainConfig;
+        public readonly Outputs.UserPoolDomainRoutingType? Routing;
 
         [OutputConstructor]
         private GetUserPoolDomainResult(
             string? cloudFrontDistribution,
 
-            Outputs.UserPoolDomainCustomDomainConfigType? customDomainConfig)
+            Outputs.UserPoolDomainCustomDomainConfigType? customDomainConfig,
+
+            Outputs.UserPoolDomainRoutingType? routing)
         {
             CloudFrontDistribution = cloudFrontDistribution;
             CustomDomainConfig = customDomainConfig;
+            Routing = routing;
         }
     }
 }

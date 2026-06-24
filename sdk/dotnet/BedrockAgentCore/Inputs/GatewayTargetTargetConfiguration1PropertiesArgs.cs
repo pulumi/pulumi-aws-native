@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     public sealed class GatewayTargetTargetConfiguration1PropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("http", required: true)]
-        public Input<Inputs.GatewayTargetHttpTargetConfigurationPropertiesArgs> Http { get; set; } = null!;
+        public InputUnion<Inputs.GatewayTargetHttpTargetConfiguration0PropertiesArgs, Inputs.GatewayTargetHttpTargetConfiguration1PropertiesArgs> Http { get; set; } = null!;
 
         public GatewayTargetTargetConfiguration1PropertiesArgs()
         {

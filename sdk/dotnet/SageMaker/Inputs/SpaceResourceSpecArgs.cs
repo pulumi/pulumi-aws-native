@@ -36,6 +36,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("sageMakerImageVersionArn")]
         public Input<string>? SageMakerImageVersionArn { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+        /// </summary>
+        [Input("trainingPlanArn")]
+        public Input<string>? TrainingPlanArn { get; set; }
+
         public SpaceResourceSpecArgs()
         {
         }

@@ -25,7 +25,8 @@ type UserPoolDomain struct {
 	// The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
-	ManagedLoginVersion pulumi.IntPtrOutput `pulumi:"managedLoginVersion"`
+	ManagedLoginVersion pulumi.IntPtrOutput                `pulumi:"managedLoginVersion"`
+	Routing             UserPoolDomainRoutingTypePtrOutput `pulumi:"routing"`
 	// The ID of the user pool that is associated with the domain you're updating.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
@@ -88,7 +89,8 @@ type userPoolDomainArgs struct {
 	// The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
 	Domain string `pulumi:"domain"`
 	// A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
-	ManagedLoginVersion *int `pulumi:"managedLoginVersion"`
+	ManagedLoginVersion *int                       `pulumi:"managedLoginVersion"`
+	Routing             *UserPoolDomainRoutingType `pulumi:"routing"`
 	// The ID of the user pool that is associated with the domain you're updating.
 	UserPoolId string `pulumi:"userPoolId"`
 }
@@ -103,6 +105,7 @@ type UserPoolDomainArgs struct {
 	Domain pulumi.StringInput
 	// A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
 	ManagedLoginVersion pulumi.IntPtrInput
+	Routing             UserPoolDomainRoutingTypePtrInput
 	// The ID of the user pool that is associated with the domain you're updating.
 	UserPoolId pulumi.StringInput
 }
@@ -164,6 +167,10 @@ func (o UserPoolDomainOutput) Domain() pulumi.StringOutput {
 // A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
 func (o UserPoolDomainOutput) ManagedLoginVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.IntPtrOutput { return v.ManagedLoginVersion }).(pulumi.IntPtrOutput)
+}
+
+func (o UserPoolDomainOutput) Routing() UserPoolDomainRoutingTypePtrOutput {
+	return o.ApplyT(func(v *UserPoolDomain) UserPoolDomainRoutingTypePtrOutput { return v.Routing }).(UserPoolDomainRoutingTypePtrOutput)
 }
 
 // The ID of the user pool that is associated with the domain you're updating.

@@ -58,6 +58,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         [Input("count")]
         public Input<Inputs.WebAclCountActionArgs>? Count { get; set; }
 
+        [Input("monetize")]
+        public Input<Inputs.WebAclMonetizeActionArgs>? Monetize { get; set; }
+
         public WebAclRuleActionArgs()
         {
         }

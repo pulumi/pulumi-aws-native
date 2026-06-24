@@ -25,6 +25,12 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public Input<string> S3Key { get; set; } = null!;
 
         /// <summary>
+        /// Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).
+        /// </summary>
+        [Input("s3ObjectStorageMode")]
+        public Input<Pulumi.AwsNative.Lambda.LayerVersionContentS3ObjectStorageMode>? S3ObjectStorageMode { get; set; }
+
+        /// <summary>
         /// For versioned objects, the version of the layer archive object to use.
         /// </summary>
         [Input("s3ObjectVersion")]

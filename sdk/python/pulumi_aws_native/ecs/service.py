@@ -36,6 +36,7 @@ class ServiceArgs:
                  health_check_grace_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  launch_type: Optional[pulumi.Input['ServiceLaunchType']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]] = None,
+                 monitoring: Optional[pulumi.Input['ServiceMonitoringConfigurationArgs']] = None,
                  network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]] = None,
                  placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementStrategyArgs']]]] = None,
@@ -142,6 +143,8 @@ class ServiceArgs:
             pulumi.set(__self__, "launch_type", launch_type)
         if load_balancers is not None:
             pulumi.set(__self__, "load_balancers", load_balancers)
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
         if placement_constraints is not None:
@@ -327,6 +330,15 @@ class ServiceArgs:
     @load_balancers.setter
     def load_balancers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]]):
         pulumi.set(self, "load_balancers", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def monitoring(self) -> Optional[pulumi.Input['ServiceMonitoringConfigurationArgs']]:
+        return pulumi.get(self, "monitoring")
+
+    @monitoring.setter
+    def monitoring(self, value: Optional[pulumi.Input['ServiceMonitoringConfigurationArgs']]):
+        pulumi.set(self, "monitoring", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
@@ -540,6 +552,7 @@ class Service(pulumi.CustomResource):
                  health_check_grace_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  launch_type: Optional[pulumi.Input['ServiceLaunchType']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]]] = None,
+                 monitoring: Optional[pulumi.Input[Union['ServiceMonitoringConfigurationArgs', 'ServiceMonitoringConfigurationArgsDict']]] = None,
                  network_configuration: Optional[pulumi.Input[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']]] = None,
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]]] = None,
                  placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementStrategyArgs', 'ServicePlacementStrategyArgsDict']]]]] = None,
@@ -711,6 +724,7 @@ class Service(pulumi.CustomResource):
                  health_check_grace_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  launch_type: Optional[pulumi.Input['ServiceLaunchType']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]]] = None,
+                 monitoring: Optional[pulumi.Input[Union['ServiceMonitoringConfigurationArgs', 'ServiceMonitoringConfigurationArgsDict']]] = None,
                  network_configuration: Optional[pulumi.Input[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']]] = None,
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]]] = None,
                  placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementStrategyArgs', 'ServicePlacementStrategyArgsDict']]]]] = None,
@@ -746,6 +760,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["health_check_grace_period_seconds"] = health_check_grace_period_seconds
             __props__.__dict__["launch_type"] = launch_type
             __props__.__dict__["load_balancers"] = load_balancers
+            __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["placement_constraints"] = placement_constraints
             __props__.__dict__["placement_strategies"] = placement_strategies
@@ -798,6 +813,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["health_check_grace_period_seconds"] = None
         __props__.__dict__["launch_type"] = None
         __props__.__dict__["load_balancers"] = None
+        __props__.__dict__["monitoring"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_configuration"] = None
         __props__.__dict__["placement_constraints"] = None
@@ -924,6 +940,11 @@ class Service(pulumi.CustomResource):
           To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
         """
         return pulumi.get(self, "load_balancers")
+
+    @_builtins.property
+    @pulumi.getter
+    def monitoring(self) -> pulumi.Output[Optional['outputs.ServiceMonitoringConfiguration']]:
+        return pulumi.get(self, "monitoring")
 
     @_builtins.property
     @pulumi.getter

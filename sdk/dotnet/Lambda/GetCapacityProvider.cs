@@ -71,6 +71,7 @@ namespace Pulumi.AwsNative.Lambda
         /// A key-value pair that provides metadata for the capacity provider.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly Outputs.CapacityProviderTelemetryConfig? TelemetryConfig;
 
         [OutputConstructor]
         private GetCapacityProviderResult(
@@ -82,13 +83,16 @@ namespace Pulumi.AwsNative.Lambda
 
             Pulumi.AwsNative.Lambda.CapacityProviderState? state,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            Outputs.CapacityProviderTelemetryConfig? telemetryConfig)
         {
             Arn = arn;
             CapacityProviderScalingConfig = capacityProviderScalingConfig;
             PropagateTags = propagateTags;
             State = state;
             Tags = tags;
+            TelemetryConfig = telemetryConfig;
         }
     }
 }

@@ -12,8 +12,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 
     public sealed class HarnessFilesystemConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("sessionStorage", required: true)]
-        public Input<Inputs.HarnessSessionStorageConfigurationArgs> SessionStorage { get; set; } = null!;
+        [Input("efsAccessPoint")]
+        public Input<Inputs.HarnessEfsAccessPointConfigurationArgs>? EfsAccessPoint { get; set; }
+
+        [Input("s3FilesAccessPoint")]
+        public Input<Inputs.HarnessS3FilesAccessPointConfigurationArgs>? S3FilesAccessPoint { get; set; }
+
+        [Input("sessionStorage")]
+        public Input<Inputs.HarnessSessionStorageConfigurationArgs>? SessionStorage { get; set; }
 
         public HarnessFilesystemConfigurationArgs()
         {

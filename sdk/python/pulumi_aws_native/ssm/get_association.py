@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetAssociationResult:
-    def __init__(__self__, apply_only_at_cron_interval=None, association_id=None, association_name=None, automation_target_parameter_name=None, calendar_names=None, compliance_severity=None, document_version=None, instance_id=None, max_concurrency=None, max_errors=None, name=None, output_location=None, parameters=None, schedule_expression=None, schedule_offset=None, sync_compliance=None, targets=None):
+    def __init__(__self__, apply_only_at_cron_interval=None, association_dispatch_assume_role=None, association_id=None, association_name=None, automation_target_parameter_name=None, calendar_names=None, compliance_severity=None, document_version=None, instance_id=None, max_concurrency=None, max_errors=None, name=None, output_location=None, parameters=None, schedule_expression=None, schedule_offset=None, sync_compliance=None, tags=None, targets=None):
         if apply_only_at_cron_interval and not isinstance(apply_only_at_cron_interval, bool):
             raise TypeError("Expected argument 'apply_only_at_cron_interval' to be a bool")
         pulumi.set(__self__, "apply_only_at_cron_interval", apply_only_at_cron_interval)
+        if association_dispatch_assume_role and not isinstance(association_dispatch_assume_role, str):
+            raise TypeError("Expected argument 'association_dispatch_assume_role' to be a str")
+        pulumi.set(__self__, "association_dispatch_assume_role", association_dispatch_assume_role)
         if association_id and not isinstance(association_id, str):
             raise TypeError("Expected argument 'association_id' to be a str")
         pulumi.set(__self__, "association_id", association_id)
@@ -74,6 +78,9 @@ class GetAssociationResult:
         if sync_compliance and not isinstance(sync_compliance, str):
             raise TypeError("Expected argument 'sync_compliance' to be a str")
         pulumi.set(__self__, "sync_compliance", sync_compliance)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if targets and not isinstance(targets, list):
             raise TypeError("Expected argument 'targets' to be a list")
         pulumi.set(__self__, "targets", targets)
@@ -85,6 +92,14 @@ class GetAssociationResult:
         By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
         """
         return pulumi.get(self, "apply_only_at_cron_interval")
+
+    @_builtins.property
+    @pulumi.getter(name="associationDispatchAssumeRole")
+    def association_dispatch_assume_role(self) -> Optional[_builtins.str]:
+        """
+        A role used by association to take actions on your behalf.
+        """
+        return pulumi.get(self, "association_dispatch_assume_role")
 
     @_builtins.property
     @pulumi.getter(name="associationId")
@@ -216,6 +231,14 @@ class GetAssociationResult:
 
     @_builtins.property
     @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A key-value pair to associate with a resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter
     def targets(self) -> Optional[Sequence['outputs.AssociationTarget']]:
         """
         The targets that the SSM document sends commands to.
@@ -230,6 +253,7 @@ class AwaitableGetAssociationResult(GetAssociationResult):
             yield self
         return GetAssociationResult(
             apply_only_at_cron_interval=self.apply_only_at_cron_interval,
+            association_dispatch_assume_role=self.association_dispatch_assume_role,
             association_id=self.association_id,
             association_name=self.association_name,
             automation_target_parameter_name=self.automation_target_parameter_name,
@@ -245,6 +269,7 @@ class AwaitableGetAssociationResult(GetAssociationResult):
             schedule_expression=self.schedule_expression,
             schedule_offset=self.schedule_offset,
             sync_compliance=self.sync_compliance,
+            tags=self.tags,
             targets=self.targets)
 
 
@@ -263,6 +288,7 @@ def get_association(association_id: Optional[_builtins.str] = None,
 
     return AwaitableGetAssociationResult(
         apply_only_at_cron_interval=pulumi.get(__ret__, 'apply_only_at_cron_interval'),
+        association_dispatch_assume_role=pulumi.get(__ret__, 'association_dispatch_assume_role'),
         association_id=pulumi.get(__ret__, 'association_id'),
         association_name=pulumi.get(__ret__, 'association_name'),
         automation_target_parameter_name=pulumi.get(__ret__, 'automation_target_parameter_name'),
@@ -278,6 +304,7 @@ def get_association(association_id: Optional[_builtins.str] = None,
         schedule_expression=pulumi.get(__ret__, 'schedule_expression'),
         schedule_offset=pulumi.get(__ret__, 'schedule_offset'),
         sync_compliance=pulumi.get(__ret__, 'sync_compliance'),
+        tags=pulumi.get(__ret__, 'tags'),
         targets=pulumi.get(__ret__, 'targets'))
 def get_association_output(association_id: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssociationResult]:
@@ -293,6 +320,7 @@ def get_association_output(association_id: Optional[pulumi.Input[_builtins.str]]
     __ret__ = pulumi.runtime.invoke_output('aws-native:ssm:getAssociation', __args__, opts=opts, typ=GetAssociationResult)
     return __ret__.apply(lambda __response__: GetAssociationResult(
         apply_only_at_cron_interval=pulumi.get(__response__, 'apply_only_at_cron_interval'),
+        association_dispatch_assume_role=pulumi.get(__response__, 'association_dispatch_assume_role'),
         association_id=pulumi.get(__response__, 'association_id'),
         association_name=pulumi.get(__response__, 'association_name'),
         automation_target_parameter_name=pulumi.get(__response__, 'automation_target_parameter_name'),
@@ -308,4 +336,5 @@ def get_association_output(association_id: Optional[pulumi.Input[_builtins.str]]
         schedule_expression=pulumi.get(__response__, 'schedule_expression'),
         schedule_offset=pulumi.get(__response__, 'schedule_offset'),
         sync_compliance=pulumi.get(__response__, 'sync_compliance'),
+        tags=pulumi.get(__response__, 'tags'),
         targets=pulumi.get(__response__, 'targets')))

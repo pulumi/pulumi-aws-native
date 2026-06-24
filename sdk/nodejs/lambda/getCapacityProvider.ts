@@ -36,6 +36,7 @@ export interface GetCapacityProviderResult {
      * A key-value pair that provides metadata for the capacity provider.
      */
     readonly tags?: outputs.Tag[];
+    readonly telemetryConfig?: outputs.lambda.CapacityProviderTelemetryConfig;
 }
 /**
  * Creates a capacity provider that manages compute resources for Lambda functions

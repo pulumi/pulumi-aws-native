@@ -14,10 +14,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     {
         [Input("explicitTags")]
         private InputList<Inputs.CapacityProviderTagArgs>? _explicitTags;
-
-        /// <summary>
-        /// A list of tags to explicitly propagate to managed resources.
-        /// </summary>
         public InputList<Inputs.CapacityProviderTagArgs> ExplicitTags
         {
             get => _explicitTags ?? (_explicitTags = new InputList<Inputs.CapacityProviderTagArgs>());

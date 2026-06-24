@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetBrokerResult:
-    def __init__(__self__, amqp_endpoints=None, arn=None, auto_minor_version_upgrade=None, configuration_id=None, configuration_revision=None, console_urls=None, data_replication_mode=None, engine_version_current=None, host_instance_type=None, id=None, ip_addresses=None, ldap_server_metadata=None, logs=None, maintenance_window_start_time=None, mqtt_endpoints=None, open_wire_endpoints=None, security_groups=None, stomp_endpoints=None, tags=None, wss_endpoints=None):
+    def __init__(__self__, amqp_endpoints=None, arn=None, auto_minor_version_upgrade=None, configuration_id=None, configuration_revision=None, console_urls=None, data_replication_mode=None, engine_version_current=None, host_instance_type=None, id=None, ip_addresses=None, ldap_server_metadata=None, logs=None, maintenance_window_start_time=None, mqtt_endpoints=None, open_wire_endpoints=None, resource_share_arns=None, security_groups=None, stomp_endpoints=None, tags=None, wss_endpoints=None):
         if amqp_endpoints and not isinstance(amqp_endpoints, list):
             raise TypeError("Expected argument 'amqp_endpoints' to be a list")
         pulumi.set(__self__, "amqp_endpoints", amqp_endpoints)
@@ -75,6 +75,9 @@ class GetBrokerResult:
         if open_wire_endpoints and not isinstance(open_wire_endpoints, list):
             raise TypeError("Expected argument 'open_wire_endpoints' to be a list")
         pulumi.set(__self__, "open_wire_endpoints", open_wire_endpoints)
+        if resource_share_arns and not isinstance(resource_share_arns, list):
+            raise TypeError("Expected argument 'resource_share_arns' to be a list")
+        pulumi.set(__self__, "resource_share_arns", resource_share_arns)
         if security_groups and not isinstance(security_groups, list):
             raise TypeError("Expected argument 'security_groups' to be a list")
         pulumi.set(__self__, "security_groups", security_groups)
@@ -223,6 +226,14 @@ class GetBrokerResult:
         return pulumi.get(self, "open_wire_endpoints")
 
     @_builtins.property
+    @pulumi.getter(name="resourceShareArns")
+    def resource_share_arns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The ARNs of the resource shares to be associated with the broker.
+        """
+        return pulumi.get(self, "resource_share_arns")
+
+    @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[_builtins.str]]:
         """
@@ -281,6 +292,7 @@ class AwaitableGetBrokerResult(GetBrokerResult):
             maintenance_window_start_time=self.maintenance_window_start_time,
             mqtt_endpoints=self.mqtt_endpoints,
             open_wire_endpoints=self.open_wire_endpoints,
+            resource_share_arns=self.resource_share_arns,
             security_groups=self.security_groups,
             stomp_endpoints=self.stomp_endpoints,
             tags=self.tags,
@@ -314,6 +326,7 @@ def get_broker(id: Optional[_builtins.str] = None,
         maintenance_window_start_time=pulumi.get(__ret__, 'maintenance_window_start_time'),
         mqtt_endpoints=pulumi.get(__ret__, 'mqtt_endpoints'),
         open_wire_endpoints=pulumi.get(__ret__, 'open_wire_endpoints'),
+        resource_share_arns=pulumi.get(__ret__, 'resource_share_arns'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
         stomp_endpoints=pulumi.get(__ret__, 'stomp_endpoints'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -344,6 +357,7 @@ def get_broker_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         maintenance_window_start_time=pulumi.get(__response__, 'maintenance_window_start_time'),
         mqtt_endpoints=pulumi.get(__response__, 'mqtt_endpoints'),
         open_wire_endpoints=pulumi.get(__response__, 'open_wire_endpoints'),
+        resource_share_arns=pulumi.get(__response__, 'resource_share_arns'),
         security_groups=pulumi.get(__response__, 'security_groups'),
         stomp_endpoints=pulumi.get(__response__, 'stomp_endpoints'),
         tags=pulumi.get(__response__, 'tags'),

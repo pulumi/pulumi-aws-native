@@ -16,6 +16,7 @@ __all__ = [
     'ClusterNetworkInterfaceInterfaceType',
     'ClusterNodeProvisioningMode',
     'ClusterNodeRecovery',
+    'ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy',
     'ClusterSlurmConfigNodeType',
     'ClusterStatus',
     'ClusterTieredStorageConfigMode',
@@ -31,6 +32,7 @@ __all__ = [
     'DomainAuthMode',
     'DomainDockerSettingsEnableDockerAccess',
     'DomainHiddenSageMakerImageSageMakerImageName',
+    'DomainHomeEfsFileSystemCreation',
     'DomainIpAddressType',
     'DomainLifecycleManagement',
     'DomainMlTools',
@@ -392,6 +394,15 @@ class ClusterNodeRecovery(_builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("aws-native:sagemaker:ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy")
+class ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy(_builtins.str, Enum):
+    """
+    The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
+    """
+    KEEP = "Keep"
+    DELETE_IF_NOT_USED = "DeleteIfNotUsed"
+
+
 @pulumi.type_token("aws-native:sagemaker:ClusterSlurmConfigNodeType")
 class ClusterSlurmConfigNodeType(_builtins.str, Enum):
     """
@@ -640,6 +651,12 @@ class DomainAppInstanceType(_builtins.str, Enum):
     ML_R6ID32XLARGE = "ml.r6id.32xlarge"
     ML_P54XLARGE = "ml.p5.4xlarge"
     ML_P6B20048XLARGE = "ml.p6-b200.48xlarge"
+    ML_G7E2XLARGE = "ml.g7e.2xlarge"
+    ML_G7E4XLARGE = "ml.g7e.4xlarge"
+    ML_G7E8XLARGE = "ml.g7e.8xlarge"
+    ML_G7E12XLARGE = "ml.g7e.12xlarge"
+    ML_G7E24XLARGE = "ml.g7e.24xlarge"
+    ML_G7E48XLARGE = "ml.g7e.48xlarge"
 
 
 @pulumi.type_token("aws-native:sagemaker:DomainAppNetworkAccessType")
@@ -695,6 +712,15 @@ class DomainHiddenSageMakerImageSageMakerImageName(_builtins.str, Enum):
     The SageMaker image name that you are hiding from the Studio user interface.
     """
     SAGEMAKER_DISTRIBUTION = "sagemaker_distribution"
+
+
+@pulumi.type_token("aws-native:sagemaker:DomainHomeEfsFileSystemCreation")
+class DomainHomeEfsFileSystemCreation(_builtins.str, Enum):
+    """
+    Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 @pulumi.type_token("aws-native:sagemaker:DomainIpAddressType")
@@ -1968,6 +1994,12 @@ class SpaceResourceSpecInstanceType(_builtins.str, Enum):
     ML_R6ID32XLARGE = "ml.r6id.32xlarge"
     ML_P54XLARGE = "ml.p5.4xlarge"
     ML_P6B20048XLARGE = "ml.p6-b200.48xlarge"
+    ML_G7E2XLARGE = "ml.g7e.2xlarge"
+    ML_G7E4XLARGE = "ml.g7e.4xlarge"
+    ML_G7E8XLARGE = "ml.g7e.8xlarge"
+    ML_G7E12XLARGE = "ml.g7e.12xlarge"
+    ML_G7E24XLARGE = "ml.g7e.24xlarge"
+    ML_G7E48XLARGE = "ml.g7e.48xlarge"
 
 
 @pulumi.type_token("aws-native:sagemaker:SpaceSharingSettingsSharingType")

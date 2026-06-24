@@ -28,6 +28,7 @@ export const LoggingConfigurationConditionActionConditionPropertiesAction = {
     Count: "COUNT",
     Captcha: "CAPTCHA",
     Challenge: "CHALLENGE",
+    Monetize: "MONETIZE",
     ExcludedAsCount: "EXCLUDED_AS_COUNT",
 } as const;
 
@@ -76,6 +77,18 @@ export const RegexPatternSetScope = {
  */
 export type RegexPatternSetScope = (typeof RegexPatternSetScope)[keyof typeof RegexPatternSetScope];
 
+export const RuleGroupBlockchainChain = {
+    Base: "BASE",
+    Solana: "SOLANA",
+    BaseSepolia: "BASE_SEPOLIA",
+    SolanaDevnet: "SOLANA_DEVNET",
+} as const;
+
+/**
+ * The blockchain chain to use.
+ */
+export type RuleGroupBlockchainChain = (typeof RuleGroupBlockchainChain)[keyof typeof RuleGroupBlockchainChain];
+
 export const RuleGroupBodyParsingFallbackBehavior = {
     Match: "MATCH",
     NoMatch: "NO_MATCH",
@@ -86,6 +99,25 @@ export const RuleGroupBodyParsingFallbackBehavior = {
  * The inspection behavior to fall back to if the JSON in the request body is invalid.
  */
 export type RuleGroupBodyParsingFallbackBehavior = (typeof RuleGroupBodyParsingFallbackBehavior)[keyof typeof RuleGroupBodyParsingFallbackBehavior];
+
+export const RuleGroupCryptoCurrency = {
+    Usdc: "USDC",
+} as const;
+
+/**
+ * The cryptocurrency to use for payment.
+ */
+export type RuleGroupCryptoCurrency = (typeof RuleGroupCryptoCurrency)[keyof typeof RuleGroupCryptoCurrency];
+
+export const RuleGroupCurrencyMode = {
+    Real: "REAL",
+    Test: "TEST",
+} as const;
+
+/**
+ * The currency mode for monetization. Use REAL for production payments and TEST for testing with testnet currencies.
+ */
+export type RuleGroupCurrencyMode = (typeof RuleGroupCurrencyMode)[keyof typeof RuleGroupCurrencyMode];
 
 export const RuleGroupForwardedIpConfigurationFallbackBehavior = {
     Match: "MATCH",
@@ -386,6 +418,18 @@ export const WebAclAwsManagedRulesBotControlRuleSetInspectionLevel = {
  */
 export type WebAclAwsManagedRulesBotControlRuleSetInspectionLevel = (typeof WebAclAwsManagedRulesBotControlRuleSetInspectionLevel)[keyof typeof WebAclAwsManagedRulesBotControlRuleSetInspectionLevel];
 
+export const WebAclBlockchainChain = {
+    Base: "BASE",
+    Solana: "SOLANA",
+    BaseSepolia: "BASE_SEPOLIA",
+    SolanaDevnet: "SOLANA_DEVNET",
+} as const;
+
+/**
+ * The blockchain chain to use.
+ */
+export type WebAclBlockchainChain = (typeof WebAclBlockchainChain)[keyof typeof WebAclBlockchainChain];
+
 export const WebAclBodyParsingFallbackBehavior = {
     Match: "MATCH",
     NoMatch: "NO_MATCH",
@@ -396,6 +440,25 @@ export const WebAclBodyParsingFallbackBehavior = {
  * The inspection behavior to fall back to if the JSON in the request body is invalid.
  */
 export type WebAclBodyParsingFallbackBehavior = (typeof WebAclBodyParsingFallbackBehavior)[keyof typeof WebAclBodyParsingFallbackBehavior];
+
+export const WebAclCryptoCurrency = {
+    Usdc: "USDC",
+} as const;
+
+/**
+ * The cryptocurrency to use for payment.
+ */
+export type WebAclCryptoCurrency = (typeof WebAclCryptoCurrency)[keyof typeof WebAclCryptoCurrency];
+
+export const WebAclCurrencyMode = {
+    Real: "REAL",
+    Test: "TEST",
+} as const;
+
+/**
+ * The currency mode for monetization. Use REAL for production payments and TEST for testing with testnet currencies.
+ */
+export type WebAclCurrencyMode = (typeof WebAclCurrencyMode)[keyof typeof WebAclCurrencyMode];
 
 export const WebAclDataProtectionAction = {
     Substitution: "SUBSTITUTION",

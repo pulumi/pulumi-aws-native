@@ -36,8 +36,9 @@ type Cluster struct {
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery ClusterNodeRecoveryPtrOutput `pulumi:"nodeRecovery"`
 	// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
-	Orchestrator             ClusterOrchestratorPtrOutput              `pulumi:"orchestrator"`
-	RestrictedInstanceGroups ClusterRestrictedInstanceGroupArrayOutput `pulumi:"restrictedInstanceGroups"`
+	Orchestrator                   ClusterOrchestratorPtrOutput                   `pulumi:"orchestrator"`
+	RestrictedInstanceGroups       ClusterRestrictedInstanceGroupArrayOutput      `pulumi:"restrictedInstanceGroups"`
+	RestrictedInstanceGroupsConfig ClusterRestrictedInstanceGroupsConfigPtrOutput `pulumi:"restrictedInstanceGroupsConfig"`
 	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
 	Tags                aws.TagArrayOutput                  `pulumi:"tags"`
 	TieredStorageConfig ClusterTieredStorageConfigPtrOutput `pulumi:"tieredStorageConfig"`
@@ -102,8 +103,9 @@ type clusterArgs struct {
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery *ClusterNodeRecovery `pulumi:"nodeRecovery"`
 	// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
-	Orchestrator             *ClusterOrchestrator             `pulumi:"orchestrator"`
-	RestrictedInstanceGroups []ClusterRestrictedInstanceGroup `pulumi:"restrictedInstanceGroups"`
+	Orchestrator                   *ClusterOrchestrator                   `pulumi:"orchestrator"`
+	RestrictedInstanceGroups       []ClusterRestrictedInstanceGroup       `pulumi:"restrictedInstanceGroups"`
+	RestrictedInstanceGroupsConfig *ClusterRestrictedInstanceGroupsConfig `pulumi:"restrictedInstanceGroupsConfig"`
 	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
 	Tags                []aws.Tag                   `pulumi:"tags"`
 	TieredStorageConfig *ClusterTieredStorageConfig `pulumi:"tieredStorageConfig"`
@@ -125,8 +127,9 @@ type ClusterArgs struct {
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery ClusterNodeRecoveryPtrInput
 	// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
-	Orchestrator             ClusterOrchestratorPtrInput
-	RestrictedInstanceGroups ClusterRestrictedInstanceGroupArrayInput
+	Orchestrator                   ClusterOrchestratorPtrInput
+	RestrictedInstanceGroups       ClusterRestrictedInstanceGroupArrayInput
+	RestrictedInstanceGroupsConfig ClusterRestrictedInstanceGroupsConfigPtrInput
 	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
 	Tags                aws.TagArrayInput
 	TieredStorageConfig ClusterTieredStorageConfigPtrInput
@@ -227,6 +230,12 @@ func (o ClusterOutput) Orchestrator() ClusterOrchestratorPtrOutput {
 
 func (o ClusterOutput) RestrictedInstanceGroups() ClusterRestrictedInstanceGroupArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterRestrictedInstanceGroupArrayOutput { return v.RestrictedInstanceGroups }).(ClusterRestrictedInstanceGroupArrayOutput)
+}
+
+func (o ClusterOutput) RestrictedInstanceGroupsConfig() ClusterRestrictedInstanceGroupsConfigPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterRestrictedInstanceGroupsConfigPtrOutput {
+		return v.RestrictedInstanceGroupsConfig
+	}).(ClusterRestrictedInstanceGroupsConfigPtrOutput)
 }
 
 // Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.

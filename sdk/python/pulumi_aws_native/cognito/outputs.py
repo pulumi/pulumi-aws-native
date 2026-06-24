@@ -39,6 +39,8 @@ __all__ = [
     'UserPoolCustomSmsSender',
     'UserPoolDeviceConfiguration',
     'UserPoolDomainCustomDomainConfigType',
+    'UserPoolDomainFailoverType',
+    'UserPoolDomainRoutingType',
     'UserPoolEmailConfiguration',
     'UserPoolInboundFederation',
     'UserPoolInviteMessageTemplate',
@@ -1195,6 +1197,57 @@ class UserPoolDomainCustomDomainConfigType(dict):
         The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
         """
         return pulumi.get(self, "certificate_arn")
+
+
+@pulumi.output_type
+class UserPoolDomainFailoverType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryRoute53HealthCheckId":
+            suggest = "primary_route53_health_check_id"
+        elif key == "secondaryRegion":
+            suggest = "secondary_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolDomainFailoverType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolDomainFailoverType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolDomainFailoverType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 primary_route53_health_check_id: _builtins.str,
+                 secondary_region: _builtins.str):
+        pulumi.set(__self__, "primary_route53_health_check_id", primary_route53_health_check_id)
+        pulumi.set(__self__, "secondary_region", secondary_region)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryRoute53HealthCheckId")
+    def primary_route53_health_check_id(self) -> _builtins.str:
+        return pulumi.get(self, "primary_route53_health_check_id")
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryRegion")
+    def secondary_region(self) -> _builtins.str:
+        return pulumi.get(self, "secondary_region")
+
+
+@pulumi.output_type
+class UserPoolDomainRoutingType(dict):
+    def __init__(__self__, *,
+                 failover: Optional['outputs.UserPoolDomainFailoverType'] = None):
+        if failover is not None:
+            pulumi.set(__self__, "failover", failover)
+
+    @_builtins.property
+    @pulumi.getter
+    def failover(self) -> Optional['outputs.UserPoolDomainFailoverType']:
+        return pulumi.get(self, "failover")
 
 
 @pulumi.output_type

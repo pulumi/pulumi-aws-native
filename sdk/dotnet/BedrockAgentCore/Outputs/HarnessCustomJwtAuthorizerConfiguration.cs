@@ -18,6 +18,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         public readonly ImmutableArray<string> AllowedScopes;
         public readonly ImmutableArray<Outputs.HarnessCustomClaimValidationType> CustomClaims;
         public readonly string DiscoveryUrl;
+        public readonly Outputs.HarnessPrivateEndpoint? PrivateEndpoint;
+        public readonly ImmutableArray<Outputs.HarnessPrivateEndpointOverride> PrivateEndpointOverrides;
 
         [OutputConstructor]
         private HarnessCustomJwtAuthorizerConfiguration(
@@ -29,13 +31,19 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             ImmutableArray<Outputs.HarnessCustomClaimValidationType> customClaims,
 
-            string discoveryUrl)
+            string discoveryUrl,
+
+            Outputs.HarnessPrivateEndpoint? privateEndpoint,
+
+            ImmutableArray<Outputs.HarnessPrivateEndpointOverride> privateEndpointOverrides)
         {
             AllowedAudience = allowedAudience;
             AllowedClients = allowedClients;
             AllowedScopes = allowedScopes;
             CustomClaims = customClaims;
             DiscoveryUrl = discoveryUrl;
+            PrivateEndpoint = privateEndpoint;
+            PrivateEndpointOverrides = privateEndpointOverrides;
         }
     }
 }

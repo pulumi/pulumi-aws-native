@@ -346,6 +346,187 @@ func (in *accountPolicyScopePtr) ToAccountPolicyScopePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(AccountPolicyScopePtrOutput)
 }
 
+// The status of this delivery source. The value can be ACTIVE or INACTIVE.
+type DeliverySourceStatus string
+
+const (
+	DeliverySourceStatusActive   = DeliverySourceStatus("ACTIVE")
+	DeliverySourceStatusInactive = DeliverySourceStatus("INACTIVE")
+)
+
+type DeliverySourceStatusOutput struct{ *pulumi.OutputState }
+
+func (DeliverySourceStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliverySourceStatus)(nil)).Elem()
+}
+
+func (o DeliverySourceStatusOutput) ToDeliverySourceStatusOutput() DeliverySourceStatusOutput {
+	return o
+}
+
+func (o DeliverySourceStatusOutput) ToDeliverySourceStatusOutputWithContext(ctx context.Context) DeliverySourceStatusOutput {
+	return o
+}
+
+func (o DeliverySourceStatusOutput) ToDeliverySourceStatusPtrOutput() DeliverySourceStatusPtrOutput {
+	return o.ToDeliverySourceStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DeliverySourceStatusOutput) ToDeliverySourceStatusPtrOutputWithContext(ctx context.Context) DeliverySourceStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliverySourceStatus) *DeliverySourceStatus {
+		return &v
+	}).(DeliverySourceStatusPtrOutput)
+}
+
+func (o DeliverySourceStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeliverySourceStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliverySourceStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeliverySourceStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliverySourceStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliverySourceStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeliverySourceStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliverySourceStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliverySourceStatus)(nil)).Elem()
+}
+
+func (o DeliverySourceStatusPtrOutput) ToDeliverySourceStatusPtrOutput() DeliverySourceStatusPtrOutput {
+	return o
+}
+
+func (o DeliverySourceStatusPtrOutput) ToDeliverySourceStatusPtrOutputWithContext(ctx context.Context) DeliverySourceStatusPtrOutput {
+	return o
+}
+
+func (o DeliverySourceStatusPtrOutput) Elem() DeliverySourceStatusOutput {
+	return o.ApplyT(func(v *DeliverySourceStatus) DeliverySourceStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DeliverySourceStatus
+		return ret
+	}).(DeliverySourceStatusOutput)
+}
+
+func (o DeliverySourceStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliverySourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeliverySourceStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The reason for the status of this delivery source, such as RESOURCE_DELETED.
+type DeliverySourceStatusReason string
+
+const (
+	DeliverySourceStatusReasonResourceDeleted = DeliverySourceStatusReason("RESOURCE_DELETED")
+)
+
+type DeliverySourceStatusReasonOutput struct{ *pulumi.OutputState }
+
+func (DeliverySourceStatusReasonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliverySourceStatusReason)(nil)).Elem()
+}
+
+func (o DeliverySourceStatusReasonOutput) ToDeliverySourceStatusReasonOutput() DeliverySourceStatusReasonOutput {
+	return o
+}
+
+func (o DeliverySourceStatusReasonOutput) ToDeliverySourceStatusReasonOutputWithContext(ctx context.Context) DeliverySourceStatusReasonOutput {
+	return o
+}
+
+func (o DeliverySourceStatusReasonOutput) ToDeliverySourceStatusReasonPtrOutput() DeliverySourceStatusReasonPtrOutput {
+	return o.ToDeliverySourceStatusReasonPtrOutputWithContext(context.Background())
+}
+
+func (o DeliverySourceStatusReasonOutput) ToDeliverySourceStatusReasonPtrOutputWithContext(ctx context.Context) DeliverySourceStatusReasonPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliverySourceStatusReason) *DeliverySourceStatusReason {
+		return &v
+	}).(DeliverySourceStatusReasonPtrOutput)
+}
+
+func (o DeliverySourceStatusReasonOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeliverySourceStatusReasonOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliverySourceStatusReason) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeliverySourceStatusReasonOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliverySourceStatusReasonOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliverySourceStatusReason) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeliverySourceStatusReasonPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliverySourceStatusReasonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliverySourceStatusReason)(nil)).Elem()
+}
+
+func (o DeliverySourceStatusReasonPtrOutput) ToDeliverySourceStatusReasonPtrOutput() DeliverySourceStatusReasonPtrOutput {
+	return o
+}
+
+func (o DeliverySourceStatusReasonPtrOutput) ToDeliverySourceStatusReasonPtrOutputWithContext(ctx context.Context) DeliverySourceStatusReasonPtrOutput {
+	return o
+}
+
+func (o DeliverySourceStatusReasonPtrOutput) Elem() DeliverySourceStatusReasonOutput {
+	return o.ApplyT(func(v *DeliverySourceStatusReason) DeliverySourceStatusReason {
+		if v != nil {
+			return *v
+		}
+		var ret DeliverySourceStatusReason
+		return ret
+	}).(DeliverySourceStatusReasonOutput)
+}
+
+func (o DeliverySourceStatusReasonPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliverySourceStatusReasonPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeliverySourceStatusReason) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Status of creation for the Integration and its resources
 type IntegrationStatus string
 
@@ -2457,6 +2638,10 @@ func init() {
 	pulumi.RegisterOutputType(AccountPolicyPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(AccountPolicyScopeOutput{})
 	pulumi.RegisterOutputType(AccountPolicyScopePtrOutput{})
+	pulumi.RegisterOutputType(DeliverySourceStatusOutput{})
+	pulumi.RegisterOutputType(DeliverySourceStatusPtrOutput{})
+	pulumi.RegisterOutputType(DeliverySourceStatusReasonOutput{})
+	pulumi.RegisterOutputType(DeliverySourceStatusReasonPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationStatusOutput{})
 	pulumi.RegisterOutputType(IntegrationStatusPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationTypeOutput{})

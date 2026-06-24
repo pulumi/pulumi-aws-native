@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     public static class GetHarness
     {
         /// <summary>
-        /// Definition of AWS::BedrockAgentCore::Harness resource type - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
+        /// Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
         /// </summary>
         public static Task<GetHarnessResult> InvokeAsync(GetHarnessArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHarnessResult>("aws-native:bedrockagentcore:getHarness", args ?? new GetHarnessArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::BedrockAgentCore::Harness resource type - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
+        /// Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
         /// </summary>
         public static Output<GetHarnessResult> Invoke(GetHarnessInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHarnessResult>("aws-native:bedrockagentcore:getHarness", args ?? new GetHarnessInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::BedrockAgentCore::Harness resource type - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
+        /// Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
         /// </summary>
         public static Output<GetHarnessResult> Invoke(GetHarnessInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHarnessResult>("aws-native:bedrockagentcore:getHarness", args ?? new GetHarnessInvokeArgs(), options.WithDefaults());
@@ -147,6 +147,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The timestamp when the harness was last updated.
         /// </summary>
         public readonly string? UpdatedAt;
+        /// <summary>
+        /// The version of the harness. Incremented on every successful update.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetHarnessResult(
@@ -190,7 +194,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             Outputs.HarnessTruncationConfiguration? truncation,
 
-            string? updatedAt)
+            string? updatedAt,
+
+            string? version)
         {
             AllowedTools = allowedTools;
             Arn = arn;
@@ -213,6 +219,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             Tools = tools;
             Truncation = truncation;
             UpdatedAt = updatedAt;
+            Version = version;
         }
     }
 }

@@ -6215,8 +6215,10 @@ func (o ReplicatorKafkaClusterArrayOutput) Index(i pulumi.IntInput) ReplicatorKa
 
 // Details of the client authentication used by the Apache Kafka cluster.
 type ReplicatorKafkaClusterClientAuthentication struct {
+	// Details for mTLS client authentication.
+	Mtls *ReplicatorKafkaClusterMtlsAuthentication `pulumi:"mtls"`
 	// Details for SASL/SCRAM client authentication.
-	SaslScram ReplicatorKafkaClusterSaslScramAuthentication `pulumi:"saslScram"`
+	SaslScram *ReplicatorKafkaClusterSaslScramAuthentication `pulumi:"saslScram"`
 }
 
 // ReplicatorKafkaClusterClientAuthenticationInput is an input type that accepts ReplicatorKafkaClusterClientAuthenticationArgs and ReplicatorKafkaClusterClientAuthenticationOutput values.
@@ -6232,8 +6234,10 @@ type ReplicatorKafkaClusterClientAuthenticationInput interface {
 
 // Details of the client authentication used by the Apache Kafka cluster.
 type ReplicatorKafkaClusterClientAuthenticationArgs struct {
+	// Details for mTLS client authentication.
+	Mtls ReplicatorKafkaClusterMtlsAuthenticationPtrInput `pulumi:"mtls"`
 	// Details for SASL/SCRAM client authentication.
-	SaslScram ReplicatorKafkaClusterSaslScramAuthenticationInput `pulumi:"saslScram"`
+	SaslScram ReplicatorKafkaClusterSaslScramAuthenticationPtrInput `pulumi:"saslScram"`
 }
 
 func (ReplicatorKafkaClusterClientAuthenticationArgs) ElementType() reflect.Type {
@@ -6314,11 +6318,18 @@ func (o ReplicatorKafkaClusterClientAuthenticationOutput) ToReplicatorKafkaClust
 	}).(ReplicatorKafkaClusterClientAuthenticationPtrOutput)
 }
 
+// Details for mTLS client authentication.
+func (o ReplicatorKafkaClusterClientAuthenticationOutput) Mtls() ReplicatorKafkaClusterMtlsAuthenticationPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterMtlsAuthentication {
+		return v.Mtls
+	}).(ReplicatorKafkaClusterMtlsAuthenticationPtrOutput)
+}
+
 // Details for SASL/SCRAM client authentication.
-func (o ReplicatorKafkaClusterClientAuthenticationOutput) SaslScram() ReplicatorKafkaClusterSaslScramAuthenticationOutput {
-	return o.ApplyT(func(v ReplicatorKafkaClusterClientAuthentication) ReplicatorKafkaClusterSaslScramAuthentication {
+func (o ReplicatorKafkaClusterClientAuthenticationOutput) SaslScram() ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterSaslScramAuthentication {
 		return v.SaslScram
-	}).(ReplicatorKafkaClusterSaslScramAuthenticationOutput)
+	}).(ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput)
 }
 
 type ReplicatorKafkaClusterClientAuthenticationPtrOutput struct{ *pulumi.OutputState }
@@ -6345,13 +6356,23 @@ func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) Elem() ReplicatorKa
 	}).(ReplicatorKafkaClusterClientAuthenticationOutput)
 }
 
+// Details for mTLS client authentication.
+func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) Mtls() ReplicatorKafkaClusterMtlsAuthenticationPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterMtlsAuthentication {
+		if v == nil {
+			return nil
+		}
+		return v.Mtls
+	}).(ReplicatorKafkaClusterMtlsAuthenticationPtrOutput)
+}
+
 // Details for SASL/SCRAM client authentication.
 func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) SaslScram() ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput {
 	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterSaslScramAuthentication {
 		if v == nil {
 			return nil
 		}
-		return &v.SaslScram
+		return v.SaslScram
 	}).(ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput)
 }
 
@@ -6672,6 +6693,146 @@ func (o ReplicatorKafkaClusterEncryptionInTransitPtrOutput) RootCaCertificate() 
 			return nil
 		}
 		return v.RootCaCertificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details for mTLS client authentication.
+type ReplicatorKafkaClusterMtlsAuthentication struct {
+	// The Amazon Resource Name (ARN) of the Secrets Manager secret.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// ReplicatorKafkaClusterMtlsAuthenticationInput is an input type that accepts ReplicatorKafkaClusterMtlsAuthenticationArgs and ReplicatorKafkaClusterMtlsAuthenticationOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterMtlsAuthenticationInput` via:
+//
+//	ReplicatorKafkaClusterMtlsAuthenticationArgs{...}
+type ReplicatorKafkaClusterMtlsAuthenticationInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterMtlsAuthenticationOutput() ReplicatorKafkaClusterMtlsAuthenticationOutput
+	ToReplicatorKafkaClusterMtlsAuthenticationOutputWithContext(context.Context) ReplicatorKafkaClusterMtlsAuthenticationOutput
+}
+
+// Details for mTLS client authentication.
+type ReplicatorKafkaClusterMtlsAuthenticationArgs struct {
+	// The Amazon Resource Name (ARN) of the Secrets Manager secret.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (ReplicatorKafkaClusterMtlsAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterMtlsAuthentication)(nil)).Elem()
+}
+
+func (i ReplicatorKafkaClusterMtlsAuthenticationArgs) ToReplicatorKafkaClusterMtlsAuthenticationOutput() ReplicatorKafkaClusterMtlsAuthenticationOutput {
+	return i.ToReplicatorKafkaClusterMtlsAuthenticationOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterMtlsAuthenticationArgs) ToReplicatorKafkaClusterMtlsAuthenticationOutputWithContext(ctx context.Context) ReplicatorKafkaClusterMtlsAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterMtlsAuthenticationOutput)
+}
+
+func (i ReplicatorKafkaClusterMtlsAuthenticationArgs) ToReplicatorKafkaClusterMtlsAuthenticationPtrOutput() ReplicatorKafkaClusterMtlsAuthenticationPtrOutput {
+	return i.ToReplicatorKafkaClusterMtlsAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterMtlsAuthenticationArgs) ToReplicatorKafkaClusterMtlsAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterMtlsAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterMtlsAuthenticationOutput).ToReplicatorKafkaClusterMtlsAuthenticationPtrOutputWithContext(ctx)
+}
+
+// ReplicatorKafkaClusterMtlsAuthenticationPtrInput is an input type that accepts ReplicatorKafkaClusterMtlsAuthenticationArgs, ReplicatorKafkaClusterMtlsAuthenticationPtr and ReplicatorKafkaClusterMtlsAuthenticationPtrOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterMtlsAuthenticationPtrInput` via:
+//
+//	        ReplicatorKafkaClusterMtlsAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorKafkaClusterMtlsAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterMtlsAuthenticationPtrOutput() ReplicatorKafkaClusterMtlsAuthenticationPtrOutput
+	ToReplicatorKafkaClusterMtlsAuthenticationPtrOutputWithContext(context.Context) ReplicatorKafkaClusterMtlsAuthenticationPtrOutput
+}
+
+type replicatorKafkaClusterMtlsAuthenticationPtrType ReplicatorKafkaClusterMtlsAuthenticationArgs
+
+func ReplicatorKafkaClusterMtlsAuthenticationPtr(v *ReplicatorKafkaClusterMtlsAuthenticationArgs) ReplicatorKafkaClusterMtlsAuthenticationPtrInput {
+	return (*replicatorKafkaClusterMtlsAuthenticationPtrType)(v)
+}
+
+func (*replicatorKafkaClusterMtlsAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterMtlsAuthentication)(nil)).Elem()
+}
+
+func (i *replicatorKafkaClusterMtlsAuthenticationPtrType) ToReplicatorKafkaClusterMtlsAuthenticationPtrOutput() ReplicatorKafkaClusterMtlsAuthenticationPtrOutput {
+	return i.ToReplicatorKafkaClusterMtlsAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorKafkaClusterMtlsAuthenticationPtrType) ToReplicatorKafkaClusterMtlsAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterMtlsAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterMtlsAuthenticationPtrOutput)
+}
+
+// Details for mTLS client authentication.
+type ReplicatorKafkaClusterMtlsAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterMtlsAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterMtlsAuthentication)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterMtlsAuthenticationOutput) ToReplicatorKafkaClusterMtlsAuthenticationOutput() ReplicatorKafkaClusterMtlsAuthenticationOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterMtlsAuthenticationOutput) ToReplicatorKafkaClusterMtlsAuthenticationOutputWithContext(ctx context.Context) ReplicatorKafkaClusterMtlsAuthenticationOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterMtlsAuthenticationOutput) ToReplicatorKafkaClusterMtlsAuthenticationPtrOutput() ReplicatorKafkaClusterMtlsAuthenticationPtrOutput {
+	return o.ToReplicatorKafkaClusterMtlsAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterMtlsAuthenticationOutput) ToReplicatorKafkaClusterMtlsAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterMtlsAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterMtlsAuthentication) *ReplicatorKafkaClusterMtlsAuthentication {
+		return &v
+	}).(ReplicatorKafkaClusterMtlsAuthenticationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Secrets Manager secret.
+func (o ReplicatorKafkaClusterMtlsAuthenticationOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterMtlsAuthentication) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type ReplicatorKafkaClusterMtlsAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterMtlsAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterMtlsAuthentication)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterMtlsAuthenticationPtrOutput) ToReplicatorKafkaClusterMtlsAuthenticationPtrOutput() ReplicatorKafkaClusterMtlsAuthenticationPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterMtlsAuthenticationPtrOutput) ToReplicatorKafkaClusterMtlsAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterMtlsAuthenticationPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterMtlsAuthenticationPtrOutput) Elem() ReplicatorKafkaClusterMtlsAuthenticationOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterMtlsAuthentication) ReplicatorKafkaClusterMtlsAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterMtlsAuthentication
+		return ret
+	}).(ReplicatorKafkaClusterMtlsAuthenticationOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Secrets Manager secret.
+func (o ReplicatorKafkaClusterMtlsAuthenticationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterMtlsAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8090,6 +8251,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterClientVpcConfigPtrInput)(nil)).Elem(), ReplicatorKafkaClusterClientVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransitInput)(nil)).Elem(), ReplicatorKafkaClusterEncryptionInTransitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransitPtrInput)(nil)).Elem(), ReplicatorKafkaClusterEncryptionInTransitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterMtlsAuthenticationInput)(nil)).Elem(), ReplicatorKafkaClusterMtlsAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterMtlsAuthenticationPtrInput)(nil)).Elem(), ReplicatorKafkaClusterMtlsAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterSaslScramAuthenticationInput)(nil)).Elem(), ReplicatorKafkaClusterSaslScramAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterSaslScramAuthenticationPtrInput)(nil)).Elem(), ReplicatorKafkaClusterSaslScramAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryInput)(nil)).Elem(), ReplicatorLogDeliveryArgs{})
@@ -8195,6 +8358,8 @@ func init() {
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterClientVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterEncryptionInTransitOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterEncryptionInTransitPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterMtlsAuthenticationOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterMtlsAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterSaslScramAuthenticationOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorLogDeliveryOutput{})

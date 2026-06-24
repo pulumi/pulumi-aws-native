@@ -31,6 +31,7 @@ class DomainArgs:
                  default_space_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_settings: Optional[pulumi.Input['DomainSettingsArgs']] = None,
+                 home_efs_file_system_creation: Optional[pulumi.Input['DomainHomeEfsFileSystemCreation']] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tag_propagation: Optional[pulumi.Input['DomainTagPropagation']] = None,
@@ -46,6 +47,7 @@ class DomainArgs:
         :param pulumi.Input['DomainDefaultSpaceSettingsArgs'] default_space_settings: The default space settings.
         :param pulumi.Input[_builtins.str] domain_name: A name for the domain.
         :param pulumi.Input['DomainSettingsArgs'] domain_settings: A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
+        :param pulumi.Input['DomainHomeEfsFileSystemCreation'] home_efs_file_system_creation: Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
         :param pulumi.Input[_builtins.str] kms_key_id: SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input['DomainTagPropagation'] tag_propagation: Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
@@ -64,6 +66,8 @@ class DomainArgs:
             pulumi.set(__self__, "domain_name", domain_name)
         if domain_settings is not None:
             pulumi.set(__self__, "domain_settings", domain_settings)
+        if home_efs_file_system_creation is not None:
+            pulumi.set(__self__, "home_efs_file_system_creation", home_efs_file_system_creation)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if subnet_ids is not None:
@@ -160,6 +164,18 @@ class DomainArgs:
         pulumi.set(self, "domain_settings", value)
 
     @_builtins.property
+    @pulumi.getter(name="homeEfsFileSystemCreation")
+    def home_efs_file_system_creation(self) -> Optional[pulumi.Input['DomainHomeEfsFileSystemCreation']]:
+        """
+        Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+        """
+        return pulumi.get(self, "home_efs_file_system_creation")
+
+    @home_efs_file_system_creation.setter
+    def home_efs_file_system_creation(self, value: Optional[pulumi.Input['DomainHomeEfsFileSystemCreation']]):
+        pulumi.set(self, "home_efs_file_system_creation", value)
+
+    @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -233,6 +249,7 @@ class Domain(pulumi.CustomResource):
                  default_user_settings: Optional[pulumi.Input[Union['DomainUserSettingsArgs', 'DomainUserSettingsArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_settings: Optional[pulumi.Input[Union['DomainSettingsArgs', 'DomainSettingsArgsDict']]] = None,
+                 home_efs_file_system_creation: Optional[pulumi.Input['DomainHomeEfsFileSystemCreation']] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tag_propagation: Optional[pulumi.Input['DomainTagPropagation']] = None,
@@ -252,6 +269,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainUserSettingsArgs', 'DomainUserSettingsArgsDict']] default_user_settings: The default user settings.
         :param pulumi.Input[_builtins.str] domain_name: A name for the domain.
         :param pulumi.Input[Union['DomainSettingsArgs', 'DomainSettingsArgsDict']] domain_settings: A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
+        :param pulumi.Input['DomainHomeEfsFileSystemCreation'] home_efs_file_system_creation: Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
         :param pulumi.Input[_builtins.str] kms_key_id: SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input['DomainTagPropagation'] tag_propagation: Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
@@ -290,6 +308,7 @@ class Domain(pulumi.CustomResource):
                  default_user_settings: Optional[pulumi.Input[Union['DomainUserSettingsArgs', 'DomainUserSettingsArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_settings: Optional[pulumi.Input[Union['DomainSettingsArgs', 'DomainSettingsArgsDict']]] = None,
+                 home_efs_file_system_creation: Optional[pulumi.Input['DomainHomeEfsFileSystemCreation']] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tag_propagation: Optional[pulumi.Input['DomainTagPropagation']] = None,
@@ -315,6 +334,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["default_user_settings"] = default_user_settings
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["domain_settings"] = domain_settings
+            __props__.__dict__["home_efs_file_system_creation"] = home_efs_file_system_creation
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tag_propagation"] = tag_propagation
@@ -360,6 +380,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["domain_id"] = None
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["domain_settings"] = None
+        __props__.__dict__["home_efs_file_system_creation"] = None
         __props__.__dict__["home_efs_file_system_id"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["security_group_id_for_domain_boundary"] = None
@@ -443,6 +464,14 @@ class Domain(pulumi.CustomResource):
         A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
         """
         return pulumi.get(self, "domain_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="homeEfsFileSystemCreation")
+    def home_efs_file_system_creation(self) -> pulumi.Output[Optional['DomainHomeEfsFileSystemCreation']]:
+        """
+        Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+        """
+        return pulumi.get(self, "home_efs_file_system_creation")
 
     @_builtins.property
     @pulumi.getter(name="homeEfsFileSystemId")

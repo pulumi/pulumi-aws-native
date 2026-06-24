@@ -47,8 +47,9 @@ type LookupClusterResult struct {
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery *ClusterNodeRecovery `pulumi:"nodeRecovery"`
 	// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
-	Orchestrator             *ClusterOrchestrator             `pulumi:"orchestrator"`
-	RestrictedInstanceGroups []ClusterRestrictedInstanceGroup `pulumi:"restrictedInstanceGroups"`
+	Orchestrator                   *ClusterOrchestrator                   `pulumi:"orchestrator"`
+	RestrictedInstanceGroups       []ClusterRestrictedInstanceGroup       `pulumi:"restrictedInstanceGroups"`
+	RestrictedInstanceGroupsConfig *ClusterRestrictedInstanceGroupsConfig `pulumi:"restrictedInstanceGroupsConfig"`
 	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
 	Tags                []aws.Tag                   `pulumi:"tags"`
 	TieredStorageConfig *ClusterTieredStorageConfig `pulumi:"tieredStorageConfig"`
@@ -137,6 +138,12 @@ func (o LookupClusterResultOutput) Orchestrator() ClusterOrchestratorPtrOutput {
 
 func (o LookupClusterResultOutput) RestrictedInstanceGroups() ClusterRestrictedInstanceGroupArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []ClusterRestrictedInstanceGroup { return v.RestrictedInstanceGroups }).(ClusterRestrictedInstanceGroupArrayOutput)
+}
+
+func (o LookupClusterResultOutput) RestrictedInstanceGroupsConfig() ClusterRestrictedInstanceGroupsConfigPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterRestrictedInstanceGroupsConfig {
+		return v.RestrictedInstanceGroupsConfig
+	}).(ClusterRestrictedInstanceGroupsConfigPtrOutput)
 }
 
 // Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.

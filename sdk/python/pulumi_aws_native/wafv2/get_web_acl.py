@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWebAclResult:
-    def __init__(__self__, application_config=None, arn=None, association_config=None, capacity=None, captcha_config=None, challenge_config=None, custom_response_bodies=None, data_protection_config=None, default_action=None, description=None, id=None, label_namespace=None, on_source_d_do_s_protection_config=None, rules=None, tags=None, token_domains=None, visibility_config=None):
+    def __init__(__self__, application_config=None, arn=None, association_config=None, capacity=None, captcha_config=None, challenge_config=None, custom_response_bodies=None, data_protection_config=None, default_action=None, description=None, id=None, label_namespace=None, monetization_config=None, on_source_d_do_s_protection_config=None, rules=None, tags=None, token_domains=None, visibility_config=None):
         if application_config and not isinstance(application_config, dict):
             raise TypeError("Expected argument 'application_config' to be a dict")
         pulumi.set(__self__, "application_config", application_config)
@@ -63,6 +63,9 @@ class GetWebAclResult:
         if label_namespace and not isinstance(label_namespace, str):
             raise TypeError("Expected argument 'label_namespace' to be a str")
         pulumi.set(__self__, "label_namespace", label_namespace)
+        if monetization_config and not isinstance(monetization_config, dict):
+            raise TypeError("Expected argument 'monetization_config' to be a dict")
+        pulumi.set(__self__, "monetization_config", monetization_config)
         if on_source_d_do_s_protection_config and not isinstance(on_source_d_do_s_protection_config, dict):
             raise TypeError("Expected argument 'on_source_d_do_s_protection_config' to be a dict")
         pulumi.set(__self__, "on_source_d_do_s_protection_config", on_source_d_do_s_protection_config)
@@ -192,6 +195,11 @@ class GetWebAclResult:
         return pulumi.get(self, "label_namespace")
 
     @_builtins.property
+    @pulumi.getter(name="monetizationConfig")
+    def monetization_config(self) -> Optional['outputs.WebAclMonetizationConfig']:
+        return pulumi.get(self, "monetization_config")
+
+    @_builtins.property
     @pulumi.getter(name="onSourceDDoSProtectionConfig")
     def on_source_d_do_s_protection_config(self) -> Optional['outputs.WebAclOnSourceDDoSProtectionConfig']:
         """
@@ -252,6 +260,7 @@ class AwaitableGetWebAclResult(GetWebAclResult):
             description=self.description,
             id=self.id,
             label_namespace=self.label_namespace,
+            monetization_config=self.monetization_config,
             on_source_d_do_s_protection_config=self.on_source_d_do_s_protection_config,
             rules=self.rules,
             tags=self.tags,
@@ -295,6 +304,7 @@ def get_web_acl(id: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         label_namespace=pulumi.get(__ret__, 'label_namespace'),
+        monetization_config=pulumi.get(__ret__, 'monetization_config'),
         on_source_d_do_s_protection_config=pulumi.get(__ret__, 'on_source_d_do_s_protection_config'),
         rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -335,6 +345,7 @@ def get_web_acl_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         label_namespace=pulumi.get(__response__, 'label_namespace'),
+        monetization_config=pulumi.get(__response__, 'monetization_config'),
         on_source_d_do_s_protection_config=pulumi.get(__response__, 'on_source_d_do_s_protection_config'),
         rules=pulumi.get(__response__, 'rules'),
         tags=pulumi.get(__response__, 'tags'),

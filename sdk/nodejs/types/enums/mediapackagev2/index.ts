@@ -48,6 +48,13 @@ export const OriginEndpointCustomAdType = {
 
 export type OriginEndpointCustomAdType = (typeof OriginEndpointCustomAdType)[keyof typeof OriginEndpointCustomAdType];
 
+export const OriginEndpointDashAudioTimelinePattern = {
+    None: "NONE",
+    Patterned: "PATTERNED",
+} as const;
+
+export type OriginEndpointDashAudioTimelinePattern = (typeof OriginEndpointDashAudioTimelinePattern)[keyof typeof OriginEndpointDashAudioTimelinePattern];
+
 export const OriginEndpointDashCompactness = {
     Standard: "STANDARD",
     None: "NONE",
@@ -175,6 +182,8 @@ export const OriginEndpointScteFilter = {
     DistributorPromo: "DISTRIBUTOR_PROMO",
     ProviderAdBlock: "PROVIDER_AD_BLOCK",
     DistributorAdBlock: "DISTRIBUTOR_AD_BLOCK",
+    ContentIdentification: "CONTENT_IDENTIFICATION",
+    CallAdServer: "CALL_AD_SERVER",
 } as const;
 
 export type OriginEndpointScteFilter = (typeof OriginEndpointScteFilter)[keyof typeof OriginEndpointScteFilter];

@@ -74,6 +74,10 @@ export class Domain extends pulumi.CustomResource {
      */
     declare public readonly domainSettings: pulumi.Output<outputs.sagemaker.DomainSettings | undefined>;
     /**
+     * Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+     */
+    declare public readonly homeEfsFileSystemCreation: pulumi.Output<enums.sagemaker.DomainHomeEfsFileSystemCreation | undefined>;
+    /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      */
     declare public /*out*/ readonly homeEfsFileSystemId: pulumi.Output<string>;
@@ -138,6 +142,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["defaultUserSettings"] = args?.defaultUserSettings;
             resourceInputs["domainName"] = args?.domainName;
             resourceInputs["domainSettings"] = args?.domainSettings;
+            resourceInputs["homeEfsFileSystemCreation"] = args?.homeEfsFileSystemCreation;
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["subnetIds"] = args?.subnetIds;
             resourceInputs["tagPropagation"] = args?.tagPropagation;
@@ -160,6 +165,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["domainSettings"] = undefined /*out*/;
+            resourceInputs["homeEfsFileSystemCreation"] = undefined /*out*/;
             resourceInputs["homeEfsFileSystemId"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["securityGroupIdForDomainBoundary"] = undefined /*out*/;
@@ -210,6 +216,10 @@ export interface DomainArgs {
      * A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
      */
     domainSettings?: pulumi.Input<inputs.sagemaker.DomainSettingsArgs>;
+    /**
+     * Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+     */
+    homeEfsFileSystemCreation?: pulumi.Input<enums.sagemaker.DomainHomeEfsFileSystemCreation>;
     /**
      * SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
      */

@@ -33,6 +33,7 @@ class PlaybackConfigurationArgs:
                  cdn_configuration: Optional[pulumi.Input['PlaybackConfigurationCdnConfigurationArgs']] = None,
                  configuration_aliases: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  dash_configuration: Optional[pulumi.Input['PlaybackConfigurationDashConfigurationArgs']] = None,
+                 function_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  hls_configuration: Optional[pulumi.Input['PlaybackConfigurationHlsConfigurationArgs']] = None,
                  insertion_mode: Optional[pulumi.Input['PlaybackConfigurationInsertionMode']] = None,
                  live_pre_roll_configuration: Optional[pulumi.Input['PlaybackConfigurationLivePreRollConfigurationArgs']] = None,
@@ -54,6 +55,7 @@ class PlaybackConfigurationArgs:
         :param pulumi.Input['PlaybackConfigurationCdnConfigurationArgs'] cdn_configuration: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
         :param pulumi.Input[Mapping[str, Any]] configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
         :param pulumi.Input['PlaybackConfigurationDashConfigurationArgs'] dash_configuration: The configuration for DASH content.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] function_mapping: A map of event names to function identifiers for custom processing during session lifecycle events.
         :param pulumi.Input['PlaybackConfigurationHlsConfigurationArgs'] hls_configuration: The configuration for HLS content.
         :param pulumi.Input['PlaybackConfigurationInsertionMode'] insertion_mode: The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
         :param pulumi.Input['PlaybackConfigurationLivePreRollConfigurationArgs'] live_pre_roll_configuration: The configuration for pre-roll ad insertion.
@@ -81,6 +83,8 @@ class PlaybackConfigurationArgs:
             pulumi.set(__self__, "configuration_aliases", configuration_aliases)
         if dash_configuration is not None:
             pulumi.set(__self__, "dash_configuration", dash_configuration)
+        if function_mapping is not None:
+            pulumi.set(__self__, "function_mapping", function_mapping)
         if hls_configuration is not None:
             pulumi.set(__self__, "hls_configuration", hls_configuration)
         if insertion_mode is not None:
@@ -206,6 +210,18 @@ class PlaybackConfigurationArgs:
     @dash_configuration.setter
     def dash_configuration(self, value: Optional[pulumi.Input['PlaybackConfigurationDashConfigurationArgs']]):
         pulumi.set(self, "dash_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="functionMapping")
+    def function_mapping(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of event names to function identifiers for custom processing during session lifecycle events.
+        """
+        return pulumi.get(self, "function_mapping")
+
+    @function_mapping.setter
+    def function_mapping(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "function_mapping", value)
 
     @_builtins.property
     @pulumi.getter(name="hlsConfiguration")
@@ -342,6 +358,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  cdn_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationCdnConfigurationArgs', 'PlaybackConfigurationCdnConfigurationArgsDict']]] = None,
                  configuration_aliases: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  dash_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationDashConfigurationArgs', 'PlaybackConfigurationDashConfigurationArgsDict']]] = None,
+                 function_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  hls_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationHlsConfigurationArgs', 'PlaybackConfigurationHlsConfigurationArgsDict']]] = None,
                  insertion_mode: Optional[pulumi.Input['PlaybackConfigurationInsertionMode']] = None,
                  live_pre_roll_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationLivePreRollConfigurationArgs', 'PlaybackConfigurationLivePreRollConfigurationArgsDict']]] = None,
@@ -367,6 +384,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Union['PlaybackConfigurationCdnConfigurationArgs', 'PlaybackConfigurationCdnConfigurationArgsDict']] cdn_configuration: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
         :param pulumi.Input[Mapping[str, Any]] configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
         :param pulumi.Input[Union['PlaybackConfigurationDashConfigurationArgs', 'PlaybackConfigurationDashConfigurationArgsDict']] dash_configuration: The configuration for DASH content.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] function_mapping: A map of event names to function identifiers for custom processing during session lifecycle events.
         :param pulumi.Input[Union['PlaybackConfigurationHlsConfigurationArgs', 'PlaybackConfigurationHlsConfigurationArgsDict']] hls_configuration: The configuration for HLS content.
         :param pulumi.Input['PlaybackConfigurationInsertionMode'] insertion_mode: The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
         :param pulumi.Input[Union['PlaybackConfigurationLivePreRollConfigurationArgs', 'PlaybackConfigurationLivePreRollConfigurationArgsDict']] live_pre_roll_configuration: The configuration for pre-roll ad insertion.
@@ -412,6 +430,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  cdn_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationCdnConfigurationArgs', 'PlaybackConfigurationCdnConfigurationArgsDict']]] = None,
                  configuration_aliases: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  dash_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationDashConfigurationArgs', 'PlaybackConfigurationDashConfigurationArgsDict']]] = None,
+                 function_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  hls_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationHlsConfigurationArgs', 'PlaybackConfigurationHlsConfigurationArgsDict']]] = None,
                  insertion_mode: Optional[pulumi.Input['PlaybackConfigurationInsertionMode']] = None,
                  live_pre_roll_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationLivePreRollConfigurationArgs', 'PlaybackConfigurationLivePreRollConfigurationArgsDict']]] = None,
@@ -442,6 +461,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
             __props__.__dict__["cdn_configuration"] = cdn_configuration
             __props__.__dict__["configuration_aliases"] = configuration_aliases
             __props__.__dict__["dash_configuration"] = dash_configuration
+            __props__.__dict__["function_mapping"] = function_mapping
             __props__.__dict__["hls_configuration"] = hls_configuration
             __props__.__dict__["insertion_mode"] = insertion_mode
             __props__.__dict__["live_pre_roll_configuration"] = live_pre_roll_configuration
@@ -490,6 +510,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
         __props__.__dict__["cdn_configuration"] = None
         __props__.__dict__["configuration_aliases"] = None
         __props__.__dict__["dash_configuration"] = None
+        __props__.__dict__["function_mapping"] = None
         __props__.__dict__["hls_configuration"] = None
         __props__.__dict__["insertion_mode"] = None
         __props__.__dict__["live_pre_roll_configuration"] = None
@@ -566,6 +587,14 @@ class PlaybackConfiguration(pulumi.CustomResource):
         The configuration for DASH content.
         """
         return pulumi.get(self, "dash_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="functionMapping")
+    def function_mapping(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        A map of event names to function identifiers for custom processing during session lifecycle events.
+        """
+        return pulumi.get(self, "function_mapping")
 
     @_builtins.property
     @pulumi.getter(name="hlsConfiguration")

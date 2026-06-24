@@ -342,6 +342,8 @@ type Broker struct {
 	OpenWireEndpoints pulumi.StringArrayOutput `pulumi:"openWireEndpoints"`
 	// Enables connections from applications outside of the VPC that hosts the broker's subnets. Set to `false` by default, if no value is provided.
 	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
+	// The ARNs of the resource shares to be associated with the broker.
+	ResourceShareArns pulumi.StringArrayOutput `pulumi:"resourceShareArns"`
 	// The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// The STOMP endpoints of each broker instance as a list of strings.
@@ -467,6 +469,8 @@ type brokerArgs struct {
 	MaintenanceWindowStartTime *BrokerMaintenanceWindow `pulumi:"maintenanceWindowStartTime"`
 	// Enables connections from applications outside of the VPC that hosts the broker's subnets. Set to `false` by default, if no value is provided.
 	PubliclyAccessible bool `pulumi:"publiclyAccessible"`
+	// The ARNs of the resource shares to be associated with the broker.
+	ResourceShareArns []string `pulumi:"resourceShareArns"`
 	// The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The broker's storage type.
@@ -523,6 +527,8 @@ type BrokerArgs struct {
 	MaintenanceWindowStartTime BrokerMaintenanceWindowPtrInput
 	// Enables connections from applications outside of the VPC that hosts the broker's subnets. Set to `false` by default, if no value is provided.
 	PubliclyAccessible pulumi.BoolInput
+	// The ARNs of the resource shares to be associated with the broker.
+	ResourceShareArns pulumi.StringArrayInput
 	// The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
 	SecurityGroups pulumi.StringArrayInput
 	// The broker's storage type.
@@ -715,6 +721,11 @@ func (o BrokerOutput) OpenWireEndpoints() pulumi.StringArrayOutput {
 // Enables connections from applications outside of the VPC that hosts the broker's subnets. Set to `false` by default, if no value is provided.
 func (o BrokerOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Broker) pulumi.BoolOutput { return v.PubliclyAccessible }).(pulumi.BoolOutput)
+}
+
+// The ARNs of the resource shares to be associated with the broker.
+func (o BrokerOutput) ResourceShareArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringArrayOutput { return v.ResourceShareArns }).(pulumi.StringArrayOutput)
 }
 
 // The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.

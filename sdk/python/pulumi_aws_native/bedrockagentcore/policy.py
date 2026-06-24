@@ -25,6 +25,7 @@ class PolicyArgs:
                  definition: pulumi.Input['PolicyDefinitionArgs'],
                  policy_engine_id: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 enforcement_mode: Optional[pulumi.Input['PolicyEnforcementMode']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  validation_mode: Optional[pulumi.Input['PolicyValidationMode']] = None):
         """
@@ -38,6 +39,8 @@ class PolicyArgs:
         pulumi.set(__self__, "policy_engine_id", policy_engine_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enforcement_mode is not None:
+            pulumi.set(__self__, "enforcement_mode", enforcement_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if validation_mode is not None:
@@ -77,6 +80,15 @@ class PolicyArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="enforcementMode")
+    def enforcement_mode(self) -> Optional[pulumi.Input['PolicyEnforcementMode']]:
+        return pulumi.get(self, "enforcement_mode")
+
+    @enforcement_mode.setter
+    def enforcement_mode(self, value: Optional[pulumi.Input['PolicyEnforcementMode']]):
+        pulumi.set(self, "enforcement_mode", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -106,6 +118,7 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 enforcement_mode: Optional[pulumi.Input['PolicyEnforcementMode']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_engine_id: Optional[pulumi.Input[_builtins.str]] = None,
                  validation_mode: Optional[pulumi.Input['PolicyValidationMode']] = None,
@@ -147,6 +160,7 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 enforcement_mode: Optional[pulumi.Input['PolicyEnforcementMode']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_engine_id: Optional[pulumi.Input[_builtins.str]] = None,
                  validation_mode: Optional[pulumi.Input['PolicyValidationMode']] = None,
@@ -163,6 +177,7 @@ class Policy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'definition'")
             __props__.__dict__["definition"] = definition
             __props__.__dict__["description"] = description
+            __props__.__dict__["enforcement_mode"] = enforcement_mode
             __props__.__dict__["name"] = name
             if policy_engine_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_engine_id'")
@@ -201,6 +216,7 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["definition"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["enforcement_mode"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["policy_arn"] = None
         __props__.__dict__["policy_engine_id"] = None
@@ -231,6 +247,11 @@ class Policy(pulumi.CustomResource):
         A human-readable description of the policy's purpose and functionality.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="enforcementMode")
+    def enforcement_mode(self) -> pulumi.Output[Optional['PolicyEnforcementMode']]:
+        return pulumi.get(self, "enforcement_mode")
 
     @_builtins.property
     @pulumi.getter

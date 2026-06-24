@@ -488,6 +488,16 @@ export const DataSourceDataDeletionPolicy = {
  */
 export type DataSourceDataDeletionPolicy = (typeof DataSourceDataDeletionPolicy)[keyof typeof DataSourceDataDeletionPolicy];
 
+export const DataSourceEnabledOrDisabledState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Indicates whether a feature is enabled or disabled.
+ */
+export type DataSourceEnabledOrDisabledState = (typeof DataSourceEnabledOrDisabledState)[keyof typeof DataSourceEnabledOrDisabledState];
+
 export const DataSourceEnrichmentStrategyMethod = {
     ChunkEntityExtraction: "CHUNK_ENTITY_EXTRACTION",
 } as const;
@@ -509,6 +519,7 @@ export type DataSourceParsingModality = (typeof DataSourceParsingModality)[keyof
 export const DataSourceParsingStrategy = {
     BedrockFoundationModel: "BEDROCK_FOUNDATION_MODEL",
     BedrockDataAutomation: "BEDROCK_DATA_AUTOMATION",
+    SmartParsing: "SMART_PARSING",
 } as const;
 
 /**
@@ -548,6 +559,9 @@ export const DataSourceStatus = {
     Available: "AVAILABLE",
     Deleting: "DELETING",
     DeleteUnsuccessful: "DELETE_UNSUCCESSFUL",
+    Creating: "CREATING",
+    Updating: "UPDATING",
+    Failed: "FAILED",
 } as const;
 
 /**
@@ -572,6 +586,7 @@ export const DataSourceType = {
     Web: "WEB",
     Custom: "CUSTOM",
     RedshiftMetadata: "REDSHIFT_METADATA",
+    ManagedKnowledgeBaseConnector: "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
 } as const;
 
 /**
@@ -1053,6 +1068,16 @@ export const KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType = 
  */
 export type KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType = (typeof KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType)[keyof typeof KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType];
 
+export const KnowledgeBaseEmbeddingModelType = {
+    Custom: "CUSTOM",
+    Managed: "MANAGED",
+} as const;
+
+/**
+ * The type of embedding model to use for the managed knowledge base.
+ */
+export type KnowledgeBaseEmbeddingModelType = (typeof KnowledgeBaseEmbeddingModelType)[keyof typeof KnowledgeBaseEmbeddingModelType];
+
 export const KnowledgeBaseInclusionType = {
     Include: "INCLUDE",
     Exclude: "EXCLUDE",
@@ -1120,6 +1145,7 @@ export const KnowledgeBaseStatus = {
     Updating: "UPDATING",
     Failed: "FAILED",
     DeleteUnsuccessful: "DELETE_UNSUCCESSFUL",
+    UpdateUnsuccessful: "UPDATE_UNSUCCESSFUL",
 } as const;
 
 /**
@@ -1155,6 +1181,7 @@ export const KnowledgeBaseType = {
     Vector: "VECTOR",
     Kendra: "KENDRA",
     Sql: "SQL",
+    Managed: "MANAGED",
 } as const;
 
 /**

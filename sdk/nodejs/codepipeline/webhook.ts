@@ -62,6 +62,10 @@ export class Webhook extends pulumi.CustomResource {
      */
     declare public readonly registerWithThirdParty: pulumi.Output<boolean | undefined>;
     /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * The name of the action in a pipeline you want to connect to the webhook.
      */
     declare public readonly targetAction: pulumi.Output<string>;
@@ -109,6 +113,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["filters"] = args?.filters;
             resourceInputs["name"] = args?.name;
             resourceInputs["registerWithThirdParty"] = args?.registerWithThirdParty;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["targetAction"] = args?.targetAction;
             resourceInputs["targetPipeline"] = args?.targetPipeline;
             resourceInputs["targetPipelineVersion"] = args?.targetPipelineVersion;
@@ -121,6 +126,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["filters"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["registerWithThirdParty"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetAction"] = undefined /*out*/;
             resourceInputs["targetPipeline"] = undefined /*out*/;
             resourceInputs["targetPipelineVersion"] = undefined /*out*/;
@@ -157,6 +163,10 @@ export interface WebhookArgs {
      * Configures a connection between the webhook that was created and the external tool with events to be detected.
      */
     registerWithThirdParty?: pulumi.Input<boolean>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The name of the action in a pipeline you want to connect to the webhook.
      */

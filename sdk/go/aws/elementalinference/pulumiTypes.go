@@ -13,6 +13,154 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type FeedAspectRatio struct {
+	Height int `pulumi:"height"`
+	Width  int `pulumi:"width"`
+}
+
+// FeedAspectRatioInput is an input type that accepts FeedAspectRatioArgs and FeedAspectRatioOutput values.
+// You can construct a concrete instance of `FeedAspectRatioInput` via:
+//
+//	FeedAspectRatioArgs{...}
+type FeedAspectRatioInput interface {
+	pulumi.Input
+
+	ToFeedAspectRatioOutput() FeedAspectRatioOutput
+	ToFeedAspectRatioOutputWithContext(context.Context) FeedAspectRatioOutput
+}
+
+type FeedAspectRatioArgs struct {
+	Height pulumi.IntInput `pulumi:"height"`
+	Width  pulumi.IntInput `pulumi:"width"`
+}
+
+func (FeedAspectRatioArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedAspectRatio)(nil)).Elem()
+}
+
+func (i FeedAspectRatioArgs) ToFeedAspectRatioOutput() FeedAspectRatioOutput {
+	return i.ToFeedAspectRatioOutputWithContext(context.Background())
+}
+
+func (i FeedAspectRatioArgs) ToFeedAspectRatioOutputWithContext(ctx context.Context) FeedAspectRatioOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeedAspectRatioOutput)
+}
+
+func (i FeedAspectRatioArgs) ToFeedAspectRatioPtrOutput() FeedAspectRatioPtrOutput {
+	return i.ToFeedAspectRatioPtrOutputWithContext(context.Background())
+}
+
+func (i FeedAspectRatioArgs) ToFeedAspectRatioPtrOutputWithContext(ctx context.Context) FeedAspectRatioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeedAspectRatioOutput).ToFeedAspectRatioPtrOutputWithContext(ctx)
+}
+
+// FeedAspectRatioPtrInput is an input type that accepts FeedAspectRatioArgs, FeedAspectRatioPtr and FeedAspectRatioPtrOutput values.
+// You can construct a concrete instance of `FeedAspectRatioPtrInput` via:
+//
+//	        FeedAspectRatioArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeedAspectRatioPtrInput interface {
+	pulumi.Input
+
+	ToFeedAspectRatioPtrOutput() FeedAspectRatioPtrOutput
+	ToFeedAspectRatioPtrOutputWithContext(context.Context) FeedAspectRatioPtrOutput
+}
+
+type feedAspectRatioPtrType FeedAspectRatioArgs
+
+func FeedAspectRatioPtr(v *FeedAspectRatioArgs) FeedAspectRatioPtrInput {
+	return (*feedAspectRatioPtrType)(v)
+}
+
+func (*feedAspectRatioPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeedAspectRatio)(nil)).Elem()
+}
+
+func (i *feedAspectRatioPtrType) ToFeedAspectRatioPtrOutput() FeedAspectRatioPtrOutput {
+	return i.ToFeedAspectRatioPtrOutputWithContext(context.Background())
+}
+
+func (i *feedAspectRatioPtrType) ToFeedAspectRatioPtrOutputWithContext(ctx context.Context) FeedAspectRatioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeedAspectRatioPtrOutput)
+}
+
+type FeedAspectRatioOutput struct{ *pulumi.OutputState }
+
+func (FeedAspectRatioOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedAspectRatio)(nil)).Elem()
+}
+
+func (o FeedAspectRatioOutput) ToFeedAspectRatioOutput() FeedAspectRatioOutput {
+	return o
+}
+
+func (o FeedAspectRatioOutput) ToFeedAspectRatioOutputWithContext(ctx context.Context) FeedAspectRatioOutput {
+	return o
+}
+
+func (o FeedAspectRatioOutput) ToFeedAspectRatioPtrOutput() FeedAspectRatioPtrOutput {
+	return o.ToFeedAspectRatioPtrOutputWithContext(context.Background())
+}
+
+func (o FeedAspectRatioOutput) ToFeedAspectRatioPtrOutputWithContext(ctx context.Context) FeedAspectRatioPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeedAspectRatio) *FeedAspectRatio {
+		return &v
+	}).(FeedAspectRatioPtrOutput)
+}
+
+func (o FeedAspectRatioOutput) Height() pulumi.IntOutput {
+	return o.ApplyT(func(v FeedAspectRatio) int { return v.Height }).(pulumi.IntOutput)
+}
+
+func (o FeedAspectRatioOutput) Width() pulumi.IntOutput {
+	return o.ApplyT(func(v FeedAspectRatio) int { return v.Width }).(pulumi.IntOutput)
+}
+
+type FeedAspectRatioPtrOutput struct{ *pulumi.OutputState }
+
+func (FeedAspectRatioPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeedAspectRatio)(nil)).Elem()
+}
+
+func (o FeedAspectRatioPtrOutput) ToFeedAspectRatioPtrOutput() FeedAspectRatioPtrOutput {
+	return o
+}
+
+func (o FeedAspectRatioPtrOutput) ToFeedAspectRatioPtrOutputWithContext(ctx context.Context) FeedAspectRatioPtrOutput {
+	return o
+}
+
+func (o FeedAspectRatioPtrOutput) Elem() FeedAspectRatioOutput {
+	return o.ApplyT(func(v *FeedAspectRatio) FeedAspectRatio {
+		if v != nil {
+			return *v
+		}
+		var ret FeedAspectRatio
+		return ret
+	}).(FeedAspectRatioOutput)
+}
+
+func (o FeedAspectRatioPtrOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FeedAspectRatio) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Height
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FeedAspectRatioPtrOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FeedAspectRatio) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Width
+	}).(pulumi.IntPtrOutput)
+}
+
 type FeedClippingConfig struct {
 	CallbackMetadata *string `pulumi:"callbackMetadata"`
 }
@@ -315,17 +463,141 @@ func (o FeedOutputConfig1PropertiesOutput) Clipping() FeedClippingConfigOutput {
 	return o.ApplyT(func(v FeedOutputConfig1Properties) FeedClippingConfig { return v.Clipping }).(FeedClippingConfigOutput)
 }
 
+type FeedOutputConfig2Properties struct {
+	Subtitling FeedSubtitlingConfig `pulumi:"subtitling"`
+}
+
+// FeedOutputConfig2PropertiesInput is an input type that accepts FeedOutputConfig2PropertiesArgs and FeedOutputConfig2PropertiesOutput values.
+// You can construct a concrete instance of `FeedOutputConfig2PropertiesInput` via:
+//
+//	FeedOutputConfig2PropertiesArgs{...}
+type FeedOutputConfig2PropertiesInput interface {
+	pulumi.Input
+
+	ToFeedOutputConfig2PropertiesOutput() FeedOutputConfig2PropertiesOutput
+	ToFeedOutputConfig2PropertiesOutputWithContext(context.Context) FeedOutputConfig2PropertiesOutput
+}
+
+type FeedOutputConfig2PropertiesArgs struct {
+	Subtitling FeedSubtitlingConfigInput `pulumi:"subtitling"`
+}
+
+func (FeedOutputConfig2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedOutputConfig2Properties)(nil)).Elem()
+}
+
+func (i FeedOutputConfig2PropertiesArgs) ToFeedOutputConfig2PropertiesOutput() FeedOutputConfig2PropertiesOutput {
+	return i.ToFeedOutputConfig2PropertiesOutputWithContext(context.Background())
+}
+
+func (i FeedOutputConfig2PropertiesArgs) ToFeedOutputConfig2PropertiesOutputWithContext(ctx context.Context) FeedOutputConfig2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeedOutputConfig2PropertiesOutput)
+}
+
+type FeedOutputConfig2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FeedOutputConfig2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedOutputConfig2Properties)(nil)).Elem()
+}
+
+func (o FeedOutputConfig2PropertiesOutput) ToFeedOutputConfig2PropertiesOutput() FeedOutputConfig2PropertiesOutput {
+	return o
+}
+
+func (o FeedOutputConfig2PropertiesOutput) ToFeedOutputConfig2PropertiesOutputWithContext(ctx context.Context) FeedOutputConfig2PropertiesOutput {
+	return o
+}
+
+func (o FeedOutputConfig2PropertiesOutput) Subtitling() FeedSubtitlingConfigOutput {
+	return o.ApplyT(func(v FeedOutputConfig2Properties) FeedSubtitlingConfig { return v.Subtitling }).(FeedSubtitlingConfigOutput)
+}
+
+type FeedSubtitlingConfig struct {
+	AspectRatio     *FeedAspectRatio          `pulumi:"aspectRatio"`
+	Dictionary      *string                   `pulumi:"dictionary"`
+	Language        FeedTranscriptionLanguage `pulumi:"language"`
+	ProfanityFilter *FeedProfanityFilterMode  `pulumi:"profanityFilter"`
+}
+
+// FeedSubtitlingConfigInput is an input type that accepts FeedSubtitlingConfigArgs and FeedSubtitlingConfigOutput values.
+// You can construct a concrete instance of `FeedSubtitlingConfigInput` via:
+//
+//	FeedSubtitlingConfigArgs{...}
+type FeedSubtitlingConfigInput interface {
+	pulumi.Input
+
+	ToFeedSubtitlingConfigOutput() FeedSubtitlingConfigOutput
+	ToFeedSubtitlingConfigOutputWithContext(context.Context) FeedSubtitlingConfigOutput
+}
+
+type FeedSubtitlingConfigArgs struct {
+	AspectRatio     FeedAspectRatioPtrInput         `pulumi:"aspectRatio"`
+	Dictionary      pulumi.StringPtrInput           `pulumi:"dictionary"`
+	Language        FeedTranscriptionLanguageInput  `pulumi:"language"`
+	ProfanityFilter FeedProfanityFilterModePtrInput `pulumi:"profanityFilter"`
+}
+
+func (FeedSubtitlingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedSubtitlingConfig)(nil)).Elem()
+}
+
+func (i FeedSubtitlingConfigArgs) ToFeedSubtitlingConfigOutput() FeedSubtitlingConfigOutput {
+	return i.ToFeedSubtitlingConfigOutputWithContext(context.Background())
+}
+
+func (i FeedSubtitlingConfigArgs) ToFeedSubtitlingConfigOutputWithContext(ctx context.Context) FeedSubtitlingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeedSubtitlingConfigOutput)
+}
+
+type FeedSubtitlingConfigOutput struct{ *pulumi.OutputState }
+
+func (FeedSubtitlingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedSubtitlingConfig)(nil)).Elem()
+}
+
+func (o FeedSubtitlingConfigOutput) ToFeedSubtitlingConfigOutput() FeedSubtitlingConfigOutput {
+	return o
+}
+
+func (o FeedSubtitlingConfigOutput) ToFeedSubtitlingConfigOutputWithContext(ctx context.Context) FeedSubtitlingConfigOutput {
+	return o
+}
+
+func (o FeedSubtitlingConfigOutput) AspectRatio() FeedAspectRatioPtrOutput {
+	return o.ApplyT(func(v FeedSubtitlingConfig) *FeedAspectRatio { return v.AspectRatio }).(FeedAspectRatioPtrOutput)
+}
+
+func (o FeedSubtitlingConfigOutput) Dictionary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeedSubtitlingConfig) *string { return v.Dictionary }).(pulumi.StringPtrOutput)
+}
+
+func (o FeedSubtitlingConfigOutput) Language() FeedTranscriptionLanguageOutput {
+	return o.ApplyT(func(v FeedSubtitlingConfig) FeedTranscriptionLanguage { return v.Language }).(FeedTranscriptionLanguageOutput)
+}
+
+func (o FeedSubtitlingConfigOutput) ProfanityFilter() FeedProfanityFilterModePtrOutput {
+	return o.ApplyT(func(v FeedSubtitlingConfig) *FeedProfanityFilterMode { return v.ProfanityFilter }).(FeedProfanityFilterModePtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FeedAspectRatioInput)(nil)).Elem(), FeedAspectRatioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeedAspectRatioPtrInput)(nil)).Elem(), FeedAspectRatioArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedClippingConfigInput)(nil)).Elem(), FeedClippingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedCroppingConfigInput)(nil)).Elem(), FeedCroppingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedGetOutputInput)(nil)).Elem(), FeedGetOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedGetOutputArrayInput)(nil)).Elem(), FeedGetOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedOutputConfig0PropertiesInput)(nil)).Elem(), FeedOutputConfig0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedOutputConfig1PropertiesInput)(nil)).Elem(), FeedOutputConfig1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeedOutputConfig2PropertiesInput)(nil)).Elem(), FeedOutputConfig2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeedSubtitlingConfigInput)(nil)).Elem(), FeedSubtitlingConfigArgs{})
+	pulumi.RegisterOutputType(FeedAspectRatioOutput{})
+	pulumi.RegisterOutputType(FeedAspectRatioPtrOutput{})
 	pulumi.RegisterOutputType(FeedClippingConfigOutput{})
 	pulumi.RegisterOutputType(FeedCroppingConfigOutput{})
 	pulumi.RegisterOutputType(FeedGetOutputOutput{})
 	pulumi.RegisterOutputType(FeedGetOutputArrayOutput{})
 	pulumi.RegisterOutputType(FeedOutputConfig0PropertiesOutput{})
 	pulumi.RegisterOutputType(FeedOutputConfig1PropertiesOutput{})
+	pulumi.RegisterOutputType(FeedOutputConfig2PropertiesOutput{})
+	pulumi.RegisterOutputType(FeedSubtitlingConfigOutput{})
 }

@@ -75,6 +75,16 @@ export const getLayerVersionPermission: typeof import("./getLayerVersionPermissi
 export const getLayerVersionPermissionOutput: typeof import("./getLayerVersionPermission").getLayerVersionPermissionOutput = null as any;
 utilities.lazyLoad(exports, ["getLayerVersionPermission","getLayerVersionPermissionOutput"], () => require("./getLayerVersionPermission"));
 
+export { GetMicrovmImageArgs, GetMicrovmImageResult, GetMicrovmImageOutputArgs } from "./getMicrovmImage";
+export const getMicrovmImage: typeof import("./getMicrovmImage").getMicrovmImage = null as any;
+export const getMicrovmImageOutput: typeof import("./getMicrovmImage").getMicrovmImageOutput = null as any;
+utilities.lazyLoad(exports, ["getMicrovmImage","getMicrovmImageOutput"], () => require("./getMicrovmImage"));
+
+export { GetNetworkConnectorArgs, GetNetworkConnectorResult, GetNetworkConnectorOutputArgs } from "./getNetworkConnector";
+export const getNetworkConnector: typeof import("./getNetworkConnector").getNetworkConnector = null as any;
+export const getNetworkConnectorOutput: typeof import("./getNetworkConnector").getNetworkConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkConnector","getNetworkConnectorOutput"], () => require("./getNetworkConnector"));
+
 export { GetPermissionArgs, GetPermissionResult, GetPermissionOutputArgs } from "./getPermission";
 export const getPermission: typeof import("./getPermission").getPermission = null as any;
 export const getPermissionOutput: typeof import("./getPermission").getPermissionOutput = null as any;
@@ -99,6 +109,16 @@ export { LayerVersionPermissionArgs } from "./layerVersionPermission";
 export type LayerVersionPermission = import("./layerVersionPermission").LayerVersionPermission;
 export const LayerVersionPermission: typeof import("./layerVersionPermission").LayerVersionPermission = null as any;
 utilities.lazyLoad(exports, ["LayerVersionPermission"], () => require("./layerVersionPermission"));
+
+export { MicrovmImageArgs } from "./microvmImage";
+export type MicrovmImage = import("./microvmImage").MicrovmImage;
+export const MicrovmImage: typeof import("./microvmImage").MicrovmImage = null as any;
+utilities.lazyLoad(exports, ["MicrovmImage"], () => require("./microvmImage"));
+
+export { NetworkConnectorArgs } from "./networkConnector";
+export type NetworkConnector = import("./networkConnector").NetworkConnector;
+export const NetworkConnector: typeof import("./networkConnector").NetworkConnector = null as any;
+utilities.lazyLoad(exports, ["NetworkConnector"], () => require("./networkConnector"));
 
 export { PermissionArgs } from "./permission";
 export type Permission = import("./permission").Permission;
@@ -139,6 +159,10 @@ const _module = {
                 return new LayerVersion(name, <any>undefined, { urn })
             case "aws-native:lambda:LayerVersionPermission":
                 return new LayerVersionPermission(name, <any>undefined, { urn })
+            case "aws-native:lambda:MicrovmImage":
+                return new MicrovmImage(name, <any>undefined, { urn })
+            case "aws-native:lambda:NetworkConnector":
+                return new NetworkConnector(name, <any>undefined, { urn })
             case "aws-native:lambda:Permission":
                 return new Permission(name, <any>undefined, { urn })
             case "aws-native:lambda:Url":

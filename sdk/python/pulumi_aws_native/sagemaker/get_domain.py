@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, app_network_access_type=None, app_security_group_management=None, default_space_settings=None, default_user_settings=None, domain_arn=None, domain_id=None, domain_settings=None, home_efs_file_system_id=None, security_group_id_for_domain_boundary=None, single_sign_on_application_arn=None, single_sign_on_managed_application_instance_id=None, subnet_ids=None, tag_propagation=None, tags=None, url=None, vpc_id=None):
+    def __init__(__self__, app_network_access_type=None, app_security_group_management=None, default_space_settings=None, default_user_settings=None, domain_arn=None, domain_id=None, domain_settings=None, home_efs_file_system_creation=None, home_efs_file_system_id=None, security_group_id_for_domain_boundary=None, single_sign_on_application_arn=None, single_sign_on_managed_application_instance_id=None, subnet_ids=None, tag_propagation=None, tags=None, url=None, vpc_id=None):
         if app_network_access_type and not isinstance(app_network_access_type, str):
             raise TypeError("Expected argument 'app_network_access_type' to be a str")
         pulumi.set(__self__, "app_network_access_type", app_network_access_type)
@@ -48,6 +48,9 @@ class GetDomainResult:
         if domain_settings and not isinstance(domain_settings, dict):
             raise TypeError("Expected argument 'domain_settings' to be a dict")
         pulumi.set(__self__, "domain_settings", domain_settings)
+        if home_efs_file_system_creation and not isinstance(home_efs_file_system_creation, str):
+            raise TypeError("Expected argument 'home_efs_file_system_creation' to be a str")
+        pulumi.set(__self__, "home_efs_file_system_creation", home_efs_file_system_creation)
         if home_efs_file_system_id and not isinstance(home_efs_file_system_id, str):
             raise TypeError("Expected argument 'home_efs_file_system_id' to be a str")
         pulumi.set(__self__, "home_efs_file_system_id", home_efs_file_system_id)
@@ -131,6 +134,14 @@ class GetDomainResult:
         A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
         """
         return pulumi.get(self, "domain_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="homeEfsFileSystemCreation")
+    def home_efs_file_system_creation(self) -> Optional['DomainHomeEfsFileSystemCreation']:
+        """
+        Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+        """
+        return pulumi.get(self, "home_efs_file_system_creation")
 
     @_builtins.property
     @pulumi.getter(name="homeEfsFileSystemId")
@@ -218,6 +229,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             domain_arn=self.domain_arn,
             domain_id=self.domain_id,
             domain_settings=self.domain_settings,
+            home_efs_file_system_creation=self.home_efs_file_system_creation,
             home_efs_file_system_id=self.home_efs_file_system_id,
             security_group_id_for_domain_boundary=self.security_group_id_for_domain_boundary,
             single_sign_on_application_arn=self.single_sign_on_application_arn,
@@ -250,6 +262,7 @@ def get_domain(domain_id: Optional[_builtins.str] = None,
         domain_arn=pulumi.get(__ret__, 'domain_arn'),
         domain_id=pulumi.get(__ret__, 'domain_id'),
         domain_settings=pulumi.get(__ret__, 'domain_settings'),
+        home_efs_file_system_creation=pulumi.get(__ret__, 'home_efs_file_system_creation'),
         home_efs_file_system_id=pulumi.get(__ret__, 'home_efs_file_system_id'),
         security_group_id_for_domain_boundary=pulumi.get(__ret__, 'security_group_id_for_domain_boundary'),
         single_sign_on_application_arn=pulumi.get(__ret__, 'single_sign_on_application_arn'),
@@ -279,6 +292,7 @@ def get_domain_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
         domain_arn=pulumi.get(__response__, 'domain_arn'),
         domain_id=pulumi.get(__response__, 'domain_id'),
         domain_settings=pulumi.get(__response__, 'domain_settings'),
+        home_efs_file_system_creation=pulumi.get(__response__, 'home_efs_file_system_creation'),
         home_efs_file_system_id=pulumi.get(__response__, 'home_efs_file_system_id'),
         security_group_id_for_domain_boundary=pulumi.get(__response__, 'security_group_id_for_domain_boundary'),
         single_sign_on_application_arn=pulumi.get(__response__, 'single_sign_on_application_arn'),

@@ -22,6 +22,10 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// </summary>
         public readonly string S3Key;
         /// <summary>
+        /// Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).
+        /// </summary>
+        public readonly Pulumi.AwsNative.Lambda.LayerVersionContentS3ObjectStorageMode? S3ObjectStorageMode;
+        /// <summary>
         /// For versioned objects, the version of the layer archive object to use.
         /// </summary>
         public readonly string? S3ObjectVersion;
@@ -32,10 +36,13 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 
             string s3Key,
 
+            Pulumi.AwsNative.Lambda.LayerVersionContentS3ObjectStorageMode? s3ObjectStorageMode,
+
             string? s3ObjectVersion)
         {
             S3Bucket = s3Bucket;
             S3Key = s3Key;
+            S3ObjectStorageMode = s3ObjectStorageMode;
             S3ObjectVersion = s3ObjectVersion;
         }
     }

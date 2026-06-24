@@ -24,6 +24,12 @@ namespace Pulumi.AwsNative.Logs
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
+        /// </summary>
+        [Output("deliverySourceConfiguration")]
+        public Output<ImmutableDictionary<string, string>?> DeliverySourceConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
         /// </summary>
         [Output("logType")]
@@ -52,6 +58,18 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         [Output("service")]
         public Output<string> Service { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of this delivery source. The value can be ACTIVE or INACTIVE.
+        /// </summary>
+        [Output("status")]
+        public Output<Pulumi.AwsNative.Logs.DeliverySourceStatus> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The reason for the status of this delivery source, such as RESOURCE_DELETED.
+        /// </summary>
+        [Output("statusReason")]
+        public Output<Pulumi.AwsNative.Logs.DeliverySourceStatusReason> StatusReason { get; private set; } = null!;
 
         /// <summary>
         /// The tags that have been assigned to this delivery source.
@@ -108,6 +126,18 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class DeliverySourceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("deliverySourceConfiguration")]
+        private InputMap<string>? _deliverySourceConfiguration;
+
+        /// <summary>
+        /// A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
+        /// </summary>
+        public InputMap<string> DeliverySourceConfiguration
+        {
+            get => _deliverySourceConfiguration ?? (_deliverySourceConfiguration = new InputMap<string>());
+            set => _deliverySourceConfiguration = value;
+        }
+
         /// <summary>
         /// The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
         /// </summary>

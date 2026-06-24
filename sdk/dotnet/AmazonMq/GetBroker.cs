@@ -128,6 +128,10 @@ namespace Pulumi.AwsNative.AmazonMq
         /// </summary>
         public readonly ImmutableArray<string> OpenWireEndpoints;
         /// <summary>
+        /// The ARNs of the resource shares to be associated with the broker.
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceShareArns;
+        /// <summary>
         /// The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
@@ -182,6 +186,8 @@ namespace Pulumi.AwsNative.AmazonMq
 
             ImmutableArray<string> openWireEndpoints,
 
+            ImmutableArray<string> resourceShareArns,
+
             ImmutableArray<string> securityGroups,
 
             ImmutableArray<string> stompEndpoints,
@@ -206,6 +212,7 @@ namespace Pulumi.AwsNative.AmazonMq
             MaintenanceWindowStartTime = maintenanceWindowStartTime;
             MqttEndpoints = mqttEndpoints;
             OpenWireEndpoints = openWireEndpoints;
+            ResourceShareArns = resourceShareArns;
             SecurityGroups = securityGroups;
             StompEndpoints = stompEndpoints;
             Tags = tags;

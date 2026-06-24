@@ -19,5 +19,7 @@ from .get_db_instance import *
 from .get_db_parameter_group import *
 from .get_db_subnet_group import *
 from .get_event_subscription import *
+from .get_global_cluster import *
+from .global_cluster import *
 from ._inputs import *
 from . import outputs

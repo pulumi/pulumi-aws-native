@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.ElementalInference.Outputs
     {
         public readonly string? Description;
         public readonly string Name;
-        public readonly Union<Outputs.FeedOutputConfig0Properties, Outputs.FeedOutputConfig1Properties> OutputConfig;
+        public readonly object OutputConfig;
         public readonly Pulumi.AwsNative.ElementalInference.FeedOutputStatus Status;
 
         [OutputConstructor]
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.ElementalInference.Outputs
 
             string name,
 
-            Union<Outputs.FeedOutputConfig0Properties, Outputs.FeedOutputConfig1Properties> outputConfig,
+            object outputConfig,
 
             Pulumi.AwsNative.ElementalInference.FeedOutputStatus status)
         {

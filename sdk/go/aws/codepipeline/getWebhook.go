@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,6 +37,8 @@ type LookupWebhookResult struct {
 	Filters []WebhookFilterRule `pulumi:"filters"`
 	// logical id of the webhook
 	Id *string `pulumi:"id"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the action in a pipeline you want to connect to the webhook.
 	TargetAction *string `pulumi:"targetAction"`
 	// The name of the pipeline you want to connect to the webhook.
@@ -94,6 +97,11 @@ func (o LookupWebhookResultOutput) Filters() WebhookFilterRuleArrayOutput {
 // logical id of the webhook
 func (o LookupWebhookResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWebhookResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupWebhookResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupWebhookResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The name of the action in a pipeline you want to connect to the webhook.

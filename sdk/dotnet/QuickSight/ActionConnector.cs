@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("authenticationConfig")]
-        public Output<Outputs.ActionConnectorAuthConfig?> AuthenticationConfig { get; private set; } = null!;
+        public Output<Outputs.ActionConnectorAuthConfig> AuthenticationConfig { get; private set; } = null!;
 
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
@@ -111,8 +111,8 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("actionConnectorId", required: true)]
         public Input<string> ActionConnectorId { get; set; } = null!;
 
-        [Input("authenticationConfig")]
-        public Input<Inputs.ActionConnectorAuthConfigArgs>? AuthenticationConfig { get; set; }
+        [Input("authenticationConfig", required: true)]
+        public Input<Inputs.ActionConnectorAuthConfigArgs> AuthenticationConfig { get; set; } = null!;
 
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;

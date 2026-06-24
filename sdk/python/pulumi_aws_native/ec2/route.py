@@ -51,6 +51,7 @@ class RouteArgs:
         :param pulumi.Input[_builtins.str] local_gateway_id: The ID of the local gateway.
         :param pulumi.Input[_builtins.str] nat_gateway_id: [IPv4 traffic only] The ID of a NAT gateway.
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of a network interface.
+        :param pulumi.Input[_builtins.str] odb_network_arn: The Amazon Resource Name (ARN) of the ODB network.
         :param pulumi.Input[_builtins.str] transit_gateway_id: The ID of a transit gateway.
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
         :param pulumi.Input[_builtins.str] vpc_peering_connection_id: The ID of a VPC peering connection.
@@ -235,6 +236,9 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="odbNetworkArn")
     def odb_network_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the ODB network.
+        """
         return pulumi.get(self, "odb_network_arn")
 
     @odb_network_arn.setter
@@ -321,6 +325,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] local_gateway_id: The ID of the local gateway.
         :param pulumi.Input[_builtins.str] nat_gateway_id: [IPv4 traffic only] The ID of a NAT gateway.
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of a network interface.
+        :param pulumi.Input[_builtins.str] odb_network_arn: The Amazon Resource Name (ARN) of the ODB network.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the route table for the route.
         :param pulumi.Input[_builtins.str] transit_gateway_id: The ID of a transit gateway.
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
@@ -540,6 +545,9 @@ class Route(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="odbNetworkArn")
     def odb_network_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the ODB network.
+        """
         return pulumi.get(self, "odb_network_arn")
 
     @_builtins.property

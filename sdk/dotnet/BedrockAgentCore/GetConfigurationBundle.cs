@@ -83,6 +83,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The description for the configuration bundle.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The ARN of the KMS key used to encrypt component configurations.
+        /// </summary>
+        public readonly string? KmsKeyArn;
         public readonly Outputs.ConfigurationBundleVersionLineageMetadata? LineageMetadata;
         /// <summary>
         /// Tags to assign to the configuration bundle.
@@ -109,6 +113,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? description,
 
+            string? kmsKeyArn,
+
             Outputs.ConfigurationBundleVersionLineageMetadata? lineageMetadata,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -122,6 +128,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             Components = components;
             CreatedAt = createdAt;
             Description = description;
+            KmsKeyArn = kmsKeyArn;
             LineageMetadata = lineageMetadata;
             Tags = tags;
             UpdatedAt = updatedAt;

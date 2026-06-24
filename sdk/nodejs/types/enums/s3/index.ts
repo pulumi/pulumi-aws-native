@@ -82,6 +82,16 @@ export const BucketAccessControl = {
  */
 export type BucketAccessControl = (typeof BucketAccessControl)[keyof typeof BucketAccessControl];
 
+export const BucketAnnotationTableConfigurationConfigurationState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Specifies whether annotation table configuration is enabled or disabled.
+ */
+export type BucketAnnotationTableConfigurationConfigurationState = (typeof BucketAnnotationTableConfigurationConfigurationState)[keyof typeof BucketAnnotationTableConfigurationConfigurationState];
+
 export const BucketBlockedEncryptionTypeListItem = {
     None: "NONE",
     SseC: "SSE-C",

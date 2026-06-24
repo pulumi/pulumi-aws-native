@@ -70,6 +70,8 @@ type LookupBrokerResult struct {
 	//
 	// `ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61617`
 	OpenWireEndpoints []string `pulumi:"openWireEndpoints"`
+	// The ARNs of the resource shares to be associated with the broker.
+	ResourceShareArns []string `pulumi:"resourceShareArns"`
 	// The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The STOMP endpoints of each broker instance as a list of strings.
@@ -203,6 +205,11 @@ func (o LookupBrokerResultOutput) MqttEndpoints() pulumi.StringArrayOutput {
 // `ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61617`
 func (o LookupBrokerResultOutput) OpenWireEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []string { return v.OpenWireEndpoints }).(pulumi.StringArrayOutput)
+}
+
+// The ARNs of the resource shares to be associated with the broker.
+func (o LookupBrokerResultOutput) ResourceShareArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupBrokerResult) []string { return v.ResourceShareArns }).(pulumi.StringArrayOutput)
 }
 
 // The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.

@@ -118,6 +118,9 @@ namespace Pulumi.AwsNative.Ec2
         /// The ID of a network interface.
         /// </summary>
         public readonly string? NetworkInterfaceId;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the ODB network.
+        /// </summary>
         public readonly string? OdbNetworkArn;
         /// <summary>
         /// The ID of a transit gateway.

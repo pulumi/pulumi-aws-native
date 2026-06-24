@@ -20,6 +20,8 @@ type DeliverySource struct {
 
 	// The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
+	DeliverySourceConfiguration pulumi.StringMapOutput `pulumi:"deliverySourceConfiguration"`
 	// The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
 	LogType pulumi.StringPtrOutput `pulumi:"logType"`
 	// The unique name of the Log source.
@@ -30,6 +32,10 @@ type DeliverySource struct {
 	ResourceArns pulumi.StringArrayOutput `pulumi:"resourceArns"`
 	// The AWS service that is sending logs.
 	Service pulumi.StringOutput `pulumi:"service"`
+	// The status of this delivery source. The value can be ACTIVE or INACTIVE.
+	Status DeliverySourceStatusOutput `pulumi:"status"`
+	// The reason for the status of this delivery source, such as RESOURCE_DELETED.
+	StatusReason DeliverySourceStatusReasonOutput `pulumi:"statusReason"`
 	// The tags that have been assigned to this delivery source.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -78,6 +84,8 @@ func (DeliverySourceState) ElementType() reflect.Type {
 }
 
 type deliverySourceArgs struct {
+	// A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
+	DeliverySourceConfiguration map[string]string `pulumi:"deliverySourceConfiguration"`
 	// The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
 	LogType *string `pulumi:"logType"`
 	// The unique name of the Log source.
@@ -90,6 +98,8 @@ type deliverySourceArgs struct {
 
 // The set of arguments for constructing a DeliverySource resource.
 type DeliverySourceArgs struct {
+	// A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
+	DeliverySourceConfiguration pulumi.StringMapInput
 	// The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
 	LogType pulumi.StringPtrInput
 	// The unique name of the Log source.
@@ -142,6 +152,11 @@ func (o DeliverySourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeliverySource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
+func (o DeliverySourceOutput) DeliverySourceConfiguration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DeliverySource) pulumi.StringMapOutput { return v.DeliverySourceConfiguration }).(pulumi.StringMapOutput)
+}
+
 // The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
 func (o DeliverySourceOutput) LogType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliverySource) pulumi.StringPtrOutput { return v.LogType }).(pulumi.StringPtrOutput)
@@ -165,6 +180,16 @@ func (o DeliverySourceOutput) ResourceArns() pulumi.StringArrayOutput {
 // The AWS service that is sending logs.
 func (o DeliverySourceOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeliverySource) pulumi.StringOutput { return v.Service }).(pulumi.StringOutput)
+}
+
+// The status of this delivery source. The value can be ACTIVE or INACTIVE.
+func (o DeliverySourceOutput) Status() DeliverySourceStatusOutput {
+	return o.ApplyT(func(v *DeliverySource) DeliverySourceStatusOutput { return v.Status }).(DeliverySourceStatusOutput)
+}
+
+// The reason for the status of this delivery source, such as RESOURCE_DELETED.
+func (o DeliverySourceOutput) StatusReason() DeliverySourceStatusReasonOutput {
+	return o.ApplyT(func(v *DeliverySource) DeliverySourceStatusReasonOutput { return v.StatusReason }).(DeliverySourceStatusReasonOutput)
 }
 
 // The tags that have been assigned to this delivery source.

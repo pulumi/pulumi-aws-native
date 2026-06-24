@@ -63,6 +63,7 @@ export interface GetClusterResult {
      */
     readonly orchestrator?: outputs.sagemaker.ClusterOrchestrator;
     readonly restrictedInstanceGroups?: outputs.sagemaker.ClusterRestrictedInstanceGroup[];
+    readonly restrictedInstanceGroupsConfig?: outputs.sagemaker.ClusterRestrictedInstanceGroupsConfig;
     /**
      * Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
      */

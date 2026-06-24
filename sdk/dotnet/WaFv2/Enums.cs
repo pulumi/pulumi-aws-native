@@ -87,6 +87,7 @@ namespace Pulumi.AwsNative.WaFv2
         public static LoggingConfigurationConditionActionConditionPropertiesAction Count { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("COUNT");
         public static LoggingConfigurationConditionActionConditionPropertiesAction Captcha { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("CAPTCHA");
         public static LoggingConfigurationConditionActionConditionPropertiesAction Challenge { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("CHALLENGE");
+        public static LoggingConfigurationConditionActionConditionPropertiesAction Monetize { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("MONETIZE");
         public static LoggingConfigurationConditionActionConditionPropertiesAction ExcludedAsCount { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("EXCLUDED_AS_COUNT");
 
         public static bool operator ==(LoggingConfigurationConditionActionConditionPropertiesAction left, LoggingConfigurationConditionActionConditionPropertiesAction right) => left.Equals(right);
@@ -229,6 +230,39 @@ namespace Pulumi.AwsNative.WaFv2
     }
 
     /// <summary>
+    /// The blockchain chain to use.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleGroupBlockchainChain : IEquatable<RuleGroupBlockchainChain>
+    {
+        private readonly string _value;
+
+        private RuleGroupBlockchainChain(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupBlockchainChain Base { get; } = new RuleGroupBlockchainChain("BASE");
+        public static RuleGroupBlockchainChain Solana { get; } = new RuleGroupBlockchainChain("SOLANA");
+        public static RuleGroupBlockchainChain BaseSepolia { get; } = new RuleGroupBlockchainChain("BASE_SEPOLIA");
+        public static RuleGroupBlockchainChain SolanaDevnet { get; } = new RuleGroupBlockchainChain("SOLANA_DEVNET");
+
+        public static bool operator ==(RuleGroupBlockchainChain left, RuleGroupBlockchainChain right) => left.Equals(right);
+        public static bool operator !=(RuleGroupBlockchainChain left, RuleGroupBlockchainChain right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupBlockchainChain value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupBlockchainChain other && Equals(other);
+        public bool Equals(RuleGroupBlockchainChain other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The inspection behavior to fall back to if the JSON in the request body is invalid.
     /// </summary>
     [EnumType]
@@ -253,6 +287,67 @@ namespace Pulumi.AwsNative.WaFv2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RuleGroupBodyParsingFallbackBehavior other && Equals(other);
         public bool Equals(RuleGroupBodyParsingFallbackBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The cryptocurrency to use for payment.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleGroupCryptoCurrency : IEquatable<RuleGroupCryptoCurrency>
+    {
+        private readonly string _value;
+
+        private RuleGroupCryptoCurrency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupCryptoCurrency Usdc { get; } = new RuleGroupCryptoCurrency("USDC");
+
+        public static bool operator ==(RuleGroupCryptoCurrency left, RuleGroupCryptoCurrency right) => left.Equals(right);
+        public static bool operator !=(RuleGroupCryptoCurrency left, RuleGroupCryptoCurrency right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupCryptoCurrency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupCryptoCurrency other && Equals(other);
+        public bool Equals(RuleGroupCryptoCurrency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The currency mode for monetization. Use REAL for production payments and TEST for testing with testnet currencies.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleGroupCurrencyMode : IEquatable<RuleGroupCurrencyMode>
+    {
+        private readonly string _value;
+
+        private RuleGroupCurrencyMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupCurrencyMode Real { get; } = new RuleGroupCurrencyMode("REAL");
+        public static RuleGroupCurrencyMode Test { get; } = new RuleGroupCurrencyMode("TEST");
+
+        public static bool operator ==(RuleGroupCurrencyMode left, RuleGroupCurrencyMode right) => left.Equals(right);
+        public static bool operator !=(RuleGroupCurrencyMode left, RuleGroupCurrencyMode right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupCurrencyMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupCurrencyMode other && Equals(other);
+        public bool Equals(RuleGroupCurrencyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -980,6 +1075,39 @@ namespace Pulumi.AwsNative.WaFv2
     }
 
     /// <summary>
+    /// The blockchain chain to use.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebAclBlockchainChain : IEquatable<WebAclBlockchainChain>
+    {
+        private readonly string _value;
+
+        private WebAclBlockchainChain(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclBlockchainChain Base { get; } = new WebAclBlockchainChain("BASE");
+        public static WebAclBlockchainChain Solana { get; } = new WebAclBlockchainChain("SOLANA");
+        public static WebAclBlockchainChain BaseSepolia { get; } = new WebAclBlockchainChain("BASE_SEPOLIA");
+        public static WebAclBlockchainChain SolanaDevnet { get; } = new WebAclBlockchainChain("SOLANA_DEVNET");
+
+        public static bool operator ==(WebAclBlockchainChain left, WebAclBlockchainChain right) => left.Equals(right);
+        public static bool operator !=(WebAclBlockchainChain left, WebAclBlockchainChain right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclBlockchainChain value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclBlockchainChain other && Equals(other);
+        public bool Equals(WebAclBlockchainChain other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The inspection behavior to fall back to if the JSON in the request body is invalid.
     /// </summary>
     [EnumType]
@@ -1004,6 +1132,67 @@ namespace Pulumi.AwsNative.WaFv2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WebAclBodyParsingFallbackBehavior other && Equals(other);
         public bool Equals(WebAclBodyParsingFallbackBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The cryptocurrency to use for payment.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebAclCryptoCurrency : IEquatable<WebAclCryptoCurrency>
+    {
+        private readonly string _value;
+
+        private WebAclCryptoCurrency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclCryptoCurrency Usdc { get; } = new WebAclCryptoCurrency("USDC");
+
+        public static bool operator ==(WebAclCryptoCurrency left, WebAclCryptoCurrency right) => left.Equals(right);
+        public static bool operator !=(WebAclCryptoCurrency left, WebAclCryptoCurrency right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclCryptoCurrency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclCryptoCurrency other && Equals(other);
+        public bool Equals(WebAclCryptoCurrency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The currency mode for monetization. Use REAL for production payments and TEST for testing with testnet currencies.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebAclCurrencyMode : IEquatable<WebAclCurrencyMode>
+    {
+        private readonly string _value;
+
+        private WebAclCurrencyMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclCurrencyMode Real { get; } = new WebAclCurrencyMode("REAL");
+        public static WebAclCurrencyMode Test { get; } = new WebAclCurrencyMode("TEST");
+
+        public static bool operator ==(WebAclCurrencyMode left, WebAclCurrencyMode right) => left.Equals(right);
+        public static bool operator !=(WebAclCurrencyMode left, WebAclCurrencyMode right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclCurrencyMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclCurrencyMode other && Equals(other);
+        public bool Equals(WebAclCurrencyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

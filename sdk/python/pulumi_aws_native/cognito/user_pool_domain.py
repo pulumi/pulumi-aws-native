@@ -24,7 +24,8 @@ class UserPoolDomainArgs:
                  domain: pulumi.Input[_builtins.str],
                  user_pool_id: pulumi.Input[_builtins.str],
                  custom_domain_config: Optional[pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs']] = None,
-                 managed_login_version: Optional[pulumi.Input[_builtins.int]] = None):
+                 managed_login_version: Optional[pulumi.Input[_builtins.int]] = None,
+                 routing: Optional[pulumi.Input['UserPoolDomainRoutingTypeArgs']] = None):
         """
         The set of arguments for constructing a UserPoolDomain resource.
 
@@ -41,6 +42,8 @@ class UserPoolDomainArgs:
             pulumi.set(__self__, "custom_domain_config", custom_domain_config)
         if managed_login_version is not None:
             pulumi.set(__self__, "managed_login_version", managed_login_version)
+        if routing is not None:
+            pulumi.set(__self__, "routing", routing)
 
     @_builtins.property
     @pulumi.getter
@@ -92,6 +95,15 @@ class UserPoolDomainArgs:
     def managed_login_version(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "managed_login_version", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def routing(self) -> Optional[pulumi.Input['UserPoolDomainRoutingTypeArgs']]:
+        return pulumi.get(self, "routing")
+
+    @routing.setter
+    def routing(self, value: Optional[pulumi.Input['UserPoolDomainRoutingTypeArgs']]):
+        pulumi.set(self, "routing", value)
+
 
 @pulumi.type_token("aws-native:cognito:UserPoolDomain")
 class UserPoolDomain(pulumi.CustomResource):
@@ -102,6 +114,7 @@ class UserPoolDomain(pulumi.CustomResource):
                  custom_domain_config: Optional[pulumi.Input[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']]] = None,
                  domain: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_login_version: Optional[pulumi.Input[_builtins.int]] = None,
+                 routing: Optional[pulumi.Input[Union['UserPoolDomainRoutingTypeArgs', 'UserPoolDomainRoutingTypeArgsDict']]] = None,
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -145,6 +158,7 @@ class UserPoolDomain(pulumi.CustomResource):
                  custom_domain_config: Optional[pulumi.Input[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']]] = None,
                  domain: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_login_version: Optional[pulumi.Input[_builtins.int]] = None,
+                 routing: Optional[pulumi.Input[Union['UserPoolDomainRoutingTypeArgs', 'UserPoolDomainRoutingTypeArgsDict']]] = None,
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -160,6 +174,7 @@ class UserPoolDomain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain'")
             __props__.__dict__["domain"] = domain
             __props__.__dict__["managed_login_version"] = managed_login_version
+            __props__.__dict__["routing"] = routing
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
@@ -192,6 +207,7 @@ class UserPoolDomain(pulumi.CustomResource):
         __props__.__dict__["custom_domain_config"] = None
         __props__.__dict__["domain"] = None
         __props__.__dict__["managed_login_version"] = None
+        __props__.__dict__["routing"] = None
         __props__.__dict__["user_pool_id"] = None
         return UserPoolDomain(resource_name, opts=opts, __props__=__props__)
 
@@ -228,6 +244,11 @@ class UserPoolDomain(pulumi.CustomResource):
         A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
         """
         return pulumi.get(self, "managed_login_version")
+
+    @_builtins.property
+    @pulumi.getter
+    def routing(self) -> pulumi.Output[Optional['outputs.UserPoolDomainRoutingType']]:
+        return pulumi.get(self, "routing")
 
     @_builtins.property
     @pulumi.getter(name="userPoolId")

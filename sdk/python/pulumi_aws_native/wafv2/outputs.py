@@ -37,6 +37,7 @@ __all__ = [
     'RuleGroupCookieMatchPattern',
     'RuleGroupCookies',
     'RuleGroupCountAction',
+    'RuleGroupCryptoConfig',
     'RuleGroupCustomHttpHeader',
     'RuleGroupCustomRequestHandling',
     'RuleGroupCustomResponse',
@@ -59,8 +60,12 @@ __all__ = [
     'RuleGroupLabel',
     'RuleGroupLabelMatchStatement',
     'RuleGroupLabelSummary',
+    'RuleGroupMonetizationConfig',
+    'RuleGroupMonetizeAction',
     'RuleGroupNotStatement',
     'RuleGroupOrStatement',
+    'RuleGroupPaymentNetwork',
+    'RuleGroupPrice',
     'RuleGroupRateBasedStatement',
     'RuleGroupRateBasedStatementCustomKey',
     'RuleGroupRateLimitAsn',
@@ -108,6 +113,7 @@ __all__ = [
     'WebAclCookieMatchPattern',
     'WebAclCookies',
     'WebAclCountAction',
+    'WebAclCryptoConfig',
     'WebAclCustomHttpHeader',
     'WebAclCustomRequestHandling',
     'WebAclCustomResponse',
@@ -137,10 +143,14 @@ __all__ = [
     'WebAclLabelMatchStatement',
     'WebAclManagedRuleGroupConfig',
     'WebAclManagedRuleGroupStatement',
+    'WebAclMonetizationConfig',
+    'WebAclMonetizeAction',
     'WebAclNotStatement',
     'WebAclOnSourceDDoSProtectionConfig',
     'WebAclOrStatement',
     'WebAclOverrideAction',
+    'WebAclPaymentNetwork',
+    'WebAclPrice',
     'WebAclRateBasedStatement',
     'WebAclRateBasedStatementCustomKey',
     'WebAclRateLimitAsn',
@@ -1236,6 +1246,41 @@ class RuleGroupCountAction(dict):
         For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
         """
         return pulumi.get(self, "custom_request_handling")
+
+
+@pulumi.output_type
+class RuleGroupCryptoConfig(dict):
+    """
+    Configures cryptocurrency payment settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "paymentNetworks":
+            suggest = "payment_networks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupCryptoConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupCryptoConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupCryptoConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 payment_networks: Sequence['outputs.RuleGroupPaymentNetwork']):
+        """
+        Configures cryptocurrency payment settings.
+        """
+        pulumi.set(__self__, "payment_networks", payment_networks)
+
+    @_builtins.property
+    @pulumi.getter(name="paymentNetworks")
+    def payment_networks(self) -> Sequence['outputs.RuleGroupPaymentNetwork']:
+        return pulumi.get(self, "payment_networks")
 
 
 @pulumi.output_type
@@ -2648,6 +2693,88 @@ class RuleGroupLabelSummary(dict):
 
 
 @pulumi.output_type
+class RuleGroupMonetizationConfig(dict):
+    """
+    Configures monetization for the web ACL or rule group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cryptoConfig":
+            suggest = "crypto_config"
+        elif key == "currencyMode":
+            suggest = "currency_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupMonetizationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupMonetizationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupMonetizationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crypto_config: Optional['outputs.RuleGroupCryptoConfig'] = None,
+                 currency_mode: Optional['RuleGroupCurrencyMode'] = None):
+        """
+        Configures monetization for the web ACL or rule group.
+        """
+        if crypto_config is not None:
+            pulumi.set(__self__, "crypto_config", crypto_config)
+        if currency_mode is not None:
+            pulumi.set(__self__, "currency_mode", currency_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="cryptoConfig")
+    def crypto_config(self) -> Optional['outputs.RuleGroupCryptoConfig']:
+        return pulumi.get(self, "crypto_config")
+
+    @_builtins.property
+    @pulumi.getter(name="currencyMode")
+    def currency_mode(self) -> Optional['RuleGroupCurrencyMode']:
+        return pulumi.get(self, "currency_mode")
+
+
+@pulumi.output_type
+class RuleGroupMonetizeAction(dict):
+    """
+    Monetize action for rules.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "priceMultiplier":
+            suggest = "price_multiplier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupMonetizeAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupMonetizeAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupMonetizeAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 price_multiplier: Optional[_builtins.str] = None):
+        """
+        Monetize action for rules.
+        """
+        if price_multiplier is not None:
+            pulumi.set(__self__, "price_multiplier", price_multiplier)
+
+    @_builtins.property
+    @pulumi.getter(name="priceMultiplier")
+    def price_multiplier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "price_multiplier")
+
+
+@pulumi.output_type
 class RuleGroupNotStatement(dict):
     def __init__(__self__, *,
                  statement: 'outputs.RuleGroupStatement'):
@@ -2681,6 +2808,80 @@ class RuleGroupOrStatement(dict):
         The statements to combine with OR logic. You can use any statements that can be nested.
         """
         return pulumi.get(self, "statements")
+
+
+@pulumi.output_type
+class RuleGroupPaymentNetwork(dict):
+    """
+    Configuration for a single payment network.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "walletAddress":
+            suggest = "wallet_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupPaymentNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupPaymentNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupPaymentNetwork.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chain: 'RuleGroupBlockchainChain',
+                 prices: Sequence['outputs.RuleGroupPrice'],
+                 wallet_address: _builtins.str):
+        """
+        Configuration for a single payment network.
+        """
+        pulumi.set(__self__, "chain", chain)
+        pulumi.set(__self__, "prices", prices)
+        pulumi.set(__self__, "wallet_address", wallet_address)
+
+    @_builtins.property
+    @pulumi.getter
+    def chain(self) -> 'RuleGroupBlockchainChain':
+        return pulumi.get(self, "chain")
+
+    @_builtins.property
+    @pulumi.getter
+    def prices(self) -> Sequence['outputs.RuleGroupPrice']:
+        return pulumi.get(self, "prices")
+
+    @_builtins.property
+    @pulumi.getter(name="walletAddress")
+    def wallet_address(self) -> _builtins.str:
+        return pulumi.get(self, "wallet_address")
+
+
+@pulumi.output_type
+class RuleGroupPrice(dict):
+    """
+    A price configuration.
+    """
+    def __init__(__self__, *,
+                 amount: _builtins.str,
+                 currency: 'RuleGroupCryptoCurrency'):
+        """
+        A price configuration.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "currency", currency)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> _builtins.str:
+        return pulumi.get(self, "amount")
+
+    @_builtins.property
+    @pulumi.getter
+    def currency(self) -> 'RuleGroupCryptoCurrency':
+        return pulumi.get(self, "currency")
 
 
 @pulumi.output_type
@@ -3725,7 +3926,8 @@ class RuleGroupRuleAction(dict):
                  block: Optional['outputs.RuleGroupBlockAction'] = None,
                  captcha: Optional['outputs.RuleGroupCaptchaAction'] = None,
                  challenge: Optional['outputs.RuleGroupChallengeAction'] = None,
-                 count: Optional['outputs.RuleGroupCountAction'] = None):
+                 count: Optional['outputs.RuleGroupCountAction'] = None,
+                 monetize: Optional['outputs.RuleGroupMonetizeAction'] = None):
         """
         Action taken when Rule matches its condition.
 
@@ -3758,6 +3960,8 @@ class RuleGroupRuleAction(dict):
             pulumi.set(__self__, "challenge", challenge)
         if count is not None:
             pulumi.set(__self__, "count", count)
+        if monetize is not None:
+            pulumi.set(__self__, "monetize", monetize)
 
     @_builtins.property
     @pulumi.getter
@@ -3811,6 +4015,11 @@ class RuleGroupRuleAction(dict):
         Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
         """
         return pulumi.get(self, "count")
+
+    @_builtins.property
+    @pulumi.getter
+    def monetize(self) -> Optional['outputs.RuleGroupMonetizeAction']:
+        return pulumi.get(self, "monetize")
 
 
 @pulumi.output_type
@@ -5908,6 +6117,41 @@ class WebAclCountAction(dict):
 
 
 @pulumi.output_type
+class WebAclCryptoConfig(dict):
+    """
+    Configures cryptocurrency payment settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "paymentNetworks":
+            suggest = "payment_networks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclCryptoConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclCryptoConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclCryptoConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 payment_networks: Sequence['outputs.WebAclPaymentNetwork']):
+        """
+        Configures cryptocurrency payment settings.
+        """
+        pulumi.set(__self__, "payment_networks", payment_networks)
+
+    @_builtins.property
+    @pulumi.getter(name="paymentNetworks")
+    def payment_networks(self) -> Sequence['outputs.WebAclPaymentNetwork']:
+        return pulumi.get(self, "payment_networks")
+
+
+@pulumi.output_type
 class WebAclCustomHttpHeader(dict):
     """
     HTTP header.
@@ -7803,6 +8047,88 @@ class WebAclManagedRuleGroupStatement(dict):
 
 
 @pulumi.output_type
+class WebAclMonetizationConfig(dict):
+    """
+    Configures monetization for the web ACL or rule group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cryptoConfig":
+            suggest = "crypto_config"
+        elif key == "currencyMode":
+            suggest = "currency_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclMonetizationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclMonetizationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclMonetizationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crypto_config: Optional['outputs.WebAclCryptoConfig'] = None,
+                 currency_mode: Optional['WebAclCurrencyMode'] = None):
+        """
+        Configures monetization for the web ACL or rule group.
+        """
+        if crypto_config is not None:
+            pulumi.set(__self__, "crypto_config", crypto_config)
+        if currency_mode is not None:
+            pulumi.set(__self__, "currency_mode", currency_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="cryptoConfig")
+    def crypto_config(self) -> Optional['outputs.WebAclCryptoConfig']:
+        return pulumi.get(self, "crypto_config")
+
+    @_builtins.property
+    @pulumi.getter(name="currencyMode")
+    def currency_mode(self) -> Optional['WebAclCurrencyMode']:
+        return pulumi.get(self, "currency_mode")
+
+
+@pulumi.output_type
+class WebAclMonetizeAction(dict):
+    """
+    Monetize action for rules.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "priceMultiplier":
+            suggest = "price_multiplier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclMonetizeAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclMonetizeAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclMonetizeAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 price_multiplier: Optional[_builtins.str] = None):
+        """
+        Monetize action for rules.
+        """
+        if price_multiplier is not None:
+            pulumi.set(__self__, "price_multiplier", price_multiplier)
+
+    @_builtins.property
+    @pulumi.getter(name="priceMultiplier")
+    def price_multiplier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "price_multiplier")
+
+
+@pulumi.output_type
 class WebAclNotStatement(dict):
     def __init__(__self__, *,
                  statement: 'outputs.WebAclStatement'):
@@ -7912,6 +8238,80 @@ class WebAclOverrideAction(dict):
         Keep the RuleGroup or ManagedRuleGroup behavior as is.
         """
         return pulumi.get(self, "none")
+
+
+@pulumi.output_type
+class WebAclPaymentNetwork(dict):
+    """
+    Configuration for a single payment network.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "walletAddress":
+            suggest = "wallet_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclPaymentNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclPaymentNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclPaymentNetwork.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chain: 'WebAclBlockchainChain',
+                 prices: Sequence['outputs.WebAclPrice'],
+                 wallet_address: _builtins.str):
+        """
+        Configuration for a single payment network.
+        """
+        pulumi.set(__self__, "chain", chain)
+        pulumi.set(__self__, "prices", prices)
+        pulumi.set(__self__, "wallet_address", wallet_address)
+
+    @_builtins.property
+    @pulumi.getter
+    def chain(self) -> 'WebAclBlockchainChain':
+        return pulumi.get(self, "chain")
+
+    @_builtins.property
+    @pulumi.getter
+    def prices(self) -> Sequence['outputs.WebAclPrice']:
+        return pulumi.get(self, "prices")
+
+    @_builtins.property
+    @pulumi.getter(name="walletAddress")
+    def wallet_address(self) -> _builtins.str:
+        return pulumi.get(self, "wallet_address")
+
+
+@pulumi.output_type
+class WebAclPrice(dict):
+    """
+    A price configuration.
+    """
+    def __init__(__self__, *,
+                 amount: _builtins.str,
+                 currency: 'WebAclCryptoCurrency'):
+        """
+        A price configuration.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "currency", currency)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> _builtins.str:
+        return pulumi.get(self, "amount")
+
+    @_builtins.property
+    @pulumi.getter
+    def currency(self) -> 'WebAclCryptoCurrency':
+        return pulumi.get(self, "currency")
 
 
 @pulumi.output_type
@@ -9741,7 +10141,8 @@ class WebAclRuleAction(dict):
                  block: Optional['outputs.WebAclBlockAction'] = None,
                  captcha: Optional['outputs.WebAclCaptchaAction'] = None,
                  challenge: Optional['outputs.WebAclChallengeAction'] = None,
-                 count: Optional['outputs.WebAclCountAction'] = None):
+                 count: Optional['outputs.WebAclCountAction'] = None,
+                 monetize: Optional['outputs.WebAclMonetizeAction'] = None):
         """
         Action taken when Rule matches its condition.
 
@@ -9774,6 +10175,8 @@ class WebAclRuleAction(dict):
             pulumi.set(__self__, "challenge", challenge)
         if count is not None:
             pulumi.set(__self__, "count", count)
+        if monetize is not None:
+            pulumi.set(__self__, "monetize", monetize)
 
     @_builtins.property
     @pulumi.getter
@@ -9827,6 +10230,11 @@ class WebAclRuleAction(dict):
         Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
         """
         return pulumi.get(self, "count")
+
+    @_builtins.property
+    @pulumi.getter
+    def monetize(self) -> Optional['outputs.WebAclMonetizeAction']:
+        return pulumi.get(self, "monetize")
 
 
 @pulumi.output_type

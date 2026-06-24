@@ -15,8 +15,11 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     /// </summary>
     public sealed class PolicyDefinitionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cedar", required: true)]
-        public Input<Inputs.PolicyCedarPolicyArgs> Cedar { get; set; } = null!;
+        [Input("cedar")]
+        public Input<Inputs.PolicyCedarPolicyArgs>? Cedar { get; set; }
+
+        [Input("policy")]
+        public Input<Inputs.PolicyStatementArgs>? Policy { get; set; }
 
         public PolicyDefinitionArgs()
         {

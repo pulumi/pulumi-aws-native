@@ -1875,6 +1875,172 @@ func (in *clusterNodeRecoveryPtr) ToClusterNodeRecoveryPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterNodeRecoveryPtrOutput)
 }
 
+// The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
+type ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy string
+
+const (
+	ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyKeep            = ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy("Keep")
+	ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyDeleteIfNotUsed = ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy("DeleteIfNotUsed")
+)
+
+func (ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy)(nil)).Elem()
+}
+
+func (e ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy) ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput() ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput {
+	return pulumi.ToOutput(e).(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput)
+}
+
+func (e ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy) ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutputWithContext(ctx context.Context) ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput)
+}
+
+func (e ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy) ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput() ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput {
+	return e.ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy) ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutputWithContext(ctx context.Context) ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput {
+	return ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy(e).ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutputWithContext(ctx).ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutputWithContext(ctx)
+}
+
+func (e ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput struct{ *pulumi.OutputState }
+
+func (ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy)(nil)).Elem()
+}
+
+func (o ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput) ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput() ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput {
+	return o
+}
+
+func (o ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput) ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutputWithContext(ctx context.Context) ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput {
+	return o
+}
+
+func (o ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput) ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput() ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput {
+	return o.ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput) ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutputWithContext(ctx context.Context) ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy) *ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy {
+		return &v
+	}).(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput)
+}
+
+func (o ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy)(nil)).Elem()
+}
+
+func (o ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput) ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput() ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput) ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutputWithContext(ctx context.Context) ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput) Elem() ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput {
+	return o.ApplyT(func(v *ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy) ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy
+		return ret
+	}).(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput)
+}
+
+func (o ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyInput is an input type that accepts values of the ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy enum
+// A concrete instance of `ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyInput` can be one of the following:
+//
+//	ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyKeep
+//	ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyDeleteIfNotUsed
+type ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyInput interface {
+	pulumi.Input
+
+	ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput() ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput
+	ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutputWithContext(context.Context) ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput
+}
+
+var clusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrType = reflect.TypeOf((**ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy)(nil)).Elem()
+
+type ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput() ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput
+	ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutputWithContext(context.Context) ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput
+}
+
+type clusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtr string
+
+func ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtr(v string) ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrInput {
+	return (*clusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtr)(&v)
+}
+
+func (*clusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtr) ElementType() reflect.Type {
+	return clusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrType
+}
+
+func (in *clusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtr) ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput() ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput {
+	return pulumi.ToOutput(in).(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput)
+}
+
+func (in *clusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtr) ToClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutputWithContext(ctx context.Context) ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput)
+}
+
 // The type of Slurm node for this instance group.
 type ClusterSlurmConfigNodeType string
 
@@ -3304,6 +3470,12 @@ const (
 	DomainAppInstanceTypeMlR6id32xlarge          = DomainAppInstanceType("ml.r6id.32xlarge")
 	DomainAppInstanceTypeMlP54xlarge             = DomainAppInstanceType("ml.p5.4xlarge")
 	DomainAppInstanceTypeMlP6b20048xlarge        = DomainAppInstanceType("ml.p6-b200.48xlarge")
+	DomainAppInstanceTypeMlG7e2xlarge            = DomainAppInstanceType("ml.g7e.2xlarge")
+	DomainAppInstanceTypeMlG7e4xlarge            = DomainAppInstanceType("ml.g7e.4xlarge")
+	DomainAppInstanceTypeMlG7e8xlarge            = DomainAppInstanceType("ml.g7e.8xlarge")
+	DomainAppInstanceTypeMlG7e12xlarge           = DomainAppInstanceType("ml.g7e.12xlarge")
+	DomainAppInstanceTypeMlG7e24xlarge           = DomainAppInstanceType("ml.g7e.24xlarge")
+	DomainAppInstanceTypeMlG7e48xlarge           = DomainAppInstanceType("ml.g7e.48xlarge")
 )
 
 func (DomainAppInstanceType) ElementType() reflect.Type {
@@ -3593,6 +3765,12 @@ func (o DomainAppInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 //	DomainAppInstanceTypeMlR6id32xlarge
 //	DomainAppInstanceTypeMlP54xlarge
 //	DomainAppInstanceTypeMlP6b20048xlarge
+//	DomainAppInstanceTypeMlG7e2xlarge
+//	DomainAppInstanceTypeMlG7e4xlarge
+//	DomainAppInstanceTypeMlG7e8xlarge
+//	DomainAppInstanceTypeMlG7e12xlarge
+//	DomainAppInstanceTypeMlG7e24xlarge
+//	DomainAppInstanceTypeMlG7e48xlarge
 type DomainAppInstanceTypeInput interface {
 	pulumi.Input
 
@@ -4718,6 +4896,172 @@ func (in *domainHiddenSageMakerImageSageMakerImageNamePtr) ToDomainHiddenSageMak
 
 func (in *domainHiddenSageMakerImageSageMakerImageNamePtr) ToDomainHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(ctx context.Context) DomainHiddenSageMakerImageSageMakerImageNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DomainHiddenSageMakerImageSageMakerImageNamePtrOutput)
+}
+
+// Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+type DomainHomeEfsFileSystemCreation string
+
+const (
+	DomainHomeEfsFileSystemCreationEnabled  = DomainHomeEfsFileSystemCreation("Enabled")
+	DomainHomeEfsFileSystemCreationDisabled = DomainHomeEfsFileSystemCreation("Disabled")
+)
+
+func (DomainHomeEfsFileSystemCreation) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainHomeEfsFileSystemCreation)(nil)).Elem()
+}
+
+func (e DomainHomeEfsFileSystemCreation) ToDomainHomeEfsFileSystemCreationOutput() DomainHomeEfsFileSystemCreationOutput {
+	return pulumi.ToOutput(e).(DomainHomeEfsFileSystemCreationOutput)
+}
+
+func (e DomainHomeEfsFileSystemCreation) ToDomainHomeEfsFileSystemCreationOutputWithContext(ctx context.Context) DomainHomeEfsFileSystemCreationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainHomeEfsFileSystemCreationOutput)
+}
+
+func (e DomainHomeEfsFileSystemCreation) ToDomainHomeEfsFileSystemCreationPtrOutput() DomainHomeEfsFileSystemCreationPtrOutput {
+	return e.ToDomainHomeEfsFileSystemCreationPtrOutputWithContext(context.Background())
+}
+
+func (e DomainHomeEfsFileSystemCreation) ToDomainHomeEfsFileSystemCreationPtrOutputWithContext(ctx context.Context) DomainHomeEfsFileSystemCreationPtrOutput {
+	return DomainHomeEfsFileSystemCreation(e).ToDomainHomeEfsFileSystemCreationOutputWithContext(ctx).ToDomainHomeEfsFileSystemCreationPtrOutputWithContext(ctx)
+}
+
+func (e DomainHomeEfsFileSystemCreation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainHomeEfsFileSystemCreation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainHomeEfsFileSystemCreation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainHomeEfsFileSystemCreation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainHomeEfsFileSystemCreationOutput struct{ *pulumi.OutputState }
+
+func (DomainHomeEfsFileSystemCreationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainHomeEfsFileSystemCreation)(nil)).Elem()
+}
+
+func (o DomainHomeEfsFileSystemCreationOutput) ToDomainHomeEfsFileSystemCreationOutput() DomainHomeEfsFileSystemCreationOutput {
+	return o
+}
+
+func (o DomainHomeEfsFileSystemCreationOutput) ToDomainHomeEfsFileSystemCreationOutputWithContext(ctx context.Context) DomainHomeEfsFileSystemCreationOutput {
+	return o
+}
+
+func (o DomainHomeEfsFileSystemCreationOutput) ToDomainHomeEfsFileSystemCreationPtrOutput() DomainHomeEfsFileSystemCreationPtrOutput {
+	return o.ToDomainHomeEfsFileSystemCreationPtrOutputWithContext(context.Background())
+}
+
+func (o DomainHomeEfsFileSystemCreationOutput) ToDomainHomeEfsFileSystemCreationPtrOutputWithContext(ctx context.Context) DomainHomeEfsFileSystemCreationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainHomeEfsFileSystemCreation) *DomainHomeEfsFileSystemCreation {
+		return &v
+	}).(DomainHomeEfsFileSystemCreationPtrOutput)
+}
+
+func (o DomainHomeEfsFileSystemCreationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainHomeEfsFileSystemCreationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainHomeEfsFileSystemCreation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainHomeEfsFileSystemCreationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainHomeEfsFileSystemCreationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainHomeEfsFileSystemCreation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainHomeEfsFileSystemCreationPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainHomeEfsFileSystemCreationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainHomeEfsFileSystemCreation)(nil)).Elem()
+}
+
+func (o DomainHomeEfsFileSystemCreationPtrOutput) ToDomainHomeEfsFileSystemCreationPtrOutput() DomainHomeEfsFileSystemCreationPtrOutput {
+	return o
+}
+
+func (o DomainHomeEfsFileSystemCreationPtrOutput) ToDomainHomeEfsFileSystemCreationPtrOutputWithContext(ctx context.Context) DomainHomeEfsFileSystemCreationPtrOutput {
+	return o
+}
+
+func (o DomainHomeEfsFileSystemCreationPtrOutput) Elem() DomainHomeEfsFileSystemCreationOutput {
+	return o.ApplyT(func(v *DomainHomeEfsFileSystemCreation) DomainHomeEfsFileSystemCreation {
+		if v != nil {
+			return *v
+		}
+		var ret DomainHomeEfsFileSystemCreation
+		return ret
+	}).(DomainHomeEfsFileSystemCreationOutput)
+}
+
+func (o DomainHomeEfsFileSystemCreationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainHomeEfsFileSystemCreationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainHomeEfsFileSystemCreation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainHomeEfsFileSystemCreationInput is an input type that accepts values of the DomainHomeEfsFileSystemCreation enum
+// A concrete instance of `DomainHomeEfsFileSystemCreationInput` can be one of the following:
+//
+//	DomainHomeEfsFileSystemCreationEnabled
+//	DomainHomeEfsFileSystemCreationDisabled
+type DomainHomeEfsFileSystemCreationInput interface {
+	pulumi.Input
+
+	ToDomainHomeEfsFileSystemCreationOutput() DomainHomeEfsFileSystemCreationOutput
+	ToDomainHomeEfsFileSystemCreationOutputWithContext(context.Context) DomainHomeEfsFileSystemCreationOutput
+}
+
+var domainHomeEfsFileSystemCreationPtrType = reflect.TypeOf((**DomainHomeEfsFileSystemCreation)(nil)).Elem()
+
+type DomainHomeEfsFileSystemCreationPtrInput interface {
+	pulumi.Input
+
+	ToDomainHomeEfsFileSystemCreationPtrOutput() DomainHomeEfsFileSystemCreationPtrOutput
+	ToDomainHomeEfsFileSystemCreationPtrOutputWithContext(context.Context) DomainHomeEfsFileSystemCreationPtrOutput
+}
+
+type domainHomeEfsFileSystemCreationPtr string
+
+func DomainHomeEfsFileSystemCreationPtr(v string) DomainHomeEfsFileSystemCreationPtrInput {
+	return (*domainHomeEfsFileSystemCreationPtr)(&v)
+}
+
+func (*domainHomeEfsFileSystemCreationPtr) ElementType() reflect.Type {
+	return domainHomeEfsFileSystemCreationPtrType
+}
+
+func (in *domainHomeEfsFileSystemCreationPtr) ToDomainHomeEfsFileSystemCreationPtrOutput() DomainHomeEfsFileSystemCreationPtrOutput {
+	return pulumi.ToOutput(in).(DomainHomeEfsFileSystemCreationPtrOutput)
+}
+
+func (in *domainHomeEfsFileSystemCreationPtr) ToDomainHomeEfsFileSystemCreationPtrOutputWithContext(ctx context.Context) DomainHomeEfsFileSystemCreationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainHomeEfsFileSystemCreationPtrOutput)
 }
 
 // A setting to indicate if IPv6 routing should be enabled along with IPv4 or not
@@ -21412,6 +21756,12 @@ const (
 	SpaceResourceSpecInstanceTypeMlR6id32xlarge          = SpaceResourceSpecInstanceType("ml.r6id.32xlarge")
 	SpaceResourceSpecInstanceTypeMlP54xlarge             = SpaceResourceSpecInstanceType("ml.p5.4xlarge")
 	SpaceResourceSpecInstanceTypeMlP6b20048xlarge        = SpaceResourceSpecInstanceType("ml.p6-b200.48xlarge")
+	SpaceResourceSpecInstanceTypeMlG7e2xlarge            = SpaceResourceSpecInstanceType("ml.g7e.2xlarge")
+	SpaceResourceSpecInstanceTypeMlG7e4xlarge            = SpaceResourceSpecInstanceType("ml.g7e.4xlarge")
+	SpaceResourceSpecInstanceTypeMlG7e8xlarge            = SpaceResourceSpecInstanceType("ml.g7e.8xlarge")
+	SpaceResourceSpecInstanceTypeMlG7e12xlarge           = SpaceResourceSpecInstanceType("ml.g7e.12xlarge")
+	SpaceResourceSpecInstanceTypeMlG7e24xlarge           = SpaceResourceSpecInstanceType("ml.g7e.24xlarge")
+	SpaceResourceSpecInstanceTypeMlG7e48xlarge           = SpaceResourceSpecInstanceType("ml.g7e.48xlarge")
 )
 
 func (SpaceResourceSpecInstanceType) ElementType() reflect.Type {
@@ -21701,6 +22051,12 @@ func (o SpaceResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx
 //	SpaceResourceSpecInstanceTypeMlR6id32xlarge
 //	SpaceResourceSpecInstanceTypeMlP54xlarge
 //	SpaceResourceSpecInstanceTypeMlP6b20048xlarge
+//	SpaceResourceSpecInstanceTypeMlG7e2xlarge
+//	SpaceResourceSpecInstanceTypeMlG7e4xlarge
+//	SpaceResourceSpecInstanceTypeMlG7e8xlarge
+//	SpaceResourceSpecInstanceTypeMlG7e12xlarge
+//	SpaceResourceSpecInstanceTypeMlG7e24xlarge
+//	SpaceResourceSpecInstanceTypeMlG7e48xlarge
 type SpaceResourceSpecInstanceTypeInput interface {
 	pulumi.Input
 
@@ -24252,6 +24608,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeProvisioningModePtrInput)(nil)).Elem(), ClusterNodeProvisioningMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeRecoveryInput)(nil)).Elem(), ClusterNodeRecovery("Automatic"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeRecoveryPtrInput)(nil)).Elem(), ClusterNodeRecovery("Automatic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyInput)(nil)).Elem(), ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy("Keep"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrInput)(nil)).Elem(), ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy("Keep"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSlurmConfigNodeTypeInput)(nil)).Elem(), ClusterSlurmConfigNodeType("Controller"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSlurmConfigNodeTypePtrInput)(nil)).Elem(), ClusterSlurmConfigNodeType("Controller"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTieredStorageConfigModeInput)(nil)).Elem(), ClusterTieredStorageConfigMode("Enable"))
@@ -24282,6 +24640,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDockerSettingsEnableDockerAccessPtrInput)(nil)).Elem(), DomainDockerSettingsEnableDockerAccess("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainHiddenSageMakerImageSageMakerImageNameInput)(nil)).Elem(), DomainHiddenSageMakerImageSageMakerImageName("sagemaker_distribution"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainHiddenSageMakerImageSageMakerImageNamePtrInput)(nil)).Elem(), DomainHiddenSageMakerImageSageMakerImageName("sagemaker_distribution"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainHomeEfsFileSystemCreationInput)(nil)).Elem(), DomainHomeEfsFileSystemCreation("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainHomeEfsFileSystemCreationPtrInput)(nil)).Elem(), DomainHomeEfsFileSystemCreation("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIpAddressTypeInput)(nil)).Elem(), DomainIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIpAddressTypePtrInput)(nil)).Elem(), DomainIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainLifecycleManagementInput)(nil)).Elem(), DomainLifecycleManagement("ENABLED"))
@@ -24515,6 +24875,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterNodeProvisioningModePtrOutput{})
 	pulumi.RegisterOutputType(ClusterNodeRecoveryOutput{})
 	pulumi.RegisterOutputType(ClusterNodeRecoveryPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput{})
+	pulumi.RegisterOutputType(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSlurmConfigNodeTypeOutput{})
 	pulumi.RegisterOutputType(ClusterSlurmConfigNodeTypePtrOutput{})
 	pulumi.RegisterOutputType(ClusterStatusOutput{})
@@ -24547,6 +24909,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainDockerSettingsEnableDockerAccessPtrOutput{})
 	pulumi.RegisterOutputType(DomainHiddenSageMakerImageSageMakerImageNameOutput{})
 	pulumi.RegisterOutputType(DomainHiddenSageMakerImageSageMakerImageNamePtrOutput{})
+	pulumi.RegisterOutputType(DomainHomeEfsFileSystemCreationOutput{})
+	pulumi.RegisterOutputType(DomainHomeEfsFileSystemCreationPtrOutput{})
 	pulumi.RegisterOutputType(DomainIpAddressTypeOutput{})
 	pulumi.RegisterOutputType(DomainIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainLifecycleManagementOutput{})

@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConfigurationBundleResult:
-    def __init__(__self__, bundle_arn=None, bundle_id=None, components=None, created_at=None, description=None, lineage_metadata=None, tags=None, updated_at=None, version_id=None):
+    def __init__(__self__, bundle_arn=None, bundle_id=None, components=None, created_at=None, description=None, kms_key_arn=None, lineage_metadata=None, tags=None, updated_at=None, version_id=None):
         if bundle_arn and not isinstance(bundle_arn, str):
             raise TypeError("Expected argument 'bundle_arn' to be a str")
         pulumi.set(__self__, "bundle_arn", bundle_arn)
@@ -41,6 +41,9 @@ class GetConfigurationBundleResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if kms_key_arn and not isinstance(kms_key_arn, str):
+            raise TypeError("Expected argument 'kms_key_arn' to be a str")
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if lineage_metadata and not isinstance(lineage_metadata, dict):
             raise TypeError("Expected argument 'lineage_metadata' to be a dict")
         pulumi.set(__self__, "lineage_metadata", lineage_metadata)
@@ -95,6 +98,14 @@ class GetConfigurationBundleResult:
         return pulumi.get(self, "description")
 
     @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the KMS key used to encrypt component configurations.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @_builtins.property
     @pulumi.getter(name="lineageMetadata")
     def lineage_metadata(self) -> Optional['outputs.ConfigurationBundleVersionLineageMetadata']:
         return pulumi.get(self, "lineage_metadata")
@@ -135,6 +146,7 @@ class AwaitableGetConfigurationBundleResult(GetConfigurationBundleResult):
             components=self.components,
             created_at=self.created_at,
             description=self.description,
+            kms_key_arn=self.kms_key_arn,
             lineage_metadata=self.lineage_metadata,
             tags=self.tags,
             updated_at=self.updated_at,
@@ -160,6 +172,7 @@ def get_configuration_bundle(bundle_arn: Optional[_builtins.str] = None,
         components=pulumi.get(__ret__, 'components'),
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
+        kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         lineage_metadata=pulumi.get(__ret__, 'lineage_metadata'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
@@ -182,6 +195,7 @@ def get_configuration_bundle_output(bundle_arn: Optional[pulumi.Input[_builtins.
         components=pulumi.get(__response__, 'components'),
         created_at=pulumi.get(__response__, 'created_at'),
         description=pulumi.get(__response__, 'description'),
+        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
         lineage_metadata=pulumi.get(__response__, 'lineage_metadata'),
         tags=pulumi.get(__response__, 'tags'),
         updated_at=pulumi.get(__response__, 'updated_at'),

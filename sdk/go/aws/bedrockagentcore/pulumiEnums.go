@@ -3614,6 +3614,175 @@ func (in *gatewayTargetOAuthGrantTypePtr) ToGatewayTargetOAuthGrantTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(GatewayTargetOAuthGrantTypePtrOutput)
 }
 
+type GatewayTargetPassthroughProtocolType string
+
+const (
+	GatewayTargetPassthroughProtocolTypeMcp       = GatewayTargetPassthroughProtocolType("MCP")
+	GatewayTargetPassthroughProtocolTypeA2a       = GatewayTargetPassthroughProtocolType("A2A")
+	GatewayTargetPassthroughProtocolTypeInference = GatewayTargetPassthroughProtocolType("INFERENCE")
+	GatewayTargetPassthroughProtocolTypeCustom    = GatewayTargetPassthroughProtocolType("CUSTOM")
+)
+
+func (GatewayTargetPassthroughProtocolType) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetPassthroughProtocolType)(nil)).Elem()
+}
+
+func (e GatewayTargetPassthroughProtocolType) ToGatewayTargetPassthroughProtocolTypeOutput() GatewayTargetPassthroughProtocolTypeOutput {
+	return pulumi.ToOutput(e).(GatewayTargetPassthroughProtocolTypeOutput)
+}
+
+func (e GatewayTargetPassthroughProtocolType) ToGatewayTargetPassthroughProtocolTypeOutputWithContext(ctx context.Context) GatewayTargetPassthroughProtocolTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayTargetPassthroughProtocolTypeOutput)
+}
+
+func (e GatewayTargetPassthroughProtocolType) ToGatewayTargetPassthroughProtocolTypePtrOutput() GatewayTargetPassthroughProtocolTypePtrOutput {
+	return e.ToGatewayTargetPassthroughProtocolTypePtrOutputWithContext(context.Background())
+}
+
+func (e GatewayTargetPassthroughProtocolType) ToGatewayTargetPassthroughProtocolTypePtrOutputWithContext(ctx context.Context) GatewayTargetPassthroughProtocolTypePtrOutput {
+	return GatewayTargetPassthroughProtocolType(e).ToGatewayTargetPassthroughProtocolTypeOutputWithContext(ctx).ToGatewayTargetPassthroughProtocolTypePtrOutputWithContext(ctx)
+}
+
+func (e GatewayTargetPassthroughProtocolType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayTargetPassthroughProtocolType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayTargetPassthroughProtocolType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayTargetPassthroughProtocolType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GatewayTargetPassthroughProtocolTypeOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetPassthroughProtocolTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetPassthroughProtocolType)(nil)).Elem()
+}
+
+func (o GatewayTargetPassthroughProtocolTypeOutput) ToGatewayTargetPassthroughProtocolTypeOutput() GatewayTargetPassthroughProtocolTypeOutput {
+	return o
+}
+
+func (o GatewayTargetPassthroughProtocolTypeOutput) ToGatewayTargetPassthroughProtocolTypeOutputWithContext(ctx context.Context) GatewayTargetPassthroughProtocolTypeOutput {
+	return o
+}
+
+func (o GatewayTargetPassthroughProtocolTypeOutput) ToGatewayTargetPassthroughProtocolTypePtrOutput() GatewayTargetPassthroughProtocolTypePtrOutput {
+	return o.ToGatewayTargetPassthroughProtocolTypePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetPassthroughProtocolTypeOutput) ToGatewayTargetPassthroughProtocolTypePtrOutputWithContext(ctx context.Context) GatewayTargetPassthroughProtocolTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetPassthroughProtocolType) *GatewayTargetPassthroughProtocolType {
+		return &v
+	}).(GatewayTargetPassthroughProtocolTypePtrOutput)
+}
+
+func (o GatewayTargetPassthroughProtocolTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetPassthroughProtocolTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayTargetPassthroughProtocolType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetPassthroughProtocolTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetPassthroughProtocolTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayTargetPassthroughProtocolType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayTargetPassthroughProtocolTypePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetPassthroughProtocolTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetPassthroughProtocolType)(nil)).Elem()
+}
+
+func (o GatewayTargetPassthroughProtocolTypePtrOutput) ToGatewayTargetPassthroughProtocolTypePtrOutput() GatewayTargetPassthroughProtocolTypePtrOutput {
+	return o
+}
+
+func (o GatewayTargetPassthroughProtocolTypePtrOutput) ToGatewayTargetPassthroughProtocolTypePtrOutputWithContext(ctx context.Context) GatewayTargetPassthroughProtocolTypePtrOutput {
+	return o
+}
+
+func (o GatewayTargetPassthroughProtocolTypePtrOutput) Elem() GatewayTargetPassthroughProtocolTypeOutput {
+	return o.ApplyT(func(v *GatewayTargetPassthroughProtocolType) GatewayTargetPassthroughProtocolType {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetPassthroughProtocolType
+		return ret
+	}).(GatewayTargetPassthroughProtocolTypeOutput)
+}
+
+func (o GatewayTargetPassthroughProtocolTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetPassthroughProtocolTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayTargetPassthroughProtocolType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GatewayTargetPassthroughProtocolTypeInput is an input type that accepts values of the GatewayTargetPassthroughProtocolType enum
+// A concrete instance of `GatewayTargetPassthroughProtocolTypeInput` can be one of the following:
+//
+//	GatewayTargetPassthroughProtocolTypeMcp
+//	GatewayTargetPassthroughProtocolTypeA2a
+//	GatewayTargetPassthroughProtocolTypeInference
+//	GatewayTargetPassthroughProtocolTypeCustom
+type GatewayTargetPassthroughProtocolTypeInput interface {
+	pulumi.Input
+
+	ToGatewayTargetPassthroughProtocolTypeOutput() GatewayTargetPassthroughProtocolTypeOutput
+	ToGatewayTargetPassthroughProtocolTypeOutputWithContext(context.Context) GatewayTargetPassthroughProtocolTypeOutput
+}
+
+var gatewayTargetPassthroughProtocolTypePtrType = reflect.TypeOf((**GatewayTargetPassthroughProtocolType)(nil)).Elem()
+
+type GatewayTargetPassthroughProtocolTypePtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetPassthroughProtocolTypePtrOutput() GatewayTargetPassthroughProtocolTypePtrOutput
+	ToGatewayTargetPassthroughProtocolTypePtrOutputWithContext(context.Context) GatewayTargetPassthroughProtocolTypePtrOutput
+}
+
+type gatewayTargetPassthroughProtocolTypePtr string
+
+func GatewayTargetPassthroughProtocolTypePtr(v string) GatewayTargetPassthroughProtocolTypePtrInput {
+	return (*gatewayTargetPassthroughProtocolTypePtr)(&v)
+}
+
+func (*gatewayTargetPassthroughProtocolTypePtr) ElementType() reflect.Type {
+	return gatewayTargetPassthroughProtocolTypePtrType
+}
+
+func (in *gatewayTargetPassthroughProtocolTypePtr) ToGatewayTargetPassthroughProtocolTypePtrOutput() GatewayTargetPassthroughProtocolTypePtrOutput {
+	return pulumi.ToOutput(in).(GatewayTargetPassthroughProtocolTypePtrOutput)
+}
+
+func (in *gatewayTargetPassthroughProtocolTypePtr) ToGatewayTargetPassthroughProtocolTypePtrOutputWithContext(ctx context.Context) GatewayTargetPassthroughProtocolTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayTargetPassthroughProtocolTypePtrOutput)
+}
+
 type GatewayTargetRestApiMethod string
 
 const (
@@ -4363,6 +4532,173 @@ func (in *harnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtr) ToHarnessA
 	return pulumi.ToOutputWithContext(ctx, in).(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput)
 }
 
+type HarnessBedrockModelConfigApiFormat string
+
+const (
+	HarnessBedrockModelConfigApiFormatConverseStream  = HarnessBedrockModelConfigApiFormat("converse_stream")
+	HarnessBedrockModelConfigApiFormatResponses       = HarnessBedrockModelConfigApiFormat("responses")
+	HarnessBedrockModelConfigApiFormatChatCompletions = HarnessBedrockModelConfigApiFormat("chat_completions")
+)
+
+func (HarnessBedrockModelConfigApiFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessBedrockModelConfigApiFormat)(nil)).Elem()
+}
+
+func (e HarnessBedrockModelConfigApiFormat) ToHarnessBedrockModelConfigApiFormatOutput() HarnessBedrockModelConfigApiFormatOutput {
+	return pulumi.ToOutput(e).(HarnessBedrockModelConfigApiFormatOutput)
+}
+
+func (e HarnessBedrockModelConfigApiFormat) ToHarnessBedrockModelConfigApiFormatOutputWithContext(ctx context.Context) HarnessBedrockModelConfigApiFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HarnessBedrockModelConfigApiFormatOutput)
+}
+
+func (e HarnessBedrockModelConfigApiFormat) ToHarnessBedrockModelConfigApiFormatPtrOutput() HarnessBedrockModelConfigApiFormatPtrOutput {
+	return e.ToHarnessBedrockModelConfigApiFormatPtrOutputWithContext(context.Background())
+}
+
+func (e HarnessBedrockModelConfigApiFormat) ToHarnessBedrockModelConfigApiFormatPtrOutputWithContext(ctx context.Context) HarnessBedrockModelConfigApiFormatPtrOutput {
+	return HarnessBedrockModelConfigApiFormat(e).ToHarnessBedrockModelConfigApiFormatOutputWithContext(ctx).ToHarnessBedrockModelConfigApiFormatPtrOutputWithContext(ctx)
+}
+
+func (e HarnessBedrockModelConfigApiFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessBedrockModelConfigApiFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessBedrockModelConfigApiFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HarnessBedrockModelConfigApiFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HarnessBedrockModelConfigApiFormatOutput struct{ *pulumi.OutputState }
+
+func (HarnessBedrockModelConfigApiFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessBedrockModelConfigApiFormat)(nil)).Elem()
+}
+
+func (o HarnessBedrockModelConfigApiFormatOutput) ToHarnessBedrockModelConfigApiFormatOutput() HarnessBedrockModelConfigApiFormatOutput {
+	return o
+}
+
+func (o HarnessBedrockModelConfigApiFormatOutput) ToHarnessBedrockModelConfigApiFormatOutputWithContext(ctx context.Context) HarnessBedrockModelConfigApiFormatOutput {
+	return o
+}
+
+func (o HarnessBedrockModelConfigApiFormatOutput) ToHarnessBedrockModelConfigApiFormatPtrOutput() HarnessBedrockModelConfigApiFormatPtrOutput {
+	return o.ToHarnessBedrockModelConfigApiFormatPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessBedrockModelConfigApiFormatOutput) ToHarnessBedrockModelConfigApiFormatPtrOutputWithContext(ctx context.Context) HarnessBedrockModelConfigApiFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessBedrockModelConfigApiFormat) *HarnessBedrockModelConfigApiFormat {
+		return &v
+	}).(HarnessBedrockModelConfigApiFormatPtrOutput)
+}
+
+func (o HarnessBedrockModelConfigApiFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HarnessBedrockModelConfigApiFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessBedrockModelConfigApiFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HarnessBedrockModelConfigApiFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessBedrockModelConfigApiFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessBedrockModelConfigApiFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HarnessBedrockModelConfigApiFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessBedrockModelConfigApiFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessBedrockModelConfigApiFormat)(nil)).Elem()
+}
+
+func (o HarnessBedrockModelConfigApiFormatPtrOutput) ToHarnessBedrockModelConfigApiFormatPtrOutput() HarnessBedrockModelConfigApiFormatPtrOutput {
+	return o
+}
+
+func (o HarnessBedrockModelConfigApiFormatPtrOutput) ToHarnessBedrockModelConfigApiFormatPtrOutputWithContext(ctx context.Context) HarnessBedrockModelConfigApiFormatPtrOutput {
+	return o
+}
+
+func (o HarnessBedrockModelConfigApiFormatPtrOutput) Elem() HarnessBedrockModelConfigApiFormatOutput {
+	return o.ApplyT(func(v *HarnessBedrockModelConfigApiFormat) HarnessBedrockModelConfigApiFormat {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessBedrockModelConfigApiFormat
+		return ret
+	}).(HarnessBedrockModelConfigApiFormatOutput)
+}
+
+func (o HarnessBedrockModelConfigApiFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessBedrockModelConfigApiFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HarnessBedrockModelConfigApiFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HarnessBedrockModelConfigApiFormatInput is an input type that accepts values of the HarnessBedrockModelConfigApiFormat enum
+// A concrete instance of `HarnessBedrockModelConfigApiFormatInput` can be one of the following:
+//
+//	HarnessBedrockModelConfigApiFormatConverseStream
+//	HarnessBedrockModelConfigApiFormatResponses
+//	HarnessBedrockModelConfigApiFormatChatCompletions
+type HarnessBedrockModelConfigApiFormatInput interface {
+	pulumi.Input
+
+	ToHarnessBedrockModelConfigApiFormatOutput() HarnessBedrockModelConfigApiFormatOutput
+	ToHarnessBedrockModelConfigApiFormatOutputWithContext(context.Context) HarnessBedrockModelConfigApiFormatOutput
+}
+
+var harnessBedrockModelConfigApiFormatPtrType = reflect.TypeOf((**HarnessBedrockModelConfigApiFormat)(nil)).Elem()
+
+type HarnessBedrockModelConfigApiFormatPtrInput interface {
+	pulumi.Input
+
+	ToHarnessBedrockModelConfigApiFormatPtrOutput() HarnessBedrockModelConfigApiFormatPtrOutput
+	ToHarnessBedrockModelConfigApiFormatPtrOutputWithContext(context.Context) HarnessBedrockModelConfigApiFormatPtrOutput
+}
+
+type harnessBedrockModelConfigApiFormatPtr string
+
+func HarnessBedrockModelConfigApiFormatPtr(v string) HarnessBedrockModelConfigApiFormatPtrInput {
+	return (*harnessBedrockModelConfigApiFormatPtr)(&v)
+}
+
+func (*harnessBedrockModelConfigApiFormatPtr) ElementType() reflect.Type {
+	return harnessBedrockModelConfigApiFormatPtrType
+}
+
+func (in *harnessBedrockModelConfigApiFormatPtr) ToHarnessBedrockModelConfigApiFormatPtrOutput() HarnessBedrockModelConfigApiFormatPtrOutput {
+	return pulumi.ToOutput(in).(HarnessBedrockModelConfigApiFormatPtrOutput)
+}
+
+func (in *harnessBedrockModelConfigApiFormatPtr) ToHarnessBedrockModelConfigApiFormatPtrOutputWithContext(ctx context.Context) HarnessBedrockModelConfigApiFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HarnessBedrockModelConfigApiFormatPtrOutput)
+}
+
 type HarnessCustomClaimValidationTypeInboundTokenClaimValueType string
 
 const (
@@ -4526,6 +4862,385 @@ func (in *harnessCustomClaimValidationTypeInboundTokenClaimValueTypePtr) ToHarne
 
 func (in *harnessCustomClaimValidationTypeInboundTokenClaimValueTypePtr) ToHarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutputWithContext(ctx context.Context) HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput)
+}
+
+type HarnessManagedMemoryConfigurationStrategiesItem string
+
+const (
+	HarnessManagedMemoryConfigurationStrategiesItemSemantic       = HarnessManagedMemoryConfigurationStrategiesItem("SEMANTIC")
+	HarnessManagedMemoryConfigurationStrategiesItemSummarization  = HarnessManagedMemoryConfigurationStrategiesItem("SUMMARIZATION")
+	HarnessManagedMemoryConfigurationStrategiesItemUserPreference = HarnessManagedMemoryConfigurationStrategiesItem("USER_PREFERENCE")
+	HarnessManagedMemoryConfigurationStrategiesItemEpisodic       = HarnessManagedMemoryConfigurationStrategiesItem("EPISODIC")
+)
+
+func (HarnessManagedMemoryConfigurationStrategiesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessManagedMemoryConfigurationStrategiesItem)(nil)).Elem()
+}
+
+func (e HarnessManagedMemoryConfigurationStrategiesItem) ToHarnessManagedMemoryConfigurationStrategiesItemOutput() HarnessManagedMemoryConfigurationStrategiesItemOutput {
+	return pulumi.ToOutput(e).(HarnessManagedMemoryConfigurationStrategiesItemOutput)
+}
+
+func (e HarnessManagedMemoryConfigurationStrategiesItem) ToHarnessManagedMemoryConfigurationStrategiesItemOutputWithContext(ctx context.Context) HarnessManagedMemoryConfigurationStrategiesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HarnessManagedMemoryConfigurationStrategiesItemOutput)
+}
+
+func (e HarnessManagedMemoryConfigurationStrategiesItem) ToHarnessManagedMemoryConfigurationStrategiesItemPtrOutput() HarnessManagedMemoryConfigurationStrategiesItemPtrOutput {
+	return e.ToHarnessManagedMemoryConfigurationStrategiesItemPtrOutputWithContext(context.Background())
+}
+
+func (e HarnessManagedMemoryConfigurationStrategiesItem) ToHarnessManagedMemoryConfigurationStrategiesItemPtrOutputWithContext(ctx context.Context) HarnessManagedMemoryConfigurationStrategiesItemPtrOutput {
+	return HarnessManagedMemoryConfigurationStrategiesItem(e).ToHarnessManagedMemoryConfigurationStrategiesItemOutputWithContext(ctx).ToHarnessManagedMemoryConfigurationStrategiesItemPtrOutputWithContext(ctx)
+}
+
+func (e HarnessManagedMemoryConfigurationStrategiesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessManagedMemoryConfigurationStrategiesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessManagedMemoryConfigurationStrategiesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HarnessManagedMemoryConfigurationStrategiesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HarnessManagedMemoryConfigurationStrategiesItemOutput struct{ *pulumi.OutputState }
+
+func (HarnessManagedMemoryConfigurationStrategiesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessManagedMemoryConfigurationStrategiesItem)(nil)).Elem()
+}
+
+func (o HarnessManagedMemoryConfigurationStrategiesItemOutput) ToHarnessManagedMemoryConfigurationStrategiesItemOutput() HarnessManagedMemoryConfigurationStrategiesItemOutput {
+	return o
+}
+
+func (o HarnessManagedMemoryConfigurationStrategiesItemOutput) ToHarnessManagedMemoryConfigurationStrategiesItemOutputWithContext(ctx context.Context) HarnessManagedMemoryConfigurationStrategiesItemOutput {
+	return o
+}
+
+func (o HarnessManagedMemoryConfigurationStrategiesItemOutput) ToHarnessManagedMemoryConfigurationStrategiesItemPtrOutput() HarnessManagedMemoryConfigurationStrategiesItemPtrOutput {
+	return o.ToHarnessManagedMemoryConfigurationStrategiesItemPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessManagedMemoryConfigurationStrategiesItemOutput) ToHarnessManagedMemoryConfigurationStrategiesItemPtrOutputWithContext(ctx context.Context) HarnessManagedMemoryConfigurationStrategiesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessManagedMemoryConfigurationStrategiesItem) *HarnessManagedMemoryConfigurationStrategiesItem {
+		return &v
+	}).(HarnessManagedMemoryConfigurationStrategiesItemPtrOutput)
+}
+
+func (o HarnessManagedMemoryConfigurationStrategiesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HarnessManagedMemoryConfigurationStrategiesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessManagedMemoryConfigurationStrategiesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HarnessManagedMemoryConfigurationStrategiesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessManagedMemoryConfigurationStrategiesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessManagedMemoryConfigurationStrategiesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HarnessManagedMemoryConfigurationStrategiesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessManagedMemoryConfigurationStrategiesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessManagedMemoryConfigurationStrategiesItem)(nil)).Elem()
+}
+
+func (o HarnessManagedMemoryConfigurationStrategiesItemPtrOutput) ToHarnessManagedMemoryConfigurationStrategiesItemPtrOutput() HarnessManagedMemoryConfigurationStrategiesItemPtrOutput {
+	return o
+}
+
+func (o HarnessManagedMemoryConfigurationStrategiesItemPtrOutput) ToHarnessManagedMemoryConfigurationStrategiesItemPtrOutputWithContext(ctx context.Context) HarnessManagedMemoryConfigurationStrategiesItemPtrOutput {
+	return o
+}
+
+func (o HarnessManagedMemoryConfigurationStrategiesItemPtrOutput) Elem() HarnessManagedMemoryConfigurationStrategiesItemOutput {
+	return o.ApplyT(func(v *HarnessManagedMemoryConfigurationStrategiesItem) HarnessManagedMemoryConfigurationStrategiesItem {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessManagedMemoryConfigurationStrategiesItem
+		return ret
+	}).(HarnessManagedMemoryConfigurationStrategiesItemOutput)
+}
+
+func (o HarnessManagedMemoryConfigurationStrategiesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessManagedMemoryConfigurationStrategiesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HarnessManagedMemoryConfigurationStrategiesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HarnessManagedMemoryConfigurationStrategiesItemInput is an input type that accepts values of the HarnessManagedMemoryConfigurationStrategiesItem enum
+// A concrete instance of `HarnessManagedMemoryConfigurationStrategiesItemInput` can be one of the following:
+//
+//	HarnessManagedMemoryConfigurationStrategiesItemSemantic
+//	HarnessManagedMemoryConfigurationStrategiesItemSummarization
+//	HarnessManagedMemoryConfigurationStrategiesItemUserPreference
+//	HarnessManagedMemoryConfigurationStrategiesItemEpisodic
+type HarnessManagedMemoryConfigurationStrategiesItemInput interface {
+	pulumi.Input
+
+	ToHarnessManagedMemoryConfigurationStrategiesItemOutput() HarnessManagedMemoryConfigurationStrategiesItemOutput
+	ToHarnessManagedMemoryConfigurationStrategiesItemOutputWithContext(context.Context) HarnessManagedMemoryConfigurationStrategiesItemOutput
+}
+
+var harnessManagedMemoryConfigurationStrategiesItemPtrType = reflect.TypeOf((**HarnessManagedMemoryConfigurationStrategiesItem)(nil)).Elem()
+
+type HarnessManagedMemoryConfigurationStrategiesItemPtrInput interface {
+	pulumi.Input
+
+	ToHarnessManagedMemoryConfigurationStrategiesItemPtrOutput() HarnessManagedMemoryConfigurationStrategiesItemPtrOutput
+	ToHarnessManagedMemoryConfigurationStrategiesItemPtrOutputWithContext(context.Context) HarnessManagedMemoryConfigurationStrategiesItemPtrOutput
+}
+
+type harnessManagedMemoryConfigurationStrategiesItemPtr string
+
+func HarnessManagedMemoryConfigurationStrategiesItemPtr(v string) HarnessManagedMemoryConfigurationStrategiesItemPtrInput {
+	return (*harnessManagedMemoryConfigurationStrategiesItemPtr)(&v)
+}
+
+func (*harnessManagedMemoryConfigurationStrategiesItemPtr) ElementType() reflect.Type {
+	return harnessManagedMemoryConfigurationStrategiesItemPtrType
+}
+
+func (in *harnessManagedMemoryConfigurationStrategiesItemPtr) ToHarnessManagedMemoryConfigurationStrategiesItemPtrOutput() HarnessManagedMemoryConfigurationStrategiesItemPtrOutput {
+	return pulumi.ToOutput(in).(HarnessManagedMemoryConfigurationStrategiesItemPtrOutput)
+}
+
+func (in *harnessManagedMemoryConfigurationStrategiesItemPtr) ToHarnessManagedMemoryConfigurationStrategiesItemPtrOutputWithContext(ctx context.Context) HarnessManagedMemoryConfigurationStrategiesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HarnessManagedMemoryConfigurationStrategiesItemPtrOutput)
+}
+
+// HarnessManagedMemoryConfigurationStrategiesItemArrayInput is an input type that accepts HarnessManagedMemoryConfigurationStrategiesItemArray and HarnessManagedMemoryConfigurationStrategiesItemArrayOutput values.
+// You can construct a concrete instance of `HarnessManagedMemoryConfigurationStrategiesItemArrayInput` via:
+//
+//	HarnessManagedMemoryConfigurationStrategiesItemArray{ HarnessManagedMemoryConfigurationStrategiesItemArgs{...} }
+type HarnessManagedMemoryConfigurationStrategiesItemArrayInput interface {
+	pulumi.Input
+
+	ToHarnessManagedMemoryConfigurationStrategiesItemArrayOutput() HarnessManagedMemoryConfigurationStrategiesItemArrayOutput
+	ToHarnessManagedMemoryConfigurationStrategiesItemArrayOutputWithContext(context.Context) HarnessManagedMemoryConfigurationStrategiesItemArrayOutput
+}
+
+type HarnessManagedMemoryConfigurationStrategiesItemArray []HarnessManagedMemoryConfigurationStrategiesItem
+
+func (HarnessManagedMemoryConfigurationStrategiesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HarnessManagedMemoryConfigurationStrategiesItem)(nil)).Elem()
+}
+
+func (i HarnessManagedMemoryConfigurationStrategiesItemArray) ToHarnessManagedMemoryConfigurationStrategiesItemArrayOutput() HarnessManagedMemoryConfigurationStrategiesItemArrayOutput {
+	return i.ToHarnessManagedMemoryConfigurationStrategiesItemArrayOutputWithContext(context.Background())
+}
+
+func (i HarnessManagedMemoryConfigurationStrategiesItemArray) ToHarnessManagedMemoryConfigurationStrategiesItemArrayOutputWithContext(ctx context.Context) HarnessManagedMemoryConfigurationStrategiesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessManagedMemoryConfigurationStrategiesItemArrayOutput)
+}
+
+type HarnessManagedMemoryConfigurationStrategiesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (HarnessManagedMemoryConfigurationStrategiesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HarnessManagedMemoryConfigurationStrategiesItem)(nil)).Elem()
+}
+
+func (o HarnessManagedMemoryConfigurationStrategiesItemArrayOutput) ToHarnessManagedMemoryConfigurationStrategiesItemArrayOutput() HarnessManagedMemoryConfigurationStrategiesItemArrayOutput {
+	return o
+}
+
+func (o HarnessManagedMemoryConfigurationStrategiesItemArrayOutput) ToHarnessManagedMemoryConfigurationStrategiesItemArrayOutputWithContext(ctx context.Context) HarnessManagedMemoryConfigurationStrategiesItemArrayOutput {
+	return o
+}
+
+func (o HarnessManagedMemoryConfigurationStrategiesItemArrayOutput) Index(i pulumi.IntInput) HarnessManagedMemoryConfigurationStrategiesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HarnessManagedMemoryConfigurationStrategiesItem {
+		return vs[0].([]HarnessManagedMemoryConfigurationStrategiesItem)[vs[1].(int)]
+	}).(HarnessManagedMemoryConfigurationStrategiesItemOutput)
+}
+
+type HarnessManagedVpcResourceEndpointIpAddressType string
+
+const (
+	HarnessManagedVpcResourceEndpointIpAddressTypeIpv4 = HarnessManagedVpcResourceEndpointIpAddressType("IPV4")
+	HarnessManagedVpcResourceEndpointIpAddressTypeIpv6 = HarnessManagedVpcResourceEndpointIpAddressType("IPV6")
+)
+
+func (HarnessManagedVpcResourceEndpointIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessManagedVpcResourceEndpointIpAddressType)(nil)).Elem()
+}
+
+func (e HarnessManagedVpcResourceEndpointIpAddressType) ToHarnessManagedVpcResourceEndpointIpAddressTypeOutput() HarnessManagedVpcResourceEndpointIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(HarnessManagedVpcResourceEndpointIpAddressTypeOutput)
+}
+
+func (e HarnessManagedVpcResourceEndpointIpAddressType) ToHarnessManagedVpcResourceEndpointIpAddressTypeOutputWithContext(ctx context.Context) HarnessManagedVpcResourceEndpointIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HarnessManagedVpcResourceEndpointIpAddressTypeOutput)
+}
+
+func (e HarnessManagedVpcResourceEndpointIpAddressType) ToHarnessManagedVpcResourceEndpointIpAddressTypePtrOutput() HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return e.ToHarnessManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e HarnessManagedVpcResourceEndpointIpAddressType) ToHarnessManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return HarnessManagedVpcResourceEndpointIpAddressType(e).ToHarnessManagedVpcResourceEndpointIpAddressTypeOutputWithContext(ctx).ToHarnessManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e HarnessManagedVpcResourceEndpointIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessManagedVpcResourceEndpointIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessManagedVpcResourceEndpointIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HarnessManagedVpcResourceEndpointIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HarnessManagedVpcResourceEndpointIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (HarnessManagedVpcResourceEndpointIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessManagedVpcResourceEndpointIpAddressType)(nil)).Elem()
+}
+
+func (o HarnessManagedVpcResourceEndpointIpAddressTypeOutput) ToHarnessManagedVpcResourceEndpointIpAddressTypeOutput() HarnessManagedVpcResourceEndpointIpAddressTypeOutput {
+	return o
+}
+
+func (o HarnessManagedVpcResourceEndpointIpAddressTypeOutput) ToHarnessManagedVpcResourceEndpointIpAddressTypeOutputWithContext(ctx context.Context) HarnessManagedVpcResourceEndpointIpAddressTypeOutput {
+	return o
+}
+
+func (o HarnessManagedVpcResourceEndpointIpAddressTypeOutput) ToHarnessManagedVpcResourceEndpointIpAddressTypePtrOutput() HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return o.ToHarnessManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o HarnessManagedVpcResourceEndpointIpAddressTypeOutput) ToHarnessManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessManagedVpcResourceEndpointIpAddressType) *HarnessManagedVpcResourceEndpointIpAddressType {
+		return &v
+	}).(HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput)
+}
+
+func (o HarnessManagedVpcResourceEndpointIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HarnessManagedVpcResourceEndpointIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessManagedVpcResourceEndpointIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HarnessManagedVpcResourceEndpointIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessManagedVpcResourceEndpointIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessManagedVpcResourceEndpointIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessManagedVpcResourceEndpointIpAddressType)(nil)).Elem()
+}
+
+func (o HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput) ToHarnessManagedVpcResourceEndpointIpAddressTypePtrOutput() HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return o
+}
+
+func (o HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput) ToHarnessManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return o
+}
+
+func (o HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput) Elem() HarnessManagedVpcResourceEndpointIpAddressTypeOutput {
+	return o.ApplyT(func(v *HarnessManagedVpcResourceEndpointIpAddressType) HarnessManagedVpcResourceEndpointIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessManagedVpcResourceEndpointIpAddressType
+		return ret
+	}).(HarnessManagedVpcResourceEndpointIpAddressTypeOutput)
+}
+
+func (o HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HarnessManagedVpcResourceEndpointIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HarnessManagedVpcResourceEndpointIpAddressTypeInput is an input type that accepts values of the HarnessManagedVpcResourceEndpointIpAddressType enum
+// A concrete instance of `HarnessManagedVpcResourceEndpointIpAddressTypeInput` can be one of the following:
+//
+//	HarnessManagedVpcResourceEndpointIpAddressTypeIpv4
+//	HarnessManagedVpcResourceEndpointIpAddressTypeIpv6
+type HarnessManagedVpcResourceEndpointIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToHarnessManagedVpcResourceEndpointIpAddressTypeOutput() HarnessManagedVpcResourceEndpointIpAddressTypeOutput
+	ToHarnessManagedVpcResourceEndpointIpAddressTypeOutputWithContext(context.Context) HarnessManagedVpcResourceEndpointIpAddressTypeOutput
+}
+
+var harnessManagedVpcResourceEndpointIpAddressTypePtrType = reflect.TypeOf((**HarnessManagedVpcResourceEndpointIpAddressType)(nil)).Elem()
+
+type HarnessManagedVpcResourceEndpointIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToHarnessManagedVpcResourceEndpointIpAddressTypePtrOutput() HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput
+	ToHarnessManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(context.Context) HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput
+}
+
+type harnessManagedVpcResourceEndpointIpAddressTypePtr string
+
+func HarnessManagedVpcResourceEndpointIpAddressTypePtr(v string) HarnessManagedVpcResourceEndpointIpAddressTypePtrInput {
+	return (*harnessManagedVpcResourceEndpointIpAddressTypePtr)(&v)
+}
+
+func (*harnessManagedVpcResourceEndpointIpAddressTypePtr) ElementType() reflect.Type {
+	return harnessManagedVpcResourceEndpointIpAddressTypePtrType
+}
+
+func (in *harnessManagedVpcResourceEndpointIpAddressTypePtr) ToHarnessManagedVpcResourceEndpointIpAddressTypePtrOutput() HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput)
+}
+
+func (in *harnessManagedVpcResourceEndpointIpAddressTypePtr) ToHarnessManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput)
 }
 
 type HarnessNetworkConfigurationNetworkMode string
@@ -4856,6 +5571,171 @@ func (in *harnessOAuthCredentialProviderGrantTypePtr) ToHarnessOAuthCredentialPr
 
 func (in *harnessOAuthCredentialProviderGrantTypePtr) ToHarnessOAuthCredentialProviderGrantTypePtrOutputWithContext(ctx context.Context) HarnessOAuthCredentialProviderGrantTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HarnessOAuthCredentialProviderGrantTypePtrOutput)
+}
+
+type HarnessOpenAiModelConfigApiFormat string
+
+const (
+	HarnessOpenAiModelConfigApiFormatChatCompletions = HarnessOpenAiModelConfigApiFormat("chat_completions")
+	HarnessOpenAiModelConfigApiFormatResponses       = HarnessOpenAiModelConfigApiFormat("responses")
+)
+
+func (HarnessOpenAiModelConfigApiFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessOpenAiModelConfigApiFormat)(nil)).Elem()
+}
+
+func (e HarnessOpenAiModelConfigApiFormat) ToHarnessOpenAiModelConfigApiFormatOutput() HarnessOpenAiModelConfigApiFormatOutput {
+	return pulumi.ToOutput(e).(HarnessOpenAiModelConfigApiFormatOutput)
+}
+
+func (e HarnessOpenAiModelConfigApiFormat) ToHarnessOpenAiModelConfigApiFormatOutputWithContext(ctx context.Context) HarnessOpenAiModelConfigApiFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HarnessOpenAiModelConfigApiFormatOutput)
+}
+
+func (e HarnessOpenAiModelConfigApiFormat) ToHarnessOpenAiModelConfigApiFormatPtrOutput() HarnessOpenAiModelConfigApiFormatPtrOutput {
+	return e.ToHarnessOpenAiModelConfigApiFormatPtrOutputWithContext(context.Background())
+}
+
+func (e HarnessOpenAiModelConfigApiFormat) ToHarnessOpenAiModelConfigApiFormatPtrOutputWithContext(ctx context.Context) HarnessOpenAiModelConfigApiFormatPtrOutput {
+	return HarnessOpenAiModelConfigApiFormat(e).ToHarnessOpenAiModelConfigApiFormatOutputWithContext(ctx).ToHarnessOpenAiModelConfigApiFormatPtrOutputWithContext(ctx)
+}
+
+func (e HarnessOpenAiModelConfigApiFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessOpenAiModelConfigApiFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessOpenAiModelConfigApiFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HarnessOpenAiModelConfigApiFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HarnessOpenAiModelConfigApiFormatOutput struct{ *pulumi.OutputState }
+
+func (HarnessOpenAiModelConfigApiFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessOpenAiModelConfigApiFormat)(nil)).Elem()
+}
+
+func (o HarnessOpenAiModelConfigApiFormatOutput) ToHarnessOpenAiModelConfigApiFormatOutput() HarnessOpenAiModelConfigApiFormatOutput {
+	return o
+}
+
+func (o HarnessOpenAiModelConfigApiFormatOutput) ToHarnessOpenAiModelConfigApiFormatOutputWithContext(ctx context.Context) HarnessOpenAiModelConfigApiFormatOutput {
+	return o
+}
+
+func (o HarnessOpenAiModelConfigApiFormatOutput) ToHarnessOpenAiModelConfigApiFormatPtrOutput() HarnessOpenAiModelConfigApiFormatPtrOutput {
+	return o.ToHarnessOpenAiModelConfigApiFormatPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessOpenAiModelConfigApiFormatOutput) ToHarnessOpenAiModelConfigApiFormatPtrOutputWithContext(ctx context.Context) HarnessOpenAiModelConfigApiFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessOpenAiModelConfigApiFormat) *HarnessOpenAiModelConfigApiFormat {
+		return &v
+	}).(HarnessOpenAiModelConfigApiFormatPtrOutput)
+}
+
+func (o HarnessOpenAiModelConfigApiFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HarnessOpenAiModelConfigApiFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessOpenAiModelConfigApiFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HarnessOpenAiModelConfigApiFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessOpenAiModelConfigApiFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessOpenAiModelConfigApiFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HarnessOpenAiModelConfigApiFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessOpenAiModelConfigApiFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessOpenAiModelConfigApiFormat)(nil)).Elem()
+}
+
+func (o HarnessOpenAiModelConfigApiFormatPtrOutput) ToHarnessOpenAiModelConfigApiFormatPtrOutput() HarnessOpenAiModelConfigApiFormatPtrOutput {
+	return o
+}
+
+func (o HarnessOpenAiModelConfigApiFormatPtrOutput) ToHarnessOpenAiModelConfigApiFormatPtrOutputWithContext(ctx context.Context) HarnessOpenAiModelConfigApiFormatPtrOutput {
+	return o
+}
+
+func (o HarnessOpenAiModelConfigApiFormatPtrOutput) Elem() HarnessOpenAiModelConfigApiFormatOutput {
+	return o.ApplyT(func(v *HarnessOpenAiModelConfigApiFormat) HarnessOpenAiModelConfigApiFormat {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessOpenAiModelConfigApiFormat
+		return ret
+	}).(HarnessOpenAiModelConfigApiFormatOutput)
+}
+
+func (o HarnessOpenAiModelConfigApiFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessOpenAiModelConfigApiFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HarnessOpenAiModelConfigApiFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HarnessOpenAiModelConfigApiFormatInput is an input type that accepts values of the HarnessOpenAiModelConfigApiFormat enum
+// A concrete instance of `HarnessOpenAiModelConfigApiFormatInput` can be one of the following:
+//
+//	HarnessOpenAiModelConfigApiFormatChatCompletions
+//	HarnessOpenAiModelConfigApiFormatResponses
+type HarnessOpenAiModelConfigApiFormatInput interface {
+	pulumi.Input
+
+	ToHarnessOpenAiModelConfigApiFormatOutput() HarnessOpenAiModelConfigApiFormatOutput
+	ToHarnessOpenAiModelConfigApiFormatOutputWithContext(context.Context) HarnessOpenAiModelConfigApiFormatOutput
+}
+
+var harnessOpenAiModelConfigApiFormatPtrType = reflect.TypeOf((**HarnessOpenAiModelConfigApiFormat)(nil)).Elem()
+
+type HarnessOpenAiModelConfigApiFormatPtrInput interface {
+	pulumi.Input
+
+	ToHarnessOpenAiModelConfigApiFormatPtrOutput() HarnessOpenAiModelConfigApiFormatPtrOutput
+	ToHarnessOpenAiModelConfigApiFormatPtrOutputWithContext(context.Context) HarnessOpenAiModelConfigApiFormatPtrOutput
+}
+
+type harnessOpenAiModelConfigApiFormatPtr string
+
+func HarnessOpenAiModelConfigApiFormatPtr(v string) HarnessOpenAiModelConfigApiFormatPtrInput {
+	return (*harnessOpenAiModelConfigApiFormatPtr)(&v)
+}
+
+func (*harnessOpenAiModelConfigApiFormatPtr) ElementType() reflect.Type {
+	return harnessOpenAiModelConfigApiFormatPtrType
+}
+
+func (in *harnessOpenAiModelConfigApiFormatPtr) ToHarnessOpenAiModelConfigApiFormatPtrOutput() HarnessOpenAiModelConfigApiFormatPtrOutput {
+	return pulumi.ToOutput(in).(HarnessOpenAiModelConfigApiFormatPtrOutput)
+}
+
+func (in *harnessOpenAiModelConfigApiFormatPtr) ToHarnessOpenAiModelConfigApiFormatPtrOutputWithContext(ctx context.Context) HarnessOpenAiModelConfigApiFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HarnessOpenAiModelConfigApiFormatPtrOutput)
 }
 
 type HarnessStatus string
@@ -11809,6 +12689,172 @@ func (o PaymentManagerStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether the policy contributes to the enforce decision returned to Gateway. LOG_ONLY policies are still evaluated but their decisions are observed only, allowing customers to validate a policy against real traffic before promoting it.
+type PolicyEnforcementMode string
+
+const (
+	PolicyEnforcementModeActive  = PolicyEnforcementMode("ACTIVE")
+	PolicyEnforcementModeLogOnly = PolicyEnforcementMode("LOG_ONLY")
+)
+
+func (PolicyEnforcementMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyEnforcementMode)(nil)).Elem()
+}
+
+func (e PolicyEnforcementMode) ToPolicyEnforcementModeOutput() PolicyEnforcementModeOutput {
+	return pulumi.ToOutput(e).(PolicyEnforcementModeOutput)
+}
+
+func (e PolicyEnforcementMode) ToPolicyEnforcementModeOutputWithContext(ctx context.Context) PolicyEnforcementModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyEnforcementModeOutput)
+}
+
+func (e PolicyEnforcementMode) ToPolicyEnforcementModePtrOutput() PolicyEnforcementModePtrOutput {
+	return e.ToPolicyEnforcementModePtrOutputWithContext(context.Background())
+}
+
+func (e PolicyEnforcementMode) ToPolicyEnforcementModePtrOutputWithContext(ctx context.Context) PolicyEnforcementModePtrOutput {
+	return PolicyEnforcementMode(e).ToPolicyEnforcementModeOutputWithContext(ctx).ToPolicyEnforcementModePtrOutputWithContext(ctx)
+}
+
+func (e PolicyEnforcementMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyEnforcementMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyEnforcementMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyEnforcementMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicyEnforcementModeOutput struct{ *pulumi.OutputState }
+
+func (PolicyEnforcementModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyEnforcementMode)(nil)).Elem()
+}
+
+func (o PolicyEnforcementModeOutput) ToPolicyEnforcementModeOutput() PolicyEnforcementModeOutput {
+	return o
+}
+
+func (o PolicyEnforcementModeOutput) ToPolicyEnforcementModeOutputWithContext(ctx context.Context) PolicyEnforcementModeOutput {
+	return o
+}
+
+func (o PolicyEnforcementModeOutput) ToPolicyEnforcementModePtrOutput() PolicyEnforcementModePtrOutput {
+	return o.ToPolicyEnforcementModePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyEnforcementModeOutput) ToPolicyEnforcementModePtrOutputWithContext(ctx context.Context) PolicyEnforcementModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyEnforcementMode) *PolicyEnforcementMode {
+		return &v
+	}).(PolicyEnforcementModePtrOutput)
+}
+
+func (o PolicyEnforcementModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyEnforcementModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyEnforcementMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyEnforcementModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyEnforcementModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyEnforcementMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyEnforcementModePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyEnforcementModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyEnforcementMode)(nil)).Elem()
+}
+
+func (o PolicyEnforcementModePtrOutput) ToPolicyEnforcementModePtrOutput() PolicyEnforcementModePtrOutput {
+	return o
+}
+
+func (o PolicyEnforcementModePtrOutput) ToPolicyEnforcementModePtrOutputWithContext(ctx context.Context) PolicyEnforcementModePtrOutput {
+	return o
+}
+
+func (o PolicyEnforcementModePtrOutput) Elem() PolicyEnforcementModeOutput {
+	return o.ApplyT(func(v *PolicyEnforcementMode) PolicyEnforcementMode {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyEnforcementMode
+		return ret
+	}).(PolicyEnforcementModeOutput)
+}
+
+func (o PolicyEnforcementModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyEnforcementModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyEnforcementMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PolicyEnforcementModeInput is an input type that accepts values of the PolicyEnforcementMode enum
+// A concrete instance of `PolicyEnforcementModeInput` can be one of the following:
+//
+//	PolicyEnforcementModeActive
+//	PolicyEnforcementModeLogOnly
+type PolicyEnforcementModeInput interface {
+	pulumi.Input
+
+	ToPolicyEnforcementModeOutput() PolicyEnforcementModeOutput
+	ToPolicyEnforcementModeOutputWithContext(context.Context) PolicyEnforcementModeOutput
+}
+
+var policyEnforcementModePtrType = reflect.TypeOf((**PolicyEnforcementMode)(nil)).Elem()
+
+type PolicyEnforcementModePtrInput interface {
+	pulumi.Input
+
+	ToPolicyEnforcementModePtrOutput() PolicyEnforcementModePtrOutput
+	ToPolicyEnforcementModePtrOutputWithContext(context.Context) PolicyEnforcementModePtrOutput
+}
+
+type policyEnforcementModePtr string
+
+func PolicyEnforcementModePtr(v string) PolicyEnforcementModePtrInput {
+	return (*policyEnforcementModePtr)(&v)
+}
+
+func (*policyEnforcementModePtr) ElementType() reflect.Type {
+	return policyEnforcementModePtrType
+}
+
+func (in *policyEnforcementModePtr) ToPolicyEnforcementModePtrOutput() PolicyEnforcementModePtrOutput {
+	return pulumi.ToOutput(in).(PolicyEnforcementModePtrOutput)
+}
+
+func (in *policyEnforcementModePtr) ToPolicyEnforcementModePtrOutputWithContext(ctx context.Context) PolicyEnforcementModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyEnforcementModePtrOutput)
+}
+
 type PolicyEngineStatus string
 
 const (
@@ -13234,6 +14280,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpServerListingModePtrInput)(nil)).Elem(), GatewayTargetMcpServerListingMode("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthGrantTypeInput)(nil)).Elem(), GatewayTargetOAuthGrantType("AUTHORIZATION_CODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthGrantTypePtrInput)(nil)).Elem(), GatewayTargetOAuthGrantType("AUTHORIZATION_CODE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetPassthroughProtocolTypeInput)(nil)).Elem(), GatewayTargetPassthroughProtocolType("MCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetPassthroughProtocolTypePtrInput)(nil)).Elem(), GatewayTargetPassthroughProtocolType("MCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetRestApiMethodInput)(nil)).Elem(), GatewayTargetRestApiMethod("GET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetRestApiMethodPtrInput)(nil)).Elem(), GatewayTargetRestApiMethod("GET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetRestApiMethodArrayInput)(nil)).Elem(), GatewayTargetRestApiMethodArray{})
@@ -13241,12 +14289,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaTypePtrInput)(nil)).Elem(), GatewayTargetSchemaType("string"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorInput)(nil)).Elem(), HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrInput)(nil)).Elem(), HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessBedrockModelConfigApiFormatInput)(nil)).Elem(), HarnessBedrockModelConfigApiFormat("converse_stream"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessBedrockModelConfigApiFormatPtrInput)(nil)).Elem(), HarnessBedrockModelConfigApiFormat("converse_stream"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeInput)(nil)).Elem(), HarnessCustomClaimValidationTypeInboundTokenClaimValueType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrInput)(nil)).Elem(), HarnessCustomClaimValidationTypeInboundTokenClaimValueType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessManagedMemoryConfigurationStrategiesItemInput)(nil)).Elem(), HarnessManagedMemoryConfigurationStrategiesItem("SEMANTIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessManagedMemoryConfigurationStrategiesItemPtrInput)(nil)).Elem(), HarnessManagedMemoryConfigurationStrategiesItem("SEMANTIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessManagedMemoryConfigurationStrategiesItemArrayInput)(nil)).Elem(), HarnessManagedMemoryConfigurationStrategiesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessManagedVpcResourceEndpointIpAddressTypeInput)(nil)).Elem(), HarnessManagedVpcResourceEndpointIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessManagedVpcResourceEndpointIpAddressTypePtrInput)(nil)).Elem(), HarnessManagedVpcResourceEndpointIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessNetworkConfigurationNetworkModeInput)(nil)).Elem(), HarnessNetworkConfigurationNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessNetworkConfigurationNetworkModePtrInput)(nil)).Elem(), HarnessNetworkConfigurationNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessOAuthCredentialProviderGrantTypeInput)(nil)).Elem(), HarnessOAuthCredentialProviderGrantType("CLIENT_CREDENTIALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessOAuthCredentialProviderGrantTypePtrInput)(nil)).Elem(), HarnessOAuthCredentialProviderGrantType("CLIENT_CREDENTIALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessOpenAiModelConfigApiFormatInput)(nil)).Elem(), HarnessOpenAiModelConfigApiFormat("chat_completions"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessOpenAiModelConfigApiFormatPtrInput)(nil)).Elem(), HarnessOpenAiModelConfigApiFormat("chat_completions"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessToolTypeInput)(nil)).Elem(), HarnessToolType("remote_mcp"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessToolTypePtrInput)(nil)).Elem(), HarnessToolType("remote_mcp"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessTruncationConfigurationStrategyInput)(nil)).Elem(), HarnessTruncationConfigurationStrategy("sliding_window"))
@@ -13322,6 +14379,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueTypePtrInput)(nil)).Elem(), PaymentManagerCustomClaimValidationTypeInboundTokenClaimValueType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerPaymentsAuthorizerTypeInput)(nil)).Elem(), PaymentManagerPaymentsAuthorizerType("CUSTOM_JWT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentManagerPaymentsAuthorizerTypePtrInput)(nil)).Elem(), PaymentManagerPaymentsAuthorizerType("CUSTOM_JWT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyEnforcementModeInput)(nil)).Elem(), PolicyEnforcementMode("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyEnforcementModePtrInput)(nil)).Elem(), PolicyEnforcementMode("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyValidationModeInput)(nil)).Elem(), PolicyValidationMode("FAIL_ON_ANY_FINDINGS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyValidationModePtrInput)(nil)).Elem(), PolicyValidationMode("FAIL_ON_ANY_FINDINGS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentManagedRuntimeTypeInput)(nil)).Elem(), RuntimeAgentManagedRuntimeType("PYTHON_3_10"))
@@ -13383,6 +14442,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetMcpServerListingModePtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuthGrantTypeOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuthGrantTypePtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetPassthroughProtocolTypeOutput{})
+	pulumi.RegisterOutputType(GatewayTargetPassthroughProtocolTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetRestApiMethodOutput{})
 	pulumi.RegisterOutputType(GatewayTargetRestApiMethodPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetRestApiMethodArrayOutput{})
@@ -13394,12 +14455,21 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetTargetStatusPtrOutput{})
 	pulumi.RegisterOutputType(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput{})
 	pulumi.RegisterOutputType(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput{})
+	pulumi.RegisterOutputType(HarnessBedrockModelConfigApiFormatOutput{})
+	pulumi.RegisterOutputType(HarnessBedrockModelConfigApiFormatPtrOutput{})
 	pulumi.RegisterOutputType(HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput{})
 	pulumi.RegisterOutputType(HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput{})
+	pulumi.RegisterOutputType(HarnessManagedMemoryConfigurationStrategiesItemOutput{})
+	pulumi.RegisterOutputType(HarnessManagedMemoryConfigurationStrategiesItemPtrOutput{})
+	pulumi.RegisterOutputType(HarnessManagedMemoryConfigurationStrategiesItemArrayOutput{})
+	pulumi.RegisterOutputType(HarnessManagedVpcResourceEndpointIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(HarnessManagedVpcResourceEndpointIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(HarnessNetworkConfigurationNetworkModeOutput{})
 	pulumi.RegisterOutputType(HarnessNetworkConfigurationNetworkModePtrOutput{})
 	pulumi.RegisterOutputType(HarnessOAuthCredentialProviderGrantTypeOutput{})
 	pulumi.RegisterOutputType(HarnessOAuthCredentialProviderGrantTypePtrOutput{})
+	pulumi.RegisterOutputType(HarnessOpenAiModelConfigApiFormatOutput{})
+	pulumi.RegisterOutputType(HarnessOpenAiModelConfigApiFormatPtrOutput{})
 	pulumi.RegisterOutputType(HarnessStatusOutput{})
 	pulumi.RegisterOutputType(HarnessStatusPtrOutput{})
 	pulumi.RegisterOutputType(HarnessToolTypeOutput{})
@@ -13489,6 +14559,8 @@ func init() {
 	pulumi.RegisterOutputType(PaymentManagerPaymentsAuthorizerTypePtrOutput{})
 	pulumi.RegisterOutputType(PaymentManagerStatusOutput{})
 	pulumi.RegisterOutputType(PaymentManagerStatusPtrOutput{})
+	pulumi.RegisterOutputType(PolicyEnforcementModeOutput{})
+	pulumi.RegisterOutputType(PolicyEnforcementModePtrOutput{})
 	pulumi.RegisterOutputType(PolicyEngineStatusOutput{})
 	pulumi.RegisterOutputType(PolicyEngineStatusPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStatusOutput{})

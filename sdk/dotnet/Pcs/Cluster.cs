@@ -108,7 +108,6 @@ namespace Pulumi.AwsNative.Pcs
                 {
                     "name",
                     "networking",
-                    "scheduler",
                     "size",
                 },
             };

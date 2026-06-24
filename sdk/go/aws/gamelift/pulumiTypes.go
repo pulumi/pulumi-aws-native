@@ -2729,6 +2729,8 @@ type ContainerGroupDefinitionGameServerContainerDefinition struct {
 	EnvironmentOverride []ContainerGroupDefinitionContainerEnvironment `pulumi:"environmentOverride"`
 	// Specifies the image URI of this container.
 	ImageUri string `pulumi:"imageUri"`
+	// Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
+	LinuxCapabilities *ContainerGroupDefinitionLinuxCapabilities `pulumi:"linuxCapabilities"`
 	// A list of mount point configurations to be used in a container.
 	MountPoints []ContainerGroupDefinitionContainerMountPoint `pulumi:"mountPoints"`
 	// Defines the ports on the container.
@@ -2760,6 +2762,8 @@ type ContainerGroupDefinitionGameServerContainerDefinitionArgs struct {
 	EnvironmentOverride ContainerGroupDefinitionContainerEnvironmentArrayInput `pulumi:"environmentOverride"`
 	// Specifies the image URI of this container.
 	ImageUri pulumi.StringInput `pulumi:"imageUri"`
+	// Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
+	LinuxCapabilities ContainerGroupDefinitionLinuxCapabilitiesPtrInput `pulumi:"linuxCapabilities"`
 	// A list of mount point configurations to be used in a container.
 	MountPoints ContainerGroupDefinitionContainerMountPointArrayInput `pulumi:"mountPoints"`
 	// Defines the ports on the container.
@@ -2872,6 +2876,13 @@ func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) ImageUri() 
 	return o.ApplyT(func(v ContainerGroupDefinitionGameServerContainerDefinition) string { return v.ImageUri }).(pulumi.StringOutput)
 }
 
+// Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) LinuxCapabilities() ContainerGroupDefinitionLinuxCapabilitiesPtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionGameServerContainerDefinition) *ContainerGroupDefinitionLinuxCapabilities {
+		return v.LinuxCapabilities
+	}).(ContainerGroupDefinitionLinuxCapabilitiesPtrOutput)
+}
+
 // A list of mount point configurations to be used in a container.
 func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) MountPoints() ContainerGroupDefinitionContainerMountPointArrayOutput {
 	return o.ApplyT(func(v ContainerGroupDefinitionGameServerContainerDefinition) []ContainerGroupDefinitionContainerMountPoint {
@@ -2960,6 +2971,16 @@ func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) ImageUri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) LinuxCapabilities() ContainerGroupDefinitionLinuxCapabilitiesPtrOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionGameServerContainerDefinition) *ContainerGroupDefinitionLinuxCapabilities {
+		if v == nil {
+			return nil
+		}
+		return v.LinuxCapabilities
+	}).(ContainerGroupDefinitionLinuxCapabilitiesPtrOutput)
+}
+
 // A list of mount point configurations to be used in a container.
 func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) MountPoints() ContainerGroupDefinitionContainerMountPointArrayOutput {
 	return o.ApplyT(func(v *ContainerGroupDefinitionGameServerContainerDefinition) []ContainerGroupDefinitionContainerMountPoint {
@@ -2998,6 +3019,148 @@ func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) ServerSd
 		}
 		return &v.ServerSdkVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// A set of Linux capabilities that are added to a container's default Docker configuration. For more detailed information, see the capabilities(7) Linux manual page.
+type ContainerGroupDefinitionLinuxCapabilities struct {
+	// The list of Linux capabilities to add to the container's default configuration.
+	Include []ContainerGroupDefinitionLinuxCapabilitiesIncludeItem `pulumi:"include"`
+}
+
+// ContainerGroupDefinitionLinuxCapabilitiesInput is an input type that accepts ContainerGroupDefinitionLinuxCapabilitiesArgs and ContainerGroupDefinitionLinuxCapabilitiesOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionLinuxCapabilitiesInput` via:
+//
+//	ContainerGroupDefinitionLinuxCapabilitiesArgs{...}
+type ContainerGroupDefinitionLinuxCapabilitiesInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionLinuxCapabilitiesOutput() ContainerGroupDefinitionLinuxCapabilitiesOutput
+	ToContainerGroupDefinitionLinuxCapabilitiesOutputWithContext(context.Context) ContainerGroupDefinitionLinuxCapabilitiesOutput
+}
+
+// A set of Linux capabilities that are added to a container's default Docker configuration. For more detailed information, see the capabilities(7) Linux manual page.
+type ContainerGroupDefinitionLinuxCapabilitiesArgs struct {
+	// The list of Linux capabilities to add to the container's default configuration.
+	Include ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayInput `pulumi:"include"`
+}
+
+func (ContainerGroupDefinitionLinuxCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionLinuxCapabilities)(nil)).Elem()
+}
+
+func (i ContainerGroupDefinitionLinuxCapabilitiesArgs) ToContainerGroupDefinitionLinuxCapabilitiesOutput() ContainerGroupDefinitionLinuxCapabilitiesOutput {
+	return i.ToContainerGroupDefinitionLinuxCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionLinuxCapabilitiesArgs) ToContainerGroupDefinitionLinuxCapabilitiesOutputWithContext(ctx context.Context) ContainerGroupDefinitionLinuxCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionLinuxCapabilitiesOutput)
+}
+
+func (i ContainerGroupDefinitionLinuxCapabilitiesArgs) ToContainerGroupDefinitionLinuxCapabilitiesPtrOutput() ContainerGroupDefinitionLinuxCapabilitiesPtrOutput {
+	return i.ToContainerGroupDefinitionLinuxCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionLinuxCapabilitiesArgs) ToContainerGroupDefinitionLinuxCapabilitiesPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionLinuxCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionLinuxCapabilitiesOutput).ToContainerGroupDefinitionLinuxCapabilitiesPtrOutputWithContext(ctx)
+}
+
+// ContainerGroupDefinitionLinuxCapabilitiesPtrInput is an input type that accepts ContainerGroupDefinitionLinuxCapabilitiesArgs, ContainerGroupDefinitionLinuxCapabilitiesPtr and ContainerGroupDefinitionLinuxCapabilitiesPtrOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionLinuxCapabilitiesPtrInput` via:
+//
+//	        ContainerGroupDefinitionLinuxCapabilitiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContainerGroupDefinitionLinuxCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionLinuxCapabilitiesPtrOutput() ContainerGroupDefinitionLinuxCapabilitiesPtrOutput
+	ToContainerGroupDefinitionLinuxCapabilitiesPtrOutputWithContext(context.Context) ContainerGroupDefinitionLinuxCapabilitiesPtrOutput
+}
+
+type containerGroupDefinitionLinuxCapabilitiesPtrType ContainerGroupDefinitionLinuxCapabilitiesArgs
+
+func ContainerGroupDefinitionLinuxCapabilitiesPtr(v *ContainerGroupDefinitionLinuxCapabilitiesArgs) ContainerGroupDefinitionLinuxCapabilitiesPtrInput {
+	return (*containerGroupDefinitionLinuxCapabilitiesPtrType)(v)
+}
+
+func (*containerGroupDefinitionLinuxCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupDefinitionLinuxCapabilities)(nil)).Elem()
+}
+
+func (i *containerGroupDefinitionLinuxCapabilitiesPtrType) ToContainerGroupDefinitionLinuxCapabilitiesPtrOutput() ContainerGroupDefinitionLinuxCapabilitiesPtrOutput {
+	return i.ToContainerGroupDefinitionLinuxCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *containerGroupDefinitionLinuxCapabilitiesPtrType) ToContainerGroupDefinitionLinuxCapabilitiesPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionLinuxCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionLinuxCapabilitiesPtrOutput)
+}
+
+// A set of Linux capabilities that are added to a container's default Docker configuration. For more detailed information, see the capabilities(7) Linux manual page.
+type ContainerGroupDefinitionLinuxCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionLinuxCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionLinuxCapabilities)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesOutput) ToContainerGroupDefinitionLinuxCapabilitiesOutput() ContainerGroupDefinitionLinuxCapabilitiesOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesOutput) ToContainerGroupDefinitionLinuxCapabilitiesOutputWithContext(ctx context.Context) ContainerGroupDefinitionLinuxCapabilitiesOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesOutput) ToContainerGroupDefinitionLinuxCapabilitiesPtrOutput() ContainerGroupDefinitionLinuxCapabilitiesPtrOutput {
+	return o.ToContainerGroupDefinitionLinuxCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesOutput) ToContainerGroupDefinitionLinuxCapabilitiesPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionLinuxCapabilitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupDefinitionLinuxCapabilities) *ContainerGroupDefinitionLinuxCapabilities {
+		return &v
+	}).(ContainerGroupDefinitionLinuxCapabilitiesPtrOutput)
+}
+
+// The list of Linux capabilities to add to the container's default configuration.
+func (o ContainerGroupDefinitionLinuxCapabilitiesOutput) Include() ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionLinuxCapabilities) []ContainerGroupDefinitionLinuxCapabilitiesIncludeItem {
+		return v.Include
+	}).(ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput)
+}
+
+type ContainerGroupDefinitionLinuxCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionLinuxCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupDefinitionLinuxCapabilities)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesPtrOutput) ToContainerGroupDefinitionLinuxCapabilitiesPtrOutput() ContainerGroupDefinitionLinuxCapabilitiesPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesPtrOutput) ToContainerGroupDefinitionLinuxCapabilitiesPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionLinuxCapabilitiesPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionLinuxCapabilitiesPtrOutput) Elem() ContainerGroupDefinitionLinuxCapabilitiesOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionLinuxCapabilities) ContainerGroupDefinitionLinuxCapabilities {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerGroupDefinitionLinuxCapabilities
+		return ret
+	}).(ContainerGroupDefinitionLinuxCapabilitiesOutput)
+}
+
+// The list of Linux capabilities to add to the container's default configuration.
+func (o ContainerGroupDefinitionLinuxCapabilitiesPtrOutput) Include() ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionLinuxCapabilities) []ContainerGroupDefinitionLinuxCapabilitiesIncludeItem {
+		if v == nil {
+			return nil
+		}
+		return v.Include
+	}).(ContainerGroupDefinitionLinuxCapabilitiesIncludeItemArrayOutput)
 }
 
 // Defines the ports on a container.
@@ -3156,6 +3319,8 @@ type ContainerGroupDefinitionSupportContainerDefinition struct {
 	HealthCheck *ContainerGroupDefinitionContainerHealthCheck `pulumi:"healthCheck"`
 	// Specifies the image URI of this container.
 	ImageUri string `pulumi:"imageUri"`
+	// Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
+	LinuxCapabilities *ContainerGroupDefinitionLinuxCapabilities `pulumi:"linuxCapabilities"`
 	// The total memory limit of container groups following this definition in MiB
 	MemoryHardLimitMebibytes *int `pulumi:"memoryHardLimitMebibytes"`
 	// A list of mount point configurations to be used in a container.
@@ -3193,6 +3358,8 @@ type ContainerGroupDefinitionSupportContainerDefinitionArgs struct {
 	HealthCheck ContainerGroupDefinitionContainerHealthCheckPtrInput `pulumi:"healthCheck"`
 	// Specifies the image URI of this container.
 	ImageUri pulumi.StringInput `pulumi:"imageUri"`
+	// Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
+	LinuxCapabilities ContainerGroupDefinitionLinuxCapabilitiesPtrInput `pulumi:"linuxCapabilities"`
 	// The total memory limit of container groups following this definition in MiB
 	MemoryHardLimitMebibytes pulumi.IntPtrInput `pulumi:"memoryHardLimitMebibytes"`
 	// A list of mount point configurations to be used in a container.
@@ -3291,6 +3458,13 @@ func (o ContainerGroupDefinitionSupportContainerDefinitionOutput) HealthCheck() 
 // Specifies the image URI of this container.
 func (o ContainerGroupDefinitionSupportContainerDefinitionOutput) ImageUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerGroupDefinitionSupportContainerDefinition) string { return v.ImageUri }).(pulumi.StringOutput)
+}
+
+// Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
+func (o ContainerGroupDefinitionSupportContainerDefinitionOutput) LinuxCapabilities() ContainerGroupDefinitionLinuxCapabilitiesPtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionSupportContainerDefinition) *ContainerGroupDefinitionLinuxCapabilities {
+		return v.LinuxCapabilities
+	}).(ContainerGroupDefinitionLinuxCapabilitiesPtrOutput)
 }
 
 // The total memory limit of container groups following this definition in MiB
@@ -6680,6 +6854,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerPortRangeArrayInput)(nil)).Elem(), ContainerGroupDefinitionContainerPortRangeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionGameServerContainerDefinitionInput)(nil)).Elem(), ContainerGroupDefinitionGameServerContainerDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionGameServerContainerDefinitionPtrInput)(nil)).Elem(), ContainerGroupDefinitionGameServerContainerDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionLinuxCapabilitiesInput)(nil)).Elem(), ContainerGroupDefinitionLinuxCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionLinuxCapabilitiesPtrInput)(nil)).Elem(), ContainerGroupDefinitionLinuxCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionPortConfigurationInput)(nil)).Elem(), ContainerGroupDefinitionPortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionPortConfigurationPtrInput)(nil)).Elem(), ContainerGroupDefinitionPortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionSupportContainerDefinitionInput)(nil)).Elem(), ContainerGroupDefinitionSupportContainerDefinitionArgs{})
@@ -6765,6 +6941,8 @@ func init() {
 	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerPortRangeArrayOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDefinitionGameServerContainerDefinitionOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionLinuxCapabilitiesOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionLinuxCapabilitiesPtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDefinitionPortConfigurationOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDefinitionPortConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDefinitionSupportContainerDefinitionOutput{})

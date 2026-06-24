@@ -81,6 +81,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("restrictedInstanceGroups")]
         public Output<ImmutableArray<Outputs.ClusterRestrictedInstanceGroup>> RestrictedInstanceGroups { get; private set; } = null!;
 
+        [Output("restrictedInstanceGroupsConfig")]
+        public Output<Outputs.ClusterRestrictedInstanceGroupsConfig?> RestrictedInstanceGroupsConfig { get; private set; } = null!;
+
         /// <summary>
         /// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
         /// </summary>
@@ -198,6 +201,9 @@ namespace Pulumi.AwsNative.SageMaker
             get => _restrictedInstanceGroups ?? (_restrictedInstanceGroups = new InputList<Inputs.ClusterRestrictedInstanceGroupArgs>());
             set => _restrictedInstanceGroups = value;
         }
+
+        [Input("restrictedInstanceGroupsConfig")]
+        public Input<Inputs.ClusterRestrictedInstanceGroupsConfigArgs>? RestrictedInstanceGroupsConfig { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

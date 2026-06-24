@@ -49,6 +49,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
         /// </summary>
         public readonly Outputs.WebAclCountAction? Count;
+        public readonly Outputs.WebAclMonetizeAction? Monetize;
 
         [OutputConstructor]
         private WebAclRuleAction(
@@ -60,13 +61,16 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
 
             Outputs.WebAclChallengeAction? challenge,
 
-            Outputs.WebAclCountAction? count)
+            Outputs.WebAclCountAction? count,
+
+            Outputs.WebAclMonetizeAction? monetize)
         {
             Allow = allow;
             Block = block;
             Captcha = captcha;
             Challenge = challenge;
             Count = count;
+            Monetize = monetize;
         }
     }
 }

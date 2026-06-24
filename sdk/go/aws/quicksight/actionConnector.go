@@ -19,7 +19,7 @@ type ActionConnector struct {
 
 	ActionConnectorId    pulumi.StringOutput                          `pulumi:"actionConnectorId"`
 	Arn                  pulumi.StringOutput                          `pulumi:"arn"`
-	AuthenticationConfig ActionConnectorAuthConfigPtrOutput           `pulumi:"authenticationConfig"`
+	AuthenticationConfig ActionConnectorAuthConfigOutput              `pulumi:"authenticationConfig"`
 	AwsAccountId         pulumi.StringOutput                          `pulumi:"awsAccountId"`
 	CreatedTime          pulumi.StringOutput                          `pulumi:"createdTime"`
 	Description          pulumi.StringPtrOutput                       `pulumi:"description"`
@@ -42,6 +42,9 @@ func NewActionConnector(ctx *pulumi.Context,
 
 	if args.ActionConnectorId == nil {
 		return nil, errors.New("invalid value for required argument 'ActionConnectorId'")
+	}
+	if args.AuthenticationConfig == nil {
+		return nil, errors.New("invalid value for required argument 'AuthenticationConfig'")
 	}
 	if args.AwsAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AwsAccountId'")
@@ -89,7 +92,7 @@ func (ActionConnectorState) ElementType() reflect.Type {
 
 type actionConnectorArgs struct {
 	ActionConnectorId    string                              `pulumi:"actionConnectorId"`
-	AuthenticationConfig *ActionConnectorAuthConfig          `pulumi:"authenticationConfig"`
+	AuthenticationConfig ActionConnectorAuthConfig           `pulumi:"authenticationConfig"`
 	AwsAccountId         string                              `pulumi:"awsAccountId"`
 	Description          *string                             `pulumi:"description"`
 	Name                 *string                             `pulumi:"name"`
@@ -102,7 +105,7 @@ type actionConnectorArgs struct {
 // The set of arguments for constructing a ActionConnector resource.
 type ActionConnectorArgs struct {
 	ActionConnectorId    pulumi.StringInput
-	AuthenticationConfig ActionConnectorAuthConfigPtrInput
+	AuthenticationConfig ActionConnectorAuthConfigInput
 	AwsAccountId         pulumi.StringInput
 	Description          pulumi.StringPtrInput
 	Name                 pulumi.StringPtrInput
@@ -157,8 +160,8 @@ func (o ActionConnectorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionConnector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o ActionConnectorOutput) AuthenticationConfig() ActionConnectorAuthConfigPtrOutput {
-	return o.ApplyT(func(v *ActionConnector) ActionConnectorAuthConfigPtrOutput { return v.AuthenticationConfig }).(ActionConnectorAuthConfigPtrOutput)
+func (o ActionConnectorOutput) AuthenticationConfig() ActionConnectorAuthConfigOutput {
+	return o.ApplyT(func(v *ActionConnector) ActionConnectorAuthConfigOutput { return v.AuthenticationConfig }).(ActionConnectorAuthConfigOutput)
 }
 
 func (o ActionConnectorOutput) AwsAccountId() pulumi.StringOutput {

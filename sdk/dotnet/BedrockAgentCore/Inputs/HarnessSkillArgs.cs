@@ -12,11 +12,20 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 
     public sealed class HarnessSkillArgs : global::Pulumi.ResourceArgs
     {
+        [Input("awsSkills")]
+        public Input<Inputs.HarnessSkillAwsSkillsSourceArgs>? AwsSkills { get; set; }
+
+        [Input("git")]
+        public Input<Inputs.HarnessSkillGitSourceArgs>? Git { get; set; }
+
         /// <summary>
         /// The filesystem path to the skill definition.
         /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
+        [Input("path")]
+        public Input<string>? Path { get; set; }
+
+        [Input("s3")]
+        public Input<Inputs.HarnessSkillS3SourceArgs>? S3 { get; set; }
 
         public HarnessSkillArgs()
         {

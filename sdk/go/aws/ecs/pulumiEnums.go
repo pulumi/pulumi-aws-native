@@ -5873,6 +5873,216 @@ func (in *serviceLaunchTypePtr) ToServiceLaunchTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceLaunchTypePtrOutput)
 }
 
+type ServiceMetricConfigurationMetricNamesItem string
+
+const (
+	ServiceMetricConfigurationMetricNamesItemCpuUtilization    = ServiceMetricConfigurationMetricNamesItem("CPUUtilization")
+	ServiceMetricConfigurationMetricNamesItemMemoryUtilization = ServiceMetricConfigurationMetricNamesItem("MemoryUtilization")
+)
+
+func (ServiceMetricConfigurationMetricNamesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMetricConfigurationMetricNamesItem)(nil)).Elem()
+}
+
+func (e ServiceMetricConfigurationMetricNamesItem) ToServiceMetricConfigurationMetricNamesItemOutput() ServiceMetricConfigurationMetricNamesItemOutput {
+	return pulumi.ToOutput(e).(ServiceMetricConfigurationMetricNamesItemOutput)
+}
+
+func (e ServiceMetricConfigurationMetricNamesItem) ToServiceMetricConfigurationMetricNamesItemOutputWithContext(ctx context.Context) ServiceMetricConfigurationMetricNamesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceMetricConfigurationMetricNamesItemOutput)
+}
+
+func (e ServiceMetricConfigurationMetricNamesItem) ToServiceMetricConfigurationMetricNamesItemPtrOutput() ServiceMetricConfigurationMetricNamesItemPtrOutput {
+	return e.ToServiceMetricConfigurationMetricNamesItemPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceMetricConfigurationMetricNamesItem) ToServiceMetricConfigurationMetricNamesItemPtrOutputWithContext(ctx context.Context) ServiceMetricConfigurationMetricNamesItemPtrOutput {
+	return ServiceMetricConfigurationMetricNamesItem(e).ToServiceMetricConfigurationMetricNamesItemOutputWithContext(ctx).ToServiceMetricConfigurationMetricNamesItemPtrOutputWithContext(ctx)
+}
+
+func (e ServiceMetricConfigurationMetricNamesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceMetricConfigurationMetricNamesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceMetricConfigurationMetricNamesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceMetricConfigurationMetricNamesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceMetricConfigurationMetricNamesItemOutput struct{ *pulumi.OutputState }
+
+func (ServiceMetricConfigurationMetricNamesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMetricConfigurationMetricNamesItem)(nil)).Elem()
+}
+
+func (o ServiceMetricConfigurationMetricNamesItemOutput) ToServiceMetricConfigurationMetricNamesItemOutput() ServiceMetricConfigurationMetricNamesItemOutput {
+	return o
+}
+
+func (o ServiceMetricConfigurationMetricNamesItemOutput) ToServiceMetricConfigurationMetricNamesItemOutputWithContext(ctx context.Context) ServiceMetricConfigurationMetricNamesItemOutput {
+	return o
+}
+
+func (o ServiceMetricConfigurationMetricNamesItemOutput) ToServiceMetricConfigurationMetricNamesItemPtrOutput() ServiceMetricConfigurationMetricNamesItemPtrOutput {
+	return o.ToServiceMetricConfigurationMetricNamesItemPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceMetricConfigurationMetricNamesItemOutput) ToServiceMetricConfigurationMetricNamesItemPtrOutputWithContext(ctx context.Context) ServiceMetricConfigurationMetricNamesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceMetricConfigurationMetricNamesItem) *ServiceMetricConfigurationMetricNamesItem {
+		return &v
+	}).(ServiceMetricConfigurationMetricNamesItemPtrOutput)
+}
+
+func (o ServiceMetricConfigurationMetricNamesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceMetricConfigurationMetricNamesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceMetricConfigurationMetricNamesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceMetricConfigurationMetricNamesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceMetricConfigurationMetricNamesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceMetricConfigurationMetricNamesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceMetricConfigurationMetricNamesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceMetricConfigurationMetricNamesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMetricConfigurationMetricNamesItem)(nil)).Elem()
+}
+
+func (o ServiceMetricConfigurationMetricNamesItemPtrOutput) ToServiceMetricConfigurationMetricNamesItemPtrOutput() ServiceMetricConfigurationMetricNamesItemPtrOutput {
+	return o
+}
+
+func (o ServiceMetricConfigurationMetricNamesItemPtrOutput) ToServiceMetricConfigurationMetricNamesItemPtrOutputWithContext(ctx context.Context) ServiceMetricConfigurationMetricNamesItemPtrOutput {
+	return o
+}
+
+func (o ServiceMetricConfigurationMetricNamesItemPtrOutput) Elem() ServiceMetricConfigurationMetricNamesItemOutput {
+	return o.ApplyT(func(v *ServiceMetricConfigurationMetricNamesItem) ServiceMetricConfigurationMetricNamesItem {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceMetricConfigurationMetricNamesItem
+		return ret
+	}).(ServiceMetricConfigurationMetricNamesItemOutput)
+}
+
+func (o ServiceMetricConfigurationMetricNamesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceMetricConfigurationMetricNamesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceMetricConfigurationMetricNamesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceMetricConfigurationMetricNamesItemInput is an input type that accepts values of the ServiceMetricConfigurationMetricNamesItem enum
+// A concrete instance of `ServiceMetricConfigurationMetricNamesItemInput` can be one of the following:
+//
+//	ServiceMetricConfigurationMetricNamesItemCpuUtilization
+//	ServiceMetricConfigurationMetricNamesItemMemoryUtilization
+type ServiceMetricConfigurationMetricNamesItemInput interface {
+	pulumi.Input
+
+	ToServiceMetricConfigurationMetricNamesItemOutput() ServiceMetricConfigurationMetricNamesItemOutput
+	ToServiceMetricConfigurationMetricNamesItemOutputWithContext(context.Context) ServiceMetricConfigurationMetricNamesItemOutput
+}
+
+var serviceMetricConfigurationMetricNamesItemPtrType = reflect.TypeOf((**ServiceMetricConfigurationMetricNamesItem)(nil)).Elem()
+
+type ServiceMetricConfigurationMetricNamesItemPtrInput interface {
+	pulumi.Input
+
+	ToServiceMetricConfigurationMetricNamesItemPtrOutput() ServiceMetricConfigurationMetricNamesItemPtrOutput
+	ToServiceMetricConfigurationMetricNamesItemPtrOutputWithContext(context.Context) ServiceMetricConfigurationMetricNamesItemPtrOutput
+}
+
+type serviceMetricConfigurationMetricNamesItemPtr string
+
+func ServiceMetricConfigurationMetricNamesItemPtr(v string) ServiceMetricConfigurationMetricNamesItemPtrInput {
+	return (*serviceMetricConfigurationMetricNamesItemPtr)(&v)
+}
+
+func (*serviceMetricConfigurationMetricNamesItemPtr) ElementType() reflect.Type {
+	return serviceMetricConfigurationMetricNamesItemPtrType
+}
+
+func (in *serviceMetricConfigurationMetricNamesItemPtr) ToServiceMetricConfigurationMetricNamesItemPtrOutput() ServiceMetricConfigurationMetricNamesItemPtrOutput {
+	return pulumi.ToOutput(in).(ServiceMetricConfigurationMetricNamesItemPtrOutput)
+}
+
+func (in *serviceMetricConfigurationMetricNamesItemPtr) ToServiceMetricConfigurationMetricNamesItemPtrOutputWithContext(ctx context.Context) ServiceMetricConfigurationMetricNamesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceMetricConfigurationMetricNamesItemPtrOutput)
+}
+
+// ServiceMetricConfigurationMetricNamesItemArrayInput is an input type that accepts ServiceMetricConfigurationMetricNamesItemArray and ServiceMetricConfigurationMetricNamesItemArrayOutput values.
+// You can construct a concrete instance of `ServiceMetricConfigurationMetricNamesItemArrayInput` via:
+//
+//	ServiceMetricConfigurationMetricNamesItemArray{ ServiceMetricConfigurationMetricNamesItemArgs{...} }
+type ServiceMetricConfigurationMetricNamesItemArrayInput interface {
+	pulumi.Input
+
+	ToServiceMetricConfigurationMetricNamesItemArrayOutput() ServiceMetricConfigurationMetricNamesItemArrayOutput
+	ToServiceMetricConfigurationMetricNamesItemArrayOutputWithContext(context.Context) ServiceMetricConfigurationMetricNamesItemArrayOutput
+}
+
+type ServiceMetricConfigurationMetricNamesItemArray []ServiceMetricConfigurationMetricNamesItem
+
+func (ServiceMetricConfigurationMetricNamesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceMetricConfigurationMetricNamesItem)(nil)).Elem()
+}
+
+func (i ServiceMetricConfigurationMetricNamesItemArray) ToServiceMetricConfigurationMetricNamesItemArrayOutput() ServiceMetricConfigurationMetricNamesItemArrayOutput {
+	return i.ToServiceMetricConfigurationMetricNamesItemArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceMetricConfigurationMetricNamesItemArray) ToServiceMetricConfigurationMetricNamesItemArrayOutputWithContext(ctx context.Context) ServiceMetricConfigurationMetricNamesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMetricConfigurationMetricNamesItemArrayOutput)
+}
+
+type ServiceMetricConfigurationMetricNamesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceMetricConfigurationMetricNamesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceMetricConfigurationMetricNamesItem)(nil)).Elem()
+}
+
+func (o ServiceMetricConfigurationMetricNamesItemArrayOutput) ToServiceMetricConfigurationMetricNamesItemArrayOutput() ServiceMetricConfigurationMetricNamesItemArrayOutput {
+	return o
+}
+
+func (o ServiceMetricConfigurationMetricNamesItemArrayOutput) ToServiceMetricConfigurationMetricNamesItemArrayOutputWithContext(ctx context.Context) ServiceMetricConfigurationMetricNamesItemArrayOutput {
+	return o
+}
+
+func (o ServiceMetricConfigurationMetricNamesItemArrayOutput) Index(i pulumi.IntInput) ServiceMetricConfigurationMetricNamesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceMetricConfigurationMetricNamesItem {
+		return vs[0].([]ServiceMetricConfigurationMetricNamesItem)[vs[1].(int)]
+	}).(ServiceMetricConfigurationMetricNamesItemOutput)
+}
+
 // The type of constraint. Use “distinctInstance“ to ensure that each task in a particular group is running on a different container instance. Use “memberOf“ to restrict the selection to a group of valid candidates.
 type ServicePlacementConstraintType string
 
@@ -7783,6 +7993,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHookTimeoutConfigActionPtrInput)(nil)).Elem(), ServiceHookTimeoutConfigAction("ROLLBACK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLaunchTypeInput)(nil)).Elem(), ServiceLaunchType("EC2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLaunchTypePtrInput)(nil)).Elem(), ServiceLaunchType("EC2"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMetricConfigurationMetricNamesItemInput)(nil)).Elem(), ServiceMetricConfigurationMetricNamesItem("CPUUtilization"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMetricConfigurationMetricNamesItemPtrInput)(nil)).Elem(), ServiceMetricConfigurationMetricNamesItem("CPUUtilization"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMetricConfigurationMetricNamesItemArrayInput)(nil)).Elem(), ServiceMetricConfigurationMetricNamesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlacementConstraintTypeInput)(nil)).Elem(), ServicePlacementConstraintType("distinctInstance"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlacementConstraintTypePtrInput)(nil)).Elem(), ServicePlacementConstraintType("distinctInstance"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlacementStrategyTypeInput)(nil)).Elem(), ServicePlacementStrategyType("binpack"))
@@ -7880,6 +8093,9 @@ func init() {
 	pulumi.RegisterOutputType(ServiceHookTimeoutConfigActionPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLaunchTypeOutput{})
 	pulumi.RegisterOutputType(ServiceLaunchTypePtrOutput{})
+	pulumi.RegisterOutputType(ServiceMetricConfigurationMetricNamesItemOutput{})
+	pulumi.RegisterOutputType(ServiceMetricConfigurationMetricNamesItemPtrOutput{})
+	pulumi.RegisterOutputType(ServiceMetricConfigurationMetricNamesItemArrayOutput{})
 	pulumi.RegisterOutputType(ServicePlacementConstraintTypeOutput{})
 	pulumi.RegisterOutputType(ServicePlacementConstraintTypePtrOutput{})
 	pulumi.RegisterOutputType(ServicePlacementStrategyTypeOutput{})

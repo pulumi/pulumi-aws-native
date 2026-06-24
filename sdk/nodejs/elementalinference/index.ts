@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DictionaryArgs } from "./dictionary";
+export type Dictionary = import("./dictionary").Dictionary;
+export const Dictionary: typeof import("./dictionary").Dictionary = null as any;
+utilities.lazyLoad(exports, ["Dictionary"], () => require("./dictionary"));
+
 export { FeedArgs } from "./feed";
 export type Feed = import("./feed").Feed;
 export const Feed: typeof import("./feed").Feed = null as any;
 utilities.lazyLoad(exports, ["Feed"], () => require("./feed"));
+
+export { GetDictionaryArgs, GetDictionaryResult, GetDictionaryOutputArgs } from "./getDictionary";
+export const getDictionary: typeof import("./getDictionary").getDictionary = null as any;
+export const getDictionaryOutput: typeof import("./getDictionary").getDictionaryOutput = null as any;
+utilities.lazyLoad(exports, ["getDictionary","getDictionaryOutput"], () => require("./getDictionary"));
 
 export { GetFeedArgs, GetFeedResult, GetFeedOutputArgs } from "./getFeed";
 export const getFeed: typeof import("./getFeed").getFeed = null as any;
@@ -23,6 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:elementalinference:Dictionary":
+                return new Dictionary(name, <any>undefined, { urn })
             case "aws-native:elementalinference:Feed":
                 return new Feed(name, <any>undefined, { urn })
             default:

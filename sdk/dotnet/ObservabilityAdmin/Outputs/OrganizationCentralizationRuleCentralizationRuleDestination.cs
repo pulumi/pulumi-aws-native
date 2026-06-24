@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// Log specific configuration for centralization destination log groups.
         /// </summary>
         public readonly Outputs.OrganizationCentralizationRuleDestinationLogsConfiguration? DestinationLogsConfiguration;
+        public readonly Outputs.OrganizationCentralizationRuleDestinationMetricsConfiguration? DestinationMetricsConfiguration;
         /// <summary>
         /// The primary destination region to which telemetry data should be centralized.
         /// </summary>
@@ -32,10 +33,13 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
 
             Outputs.OrganizationCentralizationRuleDestinationLogsConfiguration? destinationLogsConfiguration,
 
+            Outputs.OrganizationCentralizationRuleDestinationMetricsConfiguration? destinationMetricsConfiguration,
+
             string region)
         {
             Account = account;
             DestinationLogsConfiguration = destinationLogsConfiguration;
+            DestinationMetricsConfiguration = destinationMetricsConfiguration;
             Region = region;
         }
     }

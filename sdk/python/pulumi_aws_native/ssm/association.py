@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,6 +25,7 @@ __all__ = ['AssociationArgs', 'Association']
 class AssociationArgs:
     def __init__(__self__, *,
                  apply_only_at_cron_interval: Optional[pulumi.Input[_builtins.bool]] = None,
+                 association_dispatch_assume_role: Optional[pulumi.Input[_builtins.str]] = None,
                  association_name: Optional[pulumi.Input[_builtins.str]] = None,
                  automation_target_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
                  calendar_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -37,12 +40,14 @@ class AssociationArgs:
                  schedule_expression: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule_offset: Optional[pulumi.Input[_builtins.int]] = None,
                  sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Association resource.
 
         :param pulumi.Input[_builtins.bool] apply_only_at_cron_interval: By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
+        :param pulumi.Input[_builtins.str] association_dispatch_assume_role: A role used by association to take actions on your behalf.
         :param pulumi.Input[_builtins.str] association_name: The name of the association.
         :param pulumi.Input[_builtins.str] automation_target_parameter_name: Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] calendar_names: The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
@@ -65,6 +70,7 @@ class AssociationArgs:
                In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the `PutComplianceItems` API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the `PutComplianceItems` API action.
                
                By default, all associations use `AUTO` mode.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair to associate with a resource.
         :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: The targets that the SSM document sends commands to.
         :param pulumi.Input[_builtins.int] wait_for_success_timeout_seconds: The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution. If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
                
@@ -72,6 +78,8 @@ class AssociationArgs:
         """
         if apply_only_at_cron_interval is not None:
             pulumi.set(__self__, "apply_only_at_cron_interval", apply_only_at_cron_interval)
+        if association_dispatch_assume_role is not None:
+            pulumi.set(__self__, "association_dispatch_assume_role", association_dispatch_assume_role)
         if association_name is not None:
             pulumi.set(__self__, "association_name", association_name)
         if automation_target_parameter_name is not None:
@@ -100,6 +108,8 @@ class AssociationArgs:
             pulumi.set(__self__, "schedule_offset", schedule_offset)
         if sync_compliance is not None:
             pulumi.set(__self__, "sync_compliance", sync_compliance)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if targets is not None:
             pulumi.set(__self__, "targets", targets)
         if wait_for_success_timeout_seconds is not None:
@@ -116,6 +126,18 @@ class AssociationArgs:
     @apply_only_at_cron_interval.setter
     def apply_only_at_cron_interval(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "apply_only_at_cron_interval", value)
+
+    @_builtins.property
+    @pulumi.getter(name="associationDispatchAssumeRole")
+    def association_dispatch_assume_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A role used by association to take actions on your behalf.
+        """
+        return pulumi.get(self, "association_dispatch_assume_role")
+
+    @association_dispatch_assume_role.setter
+    def association_dispatch_assume_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "association_dispatch_assume_role", value)
 
     @_builtins.property
     @pulumi.getter(name="associationName")
@@ -295,6 +317,18 @@ class AssociationArgs:
 
     @_builtins.property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A key-value pair to associate with a resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]]:
         """
         The targets that the SSM document sends commands to.
@@ -327,6 +361,7 @@ class Association(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apply_only_at_cron_interval: Optional[pulumi.Input[_builtins.bool]] = None,
+                 association_dispatch_assume_role: Optional[pulumi.Input[_builtins.str]] = None,
                  association_name: Optional[pulumi.Input[_builtins.str]] = None,
                  automation_target_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
                  calendar_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -341,6 +376,7 @@ class Association(pulumi.CustomResource):
                  schedule_expression: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule_offset: Optional[pulumi.Input[_builtins.int]] = None,
                  sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict']]]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
@@ -453,6 +489,7 @@ class Association(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] apply_only_at_cron_interval: By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
+        :param pulumi.Input[_builtins.str] association_dispatch_assume_role: A role used by association to take actions on your behalf.
         :param pulumi.Input[_builtins.str] association_name: The name of the association.
         :param pulumi.Input[_builtins.str] automation_target_parameter_name: Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] calendar_names: The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
@@ -475,6 +512,7 @@ class Association(pulumi.CustomResource):
                In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the `PutComplianceItems` API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the `PutComplianceItems` API action.
                
                By default, all associations use `AUTO` mode.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair to associate with a resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict']]]] targets: The targets that the SSM document sends commands to.
         :param pulumi.Input[_builtins.int] wait_for_success_timeout_seconds: The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution. If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
                
@@ -608,6 +646,7 @@ class Association(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apply_only_at_cron_interval: Optional[pulumi.Input[_builtins.bool]] = None,
+                 association_dispatch_assume_role: Optional[pulumi.Input[_builtins.str]] = None,
                  association_name: Optional[pulumi.Input[_builtins.str]] = None,
                  automation_target_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
                  calendar_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -622,6 +661,7 @@ class Association(pulumi.CustomResource):
                  schedule_expression: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule_offset: Optional[pulumi.Input[_builtins.int]] = None,
                  sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict']]]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
@@ -634,6 +674,7 @@ class Association(pulumi.CustomResource):
             __props__ = AssociationArgs.__new__(AssociationArgs)
 
             __props__.__dict__["apply_only_at_cron_interval"] = apply_only_at_cron_interval
+            __props__.__dict__["association_dispatch_assume_role"] = association_dispatch_assume_role
             __props__.__dict__["association_name"] = association_name
             __props__.__dict__["automation_target_parameter_name"] = automation_target_parameter_name
             __props__.__dict__["calendar_names"] = calendar_names
@@ -648,6 +689,7 @@ class Association(pulumi.CustomResource):
             __props__.__dict__["schedule_expression"] = schedule_expression
             __props__.__dict__["schedule_offset"] = schedule_offset
             __props__.__dict__["sync_compliance"] = sync_compliance
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["targets"] = targets
             __props__.__dict__["wait_for_success_timeout_seconds"] = wait_for_success_timeout_seconds
             __props__.__dict__["association_id"] = None
@@ -674,6 +716,7 @@ class Association(pulumi.CustomResource):
         __props__ = AssociationArgs.__new__(AssociationArgs)
 
         __props__.__dict__["apply_only_at_cron_interval"] = None
+        __props__.__dict__["association_dispatch_assume_role"] = None
         __props__.__dict__["association_id"] = None
         __props__.__dict__["association_name"] = None
         __props__.__dict__["automation_target_parameter_name"] = None
@@ -689,6 +732,7 @@ class Association(pulumi.CustomResource):
         __props__.__dict__["schedule_expression"] = None
         __props__.__dict__["schedule_offset"] = None
         __props__.__dict__["sync_compliance"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["targets"] = None
         __props__.__dict__["wait_for_success_timeout_seconds"] = None
         return Association(resource_name, opts=opts, __props__=__props__)
@@ -700,6 +744,14 @@ class Association(pulumi.CustomResource):
         By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
         """
         return pulumi.get(self, "apply_only_at_cron_interval")
+
+    @_builtins.property
+    @pulumi.getter(name="associationDispatchAssumeRole")
+    def association_dispatch_assume_role(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        A role used by association to take actions on your behalf.
+        """
+        return pulumi.get(self, "association_dispatch_assume_role")
 
     @_builtins.property
     @pulumi.getter(name="associationId")
@@ -828,6 +880,14 @@ class Association(pulumi.CustomResource):
         By default, all associations use `AUTO` mode.
         """
         return pulumi.get(self, "sync_compliance")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A key-value pair to associate with a resource.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter

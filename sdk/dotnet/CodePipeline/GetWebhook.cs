@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.CodePipeline
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// The name of the action in a pipeline you want to connect to the webhook.
         /// </summary>
         public readonly string? TargetAction;
@@ -102,6 +106,8 @@ namespace Pulumi.AwsNative.CodePipeline
 
             string? id,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             string? targetAction,
 
             string? targetPipeline,
@@ -112,6 +118,7 @@ namespace Pulumi.AwsNative.CodePipeline
             AuthenticationConfiguration = authenticationConfiguration;
             Filters = filters;
             Id = id;
+            Tags = tags;
             TargetAction = targetAction;
             TargetPipeline = targetPipeline;
             Url = url;

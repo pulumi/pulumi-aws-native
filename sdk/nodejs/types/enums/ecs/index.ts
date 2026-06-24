@@ -405,6 +405,13 @@ export const ServiceLaunchType = {
  */
 export type ServiceLaunchType = (typeof ServiceLaunchType)[keyof typeof ServiceLaunchType];
 
+export const ServiceMetricConfigurationMetricNamesItem = {
+    CpuUtilization: "CPUUtilization",
+    MemoryUtilization: "MemoryUtilization",
+} as const;
+
+export type ServiceMetricConfigurationMetricNamesItem = (typeof ServiceMetricConfigurationMetricNamesItem)[keyof typeof ServiceMetricConfigurationMetricNamesItem];
+
 export const ServicePlacementConstraintType = {
     DistinctInstance: "distinctInstance",
     MemberOf: "memberOf",

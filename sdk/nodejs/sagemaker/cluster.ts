@@ -79,6 +79,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly orchestrator: pulumi.Output<outputs.sagemaker.ClusterOrchestrator | undefined>;
     declare public readonly restrictedInstanceGroups: pulumi.Output<outputs.sagemaker.ClusterRestrictedInstanceGroup[] | undefined>;
+    declare public readonly restrictedInstanceGroupsConfig: pulumi.Output<outputs.sagemaker.ClusterRestrictedInstanceGroupsConfig | undefined>;
     /**
      * Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
      */
@@ -108,6 +109,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["nodeRecovery"] = args?.nodeRecovery;
             resourceInputs["orchestrator"] = args?.orchestrator;
             resourceInputs["restrictedInstanceGroups"] = args?.restrictedInstanceGroups;
+            resourceInputs["restrictedInstanceGroupsConfig"] = args?.restrictedInstanceGroupsConfig;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["tieredStorageConfig"] = args?.tieredStorageConfig;
             resourceInputs["vpcConfig"] = args?.vpcConfig;
@@ -128,6 +130,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["nodeRecovery"] = undefined /*out*/;
             resourceInputs["orchestrator"] = undefined /*out*/;
             resourceInputs["restrictedInstanceGroups"] = undefined /*out*/;
+            resourceInputs["restrictedInstanceGroupsConfig"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tieredStorageConfig"] = undefined /*out*/;
             resourceInputs["vpcConfig"] = undefined /*out*/;
@@ -169,6 +172,7 @@ export interface ClusterArgs {
      */
     orchestrator?: pulumi.Input<inputs.sagemaker.ClusterOrchestratorArgs>;
     restrictedInstanceGroups?: pulumi.Input<pulumi.Input<inputs.sagemaker.ClusterRestrictedInstanceGroupArgs>[]>;
+    restrictedInstanceGroupsConfig?: pulumi.Input<inputs.sagemaker.ClusterRestrictedInstanceGroupsConfigArgs>;
     /**
      * Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
      */

@@ -36,6 +36,7 @@ type LookupUserPoolDomainResult struct {
 	//
 	// When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
 	CustomDomainConfig *UserPoolDomainCustomDomainConfigType `pulumi:"customDomainConfig"`
+	Routing            *UserPoolDomainRoutingType            `pulumi:"routing"`
 }
 
 func LookupUserPoolDomainOutput(ctx *pulumi.Context, args LookupUserPoolDomainOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolDomainResultOutput {
@@ -82,6 +83,10 @@ func (o LookupUserPoolDomainResultOutput) CloudFrontDistribution() pulumi.String
 // When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
 func (o LookupUserPoolDomainResultOutput) CustomDomainConfig() UserPoolDomainCustomDomainConfigTypePtrOutput {
 	return o.ApplyT(func(v LookupUserPoolDomainResult) *UserPoolDomainCustomDomainConfigType { return v.CustomDomainConfig }).(UserPoolDomainCustomDomainConfigTypePtrOutput)
+}
+
+func (o LookupUserPoolDomainResultOutput) Routing() UserPoolDomainRoutingTypePtrOutput {
+	return o.ApplyT(func(v LookupUserPoolDomainResult) *UserPoolDomainRoutingType { return v.Routing }).(UserPoolDomainRoutingTypePtrOutput)
 }
 
 func init() {

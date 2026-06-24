@@ -70,6 +70,10 @@ export class ConfigurationBundle extends pulumi.CustomResource {
      * The description for the configuration bundle.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the KMS key used to encrypt component configurations.
+     */
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly lineageMetadata: pulumi.Output<outputs.bedrockagentcore.ConfigurationBundleVersionLineageMetadata>;
     /**
      * Tags to assign to the configuration bundle.
@@ -104,6 +108,7 @@ export class ConfigurationBundle extends pulumi.CustomResource {
             resourceInputs["components"] = args?.components;
             resourceInputs["createdBy"] = args?.createdBy;
             resourceInputs["description"] = args?.description;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["bundleArn"] = undefined /*out*/;
             resourceInputs["bundleId"] = undefined /*out*/;
@@ -121,6 +126,7 @@ export class ConfigurationBundle extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["lineageMetadata"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
@@ -158,6 +164,10 @@ export interface ConfigurationBundleArgs {
      * The description for the configuration bundle.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The ARN of the KMS key used to encrypt component configurations.
+     */
+    kmsKeyArn?: pulumi.Input<string>;
     /**
      * Tags to assign to the configuration bundle.
      */

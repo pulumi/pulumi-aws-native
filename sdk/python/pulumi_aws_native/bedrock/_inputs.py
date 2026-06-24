@@ -154,6 +154,8 @@ __all__ = [
     'DataAutomationProjectVideoStandardGenerativeFieldArgsDict',
     'DataAutomationProjectVideoStandardOutputConfigurationArgs',
     'DataAutomationProjectVideoStandardOutputConfigurationArgsDict',
+    'DataSourceAudioExtractionConfigurationArgs',
+    'DataSourceAudioExtractionConfigurationArgsDict',
     'DataSourceBedrockDataAutomationConfigurationArgs',
     'DataSourceBedrockDataAutomationConfigurationArgsDict',
     'DataSourceBedrockFoundationModelConfigurationArgs',
@@ -176,6 +178,8 @@ __all__ = [
     'DataSourceCrawlFilterConfigurationArgsDict',
     'DataSourceCustomTransformationConfigurationArgs',
     'DataSourceCustomTransformationConfigurationArgsDict',
+    'DataSourceDeletionProtectionConfigurationArgs',
+    'DataSourceDeletionProtectionConfigurationArgsDict',
     'DataSourceEnrichmentStrategyConfigurationArgs',
     'DataSourceEnrichmentStrategyConfigurationArgsDict',
     'DataSourceFixedSizeChunkingConfigurationArgs',
@@ -184,8 +188,14 @@ __all__ = [
     'DataSourceHierarchicalChunkingConfigurationArgsDict',
     'DataSourceHierarchicalChunkingLevelConfigurationArgs',
     'DataSourceHierarchicalChunkingLevelConfigurationArgsDict',
+    'DataSourceImageExtractionConfigurationArgs',
+    'DataSourceImageExtractionConfigurationArgsDict',
     'DataSourceIntermediateStorageArgs',
     'DataSourceIntermediateStorageArgsDict',
+    'DataSourceManagedKnowledgeBaseConnectorConfigurationArgs',
+    'DataSourceManagedKnowledgeBaseConnectorConfigurationArgsDict',
+    'DataSourceMediaExtractionConfigurationArgs',
+    'DataSourceMediaExtractionConfigurationArgsDict',
     'DataSourceParsingConfigurationArgs',
     'DataSourceParsingConfigurationArgsDict',
     'DataSourceParsingPromptArgs',
@@ -226,6 +236,8 @@ __all__ = [
     'DataSourceUrlConfigurationArgsDict',
     'DataSourceVectorIngestionConfigurationArgs',
     'DataSourceVectorIngestionConfigurationArgsDict',
+    'DataSourceVideoExtractionConfigurationArgs',
+    'DataSourceVideoExtractionConfigurationArgsDict',
     'DataSourceWebCrawlerConfigurationArgs',
     'DataSourceWebCrawlerConfigurationArgsDict',
     'DataSourceWebCrawlerLimitsArgs',
@@ -428,6 +440,10 @@ __all__ = [
     'KnowledgeBaseEmbeddingModelConfigurationArgsDict',
     'KnowledgeBaseKendraKnowledgeBaseConfigurationArgs',
     'KnowledgeBaseKendraKnowledgeBaseConfigurationArgsDict',
+    'KnowledgeBaseManagedKnowledgeBaseConfigurationArgs',
+    'KnowledgeBaseManagedKnowledgeBaseConfigurationArgsDict',
+    'KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs',
+    'KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgsDict',
     'KnowledgeBaseMongoDbAtlasConfigurationArgs',
     'KnowledgeBaseMongoDbAtlasConfigurationArgsDict',
     'KnowledgeBaseMongoDbAtlasFieldMappingArgs',
@@ -4318,6 +4334,31 @@ class DataAutomationProjectVideoStandardOutputConfigurationArgs:
         pulumi.set(self, "generative_field", value)
 
 
+class DataSourceAudioExtractionConfigurationArgsDict(TypedDict):
+    """
+    Configuration for audio extraction.
+    """
+    audio_extraction_status: pulumi.Input['DataSourceEnabledOrDisabledState']
+
+@pulumi.input_type
+class DataSourceAudioExtractionConfigurationArgs:
+    def __init__(__self__, *,
+                 audio_extraction_status: pulumi.Input['DataSourceEnabledOrDisabledState']):
+        """
+        Configuration for audio extraction.
+        """
+        pulumi.set(__self__, "audio_extraction_status", audio_extraction_status)
+
+    @_builtins.property
+    @pulumi.getter(name="audioExtractionStatus")
+    def audio_extraction_status(self) -> pulumi.Input['DataSourceEnabledOrDisabledState']:
+        return pulumi.get(self, "audio_extraction_status")
+
+    @audio_extraction_status.setter
+    def audio_extraction_status(self, value: pulumi.Input['DataSourceEnabledOrDisabledState']):
+        pulumi.set(self, "audio_extraction_status", value)
+
+
 class DataSourceBedrockDataAutomationConfigurationArgsDict(TypedDict):
     """
     Settings for a Bedrock Data Automation used to parse documents for a data source.
@@ -4599,6 +4640,7 @@ class DataSourceConfigurationArgsDict(TypedDict):
 
     > Confluence data source connector is in preview release and is subject to change.
     """
+    managed_knowledge_base_connector_configuration: NotRequired[pulumi.Input['DataSourceManagedKnowledgeBaseConnectorConfigurationArgsDict']]
     s3_configuration: NotRequired[pulumi.Input['DataSourceS3DataSourceConfigurationArgsDict']]
     """
     The configuration information to connect to Amazon S3 as your data source.
@@ -4627,6 +4669,7 @@ class DataSourceConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['DataSourceType'],
                  confluence_configuration: Optional[pulumi.Input['DataSourceConfluenceDataSourceConfigurationArgs']] = None,
+                 managed_knowledge_base_connector_configuration: Optional[pulumi.Input['DataSourceManagedKnowledgeBaseConnectorConfigurationArgs']] = None,
                  s3_configuration: Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']] = None,
                  salesforce_configuration: Optional[pulumi.Input['DataSourceSalesforceDataSourceConfigurationArgs']] = None,
                  share_point_configuration: Optional[pulumi.Input['DataSourceSharePointDataSourceConfigurationArgs']] = None,
@@ -4652,6 +4695,8 @@ class DataSourceConfigurationArgs:
         pulumi.set(__self__, "type", type)
         if confluence_configuration is not None:
             pulumi.set(__self__, "confluence_configuration", confluence_configuration)
+        if managed_knowledge_base_connector_configuration is not None:
+            pulumi.set(__self__, "managed_knowledge_base_connector_configuration", managed_knowledge_base_connector_configuration)
         if s3_configuration is not None:
             pulumi.set(__self__, "s3_configuration", s3_configuration)
         if salesforce_configuration is not None:
@@ -4686,6 +4731,15 @@ class DataSourceConfigurationArgs:
     @confluence_configuration.setter
     def confluence_configuration(self, value: Optional[pulumi.Input['DataSourceConfluenceDataSourceConfigurationArgs']]):
         pulumi.set(self, "confluence_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedKnowledgeBaseConnectorConfiguration")
+    def managed_knowledge_base_connector_configuration(self) -> Optional[pulumi.Input['DataSourceManagedKnowledgeBaseConnectorConfigurationArgs']]:
+        return pulumi.get(self, "managed_knowledge_base_connector_configuration")
+
+    @managed_knowledge_base_connector_configuration.setter
+    def managed_knowledge_base_connector_configuration(self, value: Optional[pulumi.Input['DataSourceManagedKnowledgeBaseConnectorConfigurationArgs']]):
+        pulumi.set(self, "managed_knowledge_base_connector_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Configuration")
@@ -5077,6 +5131,52 @@ class DataSourceCustomTransformationConfigurationArgs:
         pulumi.set(self, "transformations", value)
 
 
+class DataSourceDeletionProtectionConfigurationArgsDict(TypedDict):
+    """
+    Configuration for deletion protection.
+    """
+    deletion_protection_status: pulumi.Input['DataSourceEnabledOrDisabledState']
+    deletion_protection_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Threshold for deletion protection.
+    """
+
+@pulumi.input_type
+class DataSourceDeletionProtectionConfigurationArgs:
+    def __init__(__self__, *,
+                 deletion_protection_status: pulumi.Input['DataSourceEnabledOrDisabledState'],
+                 deletion_protection_threshold: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Configuration for deletion protection.
+
+        :param pulumi.Input[_builtins.int] deletion_protection_threshold: Threshold for deletion protection.
+        """
+        pulumi.set(__self__, "deletion_protection_status", deletion_protection_status)
+        if deletion_protection_threshold is not None:
+            pulumi.set(__self__, "deletion_protection_threshold", deletion_protection_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionStatus")
+    def deletion_protection_status(self) -> pulumi.Input['DataSourceEnabledOrDisabledState']:
+        return pulumi.get(self, "deletion_protection_status")
+
+    @deletion_protection_status.setter
+    def deletion_protection_status(self, value: pulumi.Input['DataSourceEnabledOrDisabledState']):
+        pulumi.set(self, "deletion_protection_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionThreshold")
+    def deletion_protection_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Threshold for deletion protection.
+        """
+        return pulumi.get(self, "deletion_protection_threshold")
+
+    @deletion_protection_threshold.setter
+    def deletion_protection_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "deletion_protection_threshold", value)
+
+
 class DataSourceEnrichmentStrategyConfigurationArgsDict(TypedDict):
     """
     Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
@@ -5247,6 +5347,31 @@ class DataSourceHierarchicalChunkingLevelConfigurationArgs:
         pulumi.set(self, "max_tokens", value)
 
 
+class DataSourceImageExtractionConfigurationArgsDict(TypedDict):
+    """
+    Configuration for image extraction.
+    """
+    image_extraction_status: pulumi.Input['DataSourceEnabledOrDisabledState']
+
+@pulumi.input_type
+class DataSourceImageExtractionConfigurationArgs:
+    def __init__(__self__, *,
+                 image_extraction_status: pulumi.Input['DataSourceEnabledOrDisabledState']):
+        """
+        Configuration for image extraction.
+        """
+        pulumi.set(__self__, "image_extraction_status", image_extraction_status)
+
+    @_builtins.property
+    @pulumi.getter(name="imageExtractionStatus")
+    def image_extraction_status(self) -> pulumi.Input['DataSourceEnabledOrDisabledState']:
+        return pulumi.get(self, "image_extraction_status")
+
+    @image_extraction_status.setter
+    def image_extraction_status(self, value: pulumi.Input['DataSourceEnabledOrDisabledState']):
+        pulumi.set(self, "image_extraction_status", value)
+
+
 class DataSourceIntermediateStorageArgsDict(TypedDict):
     """
     A location for storing content from data sources temporarily as it is processed by custom components in the ingestion pipeline.
@@ -5278,6 +5403,118 @@ class DataSourceIntermediateStorageArgs:
     @s3_location.setter
     def s3_location(self, value: pulumi.Input['DataSourceS3LocationArgs']):
         pulumi.set(self, "s3_location", value)
+
+
+class DataSourceManagedKnowledgeBaseConnectorConfigurationArgsDict(TypedDict):
+    """
+    Configuration for managed knowledge base connector data sources.
+    """
+    connector_parameters: NotRequired[Any]
+    """
+    Connector-specific parameters.
+    """
+    deletion_protection_configuration: NotRequired[pulumi.Input['DataSourceDeletionProtectionConfigurationArgsDict']]
+    media_extraction_configuration: NotRequired[pulumi.Input['DataSourceMediaExtractionConfigurationArgsDict']]
+
+@pulumi.input_type
+class DataSourceManagedKnowledgeBaseConnectorConfigurationArgs:
+    def __init__(__self__, *,
+                 connector_parameters: Optional[Any] = None,
+                 deletion_protection_configuration: Optional[pulumi.Input['DataSourceDeletionProtectionConfigurationArgs']] = None,
+                 media_extraction_configuration: Optional[pulumi.Input['DataSourceMediaExtractionConfigurationArgs']] = None):
+        """
+        Configuration for managed knowledge base connector data sources.
+
+        :param Any connector_parameters: Connector-specific parameters.
+        """
+        if connector_parameters is not None:
+            pulumi.set(__self__, "connector_parameters", connector_parameters)
+        if deletion_protection_configuration is not None:
+            pulumi.set(__self__, "deletion_protection_configuration", deletion_protection_configuration)
+        if media_extraction_configuration is not None:
+            pulumi.set(__self__, "media_extraction_configuration", media_extraction_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorParameters")
+    def connector_parameters(self) -> Optional[Any]:
+        """
+        Connector-specific parameters.
+        """
+        return pulumi.get(self, "connector_parameters")
+
+    @connector_parameters.setter
+    def connector_parameters(self, value: Optional[Any]):
+        pulumi.set(self, "connector_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionConfiguration")
+    def deletion_protection_configuration(self) -> Optional[pulumi.Input['DataSourceDeletionProtectionConfigurationArgs']]:
+        return pulumi.get(self, "deletion_protection_configuration")
+
+    @deletion_protection_configuration.setter
+    def deletion_protection_configuration(self, value: Optional[pulumi.Input['DataSourceDeletionProtectionConfigurationArgs']]):
+        pulumi.set(self, "deletion_protection_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mediaExtractionConfiguration")
+    def media_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceMediaExtractionConfigurationArgs']]:
+        return pulumi.get(self, "media_extraction_configuration")
+
+    @media_extraction_configuration.setter
+    def media_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceMediaExtractionConfigurationArgs']]):
+        pulumi.set(self, "media_extraction_configuration", value)
+
+
+class DataSourceMediaExtractionConfigurationArgsDict(TypedDict):
+    """
+    Configuration for media extraction settings.
+    """
+    audio_extraction_configuration: NotRequired[pulumi.Input['DataSourceAudioExtractionConfigurationArgsDict']]
+    image_extraction_configuration: NotRequired[pulumi.Input['DataSourceImageExtractionConfigurationArgsDict']]
+    video_extraction_configuration: NotRequired[pulumi.Input['DataSourceVideoExtractionConfigurationArgsDict']]
+
+@pulumi.input_type
+class DataSourceMediaExtractionConfigurationArgs:
+    def __init__(__self__, *,
+                 audio_extraction_configuration: Optional[pulumi.Input['DataSourceAudioExtractionConfigurationArgs']] = None,
+                 image_extraction_configuration: Optional[pulumi.Input['DataSourceImageExtractionConfigurationArgs']] = None,
+                 video_extraction_configuration: Optional[pulumi.Input['DataSourceVideoExtractionConfigurationArgs']] = None):
+        """
+        Configuration for media extraction settings.
+        """
+        if audio_extraction_configuration is not None:
+            pulumi.set(__self__, "audio_extraction_configuration", audio_extraction_configuration)
+        if image_extraction_configuration is not None:
+            pulumi.set(__self__, "image_extraction_configuration", image_extraction_configuration)
+        if video_extraction_configuration is not None:
+            pulumi.set(__self__, "video_extraction_configuration", video_extraction_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="audioExtractionConfiguration")
+    def audio_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceAudioExtractionConfigurationArgs']]:
+        return pulumi.get(self, "audio_extraction_configuration")
+
+    @audio_extraction_configuration.setter
+    def audio_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceAudioExtractionConfigurationArgs']]):
+        pulumi.set(self, "audio_extraction_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="imageExtractionConfiguration")
+    def image_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceImageExtractionConfigurationArgs']]:
+        return pulumi.get(self, "image_extraction_configuration")
+
+    @image_extraction_configuration.setter
+    def image_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceImageExtractionConfigurationArgs']]):
+        pulumi.set(self, "image_extraction_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="videoExtractionConfiguration")
+    def video_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceVideoExtractionConfigurationArgs']]:
+        return pulumi.get(self, "video_extraction_configuration")
+
+    @video_extraction_configuration.setter
+    def video_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceVideoExtractionConfigurationArgs']]):
+        pulumi.set(self, "video_extraction_configuration", value)
 
 
 class DataSourceParsingConfigurationArgsDict(TypedDict):
@@ -6339,6 +6576,31 @@ class DataSourceVectorIngestionConfigurationArgs:
     @parsing_configuration.setter
     def parsing_configuration(self, value: Optional[pulumi.Input['DataSourceParsingConfigurationArgs']]):
         pulumi.set(self, "parsing_configuration", value)
+
+
+class DataSourceVideoExtractionConfigurationArgsDict(TypedDict):
+    """
+    Configuration for video extraction.
+    """
+    video_extraction_status: pulumi.Input['DataSourceEnabledOrDisabledState']
+
+@pulumi.input_type
+class DataSourceVideoExtractionConfigurationArgs:
+    def __init__(__self__, *,
+                 video_extraction_status: pulumi.Input['DataSourceEnabledOrDisabledState']):
+        """
+        Configuration for video extraction.
+        """
+        pulumi.set(__self__, "video_extraction_status", video_extraction_status)
+
+    @_builtins.property
+    @pulumi.getter(name="videoExtractionStatus")
+    def video_extraction_status(self) -> pulumi.Input['DataSourceEnabledOrDisabledState']:
+        return pulumi.get(self, "video_extraction_status")
+
+    @video_extraction_status.setter
+    def video_extraction_status(self, value: pulumi.Input['DataSourceEnabledOrDisabledState']):
+        pulumi.set(self, "video_extraction_status", value)
 
 
 class DataSourceWebCrawlerConfigurationArgsDict(TypedDict):
@@ -11441,6 +11703,7 @@ class KnowledgeBaseConfigurationArgsDict(TypedDict):
     """
     Settings for an Amazon Kendra knowledge base.
     """
+    managed_knowledge_base_configuration: NotRequired[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseConfigurationArgsDict']]
     sql_knowledge_base_configuration: NotRequired[pulumi.Input['KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict']]
     """
     Specifies configurations for a knowledge base connected to an SQL database.
@@ -11455,6 +11718,7 @@ class KnowledgeBaseConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['KnowledgeBaseType'],
                  kendra_knowledge_base_configuration: Optional[pulumi.Input['KnowledgeBaseKendraKnowledgeBaseConfigurationArgs']] = None,
+                 managed_knowledge_base_configuration: Optional[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseConfigurationArgs']] = None,
                  sql_knowledge_base_configuration: Optional[pulumi.Input['KnowledgeBaseSqlKnowledgeBaseConfigurationArgs']] = None,
                  vector_knowledge_base_configuration: Optional[pulumi.Input['KnowledgeBaseVectorKnowledgeBaseConfigurationArgs']] = None):
         """
@@ -11468,6 +11732,8 @@ class KnowledgeBaseConfigurationArgs:
         pulumi.set(__self__, "type", type)
         if kendra_knowledge_base_configuration is not None:
             pulumi.set(__self__, "kendra_knowledge_base_configuration", kendra_knowledge_base_configuration)
+        if managed_knowledge_base_configuration is not None:
+            pulumi.set(__self__, "managed_knowledge_base_configuration", managed_knowledge_base_configuration)
         if sql_knowledge_base_configuration is not None:
             pulumi.set(__self__, "sql_knowledge_base_configuration", sql_knowledge_base_configuration)
         if vector_knowledge_base_configuration is not None:
@@ -11496,6 +11762,15 @@ class KnowledgeBaseConfigurationArgs:
     @kendra_knowledge_base_configuration.setter
     def kendra_knowledge_base_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseKendraKnowledgeBaseConfigurationArgs']]):
         pulumi.set(self, "kendra_knowledge_base_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedKnowledgeBaseConfiguration")
+    def managed_knowledge_base_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseConfigurationArgs']]:
+        return pulumi.get(self, "managed_knowledge_base_configuration")
+
+    @managed_knowledge_base_configuration.setter
+    def managed_knowledge_base_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseConfigurationArgs']]):
+        pulumi.set(self, "managed_knowledge_base_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlKnowledgeBaseConfiguration")
@@ -11624,6 +11899,112 @@ class KnowledgeBaseKendraKnowledgeBaseConfigurationArgs:
     @kendra_index_arn.setter
     def kendra_index_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "kendra_index_arn", value)
+
+
+class KnowledgeBaseManagedKnowledgeBaseConfigurationArgsDict(TypedDict):
+    """
+    Contains details about the model used to create vector embeddings for a managed knowledge base.
+    """
+    embedding_model_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the model used to create vector embeddings for the knowledge base.
+    """
+    embedding_model_configuration: NotRequired[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgsDict']]
+    embedding_model_type: NotRequired[pulumi.Input['KnowledgeBaseEmbeddingModelType']]
+    server_side_encryption_configuration: NotRequired[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgsDict']]
+
+@pulumi.input_type
+class KnowledgeBaseManagedKnowledgeBaseConfigurationArgs:
+    def __init__(__self__, *,
+                 embedding_model_arn: pulumi.Input[_builtins.str],
+                 embedding_model_configuration: Optional[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgs']] = None,
+                 embedding_model_type: Optional[pulumi.Input['KnowledgeBaseEmbeddingModelType']] = None,
+                 server_side_encryption_configuration: Optional[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs']] = None):
+        """
+        Contains details about the model used to create vector embeddings for a managed knowledge base.
+
+        :param pulumi.Input[_builtins.str] embedding_model_arn: The ARN of the model used to create vector embeddings for the knowledge base.
+        """
+        pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
+        if embedding_model_configuration is not None:
+            pulumi.set(__self__, "embedding_model_configuration", embedding_model_configuration)
+        if embedding_model_type is not None:
+            pulumi.set(__self__, "embedding_model_type", embedding_model_type)
+        if server_side_encryption_configuration is not None:
+            pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="embeddingModelArn")
+    def embedding_model_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the model used to create vector embeddings for the knowledge base.
+        """
+        return pulumi.get(self, "embedding_model_arn")
+
+    @embedding_model_arn.setter
+    def embedding_model_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "embedding_model_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="embeddingModelConfiguration")
+    def embedding_model_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgs']]:
+        return pulumi.get(self, "embedding_model_configuration")
+
+    @embedding_model_configuration.setter
+    def embedding_model_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgs']]):
+        pulumi.set(self, "embedding_model_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="embeddingModelType")
+    def embedding_model_type(self) -> Optional[pulumi.Input['KnowledgeBaseEmbeddingModelType']]:
+        return pulumi.get(self, "embedding_model_type")
+
+    @embedding_model_type.setter
+    def embedding_model_type(self, value: Optional[pulumi.Input['KnowledgeBaseEmbeddingModelType']]):
+        pulumi.set(self, "embedding_model_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverSideEncryptionConfiguration")
+    def server_side_encryption_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs']]:
+        return pulumi.get(self, "server_side_encryption_configuration")
+
+    @server_side_encryption_configuration.setter
+    def server_side_encryption_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs']]):
+        pulumi.set(self, "server_side_encryption_configuration", value)
+
+
+class KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgsDict(TypedDict):
+    """
+    Contains details about the server-side encryption for the managed knowledge base.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the AWS KMS key used to encrypt the managed knowledge base.
+    """
+
+@pulumi.input_type
+class KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Contains details about the server-side encryption for the managed knowledge base.
+
+        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the AWS KMS key used to encrypt the managed knowledge base.
+        """
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the AWS KMS key used to encrypt the managed knowledge base.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
 
 class KnowledgeBaseMongoDbAtlasConfigurationArgsDict(TypedDict):

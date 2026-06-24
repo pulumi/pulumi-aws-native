@@ -13735,7 +13735,7 @@ func (o LaunchTemplateCapacityReservationTargetPtrOutput) CapacityReservationRes
 
 // A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon EC2 User Guide*.
 type LaunchTemplateConnectionTrackingSpecification struct {
-	// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
+	// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 350 seconds for Nitro v6 instance types (excluding P6e-GB200); 432000 seconds for all other instance types (including P6e-GB200). Recommended: Less than 432000 seconds.
 	TcpEstablishedTimeout *int `pulumi:"tcpEstablishedTimeout"`
 	// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
 	UdpStreamTimeout *int `pulumi:"udpStreamTimeout"`
@@ -13756,7 +13756,7 @@ type LaunchTemplateConnectionTrackingSpecificationInput interface {
 
 // A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon EC2 User Guide*.
 type LaunchTemplateConnectionTrackingSpecificationArgs struct {
-	// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
+	// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 350 seconds for Nitro v6 instance types (excluding P6e-GB200); 432000 seconds for all other instance types (including P6e-GB200). Recommended: Less than 432000 seconds.
 	TcpEstablishedTimeout pulumi.IntPtrInput `pulumi:"tcpEstablishedTimeout"`
 	// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
 	UdpStreamTimeout pulumi.IntPtrInput `pulumi:"udpStreamTimeout"`
@@ -13842,7 +13842,7 @@ func (o LaunchTemplateConnectionTrackingSpecificationOutput) ToLaunchTemplateCon
 	}).(LaunchTemplateConnectionTrackingSpecificationPtrOutput)
 }
 
-// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
+// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 350 seconds for Nitro v6 instance types (excluding P6e-GB200); 432000 seconds for all other instance types (including P6e-GB200). Recommended: Less than 432000 seconds.
 func (o LaunchTemplateConnectionTrackingSpecificationOutput) TcpEstablishedTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateConnectionTrackingSpecification) *int { return v.TcpEstablishedTimeout }).(pulumi.IntPtrOutput)
 }
@@ -13881,7 +13881,7 @@ func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) Elem() LaunchTem
 	}).(LaunchTemplateConnectionTrackingSpecificationOutput)
 }
 
-// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
+// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 350 seconds for Nitro v6 instance types (excluding P6e-GB200); 432000 seconds for all other instance types (including P6e-GB200). Recommended: Less than 432000 seconds.
 func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) TcpEstablishedTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateConnectionTrackingSpecification) *int {
 		if v == nil {

@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, arn=None, endpoints=None, error_info=None, id=None, slurm_configuration=None, status=None, tags=None):
+    def __init__(__self__, arn=None, endpoints=None, error_info=None, id=None, scheduler=None, slurm_configuration=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -38,6 +38,9 @@ class GetClusterResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if scheduler and not isinstance(scheduler, dict):
+            raise TypeError("Expected argument 'scheduler' to be a dict")
+        pulumi.set(__self__, "scheduler", scheduler)
         if slurm_configuration and not isinstance(slurm_configuration, dict):
             raise TypeError("Expected argument 'slurm_configuration' to be a dict")
         pulumi.set(__self__, "slurm_configuration", slurm_configuration)
@@ -81,6 +84,14 @@ class GetClusterResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter
+    def scheduler(self) -> Optional['outputs.SchedulerProperties']:
+        """
+        The cluster management and job scheduling software associated with the cluster.
+        """
+        return pulumi.get(self, "scheduler")
+
+    @_builtins.property
     @pulumi.getter(name="slurmConfiguration")
     def slurm_configuration(self) -> Optional['outputs.SlurmConfigurationProperties']:
         """
@@ -115,6 +126,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             endpoints=self.endpoints,
             error_info=self.error_info,
             id=self.id,
+            scheduler=self.scheduler,
             slurm_configuration=self.slurm_configuration,
             status=self.status,
             tags=self.tags)
@@ -138,6 +150,7 @@ def get_cluster(arn: Optional[_builtins.str] = None,
         endpoints=pulumi.get(__ret__, 'endpoints'),
         error_info=pulumi.get(__ret__, 'error_info'),
         id=pulumi.get(__ret__, 'id'),
+        scheduler=pulumi.get(__ret__, 'scheduler'),
         slurm_configuration=pulumi.get(__ret__, 'slurm_configuration'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -158,6 +171,7 @@ def get_cluster_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
         endpoints=pulumi.get(__response__, 'endpoints'),
         error_info=pulumi.get(__response__, 'error_info'),
         id=pulumi.get(__response__, 'id'),
+        scheduler=pulumi.get(__response__, 'scheduler'),
         slurm_configuration=pulumi.get(__response__, 'slurm_configuration'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

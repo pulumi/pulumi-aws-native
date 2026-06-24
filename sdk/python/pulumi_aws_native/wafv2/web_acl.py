@@ -34,6 +34,7 @@ class WebAclArgs:
                  custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
                  data_protection_config: Optional[pulumi.Input['WebAclDataProtectionConfigArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 monetization_config: Optional[pulumi.Input['WebAclMonetizationConfigArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  on_source_d_do_s_protection_config: Optional[pulumi.Input['WebAclOnSourceDDoSProtectionConfigArgs']] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
@@ -91,6 +92,8 @@ class WebAclArgs:
             pulumi.set(__self__, "data_protection_config", data_protection_config)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if monetization_config is not None:
+            pulumi.set(__self__, "monetization_config", monetization_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if on_source_d_do_s_protection_config is not None:
@@ -237,6 +240,15 @@ class WebAclArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="monetizationConfig")
+    def monetization_config(self) -> Optional[pulumi.Input['WebAclMonetizationConfigArgs']]:
+        return pulumi.get(self, "monetization_config")
+
+    @monetization_config.setter
+    def monetization_config(self, value: Optional[pulumi.Input['WebAclMonetizationConfigArgs']]):
+        pulumi.set(self, "monetization_config", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -313,6 +325,7 @@ class WebAcl(pulumi.CustomResource):
                  data_protection_config: Optional[pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
                  default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 monetization_config: Optional[pulumi.Input[Union['WebAclMonetizationConfigArgs', 'WebAclMonetizationConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  on_source_d_do_s_protection_config: Optional[pulumi.Input[Union['WebAclOnSourceDDoSProtectionConfigArgs', 'WebAclOnSourceDDoSProtectionConfigArgsDict']]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
@@ -392,6 +405,7 @@ class WebAcl(pulumi.CustomResource):
                  data_protection_config: Optional[pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
                  default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 monetization_config: Optional[pulumi.Input[Union['WebAclMonetizationConfigArgs', 'WebAclMonetizationConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  on_source_d_do_s_protection_config: Optional[pulumi.Input[Union['WebAclOnSourceDDoSProtectionConfigArgs', 'WebAclOnSourceDDoSProtectionConfigArgsDict']]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
@@ -418,6 +432,7 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'default_action'")
             __props__.__dict__["default_action"] = default_action
             __props__.__dict__["description"] = description
+            __props__.__dict__["monetization_config"] = monetization_config
             __props__.__dict__["name"] = name
             __props__.__dict__["on_source_d_do_s_protection_config"] = on_source_d_do_s_protection_config
             __props__.__dict__["rules"] = rules
@@ -469,6 +484,7 @@ class WebAcl(pulumi.CustomResource):
         __props__.__dict__["default_action"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["label_namespace"] = None
+        __props__.__dict__["monetization_config"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["on_source_d_do_s_protection_config"] = None
         __props__.__dict__["rules"] = None
@@ -589,6 +605,11 @@ class WebAcl(pulumi.CustomResource):
         When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
         """
         return pulumi.get(self, "label_namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="monetizationConfig")
+    def monetization_config(self) -> pulumi.Output[Optional['outputs.WebAclMonetizationConfig']]:
+        return pulumi.get(self, "monetization_config")
 
     @_builtins.property
     @pulumi.getter

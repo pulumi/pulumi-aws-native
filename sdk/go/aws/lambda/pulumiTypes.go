@@ -580,6 +580,164 @@ func (o CapacityProviderInstanceRequirementsPtrOutput) ExcludedInstanceTypes() p
 	}).(pulumi.StringArrayOutput)
 }
 
+type CapacityProviderLoggingConfig struct {
+	// The log group name.
+	LogGroup *string `pulumi:"logGroup"`
+	// System log granularity level
+	SystemLogLevel *CapacityProviderLoggingConfigSystemLogLevel `pulumi:"systemLogLevel"`
+}
+
+// CapacityProviderLoggingConfigInput is an input type that accepts CapacityProviderLoggingConfigArgs and CapacityProviderLoggingConfigOutput values.
+// You can construct a concrete instance of `CapacityProviderLoggingConfigInput` via:
+//
+//	CapacityProviderLoggingConfigArgs{...}
+type CapacityProviderLoggingConfigInput interface {
+	pulumi.Input
+
+	ToCapacityProviderLoggingConfigOutput() CapacityProviderLoggingConfigOutput
+	ToCapacityProviderLoggingConfigOutputWithContext(context.Context) CapacityProviderLoggingConfigOutput
+}
+
+type CapacityProviderLoggingConfigArgs struct {
+	// The log group name.
+	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+	// System log granularity level
+	SystemLogLevel CapacityProviderLoggingConfigSystemLogLevelPtrInput `pulumi:"systemLogLevel"`
+}
+
+func (CapacityProviderLoggingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderLoggingConfig)(nil)).Elem()
+}
+
+func (i CapacityProviderLoggingConfigArgs) ToCapacityProviderLoggingConfigOutput() CapacityProviderLoggingConfigOutput {
+	return i.ToCapacityProviderLoggingConfigOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderLoggingConfigArgs) ToCapacityProviderLoggingConfigOutputWithContext(ctx context.Context) CapacityProviderLoggingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderLoggingConfigOutput)
+}
+
+func (i CapacityProviderLoggingConfigArgs) ToCapacityProviderLoggingConfigPtrOutput() CapacityProviderLoggingConfigPtrOutput {
+	return i.ToCapacityProviderLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderLoggingConfigArgs) ToCapacityProviderLoggingConfigPtrOutputWithContext(ctx context.Context) CapacityProviderLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderLoggingConfigOutput).ToCapacityProviderLoggingConfigPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderLoggingConfigPtrInput is an input type that accepts CapacityProviderLoggingConfigArgs, CapacityProviderLoggingConfigPtr and CapacityProviderLoggingConfigPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderLoggingConfigPtrInput` via:
+//
+//	        CapacityProviderLoggingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderLoggingConfigPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderLoggingConfigPtrOutput() CapacityProviderLoggingConfigPtrOutput
+	ToCapacityProviderLoggingConfigPtrOutputWithContext(context.Context) CapacityProviderLoggingConfigPtrOutput
+}
+
+type capacityProviderLoggingConfigPtrType CapacityProviderLoggingConfigArgs
+
+func CapacityProviderLoggingConfigPtr(v *CapacityProviderLoggingConfigArgs) CapacityProviderLoggingConfigPtrInput {
+	return (*capacityProviderLoggingConfigPtrType)(v)
+}
+
+func (*capacityProviderLoggingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderLoggingConfig)(nil)).Elem()
+}
+
+func (i *capacityProviderLoggingConfigPtrType) ToCapacityProviderLoggingConfigPtrOutput() CapacityProviderLoggingConfigPtrOutput {
+	return i.ToCapacityProviderLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderLoggingConfigPtrType) ToCapacityProviderLoggingConfigPtrOutputWithContext(ctx context.Context) CapacityProviderLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderLoggingConfigPtrOutput)
+}
+
+type CapacityProviderLoggingConfigOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderLoggingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderLoggingConfig)(nil)).Elem()
+}
+
+func (o CapacityProviderLoggingConfigOutput) ToCapacityProviderLoggingConfigOutput() CapacityProviderLoggingConfigOutput {
+	return o
+}
+
+func (o CapacityProviderLoggingConfigOutput) ToCapacityProviderLoggingConfigOutputWithContext(ctx context.Context) CapacityProviderLoggingConfigOutput {
+	return o
+}
+
+func (o CapacityProviderLoggingConfigOutput) ToCapacityProviderLoggingConfigPtrOutput() CapacityProviderLoggingConfigPtrOutput {
+	return o.ToCapacityProviderLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderLoggingConfigOutput) ToCapacityProviderLoggingConfigPtrOutputWithContext(ctx context.Context) CapacityProviderLoggingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderLoggingConfig) *CapacityProviderLoggingConfig {
+		return &v
+	}).(CapacityProviderLoggingConfigPtrOutput)
+}
+
+// The log group name.
+func (o CapacityProviderLoggingConfigOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderLoggingConfig) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+}
+
+// System log granularity level
+func (o CapacityProviderLoggingConfigOutput) SystemLogLevel() CapacityProviderLoggingConfigSystemLogLevelPtrOutput {
+	return o.ApplyT(func(v CapacityProviderLoggingConfig) *CapacityProviderLoggingConfigSystemLogLevel {
+		return v.SystemLogLevel
+	}).(CapacityProviderLoggingConfigSystemLogLevelPtrOutput)
+}
+
+type CapacityProviderLoggingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderLoggingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderLoggingConfig)(nil)).Elem()
+}
+
+func (o CapacityProviderLoggingConfigPtrOutput) ToCapacityProviderLoggingConfigPtrOutput() CapacityProviderLoggingConfigPtrOutput {
+	return o
+}
+
+func (o CapacityProviderLoggingConfigPtrOutput) ToCapacityProviderLoggingConfigPtrOutputWithContext(ctx context.Context) CapacityProviderLoggingConfigPtrOutput {
+	return o
+}
+
+func (o CapacityProviderLoggingConfigPtrOutput) Elem() CapacityProviderLoggingConfigOutput {
+	return o.ApplyT(func(v *CapacityProviderLoggingConfig) CapacityProviderLoggingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderLoggingConfig
+		return ret
+	}).(CapacityProviderLoggingConfigOutput)
+}
+
+// The log group name.
+func (o CapacityProviderLoggingConfigPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderLoggingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// System log granularity level
+func (o CapacityProviderLoggingConfigPtrOutput) SystemLogLevel() CapacityProviderLoggingConfigSystemLogLevelPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderLoggingConfig) *CapacityProviderLoggingConfigSystemLogLevel {
+		if v == nil {
+			return nil
+		}
+		return v.SystemLogLevel
+	}).(CapacityProviderLoggingConfigSystemLogLevelPtrOutput)
+}
+
 // Configuration that specifies the permissions required for the capacity provider to manage compute resources.
 type CapacityProviderPermissionsConfig struct {
 	// The ARN of the IAM role that the capacity provider uses to manage compute instances and other AWS resources.
@@ -636,7 +794,6 @@ func (o CapacityProviderPermissionsConfigOutput) CapacityProviderOperatorRoleArn
 }
 
 type CapacityProviderPropagateTagsConfig struct {
-	// A list of tags to explicitly propagate to managed resources.
 	ExplicitTags []CapacityProviderTag              `pulumi:"explicitTags"`
 	Mode         *CapacityProviderPropagateTagsMode `pulumi:"mode"`
 }
@@ -653,7 +810,6 @@ type CapacityProviderPropagateTagsConfigInput interface {
 }
 
 type CapacityProviderPropagateTagsConfigArgs struct {
-	// A list of tags to explicitly propagate to managed resources.
 	ExplicitTags CapacityProviderTagArrayInput             `pulumi:"explicitTags"`
 	Mode         CapacityProviderPropagateTagsModePtrInput `pulumi:"mode"`
 }
@@ -735,7 +891,6 @@ func (o CapacityProviderPropagateTagsConfigOutput) ToCapacityProviderPropagateTa
 	}).(CapacityProviderPropagateTagsConfigPtrOutput)
 }
 
-// A list of tags to explicitly propagate to managed resources.
 func (o CapacityProviderPropagateTagsConfigOutput) ExplicitTags() CapacityProviderTagArrayOutput {
 	return o.ApplyT(func(v CapacityProviderPropagateTagsConfig) []CapacityProviderTag { return v.ExplicitTags }).(CapacityProviderTagArrayOutput)
 }
@@ -768,7 +923,6 @@ func (o CapacityProviderPropagateTagsConfigPtrOutput) Elem() CapacityProviderPro
 	}).(CapacityProviderPropagateTagsConfigOutput)
 }
 
-// A list of tags to explicitly propagate to managed resources.
 func (o CapacityProviderPropagateTagsConfigPtrOutput) ExplicitTags() CapacityProviderTagArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderPropagateTagsConfig) []CapacityProviderTag {
 		if v == nil {
@@ -1185,6 +1339,143 @@ func (o CapacityProviderTargetTrackingScalingPolicyArrayOutput) Index(i pulumi.I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityProviderTargetTrackingScalingPolicy {
 		return vs[0].([]CapacityProviderTargetTrackingScalingPolicy)[vs[1].(int)]
 	}).(CapacityProviderTargetTrackingScalingPolicyOutput)
+}
+
+type CapacityProviderTelemetryConfig struct {
+	// The logging configuration for the capacity provider.
+	LoggingConfig *CapacityProviderLoggingConfig `pulumi:"loggingConfig"`
+}
+
+// CapacityProviderTelemetryConfigInput is an input type that accepts CapacityProviderTelemetryConfigArgs and CapacityProviderTelemetryConfigOutput values.
+// You can construct a concrete instance of `CapacityProviderTelemetryConfigInput` via:
+//
+//	CapacityProviderTelemetryConfigArgs{...}
+type CapacityProviderTelemetryConfigInput interface {
+	pulumi.Input
+
+	ToCapacityProviderTelemetryConfigOutput() CapacityProviderTelemetryConfigOutput
+	ToCapacityProviderTelemetryConfigOutputWithContext(context.Context) CapacityProviderTelemetryConfigOutput
+}
+
+type CapacityProviderTelemetryConfigArgs struct {
+	// The logging configuration for the capacity provider.
+	LoggingConfig CapacityProviderLoggingConfigPtrInput `pulumi:"loggingConfig"`
+}
+
+func (CapacityProviderTelemetryConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderTelemetryConfig)(nil)).Elem()
+}
+
+func (i CapacityProviderTelemetryConfigArgs) ToCapacityProviderTelemetryConfigOutput() CapacityProviderTelemetryConfigOutput {
+	return i.ToCapacityProviderTelemetryConfigOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderTelemetryConfigArgs) ToCapacityProviderTelemetryConfigOutputWithContext(ctx context.Context) CapacityProviderTelemetryConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTelemetryConfigOutput)
+}
+
+func (i CapacityProviderTelemetryConfigArgs) ToCapacityProviderTelemetryConfigPtrOutput() CapacityProviderTelemetryConfigPtrOutput {
+	return i.ToCapacityProviderTelemetryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderTelemetryConfigArgs) ToCapacityProviderTelemetryConfigPtrOutputWithContext(ctx context.Context) CapacityProviderTelemetryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTelemetryConfigOutput).ToCapacityProviderTelemetryConfigPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderTelemetryConfigPtrInput is an input type that accepts CapacityProviderTelemetryConfigArgs, CapacityProviderTelemetryConfigPtr and CapacityProviderTelemetryConfigPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderTelemetryConfigPtrInput` via:
+//
+//	        CapacityProviderTelemetryConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderTelemetryConfigPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderTelemetryConfigPtrOutput() CapacityProviderTelemetryConfigPtrOutput
+	ToCapacityProviderTelemetryConfigPtrOutputWithContext(context.Context) CapacityProviderTelemetryConfigPtrOutput
+}
+
+type capacityProviderTelemetryConfigPtrType CapacityProviderTelemetryConfigArgs
+
+func CapacityProviderTelemetryConfigPtr(v *CapacityProviderTelemetryConfigArgs) CapacityProviderTelemetryConfigPtrInput {
+	return (*capacityProviderTelemetryConfigPtrType)(v)
+}
+
+func (*capacityProviderTelemetryConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderTelemetryConfig)(nil)).Elem()
+}
+
+func (i *capacityProviderTelemetryConfigPtrType) ToCapacityProviderTelemetryConfigPtrOutput() CapacityProviderTelemetryConfigPtrOutput {
+	return i.ToCapacityProviderTelemetryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderTelemetryConfigPtrType) ToCapacityProviderTelemetryConfigPtrOutputWithContext(ctx context.Context) CapacityProviderTelemetryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTelemetryConfigPtrOutput)
+}
+
+type CapacityProviderTelemetryConfigOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderTelemetryConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderTelemetryConfig)(nil)).Elem()
+}
+
+func (o CapacityProviderTelemetryConfigOutput) ToCapacityProviderTelemetryConfigOutput() CapacityProviderTelemetryConfigOutput {
+	return o
+}
+
+func (o CapacityProviderTelemetryConfigOutput) ToCapacityProviderTelemetryConfigOutputWithContext(ctx context.Context) CapacityProviderTelemetryConfigOutput {
+	return o
+}
+
+func (o CapacityProviderTelemetryConfigOutput) ToCapacityProviderTelemetryConfigPtrOutput() CapacityProviderTelemetryConfigPtrOutput {
+	return o.ToCapacityProviderTelemetryConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderTelemetryConfigOutput) ToCapacityProviderTelemetryConfigPtrOutputWithContext(ctx context.Context) CapacityProviderTelemetryConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderTelemetryConfig) *CapacityProviderTelemetryConfig {
+		return &v
+	}).(CapacityProviderTelemetryConfigPtrOutput)
+}
+
+// The logging configuration for the capacity provider.
+func (o CapacityProviderTelemetryConfigOutput) LoggingConfig() CapacityProviderLoggingConfigPtrOutput {
+	return o.ApplyT(func(v CapacityProviderTelemetryConfig) *CapacityProviderLoggingConfig { return v.LoggingConfig }).(CapacityProviderLoggingConfigPtrOutput)
+}
+
+type CapacityProviderTelemetryConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderTelemetryConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderTelemetryConfig)(nil)).Elem()
+}
+
+func (o CapacityProviderTelemetryConfigPtrOutput) ToCapacityProviderTelemetryConfigPtrOutput() CapacityProviderTelemetryConfigPtrOutput {
+	return o
+}
+
+func (o CapacityProviderTelemetryConfigPtrOutput) ToCapacityProviderTelemetryConfigPtrOutputWithContext(ctx context.Context) CapacityProviderTelemetryConfigPtrOutput {
+	return o
+}
+
+func (o CapacityProviderTelemetryConfigPtrOutput) Elem() CapacityProviderTelemetryConfigOutput {
+	return o.ApplyT(func(v *CapacityProviderTelemetryConfig) CapacityProviderTelemetryConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderTelemetryConfig
+		return ret
+	}).(CapacityProviderTelemetryConfigOutput)
+}
+
+// The logging configuration for the capacity provider.
+func (o CapacityProviderTelemetryConfigPtrOutput) LoggingConfig() CapacityProviderLoggingConfigPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderTelemetryConfig) *CapacityProviderLoggingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LoggingConfig
+	}).(CapacityProviderLoggingConfigPtrOutput)
 }
 
 // VPC configuration that specifies the network settings for compute instances managed by the capacity provider.
@@ -7097,11 +7388,74 @@ func (o FunctionVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type Hooks struct {
+	MicrovmHooks      *MicrovmImageMicrovmHooks `pulumi:"microvmHooks"`
+	MicrovmImageHooks *MicrovmImageHooks        `pulumi:"microvmImageHooks"`
+	Port              *int                      `pulumi:"port"`
+}
+
+// HooksInput is an input type that accepts HooksArgs and HooksOutput values.
+// You can construct a concrete instance of `HooksInput` via:
+//
+//	HooksArgs{...}
+type HooksInput interface {
+	pulumi.Input
+
+	ToHooksOutput() HooksOutput
+	ToHooksOutputWithContext(context.Context) HooksOutput
+}
+
+type HooksArgs struct {
+	MicrovmHooks      MicrovmImageMicrovmHooksPtrInput `pulumi:"microvmHooks"`
+	MicrovmImageHooks MicrovmImageHooksPtrInput        `pulumi:"microvmImageHooks"`
+	Port              pulumi.IntPtrInput               `pulumi:"port"`
+}
+
+func (HooksArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Hooks)(nil)).Elem()
+}
+
+func (i HooksArgs) ToHooksOutput() HooksOutput {
+	return i.ToHooksOutputWithContext(context.Background())
+}
+
+func (i HooksArgs) ToHooksOutputWithContext(ctx context.Context) HooksOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HooksOutput)
+}
+
+type HooksOutput struct{ *pulumi.OutputState }
+
+func (HooksOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Hooks)(nil)).Elem()
+}
+
+func (o HooksOutput) ToHooksOutput() HooksOutput {
+	return o
+}
+
+func (o HooksOutput) ToHooksOutputWithContext(ctx context.Context) HooksOutput {
+	return o
+}
+
+func (o HooksOutput) MicrovmHooks() MicrovmImageMicrovmHooksPtrOutput {
+	return o.ApplyT(func(v Hooks) *MicrovmImageMicrovmHooks { return v.MicrovmHooks }).(MicrovmImageMicrovmHooksPtrOutput)
+}
+
+func (o HooksOutput) MicrovmImageHooks() MicrovmImageHooksPtrOutput {
+	return o.ApplyT(func(v Hooks) *MicrovmImageHooks { return v.MicrovmImageHooks }).(MicrovmImageHooksPtrOutput)
+}
+
+func (o HooksOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Hooks) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 type LayerVersionContent struct {
 	// The Amazon S3 bucket of the layer archive.
 	S3Bucket string `pulumi:"s3Bucket"`
 	// The Amazon S3 key of the layer archive.
 	S3Key string `pulumi:"s3Key"`
+	// Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).
+	S3ObjectStorageMode *LayerVersionContentS3ObjectStorageMode `pulumi:"s3ObjectStorageMode"`
 	// For versioned objects, the version of the layer archive object to use.
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
 }
@@ -7122,6 +7476,8 @@ type LayerVersionContentArgs struct {
 	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
 	// The Amazon S3 key of the layer archive.
 	S3Key pulumi.StringInput `pulumi:"s3Key"`
+	// Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).
+	S3ObjectStorageMode LayerVersionContentS3ObjectStorageModePtrInput `pulumi:"s3ObjectStorageMode"`
 	// For versioned objects, the version of the layer archive object to use.
 	S3ObjectVersion pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
 }
@@ -7162,9 +7518,1220 @@ func (o LayerVersionContentOutput) S3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v LayerVersionContent) string { return v.S3Key }).(pulumi.StringOutput)
 }
 
+// Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).
+func (o LayerVersionContentOutput) S3ObjectStorageMode() LayerVersionContentS3ObjectStorageModePtrOutput {
+	return o.ApplyT(func(v LayerVersionContent) *LayerVersionContentS3ObjectStorageMode { return v.S3ObjectStorageMode }).(LayerVersionContentS3ObjectStorageModePtrOutput)
+}
+
 // For versioned objects, the version of the layer archive object to use.
 func (o LayerVersionContentOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LayerVersionContent) *string { return v.S3ObjectVersion }).(pulumi.StringPtrOutput)
+}
+
+type MicrovmImageCloudWatchLogging struct {
+	LogGroup  *string `pulumi:"logGroup"`
+	LogStream *string `pulumi:"logStream"`
+}
+
+// MicrovmImageCloudWatchLoggingInput is an input type that accepts MicrovmImageCloudWatchLoggingArgs and MicrovmImageCloudWatchLoggingOutput values.
+// You can construct a concrete instance of `MicrovmImageCloudWatchLoggingInput` via:
+//
+//	MicrovmImageCloudWatchLoggingArgs{...}
+type MicrovmImageCloudWatchLoggingInput interface {
+	pulumi.Input
+
+	ToMicrovmImageCloudWatchLoggingOutput() MicrovmImageCloudWatchLoggingOutput
+	ToMicrovmImageCloudWatchLoggingOutputWithContext(context.Context) MicrovmImageCloudWatchLoggingOutput
+}
+
+type MicrovmImageCloudWatchLoggingArgs struct {
+	LogGroup  pulumi.StringPtrInput `pulumi:"logGroup"`
+	LogStream pulumi.StringPtrInput `pulumi:"logStream"`
+}
+
+func (MicrovmImageCloudWatchLoggingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageCloudWatchLogging)(nil)).Elem()
+}
+
+func (i MicrovmImageCloudWatchLoggingArgs) ToMicrovmImageCloudWatchLoggingOutput() MicrovmImageCloudWatchLoggingOutput {
+	return i.ToMicrovmImageCloudWatchLoggingOutputWithContext(context.Background())
+}
+
+func (i MicrovmImageCloudWatchLoggingArgs) ToMicrovmImageCloudWatchLoggingOutputWithContext(ctx context.Context) MicrovmImageCloudWatchLoggingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageCloudWatchLoggingOutput)
+}
+
+func (i MicrovmImageCloudWatchLoggingArgs) ToMicrovmImageCloudWatchLoggingPtrOutput() MicrovmImageCloudWatchLoggingPtrOutput {
+	return i.ToMicrovmImageCloudWatchLoggingPtrOutputWithContext(context.Background())
+}
+
+func (i MicrovmImageCloudWatchLoggingArgs) ToMicrovmImageCloudWatchLoggingPtrOutputWithContext(ctx context.Context) MicrovmImageCloudWatchLoggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageCloudWatchLoggingOutput).ToMicrovmImageCloudWatchLoggingPtrOutputWithContext(ctx)
+}
+
+// MicrovmImageCloudWatchLoggingPtrInput is an input type that accepts MicrovmImageCloudWatchLoggingArgs, MicrovmImageCloudWatchLoggingPtr and MicrovmImageCloudWatchLoggingPtrOutput values.
+// You can construct a concrete instance of `MicrovmImageCloudWatchLoggingPtrInput` via:
+//
+//	        MicrovmImageCloudWatchLoggingArgs{...}
+//
+//	or:
+//
+//	        nil
+type MicrovmImageCloudWatchLoggingPtrInput interface {
+	pulumi.Input
+
+	ToMicrovmImageCloudWatchLoggingPtrOutput() MicrovmImageCloudWatchLoggingPtrOutput
+	ToMicrovmImageCloudWatchLoggingPtrOutputWithContext(context.Context) MicrovmImageCloudWatchLoggingPtrOutput
+}
+
+type microvmImageCloudWatchLoggingPtrType MicrovmImageCloudWatchLoggingArgs
+
+func MicrovmImageCloudWatchLoggingPtr(v *MicrovmImageCloudWatchLoggingArgs) MicrovmImageCloudWatchLoggingPtrInput {
+	return (*microvmImageCloudWatchLoggingPtrType)(v)
+}
+
+func (*microvmImageCloudWatchLoggingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmImageCloudWatchLogging)(nil)).Elem()
+}
+
+func (i *microvmImageCloudWatchLoggingPtrType) ToMicrovmImageCloudWatchLoggingPtrOutput() MicrovmImageCloudWatchLoggingPtrOutput {
+	return i.ToMicrovmImageCloudWatchLoggingPtrOutputWithContext(context.Background())
+}
+
+func (i *microvmImageCloudWatchLoggingPtrType) ToMicrovmImageCloudWatchLoggingPtrOutputWithContext(ctx context.Context) MicrovmImageCloudWatchLoggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageCloudWatchLoggingPtrOutput)
+}
+
+type MicrovmImageCloudWatchLoggingOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageCloudWatchLoggingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageCloudWatchLogging)(nil)).Elem()
+}
+
+func (o MicrovmImageCloudWatchLoggingOutput) ToMicrovmImageCloudWatchLoggingOutput() MicrovmImageCloudWatchLoggingOutput {
+	return o
+}
+
+func (o MicrovmImageCloudWatchLoggingOutput) ToMicrovmImageCloudWatchLoggingOutputWithContext(ctx context.Context) MicrovmImageCloudWatchLoggingOutput {
+	return o
+}
+
+func (o MicrovmImageCloudWatchLoggingOutput) ToMicrovmImageCloudWatchLoggingPtrOutput() MicrovmImageCloudWatchLoggingPtrOutput {
+	return o.ToMicrovmImageCloudWatchLoggingPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageCloudWatchLoggingOutput) ToMicrovmImageCloudWatchLoggingPtrOutputWithContext(ctx context.Context) MicrovmImageCloudWatchLoggingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MicrovmImageCloudWatchLogging) *MicrovmImageCloudWatchLogging {
+		return &v
+	}).(MicrovmImageCloudWatchLoggingPtrOutput)
+}
+
+func (o MicrovmImageCloudWatchLoggingOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MicrovmImageCloudWatchLogging) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+}
+
+func (o MicrovmImageCloudWatchLoggingOutput) LogStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MicrovmImageCloudWatchLogging) *string { return v.LogStream }).(pulumi.StringPtrOutput)
+}
+
+type MicrovmImageCloudWatchLoggingPtrOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageCloudWatchLoggingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmImageCloudWatchLogging)(nil)).Elem()
+}
+
+func (o MicrovmImageCloudWatchLoggingPtrOutput) ToMicrovmImageCloudWatchLoggingPtrOutput() MicrovmImageCloudWatchLoggingPtrOutput {
+	return o
+}
+
+func (o MicrovmImageCloudWatchLoggingPtrOutput) ToMicrovmImageCloudWatchLoggingPtrOutputWithContext(ctx context.Context) MicrovmImageCloudWatchLoggingPtrOutput {
+	return o
+}
+
+func (o MicrovmImageCloudWatchLoggingPtrOutput) Elem() MicrovmImageCloudWatchLoggingOutput {
+	return o.ApplyT(func(v *MicrovmImageCloudWatchLogging) MicrovmImageCloudWatchLogging {
+		if v != nil {
+			return *v
+		}
+		var ret MicrovmImageCloudWatchLogging
+		return ret
+	}).(MicrovmImageCloudWatchLoggingOutput)
+}
+
+func (o MicrovmImageCloudWatchLoggingPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrovmImageCloudWatchLogging) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MicrovmImageCloudWatchLoggingPtrOutput) LogStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrovmImageCloudWatchLogging) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStream
+	}).(pulumi.StringPtrOutput)
+}
+
+type MicrovmImageCodeArtifact struct {
+	Uri string `pulumi:"uri"`
+}
+
+// MicrovmImageCodeArtifactInput is an input type that accepts MicrovmImageCodeArtifactArgs and MicrovmImageCodeArtifactOutput values.
+// You can construct a concrete instance of `MicrovmImageCodeArtifactInput` via:
+//
+//	MicrovmImageCodeArtifactArgs{...}
+type MicrovmImageCodeArtifactInput interface {
+	pulumi.Input
+
+	ToMicrovmImageCodeArtifactOutput() MicrovmImageCodeArtifactOutput
+	ToMicrovmImageCodeArtifactOutputWithContext(context.Context) MicrovmImageCodeArtifactOutput
+}
+
+type MicrovmImageCodeArtifactArgs struct {
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (MicrovmImageCodeArtifactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageCodeArtifact)(nil)).Elem()
+}
+
+func (i MicrovmImageCodeArtifactArgs) ToMicrovmImageCodeArtifactOutput() MicrovmImageCodeArtifactOutput {
+	return i.ToMicrovmImageCodeArtifactOutputWithContext(context.Background())
+}
+
+func (i MicrovmImageCodeArtifactArgs) ToMicrovmImageCodeArtifactOutputWithContext(ctx context.Context) MicrovmImageCodeArtifactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageCodeArtifactOutput)
+}
+
+type MicrovmImageCodeArtifactOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageCodeArtifactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageCodeArtifact)(nil)).Elem()
+}
+
+func (o MicrovmImageCodeArtifactOutput) ToMicrovmImageCodeArtifactOutput() MicrovmImageCodeArtifactOutput {
+	return o
+}
+
+func (o MicrovmImageCodeArtifactOutput) ToMicrovmImageCodeArtifactOutputWithContext(ctx context.Context) MicrovmImageCodeArtifactOutput {
+	return o
+}
+
+func (o MicrovmImageCodeArtifactOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v MicrovmImageCodeArtifact) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type MicrovmImageCpuConfiguration struct {
+	Architecture MicrovmImageCpuConfigurationArchitecture `pulumi:"architecture"`
+}
+
+// MicrovmImageCpuConfigurationInput is an input type that accepts MicrovmImageCpuConfigurationArgs and MicrovmImageCpuConfigurationOutput values.
+// You can construct a concrete instance of `MicrovmImageCpuConfigurationInput` via:
+//
+//	MicrovmImageCpuConfigurationArgs{...}
+type MicrovmImageCpuConfigurationInput interface {
+	pulumi.Input
+
+	ToMicrovmImageCpuConfigurationOutput() MicrovmImageCpuConfigurationOutput
+	ToMicrovmImageCpuConfigurationOutputWithContext(context.Context) MicrovmImageCpuConfigurationOutput
+}
+
+type MicrovmImageCpuConfigurationArgs struct {
+	Architecture MicrovmImageCpuConfigurationArchitectureInput `pulumi:"architecture"`
+}
+
+func (MicrovmImageCpuConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageCpuConfiguration)(nil)).Elem()
+}
+
+func (i MicrovmImageCpuConfigurationArgs) ToMicrovmImageCpuConfigurationOutput() MicrovmImageCpuConfigurationOutput {
+	return i.ToMicrovmImageCpuConfigurationOutputWithContext(context.Background())
+}
+
+func (i MicrovmImageCpuConfigurationArgs) ToMicrovmImageCpuConfigurationOutputWithContext(ctx context.Context) MicrovmImageCpuConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageCpuConfigurationOutput)
+}
+
+// MicrovmImageCpuConfigurationArrayInput is an input type that accepts MicrovmImageCpuConfigurationArray and MicrovmImageCpuConfigurationArrayOutput values.
+// You can construct a concrete instance of `MicrovmImageCpuConfigurationArrayInput` via:
+//
+//	MicrovmImageCpuConfigurationArray{ MicrovmImageCpuConfigurationArgs{...} }
+type MicrovmImageCpuConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToMicrovmImageCpuConfigurationArrayOutput() MicrovmImageCpuConfigurationArrayOutput
+	ToMicrovmImageCpuConfigurationArrayOutputWithContext(context.Context) MicrovmImageCpuConfigurationArrayOutput
+}
+
+type MicrovmImageCpuConfigurationArray []MicrovmImageCpuConfigurationInput
+
+func (MicrovmImageCpuConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MicrovmImageCpuConfiguration)(nil)).Elem()
+}
+
+func (i MicrovmImageCpuConfigurationArray) ToMicrovmImageCpuConfigurationArrayOutput() MicrovmImageCpuConfigurationArrayOutput {
+	return i.ToMicrovmImageCpuConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i MicrovmImageCpuConfigurationArray) ToMicrovmImageCpuConfigurationArrayOutputWithContext(ctx context.Context) MicrovmImageCpuConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageCpuConfigurationArrayOutput)
+}
+
+type MicrovmImageCpuConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageCpuConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageCpuConfiguration)(nil)).Elem()
+}
+
+func (o MicrovmImageCpuConfigurationOutput) ToMicrovmImageCpuConfigurationOutput() MicrovmImageCpuConfigurationOutput {
+	return o
+}
+
+func (o MicrovmImageCpuConfigurationOutput) ToMicrovmImageCpuConfigurationOutputWithContext(ctx context.Context) MicrovmImageCpuConfigurationOutput {
+	return o
+}
+
+func (o MicrovmImageCpuConfigurationOutput) Architecture() MicrovmImageCpuConfigurationArchitectureOutput {
+	return o.ApplyT(func(v MicrovmImageCpuConfiguration) MicrovmImageCpuConfigurationArchitecture { return v.Architecture }).(MicrovmImageCpuConfigurationArchitectureOutput)
+}
+
+type MicrovmImageCpuConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageCpuConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MicrovmImageCpuConfiguration)(nil)).Elem()
+}
+
+func (o MicrovmImageCpuConfigurationArrayOutput) ToMicrovmImageCpuConfigurationArrayOutput() MicrovmImageCpuConfigurationArrayOutput {
+	return o
+}
+
+func (o MicrovmImageCpuConfigurationArrayOutput) ToMicrovmImageCpuConfigurationArrayOutputWithContext(ctx context.Context) MicrovmImageCpuConfigurationArrayOutput {
+	return o
+}
+
+func (o MicrovmImageCpuConfigurationArrayOutput) Index(i pulumi.IntInput) MicrovmImageCpuConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MicrovmImageCpuConfiguration {
+		return vs[0].([]MicrovmImageCpuConfiguration)[vs[1].(int)]
+	}).(MicrovmImageCpuConfigurationOutput)
+}
+
+type MicrovmImageEnvironmentVariable struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// MicrovmImageEnvironmentVariableInput is an input type that accepts MicrovmImageEnvironmentVariableArgs and MicrovmImageEnvironmentVariableOutput values.
+// You can construct a concrete instance of `MicrovmImageEnvironmentVariableInput` via:
+//
+//	MicrovmImageEnvironmentVariableArgs{...}
+type MicrovmImageEnvironmentVariableInput interface {
+	pulumi.Input
+
+	ToMicrovmImageEnvironmentVariableOutput() MicrovmImageEnvironmentVariableOutput
+	ToMicrovmImageEnvironmentVariableOutputWithContext(context.Context) MicrovmImageEnvironmentVariableOutput
+}
+
+type MicrovmImageEnvironmentVariableArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (MicrovmImageEnvironmentVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageEnvironmentVariable)(nil)).Elem()
+}
+
+func (i MicrovmImageEnvironmentVariableArgs) ToMicrovmImageEnvironmentVariableOutput() MicrovmImageEnvironmentVariableOutput {
+	return i.ToMicrovmImageEnvironmentVariableOutputWithContext(context.Background())
+}
+
+func (i MicrovmImageEnvironmentVariableArgs) ToMicrovmImageEnvironmentVariableOutputWithContext(ctx context.Context) MicrovmImageEnvironmentVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageEnvironmentVariableOutput)
+}
+
+// MicrovmImageEnvironmentVariableArrayInput is an input type that accepts MicrovmImageEnvironmentVariableArray and MicrovmImageEnvironmentVariableArrayOutput values.
+// You can construct a concrete instance of `MicrovmImageEnvironmentVariableArrayInput` via:
+//
+//	MicrovmImageEnvironmentVariableArray{ MicrovmImageEnvironmentVariableArgs{...} }
+type MicrovmImageEnvironmentVariableArrayInput interface {
+	pulumi.Input
+
+	ToMicrovmImageEnvironmentVariableArrayOutput() MicrovmImageEnvironmentVariableArrayOutput
+	ToMicrovmImageEnvironmentVariableArrayOutputWithContext(context.Context) MicrovmImageEnvironmentVariableArrayOutput
+}
+
+type MicrovmImageEnvironmentVariableArray []MicrovmImageEnvironmentVariableInput
+
+func (MicrovmImageEnvironmentVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MicrovmImageEnvironmentVariable)(nil)).Elem()
+}
+
+func (i MicrovmImageEnvironmentVariableArray) ToMicrovmImageEnvironmentVariableArrayOutput() MicrovmImageEnvironmentVariableArrayOutput {
+	return i.ToMicrovmImageEnvironmentVariableArrayOutputWithContext(context.Background())
+}
+
+func (i MicrovmImageEnvironmentVariableArray) ToMicrovmImageEnvironmentVariableArrayOutputWithContext(ctx context.Context) MicrovmImageEnvironmentVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageEnvironmentVariableArrayOutput)
+}
+
+type MicrovmImageEnvironmentVariableOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageEnvironmentVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageEnvironmentVariable)(nil)).Elem()
+}
+
+func (o MicrovmImageEnvironmentVariableOutput) ToMicrovmImageEnvironmentVariableOutput() MicrovmImageEnvironmentVariableOutput {
+	return o
+}
+
+func (o MicrovmImageEnvironmentVariableOutput) ToMicrovmImageEnvironmentVariableOutputWithContext(ctx context.Context) MicrovmImageEnvironmentVariableOutput {
+	return o
+}
+
+func (o MicrovmImageEnvironmentVariableOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MicrovmImageEnvironmentVariable) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o MicrovmImageEnvironmentVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v MicrovmImageEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type MicrovmImageEnvironmentVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageEnvironmentVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MicrovmImageEnvironmentVariable)(nil)).Elem()
+}
+
+func (o MicrovmImageEnvironmentVariableArrayOutput) ToMicrovmImageEnvironmentVariableArrayOutput() MicrovmImageEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o MicrovmImageEnvironmentVariableArrayOutput) ToMicrovmImageEnvironmentVariableArrayOutputWithContext(ctx context.Context) MicrovmImageEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o MicrovmImageEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) MicrovmImageEnvironmentVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MicrovmImageEnvironmentVariable {
+		return vs[0].([]MicrovmImageEnvironmentVariable)[vs[1].(int)]
+	}).(MicrovmImageEnvironmentVariableOutput)
+}
+
+type MicrovmImageHooks struct {
+	Ready                    *MicrovmImageHookState `pulumi:"ready"`
+	ReadyTimeoutInSeconds    *int                   `pulumi:"readyTimeoutInSeconds"`
+	Validate                 *MicrovmImageHookState `pulumi:"validate"`
+	ValidateTimeoutInSeconds *int                   `pulumi:"validateTimeoutInSeconds"`
+}
+
+// MicrovmImageHooksInput is an input type that accepts MicrovmImageHooksArgs and MicrovmImageHooksOutput values.
+// You can construct a concrete instance of `MicrovmImageHooksInput` via:
+//
+//	MicrovmImageHooksArgs{...}
+type MicrovmImageHooksInput interface {
+	pulumi.Input
+
+	ToMicrovmImageHooksOutput() MicrovmImageHooksOutput
+	ToMicrovmImageHooksOutputWithContext(context.Context) MicrovmImageHooksOutput
+}
+
+type MicrovmImageHooksArgs struct {
+	Ready                    MicrovmImageHookStatePtrInput `pulumi:"ready"`
+	ReadyTimeoutInSeconds    pulumi.IntPtrInput            `pulumi:"readyTimeoutInSeconds"`
+	Validate                 MicrovmImageHookStatePtrInput `pulumi:"validate"`
+	ValidateTimeoutInSeconds pulumi.IntPtrInput            `pulumi:"validateTimeoutInSeconds"`
+}
+
+func (MicrovmImageHooksArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageHooks)(nil)).Elem()
+}
+
+func (i MicrovmImageHooksArgs) ToMicrovmImageHooksOutput() MicrovmImageHooksOutput {
+	return i.ToMicrovmImageHooksOutputWithContext(context.Background())
+}
+
+func (i MicrovmImageHooksArgs) ToMicrovmImageHooksOutputWithContext(ctx context.Context) MicrovmImageHooksOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageHooksOutput)
+}
+
+func (i MicrovmImageHooksArgs) ToMicrovmImageHooksPtrOutput() MicrovmImageHooksPtrOutput {
+	return i.ToMicrovmImageHooksPtrOutputWithContext(context.Background())
+}
+
+func (i MicrovmImageHooksArgs) ToMicrovmImageHooksPtrOutputWithContext(ctx context.Context) MicrovmImageHooksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageHooksOutput).ToMicrovmImageHooksPtrOutputWithContext(ctx)
+}
+
+// MicrovmImageHooksPtrInput is an input type that accepts MicrovmImageHooksArgs, MicrovmImageHooksPtr and MicrovmImageHooksPtrOutput values.
+// You can construct a concrete instance of `MicrovmImageHooksPtrInput` via:
+//
+//	        MicrovmImageHooksArgs{...}
+//
+//	or:
+//
+//	        nil
+type MicrovmImageHooksPtrInput interface {
+	pulumi.Input
+
+	ToMicrovmImageHooksPtrOutput() MicrovmImageHooksPtrOutput
+	ToMicrovmImageHooksPtrOutputWithContext(context.Context) MicrovmImageHooksPtrOutput
+}
+
+type microvmImageHooksPtrType MicrovmImageHooksArgs
+
+func MicrovmImageHooksPtr(v *MicrovmImageHooksArgs) MicrovmImageHooksPtrInput {
+	return (*microvmImageHooksPtrType)(v)
+}
+
+func (*microvmImageHooksPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmImageHooks)(nil)).Elem()
+}
+
+func (i *microvmImageHooksPtrType) ToMicrovmImageHooksPtrOutput() MicrovmImageHooksPtrOutput {
+	return i.ToMicrovmImageHooksPtrOutputWithContext(context.Background())
+}
+
+func (i *microvmImageHooksPtrType) ToMicrovmImageHooksPtrOutputWithContext(ctx context.Context) MicrovmImageHooksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageHooksPtrOutput)
+}
+
+type MicrovmImageHooksOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageHooksOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageHooks)(nil)).Elem()
+}
+
+func (o MicrovmImageHooksOutput) ToMicrovmImageHooksOutput() MicrovmImageHooksOutput {
+	return o
+}
+
+func (o MicrovmImageHooksOutput) ToMicrovmImageHooksOutputWithContext(ctx context.Context) MicrovmImageHooksOutput {
+	return o
+}
+
+func (o MicrovmImageHooksOutput) ToMicrovmImageHooksPtrOutput() MicrovmImageHooksPtrOutput {
+	return o.ToMicrovmImageHooksPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageHooksOutput) ToMicrovmImageHooksPtrOutputWithContext(ctx context.Context) MicrovmImageHooksPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MicrovmImageHooks) *MicrovmImageHooks {
+		return &v
+	}).(MicrovmImageHooksPtrOutput)
+}
+
+func (o MicrovmImageHooksOutput) Ready() MicrovmImageHookStatePtrOutput {
+	return o.ApplyT(func(v MicrovmImageHooks) *MicrovmImageHookState { return v.Ready }).(MicrovmImageHookStatePtrOutput)
+}
+
+func (o MicrovmImageHooksOutput) ReadyTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MicrovmImageHooks) *int { return v.ReadyTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o MicrovmImageHooksOutput) Validate() MicrovmImageHookStatePtrOutput {
+	return o.ApplyT(func(v MicrovmImageHooks) *MicrovmImageHookState { return v.Validate }).(MicrovmImageHookStatePtrOutput)
+}
+
+func (o MicrovmImageHooksOutput) ValidateTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MicrovmImageHooks) *int { return v.ValidateTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type MicrovmImageHooksPtrOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageHooksPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmImageHooks)(nil)).Elem()
+}
+
+func (o MicrovmImageHooksPtrOutput) ToMicrovmImageHooksPtrOutput() MicrovmImageHooksPtrOutput {
+	return o
+}
+
+func (o MicrovmImageHooksPtrOutput) ToMicrovmImageHooksPtrOutputWithContext(ctx context.Context) MicrovmImageHooksPtrOutput {
+	return o
+}
+
+func (o MicrovmImageHooksPtrOutput) Elem() MicrovmImageHooksOutput {
+	return o.ApplyT(func(v *MicrovmImageHooks) MicrovmImageHooks {
+		if v != nil {
+			return *v
+		}
+		var ret MicrovmImageHooks
+		return ret
+	}).(MicrovmImageHooksOutput)
+}
+
+func (o MicrovmImageHooksPtrOutput) Ready() MicrovmImageHookStatePtrOutput {
+	return o.ApplyT(func(v *MicrovmImageHooks) *MicrovmImageHookState {
+		if v == nil {
+			return nil
+		}
+		return v.Ready
+	}).(MicrovmImageHookStatePtrOutput)
+}
+
+func (o MicrovmImageHooksPtrOutput) ReadyTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MicrovmImageHooks) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReadyTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MicrovmImageHooksPtrOutput) Validate() MicrovmImageHookStatePtrOutput {
+	return o.ApplyT(func(v *MicrovmImageHooks) *MicrovmImageHookState {
+		if v == nil {
+			return nil
+		}
+		return v.Validate
+	}).(MicrovmImageHookStatePtrOutput)
+}
+
+func (o MicrovmImageHooksPtrOutput) ValidateTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MicrovmImageHooks) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ValidateTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type MicrovmImageLogging struct {
+	CloudWatch *MicrovmImageCloudWatchLogging `pulumi:"cloudWatch"`
+	Disabled   *bool                          `pulumi:"disabled"`
+}
+
+// MicrovmImageLoggingInput is an input type that accepts MicrovmImageLoggingArgs and MicrovmImageLoggingOutput values.
+// You can construct a concrete instance of `MicrovmImageLoggingInput` via:
+//
+//	MicrovmImageLoggingArgs{...}
+type MicrovmImageLoggingInput interface {
+	pulumi.Input
+
+	ToMicrovmImageLoggingOutput() MicrovmImageLoggingOutput
+	ToMicrovmImageLoggingOutputWithContext(context.Context) MicrovmImageLoggingOutput
+}
+
+type MicrovmImageLoggingArgs struct {
+	CloudWatch MicrovmImageCloudWatchLoggingPtrInput `pulumi:"cloudWatch"`
+	Disabled   pulumi.BoolPtrInput                   `pulumi:"disabled"`
+}
+
+func (MicrovmImageLoggingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageLogging)(nil)).Elem()
+}
+
+func (i MicrovmImageLoggingArgs) ToMicrovmImageLoggingOutput() MicrovmImageLoggingOutput {
+	return i.ToMicrovmImageLoggingOutputWithContext(context.Background())
+}
+
+func (i MicrovmImageLoggingArgs) ToMicrovmImageLoggingOutputWithContext(ctx context.Context) MicrovmImageLoggingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageLoggingOutput)
+}
+
+type MicrovmImageLoggingOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageLoggingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageLogging)(nil)).Elem()
+}
+
+func (o MicrovmImageLoggingOutput) ToMicrovmImageLoggingOutput() MicrovmImageLoggingOutput {
+	return o
+}
+
+func (o MicrovmImageLoggingOutput) ToMicrovmImageLoggingOutputWithContext(ctx context.Context) MicrovmImageLoggingOutput {
+	return o
+}
+
+func (o MicrovmImageLoggingOutput) CloudWatch() MicrovmImageCloudWatchLoggingPtrOutput {
+	return o.ApplyT(func(v MicrovmImageLogging) *MicrovmImageCloudWatchLogging { return v.CloudWatch }).(MicrovmImageCloudWatchLoggingPtrOutput)
+}
+
+func (o MicrovmImageLoggingOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MicrovmImageLogging) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
+}
+
+type MicrovmImageMicrovmHooks struct {
+	Resume                    *MicrovmImageHookState `pulumi:"resume"`
+	ResumeTimeoutInSeconds    *int                   `pulumi:"resumeTimeoutInSeconds"`
+	Run                       *MicrovmImageHookState `pulumi:"run"`
+	RunTimeoutInSeconds       *int                   `pulumi:"runTimeoutInSeconds"`
+	Suspend                   *MicrovmImageHookState `pulumi:"suspend"`
+	SuspendTimeoutInSeconds   *int                   `pulumi:"suspendTimeoutInSeconds"`
+	Terminate                 *MicrovmImageHookState `pulumi:"terminate"`
+	TerminateTimeoutInSeconds *int                   `pulumi:"terminateTimeoutInSeconds"`
+}
+
+// MicrovmImageMicrovmHooksInput is an input type that accepts MicrovmImageMicrovmHooksArgs and MicrovmImageMicrovmHooksOutput values.
+// You can construct a concrete instance of `MicrovmImageMicrovmHooksInput` via:
+//
+//	MicrovmImageMicrovmHooksArgs{...}
+type MicrovmImageMicrovmHooksInput interface {
+	pulumi.Input
+
+	ToMicrovmImageMicrovmHooksOutput() MicrovmImageMicrovmHooksOutput
+	ToMicrovmImageMicrovmHooksOutputWithContext(context.Context) MicrovmImageMicrovmHooksOutput
+}
+
+type MicrovmImageMicrovmHooksArgs struct {
+	Resume                    MicrovmImageHookStatePtrInput `pulumi:"resume"`
+	ResumeTimeoutInSeconds    pulumi.IntPtrInput            `pulumi:"resumeTimeoutInSeconds"`
+	Run                       MicrovmImageHookStatePtrInput `pulumi:"run"`
+	RunTimeoutInSeconds       pulumi.IntPtrInput            `pulumi:"runTimeoutInSeconds"`
+	Suspend                   MicrovmImageHookStatePtrInput `pulumi:"suspend"`
+	SuspendTimeoutInSeconds   pulumi.IntPtrInput            `pulumi:"suspendTimeoutInSeconds"`
+	Terminate                 MicrovmImageHookStatePtrInput `pulumi:"terminate"`
+	TerminateTimeoutInSeconds pulumi.IntPtrInput            `pulumi:"terminateTimeoutInSeconds"`
+}
+
+func (MicrovmImageMicrovmHooksArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageMicrovmHooks)(nil)).Elem()
+}
+
+func (i MicrovmImageMicrovmHooksArgs) ToMicrovmImageMicrovmHooksOutput() MicrovmImageMicrovmHooksOutput {
+	return i.ToMicrovmImageMicrovmHooksOutputWithContext(context.Background())
+}
+
+func (i MicrovmImageMicrovmHooksArgs) ToMicrovmImageMicrovmHooksOutputWithContext(ctx context.Context) MicrovmImageMicrovmHooksOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageMicrovmHooksOutput)
+}
+
+func (i MicrovmImageMicrovmHooksArgs) ToMicrovmImageMicrovmHooksPtrOutput() MicrovmImageMicrovmHooksPtrOutput {
+	return i.ToMicrovmImageMicrovmHooksPtrOutputWithContext(context.Background())
+}
+
+func (i MicrovmImageMicrovmHooksArgs) ToMicrovmImageMicrovmHooksPtrOutputWithContext(ctx context.Context) MicrovmImageMicrovmHooksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageMicrovmHooksOutput).ToMicrovmImageMicrovmHooksPtrOutputWithContext(ctx)
+}
+
+// MicrovmImageMicrovmHooksPtrInput is an input type that accepts MicrovmImageMicrovmHooksArgs, MicrovmImageMicrovmHooksPtr and MicrovmImageMicrovmHooksPtrOutput values.
+// You can construct a concrete instance of `MicrovmImageMicrovmHooksPtrInput` via:
+//
+//	        MicrovmImageMicrovmHooksArgs{...}
+//
+//	or:
+//
+//	        nil
+type MicrovmImageMicrovmHooksPtrInput interface {
+	pulumi.Input
+
+	ToMicrovmImageMicrovmHooksPtrOutput() MicrovmImageMicrovmHooksPtrOutput
+	ToMicrovmImageMicrovmHooksPtrOutputWithContext(context.Context) MicrovmImageMicrovmHooksPtrOutput
+}
+
+type microvmImageMicrovmHooksPtrType MicrovmImageMicrovmHooksArgs
+
+func MicrovmImageMicrovmHooksPtr(v *MicrovmImageMicrovmHooksArgs) MicrovmImageMicrovmHooksPtrInput {
+	return (*microvmImageMicrovmHooksPtrType)(v)
+}
+
+func (*microvmImageMicrovmHooksPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmImageMicrovmHooks)(nil)).Elem()
+}
+
+func (i *microvmImageMicrovmHooksPtrType) ToMicrovmImageMicrovmHooksPtrOutput() MicrovmImageMicrovmHooksPtrOutput {
+	return i.ToMicrovmImageMicrovmHooksPtrOutputWithContext(context.Background())
+}
+
+func (i *microvmImageMicrovmHooksPtrType) ToMicrovmImageMicrovmHooksPtrOutputWithContext(ctx context.Context) MicrovmImageMicrovmHooksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageMicrovmHooksPtrOutput)
+}
+
+type MicrovmImageMicrovmHooksOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageMicrovmHooksOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageMicrovmHooks)(nil)).Elem()
+}
+
+func (o MicrovmImageMicrovmHooksOutput) ToMicrovmImageMicrovmHooksOutput() MicrovmImageMicrovmHooksOutput {
+	return o
+}
+
+func (o MicrovmImageMicrovmHooksOutput) ToMicrovmImageMicrovmHooksOutputWithContext(ctx context.Context) MicrovmImageMicrovmHooksOutput {
+	return o
+}
+
+func (o MicrovmImageMicrovmHooksOutput) ToMicrovmImageMicrovmHooksPtrOutput() MicrovmImageMicrovmHooksPtrOutput {
+	return o.ToMicrovmImageMicrovmHooksPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmImageMicrovmHooksOutput) ToMicrovmImageMicrovmHooksPtrOutputWithContext(ctx context.Context) MicrovmImageMicrovmHooksPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MicrovmImageMicrovmHooks) *MicrovmImageMicrovmHooks {
+		return &v
+	}).(MicrovmImageMicrovmHooksPtrOutput)
+}
+
+func (o MicrovmImageMicrovmHooksOutput) Resume() MicrovmImageHookStatePtrOutput {
+	return o.ApplyT(func(v MicrovmImageMicrovmHooks) *MicrovmImageHookState { return v.Resume }).(MicrovmImageHookStatePtrOutput)
+}
+
+func (o MicrovmImageMicrovmHooksOutput) ResumeTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MicrovmImageMicrovmHooks) *int { return v.ResumeTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o MicrovmImageMicrovmHooksOutput) Run() MicrovmImageHookStatePtrOutput {
+	return o.ApplyT(func(v MicrovmImageMicrovmHooks) *MicrovmImageHookState { return v.Run }).(MicrovmImageHookStatePtrOutput)
+}
+
+func (o MicrovmImageMicrovmHooksOutput) RunTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MicrovmImageMicrovmHooks) *int { return v.RunTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o MicrovmImageMicrovmHooksOutput) Suspend() MicrovmImageHookStatePtrOutput {
+	return o.ApplyT(func(v MicrovmImageMicrovmHooks) *MicrovmImageHookState { return v.Suspend }).(MicrovmImageHookStatePtrOutput)
+}
+
+func (o MicrovmImageMicrovmHooksOutput) SuspendTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MicrovmImageMicrovmHooks) *int { return v.SuspendTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o MicrovmImageMicrovmHooksOutput) Terminate() MicrovmImageHookStatePtrOutput {
+	return o.ApplyT(func(v MicrovmImageMicrovmHooks) *MicrovmImageHookState { return v.Terminate }).(MicrovmImageHookStatePtrOutput)
+}
+
+func (o MicrovmImageMicrovmHooksOutput) TerminateTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MicrovmImageMicrovmHooks) *int { return v.TerminateTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type MicrovmImageMicrovmHooksPtrOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageMicrovmHooksPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmImageMicrovmHooks)(nil)).Elem()
+}
+
+func (o MicrovmImageMicrovmHooksPtrOutput) ToMicrovmImageMicrovmHooksPtrOutput() MicrovmImageMicrovmHooksPtrOutput {
+	return o
+}
+
+func (o MicrovmImageMicrovmHooksPtrOutput) ToMicrovmImageMicrovmHooksPtrOutputWithContext(ctx context.Context) MicrovmImageMicrovmHooksPtrOutput {
+	return o
+}
+
+func (o MicrovmImageMicrovmHooksPtrOutput) Elem() MicrovmImageMicrovmHooksOutput {
+	return o.ApplyT(func(v *MicrovmImageMicrovmHooks) MicrovmImageMicrovmHooks {
+		if v != nil {
+			return *v
+		}
+		var ret MicrovmImageMicrovmHooks
+		return ret
+	}).(MicrovmImageMicrovmHooksOutput)
+}
+
+func (o MicrovmImageMicrovmHooksPtrOutput) Resume() MicrovmImageHookStatePtrOutput {
+	return o.ApplyT(func(v *MicrovmImageMicrovmHooks) *MicrovmImageHookState {
+		if v == nil {
+			return nil
+		}
+		return v.Resume
+	}).(MicrovmImageHookStatePtrOutput)
+}
+
+func (o MicrovmImageMicrovmHooksPtrOutput) ResumeTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MicrovmImageMicrovmHooks) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ResumeTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MicrovmImageMicrovmHooksPtrOutput) Run() MicrovmImageHookStatePtrOutput {
+	return o.ApplyT(func(v *MicrovmImageMicrovmHooks) *MicrovmImageHookState {
+		if v == nil {
+			return nil
+		}
+		return v.Run
+	}).(MicrovmImageHookStatePtrOutput)
+}
+
+func (o MicrovmImageMicrovmHooksPtrOutput) RunTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MicrovmImageMicrovmHooks) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RunTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MicrovmImageMicrovmHooksPtrOutput) Suspend() MicrovmImageHookStatePtrOutput {
+	return o.ApplyT(func(v *MicrovmImageMicrovmHooks) *MicrovmImageHookState {
+		if v == nil {
+			return nil
+		}
+		return v.Suspend
+	}).(MicrovmImageHookStatePtrOutput)
+}
+
+func (o MicrovmImageMicrovmHooksPtrOutput) SuspendTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MicrovmImageMicrovmHooks) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SuspendTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MicrovmImageMicrovmHooksPtrOutput) Terminate() MicrovmImageHookStatePtrOutput {
+	return o.ApplyT(func(v *MicrovmImageMicrovmHooks) *MicrovmImageHookState {
+		if v == nil {
+			return nil
+		}
+		return v.Terminate
+	}).(MicrovmImageHookStatePtrOutput)
+}
+
+func (o MicrovmImageMicrovmHooksPtrOutput) TerminateTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MicrovmImageMicrovmHooks) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TerminateTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type MicrovmImageResources struct {
+	MinimumMemoryInMiB int `pulumi:"minimumMemoryInMiB"`
+}
+
+// MicrovmImageResourcesInput is an input type that accepts MicrovmImageResourcesArgs and MicrovmImageResourcesOutput values.
+// You can construct a concrete instance of `MicrovmImageResourcesInput` via:
+//
+//	MicrovmImageResourcesArgs{...}
+type MicrovmImageResourcesInput interface {
+	pulumi.Input
+
+	ToMicrovmImageResourcesOutput() MicrovmImageResourcesOutput
+	ToMicrovmImageResourcesOutputWithContext(context.Context) MicrovmImageResourcesOutput
+}
+
+type MicrovmImageResourcesArgs struct {
+	MinimumMemoryInMiB pulumi.IntInput `pulumi:"minimumMemoryInMiB"`
+}
+
+func (MicrovmImageResourcesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageResources)(nil)).Elem()
+}
+
+func (i MicrovmImageResourcesArgs) ToMicrovmImageResourcesOutput() MicrovmImageResourcesOutput {
+	return i.ToMicrovmImageResourcesOutputWithContext(context.Background())
+}
+
+func (i MicrovmImageResourcesArgs) ToMicrovmImageResourcesOutputWithContext(ctx context.Context) MicrovmImageResourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageResourcesOutput)
+}
+
+// MicrovmImageResourcesArrayInput is an input type that accepts MicrovmImageResourcesArray and MicrovmImageResourcesArrayOutput values.
+// You can construct a concrete instance of `MicrovmImageResourcesArrayInput` via:
+//
+//	MicrovmImageResourcesArray{ MicrovmImageResourcesArgs{...} }
+type MicrovmImageResourcesArrayInput interface {
+	pulumi.Input
+
+	ToMicrovmImageResourcesArrayOutput() MicrovmImageResourcesArrayOutput
+	ToMicrovmImageResourcesArrayOutputWithContext(context.Context) MicrovmImageResourcesArrayOutput
+}
+
+type MicrovmImageResourcesArray []MicrovmImageResourcesInput
+
+func (MicrovmImageResourcesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MicrovmImageResources)(nil)).Elem()
+}
+
+func (i MicrovmImageResourcesArray) ToMicrovmImageResourcesArrayOutput() MicrovmImageResourcesArrayOutput {
+	return i.ToMicrovmImageResourcesArrayOutputWithContext(context.Background())
+}
+
+func (i MicrovmImageResourcesArray) ToMicrovmImageResourcesArrayOutputWithContext(ctx context.Context) MicrovmImageResourcesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmImageResourcesArrayOutput)
+}
+
+type MicrovmImageResourcesOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageResourcesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmImageResources)(nil)).Elem()
+}
+
+func (o MicrovmImageResourcesOutput) ToMicrovmImageResourcesOutput() MicrovmImageResourcesOutput {
+	return o
+}
+
+func (o MicrovmImageResourcesOutput) ToMicrovmImageResourcesOutputWithContext(ctx context.Context) MicrovmImageResourcesOutput {
+	return o
+}
+
+func (o MicrovmImageResourcesOutput) MinimumMemoryInMiB() pulumi.IntOutput {
+	return o.ApplyT(func(v MicrovmImageResources) int { return v.MinimumMemoryInMiB }).(pulumi.IntOutput)
+}
+
+type MicrovmImageResourcesArrayOutput struct{ *pulumi.OutputState }
+
+func (MicrovmImageResourcesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MicrovmImageResources)(nil)).Elem()
+}
+
+func (o MicrovmImageResourcesArrayOutput) ToMicrovmImageResourcesArrayOutput() MicrovmImageResourcesArrayOutput {
+	return o
+}
+
+func (o MicrovmImageResourcesArrayOutput) ToMicrovmImageResourcesArrayOutputWithContext(ctx context.Context) MicrovmImageResourcesArrayOutput {
+	return o
+}
+
+func (o MicrovmImageResourcesArrayOutput) Index(i pulumi.IntInput) MicrovmImageResourcesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MicrovmImageResources {
+		return vs[0].([]MicrovmImageResources)[vs[1].(int)]
+	}).(MicrovmImageResourcesOutput)
+}
+
+type MicrovmImageTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value *string `pulumi:"value"`
+}
+
+// The network configuration for the connector. Specify a VpcEgressConfiguration to enable outbound traffic routing through your VPC.
+type NetworkConnectorConfig struct {
+	VpcEgressConfiguration NetworkConnectorVpcEgressConfiguration `pulumi:"vpcEgressConfiguration"`
+}
+
+// NetworkConnectorConfigInput is an input type that accepts NetworkConnectorConfigArgs and NetworkConnectorConfigOutput values.
+// You can construct a concrete instance of `NetworkConnectorConfigInput` via:
+//
+//	NetworkConnectorConfigArgs{...}
+type NetworkConnectorConfigInput interface {
+	pulumi.Input
+
+	ToNetworkConnectorConfigOutput() NetworkConnectorConfigOutput
+	ToNetworkConnectorConfigOutputWithContext(context.Context) NetworkConnectorConfigOutput
+}
+
+// The network configuration for the connector. Specify a VpcEgressConfiguration to enable outbound traffic routing through your VPC.
+type NetworkConnectorConfigArgs struct {
+	VpcEgressConfiguration NetworkConnectorVpcEgressConfigurationInput `pulumi:"vpcEgressConfiguration"`
+}
+
+func (NetworkConnectorConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectorConfig)(nil)).Elem()
+}
+
+func (i NetworkConnectorConfigArgs) ToNetworkConnectorConfigOutput() NetworkConnectorConfigOutput {
+	return i.ToNetworkConnectorConfigOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectorConfigArgs) ToNetworkConnectorConfigOutputWithContext(ctx context.Context) NetworkConnectorConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectorConfigOutput)
+}
+
+// The network configuration for the connector. Specify a VpcEgressConfiguration to enable outbound traffic routing through your VPC.
+type NetworkConnectorConfigOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectorConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectorConfig)(nil)).Elem()
+}
+
+func (o NetworkConnectorConfigOutput) ToNetworkConnectorConfigOutput() NetworkConnectorConfigOutput {
+	return o
+}
+
+func (o NetworkConnectorConfigOutput) ToNetworkConnectorConfigOutputWithContext(ctx context.Context) NetworkConnectorConfigOutput {
+	return o
+}
+
+func (o NetworkConnectorConfigOutput) VpcEgressConfiguration() NetworkConnectorVpcEgressConfigurationOutput {
+	return o.ApplyT(func(v NetworkConnectorConfig) NetworkConnectorVpcEgressConfiguration { return v.VpcEgressConfiguration }).(NetworkConnectorVpcEgressConfigurationOutput)
+}
+
+type NetworkConnectorConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectorConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectorConfig)(nil)).Elem()
+}
+
+func (o NetworkConnectorConfigPtrOutput) ToNetworkConnectorConfigPtrOutput() NetworkConnectorConfigPtrOutput {
+	return o
+}
+
+func (o NetworkConnectorConfigPtrOutput) ToNetworkConnectorConfigPtrOutputWithContext(ctx context.Context) NetworkConnectorConfigPtrOutput {
+	return o
+}
+
+func (o NetworkConnectorConfigPtrOutput) Elem() NetworkConnectorConfigOutput {
+	return o.ApplyT(func(v *NetworkConnectorConfig) NetworkConnectorConfig {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkConnectorConfig
+		return ret
+	}).(NetworkConnectorConfigOutput)
+}
+
+func (o NetworkConnectorConfigPtrOutput) VpcEgressConfiguration() NetworkConnectorVpcEgressConfigurationPtrOutput {
+	return o.ApplyT(func(v *NetworkConnectorConfig) *NetworkConnectorVpcEgressConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcEgressConfiguration
+	}).(NetworkConnectorVpcEgressConfigurationPtrOutput)
+}
+
+// A key-value pair that provides metadata for the network connector.
+type NetworkConnectorTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value *string `pulumi:"value"`
+}
+
+// The VPC egress configuration for the network connector. Specifies the subnets, security groups, and network protocol for routing outbound traffic through your VPC.
+type NetworkConnectorVpcEgressConfiguration struct {
+	// The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+	AssociatedComputeResourceTypes []NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem `pulumi:"associatedComputeResourceTypes"`
+	// The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
+	NetworkProtocol *NetworkConnectorVpcEgressConfigurationNetworkProtocol `pulumi:"networkProtocol"`
+	// The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// NetworkConnectorVpcEgressConfigurationInput is an input type that accepts NetworkConnectorVpcEgressConfigurationArgs and NetworkConnectorVpcEgressConfigurationOutput values.
+// You can construct a concrete instance of `NetworkConnectorVpcEgressConfigurationInput` via:
+//
+//	NetworkConnectorVpcEgressConfigurationArgs{...}
+type NetworkConnectorVpcEgressConfigurationInput interface {
+	pulumi.Input
+
+	ToNetworkConnectorVpcEgressConfigurationOutput() NetworkConnectorVpcEgressConfigurationOutput
+	ToNetworkConnectorVpcEgressConfigurationOutputWithContext(context.Context) NetworkConnectorVpcEgressConfigurationOutput
+}
+
+// The VPC egress configuration for the network connector. Specifies the subnets, security groups, and network protocol for routing outbound traffic through your VPC.
+type NetworkConnectorVpcEgressConfigurationArgs struct {
+	// The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+	AssociatedComputeResourceTypes NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayInput `pulumi:"associatedComputeResourceTypes"`
+	// The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
+	NetworkProtocol NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrInput `pulumi:"networkProtocol"`
+	// The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (NetworkConnectorVpcEgressConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectorVpcEgressConfiguration)(nil)).Elem()
+}
+
+func (i NetworkConnectorVpcEgressConfigurationArgs) ToNetworkConnectorVpcEgressConfigurationOutput() NetworkConnectorVpcEgressConfigurationOutput {
+	return i.ToNetworkConnectorVpcEgressConfigurationOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectorVpcEgressConfigurationArgs) ToNetworkConnectorVpcEgressConfigurationOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectorVpcEgressConfigurationOutput)
+}
+
+// The VPC egress configuration for the network connector. Specifies the subnets, security groups, and network protocol for routing outbound traffic through your VPC.
+type NetworkConnectorVpcEgressConfigurationOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectorVpcEgressConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectorVpcEgressConfiguration)(nil)).Elem()
+}
+
+func (o NetworkConnectorVpcEgressConfigurationOutput) ToNetworkConnectorVpcEgressConfigurationOutput() NetworkConnectorVpcEgressConfigurationOutput {
+	return o
+}
+
+func (o NetworkConnectorVpcEgressConfigurationOutput) ToNetworkConnectorVpcEgressConfigurationOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationOutput {
+	return o
+}
+
+// The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+func (o NetworkConnectorVpcEgressConfigurationOutput) AssociatedComputeResourceTypes() NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput {
+	return o.ApplyT(func(v NetworkConnectorVpcEgressConfiguration) []NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem {
+		return v.AssociatedComputeResourceTypes
+	}).(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput)
+}
+
+// The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
+func (o NetworkConnectorVpcEgressConfigurationOutput) NetworkProtocol() NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput {
+	return o.ApplyT(func(v NetworkConnectorVpcEgressConfiguration) *NetworkConnectorVpcEgressConfigurationNetworkProtocol {
+		return v.NetworkProtocol
+	}).(NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput)
+}
+
+// The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+func (o NetworkConnectorVpcEgressConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkConnectorVpcEgressConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
+func (o NetworkConnectorVpcEgressConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkConnectorVpcEgressConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type NetworkConnectorVpcEgressConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectorVpcEgressConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectorVpcEgressConfiguration)(nil)).Elem()
+}
+
+func (o NetworkConnectorVpcEgressConfigurationPtrOutput) ToNetworkConnectorVpcEgressConfigurationPtrOutput() NetworkConnectorVpcEgressConfigurationPtrOutput {
+	return o
+}
+
+func (o NetworkConnectorVpcEgressConfigurationPtrOutput) ToNetworkConnectorVpcEgressConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectorVpcEgressConfigurationPtrOutput {
+	return o
+}
+
+func (o NetworkConnectorVpcEgressConfigurationPtrOutput) Elem() NetworkConnectorVpcEgressConfigurationOutput {
+	return o.ApplyT(func(v *NetworkConnectorVpcEgressConfiguration) NetworkConnectorVpcEgressConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkConnectorVpcEgressConfiguration
+		return ret
+	}).(NetworkConnectorVpcEgressConfigurationOutput)
+}
+
+// The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+func (o NetworkConnectorVpcEgressConfigurationPtrOutput) AssociatedComputeResourceTypes() NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput {
+	return o.ApplyT(func(v *NetworkConnectorVpcEgressConfiguration) []NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem {
+		if v == nil {
+			return nil
+		}
+		return v.AssociatedComputeResourceTypes
+	}).(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput)
+}
+
+// The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
+func (o NetworkConnectorVpcEgressConfigurationPtrOutput) NetworkProtocol() NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput {
+	return o.ApplyT(func(v *NetworkConnectorVpcEgressConfiguration) *NetworkConnectorVpcEgressConfigurationNetworkProtocol {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkProtocol
+	}).(NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput)
+}
+
+// The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+func (o NetworkConnectorVpcEgressConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkConnectorVpcEgressConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
+func (o NetworkConnectorVpcEgressConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkConnectorVpcEgressConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 type UrlCors struct {
@@ -7866,6 +9433,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasVersionWeightArrayInput)(nil)).Elem(), AliasVersionWeightArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsInput)(nil)).Elem(), CapacityProviderInstanceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsPtrInput)(nil)).Elem(), CapacityProviderInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderLoggingConfigInput)(nil)).Elem(), CapacityProviderLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderLoggingConfigPtrInput)(nil)).Elem(), CapacityProviderLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPermissionsConfigInput)(nil)).Elem(), CapacityProviderPermissionsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPropagateTagsConfigInput)(nil)).Elem(), CapacityProviderPropagateTagsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPropagateTagsConfigPtrInput)(nil)).Elem(), CapacityProviderPropagateTagsConfigArgs{})
@@ -7875,6 +9444,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTagArrayInput)(nil)).Elem(), CapacityProviderTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTargetTrackingScalingPolicyInput)(nil)).Elem(), CapacityProviderTargetTrackingScalingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTargetTrackingScalingPolicyArrayInput)(nil)).Elem(), CapacityProviderTargetTrackingScalingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTelemetryConfigInput)(nil)).Elem(), CapacityProviderTelemetryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTelemetryConfigPtrInput)(nil)).Elem(), CapacityProviderTelemetryConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderVpcConfigInput)(nil)).Elem(), CapacityProviderVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigAllowedPublishersInput)(nil)).Elem(), CodeSigningConfigAllowedPublishersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesArgs{})
@@ -7950,7 +9521,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigPtrInput)(nil)).Elem(), FunctionTracingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionVpcConfigInput)(nil)).Elem(), FunctionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionVpcConfigPtrInput)(nil)).Elem(), FunctionVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HooksInput)(nil)).Elem(), HooksArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionContentInput)(nil)).Elem(), LayerVersionContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageCloudWatchLoggingInput)(nil)).Elem(), MicrovmImageCloudWatchLoggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageCloudWatchLoggingPtrInput)(nil)).Elem(), MicrovmImageCloudWatchLoggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageCodeArtifactInput)(nil)).Elem(), MicrovmImageCodeArtifactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageCpuConfigurationInput)(nil)).Elem(), MicrovmImageCpuConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageCpuConfigurationArrayInput)(nil)).Elem(), MicrovmImageCpuConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageEnvironmentVariableInput)(nil)).Elem(), MicrovmImageEnvironmentVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageEnvironmentVariableArrayInput)(nil)).Elem(), MicrovmImageEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageHooksInput)(nil)).Elem(), MicrovmImageHooksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageHooksPtrInput)(nil)).Elem(), MicrovmImageHooksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageLoggingInput)(nil)).Elem(), MicrovmImageLoggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageMicrovmHooksInput)(nil)).Elem(), MicrovmImageMicrovmHooksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageMicrovmHooksPtrInput)(nil)).Elem(), MicrovmImageMicrovmHooksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageResourcesInput)(nil)).Elem(), MicrovmImageResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageResourcesArrayInput)(nil)).Elem(), MicrovmImageResourcesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorConfigInput)(nil)).Elem(), NetworkConnectorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorVpcEgressConfigurationInput)(nil)).Elem(), NetworkConnectorVpcEgressConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlCorsInput)(nil)).Elem(), UrlCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlCorsPtrInput)(nil)).Elem(), UrlCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionFunctionScalingConfigInput)(nil)).Elem(), VersionFunctionScalingConfigArgs{})
@@ -7967,6 +9555,8 @@ func init() {
 	pulumi.RegisterOutputType(AliasVersionWeightArrayOutput{})
 	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsOutput{})
 	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderLoggingConfigOutput{})
+	pulumi.RegisterOutputType(CapacityProviderLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderPermissionsConfigOutput{})
 	pulumi.RegisterOutputType(CapacityProviderPropagateTagsConfigOutput{})
 	pulumi.RegisterOutputType(CapacityProviderPropagateTagsConfigPtrOutput{})
@@ -7976,6 +9566,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderTagArrayOutput{})
 	pulumi.RegisterOutputType(CapacityProviderTargetTrackingScalingPolicyOutput{})
 	pulumi.RegisterOutputType(CapacityProviderTargetTrackingScalingPolicyArrayOutput{})
+	pulumi.RegisterOutputType(CapacityProviderTelemetryConfigOutput{})
+	pulumi.RegisterOutputType(CapacityProviderTelemetryConfigPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderVpcConfigOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersPtrOutput{})
@@ -8055,7 +9647,26 @@ func init() {
 	pulumi.RegisterOutputType(FunctionTracingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(HooksOutput{})
 	pulumi.RegisterOutputType(LayerVersionContentOutput{})
+	pulumi.RegisterOutputType(MicrovmImageCloudWatchLoggingOutput{})
+	pulumi.RegisterOutputType(MicrovmImageCloudWatchLoggingPtrOutput{})
+	pulumi.RegisterOutputType(MicrovmImageCodeArtifactOutput{})
+	pulumi.RegisterOutputType(MicrovmImageCpuConfigurationOutput{})
+	pulumi.RegisterOutputType(MicrovmImageCpuConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(MicrovmImageEnvironmentVariableOutput{})
+	pulumi.RegisterOutputType(MicrovmImageEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(MicrovmImageHooksOutput{})
+	pulumi.RegisterOutputType(MicrovmImageHooksPtrOutput{})
+	pulumi.RegisterOutputType(MicrovmImageLoggingOutput{})
+	pulumi.RegisterOutputType(MicrovmImageMicrovmHooksOutput{})
+	pulumi.RegisterOutputType(MicrovmImageMicrovmHooksPtrOutput{})
+	pulumi.RegisterOutputType(MicrovmImageResourcesOutput{})
+	pulumi.RegisterOutputType(MicrovmImageResourcesArrayOutput{})
+	pulumi.RegisterOutputType(NetworkConnectorConfigOutput{})
+	pulumi.RegisterOutputType(NetworkConnectorConfigPtrOutput{})
+	pulumi.RegisterOutputType(NetworkConnectorVpcEgressConfigurationOutput{})
+	pulumi.RegisterOutputType(NetworkConnectorVpcEgressConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UrlCorsOutput{})
 	pulumi.RegisterOutputType(UrlCorsPtrOutput{})
 	pulumi.RegisterOutputType(VersionFunctionScalingConfigOutput{})

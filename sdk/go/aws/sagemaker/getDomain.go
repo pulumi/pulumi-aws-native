@@ -43,6 +43,8 @@ type LookupDomainResult struct {
 	DomainId *string `pulumi:"domainId"`
 	// A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
 	DomainSettings *DomainSettings `pulumi:"domainSettings"`
+	// Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+	HomeEfsFileSystemCreation *DomainHomeEfsFileSystemCreation `pulumi:"homeEfsFileSystemCreation"`
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 	HomeEfsFileSystemId *string `pulumi:"homeEfsFileSystemId"`
 	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
@@ -128,6 +130,11 @@ func (o LookupDomainResultOutput) DomainId() pulumi.StringPtrOutput {
 // A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
 func (o LookupDomainResultOutput) DomainSettings() DomainSettingsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainSettings { return v.DomainSettings }).(DomainSettingsPtrOutput)
+}
+
+// Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+func (o LookupDomainResultOutput) HomeEfsFileSystemCreation() DomainHomeEfsFileSystemCreationPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainHomeEfsFileSystemCreation { return v.HomeEfsFileSystemCreation }).(DomainHomeEfsFileSystemCreationPtrOutput)
 }
 
 // The ID of the Amazon Elastic File System (EFS) managed by this Domain.

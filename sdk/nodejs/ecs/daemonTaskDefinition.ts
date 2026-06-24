@@ -54,11 +54,19 @@ export class DaemonTaskDefinition extends pulumi.CustomResource {
      * The name of a family that this daemon task definition is registered to.
      */
     declare public readonly family: pulumi.Output<string | undefined>;
+    /**
+     * The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+     *  If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: "host"`` or other daemons that use ``ipcMode: "shared"``.
+     */
     declare public readonly ipcMode: pulumi.Output<string | undefined>;
     /**
      * The amount of memory (in MiB) used by the daemon task.
      */
     declare public readonly memory: pulumi.Output<string | undefined>;
+    /**
+     * The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+     *  If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: "host"`` or other daemons that use ``pidMode: "shared"``.
+     */
     declare public readonly pidMode: pulumi.Output<string | undefined>;
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -132,11 +140,19 @@ export interface DaemonTaskDefinitionArgs {
      * The name of a family that this daemon task definition is registered to.
      */
     family?: pulumi.Input<string>;
+    /**
+     * The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+     *  If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: "host"`` or other daemons that use ``ipcMode: "shared"``.
+     */
     ipcMode?: pulumi.Input<string>;
     /**
      * The amount of memory (in MiB) used by the daemon task.
      */
     memory?: pulumi.Input<string>;
+    /**
+     * The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
+     *  If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: "host"`` or other daemons that use ``pidMode: "shared"``.
+     */
     pidMode?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

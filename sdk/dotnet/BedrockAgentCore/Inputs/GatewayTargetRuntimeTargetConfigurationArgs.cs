@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
 
+        [Input("schema")]
+        public Input<Inputs.GatewayTargetHttpApiSchemaConfigurationArgs>? Schema { get; set; }
+
         public GatewayTargetRuntimeTargetConfigurationArgs()
         {
         }

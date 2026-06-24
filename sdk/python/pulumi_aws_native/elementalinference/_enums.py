@@ -7,11 +7,44 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'DictionaryLanguage',
     'FeedOutputStatus',
+    'FeedProfanityFilterMode',
+    'FeedTranscriptionLanguage',
 ]
+
+
+@pulumi.type_token("aws-native:elementalinference:DictionaryLanguage")
+class DictionaryLanguage(_builtins.str, Enum):
+    ENG = "eng"
+    FRA = "fra"
+    ITA = "ita"
+    DEU = "deu"
+    SPA = "spa"
+    POR = "por"
 
 
 @pulumi.type_token("aws-native:elementalinference:FeedOutputStatus")
 class FeedOutputStatus(_builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:elementalinference:FeedProfanityFilterMode")
+class FeedProfanityFilterMode(_builtins.str, Enum):
+    DISABLED = "DISABLED"
+    CENSOR = "CENSOR"
+    DROP = "DROP"
+
+
+@pulumi.type_token("aws-native:elementalinference:FeedTranscriptionLanguage")
+class FeedTranscriptionLanguage(_builtins.str, Enum):
+    ENG = "eng"
+    ENG_AU = "eng-au"
+    ENG_GB = "eng-gb"
+    ENG_US = "eng-us"
+    FRA = "fra"
+    ITA = "ita"
+    DEU = "deu"
+    SPA = "spa"
+    POR = "por"

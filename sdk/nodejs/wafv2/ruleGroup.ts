@@ -81,6 +81,7 @@ export class RuleGroup extends pulumi.CustomResource {
      * When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
      */
     declare public /*out*/ readonly labelNamespace: pulumi.Output<string>;
+    declare public readonly monetizationConfig: pulumi.Output<outputs.wafv2.RuleGroupMonetizationConfig | undefined>;
     /**
      * The name of the rule group. You cannot change the name of a rule group after you create it.
      */
@@ -131,6 +132,7 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["consumedLabels"] = args?.consumedLabels;
             resourceInputs["customResponseBodies"] = args?.customResponseBodies;
             resourceInputs["description"] = args?.description;
+            resourceInputs["monetizationConfig"] = args?.monetizationConfig;
             resourceInputs["name"] = args?.name;
             resourceInputs["rules"] = args?.rules;
             resourceInputs["scope"] = args?.scope;
@@ -148,6 +150,7 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["customResponseBodies"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["labelNamespace"] = undefined /*out*/;
+            resourceInputs["monetizationConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["rules"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
@@ -193,6 +196,7 @@ export interface RuleGroupArgs {
      * A description of the rule group that helps with identification.
      */
     description?: pulumi.Input<string>;
+    monetizationConfig?: pulumi.Input<inputs.wafv2.RuleGroupMonetizationConfigArgs>;
     /**
      * The name of the rule group. You cannot change the name of a rule group after you create it.
      */

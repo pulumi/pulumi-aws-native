@@ -112,6 +112,14 @@ __all__ = [
     'GatewayTargetApiSchemaConfiguration0PropertiesArgsDict',
     'GatewayTargetApiSchemaConfiguration1PropertiesArgs',
     'GatewayTargetApiSchemaConfiguration1PropertiesArgsDict',
+    'GatewayTargetConnectorConfigurationArgs',
+    'GatewayTargetConnectorConfigurationArgsDict',
+    'GatewayTargetConnectorParameterOverrideArgs',
+    'GatewayTargetConnectorParameterOverrideArgsDict',
+    'GatewayTargetConnectorSourceArgs',
+    'GatewayTargetConnectorSourceArgsDict',
+    'GatewayTargetConnectorTargetConfigurationArgs',
+    'GatewayTargetConnectorTargetConfigurationArgsDict',
     'GatewayTargetCredentialProvider0PropertiesArgs',
     'GatewayTargetCredentialProvider0PropertiesArgsDict',
     'GatewayTargetCredentialProvider1PropertiesArgs',
@@ -120,8 +128,12 @@ __all__ = [
     'GatewayTargetCredentialProvider2PropertiesArgsDict',
     'GatewayTargetCredentialProviderConfigurationArgs',
     'GatewayTargetCredentialProviderConfigurationArgsDict',
-    'GatewayTargetHttpTargetConfigurationPropertiesArgs',
-    'GatewayTargetHttpTargetConfigurationPropertiesArgsDict',
+    'GatewayTargetHttpApiSchemaConfigurationArgs',
+    'GatewayTargetHttpApiSchemaConfigurationArgsDict',
+    'GatewayTargetHttpTargetConfiguration0PropertiesArgs',
+    'GatewayTargetHttpTargetConfiguration0PropertiesArgsDict',
+    'GatewayTargetHttpTargetConfiguration1PropertiesArgs',
+    'GatewayTargetHttpTargetConfiguration1PropertiesArgsDict',
     'GatewayTargetIamCredentialProviderArgs',
     'GatewayTargetIamCredentialProviderArgsDict',
     'GatewayTargetManagedVpcResourceArgs',
@@ -140,6 +152,8 @@ __all__ = [
     'GatewayTargetMcpTargetConfiguration3PropertiesArgsDict',
     'GatewayTargetMcpTargetConfiguration4PropertiesArgs',
     'GatewayTargetMcpTargetConfiguration4PropertiesArgsDict',
+    'GatewayTargetMcpTargetConfiguration5PropertiesArgs',
+    'GatewayTargetMcpTargetConfiguration5PropertiesArgsDict',
     'GatewayTargetMcpToolSchemaConfiguration0PropertiesArgs',
     'GatewayTargetMcpToolSchemaConfiguration0PropertiesArgsDict',
     'GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs',
@@ -148,6 +162,8 @@ __all__ = [
     'GatewayTargetMetadataConfigurationArgsDict',
     'GatewayTargetOAuthCredentialProviderArgs',
     'GatewayTargetOAuthCredentialProviderArgsDict',
+    'GatewayTargetPassthroughTargetConfigurationArgs',
+    'GatewayTargetPassthroughTargetConfigurationArgsDict',
     'GatewayTargetPrivateEndpoint0PropertiesArgs',
     'GatewayTargetPrivateEndpoint0PropertiesArgsDict',
     'GatewayTargetPrivateEndpoint1PropertiesArgs',
@@ -160,6 +176,8 @@ __all__ = [
     'GatewayTargetSchemaDefinitionArgsDict',
     'GatewayTargetSelfManagedLatticeResourcePropertiesArgs',
     'GatewayTargetSelfManagedLatticeResourcePropertiesArgsDict',
+    'GatewayTargetStickinessConfigurationArgs',
+    'GatewayTargetStickinessConfigurationArgsDict',
     'GatewayTargetTargetConfiguration0PropertiesArgs',
     'GatewayTargetTargetConfiguration0PropertiesArgsDict',
     'GatewayTargetTargetConfiguration1PropertiesArgs',
@@ -196,6 +214,10 @@ __all__ = [
     'HarnessCustomClaimValidationTypeArgsDict',
     'HarnessCustomJwtAuthorizerConfigurationArgs',
     'HarnessCustomJwtAuthorizerConfigurationArgsDict',
+    'HarnessDisabledMemoryConfigurationArgs',
+    'HarnessDisabledMemoryConfigurationArgsDict',
+    'HarnessEfsAccessPointConfigurationArgs',
+    'HarnessEfsAccessPointConfigurationArgsDict',
     'HarnessEnvironmentArtifactArgs',
     'HarnessEnvironmentArtifactArgsDict',
     'HarnessEnvironmentProviderArgs',
@@ -210,6 +232,12 @@ __all__ = [
     'HarnessInlineFunctionConfigArgsDict',
     'HarnessLifecycleConfigurationArgs',
     'HarnessLifecycleConfigurationArgsDict',
+    'HarnessLiteLlmModelConfigArgs',
+    'HarnessLiteLlmModelConfigArgsDict',
+    'HarnessManagedMemoryConfigurationArgs',
+    'HarnessManagedMemoryConfigurationArgsDict',
+    'HarnessManagedVpcResourceArgs',
+    'HarnessManagedVpcResourceArgsDict',
     'HarnessMemoryConfigurationArgs',
     'HarnessMemoryConfigurationArgsDict',
     'HarnessModelConfigurationArgs',
@@ -220,10 +248,26 @@ __all__ = [
     'HarnessOAuthCredentialProviderArgsDict',
     'HarnessOpenAiModelConfigArgs',
     'HarnessOpenAiModelConfigArgsDict',
+    'HarnessPrivateEndpointOverrideArgs',
+    'HarnessPrivateEndpointOverrideArgsDict',
+    'HarnessPrivateEndpointArgs',
+    'HarnessPrivateEndpointArgsDict',
     'HarnessRemoteMcpConfigArgs',
     'HarnessRemoteMcpConfigArgsDict',
+    'HarnessS3FilesAccessPointConfigurationArgs',
+    'HarnessS3FilesAccessPointConfigurationArgsDict',
+    'HarnessSelfManagedLatticeResourceArgs',
+    'HarnessSelfManagedLatticeResourceArgsDict',
     'HarnessSessionStorageConfigurationArgs',
     'HarnessSessionStorageConfigurationArgsDict',
+    'HarnessSkillAwsSkillsSourceArgs',
+    'HarnessSkillAwsSkillsSourceArgsDict',
+    'HarnessSkillGitAuthArgs',
+    'HarnessSkillGitAuthArgsDict',
+    'HarnessSkillGitSourceArgs',
+    'HarnessSkillGitSourceArgsDict',
+    'HarnessSkillS3SourceArgs',
+    'HarnessSkillS3SourceArgsDict',
     'HarnessSkillArgs',
     'HarnessSkillArgsDict',
     'HarnessSlidingWindowConfigurationArgs',
@@ -398,6 +442,8 @@ __all__ = [
     'PolicyCedarPolicyArgsDict',
     'PolicyDefinitionArgs',
     'PolicyDefinitionArgsDict',
+    'PolicyStatementArgs',
+    'PolicyStatementArgsDict',
     'RuntimeAgentRuntimeArtifactArgs',
     'RuntimeAgentRuntimeArtifactArgsDict',
     'RuntimeAuthorizerConfigurationArgs',
@@ -2378,6 +2424,173 @@ class GatewayTargetApiSchemaConfiguration1PropertiesArgs:
         pulumi.set(self, "inline_payload", value)
 
 
+class GatewayTargetConnectorConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    parameter_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayTargetConnectorParameterOverrideArgsDict']]]]
+    parameter_values: NotRequired[Any]
+
+@pulumi.input_type
+class GatewayTargetConnectorConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 parameter_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetConnectorParameterOverrideArgs']]]] = None,
+                 parameter_values: Optional[Any] = None):
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parameter_overrides is not None:
+            pulumi.set(__self__, "parameter_overrides", parameter_overrides)
+        if parameter_values is not None:
+            pulumi.set(__self__, "parameter_values", parameter_values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parameterOverrides")
+    def parameter_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetConnectorParameterOverrideArgs']]]]:
+        return pulumi.get(self, "parameter_overrides")
+
+    @parameter_overrides.setter
+    def parameter_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetConnectorParameterOverrideArgs']]]]):
+        pulumi.set(self, "parameter_overrides", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parameterValues")
+    def parameter_values(self) -> Optional[Any]:
+        return pulumi.get(self, "parameter_values")
+
+    @parameter_values.setter
+    def parameter_values(self, value: Optional[Any]):
+        pulumi.set(self, "parameter_values", value)
+
+
+class GatewayTargetConnectorParameterOverrideArgsDict(TypedDict):
+    path: pulumi.Input[_builtins.str]
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    visible: NotRequired[pulumi.Input[_builtins.bool]]
+
+@pulumi.input_type
+class GatewayTargetConnectorParameterOverrideArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 visible: Optional[pulumi.Input[_builtins.bool]] = None):
+        pulumi.set(__self__, "path", path)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if visible is not None:
+            pulumi.set(__self__, "visible", visible)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "visible")
+
+    @visible.setter
+    def visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "visible", value)
+
+
+class GatewayTargetConnectorSourceArgsDict(TypedDict):
+    connector_id: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class GatewayTargetConnectorSourceArgs:
+    def __init__(__self__, *,
+                 connector_id: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "connector_id", connector_id)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorId")
+    def connector_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "connector_id")
+
+    @connector_id.setter
+    def connector_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connector_id", value)
+
+
+class GatewayTargetConnectorTargetConfigurationArgsDict(TypedDict):
+    source: pulumi.Input['GatewayTargetConnectorSourceArgsDict']
+    configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayTargetConnectorConfigurationArgsDict']]]]
+    enabled: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+
+@pulumi.input_type
+class GatewayTargetConnectorTargetConfigurationArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input['GatewayTargetConnectorSourceArgs'],
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetConnectorConfigurationArgs']]]] = None,
+                 enabled: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        pulumi.set(__self__, "source", source)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['GatewayTargetConnectorSourceArgs']:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['GatewayTargetConnectorSourceArgs']):
+        pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetConnectorConfigurationArgs']]]]:
+        return pulumi.get(self, "configurations")
+
+    @configurations.setter
+    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetConnectorConfigurationArgs']]]]):
+        pulumi.set(self, "configurations", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "enabled", value)
+
+
 class GatewayTargetCredentialProvider0PropertiesArgsDict(TypedDict):
     oauth_credential_provider: pulumi.Input['GatewayTargetOAuthCredentialProviderArgsDict']
 
@@ -2483,11 +2696,30 @@ class GatewayTargetCredentialProviderConfigurationArgs:
         pulumi.set(self, "credential_provider", value)
 
 
-class GatewayTargetHttpTargetConfigurationPropertiesArgsDict(TypedDict):
+class GatewayTargetHttpApiSchemaConfigurationArgsDict(TypedDict):
+    source: pulumi.Input[Union['GatewayTargetApiSchemaConfiguration0PropertiesArgsDict', 'GatewayTargetApiSchemaConfiguration1PropertiesArgsDict']]
+
+@pulumi.input_type
+class GatewayTargetHttpApiSchemaConfigurationArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input[Union['GatewayTargetApiSchemaConfiguration0PropertiesArgs', 'GatewayTargetApiSchemaConfiguration1PropertiesArgs']]):
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[Union['GatewayTargetApiSchemaConfiguration0PropertiesArgs', 'GatewayTargetApiSchemaConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[Union['GatewayTargetApiSchemaConfiguration0PropertiesArgs', 'GatewayTargetApiSchemaConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "source", value)
+
+
+class GatewayTargetHttpTargetConfiguration0PropertiesArgsDict(TypedDict):
     agentcore_runtime: pulumi.Input['GatewayTargetRuntimeTargetConfigurationArgsDict']
 
 @pulumi.input_type
-class GatewayTargetHttpTargetConfigurationPropertiesArgs:
+class GatewayTargetHttpTargetConfiguration0PropertiesArgs:
     def __init__(__self__, *,
                  agentcore_runtime: pulumi.Input['GatewayTargetRuntimeTargetConfigurationArgs']):
         pulumi.set(__self__, "agentcore_runtime", agentcore_runtime)
@@ -2500,6 +2732,25 @@ class GatewayTargetHttpTargetConfigurationPropertiesArgs:
     @agentcore_runtime.setter
     def agentcore_runtime(self, value: pulumi.Input['GatewayTargetRuntimeTargetConfigurationArgs']):
         pulumi.set(self, "agentcore_runtime", value)
+
+
+class GatewayTargetHttpTargetConfiguration1PropertiesArgsDict(TypedDict):
+    passthrough: pulumi.Input['GatewayTargetPassthroughTargetConfigurationArgsDict']
+
+@pulumi.input_type
+class GatewayTargetHttpTargetConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 passthrough: pulumi.Input['GatewayTargetPassthroughTargetConfigurationArgs']):
+        pulumi.set(__self__, "passthrough", passthrough)
+
+    @_builtins.property
+    @pulumi.getter
+    def passthrough(self) -> pulumi.Input['GatewayTargetPassthroughTargetConfigurationArgs']:
+        return pulumi.get(self, "passthrough")
+
+    @passthrough.setter
+    def passthrough(self, value: pulumi.Input['GatewayTargetPassthroughTargetConfigurationArgs']):
+        pulumi.set(self, "passthrough", value)
 
 
 class GatewayTargetIamCredentialProviderArgsDict(TypedDict):
@@ -2787,6 +3038,25 @@ class GatewayTargetMcpTargetConfiguration4PropertiesArgs:
         pulumi.set(self, "api_gateway", value)
 
 
+class GatewayTargetMcpTargetConfiguration5PropertiesArgsDict(TypedDict):
+    connector: pulumi.Input['GatewayTargetConnectorTargetConfigurationArgsDict']
+
+@pulumi.input_type
+class GatewayTargetMcpTargetConfiguration5PropertiesArgs:
+    def __init__(__self__, *,
+                 connector: pulumi.Input['GatewayTargetConnectorTargetConfigurationArgs']):
+        pulumi.set(__self__, "connector", connector)
+
+    @_builtins.property
+    @pulumi.getter
+    def connector(self) -> pulumi.Input['GatewayTargetConnectorTargetConfigurationArgs']:
+        return pulumi.get(self, "connector")
+
+    @connector.setter
+    def connector(self, value: pulumi.Input['GatewayTargetConnectorTargetConfigurationArgs']):
+        pulumi.set(self, "connector", value)
+
+
 class GatewayTargetMcpToolSchemaConfiguration0PropertiesArgsDict(TypedDict):
     s3: pulumi.Input['GatewayTargetS3ConfigurationArgsDict']
 
@@ -2950,6 +3220,63 @@ class GatewayTargetOAuthCredentialProviderArgs:
         pulumi.set(self, "grant_type", value)
 
 
+class GatewayTargetPassthroughTargetConfigurationArgsDict(TypedDict):
+    endpoint: pulumi.Input[_builtins.str]
+    protocol_type: pulumi.Input['GatewayTargetPassthroughProtocolType']
+    schema: NotRequired[pulumi.Input['GatewayTargetHttpApiSchemaConfigurationArgsDict']]
+    stickiness_configuration: NotRequired[pulumi.Input['GatewayTargetStickinessConfigurationArgsDict']]
+
+@pulumi.input_type
+class GatewayTargetPassthroughTargetConfigurationArgs:
+    def __init__(__self__, *,
+                 endpoint: pulumi.Input[_builtins.str],
+                 protocol_type: pulumi.Input['GatewayTargetPassthroughProtocolType'],
+                 schema: Optional[pulumi.Input['GatewayTargetHttpApiSchemaConfigurationArgs']] = None,
+                 stickiness_configuration: Optional[pulumi.Input['GatewayTargetStickinessConfigurationArgs']] = None):
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "protocol_type", protocol_type)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if stickiness_configuration is not None:
+            pulumi.set(__self__, "stickiness_configuration", stickiness_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="protocolType")
+    def protocol_type(self) -> pulumi.Input['GatewayTargetPassthroughProtocolType']:
+        return pulumi.get(self, "protocol_type")
+
+    @protocol_type.setter
+    def protocol_type(self, value: pulumi.Input['GatewayTargetPassthroughProtocolType']):
+        pulumi.set(self, "protocol_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input['GatewayTargetHttpApiSchemaConfigurationArgs']]:
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input['GatewayTargetHttpApiSchemaConfigurationArgs']]):
+        pulumi.set(self, "schema", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stickinessConfiguration")
+    def stickiness_configuration(self) -> Optional[pulumi.Input['GatewayTargetStickinessConfigurationArgs']]:
+        return pulumi.get(self, "stickiness_configuration")
+
+    @stickiness_configuration.setter
+    def stickiness_configuration(self, value: Optional[pulumi.Input['GatewayTargetStickinessConfigurationArgs']]):
+        pulumi.set(self, "stickiness_configuration", value)
+
+
 class GatewayTargetPrivateEndpoint0PropertiesArgsDict(TypedDict):
     self_managed_lattice_resource: pulumi.Input['GatewayTargetSelfManagedLatticeResourcePropertiesArgsDict']
 
@@ -2991,15 +3318,19 @@ class GatewayTargetPrivateEndpoint1PropertiesArgs:
 class GatewayTargetRuntimeTargetConfigurationArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
     qualifier: NotRequired[pulumi.Input[_builtins.str]]
+    schema: NotRequired[pulumi.Input['GatewayTargetHttpApiSchemaConfigurationArgsDict']]
 
 @pulumi.input_type
 class GatewayTargetRuntimeTargetConfigurationArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[_builtins.str],
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema: Optional[pulumi.Input['GatewayTargetHttpApiSchemaConfigurationArgs']] = None):
         pulumi.set(__self__, "arn", arn)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
 
     @_builtins.property
     @pulumi.getter
@@ -3018,6 +3349,15 @@ class GatewayTargetRuntimeTargetConfigurationArgs:
     @qualifier.setter
     def qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "qualifier", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input['GatewayTargetHttpApiSchemaConfigurationArgs']]:
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input['GatewayTargetHttpApiSchemaConfigurationArgs']]):
+        pulumi.set(self, "schema", value)
 
 
 class GatewayTargetS3ConfigurationArgsDict(TypedDict):
@@ -3143,41 +3483,73 @@ class GatewayTargetSelfManagedLatticeResourcePropertiesArgs:
         pulumi.set(self, "resource_configuration_identifier", value)
 
 
+class GatewayTargetStickinessConfigurationArgsDict(TypedDict):
+    identifier: pulumi.Input[_builtins.str]
+    timeout: NotRequired[pulumi.Input[_builtins.int]]
+
+@pulumi.input_type
+class GatewayTargetStickinessConfigurationArgs:
+    def __init__(__self__, *,
+                 identifier: pulumi.Input[_builtins.str],
+                 timeout: Optional[pulumi.Input[_builtins.int]] = None):
+        pulumi.set(__self__, "identifier", identifier)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @_builtins.property
+    @pulumi.getter
+    def identifier(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "identifier", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "timeout", value)
+
+
 class GatewayTargetTargetConfiguration0PropertiesArgsDict(TypedDict):
-    mcp: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration1PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration2PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration3PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration4PropertiesArgsDict']]
+    mcp: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration1PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration2PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration3PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration4PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration5PropertiesArgsDict']]
 
 @pulumi.input_type
 class GatewayTargetTargetConfiguration0PropertiesArgs:
     def __init__(__self__, *,
-                 mcp: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs', 'GatewayTargetMcpTargetConfiguration4PropertiesArgs']]):
+                 mcp: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs', 'GatewayTargetMcpTargetConfiguration4PropertiesArgs', 'GatewayTargetMcpTargetConfiguration5PropertiesArgs']]):
         pulumi.set(__self__, "mcp", mcp)
 
     @_builtins.property
     @pulumi.getter
-    def mcp(self) -> pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs', 'GatewayTargetMcpTargetConfiguration4PropertiesArgs']]:
+    def mcp(self) -> pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs', 'GatewayTargetMcpTargetConfiguration4PropertiesArgs', 'GatewayTargetMcpTargetConfiguration5PropertiesArgs']]:
         return pulumi.get(self, "mcp")
 
     @mcp.setter
-    def mcp(self, value: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs', 'GatewayTargetMcpTargetConfiguration4PropertiesArgs']]):
+    def mcp(self, value: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs', 'GatewayTargetMcpTargetConfiguration4PropertiesArgs', 'GatewayTargetMcpTargetConfiguration5PropertiesArgs']]):
         pulumi.set(self, "mcp", value)
 
 
 class GatewayTargetTargetConfiguration1PropertiesArgsDict(TypedDict):
-    http: pulumi.Input['GatewayTargetHttpTargetConfigurationPropertiesArgsDict']
+    http: pulumi.Input[Union['GatewayTargetHttpTargetConfiguration0PropertiesArgsDict', 'GatewayTargetHttpTargetConfiguration1PropertiesArgsDict']]
 
 @pulumi.input_type
 class GatewayTargetTargetConfiguration1PropertiesArgs:
     def __init__(__self__, *,
-                 http: pulumi.Input['GatewayTargetHttpTargetConfigurationPropertiesArgs']):
+                 http: pulumi.Input[Union['GatewayTargetHttpTargetConfiguration0PropertiesArgs', 'GatewayTargetHttpTargetConfiguration1PropertiesArgs']]):
         pulumi.set(__self__, "http", http)
 
     @_builtins.property
     @pulumi.getter
-    def http(self) -> pulumi.Input['GatewayTargetHttpTargetConfigurationPropertiesArgs']:
+    def http(self) -> pulumi.Input[Union['GatewayTargetHttpTargetConfiguration0PropertiesArgs', 'GatewayTargetHttpTargetConfiguration1PropertiesArgs']]:
         return pulumi.get(self, "http")
 
     @http.setter
-    def http(self, value: pulumi.Input['GatewayTargetHttpTargetConfigurationPropertiesArgs']):
+    def http(self, value: pulumi.Input[Union['GatewayTargetHttpTargetConfiguration0PropertiesArgs', 'GatewayTargetHttpTargetConfiguration1PropertiesArgs']]):
         pulumi.set(self, "http", value)
 
 
@@ -3406,16 +3778,26 @@ class HarnessAgentCoreMemoryConfigurationArgs:
 
 
 class HarnessAgentCoreMemoryRetrievalConfigArgsDict(TypedDict):
-    relevance_score: NotRequired[pulumi.Input[_builtins.float]]
+    relevance_score: NotRequired[pulumi.Input[Union[_builtins.float, _builtins.str]]]
+    """
+    Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
+    """
     strategy_id: NotRequired[pulumi.Input[_builtins.str]]
-    top_k: NotRequired[pulumi.Input[_builtins.int]]
+    top_k: NotRequired[pulumi.Input[Union[_builtins.int, _builtins.str]]]
+    """
+    Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
+    """
 
 @pulumi.input_type
 class HarnessAgentCoreMemoryRetrievalConfigArgs:
     def __init__(__self__, *,
-                 relevance_score: Optional[pulumi.Input[_builtins.float]] = None,
+                 relevance_score: Optional[pulumi.Input[Union[_builtins.float, _builtins.str]]] = None,
                  strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 top_k: Optional[pulumi.Input[_builtins.int]] = None):
+                 top_k: Optional[pulumi.Input[Union[_builtins.int, _builtins.str]]] = None):
+        """
+        :param pulumi.Input[Union[_builtins.float, _builtins.str]] relevance_score: Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
+        :param pulumi.Input[Union[_builtins.int, _builtins.str]] top_k: Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
+        """
         if relevance_score is not None:
             pulumi.set(__self__, "relevance_score", relevance_score)
         if strategy_id is not None:
@@ -3425,11 +3807,14 @@ class HarnessAgentCoreMemoryRetrievalConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="relevanceScore")
-    def relevance_score(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def relevance_score(self) -> Optional[pulumi.Input[Union[_builtins.float, _builtins.str]]]:
+        """
+        Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
+        """
         return pulumi.get(self, "relevance_score")
 
     @relevance_score.setter
-    def relevance_score(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def relevance_score(self, value: Optional[pulumi.Input[Union[_builtins.float, _builtins.str]]]):
         pulumi.set(self, "relevance_score", value)
 
     @_builtins.property
@@ -3443,11 +3828,14 @@ class HarnessAgentCoreMemoryRetrievalConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="topK")
-    def top_k(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def top_k(self) -> Optional[pulumi.Input[Union[_builtins.int, _builtins.str]]]:
+        """
+        Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
+        """
         return pulumi.get(self, "top_k")
 
     @top_k.setter
-    def top_k(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def top_k(self, value: Optional[pulumi.Input[Union[_builtins.int, _builtins.str]]]):
         pulumi.set(self, "top_k", value)
 
 
@@ -3612,6 +4000,11 @@ class HarnessAuthorizingClaimMatchValueTypeArgs:
 
 class HarnessBedrockModelConfigArgsDict(TypedDict):
     model_id: pulumi.Input[_builtins.str]
+    additional_params: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    """
+    Provider-specific parameters passed through to the model provider unchanged.
+    """
+    api_format: NotRequired[pulumi.Input['HarnessBedrockModelConfigApiFormat']]
     max_tokens: NotRequired[pulumi.Input[_builtins.int]]
     temperature: NotRequired[pulumi.Input[_builtins.float]]
     top_p: NotRequired[pulumi.Input[_builtins.float]]
@@ -3620,10 +4013,19 @@ class HarnessBedrockModelConfigArgsDict(TypedDict):
 class HarnessBedrockModelConfigArgs:
     def __init__(__self__, *,
                  model_id: pulumi.Input[_builtins.str],
+                 additional_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 api_format: Optional[pulumi.Input['HarnessBedrockModelConfigApiFormat']] = None,
                  max_tokens: Optional[pulumi.Input[_builtins.int]] = None,
                  temperature: Optional[pulumi.Input[_builtins.float]] = None,
                  top_p: Optional[pulumi.Input[_builtins.float]] = None):
+        """
+        :param pulumi.Input[Mapping[str, Any]] additional_params: Provider-specific parameters passed through to the model provider unchanged.
+        """
         pulumi.set(__self__, "model_id", model_id)
+        if additional_params is not None:
+            pulumi.set(__self__, "additional_params", additional_params)
+        if api_format is not None:
+            pulumi.set(__self__, "api_format", api_format)
         if max_tokens is not None:
             pulumi.set(__self__, "max_tokens", max_tokens)
         if temperature is not None:
@@ -3639,6 +4041,27 @@ class HarnessBedrockModelConfigArgs:
     @model_id.setter
     def model_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "model_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalParams")
+    def additional_params(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Provider-specific parameters passed through to the model provider unchanged.
+        """
+        return pulumi.get(self, "additional_params")
+
+    @additional_params.setter
+    def additional_params(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "additional_params", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiFormat")
+    def api_format(self) -> Optional[pulumi.Input['HarnessBedrockModelConfigApiFormat']]:
+        return pulumi.get(self, "api_format")
+
+    @api_format.setter
+    def api_format(self, value: Optional[pulumi.Input['HarnessBedrockModelConfigApiFormat']]):
+        pulumi.set(self, "api_format", value)
 
     @_builtins.property
     @pulumi.getter(name="maxTokens")
@@ -3778,6 +4201,8 @@ class HarnessCustomJwtAuthorizerConfigurationArgsDict(TypedDict):
     allowed_clients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     custom_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['HarnessCustomClaimValidationTypeArgsDict']]]]
+    private_endpoint: NotRequired[pulumi.Input['HarnessPrivateEndpointArgsDict']]
+    private_endpoint_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['HarnessPrivateEndpointOverrideArgsDict']]]]
 
 @pulumi.input_type
 class HarnessCustomJwtAuthorizerConfigurationArgs:
@@ -3786,7 +4211,9 @@ class HarnessCustomJwtAuthorizerConfigurationArgs:
                  allowed_audience: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  allowed_clients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_claims: Optional[pulumi.Input[Sequence[pulumi.Input['HarnessCustomClaimValidationTypeArgs']]]] = None):
+                 custom_claims: Optional[pulumi.Input[Sequence[pulumi.Input['HarnessCustomClaimValidationTypeArgs']]]] = None,
+                 private_endpoint: Optional[pulumi.Input['HarnessPrivateEndpointArgs']] = None,
+                 private_endpoint_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['HarnessPrivateEndpointOverrideArgs']]]] = None):
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audience is not None:
             pulumi.set(__self__, "allowed_audience", allowed_audience)
@@ -3796,6 +4223,10 @@ class HarnessCustomJwtAuthorizerConfigurationArgs:
             pulumi.set(__self__, "allowed_scopes", allowed_scopes)
         if custom_claims is not None:
             pulumi.set(__self__, "custom_claims", custom_claims)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_endpoint_overrides is not None:
+            pulumi.set(__self__, "private_endpoint_overrides", private_endpoint_overrides)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
@@ -3842,6 +4273,76 @@ class HarnessCustomJwtAuthorizerConfigurationArgs:
     def custom_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HarnessCustomClaimValidationTypeArgs']]]]):
         pulumi.set(self, "custom_claims", value)
 
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional[pulumi.Input['HarnessPrivateEndpointArgs']]:
+        return pulumi.get(self, "private_endpoint")
+
+    @private_endpoint.setter
+    def private_endpoint(self, value: Optional[pulumi.Input['HarnessPrivateEndpointArgs']]):
+        pulumi.set(self, "private_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointOverrides")
+    def private_endpoint_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HarnessPrivateEndpointOverrideArgs']]]]:
+        return pulumi.get(self, "private_endpoint_overrides")
+
+    @private_endpoint_overrides.setter
+    def private_endpoint_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HarnessPrivateEndpointOverrideArgs']]]]):
+        pulumi.set(self, "private_endpoint_overrides", value)
+
+
+class HarnessDisabledMemoryConfigurationArgsDict(TypedDict):
+    """
+    Explicitly opt out of memory.
+    """
+    pass
+
+@pulumi.input_type
+class HarnessDisabledMemoryConfigurationArgs:
+    def __init__(__self__):
+        """
+        Explicitly opt out of memory.
+        """
+        pass
+
+
+class HarnessEfsAccessPointConfigurationArgsDict(TypedDict):
+    """
+    Configuration for an Amazon EFS access point to mount into the AgentCore Runtime.
+    """
+    access_point_arn: pulumi.Input[_builtins.str]
+    mount_path: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class HarnessEfsAccessPointConfigurationArgs:
+    def __init__(__self__, *,
+                 access_point_arn: pulumi.Input[_builtins.str],
+                 mount_path: pulumi.Input[_builtins.str]):
+        """
+        Configuration for an Amazon EFS access point to mount into the AgentCore Runtime.
+        """
+        pulumi.set(__self__, "access_point_arn", access_point_arn)
+        pulumi.set(__self__, "mount_path", mount_path)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "access_point_arn")
+
+    @access_point_arn.setter
+    def access_point_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "access_point_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mount_path", value)
+
 
 class HarnessEnvironmentArtifactArgsDict(TypedDict):
     container_configuration: NotRequired[pulumi.Input['HarnessContainerConfigurationArgsDict']]
@@ -3884,21 +4385,48 @@ class HarnessEnvironmentProviderArgs:
 
 
 class HarnessFilesystemConfigurationArgsDict(TypedDict):
-    session_storage: pulumi.Input['HarnessSessionStorageConfigurationArgsDict']
+    efs_access_point: NotRequired[pulumi.Input['HarnessEfsAccessPointConfigurationArgsDict']]
+    s3_files_access_point: NotRequired[pulumi.Input['HarnessS3FilesAccessPointConfigurationArgsDict']]
+    session_storage: NotRequired[pulumi.Input['HarnessSessionStorageConfigurationArgsDict']]
 
 @pulumi.input_type
 class HarnessFilesystemConfigurationArgs:
     def __init__(__self__, *,
-                 session_storage: pulumi.Input['HarnessSessionStorageConfigurationArgs']):
-        pulumi.set(__self__, "session_storage", session_storage)
+                 efs_access_point: Optional[pulumi.Input['HarnessEfsAccessPointConfigurationArgs']] = None,
+                 s3_files_access_point: Optional[pulumi.Input['HarnessS3FilesAccessPointConfigurationArgs']] = None,
+                 session_storage: Optional[pulumi.Input['HarnessSessionStorageConfigurationArgs']] = None):
+        if efs_access_point is not None:
+            pulumi.set(__self__, "efs_access_point", efs_access_point)
+        if s3_files_access_point is not None:
+            pulumi.set(__self__, "s3_files_access_point", s3_files_access_point)
+        if session_storage is not None:
+            pulumi.set(__self__, "session_storage", session_storage)
+
+    @_builtins.property
+    @pulumi.getter(name="efsAccessPoint")
+    def efs_access_point(self) -> Optional[pulumi.Input['HarnessEfsAccessPointConfigurationArgs']]:
+        return pulumi.get(self, "efs_access_point")
+
+    @efs_access_point.setter
+    def efs_access_point(self, value: Optional[pulumi.Input['HarnessEfsAccessPointConfigurationArgs']]):
+        pulumi.set(self, "efs_access_point", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3FilesAccessPoint")
+    def s3_files_access_point(self) -> Optional[pulumi.Input['HarnessS3FilesAccessPointConfigurationArgs']]:
+        return pulumi.get(self, "s3_files_access_point")
+
+    @s3_files_access_point.setter
+    def s3_files_access_point(self, value: Optional[pulumi.Input['HarnessS3FilesAccessPointConfigurationArgs']]):
+        pulumi.set(self, "s3_files_access_point", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionStorage")
-    def session_storage(self) -> pulumi.Input['HarnessSessionStorageConfigurationArgs']:
+    def session_storage(self) -> Optional[pulumi.Input['HarnessSessionStorageConfigurationArgs']]:
         return pulumi.get(self, "session_storage")
 
     @session_storage.setter
-    def session_storage(self, value: pulumi.Input['HarnessSessionStorageConfigurationArgs']):
+    def session_storage(self, value: Optional[pulumi.Input['HarnessSessionStorageConfigurationArgs']]):
         pulumi.set(self, "session_storage", value)
 
 
@@ -4104,15 +4632,311 @@ class HarnessLifecycleConfigurationArgs:
         pulumi.set(self, "max_lifetime", value)
 
 
+class HarnessLiteLlmModelConfigArgsDict(TypedDict):
+    model_id: pulumi.Input[_builtins.str]
+    additional_params: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    """
+    Provider-specific parameters passed through to LiteLLM unchanged.
+    """
+    api_base: NotRequired[pulumi.Input[_builtins.str]]
+    api_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    max_tokens: NotRequired[pulumi.Input[_builtins.int]]
+    temperature: NotRequired[pulumi.Input[_builtins.float]]
+    top_p: NotRequired[pulumi.Input[_builtins.float]]
+
+@pulumi.input_type
+class HarnessLiteLlmModelConfigArgs:
+    def __init__(__self__, *,
+                 model_id: pulumi.Input[_builtins.str],
+                 additional_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 api_base: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 max_tokens: Optional[pulumi.Input[_builtins.int]] = None,
+                 temperature: Optional[pulumi.Input[_builtins.float]] = None,
+                 top_p: Optional[pulumi.Input[_builtins.float]] = None):
+        """
+        :param pulumi.Input[Mapping[str, Any]] additional_params: Provider-specific parameters passed through to LiteLLM unchanged.
+        """
+        pulumi.set(__self__, "model_id", model_id)
+        if additional_params is not None:
+            pulumi.set(__self__, "additional_params", additional_params)
+        if api_base is not None:
+            pulumi.set(__self__, "api_base", api_base)
+        if api_key_arn is not None:
+            pulumi.set(__self__, "api_key_arn", api_key_arn)
+        if max_tokens is not None:
+            pulumi.set(__self__, "max_tokens", max_tokens)
+        if temperature is not None:
+            pulumi.set(__self__, "temperature", temperature)
+        if top_p is not None:
+            pulumi.set(__self__, "top_p", top_p)
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalParams")
+    def additional_params(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Provider-specific parameters passed through to LiteLLM unchanged.
+        """
+        return pulumi.get(self, "additional_params")
+
+    @additional_params.setter
+    def additional_params(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "additional_params", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiBase")
+    def api_base(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "api_base")
+
+    @api_base.setter
+    def api_base(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "api_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyArn")
+    def api_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "api_key_arn")
+
+    @api_key_arn.setter
+    def api_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "api_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "max_tokens")
+
+    @max_tokens.setter
+    def max_tokens(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_tokens", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def temperature(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "temperature")
+
+    @temperature.setter
+    def temperature(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "temperature", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "top_p")
+
+    @top_p.setter
+    def top_p(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "top_p", value)
+
+
+class HarnessManagedMemoryConfigurationArgsDict(TypedDict):
+    """
+    Configuration for managed memory. The harness creates and manages a memory resource in the customer's account.
+    """
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the managed memory resource. Read-only, populated by the service.
+    """
+    encryption_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer-managed KMS key ARN. Defaults to AWS-owned key. Not updatable after creation.
+    """
+    event_expiry_duration: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Event retention in days. Defaults to 30.
+    """
+    strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input['HarnessManagedMemoryConfigurationStrategiesItem']]]]
+    """
+    Strategy types to enable. Defaults to [SEMANTIC, SUMMARIZATION].
+    """
+
+@pulumi.input_type
+class HarnessManagedMemoryConfigurationArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_expiry_duration: Optional[pulumi.Input[_builtins.int]] = None,
+                 strategies: Optional[pulumi.Input[Sequence[pulumi.Input['HarnessManagedMemoryConfigurationStrategiesItem']]]] = None):
+        """
+        Configuration for managed memory. The harness creates and manages a memory resource in the customer's account.
+
+        :param pulumi.Input[_builtins.str] arn: The ARN of the managed memory resource. Read-only, populated by the service.
+        :param pulumi.Input[_builtins.str] encryption_key_arn: Customer-managed KMS key ARN. Defaults to AWS-owned key. Not updatable after creation.
+        :param pulumi.Input[_builtins.int] event_expiry_duration: Event retention in days. Defaults to 30.
+        :param pulumi.Input[Sequence[pulumi.Input['HarnessManagedMemoryConfigurationStrategiesItem']]] strategies: Strategy types to enable. Defaults to [SEMANTIC, SUMMARIZATION].
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        if event_expiry_duration is not None:
+            pulumi.set(__self__, "event_expiry_duration", event_expiry_duration)
+        if strategies is not None:
+            pulumi.set(__self__, "strategies", strategies)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the managed memory resource. Read-only, populated by the service.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Customer-managed KMS key ARN. Defaults to AWS-owned key. Not updatable after creation.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @encryption_key_arn.setter
+    def encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "encryption_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="eventExpiryDuration")
+    def event_expiry_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Event retention in days. Defaults to 30.
+        """
+        return pulumi.get(self, "event_expiry_duration")
+
+    @event_expiry_duration.setter
+    def event_expiry_duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "event_expiry_duration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HarnessManagedMemoryConfigurationStrategiesItem']]]]:
+        """
+        Strategy types to enable. Defaults to [SEMANTIC, SUMMARIZATION].
+        """
+        return pulumi.get(self, "strategies")
+
+    @strategies.setter
+    def strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HarnessManagedMemoryConfigurationStrategiesItem']]]]):
+        pulumi.set(self, "strategies", value)
+
+
+class HarnessManagedVpcResourceArgsDict(TypedDict):
+    """
+    Configuration for a service-managed VPC endpoint.
+    """
+    endpoint_ip_address_type: pulumi.Input['HarnessManagedVpcResourceEndpointIpAddressType']
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    vpc_identifier: pulumi.Input[_builtins.str]
+    routing_domain: NotRequired[pulumi.Input[_builtins.str]]
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+
+@pulumi.input_type
+class HarnessManagedVpcResourceArgs:
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: pulumi.Input['HarnessManagedVpcResourceEndpointIpAddressType'],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 vpc_identifier: pulumi.Input[_builtins.str],
+                 routing_domain: Optional[pulumi.Input[_builtins.str]] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        Configuration for a service-managed VPC endpoint.
+        """
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> pulumi.Input['HarnessManagedVpcResourceEndpointIpAddressType']:
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @endpoint_ip_address_type.setter
+    def endpoint_ip_address_type(self, value: pulumi.Input['HarnessManagedVpcResourceEndpointIpAddressType']):
+        pulumi.set(self, "endpoint_ip_address_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "vpc_identifier")
+
+    @vpc_identifier.setter
+    def vpc_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vpc_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "routing_domain")
+
+    @routing_domain.setter
+    def routing_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "routing_domain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class HarnessMemoryConfigurationArgsDict(TypedDict):
     agent_core_memory_configuration: NotRequired[pulumi.Input['HarnessAgentCoreMemoryConfigurationArgsDict']]
+    disabled: NotRequired[pulumi.Input['HarnessDisabledMemoryConfigurationArgsDict']]
+    managed_memory_configuration: NotRequired[pulumi.Input['HarnessManagedMemoryConfigurationArgsDict']]
 
 @pulumi.input_type
 class HarnessMemoryConfigurationArgs:
     def __init__(__self__, *,
-                 agent_core_memory_configuration: Optional[pulumi.Input['HarnessAgentCoreMemoryConfigurationArgs']] = None):
+                 agent_core_memory_configuration: Optional[pulumi.Input['HarnessAgentCoreMemoryConfigurationArgs']] = None,
+                 disabled: Optional[pulumi.Input['HarnessDisabledMemoryConfigurationArgs']] = None,
+                 managed_memory_configuration: Optional[pulumi.Input['HarnessManagedMemoryConfigurationArgs']] = None):
         if agent_core_memory_configuration is not None:
             pulumi.set(__self__, "agent_core_memory_configuration", agent_core_memory_configuration)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+        if managed_memory_configuration is not None:
+            pulumi.set(__self__, "managed_memory_configuration", managed_memory_configuration)
 
     @_builtins.property
     @pulumi.getter(name="agentCoreMemoryConfiguration")
@@ -4123,10 +4947,29 @@ class HarnessMemoryConfigurationArgs:
     def agent_core_memory_configuration(self, value: Optional[pulumi.Input['HarnessAgentCoreMemoryConfigurationArgs']]):
         pulumi.set(self, "agent_core_memory_configuration", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def disabled(self) -> Optional[pulumi.Input['HarnessDisabledMemoryConfigurationArgs']]:
+        return pulumi.get(self, "disabled")
+
+    @disabled.setter
+    def disabled(self, value: Optional[pulumi.Input['HarnessDisabledMemoryConfigurationArgs']]):
+        pulumi.set(self, "disabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedMemoryConfiguration")
+    def managed_memory_configuration(self) -> Optional[pulumi.Input['HarnessManagedMemoryConfigurationArgs']]:
+        return pulumi.get(self, "managed_memory_configuration")
+
+    @managed_memory_configuration.setter
+    def managed_memory_configuration(self, value: Optional[pulumi.Input['HarnessManagedMemoryConfigurationArgs']]):
+        pulumi.set(self, "managed_memory_configuration", value)
+
 
 class HarnessModelConfigurationArgsDict(TypedDict):
     bedrock_model_config: NotRequired[pulumi.Input['HarnessBedrockModelConfigArgsDict']]
     gemini_model_config: NotRequired[pulumi.Input['HarnessGeminiModelConfigArgsDict']]
+    lite_llm_model_config: NotRequired[pulumi.Input['HarnessLiteLlmModelConfigArgsDict']]
     open_ai_model_config: NotRequired[pulumi.Input['HarnessOpenAiModelConfigArgsDict']]
 
 @pulumi.input_type
@@ -4134,11 +4977,14 @@ class HarnessModelConfigurationArgs:
     def __init__(__self__, *,
                  bedrock_model_config: Optional[pulumi.Input['HarnessBedrockModelConfigArgs']] = None,
                  gemini_model_config: Optional[pulumi.Input['HarnessGeminiModelConfigArgs']] = None,
+                 lite_llm_model_config: Optional[pulumi.Input['HarnessLiteLlmModelConfigArgs']] = None,
                  open_ai_model_config: Optional[pulumi.Input['HarnessOpenAiModelConfigArgs']] = None):
         if bedrock_model_config is not None:
             pulumi.set(__self__, "bedrock_model_config", bedrock_model_config)
         if gemini_model_config is not None:
             pulumi.set(__self__, "gemini_model_config", gemini_model_config)
+        if lite_llm_model_config is not None:
+            pulumi.set(__self__, "lite_llm_model_config", lite_llm_model_config)
         if open_ai_model_config is not None:
             pulumi.set(__self__, "open_ai_model_config", open_ai_model_config)
 
@@ -4159,6 +5005,15 @@ class HarnessModelConfigurationArgs:
     @gemini_model_config.setter
     def gemini_model_config(self, value: Optional[pulumi.Input['HarnessGeminiModelConfigArgs']]):
         pulumi.set(self, "gemini_model_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="liteLlmModelConfig")
+    def lite_llm_model_config(self) -> Optional[pulumi.Input['HarnessLiteLlmModelConfigArgs']]:
+        return pulumi.get(self, "lite_llm_model_config")
+
+    @lite_llm_model_config.setter
+    def lite_llm_model_config(self, value: Optional[pulumi.Input['HarnessLiteLlmModelConfigArgs']]):
+        pulumi.set(self, "lite_llm_model_config", value)
 
     @_builtins.property
     @pulumi.getter(name="openAiModelConfig")
@@ -4275,6 +5130,11 @@ class HarnessOAuthCredentialProviderArgs:
 class HarnessOpenAiModelConfigArgsDict(TypedDict):
     api_key_arn: pulumi.Input[_builtins.str]
     model_id: pulumi.Input[_builtins.str]
+    additional_params: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    """
+    Provider-specific parameters passed through to the model provider unchanged.
+    """
+    api_format: NotRequired[pulumi.Input['HarnessOpenAiModelConfigApiFormat']]
     max_tokens: NotRequired[pulumi.Input[_builtins.int]]
     temperature: NotRequired[pulumi.Input[_builtins.float]]
     top_p: NotRequired[pulumi.Input[_builtins.float]]
@@ -4284,11 +5144,20 @@ class HarnessOpenAiModelConfigArgs:
     def __init__(__self__, *,
                  api_key_arn: pulumi.Input[_builtins.str],
                  model_id: pulumi.Input[_builtins.str],
+                 additional_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 api_format: Optional[pulumi.Input['HarnessOpenAiModelConfigApiFormat']] = None,
                  max_tokens: Optional[pulumi.Input[_builtins.int]] = None,
                  temperature: Optional[pulumi.Input[_builtins.float]] = None,
                  top_p: Optional[pulumi.Input[_builtins.float]] = None):
+        """
+        :param pulumi.Input[Mapping[str, Any]] additional_params: Provider-specific parameters passed through to the model provider unchanged.
+        """
         pulumi.set(__self__, "api_key_arn", api_key_arn)
         pulumi.set(__self__, "model_id", model_id)
+        if additional_params is not None:
+            pulumi.set(__self__, "additional_params", additional_params)
+        if api_format is not None:
+            pulumi.set(__self__, "api_format", api_format)
         if max_tokens is not None:
             pulumi.set(__self__, "max_tokens", max_tokens)
         if temperature is not None:
@@ -4313,6 +5182,27 @@ class HarnessOpenAiModelConfigArgs:
     @model_id.setter
     def model_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "model_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalParams")
+    def additional_params(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Provider-specific parameters passed through to the model provider unchanged.
+        """
+        return pulumi.get(self, "additional_params")
+
+    @additional_params.setter
+    def additional_params(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "additional_params", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiFormat")
+    def api_format(self) -> Optional[pulumi.Input['HarnessOpenAiModelConfigApiFormat']]:
+        return pulumi.get(self, "api_format")
+
+    @api_format.setter
+    def api_format(self, value: Optional[pulumi.Input['HarnessOpenAiModelConfigApiFormat']]):
+        pulumi.set(self, "api_format", value)
 
     @_builtins.property
     @pulumi.getter(name="maxTokens")
@@ -4340,6 +5230,82 @@ class HarnessOpenAiModelConfigArgs:
     @top_p.setter
     def top_p(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "top_p", value)
+
+
+class HarnessPrivateEndpointOverrideArgsDict(TypedDict):
+    """
+    Maps a domain to a private endpoint for resolving that domain over a private network.
+    """
+    domain: pulumi.Input[_builtins.str]
+    private_endpoint: pulumi.Input['HarnessPrivateEndpointArgsDict']
+
+@pulumi.input_type
+class HarnessPrivateEndpointOverrideArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[_builtins.str],
+                 private_endpoint: pulumi.Input['HarnessPrivateEndpointArgs']):
+        """
+        Maps a domain to a private endpoint for resolving that domain over a private network.
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> pulumi.Input['HarnessPrivateEndpointArgs']:
+        return pulumi.get(self, "private_endpoint")
+
+    @private_endpoint.setter
+    def private_endpoint(self, value: pulumi.Input['HarnessPrivateEndpointArgs']):
+        pulumi.set(self, "private_endpoint", value)
+
+
+class HarnessPrivateEndpointArgsDict(TypedDict):
+    """
+    Private endpoint configuration for connecting to the OpenID Connect discovery endpoint over a private network.
+    """
+    managed_vpc_resource: NotRequired[pulumi.Input['HarnessManagedVpcResourceArgsDict']]
+    self_managed_lattice_resource: NotRequired[pulumi.Input['HarnessSelfManagedLatticeResourceArgsDict']]
+
+@pulumi.input_type
+class HarnessPrivateEndpointArgs:
+    def __init__(__self__, *,
+                 managed_vpc_resource: Optional[pulumi.Input['HarnessManagedVpcResourceArgs']] = None,
+                 self_managed_lattice_resource: Optional[pulumi.Input['HarnessSelfManagedLatticeResourceArgs']] = None):
+        """
+        Private endpoint configuration for connecting to the OpenID Connect discovery endpoint over a private network.
+        """
+        if managed_vpc_resource is not None:
+            pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+        if self_managed_lattice_resource is not None:
+            pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> Optional[pulumi.Input['HarnessManagedVpcResourceArgs']]:
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @managed_vpc_resource.setter
+    def managed_vpc_resource(self, value: Optional[pulumi.Input['HarnessManagedVpcResourceArgs']]):
+        pulumi.set(self, "managed_vpc_resource", value)
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> Optional[pulumi.Input['HarnessSelfManagedLatticeResourceArgs']]:
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+    @self_managed_lattice_resource.setter
+    def self_managed_lattice_resource(self, value: Optional[pulumi.Input['HarnessSelfManagedLatticeResourceArgs']]):
+        pulumi.set(self, "self_managed_lattice_resource", value)
 
 
 class HarnessRemoteMcpConfigArgsDict(TypedDict):
@@ -4374,6 +5340,68 @@ class HarnessRemoteMcpConfigArgs:
         pulumi.set(self, "headers", value)
 
 
+class HarnessS3FilesAccessPointConfigurationArgsDict(TypedDict):
+    """
+    Configuration for an Amazon S3 Files access point to mount into the AgentCore Runtime.
+    """
+    access_point_arn: pulumi.Input[_builtins.str]
+    mount_path: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class HarnessS3FilesAccessPointConfigurationArgs:
+    def __init__(__self__, *,
+                 access_point_arn: pulumi.Input[_builtins.str],
+                 mount_path: pulumi.Input[_builtins.str]):
+        """
+        Configuration for an Amazon S3 Files access point to mount into the AgentCore Runtime.
+        """
+        pulumi.set(__self__, "access_point_arn", access_point_arn)
+        pulumi.set(__self__, "mount_path", mount_path)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "access_point_arn")
+
+    @access_point_arn.setter
+    def access_point_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "access_point_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mount_path", value)
+
+
+class HarnessSelfManagedLatticeResourceArgsDict(TypedDict):
+    """
+    Configuration for connecting to a private resource using a self-managed VPC Lattice resource configuration.
+    """
+    resource_configuration_identifier: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class HarnessSelfManagedLatticeResourceArgs:
+    def __init__(__self__, *,
+                 resource_configuration_identifier: pulumi.Input[_builtins.str]):
+        """
+        Configuration for connecting to a private resource using a self-managed VPC Lattice resource configuration.
+        """
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "resource_configuration_identifier")
+
+    @resource_configuration_identifier.setter
+    def resource_configuration_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_configuration_identifier", value)
+
+
 class HarnessSessionStorageConfigurationArgsDict(TypedDict):
     mount_path: pulumi.Input[_builtins.str]
 
@@ -4393,32 +5421,258 @@ class HarnessSessionStorageConfigurationArgs:
         pulumi.set(self, "mount_path", value)
 
 
+class HarnessSkillAwsSkillsSourceArgsDict(TypedDict):
+    """
+    AWS Skills baked into the Harness's underlying Runtime.
+    """
+    paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].
+    """
+
+@pulumi.input_type
+class HarnessSkillAwsSkillsSourceArgs:
+    def __init__(__self__, *,
+                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        AWS Skills baked into the Harness's underlying Runtime.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] paths: Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].
+        """
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+
+    @_builtins.property
+    @pulumi.getter
+    def paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].
+        """
+        return pulumi.get(self, "paths")
+
+    @paths.setter
+    def paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "paths", value)
+
+
+class HarnessSkillGitAuthArgsDict(TypedDict):
+    """
+    Authentication configuration for accessing a private git repository.
+    """
+    credential_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the credential in AgentCore Identity containing the password or personal access token.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Username for authentication. Defaults to 'oauth2' if not specified.
+    """
+
+@pulumi.input_type
+class HarnessSkillGitAuthArgs:
+    def __init__(__self__, *,
+                 credential_arn: pulumi.Input[_builtins.str],
+                 username: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Authentication configuration for accessing a private git repository.
+
+        :param pulumi.Input[_builtins.str] credential_arn: The ARN of the credential in AgentCore Identity containing the password or personal access token.
+        :param pulumi.Input[_builtins.str] username: Username for authentication. Defaults to 'oauth2' if not specified.
+        """
+        pulumi.set(__self__, "credential_arn", credential_arn)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialArn")
+    def credential_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the credential in AgentCore Identity containing the password or personal access token.
+        """
+        return pulumi.get(self, "credential_arn")
+
+    @credential_arn.setter
+    def credential_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "credential_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Username for authentication. Defaults to 'oauth2' if not specified.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "username", value)
+
+
+class HarnessSkillGitSourceArgsDict(TypedDict):
+    """
+    A git repository containing the skill, cloned over HTTPS.
+    """
+    url: pulumi.Input[_builtins.str]
+    """
+    The HTTPS URL of the git repository.
+    """
+    auth: NotRequired[pulumi.Input['HarnessSkillGitAuthArgsDict']]
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Subdirectory within the repository containing the skill.
+    """
+
+@pulumi.input_type
+class HarnessSkillGitSourceArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[_builtins.str],
+                 auth: Optional[pulumi.Input['HarnessSkillGitAuthArgs']] = None,
+                 path: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        A git repository containing the skill, cloned over HTTPS.
+
+        :param pulumi.Input[_builtins.str] url: The HTTPS URL of the git repository.
+        :param pulumi.Input[_builtins.str] path: Subdirectory within the repository containing the skill.
+        """
+        pulumi.set(__self__, "url", url)
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[_builtins.str]:
+        """
+        The HTTPS URL of the git repository.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "url", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def auth(self) -> Optional[pulumi.Input['HarnessSkillGitAuthArgs']]:
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: Optional[pulumi.Input['HarnessSkillGitAuthArgs']]):
+        pulumi.set(self, "auth", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Subdirectory within the repository containing the skill.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "path", value)
+
+
+class HarnessSkillS3SourceArgsDict(TypedDict):
+    """
+    An S3 source containing the skill.
+    """
+    uri: pulumi.Input[_builtins.str]
+    """
+    The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).
+    """
+
+@pulumi.input_type
+class HarnessSkillS3SourceArgs:
+    def __init__(__self__, *,
+                 uri: pulumi.Input[_builtins.str]):
+        """
+        An S3 source containing the skill.
+
+        :param pulumi.Input[_builtins.str] uri: The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).
+        """
+        pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "uri", value)
+
+
 class HarnessSkillArgsDict(TypedDict):
-    path: pulumi.Input[_builtins.str]
+    aws_skills: NotRequired[pulumi.Input['HarnessSkillAwsSkillsSourceArgsDict']]
+    git: NotRequired[pulumi.Input['HarnessSkillGitSourceArgsDict']]
+    path: NotRequired[pulumi.Input[_builtins.str]]
     """
     The filesystem path to the skill definition.
     """
+    s3: NotRequired[pulumi.Input['HarnessSkillS3SourceArgsDict']]
 
 @pulumi.input_type
 class HarnessSkillArgs:
     def __init__(__self__, *,
-                 path: pulumi.Input[_builtins.str]):
+                 aws_skills: Optional[pulumi.Input['HarnessSkillAwsSkillsSourceArgs']] = None,
+                 git: Optional[pulumi.Input['HarnessSkillGitSourceArgs']] = None,
+                 path: Optional[pulumi.Input[_builtins.str]] = None,
+                 s3: Optional[pulumi.Input['HarnessSkillS3SourceArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] path: The filesystem path to the skill definition.
         """
-        pulumi.set(__self__, "path", path)
+        if aws_skills is not None:
+            pulumi.set(__self__, "aws_skills", aws_skills)
+        if git is not None:
+            pulumi.set(__self__, "git", git)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="awsSkills")
+    def aws_skills(self) -> Optional[pulumi.Input['HarnessSkillAwsSkillsSourceArgs']]:
+        return pulumi.get(self, "aws_skills")
+
+    @aws_skills.setter
+    def aws_skills(self, value: Optional[pulumi.Input['HarnessSkillAwsSkillsSourceArgs']]):
+        pulumi.set(self, "aws_skills", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> pulumi.Input[_builtins.str]:
+    def git(self) -> Optional[pulumi.Input['HarnessSkillGitSourceArgs']]:
+        return pulumi.get(self, "git")
+
+    @git.setter
+    def git(self, value: Optional[pulumi.Input['HarnessSkillGitSourceArgs']]):
+        pulumi.set(self, "git", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The filesystem path to the skill definition.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: pulumi.Input[_builtins.str]):
+    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['HarnessSkillS3SourceArgs']]:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['HarnessSkillS3SourceArgs']]):
+        pulumi.set(self, "s3", value)
 
 
 class HarnessSlidingWindowConfigurationArgsDict(TypedDict):
@@ -9081,25 +10335,72 @@ class PolicyDefinitionArgsDict(TypedDict):
     """
     The definition structure for policies. Encapsulates different policy formats.
     """
-    cedar: pulumi.Input['PolicyCedarPolicyArgsDict']
+    cedar: NotRequired[pulumi.Input['PolicyCedarPolicyArgsDict']]
+    policy: NotRequired[pulumi.Input['PolicyStatementArgsDict']]
 
 @pulumi.input_type
 class PolicyDefinitionArgs:
     def __init__(__self__, *,
-                 cedar: pulumi.Input['PolicyCedarPolicyArgs']):
+                 cedar: Optional[pulumi.Input['PolicyCedarPolicyArgs']] = None,
+                 policy: Optional[pulumi.Input['PolicyStatementArgs']] = None):
         """
         The definition structure for policies. Encapsulates different policy formats.
         """
-        pulumi.set(__self__, "cedar", cedar)
+        if cedar is not None:
+            pulumi.set(__self__, "cedar", cedar)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
 
     @_builtins.property
     @pulumi.getter
-    def cedar(self) -> pulumi.Input['PolicyCedarPolicyArgs']:
+    def cedar(self) -> Optional[pulumi.Input['PolicyCedarPolicyArgs']]:
         return pulumi.get(self, "cedar")
 
     @cedar.setter
-    def cedar(self, value: pulumi.Input['PolicyCedarPolicyArgs']):
+    def cedar(self, value: Optional[pulumi.Input['PolicyCedarPolicyArgs']]):
         pulumi.set(self, "cedar", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['PolicyStatementArgs']]:
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['PolicyStatementArgs']]):
+        pulumi.set(self, "policy", value)
+
+
+class PolicyStatementArgsDict(TypedDict):
+    """
+    A policy statement within the AgentCore Policy system.
+    """
+    statement: pulumi.Input[_builtins.str]
+    """
+    The policy statement.
+    """
+
+@pulumi.input_type
+class PolicyStatementArgs:
+    def __init__(__self__, *,
+                 statement: pulumi.Input[_builtins.str]):
+        """
+        A policy statement within the AgentCore Policy system.
+
+        :param pulumi.Input[_builtins.str] statement: The policy statement.
+        """
+        pulumi.set(__self__, "statement", statement)
+
+    @_builtins.property
+    @pulumi.getter
+    def statement(self) -> pulumi.Input[_builtins.str]:
+        """
+        The policy statement.
+        """
+        return pulumi.get(self, "statement")
+
+    @statement.setter
+    def statement(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "statement", value)
 
 
 class RuntimeAgentRuntimeArtifactArgsDict(TypedDict):

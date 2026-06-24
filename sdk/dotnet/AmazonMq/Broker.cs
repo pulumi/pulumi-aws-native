@@ -417,6 +417,12 @@ namespace Pulumi.AwsNative.AmazonMq
         public Output<bool> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
+        /// The ARNs of the resource shares to be associated with the broker.
+        /// </summary>
+        [Output("resourceShareArns")]
+        public Output<ImmutableArray<string>> ResourceShareArns { get; private set; } = null!;
+
+        /// <summary>
         /// The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
         /// </summary>
         [Output("securityGroups")]
@@ -619,6 +625,18 @@ namespace Pulumi.AwsNative.AmazonMq
         /// </summary>
         [Input("publiclyAccessible", required: true)]
         public Input<bool> PubliclyAccessible { get; set; } = null!;
+
+        [Input("resourceShareArns")]
+        private InputList<string>? _resourceShareArns;
+
+        /// <summary>
+        /// The ARNs of the resource shares to be associated with the broker.
+        /// </summary>
+        public InputList<string> ResourceShareArns
+        {
+            get => _resourceShareArns ?? (_resourceShareArns = new InputList<string>());
+            set => _resourceShareArns = value;
+        }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;

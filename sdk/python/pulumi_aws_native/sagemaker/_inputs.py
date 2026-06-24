@@ -64,12 +64,16 @@ __all__ = [
     'ClusterOnDemandOptionsArgsDict',
     'ClusterOrchestratorArgs',
     'ClusterOrchestratorArgsDict',
+    'ClusterRestrictedInstanceGroupsConfigArgs',
+    'ClusterRestrictedInstanceGroupsConfigArgsDict',
     'ClusterRestrictedInstanceGroupArgs',
     'ClusterRestrictedInstanceGroupArgsDict',
     'ClusterRollingUpdatePolicyArgs',
     'ClusterRollingUpdatePolicyArgsDict',
     'ClusterScheduledUpdateConfigArgs',
     'ClusterScheduledUpdateConfigArgsDict',
+    'ClusterSharedEnvironmentConfigArgs',
+    'ClusterSharedEnvironmentConfigArgsDict',
     'ClusterSlurmConfigArgs',
     'ClusterSlurmConfigArgsDict',
     'ClusterSpotOptionsArgs',
@@ -2029,11 +2033,35 @@ class ClusterOrchestratorArgs:
         pass
 
 
+class ClusterRestrictedInstanceGroupsConfigArgsDict(TypedDict):
+    """
+    The cluster-level configuration for restricted instance groups, including shared environment settings for inter-RIG communication and FSx Lustre sharing.
+    """
+    shared_environment_config: pulumi.Input['ClusterSharedEnvironmentConfigArgsDict']
+
+@pulumi.input_type
+class ClusterRestrictedInstanceGroupsConfigArgs:
+    def __init__(__self__, *,
+                 shared_environment_config: pulumi.Input['ClusterSharedEnvironmentConfigArgs']):
+        """
+        The cluster-level configuration for restricted instance groups, including shared environment settings for inter-RIG communication and FSx Lustre sharing.
+        """
+        pulumi.set(__self__, "shared_environment_config", shared_environment_config)
+
+    @_builtins.property
+    @pulumi.getter(name="sharedEnvironmentConfig")
+    def shared_environment_config(self) -> pulumi.Input['ClusterSharedEnvironmentConfigArgs']:
+        return pulumi.get(self, "shared_environment_config")
+
+    @shared_environment_config.setter
+    def shared_environment_config(self, value: pulumi.Input['ClusterSharedEnvironmentConfigArgs']):
+        pulumi.set(self, "shared_environment_config", value)
+
+
 class ClusterRestrictedInstanceGroupArgsDict(TypedDict):
     """
     Details of a restricted instance group in a SageMaker HyperPod cluster.
     """
-    environment_config: pulumi.Input['ClusterEnvironmentConfigArgsDict']
     execution_role: pulumi.Input[_builtins.str]
     instance_count: pulumi.Input[_builtins.int]
     """
@@ -2045,6 +2073,7 @@ class ClusterRestrictedInstanceGroupArgsDict(TypedDict):
     """
     The number of instances that are currently in the restricted instance group of a SageMaker HyperPod cluster.
     """
+    environment_config: NotRequired[pulumi.Input['ClusterEnvironmentConfigArgsDict']]
     instance_storage_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgsDict']]]]
     on_start_deep_health_checks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]]
     override_vpc_config: NotRequired[pulumi.Input['ClusterVpcConfigArgsDict']]
@@ -2060,12 +2089,12 @@ class ClusterRestrictedInstanceGroupArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterRestrictedInstanceGroupArgs:
     def __init__(__self__, *,
-                 environment_config: pulumi.Input['ClusterEnvironmentConfigArgs'],
                  execution_role: pulumi.Input[_builtins.str],
                  instance_count: pulumi.Input[_builtins.int],
                  instance_group_name: pulumi.Input[_builtins.str],
                  instance_type: pulumi.Input[_builtins.str],
                  current_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 environment_config: Optional[pulumi.Input['ClusterEnvironmentConfigArgs']] = None,
                  instance_storage_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgs']]]] = None,
                  on_start_deep_health_checks: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]] = None,
                  override_vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None,
@@ -2079,13 +2108,14 @@ class ClusterRestrictedInstanceGroupArgs:
         :param pulumi.Input[_builtins.int] threads_per_core: The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
         :param pulumi.Input[_builtins.str] training_plan_arn: The Amazon Resource Name (ARN) of the training plan to use for this cluster restricted instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
         """
-        pulumi.set(__self__, "environment_config", environment_config)
         pulumi.set(__self__, "execution_role", execution_role)
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_group_name", instance_group_name)
         pulumi.set(__self__, "instance_type", instance_type)
         if current_count is not None:
             pulumi.set(__self__, "current_count", current_count)
+        if environment_config is not None:
+            pulumi.set(__self__, "environment_config", environment_config)
         if instance_storage_configs is not None:
             pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
         if on_start_deep_health_checks is not None:
@@ -2096,15 +2126,6 @@ class ClusterRestrictedInstanceGroupArgs:
             pulumi.set(__self__, "threads_per_core", threads_per_core)
         if training_plan_arn is not None:
             pulumi.set(__self__, "training_plan_arn", training_plan_arn)
-
-    @_builtins.property
-    @pulumi.getter(name="environmentConfig")
-    def environment_config(self) -> pulumi.Input['ClusterEnvironmentConfigArgs']:
-        return pulumi.get(self, "environment_config")
-
-    @environment_config.setter
-    def environment_config(self, value: pulumi.Input['ClusterEnvironmentConfigArgs']):
-        pulumi.set(self, "environment_config", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRole")
@@ -2156,6 +2177,15 @@ class ClusterRestrictedInstanceGroupArgs:
     @current_count.setter
     def current_count(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "current_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentConfig")
+    def environment_config(self) -> Optional[pulumi.Input['ClusterEnvironmentConfigArgs']]:
+        return pulumi.get(self, "environment_config")
+
+    @environment_config.setter
+    def environment_config(self, value: Optional[pulumi.Input['ClusterEnvironmentConfigArgs']]):
+        pulumi.set(self, "environment_config", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceStorageConfigs")
@@ -2291,6 +2321,52 @@ class ClusterScheduledUpdateConfigArgs:
     @deployment_config.setter
     def deployment_config(self, value: Optional[pulumi.Input['ClusterDeploymentConfigArgs']]):
         pulumi.set(self, "deployment_config", value)
+
+
+class ClusterSharedEnvironmentConfigArgsDict(TypedDict):
+    """
+    The shared environment configuration for restricted instance groups that use cluster-level shared FSx Lustre storage.
+    """
+    f_sx_lustre_deletion_policy: pulumi.Input['ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy']
+    """
+    The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
+    """
+    f_sx_lustre_config: NotRequired[pulumi.Input['ClusterFSxLustreConfigArgsDict']]
+
+@pulumi.input_type
+class ClusterSharedEnvironmentConfigArgs:
+    def __init__(__self__, *,
+                 f_sx_lustre_deletion_policy: pulumi.Input['ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy'],
+                 f_sx_lustre_config: Optional[pulumi.Input['ClusterFSxLustreConfigArgs']] = None):
+        """
+        The shared environment configuration for restricted instance groups that use cluster-level shared FSx Lustre storage.
+
+        :param pulumi.Input['ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy'] f_sx_lustre_deletion_policy: The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
+        """
+        pulumi.set(__self__, "f_sx_lustre_deletion_policy", f_sx_lustre_deletion_policy)
+        if f_sx_lustre_config is not None:
+            pulumi.set(__self__, "f_sx_lustre_config", f_sx_lustre_config)
+
+    @_builtins.property
+    @pulumi.getter(name="fSxLustreDeletionPolicy")
+    def f_sx_lustre_deletion_policy(self) -> pulumi.Input['ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy']:
+        """
+        The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
+        """
+        return pulumi.get(self, "f_sx_lustre_deletion_policy")
+
+    @f_sx_lustre_deletion_policy.setter
+    def f_sx_lustre_deletion_policy(self, value: pulumi.Input['ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy']):
+        pulumi.set(self, "f_sx_lustre_deletion_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fSxLustreConfig")
+    def f_sx_lustre_config(self) -> Optional[pulumi.Input['ClusterFSxLustreConfigArgs']]:
+        return pulumi.get(self, "f_sx_lustre_config")
+
+    @f_sx_lustre_config.setter
+    def f_sx_lustre_config(self, value: Optional[pulumi.Input['ClusterFSxLustreConfigArgs']]):
+        pulumi.set(self, "f_sx_lustre_config", value)
 
 
 class ClusterSlurmConfigArgsDict(TypedDict):
@@ -5110,6 +5186,10 @@ class DomainResourceSpecArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of the image version created on the instance.
     """
+    training_plan_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+    """
 
 @pulumi.input_type
 class DomainResourceSpecArgs:
@@ -5117,7 +5197,8 @@ class DomainResourceSpecArgs:
                  instance_type: Optional[pulumi.Input['DomainAppInstanceType']] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  sage_maker_image_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sage_maker_image_version_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 sage_maker_image_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 training_plan_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input['DomainAppInstanceType'] instance_type: The instance type that the image version runs on.
                
@@ -5127,6 +5208,7 @@ class DomainResourceSpecArgs:
         :param pulumi.Input[_builtins.str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
         :param pulumi.Input[_builtins.str] sage_maker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image that the image version belongs to.
         :param pulumi.Input[_builtins.str] sage_maker_image_version_arn: The Amazon Resource Name (ARN) of the image version created on the instance.
+        :param pulumi.Input[_builtins.str] training_plan_arn: The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
@@ -5136,6 +5218,8 @@ class DomainResourceSpecArgs:
             pulumi.set(__self__, "sage_maker_image_arn", sage_maker_image_arn)
         if sage_maker_image_version_arn is not None:
             pulumi.set(__self__, "sage_maker_image_version_arn", sage_maker_image_version_arn)
+        if training_plan_arn is not None:
+            pulumi.set(__self__, "training_plan_arn", training_plan_arn)
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
@@ -5188,6 +5272,18 @@ class DomainResourceSpecArgs:
     @sage_maker_image_version_arn.setter
     def sage_maker_image_version_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "sage_maker_image_version_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trainingPlanArn")
+    def training_plan_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+        """
+        return pulumi.get(self, "training_plan_arn")
+
+    @training_plan_arn.setter
+    def training_plan_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "training_plan_arn", value)
 
 
 class DomainS3FileSystemConfigArgsDict(TypedDict):
@@ -21427,6 +21523,10 @@ class SpaceResourceSpecArgsDict(TypedDict):
     """
     The ARN of the image version created on the instance.
     """
+    training_plan_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+    """
 
 @pulumi.input_type
 class SpaceResourceSpecArgs:
@@ -21434,12 +21534,14 @@ class SpaceResourceSpecArgs:
                  instance_type: Optional[pulumi.Input['SpaceResourceSpecInstanceType']] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  sage_maker_image_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sage_maker_image_version_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 sage_maker_image_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 training_plan_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input['SpaceResourceSpecInstanceType'] instance_type: The instance type that the image version runs on.
         :param pulumi.Input[_builtins.str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
         :param pulumi.Input[_builtins.str] sage_maker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param pulumi.Input[_builtins.str] sage_maker_image_version_arn: The ARN of the image version created on the instance.
+        :param pulumi.Input[_builtins.str] training_plan_arn: The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
@@ -21449,6 +21551,8 @@ class SpaceResourceSpecArgs:
             pulumi.set(__self__, "sage_maker_image_arn", sage_maker_image_arn)
         if sage_maker_image_version_arn is not None:
             pulumi.set(__self__, "sage_maker_image_version_arn", sage_maker_image_version_arn)
+        if training_plan_arn is not None:
+            pulumi.set(__self__, "training_plan_arn", training_plan_arn)
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
@@ -21497,6 +21601,18 @@ class SpaceResourceSpecArgs:
     @sage_maker_image_version_arn.setter
     def sage_maker_image_version_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "sage_maker_image_version_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trainingPlanArn")
+    def training_plan_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+        """
+        return pulumi.get(self, "training_plan_arn")
+
+    @training_plan_arn.setter
+    def training_plan_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "training_plan_arn", value)
 
 
 class SpaceS3FileSystemArgsDict(TypedDict):

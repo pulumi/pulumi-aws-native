@@ -93,6 +93,10 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         public readonly Outputs.PlaybackConfigurationDashConfiguration? DashConfiguration;
         /// <summary>
+        /// A map of event names to function identifiers for custom processing during session lifecycle events.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? FunctionMapping;
+        /// <summary>
         /// The configuration for HLS content.
         /// </summary>
         public readonly Outputs.PlaybackConfigurationHlsConfiguration? HlsConfiguration;
@@ -163,6 +167,8 @@ namespace Pulumi.AwsNative.MediaTailor
 
             Outputs.PlaybackConfigurationDashConfiguration? dashConfiguration,
 
+            ImmutableDictionary<string, string>? functionMapping,
+
             Outputs.PlaybackConfigurationHlsConfiguration? hlsConfiguration,
 
             Pulumi.AwsNative.MediaTailor.PlaybackConfigurationInsertionMode? insertionMode,
@@ -197,6 +203,7 @@ namespace Pulumi.AwsNative.MediaTailor
             CdnConfiguration = cdnConfiguration;
             ConfigurationAliases = configurationAliases;
             DashConfiguration = dashConfiguration;
+            FunctionMapping = functionMapping;
             HlsConfiguration = hlsConfiguration;
             InsertionMode = insertionMode;
             LivePreRollConfiguration = livePreRollConfiguration;
