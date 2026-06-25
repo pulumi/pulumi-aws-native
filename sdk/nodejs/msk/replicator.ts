@@ -128,7 +128,7 @@ export interface ReplicatorArgs {
     /**
      * A summary description of the replicator.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Kafka clusters which are targets of the replicator.
      */
@@ -136,7 +136,7 @@ export interface ReplicatorArgs {
     /**
      * Configuration for log delivery for the replicator.
      */
-    logDelivery?: pulumi.Input<inputs.msk.LogDeliveryArgs>;
+    logDelivery?: pulumi.Input<inputs.msk.LogDeliveryArgs | undefined>;
     /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      */
@@ -144,7 +144,7 @@ export interface ReplicatorArgs {
     /**
      * The name of the replicator.
      */
-    replicatorName?: pulumi.Input<string>;
+    replicatorName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role used by the replicator to access external resources.
      */
@@ -152,5 +152,5 @@ export interface ReplicatorArgs {
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

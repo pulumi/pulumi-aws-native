@@ -86,7 +86,7 @@ export interface EgressOnlyInternetGatewayArgs {
     /**
      * Any tags assigned to the egress only internet gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the VPC for which to create the egress-only internet gateway.
      */

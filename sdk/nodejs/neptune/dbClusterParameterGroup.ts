@@ -114,7 +114,7 @@ export interface DbClusterParameterGroupArgs {
     /**
      * Provides the name of the DB cluster parameter group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
      *
@@ -124,5 +124,5 @@ export interface DbClusterParameterGroupArgs {
     /**
      * The list of tags for the cluster parameter group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

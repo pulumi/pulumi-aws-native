@@ -101,7 +101,7 @@ export interface SenderIdArgs {
     /**
      * When set to true the sender ID can't be deleted. By default this is set to false.
      */
-    deletionProtectionEnabled?: pulumi.Input<boolean>;
+    deletionProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
      */
@@ -113,5 +113,5 @@ export interface SenderIdArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

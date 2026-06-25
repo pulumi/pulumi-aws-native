@@ -162,11 +162,11 @@ export interface DeploymentArgs {
     /**
      * A description of the deployment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A map of dynamic extension parameter names to values to pass to associated extensions with `PRE_START_DEPLOYMENT` actions.
      */
-    dynamicExtensionParameters?: pulumi.Input<pulumi.Input<inputs.appconfig.DeploymentDynamicExtensionParametersArgs>[]>;
+    dynamicExtensionParameters?: pulumi.Input<pulumi.Input<inputs.appconfig.DeploymentDynamicExtensionParametersArgs>[] | undefined>;
     /**
      * The environment ID.
      */
@@ -174,9 +174,9 @@ export interface DeploymentArgs {
     /**
      * The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

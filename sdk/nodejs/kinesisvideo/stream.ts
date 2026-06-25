@@ -113,29 +113,29 @@ export interface StreamArgs {
     /**
      * The number of hours till which Kinesis Video will retain the data in the stream
      */
-    dataRetentionInHours?: pulumi.Input<number>;
+    dataRetentionInHours?: pulumi.Input<number | undefined>;
     /**
      * The name of the device that is writing to the stream.
      */
-    deviceName?: pulumi.Input<string>;
+    deviceName?: pulumi.Input<string | undefined>;
     /**
      * AWS KMS key ID that Kinesis Video Streams uses to encrypt stream data.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The media type of the stream. Consumers of the stream can use this information when processing the stream.
      */
-    mediaType?: pulumi.Input<string>;
+    mediaType?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kinesis Video stream.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration for the storage tier of the Kinesis Video Stream.
      */
-    streamStorageConfiguration?: pulumi.Input<inputs.kinesisvideo.StreamStorageConfigurationArgs>;
+    streamStorageConfiguration?: pulumi.Input<inputs.kinesisvideo.StreamStorageConfigurationArgs | undefined>;
     /**
      * An array of key-value pairs associated with the Kinesis Video Stream.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

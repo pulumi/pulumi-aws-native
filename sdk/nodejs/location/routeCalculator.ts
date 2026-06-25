@@ -66,7 +66,7 @@ export class RouteCalculator extends pulumi.CustomResource {
     /**
      * Specifies the data provider of traffic and road network data.
      *
-     * > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+     * > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
      *
      * Valid values include:
      *
@@ -152,11 +152,11 @@ export interface RouteCalculatorArgs {
      * - Must be a unique Route calculator resource name.
      * - No spaces allowed. For example, `ExampleRouteCalculator` .
      */
-    calculatorName?: pulumi.Input<string>;
+    calculatorName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the data provider of traffic and road network data.
      *
-     * > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+     * > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
      *
      * Valid values include:
      *
@@ -172,15 +172,15 @@ export interface RouteCalculatorArgs {
     /**
      * The optional description for the route calculator resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * No longer used. If included, the only allowed value is `RequestBasedUsage` .
      *
      * *Allowed Values* : `RequestBasedUsage`
      */
-    pricingPlan?: pulumi.Input<enums.location.RouteCalculatorPricingPlan>;
+    pricingPlan?: pulumi.Input<enums.location.RouteCalculatorPricingPlan | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

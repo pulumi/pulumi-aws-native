@@ -121,9 +121,9 @@ export interface VpcIngressConnectionArgs {
     /**
      * An optional list of metadata items that you can associate with the VPC Ingress Connection resource. A tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
     /**
      * The customer-provided Vpc Ingress Connection name.
      */
-    vpcIngressConnectionName?: pulumi.Input<string>;
+    vpcIngressConnectionName?: pulumi.Input<string | undefined>;
 }

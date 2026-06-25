@@ -170,7 +170,7 @@ export interface DocumentClassifierArgs {
     /**
      * The name of the document classifier.
      */
-    documentClassifierName?: pulumi.Input<string>;
+    documentClassifierName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the format and location of the input data for the job.
      */
@@ -182,14 +182,14 @@ export interface DocumentClassifierArgs {
     /**
      * Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
      */
-    mode?: pulumi.Input<enums.comprehend.DocumentClassifierMode>;
+    mode?: pulumi.Input<enums.comprehend.DocumentClassifierMode | undefined>;
     /**
      * ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
      *
      * - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
      * - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
      */
-    modelKmsKeyId?: pulumi.Input<string>;
+    modelKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.
      *
@@ -201,28 +201,28 @@ export interface DocumentClassifierArgs {
      *
      * `'{"attribute": "value", "attribute": ["value"]}'`
      */
-    modelPolicy?: pulumi.Input<string>;
+    modelPolicy?: pulumi.Input<string | undefined>;
     /**
      * Provides output results configuration parameters for custom classifier jobs.
      */
-    outputDataConfig?: pulumi.Input<inputs.comprehend.DocumentClassifierOutputDataConfigArgs>;
+    outputDataConfig?: pulumi.Input<inputs.comprehend.DocumentClassifierOutputDataConfigArgs | undefined>;
     /**
      * Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The version name given to the newly created classifier. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the AWS account / AWS Region .
      */
-    versionName?: pulumi.Input<string>;
+    versionName?: pulumi.Input<string | undefined>;
     /**
      * ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
      *
      * - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
      * - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
      */
-    volumeKmsKeyId?: pulumi.Input<string>;
+    volumeKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
      */
-    vpcConfig?: pulumi.Input<inputs.comprehend.DocumentClassifierVpcConfigArgs>;
+    vpcConfig?: pulumi.Input<inputs.comprehend.DocumentClassifierVpcConfigArgs | undefined>;
 }

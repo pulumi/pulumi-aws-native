@@ -126,17 +126,17 @@ export interface QueueArgs {
     /**
      * The list of compute node group configurations associated with the queue. Queues assign jobs to associated compute node groups.
      */
-    computeNodeGroupConfigurations?: pulumi.Input<pulumi.Input<inputs.pcs.QueueComputeNodeGroupConfigurationArgs>[]>;
+    computeNodeGroupConfigurations?: pulumi.Input<pulumi.Input<inputs.pcs.QueueComputeNodeGroupConfigurationArgs>[] | undefined>;
     /**
      * The name that identifies the queue.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Slurm configuration for the queue.
      */
-    slurmConfiguration?: pulumi.Input<inputs.pcs.SlurmConfigurationPropertiesArgs>;
+    slurmConfiguration?: pulumi.Input<inputs.pcs.SlurmConfigurationPropertiesArgs | undefined>;
     /**
      * 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

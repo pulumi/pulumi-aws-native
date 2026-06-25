@@ -39,17 +39,17 @@ export class OptionGroup extends pulumi.CustomResource {
 
     /**
      * Specifies the name of the engine that this option group should be associated with.
-     *  Valid Values: 
-     *   +   ``mariadb`` 
-     *   +   ``mysql`` 
-     *   +   ``oracle-ee`` 
-     *   +   ``oracle-ee-cdb`` 
-     *   +   ``oracle-se2`` 
-     *   +   ``oracle-se2-cdb`` 
-     *   +   ``postgres`` 
-     *   +   ``sqlserver-ee`` 
-     *   +   ``sqlserver-se`` 
-     *   +   ``sqlserver-ex`` 
+     *  Valid Values:
+     *   +   ``mariadb``
+     *   +   ``mysql``
+     *   +   ``oracle-ee``
+     *   +   ``oracle-ee-cdb``
+     *   +   ``oracle-se2``
+     *   +   ``oracle-se2-cdb``
+     *   +   ``postgres``
+     *   +   ``sqlserver-ee``
+     *   +   ``sqlserver-se``
+     *   +   ``sqlserver-ex``
      *   +   ``sqlserver-web``
      */
     declare public readonly engineName: pulumi.Output<string>;
@@ -71,7 +71,7 @@ export class OptionGroup extends pulumi.CustomResource {
      *   +  Must be 1 to 255 letters, numbers, or hyphens
      *   +  First character must be a letter
      *   +  Can't end with a hyphen or contain two consecutive hyphens
-     *   
+     *
      *  Example: ``myoptiongroup``
      *  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
      *   This value is stored as a lowercase string.
@@ -129,17 +129,17 @@ export class OptionGroup extends pulumi.CustomResource {
 export interface OptionGroupArgs {
     /**
      * Specifies the name of the engine that this option group should be associated with.
-     *  Valid Values: 
-     *   +   ``mariadb`` 
-     *   +   ``mysql`` 
-     *   +   ``oracle-ee`` 
-     *   +   ``oracle-ee-cdb`` 
-     *   +   ``oracle-se2`` 
-     *   +   ``oracle-se2-cdb`` 
-     *   +   ``postgres`` 
-     *   +   ``sqlserver-ee`` 
-     *   +   ``sqlserver-se`` 
-     *   +   ``sqlserver-ex`` 
+     *  Valid Values:
+     *   +   ``mariadb``
+     *   +   ``mysql``
+     *   +   ``oracle-ee``
+     *   +   ``oracle-ee-cdb``
+     *   +   ``oracle-se2``
+     *   +   ``oracle-se2-cdb``
+     *   +   ``postgres``
+     *   +   ``sqlserver-ee``
+     *   +   ``sqlserver-se``
+     *   +   ``sqlserver-ex``
      *   +   ``sqlserver-web``
      */
     engineName: pulumi.Input<string>;
@@ -150,7 +150,7 @@ export interface OptionGroupArgs {
     /**
      * A list of all available options for an option group.
      */
-    optionConfigurations?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOptionConfigurationArgs>[]>;
+    optionConfigurations?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOptionConfigurationArgs>[] | undefined>;
     /**
      * The description of the option group.
      */
@@ -161,14 +161,14 @@ export interface OptionGroupArgs {
      *   +  Must be 1 to 255 letters, numbers, or hyphens
      *   +  First character must be a letter
      *   +  Can't end with a hyphen or contain two consecutive hyphens
-     *   
+     *
      *  Example: ``myoptiongroup``
      *  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
      *   This value is stored as a lowercase string.
      */
-    optionGroupName?: pulumi.Input<string>;
+    optionGroupName?: pulumi.Input<string | undefined>;
     /**
      * Tags to assign to the option group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

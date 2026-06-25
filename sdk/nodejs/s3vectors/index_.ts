@@ -170,7 +170,7 @@ export interface IndexArgs {
     /**
      * The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.s3vectors.IndexEncryptionConfigurationArgs>;
+    encryptionConfiguration?: pulumi.Input<inputs.s3vectors.IndexEncryptionConfigurationArgs | undefined>;
     /**
      * The name of the vector index to create. The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.
      *
@@ -178,21 +178,21 @@ export interface IndexArgs {
      *
      * > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
      */
-    indexName?: pulumi.Input<string>;
+    indexName?: pulumi.Input<string | undefined>;
     /**
      * The metadata configuration for the vector index.
      */
-    metadataConfiguration?: pulumi.Input<inputs.s3vectors.IndexMetadataConfigurationArgs>;
+    metadataConfiguration?: pulumi.Input<inputs.s3vectors.IndexMetadataConfigurationArgs | undefined>;
     /**
      * User tags (key-value pairs) to associate with the index.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
      */
-    vectorBucketArn?: pulumi.Input<string>;
+    vectorBucketArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the vector bucket that contains the vector index.
      */
-    vectorBucketName?: pulumi.Input<string>;
+    vectorBucketName?: pulumi.Input<string | undefined>;
 }

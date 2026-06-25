@@ -127,21 +127,21 @@ export interface DeliverySourceArgs {
     /**
      * A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
      */
-    deliverySourceConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    deliverySourceConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
      */
-    logType?: pulumi.Input<string>;
+    logType?: pulumi.Input<string | undefined>;
     /**
      * The unique name of the Log source.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the resource that will be sending the logs.
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string | undefined>;
     /**
      * The tags that have been assigned to this delivery source.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

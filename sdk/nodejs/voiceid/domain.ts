@@ -96,11 +96,11 @@ export interface DomainArgs {
     /**
      * The description of the domain.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name for the domain.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
      */
@@ -108,5 +108,5 @@ export interface DomainArgs {
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

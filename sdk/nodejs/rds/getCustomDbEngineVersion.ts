@@ -22,7 +22,7 @@ export interface GetCustomDbEngineVersionArgs {
     /**
      * The database engine to use for your custom engine version (CEV).
      *  Valid values:
-     *   +   ``custom-oracle-ee`` 
+     *   +   ``custom-oracle-ee``
      *   +   ``custom-oracle-ee-cdb``
      */
     engine: string;
@@ -67,7 +67,7 @@ export interface GetCustomDbEngineVersionOutputArgs {
     /**
      * The database engine to use for your custom engine version (CEV).
      *  Valid values:
-     *   +   ``custom-oracle-ee`` 
+     *   +   ``custom-oracle-ee``
      *   +   ``custom-oracle-ee-cdb``
      */
     engine: pulumi.Input<string>;

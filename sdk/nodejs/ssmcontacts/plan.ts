@@ -89,13 +89,13 @@ export interface PlanArgs {
     /**
      * Contact ID for the AWS SSM Incident Manager Contact to associate the plan.
      */
-    contactId?: pulumi.Input<string>;
+    contactId?: pulumi.Input<string | undefined>;
     /**
      * Rotation Ids to associate with Oncall Contact for engagement.
      */
-    rotationIds?: pulumi.Input<pulumi.Input<string>[]>;
+    rotationIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The stages that an escalation plan or engagement plan engages contacts and contact methods in.
      */
-    stages?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.PlanStageArgs>[]>;
+    stages?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.PlanStageArgs>[] | undefined>;
 }

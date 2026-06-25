@@ -111,7 +111,7 @@ export interface CertificateProviderArgs {
     /**
      * The name of the certificate provider.
      */
-    certificateProviderName?: pulumi.Input<string>;
+    certificateProviderName?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the Lambda function.
      */
@@ -119,5 +119,5 @@ export interface CertificateProviderArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -28,7 +28,7 @@ export interface GetStandardArgs {
 
 export interface GetStandardResult {
     /**
-     * Specifies which controls are to be disabled in a standard. 
+     * Specifies which controls are to be disabled in a standard.
      *  *Maximum*: ``100``
      */
     readonly disabledStandardsControls?: outputs.securityhub.StandardsControl[];

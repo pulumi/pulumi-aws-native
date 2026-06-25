@@ -214,41 +214,41 @@ export interface ImageBuilderArgs {
     /**
      * The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
      */
-    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderAccessEndpointArgs>[]>;
+    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderAccessEndpointArgs>[] | undefined>;
     /**
      * The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
      */
-    appstreamAgentVersion?: pulumi.Input<string>;
+    appstreamAgentVersion?: pulumi.Input<string | undefined>;
     /**
      * The description to display.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The image builder name to display.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
      */
-    domainJoinInfo?: pulumi.Input<inputs.appstream.ImageBuilderDomainJoinInfoArgs>;
+    domainJoinInfo?: pulumi.Input<inputs.appstream.ImageBuilderDomainJoinInfoArgs | undefined>;
     /**
      * Enables or disables default internet access for the image builder.
      */
-    enableDefaultInternetAccess?: pulumi.Input<boolean>;
+    enableDefaultInternetAccess?: pulumi.Input<boolean | undefined>;
     /**
      * The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
      *
      * For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
      */
-    iamRoleArn?: pulumi.Input<string>;
+    iamRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the public, private, or shared image to use.
      */
-    imageArn?: pulumi.Input<string>;
+    imageArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the image used to create the image builder.
      */
-    imageName?: pulumi.Input<string>;
+    imageName?: pulumi.Input<string | undefined>;
     /**
      * The instance type to use when launching the image builder. The following instance types are available:
      *
@@ -307,16 +307,16 @@ export interface ImageBuilderArgs {
     /**
      * A unique name for the image builder.
      */
-    name?: pulumi.Input<string>;
-    rootVolumeConfig?: pulumi.Input<inputs.appstream.ImageBuilderVolumeConfigArgs>;
-    softwaresToInstall?: pulumi.Input<pulumi.Input<string>[]>;
-    softwaresToUninstall?: pulumi.Input<pulumi.Input<string>[]>;
+    name?: pulumi.Input<string | undefined>;
+    rootVolumeConfig?: pulumi.Input<inputs.appstream.ImageBuilderVolumeConfigArgs | undefined>;
+    softwaresToInstall?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    softwaresToUninstall?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An array of key-value pairs.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The VPC configuration for the image builder. You can specify only one subnet.
      */
-    vpcConfig?: pulumi.Input<inputs.appstream.ImageBuilderVpcConfigArgs>;
+    vpcConfig?: pulumi.Input<inputs.appstream.ImageBuilderVpcConfigArgs | undefined>;
 }

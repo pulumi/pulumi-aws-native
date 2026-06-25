@@ -156,29 +156,29 @@ export interface AppBlockBuilderArgs {
     /**
      * The access endpoints of the app block builder.
      */
-    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.AppBlockBuilderAccessEndpointArgs>[]>;
+    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.AppBlockBuilderAccessEndpointArgs>[] | undefined>;
     /**
      * The ARN of the app block.
      *
      * *Maximum* : `1`
      */
-    appBlockArns?: pulumi.Input<pulumi.Input<string>[]>;
+    appBlockArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description of the app block builder.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the app block builder.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether default internet access is enabled for the app block builder.
      */
-    enableDefaultInternetAccess?: pulumi.Input<boolean>;
+    enableDefaultInternetAccess?: pulumi.Input<boolean | undefined>;
     /**
      * The ARN of the IAM role that is applied to the app block builder.
      */
-    iamRoleArn?: pulumi.Input<string>;
+    iamRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The instance type of the app block builder.
      */
@@ -186,7 +186,7 @@ export interface AppBlockBuilderArgs {
     /**
      * The name of the app block builder.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The platform of the app block builder.
      *
@@ -196,7 +196,7 @@ export interface AppBlockBuilderArgs {
     /**
      * The tags of the app block builder.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The VPC configuration for the app block builder.
      */

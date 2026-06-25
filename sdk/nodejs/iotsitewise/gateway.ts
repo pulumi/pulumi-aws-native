@@ -104,11 +104,11 @@ export interface GatewayArgs {
     /**
      * A list of gateway capability summaries that each contain a namespace and status.
      */
-    gatewayCapabilitySummaries?: pulumi.Input<pulumi.Input<inputs.iotsitewise.GatewayCapabilitySummaryArgs>[]>;
+    gatewayCapabilitySummaries?: pulumi.Input<pulumi.Input<inputs.iotsitewise.GatewayCapabilitySummaryArgs>[] | undefined>;
     /**
      * A unique, friendly name for the gateway.
      */
-    gatewayName?: pulumi.Input<string>;
+    gatewayName?: pulumi.Input<string | undefined>;
     /**
      * The gateway's platform. You can only specify one platform in a gateway.
      */
@@ -116,9 +116,9 @@ export interface GatewayArgs {
     /**
      * The version of the gateway you want to create.
      */
-    gatewayVersion?: pulumi.Input<string>;
+    gatewayVersion?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

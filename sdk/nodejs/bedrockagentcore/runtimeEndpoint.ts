@@ -156,17 +156,17 @@ export interface RuntimeEndpointArgs {
     /**
      * The version of the AgentCore Runtime to use for the endpoint.
      */
-    agentRuntimeVersion?: pulumi.Input<string>;
+    agentRuntimeVersion?: pulumi.Input<string | undefined>;
     /**
      * The description of the AgentCore Runtime endpoint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Agent Runtime Endpoint
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags for the AgentCore Runtime endpoint.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

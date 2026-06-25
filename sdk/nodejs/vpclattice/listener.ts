@@ -139,11 +139,11 @@ export interface ListenerArgs {
      *
      * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The listener port. You can specify a value from 1 to 65535. For HTTP, the default is 80. For HTTPS, the default is 443.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * The listener protocol.
      */
@@ -151,9 +151,9 @@ export interface ListenerArgs {
     /**
      * The ID or ARN of the service.
      */
-    serviceIdentifier?: pulumi.Input<string>;
+    serviceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The tags for the listener.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

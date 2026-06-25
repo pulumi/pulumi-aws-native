@@ -335,69 +335,69 @@ export interface CloudAutonomousVmClusterArgs {
     /**
      * The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB.
      */
-    autonomousDataStorageSizeInTbs?: pulumi.Input<number>;
+    autonomousDataStorageSizeInTbs?: pulumi.Input<number | undefined>;
     /**
      * The unique identifier of the Cloud Exadata Infrastructure containing this Autonomous VM cluster.
      */
-    cloudExadataInfrastructureId?: pulumi.Input<string>;
+    cloudExadataInfrastructureId?: pulumi.Input<string | undefined>;
     /**
      * The number of CPU cores enabled per node in the Autonomous VM cluster.
      */
-    cpuCoreCountPerNode?: pulumi.Input<number>;
+    cpuCoreCountPerNode?: pulumi.Input<number | undefined>;
     /**
      * The list of database servers associated with the Autonomous VM cluster.
      */
-    dbServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dbServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The user-provided description of the Autonomous VM cluster.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the Autonomous VM cluster.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
      */
-    iamRoles?: pulumi.Input<pulumi.Input<inputs.odb.CloudAutonomousVmClusterIamRoleArgs>[]>;
+    iamRoles?: pulumi.Input<pulumi.Input<inputs.odb.CloudAutonomousVmClusterIamRoleArgs>[] | undefined>;
     /**
      * Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
      */
-    isMtlsEnabledVmCluster?: pulumi.Input<boolean>;
+    isMtlsEnabledVmCluster?: pulumi.Input<boolean | undefined>;
     /**
      * The Oracle license model that applies to the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE.
      */
-    licenseModel?: pulumi.Input<enums.odb.CloudAutonomousVmClusterLicenseModel>;
+    licenseModel?: pulumi.Input<enums.odb.CloudAutonomousVmClusterLicenseModel | undefined>;
     /**
      * The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
      */
-    maintenanceWindow?: pulumi.Input<inputs.odb.CloudAutonomousVmClusterMaintenanceWindowArgs>;
+    maintenanceWindow?: pulumi.Input<inputs.odb.CloudAutonomousVmClusterMaintenanceWindowArgs | undefined>;
     /**
      * The amount of memory allocated per Oracle Compute Unit, in GB.
      */
-    memoryPerOracleComputeUnitInGbs?: pulumi.Input<number>;
+    memoryPerOracleComputeUnitInGbs?: pulumi.Input<number | undefined>;
     /**
      * The unique identifier of the ODB network associated with this Autonomous VM cluster.
      */
-    odbNetworkId?: pulumi.Input<string>;
+    odbNetworkId?: pulumi.Input<string | undefined>;
     /**
      * The SCAN listener port for non-TLS (TCP) protocol. The default is 1521.
      */
-    scanListenerPortNonTls?: pulumi.Input<number>;
+    scanListenerPortNonTls?: pulumi.Input<number | undefined>;
     /**
      * The SCAN listener port for TLS (TCP) protocol. The default is 2484.
      */
-    scanListenerPortTls?: pulumi.Input<number>;
+    scanListenerPortTls?: pulumi.Input<number | undefined>;
     /**
      * The tags associated with the Autonomous VM cluster.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The time zone of the Autonomous VM cluster.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
     /**
      * The total number of Autonomous Container Databases that can be created with the allocated local storage.
      */
-    totalContainerDatabases?: pulumi.Input<number>;
+    totalContainerDatabases?: pulumi.Input<number | undefined>;
 }

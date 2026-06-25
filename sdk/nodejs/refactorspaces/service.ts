@@ -144,7 +144,7 @@ export interface ServiceArgs {
     /**
      * A description of the service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The endpoint type of the service.
      */
@@ -156,21 +156,21 @@ export interface ServiceArgs {
     /**
      * A summary of the configuration for the AWS Lambda endpoint type.
      */
-    lambdaEndpoint?: pulumi.Input<inputs.refactorspaces.ServiceLambdaEndpointInputArgs>;
+    lambdaEndpoint?: pulumi.Input<inputs.refactorspaces.ServiceLambdaEndpointInputArgs | undefined>;
     /**
      * The name of the service.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The summary of the configuration for the URL endpoint type.
      */
-    urlEndpoint?: pulumi.Input<inputs.refactorspaces.ServiceUrlEndpointInputArgs>;
+    urlEndpoint?: pulumi.Input<inputs.refactorspaces.ServiceUrlEndpointInputArgs | undefined>;
     /**
      * The ID of the virtual private cloud (VPC).
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }

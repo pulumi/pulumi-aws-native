@@ -164,15 +164,15 @@ export interface ContainerGroupDefinitionArgs {
     /**
      * The scope of the container group
      */
-    containerGroupType?: pulumi.Input<enums.gamelift.ContainerGroupDefinitionContainerGroupType>;
+    containerGroupType?: pulumi.Input<enums.gamelift.ContainerGroupDefinitionContainerGroupType | undefined>;
     /**
      * The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
      */
-    gameServerContainerDefinition?: pulumi.Input<inputs.gamelift.ContainerGroupDefinitionGameServerContainerDefinitionArgs>;
+    gameServerContainerDefinition?: pulumi.Input<inputs.gamelift.ContainerGroupDefinitionGameServerContainerDefinitionArgs | undefined>;
     /**
      * A descriptive label for the container group definition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The operating system of the container group
      */
@@ -180,15 +180,15 @@ export interface ContainerGroupDefinitionArgs {
     /**
      * A specific ContainerGroupDefinition version to be updated
      */
-    sourceVersionNumber?: pulumi.Input<number>;
+    sourceVersionNumber?: pulumi.Input<number | undefined>;
     /**
      * A collection of support container definitions that define the containers in this group.
      */
-    supportContainerDefinitions?: pulumi.Input<pulumi.Input<inputs.gamelift.ContainerGroupDefinitionSupportContainerDefinitionArgs>[]>;
+    supportContainerDefinitions?: pulumi.Input<pulumi.Input<inputs.gamelift.ContainerGroupDefinitionSupportContainerDefinitionArgs>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The total memory limit of container groups following this definition in MiB
      */
@@ -200,5 +200,5 @@ export interface ContainerGroupDefinitionArgs {
     /**
      * The description of this version
      */
-    versionDescription?: pulumi.Input<string>;
+    versionDescription?: pulumi.Input<string | undefined>;
 }

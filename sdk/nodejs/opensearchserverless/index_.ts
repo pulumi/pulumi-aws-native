@@ -102,13 +102,13 @@ export interface IndexArgs {
     /**
      * The name of the OpenSearch Serverless index.
      */
-    indexName?: pulumi.Input<string>;
+    indexName?: pulumi.Input<string | undefined>;
     /**
      * Index Mappings
      */
-    mappings?: pulumi.Input<inputs.opensearchserverless.MappingsPropertiesArgs>;
+    mappings?: pulumi.Input<inputs.opensearchserverless.MappingsPropertiesArgs | undefined>;
     /**
      * Index settings
      */
-    settings?: pulumi.Input<inputs.opensearchserverless.IndexSettingsArgs>;
+    settings?: pulumi.Input<inputs.opensearchserverless.IndexSettingsArgs | undefined>;
 }

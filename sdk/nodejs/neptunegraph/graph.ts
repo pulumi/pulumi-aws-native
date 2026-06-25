@@ -56,7 +56,7 @@ export class Graph extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly graphId: pulumi.Output<string>;
     /**
-     * Contains a user-supplied name for the Graph. 
+     * Contains a user-supplied name for the Graph.
      *
      * If you don't specify a name, we generate a unique Graph Name using a combination of Stack Name and a UUID comprising of 4 characters.
      *
@@ -152,19 +152,19 @@ export interface GraphArgs {
      *
      * _Default_: If not specified, the default value is true.
      */
-    deletionProtection?: pulumi.Input<boolean>;
+    deletionProtection?: pulumi.Input<boolean | undefined>;
     /**
-     * Contains a user-supplied name for the Graph. 
+     * Contains a user-supplied name for the Graph.
      *
      * If you don't specify a name, we generate a unique Graph Name using a combination of Stack Name and a UUID comprising of 4 characters.
      *
      * _Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
-    graphName?: pulumi.Input<string>;
+    graphName?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Memory for the Graph.
      */
@@ -178,7 +178,7 @@ export interface GraphArgs {
      *
      * _Default_: If not specified, the default value is false.
      */
-    publicConnectivity?: pulumi.Input<boolean>;
+    publicConnectivity?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.
      *
@@ -186,13 +186,13 @@ export interface GraphArgs {
      *
      * _Default_: If not specified, the default value is 1.
      */
-    replicaCount?: pulumi.Input<number>;
+    replicaCount?: pulumi.Input<number | undefined>;
     /**
      * The tags associated with this graph.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Vector Search Configuration
      */
-    vectorSearchConfiguration?: pulumi.Input<inputs.neptunegraph.GraphVectorSearchConfigurationArgs>;
+    vectorSearchConfiguration?: pulumi.Input<inputs.neptunegraph.GraphVectorSearchConfigurationArgs | undefined>;
 }

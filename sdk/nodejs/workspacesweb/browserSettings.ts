@@ -109,23 +109,23 @@ export interface BrowserSettingsArgs {
     /**
      * Additional encryption context of the browser settings.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
      */
-    browserPolicy?: pulumi.Input<string>;
+    browserPolicy?: pulumi.Input<string | undefined>;
     /**
      * The custom managed key of the browser settings.
      *
      * *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
      */
-    customerManagedKey?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<string | undefined>;
     /**
      * The tags to add to the browser settings resource. A tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
      */
-    webContentFilteringPolicy?: pulumi.Input<inputs.workspacesweb.BrowserSettingsWebContentFilteringPolicyArgs>;
+    webContentFilteringPolicy?: pulumi.Input<inputs.workspacesweb.BrowserSettingsWebContentFilteringPolicyArgs | undefined>;
 }

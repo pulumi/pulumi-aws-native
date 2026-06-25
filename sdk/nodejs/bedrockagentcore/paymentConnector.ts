@@ -128,7 +128,7 @@ export interface PaymentConnectorArgs {
     /**
      * The name of the payment connector
      */
-    connectorName?: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string | undefined>;
     connectorType: pulumi.Input<enums.bedrockagentcore.PaymentConnectorType>;
     /**
      * The credential provider configurations for the connector
@@ -137,7 +137,7 @@ export interface PaymentConnectorArgs {
     /**
      * A description of the payment connector
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the parent payment manager
      */

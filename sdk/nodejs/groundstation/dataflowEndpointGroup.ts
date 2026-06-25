@@ -129,11 +129,11 @@ export interface DataflowEndpointGroupArgs {
     /**
      * Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
      */
-    contactPostPassDurationSeconds?: pulumi.Input<number>;
+    contactPostPassDurationSeconds?: pulumi.Input<number | undefined>;
     /**
      * Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
      */
-    contactPrePassDurationSeconds?: pulumi.Input<number>;
+    contactPrePassDurationSeconds?: pulumi.Input<number | undefined>;
     /**
      * List of Endpoint Details, containing address and port for each endpoint. All dataflow endpoints within a single dataflow endpoint group must be of the same type. You cannot mix AWS Ground Station Agent endpoints with Dataflow endpoints in the same group. If your use case requires both types of endpoints, you must create separate dataflow endpoint groups for each type.
      */
@@ -141,5 +141,5 @@ export interface DataflowEndpointGroupArgs {
     /**
      * Tags assigned to a resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

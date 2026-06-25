@@ -106,17 +106,17 @@ export interface CrlArgs {
     /**
      * Specifies whether the certificate revocation list (CRL) is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the certificate revocation list (CRL).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to attach to the certificate revocation list (CRL).
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
      */
-    trustAnchorArn?: pulumi.Input<string>;
+    trustAnchorArn?: pulumi.Input<string | undefined>;
 }

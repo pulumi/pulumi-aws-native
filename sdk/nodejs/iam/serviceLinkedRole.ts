@@ -116,13 +116,13 @@ export interface ServiceLinkedRoleArgs {
     /**
      * The service principal for the AWS service to which this role is attached.
      */
-    awsServiceName?: pulumi.Input<string>;
+    awsServiceName?: pulumi.Input<string | undefined>;
     /**
      * A string that you provide, which is combined with the service-provided prefix to form the complete role name.
      */
-    customSuffix?: pulumi.Input<string>;
+    customSuffix?: pulumi.Input<string | undefined>;
     /**
      * The description of the role.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
 }

@@ -134,7 +134,7 @@ export interface RuleArgs {
     /**
      * The ID or ARN of the listener.
      */
-    listenerIdentifier?: pulumi.Input<string>;
+    listenerIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The rule match.
      */
@@ -144,7 +144,7 @@ export interface RuleArgs {
      *
      * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
      */
@@ -152,9 +152,9 @@ export interface RuleArgs {
     /**
      * The ID or ARN of the service.
      */
-    serviceIdentifier?: pulumi.Input<string>;
+    serviceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The tags for the rule.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

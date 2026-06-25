@@ -154,11 +154,11 @@ export interface DetectorArgs {
     /**
      * The models to associate with this detector.
      */
-    associatedModels?: pulumi.Input<pulumi.Input<inputs.frauddetector.DetectorModelArgs>[]>;
+    associatedModels?: pulumi.Input<pulumi.Input<inputs.frauddetector.DetectorModelArgs>[] | undefined>;
     /**
      * The description of the detector.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the detector
      */
@@ -166,7 +166,7 @@ export interface DetectorArgs {
     /**
      * The desired detector version status for the detector
      */
-    detectorVersionStatus?: pulumi.Input<enums.frauddetector.DetectorVersionStatus>;
+    detectorVersionStatus?: pulumi.Input<enums.frauddetector.DetectorVersionStatus | undefined>;
     /**
      * The event type to associate this detector with.
      */
@@ -182,7 +182,7 @@ export interface DetectorArgs {
      *
      * If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
      */
-    ruleExecutionMode?: pulumi.Input<enums.frauddetector.DetectorRuleExecutionMode>;
+    ruleExecutionMode?: pulumi.Input<enums.frauddetector.DetectorRuleExecutionMode | undefined>;
     /**
      * The rules to include in the detector version.
      */
@@ -190,5 +190,5 @@ export interface DetectorArgs {
     /**
      * Tags associated with this detector.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

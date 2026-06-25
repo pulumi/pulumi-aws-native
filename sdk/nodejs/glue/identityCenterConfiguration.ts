@@ -99,9 +99,9 @@ export interface IdentityCenterConfigurationArgs {
     /**
      * The downstream scopes that Glue identity center configuration can access
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Enable or disable user background sessions for Glue Identity Center
      */
-    userBackgroundSessionsEnabled?: pulumi.Input<boolean>;
+    userBackgroundSessionsEnabled?: pulumi.Input<boolean | undefined>;
 }

@@ -78,7 +78,7 @@ export interface GetGraphQlApiResult {
      */
     readonly logConfig?: outputs.appsync.GraphQlApiLogConfig;
     /**
-     * The AWS Identity and Access Management service role ARN for a merged API. 
+     * The AWS Identity and Access Management service role ARN for a merged API.
      */
     readonly mergedApiExecutionRoleArn?: string;
     /**

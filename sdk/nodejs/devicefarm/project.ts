@@ -99,19 +99,19 @@ export interface ProjectArgs {
     /**
      * Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
      */
-    defaultJobTimeoutMinutes?: pulumi.Input<number>;
-    environmentVariables?: pulumi.Input<pulumi.Input<inputs.devicefarm.ProjectEnvironmentVariableArgs>[]>;
-    executionRoleArn?: pulumi.Input<string>;
+    defaultJobTimeoutMinutes?: pulumi.Input<number | undefined>;
+    environmentVariables?: pulumi.Input<pulumi.Input<inputs.devicefarm.ProjectEnvironmentVariableArgs>[] | undefined>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The project's name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The VPC security groups and subnets that are attached to a project.
      */
-    vpcConfig?: pulumi.Input<inputs.devicefarm.ProjectVpcConfigArgs>;
+    vpcConfig?: pulumi.Input<inputs.devicefarm.ProjectVpcConfigArgs | undefined>;
 }

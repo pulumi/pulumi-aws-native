@@ -136,11 +136,11 @@ export interface KeyArgs {
     /**
      * The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
      */
-    deriveKeyUsage?: pulumi.Input<enums.paymentcryptography.KeyDeriveKeyUsage>;
+    deriveKeyUsage?: pulumi.Input<enums.paymentcryptography.KeyDeriveKeyUsage | undefined>;
     /**
      * Specifies whether the key is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether the key is exportable. This data is immutable after the key is created.
      */
@@ -154,16 +154,16 @@ export interface KeyArgs {
      *
      * For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
      */
-    keyCheckValueAlgorithm?: pulumi.Input<enums.paymentcryptography.KeyCheckValueAlgorithm>;
+    keyCheckValueAlgorithm?: pulumi.Input<enums.paymentcryptography.KeyCheckValueAlgorithm | undefined>;
     /**
      * The resource-based policy attached to the key, in JSON format.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * The list of AWS Regions to remove from the key's replication configuration.
      *
      * The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
      */
-    replicationRegions?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    replicationRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

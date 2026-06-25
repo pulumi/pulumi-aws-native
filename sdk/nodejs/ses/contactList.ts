@@ -89,17 +89,17 @@ export interface ContactListArgs {
     /**
      * The name of the contact list.
      */
-    contactListName?: pulumi.Input<string>;
+    contactListName?: pulumi.Input<string | undefined>;
     /**
      * The description of the contact list.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The tags (keys and values) associated with the contact list.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The topics associated with the contact list.
      */
-    topics?: pulumi.Input<pulumi.Input<inputs.ses.ContactListTopicArgs>[]>;
+    topics?: pulumi.Input<pulumi.Input<inputs.ses.ContactListTopicArgs>[] | undefined>;
 }

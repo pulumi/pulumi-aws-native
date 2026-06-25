@@ -81,5 +81,5 @@ export interface ChallengeArgs {
      * The Amazon Resource Name (ARN) of the connector.
      */
     connectorArn: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

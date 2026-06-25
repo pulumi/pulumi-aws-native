@@ -92,9 +92,9 @@ export interface StaticIpArgs {
     /**
      * The instance where the static IP is attached.
      */
-    attachedTo?: pulumi.Input<string>;
+    attachedTo?: pulumi.Input<string | undefined>;
     /**
      * The name of the static IP address.
      */
-    staticIpName?: pulumi.Input<string>;
+    staticIpName?: pulumi.Input<string | undefined>;
 }

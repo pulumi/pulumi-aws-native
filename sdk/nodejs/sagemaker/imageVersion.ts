@@ -141,13 +141,13 @@ export class ImageVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a ImageVersion resource.
  */
 export interface ImageVersionArgs {
-    alias?: pulumi.Input<string>;
-    aliases?: pulumi.Input<pulumi.Input<string>[]>;
+    alias?: pulumi.Input<string | undefined>;
+    aliases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The container image that the SageMaker image version is based on.
      */
     baseImage: pulumi.Input<string>;
-    horovod?: pulumi.Input<boolean>;
+    horovod?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the parent image.
      *
@@ -156,10 +156,10 @@ export interface ImageVersionArgs {
      * *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
      */
     imageName: pulumi.Input<string>;
-    jobType?: pulumi.Input<enums.sagemaker.ImageVersionJobType>;
-    mlFramework?: pulumi.Input<string>;
-    processor?: pulumi.Input<enums.sagemaker.ImageVersionProcessor>;
-    programmingLang?: pulumi.Input<string>;
-    releaseNotes?: pulumi.Input<string>;
-    vendorGuidance?: pulumi.Input<enums.sagemaker.ImageVersionVendorGuidance>;
+    jobType?: pulumi.Input<enums.sagemaker.ImageVersionJobType | undefined>;
+    mlFramework?: pulumi.Input<string | undefined>;
+    processor?: pulumi.Input<enums.sagemaker.ImageVersionProcessor | undefined>;
+    programmingLang?: pulumi.Input<string | undefined>;
+    releaseNotes?: pulumi.Input<string | undefined>;
+    vendorGuidance?: pulumi.Input<enums.sagemaker.ImageVersionVendorGuidance | undefined>;
 }

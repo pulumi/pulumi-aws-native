@@ -128,29 +128,29 @@ export interface DataTableAttributeArgs {
     /**
      * The Amazon Resource Name (ARN) of the data table that contains this attribute.
      */
-    dataTableArn?: pulumi.Input<string>;
+    dataTableArn?: pulumi.Input<string | undefined>;
     /**
      * An optional description explaining the purpose and usage of this attribute.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the instance.
      */
-    instanceArn?: pulumi.Input<string>;
+    instanceArn?: pulumi.Input<string | undefined>;
     /**
      * The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
      */
-    primary?: pulumi.Input<boolean>;
+    primary?: pulumi.Input<boolean | undefined>;
     /**
      * The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
      */
-    validation?: pulumi.Input<inputs.connect.ValidationPropertiesArgs>;
+    validation?: pulumi.Input<inputs.connect.ValidationPropertiesArgs | undefined>;
     /**
      * The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
      */
-    valueType?: pulumi.Input<enums.connect.DataTableAttributeValueType>;
+    valueType?: pulumi.Input<enums.connect.DataTableAttributeValueType | undefined>;
 }

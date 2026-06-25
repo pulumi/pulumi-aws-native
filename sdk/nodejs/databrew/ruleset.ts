@@ -103,11 +103,11 @@ export interface RulesetArgs {
     /**
      * Description of the Ruleset
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the Ruleset
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of the data quality rules in the ruleset
      */
@@ -117,7 +117,7 @@ export interface RulesetArgs {
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Arn of the target resource (dataset) to apply the ruleset to
      */

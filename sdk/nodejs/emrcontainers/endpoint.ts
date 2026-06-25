@@ -173,7 +173,7 @@ export interface EndpointArgs {
     /**
      * The configuration overrides for the managed endpoint.
      */
-    configurationOverrides?: pulumi.Input<inputs.emrcontainers.EndpointConfigurationOverridesArgs>;
+    configurationOverrides?: pulumi.Input<inputs.emrcontainers.EndpointConfigurationOverridesArgs | undefined>;
     /**
      * The execution role ARN for the managed endpoint.
      */
@@ -181,7 +181,7 @@ export interface EndpointArgs {
     /**
      * The name of the managed endpoint.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Amazon EMR release label.
      */
@@ -189,7 +189,7 @@ export interface EndpointArgs {
     /**
      * An array of key-value pairs to apply to this managed endpoint.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of the managed endpoint.
      */

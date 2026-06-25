@@ -111,23 +111,23 @@ export interface ProjectArgs {
      *
      * To create a project that uses client-side evaluation, you must have the `evidently:ExportProjectAsConfiguration` permission.
      */
-    appConfigResource?: pulumi.Input<inputs.evidently.ProjectAppConfigResourceObjectArgs>;
+    appConfigResource?: pulumi.Input<inputs.evidently.ProjectAppConfigResourceObjectArgs | undefined>;
     /**
      * A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.
      *
      * You can't specify both `CloudWatchLogs` and `S3Destination` in the same operation.
      */
-    dataDelivery?: pulumi.Input<inputs.evidently.ProjectDataDeliveryObjectArgs>;
+    dataDelivery?: pulumi.Input<inputs.evidently.ProjectDataDeliveryObjectArgs | undefined>;
     /**
      * An optional description of the project.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name for the project. It can include up to 127 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

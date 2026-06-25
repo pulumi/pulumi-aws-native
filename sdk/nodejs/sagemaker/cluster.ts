@@ -146,40 +146,40 @@ export class Cluster extends pulumi.CustomResource {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
-    autoScaling?: pulumi.Input<inputs.sagemaker.ClusterAutoScalingConfigArgs>;
+    autoScaling?: pulumi.Input<inputs.sagemaker.ClusterAutoScalingConfigArgs | undefined>;
     /**
      * The name of the HyperPod Cluster.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The cluster role for the autoscaler to assume.
      */
-    clusterRole?: pulumi.Input<string>;
+    clusterRole?: pulumi.Input<string | undefined>;
     /**
      * The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
      */
-    instanceGroups?: pulumi.Input<pulumi.Input<inputs.sagemaker.ClusterInstanceGroupArgs>[]>;
+    instanceGroups?: pulumi.Input<pulumi.Input<inputs.sagemaker.ClusterInstanceGroupArgs>[] | undefined>;
     /**
      * Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
      */
-    nodeProvisioningMode?: pulumi.Input<enums.sagemaker.ClusterNodeProvisioningMode>;
+    nodeProvisioningMode?: pulumi.Input<enums.sagemaker.ClusterNodeProvisioningMode | undefined>;
     /**
      * If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
      */
-    nodeRecovery?: pulumi.Input<enums.sagemaker.ClusterNodeRecovery>;
+    nodeRecovery?: pulumi.Input<enums.sagemaker.ClusterNodeRecovery | undefined>;
     /**
      * The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
      */
-    orchestrator?: pulumi.Input<inputs.sagemaker.ClusterOrchestratorArgs>;
-    restrictedInstanceGroups?: pulumi.Input<pulumi.Input<inputs.sagemaker.ClusterRestrictedInstanceGroupArgs>[]>;
-    restrictedInstanceGroupsConfig?: pulumi.Input<inputs.sagemaker.ClusterRestrictedInstanceGroupsConfigArgs>;
+    orchestrator?: pulumi.Input<inputs.sagemaker.ClusterOrchestratorArgs | undefined>;
+    restrictedInstanceGroups?: pulumi.Input<pulumi.Input<inputs.sagemaker.ClusterRestrictedInstanceGroupArgs>[] | undefined>;
+    restrictedInstanceGroupsConfig?: pulumi.Input<inputs.sagemaker.ClusterRestrictedInstanceGroupsConfigArgs | undefined>;
     /**
      * Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    tieredStorageConfig?: pulumi.Input<inputs.sagemaker.ClusterTieredStorageConfigArgs>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    tieredStorageConfig?: pulumi.Input<inputs.sagemaker.ClusterTieredStorageConfigArgs | undefined>;
     /**
      * Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
      */
-    vpcConfig?: pulumi.Input<inputs.sagemaker.ClusterVpcConfigArgs>;
+    vpcConfig?: pulumi.Input<inputs.sagemaker.ClusterVpcConfigArgs | undefined>;
 }

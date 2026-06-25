@@ -173,11 +173,11 @@ export interface PlanArgs {
     /**
      * The associated application health alarms for a plan.
      */
-    associatedAlarms?: pulumi.Input<{[key: string]: pulumi.Input<inputs.arcregionswitch.PlanAssociatedAlarmArgs>}>;
+    associatedAlarms?: pulumi.Input<{[key: string]: pulumi.Input<inputs.arcregionswitch.PlanAssociatedAlarmArgs>} | undefined>;
     /**
      * The description for a plan.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The execution role for a plan.
      */
@@ -185,11 +185,11 @@ export interface PlanArgs {
     /**
      * The name for a plan.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The primary Region for a plan.
      */
-    primaryRegion?: pulumi.Input<string>;
+    primaryRegion?: pulumi.Input<string | undefined>;
     /**
      * The recovery approach for a Region switch plan, which can be active/active (activeActive) or active/passive (activePassive).
      */
@@ -197,7 +197,7 @@ export interface PlanArgs {
     /**
      * The recovery time objective for a plan.
      */
-    recoveryTimeObjectiveMinutes?: pulumi.Input<number>;
+    recoveryTimeObjectiveMinutes?: pulumi.Input<number | undefined>;
     /**
      * The AWS Regions for a plan.
      */
@@ -205,12 +205,12 @@ export interface PlanArgs {
     /**
      * The report configuration for a plan.
      */
-    reportConfiguration?: pulumi.Input<inputs.arcregionswitch.PlanReportConfigurationArgs>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    reportConfiguration?: pulumi.Input<inputs.arcregionswitch.PlanReportConfigurationArgs | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The triggers for a plan.
      */
-    triggers?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanTriggerArgs>[]>;
+    triggers?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanTriggerArgs>[] | undefined>;
     /**
      * The workflows for a plan.
      */

@@ -149,7 +149,7 @@ export interface ClusterCapacityProviderAssociationsArgs {
     /**
      * The capacity providers to associate with the cluster.
      */
-    capacityProviders?: pulumi.Input<pulumi.Input<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string>[]>;
+    capacityProviders?: pulumi.Input<pulumi.Input<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string>[] | undefined>;
     /**
      * The cluster the capacity provider association is the target of.
      */

@@ -113,7 +113,7 @@ export interface LocationFSxOpenZfsArgs {
     /**
      * The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
      */
-    fsxFilesystemArn?: pulumi.Input<string>;
+    fsxFilesystemArn?: pulumi.Input<string | undefined>;
     /**
      * The type of protocol that AWS DataSync uses to access your file system.
      */
@@ -125,9 +125,9 @@ export interface LocationFSxOpenZfsArgs {
     /**
      * A subdirectory in the location's path.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

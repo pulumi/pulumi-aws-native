@@ -185,39 +185,39 @@ export interface LoadBalancerArgs {
     /**
      * Information about where and how access logs are stored for the load balancer.
      */
-    accessLoggingPolicy?: pulumi.Input<inputs.elasticloadbalancing.LoadBalancerAccessLoggingPolicyArgs>;
+    accessLoggingPolicy?: pulumi.Input<inputs.elasticloadbalancing.LoadBalancerAccessLoggingPolicyArgs | undefined>;
     /**
      * Information about a policy for application-controlled session stickiness.
      */
-    appCookieStickinessPolicy?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancing.LoadBalancerAppCookieStickinessPolicyArgs>[]>;
+    appCookieStickinessPolicy?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancing.LoadBalancerAppCookieStickinessPolicyArgs>[] | undefined>;
     /**
      * The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify Subnets instead.
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
      */
-    connectionDrainingPolicy?: pulumi.Input<inputs.elasticloadbalancing.LoadBalancerConnectionDrainingPolicyArgs>;
+    connectionDrainingPolicy?: pulumi.Input<inputs.elasticloadbalancing.LoadBalancerConnectionDrainingPolicyArgs | undefined>;
     /**
      * If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
      */
-    connectionSettings?: pulumi.Input<inputs.elasticloadbalancing.LoadBalancerConnectionSettingsArgs>;
+    connectionSettings?: pulumi.Input<inputs.elasticloadbalancing.LoadBalancerConnectionSettingsArgs | undefined>;
     /**
      * If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
      */
-    crossZone?: pulumi.Input<boolean>;
+    crossZone?: pulumi.Input<boolean | undefined>;
     /**
      * The health check settings to use when evaluating the health of your EC2 instances.
      */
-    healthCheck?: pulumi.Input<inputs.elasticloadbalancing.LoadBalancerHealthCheckArgs>;
+    healthCheck?: pulumi.Input<inputs.elasticloadbalancing.LoadBalancerHealthCheckArgs | undefined>;
     /**
      * The IDs of the instances for the load balancer.
      */
-    instances?: pulumi.Input<pulumi.Input<string>[]>;
+    instances?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Information about a policy for duration-based session stickiness.
      */
-    lbCookieStickinessPolicy?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancing.LoadBalancerLbCookieStickinessPolicyArgs>[]>;
+    lbCookieStickinessPolicy?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancing.LoadBalancerLbCookieStickinessPolicyArgs>[] | undefined>;
     /**
      * The Listeners for the load balancer. You can specify at most one listener per port.
      */
@@ -225,25 +225,25 @@ export interface LoadBalancerArgs {
     /**
      * The name of the load balancer. This name must be unique within your set of load balancers for the region.
      */
-    loadBalancerName?: pulumi.Input<string>;
+    loadBalancerName?: pulumi.Input<string | undefined>;
     /**
      * The policies defined for your Classic Load Balancer. Specify only back-end server policies.
      */
-    policies?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancing.LoadBalancerPoliciesArgs>[]>;
+    policies?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancing.LoadBalancerPoliciesArgs>[] | undefined>;
     /**
      * The type of load balancer. Valid only for load balancers in a VPC.
      */
-    scheme?: pulumi.Input<string>;
+    scheme?: pulumi.Input<string | undefined>;
     /**
      * The security groups for the load balancer. Valid only for load balancers in a VPC.
      */
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
      */
-    subnets?: pulumi.Input<pulumi.Input<string>[]>;
+    subnets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The tags associated with a load balancer.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

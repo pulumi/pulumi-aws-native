@@ -122,15 +122,15 @@ export interface GlobalClusterArgs {
     /**
      * Indicates whether the global cluster has deletion protection enabled. The global cluster can't be deleted when deletion protection is enabled.
      */
-    deletionProtection?: pulumi.Input<boolean>;
+    deletionProtection?: pulumi.Input<boolean | undefined>;
     /**
      * The database engine to use for this global cluster.
      */
-    engine?: pulumi.Input<enums.docdb.GlobalClusterEngine>;
+    engine?: pulumi.Input<enums.docdb.GlobalClusterEngine | undefined>;
     /**
      * The engine version to use for this global cluster.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * The cluster identifier of the global cluster.
      */
@@ -138,13 +138,13 @@ export interface GlobalClusterArgs {
     /**
      * The Amazon Resource Name (ARN) to use as the primary cluster of the global cluster. You may also choose to instead specify the DBClusterIdentifier. If you provide a value for this parameter, don't specify values for the following settings because Amazon DocumentDB uses the values from the specified source DB cluster: Engine, EngineVersion, StorageEncrypted
      */
-    sourceDbClusterIdentifier?: pulumi.Input<string>;
+    sourceDbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the global cluster has storage encryption enabled.
      */
-    storageEncrypted?: pulumi.Input<boolean>;
+    storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * The tags to be assigned to the Amazon DocumentDB resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

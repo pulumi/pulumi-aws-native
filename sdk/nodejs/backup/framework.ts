@@ -128,13 +128,13 @@ export interface FrameworkArgs {
     /**
      * An optional description of the framework with a maximum 1,024 characters.
      */
-    frameworkDescription?: pulumi.Input<string>;
+    frameworkDescription?: pulumi.Input<string | undefined>;
     /**
      * The unique name of a framework. This name is between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
      */
-    frameworkName?: pulumi.Input<string>;
+    frameworkName?: pulumi.Input<string | undefined>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    frameworkTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    frameworkTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

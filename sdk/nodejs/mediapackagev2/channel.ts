@@ -146,15 +146,15 @@ export interface ChannelArgs {
     /**
      * The name of the channel.
      */
-    channelName?: pulumi.Input<string>;
+    channelName?: pulumi.Input<string | undefined>;
     /**
      * <p>Enter any descriptive text that helps you to identify the channel.</p>
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.
      */
-    inputSwitchConfiguration?: pulumi.Input<inputs.mediapackagev2.ChannelInputSwitchConfigurationArgs>;
+    inputSwitchConfiguration?: pulumi.Input<inputs.mediapackagev2.ChannelInputSwitchConfigurationArgs | undefined>;
     /**
      * The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
      *
@@ -163,10 +163,10 @@ export interface ChannelArgs {
      * - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
      * - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
      */
-    inputType?: pulumi.Input<enums.mediapackagev2.ChannelInputType>;
+    inputType?: pulumi.Input<enums.mediapackagev2.ChannelInputType | undefined>;
     /**
      * The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
      */
-    outputHeaderConfiguration?: pulumi.Input<inputs.mediapackagev2.ChannelOutputHeaderConfigurationArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    outputHeaderConfiguration?: pulumi.Input<inputs.mediapackagev2.ChannelOutputHeaderConfigurationArgs | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

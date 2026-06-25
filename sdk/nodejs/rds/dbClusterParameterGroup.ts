@@ -44,7 +44,7 @@ export class DbClusterParameterGroup extends pulumi.CustomResource {
      * The name of the DB cluster parameter group.
      *  Constraints:
      *   +  Must not match the name of an existing DB cluster parameter group.
-     *   
+     *
      *   This value is stored as a lowercase string.
      */
     declare public readonly dbClusterParameterGroupName: pulumi.Output<string | undefined>;
@@ -54,23 +54,23 @@ export class DbClusterParameterGroup extends pulumi.CustomResource {
     declare public readonly description: pulumi.Output<string>;
     /**
      * The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
-     *   *Aurora MySQL* 
+     *   *Aurora MySQL*
      *  Example: ``aurora-mysql5.7``, ``aurora-mysql8.0``
-     *   *Aurora PostgreSQL* 
+     *   *Aurora PostgreSQL*
      *  Example: ``aurora-postgresql14``
-     *   *RDS for MySQL* 
+     *   *RDS for MySQL*
      *  Example: ``mysql8.0``
-     *   *RDS for PostgreSQL* 
+     *   *RDS for PostgreSQL*
      *  Example: ``postgres13``
      *  To list all of the available parameter group families for a DB engine, use the following command:
-     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>`` 
+     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>``
      *  For example, to list all of the available parameter group families for the Aurora PostgreSQL DB engine, use the following command:
-     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine aurora-postgresql`` 
+     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine aurora-postgresql``
      *   The output contains duplicates.
      *   The following are the valid DB engine values:
-     *   +   ``aurora-mysql`` 
-     *   +   ``aurora-postgresql`` 
-     *   +   ``mysql`` 
+     *   +   ``aurora-mysql``
+     *   +   ``aurora-postgresql``
+     *   +   ``mysql``
      *   +   ``postgres``
      */
     declare public readonly family: pulumi.Output<string>;
@@ -132,33 +132,33 @@ export interface DbClusterParameterGroupArgs {
      * The name of the DB cluster parameter group.
      *  Constraints:
      *   +  Must not match the name of an existing DB cluster parameter group.
-     *   
+     *
      *   This value is stored as a lowercase string.
      */
-    dbClusterParameterGroupName?: pulumi.Input<string>;
+    dbClusterParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * The description for the DB cluster parameter group.
      */
     description: pulumi.Input<string>;
     /**
      * The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
-     *   *Aurora MySQL* 
+     *   *Aurora MySQL*
      *  Example: ``aurora-mysql5.7``, ``aurora-mysql8.0``
-     *   *Aurora PostgreSQL* 
+     *   *Aurora PostgreSQL*
      *  Example: ``aurora-postgresql14``
-     *   *RDS for MySQL* 
+     *   *RDS for MySQL*
      *  Example: ``mysql8.0``
-     *   *RDS for PostgreSQL* 
+     *   *RDS for PostgreSQL*
      *  Example: ``postgres13``
      *  To list all of the available parameter group families for a DB engine, use the following command:
-     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>`` 
+     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>``
      *  For example, to list all of the available parameter group families for the Aurora PostgreSQL DB engine, use the following command:
-     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine aurora-postgresql`` 
+     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine aurora-postgresql``
      *   The output contains duplicates.
      *   The following are the valid DB engine values:
-     *   +   ``aurora-mysql`` 
-     *   +   ``aurora-postgresql`` 
-     *   +   ``mysql`` 
+     *   +   ``aurora-mysql``
+     *   +   ``aurora-postgresql``
+     *   +   ``mysql``
      *   +   ``postgres``
      */
     family: pulumi.Input<string>;
@@ -171,5 +171,5 @@ export interface DbClusterParameterGroupArgs {
     /**
      * Tags to assign to the DB cluster parameter group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

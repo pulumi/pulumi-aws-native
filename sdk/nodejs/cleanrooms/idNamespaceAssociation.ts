@@ -140,11 +140,11 @@ export interface IdNamespaceAssociationArgs {
     /**
      * The description of the ID namespace association.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The configuration settings for the ID mapping table.
      */
-    idMappingConfig?: pulumi.Input<inputs.cleanrooms.IdNamespaceAssociationIdMappingConfigArgs>;
+    idMappingConfig?: pulumi.Input<inputs.cleanrooms.IdNamespaceAssociationIdMappingConfigArgs | undefined>;
     /**
      * The input reference configuration for the ID namespace association.
      */
@@ -156,9 +156,9 @@ export interface IdNamespaceAssociationArgs {
     /**
      * The name of this ID namespace association.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -154,25 +154,25 @@ export interface SolutionArgs {
     /**
      * When your have multiple event types (using an EVENT_TYPE schema field), this parameter specifies which event type (for example, 'click' or 'like') is used for training the model. If you do not provide an eventType, Amazon Personalize will use all interactions for training with equal weight regardless of type.
      */
-    eventType?: pulumi.Input<string>;
+    eventType?: pulumi.Input<string | undefined>;
     /**
      * The name for the solution
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
      */
-    performAutoMl?: pulumi.Input<boolean>;
+    performAutoMl?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
      */
-    performHpo?: pulumi.Input<boolean>;
+    performHpo?: pulumi.Input<boolean | undefined>;
     /**
      * The ARN of the recipe to use for model training. Only specified when performAutoML is false.
      */
-    recipeArn?: pulumi.Input<string>;
+    recipeArn?: pulumi.Input<string | undefined>;
     /**
      * Describes the configuration properties for the solution.
      */
-    solutionConfig?: pulumi.Input<inputs.personalize.SolutionConfigArgs>;
+    solutionConfig?: pulumi.Input<inputs.personalize.SolutionConfigArgs | undefined>;
 }

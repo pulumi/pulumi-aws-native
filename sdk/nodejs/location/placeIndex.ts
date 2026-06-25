@@ -50,7 +50,7 @@ export class PlaceIndex extends pulumi.CustomResource {
     /**
      * Specifies the geospatial data provider for the new place index.
      *
-     * > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+     * > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
      *
      * Valid values include:
      *
@@ -152,7 +152,7 @@ export interface PlaceIndexArgs {
     /**
      * Specifies the geospatial data provider for the new place index.
      *
-     * > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+     * > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
      *
      * Valid values include:
      *
@@ -168,11 +168,11 @@ export interface PlaceIndexArgs {
     /**
      * Specifies the data storage option requesting Places.
      */
-    dataSourceConfiguration?: pulumi.Input<inputs.location.PlaceIndexDataSourceConfigurationArgs>;
+    dataSourceConfiguration?: pulumi.Input<inputs.location.PlaceIndexDataSourceConfigurationArgs | undefined>;
     /**
      * The optional description for the place index resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the place index resource.
      *
@@ -182,15 +182,15 @@ export interface PlaceIndexArgs {
      * - Must be a unique place index resource name.
      * - No spaces allowed. For example, `ExamplePlaceIndex` .
      */
-    indexName?: pulumi.Input<string>;
+    indexName?: pulumi.Input<string | undefined>;
     /**
      * No longer used. If included, the only allowed value is `RequestBasedUsage` .
      *
      * *Allowed Values* : `RequestBasedUsage`
      */
-    pricingPlan?: pulumi.Input<enums.location.PlaceIndexPricingPlan>;
+    pricingPlan?: pulumi.Input<enums.location.PlaceIndexPricingPlan | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

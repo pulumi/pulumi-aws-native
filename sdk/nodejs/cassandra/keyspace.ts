@@ -157,11 +157,11 @@ export interface KeyspaceArgs {
     /**
      * Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
      */
-    clientSideTimestampsEnabled?: pulumi.Input<boolean>;
+    clientSideTimestampsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name for Cassandra keyspace
      */
-    keyspaceName?: pulumi.Input<string>;
+    keyspaceName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the `ReplicationStrategy` of a keyspace. The options are:
      *
@@ -170,11 +170,11 @@ export interface KeyspaceArgs {
      *
      * If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
      */
-    replicationSpecification?: pulumi.Input<inputs.cassandra.KeyspaceReplicationSpecificationArgs>;
+    replicationSpecification?: pulumi.Input<inputs.cassandra.KeyspaceReplicationSpecificationArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

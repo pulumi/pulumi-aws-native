@@ -238,10 +238,10 @@ export interface MicrovmImageArgs {
     /**
      * Unique name for the MicroVM image within the account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     resources: pulumi.Input<pulumi.Input<inputs.lambda.MicrovmImageResourcesArgs>[]>;
     /**
      * Key-value pairs to associate with the MicroVM image for organization and management.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

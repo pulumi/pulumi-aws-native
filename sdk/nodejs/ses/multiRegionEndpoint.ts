@@ -90,9 +90,9 @@ export interface MultiRegionEndpointArgs {
     /**
      * The name of the multi-region endpoint (global-endpoint).
      */
-    endpointName?: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string | undefined>;
     /**
      * An array of objects that define the tags (keys and values) to associate with the multi-region endpoint (global-endpoint).
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

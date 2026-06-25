@@ -167,7 +167,7 @@ export interface ObjectTypeArgs {
     /**
      * Indicates whether a profile should be created when data is received.
      */
-    allowProfileCreation?: pulumi.Input<boolean>;
+    allowProfileCreation?: pulumi.Input<boolean | undefined>;
     /**
      * Description of the profile object type.
      */
@@ -179,41 +179,41 @@ export interface ObjectTypeArgs {
     /**
      * The default encryption key
      */
-    encryptionKey?: pulumi.Input<string>;
+    encryptionKey?: pulumi.Input<string | undefined>;
     /**
      * The default number of days until the data within the domain expires.
      */
-    expirationDays?: pulumi.Input<number>;
+    expirationDays?: pulumi.Input<number | undefined>;
     /**
      * A list of the name and ObjectType field.
      */
-    fields?: pulumi.Input<pulumi.Input<inputs.customerprofiles.ObjectTypeFieldMapArgs>[]>;
+    fields?: pulumi.Input<pulumi.Input<inputs.customerprofiles.ObjectTypeFieldMapArgs>[] | undefined>;
     /**
      * A list of unique keys that can be used to map data to the profile.
      */
-    keys?: pulumi.Input<pulumi.Input<inputs.customerprofiles.ObjectTypeKeyMapArgs>[]>;
+    keys?: pulumi.Input<pulumi.Input<inputs.customerprofiles.ObjectTypeKeyMapArgs>[] | undefined>;
     /**
      * The maximum number of profile objects for this object type
      */
-    maxProfileObjectCount?: pulumi.Input<number>;
+    maxProfileObjectCount?: pulumi.Input<number | undefined>;
     /**
      * The name of the profile object type.
      */
-    objectTypeName?: pulumi.Input<string>;
+    objectTypeName?: pulumi.Input<string | undefined>;
     /**
      * The format of your sourceLastUpdatedTimestamp that was previously set up.
      */
-    sourceLastUpdatedTimestampFormat?: pulumi.Input<string>;
+    sourceLastUpdatedTimestampFormat?: pulumi.Input<string | undefined>;
     /**
      * Defines the priority order of object types. Lower value indicates higher priority.
      */
-    sourcePriority?: pulumi.Input<number>;
+    sourcePriority?: pulumi.Input<number | undefined>;
     /**
      * The tags (keys and values) associated with the integration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A unique identifier for the object template.
      */
-    templateId?: pulumi.Input<string>;
+    templateId?: pulumi.Input<string | undefined>;
 }

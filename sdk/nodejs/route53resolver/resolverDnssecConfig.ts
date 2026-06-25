@@ -89,5 +89,5 @@ export interface ResolverDnssecConfigArgs {
     /**
      * ResourceId
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
 }

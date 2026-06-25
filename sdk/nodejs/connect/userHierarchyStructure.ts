@@ -90,5 +90,5 @@ export interface UserHierarchyStructureArgs {
     /**
      * Information about the hierarchy structure.
      */
-    userHierarchyStructure?: pulumi.Input<inputs.connect.UserHierarchyStructurePropertiesArgs>;
+    userHierarchyStructure?: pulumi.Input<inputs.connect.UserHierarchyStructurePropertiesArgs | undefined>;
 }

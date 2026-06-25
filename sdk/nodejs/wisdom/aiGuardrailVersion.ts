@@ -118,5 +118,5 @@ export interface AiGuardrailVersionArgs {
     /**
      * The modified time of the AI guardrail version in seconds.
      */
-    modifiedTimeSeconds?: pulumi.Input<number>;
+    modifiedTimeSeconds?: pulumi.Input<number | undefined>;
 }

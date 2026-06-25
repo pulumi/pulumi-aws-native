@@ -46,7 +46,7 @@ export interface GetAlarmMuteRuleResult {
      */
     readonly muteTargets?: outputs.cloudwatch.MuteTargetsProperties;
     /**
-     * The mute type of the alarm mute 
+     * The mute type of the alarm mute
      */
     readonly muteType?: string;
     /**

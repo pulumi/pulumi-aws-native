@@ -247,21 +247,21 @@ export interface CapacityProviderArgs {
     /**
      * The Auto Scaling group settings for the capacity provider.
      */
-    autoScalingGroupProvider?: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProviderArgs>;
+    autoScalingGroupProvider?: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProviderArgs | undefined>;
     /**
      * The cluster that this capacity provider is associated with. Managed instances capacity providers are cluster-scoped, meaning they can only be used within their associated cluster.
      *
      * This is required for Managed instances.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.
      */
-    managedInstancesProvider?: pulumi.Input<inputs.ecs.CapacityProviderManagedInstancesProviderArgs>;
+    managedInstancesProvider?: pulumi.Input<inputs.ecs.CapacityProviderManagedInstancesProviderArgs | undefined>;
     /**
      * The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
      *
@@ -275,5 +275,5 @@ export interface CapacityProviderArgs {
      * - Tag keys and values are case-sensitive.
      * - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

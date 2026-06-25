@@ -122,23 +122,23 @@ export interface CustomDataIdentifierArgs {
     /**
      * Description of custom data identifier.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Words to be ignored.
      */
-    ignoreWords?: pulumi.Input<pulumi.Input<string>[]>;
+    ignoreWords?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Keywords to be matched against.
      */
-    keywords?: pulumi.Input<pulumi.Input<string>[]>;
+    keywords?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Maximum match distance.
      */
-    maximumMatchDistance?: pulumi.Input<number>;
+    maximumMatchDistance?: pulumi.Input<number | undefined>;
     /**
      * Name of custom data identifier.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Regular expression for custom data identifier.
      */
@@ -146,5 +146,5 @@ export interface CustomDataIdentifierArgs {
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

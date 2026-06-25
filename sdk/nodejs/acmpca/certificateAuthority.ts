@@ -338,7 +338,7 @@ export interface CertificateAuthorityArgs {
     /**
      * Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
      */
-    csrExtensions?: pulumi.Input<inputs.acmpca.CertificateAuthorityCsrExtensionsArgs>;
+    csrExtensions?: pulumi.Input<inputs.acmpca.CertificateAuthorityCsrExtensionsArgs | undefined>;
     /**
      * Public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
      */
@@ -346,11 +346,11 @@ export interface CertificateAuthorityArgs {
     /**
      * KeyStorageSecurityStadard defines a cryptographic key management compliance standard used for handling CA keys.
      */
-    keyStorageSecurityStandard?: pulumi.Input<string>;
+    keyStorageSecurityStandard?: pulumi.Input<string | undefined>;
     /**
      * Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
      */
-    revocationConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityRevocationConfigurationArgs>;
+    revocationConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityRevocationConfigurationArgs | undefined>;
     /**
      * Algorithm your CA uses to sign certificate requests.
      */
@@ -362,7 +362,7 @@ export interface CertificateAuthorityArgs {
     /**
      * Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of the certificate authority.
      */
@@ -370,5 +370,5 @@ export interface CertificateAuthorityArgs {
     /**
      * Usage mode of the ceritificate authority.
      */
-    usageMode?: pulumi.Input<string>;
+    usageMode?: pulumi.Input<string | undefined>;
 }

@@ -98,10 +98,10 @@ export class DomainObjectType extends pulumi.CustomResource {
  * The set of arguments for constructing a DomainObjectType resource.
  */
 export interface DomainObjectTypeArgs {
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     domainName: pulumi.Input<string>;
-    encryptionKey?: pulumi.Input<string>;
+    encryptionKey?: pulumi.Input<string | undefined>;
     fields: pulumi.Input<{[key: string]: pulumi.Input<inputs.customerprofiles.DomainObjectTypeFieldArgs>}>;
-    objectTypeName?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    objectTypeName?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

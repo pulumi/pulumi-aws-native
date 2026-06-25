@@ -124,20 +124,20 @@ export interface CustomerGatewayArgs {
      *  Default: 65000
      *  Valid values: ``1`` to ``2,147,483,647``
      */
-    bgpAsn?: pulumi.Input<number>;
+    bgpAsn?: pulumi.Input<number | undefined>;
     /**
      * For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
      *  Valid values: ``2,147,483,648`` to ``4,294,967,295``
      */
-    bgpAsnExtended?: pulumi.Input<number>;
+    bgpAsnExtended?: pulumi.Input<number | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the customer gateway certificate.
      */
-    certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string | undefined>;
     /**
      * The name of customer gateway device.
      */
-    deviceName?: pulumi.Input<string>;
+    deviceName?: pulumi.Input<string | undefined>;
     /**
      * The IP address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``Ipv6``, you can use an IPv6 address.
      */
@@ -145,7 +145,7 @@ export interface CustomerGatewayArgs {
     /**
      * One or more tags for the customer gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of VPN connection that this customer gateway supports (``ipsec.1``).
      */

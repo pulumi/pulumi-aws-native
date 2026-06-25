@@ -268,7 +268,7 @@ export class AnomalyMonitor extends pulumi.CustomResource {
     }
 
     /**
-     * The date when the monitor was created. 
+     * The date when the monitor was created.
      */
     declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
@@ -364,15 +364,15 @@ export interface AnomalyMonitorArgs {
     /**
      * The dimensions to evaluate
      */
-    monitorDimension?: pulumi.Input<enums.ce.AnomalyMonitorMonitorDimension>;
+    monitorDimension?: pulumi.Input<enums.ce.AnomalyMonitorMonitorDimension | undefined>;
     /**
      * The name of the monitor.
      */
-    monitorName?: pulumi.Input<string>;
+    monitorName?: pulumi.Input<string | undefined>;
     /**
      * The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
      */
-    monitorSpecification?: pulumi.Input<string>;
+    monitorSpecification?: pulumi.Input<string | undefined>;
     /**
      * The type of the monitor.
      *
@@ -386,5 +386,5 @@ export interface AnomalyMonitorArgs {
     /**
      * Tags to assign to monitor.
      */
-    resourceTags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

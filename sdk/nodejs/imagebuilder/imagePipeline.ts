@@ -167,61 +167,61 @@ export interface ImagePipelineArgs {
     /**
      * The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
      */
-    containerRecipeArn?: pulumi.Input<string>;
+    containerRecipeArn?: pulumi.Input<string | undefined>;
     /**
      * The description of the image pipeline.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.
      */
-    distributionConfigurationArn?: pulumi.Input<string>;
+    distributionConfigurationArn?: pulumi.Input<string | undefined>;
     /**
      * Collects additional information about the image being created, including the operating system (OS) version and package list.
      */
-    enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
+    enhancedImageMetadataEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The execution role name/ARN for the image build, if provided
      */
-    executionRole?: pulumi.Input<string>;
+    executionRole?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
      */
-    imageRecipeArn?: pulumi.Input<string>;
+    imageRecipeArn?: pulumi.Input<string | undefined>;
     /**
      * Contains settings for vulnerability scans.
      */
-    imageScanningConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineImageScanningConfigurationArgs>;
+    imageScanningConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineImageScanningConfigurationArgs | undefined>;
     /**
      * The image tests configuration of the image pipeline.
      */
-    imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineImageTestsConfigurationArgs>;
+    imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineImageTestsConfigurationArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
      */
-    infrastructureConfigurationArn?: pulumi.Input<string>;
+    infrastructureConfigurationArn?: pulumi.Input<string | undefined>;
     /**
      * The logging configuration settings for the image pipeline.
      */
-    loggingConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelinePipelineLoggingConfigurationArgs>;
+    loggingConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelinePipelineLoggingConfigurationArgs | undefined>;
     /**
      * The name of the image pipeline.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schedule of the image pipeline.
      */
-    schedule?: pulumi.Input<inputs.imagebuilder.ImagePipelineScheduleArgs>;
+    schedule?: pulumi.Input<inputs.imagebuilder.ImagePipelineScheduleArgs | undefined>;
     /**
      * The status of the image pipeline.
      */
-    status?: pulumi.Input<enums.imagebuilder.ImagePipelineStatus>;
+    status?: pulumi.Input<enums.imagebuilder.ImagePipelineStatus | undefined>;
     /**
      * The tags of this image pipeline.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Workflows to define the image build process
      */
-    workflows?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImagePipelineWorkflowConfigurationArgs>[]>;
+    workflows?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImagePipelineWorkflowConfigurationArgs>[] | undefined>;
 }

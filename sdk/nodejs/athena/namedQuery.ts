@@ -138,11 +138,11 @@ export interface NamedQueryArgs {
     /**
      * The query description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The query name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The contents of the query with all query statements.
      */
@@ -150,5 +150,5 @@ export interface NamedQueryArgs {
     /**
      * The name of the workgroup that contains the named query.
      */
-    workGroup?: pulumi.Input<string>;
+    workGroup?: pulumi.Input<string | undefined>;
 }

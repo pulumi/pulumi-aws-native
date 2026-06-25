@@ -652,7 +652,7 @@ export interface TableArgs {
     /**
      * The optional auto scaling capacity settings for a table in provisioned capacity mode.
      */
-    autoScalingSpecifications?: pulumi.Input<inputs.cassandra.TableAutoScalingSpecificationArgs>;
+    autoScalingSpecifications?: pulumi.Input<inputs.cassandra.TableAutoScalingSpecificationArgs | undefined>;
     /**
      * The billing mode for the table, which determines how you'll be charged for reads and writes:
      *
@@ -661,23 +661,23 @@ export interface TableArgs {
      *
      * If you don't specify a value for this property, then the table will use on-demand mode.
      */
-    billingMode?: pulumi.Input<inputs.cassandra.TableBillingModeArgs>;
+    billingMode?: pulumi.Input<inputs.cassandra.TableBillingModeArgs | undefined>;
     /**
      * The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
      */
-    cdcSpecification?: pulumi.Input<inputs.cassandra.TableCdcSpecificationArgs>;
+    cdcSpecification?: pulumi.Input<inputs.cassandra.TableCdcSpecificationArgs | undefined>;
     /**
      * Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
      */
-    clientSideTimestampsEnabled?: pulumi.Input<boolean>;
+    clientSideTimestampsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Clustering key columns of the table
      */
-    clusteringKeyColumns?: pulumi.Input<pulumi.Input<inputs.cassandra.TableClusteringKeyColumnArgs>[]>;
+    clusteringKeyColumns?: pulumi.Input<pulumi.Input<inputs.cassandra.TableClusteringKeyColumnArgs>[] | undefined>;
     /**
      * Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
      */
-    defaultTimeToLive?: pulumi.Input<number>;
+    defaultTimeToLive?: pulumi.Input<number | undefined>;
     /**
      * The encryption at rest options for the table.
      *
@@ -688,7 +688,7 @@ export interface TableArgs {
      *
      * For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
      */
-    encryptionSpecification?: pulumi.Input<inputs.cassandra.TableEncryptionSpecificationArgs>;
+    encryptionSpecification?: pulumi.Input<inputs.cassandra.TableEncryptionSpecificationArgs | undefined>;
     /**
      * Name for Cassandra keyspace
      */
@@ -700,11 +700,11 @@ export interface TableArgs {
     /**
      * Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
      */
-    pointInTimeRecoveryEnabled?: pulumi.Input<boolean>;
+    pointInTimeRecoveryEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Non-key columns of the table
      */
-    regularColumns?: pulumi.Input<pulumi.Input<inputs.cassandra.TableColumnArgs>[]>;
+    regularColumns?: pulumi.Input<pulumi.Input<inputs.cassandra.TableColumnArgs>[] | undefined>;
     /**
      * The AWS Region specific settings of a multi-Region table.
      *
@@ -714,14 +714,14 @@ export interface TableArgs {
      * - `readCapacityUnits` : The provisioned read capacity units. (Optional)
      * - `readCapacityAutoScaling` : The read capacity auto scaling settings for the table. (Optional)
      */
-    replicaSpecifications?: pulumi.Input<pulumi.Input<inputs.cassandra.TableReplicaSpecificationArgs>[]>;
+    replicaSpecifications?: pulumi.Input<pulumi.Input<inputs.cassandra.TableReplicaSpecificationArgs>[] | undefined>;
     /**
      * Name for Cassandra table
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    warmThroughput?: pulumi.Input<inputs.cassandra.TableWarmThroughputArgs>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    warmThroughput?: pulumi.Input<inputs.cassandra.TableWarmThroughputArgs | undefined>;
 }

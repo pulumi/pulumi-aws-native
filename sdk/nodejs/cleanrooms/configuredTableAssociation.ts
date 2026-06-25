@@ -132,7 +132,7 @@ export interface ConfiguredTableAssociationArgs {
     /**
      * An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
      */
-    configuredTableAssociationAnalysisRules?: pulumi.Input<pulumi.Input<inputs.cleanrooms.ConfiguredTableAssociationAnalysisRuleArgs>[]>;
+    configuredTableAssociationAnalysisRules?: pulumi.Input<pulumi.Input<inputs.cleanrooms.ConfiguredTableAssociationAnalysisRuleArgs>[] | undefined>;
     /**
      * A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
      */
@@ -140,7 +140,7 @@ export interface ConfiguredTableAssociationArgs {
     /**
      * A description of the configured table association.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique ID for the membership this configured table association belongs to.
      */
@@ -148,7 +148,7 @@ export interface ConfiguredTableAssociationArgs {
     /**
      * The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The service will assume this role to access catalog metadata and query the table.
      */
@@ -156,5 +156,5 @@ export interface ConfiguredTableAssociationArgs {
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

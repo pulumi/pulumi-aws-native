@@ -104,7 +104,7 @@ export interface StreamConsumerArgs {
     /**
      * The name of the Kinesis Stream Consumer. For a given Kinesis data stream, each consumer must have a unique name. However, consumer names don't have to be unique across data streams.
      */
-    consumerName?: pulumi.Input<string>;
+    consumerName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon resource name (ARN) of the Kinesis data stream that you want to register the consumer with.
      */
@@ -112,5 +112,5 @@ export interface StreamConsumerArgs {
     /**
      * An arbitrary set of tags (key–value pairs) to associate with the Kinesis consumer.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

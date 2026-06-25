@@ -149,31 +149,31 @@ export interface PipelineArgs {
     /**
      * The S3 bucket where artifacts for the pipeline are stored.
      */
-    artifactStore?: pulumi.Input<inputs.codepipeline.PipelineArtifactStoreArgs>;
+    artifactStore?: pulumi.Input<inputs.codepipeline.PipelineArtifactStoreArgs | undefined>;
     /**
      * A mapping of artifactStore objects and their corresponding AWS Regions. There must be an artifact store for the pipeline Region and for each cross-region action in the pipeline.
      */
-    artifactStores?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStoreMapArgs>[]>;
+    artifactStores?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStoreMapArgs>[] | undefined>;
     /**
      * Represents the input of a DisableStageTransition action.
      */
-    disableInboundStageTransitions?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStageTransitionArgs>[]>;
+    disableInboundStageTransitions?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStageTransitionArgs>[] | undefined>;
     /**
      * The method that the pipeline will use to handle multiple executions. The default mode is SUPERSEDED.
      */
-    executionMode?: pulumi.Input<enums.codepipeline.PipelineExecutionMode>;
+    executionMode?: pulumi.Input<enums.codepipeline.PipelineExecutionMode | undefined>;
     /**
      * The name of the pipeline.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * CodePipeline provides the following pipeline types, which differ in characteristics and price, so that you can tailor your pipeline features and cost to the needs of your applications.
      */
-    pipelineType?: pulumi.Input<enums.codepipeline.PipelineType>;
+    pipelineType?: pulumi.Input<enums.codepipeline.PipelineType | undefined>;
     /**
      * Indicates whether to rerun the CodePipeline pipeline after you update it.
      */
-    restartExecutionOnUpdate?: pulumi.Input<boolean>;
+    restartExecutionOnUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) for CodePipeline to use to either perform actions with no actionRoleArn, or to use to assume roles for actions with an actionRoleArn
      */
@@ -185,13 +185,13 @@ export interface PipelineArgs {
     /**
      * Specifies the tags applied to the pipeline.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The trigger configuration specifying a type of event, such as Git tags, that starts the pipeline.
      */
-    triggers?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTriggerDeclarationArgs>[]>;
+    triggers?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTriggerDeclarationArgs>[] | undefined>;
     /**
      * A list that defines the pipeline variables for a pipeline resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9@\-_]+.
      */
-    variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariableDeclarationArgs>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariableDeclarationArgs>[] | undefined>;
 }

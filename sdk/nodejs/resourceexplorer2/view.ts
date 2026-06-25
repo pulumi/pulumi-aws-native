@@ -111,21 +111,21 @@ export interface ViewArgs {
      *
      * > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
      */
-    filters?: pulumi.Input<inputs.resourceexplorer2.ViewSearchFilterArgs>;
+    filters?: pulumi.Input<inputs.resourceexplorer2.ViewSearchFilterArgs | undefined>;
     /**
      * A list of fields that provide additional information about the view.
      */
-    includedProperties?: pulumi.Input<pulumi.Input<inputs.resourceexplorer2.ViewIncludedPropertyArgs>[]>;
+    includedProperties?: pulumi.Input<pulumi.Input<inputs.resourceexplorer2.ViewIncludedPropertyArgs>[] | undefined>;
     /**
      * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * Tag key and value pairs that are attached to the view.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the new view.
      */
-    viewName?: pulumi.Input<string>;
+    viewName?: pulumi.Input<string | undefined>;
 }

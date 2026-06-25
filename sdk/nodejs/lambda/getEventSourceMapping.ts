@@ -81,7 +81,7 @@ export interface GetEventSourceMappingResult {
      *   +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.
      *   +  *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.
      *   +  *Partial ARN* – ``123456789012:function:MyFunction``.
-     *   
+     *
      *  The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
      */
     readonly functionName?: string;

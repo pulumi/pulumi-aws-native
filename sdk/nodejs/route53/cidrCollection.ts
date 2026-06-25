@@ -89,9 +89,9 @@ export interface CidrCollectionArgs {
     /**
      * A complex type that contains information about the list of CIDR locations.
      */
-    locations?: pulumi.Input<pulumi.Input<inputs.route53.CidrCollectionLocationArgs>[]>;
+    locations?: pulumi.Input<pulumi.Input<inputs.route53.CidrCollectionLocationArgs>[] | undefined>;
     /**
      * A unique name for the CIDR collection.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

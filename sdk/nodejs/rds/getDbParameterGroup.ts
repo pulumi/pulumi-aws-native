@@ -28,7 +28,7 @@ export interface GetDbParameterGroupArgs {
      *   +  Must be 1 to 255 letters, numbers, or hyphens.
      *   +  First character must be a letter
      *   +  Can't end with a hyphen or contain two consecutive hyphens
-     *   
+     *
      *  If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
      *   This value is stored as a lowercase string.
      */
@@ -70,7 +70,7 @@ export interface GetDbParameterGroupOutputArgs {
      *   +  Must be 1 to 255 letters, numbers, or hyphens.
      *   +  First character must be a letter
      *   +  Can't end with a hyphen or contain two consecutive hyphens
-     *   
+     *
      *  If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
      *   This value is stored as a lowercase string.
      */

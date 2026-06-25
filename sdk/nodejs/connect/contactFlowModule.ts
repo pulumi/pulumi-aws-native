@@ -153,11 +153,11 @@ export interface ContactFlowModuleArgs {
     /**
      * The description of the contact flow module.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Defines the external invocation configuration of the flow module resource
      */
-    externalInvocationConfiguration?: pulumi.Input<inputs.connect.ExternalInvocationConfigurationPropertiesArgs>;
+    externalInvocationConfiguration?: pulumi.Input<inputs.connect.ExternalInvocationConfigurationPropertiesArgs | undefined>;
     /**
      * The identifier of the Amazon Connect instance (ARN).
      */
@@ -165,17 +165,17 @@ export interface ContactFlowModuleArgs {
     /**
      * The name of the contact flow module.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema of the settings for contact flow module in JSON Schema V4 format.
      */
-    settings?: pulumi.Input<string>;
+    settings?: pulumi.Input<string | undefined>;
     /**
      * The state of the contact flow module.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

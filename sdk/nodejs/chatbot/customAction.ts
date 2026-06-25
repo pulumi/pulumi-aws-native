@@ -104,15 +104,15 @@ export interface CustomActionArgs {
     /**
      * The name of the custom action. This name is included in the Amazon Resource Name (ARN).
      */
-    actionName?: pulumi.Input<string>;
+    actionName?: pulumi.Input<string | undefined>;
     /**
      * The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
      */
-    aliasName?: pulumi.Input<string>;
+    aliasName?: pulumi.Input<string | undefined>;
     /**
      * Defines when this custom action button should be attached to a notification.
      */
-    attachments?: pulumi.Input<pulumi.Input<inputs.chatbot.CustomActionAttachmentArgs>[]>;
+    attachments?: pulumi.Input<pulumi.Input<inputs.chatbot.CustomActionAttachmentArgs>[] | undefined>;
     /**
      * The definition of the command to run when invoked as an alias or as an action button.
      */
@@ -120,5 +120,5 @@ export interface CustomActionArgs {
     /**
      * The tags to add to the configuration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

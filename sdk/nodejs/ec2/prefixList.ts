@@ -180,17 +180,17 @@ export interface PrefixListArgs {
     /**
      * Entries of Prefix List.
      */
-    entries?: pulumi.Input<pulumi.Input<inputs.ec2.PrefixListEntryArgs>[]>;
+    entries?: pulumi.Input<pulumi.Input<inputs.ec2.PrefixListEntryArgs>[] | undefined>;
     /**
      * Max Entries of Prefix List.
      */
-    maxEntries?: pulumi.Input<number>;
+    maxEntries?: pulumi.Input<number | undefined>;
     /**
      * Name of Prefix List.
      */
-    prefixListName?: pulumi.Input<string>;
+    prefixListName?: pulumi.Input<string | undefined>;
     /**
      * Tags for Prefix List
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

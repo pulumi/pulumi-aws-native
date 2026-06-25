@@ -63,7 +63,7 @@ export interface GetUserResult {
     readonly permissionsBoundary?: string;
     /**
      * Adds or updates an inline policy document that is embedded in the specified IAM user. To view AWS::IAM::User snippets, see [Declaring an User Resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-iam-user).
-     *   The name of each policy for a role, user, or group must be unique. If you don't choose unique names, updates to the IAM identity will fail. 
+     *   The name of each policy for a role, user, or group must be unique. If you don't choose unique names, updates to the IAM identity will fail.
      *   For information about limits on the number of inline policies that you can embed in a user, see [Limitations on Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *User Guide*.
      */
     readonly policies?: outputs.iam.UserPolicy[];

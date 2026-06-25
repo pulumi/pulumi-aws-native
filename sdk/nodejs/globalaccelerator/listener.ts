@@ -108,7 +108,7 @@ export interface ListenerArgs {
     /**
      * Client affinity lets you direct all requests from a user to the same endpoint.
      */
-    clientAffinity?: pulumi.Input<enums.globalaccelerator.ListenerClientAffinity>;
+    clientAffinity?: pulumi.Input<enums.globalaccelerator.ListenerClientAffinity | undefined>;
     /**
      * The list of port ranges for the connections from clients to the accelerator.
      */

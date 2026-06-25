@@ -126,19 +126,19 @@ export interface AlarmModelArgs {
     /**
      * Contains the configuration information of alarm state changes.
      */
-    alarmCapabilities?: pulumi.Input<inputs.iotevents.AlarmModelAlarmCapabilitiesArgs>;
+    alarmCapabilities?: pulumi.Input<inputs.iotevents.AlarmModelAlarmCapabilitiesArgs | undefined>;
     /**
      * Contains information about one or more alarm actions.
      */
-    alarmEventActions?: pulumi.Input<inputs.iotevents.AlarmModelAlarmEventActionsArgs>;
+    alarmEventActions?: pulumi.Input<inputs.iotevents.AlarmModelAlarmEventActionsArgs | undefined>;
     /**
      * The description of the alarm model.
      */
-    alarmModelDescription?: pulumi.Input<string>;
+    alarmModelDescription?: pulumi.Input<string | undefined>;
     /**
      * The name of the alarm model.
      */
-    alarmModelName?: pulumi.Input<string>;
+    alarmModelName?: pulumi.Input<string | undefined>;
     /**
      * Defines when your alarm is invoked.
      */
@@ -146,7 +146,7 @@ export interface AlarmModelArgs {
     /**
      * An input attribute used as a key to create an alarm. ITE routes [inputs](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html) associated with this key to the alarm.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
      */
@@ -154,10 +154,10 @@ export interface AlarmModelArgs {
     /**
      * A non-negative integer that reflects the severity level of the alarm.
      */
-    severity?: pulumi.Input<number>;
+    severity?: pulumi.Input<number | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *Developer Guide*.
      *  You can create up to 50 tags for one alarm model.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

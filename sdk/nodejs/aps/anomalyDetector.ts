@@ -130,19 +130,19 @@ export interface AnomalyDetectorArgs {
     /**
      * The AnomalyDetector period of detection and metric generation.
      */
-    evaluationIntervalInSeconds?: pulumi.Input<number>;
+    evaluationIntervalInSeconds?: pulumi.Input<number | undefined>;
     /**
      * An array of key-value pairs to provide meta-data.
      */
-    labels?: pulumi.Input<pulumi.Input<inputs.aps.AnomalyDetectorLabelArgs>[]>;
+    labels?: pulumi.Input<pulumi.Input<inputs.aps.AnomalyDetectorLabelArgs>[] | undefined>;
     /**
      * The action to perform when running the expression returns no data.
      */
-    missingDataAction?: pulumi.Input<inputs.aps.AnomalyDetectorMissingDataActionArgs>;
+    missingDataAction?: pulumi.Input<inputs.aps.AnomalyDetectorMissingDataActionArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Required to identify a specific APS Workspace associated with this Anomaly Detector.
      */

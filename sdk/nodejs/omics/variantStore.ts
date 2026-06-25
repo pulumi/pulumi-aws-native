@@ -140,11 +140,11 @@ export interface VariantStoreArgs {
     /**
      * A description for the store.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A name for the store.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The genome reference for the store's variants.
      */
@@ -152,9 +152,9 @@ export interface VariantStoreArgs {
     /**
      * Server-side encryption (SSE) settings for the store.
      */
-    sseConfig?: pulumi.Input<inputs.omics.VariantStoreSseConfigArgs>;
+    sseConfig?: pulumi.Input<inputs.omics.VariantStoreSseConfigArgs | undefined>;
     /**
      * Tags for the store.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

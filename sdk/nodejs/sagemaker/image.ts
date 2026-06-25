@@ -122,7 +122,7 @@ export interface ImageArgs {
     /**
      * The description of the image.
      */
-    imageDescription?: pulumi.Input<string>;
+    imageDescription?: pulumi.Input<string | undefined>;
     /**
      * The display name of the image.
      *
@@ -130,7 +130,7 @@ export interface ImageArgs {
      *
      * *Pattern* : `^\S(.*\S)?$`
      */
-    imageDisplayName?: pulumi.Input<string>;
+    imageDisplayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Image. Must be unique by region in your account.
      *
@@ -138,7 +138,7 @@ export interface ImageArgs {
      *
      * *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
      */
-    imageName?: pulumi.Input<string>;
+    imageName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
      *
@@ -150,5 +150,5 @@ export interface ImageArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

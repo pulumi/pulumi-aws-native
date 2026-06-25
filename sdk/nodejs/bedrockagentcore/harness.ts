@@ -209,23 +209,23 @@ export interface HarnessArgs {
     /**
      * The tools that the agent is allowed to use.
      */
-    allowedTools?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedTools?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The inbound authorization configuration for authenticating incoming requests.
      */
-    authorizerConfiguration?: pulumi.Input<inputs.bedrockagentcore.HarnessAuthorizerConfigurationArgs>;
+    authorizerConfiguration?: pulumi.Input<inputs.bedrockagentcore.HarnessAuthorizerConfigurationArgs | undefined>;
     /**
      * The compute environment configuration for the harness, including underlying runtime information.
      */
-    environment?: pulumi.Input<inputs.bedrockagentcore.HarnessEnvironmentProviderArgs>;
+    environment?: pulumi.Input<inputs.bedrockagentcore.HarnessEnvironmentProviderArgs | undefined>;
     /**
      * The environment artifact for the harness, such as a custom container image.
      */
-    environmentArtifact?: pulumi.Input<inputs.bedrockagentcore.HarnessEnvironmentArtifactArgs>;
+    environmentArtifact?: pulumi.Input<inputs.bedrockagentcore.HarnessEnvironmentArtifactArgs | undefined>;
     /**
      * Environment variables to set in the harness runtime environment.
      */
-    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ARN of the IAM role that the harness assumes when running.
      */
@@ -233,19 +233,19 @@ export interface HarnessArgs {
     /**
      * The name of the harness.
      */
-    harnessName?: pulumi.Input<string>;
+    harnessName?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of iterations the agent loop can execute per invocation.
      */
-    maxIterations?: pulumi.Input<number>;
+    maxIterations?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of tokens the agent can generate per iteration.
      */
-    maxTokens?: pulumi.Input<number>;
+    maxTokens?: pulumi.Input<number | undefined>;
     /**
      * The AgentCore Memory configuration for persisting conversation context.
      */
-    memory?: pulumi.Input<inputs.bedrockagentcore.HarnessMemoryConfigurationArgs>;
+    memory?: pulumi.Input<inputs.bedrockagentcore.HarnessMemoryConfigurationArgs | undefined>;
     /**
      * The model configuration for the harness.
      */
@@ -253,25 +253,25 @@ export interface HarnessArgs {
     /**
      * The skills available to the agent.
      */
-    skills?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.HarnessSkillArgs>[]>;
+    skills?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.HarnessSkillArgs>[] | undefined>;
     /**
      * The system prompt that defines the agent's behavior.
      */
-    systemPrompt?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.HarnessSystemContentBlockArgs>[]>;
+    systemPrompt?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.HarnessSystemContentBlockArgs>[] | undefined>;
     /**
      * Tags to apply to the harness resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The maximum duration in seconds for the agent loop execution per invocation.
      */
-    timeoutSeconds?: pulumi.Input<number>;
+    timeoutSeconds?: pulumi.Input<number | undefined>;
     /**
      * The tools available to the agent.
      */
-    tools?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.HarnessToolArgs>[]>;
+    tools?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.HarnessToolArgs>[] | undefined>;
     /**
      * The truncation configuration for managing conversation context.
      */
-    truncation?: pulumi.Input<inputs.bedrockagentcore.HarnessTruncationConfigurationArgs>;
+    truncation?: pulumi.Input<inputs.bedrockagentcore.HarnessTruncationConfigurationArgs | undefined>;
 }
