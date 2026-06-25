@@ -140,7 +140,6 @@ def get_ai_prompt(ai_prompt_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::Wisdom::AIPrompt Resource Type
 
-
     :param _builtins.str ai_prompt_id: The identifier of the Amazon Q in Connect AI prompt.
     :param _builtins.str assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
     """
@@ -158,12 +157,11 @@ def get_ai_prompt(ai_prompt_id: Optional[_builtins.str] = None,
         model_id=pulumi.get(__ret__, 'model_id'),
         modified_time_seconds=pulumi.get(__ret__, 'modified_time_seconds'),
         template_configuration=pulumi.get(__ret__, 'template_configuration'))
-def get_ai_prompt_output(ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
-                         assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ai_prompt_output(ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = None,
+                         assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAiPromptResult]:
     """
     Definition of AWS::Wisdom::AIPrompt Resource Type
-
 
     :param _builtins.str ai_prompt_id: The identifier of the Amazon Q in Connect AI prompt.
     :param _builtins.str assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.

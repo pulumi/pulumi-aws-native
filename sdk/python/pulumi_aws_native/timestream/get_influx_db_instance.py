@@ -246,7 +246,6 @@ def get_influx_db_instance(id: Optional[_builtins.str] = None,
     """
     The AWS::Timestream::InfluxDBInstance resource creates an InfluxDB instance.
 
-
     :param _builtins.str id: The service generated unique identifier for InfluxDB instance.
     """
     __args__ = dict()
@@ -272,11 +271,10 @@ def get_influx_db_instance(id: Optional[_builtins.str] = None,
         secondary_availability_zone=pulumi.get(__ret__, 'secondary_availability_zone'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_influx_db_instance_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_influx_db_instance_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInfluxDbInstanceResult]:
     """
     The AWS::Timestream::InfluxDBInstance resource creates an InfluxDB instance.
-
 
     :param _builtins.str id: The service generated unique identifier for InfluxDB instance.
     """

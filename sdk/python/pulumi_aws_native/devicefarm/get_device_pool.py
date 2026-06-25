@@ -118,7 +118,6 @@ def get_device_pool(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for a Device Pool for a given Device Farm Project
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
     """
     __args__ = dict()
@@ -133,11 +132,10 @@ def get_device_pool(arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_device_pool_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_device_pool_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevicePoolResult]:
     """
     Resource Type definition for a Device Pool for a given Device Farm Project
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
     """

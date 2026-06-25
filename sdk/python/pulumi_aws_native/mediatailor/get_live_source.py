@@ -79,7 +79,6 @@ def get_live_source(live_source_name: Optional[_builtins.str] = None,
     """
     Definition of AWS::MediaTailor::LiveSource Resource Type
 
-
     :param _builtins.str live_source_name: The name that's used to refer to a live source.
     :param _builtins.str source_location_name: The name of the source location.
     """
@@ -93,12 +92,11 @@ def get_live_source(live_source_name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         http_package_configurations=pulumi.get(__ret__, 'http_package_configurations'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_live_source_output(live_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           source_location_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_live_source_output(live_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           source_location_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLiveSourceResult]:
     """
     Definition of AWS::MediaTailor::LiveSource Resource Type
-
 
     :param _builtins.str live_source_name: The name that's used to refer to a live source.
     :param _builtins.str source_location_name: The name of the source location.

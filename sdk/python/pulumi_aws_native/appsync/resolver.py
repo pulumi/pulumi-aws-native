@@ -25,20 +25,20 @@ class ResolverArgs:
                  api_id: pulumi.Input[_builtins.str],
                  field_name: pulumi.Input[_builtins.str],
                  type_name: pulumi.Input[_builtins.str],
-                 caching_config: Optional[pulumi.Input['ResolverCachingConfigArgs']] = None,
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 code_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 metrics_config: Optional[pulumi.Input['ResolverMetricsConfig']] = None,
-                 pipeline_config: Optional[pulumi.Input['ResolverPipelineConfigArgs']] = None,
-                 request_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_mapping_template_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_mapping_template_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime: Optional[pulumi.Input['ResolverAppSyncRuntimeArgs']] = None,
-                 sync_config: Optional[pulumi.Input['ResolverSyncConfigArgs']] = None):
+                 caching_config: pulumi.Input[Optional['ResolverCachingConfigArgs']] = None,
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 code_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 metrics_config: pulumi.Input[Optional['ResolverMetricsConfig']] = None,
+                 pipeline_config: pulumi.Input[Optional['ResolverPipelineConfigArgs']] = None,
+                 request_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_mapping_template_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_mapping_template_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime: pulumi.Input[Optional['ResolverAppSyncRuntimeArgs']] = None,
+                 sync_config: pulumi.Input[Optional['ResolverSyncConfigArgs']] = None):
         """
         The set of arguments for constructing a Resolver resource.
 
@@ -133,55 +133,55 @@ class ResolverArgs:
 
     @_builtins.property
     @pulumi.getter(name="cachingConfig")
-    def caching_config(self) -> Optional[pulumi.Input['ResolverCachingConfigArgs']]:
+    def caching_config(self) -> pulumi.Input[Optional['ResolverCachingConfigArgs']]:
         """
         The caching configuration for the resolver.
         """
         return pulumi.get(self, "caching_config")
 
     @caching_config.setter
-    def caching_config(self, value: Optional[pulumi.Input['ResolverCachingConfigArgs']]):
+    def caching_config(self, value: pulumi.Input[Optional['ResolverCachingConfigArgs']]):
         pulumi.set(self, "caching_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ``resolver`` code that contains the request and response functions. When code is used, the ``runtime`` is required. The runtime value must be ``APPSYNC_JS``.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter(name="codeS3Location")
-    def code_s3_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def code_s3_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 endpoint.
         """
         return pulumi.get(self, "code_s3_location")
 
     @code_s3_location.setter
-    def code_s3_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def code_s3_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "code_s3_location", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSourceName")
-    def data_source_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resolver data source name.
         """
         return pulumi.get(self, "data_source_name")
 
     @data_source_name.setter
-    def data_source_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_source_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resolver type.
           +  *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
@@ -190,48 +190,48 @@ class ResolverArgs:
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBatchSize")
-    def max_batch_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_batch_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
         """
         return pulumi.get(self, "max_batch_size")
 
     @max_batch_size.setter
-    def max_batch_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_batch_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_batch_size", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsConfig")
-    def metrics_config(self) -> Optional[pulumi.Input['ResolverMetricsConfig']]:
+    def metrics_config(self) -> pulumi.Input[Optional['ResolverMetricsConfig']]:
         """
         Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
         """
         return pulumi.get(self, "metrics_config")
 
     @metrics_config.setter
-    def metrics_config(self, value: Optional[pulumi.Input['ResolverMetricsConfig']]):
+    def metrics_config(self, value: pulumi.Input[Optional['ResolverMetricsConfig']]):
         pulumi.set(self, "metrics_config", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineConfig")
-    def pipeline_config(self) -> Optional[pulumi.Input['ResolverPipelineConfigArgs']]:
+    def pipeline_config(self) -> pulumi.Input[Optional['ResolverPipelineConfigArgs']]:
         """
         Functions linked with the pipeline resolver.
         """
         return pulumi.get(self, "pipeline_config")
 
     @pipeline_config.setter
-    def pipeline_config(self, value: Optional[pulumi.Input['ResolverPipelineConfigArgs']]):
+    def pipeline_config(self, value: pulumi.Input[Optional['ResolverPipelineConfigArgs']]):
         pulumi.set(self, "pipeline_config", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMappingTemplate")
-    def request_mapping_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_mapping_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The request mapping template.
          Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
@@ -239,67 +239,67 @@ class ResolverArgs:
         return pulumi.get(self, "request_mapping_template")
 
     @request_mapping_template.setter
-    def request_mapping_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_mapping_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_mapping_template", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMappingTemplateS3Location")
-    def request_mapping_template_s3_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_mapping_template_s3_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of a request mapping template in an S3 bucket. Use this if you want to provision with a template file in S3 rather than embedding it in your CFNshort template.
         """
         return pulumi.get(self, "request_mapping_template_s3_location")
 
     @request_mapping_template_s3_location.setter
-    def request_mapping_template_s3_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_mapping_template_s3_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_mapping_template_s3_location", value)
 
     @_builtins.property
     @pulumi.getter(name="responseMappingTemplate")
-    def response_mapping_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_mapping_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The response mapping template.
         """
         return pulumi.get(self, "response_mapping_template")
 
     @response_mapping_template.setter
-    def response_mapping_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_mapping_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_mapping_template", value)
 
     @_builtins.property
     @pulumi.getter(name="responseMappingTemplateS3Location")
-    def response_mapping_template_s3_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_mapping_template_s3_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of a response mapping template in an S3 bucket. Use this if you want to provision with a template file in S3 rather than embedding it in your CFNshort template.
         """
         return pulumi.get(self, "response_mapping_template_s3_location")
 
     @response_mapping_template_s3_location.setter
-    def response_mapping_template_s3_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_mapping_template_s3_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_mapping_template_s3_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def runtime(self) -> Optional[pulumi.Input['ResolverAppSyncRuntimeArgs']]:
+    def runtime(self) -> pulumi.Input[Optional['ResolverAppSyncRuntimeArgs']]:
         """
         Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
         """
         return pulumi.get(self, "runtime")
 
     @runtime.setter
-    def runtime(self, value: Optional[pulumi.Input['ResolverAppSyncRuntimeArgs']]):
+    def runtime(self, value: pulumi.Input[Optional['ResolverAppSyncRuntimeArgs']]):
         pulumi.set(self, "runtime", value)
 
     @_builtins.property
     @pulumi.getter(name="syncConfig")
-    def sync_config(self) -> Optional[pulumi.Input['ResolverSyncConfigArgs']]:
+    def sync_config(self) -> pulumi.Input[Optional['ResolverSyncConfigArgs']]:
         """
         The ``SyncConfig`` for a resolver attached to a versioned data source.
         """
         return pulumi.get(self, "sync_config")
 
     @sync_config.setter
-    def sync_config(self, value: Optional[pulumi.Input['ResolverSyncConfigArgs']]):
+    def sync_config(self, value: pulumi.Input[Optional['ResolverSyncConfigArgs']]):
         pulumi.set(self, "sync_config", value)
 
 
@@ -309,23 +309,23 @@ class Resolver(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 caching_config: Optional[pulumi.Input[Union['ResolverCachingConfigArgs', 'ResolverCachingConfigArgsDict']]] = None,
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 code_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 metrics_config: Optional[pulumi.Input['ResolverMetricsConfig']] = None,
-                 pipeline_config: Optional[pulumi.Input[Union['ResolverPipelineConfigArgs', 'ResolverPipelineConfigArgsDict']]] = None,
-                 request_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_mapping_template_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_mapping_template_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime: Optional[pulumi.Input[Union['ResolverAppSyncRuntimeArgs', 'ResolverAppSyncRuntimeArgsDict']]] = None,
-                 sync_config: Optional[pulumi.Input[Union['ResolverSyncConfigArgs', 'ResolverSyncConfigArgsDict']]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 caching_config: pulumi.Input[Optional[Union['ResolverCachingConfigArgs', 'ResolverCachingConfigArgsDict']]] = None,
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 code_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 metrics_config: pulumi.Input[Optional['ResolverMetricsConfig']] = None,
+                 pipeline_config: pulumi.Input[Optional[Union['ResolverPipelineConfigArgs', 'ResolverPipelineConfigArgsDict']]] = None,
+                 request_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_mapping_template_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_mapping_template_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime: pulumi.Input[Optional[Union['ResolverAppSyncRuntimeArgs', 'ResolverAppSyncRuntimeArgsDict']]] = None,
+                 sync_config: pulumi.Input[Optional[Union['ResolverSyncConfigArgs', 'ResolverSyncConfigArgsDict']]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The ``AWS::AppSync::Resolver`` resource defines the logical GraphQL resolver that you attach to fields in a schema. Request and response templates for resolvers are written in Apache Velocity Template Language (VTL) format. For more information about resolvers, see [Resolver Mapping Template Reference](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference.html).
@@ -431,23 +431,23 @@ class Resolver(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 caching_config: Optional[pulumi.Input[Union['ResolverCachingConfigArgs', 'ResolverCachingConfigArgsDict']]] = None,
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 code_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 metrics_config: Optional[pulumi.Input['ResolverMetricsConfig']] = None,
-                 pipeline_config: Optional[pulumi.Input[Union['ResolverPipelineConfigArgs', 'ResolverPipelineConfigArgsDict']]] = None,
-                 request_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_mapping_template_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_mapping_template_s3_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime: Optional[pulumi.Input[Union['ResolverAppSyncRuntimeArgs', 'ResolverAppSyncRuntimeArgsDict']]] = None,
-                 sync_config: Optional[pulumi.Input[Union['ResolverSyncConfigArgs', 'ResolverSyncConfigArgsDict']]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 caching_config: pulumi.Input[Optional[Union['ResolverCachingConfigArgs', 'ResolverCachingConfigArgsDict']]] = None,
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 code_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 metrics_config: pulumi.Input[Optional['ResolverMetricsConfig']] = None,
+                 pipeline_config: pulumi.Input[Optional[Union['ResolverPipelineConfigArgs', 'ResolverPipelineConfigArgsDict']]] = None,
+                 request_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_mapping_template_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_mapping_template_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime: pulumi.Input[Optional[Union['ResolverAppSyncRuntimeArgs', 'ResolverAppSyncRuntimeArgsDict']]] = None,
+                 sync_config: pulumi.Input[Optional[Union['ResolverSyncConfigArgs', 'ResolverSyncConfigArgsDict']]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

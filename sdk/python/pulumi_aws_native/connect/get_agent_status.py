@@ -173,7 +173,6 @@ def get_agent_status(agent_status_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Connect::AgentStatus
 
-
     :param _builtins.str agent_status_arn: The Amazon Resource Name (ARN) of the agent status.
     """
     __args__ = dict()
@@ -193,11 +192,10 @@ def get_agent_status(agent_status_arn: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_agent_status_output(agent_status_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_agent_status_output(agent_status_arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentStatusResult]:
     """
     Resource Type definition for AWS::Connect::AgentStatus
-
 
     :param _builtins.str agent_status_arn: The Amazon Resource Name (ARN) of the agent status.
     """

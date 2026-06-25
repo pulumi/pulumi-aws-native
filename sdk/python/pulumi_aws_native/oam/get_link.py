@@ -101,7 +101,6 @@ def get_link(arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::Oam::Link Resource Type
 
-
     :param _builtins.str arn: The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
     """
     __args__ = dict()
@@ -115,11 +114,10 @@ def get_link(arn: Optional[_builtins.str] = None,
         link_configuration=pulumi.get(__ret__, 'link_configuration'),
         resource_types=pulumi.get(__ret__, 'resource_types'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_link_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_link_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkResult]:
     """
     Definition of AWS::Oam::Link Resource Type
-
 
     :param _builtins.str arn: The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
     """

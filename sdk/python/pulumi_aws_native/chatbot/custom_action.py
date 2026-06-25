@@ -25,10 +25,10 @@ __all__ = ['CustomActionArgs', 'CustomAction']
 class CustomActionArgs:
     def __init__(__self__, *,
                  definition: pulumi.Input['CustomActionDefinitionArgs'],
-                 action_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionAttachmentArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 action_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 attachments: pulumi.Input[Optional[Sequence[pulumi.Input['CustomActionAttachmentArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomAction resource.
 
@@ -62,50 +62,50 @@ class CustomActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionName")
-    def action_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the custom action. This name is included in the Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "action_name")
 
     @action_name.setter
-    def action_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_name", value)
 
     @_builtins.property
     @pulumi.getter(name="aliasName")
-    def alias_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
         """
         return pulumi.get(self, "alias_name")
 
     @alias_name.setter
-    def alias_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def attachments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionAttachmentArgs']]]]:
+    def attachments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomActionAttachmentArgs']]]]:
         """
         Defines when this custom action button should be attached to a notification.
         """
         return pulumi.get(self, "attachments")
 
     @attachments.setter
-    def attachments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionAttachmentArgs']]]]):
+    def attachments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomActionAttachmentArgs']]]]):
         pulumi.set(self, "attachments", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to add to the configuration.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -115,15 +115,14 @@ class CustomAction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomActionAttachmentArgs', 'CustomActionAttachmentArgsDict']]]]] = None,
-                 definition: Optional[pulumi.Input[Union['CustomActionDefinitionArgs', 'CustomActionDefinitionArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 action_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomActionAttachmentArgs', 'CustomActionAttachmentArgsDict']]]]] = None,
+                 definition: pulumi.Input[Optional[Union['CustomActionDefinitionArgs', 'CustomActionDefinitionArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Chatbot::CustomAction Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,7 +141,6 @@ class CustomAction(pulumi.CustomResource):
         """
         Definition of AWS::Chatbot::CustomAction Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param CustomActionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,11 +156,11 @@ class CustomAction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomActionAttachmentArgs', 'CustomActionAttachmentArgsDict']]]]] = None,
-                 definition: Optional[pulumi.Input[Union['CustomActionDefinitionArgs', 'CustomActionDefinitionArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 action_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomActionAttachmentArgs', 'CustomActionAttachmentArgsDict']]]]] = None,
+                 definition: pulumi.Input[Optional[Union['CustomActionDefinitionArgs', 'CustomActionDefinitionArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

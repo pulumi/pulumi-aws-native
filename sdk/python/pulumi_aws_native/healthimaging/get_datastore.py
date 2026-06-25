@@ -100,7 +100,6 @@ def get_datastore(datastore_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::HealthImaging::Datastore Resource Type
 
-
     :param _builtins.str datastore_id: The data store identifier.
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_datastore(datastore_id: Optional[_builtins.str] = None,
         datastore_id=pulumi.get(__ret__, 'datastore_id'),
         datastore_status=pulumi.get(__ret__, 'datastore_status'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_datastore_output(datastore_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_datastore_output(datastore_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatastoreResult]:
     """
     Definition of AWS::HealthImaging::Datastore Resource Type
-
 
     :param _builtins.str datastore_id: The data store identifier.
     """

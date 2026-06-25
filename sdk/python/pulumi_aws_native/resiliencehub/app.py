@@ -24,13 +24,13 @@ class AppArgs:
     def __init__(__self__, *,
                  app_template_body: pulumi.Input[_builtins.str],
                  resource_mappings: pulumi.Input[Sequence[pulumi.Input['AppResourceMappingArgs']]],
-                 app_assessment_schedule: Optional[pulumi.Input['AppAssessmentSchedule']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['AppEventSubscriptionArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission_model: Optional[pulumi.Input['AppPermissionModelArgs']] = None,
-                 resiliency_policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 app_assessment_schedule: pulumi.Input[Optional['AppAssessmentSchedule']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input['AppEventSubscriptionArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission_model: pulumi.Input[Optional['AppPermissionModelArgs']] = None,
+                 resiliency_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a App resource.
 
@@ -87,86 +87,86 @@ class AppArgs:
 
     @_builtins.property
     @pulumi.getter(name="appAssessmentSchedule")
-    def app_assessment_schedule(self) -> Optional[pulumi.Input['AppAssessmentSchedule']]:
+    def app_assessment_schedule(self) -> pulumi.Input[Optional['AppAssessmentSchedule']]:
         """
         Assessment execution schedule.
         """
         return pulumi.get(self, "app_assessment_schedule")
 
     @app_assessment_schedule.setter
-    def app_assessment_schedule(self, value: Optional[pulumi.Input['AppAssessmentSchedule']]):
+    def app_assessment_schedule(self, value: pulumi.Input[Optional['AppAssessmentSchedule']]):
         pulumi.set(self, "app_assessment_schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         App description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="eventSubscriptions")
-    def event_subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppEventSubscriptionArgs']]]]:
+    def event_subscriptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppEventSubscriptionArgs']]]]:
         """
         The list of events you would like to subscribe and get notification for.
         """
         return pulumi.get(self, "event_subscriptions")
 
     @event_subscriptions.setter
-    def event_subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppEventSubscriptionArgs']]]]):
+    def event_subscriptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppEventSubscriptionArgs']]]]):
         pulumi.set(self, "event_subscriptions", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the app.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="permissionModel")
-    def permission_model(self) -> Optional[pulumi.Input['AppPermissionModelArgs']]:
+    def permission_model(self) -> pulumi.Input[Optional['AppPermissionModelArgs']]:
         """
         Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
         """
         return pulumi.get(self, "permission_model")
 
     @permission_model.setter
-    def permission_model(self, value: Optional[pulumi.Input['AppPermissionModelArgs']]):
+    def permission_model(self, value: pulumi.Input[Optional['AppPermissionModelArgs']]):
         pulumi.set(self, "permission_model", value)
 
     @_builtins.property
     @pulumi.getter(name="resiliencyPolicyArn")
-    def resiliency_policy_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resiliency_policy_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the Resiliency Policy.
         """
         return pulumi.get(self, "resiliency_policy_arn")
 
     @resiliency_policy_arn.setter
-    def resiliency_policy_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resiliency_policy_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resiliency_policy_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -176,19 +176,18 @@ class App(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_assessment_schedule: Optional[pulumi.Input['AppAssessmentSchedule']] = None,
-                 app_template_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppEventSubscriptionArgs', 'AppEventSubscriptionArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission_model: Optional[pulumi.Input[Union['AppPermissionModelArgs', 'AppPermissionModelArgsDict']]] = None,
-                 resiliency_policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppResourceMappingArgs', 'AppResourceMappingArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 app_assessment_schedule: pulumi.Input[Optional['AppAssessmentSchedule']] = None,
+                 app_template_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppEventSubscriptionArgs', 'AppEventSubscriptionArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission_model: pulumi.Input[Optional[Union['AppPermissionModelArgs', 'AppPermissionModelArgsDict']]] = None,
+                 resiliency_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppResourceMappingArgs', 'AppResourceMappingArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource Type Definition for AWS::ResilienceHub::App.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,7 +210,6 @@ class App(pulumi.CustomResource):
         """
         Resource Type Definition for AWS::ResilienceHub::App.
 
-
         :param str resource_name: The name of the resource.
         :param AppArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,15 +225,15 @@ class App(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_assessment_schedule: Optional[pulumi.Input['AppAssessmentSchedule']] = None,
-                 app_template_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppEventSubscriptionArgs', 'AppEventSubscriptionArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission_model: Optional[pulumi.Input[Union['AppPermissionModelArgs', 'AppPermissionModelArgsDict']]] = None,
-                 resiliency_policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppResourceMappingArgs', 'AppResourceMappingArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 app_assessment_schedule: pulumi.Input[Optional['AppAssessmentSchedule']] = None,
+                 app_template_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppEventSubscriptionArgs', 'AppEventSubscriptionArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission_model: pulumi.Input[Optional[Union['AppPermissionModelArgs', 'AppPermissionModelArgsDict']]] = None,
+                 resiliency_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppResourceMappingArgs', 'AppResourceMappingArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

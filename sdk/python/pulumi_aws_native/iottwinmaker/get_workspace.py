@@ -123,7 +123,6 @@ def get_workspace(workspace_id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::IoTTwinMaker::Workspace
 
-
     :param _builtins.str workspace_id: The ID of the workspace.
     """
     __args__ = dict()
@@ -139,11 +138,10 @@ def get_workspace(workspace_id: Optional[_builtins.str] = None,
         s3_location=pulumi.get(__ret__, 's3_location'),
         tags=pulumi.get(__ret__, 'tags'),
         update_date_time=pulumi.get(__ret__, 'update_date_time'))
-def get_workspace_output(workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_output(workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Resource schema for AWS::IoTTwinMaker::Workspace
-
 
     :param _builtins.str workspace_id: The ID of the workspace.
     """

@@ -24,9 +24,9 @@ class IdentityProviderArgs:
     def __init__(__self__, *,
                  identity_provider_details: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  identity_provider_type: pulumi.Input['IdentityProviderType'],
-                 identity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IdentityProvider resource.
 
@@ -144,35 +144,35 @@ class IdentityProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityProviderName")
-    def identity_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identity provider name.
         """
         return pulumi.get(self, "identity_provider_name")
 
     @identity_provider_name.setter
-    def identity_provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="portalArn")
-    def portal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def portal_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the identity provider.
         """
         return pulumi.get(self, "portal_arn")
 
     @portal_arn.setter
-    def portal_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def portal_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "portal_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -182,15 +182,14 @@ class IdentityProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 identity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_type: Optional[pulumi.Input['IdentityProviderType']] = None,
-                 portal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 identity_provider_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_type: pulumi.Input[Optional['IdentityProviderType']] = None,
+                 portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::WorkSpacesWeb::IdentityProvider Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,7 +244,6 @@ class IdentityProvider(pulumi.CustomResource):
         """
         Definition of AWS::WorkSpacesWeb::IdentityProvider Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param IdentityProviderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -261,11 +259,11 @@ class IdentityProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 identity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_type: Optional[pulumi.Input['IdentityProviderType']] = None,
-                 portal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 identity_provider_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_type: pulumi.Input[Optional['IdentityProviderType']] = None,
+                 portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

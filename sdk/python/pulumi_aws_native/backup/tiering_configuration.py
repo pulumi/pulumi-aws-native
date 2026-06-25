@@ -23,8 +23,8 @@ class TieringConfigurationArgs:
     def __init__(__self__, *,
                  backup_vault_name: pulumi.Input[_builtins.str],
                  resource_selection: pulumi.Input[Sequence[pulumi.Input['TieringConfigurationResourceSelectionArgs']]],
-                 tiering_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tiering_configuration_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tiering_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tiering_configuration_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TieringConfiguration resource.
         """
@@ -55,20 +55,20 @@ class TieringConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="tieringConfigurationName")
-    def tiering_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tiering_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tiering_configuration_name")
 
     @tiering_configuration_name.setter
-    def tiering_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tiering_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tiering_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tieringConfigurationTags")
-    def tiering_configuration_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tiering_configuration_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tiering_configuration_tags")
 
     @tiering_configuration_tags.setter
-    def tiering_configuration_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tiering_configuration_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tiering_configuration_tags", value)
 
 
@@ -78,14 +78,13 @@ class TieringConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_selection: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TieringConfigurationResourceSelectionArgs', 'TieringConfigurationResourceSelectionArgsDict']]]]] = None,
-                 tiering_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tiering_configuration_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_selection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TieringConfigurationResourceSelectionArgs', 'TieringConfigurationResourceSelectionArgsDict']]]]] = None,
+                 tiering_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tiering_configuration_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Backup::TieringConfiguration
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -98,7 +97,6 @@ class TieringConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Backup::TieringConfiguration
-
 
         :param str resource_name: The name of the resource.
         :param TieringConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -115,10 +113,10 @@ class TieringConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_selection: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TieringConfigurationResourceSelectionArgs', 'TieringConfigurationResourceSelectionArgsDict']]]]] = None,
-                 tiering_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tiering_configuration_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_selection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TieringConfigurationResourceSelectionArgs', 'TieringConfigurationResourceSelectionArgsDict']]]]] = None,
+                 tiering_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tiering_configuration_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

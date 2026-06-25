@@ -138,7 +138,6 @@ def get_webhook(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::CodePipeline::Webhook
 
-
     :param _builtins.str id: logical id of the webhook
     """
     __args__ = dict()
@@ -155,11 +154,10 @@ def get_webhook(id: Optional[_builtins.str] = None,
         target_action=pulumi.get(__ret__, 'target_action'),
         target_pipeline=pulumi.get(__ret__, 'target_pipeline'),
         url=pulumi.get(__ret__, 'url'))
-def get_webhook_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_webhook_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebhookResult]:
     """
     Resource Type definition for AWS::CodePipeline::Webhook
-
 
     :param _builtins.str id: logical id of the webhook
     """

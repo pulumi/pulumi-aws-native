@@ -139,7 +139,6 @@ def get_event_trigger(domain_name: Optional[_builtins.str] = None,
     """
     An event trigger resource of Amazon Connect Customer Profiles
 
-
     :param _builtins.str domain_name: The unique name of the domain.
     :param _builtins.str event_trigger_name: The unique name of the event trigger.
     """
@@ -158,12 +157,11 @@ def get_event_trigger(domain_name: Optional[_builtins.str] = None,
         object_type_name=pulumi.get(__ret__, 'object_type_name'),
         segment_filter=pulumi.get(__ret__, 'segment_filter'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_event_trigger_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             event_trigger_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_trigger_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             event_trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventTriggerResult]:
     """
     An event trigger resource of Amazon Connect Customer Profiles
-
 
     :param _builtins.str domain_name: The unique name of the domain.
     :param _builtins.str event_trigger_name: The unique name of the event trigger.

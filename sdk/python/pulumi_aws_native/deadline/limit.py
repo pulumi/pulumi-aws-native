@@ -23,7 +23,7 @@ class LimitArgs:
                  display_name: pulumi.Input[_builtins.str],
                  farm_id: pulumi.Input[_builtins.str],
                  max_count: pulumi.Input[_builtins.int],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Limit resource.
 
@@ -100,7 +100,7 @@ class LimitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the limit. A clear description helps you identify the purpose of the limit.
 
@@ -109,7 +109,7 @@ class LimitArgs:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -119,15 +119,14 @@ class Limit(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amount_requirement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 farm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 amount_requirement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 farm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_count: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Deadline::Limit
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +151,6 @@ class Limit(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Deadline::Limit
 
-
         :param str resource_name: The name of the resource.
         :param LimitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,11 +166,11 @@ class Limit(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amount_requirement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 farm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 amount_requirement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 farm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_count: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

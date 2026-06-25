@@ -148,7 +148,6 @@ def get_analysis_template(analysis_template_identifier: Optional[_builtins.str] 
     """
     Represents a stored analysis within a collaboration
 
-
     :param _builtins.str analysis_template_identifier: Returns the identifier for the analysis template.
            
            Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
@@ -169,12 +168,11 @@ def get_analysis_template(analysis_template_identifier: Optional[_builtins.str] 
         membership_arn=pulumi.get(__ret__, 'membership_arn'),
         source_metadata=pulumi.get(__ret__, 'source_metadata'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_analysis_template_output(analysis_template_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                                 membership_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_analysis_template_output(analysis_template_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                                 membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnalysisTemplateResult]:
     """
     Represents a stored analysis within a collaboration
-
 
     :param _builtins.str analysis_template_identifier: Returns the identifier for the analysis template.
            

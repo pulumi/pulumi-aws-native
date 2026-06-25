@@ -257,7 +257,6 @@ def get_integration(api_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::ApiGatewayV2::Integration
 
-
     :param _builtins.str api_id: The API identifier.
     :param _builtins.str integration_id: The integration ID.
     """
@@ -286,12 +285,11 @@ def get_integration(api_id: Optional[_builtins.str] = None,
         template_selection_expression=pulumi.get(__ret__, 'template_selection_expression'),
         timeout_in_millis=pulumi.get(__ret__, 'timeout_in_millis'),
         tls_config=pulumi.get(__ret__, 'tls_config'))
-def get_integration_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           integration_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           integration_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationResult]:
     """
     Resource Type definition for AWS::ApiGatewayV2::Integration
-
 
     :param _builtins.str api_id: The API identifier.
     :param _builtins.str integration_id: The integration ID.

@@ -137,7 +137,6 @@ def get_mlflow_tracking_server(tracking_server_name: Optional[_builtins.str] = N
     """
     Resource Type definition for AWS::SageMaker::MlflowTrackingServer
 
-
     :param _builtins.str tracking_server_name: The name of the MLFlow Tracking Server.
     """
     __args__ = dict()
@@ -154,11 +153,10 @@ def get_mlflow_tracking_server(tracking_server_name: Optional[_builtins.str] = N
         tracking_server_arn=pulumi.get(__ret__, 'tracking_server_arn'),
         tracking_server_size=pulumi.get(__ret__, 'tracking_server_size'),
         weekly_maintenance_window_start=pulumi.get(__ret__, 'weekly_maintenance_window_start'))
-def get_mlflow_tracking_server_output(tracking_server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_mlflow_tracking_server_output(tracking_server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMlflowTrackingServerResult]:
     """
     Resource Type definition for AWS::SageMaker::MlflowTrackingServer
-
 
     :param _builtins.str tracking_server_name: The name of the MLFlow Tracking Server.
     """

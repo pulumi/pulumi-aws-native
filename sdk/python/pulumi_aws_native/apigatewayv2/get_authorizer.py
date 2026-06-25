@@ -115,7 +115,6 @@ def get_authorizer(api_id: Optional[_builtins.str] = None,
     """
     The ``AWS::ApiGatewayV2::Authorizer`` resource creates an authorizer for a WebSocket API or an HTTP API. To learn more, see [Controlling and managing access to a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-control-access.html) and [Controlling and managing access to an HTTP API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-access-control.html) in the *API Gateway Developer Guide*.
 
-
     :param _builtins.str api_id: The API identifier.
     :param _builtins.str authorizer_id: The authorizer ID.
     """
@@ -132,12 +131,11 @@ def get_authorizer(api_id: Optional[_builtins.str] = None,
         identity_validation_expression=pulumi.get(__ret__, 'identity_validation_expression'),
         jwt_configuration=pulumi.get(__ret__, 'jwt_configuration'),
         name=pulumi.get(__ret__, 'name'))
-def get_authorizer_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                          authorizer_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_authorizer_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                          authorizer_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizerResult]:
     """
     The ``AWS::ApiGatewayV2::Authorizer`` resource creates an authorizer for a WebSocket API or an HTTP API. To learn more, see [Controlling and managing access to a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-control-access.html) and [Controlling and managing access to an HTTP API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-access-control.html) in the *API Gateway Developer Guide*.
-
 
     :param _builtins.str api_id: The API identifier.
     :param _builtins.str authorizer_id: The authorizer ID.

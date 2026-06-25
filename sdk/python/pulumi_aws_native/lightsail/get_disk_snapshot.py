@@ -174,7 +174,6 @@ def get_disk_snapshot(disk_snapshot_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Lightsail::DiskSnapshot
 
-
     :param _builtins.str disk_snapshot_name: The name of the disk snapshot (e.g., my-disk-snapshot).
     """
     __args__ = dict()
@@ -194,11 +193,10 @@ def get_disk_snapshot(disk_snapshot_name: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         support_code=pulumi.get(__ret__, 'support_code'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_disk_snapshot_output(disk_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_disk_snapshot_output(disk_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiskSnapshotResult]:
     """
     Resource Type definition for AWS::Lightsail::DiskSnapshot
-
 
     :param _builtins.str disk_snapshot_name: The name of the disk snapshot (e.g., my-disk-snapshot).
     """

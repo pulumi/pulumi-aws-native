@@ -163,7 +163,6 @@ def get_accelerator(accelerator_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::GlobalAccelerator::Accelerator
 
-
     :param _builtins.str accelerator_arn: The Amazon Resource Name (ARN) of the accelerator.
     """
     __args__ = dict()
@@ -182,11 +181,10 @@ def get_accelerator(accelerator_arn: Optional[_builtins.str] = None,
         ipv6_addresses=pulumi.get(__ret__, 'ipv6_addresses'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_accelerator_output(accelerator_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_accelerator_output(accelerator_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAcceleratorResult]:
     """
     Resource Type definition for AWS::GlobalAccelerator::Accelerator
-
 
     :param _builtins.str accelerator_arn: The Amazon Resource Name (ARN) of the accelerator.
     """

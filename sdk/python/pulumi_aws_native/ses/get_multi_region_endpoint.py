@@ -52,7 +52,6 @@ def get_multi_region_endpoint(endpoint_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SES::MultiRegionEndpoint
 
-
     :param _builtins.str endpoint_name: The name of the multi-region endpoint (global-endpoint).
     """
     __args__ = dict()
@@ -62,11 +61,10 @@ def get_multi_region_endpoint(endpoint_name: Optional[_builtins.str] = None,
 
     return AwaitableGetMultiRegionEndpointResult(
         tags=pulumi.get(__ret__, 'tags'))
-def get_multi_region_endpoint_output(endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_multi_region_endpoint_output(endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMultiRegionEndpointResult]:
     """
     Resource Type definition for AWS::SES::MultiRegionEndpoint
-
 
     :param _builtins.str endpoint_name: The name of the multi-region endpoint (global-endpoint).
     """

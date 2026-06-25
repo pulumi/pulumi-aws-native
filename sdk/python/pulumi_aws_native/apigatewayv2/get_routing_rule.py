@@ -100,7 +100,6 @@ def get_routing_rule(routing_rule_arn: Optional[_builtins.str] = None,
     """
     Represents a routing rule. When the incoming request to a domain name matches the conditions for a rule, API Gateway invokes a stage of a target API. Supported only for REST APIs.
 
-
     :param _builtins.str routing_rule_arn: Represents an Amazon Resource Name (ARN).
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_routing_rule(routing_rule_arn: Optional[_builtins.str] = None,
         priority=pulumi.get(__ret__, 'priority'),
         routing_rule_arn=pulumi.get(__ret__, 'routing_rule_arn'),
         routing_rule_id=pulumi.get(__ret__, 'routing_rule_id'))
-def get_routing_rule_output(routing_rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_routing_rule_output(routing_rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoutingRuleResult]:
     """
     Represents a routing rule. When the incoming request to a domain name matches the conditions for a rule, API Gateway invokes a stage of a target API. Supported only for REST APIs.
-
 
     :param _builtins.str routing_rule_arn: Represents an Amazon Resource Name (ARN).
     """

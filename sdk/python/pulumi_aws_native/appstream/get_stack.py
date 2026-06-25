@@ -185,7 +185,6 @@ def get_stack(name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::AppStream::Stack
 
-
     :param _builtins.str name: The name of the stack.
     """
     __args__ = dict()
@@ -206,11 +205,10 @@ def get_stack(name: Optional[_builtins.str] = None,
         streaming_experience_settings=pulumi.get(__ret__, 'streaming_experience_settings'),
         tags=pulumi.get(__ret__, 'tags'),
         user_settings=pulumi.get(__ret__, 'user_settings'))
-def get_stack_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_stack_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStackResult]:
     """
     Resource Type definition for AWS::AppStream::Stack
-
 
     :param _builtins.str name: The name of the stack.
     """

@@ -138,7 +138,6 @@ def get_security_profile(security_profile_name: Optional[_builtins.str] = None,
     """
     A security profile defines a set of expected behaviors for devices in your account.
 
-
     :param _builtins.str security_profile_name: A unique identifier for the security profile.
     """
     __args__ = dict()
@@ -155,11 +154,10 @@ def get_security_profile(security_profile_name: Optional[_builtins.str] = None,
         security_profile_description=pulumi.get(__ret__, 'security_profile_description'),
         tags=pulumi.get(__ret__, 'tags'),
         target_arns=pulumi.get(__ret__, 'target_arns'))
-def get_security_profile_output(security_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_profile_output(security_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityProfileResult]:
     """
     A security profile defines a set of expected behaviors for devices in your account.
-
 
     :param _builtins.str security_profile_name: A unique identifier for the security profile.
     """

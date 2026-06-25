@@ -88,7 +88,6 @@ def get_user_access_logging_settings(user_access_logging_settings_arn: Optional[
     """
     Definition of AWS::WorkSpacesWeb::UserAccessLoggingSettings Resource Type
 
-
     :param _builtins.str user_access_logging_settings_arn: The ARN of the user access logging settings.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_user_access_logging_settings(user_access_logging_settings_arn: Optional[
         kinesis_stream_arn=pulumi.get(__ret__, 'kinesis_stream_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         user_access_logging_settings_arn=pulumi.get(__ret__, 'user_access_logging_settings_arn'))
-def get_user_access_logging_settings_output(user_access_logging_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_access_logging_settings_output(user_access_logging_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserAccessLoggingSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::UserAccessLoggingSettings Resource Type
-
 
     :param _builtins.str user_access_logging_settings_arn: The ARN of the user access logging settings.
     """

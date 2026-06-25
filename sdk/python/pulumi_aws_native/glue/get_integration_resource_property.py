@@ -90,7 +90,6 @@ def get_integration_resource_property(resource_arn: Optional[_builtins.str] = No
     """
     Resource Type definition for AWS::Glue::IntegrationResourceProperty
 
-
     :param _builtins.str resource_arn: The connection ARN of the source, or the database ARN of the target.
     :param _builtins.str resource_property_arn: The integration resource property ARN.
     """
@@ -105,12 +104,11 @@ def get_integration_resource_property(resource_arn: Optional[_builtins.str] = No
         source_processing_properties=pulumi.get(__ret__, 'source_processing_properties'),
         tags=pulumi.get(__ret__, 'tags'),
         target_processing_properties=pulumi.get(__ret__, 'target_processing_properties'))
-def get_integration_resource_property_output(resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_property_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_resource_property_output(resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                             resource_property_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationResourcePropertyResult]:
     """
     Resource Type definition for AWS::Glue::IntegrationResourceProperty
-
 
     :param _builtins.str resource_arn: The connection ARN of the source, or the database ARN of the target.
     :param _builtins.str resource_property_arn: The integration resource property ARN.

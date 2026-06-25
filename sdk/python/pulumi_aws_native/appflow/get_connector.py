@@ -58,7 +58,7 @@ class GetConnectorResult:
     @pulumi.getter(name="connectorProvisioningType")
     def connector_provisioning_type(self) -> Optional[_builtins.str]:
         """
-        The provisioning type of the connector. Currently the only supported value is LAMBDA. 
+        The provisioning type of the connector. Currently the only supported value is LAMBDA.
         """
         return pulumi.get(self, "connector_provisioning_type")
 
@@ -88,7 +88,6 @@ def get_connector(connector_label: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::AppFlow::Connector
 
-
     :param _builtins.str connector_label:  The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_connector(connector_label: Optional[_builtins.str] = None,
         connector_provisioning_config=pulumi.get(__ret__, 'connector_provisioning_config'),
         connector_provisioning_type=pulumi.get(__ret__, 'connector_provisioning_type'),
         description=pulumi.get(__ret__, 'description'))
-def get_connector_output(connector_label: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connector_output(connector_label: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Resource schema for AWS::AppFlow::Connector
-
 
     :param _builtins.str connector_label:  The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.
     """

@@ -27,22 +27,22 @@ class ResolverEndpointArgs:
                  direction: pulumi.Input[_builtins.str],
                  ip_addresses: pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressRequestArgs']]],
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 dns64_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_internet_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resolver_endpoint_type: Optional[pulumi.Input['ResolverEndpointType']] = None,
-                 rni_enhanced_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 dns64_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv6_internet_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resolver_endpoint_type: pulumi.Input[Optional['ResolverEndpointType']] = None,
+                 rni_enhanced_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 target_name_server_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ResolverEndpoint resource.
 
         :param pulumi.Input[_builtins.str] direction: Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
-               - INBOUND: allows DNS queries to your VPC from your network 
-               - OUTBOUND: allows DNS queries from your VPC to your network 
+               - INBOUND: allows DNS queries to your VPC from your network
+               - OUTBOUND: allows DNS queries from your VPC to your network
                - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
         :param pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressRequestArgs']]] ip_addresses: The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
@@ -86,8 +86,8 @@ class ResolverEndpointArgs:
     def direction(self) -> pulumi.Input[_builtins.str]:
         """
         Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
-        - INBOUND: allows DNS queries to your VPC from your network 
-        - OUTBOUND: allows DNS queries from your VPC to your network 
+        - INBOUND: allows DNS queries to your VPC from your network
+        - OUTBOUND: allows DNS queries from your VPC to your network
         - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
         """
         return pulumi.get(self, "direction")
@@ -122,122 +122,122 @@ class ResolverEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="dns64Enabled")
-    def dns64_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dns64_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint. When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
         """
         return pulumi.get(self, "dns64_enabled")
 
     @dns64_enabled.setter
-    def dns64_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dns64_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dns64_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6InternetAccessEnabled")
-    def ipv6_internet_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ipv6_internet_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint. When set to true, this property allows your Endpoint ENIs to reach public IPv6 target nameservers through an internet gateway. Default is false.
         """
         return pulumi.get(self, "ipv6_internet_access_enabled")
 
     @ipv6_internet_access_enabled.setter
-    def ipv6_internet_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ipv6_internet_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ipv6_internet_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outpost_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN (Amazon Resource Name) for the Outpost.
         """
         return pulumi.get(self, "outpost_arn")
 
     @outpost_arn.setter
-    def outpost_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outpost_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outpost_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredInstanceType")
-    def preferred_instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon EC2 instance type.
         """
         return pulumi.get(self, "preferred_instance_type")
 
     @preferred_instance_type.setter
-    def preferred_instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_instance_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def protocols(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Protocols used for the endpoint. DoH-FIPS is applicable for inbound endpoints only.
         """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
-    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def protocols(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "protocols", value)
 
     @_builtins.property
     @pulumi.getter(name="resolverEndpointType")
-    def resolver_endpoint_type(self) -> Optional[pulumi.Input['ResolverEndpointType']]:
+    def resolver_endpoint_type(self) -> pulumi.Input[Optional['ResolverEndpointType']]:
         """
         The Resolver endpoint IP address type.
         """
         return pulumi.get(self, "resolver_endpoint_type")
 
     @resolver_endpoint_type.setter
-    def resolver_endpoint_type(self, value: Optional[pulumi.Input['ResolverEndpointType']]):
+    def resolver_endpoint_type(self, value: pulumi.Input[Optional['ResolverEndpointType']]):
         pulumi.set(self, "resolver_endpoint_type", value)
 
     @_builtins.property
     @pulumi.getter(name="rniEnhancedMetricsEnabled")
-    def rni_enhanced_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rni_enhanced_metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
         """
         return pulumi.get(self, "rni_enhanced_metrics_enabled")
 
     @rni_enhanced_metrics_enabled.setter
-    def rni_enhanced_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rni_enhanced_metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rni_enhanced_metrics_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetNameServerMetricsEnabled")
-    def target_name_server_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def target_name_server_metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
         """
         return pulumi.get(self, "target_name_server_metrics_enabled")
 
     @target_name_server_metrics_enabled.setter
-    def target_name_server_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def target_name_server_metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "target_name_server_metrics_enabled", value)
 
 
@@ -247,29 +247,28 @@ class ResolverEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns64_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressRequestArgs', 'ResolverEndpointIpAddressRequestArgsDict']]]]] = None,
-                 ipv6_internet_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resolver_endpoint_type: Optional[pulumi.Input['ResolverEndpointType']] = None,
-                 rni_enhanced_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns64_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressRequestArgs', 'ResolverEndpointIpAddressRequestArgsDict']]]]] = None,
+                 ipv6_internet_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resolver_endpoint_type: pulumi.Input[Optional['ResolverEndpointType']] = None,
+                 rni_enhanced_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_name_server_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::Route53Resolver::ResolverEndpoint
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] direction: Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
-               - INBOUND: allows DNS queries to your VPC from your network 
-               - OUTBOUND: allows DNS queries from your VPC to your network 
+               - INBOUND: allows DNS queries to your VPC from your network
+               - OUTBOUND: allows DNS queries from your VPC to your network
                - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
         :param pulumi.Input[_builtins.bool] dns64_enabled: Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint. When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressRequestArgs', 'ResolverEndpointIpAddressRequestArgsDict']]]] ip_addresses: The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
@@ -293,7 +292,6 @@ class ResolverEndpoint(pulumi.CustomResource):
         """
         Resource type definition for AWS::Route53Resolver::ResolverEndpoint
 
-
         :param str resource_name: The name of the resource.
         :param ResolverEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -309,19 +307,19 @@ class ResolverEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns64_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressRequestArgs', 'ResolverEndpointIpAddressRequestArgsDict']]]]] = None,
-                 ipv6_internet_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resolver_endpoint_type: Optional[pulumi.Input['ResolverEndpointType']] = None,
-                 rni_enhanced_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns64_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressRequestArgs', 'ResolverEndpointIpAddressRequestArgsDict']]]]] = None,
+                 ipv6_internet_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resolver_endpoint_type: pulumi.Input[Optional['ResolverEndpointType']] = None,
+                 rni_enhanced_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_name_server_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -410,8 +408,8 @@ class ResolverEndpoint(pulumi.CustomResource):
     def direction(self) -> pulumi.Output[_builtins.str]:
         """
         Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
-        - INBOUND: allows DNS queries to your VPC from your network 
-        - OUTBOUND: allows DNS queries from your VPC to your network 
+        - INBOUND: allows DNS queries to your VPC from your network
+        - OUTBOUND: allows DNS queries from your VPC to your network
         - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
         """
         return pulumi.get(self, "direction")

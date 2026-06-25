@@ -27,9 +27,9 @@ class SubscriptionTargetArgs:
                  environment_identifier: pulumi.Input[_builtins.str],
                  subscription_target_config: pulumi.Input[Sequence[pulumi.Input['SubscriptionTargetFormArgs']]],
                  type: pulumi.Input[_builtins.str],
-                 manage_access_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider: Optional[pulumi.Input[_builtins.str]] = None):
+                 manage_access_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SubscriptionTarget resource.
 
@@ -130,38 +130,38 @@ class SubscriptionTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="manageAccessRole")
-    def manage_access_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manage_access_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The manage access role that is used to create the subscription target.
         """
         return pulumi.get(self, "manage_access_role")
 
     @manage_access_role.setter
-    def manage_access_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manage_access_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manage_access_role", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the subscription target.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The provider of the subscription target.
         """
         return pulumi.get(self, "provider")
 
     @provider.setter
-    def provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider", value)
 
 
@@ -171,19 +171,18 @@ class SubscriptionTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applicable_asset_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authorized_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 manage_access_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_target_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionTargetFormArgs', 'SubscriptionTargetFormArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 applicable_asset_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authorized_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 manage_access_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_target_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionTargetFormArgs', 'SubscriptionTargetFormArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Subscription targets enables one to access the data to which you have subscribed in your projects.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,7 +205,6 @@ class SubscriptionTarget(pulumi.CustomResource):
         """
         Subscription targets enables one to access the data to which you have subscribed in your projects.
 
-
         :param str resource_name: The name of the resource.
         :param SubscriptionTargetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,15 +220,15 @@ class SubscriptionTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applicable_asset_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authorized_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 manage_access_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_target_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionTargetFormArgs', 'SubscriptionTargetFormArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 applicable_asset_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authorized_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 manage_access_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_target_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionTargetFormArgs', 'SubscriptionTargetFormArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

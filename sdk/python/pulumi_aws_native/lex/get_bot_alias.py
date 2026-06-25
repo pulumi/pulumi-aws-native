@@ -163,7 +163,6 @@ def get_bot_alias(bot_alias_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
 
-
     :param _builtins.str bot_alias_id: The unique identifier of the bot alias.
     :param _builtins.str bot_id: The unique identifier of the bot.
     """
@@ -184,12 +183,11 @@ def get_bot_alias(bot_alias_id: Optional[_builtins.str] = None,
         conversation_log_settings=pulumi.get(__ret__, 'conversation_log_settings'),
         description=pulumi.get(__ret__, 'description'),
         sentiment_analysis_settings=pulumi.get(__ret__, 'sentiment_analysis_settings'))
-def get_bot_alias_output(bot_alias_id: Optional[pulumi.Input[_builtins.str]] = None,
-                         bot_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bot_alias_output(bot_alias_id: pulumi.Input[Optional[_builtins.str]] = None,
+                         bot_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotAliasResult]:
     """
     Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
-
 
     :param _builtins.str bot_alias_id: The unique identifier of the bot alias.
     :param _builtins.str bot_id: The unique identifier of the bot.

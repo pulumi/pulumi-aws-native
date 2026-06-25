@@ -51,7 +51,6 @@ def get_resource_policy(workspace_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::APS::ResourcePolicy
 
-
     :param _builtins.str workspace_arn: The Arn of an APS Workspace that the PolicyDocument will be attached to.
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_resource_policy(workspace_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetResourcePolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
-def get_resource_policy_output(workspace_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_policy_output(workspace_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     Resource Type definition for AWS::APS::ResourcePolicy
-
 
     :param _builtins.str workspace_arn: The Arn of an APS Workspace that the PolicyDocument will be attached to.
     """

@@ -22,11 +22,11 @@ __all__ = ['BackupVaultArgs', 'BackupVault']
 class BackupVaultArgs:
     def __init__(__self__, *,
                  access_policy: Optional[Any] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_configuration: Optional[pulumi.Input['BackupVaultLockConfigurationTypeArgs']] = None,
-                 notifications: Optional[pulumi.Input['BackupVaultNotificationObjectTypeArgs']] = None):
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_vault_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_configuration: pulumi.Input[Optional['BackupVaultLockConfigurationTypeArgs']] = None,
+                 notifications: pulumi.Input[Optional['BackupVaultNotificationObjectTypeArgs']] = None):
         """
         The set of arguments for constructing a BackupVault resource.
 
@@ -70,31 +70,31 @@ class BackupVaultArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupVaultName")
-    def backup_vault_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_vault_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
         """
         return pulumi.get(self, "backup_vault_name")
 
     @backup_vault_name.setter
-    def backup_vault_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_vault_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_vault_name", value)
 
     @_builtins.property
     @pulumi.getter(name="backupVaultTags")
-    def backup_vault_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def backup_vault_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags to assign to the backup vault.
         """
         return pulumi.get(self, "backup_vault_tags")
 
     @backup_vault_tags.setter
-    def backup_vault_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def backup_vault_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "backup_vault_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
-    def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
 
@@ -103,31 +103,31 @@ class BackupVaultArgs:
         return pulumi.get(self, "encryption_key_arn")
 
     @encryption_key_arn.setter
-    def encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="lockConfiguration")
-    def lock_configuration(self) -> Optional[pulumi.Input['BackupVaultLockConfigurationTypeArgs']]:
+    def lock_configuration(self) -> pulumi.Input[Optional['BackupVaultLockConfigurationTypeArgs']]:
         """
         Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
         """
         return pulumi.get(self, "lock_configuration")
 
     @lock_configuration.setter
-    def lock_configuration(self, value: Optional[pulumi.Input['BackupVaultLockConfigurationTypeArgs']]):
+    def lock_configuration(self, value: pulumi.Input[Optional['BackupVaultLockConfigurationTypeArgs']]):
         pulumi.set(self, "lock_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input['BackupVaultNotificationObjectTypeArgs']]:
+    def notifications(self) -> pulumi.Input[Optional['BackupVaultNotificationObjectTypeArgs']]:
         """
         The SNS event notifications for the specified backup vault.
         """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input['BackupVaultNotificationObjectTypeArgs']]):
+    def notifications(self, value: pulumi.Input[Optional['BackupVaultNotificationObjectTypeArgs']]):
         pulumi.set(self, "notifications", value)
 
 
@@ -138,15 +138,14 @@ class BackupVault(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy: Optional[Any] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_configuration: Optional[pulumi.Input[Union['BackupVaultLockConfigurationTypeArgs', 'BackupVaultLockConfigurationTypeArgsDict']]] = None,
-                 notifications: Optional[pulumi.Input[Union['BackupVaultNotificationObjectTypeArgs', 'BackupVaultNotificationObjectTypeArgsDict']]] = None,
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_vault_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_configuration: pulumi.Input[Optional[Union['BackupVaultLockConfigurationTypeArgs', 'BackupVaultLockConfigurationTypeArgsDict']]] = None,
+                 notifications: pulumi.Input[Optional[Union['BackupVaultNotificationObjectTypeArgs', 'BackupVaultNotificationObjectTypeArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Backup::BackupVault
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,7 +169,6 @@ class BackupVault(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Backup::BackupVault
 
-
         :param str resource_name: The name of the resource.
         :param BackupVaultArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,11 +185,11 @@ class BackupVault(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy: Optional[Any] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_configuration: Optional[pulumi.Input[Union['BackupVaultLockConfigurationTypeArgs', 'BackupVaultLockConfigurationTypeArgsDict']]] = None,
-                 notifications: Optional[pulumi.Input[Union['BackupVaultNotificationObjectTypeArgs', 'BackupVaultNotificationObjectTypeArgsDict']]] = None,
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_vault_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_configuration: pulumi.Input[Optional[Union['BackupVaultLockConfigurationTypeArgs', 'BackupVaultLockConfigurationTypeArgsDict']]] = None,
+                 notifications: pulumi.Input[Optional[Union['BackupVaultNotificationObjectTypeArgs', 'BackupVaultNotificationObjectTypeArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

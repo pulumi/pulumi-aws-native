@@ -23,8 +23,8 @@ class UserPoolResourceServerArgs:
     def __init__(__self__, *,
                  identifier: pulumi.Input[_builtins.str],
                  user_pool_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolResourceServerResourceServerScopeTypeArgs']]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input['UserPoolResourceServerResourceServerScopeTypeArgs']]]] = None):
         """
         The set of arguments for constructing a UserPoolResourceServer resource.
 
@@ -70,26 +70,26 @@ class UserPoolResourceServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name for the resource server.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolResourceServerResourceServerScopeTypeArgs']]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserPoolResourceServerResourceServerScopeTypeArgs']]]]:
         """
         A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolResourceServerResourceServerScopeTypeArgs']]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserPoolResourceServerResourceServerScopeTypeArgs']]]]):
         pulumi.set(self, "scopes", value)
 
 
@@ -99,14 +99,13 @@ class UserPoolResourceServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPoolResourceServerResourceServerScopeTypeArgs', 'UserPoolResourceServerResourceServerScopeTypeArgsDict']]]]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolResourceServerResourceServerScopeTypeArgs', 'UserPoolResourceServerResourceServerScopeTypeArgsDict']]]]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Cognito::UserPoolResourceServer
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,7 +125,6 @@ class UserPoolResourceServer(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::UserPoolResourceServer
 
-
         :param str resource_name: The name of the resource.
         :param UserPoolResourceServerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,10 +140,10 @@ class UserPoolResourceServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPoolResourceServerResourceServerScopeTypeArgs', 'UserPoolResourceServerResourceServerScopeTypeArgsDict']]]]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolResourceServerResourceServerScopeTypeArgs', 'UserPoolResourceServerResourceServerScopeTypeArgsDict']]]]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

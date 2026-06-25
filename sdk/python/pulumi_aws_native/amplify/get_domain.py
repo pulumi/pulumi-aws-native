@@ -166,7 +166,6 @@ def get_domain(arn: Optional[_builtins.str] = None,
     """
     The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
 
-
     :param _builtins.str arn: ARN for the Domain Association.
     """
     __args__ = dict()
@@ -185,11 +184,10 @@ def get_domain(arn: Optional[_builtins.str] = None,
         status_reason=pulumi.get(__ret__, 'status_reason'),
         sub_domain_settings=pulumi.get(__ret__, 'sub_domain_settings'),
         update_status=pulumi.get(__ret__, 'update_status'))
-def get_domain_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
-
 
     :param _builtins.str arn: ARN for the Domain Association.
     """

@@ -38,15 +38,15 @@ class AutoNamingArgsDict(TypedDict):
     """
     Auto-naming specification for the resource.
     """
-    max_length: NotRequired[pulumi.Input[_builtins.int]]
+    max_length: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum length of the name.
     """
-    min_length: NotRequired[pulumi.Input[_builtins.int]]
+    min_length: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum length of the name.
     """
-    property_name: NotRequired[pulumi.Input[_builtins.str]]
+    property_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the property in the Cloud Control payload that is used to set the name of the resource.
     """
@@ -54,9 +54,9 @@ class AutoNamingArgsDict(TypedDict):
 @pulumi.input_type
 class AutoNamingArgs:
     def __init__(__self__, *,
-                 max_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 property_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 max_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 property_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Auto-naming specification for the resource.
 
@@ -73,38 +73,38 @@ class AutoNamingArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxLength")
-    def max_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum length of the name.
         """
         return pulumi.get(self, "max_length")
 
     @max_length.setter
-    def max_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_length", value)
 
     @_builtins.property
     @pulumi.getter(name="minLength")
-    def min_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum length of the name.
         """
         return pulumi.get(self, "min_length")
 
     @min_length.setter
-    def min_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_length", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyName")
-    def property_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def property_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the property in the Cloud Control payload that is used to set the name of the resource.
         """
         return pulumi.get(self, "property_name")
 
     @property_name.setter
-    def property_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def property_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "property_name", value)
 
 
@@ -164,35 +164,35 @@ class ProviderAssumeRoleArgsDict(TypedDict):
     """
     The configuration for a Provider to assume a role.
     """
-    duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    duration_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of seconds to restrict the assume role session duration.
     """
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     External identifier to use when assuming the role.
     """
-    policy: NotRequired[pulumi.Input[_builtins.str]]
+    policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
     """
-    policy_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    policy_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Set of Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the role.
     """
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Amazon Resource Name (ARN) of the IAM Role to assume.
     """
-    session_name: NotRequired[pulumi.Input[_builtins.str]]
+    session_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Session name to use when assuming the role.
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Map of assume role session tags.
     """
-    transitive_tag_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    transitive_tag_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive, the corresponding key and value passes to subsequent sessions in a role chain.
     """
@@ -200,14 +200,14 @@ class ProviderAssumeRoleArgsDict(TypedDict):
 @pulumi.input_type
 class ProviderAssumeRoleArgs:
     def __init__(__self__, *,
-                 duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 transitive_tag_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 transitive_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration for a Provider to assume a role.
 
@@ -239,98 +239,98 @@ class ProviderAssumeRoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="durationSeconds")
-    def duration_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of seconds to restrict the assume role session duration.
         """
         return pulumi.get(self, "duration_seconds")
 
     @duration_seconds.setter
-    def duration_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         External identifier to use when assuming the role.
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter(name="policyArns")
-    def policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def policy_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the role.
         """
         return pulumi.get(self, "policy_arns")
 
     @policy_arns.setter
-    def policy_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def policy_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "policy_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the IAM Role to assume.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionName")
-    def session_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Session name to use when assuming the role.
         """
         return pulumi.get(self, "session_name")
 
     @session_name.setter
-    def session_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of assume role session tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="transitiveTagKeys")
-    def transitive_tag_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def transitive_tag_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive, the corresponding key and value passes to subsequent sessions in a role chain.
         """
         return pulumi.get(self, "transitive_tag_keys")
 
     @transitive_tag_keys.setter
-    def transitive_tag_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def transitive_tag_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "transitive_tag_keys", value)
 
 
@@ -338,11 +338,11 @@ class ProviderAutoNamingArgsDict(TypedDict):
     """
     The configuration for automatically naming resources.
     """
-    auto_trim: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_trim: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Automatically trim the auto-generated name to meet the maximum length constraint.
     """
-    random_suffix_min_length: NotRequired[pulumi.Input[_builtins.int]]
+    random_suffix_min_length: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum length of the random suffix to append to the auto-generated name.
     """
@@ -350,8 +350,8 @@ class ProviderAutoNamingArgsDict(TypedDict):
 @pulumi.input_type
 class ProviderAutoNamingArgs:
     def __init__(__self__, *,
-                 auto_trim: Optional[pulumi.Input[_builtins.bool]] = None,
-                 random_suffix_min_length: Optional[pulumi.Input[_builtins.int]] = None):
+                 auto_trim: pulumi.Input[Optional[_builtins.bool]] = None,
+                 random_suffix_min_length: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The configuration for automatically naming resources.
 
@@ -367,26 +367,26 @@ class ProviderAutoNamingArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoTrim")
-    def auto_trim(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_trim(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Automatically trim the auto-generated name to meet the maximum length constraint.
         """
         return pulumi.get(self, "auto_trim")
 
     @auto_trim.setter
-    def auto_trim(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_trim(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_trim", value)
 
     @_builtins.property
     @pulumi.getter(name="randomSuffixMinLength")
-    def random_suffix_min_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def random_suffix_min_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum length of the random suffix to append to the auto-generated name.
         """
         return pulumi.get(self, "random_suffix_min_length")
 
     @random_suffix_min_length.setter
-    def random_suffix_min_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def random_suffix_min_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "random_suffix_min_length", value)
 
 
@@ -394,7 +394,7 @@ class ProviderDefaultTagsArgsDict(TypedDict):
     """
     The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A group of tags to set across all resources.
     """
@@ -402,7 +402,7 @@ class ProviderDefaultTagsArgsDict(TypedDict):
 @pulumi.input_type
 class ProviderDefaultTagsArgs:
     def __init__(__self__, *,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
 
@@ -413,14 +413,14 @@ class ProviderDefaultTagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A group of tags to set across all resources.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -428,23 +428,23 @@ class ProviderEndpointArgsDict(TypedDict):
     """
     The configuration for for customizing service endpoints.
     """
-    cloudcontrol: NotRequired[pulumi.Input[_builtins.str]]
+    cloudcontrol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Override the default endpoint for AWS CloudControl
     """
-    cloudformation: NotRequired[pulumi.Input[_builtins.str]]
+    cloudformation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Override the default endpoint for AWS CloudFormation
     """
-    ec2: NotRequired[pulumi.Input[_builtins.str]]
+    ec2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Override the default endpoint for AWS Elastic Compute Cloud (EC2)
     """
-    ssm: NotRequired[pulumi.Input[_builtins.str]]
+    ssm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Override the default endpoint for AWS Systems Manager
     """
-    sts: NotRequired[pulumi.Input[_builtins.str]]
+    sts: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Override the default endpoint for AWS Security Token Service (STS)
     """
@@ -452,11 +452,11 @@ class ProviderEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class ProviderEndpointArgs:
     def __init__(__self__, *,
-                 cloudcontrol: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloudformation: Optional[pulumi.Input[_builtins.str]] = None,
-                 ec2: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssm: Optional[pulumi.Input[_builtins.str]] = None,
-                 sts: Optional[pulumi.Input[_builtins.str]] = None):
+                 cloudcontrol: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloudformation: pulumi.Input[Optional[_builtins.str]] = None,
+                 ec2: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssm: pulumi.Input[Optional[_builtins.str]] = None,
+                 sts: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration for for customizing service endpoints.
 
@@ -479,62 +479,62 @@ class ProviderEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cloudcontrol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloudcontrol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Override the default endpoint for AWS CloudControl
         """
         return pulumi.get(self, "cloudcontrol")
 
     @cloudcontrol.setter
-    def cloudcontrol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloudcontrol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloudcontrol", value)
 
     @_builtins.property
     @pulumi.getter
-    def cloudformation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloudformation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Override the default endpoint for AWS CloudFormation
         """
         return pulumi.get(self, "cloudformation")
 
     @cloudformation.setter
-    def cloudformation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloudformation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloudformation", value)
 
     @_builtins.property
     @pulumi.getter
-    def ec2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ec2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Override the default endpoint for AWS Elastic Compute Cloud (EC2)
         """
         return pulumi.get(self, "ec2")
 
     @ec2.setter
-    def ec2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ec2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ec2", value)
 
     @_builtins.property
     @pulumi.getter
-    def ssm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Override the default endpoint for AWS Systems Manager
         """
         return pulumi.get(self, "ssm")
 
     @ssm.setter
-    def ssm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssm", value)
 
     @_builtins.property
     @pulumi.getter
-    def sts(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sts(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Override the default endpoint for AWS Security Token Service (STS)
         """
         return pulumi.get(self, "sts")
 
     @sts.setter
-    def sts(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sts(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sts", value)
 
 
@@ -542,11 +542,11 @@ class ProviderIgnoreTagsArgsDict(TypedDict):
     """
     The configuration with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
     """
-    key_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    key_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of exact resource tag keys to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning the tag in any `tags` attributes and displaying any configuration difference for the tag value. If any resource configuration still has this tag key configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.
     """
-    keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of resource tag key prefixes to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning any tag key matching the prefixes in any `tags` attributes and displaying any configuration difference for those tag values. If any resource configuration still has a tag matching one of the prefixes configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.
     """
@@ -554,8 +554,8 @@ class ProviderIgnoreTagsArgsDict(TypedDict):
 @pulumi.input_type
 class ProviderIgnoreTagsArgs:
     def __init__(__self__, *,
-                 key_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
 
@@ -569,26 +569,26 @@ class ProviderIgnoreTagsArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyPrefixes")
-    def key_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def key_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of exact resource tag keys to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning the tag in any `tags` attributes and displaying any configuration difference for the tag value. If any resource configuration still has this tag key configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.
         """
         return pulumi.get(self, "key_prefixes")
 
     @key_prefixes.setter
-    def key_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def key_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "key_prefixes", value)
 
     @_builtins.property
     @pulumi.getter
-    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of resource tag key prefixes to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning any tag key matching the prefixes in any `tags` attributes and displaying any configuration difference for those tag values. If any resource configuration still has a tag matching one of the prefixes configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.
         """
         return pulumi.get(self, "keys")
 
     @keys.setter
-    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "keys", value)
 
 

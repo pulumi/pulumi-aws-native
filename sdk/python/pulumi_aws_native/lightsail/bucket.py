@@ -24,12 +24,12 @@ __all__ = ['BucketArgs', 'Bucket']
 class BucketArgs:
     def __init__(__self__, *,
                  bundle_id: pulumi.Input[_builtins.str],
-                 access_rules: Optional[pulumi.Input['BucketAccessRulesArgs']] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_versioning: Optional[pulumi.Input[_builtins.bool]] = None,
-                 read_only_access_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resources_receiving_access: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 access_rules: pulumi.Input[Optional['BucketAccessRulesArgs']] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_versioning: pulumi.Input[Optional[_builtins.bool]] = None,
+                 read_only_access_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resources_receiving_access: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Bucket resource.
 
@@ -69,74 +69,74 @@ class BucketArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessRules")
-    def access_rules(self) -> Optional[pulumi.Input['BucketAccessRulesArgs']]:
+    def access_rules(self) -> pulumi.Input[Optional['BucketAccessRulesArgs']]:
         """
         An object that describes the access rules for the bucket.
         """
         return pulumi.get(self, "access_rules")
 
     @access_rules.setter
-    def access_rules(self, value: Optional[pulumi.Input['BucketAccessRulesArgs']]):
+    def access_rules(self, value: pulumi.Input[Optional['BucketAccessRulesArgs']]):
         pulumi.set(self, "access_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the bucket.
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="objectVersioning")
-    def object_versioning(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def object_versioning(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable or disable versioning of objects in the bucket.
         """
         return pulumi.get(self, "object_versioning")
 
     @object_versioning.setter
-    def object_versioning(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def object_versioning(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "object_versioning", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnlyAccessAccounts")
-    def read_only_access_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def read_only_access_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of strings to specify the AWS account IDs that can access the bucket.
         """
         return pulumi.get(self, "read_only_access_accounts")
 
     @read_only_access_accounts.setter
-    def read_only_access_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def read_only_access_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "read_only_access_accounts", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcesReceivingAccess")
-    def resources_receiving_access(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resources_receiving_access(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names of the Lightsail resources for which to set bucket access.
         """
         return pulumi.get(self, "resources_receiving_access")
 
     @resources_receiving_access.setter
-    def resources_receiving_access(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resources_receiving_access(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resources_receiving_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -146,17 +146,16 @@ class Bucket(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_rules: Optional[pulumi.Input[Union['BucketAccessRulesArgs', 'BucketAccessRulesArgsDict']]] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_versioning: Optional[pulumi.Input[_builtins.bool]] = None,
-                 read_only_access_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resources_receiving_access: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 access_rules: pulumi.Input[Optional[Union['BucketAccessRulesArgs', 'BucketAccessRulesArgsDict']]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_versioning: pulumi.Input[Optional[_builtins.bool]] = None,
+                 read_only_access_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resources_receiving_access: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lightsail::Bucket
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,7 +176,6 @@ class Bucket(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lightsail::Bucket
 
-
         :param str resource_name: The name of the resource.
         :param BucketArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,13 +191,13 @@ class Bucket(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_rules: Optional[pulumi.Input[Union['BucketAccessRulesArgs', 'BucketAccessRulesArgsDict']]] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_versioning: Optional[pulumi.Input[_builtins.bool]] = None,
-                 read_only_access_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resources_receiving_access: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 access_rules: pulumi.Input[Optional[Union['BucketAccessRulesArgs', 'BucketAccessRulesArgsDict']]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_versioning: pulumi.Input[Optional[_builtins.bool]] = None,
+                 read_only_access_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resources_receiving_access: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -113,7 +113,6 @@ def get_ingest_configuration(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::IVS::IngestConfiguration
 
-
     :param _builtins.str arn: IngestConfiguration ARN is automatically generated on creation and assigned as the unique identifier.
     """
     __args__ = dict()
@@ -128,11 +127,10 @@ def get_ingest_configuration(arn: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         stream_key=pulumi.get(__ret__, 'stream_key'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_ingest_configuration_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ingest_configuration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIngestConfigurationResult]:
     """
     Resource Type definition for AWS::IVS::IngestConfiguration
-
 
     :param _builtins.str arn: IngestConfiguration ARN is automatically generated on creation and assigned as the unique identifier.
     """

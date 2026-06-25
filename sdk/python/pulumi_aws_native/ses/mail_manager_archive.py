@@ -24,10 +24,10 @@ __all__ = ['MailManagerArchiveArgs', 'MailManagerArchive']
 @pulumi.input_type
 class MailManagerArchiveArgs:
     def __init__(__self__, *,
-                 archive_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention: Optional[pulumi.Input['MailManagerArchiveArchiveRetentionPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 archive_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention: pulumi.Input[Optional['MailManagerArchiveArchiveRetentionPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MailManagerArchive resource.
 
@@ -47,50 +47,50 @@ class MailManagerArchiveArgs:
 
     @_builtins.property
     @pulumi.getter(name="archiveName")
-    def archive_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def archive_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique name for the new archive.
         """
         return pulumi.get(self, "archive_name")
 
     @archive_name.setter
-    def archive_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def archive_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "archive_name", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the KMS key for encrypting emails in the archive.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def retention(self) -> Optional[pulumi.Input['MailManagerArchiveArchiveRetentionPropertiesArgs']]:
+    def retention(self) -> pulumi.Input[Optional['MailManagerArchiveArchiveRetentionPropertiesArgs']]:
         """
         The period for retaining emails in the archive before automatic deletion.
         """
         return pulumi.get(self, "retention")
 
     @retention.setter
-    def retention(self, value: Optional[pulumi.Input['MailManagerArchiveArchiveRetentionPropertiesArgs']]):
+    def retention(self, value: pulumi.Input[Optional['MailManagerArchiveArchiveRetentionPropertiesArgs']]):
         pulumi.set(self, "retention", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -100,14 +100,13 @@ class MailManagerArchive(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 archive_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention: Optional[pulumi.Input[Union['MailManagerArchiveArchiveRetentionPropertiesArgs', 'MailManagerArchiveArchiveRetentionPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 archive_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention: pulumi.Input[Optional[Union['MailManagerArchiveArchiveRetentionPropertiesArgs', 'MailManagerArchiveArchiveRetentionPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::SES::MailManagerArchive Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +124,6 @@ class MailManagerArchive(pulumi.CustomResource):
         """
         Definition of AWS::SES::MailManagerArchive Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param MailManagerArchiveArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,10 +139,10 @@ class MailManagerArchive(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 archive_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention: Optional[pulumi.Input[Union['MailManagerArchiveArchiveRetentionPropertiesArgs', 'MailManagerArchiveArchiveRetentionPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 archive_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention: pulumi.Input[Optional[Union['MailManagerArchiveArchiveRetentionPropertiesArgs', 'MailManagerArchiveArchiveRetentionPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

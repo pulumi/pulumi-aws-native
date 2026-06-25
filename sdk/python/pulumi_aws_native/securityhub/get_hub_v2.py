@@ -75,7 +75,6 @@ def get_hub_v2(hub_v2_arn: Optional[_builtins.str] = None,
     """
     The AWS::SecurityHub::HubV2 resource represents the implementation of the AWS Security Hub V2 service in your account. Only one hubv2 resource can created in each region in which you enable Security Hub V2.
 
-
     :param _builtins.str hub_v2_arn: The Amazon Resource Name of the Security Hub V2 resource.
     """
     __args__ = dict()
@@ -87,11 +86,10 @@ def get_hub_v2(hub_v2_arn: Optional[_builtins.str] = None,
         hub_v2_arn=pulumi.get(__ret__, 'hub_v2_arn'),
         subscribed_at=pulumi.get(__ret__, 'subscribed_at'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_hub_v2_output(hub_v2_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hub_v2_output(hub_v2_arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHubV2Result]:
     """
     The AWS::SecurityHub::HubV2 resource represents the implementation of the AWS Security Hub V2 service in your account. Only one hubv2 resource can created in each region in which you enable Security Hub V2.
-
 
     :param _builtins.str hub_v2_arn: The Amazon Resource Name of the Security Hub V2 resource.
     """

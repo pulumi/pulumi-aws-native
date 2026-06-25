@@ -188,7 +188,6 @@ def get_data_source(data_source_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::AppSync::DataSource
 
-
     :param _builtins.str data_source_arn: The Amazon Resource Name (ARN) of the API key, such as arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/datasources/datasourcename.
     """
     __args__ = dict()
@@ -209,11 +208,10 @@ def get_data_source(data_source_arn: Optional[_builtins.str] = None,
         relational_database_config=pulumi.get(__ret__, 'relational_database_config'),
         service_role_arn=pulumi.get(__ret__, 'service_role_arn'),
         type=pulumi.get(__ret__, 'type'))
-def get_data_source_output(data_source_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_source_output(data_source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Resource Type definition for AWS::AppSync::DataSource
-
 
     :param _builtins.str data_source_arn: The Amazon Resource Name (ARN) of the API key, such as arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/datasources/datasourcename.
     """

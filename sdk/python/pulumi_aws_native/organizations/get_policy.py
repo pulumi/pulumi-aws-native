@@ -138,7 +138,6 @@ def get_policy(id: Optional[_builtins.str] = None,
     """
     Policies in AWS Organizations enable you to manage different features of the AWS accounts in your organization.  You can use policies when all features are enabled in your organization.
 
-
     :param _builtins.str id: Id of the Policy
     """
     __args__ = dict()
@@ -155,11 +154,10 @@ def get_policy(id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         target_ids=pulumi.get(__ret__, 'target_ids'))
-def get_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Policies in AWS Organizations enable you to manage different features of the AWS accounts in your organization.  You can use policies when all features are enabled in your organization.
-
 
     :param _builtins.str id: Id of the Policy
     """

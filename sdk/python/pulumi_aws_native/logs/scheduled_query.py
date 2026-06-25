@@ -28,16 +28,16 @@ class ScheduledQueryArgs:
                  query_language: pulumi.Input[_builtins.str],
                  query_string: pulumi.Input[_builtins.str],
                  schedule_expression: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_configuration: Optional[pulumi.Input['ScheduledQueryDestinationConfigurationArgs']] = None,
-                 log_group_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_end_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 schedule_start_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 start_time_offset: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input['ScheduledQueryState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_configuration: pulumi.Input[Optional['ScheduledQueryDestinationConfigurationArgs']] = None,
+                 log_group_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_end_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 schedule_start_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 start_time_offset: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional['ScheduledQueryState']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScheduledQuery resource.
         """
@@ -104,92 +104,92 @@ class ScheduledQueryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationConfiguration")
-    def destination_configuration(self) -> Optional[pulumi.Input['ScheduledQueryDestinationConfigurationArgs']]:
+    def destination_configuration(self) -> pulumi.Input[Optional['ScheduledQueryDestinationConfigurationArgs']]:
         return pulumi.get(self, "destination_configuration")
 
     @destination_configuration.setter
-    def destination_configuration(self, value: Optional[pulumi.Input['ScheduledQueryDestinationConfigurationArgs']]):
+    def destination_configuration(self, value: pulumi.Input[Optional['ScheduledQueryDestinationConfigurationArgs']]):
         pulumi.set(self, "destination_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="logGroupIdentifiers")
-    def log_group_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def log_group_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "log_group_identifiers")
 
     @log_group_identifiers.setter
-    def log_group_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def log_group_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "log_group_identifiers", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleEndTime")
-    def schedule_end_time(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def schedule_end_time(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "schedule_end_time")
 
     @schedule_end_time.setter
-    def schedule_end_time(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def schedule_end_time(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "schedule_end_time", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleStartTime")
-    def schedule_start_time(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def schedule_start_time(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "schedule_start_time")
 
     @schedule_start_time.setter
-    def schedule_start_time(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def schedule_start_time(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "schedule_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="startTimeOffset")
-    def start_time_offset(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_time_offset(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "start_time_offset")
 
     @start_time_offset.setter
-    def start_time_offset(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_time_offset(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_time_offset", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['ScheduledQueryState']]:
+    def state(self) -> pulumi.Input[Optional['ScheduledQueryState']]:
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['ScheduledQueryState']]):
+    def state(self, value: pulumi.Input[Optional['ScheduledQueryState']]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
 
@@ -199,24 +199,23 @@ class ScheduledQuery(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_configuration: Optional[pulumi.Input[Union['ScheduledQueryDestinationConfigurationArgs', 'ScheduledQueryDestinationConfigurationArgsDict']]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_end_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 schedule_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_start_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 start_time_offset: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input['ScheduledQueryState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_configuration: pulumi.Input[Optional[Union['ScheduledQueryDestinationConfigurationArgs', 'ScheduledQueryDestinationConfigurationArgsDict']]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_end_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_start_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 start_time_offset: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional['ScheduledQueryState']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates a new Scheduled Query that allows you to define a Logs Insights query that will run on a schedule and configure actions to take with the query results.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,7 +228,6 @@ class ScheduledQuery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a new Scheduled Query that allows you to define a Logs Insights query that will run on a schedule and configure actions to take with the query results.
-
 
         :param str resource_name: The name of the resource.
         :param ScheduledQueryArgs args: The arguments to use to populate this resource's properties.
@@ -246,20 +244,20 @@ class ScheduledQuery(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_configuration: Optional[pulumi.Input[Union['ScheduledQueryDestinationConfigurationArgs', 'ScheduledQueryDestinationConfigurationArgsDict']]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_end_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 schedule_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_start_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 start_time_offset: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input['ScheduledQueryState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_configuration: pulumi.Input[Optional[Union['ScheduledQueryDestinationConfigurationArgs', 'ScheduledQueryDestinationConfigurationArgsDict']]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_end_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_start_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 start_time_offset: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional['ScheduledQueryState']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

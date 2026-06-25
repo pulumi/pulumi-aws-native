@@ -52,6 +52,8 @@ __all__ = [
     'TemplateGeneralFlagsV4ArgsDict',
     'TemplateGroupAccessControlEntryAccessRightsArgs',
     'TemplateGroupAccessControlEntryAccessRightsArgsDict',
+    'TemplateKeyUsageArgs',
+    'TemplateKeyUsageArgsDict',
     'TemplateKeyUsageFlagsArgs',
     'TemplateKeyUsageFlagsArgsDict',
     'TemplateKeyUsageProperty0PropertiesArgs',
@@ -60,8 +62,6 @@ __all__ = [
     'TemplateKeyUsageProperty1PropertiesArgsDict',
     'TemplateKeyUsagePropertyFlagsArgs',
     'TemplateKeyUsagePropertyFlagsArgsDict',
-    'TemplateKeyUsageArgs',
-    'TemplateKeyUsageArgsDict',
     'TemplatePrivateKeyAttributesV2Args',
     'TemplatePrivateKeyAttributesV2ArgsDict',
     'TemplatePrivateKeyAttributesV3Args',
@@ -95,7 +95,7 @@ class ConnectorVpcInformationArgsDict(TypedDict):
     """
     The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
     """
-    ip_address_type: NotRequired[pulumi.Input['ConnectorVpcInformationIpAddressType']]
+    ip_address_type: NotRequired[pulumi.Input[Optional['ConnectorVpcInformationIpAddressType']]]
     """
     The VPC IP address type.
     """
@@ -104,7 +104,7 @@ class ConnectorVpcInformationArgsDict(TypedDict):
 class ConnectorVpcInformationArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 ip_address_type: Optional[pulumi.Input['ConnectorVpcInformationIpAddressType']] = None):
+                 ip_address_type: pulumi.Input[Optional['ConnectorVpcInformationIpAddressType']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
         :param pulumi.Input['ConnectorVpcInformationIpAddressType'] ip_address_type: The VPC IP address type.
@@ -127,26 +127,26 @@ class ConnectorVpcInformationArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input['ConnectorVpcInformationIpAddressType']]:
+    def ip_address_type(self) -> pulumi.Input[Optional['ConnectorVpcInformationIpAddressType']]:
         """
         The VPC IP address type.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input['ConnectorVpcInformationIpAddressType']]):
+    def ip_address_type(self, value: pulumi.Input[Optional['ConnectorVpcInformationIpAddressType']]):
         pulumi.set(self, "ip_address_type", value)
 
 
 class TemplateApplicationPoliciesArgsDict(TypedDict):
     policies: pulumi.Input[Sequence[pulumi.Input[Union['TemplateApplicationPolicy0PropertiesArgsDict', 'TemplateApplicationPolicy1PropertiesArgsDict']]]]
-    critical: NotRequired[pulumi.Input[_builtins.bool]]
+    critical: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TemplateApplicationPoliciesArgs:
     def __init__(__self__, *,
                  policies: pulumi.Input[Sequence[pulumi.Input[Union['TemplateApplicationPolicy0PropertiesArgs', 'TemplateApplicationPolicy1PropertiesArgs']]]],
-                 critical: Optional[pulumi.Input[_builtins.bool]] = None):
+                 critical: pulumi.Input[Optional[_builtins.bool]] = None):
         pulumi.set(__self__, "policies", policies)
         if critical is not None:
             pulumi.set(__self__, "critical", critical)
@@ -162,11 +162,11 @@ class TemplateApplicationPoliciesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def critical(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def critical(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "critical")
 
     @critical.setter
-    def critical(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def critical(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "critical", value)
 
 
@@ -297,20 +297,20 @@ class TemplateDefinition2PropertiesArgs:
 
 
 class TemplateEnrollmentFlagsV2ArgsDict(TypedDict):
-    enable_key_reuse_on_nt_token_keyset_storage_full: NotRequired[pulumi.Input[_builtins.bool]]
-    include_symmetric_algorithms: NotRequired[pulumi.Input[_builtins.bool]]
-    no_security_extension: NotRequired[pulumi.Input[_builtins.bool]]
-    remove_invalid_certificate_from_personal_store: NotRequired[pulumi.Input[_builtins.bool]]
-    user_interaction_required: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_key_reuse_on_nt_token_keyset_storage_full: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    include_symmetric_algorithms: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    no_security_extension: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    remove_invalid_certificate_from_personal_store: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    user_interaction_required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TemplateEnrollmentFlagsV2Args:
     def __init__(__self__, *,
-                 enable_key_reuse_on_nt_token_keyset_storage_full: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_symmetric_algorithms: Optional[pulumi.Input[_builtins.bool]] = None,
-                 no_security_extension: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remove_invalid_certificate_from_personal_store: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_interaction_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enable_key_reuse_on_nt_token_keyset_storage_full: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_symmetric_algorithms: pulumi.Input[Optional[_builtins.bool]] = None,
+                 no_security_extension: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remove_invalid_certificate_from_personal_store: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_interaction_required: pulumi.Input[Optional[_builtins.bool]] = None):
         if enable_key_reuse_on_nt_token_keyset_storage_full is not None:
             pulumi.set(__self__, "enable_key_reuse_on_nt_token_keyset_storage_full", enable_key_reuse_on_nt_token_keyset_storage_full)
         if include_symmetric_algorithms is not None:
@@ -324,65 +324,65 @@ class TemplateEnrollmentFlagsV2Args:
 
     @_builtins.property
     @pulumi.getter(name="enableKeyReuseOnNtTokenKeysetStorageFull")
-    def enable_key_reuse_on_nt_token_keyset_storage_full(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_key_reuse_on_nt_token_keyset_storage_full(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_key_reuse_on_nt_token_keyset_storage_full")
 
     @enable_key_reuse_on_nt_token_keyset_storage_full.setter
-    def enable_key_reuse_on_nt_token_keyset_storage_full(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_key_reuse_on_nt_token_keyset_storage_full(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_key_reuse_on_nt_token_keyset_storage_full", value)
 
     @_builtins.property
     @pulumi.getter(name="includeSymmetricAlgorithms")
-    def include_symmetric_algorithms(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_symmetric_algorithms(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "include_symmetric_algorithms")
 
     @include_symmetric_algorithms.setter
-    def include_symmetric_algorithms(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_symmetric_algorithms(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_symmetric_algorithms", value)
 
     @_builtins.property
     @pulumi.getter(name="noSecurityExtension")
-    def no_security_extension(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def no_security_extension(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "no_security_extension")
 
     @no_security_extension.setter
-    def no_security_extension(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def no_security_extension(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "no_security_extension", value)
 
     @_builtins.property
     @pulumi.getter(name="removeInvalidCertificateFromPersonalStore")
-    def remove_invalid_certificate_from_personal_store(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remove_invalid_certificate_from_personal_store(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "remove_invalid_certificate_from_personal_store")
 
     @remove_invalid_certificate_from_personal_store.setter
-    def remove_invalid_certificate_from_personal_store(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remove_invalid_certificate_from_personal_store(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remove_invalid_certificate_from_personal_store", value)
 
     @_builtins.property
     @pulumi.getter(name="userInteractionRequired")
-    def user_interaction_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def user_interaction_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "user_interaction_required")
 
     @user_interaction_required.setter
-    def user_interaction_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def user_interaction_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "user_interaction_required", value)
 
 
 class TemplateEnrollmentFlagsV3ArgsDict(TypedDict):
-    enable_key_reuse_on_nt_token_keyset_storage_full: NotRequired[pulumi.Input[_builtins.bool]]
-    include_symmetric_algorithms: NotRequired[pulumi.Input[_builtins.bool]]
-    no_security_extension: NotRequired[pulumi.Input[_builtins.bool]]
-    remove_invalid_certificate_from_personal_store: NotRequired[pulumi.Input[_builtins.bool]]
-    user_interaction_required: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_key_reuse_on_nt_token_keyset_storage_full: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    include_symmetric_algorithms: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    no_security_extension: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    remove_invalid_certificate_from_personal_store: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    user_interaction_required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TemplateEnrollmentFlagsV3Args:
     def __init__(__self__, *,
-                 enable_key_reuse_on_nt_token_keyset_storage_full: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_symmetric_algorithms: Optional[pulumi.Input[_builtins.bool]] = None,
-                 no_security_extension: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remove_invalid_certificate_from_personal_store: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_interaction_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enable_key_reuse_on_nt_token_keyset_storage_full: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_symmetric_algorithms: pulumi.Input[Optional[_builtins.bool]] = None,
+                 no_security_extension: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remove_invalid_certificate_from_personal_store: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_interaction_required: pulumi.Input[Optional[_builtins.bool]] = None):
         if enable_key_reuse_on_nt_token_keyset_storage_full is not None:
             pulumi.set(__self__, "enable_key_reuse_on_nt_token_keyset_storage_full", enable_key_reuse_on_nt_token_keyset_storage_full)
         if include_symmetric_algorithms is not None:
@@ -396,65 +396,65 @@ class TemplateEnrollmentFlagsV3Args:
 
     @_builtins.property
     @pulumi.getter(name="enableKeyReuseOnNtTokenKeysetStorageFull")
-    def enable_key_reuse_on_nt_token_keyset_storage_full(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_key_reuse_on_nt_token_keyset_storage_full(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_key_reuse_on_nt_token_keyset_storage_full")
 
     @enable_key_reuse_on_nt_token_keyset_storage_full.setter
-    def enable_key_reuse_on_nt_token_keyset_storage_full(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_key_reuse_on_nt_token_keyset_storage_full(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_key_reuse_on_nt_token_keyset_storage_full", value)
 
     @_builtins.property
     @pulumi.getter(name="includeSymmetricAlgorithms")
-    def include_symmetric_algorithms(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_symmetric_algorithms(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "include_symmetric_algorithms")
 
     @include_symmetric_algorithms.setter
-    def include_symmetric_algorithms(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_symmetric_algorithms(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_symmetric_algorithms", value)
 
     @_builtins.property
     @pulumi.getter(name="noSecurityExtension")
-    def no_security_extension(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def no_security_extension(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "no_security_extension")
 
     @no_security_extension.setter
-    def no_security_extension(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def no_security_extension(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "no_security_extension", value)
 
     @_builtins.property
     @pulumi.getter(name="removeInvalidCertificateFromPersonalStore")
-    def remove_invalid_certificate_from_personal_store(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remove_invalid_certificate_from_personal_store(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "remove_invalid_certificate_from_personal_store")
 
     @remove_invalid_certificate_from_personal_store.setter
-    def remove_invalid_certificate_from_personal_store(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remove_invalid_certificate_from_personal_store(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remove_invalid_certificate_from_personal_store", value)
 
     @_builtins.property
     @pulumi.getter(name="userInteractionRequired")
-    def user_interaction_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def user_interaction_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "user_interaction_required")
 
     @user_interaction_required.setter
-    def user_interaction_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def user_interaction_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "user_interaction_required", value)
 
 
 class TemplateEnrollmentFlagsV4ArgsDict(TypedDict):
-    enable_key_reuse_on_nt_token_keyset_storage_full: NotRequired[pulumi.Input[_builtins.bool]]
-    include_symmetric_algorithms: NotRequired[pulumi.Input[_builtins.bool]]
-    no_security_extension: NotRequired[pulumi.Input[_builtins.bool]]
-    remove_invalid_certificate_from_personal_store: NotRequired[pulumi.Input[_builtins.bool]]
-    user_interaction_required: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_key_reuse_on_nt_token_keyset_storage_full: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    include_symmetric_algorithms: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    no_security_extension: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    remove_invalid_certificate_from_personal_store: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    user_interaction_required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TemplateEnrollmentFlagsV4Args:
     def __init__(__self__, *,
-                 enable_key_reuse_on_nt_token_keyset_storage_full: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_symmetric_algorithms: Optional[pulumi.Input[_builtins.bool]] = None,
-                 no_security_extension: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remove_invalid_certificate_from_personal_store: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_interaction_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enable_key_reuse_on_nt_token_keyset_storage_full: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_symmetric_algorithms: pulumi.Input[Optional[_builtins.bool]] = None,
+                 no_security_extension: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remove_invalid_certificate_from_personal_store: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_interaction_required: pulumi.Input[Optional[_builtins.bool]] = None):
         if enable_key_reuse_on_nt_token_keyset_storage_full is not None:
             pulumi.set(__self__, "enable_key_reuse_on_nt_token_keyset_storage_full", enable_key_reuse_on_nt_token_keyset_storage_full)
         if include_symmetric_algorithms is not None:
@@ -468,59 +468,59 @@ class TemplateEnrollmentFlagsV4Args:
 
     @_builtins.property
     @pulumi.getter(name="enableKeyReuseOnNtTokenKeysetStorageFull")
-    def enable_key_reuse_on_nt_token_keyset_storage_full(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_key_reuse_on_nt_token_keyset_storage_full(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_key_reuse_on_nt_token_keyset_storage_full")
 
     @enable_key_reuse_on_nt_token_keyset_storage_full.setter
-    def enable_key_reuse_on_nt_token_keyset_storage_full(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_key_reuse_on_nt_token_keyset_storage_full(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_key_reuse_on_nt_token_keyset_storage_full", value)
 
     @_builtins.property
     @pulumi.getter(name="includeSymmetricAlgorithms")
-    def include_symmetric_algorithms(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_symmetric_algorithms(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "include_symmetric_algorithms")
 
     @include_symmetric_algorithms.setter
-    def include_symmetric_algorithms(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_symmetric_algorithms(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_symmetric_algorithms", value)
 
     @_builtins.property
     @pulumi.getter(name="noSecurityExtension")
-    def no_security_extension(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def no_security_extension(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "no_security_extension")
 
     @no_security_extension.setter
-    def no_security_extension(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def no_security_extension(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "no_security_extension", value)
 
     @_builtins.property
     @pulumi.getter(name="removeInvalidCertificateFromPersonalStore")
-    def remove_invalid_certificate_from_personal_store(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remove_invalid_certificate_from_personal_store(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "remove_invalid_certificate_from_personal_store")
 
     @remove_invalid_certificate_from_personal_store.setter
-    def remove_invalid_certificate_from_personal_store(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remove_invalid_certificate_from_personal_store(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remove_invalid_certificate_from_personal_store", value)
 
     @_builtins.property
     @pulumi.getter(name="userInteractionRequired")
-    def user_interaction_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def user_interaction_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "user_interaction_required")
 
     @user_interaction_required.setter
-    def user_interaction_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def user_interaction_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "user_interaction_required", value)
 
 
 class TemplateExtensionsV2ArgsDict(TypedDict):
     key_usage: pulumi.Input['TemplateKeyUsageArgsDict']
-    application_policies: NotRequired[pulumi.Input['TemplateApplicationPoliciesArgsDict']]
+    application_policies: NotRequired[pulumi.Input[Optional['TemplateApplicationPoliciesArgsDict']]]
 
 @pulumi.input_type
 class TemplateExtensionsV2Args:
     def __init__(__self__, *,
                  key_usage: pulumi.Input['TemplateKeyUsageArgs'],
-                 application_policies: Optional[pulumi.Input['TemplateApplicationPoliciesArgs']] = None):
+                 application_policies: pulumi.Input[Optional['TemplateApplicationPoliciesArgs']] = None):
         pulumi.set(__self__, "key_usage", key_usage)
         if application_policies is not None:
             pulumi.set(__self__, "application_policies", application_policies)
@@ -536,23 +536,23 @@ class TemplateExtensionsV2Args:
 
     @_builtins.property
     @pulumi.getter(name="applicationPolicies")
-    def application_policies(self) -> Optional[pulumi.Input['TemplateApplicationPoliciesArgs']]:
+    def application_policies(self) -> pulumi.Input[Optional['TemplateApplicationPoliciesArgs']]:
         return pulumi.get(self, "application_policies")
 
     @application_policies.setter
-    def application_policies(self, value: Optional[pulumi.Input['TemplateApplicationPoliciesArgs']]):
+    def application_policies(self, value: pulumi.Input[Optional['TemplateApplicationPoliciesArgs']]):
         pulumi.set(self, "application_policies", value)
 
 
 class TemplateExtensionsV3ArgsDict(TypedDict):
     key_usage: pulumi.Input['TemplateKeyUsageArgsDict']
-    application_policies: NotRequired[pulumi.Input['TemplateApplicationPoliciesArgsDict']]
+    application_policies: NotRequired[pulumi.Input[Optional['TemplateApplicationPoliciesArgsDict']]]
 
 @pulumi.input_type
 class TemplateExtensionsV3Args:
     def __init__(__self__, *,
                  key_usage: pulumi.Input['TemplateKeyUsageArgs'],
-                 application_policies: Optional[pulumi.Input['TemplateApplicationPoliciesArgs']] = None):
+                 application_policies: pulumi.Input[Optional['TemplateApplicationPoliciesArgs']] = None):
         pulumi.set(__self__, "key_usage", key_usage)
         if application_policies is not None:
             pulumi.set(__self__, "application_policies", application_policies)
@@ -568,23 +568,23 @@ class TemplateExtensionsV3Args:
 
     @_builtins.property
     @pulumi.getter(name="applicationPolicies")
-    def application_policies(self) -> Optional[pulumi.Input['TemplateApplicationPoliciesArgs']]:
+    def application_policies(self) -> pulumi.Input[Optional['TemplateApplicationPoliciesArgs']]:
         return pulumi.get(self, "application_policies")
 
     @application_policies.setter
-    def application_policies(self, value: Optional[pulumi.Input['TemplateApplicationPoliciesArgs']]):
+    def application_policies(self, value: pulumi.Input[Optional['TemplateApplicationPoliciesArgs']]):
         pulumi.set(self, "application_policies", value)
 
 
 class TemplateExtensionsV4ArgsDict(TypedDict):
     key_usage: pulumi.Input['TemplateKeyUsageArgsDict']
-    application_policies: NotRequired[pulumi.Input['TemplateApplicationPoliciesArgsDict']]
+    application_policies: NotRequired[pulumi.Input[Optional['TemplateApplicationPoliciesArgsDict']]]
 
 @pulumi.input_type
 class TemplateExtensionsV4Args:
     def __init__(__self__, *,
                  key_usage: pulumi.Input['TemplateKeyUsageArgs'],
-                 application_policies: Optional[pulumi.Input['TemplateApplicationPoliciesArgs']] = None):
+                 application_policies: pulumi.Input[Optional['TemplateApplicationPoliciesArgs']] = None):
         pulumi.set(__self__, "key_usage", key_usage)
         if application_policies is not None:
             pulumi.set(__self__, "application_policies", application_policies)
@@ -600,23 +600,23 @@ class TemplateExtensionsV4Args:
 
     @_builtins.property
     @pulumi.getter(name="applicationPolicies")
-    def application_policies(self) -> Optional[pulumi.Input['TemplateApplicationPoliciesArgs']]:
+    def application_policies(self) -> pulumi.Input[Optional['TemplateApplicationPoliciesArgs']]:
         return pulumi.get(self, "application_policies")
 
     @application_policies.setter
-    def application_policies(self, value: Optional[pulumi.Input['TemplateApplicationPoliciesArgs']]):
+    def application_policies(self, value: pulumi.Input[Optional['TemplateApplicationPoliciesArgs']]):
         pulumi.set(self, "application_policies", value)
 
 
 class TemplateGeneralFlagsV2ArgsDict(TypedDict):
-    auto_enrollment: NotRequired[pulumi.Input[_builtins.bool]]
-    machine_type: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_enrollment: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    machine_type: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TemplateGeneralFlagsV2Args:
     def __init__(__self__, *,
-                 auto_enrollment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 machine_type: Optional[pulumi.Input[_builtins.bool]] = None):
+                 auto_enrollment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 machine_type: pulumi.Input[Optional[_builtins.bool]] = None):
         if auto_enrollment is not None:
             pulumi.set(__self__, "auto_enrollment", auto_enrollment)
         if machine_type is not None:
@@ -624,32 +624,32 @@ class TemplateGeneralFlagsV2Args:
 
     @_builtins.property
     @pulumi.getter(name="autoEnrollment")
-    def auto_enrollment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_enrollment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "auto_enrollment")
 
     @auto_enrollment.setter
-    def auto_enrollment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_enrollment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_enrollment", value)
 
     @_builtins.property
     @pulumi.getter(name="machineType")
-    def machine_type(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def machine_type(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "machine_type")
 
     @machine_type.setter
-    def machine_type(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def machine_type(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "machine_type", value)
 
 
 class TemplateGeneralFlagsV3ArgsDict(TypedDict):
-    auto_enrollment: NotRequired[pulumi.Input[_builtins.bool]]
-    machine_type: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_enrollment: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    machine_type: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TemplateGeneralFlagsV3Args:
     def __init__(__self__, *,
-                 auto_enrollment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 machine_type: Optional[pulumi.Input[_builtins.bool]] = None):
+                 auto_enrollment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 machine_type: pulumi.Input[Optional[_builtins.bool]] = None):
         if auto_enrollment is not None:
             pulumi.set(__self__, "auto_enrollment", auto_enrollment)
         if machine_type is not None:
@@ -657,32 +657,32 @@ class TemplateGeneralFlagsV3Args:
 
     @_builtins.property
     @pulumi.getter(name="autoEnrollment")
-    def auto_enrollment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_enrollment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "auto_enrollment")
 
     @auto_enrollment.setter
-    def auto_enrollment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_enrollment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_enrollment", value)
 
     @_builtins.property
     @pulumi.getter(name="machineType")
-    def machine_type(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def machine_type(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "machine_type")
 
     @machine_type.setter
-    def machine_type(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def machine_type(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "machine_type", value)
 
 
 class TemplateGeneralFlagsV4ArgsDict(TypedDict):
-    auto_enrollment: NotRequired[pulumi.Input[_builtins.bool]]
-    machine_type: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_enrollment: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    machine_type: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TemplateGeneralFlagsV4Args:
     def __init__(__self__, *,
-                 auto_enrollment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 machine_type: Optional[pulumi.Input[_builtins.bool]] = None):
+                 auto_enrollment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 machine_type: pulumi.Input[Optional[_builtins.bool]] = None):
         if auto_enrollment is not None:
             pulumi.set(__self__, "auto_enrollment", auto_enrollment)
         if machine_type is not None:
@@ -690,29 +690,29 @@ class TemplateGeneralFlagsV4Args:
 
     @_builtins.property
     @pulumi.getter(name="autoEnrollment")
-    def auto_enrollment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_enrollment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "auto_enrollment")
 
     @auto_enrollment.setter
-    def auto_enrollment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_enrollment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_enrollment", value)
 
     @_builtins.property
     @pulumi.getter(name="machineType")
-    def machine_type(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def machine_type(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "machine_type")
 
     @machine_type.setter
-    def machine_type(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def machine_type(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "machine_type", value)
 
 
 class TemplateGroupAccessControlEntryAccessRightsArgsDict(TypedDict):
-    auto_enroll: NotRequired[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']]
+    auto_enroll: NotRequired[pulumi.Input[Optional['TemplateGroupAccessControlEntryAccessRight']]]
     """
     Allow or deny an Active Directory group from autoenrolling certificates issued against a template. The Active Directory group must be allowed to enroll to allow autoenrollment
     """
-    enroll: NotRequired[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']]
+    enroll: NotRequired[pulumi.Input[Optional['TemplateGroupAccessControlEntryAccessRight']]]
     """
     Allow or deny an Active Directory group from enrolling certificates issued against a template.
     """
@@ -720,8 +720,8 @@ class TemplateGroupAccessControlEntryAccessRightsArgsDict(TypedDict):
 @pulumi.input_type
 class TemplateGroupAccessControlEntryAccessRightsArgs:
     def __init__(__self__, *,
-                 auto_enroll: Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']] = None,
-                 enroll: Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']] = None):
+                 auto_enroll: pulumi.Input[Optional['TemplateGroupAccessControlEntryAccessRight']] = None,
+                 enroll: pulumi.Input[Optional['TemplateGroupAccessControlEntryAccessRight']] = None):
         """
         :param pulumi.Input['TemplateGroupAccessControlEntryAccessRight'] auto_enroll: Allow or deny an Active Directory group from autoenrolling certificates issued against a template. The Active Directory group must be allowed to enroll to allow autoenrollment
         :param pulumi.Input['TemplateGroupAccessControlEntryAccessRight'] enroll: Allow or deny an Active Directory group from enrolling certificates issued against a template.
@@ -733,44 +733,76 @@ class TemplateGroupAccessControlEntryAccessRightsArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoEnroll")
-    def auto_enroll(self) -> Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']]:
+    def auto_enroll(self) -> pulumi.Input[Optional['TemplateGroupAccessControlEntryAccessRight']]:
         """
         Allow or deny an Active Directory group from autoenrolling certificates issued against a template. The Active Directory group must be allowed to enroll to allow autoenrollment
         """
         return pulumi.get(self, "auto_enroll")
 
     @auto_enroll.setter
-    def auto_enroll(self, value: Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']]):
+    def auto_enroll(self, value: pulumi.Input[Optional['TemplateGroupAccessControlEntryAccessRight']]):
         pulumi.set(self, "auto_enroll", value)
 
     @_builtins.property
     @pulumi.getter
-    def enroll(self) -> Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']]:
+    def enroll(self) -> pulumi.Input[Optional['TemplateGroupAccessControlEntryAccessRight']]:
         """
         Allow or deny an Active Directory group from enrolling certificates issued against a template.
         """
         return pulumi.get(self, "enroll")
 
     @enroll.setter
-    def enroll(self, value: Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']]):
+    def enroll(self, value: pulumi.Input[Optional['TemplateGroupAccessControlEntryAccessRight']]):
         pulumi.set(self, "enroll", value)
 
 
+class TemplateKeyUsageArgsDict(TypedDict):
+    usage_flags: pulumi.Input['TemplateKeyUsageFlagsArgsDict']
+    critical: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+
+@pulumi.input_type
+class TemplateKeyUsageArgs:
+    def __init__(__self__, *,
+                 usage_flags: pulumi.Input['TemplateKeyUsageFlagsArgs'],
+                 critical: pulumi.Input[Optional[_builtins.bool]] = None):
+        pulumi.set(__self__, "usage_flags", usage_flags)
+        if critical is not None:
+            pulumi.set(__self__, "critical", critical)
+
+    @_builtins.property
+    @pulumi.getter(name="usageFlags")
+    def usage_flags(self) -> pulumi.Input['TemplateKeyUsageFlagsArgs']:
+        return pulumi.get(self, "usage_flags")
+
+    @usage_flags.setter
+    def usage_flags(self, value: pulumi.Input['TemplateKeyUsageFlagsArgs']):
+        pulumi.set(self, "usage_flags", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def critical(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "critical")
+
+    @critical.setter
+    def critical(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "critical", value)
+
+
 class TemplateKeyUsageFlagsArgsDict(TypedDict):
-    data_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
-    digital_signature: NotRequired[pulumi.Input[_builtins.bool]]
-    key_agreement: NotRequired[pulumi.Input[_builtins.bool]]
-    key_encipherment: NotRequired[pulumi.Input[_builtins.bool]]
-    non_repudiation: NotRequired[pulumi.Input[_builtins.bool]]
+    data_encipherment: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    digital_signature: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    key_agreement: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    key_encipherment: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    non_repudiation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TemplateKeyUsageFlagsArgs:
     def __init__(__self__, *,
-                 data_encipherment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 digital_signature: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_agreement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_encipherment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 non_repudiation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 data_encipherment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 digital_signature: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_agreement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_encipherment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 non_repudiation: pulumi.Input[Optional[_builtins.bool]] = None):
         if data_encipherment is not None:
             pulumi.set(__self__, "data_encipherment", data_encipherment)
         if digital_signature is not None:
@@ -784,47 +816,47 @@ class TemplateKeyUsageFlagsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataEncipherment")
-    def data_encipherment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_encipherment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "data_encipherment")
 
     @data_encipherment.setter
-    def data_encipherment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_encipherment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_encipherment", value)
 
     @_builtins.property
     @pulumi.getter(name="digitalSignature")
-    def digital_signature(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def digital_signature(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "digital_signature")
 
     @digital_signature.setter
-    def digital_signature(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def digital_signature(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "digital_signature", value)
 
     @_builtins.property
     @pulumi.getter(name="keyAgreement")
-    def key_agreement(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def key_agreement(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "key_agreement")
 
     @key_agreement.setter
-    def key_agreement(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def key_agreement(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "key_agreement", value)
 
     @_builtins.property
     @pulumi.getter(name="keyEncipherment")
-    def key_encipherment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def key_encipherment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "key_encipherment")
 
     @key_encipherment.setter
-    def key_encipherment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def key_encipherment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "key_encipherment", value)
 
     @_builtins.property
     @pulumi.getter(name="nonRepudiation")
-    def non_repudiation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def non_repudiation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "non_repudiation")
 
     @non_repudiation.setter
-    def non_repudiation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def non_repudiation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "non_repudiation", value)
 
 
@@ -867,16 +899,16 @@ class TemplateKeyUsageProperty1PropertiesArgs:
 
 
 class TemplateKeyUsagePropertyFlagsArgsDict(TypedDict):
-    decrypt: NotRequired[pulumi.Input[_builtins.bool]]
-    key_agreement: NotRequired[pulumi.Input[_builtins.bool]]
-    sign: NotRequired[pulumi.Input[_builtins.bool]]
+    decrypt: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    key_agreement: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    sign: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TemplateKeyUsagePropertyFlagsArgs:
     def __init__(__self__, *,
-                 decrypt: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_agreement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sign: Optional[pulumi.Input[_builtins.bool]] = None):
+                 decrypt: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_agreement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sign: pulumi.Input[Optional[_builtins.bool]] = None):
         if decrypt is not None:
             pulumi.set(__self__, "decrypt", decrypt)
         if key_agreement is not None:
@@ -886,75 +918,43 @@ class TemplateKeyUsagePropertyFlagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def decrypt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def decrypt(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "decrypt")
 
     @decrypt.setter
-    def decrypt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def decrypt(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "decrypt", value)
 
     @_builtins.property
     @pulumi.getter(name="keyAgreement")
-    def key_agreement(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def key_agreement(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "key_agreement")
 
     @key_agreement.setter
-    def key_agreement(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def key_agreement(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "key_agreement", value)
 
     @_builtins.property
     @pulumi.getter
-    def sign(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sign(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "sign")
 
     @sign.setter
-    def sign(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sign(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sign", value)
-
-
-class TemplateKeyUsageArgsDict(TypedDict):
-    usage_flags: pulumi.Input['TemplateKeyUsageFlagsArgsDict']
-    critical: NotRequired[pulumi.Input[_builtins.bool]]
-
-@pulumi.input_type
-class TemplateKeyUsageArgs:
-    def __init__(__self__, *,
-                 usage_flags: pulumi.Input['TemplateKeyUsageFlagsArgs'],
-                 critical: Optional[pulumi.Input[_builtins.bool]] = None):
-        pulumi.set(__self__, "usage_flags", usage_flags)
-        if critical is not None:
-            pulumi.set(__self__, "critical", critical)
-
-    @_builtins.property
-    @pulumi.getter(name="usageFlags")
-    def usage_flags(self) -> pulumi.Input['TemplateKeyUsageFlagsArgs']:
-        return pulumi.get(self, "usage_flags")
-
-    @usage_flags.setter
-    def usage_flags(self, value: pulumi.Input['TemplateKeyUsageFlagsArgs']):
-        pulumi.set(self, "usage_flags", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def critical(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        return pulumi.get(self, "critical")
-
-    @critical.setter
-    def critical(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "critical", value)
 
 
 class TemplatePrivateKeyAttributesV2ArgsDict(TypedDict):
     key_spec: pulumi.Input['TemplateKeySpec']
     minimal_key_length: pulumi.Input[_builtins.float]
-    crypto_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    crypto_providers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class TemplatePrivateKeyAttributesV2Args:
     def __init__(__self__, *,
                  key_spec: pulumi.Input['TemplateKeySpec'],
                  minimal_key_length: pulumi.Input[_builtins.float],
-                 crypto_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 crypto_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "key_spec", key_spec)
         pulumi.set(__self__, "minimal_key_length", minimal_key_length)
         if crypto_providers is not None:
@@ -980,11 +980,11 @@ class TemplatePrivateKeyAttributesV2Args:
 
     @_builtins.property
     @pulumi.getter(name="cryptoProviders")
-    def crypto_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def crypto_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "crypto_providers")
 
     @crypto_providers.setter
-    def crypto_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def crypto_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "crypto_providers", value)
 
 
@@ -993,7 +993,7 @@ class TemplatePrivateKeyAttributesV3ArgsDict(TypedDict):
     key_spec: pulumi.Input['TemplateKeySpec']
     key_usage_property: pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgsDict', 'TemplateKeyUsageProperty1PropertiesArgsDict']]
     minimal_key_length: pulumi.Input[_builtins.float]
-    crypto_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    crypto_providers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class TemplatePrivateKeyAttributesV3Args:
@@ -1002,7 +1002,7 @@ class TemplatePrivateKeyAttributesV3Args:
                  key_spec: pulumi.Input['TemplateKeySpec'],
                  key_usage_property: pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgs', 'TemplateKeyUsageProperty1PropertiesArgs']],
                  minimal_key_length: pulumi.Input[_builtins.float],
-                 crypto_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 crypto_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "algorithm", algorithm)
         pulumi.set(__self__, "key_spec", key_spec)
         pulumi.set(__self__, "key_usage_property", key_usage_property)
@@ -1048,29 +1048,29 @@ class TemplatePrivateKeyAttributesV3Args:
 
     @_builtins.property
     @pulumi.getter(name="cryptoProviders")
-    def crypto_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def crypto_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "crypto_providers")
 
     @crypto_providers.setter
-    def crypto_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def crypto_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "crypto_providers", value)
 
 
 class TemplatePrivateKeyAttributesV4ArgsDict(TypedDict):
     key_spec: pulumi.Input['TemplateKeySpec']
     minimal_key_length: pulumi.Input[_builtins.float]
-    algorithm: NotRequired[pulumi.Input['TemplatePrivateKeyAlgorithm']]
-    crypto_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    key_usage_property: NotRequired[pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgsDict', 'TemplateKeyUsageProperty1PropertiesArgsDict']]]
+    algorithm: NotRequired[pulumi.Input[Optional['TemplatePrivateKeyAlgorithm']]]
+    crypto_providers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    key_usage_property: NotRequired[pulumi.Input[Optional[Union['TemplateKeyUsageProperty0PropertiesArgsDict', 'TemplateKeyUsageProperty1PropertiesArgsDict']]]]
 
 @pulumi.input_type
 class TemplatePrivateKeyAttributesV4Args:
     def __init__(__self__, *,
                  key_spec: pulumi.Input['TemplateKeySpec'],
                  minimal_key_length: pulumi.Input[_builtins.float],
-                 algorithm: Optional[pulumi.Input['TemplatePrivateKeyAlgorithm']] = None,
-                 crypto_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_usage_property: Optional[pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgs', 'TemplateKeyUsageProperty1PropertiesArgs']]] = None):
+                 algorithm: pulumi.Input[Optional['TemplatePrivateKeyAlgorithm']] = None,
+                 crypto_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_usage_property: pulumi.Input[Optional[Union['TemplateKeyUsageProperty0PropertiesArgs', 'TemplateKeyUsageProperty1PropertiesArgs']]] = None):
         pulumi.set(__self__, "key_spec", key_spec)
         pulumi.set(__self__, "minimal_key_length", minimal_key_length)
         if algorithm is not None:
@@ -1100,43 +1100,43 @@ class TemplatePrivateKeyAttributesV4Args:
 
     @_builtins.property
     @pulumi.getter
-    def algorithm(self) -> Optional[pulumi.Input['TemplatePrivateKeyAlgorithm']]:
+    def algorithm(self) -> pulumi.Input[Optional['TemplatePrivateKeyAlgorithm']]:
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
-    def algorithm(self, value: Optional[pulumi.Input['TemplatePrivateKeyAlgorithm']]):
+    def algorithm(self, value: pulumi.Input[Optional['TemplatePrivateKeyAlgorithm']]):
         pulumi.set(self, "algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="cryptoProviders")
-    def crypto_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def crypto_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "crypto_providers")
 
     @crypto_providers.setter
-    def crypto_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def crypto_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "crypto_providers", value)
 
     @_builtins.property
     @pulumi.getter(name="keyUsageProperty")
-    def key_usage_property(self) -> Optional[pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgs', 'TemplateKeyUsageProperty1PropertiesArgs']]]:
+    def key_usage_property(self) -> pulumi.Input[Optional[Union['TemplateKeyUsageProperty0PropertiesArgs', 'TemplateKeyUsageProperty1PropertiesArgs']]]:
         return pulumi.get(self, "key_usage_property")
 
     @key_usage_property.setter
-    def key_usage_property(self, value: Optional[pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgs', 'TemplateKeyUsageProperty1PropertiesArgs']]]):
+    def key_usage_property(self, value: pulumi.Input[Optional[Union['TemplateKeyUsageProperty0PropertiesArgs', 'TemplateKeyUsageProperty1PropertiesArgs']]]):
         pulumi.set(self, "key_usage_property", value)
 
 
 class TemplatePrivateKeyFlagsV2ArgsDict(TypedDict):
     client_version: pulumi.Input['TemplateClientCompatibilityV2']
-    exportable_key: NotRequired[pulumi.Input[_builtins.bool]]
-    strong_key_protection_required: NotRequired[pulumi.Input[_builtins.bool]]
+    exportable_key: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    strong_key_protection_required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TemplatePrivateKeyFlagsV2Args:
     def __init__(__self__, *,
                  client_version: pulumi.Input['TemplateClientCompatibilityV2'],
-                 exportable_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 strong_key_protection_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 exportable_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 strong_key_protection_required: pulumi.Input[Optional[_builtins.bool]] = None):
         pulumi.set(__self__, "client_version", client_version)
         if exportable_key is not None:
             pulumi.set(__self__, "exportable_key", exportable_key)
@@ -1154,36 +1154,36 @@ class TemplatePrivateKeyFlagsV2Args:
 
     @_builtins.property
     @pulumi.getter(name="exportableKey")
-    def exportable_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exportable_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "exportable_key")
 
     @exportable_key.setter
-    def exportable_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exportable_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exportable_key", value)
 
     @_builtins.property
     @pulumi.getter(name="strongKeyProtectionRequired")
-    def strong_key_protection_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strong_key_protection_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "strong_key_protection_required")
 
     @strong_key_protection_required.setter
-    def strong_key_protection_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strong_key_protection_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strong_key_protection_required", value)
 
 
 class TemplatePrivateKeyFlagsV3ArgsDict(TypedDict):
     client_version: pulumi.Input['TemplateClientCompatibilityV3']
-    exportable_key: NotRequired[pulumi.Input[_builtins.bool]]
-    require_alternate_signature_algorithm: NotRequired[pulumi.Input[_builtins.bool]]
-    strong_key_protection_required: NotRequired[pulumi.Input[_builtins.bool]]
+    exportable_key: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    require_alternate_signature_algorithm: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    strong_key_protection_required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TemplatePrivateKeyFlagsV3Args:
     def __init__(__self__, *,
                  client_version: pulumi.Input['TemplateClientCompatibilityV3'],
-                 exportable_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_alternate_signature_algorithm: Optional[pulumi.Input[_builtins.bool]] = None,
-                 strong_key_protection_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 exportable_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_alternate_signature_algorithm: pulumi.Input[Optional[_builtins.bool]] = None,
+                 strong_key_protection_required: pulumi.Input[Optional[_builtins.bool]] = None):
         pulumi.set(__self__, "client_version", client_version)
         if exportable_key is not None:
             pulumi.set(__self__, "exportable_key", exportable_key)
@@ -1203,49 +1203,49 @@ class TemplatePrivateKeyFlagsV3Args:
 
     @_builtins.property
     @pulumi.getter(name="exportableKey")
-    def exportable_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exportable_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "exportable_key")
 
     @exportable_key.setter
-    def exportable_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exportable_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exportable_key", value)
 
     @_builtins.property
     @pulumi.getter(name="requireAlternateSignatureAlgorithm")
-    def require_alternate_signature_algorithm(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_alternate_signature_algorithm(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "require_alternate_signature_algorithm")
 
     @require_alternate_signature_algorithm.setter
-    def require_alternate_signature_algorithm(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_alternate_signature_algorithm(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_alternate_signature_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="strongKeyProtectionRequired")
-    def strong_key_protection_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strong_key_protection_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "strong_key_protection_required")
 
     @strong_key_protection_required.setter
-    def strong_key_protection_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strong_key_protection_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strong_key_protection_required", value)
 
 
 class TemplatePrivateKeyFlagsV4ArgsDict(TypedDict):
     client_version: pulumi.Input['TemplateClientCompatibilityV4']
-    exportable_key: NotRequired[pulumi.Input[_builtins.bool]]
-    require_alternate_signature_algorithm: NotRequired[pulumi.Input[_builtins.bool]]
-    require_same_key_renewal: NotRequired[pulumi.Input[_builtins.bool]]
-    strong_key_protection_required: NotRequired[pulumi.Input[_builtins.bool]]
-    use_legacy_provider: NotRequired[pulumi.Input[_builtins.bool]]
+    exportable_key: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    require_alternate_signature_algorithm: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    require_same_key_renewal: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    strong_key_protection_required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    use_legacy_provider: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TemplatePrivateKeyFlagsV4Args:
     def __init__(__self__, *,
                  client_version: pulumi.Input['TemplateClientCompatibilityV4'],
-                 exportable_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_alternate_signature_algorithm: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_same_key_renewal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 strong_key_protection_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_legacy_provider: Optional[pulumi.Input[_builtins.bool]] = None):
+                 exportable_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_alternate_signature_algorithm: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_same_key_renewal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 strong_key_protection_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_legacy_provider: pulumi.Input[Optional[_builtins.bool]] = None):
         pulumi.set(__self__, "client_version", client_version)
         if exportable_key is not None:
             pulumi.set(__self__, "exportable_key", exportable_key)
@@ -1269,75 +1269,75 @@ class TemplatePrivateKeyFlagsV4Args:
 
     @_builtins.property
     @pulumi.getter(name="exportableKey")
-    def exportable_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exportable_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "exportable_key")
 
     @exportable_key.setter
-    def exportable_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exportable_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exportable_key", value)
 
     @_builtins.property
     @pulumi.getter(name="requireAlternateSignatureAlgorithm")
-    def require_alternate_signature_algorithm(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_alternate_signature_algorithm(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "require_alternate_signature_algorithm")
 
     @require_alternate_signature_algorithm.setter
-    def require_alternate_signature_algorithm(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_alternate_signature_algorithm(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_alternate_signature_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="requireSameKeyRenewal")
-    def require_same_key_renewal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_same_key_renewal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "require_same_key_renewal")
 
     @require_same_key_renewal.setter
-    def require_same_key_renewal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_same_key_renewal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_same_key_renewal", value)
 
     @_builtins.property
     @pulumi.getter(name="strongKeyProtectionRequired")
-    def strong_key_protection_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strong_key_protection_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "strong_key_protection_required")
 
     @strong_key_protection_required.setter
-    def strong_key_protection_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strong_key_protection_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strong_key_protection_required", value)
 
     @_builtins.property
     @pulumi.getter(name="useLegacyProvider")
-    def use_legacy_provider(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_legacy_provider(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "use_legacy_provider")
 
     @use_legacy_provider.setter
-    def use_legacy_provider(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_legacy_provider(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_legacy_provider", value)
 
 
 class TemplateSubjectNameFlagsV2ArgsDict(TypedDict):
-    require_common_name: NotRequired[pulumi.Input[_builtins.bool]]
-    require_directory_path: NotRequired[pulumi.Input[_builtins.bool]]
-    require_dns_as_cn: NotRequired[pulumi.Input[_builtins.bool]]
-    require_email: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_directory_guid: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_dns: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_domain_dns: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_email: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_spn: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_upn: NotRequired[pulumi.Input[_builtins.bool]]
+    require_common_name: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    require_directory_path: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    require_dns_as_cn: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    require_email: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_directory_guid: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_dns: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_domain_dns: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_email: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_spn: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_upn: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TemplateSubjectNameFlagsV2Args:
     def __init__(__self__, *,
-                 require_common_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_directory_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_dns_as_cn: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_email: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_directory_guid: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_dns: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_domain_dns: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_email: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_spn: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_upn: Optional[pulumi.Input[_builtins.bool]] = None):
+                 require_common_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_directory_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_dns_as_cn: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_email: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_directory_guid: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_dns: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_domain_dns: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_email: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_spn: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_upn: pulumi.Input[Optional[_builtins.bool]] = None):
         if require_common_name is not None:
             pulumi.set(__self__, "require_common_name", require_common_name)
         if require_directory_path is not None:
@@ -1361,120 +1361,120 @@ class TemplateSubjectNameFlagsV2Args:
 
     @_builtins.property
     @pulumi.getter(name="requireCommonName")
-    def require_common_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_common_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "require_common_name")
 
     @require_common_name.setter
-    def require_common_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_common_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_common_name", value)
 
     @_builtins.property
     @pulumi.getter(name="requireDirectoryPath")
-    def require_directory_path(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_directory_path(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "require_directory_path")
 
     @require_directory_path.setter
-    def require_directory_path(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_directory_path(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_directory_path", value)
 
     @_builtins.property
     @pulumi.getter(name="requireDnsAsCn")
-    def require_dns_as_cn(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_dns_as_cn(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "require_dns_as_cn")
 
     @require_dns_as_cn.setter
-    def require_dns_as_cn(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_dns_as_cn(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_dns_as_cn", value)
 
     @_builtins.property
     @pulumi.getter(name="requireEmail")
-    def require_email(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_email(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "require_email")
 
     @require_email.setter
-    def require_email(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_email(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_email", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireDirectoryGuid")
-    def san_require_directory_guid(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_directory_guid(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_directory_guid")
 
     @san_require_directory_guid.setter
-    def san_require_directory_guid(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_directory_guid(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_directory_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireDns")
-    def san_require_dns(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_dns(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_dns")
 
     @san_require_dns.setter
-    def san_require_dns(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_dns(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_dns", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireDomainDns")
-    def san_require_domain_dns(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_domain_dns(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_domain_dns")
 
     @san_require_domain_dns.setter
-    def san_require_domain_dns(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_domain_dns(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_domain_dns", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireEmail")
-    def san_require_email(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_email(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_email")
 
     @san_require_email.setter
-    def san_require_email(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_email(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_email", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireSpn")
-    def san_require_spn(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_spn(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_spn")
 
     @san_require_spn.setter
-    def san_require_spn(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_spn(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_spn", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireUpn")
-    def san_require_upn(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_upn(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_upn")
 
     @san_require_upn.setter
-    def san_require_upn(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_upn(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_upn", value)
 
 
 class TemplateSubjectNameFlagsV3ArgsDict(TypedDict):
-    require_common_name: NotRequired[pulumi.Input[_builtins.bool]]
-    require_directory_path: NotRequired[pulumi.Input[_builtins.bool]]
-    require_dns_as_cn: NotRequired[pulumi.Input[_builtins.bool]]
-    require_email: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_directory_guid: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_dns: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_domain_dns: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_email: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_spn: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_upn: NotRequired[pulumi.Input[_builtins.bool]]
+    require_common_name: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    require_directory_path: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    require_dns_as_cn: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    require_email: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_directory_guid: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_dns: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_domain_dns: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_email: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_spn: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_upn: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TemplateSubjectNameFlagsV3Args:
     def __init__(__self__, *,
-                 require_common_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_directory_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_dns_as_cn: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_email: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_directory_guid: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_dns: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_domain_dns: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_email: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_spn: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_upn: Optional[pulumi.Input[_builtins.bool]] = None):
+                 require_common_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_directory_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_dns_as_cn: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_email: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_directory_guid: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_dns: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_domain_dns: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_email: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_spn: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_upn: pulumi.Input[Optional[_builtins.bool]] = None):
         if require_common_name is not None:
             pulumi.set(__self__, "require_common_name", require_common_name)
         if require_directory_path is not None:
@@ -1498,120 +1498,120 @@ class TemplateSubjectNameFlagsV3Args:
 
     @_builtins.property
     @pulumi.getter(name="requireCommonName")
-    def require_common_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_common_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "require_common_name")
 
     @require_common_name.setter
-    def require_common_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_common_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_common_name", value)
 
     @_builtins.property
     @pulumi.getter(name="requireDirectoryPath")
-    def require_directory_path(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_directory_path(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "require_directory_path")
 
     @require_directory_path.setter
-    def require_directory_path(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_directory_path(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_directory_path", value)
 
     @_builtins.property
     @pulumi.getter(name="requireDnsAsCn")
-    def require_dns_as_cn(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_dns_as_cn(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "require_dns_as_cn")
 
     @require_dns_as_cn.setter
-    def require_dns_as_cn(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_dns_as_cn(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_dns_as_cn", value)
 
     @_builtins.property
     @pulumi.getter(name="requireEmail")
-    def require_email(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_email(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "require_email")
 
     @require_email.setter
-    def require_email(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_email(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_email", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireDirectoryGuid")
-    def san_require_directory_guid(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_directory_guid(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_directory_guid")
 
     @san_require_directory_guid.setter
-    def san_require_directory_guid(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_directory_guid(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_directory_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireDns")
-    def san_require_dns(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_dns(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_dns")
 
     @san_require_dns.setter
-    def san_require_dns(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_dns(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_dns", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireDomainDns")
-    def san_require_domain_dns(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_domain_dns(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_domain_dns")
 
     @san_require_domain_dns.setter
-    def san_require_domain_dns(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_domain_dns(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_domain_dns", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireEmail")
-    def san_require_email(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_email(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_email")
 
     @san_require_email.setter
-    def san_require_email(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_email(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_email", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireSpn")
-    def san_require_spn(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_spn(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_spn")
 
     @san_require_spn.setter
-    def san_require_spn(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_spn(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_spn", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireUpn")
-    def san_require_upn(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_upn(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_upn")
 
     @san_require_upn.setter
-    def san_require_upn(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_upn(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_upn", value)
 
 
 class TemplateSubjectNameFlagsV4ArgsDict(TypedDict):
-    require_common_name: NotRequired[pulumi.Input[_builtins.bool]]
-    require_directory_path: NotRequired[pulumi.Input[_builtins.bool]]
-    require_dns_as_cn: NotRequired[pulumi.Input[_builtins.bool]]
-    require_email: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_directory_guid: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_dns: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_domain_dns: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_email: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_spn: NotRequired[pulumi.Input[_builtins.bool]]
-    san_require_upn: NotRequired[pulumi.Input[_builtins.bool]]
+    require_common_name: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    require_directory_path: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    require_dns_as_cn: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    require_email: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_directory_guid: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_dns: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_domain_dns: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_email: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_spn: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    san_require_upn: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class TemplateSubjectNameFlagsV4Args:
     def __init__(__self__, *,
-                 require_common_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_directory_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_dns_as_cn: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_email: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_directory_guid: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_dns: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_domain_dns: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_email: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_spn: Optional[pulumi.Input[_builtins.bool]] = None,
-                 san_require_upn: Optional[pulumi.Input[_builtins.bool]] = None):
+                 require_common_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_directory_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_dns_as_cn: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_email: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_directory_guid: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_dns: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_domain_dns: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_email: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_spn: pulumi.Input[Optional[_builtins.bool]] = None,
+                 san_require_upn: pulumi.Input[Optional[_builtins.bool]] = None):
         if require_common_name is not None:
             pulumi.set(__self__, "require_common_name", require_common_name)
         if require_directory_path is not None:
@@ -1635,92 +1635,92 @@ class TemplateSubjectNameFlagsV4Args:
 
     @_builtins.property
     @pulumi.getter(name="requireCommonName")
-    def require_common_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_common_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "require_common_name")
 
     @require_common_name.setter
-    def require_common_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_common_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_common_name", value)
 
     @_builtins.property
     @pulumi.getter(name="requireDirectoryPath")
-    def require_directory_path(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_directory_path(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "require_directory_path")
 
     @require_directory_path.setter
-    def require_directory_path(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_directory_path(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_directory_path", value)
 
     @_builtins.property
     @pulumi.getter(name="requireDnsAsCn")
-    def require_dns_as_cn(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_dns_as_cn(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "require_dns_as_cn")
 
     @require_dns_as_cn.setter
-    def require_dns_as_cn(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_dns_as_cn(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_dns_as_cn", value)
 
     @_builtins.property
     @pulumi.getter(name="requireEmail")
-    def require_email(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_email(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "require_email")
 
     @require_email.setter
-    def require_email(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_email(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_email", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireDirectoryGuid")
-    def san_require_directory_guid(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_directory_guid(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_directory_guid")
 
     @san_require_directory_guid.setter
-    def san_require_directory_guid(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_directory_guid(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_directory_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireDns")
-    def san_require_dns(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_dns(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_dns")
 
     @san_require_dns.setter
-    def san_require_dns(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_dns(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_dns", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireDomainDns")
-    def san_require_domain_dns(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_domain_dns(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_domain_dns")
 
     @san_require_domain_dns.setter
-    def san_require_domain_dns(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_domain_dns(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_domain_dns", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireEmail")
-    def san_require_email(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_email(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_email")
 
     @san_require_email.setter
-    def san_require_email(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_email(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_email", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireSpn")
-    def san_require_spn(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_spn(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_spn")
 
     @san_require_spn.setter
-    def san_require_spn(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_spn(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_spn", value)
 
     @_builtins.property
     @pulumi.getter(name="sanRequireUpn")
-    def san_require_upn(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def san_require_upn(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "san_require_upn")
 
     @san_require_upn.setter
-    def san_require_upn(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def san_require_upn(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "san_require_upn", value)
 
 
@@ -1732,7 +1732,7 @@ class TemplateV2ArgsDict(TypedDict):
     private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV2ArgsDict']
     private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV2ArgsDict']
     subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV2ArgsDict']
-    superseded_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    superseded_templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class TemplateV2Args:
@@ -1744,7 +1744,7 @@ class TemplateV2Args:
                  private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV2Args'],
                  private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV2Args'],
                  subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV2Args'],
-                 superseded_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 superseded_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "certificate_validity", certificate_validity)
         pulumi.set(__self__, "enrollment_flags", enrollment_flags)
         pulumi.set(__self__, "extensions", extensions)
@@ -1820,11 +1820,11 @@ class TemplateV2Args:
 
     @_builtins.property
     @pulumi.getter(name="supersededTemplates")
-    def superseded_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def superseded_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "superseded_templates")
 
     @superseded_templates.setter
-    def superseded_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def superseded_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "superseded_templates", value)
 
 
@@ -1837,7 +1837,7 @@ class TemplateV3ArgsDict(TypedDict):
     private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV3ArgsDict']
     private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV3ArgsDict']
     subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV3ArgsDict']
-    superseded_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    superseded_templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class TemplateV3Args:
@@ -1850,7 +1850,7 @@ class TemplateV3Args:
                  private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV3Args'],
                  private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV3Args'],
                  subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV3Args'],
-                 superseded_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 superseded_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "certificate_validity", certificate_validity)
         pulumi.set(__self__, "enrollment_flags", enrollment_flags)
         pulumi.set(__self__, "extensions", extensions)
@@ -1936,11 +1936,11 @@ class TemplateV3Args:
 
     @_builtins.property
     @pulumi.getter(name="supersededTemplates")
-    def superseded_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def superseded_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "superseded_templates")
 
     @superseded_templates.setter
-    def superseded_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def superseded_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "superseded_templates", value)
 
 
@@ -1952,8 +1952,8 @@ class TemplateV4ArgsDict(TypedDict):
     private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV4ArgsDict']
     private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV4ArgsDict']
     subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV4ArgsDict']
-    hash_algorithm: NotRequired[pulumi.Input['TemplateHashAlgorithm']]
-    superseded_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    hash_algorithm: NotRequired[pulumi.Input[Optional['TemplateHashAlgorithm']]]
+    superseded_templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class TemplateV4Args:
@@ -1965,8 +1965,8 @@ class TemplateV4Args:
                  private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV4Args'],
                  private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV4Args'],
                  subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV4Args'],
-                 hash_algorithm: Optional[pulumi.Input['TemplateHashAlgorithm']] = None,
-                 superseded_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 hash_algorithm: pulumi.Input[Optional['TemplateHashAlgorithm']] = None,
+                 superseded_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "certificate_validity", certificate_validity)
         pulumi.set(__self__, "enrollment_flags", enrollment_flags)
         pulumi.set(__self__, "extensions", extensions)
@@ -2044,20 +2044,20 @@ class TemplateV4Args:
 
     @_builtins.property
     @pulumi.getter(name="hashAlgorithm")
-    def hash_algorithm(self) -> Optional[pulumi.Input['TemplateHashAlgorithm']]:
+    def hash_algorithm(self) -> pulumi.Input[Optional['TemplateHashAlgorithm']]:
         return pulumi.get(self, "hash_algorithm")
 
     @hash_algorithm.setter
-    def hash_algorithm(self, value: Optional[pulumi.Input['TemplateHashAlgorithm']]):
+    def hash_algorithm(self, value: pulumi.Input[Optional['TemplateHashAlgorithm']]):
         pulumi.set(self, "hash_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="supersededTemplates")
-    def superseded_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def superseded_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "superseded_templates")
 
     @superseded_templates.setter
-    def superseded_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def superseded_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "superseded_templates", value)
 
 

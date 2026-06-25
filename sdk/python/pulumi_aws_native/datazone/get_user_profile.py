@@ -99,7 +99,6 @@ def get_user_profile(domain_id: Optional[_builtins.str] = None,
     """
     A user profile represents Amazon DataZone users. Amazon DataZone supports both IAM roles and SSO identities to interact with the Amazon DataZone Management Console and the data portal for different purposes. Domain administrators use IAM roles to perform the initial administrative domain-related work in the Amazon DataZone Management Console, including creating new Amazon DataZone domains, configuring metadata form types, and implementing policies. Data workers use their SSO corporate identities via Identity Center to log into the Amazon DataZone Data Portal and access projects where they have memberships.
 
-
     :param _builtins.str domain_id: The identifier of the Amazon DataZone domain in which the user profile is created.
     :param _builtins.str id: The ID of the Amazon DataZone user profile.
     """
@@ -115,12 +114,11 @@ def get_user_profile(domain_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-def get_user_profile_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                            id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_profile_output(domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                            id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserProfileResult]:
     """
     A user profile represents Amazon DataZone users. Amazon DataZone supports both IAM roles and SSO identities to interact with the Amazon DataZone Management Console and the data portal for different purposes. Domain administrators use IAM roles to perform the initial administrative domain-related work in the Amazon DataZone Management Console, including creating new Amazon DataZone domains, configuring metadata form types, and implementing policies. Data workers use their SSO corporate identities via Identity Center to log into the Amazon DataZone Data Portal and access projects where they have memberships.
-
 
     :param _builtins.str domain_id: The identifier of the Amazon DataZone domain in which the user profile is created.
     :param _builtins.str id: The ID of the Amazon DataZone user profile.

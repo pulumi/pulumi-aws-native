@@ -53,7 +53,6 @@ def get_monitoring_subscription(distribution_id: Optional[_builtins.str] = None,
     """
     A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 
-
     :param _builtins.str distribution_id: The ID of the distribution that you are enabling metrics for.
     """
     __args__ = dict()
@@ -63,11 +62,10 @@ def get_monitoring_subscription(distribution_id: Optional[_builtins.str] = None,
 
     return AwaitableGetMonitoringSubscriptionResult(
         monitoring_subscription=pulumi.get(__ret__, 'monitoring_subscription'))
-def get_monitoring_subscription_output(distribution_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_monitoring_subscription_output(distribution_id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitoringSubscriptionResult]:
     """
     A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-
 
     :param _builtins.str distribution_id: The ID of the distribution that you are enabling metrics for.
     """

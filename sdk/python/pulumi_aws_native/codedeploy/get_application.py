@@ -33,7 +33,7 @@ class GetApplicationResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
+        The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
         """
         return pulumi.get(self, "tags")
 
@@ -52,7 +52,6 @@ def get_application(application_name: Optional[_builtins.str] = None,
     """
     The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
 
-
     :param _builtins.str application_name: A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
     """
     __args__ = dict()
@@ -62,11 +61,10 @@ def get_application(application_name: Optional[_builtins.str] = None,
 
     return AwaitableGetApplicationResult(
         tags=pulumi.get(__ret__, 'tags'))
-def get_application_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
-
 
     :param _builtins.str application_name: A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
     """

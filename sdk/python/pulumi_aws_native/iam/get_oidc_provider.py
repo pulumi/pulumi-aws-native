@@ -90,7 +90,6 @@ def get_oidc_provider(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::IAM::OIDCProvider
 
-
     :param _builtins.str arn: Amazon Resource Name (ARN) of the OIDC provider
     """
     __args__ = dict()
@@ -103,11 +102,10 @@ def get_oidc_provider(arn: Optional[_builtins.str] = None,
         client_id_list=pulumi.get(__ret__, 'client_id_list'),
         tags=pulumi.get(__ret__, 'tags'),
         thumbprint_list=pulumi.get(__ret__, 'thumbprint_list'))
-def get_oidc_provider_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_oidc_provider_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOidcProviderResult]:
     """
     Resource Type definition for AWS::IAM::OIDCProvider
-
 
     :param _builtins.str arn: Amazon Resource Name (ARN) of the OIDC provider
     """

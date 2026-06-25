@@ -21,10 +21,10 @@ class LoadBalancerTlsCertificateArgs:
     def __init__(__self__, *,
                  certificate_domain_name: pulumi.Input[_builtins.str],
                  load_balancer_name: pulumi.Input[_builtins.str],
-                 certificate_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_redirection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_attached: Optional[pulumi.Input[_builtins.bool]] = None):
+                 certificate_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_redirection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_attached: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LoadBalancerTlsCertificate resource.
 
@@ -72,50 +72,50 @@ class LoadBalancerTlsCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateAlternativeNames")
-    def certificate_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def certificate_alternative_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of strings listing alternative domains and subdomains for your SSL/TLS certificate.
         """
         return pulumi.get(self, "certificate_alternative_names")
 
     @certificate_alternative_names.setter
-    def certificate_alternative_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def certificate_alternative_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "certificate_alternative_names", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SSL/TLS certificate name.
         """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
-    def certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsRedirectionEnabled")
-    def https_redirection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_redirection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
         """
         return pulumi.get(self, "https_redirection_enabled")
 
     @https_redirection_enabled.setter
-    def https_redirection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_redirection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_redirection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="isAttached")
-    def is_attached(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_attached(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
         """
         return pulumi.get(self, "is_attached")
 
     @is_attached.setter
-    def is_attached(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_attached(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_attached", value)
 
 
@@ -125,16 +125,15 @@ class LoadBalancerTlsCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 certificate_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_redirection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_attached: Optional[pulumi.Input[_builtins.bool]] = None,
-                 load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 certificate_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_redirection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_attached: pulumi.Input[Optional[_builtins.bool]] = None,
+                 load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +153,6 @@ class LoadBalancerTlsCertificate(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
 
-
         :param str resource_name: The name of the resource.
         :param LoadBalancerTlsCertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,12 +168,12 @@ class LoadBalancerTlsCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 certificate_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_redirection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_attached: Optional[pulumi.Input[_builtins.bool]] = None,
-                 load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 certificate_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_redirection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_attached: pulumi.Input[Optional[_builtins.bool]] = None,
+                 load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -128,7 +128,6 @@ def get_location_f_sx_windows(location_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::DataSync::LocationFSxWindows.
 
-
     :param _builtins.str location_arn: The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
     """
     __args__ = dict()
@@ -145,11 +144,10 @@ def get_location_f_sx_windows(location_arn: Optional[_builtins.str] = None,
         managed_secret_config=pulumi.get(__ret__, 'managed_secret_config'),
         tags=pulumi.get(__ret__, 'tags'),
         user=pulumi.get(__ret__, 'user'))
-def get_location_f_sx_windows_output(location_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_location_f_sx_windows_output(location_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationFSxWindowsResult]:
     """
     Resource Type definition for AWS::DataSync::LocationFSxWindows.
-
 
     :param _builtins.str location_arn: The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
     """

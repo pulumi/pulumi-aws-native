@@ -170,7 +170,7 @@ def get_profile(profile_id: Optional[_builtins.str] = None,
         profile_arn=pulumi.get(__ret__, 'profile_arn'),
         profile_id=pulumi.get(__ret__, 'profile_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_profile_output(profile_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_profile_output(profile_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileResult]:
     """
     Definition of AWS::B2BI::Profile Resource Type

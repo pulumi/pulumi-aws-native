@@ -80,7 +80,6 @@ def get_ruleset(name: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::DataBrew::Ruleset.
 
-
     :param _builtins.str name: Name of the Ruleset
     """
     __args__ = dict()
@@ -92,11 +91,10 @@ def get_ruleset(name: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_ruleset_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ruleset_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRulesetResult]:
     """
     Resource schema for AWS::DataBrew::Ruleset.
-
 
     :param _builtins.str name: Name of the Ruleset
     """

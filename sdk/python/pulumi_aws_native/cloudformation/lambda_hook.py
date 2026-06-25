@@ -28,8 +28,8 @@ class LambdaHookArgs:
                  hook_status: pulumi.Input['LambdaHookHookStatus'],
                  lambda_function: pulumi.Input[_builtins.str],
                  target_operations: pulumi.Input[Sequence[pulumi.Input['LambdaHookTargetOperation']]],
-                 stack_filters: Optional[pulumi.Input['StackFiltersPropertiesArgs']] = None,
-                 target_filters: Optional[pulumi.Input[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']]] = None):
+                 stack_filters: pulumi.Input[Optional['StackFiltersPropertiesArgs']] = None,
+                 target_filters: pulumi.Input[Optional[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']]] = None):
         """
         The set of arguments for constructing a LambdaHook resource.
 
@@ -127,26 +127,26 @@ class LambdaHookArgs:
 
     @_builtins.property
     @pulumi.getter(name="stackFilters")
-    def stack_filters(self) -> Optional[pulumi.Input['StackFiltersPropertiesArgs']]:
+    def stack_filters(self) -> pulumi.Input[Optional['StackFiltersPropertiesArgs']]:
         """
         Filters to allow hooks to target specific stack attributes
         """
         return pulumi.get(self, "stack_filters")
 
     @stack_filters.setter
-    def stack_filters(self, value: Optional[pulumi.Input['StackFiltersPropertiesArgs']]):
+    def stack_filters(self, value: pulumi.Input[Optional['StackFiltersPropertiesArgs']]):
         pulumi.set(self, "stack_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="targetFilters")
-    def target_filters(self) -> Optional[pulumi.Input[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']]]:
+    def target_filters(self) -> pulumi.Input[Optional[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']]]:
         """
         Attribute to specify which targets should invoke the hook
         """
         return pulumi.get(self, "target_filters")
 
     @target_filters.setter
-    def target_filters(self, value: Optional[pulumi.Input[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']]]):
+    def target_filters(self, value: pulumi.Input[Optional[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']]]):
         pulumi.set(self, "target_filters", value)
 
 
@@ -156,18 +156,17 @@ class LambdaHook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_mode: Optional[pulumi.Input['LambdaHookFailureMode']] = None,
-                 hook_status: Optional[pulumi.Input['LambdaHookHookStatus']] = None,
-                 lambda_function: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_filters: Optional[pulumi.Input[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']]] = None,
-                 target_filters: Optional[pulumi.Input[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]]] = None,
-                 target_operations: Optional[pulumi.Input[Sequence[pulumi.Input['LambdaHookTargetOperation']]]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_mode: pulumi.Input[Optional['LambdaHookFailureMode']] = None,
+                 hook_status: pulumi.Input[Optional['LambdaHookHookStatus']] = None,
+                 lambda_function: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_filters: pulumi.Input[Optional[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']]] = None,
+                 target_filters: pulumi.Input[Optional[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]]] = None,
+                 target_operations: pulumi.Input[Optional[Sequence[pulumi.Input['LambdaHookTargetOperation']]]] = None,
                  __props__=None):
         """
         This is a CloudFormation resource for the first-party AWS::Hooks::LambdaHook.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -189,7 +188,6 @@ class LambdaHook(pulumi.CustomResource):
         """
         This is a CloudFormation resource for the first-party AWS::Hooks::LambdaHook.
 
-
         :param str resource_name: The name of the resource.
         :param LambdaHookArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,14 +203,14 @@ class LambdaHook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_mode: Optional[pulumi.Input['LambdaHookFailureMode']] = None,
-                 hook_status: Optional[pulumi.Input['LambdaHookHookStatus']] = None,
-                 lambda_function: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_filters: Optional[pulumi.Input[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']]] = None,
-                 target_filters: Optional[pulumi.Input[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]]] = None,
-                 target_operations: Optional[pulumi.Input[Sequence[pulumi.Input['LambdaHookTargetOperation']]]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_mode: pulumi.Input[Optional['LambdaHookFailureMode']] = None,
+                 hook_status: pulumi.Input[Optional['LambdaHookHookStatus']] = None,
+                 lambda_function: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_filters: pulumi.Input[Optional[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']]] = None,
+                 target_filters: pulumi.Input[Optional[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]]] = None,
+                 target_operations: pulumi.Input[Optional[Sequence[pulumi.Input['LambdaHookTargetOperation']]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

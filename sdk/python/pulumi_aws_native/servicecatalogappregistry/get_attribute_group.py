@@ -65,7 +65,7 @@ class GetAttributeGroupResult:
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        The description of the attribute group. 
+        The description of the attribute group.
         """
         return pulumi.get(self, "description")
 
@@ -81,7 +81,7 @@ class GetAttributeGroupResult:
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The name of the attribute group. 
+        The name of the attribute group.
         """
         return pulumi.get(self, "name")
 
@@ -113,7 +113,6 @@ def get_attribute_group(id: Optional[_builtins.str] = None,
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
 
-
     :param _builtins.str id: The globally unique attribute group identifier of the attribute group.
     """
     __args__ = dict()
@@ -128,11 +127,10 @@ def get_attribute_group(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_attribute_group_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_attribute_group_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttributeGroupResult]:
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
-
 
     :param _builtins.str id: The globally unique attribute group identifier of the attribute group.
     """

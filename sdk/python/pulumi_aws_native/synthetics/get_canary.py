@@ -222,7 +222,6 @@ def get_canary(name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Synthetics::Canary
 
-
     :param _builtins.str name: Name of the canary.
     """
     __args__ = dict()
@@ -246,11 +245,10 @@ def get_canary(name: Optional[_builtins.str] = None,
         success_retention_period=pulumi.get(__ret__, 'success_retention_period'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
-def get_canary_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_canary_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCanaryResult]:
     """
     Resource Type definition for AWS::Synthetics::Canary
-
 
     :param _builtins.str name: Name of the canary.
     """

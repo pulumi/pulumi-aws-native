@@ -26,7 +26,7 @@ class PermissionArgs:
                  application_id: pulumi.Input[_builtins.str],
                  principal: pulumi.Input[_builtins.str],
                  statement_id: pulumi.Input[_builtins.str],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionConditionArgs']]]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['PermissionConditionArgs']]]] = None):
         """
         The set of arguments for constructing a Permission resource.
 
@@ -92,11 +92,11 @@ class PermissionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PermissionConditionArgs']]]]:
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PermissionConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
 
@@ -106,15 +106,14 @@ class Permission(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PermissionConditionArgs', 'PermissionConditionArgsDict']]]]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PermissionConditionArgs', 'PermissionConditionArgsDict']]]]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::QBusiness::Permission Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,7 +131,6 @@ class Permission(pulumi.CustomResource):
         """
         Definition of AWS::QBusiness::Permission Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param PermissionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,11 +146,11 @@ class Permission(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PermissionConditionArgs', 'PermissionConditionArgsDict']]]]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PermissionConditionArgs', 'PermissionConditionArgsDict']]]]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

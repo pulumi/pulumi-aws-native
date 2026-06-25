@@ -89,7 +89,6 @@ def get_user(user_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::ElastiCache::User
 
-
     :param _builtins.str user_id: The ID of the user.
     """
     __args__ = dict()
@@ -102,11 +101,10 @@ def get_user(user_id: Optional[_builtins.str] = None,
         engine=pulumi.get(__ret__, 'engine'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_user_output(user_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_output(user_id: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Resource Type definition for AWS::ElastiCache::User
-
 
     :param _builtins.str user_id: The ID of the user.
     """

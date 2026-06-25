@@ -76,7 +76,6 @@ def get_readiness_check(readiness_check_name: Optional[_builtins.str] = None,
     """
     Aws Route53 Recovery Readiness Check Schema and API specification.
 
-
     :param _builtins.str readiness_check_name: Name of the ReadinessCheck to create.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_readiness_check(readiness_check_name: Optional[_builtins.str] = None,
         readiness_check_arn=pulumi.get(__ret__, 'readiness_check_arn'),
         resource_set_name=pulumi.get(__ret__, 'resource_set_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_readiness_check_output(readiness_check_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_readiness_check_output(readiness_check_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReadinessCheckResult]:
     """
     Aws Route53 Recovery Readiness Check Schema and API specification.
-
 
     :param _builtins.str readiness_check_name: Name of the ReadinessCheck to create.
     """

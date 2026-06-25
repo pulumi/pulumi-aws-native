@@ -20,8 +20,8 @@ __all__ = ['ResolverQueryLoggingConfigAssociationArgs', 'ResolverQueryLoggingCon
 @pulumi.input_type
 class ResolverQueryLoggingConfigAssociationArgs:
     def __init__(__self__, *,
-                 resolver_query_log_config_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 resolver_query_log_config_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResolverQueryLoggingConfigAssociation resource.
 
@@ -35,26 +35,26 @@ class ResolverQueryLoggingConfigAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="resolverQueryLogConfigId")
-    def resolver_query_log_config_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resolver_query_log_config_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ResolverQueryLogConfigId
         """
         return pulumi.get(self, "resolver_query_log_config_id")
 
     @resolver_query_log_config_id.setter
-    def resolver_query_log_config_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resolver_query_log_config_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resolver_query_log_config_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ResourceId
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
 
@@ -64,12 +64,11 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resolver_query_log_config_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resolver_query_log_config_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,7 +83,6 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
-
 
         :param str resource_name: The name of the resource.
         :param ResolverQueryLoggingConfigAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -101,8 +99,8 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resolver_query_log_config_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resolver_query_log_config_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

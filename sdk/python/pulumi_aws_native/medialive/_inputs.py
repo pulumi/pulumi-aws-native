@@ -22,10 +22,10 @@ __all__ = [
     'ClusterNetworkSettingsArgsDict',
     'EventBridgeRuleTemplateTargetArgs',
     'EventBridgeRuleTemplateTargetArgsDict',
-    'MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs',
-    'MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgsDict',
     'MultiplexOutputDestinationArgs',
     'MultiplexOutputDestinationArgsDict',
+    'MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs',
+    'MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgsDict',
     'MultiplexSettingsArgs',
     'MultiplexSettingsArgsDict',
     'MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs',
@@ -48,11 +48,11 @@ class ClusterInterfaceMappingArgsDict(TypedDict):
     """
     Network mappings for the cluster
     """
-    logical_interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    logical_interface_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     logical interface name, unique in the list
     """
-    network_id: NotRequired[pulumi.Input[_builtins.str]]
+    network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Network Id to be associated with the logical interface name, can be duplicated in list
     """
@@ -60,8 +60,8 @@ class ClusterInterfaceMappingArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterInterfaceMappingArgs:
     def __init__(__self__, *,
-                 logical_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 logical_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Network mappings for the cluster
 
@@ -75,26 +75,26 @@ class ClusterInterfaceMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="logicalInterfaceName")
-    def logical_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logical_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         logical interface name, unique in the list
         """
         return pulumi.get(self, "logical_interface_name")
 
     @logical_interface_name.setter
-    def logical_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logical_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logical_interface_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkId")
-    def network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network Id to be associated with the logical interface name, can be duplicated in list
         """
         return pulumi.get(self, "network_id")
 
     @network_id.setter
-    def network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_id", value)
 
 
@@ -102,11 +102,11 @@ class ClusterNetworkSettingsArgsDict(TypedDict):
     """
     On premises settings which will have the interface network mappings and default Output logical interface
     """
-    default_route: NotRequired[pulumi.Input[_builtins.str]]
+    default_route: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Default value if the customer does not define it in channel Output API
     """
-    interface_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterInterfaceMappingArgsDict']]]]
+    interface_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterInterfaceMappingArgsDict']]]]]
     """
     Network mappings for the cluster
     """
@@ -114,8 +114,8 @@ class ClusterNetworkSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterNetworkSettingsArgs:
     def __init__(__self__, *,
-                 default_route: Optional[pulumi.Input[_builtins.str]] = None,
-                 interface_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInterfaceMappingArgs']]]] = None):
+                 default_route: pulumi.Input[Optional[_builtins.str]] = None,
+                 interface_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterInterfaceMappingArgs']]]] = None):
         """
         On premises settings which will have the interface network mappings and default Output logical interface
 
@@ -129,26 +129,26 @@ class ClusterNetworkSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultRoute")
-    def default_route(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_route(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default value if the customer does not define it in channel Output API
         """
         return pulumi.get(self, "default_route")
 
     @default_route.setter
-    def default_route(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_route(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_route", value)
 
     @_builtins.property
     @pulumi.getter(name="interfaceMappings")
-    def interface_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInterfaceMappingArgs']]]]:
+    def interface_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterInterfaceMappingArgs']]]]:
         """
         Network mappings for the cluster
         """
         return pulumi.get(self, "interface_mappings")
 
     @interface_mappings.setter
-    def interface_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInterfaceMappingArgs']]]]):
+    def interface_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterInterfaceMappingArgs']]]]):
         pulumi.set(self, "interface_mappings", value)
 
 
@@ -185,45 +185,11 @@ class EventBridgeRuleTemplateTargetArgs:
         pulumi.set(self, "arn", value)
 
 
-class MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgsDict(TypedDict):
-    """
-    Multiplex MediaConnect output destination settings.
-    """
-    entitlement_arn: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The MediaConnect entitlement ARN available as a Flow source.
-    """
-
-@pulumi.input_type
-class MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs:
-    def __init__(__self__, *,
-                 entitlement_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Multiplex MediaConnect output destination settings.
-
-        :param pulumi.Input[_builtins.str] entitlement_arn: The MediaConnect entitlement ARN available as a Flow source.
-        """
-        if entitlement_arn is not None:
-            pulumi.set(__self__, "entitlement_arn", entitlement_arn)
-
-    @_builtins.property
-    @pulumi.getter(name="entitlementArn")
-    def entitlement_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The MediaConnect entitlement ARN available as a Flow source.
-        """
-        return pulumi.get(self, "entitlement_arn")
-
-    @entitlement_arn.setter
-    def entitlement_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "entitlement_arn", value)
-
-
 class MultiplexOutputDestinationArgsDict(TypedDict):
     """
     Multiplex MediaConnect output destination settings.
     """
-    multiplex_media_connect_output_destination_settings: NotRequired[pulumi.Input['MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgsDict']]
+    multiplex_media_connect_output_destination_settings: NotRequired[pulumi.Input[Optional['MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgsDict']]]
     """
     Multiplex MediaConnect output destination settings.
     """
@@ -231,7 +197,7 @@ class MultiplexOutputDestinationArgsDict(TypedDict):
 @pulumi.input_type
 class MultiplexOutputDestinationArgs:
     def __init__(__self__, *,
-                 multiplex_media_connect_output_destination_settings: Optional[pulumi.Input['MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs']] = None):
+                 multiplex_media_connect_output_destination_settings: pulumi.Input[Optional['MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs']] = None):
         """
         Multiplex MediaConnect output destination settings.
 
@@ -242,15 +208,49 @@ class MultiplexOutputDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="multiplexMediaConnectOutputDestinationSettings")
-    def multiplex_media_connect_output_destination_settings(self) -> Optional[pulumi.Input['MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs']]:
+    def multiplex_media_connect_output_destination_settings(self) -> pulumi.Input[Optional['MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs']]:
         """
         Multiplex MediaConnect output destination settings.
         """
         return pulumi.get(self, "multiplex_media_connect_output_destination_settings")
 
     @multiplex_media_connect_output_destination_settings.setter
-    def multiplex_media_connect_output_destination_settings(self, value: Optional[pulumi.Input['MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs']]):
+    def multiplex_media_connect_output_destination_settings(self, value: pulumi.Input[Optional['MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs']]):
         pulumi.set(self, "multiplex_media_connect_output_destination_settings", value)
+
+
+class MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgsDict(TypedDict):
+    """
+    Multiplex MediaConnect output destination settings.
+    """
+    entitlement_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The MediaConnect entitlement ARN available as a Flow source.
+    """
+
+@pulumi.input_type
+class MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 entitlement_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Multiplex MediaConnect output destination settings.
+
+        :param pulumi.Input[_builtins.str] entitlement_arn: The MediaConnect entitlement ARN available as a Flow source.
+        """
+        if entitlement_arn is not None:
+            pulumi.set(__self__, "entitlement_arn", entitlement_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="entitlementArn")
+    def entitlement_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The MediaConnect entitlement ARN available as a Flow source.
+        """
+        return pulumi.get(self, "entitlement_arn")
+
+    @entitlement_arn.setter
+    def entitlement_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "entitlement_arn", value)
 
 
 class MultiplexSettingsArgsDict(TypedDict):
@@ -265,11 +265,11 @@ class MultiplexSettingsArgsDict(TypedDict):
     """
     Transport stream ID.
     """
-    maximum_video_buffer_delay_milliseconds: NotRequired[pulumi.Input[_builtins.int]]
+    maximum_video_buffer_delay_milliseconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum video buffer delay in milliseconds.
     """
-    transport_stream_reserved_bitrate: NotRequired[pulumi.Input[_builtins.int]]
+    transport_stream_reserved_bitrate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Transport stream reserved bit rate.
     """
@@ -279,8 +279,8 @@ class MultiplexSettingsArgs:
     def __init__(__self__, *,
                  transport_stream_bitrate: pulumi.Input[_builtins.int],
                  transport_stream_id: pulumi.Input[_builtins.int],
-                 maximum_video_buffer_delay_milliseconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 transport_stream_reserved_bitrate: Optional[pulumi.Input[_builtins.int]] = None):
+                 maximum_video_buffer_delay_milliseconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 transport_stream_reserved_bitrate: pulumi.Input[Optional[_builtins.int]] = None):
         """
         A key-value pair to associate with a resource.
 
@@ -322,26 +322,26 @@ class MultiplexSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maximumVideoBufferDelayMilliseconds")
-    def maximum_video_buffer_delay_milliseconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_video_buffer_delay_milliseconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum video buffer delay in milliseconds.
         """
         return pulumi.get(self, "maximum_video_buffer_delay_milliseconds")
 
     @maximum_video_buffer_delay_milliseconds.setter
-    def maximum_video_buffer_delay_milliseconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_video_buffer_delay_milliseconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_video_buffer_delay_milliseconds", value)
 
     @_builtins.property
     @pulumi.getter(name="transportStreamReservedBitrate")
-    def transport_stream_reserved_bitrate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def transport_stream_reserved_bitrate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Transport stream reserved bit rate.
         """
         return pulumi.get(self, "transport_stream_reserved_bitrate")
 
     @transport_stream_reserved_bitrate.setter
-    def transport_stream_reserved_bitrate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def transport_stream_reserved_bitrate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "transport_stream_reserved_bitrate", value)
 
 
@@ -349,36 +349,36 @@ class MultiplexprogramMultiplexProgramPacketIdentifiersMapArgsDict(TypedDict):
     """
     Packet identifiers map for a given Multiplex program.
     """
-    audio_pids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-    dvb_sub_pids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-    dvb_teletext_pid: NotRequired[pulumi.Input[_builtins.int]]
-    etv_platform_pid: NotRequired[pulumi.Input[_builtins.int]]
-    etv_signal_pid: NotRequired[pulumi.Input[_builtins.int]]
-    klv_data_pids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-    pcr_pid: NotRequired[pulumi.Input[_builtins.int]]
-    pmt_pid: NotRequired[pulumi.Input[_builtins.int]]
-    private_metadata_pid: NotRequired[pulumi.Input[_builtins.int]]
-    scte27_pids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-    scte35_pid: NotRequired[pulumi.Input[_builtins.int]]
-    timed_metadata_pid: NotRequired[pulumi.Input[_builtins.int]]
-    video_pid: NotRequired[pulumi.Input[_builtins.int]]
+    audio_pids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
+    dvb_sub_pids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
+    dvb_teletext_pid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    etv_platform_pid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    etv_signal_pid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    klv_data_pids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
+    pcr_pid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    pmt_pid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    private_metadata_pid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    scte27_pids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
+    scte35_pid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    timed_metadata_pid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    video_pid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs:
     def __init__(__self__, *,
-                 audio_pids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 dvb_sub_pids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 dvb_teletext_pid: Optional[pulumi.Input[_builtins.int]] = None,
-                 etv_platform_pid: Optional[pulumi.Input[_builtins.int]] = None,
-                 etv_signal_pid: Optional[pulumi.Input[_builtins.int]] = None,
-                 klv_data_pids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 pcr_pid: Optional[pulumi.Input[_builtins.int]] = None,
-                 pmt_pid: Optional[pulumi.Input[_builtins.int]] = None,
-                 private_metadata_pid: Optional[pulumi.Input[_builtins.int]] = None,
-                 scte27_pids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 scte35_pid: Optional[pulumi.Input[_builtins.int]] = None,
-                 timed_metadata_pid: Optional[pulumi.Input[_builtins.int]] = None,
-                 video_pid: Optional[pulumi.Input[_builtins.int]] = None):
+                 audio_pids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 dvb_sub_pids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 dvb_teletext_pid: pulumi.Input[Optional[_builtins.int]] = None,
+                 etv_platform_pid: pulumi.Input[Optional[_builtins.int]] = None,
+                 etv_signal_pid: pulumi.Input[Optional[_builtins.int]] = None,
+                 klv_data_pids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 pcr_pid: pulumi.Input[Optional[_builtins.int]] = None,
+                 pmt_pid: pulumi.Input[Optional[_builtins.int]] = None,
+                 private_metadata_pid: pulumi.Input[Optional[_builtins.int]] = None,
+                 scte27_pids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 scte35_pid: pulumi.Input[Optional[_builtins.int]] = None,
+                 timed_metadata_pid: pulumi.Input[Optional[_builtins.int]] = None,
+                 video_pid: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Packet identifiers map for a given Multiplex program.
         """
@@ -411,119 +411,119 @@ class MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs:
 
     @_builtins.property
     @pulumi.getter(name="audioPids")
-    def audio_pids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def audio_pids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "audio_pids")
 
     @audio_pids.setter
-    def audio_pids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def audio_pids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "audio_pids", value)
 
     @_builtins.property
     @pulumi.getter(name="dvbSubPids")
-    def dvb_sub_pids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def dvb_sub_pids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "dvb_sub_pids")
 
     @dvb_sub_pids.setter
-    def dvb_sub_pids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def dvb_sub_pids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "dvb_sub_pids", value)
 
     @_builtins.property
     @pulumi.getter(name="dvbTeletextPid")
-    def dvb_teletext_pid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dvb_teletext_pid(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "dvb_teletext_pid")
 
     @dvb_teletext_pid.setter
-    def dvb_teletext_pid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dvb_teletext_pid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dvb_teletext_pid", value)
 
     @_builtins.property
     @pulumi.getter(name="etvPlatformPid")
-    def etv_platform_pid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def etv_platform_pid(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "etv_platform_pid")
 
     @etv_platform_pid.setter
-    def etv_platform_pid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def etv_platform_pid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "etv_platform_pid", value)
 
     @_builtins.property
     @pulumi.getter(name="etvSignalPid")
-    def etv_signal_pid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def etv_signal_pid(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "etv_signal_pid")
 
     @etv_signal_pid.setter
-    def etv_signal_pid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def etv_signal_pid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "etv_signal_pid", value)
 
     @_builtins.property
     @pulumi.getter(name="klvDataPids")
-    def klv_data_pids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def klv_data_pids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "klv_data_pids")
 
     @klv_data_pids.setter
-    def klv_data_pids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def klv_data_pids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "klv_data_pids", value)
 
     @_builtins.property
     @pulumi.getter(name="pcrPid")
-    def pcr_pid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def pcr_pid(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "pcr_pid")
 
     @pcr_pid.setter
-    def pcr_pid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def pcr_pid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "pcr_pid", value)
 
     @_builtins.property
     @pulumi.getter(name="pmtPid")
-    def pmt_pid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def pmt_pid(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "pmt_pid")
 
     @pmt_pid.setter
-    def pmt_pid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def pmt_pid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "pmt_pid", value)
 
     @_builtins.property
     @pulumi.getter(name="privateMetadataPid")
-    def private_metadata_pid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def private_metadata_pid(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "private_metadata_pid")
 
     @private_metadata_pid.setter
-    def private_metadata_pid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def private_metadata_pid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "private_metadata_pid", value)
 
     @_builtins.property
     @pulumi.getter(name="scte27Pids")
-    def scte27_pids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def scte27_pids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "scte27_pids")
 
     @scte27_pids.setter
-    def scte27_pids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def scte27_pids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "scte27_pids", value)
 
     @_builtins.property
     @pulumi.getter(name="scte35Pid")
-    def scte35_pid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scte35_pid(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "scte35_pid")
 
     @scte35_pid.setter
-    def scte35_pid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scte35_pid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scte35_pid", value)
 
     @_builtins.property
     @pulumi.getter(name="timedMetadataPid")
-    def timed_metadata_pid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timed_metadata_pid(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "timed_metadata_pid")
 
     @timed_metadata_pid.setter
-    def timed_metadata_pid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timed_metadata_pid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timed_metadata_pid", value)
 
     @_builtins.property
     @pulumi.getter(name="videoPid")
-    def video_pid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def video_pid(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "video_pid")
 
     @video_pid.setter
-    def video_pid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def video_pid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "video_pid", value)
 
 
@@ -531,11 +531,11 @@ class MultiplexprogramMultiplexProgramPipelineDetailArgsDict(TypedDict):
     """
     The current source for one of the pipelines in the multiplex.
     """
-    active_channel_pipeline: NotRequired[pulumi.Input[_builtins.str]]
+    active_channel_pipeline: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex.
     """
-    pipeline_id: NotRequired[pulumi.Input[_builtins.str]]
+    pipeline_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifies a specific pipeline in the multiplex.
     """
@@ -543,8 +543,8 @@ class MultiplexprogramMultiplexProgramPipelineDetailArgsDict(TypedDict):
 @pulumi.input_type
 class MultiplexprogramMultiplexProgramPipelineDetailArgs:
     def __init__(__self__, *,
-                 active_channel_pipeline: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 active_channel_pipeline: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The current source for one of the pipelines in the multiplex.
 
@@ -558,26 +558,26 @@ class MultiplexprogramMultiplexProgramPipelineDetailArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeChannelPipeline")
-    def active_channel_pipeline(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def active_channel_pipeline(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex.
         """
         return pulumi.get(self, "active_channel_pipeline")
 
     @active_channel_pipeline.setter
-    def active_channel_pipeline(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def active_channel_pipeline(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "active_channel_pipeline", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineId")
-    def pipeline_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies a specific pipeline in the multiplex.
         """
         return pulumi.get(self, "pipeline_id")
 
     @pipeline_id.setter
-    def pipeline_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_id", value)
 
 
@@ -641,15 +641,15 @@ class MultiplexprogramMultiplexProgramSettingsArgsDict(TypedDict):
     """
     Unique program number.
     """
-    preferred_channel_pipeline: NotRequired[pulumi.Input['MultiplexprogramPreferredChannelPipeline']]
+    preferred_channel_pipeline: NotRequired[pulumi.Input[Optional['MultiplexprogramPreferredChannelPipeline']]]
     """
     Indicates which pipeline is preferred by the multiplex for program ingest.
     """
-    service_descriptor: NotRequired[pulumi.Input['MultiplexprogramMultiplexProgramServiceDescriptorArgsDict']]
+    service_descriptor: NotRequired[pulumi.Input[Optional['MultiplexprogramMultiplexProgramServiceDescriptorArgsDict']]]
     """
     Transport stream service descriptor configuration for the Multiplex program.
     """
-    video_settings: NotRequired[pulumi.Input['MultiplexprogramMultiplexVideoSettingsArgsDict']]
+    video_settings: NotRequired[pulumi.Input[Optional['MultiplexprogramMultiplexVideoSettingsArgsDict']]]
     """
     Program video settings configuration.
     """
@@ -658,9 +658,9 @@ class MultiplexprogramMultiplexProgramSettingsArgsDict(TypedDict):
 class MultiplexprogramMultiplexProgramSettingsArgs:
     def __init__(__self__, *,
                  program_number: pulumi.Input[_builtins.int],
-                 preferred_channel_pipeline: Optional[pulumi.Input['MultiplexprogramPreferredChannelPipeline']] = None,
-                 service_descriptor: Optional[pulumi.Input['MultiplexprogramMultiplexProgramServiceDescriptorArgs']] = None,
-                 video_settings: Optional[pulumi.Input['MultiplexprogramMultiplexVideoSettingsArgs']] = None):
+                 preferred_channel_pipeline: pulumi.Input[Optional['MultiplexprogramPreferredChannelPipeline']] = None,
+                 service_descriptor: pulumi.Input[Optional['MultiplexprogramMultiplexProgramServiceDescriptorArgs']] = None,
+                 video_settings: pulumi.Input[Optional['MultiplexprogramMultiplexVideoSettingsArgs']] = None):
         """
         Multiplex Program settings configuration.
 
@@ -691,38 +691,38 @@ class MultiplexprogramMultiplexProgramSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="preferredChannelPipeline")
-    def preferred_channel_pipeline(self) -> Optional[pulumi.Input['MultiplexprogramPreferredChannelPipeline']]:
+    def preferred_channel_pipeline(self) -> pulumi.Input[Optional['MultiplexprogramPreferredChannelPipeline']]:
         """
         Indicates which pipeline is preferred by the multiplex for program ingest.
         """
         return pulumi.get(self, "preferred_channel_pipeline")
 
     @preferred_channel_pipeline.setter
-    def preferred_channel_pipeline(self, value: Optional[pulumi.Input['MultiplexprogramPreferredChannelPipeline']]):
+    def preferred_channel_pipeline(self, value: pulumi.Input[Optional['MultiplexprogramPreferredChannelPipeline']]):
         pulumi.set(self, "preferred_channel_pipeline", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceDescriptor")
-    def service_descriptor(self) -> Optional[pulumi.Input['MultiplexprogramMultiplexProgramServiceDescriptorArgs']]:
+    def service_descriptor(self) -> pulumi.Input[Optional['MultiplexprogramMultiplexProgramServiceDescriptorArgs']]:
         """
         Transport stream service descriptor configuration for the Multiplex program.
         """
         return pulumi.get(self, "service_descriptor")
 
     @service_descriptor.setter
-    def service_descriptor(self, value: Optional[pulumi.Input['MultiplexprogramMultiplexProgramServiceDescriptorArgs']]):
+    def service_descriptor(self, value: pulumi.Input[Optional['MultiplexprogramMultiplexProgramServiceDescriptorArgs']]):
         pulumi.set(self, "service_descriptor", value)
 
     @_builtins.property
     @pulumi.getter(name="videoSettings")
-    def video_settings(self) -> Optional[pulumi.Input['MultiplexprogramMultiplexVideoSettingsArgs']]:
+    def video_settings(self) -> pulumi.Input[Optional['MultiplexprogramMultiplexVideoSettingsArgs']]:
         """
         Program video settings configuration.
         """
         return pulumi.get(self, "video_settings")
 
     @video_settings.setter
-    def video_settings(self, value: Optional[pulumi.Input['MultiplexprogramMultiplexVideoSettingsArgs']]):
+    def video_settings(self, value: pulumi.Input[Optional['MultiplexprogramMultiplexVideoSettingsArgs']]):
         pulumi.set(self, "video_settings", value)
 
 
@@ -745,7 +745,7 @@ class NetworkIpPoolArgsDict(TypedDict):
     """
     IP address cidr pool
     """
-    cidr: NotRequired[pulumi.Input[_builtins.str]]
+    cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IP address cidr pool
     """
@@ -753,7 +753,7 @@ class NetworkIpPoolArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkIpPoolArgs:
     def __init__(__self__, *,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None):
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None):
         """
         IP address cidr pool
 
@@ -764,23 +764,23 @@ class NetworkIpPoolArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP address cidr pool
         """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
-    def cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr", value)
 
 
 class NetworkRouteArgsDict(TypedDict):
-    cidr: NotRequired[pulumi.Input[_builtins.str]]
+    cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Ip address cidr
     """
-    gateway: NotRequired[pulumi.Input[_builtins.str]]
+    gateway: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IP address for the route packet paths
     """
@@ -788,8 +788,8 @@ class NetworkRouteArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkRouteArgs:
     def __init__(__self__, *,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway: Optional[pulumi.Input[_builtins.str]] = None):
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cidr: Ip address cidr
         :param pulumi.Input[_builtins.str] gateway: IP address for the route packet paths
@@ -801,26 +801,26 @@ class NetworkRouteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Ip address cidr
         """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
-    def cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr", value)
 
     @_builtins.property
     @pulumi.getter
-    def gateway(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP address for the route packet paths
         """
         return pulumi.get(self, "gateway")
 
     @gateway.setter
-    def gateway(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway", value)
 
 

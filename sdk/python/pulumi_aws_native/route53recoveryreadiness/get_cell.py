@@ -88,7 +88,6 @@ def get_cell(cell_name: Optional[_builtins.str] = None,
     """
     The API Schema for AWS Route53 Recovery Readiness Cells.
 
-
     :param _builtins.str cell_name: The name of the cell to create.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_cell(cell_name: Optional[_builtins.str] = None,
         cells=pulumi.get(__ret__, 'cells'),
         parent_readiness_scopes=pulumi.get(__ret__, 'parent_readiness_scopes'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_cell_output(cell_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cell_output(cell_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCellResult]:
     """
     The API Schema for AWS Route53 Recovery Readiness Cells.
-
 
     :param _builtins.str cell_name: The name of the cell to create.
     """

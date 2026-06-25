@@ -177,7 +177,7 @@ class HealthCheckConfigProperties(dict):
 
         :param 'HealthCheckConfigPropertiesType' type: The type of health check that you want to create, which indicates how Amazon Route 53 determines whether an endpoint is healthy.
                
-               > You can't change the value of `Type` after you create a health check. 
+               > You can't change the value of `Type` after you create a health check.
                
                You can create the following types of health checks:
                
@@ -191,7 +191,6 @@ class HealthCheckConfigProperties(dict):
                - *CLOUDWATCH_METRIC* : The health check is associated with a CloudWatch alarm. If the state of the alarm is `OK` , the health check is considered healthy. If the state is `ALARM` , the health check is considered unhealthy. If CloudWatch doesn't have sufficient data to determine whether the state is `OK` or `ALARM` , the health check status depends on the setting for `InsufficientDataHealthStatus` : `Healthy` , `Unhealthy` , or `LastKnownStatus` .
                
                > Route 53 supports CloudWatch alarms with the following features:
-               > 
                > - Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see [High-Resolution Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics) in the *Amazon CloudWatch User Guide* .
                > - Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.
                - *CALCULATED* : For health checks that monitor the status of other health checks, Route 53 adds up the number of health checks that Route 53 health checkers consider to be healthy and compares that number with the value of `HealthThreshold` .
@@ -228,11 +227,11 @@ class HealthCheckConfigProperties(dict):
                
                Route 53 sends a DNS request to the domain that you specify for `FullyQualifiedDomainName` at the interval that you specify for `RequestInterval` . Using an IPv4 address that DNS returns, Route 53 then checks the health of the endpoint.
                
-               > If you don't specify a value for `IPAddress` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no record with a type of A for the name that you specify for `FullyQualifiedDomainName` , the health check fails with a "DNS resolution failed" error. 
+               > If you don't specify a value for `IPAddress` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no record with a type of A for the name that you specify for `FullyQualifiedDomainName` , the health check fails with a "DNS resolution failed" error.
                
                If you want to check the health of multiple records that have the same name and type, such as multiple weighted records, and if you choose to specify the endpoint only by `FullyQualifiedDomainName` , we recommend that you create a separate health check for each endpoint. For example, create a health check for each HTTP server that is serving content for www.example.com. For the value of `FullyQualifiedDomainName` , specify the domain name of the server (such as us-east-2-www.example.com), not the name of the records (www.example.com).
                
-               > In this configuration, if you create a health check for which the value of `FullyQualifiedDomainName` matches the name of the records and you then associate the health check with those records, health check results will be unpredictable. 
+               > In this configuration, if you create a health check for which the value of `FullyQualifiedDomainName` matches the name of the records and you then associate the health check with those records, health check results will be unpredictable.
                
                In addition, if the value that you specify for `Type` is `HTTP` , `HTTPS` , `HTTP_STR_MATCH` , or `HTTPS_STR_MATCH` , Route 53 passes the value of `FullyQualifiedDomainName` in the `Host` header, as it does when you specify a value for `IPAddress` . If the value of `Type` is `TCP` , Route 53 doesn't pass a `Host` header.
         :param _builtins.int health_threshold: The number of child health checks that are associated with a `CALCULATED` health check that Amazon Route 53 must consider healthy for the `CALCULATED` health check to be considered healthy. To specify the child health checks that you want to associate with a `CALCULATED` health check, use the [ChildHealthChecks](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-ChildHealthChecks) element.
@@ -282,7 +281,7 @@ class HealthCheckConfigProperties(dict):
                
                `RequestInterval` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
                
-               > You can't change the value of `RequestInterval` after you create a health check. 
+               > You can't change the value of `RequestInterval` after you create a health check.
                
                If you don't specify a value for `RequestInterval` , the default value is `30` seconds.
         :param _builtins.str resource_path: The path, if any, that you want Amazon Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, for example, the file /docs/route53-health-check.html. You can also include query string parameters, for example, `/welcome.html?language=jp&login=y` .
@@ -333,7 +332,7 @@ class HealthCheckConfigProperties(dict):
         """
         The type of health check that you want to create, which indicates how Amazon Route 53 determines whether an endpoint is healthy.
 
-        > You can't change the value of `Type` after you create a health check. 
+        > You can't change the value of `Type` after you create a health check.
 
         You can create the following types of health checks:
 
@@ -347,7 +346,6 @@ class HealthCheckConfigProperties(dict):
         - *CLOUDWATCH_METRIC* : The health check is associated with a CloudWatch alarm. If the state of the alarm is `OK` , the health check is considered healthy. If the state is `ALARM` , the health check is considered unhealthy. If CloudWatch doesn't have sufficient data to determine whether the state is `OK` or `ALARM` , the health check status depends on the setting for `InsufficientDataHealthStatus` : `Healthy` , `Unhealthy` , or `LastKnownStatus` .
 
         > Route 53 supports CloudWatch alarms with the following features:
-        > 
         > - Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see [High-Resolution Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics) in the *Amazon CloudWatch User Guide* .
         > - Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.
         - *CALCULATED* : For health checks that monitor the status of other health checks, Route 53 adds up the number of health checks that Route 53 health checkers consider to be healthy and compares that number with the value of `HealthThreshold` .
@@ -419,11 +417,11 @@ class HealthCheckConfigProperties(dict):
 
         Route 53 sends a DNS request to the domain that you specify for `FullyQualifiedDomainName` at the interval that you specify for `RequestInterval` . Using an IPv4 address that DNS returns, Route 53 then checks the health of the endpoint.
 
-        > If you don't specify a value for `IPAddress` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no record with a type of A for the name that you specify for `FullyQualifiedDomainName` , the health check fails with a "DNS resolution failed" error. 
+        > If you don't specify a value for `IPAddress` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no record with a type of A for the name that you specify for `FullyQualifiedDomainName` , the health check fails with a "DNS resolution failed" error.
 
         If you want to check the health of multiple records that have the same name and type, such as multiple weighted records, and if you choose to specify the endpoint only by `FullyQualifiedDomainName` , we recommend that you create a separate health check for each endpoint. For example, create a health check for each HTTP server that is serving content for www.example.com. For the value of `FullyQualifiedDomainName` , specify the domain name of the server (such as us-east-2-www.example.com), not the name of the records (www.example.com).
 
-        > In this configuration, if you create a health check for which the value of `FullyQualifiedDomainName` matches the name of the records and you then associate the health check with those records, health check results will be unpredictable. 
+        > In this configuration, if you create a health check for which the value of `FullyQualifiedDomainName` matches the name of the records and you then associate the health check with those records, health check results will be unpredictable.
 
         In addition, if the value that you specify for `Type` is `HTTP` , `HTTPS` , `HTTP_STR_MATCH` , or `HTTPS_STR_MATCH` , Route 53 passes the value of `FullyQualifiedDomainName` in the `Host` header, as it does when you specify a value for `IPAddress` . If the value of `Type` is `TCP` , Route 53 doesn't pass a `Host` header.
         """
@@ -529,7 +527,7 @@ class HealthCheckConfigProperties(dict):
 
         `RequestInterval` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
 
-        > You can't change the value of `RequestInterval` after you create a health check. 
+        > You can't change the value of `RequestInterval` after you create a health check.
 
         If you don't specify a value for `RequestInterval` , the default value is `30` seconds.
         """
@@ -667,7 +665,7 @@ class HostedZoneQueryLoggingConfig(dict):
 @pulumi.output_type
 class HostedZoneVpc(dict):
     """
-    *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC. 
+    *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
       For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
     """
     @staticmethod
@@ -693,7 +691,7 @@ class HostedZoneVpc(dict):
                  vpc_id: _builtins.str,
                  vpc_region: _builtins.str):
         """
-        *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC. 
+        *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
           For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
 
         :param _builtins.str vpc_id: *Private hosted zones only:* The ID of an Amazon VPC.

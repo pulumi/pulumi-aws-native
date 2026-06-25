@@ -65,7 +65,7 @@ def get_transaction_search_config(account_id: Optional[_builtins.str] = None,
     return AwaitableGetTransactionSearchConfigResult(
         account_id=pulumi.get(__ret__, 'account_id'),
         indexing_percentage=pulumi.get(__ret__, 'indexing_percentage'))
-def get_transaction_search_config_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_transaction_search_config_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransactionSearchConfigResult]:
     """
     This schema provides construct and validation rules for AWS-XRay TransactionSearchConfig resource parameters.

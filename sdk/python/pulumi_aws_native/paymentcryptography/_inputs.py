@@ -114,36 +114,36 @@ class KeyAttributesArgs:
 
 
 class KeyModesOfUseArgsDict(TypedDict):
-    decrypt: NotRequired[pulumi.Input[_builtins.bool]]
+    decrypt: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Speciﬁes whether an AWS Payment Cryptography key can be used to decrypt data.
     """
-    derive_key: NotRequired[pulumi.Input[_builtins.bool]]
+    derive_key: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Speciﬁes whether an AWS Payment Cryptography key can be used to derive new keys.
     """
-    encrypt: NotRequired[pulumi.Input[_builtins.bool]]
+    encrypt: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Speciﬁes whether an AWS Payment Cryptography key can be used to encrypt data.
     """
-    generate: NotRequired[pulumi.Input[_builtins.bool]]
+    generate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Speciﬁes whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
     """
-    no_restrictions: NotRequired[pulumi.Input[_builtins.bool]]
+    no_restrictions: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Speciﬁes whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by `KeyUsage` .
     """
-    sign: NotRequired[pulumi.Input[_builtins.bool]]
+    sign: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Speciﬁes whether an AWS Payment Cryptography key can be used for signing.
     """
-    unwrap: NotRequired[pulumi.Input[_builtins.bool]]
-    verify: NotRequired[pulumi.Input[_builtins.bool]]
+    unwrap: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    verify: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Speciﬁes whether an AWS Payment Cryptography key can be used to verify signatures.
     """
-    wrap: NotRequired[pulumi.Input[_builtins.bool]]
+    wrap: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Speciﬁes whether an AWS Payment Cryptography key can be used to wrap other keys.
     """
@@ -151,15 +151,15 @@ class KeyModesOfUseArgsDict(TypedDict):
 @pulumi.input_type
 class KeyModesOfUseArgs:
     def __init__(__self__, *,
-                 decrypt: Optional[pulumi.Input[_builtins.bool]] = None,
-                 derive_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encrypt: Optional[pulumi.Input[_builtins.bool]] = None,
-                 generate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 no_restrictions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sign: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unwrap: Optional[pulumi.Input[_builtins.bool]] = None,
-                 verify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 wrap: Optional[pulumi.Input[_builtins.bool]] = None):
+                 decrypt: pulumi.Input[Optional[_builtins.bool]] = None,
+                 derive_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encrypt: pulumi.Input[Optional[_builtins.bool]] = None,
+                 generate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 no_restrictions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sign: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unwrap: pulumi.Input[Optional[_builtins.bool]] = None,
+                 verify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 wrap: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] decrypt: Speciﬁes whether an AWS Payment Cryptography key can be used to decrypt data.
         :param pulumi.Input[_builtins.bool] derive_key: Speciﬁes whether an AWS Payment Cryptography key can be used to derive new keys.
@@ -191,107 +191,107 @@ class KeyModesOfUseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def decrypt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def decrypt(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Speciﬁes whether an AWS Payment Cryptography key can be used to decrypt data.
         """
         return pulumi.get(self, "decrypt")
 
     @decrypt.setter
-    def decrypt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def decrypt(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "decrypt", value)
 
     @_builtins.property
     @pulumi.getter(name="deriveKey")
-    def derive_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def derive_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Speciﬁes whether an AWS Payment Cryptography key can be used to derive new keys.
         """
         return pulumi.get(self, "derive_key")
 
     @derive_key.setter
-    def derive_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def derive_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "derive_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def encrypt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encrypt(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Speciﬁes whether an AWS Payment Cryptography key can be used to encrypt data.
         """
         return pulumi.get(self, "encrypt")
 
     @encrypt.setter
-    def encrypt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encrypt(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encrypt", value)
 
     @_builtins.property
     @pulumi.getter
-    def generate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def generate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Speciﬁes whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
         """
         return pulumi.get(self, "generate")
 
     @generate.setter
-    def generate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def generate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "generate", value)
 
     @_builtins.property
     @pulumi.getter(name="noRestrictions")
-    def no_restrictions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def no_restrictions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Speciﬁes whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by `KeyUsage` .
         """
         return pulumi.get(self, "no_restrictions")
 
     @no_restrictions.setter
-    def no_restrictions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def no_restrictions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "no_restrictions", value)
 
     @_builtins.property
     @pulumi.getter
-    def sign(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sign(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Speciﬁes whether an AWS Payment Cryptography key can be used for signing.
         """
         return pulumi.get(self, "sign")
 
     @sign.setter
-    def sign(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sign(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sign", value)
 
     @_builtins.property
     @pulumi.getter
-    def unwrap(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unwrap(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "unwrap")
 
     @unwrap.setter
-    def unwrap(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unwrap(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unwrap", value)
 
     @_builtins.property
     @pulumi.getter
-    def verify(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verify(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Speciﬁes whether an AWS Payment Cryptography key can be used to verify signatures.
         """
         return pulumi.get(self, "verify")
 
     @verify.setter
-    def verify(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verify(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verify", value)
 
     @_builtins.property
     @pulumi.getter
-    def wrap(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wrap(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Speciﬁes whether an AWS Payment Cryptography key can be used to wrap other keys.
         """
         return pulumi.get(self, "wrap")
 
     @wrap.setter
-    def wrap(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wrap(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wrap", value)
 
 

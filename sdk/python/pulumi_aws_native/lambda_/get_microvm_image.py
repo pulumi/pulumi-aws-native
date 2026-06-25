@@ -125,7 +125,6 @@ def get_microvm_image(image_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Lambda::MicrovmImage
 
-
     :param _builtins.str image_arn: ARN of the MicroVM image.
     """
     __args__ = dict()
@@ -141,11 +140,10 @@ def get_microvm_image(image_arn: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_microvm_image_output(image_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_microvm_image_output(image_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMicrovmImageResult]:
     """
     Resource Type definition for AWS::Lambda::MicrovmImage
-
 
     :param _builtins.str image_arn: ARN of the MicroVM image.
     """

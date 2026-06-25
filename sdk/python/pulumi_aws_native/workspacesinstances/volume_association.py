@@ -23,7 +23,7 @@ class VolumeAssociationArgs:
                  device: pulumi.Input[_builtins.str],
                  volume_id: pulumi.Input[_builtins.str],
                  workspace_instance_id: pulumi.Input[_builtins.str],
-                 disassociate_mode: Optional[pulumi.Input['VolumeAssociationDisassociateMode']] = None):
+                 disassociate_mode: pulumi.Input[Optional['VolumeAssociationDisassociateMode']] = None):
         """
         The set of arguments for constructing a VolumeAssociation resource.
 
@@ -76,14 +76,14 @@ class VolumeAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="disassociateMode")
-    def disassociate_mode(self) -> Optional[pulumi.Input['VolumeAssociationDisassociateMode']]:
+    def disassociate_mode(self) -> pulumi.Input[Optional['VolumeAssociationDisassociateMode']]:
         """
         Mode to use when disassociating the volume
         """
         return pulumi.get(self, "disassociate_mode")
 
     @disassociate_mode.setter
-    def disassociate_mode(self, value: Optional[pulumi.Input['VolumeAssociationDisassociateMode']]):
+    def disassociate_mode(self, value: pulumi.Input[Optional['VolumeAssociationDisassociateMode']]):
         pulumi.set(self, "disassociate_mode", value)
 
 
@@ -93,14 +93,13 @@ class VolumeAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device: Optional[pulumi.Input[_builtins.str]] = None,
-                 disassociate_mode: Optional[pulumi.Input['VolumeAssociationDisassociateMode']] = None,
-                 volume_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 device: pulumi.Input[Optional[_builtins.str]] = None,
+                 disassociate_mode: pulumi.Input[Optional['VolumeAssociationDisassociateMode']] = None,
+                 volume_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::WorkspacesInstances::VolumeAssociation
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +117,6 @@ class VolumeAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::WorkspacesInstances::VolumeAssociation
 
-
         :param str resource_name: The name of the resource.
         :param VolumeAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,10 +132,10 @@ class VolumeAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device: Optional[pulumi.Input[_builtins.str]] = None,
-                 disassociate_mode: Optional[pulumi.Input['VolumeAssociationDisassociateMode']] = None,
-                 volume_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 device: pulumi.Input[Optional[_builtins.str]] = None,
+                 disassociate_mode: pulumi.Input[Optional['VolumeAssociationDisassociateMode']] = None,
+                 volume_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

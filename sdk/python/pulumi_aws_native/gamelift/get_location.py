@@ -64,7 +64,6 @@ def get_location(location_name: Optional[_builtins.str] = None,
     """
     The AWS::GameLift::Location resource creates an Amazon GameLift (GameLift) custom location.
 
-
     :param _builtins.str location_name: A descriptive name for the custom location.
     """
     __args__ = dict()
@@ -75,11 +74,10 @@ def get_location(location_name: Optional[_builtins.str] = None,
     return AwaitableGetLocationResult(
         location_arn=pulumi.get(__ret__, 'location_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_location_output(location_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_location_output(location_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationResult]:
     """
     The AWS::GameLift::Location resource creates an Amazon GameLift (GameLift) custom location.
-
 
     :param _builtins.str location_name: A descriptive name for the custom location.
     """

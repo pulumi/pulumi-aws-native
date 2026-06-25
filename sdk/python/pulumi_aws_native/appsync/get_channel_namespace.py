@@ -114,7 +114,6 @@ def get_channel_namespace(channel_namespace_arn: Optional[_builtins.str] = None,
     """
     Resource schema for AppSync ChannelNamespace
 
-
     :param _builtins.str channel_namespace_arn: The Amazon Resource Name (ARN) of the channel namespace.
     """
     __args__ = dict()
@@ -129,11 +128,10 @@ def get_channel_namespace(channel_namespace_arn: Optional[_builtins.str] = None,
         publish_auth_modes=pulumi.get(__ret__, 'publish_auth_modes'),
         subscribe_auth_modes=pulumi.get(__ret__, 'subscribe_auth_modes'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_channel_namespace_output(channel_namespace_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_channel_namespace_output(channel_namespace_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelNamespaceResult]:
     """
     Resource schema for AppSync ChannelNamespace
-
 
     :param _builtins.str channel_namespace_arn: The Amazon Resource Name (ARN) of the channel namespace.
     """

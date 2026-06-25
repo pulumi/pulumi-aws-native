@@ -26,12 +26,12 @@ class NotificationRuleArgs:
                  event_type_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  resource: pulumi.Input[_builtins.str],
                  targets: pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]],
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['NotificationRuleStatus']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['NotificationRuleStatus']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NotificationRule resource.
 
@@ -113,74 +113,74 @@ class NotificationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or email alias of the person who created the notification rule.
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter(name="eventTypeId")
-    def event_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The event type associated with this notification rule. For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
         """
         return pulumi.get(self, "event_type_id")
 
     @event_type_id.setter
-    def event_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_type_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the notification rule. Notification rule names must be unique in your AWS account .
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['NotificationRuleStatus']]:
+    def status(self) -> pulumi.Input[Optional['NotificationRuleStatus']]:
         """
         The status of the notification rule. The default value is `ENABLED` . If the status is set to `DISABLED` , notifications aren't sent for the notification rule.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['NotificationRuleStatus']]):
+    def status(self, value: pulumi.Input[Optional['NotificationRuleStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A list of tags to apply to this notification rule. Key names cannot start with " `aws` ".
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetAddress")
-    def target_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon  topic or  client.
         """
         return pulumi.get(self, "target_address")
 
     @target_address.setter
-    def target_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_address", value)
 
 
@@ -190,20 +190,19 @@ class NotificationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 detail_type: Optional[pulumi.Input['NotificationRuleDetailType']] = None,
-                 event_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_type_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['NotificationRuleStatus']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]]] = None,
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 detail_type: pulumi.Input[Optional['NotificationRuleDetailType']] = None,
+                 event_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_type_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['NotificationRuleStatus']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CodeStarNotifications::NotificationRule
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,7 +226,6 @@ class NotificationRule(pulumi.CustomResource):
         """
         Resource Type definition for AWS::CodeStarNotifications::NotificationRule
 
-
         :param str resource_name: The name of the resource.
         :param NotificationRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,16 +241,16 @@ class NotificationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 detail_type: Optional[pulumi.Input['NotificationRuleDetailType']] = None,
-                 event_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_type_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['NotificationRuleStatus']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]]] = None,
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 detail_type: pulumi.Input[Optional['NotificationRuleDetailType']] = None,
+                 event_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_type_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['NotificationRuleStatus']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

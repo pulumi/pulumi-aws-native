@@ -126,7 +126,6 @@ def get_theme(app_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::AmplifyUIBuilder::Theme Resource Type
 
-
     :param _builtins.str app_id: The unique ID for the Amplify app associated with the theme.
     :param _builtins.str environment_name: The name of the backend environment that is a part of the Amplify app.
     :param _builtins.str id: The ID for the theme.
@@ -146,13 +145,12 @@ def get_theme(app_id: Optional[_builtins.str] = None,
         overrides=pulumi.get(__ret__, 'overrides'),
         tags=pulumi.get(__ret__, 'tags'),
         values=pulumi.get(__ret__, 'values'))
-def get_theme_output(app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_theme_output(app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThemeResult]:
     """
     Definition of AWS::AmplifyUIBuilder::Theme Resource Type
-
 
     :param _builtins.str app_id: The unique ID for the Amplify app associated with the theme.
     :param _builtins.str environment_name: The name of the backend environment that is a part of the Amplify app.

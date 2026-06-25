@@ -24,14 +24,14 @@ __all__ = ['TemplateArgs', 'Template']
 @pulumi.input_type
 class TemplateArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 layout_configuration: Optional[pulumi.Input['TemplateLayoutConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 required_fields: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateRequiredFieldArgs']]]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateRuleArgs']]]] = None,
-                 status: Optional[pulumi.Input['TemplateStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 layout_configuration: pulumi.Input[Optional['TemplateLayoutConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 required_fields: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateRequiredFieldArgs']]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateRuleArgs']]]] = None,
+                 status: pulumi.Input[Optional['TemplateStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Template resource.
 
@@ -63,98 +63,98 @@ class TemplateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description explaining the purpose and use case for this template. Should indicate what types of cases this template is designed for and any specific workflow it supports.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="domainId")
-    def domain_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the Cases domain.
         """
         return pulumi.get(self, "domain_id")
 
     @domain_id.setter
-    def domain_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_id", value)
 
     @_builtins.property
     @pulumi.getter(name="layoutConfiguration")
-    def layout_configuration(self) -> Optional[pulumi.Input['TemplateLayoutConfigurationArgs']]:
+    def layout_configuration(self) -> pulumi.Input[Optional['TemplateLayoutConfigurationArgs']]:
         """
         Object to store configuration of layouts associated to the template.
         """
         return pulumi.get(self, "layout_configuration")
 
     @layout_configuration.setter
-    def layout_configuration(self, value: Optional[pulumi.Input['TemplateLayoutConfigurationArgs']]):
+    def layout_configuration(self, value: pulumi.Input[Optional['TemplateLayoutConfigurationArgs']]):
         pulumi.set(self, "layout_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the template. It must be unique per domain.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredFields")
-    def required_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateRequiredFieldArgs']]]]:
+    def required_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TemplateRequiredFieldArgs']]]]:
         """
         A list of fields that must contain a value for a case to be successfully created with this template.
         """
         return pulumi.get(self, "required_fields")
 
     @required_fields.setter
-    def required_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateRequiredFieldArgs']]]]):
+    def required_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateRequiredFieldArgs']]]]):
         pulumi.set(self, "required_fields", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TemplateRuleArgs']]]]:
         """
         A list of case rules (also known as case field conditions) on a template.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['TemplateStatus']]:
+    def status(self) -> pulumi.Input[Optional['TemplateStatus']]:
         """
         The status of the template.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['TemplateStatus']]):
+    def status(self, value: pulumi.Input[Optional['TemplateStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags that you attach to this template.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -164,18 +164,17 @@ class Template(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 layout_configuration: Optional[pulumi.Input[Union['TemplateLayoutConfigurationArgs', 'TemplateLayoutConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 required_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TemplateRequiredFieldArgs', 'TemplateRequiredFieldArgsDict']]]]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TemplateRuleArgs', 'TemplateRuleArgsDict']]]]] = None,
-                 status: Optional[pulumi.Input['TemplateStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 layout_configuration: pulumi.Input[Optional[Union['TemplateLayoutConfigurationArgs', 'TemplateLayoutConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 required_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateRequiredFieldArgs', 'TemplateRequiredFieldArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateRuleArgs', 'TemplateRuleArgsDict']]]]] = None,
+                 status: pulumi.Input[Optional['TemplateStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         A template in the Cases domain. This template is used to define the case object model (that is, to define what data can be captured on cases) in a Cases domain. A template must have a unique name within a domain, and it must reference existing field IDs and layout IDs.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,7 +196,6 @@ class Template(pulumi.CustomResource):
         """
         A template in the Cases domain. This template is used to define the case object model (that is, to define what data can be captured on cases) in a Cases domain. A template must have a unique name within a domain, and it must reference existing field IDs and layout IDs.
 
-
         :param str resource_name: The name of the resource.
         :param TemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,14 +211,14 @@ class Template(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 layout_configuration: Optional[pulumi.Input[Union['TemplateLayoutConfigurationArgs', 'TemplateLayoutConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 required_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TemplateRequiredFieldArgs', 'TemplateRequiredFieldArgsDict']]]]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TemplateRuleArgs', 'TemplateRuleArgsDict']]]]] = None,
-                 status: Optional[pulumi.Input['TemplateStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 layout_configuration: pulumi.Input[Optional[Union['TemplateLayoutConfigurationArgs', 'TemplateLayoutConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 required_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateRequiredFieldArgs', 'TemplateRequiredFieldArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateRuleArgs', 'TemplateRuleArgsDict']]]]] = None,
+                 status: pulumi.Input[Optional['TemplateStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

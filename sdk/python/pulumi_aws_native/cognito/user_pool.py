@@ -22,36 +22,36 @@ __all__ = ['UserPoolArgs', 'UserPool']
 @pulumi.input_type
 class UserPoolArgs:
     def __init__(__self__, *,
-                 account_recovery_setting: Optional[pulumi.Input['UserPoolAccountRecoverySettingArgs']] = None,
-                 admin_create_user_config: Optional[pulumi.Input['UserPoolAdminCreateUserConfigArgs']] = None,
-                 alias_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_configuration: Optional[pulumi.Input['UserPoolDeviceConfigurationArgs']] = None,
-                 email_authentication_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_authentication_subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_configuration: Optional[pulumi.Input['UserPoolEmailConfigurationArgs']] = None,
-                 email_verification_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_verification_subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_mfas: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lambda_config: Optional[pulumi.Input['UserPoolLambdaConfigArgs']] = None,
-                 mfa_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 policies: Optional[pulumi.Input['UserPoolPoliciesArgs']] = None,
-                 schema: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaAttributeArgs']]]] = None,
-                 sms_authentication_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 sms_configuration: Optional[pulumi.Input['UserPoolSmsConfigurationArgs']] = None,
-                 sms_verification_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_attribute_update_settings: Optional[pulumi.Input['UserPoolUserAttributeUpdateSettingsArgs']] = None,
-                 user_pool_add_ons: Optional[pulumi.Input['UserPoolAddOnsArgs']] = None,
-                 user_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_pool_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_pool_tier: Optional[pulumi.Input['UserPoolTier']] = None,
-                 username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 username_configuration: Optional[pulumi.Input['UserPoolUsernameConfigurationArgs']] = None,
-                 verification_message_template: Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']] = None,
-                 web_authn_factor_configuration: Optional[pulumi.Input['UserPoolWebAuthnFactorConfiguration']] = None,
-                 web_authn_relying_party_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_authn_user_verification: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_recovery_setting: pulumi.Input[Optional['UserPoolAccountRecoverySettingArgs']] = None,
+                 admin_create_user_config: pulumi.Input[Optional['UserPoolAdminCreateUserConfigArgs']] = None,
+                 alias_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_verified_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_configuration: pulumi.Input[Optional['UserPoolDeviceConfigurationArgs']] = None,
+                 email_authentication_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_authentication_subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_configuration: pulumi.Input[Optional['UserPoolEmailConfigurationArgs']] = None,
+                 email_verification_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_verification_subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_mfas: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 lambda_config: pulumi.Input[Optional['UserPoolLambdaConfigArgs']] = None,
+                 mfa_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 policies: pulumi.Input[Optional['UserPoolPoliciesArgs']] = None,
+                 schema: pulumi.Input[Optional[Sequence[pulumi.Input['UserPoolSchemaAttributeArgs']]]] = None,
+                 sms_authentication_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 sms_configuration: pulumi.Input[Optional['UserPoolSmsConfigurationArgs']] = None,
+                 sms_verification_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_attribute_update_settings: pulumi.Input[Optional['UserPoolUserAttributeUpdateSettingsArgs']] = None,
+                 user_pool_add_ons: pulumi.Input[Optional['UserPoolAddOnsArgs']] = None,
+                 user_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_pool_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_pool_tier: pulumi.Input[Optional['UserPoolTier']] = None,
+                 username_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 username_configuration: pulumi.Input[Optional['UserPoolUsernameConfigurationArgs']] = None,
+                 verification_message_template: pulumi.Input[Optional['UserPoolVerificationMessageTemplateArgs']] = None,
+                 web_authn_factor_configuration: pulumi.Input[Optional['UserPoolWebAuthnFactorConfiguration']] = None,
+                 web_authn_relying_party_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_authn_user_verification: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserPool resource.
 
@@ -176,55 +176,55 @@ class UserPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountRecoverySetting")
-    def account_recovery_setting(self) -> Optional[pulumi.Input['UserPoolAccountRecoverySettingArgs']]:
+    def account_recovery_setting(self) -> pulumi.Input[Optional['UserPoolAccountRecoverySettingArgs']]:
         """
         The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
         """
         return pulumi.get(self, "account_recovery_setting")
 
     @account_recovery_setting.setter
-    def account_recovery_setting(self, value: Optional[pulumi.Input['UserPoolAccountRecoverySettingArgs']]):
+    def account_recovery_setting(self, value: pulumi.Input[Optional['UserPoolAccountRecoverySettingArgs']]):
         pulumi.set(self, "account_recovery_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="adminCreateUserConfig")
-    def admin_create_user_config(self) -> Optional[pulumi.Input['UserPoolAdminCreateUserConfigArgs']]:
+    def admin_create_user_config(self) -> pulumi.Input[Optional['UserPoolAdminCreateUserConfigArgs']]:
         """
         The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
         """
         return pulumi.get(self, "admin_create_user_config")
 
     @admin_create_user_config.setter
-    def admin_create_user_config(self, value: Optional[pulumi.Input['UserPoolAdminCreateUserConfigArgs']]):
+    def admin_create_user_config(self, value: pulumi.Input[Optional['UserPoolAdminCreateUserConfigArgs']]):
         pulumi.set(self, "admin_create_user_config", value)
 
     @_builtins.property
     @pulumi.getter(name="aliasAttributes")
-    def alias_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def alias_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Attributes supported as an alias for this user pool. For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
         """
         return pulumi.get(self, "alias_attributes")
 
     @alias_attributes.setter
-    def alias_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def alias_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "alias_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="autoVerifiedAttributes")
-    def auto_verified_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def auto_verified_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
         """
         return pulumi.get(self, "auto_verified_attributes")
 
     @auto_verified_attributes.setter
-    def auto_verified_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def auto_verified_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "auto_verified_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
-    def deletion_protection(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deletion_protection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When active, `DeletionProtection` prevents accidental deletion of your user
         pool. Before you can delete a user pool that you have protected against deletion, you
@@ -235,12 +235,12 @@ class UserPoolArgs:
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
-    def deletion_protection(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deletion_protection(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceConfiguration")
-    def device_configuration(self) -> Optional[pulumi.Input['UserPoolDeviceConfigurationArgs']]:
+    def device_configuration(self) -> pulumi.Input[Optional['UserPoolDeviceConfigurationArgs']]:
         """
         The device-remembering configuration for a user pool. Device remembering or device tracking is a "Remember me on this device" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see [Working with user devices in your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) . A null value indicates that you have deactivated device remembering in your user pool.
 
@@ -249,66 +249,66 @@ class UserPoolArgs:
         return pulumi.get(self, "device_configuration")
 
     @device_configuration.setter
-    def device_configuration(self, value: Optional[pulumi.Input['UserPoolDeviceConfigurationArgs']]):
+    def device_configuration(self, value: pulumi.Input[Optional['UserPoolDeviceConfigurationArgs']]):
         pulumi.set(self, "device_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAuthenticationMessage")
-    def email_authentication_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_authentication_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "email_authentication_message")
 
     @email_authentication_message.setter
-    def email_authentication_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_authentication_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_authentication_message", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAuthenticationSubject")
-    def email_authentication_subject(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_authentication_subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "email_authentication_subject")
 
     @email_authentication_subject.setter
-    def email_authentication_subject(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_authentication_subject(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_authentication_subject", value)
 
     @_builtins.property
     @pulumi.getter(name="emailConfiguration")
-    def email_configuration(self) -> Optional[pulumi.Input['UserPoolEmailConfigurationArgs']]:
+    def email_configuration(self) -> pulumi.Input[Optional['UserPoolEmailConfigurationArgs']]:
         """
         The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
         """
         return pulumi.get(self, "email_configuration")
 
     @email_configuration.setter
-    def email_configuration(self, value: Optional[pulumi.Input['UserPoolEmailConfigurationArgs']]):
+    def email_configuration(self, value: pulumi.Input[Optional['UserPoolEmailConfigurationArgs']]):
         pulumi.set(self, "email_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="emailVerificationMessage")
-    def email_verification_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_verification_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         """
         return pulumi.get(self, "email_verification_message")
 
     @email_verification_message.setter
-    def email_verification_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_verification_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_verification_message", value)
 
     @_builtins.property
     @pulumi.getter(name="emailVerificationSubject")
-    def email_verification_subject(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_verification_subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         """
         return pulumi.get(self, "email_verification_subject")
 
     @email_verification_subject.setter
-    def email_verification_subject(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_verification_subject(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_verification_subject", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledMfas")
-    def enabled_mfas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def enabled_mfas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set enabled MFA options on a specified user pool. To disable all MFAs after it has been enabled, set `MfaConfiguration` to `OFF` and remove EnabledMfas. MFAs can only be all disabled if `MfaConfiguration` is `OFF` . After you enable `SMS_MFA` , you can only disable it by setting `MfaConfiguration` to `OFF` . Can be one of the following values:
 
@@ -321,24 +321,24 @@ class UserPoolArgs:
         return pulumi.get(self, "enabled_mfas")
 
     @enabled_mfas.setter
-    def enabled_mfas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def enabled_mfas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "enabled_mfas", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaConfig")
-    def lambda_config(self) -> Optional[pulumi.Input['UserPoolLambdaConfigArgs']]:
+    def lambda_config(self) -> pulumi.Input[Optional['UserPoolLambdaConfigArgs']]:
         """
         A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
         """
         return pulumi.get(self, "lambda_config")
 
     @lambda_config.setter
-    def lambda_config(self, value: Optional[pulumi.Input['UserPoolLambdaConfigArgs']]):
+    def lambda_config(self, value: pulumi.Input[Optional['UserPoolLambdaConfigArgs']]):
         pulumi.set(self, "lambda_config", value)
 
     @_builtins.property
     @pulumi.getter(name="mfaConfiguration")
-    def mfa_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mfa_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays the state of multi-factor authentication (MFA) as on, off, or optional. When `ON` , all users must set up MFA before they can sign in. When `OPTIONAL` , your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose `OPTIONAL` .
 
@@ -347,72 +347,72 @@ class UserPoolArgs:
         return pulumi.get(self, "mfa_configuration")
 
     @mfa_configuration.setter
-    def mfa_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mfa_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mfa_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def policies(self) -> Optional[pulumi.Input['UserPoolPoliciesArgs']]:
+    def policies(self) -> pulumi.Input[Optional['UserPoolPoliciesArgs']]:
         """
         A list of user pool policies. Contains the policy that sets password-complexity requirements.
         """
         return pulumi.get(self, "policies")
 
     @policies.setter
-    def policies(self, value: Optional[pulumi.Input['UserPoolPoliciesArgs']]):
+    def policies(self, value: pulumi.Input[Optional['UserPoolPoliciesArgs']]):
         pulumi.set(self, "policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaAttributeArgs']]]]:
+    def schema(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserPoolSchemaAttributeArgs']]]]:
         """
         An array of attributes for the new user pool. You can add custom attributes and modify the properties of default attributes. The specifications in this parameter set the required attributes in your user pool. For more information, see [Working with user attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaAttributeArgs']]]]):
+    def schema(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserPoolSchemaAttributeArgs']]]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="smsAuthenticationMessage")
-    def sms_authentication_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sms_authentication_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The contents of the SMS authentication message.
         """
         return pulumi.get(self, "sms_authentication_message")
 
     @sms_authentication_message.setter
-    def sms_authentication_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sms_authentication_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sms_authentication_message", value)
 
     @_builtins.property
     @pulumi.getter(name="smsConfiguration")
-    def sms_configuration(self) -> Optional[pulumi.Input['UserPoolSmsConfigurationArgs']]:
+    def sms_configuration(self) -> pulumi.Input[Optional['UserPoolSmsConfigurationArgs']]:
         """
         The settings for your Amazon Cognito user pool to send SMS messages with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
         """
         return pulumi.get(self, "sms_configuration")
 
     @sms_configuration.setter
-    def sms_configuration(self, value: Optional[pulumi.Input['UserPoolSmsConfigurationArgs']]):
+    def sms_configuration(self, value: pulumi.Input[Optional['UserPoolSmsConfigurationArgs']]):
         pulumi.set(self, "sms_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="smsVerificationMessage")
-    def sms_verification_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sms_verification_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         """
         return pulumi.get(self, "sms_verification_message")
 
     @sms_verification_message.setter
-    def sms_verification_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sms_verification_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sms_verification_message", value)
 
     @_builtins.property
     @pulumi.getter(name="userAttributeUpdateSettings")
-    def user_attribute_update_settings(self) -> Optional[pulumi.Input['UserPoolUserAttributeUpdateSettingsArgs']]:
+    def user_attribute_update_settings(self) -> pulumi.Input[Optional['UserPoolUserAttributeUpdateSettingsArgs']]:
         """
         The settings for updates to user attributes. These settings include the property `AttributesRequireVerificationBeforeUpdate` ,
         a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
@@ -421,12 +421,12 @@ class UserPoolArgs:
         return pulumi.get(self, "user_attribute_update_settings")
 
     @user_attribute_update_settings.setter
-    def user_attribute_update_settings(self, value: Optional[pulumi.Input['UserPoolUserAttributeUpdateSettingsArgs']]):
+    def user_attribute_update_settings(self, value: pulumi.Input[Optional['UserPoolUserAttributeUpdateSettingsArgs']]):
         pulumi.set(self, "user_attribute_update_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="userPoolAddOns")
-    def user_pool_add_ons(self) -> Optional[pulumi.Input['UserPoolAddOnsArgs']]:
+    def user_pool_add_ons(self) -> pulumi.Input[Optional['UserPoolAddOnsArgs']]:
         """
         Contains settings for activation of threat protection, including the operating mode and additional authentication types. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to potentially unwanted traffic to your user pool, set to `ENFORCED` .
 
@@ -435,60 +435,60 @@ class UserPoolArgs:
         return pulumi.get(self, "user_pool_add_ons")
 
     @user_pool_add_ons.setter
-    def user_pool_add_ons(self, value: Optional[pulumi.Input['UserPoolAddOnsArgs']]):
+    def user_pool_add_ons(self, value: pulumi.Input[Optional['UserPoolAddOnsArgs']]):
         pulumi.set(self, "user_pool_add_ons", value)
 
     @_builtins.property
     @pulumi.getter(name="userPoolName")
-    def user_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name for your user pool.
         """
         return pulumi.get(self, "user_pool_name")
 
     @user_pool_name.setter
-    def user_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="userPoolTags")
-    def user_pool_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def user_pool_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
         """
         return pulumi.get(self, "user_pool_tags")
 
     @user_pool_tags.setter
-    def user_pool_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def user_pool_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_pool_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userPoolTier")
-    def user_pool_tier(self) -> Optional[pulumi.Input['UserPoolTier']]:
+    def user_pool_tier(self) -> pulumi.Input[Optional['UserPoolTier']]:
         """
         The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
         """
         return pulumi.get(self, "user_pool_tier")
 
     @user_pool_tier.setter
-    def user_pool_tier(self, value: Optional[pulumi.Input['UserPoolTier']]):
+    def user_pool_tier(self, value: pulumi.Input[Optional['UserPoolTier']]):
         pulumi.set(self, "user_pool_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="usernameAttributes")
-    def username_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def username_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies whether a user can use an email address or phone number as a username when they sign up.
         """
         return pulumi.get(self, "username_attributes")
 
     @username_attributes.setter
-    def username_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def username_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "username_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="usernameConfiguration")
-    def username_configuration(self) -> Optional[pulumi.Input['UserPoolUsernameConfigurationArgs']]:
+    def username_configuration(self) -> pulumi.Input[Optional['UserPoolUsernameConfigurationArgs']]:
         """
         Sets the case sensitivity option for sign-in usernames. When `CaseSensitive` is `false` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `false` as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
 
@@ -499,12 +499,12 @@ class UserPoolArgs:
         return pulumi.get(self, "username_configuration")
 
     @username_configuration.setter
-    def username_configuration(self, value: Optional[pulumi.Input['UserPoolUsernameConfigurationArgs']]):
+    def username_configuration(self, value: pulumi.Input[Optional['UserPoolUsernameConfigurationArgs']]):
         pulumi.set(self, "username_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="verificationMessageTemplate")
-    def verification_message_template(self) -> Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']]:
+    def verification_message_template(self) -> pulumi.Input[Optional['UserPoolVerificationMessageTemplateArgs']]:
         """
         The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
 
@@ -513,21 +513,21 @@ class UserPoolArgs:
         return pulumi.get(self, "verification_message_template")
 
     @verification_message_template.setter
-    def verification_message_template(self, value: Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']]):
+    def verification_message_template(self, value: pulumi.Input[Optional['UserPoolVerificationMessageTemplateArgs']]):
         pulumi.set(self, "verification_message_template", value)
 
     @_builtins.property
     @pulumi.getter(name="webAuthnFactorConfiguration")
-    def web_authn_factor_configuration(self) -> Optional[pulumi.Input['UserPoolWebAuthnFactorConfiguration']]:
+    def web_authn_factor_configuration(self) -> pulumi.Input[Optional['UserPoolWebAuthnFactorConfiguration']]:
         return pulumi.get(self, "web_authn_factor_configuration")
 
     @web_authn_factor_configuration.setter
-    def web_authn_factor_configuration(self, value: Optional[pulumi.Input['UserPoolWebAuthnFactorConfiguration']]):
+    def web_authn_factor_configuration(self, value: pulumi.Input[Optional['UserPoolWebAuthnFactorConfiguration']]):
         pulumi.set(self, "web_authn_factor_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="webAuthnRelyingPartyId")
-    def web_authn_relying_party_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_authn_relying_party_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
 
@@ -540,19 +540,19 @@ class UserPoolArgs:
         return pulumi.get(self, "web_authn_relying_party_id")
 
     @web_authn_relying_party_id.setter
-    def web_authn_relying_party_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_authn_relying_party_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_authn_relying_party_id", value)
 
     @_builtins.property
     @pulumi.getter(name="webAuthnUserVerification")
-    def web_authn_user_verification(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_authn_user_verification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When `required` , users can only register and sign in users with passkeys that are capable of [user verification](https://docs.aws.amazon.com/https://www.w3.org/TR/webauthn-2/#enum-userVerificationRequirement) . When `preferred` , your user pool doesn't require the use of authenticators with user verification but encourages it.
         """
         return pulumi.get(self, "web_authn_user_verification")
 
     @web_authn_user_verification.setter
-    def web_authn_user_verification(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_authn_user_verification(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_authn_user_verification", value)
 
 
@@ -562,40 +562,39 @@ class UserPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_recovery_setting: Optional[pulumi.Input[Union['UserPoolAccountRecoverySettingArgs', 'UserPoolAccountRecoverySettingArgsDict']]] = None,
-                 admin_create_user_config: Optional[pulumi.Input[Union['UserPoolAdminCreateUserConfigArgs', 'UserPoolAdminCreateUserConfigArgsDict']]] = None,
-                 alias_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_configuration: Optional[pulumi.Input[Union['UserPoolDeviceConfigurationArgs', 'UserPoolDeviceConfigurationArgsDict']]] = None,
-                 email_authentication_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_authentication_subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_configuration: Optional[pulumi.Input[Union['UserPoolEmailConfigurationArgs', 'UserPoolEmailConfigurationArgsDict']]] = None,
-                 email_verification_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_verification_subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_mfas: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lambda_config: Optional[pulumi.Input[Union['UserPoolLambdaConfigArgs', 'UserPoolLambdaConfigArgsDict']]] = None,
-                 mfa_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 policies: Optional[pulumi.Input[Union['UserPoolPoliciesArgs', 'UserPoolPoliciesArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPoolSchemaAttributeArgs', 'UserPoolSchemaAttributeArgsDict']]]]] = None,
-                 sms_authentication_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 sms_configuration: Optional[pulumi.Input[Union['UserPoolSmsConfigurationArgs', 'UserPoolSmsConfigurationArgsDict']]] = None,
-                 sms_verification_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_attribute_update_settings: Optional[pulumi.Input[Union['UserPoolUserAttributeUpdateSettingsArgs', 'UserPoolUserAttributeUpdateSettingsArgsDict']]] = None,
-                 user_pool_add_ons: Optional[pulumi.Input[Union['UserPoolAddOnsArgs', 'UserPoolAddOnsArgsDict']]] = None,
-                 user_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_pool_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_pool_tier: Optional[pulumi.Input['UserPoolTier']] = None,
-                 username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 username_configuration: Optional[pulumi.Input[Union['UserPoolUsernameConfigurationArgs', 'UserPoolUsernameConfigurationArgsDict']]] = None,
-                 verification_message_template: Optional[pulumi.Input[Union['UserPoolVerificationMessageTemplateArgs', 'UserPoolVerificationMessageTemplateArgsDict']]] = None,
-                 web_authn_factor_configuration: Optional[pulumi.Input['UserPoolWebAuthnFactorConfiguration']] = None,
-                 web_authn_relying_party_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_authn_user_verification: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_recovery_setting: pulumi.Input[Optional[Union['UserPoolAccountRecoverySettingArgs', 'UserPoolAccountRecoverySettingArgsDict']]] = None,
+                 admin_create_user_config: pulumi.Input[Optional[Union['UserPoolAdminCreateUserConfigArgs', 'UserPoolAdminCreateUserConfigArgsDict']]] = None,
+                 alias_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_verified_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_configuration: pulumi.Input[Optional[Union['UserPoolDeviceConfigurationArgs', 'UserPoolDeviceConfigurationArgsDict']]] = None,
+                 email_authentication_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_authentication_subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_configuration: pulumi.Input[Optional[Union['UserPoolEmailConfigurationArgs', 'UserPoolEmailConfigurationArgsDict']]] = None,
+                 email_verification_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_verification_subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_mfas: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 lambda_config: pulumi.Input[Optional[Union['UserPoolLambdaConfigArgs', 'UserPoolLambdaConfigArgsDict']]] = None,
+                 mfa_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 policies: pulumi.Input[Optional[Union['UserPoolPoliciesArgs', 'UserPoolPoliciesArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolSchemaAttributeArgs', 'UserPoolSchemaAttributeArgsDict']]]]] = None,
+                 sms_authentication_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 sms_configuration: pulumi.Input[Optional[Union['UserPoolSmsConfigurationArgs', 'UserPoolSmsConfigurationArgsDict']]] = None,
+                 sms_verification_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_attribute_update_settings: pulumi.Input[Optional[Union['UserPoolUserAttributeUpdateSettingsArgs', 'UserPoolUserAttributeUpdateSettingsArgsDict']]] = None,
+                 user_pool_add_ons: pulumi.Input[Optional[Union['UserPoolAddOnsArgs', 'UserPoolAddOnsArgsDict']]] = None,
+                 user_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_pool_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_pool_tier: pulumi.Input[Optional['UserPoolTier']] = None,
+                 username_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 username_configuration: pulumi.Input[Optional[Union['UserPoolUsernameConfigurationArgs', 'UserPoolUsernameConfigurationArgsDict']]] = None,
+                 verification_message_template: pulumi.Input[Optional[Union['UserPoolVerificationMessageTemplateArgs', 'UserPoolVerificationMessageTemplateArgsDict']]] = None,
+                 web_authn_factor_configuration: pulumi.Input[Optional['UserPoolWebAuthnFactorConfiguration']] = None,
+                 web_authn_relying_party_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_authn_user_verification: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::Cognito::UserPool Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -666,7 +665,6 @@ class UserPool(pulumi.CustomResource):
         """
         Definition of AWS::Cognito::UserPool Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param UserPoolArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -682,36 +680,36 @@ class UserPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_recovery_setting: Optional[pulumi.Input[Union['UserPoolAccountRecoverySettingArgs', 'UserPoolAccountRecoverySettingArgsDict']]] = None,
-                 admin_create_user_config: Optional[pulumi.Input[Union['UserPoolAdminCreateUserConfigArgs', 'UserPoolAdminCreateUserConfigArgsDict']]] = None,
-                 alias_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_configuration: Optional[pulumi.Input[Union['UserPoolDeviceConfigurationArgs', 'UserPoolDeviceConfigurationArgsDict']]] = None,
-                 email_authentication_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_authentication_subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_configuration: Optional[pulumi.Input[Union['UserPoolEmailConfigurationArgs', 'UserPoolEmailConfigurationArgsDict']]] = None,
-                 email_verification_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_verification_subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_mfas: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lambda_config: Optional[pulumi.Input[Union['UserPoolLambdaConfigArgs', 'UserPoolLambdaConfigArgsDict']]] = None,
-                 mfa_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 policies: Optional[pulumi.Input[Union['UserPoolPoliciesArgs', 'UserPoolPoliciesArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPoolSchemaAttributeArgs', 'UserPoolSchemaAttributeArgsDict']]]]] = None,
-                 sms_authentication_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 sms_configuration: Optional[pulumi.Input[Union['UserPoolSmsConfigurationArgs', 'UserPoolSmsConfigurationArgsDict']]] = None,
-                 sms_verification_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_attribute_update_settings: Optional[pulumi.Input[Union['UserPoolUserAttributeUpdateSettingsArgs', 'UserPoolUserAttributeUpdateSettingsArgsDict']]] = None,
-                 user_pool_add_ons: Optional[pulumi.Input[Union['UserPoolAddOnsArgs', 'UserPoolAddOnsArgsDict']]] = None,
-                 user_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_pool_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_pool_tier: Optional[pulumi.Input['UserPoolTier']] = None,
-                 username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 username_configuration: Optional[pulumi.Input[Union['UserPoolUsernameConfigurationArgs', 'UserPoolUsernameConfigurationArgsDict']]] = None,
-                 verification_message_template: Optional[pulumi.Input[Union['UserPoolVerificationMessageTemplateArgs', 'UserPoolVerificationMessageTemplateArgsDict']]] = None,
-                 web_authn_factor_configuration: Optional[pulumi.Input['UserPoolWebAuthnFactorConfiguration']] = None,
-                 web_authn_relying_party_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_authn_user_verification: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_recovery_setting: pulumi.Input[Optional[Union['UserPoolAccountRecoverySettingArgs', 'UserPoolAccountRecoverySettingArgsDict']]] = None,
+                 admin_create_user_config: pulumi.Input[Optional[Union['UserPoolAdminCreateUserConfigArgs', 'UserPoolAdminCreateUserConfigArgsDict']]] = None,
+                 alias_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_verified_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_configuration: pulumi.Input[Optional[Union['UserPoolDeviceConfigurationArgs', 'UserPoolDeviceConfigurationArgsDict']]] = None,
+                 email_authentication_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_authentication_subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_configuration: pulumi.Input[Optional[Union['UserPoolEmailConfigurationArgs', 'UserPoolEmailConfigurationArgsDict']]] = None,
+                 email_verification_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_verification_subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_mfas: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 lambda_config: pulumi.Input[Optional[Union['UserPoolLambdaConfigArgs', 'UserPoolLambdaConfigArgsDict']]] = None,
+                 mfa_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 policies: pulumi.Input[Optional[Union['UserPoolPoliciesArgs', 'UserPoolPoliciesArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolSchemaAttributeArgs', 'UserPoolSchemaAttributeArgsDict']]]]] = None,
+                 sms_authentication_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 sms_configuration: pulumi.Input[Optional[Union['UserPoolSmsConfigurationArgs', 'UserPoolSmsConfigurationArgsDict']]] = None,
+                 sms_verification_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_attribute_update_settings: pulumi.Input[Optional[Union['UserPoolUserAttributeUpdateSettingsArgs', 'UserPoolUserAttributeUpdateSettingsArgsDict']]] = None,
+                 user_pool_add_ons: pulumi.Input[Optional[Union['UserPoolAddOnsArgs', 'UserPoolAddOnsArgsDict']]] = None,
+                 user_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_pool_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_pool_tier: pulumi.Input[Optional['UserPoolTier']] = None,
+                 username_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 username_configuration: pulumi.Input[Optional[Union['UserPoolUsernameConfigurationArgs', 'UserPoolUsernameConfigurationArgsDict']]] = None,
+                 verification_message_template: pulumi.Input[Optional[Union['UserPoolVerificationMessageTemplateArgs', 'UserPoolVerificationMessageTemplateArgsDict']]] = None,
+                 web_authn_factor_configuration: pulumi.Input[Optional['UserPoolWebAuthnFactorConfiguration']] = None,
+                 web_authn_relying_party_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_authn_user_verification: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

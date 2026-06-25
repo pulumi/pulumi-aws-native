@@ -348,7 +348,6 @@ def get_service(cluster: Optional[_builtins.str] = None,
      Note that CFN automatically initiates a new deployment when it detects a parameter change, but customers cannot choose to force a deployment through CFN. This is an invalid input scenario that requires one of the remediation actions listed above.
      If you are experiencing active production issues related to this change, contact AWS Support or your Technical Account Manager.
 
-
     :param _builtins.str cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
     :param _builtins.str service_arn: The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
     """
@@ -380,8 +379,8 @@ def get_service(cluster: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         task_definition=pulumi.get(__ret__, 'task_definition'),
         vpc_lattice_configurations=pulumi.get(__ret__, 'vpc_lattice_configurations'))
-def get_service_output(cluster: Optional[pulumi.Input[_builtins.str]] = None,
-                       service_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_output(cluster: pulumi.Input[Optional[_builtins.str]] = None,
+                       service_arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     The ``AWS::ECS::Service`` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.
@@ -409,7 +408,6 @@ def get_service_output(cluster: Optional[pulumi.Input[_builtins.str]] = None,
       Invalid request provided: When switching from launch type to capacity provider strategy on an existing service, or making a change to a capacity provider strategy on a service that is already using one, you must force a new deployment. (Service: Ecs, Status Code: 400, Request ID: xxx) (SDK Attempt Count: 1)" (RequestToken: xxx HandlerErrorCode: InvalidRequest)
      Note that CFN automatically initiates a new deployment when it detects a parameter change, but customers cannot choose to force a deployment through CFN. This is an invalid input scenario that requires one of the remediation actions listed above.
      If you are experiencing active production issues related to this change, contact AWS Support or your Technical Account Manager.
-
 
     :param _builtins.str cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
     :param _builtins.str service_arn: The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .

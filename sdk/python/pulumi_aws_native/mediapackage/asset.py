@@ -27,9 +27,9 @@ class AssetArgs:
                  packaging_group_id: pulumi.Input[_builtins.str],
                  source_arn: pulumi.Input[_builtins.str],
                  source_role_arn: pulumi.Input[_builtins.str],
-                 egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['AssetEgressEndpointArgs']]]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 egress_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['AssetEgressEndpointArgs']]]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Asset resource.
 
@@ -102,38 +102,38 @@ class AssetArgs:
 
     @_builtins.property
     @pulumi.getter(name="egressEndpoints")
-    def egress_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetEgressEndpointArgs']]]]:
+    def egress_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssetEgressEndpointArgs']]]]:
         """
         The list of egress endpoints available for the Asset.
         """
         return pulumi.get(self, "egress_endpoints")
 
     @egress_endpoints.setter
-    def egress_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetEgressEndpointArgs']]]]):
+    def egress_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssetEgressEndpointArgs']]]]):
         pulumi.set(self, "egress_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID to include in SPEKE key requests.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -143,17 +143,16 @@ class Asset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssetEgressEndpointArgs', 'AssetEgressEndpointArgsDict']]]]] = None,
-                 packaging_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 aws_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 egress_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssetEgressEndpointArgs', 'AssetEgressEndpointArgsDict']]]]] = None,
+                 packaging_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaPackage::Asset
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,7 +173,6 @@ class Asset(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaPackage::Asset
 
-
         :param str resource_name: The name of the resource.
         :param AssetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,13 +188,13 @@ class Asset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssetEgressEndpointArgs', 'AssetEgressEndpointArgsDict']]]]] = None,
-                 packaging_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 aws_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 egress_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssetEgressEndpointArgs', 'AssetEgressEndpointArgsDict']]]]] = None,
+                 packaging_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

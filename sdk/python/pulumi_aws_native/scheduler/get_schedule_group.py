@@ -103,7 +103,6 @@ def get_schedule_group(name: Optional[_builtins.str] = None,
     """
     Definition of AWS::Scheduler::ScheduleGroup Resource Type
 
-
     :param _builtins.str name: The name of the schedule group.
     """
     __args__ = dict()
@@ -117,11 +116,10 @@ def get_schedule_group(name: Optional[_builtins.str] = None,
         last_modification_date=pulumi.get(__ret__, 'last_modification_date'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_schedule_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_schedule_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduleGroupResult]:
     """
     Definition of AWS::Scheduler::ScheduleGroup Resource Type
-
 
     :param _builtins.str name: The name of the schedule group.
     """

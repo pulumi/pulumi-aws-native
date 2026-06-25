@@ -76,7 +76,6 @@ def get_vpn_concentrator(vpn_concentrator_id: Optional[_builtins.str] = None,
     """
     Describes a VPN concentrator.
 
-
     :param _builtins.str vpn_concentrator_id: The ID of the VPN concentrator to associate with the VPN connection.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_vpn_concentrator(vpn_concentrator_id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
         vpn_concentrator_id=pulumi.get(__ret__, 'vpn_concentrator_id'))
-def get_vpn_concentrator_output(vpn_concentrator_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpn_concentrator_output(vpn_concentrator_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnConcentratorResult]:
     """
     Describes a VPN concentrator.
-
 
     :param _builtins.str vpn_concentrator_id: The ID of the VPN concentrator to associate with the VPN connection.
     """

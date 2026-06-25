@@ -64,12 +64,11 @@ class Transformer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 transformer_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TransformerProcessorArgs', 'TransformerProcessorArgsDict']]]]] = None,
+                 log_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 transformer_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TransformerProcessorArgs', 'TransformerProcessorArgsDict']]]]] = None,
                  __props__=None):
         """
         Specifies a transformer on the log group to transform logs into consistent structured and information rich format.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,7 +83,6 @@ class Transformer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies a transformer on the log group to transform logs into consistent structured and information rich format.
-
 
         :param str resource_name: The name of the resource.
         :param TransformerArgs args: The arguments to use to populate this resource's properties.
@@ -101,8 +99,8 @@ class Transformer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 transformer_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TransformerProcessorArgs', 'TransformerProcessorArgsDict']]]]] = None,
+                 log_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 transformer_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TransformerProcessorArgs', 'TransformerProcessorArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -101,7 +101,6 @@ def get_association(agent_space_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::DevOpsAgent::Association defining how the AgentSpace interacts with external services like GitHub, Slack, AWS accounts, and others.
 
-
     :param _builtins.str agent_space_id: The unique identifier of the AgentSpace
     :param _builtins.str association_id: The unique identifier of the association
     """
@@ -117,12 +116,11 @@ def get_association(agent_space_id: Optional[_builtins.str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         service_id=pulumi.get(__ret__, 'service_id'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_association_output(agent_space_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           association_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_association_output(agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           association_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssociationResult]:
     """
     Resource Type definition for AWS::DevOpsAgent::Association defining how the AgentSpace interacts with external services like GitHub, Slack, AWS accounts, and others.
-
 
     :param _builtins.str agent_space_id: The unique identifier of the AgentSpace
     :param _builtins.str association_id: The unique identifier of the association

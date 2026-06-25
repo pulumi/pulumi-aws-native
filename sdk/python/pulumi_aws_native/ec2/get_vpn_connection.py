@@ -131,7 +131,6 @@ def get_vpn_connection(vpn_connection_id: Optional[_builtins.str] = None,
      To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
      For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
 
-
     :param _builtins.str vpn_connection_id: The ID of the VPN connection.
     """
     __args__ = dict()
@@ -147,14 +146,13 @@ def get_vpn_connection(vpn_connection_id: Optional[_builtins.str] = None,
         vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'),
         vpn_gateway_id=pulumi.get(__ret__, 'vpn_gateway_id'),
         vpn_tunnel_options_specifications=pulumi.get(__ret__, 'vpn_tunnel_options_specifications'))
-def get_vpn_connection_output(vpn_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpn_connection_output(vpn_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnConnectionResult]:
     """
     Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
      To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
      To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
      For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
-
 
     :param _builtins.str vpn_connection_id: The ID of the VPN connection.
     """

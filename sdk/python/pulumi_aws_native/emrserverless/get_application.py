@@ -246,7 +246,6 @@ def get_application(application_id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::EMRServerless::Application Type
 
-
     :param _builtins.str application_id: The ID of the EMR Serverless Application.
     """
     __args__ = dict()
@@ -272,11 +271,10 @@ def get_application(application_id: Optional[_builtins.str] = None,
         scheduler_configuration=pulumi.get(__ret__, 'scheduler_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         worker_type_specifications=pulumi.get(__ret__, 'worker_type_specifications'))
-def get_application_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Resource schema for AWS::EMRServerless::Application Type
-
 
     :param _builtins.str application_id: The ID of the EMR Serverless Application.
     """

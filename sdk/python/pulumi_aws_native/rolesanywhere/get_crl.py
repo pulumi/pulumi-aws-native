@@ -112,7 +112,6 @@ def get_crl(crl_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::RolesAnywhere::CRL Resource Type
 
-
     :param _builtins.str crl_id: The unique primary identifier of the Crl
     """
     __args__ = dict()
@@ -127,11 +126,10 @@ def get_crl(crl_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         trust_anchor_arn=pulumi.get(__ret__, 'trust_anchor_arn'))
-def get_crl_output(crl_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_crl_output(crl_id: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCrlResult]:
     """
     Definition of AWS::RolesAnywhere::CRL Resource Type
-
 
     :param _builtins.str crl_id: The unique primary identifier of the Crl
     """

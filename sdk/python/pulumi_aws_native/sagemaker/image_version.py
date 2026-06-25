@@ -22,15 +22,15 @@ class ImageVersionArgs:
     def __init__(__self__, *,
                  base_image: pulumi.Input[_builtins.str],
                  image_name: pulumi.Input[_builtins.str],
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 horovod: Optional[pulumi.Input[_builtins.bool]] = None,
-                 job_type: Optional[pulumi.Input['ImageVersionJobType']] = None,
-                 ml_framework: Optional[pulumi.Input[_builtins.str]] = None,
-                 processor: Optional[pulumi.Input['ImageVersionProcessor']] = None,
-                 programming_lang: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 vendor_guidance: Optional[pulumi.Input['ImageVersionVendorGuidance']] = None):
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 horovod: pulumi.Input[Optional[_builtins.bool]] = None,
+                 job_type: pulumi.Input[Optional['ImageVersionJobType']] = None,
+                 ml_framework: pulumi.Input[Optional[_builtins.str]] = None,
+                 processor: pulumi.Input[Optional['ImageVersionProcessor']] = None,
+                 programming_lang: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 vendor_guidance: pulumi.Input[Optional['ImageVersionVendorGuidance']] = None):
         """
         The set of arguments for constructing a ImageVersion resource.
 
@@ -92,83 +92,83 @@ class ImageVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter
-    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aliases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "aliases")
 
     @aliases.setter
-    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aliases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aliases", value)
 
     @_builtins.property
     @pulumi.getter
-    def horovod(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def horovod(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "horovod")
 
     @horovod.setter
-    def horovod(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def horovod(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "horovod", value)
 
     @_builtins.property
     @pulumi.getter(name="jobType")
-    def job_type(self) -> Optional[pulumi.Input['ImageVersionJobType']]:
+    def job_type(self) -> pulumi.Input[Optional['ImageVersionJobType']]:
         return pulumi.get(self, "job_type")
 
     @job_type.setter
-    def job_type(self, value: Optional[pulumi.Input['ImageVersionJobType']]):
+    def job_type(self, value: pulumi.Input[Optional['ImageVersionJobType']]):
         pulumi.set(self, "job_type", value)
 
     @_builtins.property
     @pulumi.getter(name="mlFramework")
-    def ml_framework(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ml_framework(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "ml_framework")
 
     @ml_framework.setter
-    def ml_framework(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ml_framework(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ml_framework", value)
 
     @_builtins.property
     @pulumi.getter
-    def processor(self) -> Optional[pulumi.Input['ImageVersionProcessor']]:
+    def processor(self) -> pulumi.Input[Optional['ImageVersionProcessor']]:
         return pulumi.get(self, "processor")
 
     @processor.setter
-    def processor(self, value: Optional[pulumi.Input['ImageVersionProcessor']]):
+    def processor(self, value: pulumi.Input[Optional['ImageVersionProcessor']]):
         pulumi.set(self, "processor", value)
 
     @_builtins.property
     @pulumi.getter(name="programmingLang")
-    def programming_lang(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def programming_lang(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "programming_lang")
 
     @programming_lang.setter
-    def programming_lang(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def programming_lang(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "programming_lang", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseNotes")
-    def release_notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "release_notes")
 
     @release_notes.setter
-    def release_notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_notes", value)
 
     @_builtins.property
     @pulumi.getter(name="vendorGuidance")
-    def vendor_guidance(self) -> Optional[pulumi.Input['ImageVersionVendorGuidance']]:
+    def vendor_guidance(self) -> pulumi.Input[Optional['ImageVersionVendorGuidance']]:
         return pulumi.get(self, "vendor_guidance")
 
     @vendor_guidance.setter
-    def vendor_guidance(self, value: Optional[pulumi.Input['ImageVersionVendorGuidance']]):
+    def vendor_guidance(self, value: pulumi.Input[Optional['ImageVersionVendorGuidance']]):
         pulumi.set(self, "vendor_guidance", value)
 
 
@@ -178,21 +178,20 @@ class ImageVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 base_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 horovod: Optional[pulumi.Input[_builtins.bool]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_type: Optional[pulumi.Input['ImageVersionJobType']] = None,
-                 ml_framework: Optional[pulumi.Input[_builtins.str]] = None,
-                 processor: Optional[pulumi.Input['ImageVersionProcessor']] = None,
-                 programming_lang: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 vendor_guidance: Optional[pulumi.Input['ImageVersionVendorGuidance']] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 base_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 horovod: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_type: pulumi.Input[Optional['ImageVersionJobType']] = None,
+                 ml_framework: pulumi.Input[Optional[_builtins.str]] = None,
+                 processor: pulumi.Input[Optional['ImageVersionProcessor']] = None,
+                 programming_lang: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 vendor_guidance: pulumi.Input[Optional['ImageVersionVendorGuidance']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::ImageVersion
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -212,7 +211,6 @@ class ImageVersion(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::ImageVersion
 
-
         :param str resource_name: The name of the resource.
         :param ImageVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,17 +226,17 @@ class ImageVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 base_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 horovod: Optional[pulumi.Input[_builtins.bool]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_type: Optional[pulumi.Input['ImageVersionJobType']] = None,
-                 ml_framework: Optional[pulumi.Input[_builtins.str]] = None,
-                 processor: Optional[pulumi.Input['ImageVersionProcessor']] = None,
-                 programming_lang: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 vendor_guidance: Optional[pulumi.Input['ImageVersionVendorGuidance']] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 base_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 horovod: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_type: pulumi.Input[Optional['ImageVersionJobType']] = None,
+                 ml_framework: pulumi.Input[Optional[_builtins.str]] = None,
+                 processor: pulumi.Input[Optional['ImageVersionProcessor']] = None,
+                 programming_lang: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 vendor_guidance: pulumi.Input[Optional['ImageVersionVendorGuidance']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

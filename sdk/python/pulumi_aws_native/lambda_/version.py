@@ -22,11 +22,11 @@ __all__ = ['VersionArgs', 'Version']
 class VersionArgs:
     def __init__(__self__, *,
                  function_name: pulumi.Input[_builtins.str],
-                 code_sha256: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_scaling_config: Optional[pulumi.Input['VersionFunctionScalingConfigArgs']] = None,
-                 provisioned_concurrency_config: Optional[pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs']] = None,
-                 runtime_policy: Optional[pulumi.Input['VersionRuntimePolicyArgs']] = None):
+                 code_sha256: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_scaling_config: pulumi.Input[Optional['VersionFunctionScalingConfigArgs']] = None,
+                 provisioned_concurrency_config: pulumi.Input[Optional['VersionProvisionedConcurrencyConfigurationArgs']] = None,
+                 runtime_policy: pulumi.Input[Optional['VersionRuntimePolicyArgs']] = None):
         """
         The set of arguments for constructing a Version resource.
 
@@ -63,62 +63,62 @@ class VersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="codeSha256")
-    def code_sha256(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def code_sha256(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
         """
         return pulumi.get(self, "code_sha256")
 
     @code_sha256.setter
-    def code_sha256(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def code_sha256(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "code_sha256", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the version to override the description in the function configuration. Updates are not supported for this property.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="functionScalingConfig")
-    def function_scaling_config(self) -> Optional[pulumi.Input['VersionFunctionScalingConfigArgs']]:
+    def function_scaling_config(self) -> pulumi.Input[Optional['VersionFunctionScalingConfigArgs']]:
         """
         The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
         """
         return pulumi.get(self, "function_scaling_config")
 
     @function_scaling_config.setter
-    def function_scaling_config(self, value: Optional[pulumi.Input['VersionFunctionScalingConfigArgs']]):
+    def function_scaling_config(self, value: pulumi.Input[Optional['VersionFunctionScalingConfigArgs']]):
         pulumi.set(self, "function_scaling_config", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedConcurrencyConfig")
-    def provisioned_concurrency_config(self) -> Optional[pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs']]:
+    def provisioned_concurrency_config(self) -> pulumi.Input[Optional['VersionProvisionedConcurrencyConfigurationArgs']]:
         """
         Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
         """
         return pulumi.get(self, "provisioned_concurrency_config")
 
     @provisioned_concurrency_config.setter
-    def provisioned_concurrency_config(self, value: Optional[pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs']]):
+    def provisioned_concurrency_config(self, value: pulumi.Input[Optional['VersionProvisionedConcurrencyConfigurationArgs']]):
         pulumi.set(self, "provisioned_concurrency_config", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimePolicy")
-    def runtime_policy(self) -> Optional[pulumi.Input['VersionRuntimePolicyArgs']]:
+    def runtime_policy(self) -> pulumi.Input[Optional['VersionRuntimePolicyArgs']]:
         """
         Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
         """
         return pulumi.get(self, "runtime_policy")
 
     @runtime_policy.setter
-    def runtime_policy(self, value: Optional[pulumi.Input['VersionRuntimePolicyArgs']]):
+    def runtime_policy(self, value: pulumi.Input[Optional['VersionRuntimePolicyArgs']]):
         pulumi.set(self, "runtime_policy", value)
 
 
@@ -128,16 +128,15 @@ class Version(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 code_sha256: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_scaling_config: Optional[pulumi.Input[Union['VersionFunctionScalingConfigArgs', 'VersionFunctionScalingConfigArgsDict']]] = None,
-                 provisioned_concurrency_config: Optional[pulumi.Input[Union['VersionProvisionedConcurrencyConfigurationArgs', 'VersionProvisionedConcurrencyConfigurationArgsDict']]] = None,
-                 runtime_policy: Optional[pulumi.Input[Union['VersionRuntimePolicyArgs', 'VersionRuntimePolicyArgsDict']]] = None,
+                 code_sha256: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_scaling_config: pulumi.Input[Optional[Union['VersionFunctionScalingConfigArgs', 'VersionFunctionScalingConfigArgsDict']]] = None,
+                 provisioned_concurrency_config: pulumi.Input[Optional[Union['VersionProvisionedConcurrencyConfigurationArgs', 'VersionProvisionedConcurrencyConfigurationArgsDict']]] = None,
+                 runtime_policy: pulumi.Input[Optional[Union['VersionRuntimePolicyArgs', 'VersionRuntimePolicyArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lambda::Version
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +156,6 @@ class Version(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lambda::Version
 
-
         :param str resource_name: The name of the resource.
         :param VersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,12 +171,12 @@ class Version(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 code_sha256: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_scaling_config: Optional[pulumi.Input[Union['VersionFunctionScalingConfigArgs', 'VersionFunctionScalingConfigArgsDict']]] = None,
-                 provisioned_concurrency_config: Optional[pulumi.Input[Union['VersionProvisionedConcurrencyConfigurationArgs', 'VersionProvisionedConcurrencyConfigurationArgsDict']]] = None,
-                 runtime_policy: Optional[pulumi.Input[Union['VersionRuntimePolicyArgs', 'VersionRuntimePolicyArgsDict']]] = None,
+                 code_sha256: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_scaling_config: pulumi.Input[Optional[Union['VersionFunctionScalingConfigArgs', 'VersionFunctionScalingConfigArgsDict']]] = None,
+                 provisioned_concurrency_config: pulumi.Input[Optional[Union['VersionProvisionedConcurrencyConfigurationArgs', 'VersionProvisionedConcurrencyConfigurationArgsDict']]] = None,
+                 runtime_policy: pulumi.Input[Optional[Union['VersionRuntimePolicyArgs', 'VersionRuntimePolicyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

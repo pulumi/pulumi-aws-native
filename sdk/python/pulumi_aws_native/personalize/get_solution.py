@@ -51,7 +51,6 @@ def get_solution(solution_arn: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::Personalize::Solution.
 
-
     :param _builtins.str solution_arn: The Amazon Resource Name (ARN) of the solution.
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_solution(solution_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetSolutionResult(
         solution_arn=pulumi.get(__ret__, 'solution_arn'))
-def get_solution_output(solution_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_solution_output(solution_arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionResult]:
     """
     Resource schema for AWS::Personalize::Solution.
-
 
     :param _builtins.str solution_arn: The Amazon Resource Name (ARN) of the solution.
     """

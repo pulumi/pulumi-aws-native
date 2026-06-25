@@ -80,7 +80,6 @@ def get_vector_bucket(vector_bucket_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::S3Vectors::VectorBucket
 
-
     :param _builtins.str vector_bucket_arn: Returns the Amazon Resource Name (ARN) of the specified vector bucket.
            
            Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
@@ -94,11 +93,10 @@ def get_vector_bucket(vector_bucket_arn: Optional[_builtins.str] = None,
         creation_time=pulumi.get(__ret__, 'creation_time'),
         tags=pulumi.get(__ret__, 'tags'),
         vector_bucket_arn=pulumi.get(__ret__, 'vector_bucket_arn'))
-def get_vector_bucket_output(vector_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vector_bucket_output(vector_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVectorBucketResult]:
     """
     Resource Type definition for AWS::S3Vectors::VectorBucket
-
 
     :param _builtins.str vector_bucket_arn: Returns the Amazon Resource Name (ARN) of the specified vector bucket.
            

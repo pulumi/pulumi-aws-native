@@ -76,7 +76,6 @@ def get_recovery_group(recovery_group_name: Optional[_builtins.str] = None,
     """
     AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
 
-
     :param _builtins.str recovery_group_name: The name of the recovery group to create.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_recovery_group(recovery_group_name: Optional[_builtins.str] = None,
         cells=pulumi.get(__ret__, 'cells'),
         recovery_group_arn=pulumi.get(__ret__, 'recovery_group_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_recovery_group_output(recovery_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_recovery_group_output(recovery_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecoveryGroupResult]:
     """
     AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
-
 
     :param _builtins.str recovery_group_name: The name of the recovery group to create.
     """

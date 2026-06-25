@@ -176,7 +176,6 @@ def get_tracker(tracker_name: Optional[_builtins.str] = None,
     """
     Definition of AWS::Location::Tracker Resource Type
 
-
     :param _builtins.str tracker_name: The name for the tracker resource.
            
            Requirements:
@@ -202,11 +201,10 @@ def get_tracker(tracker_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tracker_arn=pulumi.get(__ret__, 'tracker_arn'),
         update_time=pulumi.get(__ret__, 'update_time'))
-def get_tracker_output(tracker_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tracker_output(tracker_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrackerResult]:
     """
     Definition of AWS::Location::Tracker Resource Type
-
 
     :param _builtins.str tracker_name: The name for the tracker resource.
            

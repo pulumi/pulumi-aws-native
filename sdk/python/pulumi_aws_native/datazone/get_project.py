@@ -174,7 +174,6 @@ def get_project(domain_id: Optional[_builtins.str] = None,
     """
     Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.
 
-
     :param _builtins.str domain_id: The identifier of the Amazon DataZone domain in which the project was created.
     :param _builtins.str id: The ID of the Amazon DataZone project.
     """
@@ -196,12 +195,11 @@ def get_project(domain_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         project_status=pulumi.get(__ret__, 'project_status'),
         resource_tags=pulumi.get(__ret__, 'resource_tags'))
-def get_project_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                       id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_project_output(domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                       id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.
-
 
     :param _builtins.str domain_id: The identifier of the Amazon DataZone domain in which the project was created.
     :param _builtins.str id: The ID of the Amazon DataZone project.

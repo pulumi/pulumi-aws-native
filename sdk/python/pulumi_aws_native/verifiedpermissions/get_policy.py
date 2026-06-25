@@ -90,7 +90,6 @@ def get_policy(policy_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::VerifiedPermissions::Policy Resource Type
 
-
     :param _builtins.str policy_id: The unique ID of the new or updated policy.
     :param _builtins.str policy_store_id: Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
     """
@@ -105,12 +104,11 @@ def get_policy(policy_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         policy_id=pulumi.get(__ret__, 'policy_id'),
         policy_type=pulumi.get(__ret__, 'policy_type'))
-def get_policy_output(policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                      policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_output(policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                      policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Definition of AWS::VerifiedPermissions::Policy Resource Type
-
 
     :param _builtins.str policy_id: The unique ID of the new or updated policy.
     :param _builtins.str policy_store_id: Specifies the `PolicyStoreId` of the policy store you want to store the policy in.

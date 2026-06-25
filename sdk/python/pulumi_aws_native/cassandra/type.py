@@ -23,7 +23,7 @@ class TypeArgs:
     def __init__(__self__, *,
                  fields: pulumi.Input[Sequence[pulumi.Input['TypeFieldArgs']]],
                  keyspace_name: pulumi.Input[_builtins.str],
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Type resource.
 
@@ -62,14 +62,14 @@ class TypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="typeName")
-    def type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the User-Defined Type.
         """
         return pulumi.get(self, "type_name")
 
     @type_name.setter
-    def type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_name", value)
 
 
@@ -79,13 +79,12 @@ class Type(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TypeFieldArgs', 'TypeFieldArgsDict']]]]] = None,
-                 keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TypeFieldArgs', 'TypeFieldArgsDict']]]]] = None,
+                 keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Cassandra::Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -102,7 +101,6 @@ class Type(pulumi.CustomResource):
         """
         Resource schema for AWS::Cassandra::Type
 
-
         :param str resource_name: The name of the resource.
         :param TypeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,9 +116,9 @@ class Type(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TypeFieldArgs', 'TypeFieldArgsDict']]]]] = None,
-                 keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TypeFieldArgs', 'TypeFieldArgsDict']]]]] = None,
+                 keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

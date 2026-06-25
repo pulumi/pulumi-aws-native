@@ -22,13 +22,13 @@ __all__ = ['ConfigRuleArgs', 'ConfigRule']
 class ConfigRuleArgs:
     def __init__(__self__, *,
                  source: pulumi.Input['ConfigRuleSourceArgs'],
-                 compliance: Optional[pulumi.Input['CompliancePropertiesArgs']] = None,
-                 config_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigRuleEvaluationModeConfigurationArgs']]]] = None,
+                 compliance: pulumi.Input[Optional['CompliancePropertiesArgs']] = None,
+                 config_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_modes: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigRuleEvaluationModeConfigurationArgs']]]] = None,
                  input_parameters: Optional[Any] = None,
-                 maximum_execution_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input['ConfigRuleScopeArgs']] = None):
+                 maximum_execution_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional['ConfigRuleScopeArgs']] = None):
         """
         The set of arguments for constructing a ConfigRule resource.
 
@@ -43,7 +43,7 @@ class ConfigRuleArgs:
         :param pulumi.Input[_builtins.str] maximum_execution_frequency: The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
                  +  You are using an AWS managed rule that is triggered at a periodic frequency.
                  +  Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
-                 
+               
                  By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
         :param pulumi.Input['ConfigRuleScopeArgs'] scope: Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
                  The scope can be empty.
@@ -78,50 +78,50 @@ class ConfigRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def compliance(self) -> Optional[pulumi.Input['CompliancePropertiesArgs']]:
+    def compliance(self) -> pulumi.Input[Optional['CompliancePropertiesArgs']]:
         """
         Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
         """
         return pulumi.get(self, "compliance")
 
     @compliance.setter
-    def compliance(self, value: Optional[pulumi.Input['CompliancePropertiesArgs']]):
+    def compliance(self, value: pulumi.Input[Optional['CompliancePropertiesArgs']]):
         pulumi.set(self, "compliance", value)
 
     @_builtins.property
     @pulumi.getter(name="configRuleName")
-    def config_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def config_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the CC rule. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
         """
         return pulumi.get(self, "config_rule_name")
 
     @config_rule_name.setter
-    def config_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def config_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "config_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description that you provide for the CC rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="evaluationModes")
-    def evaluation_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigRuleEvaluationModeConfigurationArgs']]]]:
+    def evaluation_modes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigRuleEvaluationModeConfigurationArgs']]]]:
         """
         The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
         """
         return pulumi.get(self, "evaluation_modes")
 
     @evaluation_modes.setter
-    def evaluation_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigRuleEvaluationModeConfigurationArgs']]]]):
+    def evaluation_modes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigRuleEvaluationModeConfigurationArgs']]]]):
         pulumi.set(self, "evaluation_modes", value)
 
     @_builtins.property
@@ -140,23 +140,23 @@ class ConfigRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="maximumExecutionFrequency")
-    def maximum_execution_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maximum_execution_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
           +  You are using an AWS managed rule that is triggered at a periodic frequency.
           +  Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
-          
+
           By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
         """
         return pulumi.get(self, "maximum_execution_frequency")
 
     @maximum_execution_frequency.setter
-    def maximum_execution_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maximum_execution_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maximum_execution_frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['ConfigRuleScopeArgs']]:
+    def scope(self) -> pulumi.Input[Optional['ConfigRuleScopeArgs']]:
         """
         Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
           The scope can be empty.
@@ -164,7 +164,7 @@ class ConfigRuleArgs:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['ConfigRuleScopeArgs']]):
+    def scope(self, value: pulumi.Input[Optional['ConfigRuleScopeArgs']]):
         pulumi.set(self, "scope", value)
 
 
@@ -174,14 +174,14 @@ class ConfigRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compliance: Optional[pulumi.Input[Union['CompliancePropertiesArgs', 'CompliancePropertiesArgsDict']]] = None,
-                 config_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigRuleEvaluationModeConfigurationArgs', 'ConfigRuleEvaluationModeConfigurationArgsDict']]]]] = None,
+                 compliance: pulumi.Input[Optional[Union['CompliancePropertiesArgs', 'CompliancePropertiesArgsDict']]] = None,
+                 config_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_modes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigRuleEvaluationModeConfigurationArgs', 'ConfigRuleEvaluationModeConfigurationArgsDict']]]]] = None,
                  input_parameters: Optional[Any] = None,
-                 maximum_execution_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union['ConfigRuleScopeArgs', 'ConfigRuleScopeArgsDict']]] = None,
-                 source: Optional[pulumi.Input[Union['ConfigRuleSourceArgs', 'ConfigRuleSourceArgsDict']]] = None,
+                 maximum_execution_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union['ConfigRuleScopeArgs', 'ConfigRuleScopeArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['ConfigRuleSourceArgs', 'ConfigRuleSourceArgsDict']]] = None,
                  __props__=None):
         """
         You must first create and start the CC configuration recorder in order to create CC managed rules with CFNlong. For more information, see [Managing the Configuration Recorder](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html).
@@ -193,7 +193,6 @@ class ConfigRule(pulumi.CustomResource):
          For any new CC rule that you add, specify the ``ConfigRuleName`` in the ``ConfigRule`` object. Do not specify the ``ConfigRuleArn`` or the ``ConfigRuleId``. These values are generated by CC for new rules.
          If you are updating a rule that you added previously, you can specify the rule by ``ConfigRuleName``, ``ConfigRuleId``, or ``ConfigRuleArn`` in the ``ConfigRule`` data type that you use in this request.
          For more information about developing and using CC rules, see [Evaluating Resources with Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html) in the *Developer Guide*.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,7 +206,7 @@ class ConfigRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] maximum_execution_frequency: The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
                  +  You are using an AWS managed rule that is triggered at a periodic frequency.
                  +  Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
-                 
+               
                  By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
         :param pulumi.Input[Union['ConfigRuleScopeArgs', 'ConfigRuleScopeArgsDict']] scope: Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
                  The scope can be empty.
@@ -230,7 +229,6 @@ class ConfigRule(pulumi.CustomResource):
          If you are updating a rule that you added previously, you can specify the rule by ``ConfigRuleName``, ``ConfigRuleId``, or ``ConfigRuleArn`` in the ``ConfigRule`` data type that you use in this request.
          For more information about developing and using CC rules, see [Evaluating Resources with Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html) in the *Developer Guide*.
 
-
         :param str resource_name: The name of the resource.
         :param ConfigRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,14 +244,14 @@ class ConfigRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compliance: Optional[pulumi.Input[Union['CompliancePropertiesArgs', 'CompliancePropertiesArgsDict']]] = None,
-                 config_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigRuleEvaluationModeConfigurationArgs', 'ConfigRuleEvaluationModeConfigurationArgsDict']]]]] = None,
+                 compliance: pulumi.Input[Optional[Union['CompliancePropertiesArgs', 'CompliancePropertiesArgsDict']]] = None,
+                 config_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_modes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigRuleEvaluationModeConfigurationArgs', 'ConfigRuleEvaluationModeConfigurationArgsDict']]]]] = None,
                  input_parameters: Optional[Any] = None,
-                 maximum_execution_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union['ConfigRuleScopeArgs', 'ConfigRuleScopeArgsDict']]] = None,
-                 source: Optional[pulumi.Input[Union['ConfigRuleSourceArgs', 'ConfigRuleSourceArgsDict']]] = None,
+                 maximum_execution_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union['ConfigRuleScopeArgs', 'ConfigRuleScopeArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['ConfigRuleSourceArgs', 'ConfigRuleSourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -376,7 +374,7 @@ class ConfigRule(pulumi.CustomResource):
         The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
           +  You are using an AWS managed rule that is triggered at a periodic frequency.
           +  Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
-          
+
           By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
         """
         return pulumi.get(self, "maximum_execution_frequency")

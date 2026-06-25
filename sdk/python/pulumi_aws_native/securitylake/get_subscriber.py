@@ -176,7 +176,6 @@ def get_subscriber(subscriber_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SecurityLake::Subscriber
 
-
     :param _builtins.str subscriber_arn: The Amazon Resource Name (ARN) of the Security Lake subscriber.
     """
     __args__ = dict()
@@ -196,11 +195,10 @@ def get_subscriber(subscriber_arn: Optional[_builtins.str] = None,
         subscriber_name=pulumi.get(__ret__, 'subscriber_name'),
         subscriber_role_arn=pulumi.get(__ret__, 'subscriber_role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_subscriber_output(subscriber_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_subscriber_output(subscriber_arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriberResult]:
     """
     Resource Type definition for AWS::SecurityLake::Subscriber
-
 
     :param _builtins.str subscriber_arn: The Amazon Resource Name (ARN) of the Security Lake subscriber.
     """

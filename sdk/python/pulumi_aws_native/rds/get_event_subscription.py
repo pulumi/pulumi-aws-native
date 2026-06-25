@@ -110,7 +110,6 @@ def get_event_subscription(subscription_name: Optional[_builtins.str] = None,
     """
     The ``AWS::RDS::EventSubscription`` resource allows you to receive notifications for Amazon Relational Database Service events through the Amazon Simple Notification Service (Amazon SNS). For more information, see [Using Amazon RDS Event Notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) in the *Amazon RDS User Guide*.
 
-
     :param _builtins.str subscription_name: The name of the subscription.
             Constraints: The name must be less than 255 characters.
     """
@@ -125,11 +124,10 @@ def get_event_subscription(subscription_name: Optional[_builtins.str] = None,
         source_ids=pulumi.get(__ret__, 'source_ids'),
         source_type=pulumi.get(__ret__, 'source_type'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_event_subscription_output(subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_subscription_output(subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventSubscriptionResult]:
     """
     The ``AWS::RDS::EventSubscription`` resource allows you to receive notifications for Amazon Relational Database Service events through the Amazon Simple Notification Service (Amazon SNS). For more information, see [Using Amazon RDS Event Notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) in the *Amazon RDS User Guide*.
-
 
     :param _builtins.str subscription_name: The name of the subscription.
             Constraints: The name must be less than 255 characters.

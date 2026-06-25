@@ -64,7 +64,6 @@ def get_plan(arn: Optional[_builtins.str] = None,
     """
     Engagement Plan for a SSM Incident Manager Contact.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the contact.
     """
     __args__ = dict()
@@ -75,11 +74,10 @@ def get_plan(arn: Optional[_builtins.str] = None,
     return AwaitableGetPlanResult(
         arn=pulumi.get(__ret__, 'arn'),
         stages=pulumi.get(__ret__, 'stages'))
-def get_plan_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_plan_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlanResult]:
     """
     Engagement Plan for a SSM Incident Manager Contact.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the contact.
     """

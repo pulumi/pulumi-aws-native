@@ -100,7 +100,6 @@ def get_organizational_unit(id: Optional[_builtins.str] = None,
     """
     You can use organizational units (OUs) to group accounts together to administer as a single unit. This greatly simplifies the management of your accounts. For example, you can attach a policy-based control to an OU, and all accounts within the OU automatically inherit the policy. You can create multiple OUs within a single organization, and you can create OUs within other OUs. Each OU can contain multiple accounts, and you can move accounts from one OU to another. However, OU names must be unique within a parent OU or root.
 
-
     :param _builtins.str id: The unique identifier (ID) associated with this OU.
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_organizational_unit(id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         path=pulumi.get(__ret__, 'path'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_organizational_unit_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_organizational_unit_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationalUnitResult]:
     """
     You can use organizational units (OUs) to group accounts together to administer as a single unit. This greatly simplifies the management of your accounts. For example, you can attach a policy-based control to an OU, and all accounts within the OU automatically inherit the policy. You can create multiple OUs within a single organization, and you can create OUs within other OUs. Each OU can contain multiple accounts, and you can move accounts from one OU to another. However, OU names must be unique within a parent OU or root.
-
 
     :param _builtins.str id: The unique identifier (ID) associated with this OU.
     """

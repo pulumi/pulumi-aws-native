@@ -24,8 +24,8 @@ __all__ = ['TransitGatewayMulticastDomainArgs', 'TransitGatewayMulticastDomain']
 class TransitGatewayMulticastDomainArgs:
     def __init__(__self__, *,
                  transit_gateway_id: pulumi.Input[_builtins.str],
-                 options: Optional[pulumi.Input['OptionsPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 options: pulumi.Input[Optional['OptionsPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayMulticastDomain resource.
 
@@ -53,26 +53,26 @@ class TransitGatewayMulticastDomainArgs:
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input['OptionsPropertiesArgs']]:
+    def options(self) -> pulumi.Input[Optional['OptionsPropertiesArgs']]:
         """
         The options for the transit gateway multicast domain.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input['OptionsPropertiesArgs']]):
+    def options(self, value: pulumi.Input[Optional['OptionsPropertiesArgs']]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the transit gateway multicast domain.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -82,13 +82,12 @@ class TransitGatewayMulticastDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 options: Optional[pulumi.Input[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AWS::EC2::TransitGatewayMulticastDomain type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -105,7 +104,6 @@ class TransitGatewayMulticastDomain(pulumi.CustomResource):
         """
         The AWS::EC2::TransitGatewayMulticastDomain type
 
-
         :param str resource_name: The name of the resource.
         :param TransitGatewayMulticastDomainArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,9 +119,9 @@ class TransitGatewayMulticastDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 options: Optional[pulumi.Input[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

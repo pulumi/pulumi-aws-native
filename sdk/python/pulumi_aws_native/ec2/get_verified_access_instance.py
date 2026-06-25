@@ -173,7 +173,6 @@ def get_verified_access_instance(verified_access_instance_id: Optional[_builtins
     """
     The AWS::EC2::VerifiedAccessInstance resource creates an AWS EC2 Verified Access Instance.
 
-
     :param _builtins.str verified_access_instance_id: The ID of the AWS Verified Access instance.
     """
     __args__ = dict()
@@ -193,11 +192,10 @@ def get_verified_access_instance(verified_access_instance_id: Optional[_builtins
         verified_access_instance_id=pulumi.get(__ret__, 'verified_access_instance_id'),
         verified_access_trust_provider_ids=pulumi.get(__ret__, 'verified_access_trust_provider_ids'),
         verified_access_trust_providers=pulumi.get(__ret__, 'verified_access_trust_providers'))
-def get_verified_access_instance_output(verified_access_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_verified_access_instance_output(verified_access_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVerifiedAccessInstanceResult]:
     """
     The AWS::EC2::VerifiedAccessInstance resource creates an AWS EC2 Verified Access Instance.
-
 
     :param _builtins.str verified_access_instance_id: The ID of the AWS Verified Access instance.
     """

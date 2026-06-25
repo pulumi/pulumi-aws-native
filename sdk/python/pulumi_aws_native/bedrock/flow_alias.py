@@ -24,10 +24,10 @@ class FlowAliasArgs:
     def __init__(__self__, *,
                  flow_arn: pulumi.Input[_builtins.str],
                  routing_configuration: pulumi.Input[Sequence[pulumi.Input['FlowAliasRoutingConfigurationListItemArgs']]],
-                 concurrency_configuration: Optional[pulumi.Input['FlowAliasConcurrencyConfigurationArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 concurrency_configuration: pulumi.Input[Optional['FlowAliasConcurrencyConfigurationArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FlowAlias resource.
 
@@ -78,43 +78,43 @@ class FlowAliasArgs:
 
     @_builtins.property
     @pulumi.getter(name="concurrencyConfiguration")
-    def concurrency_configuration(self) -> Optional[pulumi.Input['FlowAliasConcurrencyConfigurationArgs']]:
+    def concurrency_configuration(self) -> pulumi.Input[Optional['FlowAliasConcurrencyConfigurationArgs']]:
         """
         The configuration that specifies how nodes in the flow are executed concurrently.
         """
         return pulumi.get(self, "concurrency_configuration")
 
     @concurrency_configuration.setter
-    def concurrency_configuration(self, value: Optional[pulumi.Input['FlowAliasConcurrencyConfigurationArgs']]):
+    def concurrency_configuration(self, value: pulumi.Input[Optional['FlowAliasConcurrencyConfigurationArgs']]):
         pulumi.set(self, "concurrency_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the Resource.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for a resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
 
@@ -124,7 +124,7 @@ class FlowAliasArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -134,16 +134,15 @@ class FlowAlias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 concurrency_configuration: Optional[pulumi.Input[Union['FlowAliasConcurrencyConfigurationArgs', 'FlowAliasConcurrencyConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowAliasRoutingConfigurationListItemArgs', 'FlowAliasRoutingConfigurationListItemArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 concurrency_configuration: pulumi.Input[Optional[Union['FlowAliasConcurrencyConfigurationArgs', 'FlowAliasConcurrencyConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowAliasRoutingConfigurationListItemArgs', 'FlowAliasRoutingConfigurationListItemArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::FlowAlias Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,7 +165,6 @@ class FlowAlias(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::FlowAlias Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param FlowAliasArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,12 +180,12 @@ class FlowAlias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 concurrency_configuration: Optional[pulumi.Input[Union['FlowAliasConcurrencyConfigurationArgs', 'FlowAliasConcurrencyConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowAliasRoutingConfigurationListItemArgs', 'FlowAliasRoutingConfigurationListItemArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 concurrency_configuration: pulumi.Input[Optional[Union['FlowAliasConcurrencyConfigurationArgs', 'FlowAliasConcurrencyConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowAliasRoutingConfigurationListItemArgs', 'FlowAliasRoutingConfigurationListItemArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

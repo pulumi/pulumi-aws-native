@@ -41,7 +41,7 @@ __all__ = [
 ]
 
 class CanaryArtifactConfigArgsDict(TypedDict):
-    s3_encryption: NotRequired[pulumi.Input['CanaryS3EncryptionArgsDict']]
+    s3_encryption: NotRequired[pulumi.Input[Optional['CanaryS3EncryptionArgsDict']]]
     """
     Encryption configuration for uploading artifacts to S3
     """
@@ -49,7 +49,7 @@ class CanaryArtifactConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CanaryArtifactConfigArgs:
     def __init__(__self__, *,
-                 s3_encryption: Optional[pulumi.Input['CanaryS3EncryptionArgs']] = None):
+                 s3_encryption: pulumi.Input[Optional['CanaryS3EncryptionArgs']] = None):
         """
         :param pulumi.Input['CanaryS3EncryptionArgs'] s3_encryption: Encryption configuration for uploading artifacts to S3
         """
@@ -58,14 +58,14 @@ class CanaryArtifactConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3Encryption")
-    def s3_encryption(self) -> Optional[pulumi.Input['CanaryS3EncryptionArgs']]:
+    def s3_encryption(self) -> pulumi.Input[Optional['CanaryS3EncryptionArgs']]:
         """
         Encryption configuration for uploading artifacts to S3
         """
         return pulumi.get(self, "s3_encryption")
 
     @s3_encryption.setter
-    def s3_encryption(self, value: Optional[pulumi.Input['CanaryS3EncryptionArgs']]):
+    def s3_encryption(self, value: pulumi.Input[Optional['CanaryS3EncryptionArgs']]):
         pulumi.set(self, "s3_encryption", value)
 
 
@@ -74,7 +74,7 @@ class CanaryBaseScreenshotArgsDict(TypedDict):
     """
     Name of the screenshot to be used as base reference for visual testing
     """
-    ignore_coordinates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ignore_coordinates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of coordinates of rectangles to be ignored during visual testing
     """
@@ -83,7 +83,7 @@ class CanaryBaseScreenshotArgsDict(TypedDict):
 class CanaryBaseScreenshotArgs:
     def __init__(__self__, *,
                  screenshot_name: pulumi.Input[_builtins.str],
-                 ignore_coordinates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ignore_coordinates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] screenshot_name: Name of the screenshot to be used as base reference for visual testing
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_coordinates: List of coordinates of rectangles to be ignored during visual testing
@@ -106,14 +106,14 @@ class CanaryBaseScreenshotArgs:
 
     @_builtins.property
     @pulumi.getter(name="ignoreCoordinates")
-    def ignore_coordinates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ignore_coordinates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of coordinates of rectangles to be ignored during visual testing
         """
         return pulumi.get(self, "ignore_coordinates")
 
     @ignore_coordinates.setter
-    def ignore_coordinates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ignore_coordinates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ignore_coordinates", value)
 
 
@@ -146,39 +146,39 @@ class CanaryBrowserConfigArgs:
 
 
 class CanaryCodeArgsDict(TypedDict):
-    blueprint_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    blueprint_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     `BlueprintTypes` are a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. `multi-checks` is the only supported value.
 
     When you specify `BlueprintTypes` , the `Handler` field cannot be specified since the blueprint provides a pre-defined entry point.
     """
-    dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['CanaryDependencyArgsDict']]]]
+    dependencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CanaryDependencyArgsDict']]]]]
     """
     List of Lambda layers to attach to the canary
     """
-    handler: NotRequired[pulumi.Input[_builtins.str]]
+    handler: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
 
     This field is required when you don't specify `BlueprintTypes` and is not allowed when you specify `BlueprintTypes` .
     """
-    s3_bucket: NotRequired[pulumi.Input[_builtins.str]]
+    s3_bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
     """
-    s3_key: NotRequired[pulumi.Input[_builtins.str]]
+    s3_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
     """
-    s3_object_version: NotRequired[pulumi.Input[_builtins.str]]
+    s3_object_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 version ID of your script.
     """
-    script: NotRequired[pulumi.Input[_builtins.str]]
+    script: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text. It can be up to 5 MB.
     """
-    source_location_arn: NotRequired[pulumi.Input[_builtins.str]]
+    source_location_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the Lambda layer where Synthetics stores the canary script code.
     """
@@ -186,14 +186,14 @@ class CanaryCodeArgsDict(TypedDict):
 @pulumi.input_type
 class CanaryCodeArgs:
     def __init__(__self__, *,
-                 blueprint_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryDependencyArgs']]]] = None,
-                 handler: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 script: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_location_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 blueprint_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dependencies: pulumi.Input[Optional[Sequence[pulumi.Input['CanaryDependencyArgs']]]] = None,
+                 handler: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 script: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_location_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blueprint_types: `BlueprintTypes` are a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. `multi-checks` is the only supported value.
                
@@ -227,7 +227,7 @@ class CanaryCodeArgs:
 
     @_builtins.property
     @pulumi.getter(name="blueprintTypes")
-    def blueprint_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blueprint_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         `BlueprintTypes` are a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. `multi-checks` is the only supported value.
 
@@ -236,24 +236,24 @@ class CanaryCodeArgs:
         return pulumi.get(self, "blueprint_types")
 
     @blueprint_types.setter
-    def blueprint_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blueprint_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blueprint_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CanaryDependencyArgs']]]]:
+    def dependencies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CanaryDependencyArgs']]]]:
         """
         List of Lambda layers to attach to the canary
         """
         return pulumi.get(self, "dependencies")
 
     @dependencies.setter
-    def dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryDependencyArgs']]]]):
+    def dependencies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CanaryDependencyArgs']]]]):
         pulumi.set(self, "dependencies", value)
 
     @_builtins.property
     @pulumi.getter
-    def handler(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def handler(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
 
@@ -262,67 +262,67 @@ class CanaryCodeArgs:
         return pulumi.get(self, "handler")
 
     @handler.setter
-    def handler(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def handler(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "handler", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
         """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
-    def s3_bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Key")
-    def s3_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
         """
         return pulumi.get(self, "s3_key")
 
     @s3_key.setter
-    def s3_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_key", value)
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectVersion")
-    def s3_object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 version ID of your script.
         """
         return pulumi.get(self, "s3_object_version")
 
     @s3_object_version.setter
-    def s3_object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_object_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def script(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text. It can be up to 5 MB.
         """
         return pulumi.get(self, "script")
 
     @script.setter
-    def script(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceLocationArn")
-    def source_location_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_location_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Lambda layer where Synthetics stores the canary script code.
         """
         return pulumi.get(self, "source_location_arn")
 
     @source_location_arn.setter
-    def source_location_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_location_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_location_arn", value)
 
 
@@ -331,7 +331,7 @@ class CanaryDependencyArgsDict(TypedDict):
     """
     ARN of the Lambda layer
     """
-    type: NotRequired[pulumi.Input['CanaryDependencyType']]
+    type: NotRequired[pulumi.Input[Optional['CanaryDependencyType']]]
     """
     Type of dependency
     """
@@ -340,7 +340,7 @@ class CanaryDependencyArgsDict(TypedDict):
 class CanaryDependencyArgs:
     def __init__(__self__, *,
                  reference: pulumi.Input[_builtins.str],
-                 type: Optional[pulumi.Input['CanaryDependencyType']] = None):
+                 type: pulumi.Input[Optional['CanaryDependencyType']] = None):
         """
         :param pulumi.Input[_builtins.str] reference: ARN of the Lambda layer
         :param pulumi.Input['CanaryDependencyType'] type: Type of dependency
@@ -363,14 +363,14 @@ class CanaryDependencyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['CanaryDependencyType']]:
+    def type(self) -> pulumi.Input[Optional['CanaryDependencyType']]:
         """
         Type of dependency
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['CanaryDependencyType']]):
+    def type(self, value: pulumi.Input[Optional['CanaryDependencyType']]):
         pulumi.set(self, "type", value)
 
 
@@ -403,23 +403,23 @@ class CanaryRetryConfigArgs:
 
 
 class CanaryRunConfigArgsDict(TypedDict):
-    active_tracing: NotRequired[pulumi.Input[_builtins.bool]]
+    active_tracing: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable active tracing if set to true
     """
-    environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    environment_variables: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Environment variable key-value pairs.
     """
-    ephemeral_storage: NotRequired[pulumi.Input[_builtins.int]]
+    ephemeral_storage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Provide ephemeralStorage available for canary in MB
     """
-    memory_in_mb: NotRequired[pulumi.Input[_builtins.int]]
+    memory_in_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Provide maximum memory available for canary in MB
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Provide maximum canary timeout per run in seconds
     """
@@ -427,11 +427,11 @@ class CanaryRunConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CanaryRunConfigArgs:
     def __init__(__self__, *,
-                 active_tracing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ephemeral_storage: Optional[pulumi.Input[_builtins.int]] = None,
-                 memory_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 active_tracing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ephemeral_storage: pulumi.Input[Optional[_builtins.int]] = None,
+                 memory_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] active_tracing: Enable active tracing if set to true
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variable key-value pairs.
@@ -452,71 +452,71 @@ class CanaryRunConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeTracing")
-    def active_tracing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def active_tracing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable active tracing if set to true
         """
         return pulumi.get(self, "active_tracing")
 
     @active_tracing.setter
-    def active_tracing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def active_tracing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "active_tracing", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def environment_variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Environment variable key-value pairs.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def environment_variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
     @pulumi.getter(name="ephemeralStorage")
-    def ephemeral_storage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ephemeral_storage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Provide ephemeralStorage available for canary in MB
         """
         return pulumi.get(self, "ephemeral_storage")
 
     @ephemeral_storage.setter
-    def ephemeral_storage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ephemeral_storage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ephemeral_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryInMb")
-    def memory_in_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def memory_in_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Provide maximum memory available for canary in MB
         """
         return pulumi.get(self, "memory_in_mb")
 
     @memory_in_mb.setter
-    def memory_in_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def memory_in_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "memory_in_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Provide maximum canary timeout per run in seconds
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
 
 class CanaryS3EncryptionArgsDict(TypedDict):
-    encryption_mode: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
     """
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only.
     """
@@ -524,8 +524,8 @@ class CanaryS3EncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class CanaryS3EncryptionArgs:
     def __init__(__self__, *,
-                 encryption_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encryption_mode: Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
         :param pulumi.Input[_builtins.str] kms_key_arn: KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only.
@@ -537,26 +537,26 @@ class CanaryS3EncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionMode")
-    def encryption_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
         """
         return pulumi.get(self, "encryption_mode")
 
     @encryption_mode.setter
-    def encryption_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
 
@@ -573,11 +573,11 @@ class CanaryScheduleArgsDict(TypedDict):
 
     Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
     """
-    duration_in_seconds: NotRequired[pulumi.Input[_builtins.str]]
+    duration_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     How long, in seconds, for the canary to continue making regular runs according to the schedule in the `Expression` value. If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used.
     """
-    retry_config: NotRequired[pulumi.Input['CanaryRetryConfigArgsDict']]
+    retry_config: NotRequired[pulumi.Input[Optional['CanaryRetryConfigArgsDict']]]
     """
     Provide canary auto retry configuration
     """
@@ -586,8 +586,8 @@ class CanaryScheduleArgsDict(TypedDict):
 class CanaryScheduleArgs:
     def __init__(__self__, *,
                  expression: pulumi.Input[_builtins.str],
-                 duration_in_seconds: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry_config: Optional[pulumi.Input['CanaryRetryConfigArgs']] = None):
+                 duration_in_seconds: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry_config: pulumi.Input[Optional['CanaryRetryConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] expression: A `rate` expression or a `cron` expression that defines how often the canary is to run.
                
@@ -629,26 +629,26 @@ class CanaryScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="durationInSeconds")
-    def duration_in_seconds(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def duration_in_seconds(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How long, in seconds, for the canary to continue making regular runs according to the schedule in the `Expression` value. If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used.
         """
         return pulumi.get(self, "duration_in_seconds")
 
     @duration_in_seconds.setter
-    def duration_in_seconds(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def duration_in_seconds(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "duration_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="retryConfig")
-    def retry_config(self) -> Optional[pulumi.Input['CanaryRetryConfigArgs']]:
+    def retry_config(self) -> pulumi.Input[Optional['CanaryRetryConfigArgs']]:
         """
         Provide canary auto retry configuration
         """
         return pulumi.get(self, "retry_config")
 
     @retry_config.setter
-    def retry_config(self, value: Optional[pulumi.Input['CanaryRetryConfigArgs']]):
+    def retry_config(self, value: pulumi.Input[Optional['CanaryRetryConfigArgs']]):
         pulumi.set(self, "retry_config", value)
 
 
@@ -657,11 +657,11 @@ class CanaryVisualReferenceArgsDict(TypedDict):
     """
     Canary run id to be used as base reference for visual testing
     """
-    base_screenshots: NotRequired[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgsDict']]]]
+    base_screenshots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CanaryBaseScreenshotArgsDict']]]]]
     """
     List of screenshots used as base reference for visual testing
     """
-    browser_type: NotRequired[pulumi.Input['CanaryBrowserType']]
+    browser_type: NotRequired[pulumi.Input[Optional['CanaryBrowserType']]]
     """
     The browser type associated with this visual reference configuration. Valid values are `CHROME` and `FIREFOX` .
     """
@@ -670,8 +670,8 @@ class CanaryVisualReferenceArgsDict(TypedDict):
 class CanaryVisualReferenceArgs:
     def __init__(__self__, *,
                  base_canary_run_id: pulumi.Input[_builtins.str],
-                 base_screenshots: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]]] = None,
-                 browser_type: Optional[pulumi.Input['CanaryBrowserType']] = None):
+                 base_screenshots: pulumi.Input[Optional[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]]] = None,
+                 browser_type: pulumi.Input[Optional['CanaryBrowserType']] = None):
         """
         :param pulumi.Input[_builtins.str] base_canary_run_id: Canary run id to be used as base reference for visual testing
         :param pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]] base_screenshots: List of screenshots used as base reference for visual testing
@@ -697,26 +697,26 @@ class CanaryVisualReferenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="baseScreenshots")
-    def base_screenshots(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]]]:
+    def base_screenshots(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]]]:
         """
         List of screenshots used as base reference for visual testing
         """
         return pulumi.get(self, "base_screenshots")
 
     @base_screenshots.setter
-    def base_screenshots(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]]]):
+    def base_screenshots(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]]]):
         pulumi.set(self, "base_screenshots", value)
 
     @_builtins.property
     @pulumi.getter(name="browserType")
-    def browser_type(self) -> Optional[pulumi.Input['CanaryBrowserType']]:
+    def browser_type(self) -> pulumi.Input[Optional['CanaryBrowserType']]:
         """
         The browser type associated with this visual reference configuration. Valid values are `CHROME` and `FIREFOX` .
         """
         return pulumi.get(self, "browser_type")
 
     @browser_type.setter
-    def browser_type(self, value: Optional[pulumi.Input['CanaryBrowserType']]):
+    def browser_type(self, value: pulumi.Input[Optional['CanaryBrowserType']]):
         pulumi.set(self, "browser_type", value)
 
 
@@ -729,11 +729,11 @@ class CanaryVpcConfigArgsDict(TypedDict):
     """
     The IDs of the subnets where this canary is to run.
     """
-    ipv6_allowed_for_dual_stack: NotRequired[pulumi.Input[_builtins.bool]]
+    ipv6_allowed_for_dual_stack: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets if set to true
     """
-    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the VPC where this canary is to run.
     """
@@ -743,8 +743,8 @@ class CanaryVpcConfigArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 ipv6_allowed_for_dual_stack: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 ipv6_allowed_for_dual_stack: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the security groups for this canary.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The IDs of the subnets where this canary is to run.
@@ -784,26 +784,26 @@ class CanaryVpcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipv6AllowedForDualStack")
-    def ipv6_allowed_for_dual_stack(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ipv6_allowed_for_dual_stack(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets if set to true
         """
         return pulumi.get(self, "ipv6_allowed_for_dual_stack")
 
     @ipv6_allowed_for_dual_stack.setter
-    def ipv6_allowed_for_dual_stack(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ipv6_allowed_for_dual_stack(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ipv6_allowed_for_dual_stack", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VPC where this canary is to run.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 

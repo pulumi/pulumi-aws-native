@@ -174,7 +174,6 @@ def get_pipeline(name: Optional[_builtins.str] = None,
     """
     The AWS::CodePipeline::Pipeline resource creates a CodePipeline pipeline that describes how software changes go through a release process.
 
-
     :param _builtins.str name: The name of the pipeline.
     """
     __args__ = dict()
@@ -194,11 +193,10 @@ def get_pipeline(name: Optional[_builtins.str] = None,
         triggers=pulumi.get(__ret__, 'triggers'),
         variables=pulumi.get(__ret__, 'variables'),
         version=pulumi.get(__ret__, 'version'))
-def get_pipeline_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_pipeline_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineResult]:
     """
     The AWS::CodePipeline::Pipeline resource creates a CodePipeline pipeline that describes how software changes go through a release process.
-
 
     :param _builtins.str name: The name of the pipeline.
     """

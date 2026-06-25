@@ -207,7 +207,6 @@ def get_transit_gateway(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::EC2::TransitGateway
 
-
     :param _builtins.str id: The ID of the transit gateway.
     """
     __args__ = dict()
@@ -230,11 +229,10 @@ def get_transit_gateway(id: Optional[_builtins.str] = None,
         transit_gateway_arn=pulumi.get(__ret__, 'transit_gateway_arn'),
         transit_gateway_cidr_blocks=pulumi.get(__ret__, 'transit_gateway_cidr_blocks'),
         vpn_ecmp_support=pulumi.get(__ret__, 'vpn_ecmp_support'))
-def get_transit_gateway_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_transit_gateway_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayResult]:
     """
     Resource Type definition for AWS::EC2::TransitGateway
-
 
     :param _builtins.str id: The ID of the transit gateway.
     """

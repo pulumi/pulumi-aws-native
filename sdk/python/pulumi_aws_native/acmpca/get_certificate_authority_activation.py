@@ -63,7 +63,6 @@ def get_certificate_authority_activation(certificate_authority_arn: Optional[_bu
     """
     Used to install the certificate authority certificate and update the certificate authority status.
 
-
     :param _builtins.str certificate_authority_arn: Arn of the Certificate Authority.
     """
     __args__ = dict()
@@ -74,11 +73,10 @@ def get_certificate_authority_activation(certificate_authority_arn: Optional[_bu
     return AwaitableGetCertificateAuthorityActivationResult(
         complete_certificate_chain=pulumi.get(__ret__, 'complete_certificate_chain'),
         status=pulumi.get(__ret__, 'status'))
-def get_certificate_authority_activation_output(certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_certificate_authority_activation_output(certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateAuthorityActivationResult]:
     """
     Used to install the certificate authority certificate and update the certificate authority status.
-
 
     :param _builtins.str certificate_authority_arn: Arn of the Certificate Authority.
     """

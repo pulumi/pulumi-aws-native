@@ -26,13 +26,13 @@ class WirelessDeviceArgs:
     def __init__(__self__, *,
                  destination_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input['WirelessDeviceType'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_uplink_received_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 lo_ra_wan: Optional[pulumi.Input['WirelessDeviceLoRaWanDeviceArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 positioning: Optional[pulumi.Input['WirelessDevicePositioning']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 thing_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_uplink_received_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 lo_ra_wan: pulumi.Input[Optional['WirelessDeviceLoRaWanDeviceArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 positioning: pulumi.Input[Optional['WirelessDevicePositioning']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 thing_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WirelessDevice resource.
 
@@ -89,86 +89,86 @@ class WirelessDeviceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Wireless device description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUplinkReceivedAt")
-    def last_uplink_received_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_uplink_received_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time when the most recent uplink was received.
         """
         return pulumi.get(self, "last_uplink_received_at")
 
     @last_uplink_received_at.setter
-    def last_uplink_received_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_uplink_received_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_uplink_received_at", value)
 
     @_builtins.property
     @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> Optional[pulumi.Input['WirelessDeviceLoRaWanDeviceArgs']]:
+    def lo_ra_wan(self) -> pulumi.Input[Optional['WirelessDeviceLoRaWanDeviceArgs']]:
         """
         The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
         """
         return pulumi.get(self, "lo_ra_wan")
 
     @lo_ra_wan.setter
-    def lo_ra_wan(self, value: Optional[pulumi.Input['WirelessDeviceLoRaWanDeviceArgs']]):
+    def lo_ra_wan(self, value: pulumi.Input[Optional['WirelessDeviceLoRaWanDeviceArgs']]):
         pulumi.set(self, "lo_ra_wan", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Wireless device name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def positioning(self) -> Optional[pulumi.Input['WirelessDevicePositioning']]:
+    def positioning(self) -> pulumi.Input[Optional['WirelessDevicePositioning']]:
         """
         FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
         """
         return pulumi.get(self, "positioning")
 
     @positioning.setter
-    def positioning(self, value: Optional[pulumi.Input['WirelessDevicePositioning']]):
+    def positioning(self, value: pulumi.Input[Optional['WirelessDevicePositioning']]):
         pulumi.set(self, "positioning", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="thingArn")
-    def thing_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thing_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Thing arn. Passed into update to associate Thing with Wireless device.
         """
         return pulumi.get(self, "thing_arn")
 
     @thing_arn.setter
-    def thing_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thing_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thing_arn", value)
 
 
@@ -178,19 +178,18 @@ class WirelessDevice(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_uplink_received_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 lo_ra_wan: Optional[pulumi.Input[Union['WirelessDeviceLoRaWanDeviceArgs', 'WirelessDeviceLoRaWanDeviceArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 positioning: Optional[pulumi.Input['WirelessDevicePositioning']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 thing_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['WirelessDeviceType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_uplink_received_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 lo_ra_wan: pulumi.Input[Optional[Union['WirelessDeviceLoRaWanDeviceArgs', 'WirelessDeviceLoRaWanDeviceArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 positioning: pulumi.Input[Optional['WirelessDevicePositioning']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 thing_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['WirelessDeviceType']] = None,
                  __props__=None):
         """
         Create and manage wireless gateways, including LoRa gateways.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,7 +212,6 @@ class WirelessDevice(pulumi.CustomResource):
         """
         Create and manage wireless gateways, including LoRa gateways.
 
-
         :param str resource_name: The name of the resource.
         :param WirelessDeviceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,15 +227,15 @@ class WirelessDevice(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_uplink_received_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 lo_ra_wan: Optional[pulumi.Input[Union['WirelessDeviceLoRaWanDeviceArgs', 'WirelessDeviceLoRaWanDeviceArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 positioning: Optional[pulumi.Input['WirelessDevicePositioning']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 thing_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['WirelessDeviceType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_uplink_received_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 lo_ra_wan: pulumi.Input[Optional[Union['WirelessDeviceLoRaWanDeviceArgs', 'WirelessDeviceLoRaWanDeviceArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 positioning: pulumi.Input[Optional['WirelessDevicePositioning']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 thing_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['WirelessDeviceType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

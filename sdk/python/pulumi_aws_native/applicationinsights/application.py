@@ -25,17 +25,17 @@ __all__ = ['ApplicationArgs', 'Application']
 class ApplicationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 attach_missing_permission: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_configuration_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 component_monitoring_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationComponentMonitoringSettingArgs']]]] = None,
-                 custom_components: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomComponentArgs']]]] = None,
-                 cwe_monitor_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grouping_type: Optional[pulumi.Input['ApplicationGroupingType']] = None,
-                 log_pattern_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternSetArgs']]]] = None,
-                 ops_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ops_item_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_notification_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 attach_missing_permission: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_configuration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 component_monitoring_settings: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationComponentMonitoringSettingArgs']]]] = None,
+                 custom_components: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationCustomComponentArgs']]]] = None,
+                 cwe_monitor_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grouping_type: pulumi.Input[Optional['ApplicationGroupingType']] = None,
+                 log_pattern_sets: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationLogPatternSetArgs']]]] = None,
+                 ops_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ops_item_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_notification_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -90,134 +90,134 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="attachMissingPermission")
-    def attach_missing_permission(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def attach_missing_permission(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
         """
         return pulumi.get(self, "attach_missing_permission")
 
     @attach_missing_permission.setter
-    def attach_missing_permission(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def attach_missing_permission(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "attach_missing_permission", value)
 
     @_builtins.property
     @pulumi.getter(name="autoConfigurationEnabled")
-    def auto_configuration_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_configuration_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, application will be configured with recommended monitoring configuration.
         """
         return pulumi.get(self, "auto_configuration_enabled")
 
     @auto_configuration_enabled.setter
-    def auto_configuration_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_configuration_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_configuration_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="componentMonitoringSettings")
-    def component_monitoring_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationComponentMonitoringSettingArgs']]]]:
+    def component_monitoring_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationComponentMonitoringSettingArgs']]]]:
         """
         The monitoring settings of the components.
         """
         return pulumi.get(self, "component_monitoring_settings")
 
     @component_monitoring_settings.setter
-    def component_monitoring_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationComponentMonitoringSettingArgs']]]]):
+    def component_monitoring_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationComponentMonitoringSettingArgs']]]]):
         pulumi.set(self, "component_monitoring_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="customComponents")
-    def custom_components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomComponentArgs']]]]:
+    def custom_components(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationCustomComponentArgs']]]]:
         """
         The custom grouped components.
         """
         return pulumi.get(self, "custom_components")
 
     @custom_components.setter
-    def custom_components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomComponentArgs']]]]):
+    def custom_components(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationCustomComponentArgs']]]]):
         pulumi.set(self, "custom_components", value)
 
     @_builtins.property
     @pulumi.getter(name="cweMonitorEnabled")
-    def cwe_monitor_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cwe_monitor_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether Application Insights can listen to CloudWatch events for the application resources.
         """
         return pulumi.get(self, "cwe_monitor_enabled")
 
     @cwe_monitor_enabled.setter
-    def cwe_monitor_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cwe_monitor_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cwe_monitor_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="groupingType")
-    def grouping_type(self) -> Optional[pulumi.Input['ApplicationGroupingType']]:
+    def grouping_type(self) -> pulumi.Input[Optional['ApplicationGroupingType']]:
         """
         The grouping type of the application
         """
         return pulumi.get(self, "grouping_type")
 
     @grouping_type.setter
-    def grouping_type(self, value: Optional[pulumi.Input['ApplicationGroupingType']]):
+    def grouping_type(self, value: pulumi.Input[Optional['ApplicationGroupingType']]):
         pulumi.set(self, "grouping_type", value)
 
     @_builtins.property
     @pulumi.getter(name="logPatternSets")
-    def log_pattern_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternSetArgs']]]]:
+    def log_pattern_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationLogPatternSetArgs']]]]:
         """
         The log pattern sets.
         """
         return pulumi.get(self, "log_pattern_sets")
 
     @log_pattern_sets.setter
-    def log_pattern_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternSetArgs']]]]):
+    def log_pattern_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationLogPatternSetArgs']]]]):
         pulumi.set(self, "log_pattern_sets", value)
 
     @_builtins.property
     @pulumi.getter(name="opsCenterEnabled")
-    def ops_center_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ops_center_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true, creates opsItems for any problems detected on an application.
         """
         return pulumi.get(self, "ops_center_enabled")
 
     @ops_center_enabled.setter
-    def ops_center_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ops_center_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ops_center_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="opsItemSnsTopicArn")
-    def ops_item_sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ops_item_sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SNS topic provided to Application Insights that is associated to the created opsItem.
         """
         return pulumi.get(self, "ops_item_sns_topic_arn")
 
     @ops_item_sns_topic_arn.setter
-    def ops_item_sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ops_item_sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ops_item_sns_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="snsNotificationArn")
-    def sns_notification_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sns_notification_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.
         """
         return pulumi.get(self, "sns_notification_arn")
 
     @sns_notification_arn.setter
-    def sns_notification_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sns_notification_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sns_notification_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags of Application Insights application.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -227,22 +227,21 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attach_missing_permission: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_configuration_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 component_monitoring_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationComponentMonitoringSettingArgs', 'ApplicationComponentMonitoringSettingArgsDict']]]]] = None,
-                 custom_components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCustomComponentArgs', 'ApplicationCustomComponentArgsDict']]]]] = None,
-                 cwe_monitor_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grouping_type: Optional[pulumi.Input['ApplicationGroupingType']] = None,
-                 log_pattern_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationLogPatternSetArgs', 'ApplicationLogPatternSetArgsDict']]]]] = None,
-                 ops_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ops_item_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_notification_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 attach_missing_permission: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_configuration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 component_monitoring_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationComponentMonitoringSettingArgs', 'ApplicationComponentMonitoringSettingArgsDict']]]]] = None,
+                 custom_components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationCustomComponentArgs', 'ApplicationCustomComponentArgsDict']]]]] = None,
+                 cwe_monitor_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grouping_type: pulumi.Input[Optional['ApplicationGroupingType']] = None,
+                 log_pattern_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationLogPatternSetArgs', 'ApplicationLogPatternSetArgsDict']]]]] = None,
+                 ops_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ops_item_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_notification_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ApplicationInsights::Application
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -268,7 +267,6 @@ class Application(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ApplicationInsights::Application
 
-
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -284,18 +282,18 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attach_missing_permission: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_configuration_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 component_monitoring_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationComponentMonitoringSettingArgs', 'ApplicationComponentMonitoringSettingArgsDict']]]]] = None,
-                 custom_components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCustomComponentArgs', 'ApplicationCustomComponentArgsDict']]]]] = None,
-                 cwe_monitor_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grouping_type: Optional[pulumi.Input['ApplicationGroupingType']] = None,
-                 log_pattern_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationLogPatternSetArgs', 'ApplicationLogPatternSetArgsDict']]]]] = None,
-                 ops_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ops_item_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_notification_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 attach_missing_permission: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_configuration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 component_monitoring_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationComponentMonitoringSettingArgs', 'ApplicationComponentMonitoringSettingArgsDict']]]]] = None,
+                 custom_components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationCustomComponentArgs', 'ApplicationCustomComponentArgsDict']]]]] = None,
+                 cwe_monitor_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grouping_type: pulumi.Input[Optional['ApplicationGroupingType']] = None,
+                 log_pattern_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationLogPatternSetArgs', 'ApplicationLogPatternSetArgsDict']]]]] = None,
+                 ops_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ops_item_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_notification_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

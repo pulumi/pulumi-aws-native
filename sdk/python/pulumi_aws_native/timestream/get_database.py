@@ -76,7 +76,6 @@ def get_database(database_name: Optional[_builtins.str] = None,
     """
     The AWS::Timestream::Database resource creates a Timestream database.
 
-
     :param _builtins.str database_name: The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_database(database_name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_database_output(database_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     The AWS::Timestream::Database resource creates a Timestream database.
-
 
     :param _builtins.str database_name: The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.
     """

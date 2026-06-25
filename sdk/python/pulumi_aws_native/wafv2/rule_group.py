@@ -27,14 +27,14 @@ class RuleGroupArgs:
                  capacity: pulumi.Input[_builtins.int],
                  scope: pulumi.Input['RuleGroupScope'],
                  visibility_config: pulumi.Input['RuleGroupVisibilityConfigArgs'],
-                 available_labels: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]] = None,
-                 consumed_labels: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]] = None,
-                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupCustomResponseBodyArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 monetization_config: Optional[pulumi.Input['RuleGroupMonetizationConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 available_labels: pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]] = None,
+                 consumed_labels: pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]] = None,
+                 custom_response_bodies: pulumi.Input[Optional[Mapping[str, pulumi.Input['RuleGroupCustomResponseBodyArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 monetization_config: pulumi.Input[Optional['RuleGroupMonetizationConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RuleGroup resource.
 
@@ -125,31 +125,31 @@ class RuleGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="availableLabels")
-    def available_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]]:
+    def available_labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]]:
         """
         Collection of Available Labels.
         """
         return pulumi.get(self, "available_labels")
 
     @available_labels.setter
-    def available_labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]]):
+    def available_labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]]):
         pulumi.set(self, "available_labels", value)
 
     @_builtins.property
     @pulumi.getter(name="consumedLabels")
-    def consumed_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]]:
+    def consumed_labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]]:
         """
         Collection of Consumed Labels.
         """
         return pulumi.get(self, "consumed_labels")
 
     @consumed_labels.setter
-    def consumed_labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]]):
+    def consumed_labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]]):
         pulumi.set(self, "consumed_labels", value)
 
     @_builtins.property
     @pulumi.getter(name="customResponseBodies")
-    def custom_response_bodies(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupCustomResponseBodyArgs']]]]:
+    def custom_response_bodies(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['RuleGroupCustomResponseBodyArgs']]]]:
         """
         A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group.
 
@@ -160,57 +160,57 @@ class RuleGroupArgs:
         return pulumi.get(self, "custom_response_bodies")
 
     @custom_response_bodies.setter
-    def custom_response_bodies(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupCustomResponseBodyArgs']]]]):
+    def custom_response_bodies(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['RuleGroupCustomResponseBodyArgs']]]]):
         pulumi.set(self, "custom_response_bodies", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the rule group that helps with identification.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="monetizationConfig")
-    def monetization_config(self) -> Optional[pulumi.Input['RuleGroupMonetizationConfigArgs']]:
+    def monetization_config(self) -> pulumi.Input[Optional['RuleGroupMonetizationConfigArgs']]:
         return pulumi.get(self, "monetization_config")
 
     @monetization_config.setter
-    def monetization_config(self, value: Optional[pulumi.Input['RuleGroupMonetizationConfigArgs']]):
+    def monetization_config(self, value: pulumi.Input[Optional['RuleGroupMonetizationConfigArgs']]):
         pulumi.set(self, "monetization_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the rule group. You cannot change the name of a rule group after you create it.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleArgs']]]]:
         """
         Collection of Rules.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 
@@ -219,7 +219,7 @@ class RuleGroupArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -229,21 +229,20 @@ class RuleGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 available_labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict']]]]] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 consumed_labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict']]]]] = None,
-                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 monetization_config: Optional[pulumi.Input[Union['RuleGroupMonetizationConfigArgs', 'RuleGroupMonetizationConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input['RuleGroupScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 visibility_config: Optional[pulumi.Input[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict']]] = None,
+                 available_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict']]]]] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 consumed_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict']]]]] = None,
+                 custom_response_bodies: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 monetization_config: pulumi.Input[Optional[Union['RuleGroupMonetizationConfigArgs', 'RuleGroupMonetizationConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional['RuleGroupScope']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 visibility_config: pulumi.Input[Optional[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict']]] = None,
                  __props__=None):
         """
         Contains the Rules that identify the requests that you want to allow, block, or count. In a RuleGroup, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a RuleGroup, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the RuleGroup with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a RuleGroup, a request needs to match only one of the specifications to be allowed, blocked, or counted.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -279,7 +278,6 @@ class RuleGroup(pulumi.CustomResource):
         """
         Contains the Rules that identify the requests that you want to allow, block, or count. In a RuleGroup, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a RuleGroup, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the RuleGroup with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a RuleGroup, a request needs to match only one of the specifications to be allowed, blocked, or counted.
 
-
         :param str resource_name: The name of the resource.
         :param RuleGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -295,17 +293,17 @@ class RuleGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 available_labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict']]]]] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 consumed_labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict']]]]] = None,
-                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 monetization_config: Optional[pulumi.Input[Union['RuleGroupMonetizationConfigArgs', 'RuleGroupMonetizationConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input['RuleGroupScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 visibility_config: Optional[pulumi.Input[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict']]] = None,
+                 available_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict']]]]] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 consumed_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict']]]]] = None,
+                 custom_response_bodies: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 monetization_config: pulumi.Input[Optional[Union['RuleGroupMonetizationConfigArgs', 'RuleGroupMonetizationConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional['RuleGroupScope']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 visibility_config: pulumi.Input[Optional[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

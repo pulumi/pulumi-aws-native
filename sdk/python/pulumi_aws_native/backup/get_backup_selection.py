@@ -63,7 +63,6 @@ def get_backup_selection(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Backup::BackupSelection
 
-
     :param _builtins.str id: Uniquely identifies the backup selection.
     """
     __args__ = dict()
@@ -74,11 +73,10 @@ def get_backup_selection(id: Optional[_builtins.str] = None,
     return AwaitableGetBackupSelectionResult(
         id=pulumi.get(__ret__, 'id'),
         selection_id=pulumi.get(__ret__, 'selection_id'))
-def get_backup_selection_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_backup_selection_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupSelectionResult]:
     """
     Resource Type definition for AWS::Backup::BackupSelection
-
 
     :param _builtins.str id: Uniquely identifies the backup selection.
     """

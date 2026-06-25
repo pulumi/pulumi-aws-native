@@ -53,7 +53,6 @@ def get_topic_inline_policy(topic_arn: Optional[_builtins.str] = None,
     """
     Schema for AWS::SNS::TopicInlinePolicy
 
-
     :param _builtins.str topic_arn: The Amazon Resource Name (ARN) of the topic to which you want to add the policy.
     """
     __args__ = dict()
@@ -63,11 +62,10 @@ def get_topic_inline_policy(topic_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetTopicInlinePolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
-def get_topic_inline_policy_output(topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_topic_inline_policy_output(topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicInlinePolicyResult]:
     """
     Schema for AWS::SNS::TopicInlinePolicy
-
 
     :param _builtins.str topic_arn: The Amazon Resource Name (ARN) of the topic to which you want to add the policy.
     """

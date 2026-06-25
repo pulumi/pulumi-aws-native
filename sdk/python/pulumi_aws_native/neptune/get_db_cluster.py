@@ -129,9 +129,9 @@ class GetDbClusterResult:
     @pulumi.getter(name="dbPort")
     def db_port(self) -> Optional[_builtins.int]:
         """
-        The port number on which the DB instances in the DB cluster accept connections. 
+        The port number on which the DB instances in the DB cluster accept connections.
 
-        If not specified, the default port used is `8182`. 
+        If not specified, the default port used is `8182`.
 
         Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
         """
@@ -274,7 +274,6 @@ def get_db_cluster(db_cluster_identifier: Optional[_builtins.str] = None,
     """
     The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
 
-
     :param _builtins.str db_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
     """
     __args__ = dict()
@@ -302,11 +301,10 @@ def get_db_cluster(db_cluster_identifier: Optional[_builtins.str] = None,
         serverless_scaling_configuration=pulumi.get(__ret__, 'serverless_scaling_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_cluster_output(db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbClusterResult]:
     """
     The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
-
 
     :param _builtins.str db_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
     """

@@ -75,7 +75,6 @@ def get_access_grants_instance(access_grants_instance_arn: Optional[_builtins.st
     """
     The AWS::S3::AccessGrantsInstance resource is an Amazon S3 resource type that hosts Access Grants and their associated locations
 
-
     :param _builtins.str access_grants_instance_arn: The Amazon Resource Name (ARN) of the specified Access Grants instance.
     """
     __args__ = dict()
@@ -87,11 +86,10 @@ def get_access_grants_instance(access_grants_instance_arn: Optional[_builtins.st
         access_grants_instance_arn=pulumi.get(__ret__, 'access_grants_instance_arn'),
         access_grants_instance_id=pulumi.get(__ret__, 'access_grants_instance_id'),
         identity_center_arn=pulumi.get(__ret__, 'identity_center_arn'))
-def get_access_grants_instance_output(access_grants_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_grants_instance_output(access_grants_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessGrantsInstanceResult]:
     """
     The AWS::S3::AccessGrantsInstance resource is an Amazon S3 resource type that hosts Access Grants and their associated locations
-
 
     :param _builtins.str access_grants_instance_arn: The Amazon Resource Name (ARN) of the specified Access Grants instance.
     """

@@ -21,12 +21,12 @@ __all__ = ['InstanceProfileArgs', 'InstanceProfile']
 @pulumi.input_type
 class InstanceProfileArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_app_packages_from_cleanup: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_cleanup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reboot_after_use: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_app_packages_from_cleanup: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_cleanup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reboot_after_use: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a InstanceProfile resource.
 
@@ -56,19 +56,19 @@ class InstanceProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the instance profile.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeAppPackagesFromCleanup")
-    def exclude_app_packages_from_cleanup(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude_app_packages_from_cleanup(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
 
@@ -77,48 +77,48 @@ class InstanceProfileArgs:
         return pulumi.get(self, "exclude_app_packages_from_cleanup")
 
     @exclude_app_packages_from_cleanup.setter
-    def exclude_app_packages_from_cleanup(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude_app_packages_from_cleanup(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_app_packages_from_cleanup", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the instance profile.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="packageCleanup")
-    def package_cleanup(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def package_cleanup(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
         """
         return pulumi.get(self, "package_cleanup")
 
     @package_cleanup.setter
-    def package_cleanup(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def package_cleanup(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "package_cleanup", value)
 
     @_builtins.property
     @pulumi.getter(name="rebootAfterUse")
-    def reboot_after_use(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reboot_after_use(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
         """
         return pulumi.get(self, "reboot_after_use")
 
     @reboot_after_use.setter
-    def reboot_after_use(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reboot_after_use(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reboot_after_use", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
 
@@ -127,7 +127,7 @@ class InstanceProfileArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -137,16 +137,15 @@ class InstanceProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_app_packages_from_cleanup: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_cleanup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reboot_after_use: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_app_packages_from_cleanup: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_cleanup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reboot_after_use: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for a Device Farm Instance Profile
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,7 +169,6 @@ class InstanceProfile(pulumi.CustomResource):
         """
         Resource Type definition for a Device Farm Instance Profile
 
-
         :param str resource_name: The name of the resource.
         :param InstanceProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,12 +184,12 @@ class InstanceProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_app_packages_from_cleanup: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_cleanup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reboot_after_use: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_app_packages_from_cleanup: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_cleanup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reboot_after_use: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

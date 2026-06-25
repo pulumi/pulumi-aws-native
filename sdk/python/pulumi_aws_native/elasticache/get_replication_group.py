@@ -329,7 +329,6 @@ def get_replication_group(replication_group_id: Optional[_builtins.str] = None,
     """
     Resource type definition for AWS::ElastiCache::ReplicationGroup
 
-
     :param _builtins.str replication_group_id: The replication group identifier. This parameter is stored as a lowercase string.
     """
     __args__ = dict()
@@ -362,11 +361,10 @@ def get_replication_group(replication_group_id: Optional[_builtins.str] = None,
         transit_encryption_enabled=pulumi.get(__ret__, 'transit_encryption_enabled'),
         transit_encryption_mode=pulumi.get(__ret__, 'transit_encryption_mode'),
         user_group_ids=pulumi.get(__ret__, 'user_group_ids'))
-def get_replication_group_output(replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_replication_group_output(replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationGroupResult]:
     """
     Resource type definition for AWS::ElastiCache::ReplicationGroup
-
 
     :param _builtins.str replication_group_id: The replication group identifier. This parameter is stored as a lowercase string.
     """

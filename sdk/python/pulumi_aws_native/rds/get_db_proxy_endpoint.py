@@ -125,7 +125,6 @@ def get_db_proxy_endpoint(db_proxy_endpoint_name: Optional[_builtins.str] = None
     """
     Resource schema for AWS::RDS::DBProxyEndpoint.
 
-
     :param _builtins.str db_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
     """
     __args__ = dict()
@@ -141,11 +140,10 @@ def get_db_proxy_endpoint(db_proxy_endpoint_name: Optional[_builtins.str] = None
         target_role=pulumi.get(__ret__, 'target_role'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-def get_db_proxy_endpoint_output(db_proxy_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_proxy_endpoint_output(db_proxy_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbProxyEndpointResult]:
     """
     Resource schema for AWS::RDS::DBProxyEndpoint.
-
 
     :param _builtins.str db_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
     """

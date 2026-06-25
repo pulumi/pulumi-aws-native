@@ -27,12 +27,12 @@ class IndexArgs:
                  data_type: pulumi.Input['IndexDataType'],
                  dimension: pulumi.Input[_builtins.int],
                  distance_metric: pulumi.Input['IndexDistanceMetric'],
-                 encryption_configuration: Optional[pulumi.Input['IndexEncryptionConfigurationArgs']] = None,
-                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_configuration: Optional[pulumi.Input['IndexMetadataConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vector_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_configuration: pulumi.Input[Optional['IndexEncryptionConfigurationArgs']] = None,
+                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_configuration: pulumi.Input[Optional['IndexMetadataConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vector_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 vector_bucket_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Index resource.
 
@@ -114,19 +114,19 @@ class IndexArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['IndexEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> pulumi.Input[Optional['IndexEncryptionConfigurationArgs']]:
         """
         The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['IndexEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: pulumi.Input[Optional['IndexEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="indexName")
-    def index_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def index_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the vector index to create. The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.
 
@@ -137,55 +137,55 @@ class IndexArgs:
         return pulumi.get(self, "index_name")
 
     @index_name.setter
-    def index_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def index_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "index_name", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataConfiguration")
-    def metadata_configuration(self) -> Optional[pulumi.Input['IndexMetadataConfigurationArgs']]:
+    def metadata_configuration(self) -> pulumi.Input[Optional['IndexMetadataConfigurationArgs']]:
         """
         The metadata configuration for the vector index.
         """
         return pulumi.get(self, "metadata_configuration")
 
     @metadata_configuration.setter
-    def metadata_configuration(self, value: Optional[pulumi.Input['IndexMetadataConfigurationArgs']]):
+    def metadata_configuration(self, value: pulumi.Input[Optional['IndexMetadataConfigurationArgs']]):
         pulumi.set(self, "metadata_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         User tags (key-value pairs) to associate with the index.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vectorBucketArn")
-    def vector_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vector_bucket_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
         """
         return pulumi.get(self, "vector_bucket_arn")
 
     @vector_bucket_arn.setter
-    def vector_bucket_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vector_bucket_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vector_bucket_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="vectorBucketName")
-    def vector_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vector_bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the vector bucket that contains the vector index.
         """
         return pulumi.get(self, "vector_bucket_name")
 
     @vector_bucket_name.setter
-    def vector_bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vector_bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vector_bucket_name", value)
 
 
@@ -195,19 +195,18 @@ class Index(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_type: Optional[pulumi.Input['IndexDataType']] = None,
-                 dimension: Optional[pulumi.Input[_builtins.int]] = None,
-                 distance_metric: Optional[pulumi.Input['IndexDistanceMetric']] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['IndexEncryptionConfigurationArgs', 'IndexEncryptionConfigurationArgsDict']]] = None,
-                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_configuration: Optional[pulumi.Input[Union['IndexMetadataConfigurationArgs', 'IndexMetadataConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vector_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_type: pulumi.Input[Optional['IndexDataType']] = None,
+                 dimension: pulumi.Input[Optional[_builtins.int]] = None,
+                 distance_metric: pulumi.Input[Optional['IndexDistanceMetric']] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['IndexEncryptionConfigurationArgs', 'IndexEncryptionConfigurationArgsDict']]] = None,
+                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_configuration: pulumi.Input[Optional[Union['IndexMetadataConfigurationArgs', 'IndexMetadataConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vector_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 vector_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::S3Vectors::Index
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -239,7 +238,6 @@ class Index(pulumi.CustomResource):
         """
         Resource Type definition for AWS::S3Vectors::Index
 
-
         :param str resource_name: The name of the resource.
         :param IndexArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,15 +253,15 @@ class Index(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_type: Optional[pulumi.Input['IndexDataType']] = None,
-                 dimension: Optional[pulumi.Input[_builtins.int]] = None,
-                 distance_metric: Optional[pulumi.Input['IndexDistanceMetric']] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['IndexEncryptionConfigurationArgs', 'IndexEncryptionConfigurationArgsDict']]] = None,
-                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_configuration: Optional[pulumi.Input[Union['IndexMetadataConfigurationArgs', 'IndexMetadataConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vector_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_type: pulumi.Input[Optional['IndexDataType']] = None,
+                 dimension: pulumi.Input[Optional[_builtins.int]] = None,
+                 distance_metric: pulumi.Input[Optional['IndexDistanceMetric']] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['IndexEncryptionConfigurationArgs', 'IndexEncryptionConfigurationArgsDict']]] = None,
+                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_configuration: pulumi.Input[Optional[Union['IndexMetadataConfigurationArgs', 'IndexMetadataConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vector_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 vector_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

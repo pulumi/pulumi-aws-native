@@ -53,7 +53,6 @@ def get_resource_policy(resource_arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::Bedrock::ResourcePolicy Resource Type
 
-
     :param _builtins.str resource_arn: The ARN of the Bedrock Guardrail or Guardrail Profile resource
     """
     __args__ = dict()
@@ -63,11 +62,10 @@ def get_resource_policy(resource_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetResourcePolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
-def get_resource_policy_output(resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_policy_output(resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     Definition of AWS::Bedrock::ResourcePolicy Resource Type
-
 
     :param _builtins.str resource_arn: The ARN of the Bedrock Guardrail or Guardrail Profile resource
     """

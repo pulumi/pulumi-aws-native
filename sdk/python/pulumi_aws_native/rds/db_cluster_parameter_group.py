@@ -24,30 +24,30 @@ class DbClusterParameterGroupArgs:
                  description: pulumi.Input[_builtins.str],
                  family: pulumi.Input[_builtins.str],
                  parameters: Any,
-                 db_cluster_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 db_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DbClusterParameterGroup resource.
 
         :param pulumi.Input[_builtins.str] description: The description for the DB cluster parameter group.
         :param pulumi.Input[_builtins.str] family: The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
-                 *Aurora MySQL* 
+                 *Aurora MySQL*
                 Example: ``aurora-mysql5.7``, ``aurora-mysql8.0``
-                 *Aurora PostgreSQL* 
+                 *Aurora PostgreSQL*
                 Example: ``aurora-postgresql14``
-                 *RDS for MySQL* 
+                 *RDS for MySQL*
                 Example: ``mysql8.0``
-                 *RDS for PostgreSQL* 
+                 *RDS for PostgreSQL*
                 Example: ``postgres13``
                 To list all of the available parameter group families for a DB engine, use the following command:
-                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>`` 
+                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>``
                 For example, to list all of the available parameter group families for the Aurora PostgreSQL DB engine, use the following command:
-                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine aurora-postgresql`` 
+                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine aurora-postgresql``
                  The output contains duplicates.
                  The following are the valid DB engine values:
-                 +   ``aurora-mysql`` 
-                 +   ``aurora-postgresql`` 
-                 +   ``mysql`` 
+                 +   ``aurora-mysql``
+                 +   ``aurora-postgresql``
+                 +   ``mysql``
                  +   ``postgres``
         :param Any parameters: Provides a list of parameters for the DB cluster parameter group.
                
@@ -55,7 +55,7 @@ class DbClusterParameterGroupArgs:
         :param pulumi.Input[_builtins.str] db_cluster_parameter_group_name: The name of the DB cluster parameter group.
                 Constraints:
                  +  Must not match the name of an existing DB cluster parameter group.
-                 
+               
                  This value is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags to assign to the DB cluster parameter group.
         """
@@ -84,23 +84,23 @@ class DbClusterParameterGroupArgs:
     def family(self) -> pulumi.Input[_builtins.str]:
         """
         The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
-          *Aurora MySQL* 
+          *Aurora MySQL*
          Example: ``aurora-mysql5.7``, ``aurora-mysql8.0``
-          *Aurora PostgreSQL* 
+          *Aurora PostgreSQL*
          Example: ``aurora-postgresql14``
-          *RDS for MySQL* 
+          *RDS for MySQL*
          Example: ``mysql8.0``
-          *RDS for PostgreSQL* 
+          *RDS for PostgreSQL*
          Example: ``postgres13``
          To list all of the available parameter group families for a DB engine, use the following command:
-          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>`` 
+          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>``
          For example, to list all of the available parameter group families for the Aurora PostgreSQL DB engine, use the following command:
-          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine aurora-postgresql`` 
+          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine aurora-postgresql``
           The output contains duplicates.
           The following are the valid DB engine values:
-          +   ``aurora-mysql`` 
-          +   ``aurora-postgresql`` 
-          +   ``mysql`` 
+          +   ``aurora-mysql``
+          +   ``aurora-postgresql``
+          +   ``mysql``
           +   ``postgres``
         """
         return pulumi.get(self, "family")
@@ -125,30 +125,30 @@ class DbClusterParameterGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="dbClusterParameterGroupName")
-    def db_cluster_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_cluster_parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the DB cluster parameter group.
          Constraints:
           +  Must not match the name of an existing DB cluster parameter group.
-          
+
           This value is stored as a lowercase string.
         """
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @db_cluster_parameter_group_name.setter
-    def db_cluster_parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_cluster_parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_cluster_parameter_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags to assign to the DB cluster parameter group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -158,11 +158,11 @@ class DbClusterParameterGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 db_cluster_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
+                 db_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::RDS::DBClusterParameterGroup`` resource creates a new Amazon RDS DB cluster parameter group.
@@ -170,33 +170,32 @@ class DbClusterParameterGroup(pulumi.CustomResource):
           If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
          If you apply a change to parameter group associated with a stopped DB cluster, then the updated stack waits until the DB cluster is started.
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] db_cluster_parameter_group_name: The name of the DB cluster parameter group.
                 Constraints:
                  +  Must not match the name of an existing DB cluster parameter group.
-                 
+               
                  This value is stored as a lowercase string.
         :param pulumi.Input[_builtins.str] description: The description for the DB cluster parameter group.
         :param pulumi.Input[_builtins.str] family: The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
-                 *Aurora MySQL* 
+                 *Aurora MySQL*
                 Example: ``aurora-mysql5.7``, ``aurora-mysql8.0``
-                 *Aurora PostgreSQL* 
+                 *Aurora PostgreSQL*
                 Example: ``aurora-postgresql14``
-                 *RDS for MySQL* 
+                 *RDS for MySQL*
                 Example: ``mysql8.0``
-                 *RDS for PostgreSQL* 
+                 *RDS for PostgreSQL*
                 Example: ``postgres13``
                 To list all of the available parameter group families for a DB engine, use the following command:
-                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>`` 
+                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>``
                 For example, to list all of the available parameter group families for the Aurora PostgreSQL DB engine, use the following command:
-                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine aurora-postgresql`` 
+                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine aurora-postgresql``
                  The output contains duplicates.
                  The following are the valid DB engine values:
-                 +   ``aurora-mysql`` 
-                 +   ``aurora-postgresql`` 
-                 +   ``mysql`` 
+                 +   ``aurora-mysql``
+                 +   ``aurora-postgresql``
+                 +   ``mysql``
                  +   ``postgres``
         :param Any parameters: Provides a list of parameters for the DB cluster parameter group.
                
@@ -215,7 +214,6 @@ class DbClusterParameterGroup(pulumi.CustomResource):
           If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
          If you apply a change to parameter group associated with a stopped DB cluster, then the updated stack waits until the DB cluster is started.
 
-
         :param str resource_name: The name of the resource.
         :param DbClusterParameterGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,11 +229,11 @@ class DbClusterParameterGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 db_cluster_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
+                 db_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -294,7 +292,7 @@ class DbClusterParameterGroup(pulumi.CustomResource):
         The name of the DB cluster parameter group.
          Constraints:
           +  Must not match the name of an existing DB cluster parameter group.
-          
+
           This value is stored as a lowercase string.
         """
         return pulumi.get(self, "db_cluster_parameter_group_name")
@@ -312,23 +310,23 @@ class DbClusterParameterGroup(pulumi.CustomResource):
     def family(self) -> pulumi.Output[_builtins.str]:
         """
         The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
-          *Aurora MySQL* 
+          *Aurora MySQL*
          Example: ``aurora-mysql5.7``, ``aurora-mysql8.0``
-          *Aurora PostgreSQL* 
+          *Aurora PostgreSQL*
          Example: ``aurora-postgresql14``
-          *RDS for MySQL* 
+          *RDS for MySQL*
          Example: ``mysql8.0``
-          *RDS for PostgreSQL* 
+          *RDS for PostgreSQL*
          Example: ``postgres13``
          To list all of the available parameter group families for a DB engine, use the following command:
-          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>`` 
+          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>``
          For example, to list all of the available parameter group families for the Aurora PostgreSQL DB engine, use the following command:
-          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine aurora-postgresql`` 
+          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine aurora-postgresql``
           The output contains duplicates.
           The following are the valid DB engine values:
-          +   ``aurora-mysql`` 
-          +   ``aurora-postgresql`` 
-          +   ``mysql`` 
+          +   ``aurora-mysql``
+          +   ``aurora-postgresql``
+          +   ``mysql``
           +   ``postgres``
         """
         return pulumi.get(self, "family")

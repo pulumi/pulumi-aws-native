@@ -29,16 +29,16 @@ class UserSettingsArgs:
                  paste_allowed: pulumi.Input['UserSettingsEnabledType'],
                  print_allowed: pulumi.Input['UserSettingsEnabledType'],
                  upload_allowed: pulumi.Input['UserSettingsEnabledType'],
-                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 branding_configuration: Optional[pulumi.Input['UserSettingsBrandingConfigurationArgs']] = None,
-                 cookie_synchronization_configuration: Optional[pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs']] = None,
-                 customer_managed_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 deep_link_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
-                 disconnect_timeout_in_minutes: Optional[pulumi.Input[_builtins.float]] = None,
-                 idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 toolbar_configuration: Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']] = None,
-                 web_authn_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None):
+                 additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 branding_configuration: pulumi.Input[Optional['UserSettingsBrandingConfigurationArgs']] = None,
+                 cookie_synchronization_configuration: pulumi.Input[Optional['UserSettingsCookieSynchronizationConfigurationArgs']] = None,
+                 customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 deep_link_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
+                 disconnect_timeout_in_minutes: pulumi.Input[Optional[_builtins.float]] = None,
+                 idle_disconnect_timeout_in_minutes: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 toolbar_configuration: pulumi.Input[Optional['UserSettingsToolbarConfigurationArgs']] = None,
+                 web_authn_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None):
         """
         The set of arguments for constructing a UserSettings resource.
 
@@ -146,122 +146,122 @@ class UserSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
-    def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_encryption_context(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The additional encryption context of the user settings.
         """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
-    def additional_encryption_context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_encryption_context(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_encryption_context", value)
 
     @_builtins.property
     @pulumi.getter(name="brandingConfiguration")
-    def branding_configuration(self) -> Optional[pulumi.Input['UserSettingsBrandingConfigurationArgs']]:
+    def branding_configuration(self) -> pulumi.Input[Optional['UserSettingsBrandingConfigurationArgs']]:
         """
         The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
         """
         return pulumi.get(self, "branding_configuration")
 
     @branding_configuration.setter
-    def branding_configuration(self, value: Optional[pulumi.Input['UserSettingsBrandingConfigurationArgs']]):
+    def branding_configuration(self, value: pulumi.Input[Optional['UserSettingsBrandingConfigurationArgs']]):
         pulumi.set(self, "branding_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="cookieSynchronizationConfiguration")
-    def cookie_synchronization_configuration(self) -> Optional[pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs']]:
+    def cookie_synchronization_configuration(self) -> pulumi.Input[Optional['UserSettingsCookieSynchronizationConfigurationArgs']]:
         """
         The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
         """
         return pulumi.get(self, "cookie_synchronization_configuration")
 
     @cookie_synchronization_configuration.setter
-    def cookie_synchronization_configuration(self, value: Optional[pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs']]):
+    def cookie_synchronization_configuration(self, value: pulumi.Input[Optional['UserSettingsCookieSynchronizationConfigurationArgs']]):
         pulumi.set(self, "cookie_synchronization_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_managed_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer managed key used to encrypt sensitive information in the user settings.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_managed_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter(name="deepLinkAllowed")
-    def deep_link_allowed(self) -> Optional[pulumi.Input['UserSettingsEnabledType']]:
+    def deep_link_allowed(self) -> pulumi.Input[Optional['UserSettingsEnabledType']]:
         """
         Specifies whether the user can use deep links that open automatically when connecting to a session.
         """
         return pulumi.get(self, "deep_link_allowed")
 
     @deep_link_allowed.setter
-    def deep_link_allowed(self, value: Optional[pulumi.Input['UserSettingsEnabledType']]):
+    def deep_link_allowed(self, value: pulumi.Input[Optional['UserSettingsEnabledType']]):
         pulumi.set(self, "deep_link_allowed", value)
 
     @_builtins.property
     @pulumi.getter(name="disconnectTimeoutInMinutes")
-    def disconnect_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def disconnect_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The amount of time that a streaming session remains active after users disconnect.
         """
         return pulumi.get(self, "disconnect_timeout_in_minutes")
 
     @disconnect_timeout_in_minutes.setter
-    def disconnect_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def disconnect_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "disconnect_timeout_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="idleDisconnectTimeoutInMinutes")
-    def idle_disconnect_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def idle_disconnect_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
         """
         return pulumi.get(self, "idle_disconnect_timeout_in_minutes")
 
     @idle_disconnect_timeout_in_minutes.setter
-    def idle_disconnect_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def idle_disconnect_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "idle_disconnect_timeout_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to add to the user settings resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="toolbarConfiguration")
-    def toolbar_configuration(self) -> Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']]:
+    def toolbar_configuration(self) -> pulumi.Input[Optional['UserSettingsToolbarConfigurationArgs']]:
         """
         The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
         """
         return pulumi.get(self, "toolbar_configuration")
 
     @toolbar_configuration.setter
-    def toolbar_configuration(self, value: Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']]):
+    def toolbar_configuration(self, value: pulumi.Input[Optional['UserSettingsToolbarConfigurationArgs']]):
         pulumi.set(self, "toolbar_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="webAuthnAllowed")
-    def web_authn_allowed(self) -> Optional[pulumi.Input['UserSettingsEnabledType']]:
+    def web_authn_allowed(self) -> pulumi.Input[Optional['UserSettingsEnabledType']]:
         """
         Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
         """
         return pulumi.get(self, "web_authn_allowed")
 
     @web_authn_allowed.setter
-    def web_authn_allowed(self, value: Optional[pulumi.Input['UserSettingsEnabledType']]):
+    def web_authn_allowed(self, value: pulumi.Input[Optional['UserSettingsEnabledType']]):
         pulumi.set(self, "web_authn_allowed", value)
 
 
@@ -271,25 +271,24 @@ class UserSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 branding_configuration: Optional[pulumi.Input[Union['UserSettingsBrandingConfigurationArgs', 'UserSettingsBrandingConfigurationArgsDict']]] = None,
-                 cookie_synchronization_configuration: Optional[pulumi.Input[Union['UserSettingsCookieSynchronizationConfigurationArgs', 'UserSettingsCookieSynchronizationConfigurationArgsDict']]] = None,
-                 copy_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
-                 customer_managed_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 deep_link_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
-                 disconnect_timeout_in_minutes: Optional[pulumi.Input[_builtins.float]] = None,
-                 download_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
-                 idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[_builtins.float]] = None,
-                 paste_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
-                 print_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 toolbar_configuration: Optional[pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']]] = None,
-                 upload_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
-                 web_authn_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
+                 additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 branding_configuration: pulumi.Input[Optional[Union['UserSettingsBrandingConfigurationArgs', 'UserSettingsBrandingConfigurationArgsDict']]] = None,
+                 cookie_synchronization_configuration: pulumi.Input[Optional[Union['UserSettingsCookieSynchronizationConfigurationArgs', 'UserSettingsCookieSynchronizationConfigurationArgsDict']]] = None,
+                 copy_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
+                 customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 deep_link_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
+                 disconnect_timeout_in_minutes: pulumi.Input[Optional[_builtins.float]] = None,
+                 download_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
+                 idle_disconnect_timeout_in_minutes: pulumi.Input[Optional[_builtins.float]] = None,
+                 paste_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
+                 print_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 toolbar_configuration: pulumi.Input[Optional[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']]] = None,
+                 upload_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
+                 web_authn_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
                  __props__=None):
         """
         Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -318,7 +317,6 @@ class UserSettings(pulumi.CustomResource):
         """
         Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param UserSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -334,21 +332,21 @@ class UserSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 branding_configuration: Optional[pulumi.Input[Union['UserSettingsBrandingConfigurationArgs', 'UserSettingsBrandingConfigurationArgsDict']]] = None,
-                 cookie_synchronization_configuration: Optional[pulumi.Input[Union['UserSettingsCookieSynchronizationConfigurationArgs', 'UserSettingsCookieSynchronizationConfigurationArgsDict']]] = None,
-                 copy_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
-                 customer_managed_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 deep_link_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
-                 disconnect_timeout_in_minutes: Optional[pulumi.Input[_builtins.float]] = None,
-                 download_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
-                 idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[_builtins.float]] = None,
-                 paste_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
-                 print_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 toolbar_configuration: Optional[pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']]] = None,
-                 upload_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
-                 web_authn_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
+                 additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 branding_configuration: pulumi.Input[Optional[Union['UserSettingsBrandingConfigurationArgs', 'UserSettingsBrandingConfigurationArgsDict']]] = None,
+                 cookie_synchronization_configuration: pulumi.Input[Optional[Union['UserSettingsCookieSynchronizationConfigurationArgs', 'UserSettingsCookieSynchronizationConfigurationArgsDict']]] = None,
+                 copy_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
+                 customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 deep_link_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
+                 disconnect_timeout_in_minutes: pulumi.Input[Optional[_builtins.float]] = None,
+                 download_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
+                 idle_disconnect_timeout_in_minutes: pulumi.Input[Optional[_builtins.float]] = None,
+                 paste_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
+                 print_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 toolbar_configuration: pulumi.Input[Optional[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']]] = None,
+                 upload_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
+                 web_authn_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

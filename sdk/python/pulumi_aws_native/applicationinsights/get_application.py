@@ -100,7 +100,6 @@ def get_application(application_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::ApplicationInsights::Application
 
-
     :param _builtins.str application_arn: The ARN of the ApplicationInsights application.
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_application(application_arn: Optional[_builtins.str] = None,
         cwe_monitor_enabled=pulumi.get(__ret__, 'cwe_monitor_enabled'),
         ops_center_enabled=pulumi.get(__ret__, 'ops_center_enabled'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_application_output(application_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(application_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Resource Type definition for AWS::ApplicationInsights::Application
-
 
     :param _builtins.str application_arn: The ARN of the ApplicationInsights application.
     """

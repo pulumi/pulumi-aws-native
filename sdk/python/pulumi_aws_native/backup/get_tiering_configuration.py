@@ -106,7 +106,7 @@ def get_tiering_configuration(tiering_configuration_name: Optional[_builtins.str
         resource_selection=pulumi.get(__ret__, 'resource_selection'),
         tiering_configuration_arn=pulumi.get(__ret__, 'tiering_configuration_arn'),
         tiering_configuration_tags=pulumi.get(__ret__, 'tiering_configuration_tags'))
-def get_tiering_configuration_output(tiering_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tiering_configuration_output(tiering_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTieringConfigurationResult]:
     """
     Resource Type definition for AWS::Backup::TieringConfiguration

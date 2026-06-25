@@ -22,14 +22,14 @@ __all__ = ['VpcEndpointServiceArgs', 'VpcEndpointService']
 @pulumi.input_type
 class VpcEndpointServiceArgs:
     def __init__(__self__, *,
-                 acceptance_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 contributor_insights_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 payer_responsibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_ip_address_types: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]] = None,
-                 supported_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 acceptance_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 contributor_insights_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gateway_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 payer_responsibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_ip_address_types: pulumi.Input[Optional[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]] = None,
+                 supported_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcEndpointService resource.
 
@@ -61,98 +61,98 @@ class VpcEndpointServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptanceRequired")
-    def acceptance_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def acceptance_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
         """
         return pulumi.get(self, "acceptance_required")
 
     @acceptance_required.setter
-    def acceptance_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def acceptance_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "acceptance_required", value)
 
     @_builtins.property
     @pulumi.getter(name="contributorInsightsEnabled")
-    def contributor_insights_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def contributor_insights_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink .
         """
         return pulumi.get(self, "contributor_insights_enabled")
 
     @contributor_insights_enabled.setter
-    def contributor_insights_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def contributor_insights_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "contributor_insights_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayLoadBalancerArns")
-    def gateway_load_balancer_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def gateway_load_balancer_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
         """
         return pulumi.get(self, "gateway_load_balancer_arns")
 
     @gateway_load_balancer_arns.setter
-    def gateway_load_balancer_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def gateway_load_balancer_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "gateway_load_balancer_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="networkLoadBalancerArns")
-    def network_load_balancer_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_load_balancer_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Amazon Resource Names (ARNs) of the Network Load Balancers.
         """
         return pulumi.get(self, "network_load_balancer_arns")
 
     @network_load_balancer_arns.setter
-    def network_load_balancer_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_load_balancer_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_load_balancer_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="payerResponsibility")
-    def payer_responsibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payer_responsibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
         """
         return pulumi.get(self, "payer_responsibility")
 
     @payer_responsibility.setter
-    def payer_responsibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payer_responsibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payer_responsibility", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedIpAddressTypes")
-    def supported_ip_address_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]]:
+    def supported_ip_address_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]]:
         """
         Specify which Ip Address types are supported for VPC endpoint service.
         """
         return pulumi.get(self, "supported_ip_address_types")
 
     @supported_ip_address_types.setter
-    def supported_ip_address_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]]):
+    def supported_ip_address_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]]):
         pulumi.set(self, "supported_ip_address_types", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedRegions")
-    def supported_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def supported_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Regions from which service consumers can access the service.
         """
         return pulumi.get(self, "supported_regions")
 
     @supported_regions.setter
-    def supported_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def supported_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "supported_regions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to add to the VPC endpoint service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -162,18 +162,17 @@ class VpcEndpointService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acceptance_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 contributor_insights_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 payer_responsibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_ip_address_types: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]] = None,
-                 supported_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 acceptance_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 contributor_insights_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gateway_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 payer_responsibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_ip_address_types: pulumi.Input[Optional[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]] = None,
+                 supported_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::VPCEndpointService
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,7 +194,6 @@ class VpcEndpointService(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::VPCEndpointService
 
-
         :param str resource_name: The name of the resource.
         :param VpcEndpointServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,14 +209,14 @@ class VpcEndpointService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acceptance_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 contributor_insights_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 payer_responsibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_ip_address_types: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]] = None,
-                 supported_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 acceptance_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 contributor_insights_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gateway_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 payer_responsibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_ip_address_types: pulumi.Input[Optional[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]] = None,
+                 supported_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

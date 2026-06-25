@@ -257,7 +257,7 @@ class CacheClusterLogDeliveryConfigurationRequest(dict):
                  log_type: _builtins.str):
         """
         :param 'CacheClusterDestinationDetails' destination_details: Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
-        :param _builtins.str destination_type: Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. 
+        :param _builtins.str destination_type: Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type.
         :param _builtins.str log_format: Valid values are either json or text
         :param _builtins.str log_type: Valid value is either slow-log, which refers to slow-log or engine-log
         """
@@ -278,7 +278,7 @@ class CacheClusterLogDeliveryConfigurationRequest(dict):
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> _builtins.str:
         """
-        Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. 
+        Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type.
         """
         return pulumi.get(self, "destination_type")
 
@@ -391,7 +391,7 @@ class GlobalReplicationGroupRegionalConfiguration(dict):
         """
         :param _builtins.str replication_group_id: The replication group id of the Global Datastore member.
         :param _builtins.str replication_group_region: The AWS region of the Global Datastore member.
-        :param Sequence['GlobalReplicationGroupReshardingConfiguration'] resharding_configurations: A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster. 
+        :param Sequence['GlobalReplicationGroupReshardingConfiguration'] resharding_configurations: A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster.
         """
         if replication_group_id is not None:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
@@ -420,7 +420,7 @@ class GlobalReplicationGroupRegionalConfiguration(dict):
     @pulumi.getter(name="reshardingConfigurations")
     def resharding_configurations(self) -> Optional[Sequence['outputs.GlobalReplicationGroupReshardingConfiguration']]:
         """
-        A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster. 
+        A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster.
         """
         return pulumi.get(self, "resharding_configurations")
 

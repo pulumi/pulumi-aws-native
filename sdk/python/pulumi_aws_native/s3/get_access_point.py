@@ -116,7 +116,6 @@ def get_access_point(name: Optional[_builtins.str] = None,
     """
     The AWS::S3::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
 
-
     :param _builtins.str name: The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
     """
     __args__ = dict()
@@ -131,11 +130,10 @@ def get_access_point(name: Optional[_builtins.str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         public_access_block_configuration=pulumi.get(__ret__, 'public_access_block_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_access_point_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_point_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
     The AWS::S3::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
-
 
     :param _builtins.str name: The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
     """

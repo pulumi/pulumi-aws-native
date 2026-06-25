@@ -63,7 +63,6 @@ def get_account_alias(account_alias_resource_id: Optional[_builtins.str] = None,
     """
     An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.
 
-
     :param _builtins.str account_alias_resource_id: Unique identifier representing an alias tied to an account
     """
     __args__ = dict()
@@ -74,11 +73,10 @@ def get_account_alias(account_alias_resource_id: Optional[_builtins.str] = None,
     return AwaitableGetAccountAliasResult(
         account_alias=pulumi.get(__ret__, 'account_alias'),
         account_alias_resource_id=pulumi.get(__ret__, 'account_alias_resource_id'))
-def get_account_alias_output(account_alias_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_account_alias_output(account_alias_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountAliasResult]:
     """
     An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.
-
 
     :param _builtins.str account_alias_resource_id: Unique identifier representing an alias tied to an account
     """

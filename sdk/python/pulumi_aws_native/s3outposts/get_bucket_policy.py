@@ -53,7 +53,6 @@ def get_bucket_policy(bucket: Optional[_builtins.str] = None,
     """
     Resource Type Definition for AWS::S3Outposts::BucketPolicy
 
-
     :param _builtins.str bucket: The Amazon Resource Name (ARN) of the specified bucket.
     """
     __args__ = dict()
@@ -63,11 +62,10 @@ def get_bucket_policy(bucket: Optional[_builtins.str] = None,
 
     return AwaitableGetBucketPolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
-def get_bucket_policy_output(bucket: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bucket_policy_output(bucket: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketPolicyResult]:
     """
     Resource Type Definition for AWS::S3Outposts::BucketPolicy
-
 
     :param _builtins.str bucket: The Amazon Resource Name (ARN) of the specified bucket.
     """

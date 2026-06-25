@@ -64,7 +64,6 @@ def get_resource_specific_logging(target_id: Optional[_builtins.str] = None,
     """
     Resource-specific logging allows you to specify a logging level for a specific thing group.
 
-
     :param _builtins.str target_id: Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target.
     """
     __args__ = dict()
@@ -75,11 +74,10 @@ def get_resource_specific_logging(target_id: Optional[_builtins.str] = None,
     return AwaitableGetResourceSpecificLoggingResult(
         log_level=pulumi.get(__ret__, 'log_level'),
         target_id=pulumi.get(__ret__, 'target_id'))
-def get_resource_specific_logging_output(target_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_specific_logging_output(target_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceSpecificLoggingResult]:
     """
     Resource-specific logging allows you to specify a logging level for a specific thing group.
-
 
     :param _builtins.str target_id: Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target.
     """

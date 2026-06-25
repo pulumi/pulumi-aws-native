@@ -24,8 +24,8 @@ class StreamGroupArgs:
                  description: pulumi.Input[_builtins.str],
                  location_configurations: pulumi.Input[Sequence[pulumi.Input['StreamGroupLocationConfigurationArgs']]],
                  stream_class: pulumi.Input[_builtins.str],
-                 default_application: Optional[pulumi.Input['StreamGroupDefaultApplicationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 default_application: pulumi.Input[Optional['StreamGroupDefaultApplicationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StreamGroup resource.
 
@@ -243,26 +243,26 @@ class StreamGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultApplication")
-    def default_application(self) -> Optional[pulumi.Input['StreamGroupDefaultApplicationArgs']]:
+    def default_application(self) -> pulumi.Input[Optional['StreamGroupDefaultApplicationArgs']]:
         """
         Object that identifies the Amazon GameLift Streams application to stream with this stream group.
         """
         return pulumi.get(self, "default_application")
 
     @default_application.setter
-    def default_application(self, value: Optional[pulumi.Input['StreamGroupDefaultApplicationArgs']]):
+    def default_application(self, value: pulumi.Input[Optional['StreamGroupDefaultApplicationArgs']]):
         pulumi.set(self, "default_application", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A list of labels to assign to the new stream group resource. Tags are developer-defined key-value pairs. Tagging AWS resources is useful for resource management, access management and cost allocation. See [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* .
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -272,15 +272,14 @@ class StreamGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_application: Optional[pulumi.Input[Union['StreamGroupDefaultApplicationArgs', 'StreamGroupDefaultApplicationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamGroupLocationConfigurationArgs', 'StreamGroupLocationConfigurationArgsDict']]]]] = None,
-                 stream_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 default_application: pulumi.Input[Optional[Union['StreamGroupDefaultApplicationArgs', 'StreamGroupDefaultApplicationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamGroupLocationConfigurationArgs', 'StreamGroupLocationConfigurationArgsDict']]]]] = None,
+                 stream_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::GameLiftStreams::StreamGroup Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -380,7 +379,6 @@ class StreamGroup(pulumi.CustomResource):
         """
         Definition of AWS::GameLiftStreams::StreamGroup Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param StreamGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -396,11 +394,11 @@ class StreamGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_application: Optional[pulumi.Input[Union['StreamGroupDefaultApplicationArgs', 'StreamGroupDefaultApplicationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamGroupLocationConfigurationArgs', 'StreamGroupLocationConfigurationArgsDict']]]]] = None,
-                 stream_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 default_application: pulumi.Input[Optional[Union['StreamGroupDefaultApplicationArgs', 'StreamGroupDefaultApplicationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamGroupLocationConfigurationArgs', 'StreamGroupLocationConfigurationArgsDict']]]]] = None,
+                 stream_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -144,7 +144,6 @@ def get_payment_manager(payment_manager_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::BedrockAgentCore::PaymentManager
 
-
     :param _builtins.str payment_manager_arn: The Amazon Resource Name (ARN) of the payment manager
     """
     __args__ = dict()
@@ -162,11 +161,10 @@ def get_payment_manager(payment_manager_arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         workload_identity_details=pulumi.get(__ret__, 'workload_identity_details'))
-def get_payment_manager_output(payment_manager_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_payment_manager_output(payment_manager_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPaymentManagerResult]:
     """
     Resource Type definition for AWS::BedrockAgentCore::PaymentManager
-
 
     :param _builtins.str payment_manager_arn: The Amazon Resource Name (ARN) of the payment manager
     """

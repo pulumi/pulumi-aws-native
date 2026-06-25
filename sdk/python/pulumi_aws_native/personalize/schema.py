@@ -21,8 +21,8 @@ __all__ = ['SchemaArgs', 'Schema']
 class SchemaArgs:
     def __init__(__self__, *,
                  schema: pulumi.Input[_builtins.str],
-                 domain: Optional[pulumi.Input['SchemaDomain']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain: pulumi.Input[Optional['SchemaDomain']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schema resource.
 
@@ -50,26 +50,26 @@ class SchemaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input['SchemaDomain']]:
+    def domain(self) -> pulumi.Input[Optional['SchemaDomain']]:
         """
         The domain of a Domain dataset group.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input['SchemaDomain']]):
+    def domain(self, value: pulumi.Input[Optional['SchemaDomain']]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the schema.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -79,9 +79,9 @@ class Schema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain: Optional[pulumi.Input['SchemaDomain']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional['SchemaDomain']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Personalize::Schema.
@@ -166,9 +166,9 @@ class Schema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain: Optional[pulumi.Input['SchemaDomain']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional['SchemaDomain']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

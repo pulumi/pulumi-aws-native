@@ -78,7 +78,6 @@ def get_bucket(arn: Optional[_builtins.str] = None,
     """
     Resource Type Definition for AWS::S3Outposts::Bucket
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the specified bucket.
     """
     __args__ = dict()
@@ -90,11 +89,10 @@ def get_bucket(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         lifecycle_configuration=pulumi.get(__ret__, 'lifecycle_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_bucket_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bucket_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketResult]:
     """
     Resource Type Definition for AWS::S3Outposts::Bucket
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the specified bucket.
     """

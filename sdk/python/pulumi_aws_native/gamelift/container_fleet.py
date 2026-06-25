@@ -25,23 +25,23 @@ __all__ = ['ContainerFleetArgs', 'ContainerFleet']
 class ContainerFleetArgs:
     def __init__(__self__, *,
                  fleet_role_arn: pulumi.Input[_builtins.str],
-                 billing_type: Optional[pulumi.Input['ContainerFleetBillingType']] = None,
-                 deployment_configuration: Optional[pulumi.Input['ContainerFleetDeploymentConfigurationArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 game_server_container_group_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 game_server_container_groups_per_instance: Optional[pulumi.Input[_builtins.int]] = None,
-                 game_session_creation_limit_policy: Optional[pulumi.Input['ContainerFleetGameSessionCreationLimitPolicyArgs']] = None,
-                 instance_connection_port_range: Optional[pulumi.Input['ContainerFleetConnectionPortRangeArgs']] = None,
-                 instance_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerFleetIpPermissionArgs']]]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerFleetLocationConfigurationArgs']]]] = None,
-                 log_configuration: Optional[pulumi.Input['ContainerFleetLogConfigurationArgs']] = None,
-                 metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 new_game_session_protection_policy: Optional[pulumi.Input['ContainerFleetNewGameSessionProtectionPolicy']] = None,
-                 per_instance_container_group_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 player_gateway_mode: Optional[pulumi.Input['ContainerFleetPlayerGatewayMode']] = None,
-                 scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerFleetScalingPolicyArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 billing_type: pulumi.Input[Optional['ContainerFleetBillingType']] = None,
+                 deployment_configuration: pulumi.Input[Optional['ContainerFleetDeploymentConfigurationArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 game_server_container_group_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 game_server_container_groups_per_instance: pulumi.Input[Optional[_builtins.int]] = None,
+                 game_session_creation_limit_policy: pulumi.Input[Optional['ContainerFleetGameSessionCreationLimitPolicyArgs']] = None,
+                 instance_connection_port_range: pulumi.Input[Optional['ContainerFleetConnectionPortRangeArgs']] = None,
+                 instance_inbound_permissions: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerFleetIpPermissionArgs']]]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerFleetLocationConfigurationArgs']]]] = None,
+                 log_configuration: pulumi.Input[Optional['ContainerFleetLogConfigurationArgs']] = None,
+                 metric_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 new_game_session_protection_policy: pulumi.Input[Optional['ContainerFleetNewGameSessionProtectionPolicy']] = None,
+                 per_instance_container_group_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 player_gateway_mode: pulumi.Input[Optional['ContainerFleetPlayerGatewayMode']] = None,
+                 scaling_policies: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerFleetScalingPolicyArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ContainerFleet resource.
 
@@ -117,124 +117,124 @@ class ContainerFleetArgs:
 
     @_builtins.property
     @pulumi.getter(name="billingType")
-    def billing_type(self) -> Optional[pulumi.Input['ContainerFleetBillingType']]:
+    def billing_type(self) -> pulumi.Input[Optional['ContainerFleetBillingType']]:
         """
         Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         """
         return pulumi.get(self, "billing_type")
 
     @billing_type.setter
-    def billing_type(self, value: Optional[pulumi.Input['ContainerFleetBillingType']]):
+    def billing_type(self, value: pulumi.Input[Optional['ContainerFleetBillingType']]):
         pulumi.set(self, "billing_type", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentConfiguration")
-    def deployment_configuration(self) -> Optional[pulumi.Input['ContainerFleetDeploymentConfigurationArgs']]:
+    def deployment_configuration(self) -> pulumi.Input[Optional['ContainerFleetDeploymentConfigurationArgs']]:
         """
         Set of rules for processing a deployment for a container fleet update.
         """
         return pulumi.get(self, "deployment_configuration")
 
     @deployment_configuration.setter
-    def deployment_configuration(self, value: Optional[pulumi.Input['ContainerFleetDeploymentConfigurationArgs']]):
+    def deployment_configuration(self, value: pulumi.Input[Optional['ContainerFleetDeploymentConfigurationArgs']]):
         pulumi.set(self, "deployment_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-readable description of a fleet.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="gameServerContainerGroupDefinitionName")
-    def game_server_container_group_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def game_server_container_group_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the container group definition that will be created per game server. You must specify GAME_SERVER container group. You have the option to also specify one PER_INSTANCE container group.
         """
         return pulumi.get(self, "game_server_container_group_definition_name")
 
     @game_server_container_group_definition_name.setter
-    def game_server_container_group_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def game_server_container_group_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "game_server_container_group_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gameServerContainerGroupsPerInstance")
-    def game_server_container_groups_per_instance(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def game_server_container_groups_per_instance(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of desired game server container groups per instance, a number between 1-5000.
         """
         return pulumi.get(self, "game_server_container_groups_per_instance")
 
     @game_server_container_groups_per_instance.setter
-    def game_server_container_groups_per_instance(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def game_server_container_groups_per_instance(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "game_server_container_groups_per_instance", value)
 
     @_builtins.property
     @pulumi.getter(name="gameSessionCreationLimitPolicy")
-    def game_session_creation_limit_policy(self) -> Optional[pulumi.Input['ContainerFleetGameSessionCreationLimitPolicyArgs']]:
+    def game_session_creation_limit_policy(self) -> pulumi.Input[Optional['ContainerFleetGameSessionCreationLimitPolicyArgs']]:
         """
         A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
         """
         return pulumi.get(self, "game_session_creation_limit_policy")
 
     @game_session_creation_limit_policy.setter
-    def game_session_creation_limit_policy(self, value: Optional[pulumi.Input['ContainerFleetGameSessionCreationLimitPolicyArgs']]):
+    def game_session_creation_limit_policy(self, value: pulumi.Input[Optional['ContainerFleetGameSessionCreationLimitPolicyArgs']]):
         pulumi.set(self, "game_session_creation_limit_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceConnectionPortRange")
-    def instance_connection_port_range(self) -> Optional[pulumi.Input['ContainerFleetConnectionPortRangeArgs']]:
+    def instance_connection_port_range(self) -> pulumi.Input[Optional['ContainerFleetConnectionPortRangeArgs']]:
         """
         The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
         """
         return pulumi.get(self, "instance_connection_port_range")
 
     @instance_connection_port_range.setter
-    def instance_connection_port_range(self, value: Optional[pulumi.Input['ContainerFleetConnectionPortRangeArgs']]):
+    def instance_connection_port_range(self, value: pulumi.Input[Optional['ContainerFleetConnectionPortRangeArgs']]):
         pulumi.set(self, "instance_connection_port_range", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceInboundPermissions")
-    def instance_inbound_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerFleetIpPermissionArgs']]]]:
+    def instance_inbound_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContainerFleetIpPermissionArgs']]]]:
         """
         A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         """
         return pulumi.get(self, "instance_inbound_permissions")
 
     @instance_inbound_permissions.setter
-    def instance_inbound_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerFleetIpPermissionArgs']]]]):
+    def instance_inbound_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerFleetIpPermissionArgs']]]]):
         pulumi.set(self, "instance_inbound_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
         """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
-    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerFleetLocationConfigurationArgs']]]]:
+    def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContainerFleetLocationConfigurationArgs']]]]:
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerFleetLocationConfigurationArgs']]]]):
+    def locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerFleetLocationConfigurationArgs']]]]):
         pulumi.set(self, "locations", value)
 
     @_builtins.property
     @pulumi.getter(name="logConfiguration")
-    def log_configuration(self) -> Optional[pulumi.Input['ContainerFleetLogConfigurationArgs']]:
+    def log_configuration(self) -> pulumi.Input[Optional['ContainerFleetLogConfigurationArgs']]:
         """
         The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
 
@@ -245,79 +245,79 @@ class ContainerFleetArgs:
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
-    def log_configuration(self, value: Optional[pulumi.Input['ContainerFleetLogConfigurationArgs']]):
+    def log_configuration(self, value: pulumi.Input[Optional['ContainerFleetLogConfigurationArgs']]):
         pulumi.set(self, "log_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="metricGroups")
-    def metric_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def metric_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
         """
         return pulumi.get(self, "metric_groups")
 
     @metric_groups.setter
-    def metric_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def metric_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metric_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="newGameSessionProtectionPolicy")
-    def new_game_session_protection_policy(self) -> Optional[pulumi.Input['ContainerFleetNewGameSessionProtectionPolicy']]:
+    def new_game_session_protection_policy(self) -> pulumi.Input[Optional['ContainerFleetNewGameSessionProtectionPolicy']]:
         """
         A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         """
         return pulumi.get(self, "new_game_session_protection_policy")
 
     @new_game_session_protection_policy.setter
-    def new_game_session_protection_policy(self, value: Optional[pulumi.Input['ContainerFleetNewGameSessionProtectionPolicy']]):
+    def new_game_session_protection_policy(self, value: pulumi.Input[Optional['ContainerFleetNewGameSessionProtectionPolicy']]):
         pulumi.set(self, "new_game_session_protection_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="perInstanceContainerGroupDefinitionName")
-    def per_instance_container_group_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def per_instance_container_group_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the container group definition that will be created per instance. This field is optional if you specify GameServerContainerGroupDefinitionName.
         """
         return pulumi.get(self, "per_instance_container_group_definition_name")
 
     @per_instance_container_group_definition_name.setter
-    def per_instance_container_group_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def per_instance_container_group_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "per_instance_container_group_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="playerGatewayMode")
-    def player_gateway_mode(self) -> Optional[pulumi.Input['ContainerFleetPlayerGatewayMode']]:
+    def player_gateway_mode(self) -> pulumi.Input[Optional['ContainerFleetPlayerGatewayMode']]:
         """
         The player gateway mode for the container fleet.
         """
         return pulumi.get(self, "player_gateway_mode")
 
     @player_gateway_mode.setter
-    def player_gateway_mode(self, value: Optional[pulumi.Input['ContainerFleetPlayerGatewayMode']]):
+    def player_gateway_mode(self, value: pulumi.Input[Optional['ContainerFleetPlayerGatewayMode']]):
         pulumi.set(self, "player_gateway_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingPolicies")
-    def scaling_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerFleetScalingPolicyArgs']]]]:
+    def scaling_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContainerFleetScalingPolicyArgs']]]]:
         """
         A list of rules that control how a fleet is scaled.
         """
         return pulumi.get(self, "scaling_policies")
 
     @scaling_policies.setter
-    def scaling_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerFleetScalingPolicyArgs']]]]):
+    def scaling_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerFleetScalingPolicyArgs']]]]):
         pulumi.set(self, "scaling_policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -327,28 +327,27 @@ class ContainerFleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_type: Optional[pulumi.Input['ContainerFleetBillingType']] = None,
-                 deployment_configuration: Optional[pulumi.Input[Union['ContainerFleetDeploymentConfigurationArgs', 'ContainerFleetDeploymentConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 game_server_container_group_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 game_server_container_groups_per_instance: Optional[pulumi.Input[_builtins.int]] = None,
-                 game_session_creation_limit_policy: Optional[pulumi.Input[Union['ContainerFleetGameSessionCreationLimitPolicyArgs', 'ContainerFleetGameSessionCreationLimitPolicyArgsDict']]] = None,
-                 instance_connection_port_range: Optional[pulumi.Input[Union['ContainerFleetConnectionPortRangeArgs', 'ContainerFleetConnectionPortRangeArgsDict']]] = None,
-                 instance_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerFleetIpPermissionArgs', 'ContainerFleetIpPermissionArgsDict']]]]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerFleetLocationConfigurationArgs', 'ContainerFleetLocationConfigurationArgsDict']]]]] = None,
-                 log_configuration: Optional[pulumi.Input[Union['ContainerFleetLogConfigurationArgs', 'ContainerFleetLogConfigurationArgsDict']]] = None,
-                 metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 new_game_session_protection_policy: Optional[pulumi.Input['ContainerFleetNewGameSessionProtectionPolicy']] = None,
-                 per_instance_container_group_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 player_gateway_mode: Optional[pulumi.Input['ContainerFleetPlayerGatewayMode']] = None,
-                 scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerFleetScalingPolicyArgs', 'ContainerFleetScalingPolicyArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 billing_type: pulumi.Input[Optional['ContainerFleetBillingType']] = None,
+                 deployment_configuration: pulumi.Input[Optional[Union['ContainerFleetDeploymentConfigurationArgs', 'ContainerFleetDeploymentConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 game_server_container_group_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 game_server_container_groups_per_instance: pulumi.Input[Optional[_builtins.int]] = None,
+                 game_session_creation_limit_policy: pulumi.Input[Optional[Union['ContainerFleetGameSessionCreationLimitPolicyArgs', 'ContainerFleetGameSessionCreationLimitPolicyArgsDict']]] = None,
+                 instance_connection_port_range: pulumi.Input[Optional[Union['ContainerFleetConnectionPortRangeArgs', 'ContainerFleetConnectionPortRangeArgsDict']]] = None,
+                 instance_inbound_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetIpPermissionArgs', 'ContainerFleetIpPermissionArgsDict']]]]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetLocationConfigurationArgs', 'ContainerFleetLocationConfigurationArgsDict']]]]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['ContainerFleetLogConfigurationArgs', 'ContainerFleetLogConfigurationArgsDict']]] = None,
+                 metric_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 new_game_session_protection_policy: pulumi.Input[Optional['ContainerFleetNewGameSessionProtectionPolicy']] = None,
+                 per_instance_container_group_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 player_gateway_mode: pulumi.Input[Optional['ContainerFleetPlayerGatewayMode']] = None,
+                 scaling_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetScalingPolicyArgs', 'ContainerFleetScalingPolicyArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::GameLift::ContainerFleet resource creates an Amazon GameLift (GameLift) container fleet to host game servers.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -383,7 +382,6 @@ class ContainerFleet(pulumi.CustomResource):
         """
         The AWS::GameLift::ContainerFleet resource creates an Amazon GameLift (GameLift) container fleet to host game servers.
 
-
         :param str resource_name: The name of the resource.
         :param ContainerFleetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -399,24 +397,24 @@ class ContainerFleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_type: Optional[pulumi.Input['ContainerFleetBillingType']] = None,
-                 deployment_configuration: Optional[pulumi.Input[Union['ContainerFleetDeploymentConfigurationArgs', 'ContainerFleetDeploymentConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 game_server_container_group_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 game_server_container_groups_per_instance: Optional[pulumi.Input[_builtins.int]] = None,
-                 game_session_creation_limit_policy: Optional[pulumi.Input[Union['ContainerFleetGameSessionCreationLimitPolicyArgs', 'ContainerFleetGameSessionCreationLimitPolicyArgsDict']]] = None,
-                 instance_connection_port_range: Optional[pulumi.Input[Union['ContainerFleetConnectionPortRangeArgs', 'ContainerFleetConnectionPortRangeArgsDict']]] = None,
-                 instance_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerFleetIpPermissionArgs', 'ContainerFleetIpPermissionArgsDict']]]]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerFleetLocationConfigurationArgs', 'ContainerFleetLocationConfigurationArgsDict']]]]] = None,
-                 log_configuration: Optional[pulumi.Input[Union['ContainerFleetLogConfigurationArgs', 'ContainerFleetLogConfigurationArgsDict']]] = None,
-                 metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 new_game_session_protection_policy: Optional[pulumi.Input['ContainerFleetNewGameSessionProtectionPolicy']] = None,
-                 per_instance_container_group_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 player_gateway_mode: Optional[pulumi.Input['ContainerFleetPlayerGatewayMode']] = None,
-                 scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerFleetScalingPolicyArgs', 'ContainerFleetScalingPolicyArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 billing_type: pulumi.Input[Optional['ContainerFleetBillingType']] = None,
+                 deployment_configuration: pulumi.Input[Optional[Union['ContainerFleetDeploymentConfigurationArgs', 'ContainerFleetDeploymentConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 game_server_container_group_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 game_server_container_groups_per_instance: pulumi.Input[Optional[_builtins.int]] = None,
+                 game_session_creation_limit_policy: pulumi.Input[Optional[Union['ContainerFleetGameSessionCreationLimitPolicyArgs', 'ContainerFleetGameSessionCreationLimitPolicyArgsDict']]] = None,
+                 instance_connection_port_range: pulumi.Input[Optional[Union['ContainerFleetConnectionPortRangeArgs', 'ContainerFleetConnectionPortRangeArgsDict']]] = None,
+                 instance_inbound_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetIpPermissionArgs', 'ContainerFleetIpPermissionArgsDict']]]]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetLocationConfigurationArgs', 'ContainerFleetLocationConfigurationArgsDict']]]]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['ContainerFleetLogConfigurationArgs', 'ContainerFleetLogConfigurationArgsDict']]] = None,
+                 metric_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 new_game_session_protection_policy: pulumi.Input[Optional['ContainerFleetNewGameSessionProtectionPolicy']] = None,
+                 per_instance_container_group_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 player_gateway_mode: pulumi.Input[Optional['ContainerFleetPlayerGatewayMode']] = None,
+                 scaling_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetScalingPolicyArgs', 'ContainerFleetScalingPolicyArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

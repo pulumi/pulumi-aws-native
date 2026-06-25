@@ -137,7 +137,6 @@ def get_service_function(service_arn: Optional[_builtins.str] = None,
     """
     Creates a service function within a Resilience Hub service.
 
-
     :param _builtins.str service_arn: The ARN of the parent service.
     :param _builtins.str service_function_id: The server-generated service function ID.
     """
@@ -156,12 +155,11 @@ def get_service_function(service_arn: Optional[_builtins.str] = None,
         service_function_id=pulumi.get(__ret__, 'service_function_id'),
         source=pulumi.get(__ret__, 'source'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_service_function_output(service_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                service_function_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_function_output(service_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                service_function_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceFunctionResult]:
     """
     Creates a service function within a Resilience Hub service.
-
 
     :param _builtins.str service_arn: The ARN of the parent service.
     :param _builtins.str service_function_id: The server-generated service function ID.

@@ -75,7 +75,6 @@ def get_base_path_mapping_v2(base_path_mapping_arn: Optional[_builtins.str] = No
     """
     Resource Type definition for AWS::ApiGateway::BasePathMappingV2
 
-
     :param _builtins.str base_path_mapping_arn: Amazon Resource Name (ARN) of the resource.
     """
     __args__ = dict()
@@ -87,11 +86,10 @@ def get_base_path_mapping_v2(base_path_mapping_arn: Optional[_builtins.str] = No
         base_path_mapping_arn=pulumi.get(__ret__, 'base_path_mapping_arn'),
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
         stage=pulumi.get(__ret__, 'stage'))
-def get_base_path_mapping_v2_output(base_path_mapping_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_base_path_mapping_v2_output(base_path_mapping_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBasePathMappingV2Result]:
     """
     Resource Type definition for AWS::ApiGateway::BasePathMappingV2
-
 
     :param _builtins.str base_path_mapping_arn: Amazon Resource Name (ARN) of the resource.
     """

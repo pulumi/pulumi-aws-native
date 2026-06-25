@@ -165,8 +165,8 @@ def get_recommender(domain_name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         training_metrics=pulumi.get(__ret__, 'training_metrics'))
-def get_recommender_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           recommender_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_recommender_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           recommender_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecommenderResult]:
     """
     Resource Type definition for AWS::CustomerProfiles::Recommender

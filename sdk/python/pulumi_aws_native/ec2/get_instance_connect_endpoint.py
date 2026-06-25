@@ -186,7 +186,6 @@ def get_instance_connect_endpoint(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::EC2::InstanceConnectEndpoint
 
-
     :param _builtins.str id: The ID of the EC2 Instance Connect Endpoint.
     """
     __args__ = dict()
@@ -207,11 +206,10 @@ def get_instance_connect_endpoint(id: Optional[_builtins.str] = None,
         state_message=pulumi.get(__ret__, 'state_message'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_instance_connect_endpoint_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_instance_connect_endpoint_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceConnectEndpointResult]:
     """
     Resource Type definition for AWS::EC2::InstanceConnectEndpoint
-
 
     :param _builtins.str id: The ID of the EC2 Instance Connect Endpoint.
     """

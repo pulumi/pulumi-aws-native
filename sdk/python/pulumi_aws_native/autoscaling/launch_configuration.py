@@ -23,23 +23,23 @@ class LaunchConfigurationArgs:
     def __init__(__self__, *,
                  image_id: pulumi.Input[_builtins.str],
                  instance_type: pulumi.Input[_builtins.str],
-                 associate_public_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationBlockDeviceMappingArgs']]]] = None,
-                 classic_link_vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 classic_link_vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ebs_optimized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_instance_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_monitoring: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kernel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_options: Optional[pulumi.Input['LaunchConfigurationMetadataOptionsArgs']] = None,
-                 placement_tenancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 spot_price: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 associate_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchConfigurationBlockDeviceMappingArgs']]]] = None,
+                 classic_link_vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 classic_link_vpc_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_instance_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_monitoring: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_options: pulumi.Input[Optional['LaunchConfigurationMetadataOptionsArgs']] = None,
+                 placement_tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ram_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 spot_price: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LaunchConfiguration resource.
 
@@ -126,206 +126,206 @@ class LaunchConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="associatePublicIpAddress")
-    def associate_public_ip_address(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def associate_public_ip_address(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
         """
         return pulumi.get(self, "associate_public_ip_address")
 
     @associate_public_ip_address.setter
-    def associate_public_ip_address(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def associate_public_ip_address(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "associate_public_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="blockDeviceMappings")
-    def block_device_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationBlockDeviceMappingArgs']]]]:
+    def block_device_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchConfigurationBlockDeviceMappingArgs']]]]:
         """
         Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
         """
         return pulumi.get(self, "block_device_mappings")
 
     @block_device_mappings.setter
-    def block_device_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationBlockDeviceMappingArgs']]]]):
+    def block_device_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchConfigurationBlockDeviceMappingArgs']]]]):
         pulumi.set(self, "block_device_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="classicLinkVpcId")
-    def classic_link_vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def classic_link_vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
         """
         return pulumi.get(self, "classic_link_vpc_id")
 
     @classic_link_vpc_id.setter
-    def classic_link_vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def classic_link_vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "classic_link_vpc_id", value)
 
     @_builtins.property
     @pulumi.getter(name="classicLinkVpcSecurityGroups")
-    def classic_link_vpc_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def classic_link_vpc_security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
         """
         return pulumi.get(self, "classic_link_vpc_security_groups")
 
     @classic_link_vpc_security_groups.setter
-    def classic_link_vpc_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def classic_link_vpc_security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "classic_link_vpc_security_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ebs_optimized(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
         """
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
-    def ebs_optimized(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ebs_optimized(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ebs_optimized", value)
 
     @_builtins.property
     @pulumi.getter(name="iamInstanceProfile")
-    def iam_instance_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_instance_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
         """
         return pulumi.get(self, "iam_instance_profile")
 
     @iam_instance_profile.setter
-    def iam_instance_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_instance_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_instance_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Amazon EC2 instance you want to use to create the launch configuration.
         """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
-    def instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceMonitoring")
-    def instance_monitoring(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def instance_monitoring(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Controls whether instances in this group are launched with detailed (true) or basic (false) monitoring.
         """
         return pulumi.get(self, "instance_monitoring")
 
     @instance_monitoring.setter
-    def instance_monitoring(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def instance_monitoring(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "instance_monitoring", value)
 
     @_builtins.property
     @pulumi.getter(name="kernelId")
-    def kernel_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kernel_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provides the ID of the kernel associated with the EC2 AMI.
         """
         return pulumi.get(self, "kernel_id")
 
     @kernel_id.setter
-    def kernel_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kernel_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kernel_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provides the name of the EC2 key pair.
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="launchConfigurationName")
-    def launch_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def launch_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the launch configuration. This name must be unique per Region per account.
         """
         return pulumi.get(self, "launch_configuration_name")
 
     @launch_configuration_name.setter
-    def launch_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def launch_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "launch_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataOptions")
-    def metadata_options(self) -> Optional[pulumi.Input['LaunchConfigurationMetadataOptionsArgs']]:
+    def metadata_options(self) -> pulumi.Input[Optional['LaunchConfigurationMetadataOptionsArgs']]:
         """
         The metadata options for the instances.
         """
         return pulumi.get(self, "metadata_options")
 
     @metadata_options.setter
-    def metadata_options(self, value: Optional[pulumi.Input['LaunchConfigurationMetadataOptionsArgs']]):
+    def metadata_options(self, value: pulumi.Input[Optional['LaunchConfigurationMetadataOptionsArgs']]):
         pulumi.set(self, "metadata_options", value)
 
     @_builtins.property
     @pulumi.getter(name="placementTenancy")
-    def placement_tenancy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def placement_tenancy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenancy of the instance, either default or dedicated.
         """
         return pulumi.get(self, "placement_tenancy")
 
     @placement_tenancy.setter
-    def placement_tenancy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def placement_tenancy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "placement_tenancy", value)
 
     @_builtins.property
     @pulumi.getter(name="ramDiskId")
-    def ram_disk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ram_disk_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the RAM disk to select.
         """
         return pulumi.get(self, "ram_disk_id")
 
     @ram_disk_id.setter
-    def ram_disk_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ram_disk_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ram_disk_id", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list that contains the security groups to assign to the instances in the Auto Scaling group.
         """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
-    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="spotPrice")
-    def spot_price(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spot_price(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request.
         """
         return pulumi.get(self, "spot_price")
 
     @spot_price.setter
-    def spot_price(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spot_price(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spot_price", value)
 
     @_builtins.property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64-encoded user data to make available to the launched EC2 instances.
         """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
-    def user_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_data", value)
 
 
@@ -335,29 +335,28 @@ class LaunchConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associate_public_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationBlockDeviceMappingArgs', 'LaunchConfigurationBlockDeviceMappingArgsDict']]]]] = None,
-                 classic_link_vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 classic_link_vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ebs_optimized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_instance_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_monitoring: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 kernel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_options: Optional[pulumi.Input[Union['LaunchConfigurationMetadataOptionsArgs', 'LaunchConfigurationMetadataOptionsArgsDict']]] = None,
-                 placement_tenancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 spot_price: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
+                 associate_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchConfigurationBlockDeviceMappingArgs', 'LaunchConfigurationBlockDeviceMappingArgsDict']]]]] = None,
+                 classic_link_vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 classic_link_vpc_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_instance_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_monitoring: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_options: pulumi.Input[Optional[Union['LaunchConfigurationMetadataOptionsArgs', 'LaunchConfigurationMetadataOptionsArgsDict']]] = None,
+                 placement_tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ram_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 spot_price: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AWS::AutoScaling::LaunchConfiguration resource specifies the launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -390,7 +389,6 @@ class LaunchConfiguration(pulumi.CustomResource):
         """
         The AWS::AutoScaling::LaunchConfiguration resource specifies the launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
 
-
         :param str resource_name: The name of the resource.
         :param LaunchConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -406,25 +404,25 @@ class LaunchConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associate_public_ip_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationBlockDeviceMappingArgs', 'LaunchConfigurationBlockDeviceMappingArgsDict']]]]] = None,
-                 classic_link_vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 classic_link_vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ebs_optimized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_instance_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_monitoring: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 kernel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_options: Optional[pulumi.Input[Union['LaunchConfigurationMetadataOptionsArgs', 'LaunchConfigurationMetadataOptionsArgsDict']]] = None,
-                 placement_tenancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 spot_price: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
+                 associate_public_ip_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchConfigurationBlockDeviceMappingArgs', 'LaunchConfigurationBlockDeviceMappingArgsDict']]]]] = None,
+                 classic_link_vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 classic_link_vpc_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_instance_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_monitoring: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_options: pulumi.Input[Optional[Union['LaunchConfigurationMetadataOptionsArgs', 'LaunchConfigurationMetadataOptionsArgsDict']]] = None,
+                 placement_tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ram_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 spot_price: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

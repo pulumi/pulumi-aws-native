@@ -77,7 +77,6 @@ def get_sender_id(iso_country_code: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SMSVOICE::SenderId
 
-
     :param _builtins.str iso_country_code: The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
     :param _builtins.str sender_id: The sender ID string to request.
     """
@@ -91,12 +90,11 @@ def get_sender_id(iso_country_code: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         deletion_protection_enabled=pulumi.get(__ret__, 'deletion_protection_enabled'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_sender_id_output(iso_country_code: Optional[pulumi.Input[_builtins.str]] = None,
-                         sender_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sender_id_output(iso_country_code: pulumi.Input[Optional[_builtins.str]] = None,
+                         sender_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSenderIdResult]:
     """
     Resource Type definition for AWS::SMSVOICE::SenderId
-
 
     :param _builtins.str iso_country_code: The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
     :param _builtins.str sender_id: The sender ID string to request.

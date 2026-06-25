@@ -246,7 +246,6 @@ def get_user_settings(user_settings_arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
 
-
     :param _builtins.str user_settings_arn: The ARN of the user settings.
     """
     __args__ = dict()
@@ -272,11 +271,10 @@ def get_user_settings(user_settings_arn: Optional[_builtins.str] = None,
         upload_allowed=pulumi.get(__ret__, 'upload_allowed'),
         user_settings_arn=pulumi.get(__ret__, 'user_settings_arn'),
         web_authn_allowed=pulumi.get(__ret__, 'web_authn_allowed'))
-def get_user_settings_output(user_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_settings_output(user_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
-
 
     :param _builtins.str user_settings_arn: The ARN of the user settings.
     """

@@ -24,9 +24,9 @@ __all__ = ['ActivityArgs', 'Activity']
 @pulumi.input_type
 class ActivityArgs:
     def __init__(__self__, *,
-                 encryption_configuration: Optional[pulumi.Input['ActivityEncryptionConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 encryption_configuration: pulumi.Input[Optional['ActivityEncryptionConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Activity resource.
 
@@ -42,7 +42,7 @@ class ActivityArgs:
                - white space
                - brackets `< > { } [ ]`
                - wildcard characters `? *`
-               - special characters `" # % \\ ^ | ~ ` $ & , ; : /`
+               - special characters ` " # % \\ ^ | ~  ` $ & , ; : /`
                - control characters ( `U+0000-001F` , `U+007F-009F` , `U+FFFE-FFFF` )
                - surrogates ( `U+D800-DFFF` )
                - invalid characters ( `U+10FFFF` )
@@ -61,7 +61,7 @@ class ActivityArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['ActivityEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> pulumi.Input[Optional['ActivityEncryptionConfigurationArgs']]:
         """
         Encryption configuration for the activity.
 
@@ -72,12 +72,12 @@ class ActivityArgs:
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['ActivityEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: pulumi.Input[Optional['ActivityEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the activity.
 
@@ -86,7 +86,7 @@ class ActivityArgs:
         - white space
         - brackets `< > { } [ ]`
         - wildcard characters `? *`
-        - special characters `" # % \\ ^ | ~ ` $ & , ; : /`
+        - special characters ` " # % \\ ^ | ~  ` $ & , ; : /`
         - control characters ( `U+0000-001F` , `U+007F-009F` , `U+FFFE-FFFF` )
         - surrogates ( `U+D800-DFFF` )
         - invalid characters ( `U+10FFFF` )
@@ -96,12 +96,12 @@ class ActivityArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The list of tags to add to a resource.
 
@@ -110,7 +110,7 @@ class ActivityArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -120,9 +120,9 @@ class Activity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['ActivityEncryptionConfigurationArgs', 'ActivityEncryptionConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['ActivityEncryptionConfigurationArgs', 'ActivityEncryptionConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for Activity
@@ -184,7 +184,7 @@ class Activity(pulumi.CustomResource):
                - white space
                - brackets `< > { } [ ]`
                - wildcard characters `? *`
-               - special characters `" # % \\ ^ | ~ ` $ & , ; : /`
+               - special characters ` " # % \\ ^ | ~  ` $ & , ; : /`
                - control characters ( `U+0000-001F` , `U+007F-009F` , `U+FFFE-FFFF` )
                - surrogates ( `U+D800-DFFF` )
                - invalid characters ( `U+10FFFF` )
@@ -261,9 +261,9 @@ class Activity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['ActivityEncryptionConfigurationArgs', 'ActivityEncryptionConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['ActivityEncryptionConfigurationArgs', 'ActivityEncryptionConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -338,7 +338,7 @@ class Activity(pulumi.CustomResource):
         - white space
         - brackets `< > { } [ ]`
         - wildcard characters `? *`
-        - special characters `" # % \\ ^ | ~ ` $ & , ; : /`
+        - special characters ` " # % \\ ^ | ~  ` $ & , ; : /`
         - control characters ( `U+0000-001F` , `U+007F-009F` , `U+FFFE-FFFF` )
         - surrogates ( `U+D800-DFFF` )
         - invalid characters ( `U+10FFFF` )

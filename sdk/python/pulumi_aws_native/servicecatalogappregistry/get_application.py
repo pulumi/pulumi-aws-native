@@ -53,7 +53,7 @@ class GetApplicationResult:
     @pulumi.getter(name="applicationName")
     def application_name(self) -> Optional[_builtins.str]:
         """
-        The name of the application. 
+        The name of the application.
         """
         return pulumi.get(self, "application_name")
 
@@ -69,7 +69,7 @@ class GetApplicationResult:
     @pulumi.getter(name="applicationTagValue")
     def application_tag_value(self) -> Optional[_builtins.str]:
         """
-        The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value. 
+        The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
         """
         return pulumi.get(self, "application_tag_value")
 
@@ -85,7 +85,7 @@ class GetApplicationResult:
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        The description of the application. 
+        The description of the application.
         """
         return pulumi.get(self, "description")
 
@@ -101,7 +101,7 @@ class GetApplicationResult:
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The name of the application. 
+        The name of the application.
         """
         return pulumi.get(self, "name")
 
@@ -135,7 +135,6 @@ def get_application(id: Optional[_builtins.str] = None,
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::Application
 
-
     :param _builtins.str id: The identifier of the application.
     """
     __args__ = dict()
@@ -152,11 +151,10 @@ def get_application(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_application_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::Application
-
 
     :param _builtins.str id: The identifier of the application.
     """

@@ -150,7 +150,6 @@ def get_capability(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for EKS Capability.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the capability.
     """
     __args__ = dict()
@@ -168,11 +167,10 @@ def get_capability(arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-def get_capability_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_capability_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapabilityResult]:
     """
     Resource Type definition for EKS Capability.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the capability.
     """

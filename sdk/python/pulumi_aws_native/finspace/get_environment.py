@@ -160,7 +160,6 @@ def get_environment(environment_id: Optional[_builtins.str] = None,
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
-
     :param _builtins.str environment_id: Unique identifier for representing FinSpace Environment
     """
     __args__ = dict()
@@ -179,11 +178,10 @@ def get_environment(environment_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         sage_maker_studio_domain_url=pulumi.get(__ret__, 'sage_maker_studio_domain_url'),
         status=pulumi.get(__ret__, 'status'))
-def get_environment_output(environment_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_output(environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
-
 
     :param _builtins.str environment_id: Unique identifier for representing FinSpace Environment
     """

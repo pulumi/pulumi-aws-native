@@ -138,7 +138,6 @@ def get_capacity_reservation(arn: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::Athena::CapacityReservation
 
-
     :param _builtins.str arn: The ARN of the capacity reservation.
     """
     __args__ = dict()
@@ -155,11 +154,10 @@ def get_capacity_reservation(arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         target_dpus=pulumi.get(__ret__, 'target_dpus'))
-def get_capacity_reservation_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_capacity_reservation_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityReservationResult]:
     """
     Resource schema for AWS::Athena::CapacityReservation
-
 
     :param _builtins.str arn: The ARN of the capacity reservation.
     """

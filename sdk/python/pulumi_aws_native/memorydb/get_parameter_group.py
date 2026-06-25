@@ -64,7 +64,6 @@ def get_parameter_group(parameter_group_name: Optional[_builtins.str] = None,
     """
     The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.
 
-
     :param _builtins.str parameter_group_name: The name of the parameter group.
     """
     __args__ = dict()
@@ -75,11 +74,10 @@ def get_parameter_group(parameter_group_name: Optional[_builtins.str] = None,
     return AwaitableGetParameterGroupResult(
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_parameter_group_output(parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_parameter_group_output(parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParameterGroupResult]:
     """
     The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.
-
 
     :param _builtins.str parameter_group_name: The name of the parameter group.
     """

@@ -101,7 +101,6 @@ def get_security_group(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::EC2::SecurityGroup
 
-
     :param _builtins.str id: The group name or group ID depending on whether the SG is created in default or specific VPC
     """
     __args__ = dict()
@@ -115,11 +114,10 @@ def get_security_group(id: Optional[_builtins.str] = None,
         security_group_egress=pulumi.get(__ret__, 'security_group_egress'),
         security_group_ingress=pulumi.get(__ret__, 'security_group_ingress'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_security_group_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_group_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupResult]:
     """
     Resource Type definition for AWS::EC2::SecurityGroup
-
 
     :param _builtins.str id: The group name or group ID depending on whether the SG is created in default or specific VPC
     """

@@ -26,14 +26,14 @@ class IndexArgs:
     def __init__(__self__, *,
                  edition: pulumi.Input['IndexEdition'],
                  role_arn: pulumi.Input[_builtins.str],
-                 capacity_units: Optional[pulumi.Input['IndexCapacityUnitsConfigurationArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_metadata_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input['IndexServerSideEncryptionConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 user_context_policy: Optional[pulumi.Input['IndexUserContextPolicy']] = None,
-                 user_token_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]] = None):
+                 capacity_units: pulumi.Input[Optional['IndexCapacityUnitsConfigurationArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_metadata_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional['IndexServerSideEncryptionConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 user_context_policy: pulumi.Input[Optional['IndexUserContextPolicy']] = None,
+                 user_token_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Index resource.
 
@@ -101,79 +101,79 @@ class IndexArgs:
 
     @_builtins.property
     @pulumi.getter(name="capacityUnits")
-    def capacity_units(self) -> Optional[pulumi.Input['IndexCapacityUnitsConfigurationArgs']]:
+    def capacity_units(self) -> pulumi.Input[Optional['IndexCapacityUnitsConfigurationArgs']]:
         """
         Capacity units
         """
         return pulumi.get(self, "capacity_units")
 
     @capacity_units.setter
-    def capacity_units(self, value: Optional[pulumi.Input['IndexCapacityUnitsConfigurationArgs']]):
+    def capacity_units(self, value: pulumi.Input[Optional['IndexCapacityUnitsConfigurationArgs']]):
         pulumi.set(self, "capacity_units", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the index
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="documentMetadataConfigurations")
-    def document_metadata_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]]:
+    def document_metadata_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]]:
         """
         Document metadata configurations
         """
         return pulumi.get(self, "document_metadata_configurations")
 
     @document_metadata_configurations.setter
-    def document_metadata_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]]):
+    def document_metadata_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]]):
         pulumi.set(self, "document_metadata_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the index.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
-    def server_side_encryption_configuration(self) -> Optional[pulumi.Input['IndexServerSideEncryptionConfigurationArgs']]:
+    def server_side_encryption_configuration(self) -> pulumi.Input[Optional['IndexServerSideEncryptionConfigurationArgs']]:
         """
         Server side encryption configuration
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @server_side_encryption_configuration.setter
-    def server_side_encryption_configuration(self, value: Optional[pulumi.Input['IndexServerSideEncryptionConfigurationArgs']]):
+    def server_side_encryption_configuration(self, value: pulumi.Input[Optional['IndexServerSideEncryptionConfigurationArgs']]):
         pulumi.set(self, "server_side_encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags for labeling the index
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userContextPolicy")
-    def user_context_policy(self) -> Optional[pulumi.Input['IndexUserContextPolicy']]:
+    def user_context_policy(self) -> pulumi.Input[Optional['IndexUserContextPolicy']]:
         """
         The user context policy.
 
@@ -188,19 +188,19 @@ class IndexArgs:
         return pulumi.get(self, "user_context_policy")
 
     @user_context_policy.setter
-    def user_context_policy(self, value: Optional[pulumi.Input['IndexUserContextPolicy']]):
+    def user_context_policy(self, value: pulumi.Input[Optional['IndexUserContextPolicy']]):
         pulumi.set(self, "user_context_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="userTokenConfigurations")
-    def user_token_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]]:
+    def user_token_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]]:
         """
         Defines the type of user token used for the index.
         """
         return pulumi.get(self, "user_token_configurations")
 
     @user_token_configurations.setter
-    def user_token_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]]):
+    def user_token_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]]):
         pulumi.set(self, "user_token_configurations", value)
 
 
@@ -210,20 +210,19 @@ class Index(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_units: Optional[pulumi.Input[Union['IndexCapacityUnitsConfigurationArgs', 'IndexCapacityUnitsConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_metadata_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationArgs', 'IndexDocumentMetadataConfigurationArgsDict']]]]] = None,
-                 edition: Optional[pulumi.Input['IndexEdition']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_context_policy: Optional[pulumi.Input['IndexUserContextPolicy']] = None,
-                 user_token_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IndexUserTokenConfigurationArgs', 'IndexUserTokenConfigurationArgsDict']]]]] = None,
+                 capacity_units: pulumi.Input[Optional[Union['IndexCapacityUnitsConfigurationArgs', 'IndexCapacityUnitsConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_metadata_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationArgs', 'IndexDocumentMetadataConfigurationArgsDict']]]]] = None,
+                 edition: pulumi.Input[Optional['IndexEdition']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_context_policy: pulumi.Input[Optional['IndexUserContextPolicy']] = None,
+                 user_token_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexUserTokenConfigurationArgs', 'IndexUserTokenConfigurationArgsDict']]]]] = None,
                  __props__=None):
         """
         A Kendra index
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,7 +254,6 @@ class Index(pulumi.CustomResource):
         """
         A Kendra index
 
-
         :param str resource_name: The name of the resource.
         :param IndexArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,16 +269,16 @@ class Index(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_units: Optional[pulumi.Input[Union['IndexCapacityUnitsConfigurationArgs', 'IndexCapacityUnitsConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_metadata_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationArgs', 'IndexDocumentMetadataConfigurationArgsDict']]]]] = None,
-                 edition: Optional[pulumi.Input['IndexEdition']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_context_policy: Optional[pulumi.Input['IndexUserContextPolicy']] = None,
-                 user_token_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IndexUserTokenConfigurationArgs', 'IndexUserTokenConfigurationArgsDict']]]]] = None,
+                 capacity_units: pulumi.Input[Optional[Union['IndexCapacityUnitsConfigurationArgs', 'IndexCapacityUnitsConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_metadata_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationArgs', 'IndexDocumentMetadataConfigurationArgsDict']]]]] = None,
+                 edition: pulumi.Input[Optional['IndexEdition']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_context_policy: pulumi.Input[Optional['IndexUserContextPolicy']] = None,
+                 user_token_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexUserTokenConfigurationArgs', 'IndexUserTokenConfigurationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

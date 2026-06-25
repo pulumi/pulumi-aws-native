@@ -28,9 +28,9 @@ class RouteArgs:
                  environment_identifier: pulumi.Input[_builtins.str],
                  route_type: pulumi.Input['RouteType'],
                  service_identifier: pulumi.Input[_builtins.str],
-                 default_route: Optional[pulumi.Input['RouteDefaultRouteInputArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 uri_path_route: Optional[pulumi.Input['RouteUriPathRouteInputArgs']] = None):
+                 default_route: pulumi.Input[Optional['RouteDefaultRouteInputArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 uri_path_route: pulumi.Input[Optional['RouteUriPathRouteInputArgs']] = None):
         """
         The set of arguments for constructing a Route resource.
 
@@ -103,38 +103,38 @@ class RouteArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultRoute")
-    def default_route(self) -> Optional[pulumi.Input['RouteDefaultRouteInputArgs']]:
+    def default_route(self) -> pulumi.Input[Optional['RouteDefaultRouteInputArgs']]:
         """
         Configuration for the default route type.
         """
         return pulumi.get(self, "default_route")
 
     @default_route.setter
-    def default_route(self, value: Optional[pulumi.Input['RouteDefaultRouteInputArgs']]):
+    def default_route(self, value: pulumi.Input[Optional['RouteDefaultRouteInputArgs']]):
         pulumi.set(self, "default_route", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="uriPathRoute")
-    def uri_path_route(self) -> Optional[pulumi.Input['RouteUriPathRouteInputArgs']]:
+    def uri_path_route(self) -> pulumi.Input[Optional['RouteUriPathRouteInputArgs']]:
         """
         The configuration for the URI path route type.
         """
         return pulumi.get(self, "uri_path_route")
 
     @uri_path_route.setter
-    def uri_path_route(self, value: Optional[pulumi.Input['RouteUriPathRouteInputArgs']]):
+    def uri_path_route(self, value: pulumi.Input[Optional['RouteUriPathRouteInputArgs']]):
         pulumi.set(self, "uri_path_route", value)
 
 
@@ -144,17 +144,16 @@ class Route(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_route: Optional[pulumi.Input[Union['RouteDefaultRouteInputArgs', 'RouteDefaultRouteInputArgsDict']]] = None,
-                 environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_type: Optional[pulumi.Input['RouteType']] = None,
-                 service_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 uri_path_route: Optional[pulumi.Input[Union['RouteUriPathRouteInputArgs', 'RouteUriPathRouteInputArgsDict']]] = None,
+                 application_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_route: pulumi.Input[Optional[Union['RouteDefaultRouteInputArgs', 'RouteDefaultRouteInputArgsDict']]] = None,
+                 environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_type: pulumi.Input[Optional['RouteType']] = None,
+                 service_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 uri_path_route: pulumi.Input[Optional[Union['RouteUriPathRouteInputArgs', 'RouteUriPathRouteInputArgsDict']]] = None,
                  __props__=None):
         """
         Definition of AWS::RefactorSpaces::Route Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,7 +174,6 @@ class Route(pulumi.CustomResource):
         """
         Definition of AWS::RefactorSpaces::Route Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,13 +189,13 @@ class Route(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_route: Optional[pulumi.Input[Union['RouteDefaultRouteInputArgs', 'RouteDefaultRouteInputArgsDict']]] = None,
-                 environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_type: Optional[pulumi.Input['RouteType']] = None,
-                 service_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 uri_path_route: Optional[pulumi.Input[Union['RouteUriPathRouteInputArgs', 'RouteUriPathRouteInputArgsDict']]] = None,
+                 application_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_route: pulumi.Input[Optional[Union['RouteDefaultRouteInputArgs', 'RouteDefaultRouteInputArgsDict']]] = None,
+                 environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_type: pulumi.Input[Optional['RouteType']] = None,
+                 service_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 uri_path_route: pulumi.Input[Optional[Union['RouteUriPathRouteInputArgs', 'RouteUriPathRouteInputArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

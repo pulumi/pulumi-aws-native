@@ -24,16 +24,16 @@ __all__ = ['AssessmentArgs', 'Assessment']
 @pulumi.input_type
 class AssessmentArgs:
     def __init__(__self__, *,
-                 assessment_reports_destination: Optional[pulumi.Input['AssessmentReportsDestinationArgs']] = None,
-                 aws_account: Optional[pulumi.Input['AssessmentAwsAccountArgs']] = None,
-                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentDelegationArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 framework_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]] = None,
-                 scope: Optional[pulumi.Input['AssessmentScopeArgs']] = None,
-                 status: Optional[pulumi.Input['AssessmentStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 assessment_reports_destination: pulumi.Input[Optional['AssessmentReportsDestinationArgs']] = None,
+                 aws_account: pulumi.Input[Optional['AssessmentAwsAccountArgs']] = None,
+                 delegations: pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentDelegationArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 framework_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentRoleArgs']]]] = None,
+                 scope: pulumi.Input[Optional['AssessmentScopeArgs']] = None,
+                 status: pulumi.Input[Optional['AssessmentStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Assessment resource.
 
@@ -75,103 +75,103 @@ class AssessmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="assessmentReportsDestination")
-    def assessment_reports_destination(self) -> Optional[pulumi.Input['AssessmentReportsDestinationArgs']]:
+    def assessment_reports_destination(self) -> pulumi.Input[Optional['AssessmentReportsDestinationArgs']]:
         """
         The destination that evidence reports are stored in for the assessment.
         """
         return pulumi.get(self, "assessment_reports_destination")
 
     @assessment_reports_destination.setter
-    def assessment_reports_destination(self, value: Optional[pulumi.Input['AssessmentReportsDestinationArgs']]):
+    def assessment_reports_destination(self, value: pulumi.Input[Optional['AssessmentReportsDestinationArgs']]):
         pulumi.set(self, "assessment_reports_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="awsAccount")
-    def aws_account(self) -> Optional[pulumi.Input['AssessmentAwsAccountArgs']]:
+    def aws_account(self) -> pulumi.Input[Optional['AssessmentAwsAccountArgs']]:
         """
         The AWS account that's associated with the assessment.
         """
         return pulumi.get(self, "aws_account")
 
     @aws_account.setter
-    def aws_account(self, value: Optional[pulumi.Input['AssessmentAwsAccountArgs']]):
+    def aws_account(self, value: pulumi.Input[Optional['AssessmentAwsAccountArgs']]):
         pulumi.set(self, "aws_account", value)
 
     @_builtins.property
     @pulumi.getter
-    def delegations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentDelegationArgs']]]]:
+    def delegations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentDelegationArgs']]]]:
         """
         The list of delegations.
         """
         return pulumi.get(self, "delegations")
 
     @delegations.setter
-    def delegations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentDelegationArgs']]]]):
+    def delegations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentDelegationArgs']]]]):
         pulumi.set(self, "delegations", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the assessment.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="frameworkId")
-    def framework_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def framework_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier for the framework.
         """
         return pulumi.get(self, "framework_id")
 
     @framework_id.setter
-    def framework_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def framework_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "framework_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the assessment.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]]:
+    def roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentRoleArgs']]]]:
         """
         The list of roles for the specified assessment.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]]):
+    def roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentRoleArgs']]]]):
         pulumi.set(self, "roles", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['AssessmentScopeArgs']]:
+    def scope(self) -> pulumi.Input[Optional['AssessmentScopeArgs']]:
         """
         The wrapper of AWS accounts and services that are in scope for the assessment.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['AssessmentScopeArgs']]):
+    def scope(self, value: pulumi.Input[Optional['AssessmentScopeArgs']]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['AssessmentStatus']]:
+    def status(self) -> pulumi.Input[Optional['AssessmentStatus']]:
         """
         The overall status of the assessment.
 
@@ -182,19 +182,19 @@ class AssessmentArgs:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['AssessmentStatus']]):
+    def status(self, value: pulumi.Input[Optional['AssessmentStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags associated with the assessment.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -204,20 +204,19 @@ class Assessment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_reports_destination: Optional[pulumi.Input[Union['AssessmentReportsDestinationArgs', 'AssessmentReportsDestinationArgsDict']]] = None,
-                 aws_account: Optional[pulumi.Input[Union['AssessmentAwsAccountArgs', 'AssessmentAwsAccountArgsDict']]] = None,
-                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssessmentDelegationArgs', 'AssessmentDelegationArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 framework_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssessmentRoleArgs', 'AssessmentRoleArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input[Union['AssessmentScopeArgs', 'AssessmentScopeArgsDict']]] = None,
-                 status: Optional[pulumi.Input['AssessmentStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 assessment_reports_destination: pulumi.Input[Optional[Union['AssessmentReportsDestinationArgs', 'AssessmentReportsDestinationArgsDict']]] = None,
+                 aws_account: pulumi.Input[Optional[Union['AssessmentAwsAccountArgs', 'AssessmentAwsAccountArgsDict']]] = None,
+                 delegations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssessmentDelegationArgs', 'AssessmentDelegationArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 framework_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssessmentRoleArgs', 'AssessmentRoleArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional[Union['AssessmentScopeArgs', 'AssessmentScopeArgsDict']]] = None,
+                 status: pulumi.Input[Optional['AssessmentStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         An entity that defines the scope of audit evidence collected by AWS Audit Manager.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,7 +244,6 @@ class Assessment(pulumi.CustomResource):
         """
         An entity that defines the scope of audit evidence collected by AWS Audit Manager.
 
-
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -261,16 +259,16 @@ class Assessment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_reports_destination: Optional[pulumi.Input[Union['AssessmentReportsDestinationArgs', 'AssessmentReportsDestinationArgsDict']]] = None,
-                 aws_account: Optional[pulumi.Input[Union['AssessmentAwsAccountArgs', 'AssessmentAwsAccountArgsDict']]] = None,
-                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssessmentDelegationArgs', 'AssessmentDelegationArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 framework_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssessmentRoleArgs', 'AssessmentRoleArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input[Union['AssessmentScopeArgs', 'AssessmentScopeArgsDict']]] = None,
-                 status: Optional[pulumi.Input['AssessmentStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 assessment_reports_destination: pulumi.Input[Optional[Union['AssessmentReportsDestinationArgs', 'AssessmentReportsDestinationArgsDict']]] = None,
+                 aws_account: pulumi.Input[Optional[Union['AssessmentAwsAccountArgs', 'AssessmentAwsAccountArgsDict']]] = None,
+                 delegations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssessmentDelegationArgs', 'AssessmentDelegationArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 framework_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssessmentRoleArgs', 'AssessmentRoleArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional[Union['AssessmentScopeArgs', 'AssessmentScopeArgsDict']]] = None,
+                 status: pulumi.Input[Optional['AssessmentStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

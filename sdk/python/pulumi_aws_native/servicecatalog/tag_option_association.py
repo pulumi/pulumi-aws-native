@@ -19,8 +19,8 @@ __all__ = ['TagOptionAssociationArgs', 'TagOptionAssociation']
 @pulumi.input_type
 class TagOptionAssociationArgs:
     def __init__(__self__, *,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_option_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_option_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TagOptionAssociation resource.
 
@@ -34,26 +34,26 @@ class TagOptionAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CloudformationProduct or Portfolio identifier.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tagOptionId")
-    def tag_option_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_option_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The TagOption identifier.
         """
         return pulumi.get(self, "tag_option_id")
 
     @tag_option_id.setter
-    def tag_option_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_option_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_option_id", value)
 
 
@@ -63,12 +63,11 @@ class TagOptionAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_option_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_option_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ServiceCatalog::TagOptionAssociation
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,7 +82,6 @@ class TagOptionAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ServiceCatalog::TagOptionAssociation
-
 
         :param str resource_name: The name of the resource.
         :param TagOptionAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -100,8 +98,8 @@ class TagOptionAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_option_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_option_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

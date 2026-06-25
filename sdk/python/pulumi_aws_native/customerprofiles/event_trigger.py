@@ -27,11 +27,11 @@ class EventTriggerArgs:
                  domain_name: pulumi.Input[_builtins.str],
                  event_trigger_conditions: pulumi.Input[Sequence[pulumi.Input['EventTriggerConditionArgs']]],
                  object_type_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_trigger_limits: Optional[pulumi.Input['EventTriggerLimitsArgs']] = None,
-                 event_trigger_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 segment_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_trigger_limits: pulumi.Input[Optional['EventTriggerLimitsArgs']] = None,
+                 event_trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 segment_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventTrigger resource.
 
@@ -96,62 +96,62 @@ class EventTriggerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the event trigger.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="eventTriggerLimits")
-    def event_trigger_limits(self) -> Optional[pulumi.Input['EventTriggerLimitsArgs']]:
+    def event_trigger_limits(self) -> pulumi.Input[Optional['EventTriggerLimitsArgs']]:
         """
         Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
         """
         return pulumi.get(self, "event_trigger_limits")
 
     @event_trigger_limits.setter
-    def event_trigger_limits(self, value: Optional[pulumi.Input['EventTriggerLimitsArgs']]):
+    def event_trigger_limits(self, value: pulumi.Input[Optional['EventTriggerLimitsArgs']]):
         pulumi.set(self, "event_trigger_limits", value)
 
     @_builtins.property
     @pulumi.getter(name="eventTriggerName")
-    def event_trigger_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_trigger_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name of the event trigger.
         """
         return pulumi.get(self, "event_trigger_name")
 
     @event_trigger_name.setter
-    def event_trigger_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_trigger_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_trigger_name", value)
 
     @_builtins.property
     @pulumi.getter(name="segmentFilter")
-    def segment_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def segment_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The destination is triggered only for profiles that meet the criteria of a segment definition.
         """
         return pulumi.get(self, "segment_filter")
 
     @segment_filter.setter
-    def segment_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def segment_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "segment_filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -161,18 +161,17 @@ class EventTrigger(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_trigger_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventTriggerConditionArgs', 'EventTriggerConditionArgsDict']]]]] = None,
-                 event_trigger_limits: Optional[pulumi.Input[Union['EventTriggerLimitsArgs', 'EventTriggerLimitsArgsDict']]] = None,
-                 event_trigger_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 segment_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_trigger_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTriggerConditionArgs', 'EventTriggerConditionArgsDict']]]]] = None,
+                 event_trigger_limits: pulumi.Input[Optional[Union['EventTriggerLimitsArgs', 'EventTriggerLimitsArgsDict']]] = None,
+                 event_trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 segment_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         An event trigger resource of Amazon Connect Customer Profiles
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,7 +193,6 @@ class EventTrigger(pulumi.CustomResource):
         """
         An event trigger resource of Amazon Connect Customer Profiles
 
-
         :param str resource_name: The name of the resource.
         :param EventTriggerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,14 +208,14 @@ class EventTrigger(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_trigger_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventTriggerConditionArgs', 'EventTriggerConditionArgsDict']]]]] = None,
-                 event_trigger_limits: Optional[pulumi.Input[Union['EventTriggerLimitsArgs', 'EventTriggerLimitsArgsDict']]] = None,
-                 event_trigger_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 segment_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_trigger_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventTriggerConditionArgs', 'EventTriggerConditionArgsDict']]]]] = None,
+                 event_trigger_limits: pulumi.Input[Optional[Union['EventTriggerLimitsArgs', 'EventTriggerLimitsArgsDict']]] = None,
+                 event_trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 segment_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -112,7 +112,6 @@ def get_global_network(id: Optional[_builtins.str] = None,
     """
     The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
 
-
     :param _builtins.str id: The ID of the global network.
     """
     __args__ = dict()
@@ -127,11 +126,10 @@ def get_global_network(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_global_network_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_global_network_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalNetworkResult]:
     """
     The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
-
 
     :param _builtins.str id: The ID of the global network.
     """

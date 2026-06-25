@@ -64,7 +64,6 @@ def get_documentation_part(documentation_part_id: Optional[_builtins.str] = None
     """
     The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 
-
     :param _builtins.str documentation_part_id: The ID for the documentation part.
     :param _builtins.str rest_api_id: The string identifier of the associated RestApi.
     """
@@ -77,12 +76,11 @@ def get_documentation_part(documentation_part_id: Optional[_builtins.str] = None
     return AwaitableGetDocumentationPartResult(
         documentation_part_id=pulumi.get(__ret__, 'documentation_part_id'),
         properties=pulumi.get(__ret__, 'properties'))
-def get_documentation_part_output(documentation_part_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                  rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_documentation_part_output(documentation_part_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                  rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDocumentationPartResult]:
     """
     The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
-
 
     :param _builtins.str documentation_part_id: The ID for the documentation part.
     :param _builtins.str rest_api_id: The string identifier of the associated RestApi.

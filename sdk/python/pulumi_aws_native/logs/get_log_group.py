@@ -119,7 +119,7 @@ class GetLogGroupResult:
         Specifies the log group class for this log group. There are two classes:
           +  The ``Standard`` log class supports all CWL features.
           +  The ``Infrequent Access`` log class supports a subset of CWL features and incurs lower costs.
-          
+
          For details about the features supported by each class, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html)
         """
         return pulumi.get(self, "log_group_class")
@@ -180,7 +180,6 @@ def get_log_group(log_group_name: Optional[_builtins.str] = None,
       +  Log group names can be between 1 and 512 characters long.
       +  Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).
 
-
     :param _builtins.str log_group_name: The name of the log group. If you don't specify a name, CFNlong generates a unique ID for the log group.
     """
     __args__ = dict()
@@ -199,7 +198,7 @@ def get_log_group(log_group_name: Optional[_builtins.str] = None,
         resource_policy_document=pulumi.get(__ret__, 'resource_policy_document'),
         retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_log_group_output(log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_log_group_output(log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogGroupResult]:
     """
     The ``AWS::Logs::LogGroup`` resource specifies a log group. A log group defines common properties for log streams, such as their retention and access control rules. Each log stream must belong to one log group.
@@ -207,7 +206,6 @@ def get_log_group_output(log_group_name: Optional[pulumi.Input[_builtins.str]] =
       +  Log group names must be unique within a Region for an AWS account.
       +  Log group names can be between 1 and 512 characters long.
       +  Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).
-
 
     :param _builtins.str log_group_name: The name of the log group. If you don't specify a name, CFNlong generates a unique ID for the log group.
     """

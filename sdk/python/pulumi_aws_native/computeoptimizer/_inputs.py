@@ -33,26 +33,26 @@ __all__ = [
 ]
 
 class AutomationRuleCriteriaArgsDict(TypedDict):
-    ebs_volume_size_in_gib: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleIntegerCriteriaConditionArgsDict']]]]
-    ebs_volume_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgsDict']]]]
-    estimated_monthly_savings: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDoubleCriteriaConditionArgsDict']]]]
-    look_back_period_in_days: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleIntegerCriteriaConditionArgsDict']]]]
-    region: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgsDict']]]]
-    resource_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgsDict']]]]
-    resource_tag: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleResourceTagsCriteriaConditionArgsDict']]]]
-    restart_needed: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgsDict']]]]
+    ebs_volume_size_in_gib: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleIntegerCriteriaConditionArgsDict']]]]]
+    ebs_volume_type: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgsDict']]]]]
+    estimated_monthly_savings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleDoubleCriteriaConditionArgsDict']]]]]
+    look_back_period_in_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleIntegerCriteriaConditionArgsDict']]]]]
+    region: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgsDict']]]]]
+    resource_arn: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgsDict']]]]]
+    resource_tag: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleResourceTagsCriteriaConditionArgsDict']]]]]
+    restart_needed: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgsDict']]]]]
 
 @pulumi.input_type
 class AutomationRuleCriteriaArgs:
     def __init__(__self__, *,
-                 ebs_volume_size_in_gib: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleIntegerCriteriaConditionArgs']]]] = None,
-                 ebs_volume_type: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]] = None,
-                 estimated_monthly_savings: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDoubleCriteriaConditionArgs']]]] = None,
-                 look_back_period_in_days: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleIntegerCriteriaConditionArgs']]]] = None,
-                 region: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]] = None,
-                 resource_arn: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]] = None,
-                 resource_tag: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleResourceTagsCriteriaConditionArgs']]]] = None,
-                 restart_needed: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]] = None):
+                 ebs_volume_size_in_gib: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleIntegerCriteriaConditionArgs']]]] = None,
+                 ebs_volume_type: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]] = None,
+                 estimated_monthly_savings: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleDoubleCriteriaConditionArgs']]]] = None,
+                 look_back_period_in_days: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleIntegerCriteriaConditionArgs']]]] = None,
+                 region: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]] = None,
+                 resource_arn: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]] = None,
+                 resource_tag: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleResourceTagsCriteriaConditionArgs']]]] = None,
+                 restart_needed: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]] = None):
         if ebs_volume_size_in_gib is not None:
             pulumi.set(__self__, "ebs_volume_size_in_gib", ebs_volume_size_in_gib)
         if ebs_volume_type is not None:
@@ -72,86 +72,86 @@ class AutomationRuleCriteriaArgs:
 
     @_builtins.property
     @pulumi.getter(name="ebsVolumeSizeInGib")
-    def ebs_volume_size_in_gib(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleIntegerCriteriaConditionArgs']]]]:
+    def ebs_volume_size_in_gib(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleIntegerCriteriaConditionArgs']]]]:
         return pulumi.get(self, "ebs_volume_size_in_gib")
 
     @ebs_volume_size_in_gib.setter
-    def ebs_volume_size_in_gib(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleIntegerCriteriaConditionArgs']]]]):
+    def ebs_volume_size_in_gib(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleIntegerCriteriaConditionArgs']]]]):
         pulumi.set(self, "ebs_volume_size_in_gib", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsVolumeType")
-    def ebs_volume_type(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]]:
+    def ebs_volume_type(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]]:
         return pulumi.get(self, "ebs_volume_type")
 
     @ebs_volume_type.setter
-    def ebs_volume_type(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]]):
+    def ebs_volume_type(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]]):
         pulumi.set(self, "ebs_volume_type", value)
 
     @_builtins.property
     @pulumi.getter(name="estimatedMonthlySavings")
-    def estimated_monthly_savings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDoubleCriteriaConditionArgs']]]]:
+    def estimated_monthly_savings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleDoubleCriteriaConditionArgs']]]]:
         return pulumi.get(self, "estimated_monthly_savings")
 
     @estimated_monthly_savings.setter
-    def estimated_monthly_savings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDoubleCriteriaConditionArgs']]]]):
+    def estimated_monthly_savings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleDoubleCriteriaConditionArgs']]]]):
         pulumi.set(self, "estimated_monthly_savings", value)
 
     @_builtins.property
     @pulumi.getter(name="lookBackPeriodInDays")
-    def look_back_period_in_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleIntegerCriteriaConditionArgs']]]]:
+    def look_back_period_in_days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleIntegerCriteriaConditionArgs']]]]:
         return pulumi.get(self, "look_back_period_in_days")
 
     @look_back_period_in_days.setter
-    def look_back_period_in_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleIntegerCriteriaConditionArgs']]]]):
+    def look_back_period_in_days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleIntegerCriteriaConditionArgs']]]]):
         pulumi.set(self, "look_back_period_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]]:
+    def region(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]]:
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]]):
+    def region(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]]:
+    def resource_arn(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]]:
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
-    def resource_arn(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]]):
+    def resource_arn(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]]):
         pulumi.set(self, "resource_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTag")
-    def resource_tag(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleResourceTagsCriteriaConditionArgs']]]]:
+    def resource_tag(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleResourceTagsCriteriaConditionArgs']]]]:
         return pulumi.get(self, "resource_tag")
 
     @resource_tag.setter
-    def resource_tag(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleResourceTagsCriteriaConditionArgs']]]]):
+    def resource_tag(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleResourceTagsCriteriaConditionArgs']]]]):
         pulumi.set(self, "resource_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="restartNeeded")
-    def restart_needed(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]]:
+    def restart_needed(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]]:
         return pulumi.get(self, "restart_needed")
 
     @restart_needed.setter
-    def restart_needed(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]]):
+    def restart_needed(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleStringCriteriaConditionArgs']]]]):
         pulumi.set(self, "restart_needed", value)
 
 
 class AutomationRuleDoubleCriteriaConditionArgsDict(TypedDict):
-    comparison: NotRequired[pulumi.Input['AutomationRuleDoubleCriteriaConditionComparison']]
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]
+    comparison: NotRequired[pulumi.Input[Optional['AutomationRuleDoubleCriteriaConditionComparison']]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]]]
 
 @pulumi.input_type
 class AutomationRuleDoubleCriteriaConditionArgs:
     def __init__(__self__, *,
-                 comparison: Optional[pulumi.Input['AutomationRuleDoubleCriteriaConditionComparison']] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]] = None):
+                 comparison: pulumi.Input[Optional['AutomationRuleDoubleCriteriaConditionComparison']] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]] = None):
         if comparison is not None:
             pulumi.set(__self__, "comparison", comparison)
         if values is not None:
@@ -159,32 +159,32 @@ class AutomationRuleDoubleCriteriaConditionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comparison(self) -> Optional[pulumi.Input['AutomationRuleDoubleCriteriaConditionComparison']]:
+    def comparison(self) -> pulumi.Input[Optional['AutomationRuleDoubleCriteriaConditionComparison']]:
         return pulumi.get(self, "comparison")
 
     @comparison.setter
-    def comparison(self, value: Optional[pulumi.Input['AutomationRuleDoubleCriteriaConditionComparison']]):
+    def comparison(self, value: pulumi.Input[Optional['AutomationRuleDoubleCriteriaConditionComparison']]):
         pulumi.set(self, "comparison", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]]:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]]):
         pulumi.set(self, "values", value)
 
 
 class AutomationRuleIntegerCriteriaConditionArgsDict(TypedDict):
-    comparison: NotRequired[pulumi.Input['AutomationRuleIntegerCriteriaConditionComparison']]
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    comparison: NotRequired[pulumi.Input[Optional['AutomationRuleIntegerCriteriaConditionComparison']]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
 
 @pulumi.input_type
 class AutomationRuleIntegerCriteriaConditionArgs:
     def __init__(__self__, *,
-                 comparison: Optional[pulumi.Input['AutomationRuleIntegerCriteriaConditionComparison']] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
+                 comparison: pulumi.Input[Optional['AutomationRuleIntegerCriteriaConditionComparison']] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         if comparison is not None:
             pulumi.set(__self__, "comparison", comparison)
         if values is not None:
@@ -192,29 +192,29 @@ class AutomationRuleIntegerCriteriaConditionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comparison(self) -> Optional[pulumi.Input['AutomationRuleIntegerCriteriaConditionComparison']]:
+    def comparison(self) -> pulumi.Input[Optional['AutomationRuleIntegerCriteriaConditionComparison']]:
         return pulumi.get(self, "comparison")
 
     @comparison.setter
-    def comparison(self, value: Optional[pulumi.Input['AutomationRuleIntegerCriteriaConditionComparison']]):
+    def comparison(self, value: pulumi.Input[Optional['AutomationRuleIntegerCriteriaConditionComparison']]):
         pulumi.set(self, "comparison", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "values", value)
 
 
 class AutomationRuleOrganizationConfigurationArgsDict(TypedDict):
-    account_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    account_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of account IDs where the organization rule applies
     """
-    rule_apply_order: NotRequired[pulumi.Input['AutomationRuleOrganizationConfigurationRuleApplyOrder']]
+    rule_apply_order: NotRequired[pulumi.Input[Optional['AutomationRuleOrganizationConfigurationRuleApplyOrder']]]
     """
     When the rule should be applied relative to account rules
     """
@@ -222,8 +222,8 @@ class AutomationRuleOrganizationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AutomationRuleOrganizationConfigurationArgs:
     def __init__(__self__, *,
-                 account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rule_apply_order: Optional[pulumi.Input['AutomationRuleOrganizationConfigurationRuleApplyOrder']] = None):
+                 account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rule_apply_order: pulumi.Input[Optional['AutomationRuleOrganizationConfigurationRuleApplyOrder']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_ids: List of account IDs where the organization rule applies
         :param pulumi.Input['AutomationRuleOrganizationConfigurationRuleApplyOrder'] rule_apply_order: When the rule should be applied relative to account rules
@@ -235,40 +235,40 @@ class AutomationRuleOrganizationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountIds")
-    def account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def account_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of account IDs where the organization rule applies
         """
         return pulumi.get(self, "account_ids")
 
     @account_ids.setter
-    def account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def account_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "account_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleApplyOrder")
-    def rule_apply_order(self) -> Optional[pulumi.Input['AutomationRuleOrganizationConfigurationRuleApplyOrder']]:
+    def rule_apply_order(self) -> pulumi.Input[Optional['AutomationRuleOrganizationConfigurationRuleApplyOrder']]:
         """
         When the rule should be applied relative to account rules
         """
         return pulumi.get(self, "rule_apply_order")
 
     @rule_apply_order.setter
-    def rule_apply_order(self, value: Optional[pulumi.Input['AutomationRuleOrganizationConfigurationRuleApplyOrder']]):
+    def rule_apply_order(self, value: pulumi.Input[Optional['AutomationRuleOrganizationConfigurationRuleApplyOrder']]):
         pulumi.set(self, "rule_apply_order", value)
 
 
 class AutomationRuleResourceTagsCriteriaConditionArgsDict(TypedDict):
-    comparison: NotRequired[pulumi.Input['AutomationRuleResourceTagsCriteriaConditionComparison']]
-    key: NotRequired[pulumi.Input[_builtins.str]]
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    comparison: NotRequired[pulumi.Input[Optional['AutomationRuleResourceTagsCriteriaConditionComparison']]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class AutomationRuleResourceTagsCriteriaConditionArgs:
     def __init__(__self__, *,
-                 comparison: Optional[pulumi.Input['AutomationRuleResourceTagsCriteriaConditionComparison']] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 comparison: pulumi.Input[Optional['AutomationRuleResourceTagsCriteriaConditionComparison']] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if comparison is not None:
             pulumi.set(__self__, "comparison", comparison)
         if key is not None:
@@ -278,42 +278,42 @@ class AutomationRuleResourceTagsCriteriaConditionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comparison(self) -> Optional[pulumi.Input['AutomationRuleResourceTagsCriteriaConditionComparison']]:
+    def comparison(self) -> pulumi.Input[Optional['AutomationRuleResourceTagsCriteriaConditionComparison']]:
         return pulumi.get(self, "comparison")
 
     @comparison.setter
-    def comparison(self, value: Optional[pulumi.Input['AutomationRuleResourceTagsCriteriaConditionComparison']]):
+    def comparison(self, value: pulumi.Input[Optional['AutomationRuleResourceTagsCriteriaConditionComparison']]):
         pulumi.set(self, "comparison", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class AutomationRuleScheduleArgsDict(TypedDict):
-    execution_window_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    execution_window_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Execution window duration in minutes
     """
-    schedule_expression: NotRequired[pulumi.Input[_builtins.str]]
+    schedule_expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Schedule expression (e.g., cron or rate expression)
     """
-    schedule_expression_timezone: NotRequired[pulumi.Input[_builtins.str]]
+    schedule_expression_timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IANA timezone identifier
     """
@@ -321,9 +321,9 @@ class AutomationRuleScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class AutomationRuleScheduleArgs:
     def __init__(__self__, *,
-                 execution_window_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 schedule_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_expression_timezone: Optional[pulumi.Input[_builtins.str]] = None):
+                 execution_window_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_expression_timezone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] execution_window_in_minutes: Execution window duration in minutes
         :param pulumi.Input[_builtins.str] schedule_expression: Schedule expression (e.g., cron or rate expression)
@@ -338,50 +338,50 @@ class AutomationRuleScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="executionWindowInMinutes")
-    def execution_window_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def execution_window_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Execution window duration in minutes
         """
         return pulumi.get(self, "execution_window_in_minutes")
 
     @execution_window_in_minutes.setter
-    def execution_window_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def execution_window_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "execution_window_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
-    def schedule_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schedule_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Schedule expression (e.g., cron or rate expression)
         """
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter
-    def schedule_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schedule_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schedule_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpressionTimezone")
-    def schedule_expression_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schedule_expression_timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IANA timezone identifier
         """
         return pulumi.get(self, "schedule_expression_timezone")
 
     @schedule_expression_timezone.setter
-    def schedule_expression_timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schedule_expression_timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schedule_expression_timezone", value)
 
 
 class AutomationRuleStringCriteriaConditionArgsDict(TypedDict):
-    comparison: NotRequired[pulumi.Input['AutomationRuleStringCriteriaConditionComparison']]
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    comparison: NotRequired[pulumi.Input[Optional['AutomationRuleStringCriteriaConditionComparison']]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class AutomationRuleStringCriteriaConditionArgs:
     def __init__(__self__, *,
-                 comparison: Optional[pulumi.Input['AutomationRuleStringCriteriaConditionComparison']] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 comparison: pulumi.Input[Optional['AutomationRuleStringCriteriaConditionComparison']] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if comparison is not None:
             pulumi.set(__self__, "comparison", comparison)
         if values is not None:
@@ -389,20 +389,20 @@ class AutomationRuleStringCriteriaConditionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comparison(self) -> Optional[pulumi.Input['AutomationRuleStringCriteriaConditionComparison']]:
+    def comparison(self) -> pulumi.Input[Optional['AutomationRuleStringCriteriaConditionComparison']]:
         return pulumi.get(self, "comparison")
 
     @comparison.setter
-    def comparison(self, value: Optional[pulumi.Input['AutomationRuleStringCriteriaConditionComparison']]):
+    def comparison(self, value: pulumi.Input[Optional['AutomationRuleStringCriteriaConditionComparison']]):
         pulumi.set(self, "comparison", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 

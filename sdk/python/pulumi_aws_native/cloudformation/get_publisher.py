@@ -88,7 +88,6 @@ def get_publisher(publisher_id: Optional[_builtins.str] = None,
     """
     Register as a publisher in the CloudFormation Registry.
 
-
     :param _builtins.str publisher_id: The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_publisher(publisher_id: Optional[_builtins.str] = None,
         publisher_id=pulumi.get(__ret__, 'publisher_id'),
         publisher_profile=pulumi.get(__ret__, 'publisher_profile'),
         publisher_status=pulumi.get(__ret__, 'publisher_status'))
-def get_publisher_output(publisher_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_publisher_output(publisher_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublisherResult]:
     """
     Register as a publisher in the CloudFormation Registry.
-
 
     :param _builtins.str publisher_id: The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
     """

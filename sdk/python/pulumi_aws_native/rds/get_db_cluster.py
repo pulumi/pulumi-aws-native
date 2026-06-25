@@ -214,7 +214,7 @@ class GetDbClusterResult:
          Default: 1
          Constraints:
           +  Must be a value from 1 to 35
-          
+
          Valid for: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "backup_retention_period")
@@ -265,7 +265,7 @@ class GetDbClusterResult:
           If you apply a parameter group to an existing DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
          If you apply a change to parameter group associated with a stopped DB cluster, then the update stack waits until the DB cluster is started.
           To list all of the available DB cluster parameter group names, use the following command:
-          ``aws rds describe-db-cluster-parameter-groups --query "DBClusterParameterGroups[].DBClusterParameterGroupName" --output text`` 
+          ``aws rds describe-db-cluster-parameter-groups --query "DBClusterParameterGroups[].DBClusterParameterGroupName" --output text``
          Valid for: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "db_cluster_parameter_group_name")
@@ -312,9 +312,9 @@ class GetDbClusterResult:
     def enable_cloudwatch_logs_exports(self) -> Optional[Sequence[_builtins.str]]:
         """
         The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see [Publishing Database Logs to Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch) in the *Amazon Aurora User Guide*.
-          *Aurora MySQL* 
+          *Aurora MySQL*
          Valid values: ``audit``, ``error``, ``general``, ``slowquery``
-          *Aurora PostgreSQL* 
+          *Aurora PostgreSQL*
          Valid values: ``postgresql``
          Valid for: Aurora DB clusters and Multi-AZ DB clusters
         """
@@ -371,11 +371,11 @@ class GetDbClusterResult:
         """
         The name of the database engine to be used for this DB cluster.
          Valid Values:
-          +   ``aurora-mysql`` 
-          +   ``aurora-postgresql`` 
-          +   ``mysql`` 
-          +   ``postgres`` 
-          
+          +   ``aurora-mysql``
+          +   ``aurora-postgresql``
+          +   ``mysql``
+          +   ``postgres``
+
          Valid for: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "engine")
@@ -389,7 +389,7 @@ class GetDbClusterResult:
           You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:
           +  Amazon Aurora - [Amazon RDS Extended Support with Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide*
           +  Amazon RDS - [Amazon RDS Extended Support with Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*
-          
+
          Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
          Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``
          Default: ``open-source-rds-extended-support``
@@ -403,21 +403,21 @@ class GetDbClusterResult:
         The version number of the database engine to use.
           Don't use this property if your DB cluster is a member of a global database cluster. Instead, specify the ``EngineVersion`` property on the [AWS::RDS::GlobalCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html) resource. Major version upgrades aren't supported for individual members of a global cluster. Use ``ModifyGlobalCluster`` to upgrade all members of the global cluster.
           To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible) and version 3 (8.0-compatible), use the following command:
-          ``aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"`` 
+          ``aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"``
          You can supply either ``5.7`` or ``8.0`` to use the default engine version for Aurora MySQL version 2 or version 3, respectively.
          To list all of the available engine versions for Aurora PostgreSQL, use the following command:
-          ``aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"`` 
+          ``aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"``
          To list all of the available engine versions for RDS for MySQL, use the following command:
-          ``aws rds describe-db-engine-versions --engine mysql --query "DBEngineVersions[].EngineVersion"`` 
+          ``aws rds describe-db-engine-versions --engine mysql --query "DBEngineVersions[].EngineVersion"``
          To list all of the available engine versions for RDS for PostgreSQL, use the following command:
-          ``aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"`` 
-          *Aurora MySQL* 
+          ``aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"``
+          *Aurora MySQL*
          For information, see [Database engine updates for Amazon Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) in the *Amazon Aurora User Guide*.
-          *Aurora PostgreSQL* 
+          *Aurora PostgreSQL*
          For information, see [Amazon Aurora PostgreSQL releases and engine versions](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.20180305.html) in the *Amazon Aurora User Guide*.
-          *MySQL* 
+          *MySQL*
          For information, see [Amazon RDS for MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt) in the *Amazon RDS User Guide*.
-          *PostgreSQL* 
+          *PostgreSQL*
          For information, see [Amazon RDS for PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts) in the *Amazon RDS User Guide*.
          Valid for: Aurora DB clusters and Multi-AZ DB clusters
         """
@@ -427,8 +427,8 @@ class GetDbClusterResult:
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> Optional[_builtins.str]:
         """
-        If you are configuring an Aurora global database cluster and want your Aurora DB cluster to be a secondary member in the global database cluster, specify the global cluster ID of the global database cluster. To define the primary database cluster of the global cluster, use the [AWS::RDS::GlobalCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html) resource. 
-          If you aren't configuring a global database cluster, don't specify this property. 
+        If you are configuring an Aurora global database cluster and want your Aurora DB cluster to be a secondary member in the global database cluster, specify the global cluster ID of the global database cluster. To define the primary database cluster of the global cluster, use the [AWS::RDS::GlobalCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html) resource.
+          If you aren't configuring a global database cluster, don't specify this property.
           To remove the DB cluster from a global database cluster, specify an empty value for the ``GlobalClusterIdentifier`` property.
           For information about Aurora global databases, see [Working with Amazon Aurora Global Databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) in the *Amazon Aurora User Guide*.
          Valid for: Aurora DB clusters only
@@ -508,9 +508,9 @@ class GetDbClusterResult:
         """
         The network type of the DB cluster.
          Valid values:
-          +   ``IPV4`` 
-          +   ``DUAL`` 
-          
+          +   ``IPV4``
+          +   ``DUAL``
+
          The network type is determined by the ``DBSubnetGroup`` specified for the DB cluster. A ``DBSubnetGroup`` can support only the IPv4 protocol or the IPv4 and IPv6 protocols (``DUAL``).
          For more information, see [Working with a DB instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) in the *Amazon Aurora User Guide.*
          Valid for: Aurora DB clusters only
@@ -545,10 +545,10 @@ class GetDbClusterResult:
         The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
          Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
          Valid Values:
-          +   ``7`` 
+          +   ``7``
           +  *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
-          +   ``731`` 
-          
+          +   ``731``
+
          Default: ``7`` days
          If you specify a retention period that isn't valid, such as ``94``, Amazon RDS issues an error.
         """
@@ -562,7 +562,7 @@ class GetDbClusterResult:
          Default:
           +  RDS for MySQL and Aurora MySQL - ``3306``
           +  RDS for PostgreSQL and Aurora PostgreSQL - ``5432``
-          
+
           The ``No interruption`` on update behavior only applies to DB clusters. If you are updating a DB instance, see [Port](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port) for the AWS::RDS::DBInstance resource.
           Valid for: Aurora DB clusters and Multi-AZ DB clusters
         """
@@ -578,7 +578,7 @@ class GetDbClusterResult:
           +  Must be in Universal Coordinated Time (UTC).
           +  Must not conflict with the preferred maintenance window.
           +  Must be at least 30 minutes.
-          
+
          Valid for: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "preferred_backup_window")
@@ -624,7 +624,7 @@ class GetDbClusterResult:
     @pulumi.getter(name="serverlessV2ScalingConfiguration")
     def serverless_v2_scaling_configuration(self) -> Optional['outputs.DbClusterServerlessV2ScalingConfiguration']:
         """
-        The scaling configuration of an Aurora Serverless V2 DB cluster. 
+        The scaling configuration of an Aurora Serverless V2 DB cluster.
          This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, Use the ``ScalingConfiguration`` property.
          Valid for: Aurora Serverless v2 DB clusters only
         """
@@ -657,11 +657,11 @@ class GetDbClusterResult:
          Valid Values:
           +  Aurora DB clusters - ``aurora | aurora-iopt1``
           +  Multi-AZ DB clusters - ``io1 | io2 | gp3``
-          
+
          Default:
           +  Aurora DB clusters - ``aurora``
           +  Multi-AZ DB clusters - ``io1``
-          
+
           When you create an Aurora DB cluster with the storage type set to ``aurora-iopt1``, the storage type is returned in the response. The storage type isn't returned when you set it to ``aurora``.
         """
         return pulumi.get(self, "storage_type")
@@ -761,13 +761,12 @@ def get_db_cluster(db_cluster_identifier: Optional[_builtins.str] = None,
       *Deleting DB clusters*
      The default ``DeletionPolicy`` for ``AWS::RDS::DBCluster`` resources is ``Snapshot``. For more information about how AWS CloudFormation deletes resources, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
 
-
     :param _builtins.str db_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
             Constraints:
              +  Must contain from 1 to 63 letters, numbers, or hyphens.
              +  First character must be a letter.
              +  Can't end with a hyphen or contain two consecutive hyphens.
-             
+           
             Example: ``my-cluster1``
             Valid for: Aurora DB clusters and Multi-AZ DB clusters
     """
@@ -823,7 +822,7 @@ def get_db_cluster(db_cluster_identifier: Optional[_builtins.str] = None,
         storage_type=pulumi.get(__ret__, 'storage_type'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_cluster_output(db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbClusterResult]:
     """
     The ``AWS::RDS::DBCluster`` resource creates an Amazon Aurora DB cluster or Multi-AZ DB cluster.
@@ -844,13 +843,12 @@ def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[_builtins
       *Deleting DB clusters*
      The default ``DeletionPolicy`` for ``AWS::RDS::DBCluster`` resources is ``Snapshot``. For more information about how AWS CloudFormation deletes resources, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
 
-
     :param _builtins.str db_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
             Constraints:
              +  Must contain from 1 to 63 letters, numbers, or hyphens.
              +  First character must be a letter.
              +  Can't end with a hyphen or contain two consecutive hyphens.
-             
+           
             Example: ``my-cluster1``
             Valid for: Aurora DB clusters and Multi-AZ DB clusters
     """

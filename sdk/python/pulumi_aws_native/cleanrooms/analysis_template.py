@@ -27,14 +27,14 @@ class AnalysisTemplateArgs:
                  format: pulumi.Input['AnalysisTemplateFormat'],
                  membership_identifier: pulumi.Input[_builtins.str],
                  source: pulumi.Input[Union['AnalysisTemplateAnalysisSource0PropertiesArgs', 'AnalysisTemplateAnalysisSource1PropertiesArgs']],
-                 analysis_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateAnalysisParameterArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_message_configuration: Optional[pulumi.Input['AnalysisTemplateErrorMessageConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input['AnalysisTemplateAnalysisSchemaArgs']] = None,
-                 source_metadata: Optional[pulumi.Input['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs']] = None,
-                 synthetic_data_parameters: Optional[pulumi.Input['AnalysisTemplateSyntheticDataParametersPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 analysis_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTemplateAnalysisParameterArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_message_configuration: pulumi.Input[Optional['AnalysisTemplateErrorMessageConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional['AnalysisTemplateAnalysisSchemaArgs']] = None,
+                 source_metadata: pulumi.Input[Optional['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs']] = None,
+                 synthetic_data_parameters: pulumi.Input[Optional['AnalysisTemplateSyntheticDataParametersPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AnalysisTemplate resource.
 
@@ -108,98 +108,98 @@ class AnalysisTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="analysisParameters")
-    def analysis_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateAnalysisParameterArgs']]]]:
+    def analysis_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTemplateAnalysisParameterArgs']]]]:
         """
         The member who can query can provide this placeholder for a literal data value in an analysis template
         """
         return pulumi.get(self, "analysis_parameters")
 
     @analysis_parameters.setter
-    def analysis_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateAnalysisParameterArgs']]]]):
+    def analysis_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTemplateAnalysisParameterArgs']]]]):
         pulumi.set(self, "analysis_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the analysis template.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="errorMessageConfiguration")
-    def error_message_configuration(self) -> Optional[pulumi.Input['AnalysisTemplateErrorMessageConfigurationArgs']]:
+    def error_message_configuration(self) -> pulumi.Input[Optional['AnalysisTemplateErrorMessageConfigurationArgs']]:
         """
         The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED` , error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
         """
         return pulumi.get(self, "error_message_configuration")
 
     @error_message_configuration.setter
-    def error_message_configuration(self, value: Optional[pulumi.Input['AnalysisTemplateErrorMessageConfigurationArgs']]):
+    def error_message_configuration(self, value: pulumi.Input[Optional['AnalysisTemplateErrorMessageConfigurationArgs']]):
         pulumi.set(self, "error_message_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the analysis template.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input['AnalysisTemplateAnalysisSchemaArgs']]:
+    def schema(self) -> pulumi.Input[Optional['AnalysisTemplateAnalysisSchemaArgs']]:
         """
         The entire schema object.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input['AnalysisTemplateAnalysisSchemaArgs']]):
+    def schema(self, value: pulumi.Input[Optional['AnalysisTemplateAnalysisSchemaArgs']]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceMetadata")
-    def source_metadata(self) -> Optional[pulumi.Input['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs']]:
+    def source_metadata(self) -> pulumi.Input[Optional['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs']]:
         """
         The source metadata for the analysis template.
         """
         return pulumi.get(self, "source_metadata")
 
     @source_metadata.setter
-    def source_metadata(self, value: Optional[pulumi.Input['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs']]):
+    def source_metadata(self, value: pulumi.Input[Optional['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs']]):
         pulumi.set(self, "source_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="syntheticDataParameters")
-    def synthetic_data_parameters(self) -> Optional[pulumi.Input['AnalysisTemplateSyntheticDataParametersPropertiesArgs']]:
+    def synthetic_data_parameters(self) -> pulumi.Input[Optional['AnalysisTemplateSyntheticDataParametersPropertiesArgs']]:
         """
         The parameters used to generate synthetic data for this analysis template.
         """
         return pulumi.get(self, "synthetic_data_parameters")
 
     @synthetic_data_parameters.setter
-    def synthetic_data_parameters(self, value: Optional[pulumi.Input['AnalysisTemplateSyntheticDataParametersPropertiesArgs']]):
+    def synthetic_data_parameters(self, value: pulumi.Input[Optional['AnalysisTemplateSyntheticDataParametersPropertiesArgs']]):
         pulumi.set(self, "synthetic_data_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -209,21 +209,20 @@ class AnalysisTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analysis_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisTemplateAnalysisParameterArgs', 'AnalysisTemplateAnalysisParameterArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_message_configuration: Optional[pulumi.Input[Union['AnalysisTemplateErrorMessageConfigurationArgs', 'AnalysisTemplateErrorMessageConfigurationArgsDict']]] = None,
-                 format: Optional[pulumi.Input['AnalysisTemplateFormat']] = None,
-                 membership_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[Union['AnalysisTemplateAnalysisSchemaArgs', 'AnalysisTemplateAnalysisSchemaArgsDict']]] = None,
-                 source: Optional[pulumi.Input[Union[Union['AnalysisTemplateAnalysisSource0PropertiesArgs', 'AnalysisTemplateAnalysisSource0PropertiesArgsDict'], Union['AnalysisTemplateAnalysisSource1PropertiesArgs', 'AnalysisTemplateAnalysisSource1PropertiesArgsDict']]]] = None,
-                 source_metadata: Optional[pulumi.Input[Union['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs', 'AnalysisTemplateAnalysisSourceMetadataPropertiesArgsDict']]] = None,
-                 synthetic_data_parameters: Optional[pulumi.Input[Union['AnalysisTemplateSyntheticDataParametersPropertiesArgs', 'AnalysisTemplateSyntheticDataParametersPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 analysis_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalysisTemplateAnalysisParameterArgs', 'AnalysisTemplateAnalysisParameterArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_message_configuration: pulumi.Input[Optional[Union['AnalysisTemplateErrorMessageConfigurationArgs', 'AnalysisTemplateErrorMessageConfigurationArgsDict']]] = None,
+                 format: pulumi.Input[Optional['AnalysisTemplateFormat']] = None,
+                 membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[Union['AnalysisTemplateAnalysisSchemaArgs', 'AnalysisTemplateAnalysisSchemaArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union[Union['AnalysisTemplateAnalysisSource0PropertiesArgs', 'AnalysisTemplateAnalysisSource0PropertiesArgsDict'], Union['AnalysisTemplateAnalysisSource1PropertiesArgs', 'AnalysisTemplateAnalysisSource1PropertiesArgsDict']]]] = None,
+                 source_metadata: pulumi.Input[Optional[Union['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs', 'AnalysisTemplateAnalysisSourceMetadataPropertiesArgsDict']]] = None,
+                 synthetic_data_parameters: pulumi.Input[Optional[Union['AnalysisTemplateSyntheticDataParametersPropertiesArgs', 'AnalysisTemplateSyntheticDataParametersPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Represents a stored analysis within a collaboration
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -248,7 +247,6 @@ class AnalysisTemplate(pulumi.CustomResource):
         """
         Represents a stored analysis within a collaboration
 
-
         :param str resource_name: The name of the resource.
         :param AnalysisTemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -264,17 +262,17 @@ class AnalysisTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analysis_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisTemplateAnalysisParameterArgs', 'AnalysisTemplateAnalysisParameterArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_message_configuration: Optional[pulumi.Input[Union['AnalysisTemplateErrorMessageConfigurationArgs', 'AnalysisTemplateErrorMessageConfigurationArgsDict']]] = None,
-                 format: Optional[pulumi.Input['AnalysisTemplateFormat']] = None,
-                 membership_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[Union['AnalysisTemplateAnalysisSchemaArgs', 'AnalysisTemplateAnalysisSchemaArgsDict']]] = None,
-                 source: Optional[pulumi.Input[Union[Union['AnalysisTemplateAnalysisSource0PropertiesArgs', 'AnalysisTemplateAnalysisSource0PropertiesArgsDict'], Union['AnalysisTemplateAnalysisSource1PropertiesArgs', 'AnalysisTemplateAnalysisSource1PropertiesArgsDict']]]] = None,
-                 source_metadata: Optional[pulumi.Input[Union['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs', 'AnalysisTemplateAnalysisSourceMetadataPropertiesArgsDict']]] = None,
-                 synthetic_data_parameters: Optional[pulumi.Input[Union['AnalysisTemplateSyntheticDataParametersPropertiesArgs', 'AnalysisTemplateSyntheticDataParametersPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 analysis_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalysisTemplateAnalysisParameterArgs', 'AnalysisTemplateAnalysisParameterArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_message_configuration: pulumi.Input[Optional[Union['AnalysisTemplateErrorMessageConfigurationArgs', 'AnalysisTemplateErrorMessageConfigurationArgsDict']]] = None,
+                 format: pulumi.Input[Optional['AnalysisTemplateFormat']] = None,
+                 membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[Union['AnalysisTemplateAnalysisSchemaArgs', 'AnalysisTemplateAnalysisSchemaArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union[Union['AnalysisTemplateAnalysisSource0PropertiesArgs', 'AnalysisTemplateAnalysisSource0PropertiesArgsDict'], Union['AnalysisTemplateAnalysisSource1PropertiesArgs', 'AnalysisTemplateAnalysisSource1PropertiesArgsDict']]]] = None,
+                 source_metadata: pulumi.Input[Optional[Union['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs', 'AnalysisTemplateAnalysisSourceMetadataPropertiesArgsDict']]] = None,
+                 synthetic_data_parameters: pulumi.Input[Optional[Union['AnalysisTemplateSyntheticDataParametersPropertiesArgs', 'AnalysisTemplateSyntheticDataParametersPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

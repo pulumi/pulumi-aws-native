@@ -100,7 +100,6 @@ def get_access_policy(access_policy_id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::IoTSiteWise::AccessPolicy
 
-
     :param _builtins.str access_policy_id: The ID of the access policy.
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_access_policy(access_policy_id: Optional[_builtins.str] = None,
         access_policy_identity=pulumi.get(__ret__, 'access_policy_identity'),
         access_policy_permission=pulumi.get(__ret__, 'access_policy_permission'),
         access_policy_resource=pulumi.get(__ret__, 'access_policy_resource'))
-def get_access_policy_output(access_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_policy_output(access_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPolicyResult]:
     """
     Resource schema for AWS::IoTSiteWise::AccessPolicy
-
 
     :param _builtins.str access_policy_id: The ID of the access policy.
     """

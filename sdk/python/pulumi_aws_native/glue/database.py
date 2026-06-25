@@ -23,7 +23,7 @@ class DatabaseArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[_builtins.str],
                  database_input: pulumi.Input['DatabaseInputArgs'],
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Database resource.
 
@@ -62,14 +62,14 @@ class DatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the database. For hive compatibility, this is folded to lowercase when it is store.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
 
@@ -79,13 +79,12 @@ class Database(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_input: Optional[pulumi.Input[Union['DatabaseInputArgs', 'DatabaseInputArgsDict']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_input: pulumi.Input[Optional[Union['DatabaseInputArgs', 'DatabaseInputArgsDict']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Glue::Database
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -102,7 +101,6 @@ class Database(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Glue::Database
 
-
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,9 +116,9 @@ class Database(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_input: Optional[pulumi.Input[Union['DatabaseInputArgs', 'DatabaseInputArgsDict']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_input: pulumi.Input[Optional[Union['DatabaseInputArgs', 'DatabaseInputArgsDict']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

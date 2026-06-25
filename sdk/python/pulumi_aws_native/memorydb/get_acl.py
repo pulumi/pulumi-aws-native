@@ -88,7 +88,6 @@ def get_acl(acl_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::MemoryDB::ACL
 
-
     :param _builtins.str acl_name: The name of the acl.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_acl(acl_name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         user_names=pulumi.get(__ret__, 'user_names'))
-def get_acl_output(acl_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_acl_output(acl_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAclResult]:
     """
     Resource Type definition for AWS::MemoryDB::ACL
-
 
     :param _builtins.str acl_name: The name of the acl.
     """

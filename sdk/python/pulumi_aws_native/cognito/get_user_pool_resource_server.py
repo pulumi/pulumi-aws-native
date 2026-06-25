@@ -65,7 +65,6 @@ def get_user_pool_resource_server(identifier: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Cognito::UserPoolResourceServer
 
-
     :param _builtins.str identifier: A unique resource server identifier for the resource server. The identifier can be an API friendly name like `solar-system-data` . You can also set an API URL like `https://solar-system-data-api.example.com` as your identifier.
            
            Amazon Cognito represents scopes in the access token in the format `$resource-server-identifier/$scope` . Longer scope-identifier strings increase the size of your access tokens.
@@ -80,12 +79,11 @@ def get_user_pool_resource_server(identifier: Optional[_builtins.str] = None,
     return AwaitableGetUserPoolResourceServerResult(
         name=pulumi.get(__ret__, 'name'),
         scopes=pulumi.get(__ret__, 'scopes'))
-def get_user_pool_resource_server_output(identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                                         user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_pool_resource_server_output(identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                                         user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolResourceServerResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolResourceServer
-
 
     :param _builtins.str identifier: A unique resource server identifier for the resource server. The identifier can be an API friendly name like `solar-system-data` . You can also set an API URL like `https://solar-system-data-api.example.com` as your identifier.
            

@@ -21,7 +21,7 @@ class AiGuardrailVersionArgs:
     def __init__(__self__, *,
                  ai_guardrail_id: pulumi.Input[_builtins.str],
                  assistant_id: pulumi.Input[_builtins.str],
-                 modified_time_seconds: Optional[pulumi.Input[_builtins.float]] = None):
+                 modified_time_seconds: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The set of arguments for constructing a AiGuardrailVersion resource.
 
@@ -60,14 +60,14 @@ class AiGuardrailVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="modifiedTimeSeconds")
-    def modified_time_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def modified_time_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The modified time of the AI guardrail version in seconds.
         """
         return pulumi.get(self, "modified_time_seconds")
 
     @modified_time_seconds.setter
-    def modified_time_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def modified_time_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "modified_time_seconds", value)
 
 
@@ -77,13 +77,12 @@ class AiGuardrailVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ai_guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 modified_time_seconds: Optional[pulumi.Input[_builtins.float]] = None,
+                 ai_guardrail_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 modified_time_seconds: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::AIGuardrailVersion Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -100,7 +99,6 @@ class AiGuardrailVersion(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::AIGuardrailVersion Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param AiGuardrailVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,9 +114,9 @@ class AiGuardrailVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ai_guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 modified_time_seconds: Optional[pulumi.Input[_builtins.float]] = None,
+                 ai_guardrail_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 modified_time_seconds: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -26,12 +26,12 @@ __all__ = [
     'AnalysisTemplateAnalysisSource1PropertiesArgsDict',
     'AnalysisTemplateAnalysisSourceMetadataPropertiesArgs',
     'AnalysisTemplateAnalysisSourceMetadataPropertiesArgsDict',
+    'AnalysisTemplateArtifactArgs',
+    'AnalysisTemplateArtifactArgsDict',
     'AnalysisTemplateArtifactMetadataArgs',
     'AnalysisTemplateArtifactMetadataArgsDict',
     'AnalysisTemplateArtifactsArgs',
     'AnalysisTemplateArtifactsArgsDict',
-    'AnalysisTemplateArtifactArgs',
-    'AnalysisTemplateArtifactArgsDict',
     'AnalysisTemplateColumnClassificationDetailsArgs',
     'AnalysisTemplateColumnClassificationDetailsArgsDict',
     'AnalysisTemplateErrorMessageConfigurationArgs',
@@ -70,44 +70,44 @@ __all__ = [
     'ConfiguredTableAggregateColumnArgsDict',
     'ConfiguredTableAggregationConstraintArgs',
     'ConfiguredTableAggregationConstraintArgsDict',
+    'ConfiguredTableAnalysisRuleArgs',
+    'ConfiguredTableAnalysisRuleArgsDict',
     'ConfiguredTableAnalysisRuleAggregationArgs',
     'ConfiguredTableAnalysisRuleAggregationArgsDict',
     'ConfiguredTableAnalysisRuleCustomArgs',
     'ConfiguredTableAnalysisRuleCustomArgsDict',
     'ConfiguredTableAnalysisRuleListArgs',
     'ConfiguredTableAnalysisRuleListArgsDict',
+    'ConfiguredTableAnalysisRulePolicyArgs',
+    'ConfiguredTableAnalysisRulePolicyArgsDict',
     'ConfiguredTableAnalysisRulePolicyV10PropertiesArgs',
     'ConfiguredTableAnalysisRulePolicyV10PropertiesArgsDict',
     'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs',
     'ConfiguredTableAnalysisRulePolicyV11PropertiesArgsDict',
     'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs',
     'ConfiguredTableAnalysisRulePolicyV12PropertiesArgsDict',
-    'ConfiguredTableAnalysisRulePolicyArgs',
-    'ConfiguredTableAnalysisRulePolicyArgsDict',
-    'ConfiguredTableAnalysisRuleArgs',
-    'ConfiguredTableAnalysisRuleArgsDict',
+    'ConfiguredTableAssociationAnalysisRuleArgs',
+    'ConfiguredTableAssociationAnalysisRuleArgsDict',
     'ConfiguredTableAssociationAnalysisRuleAggregationArgs',
     'ConfiguredTableAssociationAnalysisRuleAggregationArgsDict',
     'ConfiguredTableAssociationAnalysisRuleCustomArgs',
     'ConfiguredTableAssociationAnalysisRuleCustomArgsDict',
     'ConfiguredTableAssociationAnalysisRuleListArgs',
     'ConfiguredTableAssociationAnalysisRuleListArgsDict',
+    'ConfiguredTableAssociationAnalysisRulePolicyArgs',
+    'ConfiguredTableAssociationAnalysisRulePolicyArgsDict',
     'ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs',
     'ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgsDict',
     'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs',
     'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgsDict',
     'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs',
     'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgsDict',
-    'ConfiguredTableAssociationAnalysisRulePolicyArgs',
-    'ConfiguredTableAssociationAnalysisRulePolicyArgsDict',
-    'ConfiguredTableAssociationAnalysisRuleArgs',
-    'ConfiguredTableAssociationAnalysisRuleArgsDict',
     'ConfiguredTableAthenaTableReferenceArgs',
     'ConfiguredTableAthenaTableReferenceArgsDict',
-    'ConfiguredTableDifferentialPrivacyColumnArgs',
-    'ConfiguredTableDifferentialPrivacyColumnArgsDict',
     'ConfiguredTableDifferentialPrivacyArgs',
     'ConfiguredTableDifferentialPrivacyArgsDict',
+    'ConfiguredTableDifferentialPrivacyColumnArgs',
+    'ConfiguredTableDifferentialPrivacyColumnArgsDict',
     'ConfiguredTableGlueTableReferenceArgs',
     'ConfiguredTableGlueTableReferenceArgsDict',
     'ConfiguredTableSnowflakeTableReferenceArgs',
@@ -169,7 +169,7 @@ class AnalysisTemplateAnalysisParameterArgsDict(TypedDict):
     """
     The type of parameter.
     """
-    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    default_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional. The default value that is applied in the analysis template. The member who can query can override this value in the query editor.
     """
@@ -179,7 +179,7 @@ class AnalysisTemplateAnalysisParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input['AnalysisTemplateAnalysisParameterType'],
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the parameter. The name must use only alphanumeric, underscore (_), or hyphen (-) characters but cannot start or end with a hyphen.
         :param pulumi.Input['AnalysisTemplateAnalysisParameterType'] type: The type of parameter.
@@ -216,14 +216,14 @@ class AnalysisTemplateAnalysisParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional. The default value that is applied in the analysis template. The member who can query can override this value in the query editor.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_value", value)
 
 
@@ -312,15 +312,34 @@ class AnalysisTemplateAnalysisSourceMetadataPropertiesArgs:
         pulumi.set(self, "artifacts", value)
 
 
+class AnalysisTemplateArtifactArgsDict(TypedDict):
+    location: pulumi.Input['AnalysisTemplateS3LocationArgsDict']
+
+@pulumi.input_type
+class AnalysisTemplateArtifactArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input['AnalysisTemplateS3LocationArgs']):
+        pulumi.set(__self__, "location", location)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> pulumi.Input['AnalysisTemplateS3LocationArgs']:
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input['AnalysisTemplateS3LocationArgs']):
+        pulumi.set(self, "location", value)
+
+
 class AnalysisTemplateArtifactMetadataArgsDict(TypedDict):
     entry_point_hash: pulumi.Input['AnalysisTemplateHashArgsDict']
-    additional_artifact_hashes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateHashArgsDict']]]]
+    additional_artifact_hashes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTemplateHashArgsDict']]]]]
 
 @pulumi.input_type
 class AnalysisTemplateArtifactMetadataArgs:
     def __init__(__self__, *,
                  entry_point_hash: pulumi.Input['AnalysisTemplateHashArgs'],
-                 additional_artifact_hashes: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateHashArgs']]]] = None):
+                 additional_artifact_hashes: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTemplateHashArgs']]]] = None):
         pulumi.set(__self__, "entry_point_hash", entry_point_hash)
         if additional_artifact_hashes is not None:
             pulumi.set(__self__, "additional_artifact_hashes", additional_artifact_hashes)
@@ -336,25 +355,25 @@ class AnalysisTemplateArtifactMetadataArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalArtifactHashes")
-    def additional_artifact_hashes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateHashArgs']]]]:
+    def additional_artifact_hashes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTemplateHashArgs']]]]:
         return pulumi.get(self, "additional_artifact_hashes")
 
     @additional_artifact_hashes.setter
-    def additional_artifact_hashes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateHashArgs']]]]):
+    def additional_artifact_hashes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTemplateHashArgs']]]]):
         pulumi.set(self, "additional_artifact_hashes", value)
 
 
 class AnalysisTemplateArtifactsArgsDict(TypedDict):
     entry_point: pulumi.Input['AnalysisTemplateArtifactArgsDict']
     role_arn: pulumi.Input[_builtins.str]
-    additional_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateArtifactArgsDict']]]]
+    additional_artifacts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTemplateArtifactArgsDict']]]]]
 
 @pulumi.input_type
 class AnalysisTemplateArtifactsArgs:
     def __init__(__self__, *,
                  entry_point: pulumi.Input['AnalysisTemplateArtifactArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 additional_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateArtifactArgs']]]] = None):
+                 additional_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTemplateArtifactArgs']]]] = None):
         pulumi.set(__self__, "entry_point", entry_point)
         pulumi.set(__self__, "role_arn", role_arn)
         if additional_artifacts is not None:
@@ -380,31 +399,12 @@ class AnalysisTemplateArtifactsArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalArtifacts")
-    def additional_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateArtifactArgs']]]]:
+    def additional_artifacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTemplateArtifactArgs']]]]:
         return pulumi.get(self, "additional_artifacts")
 
     @additional_artifacts.setter
-    def additional_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateArtifactArgs']]]]):
+    def additional_artifacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTemplateArtifactArgs']]]]):
         pulumi.set(self, "additional_artifacts", value)
-
-
-class AnalysisTemplateArtifactArgsDict(TypedDict):
-    location: pulumi.Input['AnalysisTemplateS3LocationArgsDict']
-
-@pulumi.input_type
-class AnalysisTemplateArtifactArgs:
-    def __init__(__self__, *,
-                 location: pulumi.Input['AnalysisTemplateS3LocationArgs']):
-        pulumi.set(__self__, "location", location)
-
-    @_builtins.property
-    @pulumi.getter
-    def location(self) -> pulumi.Input['AnalysisTemplateS3LocationArgs']:
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: pulumi.Input['AnalysisTemplateS3LocationArgs']):
-        pulumi.set(self, "location", value)
 
 
 class AnalysisTemplateColumnClassificationDetailsArgsDict(TypedDict):
@@ -461,22 +461,22 @@ class AnalysisTemplateErrorMessageConfigurationArgs:
 
 
 class AnalysisTemplateHashArgsDict(TypedDict):
-    sha256: NotRequired[pulumi.Input[_builtins.str]]
+    sha256: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AnalysisTemplateHashArgs:
     def __init__(__self__, *,
-                 sha256: Optional[pulumi.Input[_builtins.str]] = None):
+                 sha256: pulumi.Input[Optional[_builtins.str]] = None):
         if sha256 is not None:
             pulumi.set(__self__, "sha256", sha256)
 
     @_builtins.property
     @pulumi.getter
-    def sha256(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sha256(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "sha256")
 
     @sha256.setter
-    def sha256(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sha256(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sha256", value)
 
 
@@ -750,17 +750,17 @@ class CollaborationMemberSpecificationArgsDict(TypedDict):
     """
     The member's display name.
     """
-    member_abilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]]
+    member_abilities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CollaborationMemberAbility']]]]]
     """
     The abilities granted to the collaboration member.
 
     *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
     """
-    ml_member_abilities: NotRequired[pulumi.Input['CollaborationMlMemberAbilitiesArgsDict']]
+    ml_member_abilities: NotRequired[pulumi.Input[Optional['CollaborationMlMemberAbilitiesArgsDict']]]
     """
     The ML abilities granted to the collaboration member.
     """
-    payment_configuration: NotRequired[pulumi.Input['CollaborationPaymentConfigurationArgsDict']]
+    payment_configuration: NotRequired[pulumi.Input[Optional['CollaborationPaymentConfigurationArgsDict']]]
     """
     The collaboration member's payment responsibilities set by the collaboration creator.
 
@@ -772,9 +772,9 @@ class CollaborationMemberSpecificationArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
-                 member_abilities: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]] = None,
-                 ml_member_abilities: Optional[pulumi.Input['CollaborationMlMemberAbilitiesArgs']] = None,
-                 payment_configuration: Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']] = None):
+                 member_abilities: pulumi.Input[Optional[Sequence[pulumi.Input['CollaborationMemberAbility']]]] = None,
+                 ml_member_abilities: pulumi.Input[Optional['CollaborationMlMemberAbilitiesArgs']] = None,
+                 payment_configuration: pulumi.Input[Optional['CollaborationPaymentConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] account_id: The identifier used to reference members of the collaboration. Currently only supports AWS account ID.
         :param pulumi.Input[_builtins.str] display_name: The member's display name.
@@ -821,7 +821,7 @@ class CollaborationMemberSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="memberAbilities")
-    def member_abilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]]:
+    def member_abilities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CollaborationMemberAbility']]]]:
         """
         The abilities granted to the collaboration member.
 
@@ -830,24 +830,24 @@ class CollaborationMemberSpecificationArgs:
         return pulumi.get(self, "member_abilities")
 
     @member_abilities.setter
-    def member_abilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]]):
+    def member_abilities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CollaborationMemberAbility']]]]):
         pulumi.set(self, "member_abilities", value)
 
     @_builtins.property
     @pulumi.getter(name="mlMemberAbilities")
-    def ml_member_abilities(self) -> Optional[pulumi.Input['CollaborationMlMemberAbilitiesArgs']]:
+    def ml_member_abilities(self) -> pulumi.Input[Optional['CollaborationMlMemberAbilitiesArgs']]:
         """
         The ML abilities granted to the collaboration member.
         """
         return pulumi.get(self, "ml_member_abilities")
 
     @ml_member_abilities.setter
-    def ml_member_abilities(self, value: Optional[pulumi.Input['CollaborationMlMemberAbilitiesArgs']]):
+    def ml_member_abilities(self, value: pulumi.Input[Optional['CollaborationMlMemberAbilitiesArgs']]):
         pulumi.set(self, "ml_member_abilities", value)
 
     @_builtins.property
     @pulumi.getter(name="paymentConfiguration")
-    def payment_configuration(self) -> Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']]:
+    def payment_configuration(self) -> pulumi.Input[Optional['CollaborationPaymentConfigurationArgs']]:
         """
         The collaboration member's payment responsibilities set by the collaboration creator.
 
@@ -856,7 +856,7 @@ class CollaborationMemberSpecificationArgs:
         return pulumi.get(self, "payment_configuration")
 
     @payment_configuration.setter
-    def payment_configuration(self, value: Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']]):
+    def payment_configuration(self, value: pulumi.Input[Optional['CollaborationPaymentConfigurationArgs']]):
         pulumi.set(self, "payment_configuration", value)
 
 
@@ -889,15 +889,15 @@ class CollaborationMlMemberAbilitiesArgs:
 
 
 class CollaborationMlPaymentConfigArgsDict(TypedDict):
-    model_inference: NotRequired[pulumi.Input['CollaborationModelInferencePaymentConfigArgsDict']]
+    model_inference: NotRequired[pulumi.Input[Optional['CollaborationModelInferencePaymentConfigArgsDict']]]
     """
     The payment responsibilities accepted by the member for model inference.
     """
-    model_training: NotRequired[pulumi.Input['CollaborationModelTrainingPaymentConfigArgsDict']]
+    model_training: NotRequired[pulumi.Input[Optional['CollaborationModelTrainingPaymentConfigArgsDict']]]
     """
     The payment responsibilities accepted by the member for model training.
     """
-    synthetic_data_generation: NotRequired[pulumi.Input['CollaborationSyntheticDataGenerationPaymentConfigArgsDict']]
+    synthetic_data_generation: NotRequired[pulumi.Input[Optional['CollaborationSyntheticDataGenerationPaymentConfigArgsDict']]]
     """
     The payment configuration for machine learning synthetic data generation.
     """
@@ -905,9 +905,9 @@ class CollaborationMlPaymentConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CollaborationMlPaymentConfigArgs:
     def __init__(__self__, *,
-                 model_inference: Optional[pulumi.Input['CollaborationModelInferencePaymentConfigArgs']] = None,
-                 model_training: Optional[pulumi.Input['CollaborationModelTrainingPaymentConfigArgs']] = None,
-                 synthetic_data_generation: Optional[pulumi.Input['CollaborationSyntheticDataGenerationPaymentConfigArgs']] = None):
+                 model_inference: pulumi.Input[Optional['CollaborationModelInferencePaymentConfigArgs']] = None,
+                 model_training: pulumi.Input[Optional['CollaborationModelTrainingPaymentConfigArgs']] = None,
+                 synthetic_data_generation: pulumi.Input[Optional['CollaborationSyntheticDataGenerationPaymentConfigArgs']] = None):
         """
         :param pulumi.Input['CollaborationModelInferencePaymentConfigArgs'] model_inference: The payment responsibilities accepted by the member for model inference.
         :param pulumi.Input['CollaborationModelTrainingPaymentConfigArgs'] model_training: The payment responsibilities accepted by the member for model training.
@@ -922,38 +922,38 @@ class CollaborationMlPaymentConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="modelInference")
-    def model_inference(self) -> Optional[pulumi.Input['CollaborationModelInferencePaymentConfigArgs']]:
+    def model_inference(self) -> pulumi.Input[Optional['CollaborationModelInferencePaymentConfigArgs']]:
         """
         The payment responsibilities accepted by the member for model inference.
         """
         return pulumi.get(self, "model_inference")
 
     @model_inference.setter
-    def model_inference(self, value: Optional[pulumi.Input['CollaborationModelInferencePaymentConfigArgs']]):
+    def model_inference(self, value: pulumi.Input[Optional['CollaborationModelInferencePaymentConfigArgs']]):
         pulumi.set(self, "model_inference", value)
 
     @_builtins.property
     @pulumi.getter(name="modelTraining")
-    def model_training(self) -> Optional[pulumi.Input['CollaborationModelTrainingPaymentConfigArgs']]:
+    def model_training(self) -> pulumi.Input[Optional['CollaborationModelTrainingPaymentConfigArgs']]:
         """
         The payment responsibilities accepted by the member for model training.
         """
         return pulumi.get(self, "model_training")
 
     @model_training.setter
-    def model_training(self, value: Optional[pulumi.Input['CollaborationModelTrainingPaymentConfigArgs']]):
+    def model_training(self, value: pulumi.Input[Optional['CollaborationModelTrainingPaymentConfigArgs']]):
         pulumi.set(self, "model_training", value)
 
     @_builtins.property
     @pulumi.getter(name="syntheticDataGeneration")
-    def synthetic_data_generation(self) -> Optional[pulumi.Input['CollaborationSyntheticDataGenerationPaymentConfigArgs']]:
+    def synthetic_data_generation(self) -> pulumi.Input[Optional['CollaborationSyntheticDataGenerationPaymentConfigArgs']]:
         """
         The payment configuration for machine learning synthetic data generation.
         """
         return pulumi.get(self, "synthetic_data_generation")
 
     @synthetic_data_generation.setter
-    def synthetic_data_generation(self, value: Optional[pulumi.Input['CollaborationSyntheticDataGenerationPaymentConfigArgs']]):
+    def synthetic_data_generation(self, value: pulumi.Input[Optional['CollaborationSyntheticDataGenerationPaymentConfigArgs']]):
         pulumi.set(self, "synthetic_data_generation", value)
 
 
@@ -1042,11 +1042,11 @@ class CollaborationPaymentConfigurationArgsDict(TypedDict):
     """
     The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
     """
-    job_compute: NotRequired[pulumi.Input['CollaborationJobComputePaymentConfigArgsDict']]
+    job_compute: NotRequired[pulumi.Input[Optional['CollaborationJobComputePaymentConfigArgsDict']]]
     """
     The compute configuration for the job.
     """
-    machine_learning: NotRequired[pulumi.Input['CollaborationMlPaymentConfigArgsDict']]
+    machine_learning: NotRequired[pulumi.Input[Optional['CollaborationMlPaymentConfigArgsDict']]]
     """
     An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
     """
@@ -1055,8 +1055,8 @@ class CollaborationPaymentConfigurationArgsDict(TypedDict):
 class CollaborationPaymentConfigurationArgs:
     def __init__(__self__, *,
                  query_compute: pulumi.Input['CollaborationQueryComputePaymentConfigArgs'],
-                 job_compute: Optional[pulumi.Input['CollaborationJobComputePaymentConfigArgs']] = None,
-                 machine_learning: Optional[pulumi.Input['CollaborationMlPaymentConfigArgs']] = None):
+                 job_compute: pulumi.Input[Optional['CollaborationJobComputePaymentConfigArgs']] = None,
+                 machine_learning: pulumi.Input[Optional['CollaborationMlPaymentConfigArgs']] = None):
         """
         :param pulumi.Input['CollaborationQueryComputePaymentConfigArgs'] query_compute: The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
         :param pulumi.Input['CollaborationJobComputePaymentConfigArgs'] job_compute: The compute configuration for the job.
@@ -1082,26 +1082,26 @@ class CollaborationPaymentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="jobCompute")
-    def job_compute(self) -> Optional[pulumi.Input['CollaborationJobComputePaymentConfigArgs']]:
+    def job_compute(self) -> pulumi.Input[Optional['CollaborationJobComputePaymentConfigArgs']]:
         """
         The compute configuration for the job.
         """
         return pulumi.get(self, "job_compute")
 
     @job_compute.setter
-    def job_compute(self, value: Optional[pulumi.Input['CollaborationJobComputePaymentConfigArgs']]):
+    def job_compute(self, value: pulumi.Input[Optional['CollaborationJobComputePaymentConfigArgs']]):
         pulumi.set(self, "job_compute", value)
 
     @_builtins.property
     @pulumi.getter(name="machineLearning")
-    def machine_learning(self) -> Optional[pulumi.Input['CollaborationMlPaymentConfigArgs']]:
+    def machine_learning(self) -> pulumi.Input[Optional['CollaborationMlPaymentConfigArgs']]:
         """
         An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
         """
         return pulumi.get(self, "machine_learning")
 
     @machine_learning.setter
-    def machine_learning(self, value: Optional[pulumi.Input['CollaborationMlPaymentConfigArgs']]):
+    def machine_learning(self, value: pulumi.Input[Optional['CollaborationMlPaymentConfigArgs']]):
         pulumi.set(self, "machine_learning", value)
 
 
@@ -1247,15 +1247,62 @@ class ConfiguredTableAggregationConstraintArgs:
         pulumi.set(self, "type", value)
 
 
+class ConfiguredTableAnalysisRuleArgsDict(TypedDict):
+    policy: pulumi.Input['ConfiguredTableAnalysisRulePolicyArgsDict']
+    """
+    A policy that describes the associated data usage limitations.
+    """
+    type: pulumi.Input['ConfiguredTableAnalysisRuleType']
+    """
+    The type of analysis rule.
+    """
+
+@pulumi.input_type
+class ConfiguredTableAnalysisRuleArgs:
+    def __init__(__self__, *,
+                 policy: pulumi.Input['ConfiguredTableAnalysisRulePolicyArgs'],
+                 type: pulumi.Input['ConfiguredTableAnalysisRuleType']):
+        """
+        :param pulumi.Input['ConfiguredTableAnalysisRulePolicyArgs'] policy: A policy that describes the associated data usage limitations.
+        :param pulumi.Input['ConfiguredTableAnalysisRuleType'] type: The type of analysis rule.
+        """
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input['ConfiguredTableAnalysisRulePolicyArgs']:
+        """
+        A policy that describes the associated data usage limitations.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input['ConfiguredTableAnalysisRulePolicyArgs']):
+        pulumi.set(self, "policy", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ConfiguredTableAnalysisRuleType']:
+        """
+        The type of analysis rule.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ConfiguredTableAnalysisRuleType']):
+        pulumi.set(self, "type", value)
+
+
 class ConfiguredTableAnalysisRuleAggregationArgsDict(TypedDict):
     aggregate_columns: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAggregateColumnArgsDict']]]
     dimension_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     join_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     output_constraints: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAggregationConstraintArgsDict']]]
     scalar_functions: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableScalarFunctions']]]
-    additional_analyses: NotRequired[pulumi.Input['ConfiguredTableAdditionalAnalyses']]
-    allowed_join_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]
-    join_required: NotRequired[pulumi.Input['ConfiguredTableJoinRequiredOption']]
+    additional_analyses: NotRequired[pulumi.Input[Optional['ConfiguredTableAdditionalAnalyses']]]
+    allowed_join_operators: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]]
+    join_required: NotRequired[pulumi.Input[Optional['ConfiguredTableJoinRequiredOption']]]
 
 @pulumi.input_type
 class ConfiguredTableAnalysisRuleAggregationArgs:
@@ -1265,9 +1312,9 @@ class ConfiguredTableAnalysisRuleAggregationArgs:
                  join_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  output_constraints: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAggregationConstraintArgs']]],
                  scalar_functions: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableScalarFunctions']]],
-                 additional_analyses: Optional[pulumi.Input['ConfiguredTableAdditionalAnalyses']] = None,
-                 allowed_join_operators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]] = None,
-                 join_required: Optional[pulumi.Input['ConfiguredTableJoinRequiredOption']] = None):
+                 additional_analyses: pulumi.Input[Optional['ConfiguredTableAdditionalAnalyses']] = None,
+                 allowed_join_operators: pulumi.Input[Optional[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]] = None,
+                 join_required: pulumi.Input[Optional['ConfiguredTableJoinRequiredOption']] = None):
         pulumi.set(__self__, "aggregate_columns", aggregate_columns)
         pulumi.set(__self__, "dimension_columns", dimension_columns)
         pulumi.set(__self__, "join_columns", join_columns)
@@ -1327,47 +1374,47 @@ class ConfiguredTableAnalysisRuleAggregationArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalAnalyses")
-    def additional_analyses(self) -> Optional[pulumi.Input['ConfiguredTableAdditionalAnalyses']]:
+    def additional_analyses(self) -> pulumi.Input[Optional['ConfiguredTableAdditionalAnalyses']]:
         return pulumi.get(self, "additional_analyses")
 
     @additional_analyses.setter
-    def additional_analyses(self, value: Optional[pulumi.Input['ConfiguredTableAdditionalAnalyses']]):
+    def additional_analyses(self, value: pulumi.Input[Optional['ConfiguredTableAdditionalAnalyses']]):
         pulumi.set(self, "additional_analyses", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedJoinOperators")
-    def allowed_join_operators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]:
+    def allowed_join_operators(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]:
         return pulumi.get(self, "allowed_join_operators")
 
     @allowed_join_operators.setter
-    def allowed_join_operators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]):
+    def allowed_join_operators(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]):
         pulumi.set(self, "allowed_join_operators", value)
 
     @_builtins.property
     @pulumi.getter(name="joinRequired")
-    def join_required(self) -> Optional[pulumi.Input['ConfiguredTableJoinRequiredOption']]:
+    def join_required(self) -> pulumi.Input[Optional['ConfiguredTableJoinRequiredOption']]:
         return pulumi.get(self, "join_required")
 
     @join_required.setter
-    def join_required(self, value: Optional[pulumi.Input['ConfiguredTableJoinRequiredOption']]):
+    def join_required(self, value: pulumi.Input[Optional['ConfiguredTableJoinRequiredOption']]):
         pulumi.set(self, "join_required", value)
 
 
 class ConfiguredTableAnalysisRuleCustomArgsDict(TypedDict):
     allowed_analyses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    additional_analyses: NotRequired[pulumi.Input['ConfiguredTableAdditionalAnalyses']]
-    allowed_analysis_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    differential_privacy: NotRequired[pulumi.Input['ConfiguredTableDifferentialPrivacyArgsDict']]
-    disallowed_output_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    additional_analyses: NotRequired[pulumi.Input[Optional['ConfiguredTableAdditionalAnalyses']]]
+    allowed_analysis_providers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    differential_privacy: NotRequired[pulumi.Input[Optional['ConfiguredTableDifferentialPrivacyArgsDict']]]
+    disallowed_output_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class ConfiguredTableAnalysisRuleCustomArgs:
     def __init__(__self__, *,
                  allowed_analyses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 additional_analyses: Optional[pulumi.Input['ConfiguredTableAdditionalAnalyses']] = None,
-                 allowed_analysis_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 differential_privacy: Optional[pulumi.Input['ConfiguredTableDifferentialPrivacyArgs']] = None,
-                 disallowed_output_columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 additional_analyses: pulumi.Input[Optional['ConfiguredTableAdditionalAnalyses']] = None,
+                 allowed_analysis_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 differential_privacy: pulumi.Input[Optional['ConfiguredTableDifferentialPrivacyArgs']] = None,
+                 disallowed_output_columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "allowed_analyses", allowed_analyses)
         if additional_analyses is not None:
             pulumi.set(__self__, "additional_analyses", additional_analyses)
@@ -1389,54 +1436,54 @@ class ConfiguredTableAnalysisRuleCustomArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalAnalyses")
-    def additional_analyses(self) -> Optional[pulumi.Input['ConfiguredTableAdditionalAnalyses']]:
+    def additional_analyses(self) -> pulumi.Input[Optional['ConfiguredTableAdditionalAnalyses']]:
         return pulumi.get(self, "additional_analyses")
 
     @additional_analyses.setter
-    def additional_analyses(self, value: Optional[pulumi.Input['ConfiguredTableAdditionalAnalyses']]):
+    def additional_analyses(self, value: pulumi.Input[Optional['ConfiguredTableAdditionalAnalyses']]):
         pulumi.set(self, "additional_analyses", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedAnalysisProviders")
-    def allowed_analysis_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_analysis_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_analysis_providers")
 
     @allowed_analysis_providers.setter
-    def allowed_analysis_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_analysis_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_analysis_providers", value)
 
     @_builtins.property
     @pulumi.getter(name="differentialPrivacy")
-    def differential_privacy(self) -> Optional[pulumi.Input['ConfiguredTableDifferentialPrivacyArgs']]:
+    def differential_privacy(self) -> pulumi.Input[Optional['ConfiguredTableDifferentialPrivacyArgs']]:
         return pulumi.get(self, "differential_privacy")
 
     @differential_privacy.setter
-    def differential_privacy(self, value: Optional[pulumi.Input['ConfiguredTableDifferentialPrivacyArgs']]):
+    def differential_privacy(self, value: pulumi.Input[Optional['ConfiguredTableDifferentialPrivacyArgs']]):
         pulumi.set(self, "differential_privacy", value)
 
     @_builtins.property
     @pulumi.getter(name="disallowedOutputColumns")
-    def disallowed_output_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disallowed_output_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "disallowed_output_columns")
 
     @disallowed_output_columns.setter
-    def disallowed_output_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disallowed_output_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disallowed_output_columns", value)
 
 
 class ConfiguredTableAnalysisRuleListArgsDict(TypedDict):
     join_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     list_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    additional_analyses: NotRequired[pulumi.Input['ConfiguredTableAdditionalAnalyses']]
-    allowed_join_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]
+    additional_analyses: NotRequired[pulumi.Input[Optional['ConfiguredTableAdditionalAnalyses']]]
+    allowed_join_operators: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]]
 
 @pulumi.input_type
 class ConfiguredTableAnalysisRuleListArgs:
     def __init__(__self__, *,
                  join_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  list_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 additional_analyses: Optional[pulumi.Input['ConfiguredTableAdditionalAnalyses']] = None,
-                 allowed_join_operators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]] = None):
+                 additional_analyses: pulumi.Input[Optional['ConfiguredTableAdditionalAnalyses']] = None,
+                 allowed_join_operators: pulumi.Input[Optional[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]] = None):
         pulumi.set(__self__, "join_columns", join_columns)
         pulumi.set(__self__, "list_columns", list_columns)
         if additional_analyses is not None:
@@ -1464,21 +1511,49 @@ class ConfiguredTableAnalysisRuleListArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalAnalyses")
-    def additional_analyses(self) -> Optional[pulumi.Input['ConfiguredTableAdditionalAnalyses']]:
+    def additional_analyses(self) -> pulumi.Input[Optional['ConfiguredTableAdditionalAnalyses']]:
         return pulumi.get(self, "additional_analyses")
 
     @additional_analyses.setter
-    def additional_analyses(self, value: Optional[pulumi.Input['ConfiguredTableAdditionalAnalyses']]):
+    def additional_analyses(self, value: pulumi.Input[Optional['ConfiguredTableAdditionalAnalyses']]):
         pulumi.set(self, "additional_analyses", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedJoinOperators")
-    def allowed_join_operators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]:
+    def allowed_join_operators(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]:
         return pulumi.get(self, "allowed_join_operators")
 
     @allowed_join_operators.setter
-    def allowed_join_operators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]):
+    def allowed_join_operators(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]):
         pulumi.set(self, "allowed_join_operators", value)
+
+
+class ConfiguredTableAnalysisRulePolicyArgsDict(TypedDict):
+    v1: pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgsDict', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgsDict', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgsDict']]
+    """
+    Controls on the query specifications that can be run on a configured table.
+    """
+
+@pulumi.input_type
+class ConfiguredTableAnalysisRulePolicyArgs:
+    def __init__(__self__, *,
+                 v1: pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs']]):
+        """
+        :param pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs']] v1: Controls on the query specifications that can be run on a configured table.
+        """
+        pulumi.set(__self__, "v1", v1)
+
+    @_builtins.property
+    @pulumi.getter
+    def v1(self) -> pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs']]:
+        """
+        Controls on the query specifications that can be run on a configured table.
+        """
+        return pulumi.get(self, "v1")
+
+    @v1.setter
+    def v1(self, value: pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs']]):
+        pulumi.set(self, "v1", value)
 
 
 class ConfiguredTableAnalysisRulePolicyV10PropertiesArgsDict(TypedDict):
@@ -1538,90 +1613,62 @@ class ConfiguredTableAnalysisRulePolicyV12PropertiesArgs:
         pulumi.set(self, "custom", value)
 
 
-class ConfiguredTableAnalysisRulePolicyArgsDict(TypedDict):
-    v1: pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgsDict', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgsDict', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgsDict']]
+class ConfiguredTableAssociationAnalysisRuleArgsDict(TypedDict):
+    policy: pulumi.Input['ConfiguredTableAssociationAnalysisRulePolicyArgsDict']
     """
-    Controls on the query specifications that can be run on a configured table.
+    The policy of the configured table association analysis rule.
     """
-
-@pulumi.input_type
-class ConfiguredTableAnalysisRulePolicyArgs:
-    def __init__(__self__, *,
-                 v1: pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs']]):
-        """
-        :param pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs']] v1: Controls on the query specifications that can be run on a configured table.
-        """
-        pulumi.set(__self__, "v1", v1)
-
-    @_builtins.property
-    @pulumi.getter
-    def v1(self) -> pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs']]:
-        """
-        Controls on the query specifications that can be run on a configured table.
-        """
-        return pulumi.get(self, "v1")
-
-    @v1.setter
-    def v1(self, value: pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs']]):
-        pulumi.set(self, "v1", value)
-
-
-class ConfiguredTableAnalysisRuleArgsDict(TypedDict):
-    policy: pulumi.Input['ConfiguredTableAnalysisRulePolicyArgsDict']
+    type: pulumi.Input['ConfiguredTableAssociationAnalysisRuleType']
     """
-    A policy that describes the associated data usage limitations.
-    """
-    type: pulumi.Input['ConfiguredTableAnalysisRuleType']
-    """
-    The type of analysis rule.
+    The type of the configured table association analysis rule.
     """
 
 @pulumi.input_type
-class ConfiguredTableAnalysisRuleArgs:
+class ConfiguredTableAssociationAnalysisRuleArgs:
     def __init__(__self__, *,
-                 policy: pulumi.Input['ConfiguredTableAnalysisRulePolicyArgs'],
-                 type: pulumi.Input['ConfiguredTableAnalysisRuleType']):
+                 policy: pulumi.Input['ConfiguredTableAssociationAnalysisRulePolicyArgs'],
+                 type: pulumi.Input['ConfiguredTableAssociationAnalysisRuleType']):
         """
-        :param pulumi.Input['ConfiguredTableAnalysisRulePolicyArgs'] policy: A policy that describes the associated data usage limitations.
-        :param pulumi.Input['ConfiguredTableAnalysisRuleType'] type: The type of analysis rule.
+        :param pulumi.Input['ConfiguredTableAssociationAnalysisRulePolicyArgs'] policy: The policy of the configured table association analysis rule.
+        :param pulumi.Input['ConfiguredTableAssociationAnalysisRuleType'] type: The type of the configured table association analysis rule.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> pulumi.Input['ConfiguredTableAnalysisRulePolicyArgs']:
+    def policy(self) -> pulumi.Input['ConfiguredTableAssociationAnalysisRulePolicyArgs']:
         """
-        A policy that describes the associated data usage limitations.
+        The policy of the configured table association analysis rule.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: pulumi.Input['ConfiguredTableAnalysisRulePolicyArgs']):
+    def policy(self, value: pulumi.Input['ConfiguredTableAssociationAnalysisRulePolicyArgs']):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input['ConfiguredTableAnalysisRuleType']:
+    def type(self) -> pulumi.Input['ConfiguredTableAssociationAnalysisRuleType']:
         """
-        The type of analysis rule.
+        The type of the configured table association analysis rule.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['ConfiguredTableAnalysisRuleType']):
+    def type(self, value: pulumi.Input['ConfiguredTableAssociationAnalysisRuleType']):
         pulumi.set(self, "type", value)
 
 
 class ConfiguredTableAssociationAnalysisRuleAggregationArgsDict(TypedDict):
-    allowed_additional_analyses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    allowed_result_receivers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_additional_analyses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    allowed_result_receivers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRuleAggregationArgs:
     def __init__(__self__, *,
-                 allowed_additional_analyses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_result_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_additional_analyses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_result_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if allowed_additional_analyses is not None:
             pulumi.set(__self__, "allowed_additional_analyses", allowed_additional_analyses)
         if allowed_result_receivers is not None:
@@ -1629,32 +1676,32 @@ class ConfiguredTableAssociationAnalysisRuleAggregationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedAdditionalAnalyses")
-    def allowed_additional_analyses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_additional_analyses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_additional_analyses")
 
     @allowed_additional_analyses.setter
-    def allowed_additional_analyses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_additional_analyses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_additional_analyses", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedResultReceivers")
-    def allowed_result_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_result_receivers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_result_receivers")
 
     @allowed_result_receivers.setter
-    def allowed_result_receivers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_result_receivers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_result_receivers", value)
 
 
 class ConfiguredTableAssociationAnalysisRuleCustomArgsDict(TypedDict):
-    allowed_additional_analyses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    allowed_result_receivers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_additional_analyses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    allowed_result_receivers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRuleCustomArgs:
     def __init__(__self__, *,
-                 allowed_additional_analyses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_result_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_additional_analyses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_result_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if allowed_additional_analyses is not None:
             pulumi.set(__self__, "allowed_additional_analyses", allowed_additional_analyses)
         if allowed_result_receivers is not None:
@@ -1662,32 +1709,32 @@ class ConfiguredTableAssociationAnalysisRuleCustomArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedAdditionalAnalyses")
-    def allowed_additional_analyses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_additional_analyses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_additional_analyses")
 
     @allowed_additional_analyses.setter
-    def allowed_additional_analyses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_additional_analyses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_additional_analyses", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedResultReceivers")
-    def allowed_result_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_result_receivers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_result_receivers")
 
     @allowed_result_receivers.setter
-    def allowed_result_receivers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_result_receivers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_result_receivers", value)
 
 
 class ConfiguredTableAssociationAnalysisRuleListArgsDict(TypedDict):
-    allowed_additional_analyses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    allowed_result_receivers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_additional_analyses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    allowed_result_receivers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRuleListArgs:
     def __init__(__self__, *,
-                 allowed_additional_analyses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_result_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_additional_analyses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_result_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if allowed_additional_analyses is not None:
             pulumi.set(__self__, "allowed_additional_analyses", allowed_additional_analyses)
         if allowed_result_receivers is not None:
@@ -1695,21 +1742,49 @@ class ConfiguredTableAssociationAnalysisRuleListArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedAdditionalAnalyses")
-    def allowed_additional_analyses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_additional_analyses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_additional_analyses")
 
     @allowed_additional_analyses.setter
-    def allowed_additional_analyses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_additional_analyses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_additional_analyses", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedResultReceivers")
-    def allowed_result_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_result_receivers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_result_receivers")
 
     @allowed_result_receivers.setter
-    def allowed_result_receivers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_result_receivers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_result_receivers", value)
+
+
+class ConfiguredTableAssociationAnalysisRulePolicyArgsDict(TypedDict):
+    v1: pulumi.Input[Union['ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgsDict', 'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgsDict', 'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgsDict']]
+    """
+    The policy for the configured table association analysis rule.
+    """
+
+@pulumi.input_type
+class ConfiguredTableAssociationAnalysisRulePolicyArgs:
+    def __init__(__self__, *,
+                 v1: pulumi.Input[Union['ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs']]):
+        """
+        :param pulumi.Input[Union['ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs']] v1: The policy for the configured table association analysis rule.
+        """
+        pulumi.set(__self__, "v1", v1)
+
+    @_builtins.property
+    @pulumi.getter
+    def v1(self) -> pulumi.Input[Union['ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs']]:
+        """
+        The policy for the configured table association analysis rule.
+        """
+        return pulumi.get(self, "v1")
+
+    @v1.setter
+    def v1(self, value: pulumi.Input[Union['ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs']]):
+        pulumi.set(self, "v1", value)
 
 
 class ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgsDict(TypedDict):
@@ -1769,88 +1844,13 @@ class ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs:
         pulumi.set(self, "custom", value)
 
 
-class ConfiguredTableAssociationAnalysisRulePolicyArgsDict(TypedDict):
-    v1: pulumi.Input[Union['ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgsDict', 'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgsDict', 'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgsDict']]
-    """
-    The policy for the configured table association analysis rule.
-    """
-
-@pulumi.input_type
-class ConfiguredTableAssociationAnalysisRulePolicyArgs:
-    def __init__(__self__, *,
-                 v1: pulumi.Input[Union['ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs']]):
-        """
-        :param pulumi.Input[Union['ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs']] v1: The policy for the configured table association analysis rule.
-        """
-        pulumi.set(__self__, "v1", v1)
-
-    @_builtins.property
-    @pulumi.getter
-    def v1(self) -> pulumi.Input[Union['ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs']]:
-        """
-        The policy for the configured table association analysis rule.
-        """
-        return pulumi.get(self, "v1")
-
-    @v1.setter
-    def v1(self, value: pulumi.Input[Union['ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs']]):
-        pulumi.set(self, "v1", value)
-
-
-class ConfiguredTableAssociationAnalysisRuleArgsDict(TypedDict):
-    policy: pulumi.Input['ConfiguredTableAssociationAnalysisRulePolicyArgsDict']
-    """
-    The policy of the configured table association analysis rule.
-    """
-    type: pulumi.Input['ConfiguredTableAssociationAnalysisRuleType']
-    """
-    The type of the configured table association analysis rule.
-    """
-
-@pulumi.input_type
-class ConfiguredTableAssociationAnalysisRuleArgs:
-    def __init__(__self__, *,
-                 policy: pulumi.Input['ConfiguredTableAssociationAnalysisRulePolicyArgs'],
-                 type: pulumi.Input['ConfiguredTableAssociationAnalysisRuleType']):
-        """
-        :param pulumi.Input['ConfiguredTableAssociationAnalysisRulePolicyArgs'] policy: The policy of the configured table association analysis rule.
-        :param pulumi.Input['ConfiguredTableAssociationAnalysisRuleType'] type: The type of the configured table association analysis rule.
-        """
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter
-    def policy(self) -> pulumi.Input['ConfiguredTableAssociationAnalysisRulePolicyArgs']:
-        """
-        The policy of the configured table association analysis rule.
-        """
-        return pulumi.get(self, "policy")
-
-    @policy.setter
-    def policy(self, value: pulumi.Input['ConfiguredTableAssociationAnalysisRulePolicyArgs']):
-        pulumi.set(self, "policy", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> pulumi.Input['ConfiguredTableAssociationAnalysisRuleType']:
-        """
-        The type of the configured table association analysis rule.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input['ConfiguredTableAssociationAnalysisRuleType']):
-        pulumi.set(self, "type", value)
-
-
 class ConfiguredTableAthenaTableReferenceArgsDict(TypedDict):
     database_name: pulumi.Input[_builtins.str]
     table_name: pulumi.Input[_builtins.str]
     work_group: pulumi.Input[_builtins.str]
-    catalog_name: NotRequired[pulumi.Input[_builtins.str]]
-    output_location: NotRequired[pulumi.Input[_builtins.str]]
-    region: NotRequired[pulumi.Input['ConfiguredTableCommercialRegion']]
+    catalog_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    output_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    region: NotRequired[pulumi.Input[Optional['ConfiguredTableCommercialRegion']]]
 
 @pulumi.input_type
 class ConfiguredTableAthenaTableReferenceArgs:
@@ -1858,9 +1858,9 @@ class ConfiguredTableAthenaTableReferenceArgs:
                  database_name: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
                  work_group: pulumi.Input[_builtins.str],
-                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input['ConfiguredTableCommercialRegion']] = None):
+                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional['ConfiguredTableCommercialRegion']] = None):
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "table_name", table_name)
         pulumi.set(__self__, "work_group", work_group)
@@ -1900,49 +1900,30 @@ class ConfiguredTableAthenaTableReferenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="catalogName")
-    def catalog_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "catalog_name")
 
     @catalog_name.setter
-    def catalog_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputLocation")
-    def output_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "output_location")
 
     @output_location.setter
-    def output_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input['ConfiguredTableCommercialRegion']]:
+    def region(self) -> pulumi.Input[Optional['ConfiguredTableCommercialRegion']]:
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input['ConfiguredTableCommercialRegion']]):
+    def region(self, value: pulumi.Input[Optional['ConfiguredTableCommercialRegion']]):
         pulumi.set(self, "region", value)
-
-
-class ConfiguredTableDifferentialPrivacyColumnArgsDict(TypedDict):
-    name: pulumi.Input[_builtins.str]
-
-@pulumi.input_type
-class ConfiguredTableDifferentialPrivacyColumnArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str]):
-        pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
 
 class ConfiguredTableDifferentialPrivacyArgsDict(TypedDict):
@@ -1964,17 +1945,36 @@ class ConfiguredTableDifferentialPrivacyArgs:
         pulumi.set(self, "columns", value)
 
 
+class ConfiguredTableDifferentialPrivacyColumnArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class ConfiguredTableDifferentialPrivacyColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
 class ConfiguredTableGlueTableReferenceArgsDict(TypedDict):
     database_name: pulumi.Input[_builtins.str]
     table_name: pulumi.Input[_builtins.str]
-    region: NotRequired[pulumi.Input['ConfiguredTableCommercialRegion']]
+    region: NotRequired[pulumi.Input[Optional['ConfiguredTableCommercialRegion']]]
 
 @pulumi.input_type
 class ConfiguredTableGlueTableReferenceArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input['ConfiguredTableCommercialRegion']] = None):
+                 region: pulumi.Input[Optional['ConfiguredTableCommercialRegion']] = None):
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "table_name", table_name)
         if region is not None:
@@ -2000,11 +2000,11 @@ class ConfiguredTableGlueTableReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input['ConfiguredTableCommercialRegion']]:
+    def region(self) -> pulumi.Input[Optional['ConfiguredTableCommercialRegion']]:
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input['ConfiguredTableCommercialRegion']]):
+    def region(self, value: pulumi.Input[Optional['ConfiguredTableCommercialRegion']]):
         pulumi.set(self, "region", value)
 
 
@@ -2384,15 +2384,15 @@ class MembershipJobComputePaymentConfigArgs:
 
 
 class MembershipMlPaymentConfigArgsDict(TypedDict):
-    model_inference: NotRequired[pulumi.Input['MembershipModelInferencePaymentConfigArgsDict']]
+    model_inference: NotRequired[pulumi.Input[Optional['MembershipModelInferencePaymentConfigArgsDict']]]
     """
     The payment responsibilities accepted by the member for model inference.
     """
-    model_training: NotRequired[pulumi.Input['MembershipModelTrainingPaymentConfigArgsDict']]
+    model_training: NotRequired[pulumi.Input[Optional['MembershipModelTrainingPaymentConfigArgsDict']]]
     """
     The payment responsibilities accepted by the member for model training.
     """
-    synthetic_data_generation: NotRequired[pulumi.Input['MembershipSyntheticDataGenerationPaymentConfigArgsDict']]
+    synthetic_data_generation: NotRequired[pulumi.Input[Optional['MembershipSyntheticDataGenerationPaymentConfigArgsDict']]]
     """
     The payment configuration for synthetic data generation for this machine learning membership.
     """
@@ -2400,9 +2400,9 @@ class MembershipMlPaymentConfigArgsDict(TypedDict):
 @pulumi.input_type
 class MembershipMlPaymentConfigArgs:
     def __init__(__self__, *,
-                 model_inference: Optional[pulumi.Input['MembershipModelInferencePaymentConfigArgs']] = None,
-                 model_training: Optional[pulumi.Input['MembershipModelTrainingPaymentConfigArgs']] = None,
-                 synthetic_data_generation: Optional[pulumi.Input['MembershipSyntheticDataGenerationPaymentConfigArgs']] = None):
+                 model_inference: pulumi.Input[Optional['MembershipModelInferencePaymentConfigArgs']] = None,
+                 model_training: pulumi.Input[Optional['MembershipModelTrainingPaymentConfigArgs']] = None,
+                 synthetic_data_generation: pulumi.Input[Optional['MembershipSyntheticDataGenerationPaymentConfigArgs']] = None):
         """
         :param pulumi.Input['MembershipModelInferencePaymentConfigArgs'] model_inference: The payment responsibilities accepted by the member for model inference.
         :param pulumi.Input['MembershipModelTrainingPaymentConfigArgs'] model_training: The payment responsibilities accepted by the member for model training.
@@ -2417,38 +2417,38 @@ class MembershipMlPaymentConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="modelInference")
-    def model_inference(self) -> Optional[pulumi.Input['MembershipModelInferencePaymentConfigArgs']]:
+    def model_inference(self) -> pulumi.Input[Optional['MembershipModelInferencePaymentConfigArgs']]:
         """
         The payment responsibilities accepted by the member for model inference.
         """
         return pulumi.get(self, "model_inference")
 
     @model_inference.setter
-    def model_inference(self, value: Optional[pulumi.Input['MembershipModelInferencePaymentConfigArgs']]):
+    def model_inference(self, value: pulumi.Input[Optional['MembershipModelInferencePaymentConfigArgs']]):
         pulumi.set(self, "model_inference", value)
 
     @_builtins.property
     @pulumi.getter(name="modelTraining")
-    def model_training(self) -> Optional[pulumi.Input['MembershipModelTrainingPaymentConfigArgs']]:
+    def model_training(self) -> pulumi.Input[Optional['MembershipModelTrainingPaymentConfigArgs']]:
         """
         The payment responsibilities accepted by the member for model training.
         """
         return pulumi.get(self, "model_training")
 
     @model_training.setter
-    def model_training(self, value: Optional[pulumi.Input['MembershipModelTrainingPaymentConfigArgs']]):
+    def model_training(self, value: pulumi.Input[Optional['MembershipModelTrainingPaymentConfigArgs']]):
         pulumi.set(self, "model_training", value)
 
     @_builtins.property
     @pulumi.getter(name="syntheticDataGeneration")
-    def synthetic_data_generation(self) -> Optional[pulumi.Input['MembershipSyntheticDataGenerationPaymentConfigArgs']]:
+    def synthetic_data_generation(self) -> pulumi.Input[Optional['MembershipSyntheticDataGenerationPaymentConfigArgs']]:
         """
         The payment configuration for synthetic data generation for this machine learning membership.
         """
         return pulumi.get(self, "synthetic_data_generation")
 
     @synthetic_data_generation.setter
-    def synthetic_data_generation(self, value: Optional[pulumi.Input['MembershipSyntheticDataGenerationPaymentConfigArgs']]):
+    def synthetic_data_generation(self, value: pulumi.Input[Optional['MembershipSyntheticDataGenerationPaymentConfigArgs']]):
         pulumi.set(self, "synthetic_data_generation", value)
 
 
@@ -2555,11 +2555,11 @@ class MembershipPaymentConfigurationArgsDict(TypedDict):
     """
     The payment responsibilities accepted by the collaboration member for query compute costs.
     """
-    job_compute: NotRequired[pulumi.Input['MembershipJobComputePaymentConfigArgsDict']]
+    job_compute: NotRequired[pulumi.Input[Optional['MembershipJobComputePaymentConfigArgsDict']]]
     """
     The payment responsibilities accepted by the collaboration member for job compute costs.
     """
-    machine_learning: NotRequired[pulumi.Input['MembershipMlPaymentConfigArgsDict']]
+    machine_learning: NotRequired[pulumi.Input[Optional['MembershipMlPaymentConfigArgsDict']]]
     """
     The payment responsibilities accepted by the collaboration member for machine learning costs.
     """
@@ -2568,8 +2568,8 @@ class MembershipPaymentConfigurationArgsDict(TypedDict):
 class MembershipPaymentConfigurationArgs:
     def __init__(__self__, *,
                  query_compute: pulumi.Input['MembershipQueryComputePaymentConfigArgs'],
-                 job_compute: Optional[pulumi.Input['MembershipJobComputePaymentConfigArgs']] = None,
-                 machine_learning: Optional[pulumi.Input['MembershipMlPaymentConfigArgs']] = None):
+                 job_compute: pulumi.Input[Optional['MembershipJobComputePaymentConfigArgs']] = None,
+                 machine_learning: pulumi.Input[Optional['MembershipMlPaymentConfigArgs']] = None):
         """
         :param pulumi.Input['MembershipQueryComputePaymentConfigArgs'] query_compute: The payment responsibilities accepted by the collaboration member for query compute costs.
         :param pulumi.Input['MembershipJobComputePaymentConfigArgs'] job_compute: The payment responsibilities accepted by the collaboration member for job compute costs.
@@ -2595,26 +2595,26 @@ class MembershipPaymentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="jobCompute")
-    def job_compute(self) -> Optional[pulumi.Input['MembershipJobComputePaymentConfigArgs']]:
+    def job_compute(self) -> pulumi.Input[Optional['MembershipJobComputePaymentConfigArgs']]:
         """
         The payment responsibilities accepted by the collaboration member for job compute costs.
         """
         return pulumi.get(self, "job_compute")
 
     @job_compute.setter
-    def job_compute(self, value: Optional[pulumi.Input['MembershipJobComputePaymentConfigArgs']]):
+    def job_compute(self, value: pulumi.Input[Optional['MembershipJobComputePaymentConfigArgs']]):
         pulumi.set(self, "job_compute", value)
 
     @_builtins.property
     @pulumi.getter(name="machineLearning")
-    def machine_learning(self) -> Optional[pulumi.Input['MembershipMlPaymentConfigArgs']]:
+    def machine_learning(self) -> pulumi.Input[Optional['MembershipMlPaymentConfigArgs']]:
         """
         The payment responsibilities accepted by the collaboration member for machine learning costs.
         """
         return pulumi.get(self, "machine_learning")
 
     @machine_learning.setter
-    def machine_learning(self, value: Optional[pulumi.Input['MembershipMlPaymentConfigArgs']]):
+    def machine_learning(self, value: pulumi.Input[Optional['MembershipMlPaymentConfigArgs']]):
         pulumi.set(self, "machine_learning", value)
 
 
@@ -2698,7 +2698,7 @@ class MembershipProtectedJobS3OutputConfigurationInputArgsDict(TypedDict):
     """
     The S3 bucket for job output.
     """
-    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The S3 prefix to unload the protected job results.
     """
@@ -2707,7 +2707,7 @@ class MembershipProtectedJobS3OutputConfigurationInputArgsDict(TypedDict):
 class MembershipProtectedJobS3OutputConfigurationInputArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
-                 key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket: The S3 bucket for job output.
         :param pulumi.Input[_builtins.str] key_prefix: The S3 prefix to unload the protected job results.
@@ -2730,14 +2730,14 @@ class MembershipProtectedJobS3OutputConfigurationInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyPrefix")
-    def key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 prefix to unload the protected job results.
         """
         return pulumi.get(self, "key_prefix")
 
     @key_prefix.setter
-    def key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_prefix", value)
 
 
@@ -2774,7 +2774,7 @@ class MembershipProtectedQueryResultConfigurationArgsDict(TypedDict):
     """
     Configuration for protected query results.
     """
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
     """
@@ -2783,7 +2783,7 @@ class MembershipProtectedQueryResultConfigurationArgsDict(TypedDict):
 class MembershipProtectedQueryResultConfigurationArgs:
     def __init__(__self__, *,
                  output_configuration: pulumi.Input['MembershipProtectedQueryOutputConfigurationArgs'],
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['MembershipProtectedQueryOutputConfigurationArgs'] output_configuration: Configuration for protected query results.
         :param pulumi.Input[_builtins.str] role_arn: The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
@@ -2806,14 +2806,14 @@ class MembershipProtectedQueryResultConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
 
@@ -2826,11 +2826,11 @@ class MembershipProtectedQueryS3OutputConfigurationArgsDict(TypedDict):
     """
     Intended file format of the result.
     """
-    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The S3 prefix to unload the protected query results.
     """
-    single_file_output: NotRequired[pulumi.Input[_builtins.bool]]
+    single_file_output: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether files should be output as a single file ( `TRUE` ) or output as multiple files ( `FALSE` ). This parameter is only supported for analyses with the Spark analytics engine.
     """
@@ -2840,8 +2840,8 @@ class MembershipProtectedQueryS3OutputConfigurationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
                  result_format: pulumi.Input['MembershipResultFormat'],
-                 key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_file_output: Optional[pulumi.Input[_builtins.bool]] = None):
+                 key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_file_output: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket: The S3 bucket to unload the protected query results.
         :param pulumi.Input['MembershipResultFormat'] result_format: Intended file format of the result.
@@ -2881,26 +2881,26 @@ class MembershipProtectedQueryS3OutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyPrefix")
-    def key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 prefix to unload the protected query results.
         """
         return pulumi.get(self, "key_prefix")
 
     @key_prefix.setter
-    def key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="singleFileOutput")
-    def single_file_output(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def single_file_output(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether files should be output as a single file ( `TRUE` ) or output as multiple files ( `FALSE` ). This parameter is only supported for analyses with the Spark analytics engine.
         """
         return pulumi.get(self, "single_file_output")
 
     @single_file_output.setter
-    def single_file_output(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def single_file_output(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "single_file_output", value)
 
 
@@ -2985,13 +2985,13 @@ class ParametersPropertiesArgsDict(TypedDict):
     """
     Specifies the epsilon and noise parameters for the privacy budget template.
     """
-    budget_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivacyBudgetTemplateBudgetParameterArgsDict']]]]
-    epsilon: NotRequired[pulumi.Input[_builtins.int]]
+    budget_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PrivacyBudgetTemplateBudgetParameterArgsDict']]]]]
+    epsilon: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The epsilon value that you want to use.
     """
-    resource_arn: NotRequired[pulumi.Input[_builtins.str]]
-    users_noise_per_query: NotRequired[pulumi.Input[_builtins.int]]
+    resource_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    users_noise_per_query: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
     """
@@ -2999,10 +2999,10 @@ class ParametersPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ParametersPropertiesArgs:
     def __init__(__self__, *,
-                 budget_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['PrivacyBudgetTemplateBudgetParameterArgs']]]] = None,
-                 epsilon: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_noise_per_query: Optional[pulumi.Input[_builtins.int]] = None):
+                 budget_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['PrivacyBudgetTemplateBudgetParameterArgs']]]] = None,
+                 epsilon: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_noise_per_query: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Specifies the epsilon and noise parameters for the privacy budget template.
 
@@ -3020,44 +3020,44 @@ class ParametersPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="budgetParameters")
-    def budget_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivacyBudgetTemplateBudgetParameterArgs']]]]:
+    def budget_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrivacyBudgetTemplateBudgetParameterArgs']]]]:
         return pulumi.get(self, "budget_parameters")
 
     @budget_parameters.setter
-    def budget_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivacyBudgetTemplateBudgetParameterArgs']]]]):
+    def budget_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivacyBudgetTemplateBudgetParameterArgs']]]]):
         pulumi.set(self, "budget_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def epsilon(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def epsilon(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The epsilon value that you want to use.
         """
         return pulumi.get(self, "epsilon")
 
     @epsilon.setter
-    def epsilon(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def epsilon(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "epsilon", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
-    def resource_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="usersNoisePerQuery")
-    def users_noise_per_query(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def users_noise_per_query(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
         """
         return pulumi.get(self, "users_noise_per_query")
 
     @users_noise_per_query.setter
-    def users_noise_per_query(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def users_noise_per_query(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "users_noise_per_query", value)
 
 
@@ -3070,7 +3070,7 @@ class PrivacyBudgetTemplateBudgetParameterArgsDict(TypedDict):
     """
     The type of budget parameter being configured.
     """
-    auto_refresh: NotRequired[pulumi.Input['PrivacyBudgetTemplateBudgetParameterAutoRefresh']]
+    auto_refresh: NotRequired[pulumi.Input[Optional['PrivacyBudgetTemplateBudgetParameterAutoRefresh']]]
     """
     Whether this individual budget parameter automatically refreshes when the budget period resets.
     """
@@ -3080,7 +3080,7 @@ class PrivacyBudgetTemplateBudgetParameterArgs:
     def __init__(__self__, *,
                  budget: pulumi.Input[_builtins.int],
                  type: pulumi.Input['PrivacyBudgetTemplateBudgetParameterType'],
-                 auto_refresh: Optional[pulumi.Input['PrivacyBudgetTemplateBudgetParameterAutoRefresh']] = None):
+                 auto_refresh: pulumi.Input[Optional['PrivacyBudgetTemplateBudgetParameterAutoRefresh']] = None):
         """
         :param pulumi.Input[_builtins.int] budget: The budget allocation amount for this specific parameter.
         :param pulumi.Input['PrivacyBudgetTemplateBudgetParameterType'] type: The type of budget parameter being configured.
@@ -3117,14 +3117,14 @@ class PrivacyBudgetTemplateBudgetParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoRefresh")
-    def auto_refresh(self) -> Optional[pulumi.Input['PrivacyBudgetTemplateBudgetParameterAutoRefresh']]:
+    def auto_refresh(self) -> pulumi.Input[Optional['PrivacyBudgetTemplateBudgetParameterAutoRefresh']]:
         """
         Whether this individual budget parameter automatically refreshes when the budget period resets.
         """
         return pulumi.get(self, "auto_refresh")
 
     @auto_refresh.setter
-    def auto_refresh(self, value: Optional[pulumi.Input['PrivacyBudgetTemplateBudgetParameterAutoRefresh']]):
+    def auto_refresh(self, value: pulumi.Input[Optional['PrivacyBudgetTemplateBudgetParameterAutoRefresh']]):
         pulumi.set(self, "auto_refresh", value)
 
 

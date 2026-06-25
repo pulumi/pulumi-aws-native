@@ -156,7 +156,6 @@ def get_software_package_version(package_name: Optional[_builtins.str] = None,
     """
     resource definition
 
-
     :param _builtins.str package_name: The name of the associated software package.
     :param _builtins.str version_name: The name of the new package version.
     """
@@ -177,12 +176,11 @@ def get_software_package_version(package_name: Optional[_builtins.str] = None,
         sbom_validation_status=pulumi.get(__ret__, 'sbom_validation_status'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_software_package_version_output(package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        version_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_software_package_version_output(package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        version_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSoftwarePackageVersionResult]:
     """
     resource definition
-
 
     :param _builtins.str package_name: The name of the associated software package.
     :param _builtins.str version_name: The name of the new package version.

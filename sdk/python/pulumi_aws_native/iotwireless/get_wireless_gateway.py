@@ -149,7 +149,6 @@ def get_wireless_gateway(id: Optional[_builtins.str] = None,
     """
     Create and manage wireless gateways, including LoRa gateways.
 
-
     :param _builtins.str id: Id for Wireless Gateway. Returned upon successful create.
     """
     __args__ = dict()
@@ -167,11 +166,10 @@ def get_wireless_gateway(id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         thing_arn=pulumi.get(__ret__, 'thing_arn'),
         thing_name=pulumi.get(__ret__, 'thing_name'))
-def get_wireless_gateway_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_wireless_gateway_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWirelessGatewayResult]:
     """
     Create and manage wireless gateways, including LoRa gateways.
-
 
     :param _builtins.str id: Id for Wireless Gateway. Returned upon successful create.
     """

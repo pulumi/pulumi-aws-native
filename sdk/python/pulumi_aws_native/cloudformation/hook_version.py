@@ -24,8 +24,8 @@ class HookVersionArgs:
     def __init__(__self__, *,
                  schema_handler_package: pulumi.Input[_builtins.str],
                  type_name: pulumi.Input[_builtins.str],
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_config: Optional[pulumi.Input['HookVersionLoggingConfigArgs']] = None):
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_config: pulumi.Input[Optional['HookVersionLoggingConfigArgs']] = None):
         """
         The set of arguments for constructing a HookVersion resource.
 
@@ -75,26 +75,26 @@ class HookVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
-    def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
         """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
-    def execution_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
-    def logging_config(self) -> Optional[pulumi.Input['HookVersionLoggingConfigArgs']]:
+    def logging_config(self) -> pulumi.Input[Optional['HookVersionLoggingConfigArgs']]:
         """
         Specifies logging configuration information for a type.
         """
         return pulumi.get(self, "logging_config")
 
     @logging_config.setter
-    def logging_config(self, value: Optional[pulumi.Input['HookVersionLoggingConfigArgs']]):
+    def logging_config(self, value: pulumi.Input[Optional['HookVersionLoggingConfigArgs']]):
         pulumi.set(self, "logging_config", value)
 
 
@@ -104,10 +104,10 @@ class HookVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_config: Optional[pulumi.Input[Union['HookVersionLoggingConfigArgs', 'HookVersionLoggingConfigArgsDict']]] = None,
-                 schema_handler_package: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_config: pulumi.Input[Optional[Union['HookVersionLoggingConfigArgs', 'HookVersionLoggingConfigArgsDict']]] = None,
+                 schema_handler_package: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Publishes new or first hook version to AWS CloudFormation Registry.
@@ -293,10 +293,10 @@ class HookVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_config: Optional[pulumi.Input[Union['HookVersionLoggingConfigArgs', 'HookVersionLoggingConfigArgsDict']]] = None,
-                 schema_handler_package: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_config: pulumi.Input[Optional[Union['HookVersionLoggingConfigArgs', 'HookVersionLoggingConfigArgsDict']]] = None,
+                 schema_handler_package: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

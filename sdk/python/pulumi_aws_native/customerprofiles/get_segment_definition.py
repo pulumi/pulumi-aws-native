@@ -115,7 +115,6 @@ def get_segment_definition(domain_name: Optional[_builtins.str] = None,
     """
     A segment definition resource of Amazon Connect Customer Profiles
 
-
     :param _builtins.str domain_name: The unique name of the domain.
     :param _builtins.str segment_definition_name: The unique name of the segment definition.
     """
@@ -132,12 +131,11 @@ def get_segment_definition(domain_name: Optional[_builtins.str] = None,
         segment_sort=pulumi.get(__ret__, 'segment_sort'),
         segment_type=pulumi.get(__ret__, 'segment_type'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_segment_definition_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  segment_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_segment_definition_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  segment_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSegmentDefinitionResult]:
     """
     A segment definition resource of Amazon Connect Customer Profiles
-
 
     :param _builtins.str domain_name: The unique name of the domain.
     :param _builtins.str segment_definition_name: The unique name of the segment definition.

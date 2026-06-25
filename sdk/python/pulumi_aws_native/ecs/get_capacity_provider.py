@@ -88,7 +88,6 @@ def get_capacity_provider(name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::ECS::CapacityProvider.
 
-
     :param _builtins.str name: The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
     """
     __args__ = dict()
@@ -100,11 +99,10 @@ def get_capacity_provider(name: Optional[_builtins.str] = None,
         auto_scaling_group_provider=pulumi.get(__ret__, 'auto_scaling_group_provider'),
         managed_instances_provider=pulumi.get(__ret__, 'managed_instances_provider'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_capacity_provider_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_capacity_provider_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityProviderResult]:
     """
     Resource Type definition for AWS::ECS::CapacityProvider.
-
 
     :param _builtins.str name: The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
     """

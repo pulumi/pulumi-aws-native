@@ -73,7 +73,6 @@ def get_contact(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SSMContacts::Contact
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the contact.
     """
     __args__ = dict()
@@ -85,11 +84,10 @@ def get_contact(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         display_name=pulumi.get(__ret__, 'display_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_contact_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_contact_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactResult]:
     """
     Resource Type definition for AWS::SSMContacts::Contact
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the contact.
     """

@@ -75,7 +75,6 @@ def get_reference_store(reference_store_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::Omics::ReferenceStore Resource Type
 
-
     :param _builtins.str reference_store_id: The store's ID.
     """
     __args__ = dict()
@@ -87,11 +86,10 @@ def get_reference_store(reference_store_id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         reference_store_id=pulumi.get(__ret__, 'reference_store_id'))
-def get_reference_store_output(reference_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_reference_store_output(reference_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReferenceStoreResult]:
     """
     Definition of AWS::Omics::ReferenceStore Resource Type
-
 
     :param _builtins.str reference_store_id: The store's ID.
     """

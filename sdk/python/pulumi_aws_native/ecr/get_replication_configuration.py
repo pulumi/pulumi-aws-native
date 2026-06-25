@@ -66,7 +66,6 @@ def get_replication_configuration(registry_id: Optional[_builtins.str] = None,
     The ``AWS::ECR::ReplicationConfiguration`` resource creates or updates the replication configuration for a private registry. The first time a replication configuration is applied to a private registry, a service-linked IAM role is created in your account for the replication process. For more information, see [Using Service-Linked Roles for Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html) in the *Amazon Elastic Container Registry User Guide*.
       When configuring cross-account replication, the destination account must grant the source account permission to replicate. This permission is controlled using a private registry permissions policy. For more information, see ``AWS::ECR::RegistryPolicy``.
 
-
     :param _builtins.str registry_id: The account ID of the destination registry.
     """
     __args__ = dict()
@@ -77,12 +76,11 @@ def get_replication_configuration(registry_id: Optional[_builtins.str] = None,
     return AwaitableGetReplicationConfigurationResult(
         registry_id=pulumi.get(__ret__, 'registry_id'),
         replication_configuration=pulumi.get(__ret__, 'replication_configuration'))
-def get_replication_configuration_output(registry_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_replication_configuration_output(registry_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationConfigurationResult]:
     """
     The ``AWS::ECR::ReplicationConfiguration`` resource creates or updates the replication configuration for a private registry. The first time a replication configuration is applied to a private registry, a service-linked IAM role is created in your account for the replication process. For more information, see [Using Service-Linked Roles for Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html) in the *Amazon Elastic Container Registry User Guide*.
       When configuring cross-account replication, the destination account must grant the source account permission to replicate. This permission is controlled using a private registry permissions policy. For more information, see ``AWS::ECR::RegistryPolicy``.
-
 
     :param _builtins.str registry_id: The account ID of the destination registry.
     """

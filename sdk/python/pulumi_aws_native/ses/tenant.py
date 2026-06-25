@@ -23,9 +23,9 @@ __all__ = ['TenantArgs', 'Tenant']
 @pulumi.input_type
 class TenantArgs:
     def __init__(__self__, *,
-                 resource_associations: Optional[pulumi.Input[Sequence[pulumi.Input['TenantResourceAssociationArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 tenant_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_associations: pulumi.Input[Optional[Sequence[pulumi.Input['TenantResourceAssociationArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tenant_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Tenant resource.
 
@@ -42,38 +42,38 @@ class TenantArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceAssociations")
-    def resource_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TenantResourceAssociationArgs']]]]:
+    def resource_associations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TenantResourceAssociationArgs']]]]:
         """
         The list of resources to associate with the tenant.
         """
         return pulumi.get(self, "resource_associations")
 
     @resource_associations.setter
-    def resource_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TenantResourceAssociationArgs']]]]):
+    def resource_associations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TenantResourceAssociationArgs']]]]):
         pulumi.set(self, "resource_associations", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags (keys and values) associated with the tenant.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantName")
-    def tenant_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the tenant.
         """
         return pulumi.get(self, "tenant_name")
 
     @tenant_name.setter
-    def tenant_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_name", value)
 
 
@@ -83,13 +83,12 @@ class Tenant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TenantResourceAssociationArgs', 'TenantResourceAssociationArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TenantResourceAssociationArgs', 'TenantResourceAssociationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SES::Tenant
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -106,7 +105,6 @@ class Tenant(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SES::Tenant
 
-
         :param str resource_name: The name of the resource.
         :param TenantArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -122,9 +120,9 @@ class Tenant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TenantResourceAssociationArgs', 'TenantResourceAssociationArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TenantResourceAssociationArgs', 'TenantResourceAssociationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -89,7 +89,6 @@ def get_billing_group(billing_group_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::IoT::BillingGroup
 
-
     :param _builtins.str billing_group_name: The name of the billing group.
     """
     __args__ = dict()
@@ -102,11 +101,10 @@ def get_billing_group(billing_group_name: Optional[_builtins.str] = None,
         billing_group_properties=pulumi.get(__ret__, 'billing_group_properties'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_billing_group_output(billing_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_billing_group_output(billing_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingGroupResult]:
     """
     Resource Type definition for AWS::IoT::BillingGroup
-
 
     :param _builtins.str billing_group_name: The name of the billing group.
     """

@@ -25,9 +25,9 @@ __all__ = ['CustomPermissionsArgs', 'CustomPermissions']
 class CustomPermissionsArgs:
     def __init__(__self__, *,
                  aws_account_id: pulumi.Input[_builtins.str],
-                 capabilities: Optional[pulumi.Input['CustomPermissionsCapabilitiesArgs']] = None,
-                 custom_permissions_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 capabilities: pulumi.Input[Optional['CustomPermissionsCapabilitiesArgs']] = None,
+                 custom_permissions_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomPermissions resource.
 
@@ -58,38 +58,38 @@ class CustomPermissionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input['CustomPermissionsCapabilitiesArgs']]:
+    def capabilities(self) -> pulumi.Input[Optional['CustomPermissionsCapabilitiesArgs']]:
         """
         A set of actions in the custom permissions profile.
         """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input['CustomPermissionsCapabilitiesArgs']]):
+    def capabilities(self, value: pulumi.Input[Optional['CustomPermissionsCapabilitiesArgs']]):
         pulumi.set(self, "capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="customPermissionsName")
-    def custom_permissions_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_permissions_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the custom permissions profile.
         """
         return pulumi.get(self, "custom_permissions_name")
 
     @custom_permissions_name.setter
-    def custom_permissions_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_permissions_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_permissions_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to associate with the custom permissions profile.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -99,14 +99,13 @@ class CustomPermissions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 capabilities: Optional[pulumi.Input[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict']]] = None,
-                 custom_permissions_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 capabilities: pulumi.Input[Optional[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict']]] = None,
+                 custom_permissions_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::CustomPermissions Resource Type.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class CustomPermissions(pulumi.CustomResource):
         """
         Definition of the AWS::QuickSight::CustomPermissions Resource Type.
 
-
         :param str resource_name: The name of the resource.
         :param CustomPermissionsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class CustomPermissions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 capabilities: Optional[pulumi.Input[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict']]] = None,
-                 custom_permissions_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 capabilities: pulumi.Input[Optional[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict']]] = None,
+                 custom_permissions_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

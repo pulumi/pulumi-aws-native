@@ -137,7 +137,6 @@ def get_dataset(dataset_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::IoTAnalytics::Dataset
 
-
     :param _builtins.str dataset_name: The name of the dataset.
     """
     __args__ = dict()
@@ -154,11 +153,10 @@ def get_dataset(dataset_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         triggers=pulumi.get(__ret__, 'triggers'),
         versioning_configuration=pulumi.get(__ret__, 'versioning_configuration'))
-def get_dataset_output(dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dataset_output(dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetResult]:
     """
     Resource Type definition for AWS::IoTAnalytics::Dataset
-
 
     :param _builtins.str dataset_name: The name of the dataset.
     """

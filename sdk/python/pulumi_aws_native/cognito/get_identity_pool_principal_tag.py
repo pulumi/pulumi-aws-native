@@ -66,7 +66,6 @@ def get_identity_pool_principal_tag(identity_pool_id: Optional[_builtins.str] = 
     """
     Resource Type definition for AWS::Cognito::IdentityPoolPrincipalTag
 
-
     :param _builtins.str identity_pool_id: The identity pool that you want to associate with this principal tag map.
     :param _builtins.str identity_provider_name: The identity pool identity provider (IdP) that you want to associate with this principal tag map.
     """
@@ -79,12 +78,11 @@ def get_identity_pool_principal_tag(identity_pool_id: Optional[_builtins.str] = 
     return AwaitableGetIdentityPoolPrincipalTagResult(
         principal_tags=pulumi.get(__ret__, 'principal_tags'),
         use_defaults=pulumi.get(__ret__, 'use_defaults'))
-def get_identity_pool_principal_tag_output(identity_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                           identity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_identity_pool_principal_tag_output(identity_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                           identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityPoolPrincipalTagResult]:
     """
     Resource Type definition for AWS::Cognito::IdentityPoolPrincipalTag
-
 
     :param _builtins.str identity_pool_id: The identity pool that you want to associate with this principal tag map.
     :param _builtins.str identity_provider_name: The identity pool identity provider (IdP) that you want to associate with this principal tag map.

@@ -131,7 +131,6 @@ def get_payment_connector(payment_connector_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::BedrockAgentCore::PaymentConnector
 
-
     :param _builtins.str payment_connector_arn: Synthetic ARN for the payment connector (used for engine resolution)
     """
     __args__ = dict()
@@ -148,11 +147,10 @@ def get_payment_connector(payment_connector_arn: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         payment_connector_arn=pulumi.get(__ret__, 'payment_connector_arn'),
         payment_connector_id=pulumi.get(__ret__, 'payment_connector_id'))
-def get_payment_connector_output(payment_connector_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_payment_connector_output(payment_connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPaymentConnectorResult]:
     """
     Resource Type definition for AWS::BedrockAgentCore::PaymentConnector
-
 
     :param _builtins.str payment_connector_arn: Synthetic ARN for the payment connector (used for engine resolution)
     """

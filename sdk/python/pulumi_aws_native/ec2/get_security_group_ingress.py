@@ -63,7 +63,6 @@ def get_security_group_ingress(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::EC2::SecurityGroupIngress
 
-
     :param _builtins.str id: The Security Group Rule Id
     """
     __args__ = dict()
@@ -74,11 +73,10 @@ def get_security_group_ingress(id: Optional[_builtins.str] = None,
     return AwaitableGetSecurityGroupIngressResult(
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'))
-def get_security_group_ingress_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_group_ingress_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupIngressResult]:
     """
     Resource Type definition for AWS::EC2::SecurityGroupIngress
-
 
     :param _builtins.str id: The Security Group Rule Id
     """

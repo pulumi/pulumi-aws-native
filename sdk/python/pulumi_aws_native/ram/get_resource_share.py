@@ -149,7 +149,6 @@ def get_resource_share(arn: Optional[_builtins.str] = None,
     """
     Resource type definition for AWS::RAM::ResourceShare
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the resource share.
     """
     __args__ = dict()
@@ -167,11 +166,10 @@ def get_resource_share(arn: Optional[_builtins.str] = None,
         owning_account_id=pulumi.get(__ret__, 'owning_account_id'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_resource_share_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_share_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceShareResult]:
     """
     Resource type definition for AWS::RAM::ResourceShare
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the resource share.
     """

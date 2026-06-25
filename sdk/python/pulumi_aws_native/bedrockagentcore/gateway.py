@@ -24,16 +24,16 @@ class GatewayArgs:
     def __init__(__self__, *,
                  authorizer_type: pulumi.Input['GatewayAuthorizerType'],
                  role_arn: pulumi.Input[_builtins.str],
-                 authorizer_configuration: Optional[pulumi.Input['GatewayAuthorizerConfigurationPropertiesArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exception_level: Optional[pulumi.Input['GatewayExceptionLevel']] = None,
-                 interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayInterceptorConfigurationArgs']]]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_engine_configuration: Optional[pulumi.Input['GatewayPolicyEngineConfigurationArgs']] = None,
-                 protocol_configuration: Optional[pulumi.Input['GatewayProtocolConfigurationPropertiesArgs']] = None,
+                 authorizer_configuration: pulumi.Input[Optional['GatewayAuthorizerConfigurationPropertiesArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exception_level: pulumi.Input[Optional['GatewayExceptionLevel']] = None,
+                 interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayInterceptorConfigurationArgs']]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_engine_configuration: pulumi.Input[Optional['GatewayPolicyEngineConfigurationArgs']] = None,
+                 protocol_configuration: pulumi.Input[Optional['GatewayProtocolConfigurationPropertiesArgs']] = None,
                  protocol_type: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Gateway resource.
 
@@ -94,89 +94,89 @@ class GatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizerConfiguration")
-    def authorizer_configuration(self) -> Optional[pulumi.Input['GatewayAuthorizerConfigurationPropertiesArgs']]:
+    def authorizer_configuration(self) -> pulumi.Input[Optional['GatewayAuthorizerConfigurationPropertiesArgs']]:
         return pulumi.get(self, "authorizer_configuration")
 
     @authorizer_configuration.setter
-    def authorizer_configuration(self, value: Optional[pulumi.Input['GatewayAuthorizerConfigurationPropertiesArgs']]):
+    def authorizer_configuration(self, value: pulumi.Input[Optional['GatewayAuthorizerConfigurationPropertiesArgs']]):
         pulumi.set(self, "authorizer_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the gateway.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="exceptionLevel")
-    def exception_level(self) -> Optional[pulumi.Input['GatewayExceptionLevel']]:
+    def exception_level(self) -> pulumi.Input[Optional['GatewayExceptionLevel']]:
         """
         The exception level for the gateway.
         """
         return pulumi.get(self, "exception_level")
 
     @exception_level.setter
-    def exception_level(self, value: Optional[pulumi.Input['GatewayExceptionLevel']]):
+    def exception_level(self, value: pulumi.Input[Optional['GatewayExceptionLevel']]):
         pulumi.set(self, "exception_level", value)
 
     @_builtins.property
     @pulumi.getter(name="interceptorConfigurations")
-    def interceptor_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayInterceptorConfigurationArgs']]]]:
+    def interceptor_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GatewayInterceptorConfigurationArgs']]]]:
         return pulumi.get(self, "interceptor_configurations")
 
     @interceptor_configurations.setter
-    def interceptor_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayInterceptorConfigurationArgs']]]]):
+    def interceptor_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayInterceptorConfigurationArgs']]]]):
         pulumi.set(self, "interceptor_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The KMS key ARN for the gateway.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the gateway.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyEngineConfiguration")
-    def policy_engine_configuration(self) -> Optional[pulumi.Input['GatewayPolicyEngineConfigurationArgs']]:
+    def policy_engine_configuration(self) -> pulumi.Input[Optional['GatewayPolicyEngineConfigurationArgs']]:
         return pulumi.get(self, "policy_engine_configuration")
 
     @policy_engine_configuration.setter
-    def policy_engine_configuration(self, value: Optional[pulumi.Input['GatewayPolicyEngineConfigurationArgs']]):
+    def policy_engine_configuration(self, value: pulumi.Input[Optional['GatewayPolicyEngineConfigurationArgs']]):
         pulumi.set(self, "policy_engine_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
-    def protocol_configuration(self) -> Optional[pulumi.Input['GatewayProtocolConfigurationPropertiesArgs']]:
+    def protocol_configuration(self) -> pulumi.Input[Optional['GatewayProtocolConfigurationPropertiesArgs']]:
         """
         The protocol configuration for the gateway target.
         """
         return pulumi.get(self, "protocol_configuration")
 
     @protocol_configuration.setter
-    def protocol_configuration(self, value: Optional[pulumi.Input['GatewayProtocolConfigurationPropertiesArgs']]):
+    def protocol_configuration(self, value: pulumi.Input[Optional['GatewayProtocolConfigurationPropertiesArgs']]):
         pulumi.set(self, "protocol_configuration", value)
 
     @_builtins.property
@@ -195,14 +195,14 @@ class GatewayArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags for the gateway.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -212,22 +212,21 @@ class Gateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizer_configuration: Optional[pulumi.Input[Union['GatewayAuthorizerConfigurationPropertiesArgs', 'GatewayAuthorizerConfigurationPropertiesArgsDict']]] = None,
-                 authorizer_type: Optional[pulumi.Input['GatewayAuthorizerType']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exception_level: Optional[pulumi.Input['GatewayExceptionLevel']] = None,
-                 interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayInterceptorConfigurationArgs', 'GatewayInterceptorConfigurationArgsDict']]]]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_engine_configuration: Optional[pulumi.Input[Union['GatewayPolicyEngineConfigurationArgs', 'GatewayPolicyEngineConfigurationArgsDict']]] = None,
-                 protocol_configuration: Optional[pulumi.Input[Union['GatewayProtocolConfigurationPropertiesArgs', 'GatewayProtocolConfigurationPropertiesArgsDict']]] = None,
+                 authorizer_configuration: pulumi.Input[Optional[Union['GatewayAuthorizerConfigurationPropertiesArgs', 'GatewayAuthorizerConfigurationPropertiesArgsDict']]] = None,
+                 authorizer_type: pulumi.Input[Optional['GatewayAuthorizerType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exception_level: pulumi.Input[Optional['GatewayExceptionLevel']] = None,
+                 interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayInterceptorConfigurationArgs', 'GatewayInterceptorConfigurationArgsDict']]]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_engine_configuration: pulumi.Input[Optional[Union['GatewayPolicyEngineConfigurationArgs', 'GatewayPolicyEngineConfigurationArgsDict']]] = None,
+                 protocol_configuration: pulumi.Input[Optional[Union['GatewayProtocolConfigurationPropertiesArgs', 'GatewayProtocolConfigurationPropertiesArgsDict']]] = None,
                  protocol_type: Optional[Any] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::BedrockAgentCore::Gateway Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -251,7 +250,6 @@ class Gateway(pulumi.CustomResource):
         """
         Definition of AWS::BedrockAgentCore::Gateway Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,18 +265,18 @@ class Gateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizer_configuration: Optional[pulumi.Input[Union['GatewayAuthorizerConfigurationPropertiesArgs', 'GatewayAuthorizerConfigurationPropertiesArgsDict']]] = None,
-                 authorizer_type: Optional[pulumi.Input['GatewayAuthorizerType']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exception_level: Optional[pulumi.Input['GatewayExceptionLevel']] = None,
-                 interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayInterceptorConfigurationArgs', 'GatewayInterceptorConfigurationArgsDict']]]]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_engine_configuration: Optional[pulumi.Input[Union['GatewayPolicyEngineConfigurationArgs', 'GatewayPolicyEngineConfigurationArgsDict']]] = None,
-                 protocol_configuration: Optional[pulumi.Input[Union['GatewayProtocolConfigurationPropertiesArgs', 'GatewayProtocolConfigurationPropertiesArgsDict']]] = None,
+                 authorizer_configuration: pulumi.Input[Optional[Union['GatewayAuthorizerConfigurationPropertiesArgs', 'GatewayAuthorizerConfigurationPropertiesArgsDict']]] = None,
+                 authorizer_type: pulumi.Input[Optional['GatewayAuthorizerType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exception_level: pulumi.Input[Optional['GatewayExceptionLevel']] = None,
+                 interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayInterceptorConfigurationArgs', 'GatewayInterceptorConfigurationArgsDict']]]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_engine_configuration: pulumi.Input[Optional[Union['GatewayPolicyEngineConfigurationArgs', 'GatewayPolicyEngineConfigurationArgsDict']]] = None,
+                 protocol_configuration: pulumi.Input[Optional[Union['GatewayProtocolConfigurationPropertiesArgs', 'GatewayProtocolConfigurationPropertiesArgsDict']]] = None,
                  protocol_type: Optional[Any] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -21,10 +21,10 @@ __all__ = ['GroupProfileArgs', 'GroupProfile']
 class GroupProfileArgs:
     def __init__(__self__, *,
                  domain_identifier: pulumi.Input[_builtins.str],
-                 group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_type: Optional[pulumi.Input['GroupProfileGroupType']] = None,
-                 role_principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['GroupProfileStatus']] = None):
+                 group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_type: pulumi.Input[Optional['GroupProfileGroupType']] = None,
+                 role_principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['GroupProfileStatus']] = None):
         """
         The set of arguments for constructing a GroupProfile resource.
 
@@ -57,47 +57,47 @@ class GroupProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupIdentifier")
-    def group_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the group.
         """
         return pulumi.get(self, "group_identifier")
 
     @group_identifier.setter
-    def group_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="groupType")
-    def group_type(self) -> Optional[pulumi.Input['GroupProfileGroupType']]:
+    def group_type(self) -> pulumi.Input[Optional['GroupProfileGroupType']]:
         return pulumi.get(self, "group_type")
 
     @group_type.setter
-    def group_type(self, value: Optional[pulumi.Input['GroupProfileGroupType']]):
+    def group_type(self, value: pulumi.Input[Optional['GroupProfileGroupType']]):
         pulumi.set(self, "group_type", value)
 
     @_builtins.property
     @pulumi.getter(name="rolePrincipalArn")
-    def role_principal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_principal_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the role principal for the group profile.
         """
         return pulumi.get(self, "role_principal_arn")
 
     @role_principal_arn.setter
-    def role_principal_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_principal_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_principal_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['GroupProfileStatus']]:
+    def status(self) -> pulumi.Input[Optional['GroupProfileStatus']]:
         """
         The status of a group profile.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['GroupProfileStatus']]):
+    def status(self, value: pulumi.Input[Optional['GroupProfileStatus']]):
         pulumi.set(self, "status", value)
 
 
@@ -107,15 +107,14 @@ class GroupProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_type: Optional[pulumi.Input['GroupProfileGroupType']] = None,
-                 role_principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['GroupProfileStatus']] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_type: pulumi.Input[Optional['GroupProfileGroupType']] = None,
+                 role_principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['GroupProfileStatus']] = None,
                  __props__=None):
         """
         Group profiles represent groups of Amazon DataZone users. Groups can be manually created, or mapped to Active Directory groups of enterprise customers. In Amazon DataZone, groups serve two purposes. First, a group can map to a team of users in the organizational chart, and thus reduce the administrative work of a Amazon DataZone project owner when there are new employees joining or leaving a team. Second, corporate administrators use Active Directory groups to manage and update user statuses and so Amazon DataZone domain administrators can use these group memberships to implement Amazon DataZone domain policies.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,7 +132,6 @@ class GroupProfile(pulumi.CustomResource):
         """
         Group profiles represent groups of Amazon DataZone users. Groups can be manually created, or mapped to Active Directory groups of enterprise customers. In Amazon DataZone, groups serve two purposes. First, a group can map to a team of users in the organizational chart, and thus reduce the administrative work of a Amazon DataZone project owner when there are new employees joining or leaving a team. Second, corporate administrators use Active Directory groups to manage and update user statuses and so Amazon DataZone domain administrators can use these group memberships to implement Amazon DataZone domain policies.
 
-
         :param str resource_name: The name of the resource.
         :param GroupProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,11 +147,11 @@ class GroupProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_type: Optional[pulumi.Input['GroupProfileGroupType']] = None,
-                 role_principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['GroupProfileStatus']] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_type: pulumi.Input[Optional['GroupProfileGroupType']] = None,
+                 role_principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['GroupProfileStatus']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

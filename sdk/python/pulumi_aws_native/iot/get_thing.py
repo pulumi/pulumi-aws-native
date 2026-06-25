@@ -76,7 +76,6 @@ def get_thing(thing_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::IoT::Thing
 
-
     :param _builtins.str thing_name: The name of the thing to update.
            
            You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
@@ -90,11 +89,10 @@ def get_thing(thing_name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         attribute_payload=pulumi.get(__ret__, 'attribute_payload'),
         id=pulumi.get(__ret__, 'id'))
-def get_thing_output(thing_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_thing_output(thing_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThingResult]:
     """
     Resource Type definition for AWS::IoT::Thing
-
 
     :param _builtins.str thing_name: The name of the thing to update.
            

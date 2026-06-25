@@ -76,7 +76,6 @@ def get_resolver_dnssec_config(id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
 
-
     :param _builtins.str id: Id
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_resolver_dnssec_config(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         validation_status=pulumi.get(__ret__, 'validation_status'))
-def get_resolver_dnssec_config_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resolver_dnssec_config_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverDnssecConfigResult]:
     """
     Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
-
 
     :param _builtins.str id: Id
     """

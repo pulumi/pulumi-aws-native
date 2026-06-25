@@ -126,7 +126,6 @@ def get_package_version(package_id: Optional[_builtins.str] = None,
     """
     Registers a package version.
 
-
     :param _builtins.str package_id: A package ID.
     :param _builtins.str package_version: A package version.
     :param _builtins.str patch_version: A patch version.
@@ -146,13 +145,12 @@ def get_package_version(package_id: Optional[_builtins.str] = None,
         registered_time=pulumi.get(__ret__, 'registered_time'),
         status=pulumi.get(__ret__, 'status'),
         status_description=pulumi.get(__ret__, 'status_description'))
-def get_package_version_output(package_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               package_version: Optional[pulumi.Input[_builtins.str]] = None,
-                               patch_version: Optional[pulumi.Input[_builtins.str]] = None,
+def get_package_version_output(package_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               package_version: pulumi.Input[Optional[_builtins.str]] = None,
+                               patch_version: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackageVersionResult]:
     """
     Registers a package version.
-
 
     :param _builtins.str package_id: A package ID.
     :param _builtins.str package_version: A package version.

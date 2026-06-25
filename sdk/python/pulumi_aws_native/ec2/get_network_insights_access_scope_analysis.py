@@ -149,7 +149,6 @@ def get_network_insights_access_scope_analysis(network_insights_access_scope_ana
     """
     Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis
 
-
     :param _builtins.str network_insights_access_scope_analysis_id: The ID of the Network Access Scope analysis.
     """
     __args__ = dict()
@@ -167,11 +166,10 @@ def get_network_insights_access_scope_analysis(network_insights_access_scope_ana
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_network_insights_access_scope_analysis_output(network_insights_access_scope_analysis_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_insights_access_scope_analysis_output(network_insights_access_scope_analysis_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInsightsAccessScopeAnalysisResult]:
     """
     Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis
-
 
     :param _builtins.str network_insights_access_scope_analysis_id: The ID of the Network Access Scope analysis.
     """

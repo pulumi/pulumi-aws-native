@@ -99,7 +99,6 @@ def get_domain_verification(arn: Optional[_builtins.str] = None,
     """
     Creates a Lattice Domain Verification
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the domain verification.
     """
     __args__ = dict()
@@ -113,11 +112,10 @@ def get_domain_verification(arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         txt_method_config=pulumi.get(__ret__, 'txt_method_config'))
-def get_domain_verification_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_verification_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainVerificationResult]:
     """
     Creates a Lattice Domain Verification
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the domain verification.
     """

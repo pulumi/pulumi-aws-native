@@ -114,7 +114,6 @@ def get_config(arn: Optional[_builtins.str] = None,
     """
     AWS Ground Station config resource type for CloudFormation.
 
-
     :param _builtins.str arn: The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
     """
     __args__ = dict()
@@ -129,11 +128,10 @@ def get_config(arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_config_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_config_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigResult]:
     """
     AWS Ground Station config resource type for CloudFormation.
-
 
     :param _builtins.str arn: The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
     """

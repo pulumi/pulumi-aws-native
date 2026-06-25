@@ -26,9 +26,9 @@ class InstanceArgs:
     def __init__(__self__, *,
                  attributes: pulumi.Input['InstanceAttributesArgs'],
                  identity_management_type: pulumi.Input['InstanceIdentityManagementType'],
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Instance resource.
 
@@ -73,38 +73,38 @@ class InstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="directoryId")
-    def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Existing directoryId user wants to map to the new Connect instance.
         """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
-    def directory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_id", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceAlias")
-    def instance_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alias of the new directory created as part of new instance creation.
         """
         return pulumi.get(self, "instance_alias")
 
     @instance_alias.setter
-    def instance_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_alias", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -114,15 +114,14 @@ class Instance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: Optional[pulumi.Input[Union['InstanceAttributesArgs', 'InstanceAttributesArgsDict']]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_management_type: Optional[pulumi.Input['InstanceIdentityManagementType']] = None,
-                 instance_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 attributes: pulumi.Input[Optional[Union['InstanceAttributesArgs', 'InstanceAttributesArgsDict']]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_management_type: pulumi.Input[Optional['InstanceIdentityManagementType']] = None,
+                 instance_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::Instance
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +140,6 @@ class Instance(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::Instance
 
-
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,11 +155,11 @@ class Instance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: Optional[pulumi.Input[Union['InstanceAttributesArgs', 'InstanceAttributesArgsDict']]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_management_type: Optional[pulumi.Input['InstanceIdentityManagementType']] = None,
-                 instance_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 attributes: pulumi.Input[Optional[Union['InstanceAttributesArgs', 'InstanceAttributesArgsDict']]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_management_type: pulumi.Input[Optional['InstanceIdentityManagementType']] = None,
+                 instance_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

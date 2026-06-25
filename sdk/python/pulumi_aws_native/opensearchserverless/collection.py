@@ -24,15 +24,15 @@ __all__ = ['CollectionArgs', 'Collection']
 @pulumi.input_type
 class CollectionArgs:
     def __init__(__self__, *,
-                 collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_protection: Optional[pulumi.Input['CollectionDeletionProtection']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_config: Optional[pulumi.Input['CollectionEncryptionConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 standby_replicas: Optional[pulumi.Input['CollectionStandbyReplicas']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
-                 type: Optional[pulumi.Input['CollectionType']] = None,
-                 vector_options: Optional[pulumi.Input['CollectionVectorOptionsArgs']] = None):
+                 collection_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_protection: pulumi.Input[Optional['CollectionDeletionProtection']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_config: pulumi.Input[Optional['CollectionEncryptionConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 standby_replicas: pulumi.Input[Optional['CollectionStandbyReplicas']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
+                 type: pulumi.Input[Optional['CollectionType']] = None,
+                 vector_options: pulumi.Input[Optional['CollectionVectorOptionsArgs']] = None):
         """
         The set of arguments for constructing a Collection resource.
 
@@ -70,49 +70,49 @@ class CollectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="collectionGroupName")
-    def collection_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collection_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the collection group to associate with the collection.
         """
         return pulumi.get(self, "collection_group_name")
 
     @collection_group_name.setter
-    def collection_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collection_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collection_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
-    def deletion_protection(self) -> Optional[pulumi.Input['CollectionDeletionProtection']]:
+    def deletion_protection(self) -> pulumi.Input[Optional['CollectionDeletionProtection']]:
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
-    def deletion_protection(self, value: Optional[pulumi.Input['CollectionDeletionProtection']]):
+    def deletion_protection(self, value: pulumi.Input[Optional['CollectionDeletionProtection']]):
         pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the collection
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfig")
-    def encryption_config(self) -> Optional[pulumi.Input['CollectionEncryptionConfigArgs']]:
+    def encryption_config(self) -> pulumi.Input[Optional['CollectionEncryptionConfigArgs']]:
         return pulumi.get(self, "encryption_config")
 
     @encryption_config.setter
-    def encryption_config(self, value: Optional[pulumi.Input['CollectionEncryptionConfigArgs']]):
+    def encryption_config(self, value: pulumi.Input[Optional['CollectionEncryptionConfigArgs']]):
         pulumi.set(self, "encryption_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the collection.
 
@@ -125,52 +125,52 @@ class CollectionArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="standbyReplicas")
-    def standby_replicas(self) -> Optional[pulumi.Input['CollectionStandbyReplicas']]:
+    def standby_replicas(self) -> pulumi.Input[Optional['CollectionStandbyReplicas']]:
         """
         Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
         """
         return pulumi.get(self, "standby_replicas")
 
     @standby_replicas.setter
-    def standby_replicas(self, value: Optional[pulumi.Input['CollectionStandbyReplicas']]):
+    def standby_replicas(self, value: pulumi.Input[Optional['CollectionStandbyReplicas']]):
         pulumi.set(self, "standby_replicas", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         List of tags to be added to the resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['CollectionType']]:
+    def type(self) -> pulumi.Input[Optional['CollectionType']]:
         """
         The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['CollectionType']]):
+    def type(self, value: pulumi.Input[Optional['CollectionType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="vectorOptions")
-    def vector_options(self) -> Optional[pulumi.Input['CollectionVectorOptionsArgs']]:
+    def vector_options(self) -> pulumi.Input[Optional['CollectionVectorOptionsArgs']]:
         return pulumi.get(self, "vector_options")
 
     @vector_options.setter
-    def vector_options(self, value: Optional[pulumi.Input['CollectionVectorOptionsArgs']]):
+    def vector_options(self, value: pulumi.Input[Optional['CollectionVectorOptionsArgs']]):
         pulumi.set(self, "vector_options", value)
 
 
@@ -180,15 +180,15 @@ class Collection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_protection: Optional[pulumi.Input['CollectionDeletionProtection']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_config: Optional[pulumi.Input[Union['CollectionEncryptionConfigArgs', 'CollectionEncryptionConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 standby_replicas: Optional[pulumi.Input['CollectionStandbyReplicas']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['CollectionType']] = None,
-                 vector_options: Optional[pulumi.Input[Union['CollectionVectorOptionsArgs', 'CollectionVectorOptionsArgsDict']]] = None,
+                 collection_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_protection: pulumi.Input[Optional['CollectionDeletionProtection']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_config: pulumi.Input[Optional[Union['CollectionEncryptionConfigArgs', 'CollectionEncryptionConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 standby_replicas: pulumi.Input[Optional['CollectionStandbyReplicas']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['CollectionType']] = None,
+                 vector_options: pulumi.Input[Optional[Union['CollectionVectorOptionsArgs', 'CollectionVectorOptionsArgsDict']]] = None,
                  __props__=None):
         """
         Amazon OpenSearchServerless collection resource
@@ -310,15 +310,15 @@ class Collection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_protection: Optional[pulumi.Input['CollectionDeletionProtection']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_config: Optional[pulumi.Input[Union['CollectionEncryptionConfigArgs', 'CollectionEncryptionConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 standby_replicas: Optional[pulumi.Input['CollectionStandbyReplicas']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['CollectionType']] = None,
-                 vector_options: Optional[pulumi.Input[Union['CollectionVectorOptionsArgs', 'CollectionVectorOptionsArgsDict']]] = None,
+                 collection_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_protection: pulumi.Input[Optional['CollectionDeletionProtection']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_config: pulumi.Input[Optional[Union['CollectionEncryptionConfigArgs', 'CollectionEncryptionConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 standby_replicas: pulumi.Input[Optional['CollectionStandbyReplicas']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['CollectionType']] = None,
+                 vector_options: pulumi.Input[Optional[Union['CollectionVectorOptionsArgs', 'CollectionVectorOptionsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

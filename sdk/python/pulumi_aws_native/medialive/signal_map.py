@@ -22,12 +22,12 @@ __all__ = ['SignalMapArgs', 'SignalMap']
 class SignalMapArgs:
     def __init__(__self__, *,
                  discovery_entry_point_arn: pulumi.Input[_builtins.str],
-                 cloud_watch_alarm_template_group_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_bridge_rule_template_group_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 force_rediscovery: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cloud_watch_alarm_template_group_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_bridge_rule_template_group_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 force_rediscovery: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SignalMap resource.
 
@@ -66,71 +66,71 @@ class SignalMapArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchAlarmTemplateGroupIdentifiers")
-    def cloud_watch_alarm_template_group_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cloud_watch_alarm_template_group_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A cloudwatch alarm template group's identifier. Can be either be its id or current name.
         """
         return pulumi.get(self, "cloud_watch_alarm_template_group_identifiers")
 
     @cloud_watch_alarm_template_group_identifiers.setter
-    def cloud_watch_alarm_template_group_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cloud_watch_alarm_template_group_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cloud_watch_alarm_template_group_identifiers", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A resource's optional description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="eventBridgeRuleTemplateGroupIdentifiers")
-    def event_bridge_rule_template_group_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def event_bridge_rule_template_group_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An eventbridge rule template group's identifier. Can be either be its id or current name.
         """
         return pulumi.get(self, "event_bridge_rule_template_group_identifiers")
 
     @event_bridge_rule_template_group_identifiers.setter
-    def event_bridge_rule_template_group_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def event_bridge_rule_template_group_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "event_bridge_rule_template_group_identifiers", value)
 
     @_builtins.property
     @pulumi.getter(name="forceRediscovery")
-    def force_rediscovery(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_rediscovery(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, will force a rediscovery of a signal map if an unchanged discoveryEntryPointArn is provided.
         """
         return pulumi.get(self, "force_rediscovery")
 
     @force_rediscovery.setter
-    def force_rediscovery(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_rediscovery(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_rediscovery", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A resource's name. Names must be unique within the scope of a resource type in a specific region.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -140,17 +140,16 @@ class SignalMap(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_watch_alarm_template_group_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_entry_point_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_bridge_rule_template_group_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 force_rediscovery: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cloud_watch_alarm_template_group_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_entry_point_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_bridge_rule_template_group_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 force_rediscovery: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::MediaLive::SignalMap Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,7 +169,6 @@ class SignalMap(pulumi.CustomResource):
         """
         Definition of AWS::MediaLive::SignalMap Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param SignalMapArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,13 +184,13 @@ class SignalMap(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_watch_alarm_template_group_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_entry_point_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_bridge_rule_template_group_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 force_rediscovery: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cloud_watch_alarm_template_group_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_entry_point_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_bridge_rule_template_group_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 force_rediscovery: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

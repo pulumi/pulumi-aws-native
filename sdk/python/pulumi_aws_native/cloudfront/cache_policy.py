@@ -48,7 +48,7 @@ class CachePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_policy_config: Optional[pulumi.Input[Union['CachePolicyConfigArgs', 'CachePolicyConfigArgsDict']]] = None,
+                 cache_policy_config: pulumi.Input[Optional[Union['CachePolicyConfigArgs', 'CachePolicyConfigArgsDict']]] = None,
                  __props__=None):
         """
         A cache policy.
@@ -57,7 +57,6 @@ class CachePolicy(pulumi.CustomResource):
           +  The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
 
          The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use ``OriginRequestPolicy``.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -77,7 +76,6 @@ class CachePolicy(pulumi.CustomResource):
 
          The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use ``OriginRequestPolicy``.
 
-
         :param str resource_name: The name of the resource.
         :param CachePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -93,7 +91,7 @@ class CachePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_policy_config: Optional[pulumi.Input[Union['CachePolicyConfigArgs', 'CachePolicyConfigArgsDict']]] = None,
+                 cache_policy_config: pulumi.Input[Optional[Union['CachePolicyConfigArgs', 'CachePolicyConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

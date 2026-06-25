@@ -302,7 +302,6 @@ def get_data_set(aws_account_id: Optional[_builtins.str] = None,
     """
     Definition of the AWS::QuickSight::DataSet Resource Type.
 
-
     :param _builtins.str aws_account_id: The AWS account ID.
     :param _builtins.str data_set_id: An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
     """
@@ -335,12 +334,11 @@ def get_data_set(aws_account_id: Optional[_builtins.str] = None,
         semantic_model_configuration=pulumi.get(__ret__, 'semantic_model_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         use_as=pulumi.get(__ret__, 'use_as'))
-def get_data_set_output(aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                        data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_set_output(aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                        data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSetResult]:
     """
     Definition of the AWS::QuickSight::DataSet Resource Type.
-
 
     :param _builtins.str aws_account_id: The AWS account ID.
     :param _builtins.str data_set_id: An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.

@@ -24,9 +24,9 @@ class UrlArgs:
     def __init__(__self__, *,
                  auth_type: pulumi.Input['UrlAuthType'],
                  target_function_arn: pulumi.Input[_builtins.str],
-                 cors: Optional[pulumi.Input['UrlCorsArgs']] = None,
-                 invoke_mode: Optional[pulumi.Input['UrlInvokeMode']] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 cors: pulumi.Input[Optional['UrlCorsArgs']] = None,
+                 invoke_mode: pulumi.Input[Optional['UrlInvokeMode']] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Url resource.
 
@@ -71,38 +71,38 @@ class UrlArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['UrlCorsArgs']]:
+    def cors(self) -> pulumi.Input[Optional['UrlCorsArgs']]:
         """
         The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['UrlCorsArgs']]):
+    def cors(self, value: pulumi.Input[Optional['UrlCorsArgs']]):
         pulumi.set(self, "cors", value)
 
     @_builtins.property
     @pulumi.getter(name="invokeMode")
-    def invoke_mode(self) -> Optional[pulumi.Input['UrlInvokeMode']]:
+    def invoke_mode(self) -> pulumi.Input[Optional['UrlInvokeMode']]:
         """
         The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
         """
         return pulumi.get(self, "invoke_mode")
 
     @invoke_mode.setter
-    def invoke_mode(self, value: Optional[pulumi.Input['UrlInvokeMode']]):
+    def invoke_mode(self, value: pulumi.Input[Optional['UrlInvokeMode']]):
         pulumi.set(self, "invoke_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
         """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
-    def qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "qualifier", value)
 
 
@@ -112,15 +112,14 @@ class Url(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_type: Optional[pulumi.Input['UrlAuthType']] = None,
-                 cors: Optional[pulumi.Input[Union['UrlCorsArgs', 'UrlCorsArgsDict']]] = None,
-                 invoke_mode: Optional[pulumi.Input['UrlInvokeMode']] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_function_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_type: pulumi.Input[Optional['UrlAuthType']] = None,
+                 cors: pulumi.Input[Optional[Union['UrlCorsArgs', 'UrlCorsArgsDict']]] = None,
+                 invoke_mode: pulumi.Input[Optional['UrlInvokeMode']] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_function_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lambda::Url
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,7 +138,6 @@ class Url(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lambda::Url
 
-
         :param str resource_name: The name of the resource.
         :param UrlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,11 +153,11 @@ class Url(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_type: Optional[pulumi.Input['UrlAuthType']] = None,
-                 cors: Optional[pulumi.Input[Union['UrlCorsArgs', 'UrlCorsArgsDict']]] = None,
-                 invoke_mode: Optional[pulumi.Input['UrlInvokeMode']] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_function_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_type: pulumi.Input[Optional['UrlAuthType']] = None,
+                 cors: pulumi.Input[Optional[Union['UrlCorsArgs', 'UrlCorsArgsDict']]] = None,
+                 invoke_mode: pulumi.Input[Optional['UrlInvokeMode']] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_function_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

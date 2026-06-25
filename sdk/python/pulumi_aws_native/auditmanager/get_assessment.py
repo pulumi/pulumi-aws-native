@@ -154,7 +154,6 @@ def get_assessment(assessment_id: Optional[_builtins.str] = None,
     """
     An entity that defines the scope of audit evidence collected by AWS Audit Manager.
 
-
     :param _builtins.str assessment_id: The unique identifier for the assessment.
     """
     __args__ = dict()
@@ -172,11 +171,10 @@ def get_assessment(assessment_id: Optional[_builtins.str] = None,
         scope=pulumi.get(__ret__, 'scope'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_assessment_output(assessment_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_assessment_output(assessment_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentResult]:
     """
     An entity that defines the scope of audit evidence collected by AWS Audit Manager.
-
 
     :param _builtins.str assessment_id: The unique identifier for the assessment.
     """

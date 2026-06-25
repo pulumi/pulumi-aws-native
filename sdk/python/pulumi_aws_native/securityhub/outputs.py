@@ -186,15 +186,15 @@ class AutomationRuleMapFilter(dict):
                 To search for values that have the filter value, use one of the following comparison operators:
                  +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
                  +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
-                 
+               
                 ``CONTAINS`` and ``EQUALS`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Department CONTAINS Security OR Department CONTAINS Finance`` match a finding that includes either ``Security``, ``Finance``, or both values.
                 To search for values that don't have the filter value, use one of the following comparison operators:
                  +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_CONTAINS Finance`` matches findings that exclude the value ``Finance`` for the ``Department`` tag.
                  +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_EQUALS Finance`` matches findings that don’t have the value ``Finance`` for the ``Department`` tag.
-                 
+               
                 ``NOT_CONTAINS`` and ``NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance`` match a finding that excludes both the ``Security`` and ``Finance`` values.
                 ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
-                You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can’t have both an ``EQUALS`` filter and a ``NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. 
+                You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can’t have both an ``EQUALS`` filter and a ``NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error.
                 ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
         :param _builtins.str key: The key of the map filter. For example, for ``ResourceTags``, ``Key`` identifies the name of the tag. For ``UserDefinedFields``, ``Key`` is the name of the field.
         :param _builtins.str value: The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called ``Department`` might be ``Security``. If you provide ``security`` as the filter value, then there's no match.
@@ -211,15 +211,15 @@ class AutomationRuleMapFilter(dict):
          To search for values that have the filter value, use one of the following comparison operators:
           +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
           +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
-          
+
          ``CONTAINS`` and ``EQUALS`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Department CONTAINS Security OR Department CONTAINS Finance`` match a finding that includes either ``Security``, ``Finance``, or both values.
          To search for values that don't have the filter value, use one of the following comparison operators:
           +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_CONTAINS Finance`` matches findings that exclude the value ``Finance`` for the ``Department`` tag.
           +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_EQUALS Finance`` matches findings that don’t have the value ``Finance`` for the ``Department`` tag.
-          
+
          ``NOT_CONTAINS`` and ``NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance`` match a finding that excludes both the ``Security`` and ``Finance`` values.
          ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
-         You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can’t have both an ``EQUALS`` filter and a ``NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. 
+         You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can’t have both an ``EQUALS`` filter and a ``NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error.
          ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
         """
         return pulumi.get(self, "comparison")
@@ -368,7 +368,7 @@ class AutomationRuleRelatedFinding(dict):
         """
         Provides details about a list of findings that the current finding relates to.
 
-        :param _builtins.str id: The product-generated identifier for a related finding. 
+        :param _builtins.str id: The product-generated identifier for a related finding.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
         :param _builtins.str product_arn: The Amazon Resource Name (ARN) for the product that generated a related finding.
         """
@@ -379,7 +379,7 @@ class AutomationRuleRelatedFinding(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The product-generated identifier for a related finding. 
+        The product-generated identifier for a related finding.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "id")
@@ -479,22 +479,22 @@ class AutomationRuleStringFilter(dict):
                  +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
                  +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
                  +  To search for values that start with the filter value, use ``PREFIX``. For example, the filter ``ResourceRegion PREFIX us`` matches findings that have a ``ResourceRegion`` that starts with ``us``. A ``ResourceRegion`` that starts with a different value, such as ``af``, ``ap``, or ``ca``, doesn't match.
-                 
+               
                 ``CONTAINS``, ``EQUALS``, and ``PREFIX`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Title CONTAINS CloudFront OR Title CONTAINS CloudWatch`` match a finding that includes either ``CloudFront``, ``CloudWatch``, or both strings in the title.
                 To search for values that don’t have the filter value, use one of the following comparison operators:
                  +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, the filter ``Title NOT_CONTAINS CloudFront`` matches findings that have a ``Title`` that excludes the string CloudFront.
                  +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, the filter ``AwsAccountId NOT_EQUALS 123456789012`` only matches findings that have an account ID other than ``123456789012``.
                  +  To search for values that don't start with the filter value, use ``PREFIX_NOT_EQUALS``. For example, the filter ``ResourceRegion PREFIX_NOT_EQUALS us`` matches findings with a ``ResourceRegion`` that starts with a value other than ``us``.
-                 
+               
                 ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
-                You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters. 
+                You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
                 You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub CSPM first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
                 For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
-                 +   ``ResourceType PREFIX AwsIam`` 
-                 +   ``ResourceType PREFIX AwsEc2`` 
-                 +   ``ResourceType NOT_EQUALS AwsIamPolicy`` 
-                 +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface`` 
-                 
+                 +   ``ResourceType PREFIX AwsIam``
+                 +   ``ResourceType PREFIX AwsEc2``
+                 +   ``ResourceType NOT_EQUALS AwsIamPolicy``
+                 +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface``
+               
                 ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
         :param _builtins.str value: The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub CSPM``. If you provide ``security hub`` as the filter value, there's no match.
         """
@@ -510,22 +510,22 @@ class AutomationRuleStringFilter(dict):
           +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
           +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
           +  To search for values that start with the filter value, use ``PREFIX``. For example, the filter ``ResourceRegion PREFIX us`` matches findings that have a ``ResourceRegion`` that starts with ``us``. A ``ResourceRegion`` that starts with a different value, such as ``af``, ``ap``, or ``ca``, doesn't match.
-          
+
          ``CONTAINS``, ``EQUALS``, and ``PREFIX`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Title CONTAINS CloudFront OR Title CONTAINS CloudWatch`` match a finding that includes either ``CloudFront``, ``CloudWatch``, or both strings in the title.
          To search for values that don’t have the filter value, use one of the following comparison operators:
           +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, the filter ``Title NOT_CONTAINS CloudFront`` matches findings that have a ``Title`` that excludes the string CloudFront.
           +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, the filter ``AwsAccountId NOT_EQUALS 123456789012`` only matches findings that have an account ID other than ``123456789012``.
           +  To search for values that don't start with the filter value, use ``PREFIX_NOT_EQUALS``. For example, the filter ``ResourceRegion PREFIX_NOT_EQUALS us`` matches findings with a ``ResourceRegion`` that starts with a value other than ``us``.
-          
+
          ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
-         You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters. 
+         You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
          You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub CSPM first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
          For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
-          +   ``ResourceType PREFIX AwsIam`` 
-          +   ``ResourceType PREFIX AwsEc2`` 
-          +   ``ResourceType NOT_EQUALS AwsIamPolicy`` 
-          +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface`` 
-          
+          +   ``ResourceType PREFIX AwsIam``
+          +   ``ResourceType PREFIX AwsEc2``
+          +   ``ResourceType NOT_EQUALS AwsIamPolicy``
+          +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface``
+
          ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
         """
         return pulumi.get(self, "comparison")
@@ -1446,7 +1446,7 @@ class AutomationRuleWorkflowUpdate(dict):
                 Security Hub CSPM also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
                  +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
                  +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
-                 
+               
                  +  ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
                  +  ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
                  +  ``SUPPRESSED`` - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.
@@ -1463,7 +1463,7 @@ class AutomationRuleWorkflowUpdate(dict):
          Security Hub CSPM also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
           +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
           +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
-          
+
           +  ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
           +  ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
           +  ``SUPPRESSED`` - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.
@@ -1782,78 +1782,78 @@ class AutomationRulesFindingFilters(dict):
 
         :param Sequence['AutomationRuleStringFilter'] aws_account_id: The AWS-account ID in which a finding was generated.
                  Array Members: Minimum number of 1 item. Maximum number of 100 items.
-        :param Sequence['AutomationRuleStringFilter'] company_name: The name of the company for the product that generated the finding. For control-based findings, the company is AWS. 
+        :param Sequence['AutomationRuleStringFilter'] company_name: The name of the company for the product that generated the finding. For control-based findings, the company is AWS.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
         :param Sequence['AutomationRuleStringFilter'] compliance_associated_standards_id: The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the Amazon Resource Name (ARN) returned for a standard in the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API response.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
         :param Sequence['AutomationRuleStringFilter'] compliance_security_control_id: The security control ID for which a finding was generated. Security control IDs are the same across standards.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] compliance_status: The result of a security check. This field is only used for findings generated from controls. 
+        :param Sequence['AutomationRuleStringFilter'] compliance_status: The result of a security check. This field is only used for findings generated from controls.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
         :param Sequence['AutomationRuleNumberFilter'] confidence: The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. ``Confidence`` is scored on a 0–100 basis using a ratio scale. A value of ``0`` means 0 percent confidence, and a value of ``100`` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *User Guide*.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleDateFilter'] created_at: A timestamp that indicates when this finding record was created. 
+        :param Sequence['AutomationRuleDateFilter'] created_at: A timestamp that indicates when this finding record was created.
                 For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
         :param Sequence['AutomationRuleNumberFilter'] criticality: The level of importance that is assigned to the resources that are associated with a finding. ``Criticality`` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of ``0`` means that the underlying resources have no criticality, and a score of ``100`` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *User Guide*.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] description: A finding's description. 
+        :param Sequence['AutomationRuleStringFilter'] description: A finding's description.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleDateFilter'] first_observed_at: A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. 
+        :param Sequence['AutomationRuleDateFilter'] first_observed_at: A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
                 For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] generator_id: The identifier for the solution-specific component that generated a finding. 
+        :param Sequence['AutomationRuleStringFilter'] generator_id: The identifier for the solution-specific component that generated a finding.
                  Array Members: Minimum number of 1 item. Maximum number of 100 items.
-        :param Sequence['AutomationRuleStringFilter'] id: The product-specific identifier for a finding. 
+        :param Sequence['AutomationRuleStringFilter'] id: The product-specific identifier for a finding.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleDateFilter'] last_observed_at: A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding. 
+        :param Sequence['AutomationRuleDateFilter'] last_observed_at: A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.
                 For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] note_text: The text of a user-defined note that's added to a finding. 
+        :param Sequence['AutomationRuleStringFilter'] note_text: The text of a user-defined note that's added to a finding.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
         :param Sequence['AutomationRuleDateFilter'] note_updated_at: The timestamp of when the note was updated.
                 For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] note_updated_by: The principal that created a note. 
+        :param Sequence['AutomationRuleStringFilter'] note_updated_by: The principal that created a note.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] product_arn: The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM. 
+        :param Sequence['AutomationRuleStringFilter'] product_arn: The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] product_name: Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM. 
+        :param Sequence['AutomationRuleStringFilter'] product_name: Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] record_state: Provides the current state of a finding. 
+        :param Sequence['AutomationRuleStringFilter'] record_state: Provides the current state of a finding.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] related_findings_id: The product-generated identifier for a related finding. 
+        :param Sequence['AutomationRuleStringFilter'] related_findings_id: The product-generated identifier for a related finding.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] related_findings_product_arn: The ARN for the product that generated a related finding. 
+        :param Sequence['AutomationRuleStringFilter'] related_findings_product_arn: The ARN for the product that generated a related finding.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleMapFilter'] resource_details_other: Custom fields and values about the resource that a finding pertains to. 
+        :param Sequence['AutomationRuleMapFilter'] resource_details_other: Custom fields and values about the resource that a finding pertains to.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] resource_id: The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. 
+        :param Sequence['AutomationRuleStringFilter'] resource_id: The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource.
                  Array Members: Minimum number of 1 item. Maximum number of 100 items.
-        :param Sequence['AutomationRuleStringFilter'] resource_partition: The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition. 
+        :param Sequence['AutomationRuleStringFilter'] resource_partition: The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] resource_region: The AWS-Region where the resource that a finding pertains to is located. 
+        :param Sequence['AutomationRuleStringFilter'] resource_region: The AWS-Region where the resource that a finding pertains to is located.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleMapFilter'] resource_tags: A list of AWS tags associated with a resource at the time the finding was processed. 
+        :param Sequence['AutomationRuleMapFilter'] resource_tags: A list of AWS tags associated with a resource at the time the finding was processed.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] resource_type: A finding's title. 
+        :param Sequence['AutomationRuleStringFilter'] resource_type: A finding's title.
                  Array Members: Minimum number of 1 item. Maximum number of 100 items.
-        :param Sequence['AutomationRuleStringFilter'] severity_label: The severity value of the finding. 
+        :param Sequence['AutomationRuleStringFilter'] severity_label: The severity value of the finding.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] source_url: Provides a URL that links to a page about the current finding in the finding product. 
+        :param Sequence['AutomationRuleStringFilter'] source_url: Provides a URL that links to a page about the current finding in the finding product.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] title: A finding's title. 
+        :param Sequence['AutomationRuleStringFilter'] title: A finding's title.
                  Array Members: Minimum number of 1 item. Maximum number of 100 items.
         :param Sequence['AutomationRuleStringFilter'] type: One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleDateFilter'] updated_at: A timestamp that indicates when the finding record was most recently updated. 
+        :param Sequence['AutomationRuleDateFilter'] updated_at: A timestamp that indicates when the finding record was most recently updated.
                 For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleMapFilter'] user_defined_fields: A list of user-defined name and value string pairs added to a finding. 
+        :param Sequence['AutomationRuleMapFilter'] user_defined_fields: A list of user-defined name and value string pairs added to a finding.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] verification_state: Provides the veracity of a finding. 
+        :param Sequence['AutomationRuleStringFilter'] verification_state: Provides the veracity of a finding.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleStringFilter'] workflow_status: Provides information about the status of the investigation into a finding. 
+        :param Sequence['AutomationRuleStringFilter'] workflow_status: Provides information about the status of the investigation into a finding.
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         if aws_account_id is not None:
@@ -1940,7 +1940,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="companyName")
     def company_name(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        The name of the company for the product that generated the finding. For control-based findings, the company is AWS. 
+        The name of the company for the product that generated the finding. For control-based findings, the company is AWS.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "company_name")
@@ -1967,7 +1967,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="complianceStatus")
     def compliance_status(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        The result of a security check. This field is only used for findings generated from controls. 
+        The result of a security check. This field is only used for findings generated from controls.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "compliance_status")
@@ -1985,7 +1985,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[Sequence['outputs.AutomationRuleDateFilter']]:
         """
-        A timestamp that indicates when this finding record was created. 
+        A timestamp that indicates when this finding record was created.
          For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
@@ -2004,7 +2004,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter
     def description(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        A finding's description. 
+        A finding's description.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "description")
@@ -2013,7 +2013,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="firstObservedAt")
     def first_observed_at(self) -> Optional[Sequence['outputs.AutomationRuleDateFilter']]:
         """
-        A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. 
+        A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
          For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
@@ -2023,7 +2023,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="generatorId")
     def generator_id(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        The identifier for the solution-specific component that generated a finding. 
+        The identifier for the solution-specific component that generated a finding.
           Array Members: Minimum number of 1 item. Maximum number of 100 items.
         """
         return pulumi.get(self, "generator_id")
@@ -2032,7 +2032,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter
     def id(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        The product-specific identifier for a finding. 
+        The product-specific identifier for a finding.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "id")
@@ -2041,7 +2041,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="lastObservedAt")
     def last_observed_at(self) -> Optional[Sequence['outputs.AutomationRuleDateFilter']]:
         """
-        A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding. 
+        A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.
          For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
@@ -2051,7 +2051,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="noteText")
     def note_text(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        The text of a user-defined note that's added to a finding. 
+        The text of a user-defined note that's added to a finding.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "note_text")
@@ -2070,7 +2070,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="noteUpdatedBy")
     def note_updated_by(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        The principal that created a note. 
+        The principal that created a note.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "note_updated_by")
@@ -2079,7 +2079,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="productArn")
     def product_arn(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM. 
+        The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "product_arn")
@@ -2088,7 +2088,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="productName")
     def product_name(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM. 
+        Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "product_name")
@@ -2097,7 +2097,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="recordState")
     def record_state(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        Provides the current state of a finding. 
+        Provides the current state of a finding.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "record_state")
@@ -2106,7 +2106,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="relatedFindingsId")
     def related_findings_id(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        The product-generated identifier for a related finding. 
+        The product-generated identifier for a related finding.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "related_findings_id")
@@ -2115,7 +2115,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="relatedFindingsProductArn")
     def related_findings_product_arn(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        The ARN for the product that generated a related finding. 
+        The ARN for the product that generated a related finding.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "related_findings_product_arn")
@@ -2124,7 +2124,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="resourceDetailsOther")
     def resource_details_other(self) -> Optional[Sequence['outputs.AutomationRuleMapFilter']]:
         """
-        Custom fields and values about the resource that a finding pertains to. 
+        Custom fields and values about the resource that a finding pertains to.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "resource_details_other")
@@ -2133,7 +2133,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. 
+        The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource.
           Array Members: Minimum number of 1 item. Maximum number of 100 items.
         """
         return pulumi.get(self, "resource_id")
@@ -2142,7 +2142,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="resourcePartition")
     def resource_partition(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition. 
+        The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "resource_partition")
@@ -2151,7 +2151,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="resourceRegion")
     def resource_region(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        The AWS-Region where the resource that a finding pertains to is located. 
+        The AWS-Region where the resource that a finding pertains to is located.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "resource_region")
@@ -2160,7 +2160,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[Sequence['outputs.AutomationRuleMapFilter']]:
         """
-        A list of AWS tags associated with a resource at the time the finding was processed. 
+        A list of AWS tags associated with a resource at the time the finding was processed.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "resource_tags")
@@ -2169,7 +2169,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        A finding's title. 
+        A finding's title.
           Array Members: Minimum number of 1 item. Maximum number of 100 items.
         """
         return pulumi.get(self, "resource_type")
@@ -2178,7 +2178,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="severityLabel")
     def severity_label(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        The severity value of the finding. 
+        The severity value of the finding.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "severity_label")
@@ -2187,7 +2187,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="sourceUrl")
     def source_url(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        Provides a URL that links to a page about the current finding in the finding product. 
+        Provides a URL that links to a page about the current finding in the finding product.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "source_url")
@@ -2196,7 +2196,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter
     def title(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        A finding's title. 
+        A finding's title.
           Array Members: Minimum number of 1 item. Maximum number of 100 items.
         """
         return pulumi.get(self, "title")
@@ -2214,7 +2214,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[Sequence['outputs.AutomationRuleDateFilter']]:
         """
-        A timestamp that indicates when the finding record was most recently updated. 
+        A timestamp that indicates when the finding record was most recently updated.
          For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
@@ -2224,7 +2224,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="userDefinedFields")
     def user_defined_fields(self) -> Optional[Sequence['outputs.AutomationRuleMapFilter']]:
         """
-        A list of user-defined name and value string pairs added to a finding. 
+        A list of user-defined name and value string pairs added to a finding.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "user_defined_fields")
@@ -2233,7 +2233,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="verificationState")
     def verification_state(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        Provides the veracity of a finding. 
+        Provides the veracity of a finding.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "verification_state")
@@ -2242,7 +2242,7 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="workflowStatus")
     def workflow_status(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        Provides information about the status of the investigation into a finding. 
+        Provides information about the status of the investigation into a finding.
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "workflow_status")

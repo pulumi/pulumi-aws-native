@@ -160,7 +160,6 @@ def get_app_monitor(name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::RUM::AppMonitor
 
-
     :param _builtins.str name: A name for the app monitor
     """
     __args__ = dict()
@@ -178,11 +177,10 @@ def get_app_monitor(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         resource_policy=pulumi.get(__ret__, 'resource_policy'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_app_monitor_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_monitor_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppMonitorResult]:
     """
     Resource Type definition for AWS::RUM::AppMonitor
-
 
     :param _builtins.str name: A name for the app monitor
     """

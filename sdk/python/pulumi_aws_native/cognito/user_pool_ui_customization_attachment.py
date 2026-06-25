@@ -21,7 +21,7 @@ class UserPoolUiCustomizationAttachmentArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
                  user_pool_id: pulumi.Input[_builtins.str],
-                 css: Optional[pulumi.Input[_builtins.str]] = None):
+                 css: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserPoolUiCustomizationAttachment resource.
 
@@ -60,14 +60,14 @@ class UserPoolUiCustomizationAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def css(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def css(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
         """
         return pulumi.get(self, "css")
 
     @css.setter
-    def css(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def css(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "css", value)
 
 
@@ -77,13 +77,12 @@ class UserPoolUiCustomizationAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 css: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 css: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -100,7 +99,6 @@ class UserPoolUiCustomizationAttachment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
 
-
         :param str resource_name: The name of the resource.
         :param UserPoolUiCustomizationAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,9 +114,9 @@ class UserPoolUiCustomizationAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 css: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 css: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

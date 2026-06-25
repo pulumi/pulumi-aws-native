@@ -30,7 +30,7 @@ __all__ = [
 @pulumi.output_type
 class AccessPointCreationInfo(dict):
     """
-    Required if the ``RootDirectory`` > ``Path`` specified does not exist. Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory`` > ``Path``. If the access point root directory does not exist, EFS creates it with these settings when a client connects to the access point. When specifying ``CreationInfo``, you must include values for all properties. 
+    Required if the ``RootDirectory`` > ``Path`` specified does not exist. Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory`` > ``Path``. If the access point root directory does not exist, EFS creates it with these settings when a client connects to the access point. When specifying ``CreationInfo``, you must include values for all properties.
      Amazon EFS creates a root directory only if you have provided the CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you do not provide this information, Amazon EFS does not create the root directory. If the root directory does not exist, attempts to mount using the access point will fail.
       If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` does not exist, attempts to mount the file system using the access point will fail.
     """
@@ -58,7 +58,7 @@ class AccessPointCreationInfo(dict):
                  owner_uid: _builtins.str,
                  permissions: _builtins.str):
         """
-        Required if the ``RootDirectory`` > ``Path`` specified does not exist. Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory`` > ``Path``. If the access point root directory does not exist, EFS creates it with these settings when a client connects to the access point. When specifying ``CreationInfo``, you must include values for all properties. 
+        Required if the ``RootDirectory`` > ``Path`` specified does not exist. Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory`` > ``Path``. If the access point root directory does not exist, EFS creates it with these settings when a client connects to the access point. When specifying ``CreationInfo``, you must include values for all properties.
          Amazon EFS creates a root directory only if you have provided the CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you do not provide this information, Amazon EFS does not create the root directory. If the root directory does not exist, attempts to mount using the access point will fail.
           If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` does not exist, attempts to mount the file system using the access point will fail.
 
@@ -186,7 +186,7 @@ class AccessPointRootDirectory(dict):
         """
         Specifies the directory on the Amazon EFS file system that the access point provides access to. The access point exposes the specified file system path as the root directory of your file system to applications using the access point. NFS clients using the access point can only access data in the access point's ``RootDirectory`` and its subdirectories.
 
-        :param 'AccessPointCreationInfo' creation_info: (Optional) Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory``. If the ``RootDirectory`` > ``Path`` specified does not exist, EFS creates the root directory using the ``CreationInfo`` settings when a client connects to an access point. When specifying the ``CreationInfo``, you must provide values for all properties. 
+        :param 'AccessPointCreationInfo' creation_info: (Optional) Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory``. If the ``RootDirectory`` > ``Path`` specified does not exist, EFS creates the root directory using the ``CreationInfo`` settings when a client connects to an access point. When specifying the ``CreationInfo``, you must provide values for all properties.
                  If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` > ``Path`` does not exist, attempts to mount the file system using the access point will fail.
         :param _builtins.str path: Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the ``CreationInfo``.
         """
@@ -199,7 +199,7 @@ class AccessPointRootDirectory(dict):
     @pulumi.getter(name="creationInfo")
     def creation_info(self) -> Optional['outputs.AccessPointCreationInfo']:
         """
-        (Optional) Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory``. If the ``RootDirectory`` > ``Path`` specified does not exist, EFS creates the root directory using the ``CreationInfo`` settings when a client connects to an access point. When specifying the ``CreationInfo``, you must provide values for all properties. 
+        (Optional) Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory``. If the ``RootDirectory`` > ``Path`` specified does not exist, EFS creates the root directory using the ``CreationInfo`` settings when a client connects to an access point. When specifying the ``CreationInfo``, you must provide values for all properties.
           If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` > ``Path`` does not exist, attempts to mount the file system using the access point will fail.
         """
         return pulumi.get(self, "creation_info")
@@ -224,7 +224,7 @@ class FileSystemBackupPolicy(dict):
         The backup policy turns automatic backups for the file system on or off.
 
         :param 'FileSystemBackupPolicyStatus' status: Set the backup policy status for the file system.
-                 +  *ENABLED* - Turns automatic backups on for the file system. 
+                 +  *ENABLED* - Turns automatic backups on for the file system.
                  +  *DISABLED* - Turns automatic backups off for the file system.
         """
         pulumi.set(__self__, "status", status)
@@ -234,7 +234,7 @@ class FileSystemBackupPolicy(dict):
     def status(self) -> 'FileSystemBackupPolicyStatus':
         """
         Set the backup policy status for the file system.
-          +  *ENABLED* - Turns automatic backups on for the file system. 
+          +  *ENABLED* - Turns automatic backups on for the file system.
           +  *DISABLED* - Turns automatic backups off for the file system.
         """
         return pulumi.get(self, "status")
@@ -341,10 +341,10 @@ class FileSystemProtection(dict):
         Describes the protection on the file system.
 
         :param 'FileSystemProtectionReplicationOverwriteProtection' replication_overwrite_protection: The status of the file system's replication overwrite protection.
-                 +  ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default. 
+                 +  ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default.
                  +  ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
                  +  ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is modified only by EFS replication.
-                 
+               
                 If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
         """
         if replication_overwrite_protection is not None:
@@ -355,10 +355,10 @@ class FileSystemProtection(dict):
     def replication_overwrite_protection(self) -> Optional['FileSystemProtectionReplicationOverwriteProtection']:
         """
         The status of the file system's replication overwrite protection.
-          +  ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default. 
+          +  ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default.
           +  ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
           +  ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is modified only by EFS replication.
-          
+
          If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
         """
         return pulumi.get(self, "replication_overwrite_protection")
@@ -429,7 +429,7 @@ class FileSystemReplicationDestination(dict):
         """
         Describes the destination file system in the replication configuration.
 
-        :param _builtins.str availability_zone_name: For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located. 
+        :param _builtins.str availability_zone_name: For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located.
                 Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide*.
                  One Zone file system type is not available in all Availability Zones in AWS-Regions where Amazon EFS is available.
         :param _builtins.str file_system_id: The ID of the destination Amazon EFS file system.
@@ -459,7 +459,7 @@ class FileSystemReplicationDestination(dict):
     @pulumi.getter(name="availabilityZoneName")
     def availability_zone_name(self) -> Optional[_builtins.str]:
         """
-        For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located. 
+        For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located.
          Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide*.
           One Zone file system type is not available in all Availability Zones in AWS-Regions where Amazon EFS is available.
         """

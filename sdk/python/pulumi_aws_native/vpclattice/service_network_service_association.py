@@ -24,10 +24,10 @@ __all__ = ['ServiceNetworkServiceAssociationArgs', 'ServiceNetworkServiceAssocia
 @pulumi.input_type
 class ServiceNetworkServiceAssociationArgs:
     def __init__(__self__, *,
-                 dns_entry: Optional[pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArgs']] = None,
-                 service_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_network_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 dns_entry: pulumi.Input[Optional['ServiceNetworkServiceAssociationDnsEntryArgs']] = None,
+                 service_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_network_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceNetworkServiceAssociation resource.
 
@@ -47,50 +47,50 @@ class ServiceNetworkServiceAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsEntry")
-    def dns_entry(self) -> Optional[pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArgs']]:
+    def dns_entry(self) -> pulumi.Input[Optional['ServiceNetworkServiceAssociationDnsEntryArgs']]:
         """
         The DNS information of the service.
         """
         return pulumi.get(self, "dns_entry")
 
     @dns_entry.setter
-    def dns_entry(self, value: Optional[pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArgs']]):
+    def dns_entry(self, value: pulumi.Input[Optional['ServiceNetworkServiceAssociationDnsEntryArgs']]):
         pulumi.set(self, "dns_entry", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceIdentifier")
-    def service_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID or ARN of the service.
         """
         return pulumi.get(self, "service_identifier")
 
     @service_identifier.setter
-    def service_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceNetworkIdentifier")
-    def service_network_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_network_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
         """
         return pulumi.get(self, "service_network_identifier")
 
     @service_network_identifier.setter
-    def service_network_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_network_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_network_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the association.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -100,14 +100,13 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_entry: Optional[pulumi.Input[Union['ServiceNetworkServiceAssociationDnsEntryArgs', 'ServiceNetworkServiceAssociationDnsEntryArgsDict']]] = None,
-                 service_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_network_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 dns_entry: pulumi.Input[Optional[Union['ServiceNetworkServiceAssociationDnsEntryArgs', 'ServiceNetworkServiceAssociationDnsEntryArgsDict']]] = None,
+                 service_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_network_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Associates a service with a service network.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +124,6 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
         """
         Associates a service with a service network.
 
-
         :param str resource_name: The name of the resource.
         :param ServiceNetworkServiceAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,10 +139,10 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_entry: Optional[pulumi.Input[Union['ServiceNetworkServiceAssociationDnsEntryArgs', 'ServiceNetworkServiceAssociationDnsEntryArgsDict']]] = None,
-                 service_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_network_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 dns_entry: pulumi.Input[Optional[Union['ServiceNetworkServiceAssociationDnsEntryArgs', 'ServiceNetworkServiceAssociationDnsEntryArgsDict']]] = None,
+                 service_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_network_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

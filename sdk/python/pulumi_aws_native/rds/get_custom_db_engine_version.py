@@ -90,10 +90,9 @@ def get_custom_db_engine_version(engine: Optional[_builtins.str] = None,
     """
     Creates a custom DB engine version (CEV).
 
-
     :param _builtins.str engine: The database engine to use for your custom engine version (CEV).
             Valid values:
-             +   ``custom-oracle-ee`` 
+             +   ``custom-oracle-ee``
              +   ``custom-oracle-ee-cdb``
     :param _builtins.str engine_version: The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
             *Constraints:* Minimum length is 1. Maximum length is 60.
@@ -110,16 +109,15 @@ def get_custom_db_engine_version(engine: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_custom_db_engine_version_output(engine: Optional[pulumi.Input[_builtins.str]] = None,
-                                        engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+def get_custom_db_engine_version_output(engine: pulumi.Input[Optional[_builtins.str]] = None,
+                                        engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomDbEngineVersionResult]:
     """
     Creates a custom DB engine version (CEV).
 
-
     :param _builtins.str engine: The database engine to use for your custom engine version (CEV).
             Valid values:
-             +   ``custom-oracle-ee`` 
+             +   ``custom-oracle-ee``
              +   ``custom-oracle-ee-cdb``
     :param _builtins.str engine_version: The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
             *Constraints:* Minimum length is 1. Maximum length is 60.

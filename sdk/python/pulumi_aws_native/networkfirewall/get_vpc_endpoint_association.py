@@ -88,7 +88,6 @@ def get_vpc_endpoint_association(vpc_endpoint_association_arn: Optional[_builtin
     """
     Resource type definition for AWS::NetworkFirewall::VpcEndpointAssociation
 
-
     :param _builtins.str vpc_endpoint_association_arn: The Amazon Resource Name (ARN) of a VPC endpoint association.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_vpc_endpoint_association(vpc_endpoint_association_arn: Optional[_builtin
         tags=pulumi.get(__ret__, 'tags'),
         vpc_endpoint_association_arn=pulumi.get(__ret__, 'vpc_endpoint_association_arn'),
         vpc_endpoint_association_id=pulumi.get(__ret__, 'vpc_endpoint_association_id'))
-def get_vpc_endpoint_association_output(vpc_endpoint_association_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_endpoint_association_output(vpc_endpoint_association_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointAssociationResult]:
     """
     Resource type definition for AWS::NetworkFirewall::VpcEndpointAssociation
-
 
     :param _builtins.str vpc_endpoint_association_arn: The Amazon Resource Name (ARN) of a VPC endpoint association.
     """

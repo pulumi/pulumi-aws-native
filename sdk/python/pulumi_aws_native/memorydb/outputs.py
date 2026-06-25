@@ -71,7 +71,7 @@ class ClusterEndpoint(dict):
                  port: Optional[_builtins.int] = None):
         """
         :param _builtins.str address: The DNS address of the primary read-write node.
-        :param _builtins.int port: The port number that the engine is listening on. 
+        :param _builtins.int port: The port number that the engine is listening on.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -90,7 +90,7 @@ class ClusterEndpoint(dict):
     @pulumi.getter
     def port(self) -> Optional[_builtins.int]:
         """
-        The port number that the engine is listening on. 
+        The port number that the engine is listening on.
         """
         return pulumi.get(self, "port")
 

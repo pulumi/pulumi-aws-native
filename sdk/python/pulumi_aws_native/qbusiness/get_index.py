@@ -174,7 +174,6 @@ def get_index(application_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::QBusiness::Index Resource Type
 
-
     :param _builtins.str application_id: The identifier of the Amazon Q Business application using the index.
     :param _builtins.str index_id: The identifier for the index.
     """
@@ -196,12 +195,11 @@ def get_index(application_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_index_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     index_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_index_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     index_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIndexResult]:
     """
     Definition of AWS::QBusiness::Index Resource Type
-
 
     :param _builtins.str application_id: The identifier of the Amazon Q Business application using the index.
     :param _builtins.str index_id: The identifier for the index.

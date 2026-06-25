@@ -127,7 +127,6 @@ def get_domain_name_v2(domain_name_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::ApiGateway::DomainNameV2.
 
-
     :param _builtins.str domain_name_arn: The amazon resource name (ARN) of the domain name resource.
     """
     __args__ = dict()
@@ -143,11 +142,10 @@ def get_domain_name_v2(domain_name_arn: Optional[_builtins.str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         routing_mode=pulumi.get(__ret__, 'routing_mode'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_domain_name_v2_output(domain_name_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_name_v2_output(domain_name_arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainNameV2Result]:
     """
     Resource Type definition for AWS::ApiGateway::DomainNameV2.
-
 
     :param _builtins.str domain_name_arn: The amazon resource name (ARN) of the domain name resource.
     """

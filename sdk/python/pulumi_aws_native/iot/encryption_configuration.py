@@ -22,8 +22,8 @@ __all__ = ['EncryptionConfigurationArgs', 'EncryptionConfiguration']
 class EncryptionConfigurationArgs:
     def __init__(__self__, *,
                  encryption_type: pulumi.Input['EncryptionConfigurationEncryptionType'],
-                 kms_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EncryptionConfiguration resource.
 
@@ -51,26 +51,26 @@ class EncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsAccessRoleArn")
-    def kms_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer.
         """
         return pulumi.get(self, "kms_access_role_arn")
 
     @kms_access_role_arn.setter
-    def kms_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_access_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the customer managed KMS key.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
 
@@ -80,13 +80,12 @@ class EncryptionConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_type: Optional[pulumi.Input['EncryptionConfigurationEncryptionType']] = None,
-                 kms_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_type: pulumi.Input[Optional['EncryptionConfigurationEncryptionType']] = None,
+                 kms_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoT::EncryptionConfiguration
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -103,7 +102,6 @@ class EncryptionConfiguration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IoT::EncryptionConfiguration
 
-
         :param str resource_name: The name of the resource.
         :param EncryptionConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +117,9 @@ class EncryptionConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_type: Optional[pulumi.Input['EncryptionConfigurationEncryptionType']] = None,
-                 kms_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_type: pulumi.Input[Optional['EncryptionConfigurationEncryptionType']] = None,
+                 kms_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

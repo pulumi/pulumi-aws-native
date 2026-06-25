@@ -162,7 +162,6 @@ def get_connection_function(id: Optional[_builtins.str] = None,
     """
     A connection function.
 
-
     :param _builtins.str id: The connection function ID.
     """
     __args__ = dict()
@@ -181,11 +180,10 @@ def get_connection_function(id: Optional[_builtins.str] = None,
         stage=pulumi.get(__ret__, 'stage'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_connection_function_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connection_function_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionFunctionResult]:
     """
     A connection function.
-
 
     :param _builtins.str id: The connection function ID.
     """

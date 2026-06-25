@@ -155,7 +155,6 @@ def get_matching_workflow(workflow_name: Optional[_builtins.str] = None,
     """
     MatchingWorkflow defined in AWS Entity Resolution service
 
-
     :param _builtins.str workflow_name: The name of the MatchingWorkflow
     """
     __args__ = dict()
@@ -174,11 +173,10 @@ def get_matching_workflow(workflow_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         workflow_arn=pulumi.get(__ret__, 'workflow_arn'))
-def get_matching_workflow_output(workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_matching_workflow_output(workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMatchingWorkflowResult]:
     """
     MatchingWorkflow defined in AWS Entity Resolution service
-
 
     :param _builtins.str workflow_name: The name of the MatchingWorkflow
     """

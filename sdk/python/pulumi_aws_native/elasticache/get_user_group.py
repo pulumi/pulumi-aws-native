@@ -101,7 +101,6 @@ def get_user_group(user_group_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::ElastiCache::UserGroup
 
-
     :param _builtins.str user_group_id: The ID of the user group.
     """
     __args__ = dict()
@@ -115,11 +114,10 @@ def get_user_group(user_group_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         user_ids=pulumi.get(__ret__, 'user_ids'))
-def get_user_group_output(user_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_group_output(user_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserGroupResult]:
     """
     Resource Type definition for AWS::ElastiCache::UserGroup
-
 
     :param _builtins.str user_group_id: The ID of the user group.
     """

@@ -86,7 +86,6 @@ def get_certificate(id: Optional[_builtins.str] = None,
     """
     Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate.
 
-
     :param _builtins.str id: The certificate ID.
     """
     __args__ = dict()
@@ -98,11 +97,10 @@ def get_certificate(id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         status=pulumi.get(__ret__, 'status'))
-def get_certificate_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_certificate_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate.
-
 
     :param _builtins.str id: The certificate ID.
     """

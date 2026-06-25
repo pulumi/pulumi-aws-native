@@ -76,7 +76,6 @@ def get_device_profile(id: Optional[_builtins.str] = None,
     """
     Device Profile's resource schema demonstrating some basic constructs and validation rules.
 
-
     :param _builtins.str id: Service profile Id. Returned after successful create.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_device_profile(id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_device_profile_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_device_profile_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceProfileResult]:
     """
     Device Profile's resource schema demonstrating some basic constructs and validation rules.
-
 
     :param _builtins.str id: Service profile Id. Returned after successful create.
     """

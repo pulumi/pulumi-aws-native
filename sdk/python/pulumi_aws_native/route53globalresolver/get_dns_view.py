@@ -157,7 +157,7 @@ def get_dns_view(dns_view_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_dns_view_output(dns_view_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dns_view_output(dns_view_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsViewResult]:
     """
     Resource schema for AWS::Route53GlobalResolver::DnsView

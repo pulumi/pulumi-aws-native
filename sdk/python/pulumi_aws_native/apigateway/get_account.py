@@ -64,7 +64,6 @@ def get_account(id: Optional[_builtins.str] = None,
     The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.
      When you delete a stack containing this resource, API Gateway can still assume the provided IAM role to write API logs to CloudWatch Logs. To deny API Gateway access to write API logs to CloudWatch logs, update the permissions policies or change the IAM role to deny access.
 
-
     :param _builtins.str id: The ID for the account. For example: `abc123` .
     """
     __args__ = dict()
@@ -75,12 +74,11 @@ def get_account(id: Optional[_builtins.str] = None,
     return AwaitableGetAccountResult(
         cloud_watch_role_arn=pulumi.get(__ret__, 'cloud_watch_role_arn'),
         id=pulumi.get(__ret__, 'id'))
-def get_account_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_account_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.
      When you delete a stack containing this resource, API Gateway can still assume the provided IAM role to write API logs to CloudWatch Logs. To deny API Gateway access to write API logs to CloudWatch logs, update the permissions policies or change the IAM role to deny access.
-
 
     :param _builtins.str id: The ID for the account. For example: `abc123` .
     """

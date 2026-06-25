@@ -65,8 +65,8 @@ class AccessPointPublicAccessBlockConfiguration(dict):
         :param _builtins.bool block_public_acls: Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
                - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
                 - PUT Object calls fail if the request includes a public ACL.
-               . - PUT Bucket calls fail if the request includes a public ACL.
-               Enabling this setting doesn't affect existing policies or ACLs.
+                  . - PUT Bucket calls fail if the request includes a public ACL.
+                  Enabling this setting doesn't affect existing policies or ACLs.
         :param _builtins.bool block_public_policy: Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
         :param _builtins.bool ignore_public_acls: Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
         :param _builtins.bool restrict_public_buckets: Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
@@ -88,8 +88,8 @@ class AccessPointPublicAccessBlockConfiguration(dict):
         Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
         - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
          - PUT Object calls fail if the request includes a public ACL.
-        . - PUT Bucket calls fail if the request includes a public ACL.
-        Enabling this setting doesn't affect existing policies or ACLs.
+           . - PUT Bucket calls fail if the request includes a public ACL.
+           Enabling this setting doesn't affect existing policies or ACLs.
         """
         return pulumi.get(self, "block_public_acls")
 
@@ -305,7 +305,7 @@ class DirectoryBucketDestination(dict):
 
         :param _builtins.str bucket_arn: The Amazon Resource Name (ARN) of the destination Amazon S3 bucket to which data is exported.
         :param 'DirectoryBucketDestinationFormat' format: Specifies the file format used when exporting data to Amazon S3.
-        :param _builtins.str bucket_account_id: The account ID that owns the destination S3 bucket. 
+        :param _builtins.str bucket_account_id: The account ID that owns the destination S3 bucket.
         :param _builtins.str prefix: The prefix to use when exporting data. The prefix is prepended to all results.
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
@@ -335,7 +335,7 @@ class DirectoryBucketDestination(dict):
     @pulumi.getter(name="bucketAccountId")
     def bucket_account_id(self) -> Optional[_builtins.str]:
         """
-        The account ID that owns the destination S3 bucket. 
+        The account ID that owns the destination S3 bucket.
         """
         return pulumi.get(self, "bucket_account_id")
 

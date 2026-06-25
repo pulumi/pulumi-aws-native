@@ -88,7 +88,6 @@ def get_table_policy(table_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::S3Tables::TablePolicy
 
-
     :param _builtins.str table_arn: The Amazon Resource Name (ARN) of the table.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_table_policy(table_arn: Optional[_builtins.str] = None,
         resource_policy=pulumi.get(__ret__, 'resource_policy'),
         table_bucket_arn=pulumi.get(__ret__, 'table_bucket_arn'),
         table_name=pulumi.get(__ret__, 'table_name'))
-def get_table_policy_output(table_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_table_policy_output(table_arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTablePolicyResult]:
     """
     Resource Type definition for AWS::S3Tables::TablePolicy
-
 
     :param _builtins.str table_arn: The Amazon Resource Name (ARN) of the table.
     """

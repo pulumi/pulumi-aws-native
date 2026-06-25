@@ -161,7 +161,6 @@ def get_service_network_vpc_association(arn: Optional[_builtins.str] = None,
     """
     Associates a VPC with a service network.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the association between the service network and the VPC.
     """
     __args__ = dict()
@@ -180,11 +179,10 @@ def get_service_network_vpc_association(arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_service_network_vpc_association_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_network_vpc_association_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceNetworkVpcAssociationResult]:
     """
     Associates a VPC with a service network.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the association between the service network and the VPC.
     """

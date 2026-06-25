@@ -177,7 +177,6 @@ def get_data_source(data_source_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::Bedrock::DataSource Resource Type
 
-
     :param _builtins.str data_source_id: Identifier for a resource.
     :param _builtins.str knowledge_base_id: The unique identifier of the knowledge base to which to add the data source.
     """
@@ -199,12 +198,11 @@ def get_data_source(data_source_id: Optional[_builtins.str] = None,
         server_side_encryption_configuration=pulumi.get(__ret__, 'server_side_encryption_configuration'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         vector_ingestion_configuration=pulumi.get(__ret__, 'vector_ingestion_configuration'))
-def get_data_source_output(data_source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           knowledge_base_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_source_output(data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Definition of AWS::Bedrock::DataSource Resource Type
-
 
     :param _builtins.str data_source_id: Identifier for a resource.
     :param _builtins.str knowledge_base_id: The unique identifier of the knowledge base to which to add the data source.

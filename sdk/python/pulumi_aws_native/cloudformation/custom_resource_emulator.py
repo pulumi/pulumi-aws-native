@@ -24,7 +24,7 @@ class CustomResourceEmulatorArgs:
                  custom_resource_properties: pulumi.Input[Mapping[str, Any]],
                  resource_type: pulumi.Input[_builtins.str],
                  service_token: pulumi.Input[_builtins.str],
-                 stack_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 stack_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomResourceEmulator resource.
 
@@ -120,7 +120,7 @@ class CustomResourceEmulatorArgs:
 
     @_builtins.property
     @pulumi.getter(name="stackId")
-    def stack_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A stand-in value for the CloudFormation stack ID. This is required for CloudFormation interoperability.
         If not provided, the Pulumi Stack ID is used.
@@ -128,7 +128,7 @@ class CustomResourceEmulatorArgs:
         return pulumi.get(self, "stack_id")
 
     @stack_id.setter
-    def stack_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_id", value)
 
 
@@ -138,12 +138,12 @@ class CustomResourceEmulator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_resource_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_resource_properties: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The Custom Resource Emulator allows you to use AWS CloudFormation Custom Resources directly in your Pulumi programs. It provides a way to invoke AWS Lambda functions that implement custom provisioning logic following the CloudFormation Custom Resource protocol.
@@ -263,12 +263,12 @@ class CustomResourceEmulator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_resource_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_resource_properties: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

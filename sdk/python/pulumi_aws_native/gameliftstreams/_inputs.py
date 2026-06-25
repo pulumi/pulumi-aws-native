@@ -73,11 +73,11 @@ class ApplicationRuntimeEnvironmentArgs:
 
 
 class StreamGroupDefaultApplicationArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Example ARN: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6` .
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An ID that uniquely identifies the application resource. Example ID: `a-9ZY8X7Wv6` .
     """
@@ -85,8 +85,8 @@ class StreamGroupDefaultApplicationArgsDict(TypedDict):
 @pulumi.input_type
 class StreamGroupDefaultApplicationArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] arn: An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Example ARN: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6` .
         :param pulumi.Input[_builtins.str] id: An ID that uniquely identifies the application resource. Example ID: `a-9ZY8X7Wv6` .
@@ -98,26 +98,26 @@ class StreamGroupDefaultApplicationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Example ARN: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6` .
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An ID that uniquely identifies the application resource. Example ID: `a-9ZY8X7Wv6` .
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -126,27 +126,27 @@ class StreamGroupLocationConfigurationArgsDict(TypedDict):
     """
     A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
     """
-    always_on_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    always_on_capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     This setting, if non-zero, indicates minimum streaming capacity which is allocated to you and is never released back to the service. You pay for this base level of capacity at all times, whether used or idle.
     """
-    maximum_capacity: NotRequired[pulumi.Input[_builtins.int]]
-    on_demand_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    maximum_capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    on_demand_capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     This shape is deprecated.
     """
-    target_idle_capacity: NotRequired[pulumi.Input[_builtins.int]]
-    vpc_transit_configuration: NotRequired[pulumi.Input['StreamGroupVpcTransitConfigurationArgsDict']]
+    target_idle_capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    vpc_transit_configuration: NotRequired[pulumi.Input[Optional['StreamGroupVpcTransitConfigurationArgsDict']]]
 
 @pulumi.input_type
 class StreamGroupLocationConfigurationArgs:
     def __init__(__self__, *,
                  location_name: pulumi.Input[_builtins.str],
-                 always_on_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 on_demand_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_idle_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 vpc_transit_configuration: Optional[pulumi.Input['StreamGroupVpcTransitConfigurationArgs']] = None):
+                 always_on_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 on_demand_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_idle_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 vpc_transit_configuration: pulumi.Input[Optional['StreamGroupVpcTransitConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] location_name: A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
         :param pulumi.Input[_builtins.int] always_on_capacity: This setting, if non-zero, indicates minimum streaming capacity which is allocated to you and is never released back to the service. You pay for this base level of capacity at all times, whether used or idle.
@@ -178,53 +178,53 @@ class StreamGroupLocationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="alwaysOnCapacity")
-    def always_on_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def always_on_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This setting, if non-zero, indicates minimum streaming capacity which is allocated to you and is never released back to the service. You pay for this base level of capacity at all times, whether used or idle.
         """
         return pulumi.get(self, "always_on_capacity")
 
     @always_on_capacity.setter
-    def always_on_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def always_on_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "always_on_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumCapacity")
-    def maximum_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "maximum_capacity")
 
     @maximum_capacity.setter
-    def maximum_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="onDemandCapacity")
-    def on_demand_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def on_demand_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This shape is deprecated.
         """
         return pulumi.get(self, "on_demand_capacity")
 
     @on_demand_capacity.setter
-    def on_demand_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def on_demand_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "on_demand_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="targetIdleCapacity")
-    def target_idle_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_idle_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "target_idle_capacity")
 
     @target_idle_capacity.setter
-    def target_idle_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_idle_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_idle_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcTransitConfiguration")
-    def vpc_transit_configuration(self) -> Optional[pulumi.Input['StreamGroupVpcTransitConfigurationArgs']]:
+    def vpc_transit_configuration(self) -> pulumi.Input[Optional['StreamGroupVpcTransitConfigurationArgs']]:
         return pulumi.get(self, "vpc_transit_configuration")
 
     @vpc_transit_configuration.setter
-    def vpc_transit_configuration(self, value: Optional[pulumi.Input['StreamGroupVpcTransitConfigurationArgs']]):
+    def vpc_transit_configuration(self, value: pulumi.Input[Optional['StreamGroupVpcTransitConfigurationArgs']]):
         pulumi.set(self, "vpc_transit_configuration", value)
 
 

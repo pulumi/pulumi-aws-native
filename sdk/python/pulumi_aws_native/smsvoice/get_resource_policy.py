@@ -53,7 +53,6 @@ def get_resource_policy(resource_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SMSVOICE::ResourcePolicy
 
-
     :param _builtins.str resource_arn: The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource to attach the resource-based policy to.
     """
     __args__ = dict()
@@ -63,11 +62,10 @@ def get_resource_policy(resource_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetResourcePolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
-def get_resource_policy_output(resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_policy_output(resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     Resource Type definition for AWS::SMSVOICE::ResourcePolicy
-
 
     :param _builtins.str resource_arn: The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource to attach the resource-based policy to.
     """

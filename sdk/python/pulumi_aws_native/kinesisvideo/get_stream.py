@@ -126,7 +126,6 @@ def get_stream(name: Optional[_builtins.str] = None,
     """
     Resource Type Definition for AWS::KinesisVideo::Stream
 
-
     :param _builtins.str name: The name of the Kinesis Video stream.
     """
     __args__ = dict()
@@ -142,11 +141,10 @@ def get_stream(name: Optional[_builtins.str] = None,
         media_type=pulumi.get(__ret__, 'media_type'),
         stream_storage_configuration=pulumi.get(__ret__, 'stream_storage_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_stream_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_stream_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamResult]:
     """
     Resource Type Definition for AWS::KinesisVideo::Stream
-
 
     :param _builtins.str name: The name of the Kinesis Video stream.
     """

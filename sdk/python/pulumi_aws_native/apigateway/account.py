@@ -19,7 +19,7 @@ __all__ = ['AccountArgs', 'Account']
 @pulumi.input_type
 class AccountArgs:
     def __init__(__self__, *,
-                 cloud_watch_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 cloud_watch_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Account resource.
 
@@ -30,14 +30,14 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchRoleArn")
-    def cloud_watch_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_watch_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an Amazon CloudWatch role for the current Account.
         """
         return pulumi.get(self, "cloud_watch_role_arn")
 
     @cloud_watch_role_arn.setter
-    def cloud_watch_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_watch_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_watch_role_arn", value)
 
 
@@ -47,12 +47,11 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_watch_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud_watch_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.
          When you delete a stack containing this resource, API Gateway can still assume the provided IAM role to write API logs to CloudWatch Logs. To deny API Gateway access to write API logs to CloudWatch logs, update the permissions policies or change the IAM role to deny access.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -67,7 +66,6 @@ class Account(pulumi.CustomResource):
         """
         The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.
          When you delete a stack containing this resource, API Gateway can still assume the provided IAM role to write API logs to CloudWatch Logs. To deny API Gateway access to write API logs to CloudWatch logs, update the permissions policies or change the IAM role to deny access.
-
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -84,7 +82,7 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_watch_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud_watch_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

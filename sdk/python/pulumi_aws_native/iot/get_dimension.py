@@ -76,7 +76,6 @@ def get_dimension(name: Optional[_builtins.str] = None,
     """
     A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
 
-
     :param _builtins.str name: A unique identifier for the dimension.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_dimension(name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         string_values=pulumi.get(__ret__, 'string_values'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_dimension_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dimension_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDimensionResult]:
     """
     A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
-
 
     :param _builtins.str name: A unique identifier for the dimension.
     """

@@ -101,7 +101,6 @@ def get_profile(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Route53Profiles::Profile
 
-
     :param _builtins.str id: The ID of the profile.
     """
     __args__ = dict()
@@ -115,11 +114,10 @@ def get_profile(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         share_status=pulumi.get(__ret__, 'share_status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_profile_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_profile_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileResult]:
     """
     Resource Type definition for AWS::Route53Profiles::Profile
-
 
     :param _builtins.str id: The ID of the profile.
     """

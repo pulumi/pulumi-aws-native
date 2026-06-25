@@ -228,7 +228,7 @@ def get_scheduled_query(scheduled_query_arn: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         timezone=pulumi.get(__ret__, 'timezone'))
-def get_scheduled_query_output(scheduled_query_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scheduled_query_output(scheduled_query_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledQueryResult]:
     """
     Creates a new Scheduled Query that allows you to define a Logs Insights query that will run on a schedule and configure actions to take with the query results.

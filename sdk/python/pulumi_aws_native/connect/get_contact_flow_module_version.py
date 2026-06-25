@@ -75,7 +75,6 @@ def get_contact_flow_module_version(contact_flow_module_version_arn: Optional[_b
     """
     Resource Type definition for ContactFlowModuleVersion
 
-
     :param _builtins.str contact_flow_module_version_arn: The identifier of the contact flow module version (ARN).
     """
     __args__ = dict()
@@ -87,11 +86,10 @@ def get_contact_flow_module_version(contact_flow_module_version_arn: Optional[_b
         contact_flow_module_version_arn=pulumi.get(__ret__, 'contact_flow_module_version_arn'),
         flow_module_content_sha256=pulumi.get(__ret__, 'flow_module_content_sha256'),
         version=pulumi.get(__ret__, 'version'))
-def get_contact_flow_module_version_output(contact_flow_module_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_contact_flow_module_version_output(contact_flow_module_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactFlowModuleVersionResult]:
     """
     Resource Type definition for ContactFlowModuleVersion
-
 
     :param _builtins.str contact_flow_module_version_arn: The identifier of the contact flow module version (ARN).
     """

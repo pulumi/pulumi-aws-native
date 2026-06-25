@@ -21,12 +21,12 @@ __all__ = ['EnvironmentActionsArgs', 'EnvironmentActions']
 @pulumi.input_type
 class EnvironmentActionsArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input['EnvironmentActionsAwsConsoleLinkParametersArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional['EnvironmentActionsAwsConsoleLinkParametersArgs']] = None):
         """
         The set of arguments for constructing a EnvironmentActions resource.
 
@@ -52,74 +52,74 @@ class EnvironmentActionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Amazon DataZone environment action.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
-    def domain_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the Amazon DataZone domain in which the environment would be created.
         """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
-    def domain_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentIdentifier")
-    def environment_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the Amazon DataZone environment in which the action is taking place
         """
         return pulumi.get(self, "environment_identifier")
 
     @environment_identifier.setter
-    def environment_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Amazon DataZone environment action.
         """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
-    def identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the environment action.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input['EnvironmentActionsAwsConsoleLinkParametersArgs']]:
+    def parameters(self) -> pulumi.Input[Optional['EnvironmentActionsAwsConsoleLinkParametersArgs']]:
         """
         The parameters of the environment action.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input['EnvironmentActionsAwsConsoleLinkParametersArgs']]):
+    def parameters(self, value: pulumi.Input[Optional['EnvironmentActionsAwsConsoleLinkParametersArgs']]):
         pulumi.set(self, "parameters", value)
 
 
@@ -129,16 +129,15 @@ class EnvironmentActions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Union['EnvironmentActionsAwsConsoleLinkParametersArgs', 'EnvironmentActionsAwsConsoleLinkParametersArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['EnvironmentActionsAwsConsoleLinkParametersArgs', 'EnvironmentActionsAwsConsoleLinkParametersArgsDict']]] = None,
                  __props__=None):
         """
         Definition of AWS::DataZone::EnvironmentActions Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,7 +157,6 @@ class EnvironmentActions(pulumi.CustomResource):
         """
         Definition of AWS::DataZone::EnvironmentActions Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param EnvironmentActionsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,12 +172,12 @@ class EnvironmentActions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Union['EnvironmentActionsAwsConsoleLinkParametersArgs', 'EnvironmentActionsAwsConsoleLinkParametersArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['EnvironmentActionsAwsConsoleLinkParametersArgs', 'EnvironmentActionsAwsConsoleLinkParametersArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

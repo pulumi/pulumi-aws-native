@@ -5132,7 +5132,7 @@ class DomainUserSettings(dict):
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 
         :param _builtins.str execution_role: The execution role for the user.
-        :param 'DomainUserSettingsAutoMountHomeEfs' auto_mount_home_efs: Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+        :param 'DomainUserSettingsAutoMountHomeEfs' auto_mount_home_efs: Indicates whether auto-mounting of an EFS volume is supported for the user profile.
         :param 'DomainCodeEditorAppSettings' code_editor_app_settings: The Code Editor application settings.
                
                SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
@@ -5202,7 +5202,7 @@ class DomainUserSettings(dict):
     @pulumi.getter(name="autoMountHomeEfs")
     def auto_mount_home_efs(self) -> Optional['DomainUserSettingsAutoMountHomeEfs']:
         """
-        Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+        Indicates whether auto-mounting of an EFS volume is supported for the user profile.
         """
         return pulumi.get(self, "auto_mount_home_efs")
 
@@ -8027,7 +8027,7 @@ class ModelBiasJobDefinitionModelBiasJobInput(dict):
 @pulumi.output_type
 class ModelBiasJobDefinitionMonitoringGroundTruthS3Input(dict):
     """
-    Ground truth input provided in S3 
+    Ground truth input provided in S3
     """
     @staticmethod
     def __key_warning(key: str):
@@ -8049,7 +8049,7 @@ class ModelBiasJobDefinitionMonitoringGroundTruthS3Input(dict):
     def __init__(__self__, *,
                  s3_uri: _builtins.str):
         """
-        Ground truth input provided in S3 
+        Ground truth input provided in S3
 
         :param _builtins.str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         """
@@ -9750,7 +9750,6 @@ class ModelCardSecurityConfig(dict):
                  kms_key_id: Optional[_builtins.str] = None):
         """
         An optional Key Management Service key to encrypt, decrypt, and re-encrypt model card content for regulated workloads with highly sensitive data.
-
 
 
         :param _builtins.str kms_key_id: A Key Management Service key ID to use for encrypting a model card.
@@ -13350,7 +13349,7 @@ class ModelPackageTransformInput(dict):
         :param 'ModelPackageDataSource' data_source: Describes the location of the channel data, which is, the S3 location of the input data that the model can consume.
         :param 'ModelPackageTransformInputCompressionType' compression_type: If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
         :param _builtins.str content_type: The multipurpose internet mail extension (MIME) type of the data. Amazon SageMaker uses the MIME type with each http call to transfer data to the transform job.
-        :param 'ModelPackageTransformInputSplitType' split_type: The method to use to split the transform job's data files into smaller batches. 
+        :param 'ModelPackageTransformInputSplitType' split_type: The method to use to split the transform job's data files into smaller batches.
         """
         pulumi.set(__self__, "data_source", data_source)
         if compression_type is not None:
@@ -13388,7 +13387,7 @@ class ModelPackageTransformInput(dict):
     @pulumi.getter(name="splitType")
     def split_type(self) -> Optional['ModelPackageTransformInputSplitType']:
         """
-        The method to use to split the transform job's data files into smaller batches. 
+        The method to use to split the transform job's data files into smaller batches.
         """
         return pulumi.get(self, "split_type")
 
@@ -14532,7 +14531,7 @@ class ModelQualityJobDefinitionModelQualityJobInput(dict):
 @pulumi.output_type
 class ModelQualityJobDefinitionMonitoringGroundTruthS3Input(dict):
     """
-    Ground truth input provided in S3 
+    Ground truth input provided in S3
     """
     @staticmethod
     def __key_warning(key: str):
@@ -14554,7 +14553,7 @@ class ModelQualityJobDefinitionMonitoringGroundTruthS3Input(dict):
     def __init__(__self__, *,
                  s3_uri: _builtins.str):
         """
-        Ground truth input provided in S3 
+        Ground truth input provided in S3
 
         :param _builtins.str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         """
@@ -20813,7 +20812,7 @@ class UserProfileUserSettings(dict):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 
-        :param 'UserProfileUserSettingsAutoMountHomeEfs' auto_mount_home_efs: Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+        :param 'UserProfileUserSettingsAutoMountHomeEfs' auto_mount_home_efs: Indicates whether auto-mounting of an EFS volume is supported for the user profile.
         :param 'UserProfileCodeEditorAppSettings' code_editor_app_settings: The Code Editor application settings.
                
                SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
@@ -20874,7 +20873,7 @@ class UserProfileUserSettings(dict):
     @pulumi.getter(name="autoMountHomeEfs")
     def auto_mount_home_efs(self) -> Optional['UserProfileUserSettingsAutoMountHomeEfs']:
         """
-        Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+        Indicates whether auto-mounting of an EFS volume is supported for the user profile.
         """
         return pulumi.get(self, "auto_mount_home_efs")
 

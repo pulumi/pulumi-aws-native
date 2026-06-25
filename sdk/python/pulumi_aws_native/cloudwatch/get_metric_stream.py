@@ -185,7 +185,6 @@ def get_metric_stream(name: Optional[_builtins.str] = None,
     """
     Resource Type definition for Metric Stream
 
-
     :param _builtins.str name: Name of the metric stream.
     """
     __args__ = dict()
@@ -206,11 +205,10 @@ def get_metric_stream(name: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         statistics_configurations=pulumi.get(__ret__, 'statistics_configurations'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_metric_stream_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_metric_stream_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetricStreamResult]:
     """
     Resource Type definition for Metric Stream
-
 
     :param _builtins.str name: Name of the metric stream.
     """

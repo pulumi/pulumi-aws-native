@@ -76,7 +76,6 @@ def get_dataflow_endpoint_group(id: Optional[_builtins.str] = None,
     """
     AWS Ground Station DataflowEndpointGroup schema for CloudFormation
 
-
     :param _builtins.str id: UUID of a dataflow endpoint group.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_dataflow_endpoint_group(id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_dataflow_endpoint_group_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dataflow_endpoint_group_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataflowEndpointGroupResult]:
     """
     AWS Ground Station DataflowEndpointGroup schema for CloudFormation
-
 
     :param _builtins.str id: UUID of a dataflow endpoint group.
     """

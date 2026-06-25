@@ -258,7 +258,6 @@ def get_deployment_group(application_name: Optional[_builtins.str] = None,
     """
     Resource type definition for AWS::CodeDeploy::DeploymentGroup
 
-
     :param _builtins.str application_name: The name of an existing CodeDeploy application to associate this deployment group with.
     :param _builtins.str deployment_group_name: A name for the deployment group. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment group name.
     """
@@ -287,12 +286,11 @@ def get_deployment_group(application_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         termination_hook_enabled=pulumi.get(__ret__, 'termination_hook_enabled'),
         trigger_configurations=pulumi.get(__ret__, 'trigger_configurations'))
-def get_deployment_group_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                deployment_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_deployment_group_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                deployment_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentGroupResult]:
     """
     Resource type definition for AWS::CodeDeploy::DeploymentGroup
-
 
     :param _builtins.str application_name: The name of an existing CodeDeploy application to associate this deployment group with.
     :param _builtins.str deployment_group_name: A name for the deployment group. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment group name.

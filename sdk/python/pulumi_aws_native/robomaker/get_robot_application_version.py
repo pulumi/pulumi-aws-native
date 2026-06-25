@@ -63,7 +63,6 @@ def get_robot_application_version(arn: Optional[_builtins.str] = None,
     """
     AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the robot application version.
     """
     __args__ = dict()
@@ -74,11 +73,10 @@ def get_robot_application_version(arn: Optional[_builtins.str] = None,
     return AwaitableGetRobotApplicationVersionResult(
         application_version=pulumi.get(__ret__, 'application_version'),
         arn=pulumi.get(__ret__, 'arn'))
-def get_robot_application_version_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_robot_application_version_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRobotApplicationVersionResult]:
     """
     AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the robot application version.
     """

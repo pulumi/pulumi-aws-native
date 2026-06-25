@@ -137,7 +137,6 @@ def get_private_virtual_interface(virtual_interface_arn: Optional[_builtins.str]
     """
     Resource Type definition for AWS::DirectConnect::PrivateVirtualInterface
 
-
     :param _builtins.str virtual_interface_arn: The ID of the virtual interface.
     """
     __args__ = dict()
@@ -154,11 +153,10 @@ def get_private_virtual_interface(virtual_interface_arn: Optional[_builtins.str]
         virtual_interface_arn=pulumi.get(__ret__, 'virtual_interface_arn'),
         virtual_interface_id=pulumi.get(__ret__, 'virtual_interface_id'),
         virtual_interface_name=pulumi.get(__ret__, 'virtual_interface_name'))
-def get_private_virtual_interface_output(virtual_interface_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_virtual_interface_output(virtual_interface_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateVirtualInterfaceResult]:
     """
     Resource Type definition for AWS::DirectConnect::PrivateVirtualInterface
-
 
     :param _builtins.str virtual_interface_arn: The ID of the virtual interface.
     """

@@ -176,7 +176,6 @@ def get_namespace(namespace_name: Optional[_builtins.str] = None,
     """
     Definition of AWS::RedshiftServerless::Namespace Resource Type
 
-
     :param _builtins.str namespace_name: A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
     """
     __args__ = dict()
@@ -196,11 +195,10 @@ def get_namespace(namespace_name: Optional[_builtins.str] = None,
         namespace_resource_policy=pulumi.get(__ret__, 'namespace_resource_policy'),
         snapshot_copy_configurations=pulumi.get(__ret__, 'snapshot_copy_configurations'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_namespace_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_namespace_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceResult]:
     """
     Definition of AWS::RedshiftServerless::Namespace Resource Type
-
 
     :param _builtins.str namespace_name: A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
     """

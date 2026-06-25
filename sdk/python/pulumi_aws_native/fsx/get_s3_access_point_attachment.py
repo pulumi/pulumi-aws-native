@@ -52,7 +52,6 @@ def get_s3_access_point_attachment(name: Optional[_builtins.str] = None,
     """
     Resource type definition for AWS::FSx::S3AccessPointAttachment
 
-
     :param _builtins.str name: The name of the S3 access point attachment; also used for the name of the S3 access point.
     """
     __args__ = dict()
@@ -62,11 +61,10 @@ def get_s3_access_point_attachment(name: Optional[_builtins.str] = None,
 
     return AwaitableGetS3AccessPointAttachmentResult(
         lifecycle=pulumi.get(__ret__, 'lifecycle'))
-def get_s3_access_point_attachment_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_s3_access_point_attachment_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetS3AccessPointAttachmentResult]:
     """
     Resource type definition for AWS::FSx::S3AccessPointAttachment
-
 
     :param _builtins.str name: The name of the S3 access point attachment; also used for the name of the S3 access point.
     """
